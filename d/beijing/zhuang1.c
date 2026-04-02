@@ -4,7 +4,7 @@ void create()
 {
 	set("short", "小路");
 	set("long", @LONG
-你走在一条小路上。前面道路崎岖，行人很少。
+你走在一條小路上。前面道路崎嶇，行人很少。
 LONG );
 	set("exits", ([
 		"southwest" : __DIR__"road1",

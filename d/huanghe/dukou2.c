@@ -6,17 +6,17 @@ inherit RIVER;
 void create()
 {
 	::create();
-    set("short", "龙门渡口");
+    set("short", "龍門渡口");
     set("long", @LONG
-渡口前就是汹涌澎湃的黄河(he)了。浊流滚滚，泥沙俱下，声震数
-里。两岸渡船来来往往，在波谷中穿行，甚为凶险。过了黄河，对面就
+渡口前就是洶湧澎湃的黃河(he)了。濁流滾滾，泥沙俱下，聲震數
+裏。兩岸渡船來來往往，在波谷中穿行，甚爲兇險。過了黃河，對面就
 是山西了。
 LONG );
     set("exits", ([
         "southwest" : "/d/huanghe/weifen",
     ]));
     set("item_desc", ([
-        "he" : "一叶小舟摇摆不定地顶风前行，喊(yell)一声试看。\n",
+        "he" : "一葉小舟搖擺不定地頂風前行，喊(yell)一聲試看。\n",
     ]));
     set("no_clean_up", 0);
     set("outdoors", "heimuya");
@@ -24,24 +24,24 @@ LONG );
 	set("coor/y", 2000);
 	set("coor/z", 0);
   set("yell_about", "船家");             // yell 船家
-  set("river_type", "河");               // 江面上传来回响
-  set("need_dodge",300);                 // 需要多少轻功
-  set("come_msg_out",   "一叶扁舟缓缓地驶了过来，艄公将一块踏脚板搭上堤岸，以便乘客上下。\n");
-  set("busy_msg",       "只听得风浪中隐隐传来：“别急嘛，这儿正忙着呐……”\n");
-  set("wait_msg",       "岸边一只渡船上的老艄公说道：正等着你呢，上来吧。\n");
-  set("leave_msg_out",  "艄公把踏脚板收了起来，竹篙一点，扁舟向河中撑去。\n");
-  set("leave_msg_in",   "艄公把踏脚板收起来，说了一声“坐稳喽”，竹篙一点，扁舟向河中撑去。\n");
-  set("come_msg_in",    "艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。\n");
-  set("item_desc/river", HIC "\n只见一叶小舟摇摆不定地顶风前行，也许大声喊("
-                         HIY "yell" HIC ")一声船家(" HIY "boat" HIC
-                        ")就\n能听见。倘若你自负轻功绝佳,也可直接"
-                        "渡水(" HIY "cross" HIC ")踏河而过。\n" NOR);
+  set("river_type", "河");               // 江面上傳來回響
+  set("need_dodge",300);                 // 需要多少輕功
+  set("come_msg_out",   "一葉扁舟緩緩地駛了過來，艄公將一塊踏腳板搭上堤岸，以便乘客上下。\n");
+  set("busy_msg",       "只聽得風浪中隱隱傳來：“別急嘛，這兒正忙着吶……”\n");
+  set("wait_msg",       "岸邊一隻渡船上的老艄公說道：正等着你呢，上來吧。\n");
+  set("leave_msg_out",  "艄公把踏腳板收了起來，竹篙一點，扁舟向河中撐去。\n");
+  set("leave_msg_in",   "艄公把踏腳板收起來，說了一聲“坐穩嘍”，竹篙一點，扁舟向河中撐去。\n");
+  set("come_msg_in",    "艄公說“到啦，上岸吧”，隨即把一塊踏腳板搭上堤岸。\n");
+  set("item_desc/river", HIC "\n只見一葉小舟搖擺不定地頂風前行，也許大聲喊("
+                         HIY "yell" HIC ")一聲船家(" HIY "boat" HIC
+                        ")就\n能聽見。倘若你自負輕功絕佳,也可直接"
+                        "渡水(" HIY "cross" HIC ")踏河而過。\n" NOR);
   set("boat_short", "渡船");    
   set("boat_desc",  @LONG
-黄河上的小舟都是这种很简陋的小舟。一位中年艄公正站在船尾
-吃力地掌舵，一位膀子壮硕的小伙子也在船头用劲地划水撑船。黄河
-水流湍急，船下滑很快，横渡却很慢。
+黃河上的小舟都是這種很簡陋的小舟。一位中年艄公正站在船尾
+喫力地掌舵，一位膀子壯碩的小夥子也在船頭用勁地划水撐船。黃河
+水流湍急，船下滑很快，橫渡卻很慢。
 LONG );
-  set("to",         "/d/heimuya/dukou1");  // 船的终点 /*   必选   */
+  set("to",         "/d/heimuya/dukou1");  // 船的終點 /*   必選   */
 	setup();
 }

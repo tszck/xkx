@@ -6,7 +6,7 @@ void create()
 {
 	set_name("李萍",({"li ping","li","ping"}));
 	set("gender","女性");
-	set("long","郭靖的母亲，流落在蒙古。\n");
+	set("long","郭靖的母親，流落在蒙古。\n");
 	set("combat_exp", 6000);
 	set("age", 43);
 	set("max_qi", 800);

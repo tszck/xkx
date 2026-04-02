@@ -7,7 +7,7 @@ void create()
 {
 	set_name("阮士中", ({ "ruan shizhong", "shizhong", "ruan" }) );
 	set("gender", "男性");
-	set("title", "辽东天龙门北宗第五代弟子");
+	set("title", "遼東天龍門北宗第五代弟子");
 	set("nickname", "七星手");
 	set("age", 43);
 	set("attitude", "friendly");

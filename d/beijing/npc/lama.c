@@ -6,7 +6,7 @@ inherit NPC;
 void create()
 {
 	set_name("喇嘛", ({"lama"}));
-	set("long", "这是一个高大喇嘛，两臂粗壮，膀阔腰圆，似乎不是中土人士。\n");
+	set("long", "這是一個高大喇嘛，兩臂粗壯，膀闊腰圓，似乎不是中土人士。\n");
 	set("gender", "男性");
 	set("attitude", "aggressive");
 	set("class", "bonze");
@@ -52,17 +52,17 @@ void greeting(object ob)
 		if( !ob->query_temp("warned2") )
 		{
 			if(ob->query_temp("hastrystab")) 
-				command("say 气死我了，你居然暗算我兄弟！");
+				command("say 氣死我了，你居然暗算我兄弟！");
 			else
-				command( "say 你是谁，居然敢破坏大爷的好事，不想活了是不是？！");
+				command( "say 你是誰，居然敢破壞大爺的好事，不想活了是不是？！");
 			ob->set_temp("warned2", 1);
 		}
 		else
 		{
 			if(ob->query_temp("hastrystab")) 
-				command(" say 我...我...一定要杀了你这背后捅人的江湖败类！");
+				command(" say 我...我...一定要殺了你這背後捅人的江湖敗類！");
 			else
-				command(" say 你这家伙不要跑，让佛爷我宰了你！！！\n");
+				command(" say 你這傢伙不要跑，讓佛爺我宰了你！！！\n");
 			me->set_leader(ob);
 			remove_call_out("kill_ob");
 			call_out("kill_ob", 1, ob); 

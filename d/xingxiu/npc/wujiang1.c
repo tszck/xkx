@@ -1,16 +1,16 @@
-// wujiang.c 武将
+// wujiang.c 武將
 
 inherit NPC;
 //inherit F_SKILL;
 
 void create()
 {
-        set_name("武将", ({ "wu jiang", "wu", "jiang" }));
+        set_name("武將", ({ "wu jiang", "wu", "jiang" }));
         set("gender", "男性");
         set("age", random(10) + 30);
         set("str", 25);
         set("dex", 16);
-        set("long", "他是嘉峪关的守将。\n");
+        set("long", "他是嘉峪關的守將。\n");
         set("combat_exp", 75000);
         set("shen_type", 1);
         set("attitude", "peaceful");
@@ -33,7 +33,7 @@ void create()
 }
 int accept_fight(object me)
 {
-        command("say 老夫从不枉杀无名之人。");
+        command("say 老夫從不枉殺無名之人。");
         return 0;
 }
 

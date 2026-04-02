@@ -1,17 +1,17 @@
-// bt_book1.c 药理经
+// bt_book1.c 藥理經
 // Last Modified by Winder on May. 15 2001
 
 inherit ITEM;
 
 void create()
 {
-	set_name("药理经", ({ "yaoli jing", "jing", "yaoli" }));
+	set_name("藥理經", ({ "yaoli jing", "jing", "yaoli" }));
 	set_weight(1000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一本讲述药理的书。\n");
+		set("long", "這是一本講述藥理的書。\n");
 		set("value", 500);
 		set("material", "paper");
 		set("skill", ([

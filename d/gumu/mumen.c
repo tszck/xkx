@@ -1,4 +1,4 @@
-// mumen.c 墓门
+// mumen.c 墓門
 // Java Oct.10 1998
 
 #include <ansi.h>
@@ -8,16 +8,16 @@ int do_move(string arg);
 
 void create()
 {
-	set("short", "墓门");
+	set("short", "墓門");
 	set("long", @LONG
-你走过了草地，发现自己已身处深谷之中，雾气蒙蒙，寒意逼人。
-四下是片不小的开阔地，突兀地耸立着一座一人高的白色球型圆冢，墓
-上砌的石头已经班驳了，看的出来这是座古墓。墓前没有立碑，也没有
-任何的标记。墓后是阴森森的松林古木，更平添十分凄清落寞的萧瑟之
-意。墓门仅齐肩高，往内是古墓派所在。墓门口被一块黑黝黝的大石头
-(shi)封闭得丝毫不透。
-    古墓传人历来不轻出江湖，但不少痴情男女仰慕杨龙二人双剑合壁
-快意江湖的豪情，历尽千般磨难后终成眷属惊世恋情。不远千里往来投
+你走過了草地，發現自己已身處深谷之中，霧氣濛濛，寒意逼人。
+四下是片不小的開闊地，突兀地聳立着一座一人高的白色球型圓冢，墓
+上砌的石頭已經班駁了，看的出來這是座古墓。墓前沒有立碑，也沒有
+任何的標記。墓後是陰森森的松林古木，更平添十分悽清落寞的蕭瑟之
+意。墓門僅齊肩高，往內是古墓派所在。墓門口被一塊黑黝黝的大石頭
+(shi)封閉得絲毫不透。
+    古墓傳人歷來不輕出江湖，但不少癡情男女仰慕楊龍二人雙劍合壁
+快意江湖的豪情，歷盡千般磨難後終成眷屬驚世戀情。不遠千里往來投
 拜。
 LONG	);
 	set("outdoors", "gumu");
@@ -31,7 +31,7 @@ LONG	);
 		__DIR__"npc/yufeng" : 1+random(3),
 	]));
 	set("item_desc", ([
-		"shi": "这是块巨石，怕不有万斤上下，好象锩着‘"+YEL"降龙石"NOR+"’几个字。\n"
+		"shi": "這是塊巨石，怕不有萬斤上下，好象錈着‘"+YEL"降龍石"NOR+"’幾個字。\n"
 	]) );
 	set("coor/x", -3220);
 	set("coor/y", 30);
@@ -52,23 +52,23 @@ int do_move(string arg)
 
 	if( !arg || arg != "shi" )
 	{
-		return notify_fail("你要移动什么？\n");
+		return notify_fail("你要移動什麼？\n");
 	}
 	if( !query("exits/south"))
 	{
-		return notify_fail("降龙石已经落下，你还能移动什么？\n");
+		return notify_fail("降龍石已經落下，你還能移動什麼？\n");
 	}
 	if((int)me->query_str()>33)
 	{
-		message_vision("$N站在降龙石前，双掌发力推动降龙石，只听得降龙石吱吱连声，缓缓向下落去，封住了墓门。\n", me);
+		message_vision("$N站在降龍石前，雙掌發力推動降龍石，只聽得降龍石吱吱連聲，緩緩向下落去，封住了墓門。\n", me);
 		delete("exits/south");
 		if( !(room = find_object(__DIR__"mudao01")) )
 			room = load_object(__DIR__"mudao01");
 		room->delete("exits/north");
-		tell_room(room,"只听得降龙石吱吱连声，缓缓向下落去，封住了墓门。\n");
+		tell_room(room,"只聽得降龍石吱吱連聲，緩緩向下落去，封住了墓門。\n");
 	}
 	else
-		message_vision("$N试着推了推巨石，巨石纹丝不动，只得罢了。\n", this_player());
+		message_vision("$N試着推了推巨石，巨石紋絲不動，只得罷了。\n", this_player());
 	return 1;
 }
 

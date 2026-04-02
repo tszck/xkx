@@ -6,13 +6,13 @@ inherit BOOTS;
 
 void create()
 {
-	set_name( "绣花小鞋", ({ "xiuhua xie", "xie", "shoes" }) );
+	set_name( "繡花小鞋", ({ "xiuhua xie", "xie", "shoes" }) );
 	set_weight(900);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("material", "cloth");
-		set("unit", "双");
+		set("unit", "雙");
 		set("value", 300);
 		set("armor_prop/armor", 1 );
 		set("female_only", 1);

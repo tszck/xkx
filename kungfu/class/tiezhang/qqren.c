@@ -9,9 +9,9 @@ inherit F_MANAGER;
 void create()
 {
 	set_name("裘千仞", ({ "qiu qianren", "qiu", "qianren", "ren"}));
-	set("nickname", "铁掌水上漂");
-	set("long", "他就是威震川湘的铁掌帮的帮主-铁掌水上漂裘千仞。\n"
-	"他是一个白须老头，身穿黄葛短衫，右手挥着一把大蒲扇。\n");
+	set("nickname", "鐵掌水上漂");
+	set("long", "他就是威震川湘的鐵掌幫的幫主-鐵掌水上漂裘千仞。\n"
+	"他是一個白鬚老頭，身穿黃葛短衫，右手揮着一把大蒲扇。\n");
 	set("gender", "男性");
 	set("age", 60);
 	set("attitude", "peaceful");
@@ -57,12 +57,12 @@ void create()
 		(: exert_function, "powerup" :),
 	}) );
 
-	create_family("铁掌帮", 14, "帮主");
+	create_family("鐵掌幫", 14, "幫主");
 
 	set("inquiry", ([
-		"name" : "老夫便是“铁掌水上漂”裘千仞，你问老夫姓名有什么事么？\n",
-		"here" : "这里就是铁掌帮的总坛所在，你如没事，不要四处乱走，免招杀身之祸！！！\n",
-		"上官剑南" : (: ask_qiubai :),
+		"name" : "老夫便是“鐵掌水上漂”裘千仞，你問老夫姓名有什麼事麼？\n",
+		"here" : "這裏就是鐵掌幫的總壇所在，你如沒事，不要四處亂走，免招殺身之禍！！！\n",
+		"上官劍南" : (: ask_qiubai :),
 	]));
 	setup();
 	carry_object(__DIR__"obj/yellowcloth")->wear();
@@ -76,10 +76,10 @@ void attempt_apprentice(object me)
 	if ((int)me->query("shen") > -10000)
 	{
 		command("hehe");
-		command("say 我裘千仞可不收心慈手软的人做徒弟。");
+		command("say 我裘千仞可不收心慈手軟的人做徒弟。");
 		return;
 	}
-	command("say 好吧，我就收下你了。希望你苦练铁掌神功，将之发扬光大。");
+	command("say 好吧，我就收下你了。希望你苦練鐵掌神功，將之發揚光大。");
 	command("recruit " + me->query("id"));
 }
 
@@ -90,8 +90,8 @@ int recruit_apprentice(object ob)
 }
 int ask_qiubai()
 {
-	say("他是我师父。我在十三岁那年曾救过他，之后他感恩图报，将全\n"
-	"身武功倾囊相受。可惜十年前，他在湖北遭人围攻而死！唉！\n");
+	say("他是我師父。我在十三歲那年曾救過他，之後他感恩圖報，將全\n"
+	"身武功傾囊相受。可惜十年前，他在湖北遭人圍攻而死！唉！\n");
 	return 1;
 }
 

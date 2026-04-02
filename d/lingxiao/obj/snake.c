@@ -25,7 +25,7 @@ void create()
 	set_name(HIW"雪山怪蛇"NOR, ({ "snake", "she" }) );
 	set("race", "爬蛇");
 	set("age", 20);
-	set("long","一只雪山怪蛇，它通体雪白，眼如烈炎，看来这个冰洞是它的巢穴。\n");
+	set("long","一隻雪山怪蛇，它通體雪白，眼如烈炎，看來這個冰洞是它的巢穴。\n");
 	set("attitude", "aggressive");
 	seteuid(getuid());
 	set("qi", 5000);
@@ -49,7 +49,7 @@ int hit_ob(object me, object ob, int damage)
 		(int)ob->query_condition("snake_poison") < 10 )
 	{
 		ob->apply_condition("snake_poison", 40);
-		tell_object(ob, HIG"你觉得被咬中的地方一阵麻木，看来中毒了！\n"NOR);
+		tell_object(ob, HIG"你覺得被咬中的地方一陣麻木，看來中毒了！\n"NOR);
 	}
 }
 

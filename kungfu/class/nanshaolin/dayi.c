@@ -9,7 +9,7 @@ string ask_me();
 
 void create()
 {
-	set_name("大痍大师", ({ "dayi dashi", "dayi", "dashi"}));
+	set_name("大痍大師", ({ "dayi dashi", "dayi", "dashi"}));
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");

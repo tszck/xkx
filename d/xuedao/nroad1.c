@@ -6,7 +6,7 @@ void create()
 {
         set("short","山路");
         set("long",@LONG
-山路越走越窄，能隐隐望见前方又分出了几条叉路。
+山路越走越窄，能隱隱望見前方又分出了幾條叉路。
 LONG );
         set("exits",([
                 "westup"     : __DIR__"nroad2",

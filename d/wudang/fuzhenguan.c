@@ -1,15 +1,15 @@
-//Room: fuzhenguan.c 复真观五层楼
+//Room: fuzhenguan.c 復真觀五層樓
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-      set("short","复真观五层楼");
+      set("short","復真觀五層樓");
       set("long",@LONG
-复真观五层楼构造奇特，其间有十二根梁枋交叉重叠，下面仅用一
-柱支撑，即有名的“一柱十二梁”。在这里俯瞰群山，烟云迷离，远望
-金顶，一柱擎天，为观景胜地。
+復真觀五層樓構造奇特，其間有十二根梁枋交叉重疊，下面僅用一
+柱支撐，即有名的“一柱十二梁”。在這裏俯瞰羣山，煙雲迷離，遠望
+金頂，一柱擎天，爲觀景勝地。
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "west"     : __DIR__"taizipo",

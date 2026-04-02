@@ -1,4 +1,4 @@
-// training.c 驭兽术
+// training.c 馭獸術
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -12,14 +12,14 @@ int power_point(object me) { return 1; }
 
 int help(object me)
 {
-	write(HIC"\n驭兽术："NOR"\n"); 
+	write(HIC"\n馭獸術："NOR"\n"); 
 	write(@HELP
 
-    驭兽术是驱使动物的技能。唯丐帮弟子和白驼山弟子能学到。
-    请help train和help transport。
+    馭獸術是驅使動物的技能。唯丐幫弟子和白駝山弟子能學到。
+    請help train和help transport。
 
-	学习要求：
-		无
+	學習要求：
+		無
 HELP
 	);
 	return 1;

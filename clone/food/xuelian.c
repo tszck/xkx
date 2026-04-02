@@ -1,7 +1,7 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
-// xuelian.c 雪莲
+// xuelian.c 雪蓮
 #include <ansi.h>
 inherit ITEM;
 
@@ -10,12 +10,12 @@ void eat();
 
 void create()
 {
-   set_name(HIW "雪莲" NOR,({"xue lian", "xuelian", "lian"}));
+   set_name(HIW "雪蓮" NOR,({"xue lian", "xuelian", "lian"}));
    set_weight(20);
    if (clonep())
      set_default_object(__FILE__);
    else {
-     set("long", "一朵雪莲花，只生长于绝峰极寒之处。\n");
+     set("long", "一朵雪蓮花，只生長於絕峯極寒之處。\n");
      set("unit", "朵");
      set("value", 300);
        }
@@ -33,20 +33,20 @@ int do_chi(string arg)
 {   
         if( !this_object()->id(arg) ) return 0;
         if( this_player()->is_busy() )
-                return notify_fail("你上一个动作还没有完成。\n");
+                return notify_fail("你上一個動作還沒有完成。\n");
 
-   if(!arg) return notify_fail("你要吃什么？\n");
+   if(!arg) return notify_fail("你要喫什麼？\n");
 
    if ( (int)this_player()->query("max_atman")>0)
    {
-         message_vision(RED "$N吃下一朵雪莲花，忽觉一阵反胃，又尽数吐了出来。\n" NOR, this_player());
+         message_vision(RED "$N喫下一朵雪蓮花，忽覺一陣反胃，又盡數吐了出來。\n" NOR, this_player());
    } 
    else 
    { 
       if(this_player()->query("gender")=="男性")
-     message_vision(GRN "$N吃下一朵雪莲花，看起来精神多了。\n" NOR, this_player());
+     message_vision(GRN "$N喫下一朵雪蓮花，看起來精神多了。\n" NOR, this_player());
       else
-     message_vision(GRN " $N吃下一朵雪莲花，脸显酡红，倍增娇艳。\n" NOR, this_player());
+     message_vision(GRN " $N喫下一朵雪蓮花，臉顯酡紅，倍增嬌豔。\n" NOR, this_player());
    }   
    destruct(this_object());
    return 1;

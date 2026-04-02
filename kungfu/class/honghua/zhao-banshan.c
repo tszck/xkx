@@ -1,5 +1,5 @@
 // Last Modified by winder on Sep. 12 2001
-// zhaobanshan.c 赵半山
+// zhaobanshan.c 趙半山
 
 inherit NPC;
 inherit F_MASTER;
@@ -7,10 +7,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("赵半山", ({ "zhao banshan", "zhao", "banshan" }));
-	set("nickname", HIM"千手如来"NOR);
-	set("title", HIR"红花会"HIG"三当家"NOR);
-	set("long","他是红花会的三当家，\n他年纪好像在五十上下，他一张胖胖的脸，笑起来给人一副很慈祥的感觉。\n他原是温州王氏太极门掌门大弟子。\n豪迈豁达，行侠江湖，一手暗器功夫和太极剑少有能匹敌。\n屠龙帮风流云散之后，投入红花会。很得被红花会老当家于万亭赏识。\n");
+	set_name("趙半山", ({ "zhao banshan", "zhao", "banshan" }));
+	set("nickname", HIM"千手如來"NOR);
+	set("title", HIR"紅花會"HIG"三當家"NOR);
+	set("long","他是紅花會的三當家，\n他年紀好像在五十上下，他一張胖胖的臉，笑起來給人一副很慈祥的感覺。\n他原是溫州王氏太極門掌門大弟子。\n豪邁豁達，行俠江湖，一手暗器功夫和太極劍少有能匹敵。\n屠龍幫風流雲散之後，投入紅花會。很得被紅花會老當家於萬亭賞識。\n");
 	set("gender", "男性");
 	set("class", "swordman");
 	set("age", 52);
@@ -61,7 +61,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("红花会", 2, "弟子");
+	create_family("紅花會", 2, "弟子");
 	setup();
 	carry_object(CLOTH_DIR"cloth")->wear();
         carry_object("/clone/weapon/jili")->wield();
@@ -76,9 +76,9 @@ void init()
 	if((int)ob->query("shen") < -1000 &&
 		ob->query("family/master_id")=="zhao banshan")
 	{
-		command( "chat "+ob->query("name")+"！你这等邪恶奸诈之徒，我岂能仍是你的师父！\n");
+		command( "chat "+ob->query("name")+"！你這等邪惡奸詐之徒，我豈能仍是你的師父！\n");
 		command("expell "+ ob->query("id"));
-		this_player()->set("title","红花会" + RED + "弃徒" NOR);
+		this_player()->set("title","紅花會" + RED + "棄徒" NOR);
 	}
 }
 
@@ -86,11 +86,11 @@ void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("shen") < 10000)
 	{
-		command("say 我红花会收徒极严。");
-		command("say 这位" + RANK_D->query_respect(ob) + "平时还要多做一些行侠仗义之事！");
+		command("say 我紅花會收徒極嚴。");
+		command("say 這位" + RANK_D->query_respect(ob) + "平時還要多做一些行俠仗義之事！");
 		return;
 	}
-	command("say 好，你这个年青人还不错，我收下你了！");
+	command("say 好，你這個年青人還不錯，我收下你了！");
 	command("recruit " + ob->query("id"));
 }
 

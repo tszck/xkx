@@ -7,10 +7,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "花园");
+	set("short", "花園");
 	set("long",@long
-这里是昆仑派的花园。廊边花木扶疏，竹影参差，山泉急湍，竟然
-富有江南园林的情趣。西面是静修室。
+這裏是崑崙派的花園。廊邊花木扶疏，竹影參差，山泉急湍，竟然
+富有江南園林的情趣。西面是靜修室。
 long);
 	set("exits",([
 		"north" : __DIR__"jiuqulang1",

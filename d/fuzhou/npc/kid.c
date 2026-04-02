@@ -4,10 +4,10 @@
 inherit NPC;
 void create()
 {
-	set_name("顽童",({ "kid" }) );
+	set_name("頑童",({ "kid" }) );
 	set("gender", "男性" );
 	set("age", 6);
-	set("long", "这是个顽皮小童，头上扎着冲天小辫。\n");
+	set("long", "這是個頑皮小童，頭上扎着沖天小辮。\n");
 	set_temp("apply/defense", 5);
 	set("combat_exp", 70);
 	set("shen", 100);
@@ -38,10 +38,10 @@ void greeting(object ob)
 	switch( random(2) )
 	{
 		case 0:
-			say("顽童大声哭嚷道：这位" + RANK_D->query_respect(ob) + "，我要灯笼，给我灯笼。\n");
+			say("頑童大聲哭嚷道：這位" + RANK_D->query_respect(ob) + "，我要燈籠，給我燈籠。\n");
 			break;
 		case 1:
-			say("顽童大声哭嚷道：这位" + RANK_D->query_respect(ob) + "，看什么看，再看我扁你。\n");
+			say("頑童大聲哭嚷道：這位" + RANK_D->query_respect(ob) + "，看什麼看，再看我扁你。\n");
 			break;
 	}
 }

@@ -8,29 +8,29 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name( YEL "彭宝现" NOR, ({ "peng baoxian","peng","baoxian" }) );
+	set_name( YEL "彭寶現" NOR, ({ "peng baoxian","peng","baoxian" }) );
 	set("gender", "男性" );
-	set("title", "彭记鲜果店老板");
+	set("title", "彭記鮮果店老闆");
 	set("age", 49);
 	set("attitude", "friendly");
 	set("rank_info/respect", "老哥");
 	set("rank_info/rude","老王八蛋");
 	set("long", @LONG
-彭老板的这家彭记鲜果店在扬州城也是颇有名气，来采买果品的顾客很
-多，以致于人手总是很紧张，这不，连老板都亲自上阵了。老彭一边给
-一个顾客算帐，一边回答另外一个顾客的问讯，还不时回头对伙计吩咐
-些什么。
+彭老闆的這家彭記鮮果店在揚州城也是頗有名氣，來採買果品的顧客很
+多，以致於人手總是很緊張，這不，連老闆都親自上陣了。老彭一邊給
+一個顧客算帳，一邊回答另外一個顧客的問訊，還不時回頭對夥計吩咐
+些什麼。
 LONG);
 	set("chat_chance", 30);
 	set("chat_msg", ({
-		"彭老板道：怎么样？客官，不来二斤桃子尝尝么？\n",
-		"彭老板道：来啊客官，这西瓜不甜不要钱！\n",
-		"彭老板道：您等等，我这儿忙完了就过来。\n",
-		"彭老板：瞧一瞧罢，客官，连知府老爷家的果品都是小店供应的。\n",
+		"彭老闆道：怎麼樣？客官，不來二斤桃子嚐嚐麼？\n",
+		"彭老闆道：來啊客官，這西瓜不甜不要錢！\n",
+		"彭老闆道：您等等，我這兒忙完了就過來。\n",
+		"彭老闆：瞧一瞧罷，客官，連知府老爺家的果品都是小店供應的。\n",
 	}));
 	set("inquiry", ([
-		"鲜果" : "啊，是啊是啊，小店各种鲜果应有尽有，看看吧！",
-		"here" : "咦！您家看了，「彭记鲜果铺」这大招牌不是明摆着的么？",
+		"鮮果" : "啊，是啊是啊，小店各種鮮果應有盡有，看看吧！",
+		"here" : "咦！您家看了，「彭記鮮果鋪」這大招牌不是明擺着的麼？",
 	]) );
 	set("vendor_goods", ({
 		FRUIT_DIR+"banana",
@@ -83,6 +83,6 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	message_vision("彭老板大声吆喝道：“时新鲜果，样样都有，价钱公道，童叟无欺！”\n",ob);
+	message_vision("彭老闆大聲吆喝道：“時新鮮果，樣樣都有，價錢公道，童叟無欺！”\n",ob);
 	return;
 }

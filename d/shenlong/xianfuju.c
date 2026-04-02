@@ -1,4 +1,4 @@
-// /d/shenlong/xianfuju 东厢房(仙福居)
+// /d/shenlong/xianfuju 東廂房(仙福居)
 // Last Modified by winder on Jul. 12 2002
 
 #include <ansi.h>
@@ -14,9 +14,9 @@ void create()
 {
 	set("short", "仙福居");
 	set("long", @LONG
-神龙教的仙福居，虽说是厢房，却也十分宽敞，陈设雅洁，桌上架
-上摆满了金玉古玩，壁上悬着字画，床上被褥华美，居然有点皇宫中的
-派头。你真想躺在床上美美地睡上它一觉。
+神龍教的仙福居，雖說是廂房，卻也十分寬敞，陳設雅潔，桌上架
+上擺滿了金玉古玩，壁上懸着字畫，牀上被褥華美，居然有點皇宮中的
+派頭。你真想躺在牀上美美地睡上它一覺。
 LONG
 	);
 	set("sleep_room", 1);
@@ -37,7 +37,7 @@ int do_get(string arg)
 	if( arg && objectp(obj = present(arg, environment(this_player()))) &&
 		obj->is_character() )
 	{
-		write("你不能搬动玩家的身体。\n");
+		write("你不能搬動玩家的身體。\n");
 		return 1;
 	}
 	else

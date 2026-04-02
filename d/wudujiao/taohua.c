@@ -6,10 +6,10 @@ void create()
 {
         set("short", "桃花峪");
         set("long", @LONG
-你走在两山相夹的峡谷中，山上山下全是无边的野桃树，一阵
-山风吹来，落英缤纷。数百年落下的桃花，桃枝都堆积在地上，人
-走在上面软软的。日近正午了，远处山林间似乎飘荡着一股轻雾，
-越来越浓。
+你走在兩山相夾的峽谷中，山上山下全是無邊的野桃樹，一陣
+山風吹來，落英繽紛。數百年落下的桃花，桃枝都堆積在地上，人
+走在上面軟軟的。日近正午了，遠處山林間似乎飄蕩着一股輕霧，
+越來越濃。
 LONG
         );
         set("outdoors", "wudujiao");
@@ -35,12 +35,12 @@ int valid_leave (object who, string dir)
             if ((string)who->query("family/family_name")!="五毒教")
             {
                 if(!(present("xingjun san", who))){
-                    message_vision ("一阵浓香袭来，$N顿时觉得头重脚轻。\n",who);
+                    message_vision ("一陣濃香襲來，$N頓時覺得頭重腳輕。\n",who);
                     who->receive_damage("qi", 50);
                     remove_call_out ("fall_down");
                     call_out ("fall_down",1,who,environment(who));
                     who->start_busy(1,1);
-                    return notify_fail("你禁不住踉跄了几下，两腿突然一软。\n");
+                    return notify_fail("你禁不住踉蹌了幾下，兩腿突然一軟。\n");
 //    who->unconcious();
                 }
             }

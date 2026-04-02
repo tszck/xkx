@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("罗人杰", ({ "luo renjie", "luo", "renjie" }));
+	set_name("羅人傑", ({ "luo renjie", "luo", "renjie" }));
 	set("gender", "男性");
 	set("nickname", HIC"青城四秀"NOR);
 	set("age", 25);
-	set("long", "他就是「英雄豪杰，青城四秀」之一，武功也远高同门。\n");
+	set("long", "他就是「英雄豪傑，青城四秀」之一，武功也遠高同門。\n");
 
 	set("combat_exp", 80000);
 	set("shen_type", -1);

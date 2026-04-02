@@ -6,9 +6,9 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("彭莹玉", ({ "peng yingyu", "peng", "yingyu", }));
+	set_name("彭瑩玉", ({ "peng yingyu", "peng", "yingyu", }));
 	set("long",
-        "他是一位高高瘦瘦的僧人，身穿一件白布长袍。\n"
+        "他是一位高高瘦瘦的僧人，身穿一件白布長袍。\n"
         "\n"
 	);
 

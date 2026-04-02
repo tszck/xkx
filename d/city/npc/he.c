@@ -4,12 +4,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("何员外", ({ "he yuanwai", "he" }));
+	set_name("何員外", ({ "he yuanwai", "he" }));
 	set("shen_type", -1);
 
 	set("gender", "男性" );
 	set("age", 53);
-	set("long", "何员外是扬州城里的首富，和当地的官绅都有很深的交情。\n");
+	set("long", "何員外是揚州城裏的首富，和當地的官紳都有很深的交情。\n");
 	set("combat_exp", 400);
 	set("attitude", "friendly");
 	setup();
@@ -34,5 +34,5 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	say("何员外奇怪地对你说道：“你这人怎么随随便便地就跑到我的园子里来？”\n");
+	say("何員外奇怪地對你說道：“你這人怎麼隨隨便便地就跑到我的園子裏來？”\n");
 }

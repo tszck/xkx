@@ -14,10 +14,10 @@ int main(object me, string arg)
 	env = environment(me);
 
         if (!me->query("env/yesiknow"))
-        	return notify_fail("这个指令已经被废除了！\n");
+        	return notify_fail("這個指令已經被廢除了！\n");
 	
 	if (!env->query("coor"))
-		return notify_fail("您所在的房间尚未定位坐标，请先用hcoor指令。\n");
+		return notify_fail("您所在的房間尚未定位座標，請先用hcoor指令。\n");
 
 	if (arg == "here") {
 		recur_do(env, -1);
@@ -65,7 +65,7 @@ int recur_do(object room, int depth)
 	sprintf("set(\"coor/x\", %d);\n\tset(\"coor/y\", %d);\n\tset(\"coor/z\", %d);\n\tsetup()", x, y, z));
 
 	if (write_file(base_name(room) + ".c", file, 1)) {
-        	write("房间 " + base_name(room) + " 已成功写入文件。\n");
+        	write("房間 " + base_name(room) + " 已成功寫入文件。\n");
 	        room->set("already_coordinated", 1);
 	}
 
@@ -134,9 +134,9 @@ write(@HELP
 指令格式 : hrecoor [here]
 
 用法：
-	用hcoor设定好一个区域内的所有房间后，在该区域任意一点都可以使用
-	hrecoor把一批房间坐标写入文件，反复使用该指令，直至所有房间都被
-	写入。若带here参数，则只处理当前房间。
+	用hcoor設定好一個區域內的所有房間後，在該區域任意一點都可以使用
+	hrecoor把一批房間座標寫入文件，反覆使用該指令，直至所有房間都被
+	寫入。若帶here參數，則只處理當前房間。
 HELP
 );
     return 1;

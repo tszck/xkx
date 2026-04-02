@@ -7,8 +7,8 @@ void create()
 {
 	set("short", "刺桐北路");
 	set("long", @LONG
-这是泉州的主要干道，笔直宽广，车水马龙，热闹非凡。西北方连
-着一条巷子，可通往城隍庙。
+這是泉州的主要幹道，筆直寬廣，車水馬龍，熱鬧非凡。西北方連
+着一條巷子，可通往城隍廟。
 LONG );
 	set("outdoors", "quanzhou");
 	set("objects", ([

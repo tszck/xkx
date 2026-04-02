@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short","八龙桥");
+	set("short","八龍橋");
 	set("long",@LONG
-吹台和小金山之间是一段柳岸长堤，长堤中段架有两侧雕塑八龙头
-花岗岩桥，这就是八龙桥。
+吹臺和小金山之間是一段柳岸長堤，長堤中段架有兩側雕塑八龍頭
+花崗巖橋，這就是八龍橋。
 LONG );
 	set("outdoors", "shouxihu");
 

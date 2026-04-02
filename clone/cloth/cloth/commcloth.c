@@ -4,14 +4,14 @@
 inherit CLOTH;
 
 string *name = ({
-	"轻纱长裙",
-	GRN"碧色纱衣"NOR, 
-	CYN"蔚蓝长裙"NOR, 
+	"輕紗長裙",
+	GRN"碧色紗衣"NOR, 
+	CYN"蔚藍長裙"NOR, 
 	RED"撒花裙"NOR, 
-	"绵裙", 
+	"綿裙", 
 	"百褶裙",
-	"丝裙", 
-	MAG"花锦袄"NOR,
+	"絲裙", 
+	MAG"花錦襖"NOR,
 });
 string *id = ({
 	"chang qun",

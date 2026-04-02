@@ -1,10 +1,10 @@
-// chen.c 陈志益
+// chen.c 陳志益
 
 inherit NPC;
 
 void create()
 {
-        set_name("陈志益", ({"chen zhiyi", "chen"}));
+        set_name("陳志益", ({"chen zhiyi", "chen"}));
         set("gender", "男性");
         set("class", "quanzhen");
         set("age", 24);
@@ -42,9 +42,9 @@ void create()
 
         set_skill("array", 40);
         set_skill("force", 80);
-        set_skill("xiantian-qigong", 80);    //先天气功
+        set_skill("xiantian-qigong", 80);    //先天氣功
         set_skill("sword", 80);
-        set_skill("quanzhen-jian",120);  //全真剑
+        set_skill("quanzhen-jian",120);  //全真劍
         set_skill("dodge", 70);
         set_skill("jinyan-gong", 100);   //金雁功
         set_skill("parry", 80);
@@ -52,7 +52,7 @@ void create()
         set_skill("strike", 80);
         set_skill("haotian-zhang", 120);    //昊天掌
         set_skill("cuff", 80);
-        set_skill("chunyang-quan", 120);    //纯阳拳
+        set_skill("chunyang-quan", 120);    //純陽拳
         set_skill("literate", 60);
         set_skill("taoism", 60);
 
@@ -68,7 +68,7 @@ void create()
         create_family("全真教", 3, "弟子");
 
         set("inquiry", ([
-                "全真教" :  "我全真教是天下道家玄门正宗。\n",
+                "全真教" :  "我全真教是天下道家玄門正宗。\n",
         ]) );
 
         setup();

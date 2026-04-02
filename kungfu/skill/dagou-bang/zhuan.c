@@ -1,8 +1,8 @@
-// zhuan.c 打狗棒法「转」字诀
+// zhuan.c 打狗棒法「轉」字訣
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
-#define PNAME "「转」字诀"
+#define PNAME "「轉」字訣"
 inherit F_SSERVER;
 int perform(object me, object target)
 {
@@ -18,18 +18,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "stick")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	fskill = "huntian-qigong";
 	bskill = "stick";
@@ -42,22 +42,22 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够深厚，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠深厚，不會使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 	if( (int)me->query("max_neili") < 700 )
-		return notify_fail("你的内力修为不够！\n");
+		return notify_fail("你的內力修爲不夠！\n");
 	if( (int)me->query("neili") < 500 )
-		return notify_fail("你的真气不够！\n");
-	msg = HIY"$N"HIY"微微一笑，挥"+weapon->name()+"往$n"HIY"脸上横扫过去，势挟劲风，甚是峻急。\n";
+		return notify_fail("你的真氣不夠！\n");
+	msg = HIY"$N"HIY"微微一笑，揮"+weapon->name()+"往$n"HIY"臉上橫掃過去，勢挾勁風，甚是峻急。\n";
 	me->start_busy(2);
 	if( random(me->query("combat_exp"))>(int)target->query("combat_exp")/2 )
 	{
-		msg += HIR "$n连忙后仰相避，这麽一来，下盘扎的马步自然松了。$N"+weapon->name()+HIR"回带，使个「转」字诀，往$n脚下掠去，$n立足不稳，扑地跌倒。\n" NOR;
+		msg += HIR "$n連忙後仰相避，這麼一來，下盤扎的馬步自然鬆了。$N"+weapon->name()+HIR"迴帶，使個「轉」字訣，往$n腳下掠去，$n立足不穩，撲地跌倒。\n" NOR;
 		if(target->query("neili") > 300) target->add("neili", -300 );
 		else target->set("neili", 0 );
 	} else {
-		msg += HIC"可是$n"HIC"后跃一小步，$N"HIC"的"+weapon->name()+HIC"顿时落空。\n" NOR;
+		msg += HIC"可是$n"HIC"後躍一小步，$N"HIC"的"+weapon->name()+HIC"頓時落空。\n" NOR;
 	}
 	message_combatd(msg, me, target);
 
@@ -72,13 +72,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-        消耗敌人的内力
+        消耗敵人的內力
 
 	出手要求：
-		混天气功150级
-		打狗棒法150级
-		内力修为700
-		内力500
+		混天氣功150級
+		打狗棒法150級
+		內力修爲700
+		內力500
 HELP
 	);
 	return 1;

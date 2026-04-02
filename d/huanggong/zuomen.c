@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "左阙门");
+	set("short", "左闕門");
 	set("long", @LONG
-这是通往各部官员朝房的左门. 西庑房设的是兵、刑、工三部.
+這是通往各部官員朝房的左門. 西廡房設的是兵、刑、工三部.
 LONG
 	);
 	set("outdoors", "huanggong");

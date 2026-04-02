@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("汪万翼",({"wang wanyi","wang"}));
-	set("nickname", HIG"草上飞"NOR);
+	set_name("汪萬翼",({"wang wanyi","wang"}));
+	set("nickname", HIG"草上飛"NOR);
 	set("gender", "男性");
 	set("age", 20);
-	set("long", "他是凌霄城第六代弟子耿万钟，在凌霄城中以轻功见长。\n");
+	set("long", "他是凌霄城第六代弟子耿萬鍾，在凌霄城中以輕功見長。\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);
@@ -25,8 +25,8 @@ void create()
 	set("qi", 2000);
 	set("jiali", 50);
 	set("inquiry", ([
-	    "dodge"  : "我的轻功吗……？我们凌霄城，可是练轻功的好地方。\n老爷子还不知道，他的宝贝，可是一个好东西。",
-	    "轻功"   : "我的轻功吗……？我们凌霄城，可是练轻功的好地方。\n老爷子还不知道，他的宝贝，可是一个好东西。",
+	    "dodge"  : "我的輕功嗎……？我們凌霄城，可是練輕功的好地方。\n老爺子還不知道，他的寶貝，可是一個好東西。",
+	    "輕功"   : "我的輕功嗎……？我們凌霄城，可是練輕功的好地方。\n老爺子還不知道，他的寶貝，可是一個好東西。",
 	]) ); 
 	set("combat_exp", 200000);
 	set("shen_type", 1);

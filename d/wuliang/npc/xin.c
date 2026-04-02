@@ -4,9 +4,9 @@
 inherit NPC;
 void create()
 {
-	set_name("辛双清", ({ "xin shuangqing", "xin", "shuangqing"}));
+	set_name("辛雙清", ({ "xin shuangqing", "xin", "shuangqing"}));
 	set("long",
-		"她是一位的四十左右的中年道姑，铁青着脸，嘴唇紧闭。\n");
+		"她是一位的四十左右的中年道姑，鐵青着臉，嘴脣緊閉。\n");
 	set("gender", "女性");
 	set("attitude", "friendly");
 	set("class", "taoist");
@@ -39,10 +39,10 @@ void create()
 	map_skill("parry", "damo-jian");
 
 	set("inquiry", ([
-		"无量玉壁"  : "那是本派禁地，任何外人不得擅入。干犯禁忌，可叫你死葬身之地。",
+		"無量玉壁"  : "那是本派禁地，任何外人不得擅入。干犯禁忌，可叫你死葬身之地。",
 	]));
 
-	create_family("无量剑西宗", 4, "掌门");
+	create_family("無量劍西宗", 4, "掌門");
 	setup();
 
         carry_object("/d/wudang/obj/greyrobe")->wear();

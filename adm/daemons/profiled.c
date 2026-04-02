@@ -43,7 +43,7 @@ void make_profile(string sort_by)
 	
 	if( !stringp(sort_by) )	entry = sort_array(entry, 1);
 	else 					entry = sort_array(entry, "sort_entry", this_object() );
-	msg = "名称           次数           记忆体         系统时间       使用者时间\n";
+	msg = "名稱           次數           記憶體         系統時間       使用者時間\n";
 	for(i=0; i<sizeof(entry); i++)
 		msg += sprintf("%-15s%-15d%-15d%-15d%-15d\n", entry[i],
 			command_log[entry[i]]["count"],

@@ -6,19 +6,19 @@ void close_gate();
 int do_open(string arg);
 void create()
 {
-	set("short", "御书房");
+	set("short", "御書房");
 	set("long", @LONG
-皇上用功读书的御书房，又叫上书房、南书房。也是皇子皇孙们读
-书的地方。北面是圣祖御笔的牌匾(bian)，两侧是世宗御笔楹联(lian)。
-四下齐整地排着几张书架，上面看来都是些名典巨著。你暗自想，原来
-皇帝也读这么多的书啊。书房正中有张精雕的檀香木书桌，桌上摆着几
-本封面精美的书。
+皇上用功讀書的御書房，又叫上書房、南書房。也是皇子皇孫們讀
+書的地方。北面是聖祖御筆的牌匾(bian)，兩側是世宗御筆楹聯(lian)。
+四下齊整地排着幾張書架，上面看來都是些名典鉅著。你暗自想，原來
+皇帝也讀這麼多的書啊。書房正中有張精雕的檀香木書桌，桌上擺着幾
+本封面精美的書。
 LONG 	);
  	set("item_desc", ([ 
-		"bian" : "\n养正毓德\n\n",
+		"bian" : "\n養正毓德\n\n",
 		"lian" : "
-立身以至诚为本
-读书以明理为先\n\n",
+立身以至誠爲本
+讀書以明理爲先\n\n",
  	]));
 	set("objects", ([
 		__DIR__"npc/kangxi" : 1,
@@ -48,11 +48,11 @@ int close_gate()
 	if(objectp(room))
 	{
 		delete("exits/north");
-		message("vision","只听乒地一声，暗门自动关上了。\n", this_object());
-		message("vision","你脑海中闪过一个念头：哎哟！又进不去了！\n", this_object());
+		message("vision","只聽乒地一聲，暗門自動關上了。\n", this_object());
+		message("vision","你腦海中閃過一個念頭：哎喲！又進不去了！\n", this_object());
 		room->delete("exits/south");
-		message("vision","只听乒地一声，暗门自动关了起来。\n", room);
-		message("vision","你脑海中闪过一个念头：坏了！出不去了！\n", room );
+		message("vision","只聽乒地一聲，暗門自動關了起來。\n", room);
+		message("vision","你腦海中閃過一個念頭：壞了！出不去了！\n", room );
 	}
 }
 
@@ -61,18 +61,18 @@ int do_open(string arg)
 {
 	object /*ob,*/room;
 	if (query("exits/north"))
-		return notify_fail("暗门已经是打开的。\n");
+		return notify_fail("暗門已經是打開的。\n");
 	if (!arg || (arg != "bian"))
-		return notify_fail("你要打开什么？\n");
+		return notify_fail("你要打開什麼？\n");
 	set("exits/north", __DIR__"mishi");
 	if(!( room = find_object(__DIR__"mishi")) )
 		room = load_object(__DIR__"mishi");
 	if(objectp(room))
 	{
 		set("exits/north", __DIR__"mishi");
-		message_vision("$N轻轻地推了推牌匾，只听吱地一声，一个暗门开了。\n",this_player());
+		message_vision("$N輕輕地推了推牌匾，只聽吱地一聲，一個暗門開了。\n",this_player());
 		room->set("exits/south", __FILE__);
-		message("vision","只听吱地一声，暗门从外面打开了。\n", room);
+		message("vision","只聽吱地一聲，暗門從外面打開了。\n", room);
 		remove_call_out("close_gate");
 		call_out("close_gate", 10);
 	}

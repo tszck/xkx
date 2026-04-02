@@ -8,8 +8,8 @@ inherit F_MASTER;
 void create()
 {
 	set_name("李傀儡", ({ "li kuilei", "li" }));
-	set("long","他看起来青面獠牙，红发绿须，形状可怕之极，直是个妖怪，身穿一件亮光闪闪的锦袍。他一生沉迷扮演戏文，疯疯颠颠，于这武学一道，不免疏忽了。\n");
-	set("nickname","“函谷八友”戏迷");
+	set("long","他看起來青面獠牙，紅髮綠須，形狀可怕之極，直是個妖怪，身穿一件亮光閃閃的錦袍。他一生沉迷扮演戲文，瘋瘋顛顛，於這武學一道，不免疏忽了。\n");
+	set("nickname","“函谷八友”戲迷");
 	set("gender", "男性");
 	set("age", 30);
 	set("attitude", "friendly");
@@ -47,7 +47,7 @@ void create()
 	set("book_count", 1);
 	set("env/wimpy", 60);
 
-	create_family("逍遥派", 3, "弟子");
+	create_family("逍遙派", 3, "弟子");
 	setup();
 	carry_object("/clone/cloth/male-cloth")->wear();
 	carry_object("/clone/weapon/gangdao")->wield();
@@ -55,6 +55,6 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say 好吧，我就收下你了，以后要多为逍遥派出力啊。");
+	command("say 好吧，我就收下你了，以後要多爲逍遙派出力啊。");
 	command("recruit " + ob->query("id"));
 }

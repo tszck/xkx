@@ -1,16 +1,16 @@
-// yljing.c 云龙经
+// yljing.c 雲龍經
 
 inherit ITEM;
 
 void create()
 {
-	set_name( "云龙经", ({ "shu", "book" }));
+	set_name( "雲龍經", ({ "shu", "book" }));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一册云龙经,封皮上一条长龙在云中若隐若现。\n");
+		set("long", "這是一冊雲龍經,封皮上一條長龍在雲中若隱若現。\n");
 		set("value", 1000);
 		set("material", "paper");
 		set("skill", ([

@@ -10,7 +10,7 @@ void init()
 {
 	if (!wizardp(this_player()))
 	{
-		set("no_get", "嘿嘿，做梦吧！\n");
+		set("no_get", "嘿嘿，做夢吧！\n");
 		set("no_drop", "朱果你都想扔？\n");
 	}
 	add_action("do_eat", "eat");
@@ -24,8 +24,8 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "颗");
-		set("long", "这是一颗朱果，通体鲜红，一望而知是不可多得的珍品。\n");
+		set("unit", "顆");
+		set("long", "這是一顆朱果，通體鮮紅，一望而知是不可多得的珍品。\n");
 		set("value", 10000);
 	}
 	set("pour_type", "1");
@@ -36,15 +36,15 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
 	me->set("qi", (int)me->query("eff_qi"));
 	me->set("neili", (int)me->query("max_neili"));
-	message_vision(HIR "$N吃下一颗朱果，只觉饥渴全消，一股暖流从丹田直冲上来。\n"NOR,me);
+	message_vision(HIR "$N喫下一顆朱果，只覺飢渴全消，一股暖流從丹田直衝上來。\n"NOR,me);
 	destruct(this_object());
 	return 1;
 }

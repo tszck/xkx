@@ -10,9 +10,9 @@ void create()
 {
 	set("short","山洪瀑布");
 	set("long",@LONG
-这里是一处峡谷，每年雨季山洪爆发时就形成了一处蔚为壮观的瀑
-布。传说当年神雕侠杨过就是在这里练成绝世的玄铁剑法的。现在人去
-谷空，只剩下空寥的山谷和奔腾的洪水(hongshui)。
+這裏是一處峽谷，每年雨季山洪爆發時就形成了一處蔚爲壯觀的瀑
+布。傳說當年神鵰俠楊過就是在這裏練成絕世的玄鐵劍法的。現在人去
+谷空，只剩下空寥的山谷和奔騰的洪水(hongshui)。
 LONG);
 	set("outdoors", "huashan");
 	set("no_clean_up", 0);
@@ -29,7 +29,7 @@ LONG);
 }
 string look_hongshui()
 {
-	return "这是一股奔腾不息的洪水，水中隐隐有个东西在发光，但你定睛\n仔细一看，发现那只不过是水面反射的日光罢了。\n";
+	return "這是一股奔騰不息的洪水，水中隱隱有個東西在發光，但你定睛\n仔細一看，發現那只不過是水面反射的日光罷了。\n";
 }
 void init()
 {
@@ -44,50 +44,50 @@ int lian(string arg)
 	object me=this_player();
 	if (!arg)
 	{
-		write("你要练什么武功？\n");
+		write("你要練什麼武功？\n");
 		return 1;
 	}
 	if ( (sscanf(arg, "%s %d", arg, times)!=2 ))
-		return notify_fail("指令格式：practice|lian <技能种类> <次数>\n");
+		return notify_fail("指令格式：practice|lian <技能種類> <次數>\n");
 	if ( times < 1 || times > 30)
-		return notify_fail("练习次数必须大于一次，但不能超过三十次。\n");
+		return notify_fail("練習次數必須大於一次，但不能超過三十次。\n");
 	if (arg!="sword")
 	{
-		write("山洪流急，你没法练这种武功。\n");
+		write("山洪流急，你沒法練這種武功。\n");
 		return 1;
 	}
 	if (me->is_busy())
-		return notify_fail("你现在正忙着呢。\n");
+		return notify_fail("你現在正忙着呢。\n");
 	if( me->is_fighting() )
-		return notify_fail("你已经在战斗中了，学一点实战经验吧。\n");
+		return notify_fail("你已經在戰鬥中了，學一點實戰經驗吧。\n");
 	if( !stringp(skillname = me->query_skill_mapped(arg)) )
-		return notify_fail("你只能练习用 enable 指定的特殊技能。\n");
+		return notify_fail("你只能練習用 enable 指定的特殊技能。\n");
 
 	for (pertimes = 1; pertimes <=times ; pertimes ++)
 	{
 		skill_basic = me->query_skill(arg, 1);
 		skill = me->query_skill(skillname, 1);
 		if( skill < 1 )
-			return notify_fail("你好像还没有学过这项技能吧？最好先去请教别人。\n");
+			return notify_fail("你好像還沒有學過這項技能吧？最好先去請教別人。\n");
 		if( skill_basic < 1 )
-			return notify_fail("你对这方面的技能还是一窍不通，最好从先从基本学起。\n");
+			return notify_fail("你對這方面的技能還是一竅不通，最好從先從基本學起。\n");
 		if( skill_basic/2 <= skill/3 )
-			return notify_fail("你的基本功火候未到，必须先打好基础才能继续提高。\n");
+			return notify_fail("你的基本功火候未到，必須先打好基礎才能繼續提高。\n");
 
-		notify_fail("你现在不能练习这项技能。\n");
+		notify_fail("你現在不能練習這項技能。\n");
 		if( !SKILL_D(skillname)->valid_learn(me) ) return 0;
 
-		notify_fail("你试着练习" + to_chinese(skillname) + "，但是并没有任何进步。\n");
+		notify_fail("你試着練習" + to_chinese(skillname) + "，但是並沒有任何進步。\n");
 		if (skill*skill*skill/10 > (int)me->query("combat_exp")) 
 		{
-			return notify_fail("也许是缺乏实战经验，你的练习总没法进步。\n");
+			return notify_fail("也許是缺乏實戰經驗，你的練習總沒法進步。\n");
 			return 1;
 		}
 
 		if( SKILL_D(skillname)->practice_skill(me) )
 		{
 			me->improve_skill(skillname, skill_basic/2 +1, skill_basic > skill? 0: 1);
-			write(HIY"借助洪涛冲刷的威力，你的"+to_chinese(skillname)+"大有进步了！\n"NOR);
+			write(HIY"藉助洪濤沖刷的威力，你的"+to_chinese(skillname)+"大有進步了！\n"NOR);
 		}
 		else return 0;
 	}

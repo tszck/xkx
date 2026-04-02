@@ -1,4 +1,4 @@
-// /d/yixing/npc/cl_qiu.c 邱山风
+// /d/yixing/npc/cl_qiu.c 邱山風
 // Last Modified by winder on Jul. 12 2002
 
 #define TUCHAN "/d/yixing/obj/cl_tuchan"
@@ -8,10 +8,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("邱山风", ({ "qiu shanfeng", "qiu" }));
-	set("party/party_name", HIC"长乐帮"NOR);
+	set_name("邱山風", ({ "qiu shanfeng", "qiu" }));
+	set("party/party_name", HIC"長樂幫"NOR);
 	set("party/rank", "虎猛堂香主");
-	set("long", "他是一位三十多岁的彪形大汉。\n");
+	set("long", "他是一位三十多歲的彪形大漢。\n");
 	set("gender", "男性");
 	set("age", 32);
 	set("attitude", "friendly");
@@ -49,12 +49,12 @@ void create()
 	prepare_skill("cuff", "wuxing-quan");
 */
 	set("inquiry", ([
-		"长乐帮" : "这里就是长乐帮总舵所在地。",
-		"司徒横" : "我对我们帮主老人家的景仰之情，有如滔滔江水连绵不绝。",
-		"虎猛堂" : "虎猛堂自从我当香主后，一日千里，哈！哈！哈！",
-		"香主" : "各位香主的任命由帮主老人家说了算。",
-		"贝海石" : "贝大夫在弊帮劳苦功高，颇得帮主信任。",
-		"帮主" : "我家帮主司徒大爷乃威镇江南的“东霸天”也。",
+		"長樂幫" : "這裏就是長樂幫總舵所在地。",
+		"司徒橫" : "我對我們幫主老人家的景仰之情，有如滔滔江水連綿不絕。",
+		"虎猛堂" : "虎猛堂自從我當香主後，一日千里，哈！哈！哈！",
+		"香主" : "各位香主的任命由幫主老人家說了算。",
+		"貝海石" : "貝大夫在弊幫勞苦功高，頗得幫主信任。",
+		"幫主" : "我家幫主司徒大爺乃威鎮江南的“東霸天”也。",
 	]));
 
 	setup();
@@ -64,7 +64,7 @@ void create()
 int accept_object(object who, object ob)
 {
 	if( base_name(ob) != TUCHAN )
-		return notify_fail(name() + "摆了摆手，说道：你还是自个儿留着用吧。\n");
+		return notify_fail(name() + "擺了擺手，說道：你還是自個兒留着用吧。\n");
 
 	command("joythank " + who->query("id"));
 	who->set_temp("changle", 1);

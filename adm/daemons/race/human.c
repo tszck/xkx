@@ -14,20 +14,20 @@ inherit F_SKILL;
 
 
 mapping *combat_action = ({
-	([	"action":	"$N挥拳攻击$n的$l",
-		"damage_type":	"瘀伤",
+	([	"action":	"$N揮拳攻擊$n的$l",
+		"damage_type":	"瘀傷",
 	]),
 	([	"action":	"$N往$n的$l一抓",
-		"damage_type":	"抓伤",
+		"damage_type":	"抓傷",
 	]),
-	([	"action":	"$N往$n的$l狠狠地踢了一脚",
-		"damage_type":	"瘀伤",
+	([	"action":	"$N往$n的$l狠狠地踢了一腳",
+		"damage_type":	"瘀傷",
 	]),
-	([	"action":	"$N提起拳头往$n的$l捶去",
-		"damage_type":	"内伤",
+	([	"action":	"$N提起拳頭往$n的$l捶去",
+		"damage_type":	"內傷",
 	]),
-	([	"action":	"$N对准$n的$l用力挥出一拳",
-		"damage_type":	"瘀伤",
+	([	"action":	"$N對準$n的$l用力揮出一拳",
+		"damage_type":	"瘀傷",
 	]),
 });
 
@@ -39,14 +39,14 @@ void create()
 	set("can_speak", 1);
 	set("attitude", "peaceful");
 	set("limbs", ({
-		"头顶", "颈部", "胸口", "后心", "左肩", "右肩", "左臂",
-		"右臂", "左手", "右手", "两肋", "左脸", "腰间", "小腹",
-		"左腿", "右腿", "右脸", "左脚", "右脚", "左耳", "右耳"
+		"頭頂", "頸部", "胸口", "後心", "左肩", "右肩", "左臂",
+		"右臂", "左手", "右手", "兩肋", "左臉", "腰間", "小腹",
+		"左腿", "右腿", "右臉", "左腳", "右腳", "左耳", "右耳"
 	}) );
 
-	set("dead_message", "\n$N倒在地上，挣扎了几下就死了。\n\n");
-	set("unconcious_message", "\n$N脚下一个不稳，跌在地上昏了过去。\n\n");
-	set("revive_message", "\n$N慢慢睁开眼睛，清醒了过来。\n\n");
+	set("dead_message", "\n$N倒在地上，掙扎了幾下就死了。\n\n");
+	set("unconcious_message", "\n$N腳下一個不穩，跌在地上昏了過去。\n\n");
+	set("revive_message", "\n$N慢慢睜開眼睛，清醒了過來。\n\n");
 }
 
 void setup_human(object ob)
@@ -93,7 +93,7 @@ void setup_human(object ob)
 			my["max_jing"] += i;
 		}
 
-		// 佛家养精：３０岁前补精，３０岁后长精
+		// 佛家養精：３０歲前補精，３０歲後長精
 		if((xism_age=(int)ob->query_skill("buddhism", 1)) > 39)
 		{
 			xism_age = xism_age/2;
@@ -103,7 +103,7 @@ void setup_human(object ob)
 			if (xism_age > 0) my["max_jing"] += xism_age *((int)ob->query_skill("hunyuan-yiqi", 1)/10);
 		}
 
-		// 紫氲吟长精：
+		// 紫氳吟長精：
 		if((xism_age=(int)ob->query_skill("ziyunyin", 1)) > 39) 
 		{
 			xism_age = xism_age/2;
@@ -131,7 +131,7 @@ void setup_human(object ob)
 			my["max_qi"] -= i;
 		}
 
-		// 佛家保气：
+		// 佛家保氣：
 		if(my["age"] > 60 && (int)ob->query_skill("buddhism", 1) >= 120)
 		{
 			// Modified by zeratul Jan 6 2001
@@ -139,7 +139,7 @@ void setup_human(object ob)
 			my["max_qi"] += i;
 		}
 
-		// 道家正一派练气：３０岁前补气，３０岁后长气
+		// 道家正一派練氣：３０歲前補氣，３０歲後長氣
 		if((xism_age=(int)ob->query_skill("taoism", 1)) > 39)
 		{
 			xism_age = xism_age/2;
@@ -148,7 +148,7 @@ void setup_human(object ob)
 
 			if (xism_age > 0) my["max_qi"] += xism_age *((int)ob->query_skill("taiji-shengong", 1)/10);
 		}
-		// 道家全真派练气：３０岁前补气，３０岁后长气
+		// 道家全真派練氣：３０歲前補氣，３０歲後長氣
 		if((xism_age=(int)ob->query_skill("taoism", 1)) > 39)
 		{
 			xism_age = xism_age/2;
@@ -157,7 +157,7 @@ void setup_human(object ob)
 
 			if (xism_age > 0) my["max_qi"] += xism_age *((int)ob->query_skill("xiantian-qigong", 1)/10);
 		}
-		// 正气诀长气：
+		// 正氣訣長氣：
 		if((xism_age=(int)ob->query_skill("zhengqijue", 1)) > 39) 
 		{
 			xism_age = xism_age/2;
@@ -165,7 +165,7 @@ void setup_human(object ob)
 
 			if (xism_age > 0) my["max_qi"] += xism_age *((int)ob->query_skill("zixia-shengong", 1) / 20);
 		}
-		// 毒技练气：３０岁前补气，３０岁后长气
+		// 毒技練氣：３０歲前補氣，３０歲後長氣
 		if((xism_age=(int)ob->query_skill("poison", 1)) > 39)
 		{
 			xism_age = xism_age/2;

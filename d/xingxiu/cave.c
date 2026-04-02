@@ -6,9 +6,9 @@ void create()
 {
 	set("short", "山洞");
 	set("long", @LONG
-黑黝黝的山洞里，有一股腥臭味。等眼睛适应了这里的弱光后，才
-发现地上有一条色彩斑斓的巨蟒。巨蟒旁有许多白惨惨的骨骇，令人胆
-寒。想必都是探险之人，误入山洞，为巨蟒所害。
+黑黝黝的山洞裏，有一股腥臭味。等眼睛適應了這裏的弱光後，才
+發現地上有一條色彩斑斕的巨蟒。巨蟒旁有許多白慘慘的骨駭，令人膽
+寒。想必都是探險之人，誤入山洞，爲巨蟒所害。
 LONG
 	);
 	set("exits", ([
@@ -37,8 +37,8 @@ int do_use(string arg)
 	if (!present("fire", me))  return 0;
 	if(arg=="fire")
 	{
-		write("你点燃了火折，发现西面石壁上有一道裂缝，似乎可以钻(zuan)出去。\n");
-		me->set_temp("marks/钻", 1);
+		write("你點燃了火折，發現西面石壁上有一道裂縫，似乎可以鑽(zuan)出去。\n");
+		me->set_temp("marks/鑽", 1);
 		me->start_busy(2);
 		return 1;
 	}
@@ -48,16 +48,16 @@ int do_zuan(string arg)
 {
 	object me = this_player();
 
-	if(me->query_temp("marks/钻") )
+	if(me->query_temp("marks/鑽") )
 	{
-		message("vision", me->name() + "滋溜一下不知从什么地方钻出去了。\n", environment(me), ({me}) );
+		message("vision", me->name() + "滋溜一下不知從什麼地方鑽出去了。\n", environment(me), ({me}) );
 		me->move(__DIR__"cave2");
-		message("vision", me->name() + "从石缝里钻了进来。\n", environment(me), ({me}) );
-		me->set_temp("marks/钻", 0);
+		message("vision", me->name() + "從石縫裏鑽了進來。\n", environment(me), ({me}) );
+		me->set_temp("marks/鑽", 0);
 		return 1;
 	}
 	else {
-		write("你想往哪儿钻?!\n");
+		write("你想往哪兒鑽?!\n");
 		return 1;
 	}
 }

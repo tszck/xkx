@@ -7,25 +7,25 @@ string type() { return "martial"; }
 string martialtype() { return "dodge"; }
 
 string *dodge_msg = ({
-"$n一个"HIC"「月上柳梢头」"NOR"，出白虎门，入天地门，随着$N的攻势飘起，从容躲过此招。\n",
-"$n使一招"HIM"「大漠孤烟直」"NOR"，出青龙门，入风云门，猛然纵起丈余，结果$N扑了个空。\n",
-"$n身形一摇，幻出几个人影，出天地门，入青龙门，一招"BLU"「碎影舞斜阳」"NOR"躲过$N的攻势。\n",
-"$n一招"HIM"「燕子三抄水」"NOR"纵身跃起，出风云门，入玄武门，倏忽已落至$N身后。\n",
-"$n左一摇，右一晃，出玄武门，入朱雀门，一招"HIW"「云深不知处」"NOR"已轻松闪过。\n",
-"$n双足一点，斜斜飞起，出朱雀门，入白虎门，使出"HIM"「斜日杏花飞」"NOR"，已闪到$N身侧。\n",
+"$n一個"HIC"「月上柳梢頭」"NOR"，出白虎門，入天地門，隨着$N的攻勢飄起，從容躲過此招。\n",
+"$n使一招"HIM"「大漠孤煙直」"NOR"，出青龍門，入風雲門，猛然縱起丈餘，結果$N撲了個空。\n",
+"$n身形一搖，幻出幾個人影，出天地門，入青龍門，一招"BLU"「碎影舞斜陽」"NOR"躲過$N的攻勢。\n",
+"$n一招"HIM"「燕子三抄水」"NOR"縱身躍起，出風雲門，入玄武門，倏忽已落至$N身後。\n",
+"$n左一搖，右一晃，出玄武門，入朱雀門，一招"HIW"「雲深不知處」"NOR"已輕鬆閃過。\n",
+"$n雙足一點，斜斜飛起，出朱雀門，入白虎門，使出"HIM"「斜日杏花飛」"NOR"，已閃到$N身側。\n",
 });
 
 int valid_enable(string usage) { return (usage=="dodge") || (usage=="move"); }
 int valid_learn(object me) 
 {      	
 	if( (int)me->query_skill("bibo-shengong", 1) < 10 )
-	return notify_fail("你的碧波神功不够精熟，无法领会暗影浮香。\n");
+	return notify_fail("你的碧波神功不夠精熟，無法領會暗影浮香。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if( (int)me->query("qi") < 30|| (int)me->query("neili") < 6 )
-		return notify_fail("你的体力太差了，不能练暗影浮香。\n");
+		return notify_fail("你的體力太差了，不能練暗影浮香。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -6);	
 	return 1;
@@ -44,10 +44,10 @@ int help(object me)
 	write(HIC"\n暗影浮香："NOR"\n");
 	write(@HELP
 
-    桃花岛的独门轻功身法。
+    桃花島的獨門輕功身法。
 
-	学习要求：
-	   碧波神功 10 级 	
+	學習要求：
+	   碧波神功 10 級 	
 HELP
 	);
 	return 1;

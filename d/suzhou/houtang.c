@@ -3,13 +3,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "后堂");
+	set("short", "後堂");
 	set("long", @long
-这里是书场的后堂，里面有一张桌子和一张矮床，墙上的窗户半掩
-着，墙上挂着一副年画(picture)。
+這裏是書場的後堂，裏面有一張桌子和一張矮牀，牆上的窗戶半掩
+着，牆上掛着一副年畫(picture)。
 long);
 	set("item_desc", ([
-		"picture" : "这一张寻常农家过年时贴的年画。\n",
+		"picture" : "這一張尋常農家過年時貼的年畫。\n",
 	]));
 	set("exits", ([
 		"out" : __DIR__"shuchang",
@@ -17,7 +17,7 @@ long);
 	set("coor/x", 830);
 	set("coor/y", -995);
 	set("coor/z", 0);
-        create_door("out", "小门", "enter", DOOR_CLOSED);
+        create_door("out", "小門", "enter", DOOR_CLOSED);
 	setup();
 }
 void init()
@@ -34,7 +34,7 @@ int do_jie(string arg)
 	if (arg !="picture") return 0;
 	if (arg=="picture")
 	{
-		write("你揭开年画，发现墙上有个洞，恰好能容纳一个人，你忍不住想跳(jump)下去。\n");
+		write("你揭開年畫，發現牆上有個洞，恰好能容納一個人，你忍不住想跳(jump)下去。\n");
 		me->set_temp("marks/揭1", 1);
 		return 1;
 	}
@@ -45,9 +45,9 @@ int do_jump(string arg)
 	me=this_player();
 	if (me->query_temp("marks/揭1"))
 	{
-		message("vision", me->name() + "钻进了墙上的洞，跳了下去，只听的“乒”的一声响。\n", environment(me), ({me}) );
+		message("vision", me->name() + "鑽進了牆上的洞，跳了下去，只聽的“乒”的一聲響。\n", environment(me), ({me}) );
 		me->move(__DIR__"szyunhe");
-		message("vision", me->name() + "突然间从上面摔了下来。\n", environment(me), ({me}) );
+		message("vision", me->name() + "突然間從上面摔了下來。\n", environment(me), ({me}) );
 		me->delete_temp("marks/揭1");
 		return 1;
 	}

@@ -7,10 +7,10 @@ inherit NPC;
 string ask_pai();
 void create()
 {
-	set_name("成自学",({"cheng zixue","cheng"}));
+	set_name("成自學",({"cheng zixue","cheng"}));
 	set("gender", "男性");
 	set("age", 40);
-	set("long", "成自学是雪山派掌门人威德先生白自在的师弟。\n");
+	set("long", "成自學是雪山派掌門人威德先生白自在的師弟。\n");
 	set("attitude", "peaceful");
 
 	set("str", 30);
@@ -29,8 +29,8 @@ void create()
 	set("inquiry", ([
 		"玉牌"   : (:ask_pai:),
 		"寒玉牌" : (:ask_pai:),
-		"白自在" : "要见老爷子，就必须要有玉牌才进得去。玉牌就在我这。",
-		"老爷子" : "要见老爷子，就必须要有玉牌才进得去。玉牌就在我这。",
+		"白自在" : "要見老爺子，就必須要有玉牌才進得去。玉牌就在我這。",
+		"老爺子" : "要見老爺子，就必須要有玉牌才進得去。玉牌就在我這。",
 	]) );
 	set("shen_type", 0);
 	set("score", 50000);
@@ -73,24 +73,24 @@ string ask_pai()
 
 	if(me->query("family/master_id")=="bai zizai")
 	{
-		command("say 城主有命，老夫岂敢不从。\n");
-		message_vision(HIY"成自学拿出一块玉牌，交给$N \n\n"NOR,me);
+		command("say 城主有命，老夫豈敢不從。\n");
+		message_vision(HIY"成自學拿出一塊玉牌，交給$N \n\n"NOR,me);
 		ob=new("/d/lingxiao/obj/yupai");
 		ob->move(me);
 		return "城主慢走。\n";
 	}
 	if(me->query("family/master_id")=="bai wanjian")
 	{
-		command("say 你既然是白万剑的弟子，拿去也无妨。");
-		message_vision(HIY"成自学拿出一块玉牌，交给$N \n\n"NOR,me);
+		command("say 你既然是白萬劍的弟子，拿去也無妨。");
+		message_vision(HIY"成自學拿出一塊玉牌，交給$N \n\n"NOR,me);
 		ob=new("/d/lingxiao/obj/yupai");
 		ob->move(me);
-		return "此牌乃本派重宝，不可有失。\n";
+		return "此牌乃本派重寶，不可有失。\n";
 	}
-	command("say 你是什么身份，也想去见老爷子？");
-	message_vision(HIY"成自学转过脸去，理都不理$N。\n\n"NOR,me);
+	command("say 你是什麼身份，也想去見老爺子？");
+	message_vision(HIY"成自學轉過臉去，理都不理$N。\n\n"NOR,me);
 
-	return "你还是先去努力练练吧。\n";
+	return "你還是先去努力練練吧。\n";
 }
 void attempt_apprentice(object ob)
 {

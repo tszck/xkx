@@ -6,9 +6,9 @@ void create()
 {
 	set("short", "琴音小院");
 	set("long", @LONG
-这是一座看起来非常普通的小小的院落，院子的中间建着一间小屋，
-小屋也很普通，就是用茅草为顶，砖土为墙，院子里没有什么摆设，只
-有几堆干木柴(wood)放在角落里，其中有一捆特别引人注目。 
+這是一座看起來非常普通的小小的院落，院子的中間建着一間小屋，
+小屋也很普通，就是用茅草爲頂，磚土爲牆，院子裏沒有什麼擺設，只
+有幾堆幹木柴(wood)放在角落裏，其中有一捆特別引人注目。 
 LONG
 	);
 	set("weapon_count",1);
@@ -17,7 +17,7 @@ LONG
 		"enter" : __DIR__"xiaowu",
 	]));
 	set("item_desc",([
-		"wood" : "一大堆干柴，其中有一捆的颜色比较特别。\n",
+		"wood" : "一大堆乾柴，其中有一捆的顏色比較特別。\n",
 	]));
 	set("objects", ([
 		__DIR__"npc/ding" : 1,
@@ -40,13 +40,13 @@ int do_unlock(string arg)
 {
 	object ob;
 	if (query("exits/east"))
-		return notify_fail("这扇门已经是打开的。\n");
+		return notify_fail("這扇門已經是打開的。\n");
 	if (!arg || (arg != "men" && arg != "east"))
-		return notify_fail("你要打开什么？\n");
+		return notify_fail("你要打開什麼？\n");
 	if (!(ob = present("hongyu yaoshi", this_player())))
-		return notify_fail("你不会撬锁。\n");
+		return notify_fail("你不會撬鎖。\n");
 	set("exits/east", __DIR__"mishi2");
-	message_vision("$N把红玉钥匙放进门的凹陷处，东边的一扇门无声的打开了。\n", this_player());
+	message_vision("$N把紅玉鑰匙放進門的凹陷處，東邊的一扇門無聲的打開了。\n", this_player());
 	destruct(ob);
 	return 1;
 }
@@ -61,15 +61,15 @@ int do_pull(string arg)
 		if ( ob->violate_unique() )
 		{
 			destruct( ob );
-			message_vision("$N找了半天，也没有发现什么特别的东西。\n", me);
+			message_vision("$N找了半天，也沒有發現什麼特別的東西。\n", me);
 			return 1;
 		}
 		ob->move(__DIR__"xiaoyuan");
-		message_vision("$N在木柴堆里拨弄着，一根剑形的木棒掉了出来。\n", me);
+		message_vision("$N在木柴堆裏撥弄着，一根劍形的木棒掉了出來。\n", me);
 		return 1;
 	}
 	else {
-		message_vision("$N找了半天，也没有发现什么特别的东西。\n", me);
+		message_vision("$N找了半天，也沒有發現什麼特別的東西。\n", me);
 		return 1;
 	}
 }

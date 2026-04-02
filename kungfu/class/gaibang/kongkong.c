@@ -1,4 +1,4 @@
-// kongkong.c 空空儿
+// kongkong.c 空空兒
 
 #include <ansi.h>
 inherit NPC;
@@ -8,11 +8,11 @@ inherit F_UNIQUE;
 void create()
 {
 	seteuid(getuid());
-	set_name("空空儿", ({ "kong kong","beggar","qi gai","kong" }) );
+	set_name("空空兒", ({ "kong kong","beggar","qi gai","kong" }) );
 	set("nickname", "妙手神丐");
 	set("gender", "男性" );
 	set("age", 53);
-	set("long", "一个满脸风霜之色的老乞丐。\n");
+	set("long", "一個滿臉風霜之色的老乞丐。\n");
 	set("attitude", "peaceful");
 	set("class", "beggar");
 
@@ -56,16 +56,16 @@ void create()
 	map_skill("parry", "suohou-hand");
 	map_skill("dodge", "xiaoyaoyou");
 
-	set("party/party_name", HIC"丐帮"NOR);
-	set("party/rank", HIG"八袋护法"NOR);
+	set("party/party_name", HIC"丐幫"NOR);
+	set("party/rank", HIG"八袋護法"NOR);
 	set("party/level", 8);
-	create_family("丐帮", 19, "弟子");
+	create_family("丐幫", 19, "弟子");
 
 	set("chat_chance", 20);
 	set("chat_msg", ({
-		"空空儿说道：好心的大爷哪～ 赏我要饭的几个铜板吧～\n",
-		"空空儿懒洋洋地打了个哈欠。\n",
-		"空空儿伸手捉住了身上的虱子，骂道：老子身上没几两肉，全叫你们给咬糜了。 \n",
+		"空空兒說道：好心的大爺哪～ 賞我要飯的幾個銅板吧～\n",
+		"空空兒懶洋洋地打了個哈欠。\n",
+		"空空兒伸手捉住了身上的蝨子，罵道：老子身上沒幾兩肉，全叫你們給咬糜了。 \n",
 		(: random_move :)
 	}) );
 	setup();
@@ -79,7 +79,7 @@ void create()
 void attempt_apprentice(object ob)
 {
 	command("say 好吧，希望" + RANK_D->query_respect(ob) +
-		"能好好学习本门武功，将来在江湖中闯出一番作为。");
+		"能好好學習本門武功，將來在江湖中闖出一番作爲。");
 	command("recruit " + ob->query("id"));
 }
 
@@ -100,7 +100,7 @@ void stealing(object ob)
 	mapping fam; 
  
 	if( !ob || environment(ob) != environment() ||
-		((fam = ob->query("family")) && fam["family_name"] == "丐帮") ||
+		((fam = ob->query("family")) && fam["family_name"] == "丐幫") ||
 		(int)ob->query_skill("taoism", 1) > 30 || 
 		ob->query_int() > 30) return;
 
@@ -139,13 +139,13 @@ int accept_object(object me, object obj)
 {
 	if (obj->query("money_id") && obj->value() >= 1) {
 		command("smile");
-		command("say 多谢啦！其实我还是有点钱的，这次只不过试试你罢了！");
+		command("say 多謝啦！其實我還是有點錢的，這次只不過試試你罷了！");
 		command("give 10 silver to " + me->query("id"));
 	}
 	else
 	{
 		command("shake");
-		command("say 这种东西鬼才要！滚一边去！");
+		command("say 這種東西鬼才要！滾一邊去！");
 		command("give " + obj->query("id") + " to " + me->query("id"));
 //		obj->move(this_player());
 	}
@@ -155,6 +155,6 @@ int accept_object(object me, object obj)
 
 int accept_fight(object me)
 {
-	command("say " + RANK_D->query_respect(me) + "饶命~~小的这就离开~~\n");
+	command("say " + RANK_D->query_respect(me) + "饒命~~小的這就離開~~\n");
 	return 0;
 }

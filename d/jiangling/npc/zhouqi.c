@@ -5,7 +5,7 @@ inherit NPC;
 void create ()
 {
 	set_name("周圻", ({"zhou qi","zhou"}));
-	set("title","万门二弟子");
+	set("title","萬門二弟子");
 	set("long", "\n");
 	set("gender", "男性");
 	set("age", 26);
@@ -27,7 +27,7 @@ void create ()
 	map_skill("sword", "tangshi-jian");
 	set("chat_chance", 10);
 	set("chat_msg", ({
-		"周圻冷冷言道：“今天是万老爷的好日子，您可别来搅局。\n",
+		"周圻冷冷言道：“今天是萬老爺的好日子，您可別來攪局。\n",
 	}) );
 	setup();
 

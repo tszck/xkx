@@ -3,10 +3,10 @@
 
 inherit NPC;
 void create()
-{       set_name("爱我爱你", ({ "aiwoaini"}));
+{       set_name("愛我愛你", ({ "aiwoaini"}));
 	set("gender", "女性");
 	set("class", "swordman");
-	set("title", HIR"内阁大学士"HIG"明教地字门教众"NOR"古墓派第二代弟子");	
+	set("title", HIR"內閣大學士"HIG"明教地字門教衆"NOR"古墓派第二代弟子");	
 	set("age", 48);
 	set("attitude", "friendly");
 

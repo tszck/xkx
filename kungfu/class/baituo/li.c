@@ -9,10 +9,10 @@ void greeting(object);
 void init();
 void create()
 {
-	set_name("李教头", ({ "li"}) );
+	set_name("李教頭", ({ "li"}) );
 	set("gender", "男性" );
 	set("age", 25);
-	set("long", "这是个和蔼可亲的教头。\n");
+	set("long", "這是個和藹可親的教頭。\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 
@@ -53,13 +53,13 @@ void create()
 		(: exert_function, "reserve" :),
 		(: exert_function, "recover" :),
 	}) );
-	create_family("白驼山派", 3, "弟子");
+	create_family("白駝山派", 3, "弟子");
 
 	set("chat_chance", 2);
 	set("chat_msg", ({
-		"李教头说道：勤学苦练方可出神功。\n",
-		"李教头鼓励小弟子们不畏艰苦，好好练功。\n",
-		"李教头拍拍学徒的头说：好样的！\n",
+		"李教頭說道：勤學苦練方可出神功。\n",
+		"李教頭鼓勵小弟子們不畏艱苦，好好練功。\n",
+		"李教頭拍拍學徒的頭說：好樣的！\n",
 	}) );
 	setup();
 }
@@ -80,17 +80,17 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	if ((string)ob->query("family/family_name") == "白驼山派")
+	if ((string)ob->query("family/family_name") == "白駝山派")
 	{
-		message_vision("李教头冲着$N点点头，微微笑了笑。\n",ob);
+		message_vision("李教頭衝着$N點點頭，微微笑了笑。\n",ob);
 		return;
 	}
 	if (!(string)ob->query("family/family_name"))
 	{
-		message_vision("李教头冲着$N微笑说：你是来拜师的吧，拜我吧。\n",ob);
+		message_vision("李教頭衝着$N微笑說：你是來拜師的吧，拜我吧。\n",ob);
 		return;
 	}
-	message_vision("李教头对$N嚷道：小家伙，你瞎逛什么呢？\n",ob);
+	message_vision("李教頭對$N嚷道：小傢伙，你瞎逛什麼呢？\n",ob);
 }
 
 void attempt_apprentice(object ob)
@@ -98,16 +98,16 @@ void attempt_apprentice(object ob)
 	command("say 好吧，我收下你。\n");
 	command("recruit "+ob->query("id"));
 	if((int)ob->query("combat_exp")<10000)
-		command("say 你先到东边练功室找陪练童子比划几招吧。\n");
+		command("say 你先到東邊練功室找陪練童子比劃幾招吧。\n");
 	return;
 }
 
 int accept_fight(object ob)
 {
-	if ((string)ob->query("family/family_name") == "白驼山派")
+	if ((string)ob->query("family/family_name") == "白駝山派")
 	{
 		if((int)ob->query("combat_exp")<1000)
-			return notify_fail("李教头笑道：你的经验太低了，还是先找陪练童子比划几招吧。！\n");
+			return notify_fail("李教頭笑道：你的經驗太低了，還是先找陪練童子比劃幾招吧。！\n");
 	}
 	return 1;
 }

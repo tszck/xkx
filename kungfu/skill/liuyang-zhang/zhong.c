@@ -1,4 +1,4 @@
-// zhong.c 种生死符
+// zhong.c 種生死符
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -21,14 +21,14 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail("生死符只能种在对手身上。\n");
+		return notify_fail("生死符只能種在對手身上。\n");
 
 	if( me->query_temp("weapon") )
 		return notify_fail("只有空手才能施展「生死符」。\n");
@@ -45,45 +45,45 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 40 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够娴熟，不能种"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠嫺熟，不能種"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(sskill)+"还不够娴熟，不能种"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"還不夠嫺熟，不能種"+PNAME+"。\n");
 
 	if( !me->query_temp("murong/xingyi") )
 	{
     if (me->query_skill_mapped("force") != "bahuang-gong"&& userp(me))
-      return notify_fail("你没有激发八荒六合唯我独尊功，难以使出生死符。\n");
+      return notify_fail("你沒有激發八荒六合唯我獨尊功，難以使出生死符。\n");
 	}
 
 	if( me->query("neili") < 500 )
-		return notify_fail("你的内力不足，不能种生死符。\n");
+		return notify_fail("你的內力不足，不能種生死符。\n");
 
 	if( me->query("max_neili") < 500 )
-		return notify_fail("你的内力修为不足，不能种生死符。\n");
+		return notify_fail("你的內力修爲不足，不能種生死符。\n");
 	
 	if( userp(me) && ((me->query("spi")) + (me->query("cps"))) > 40)
-                return notify_fail("你的天赋不适合种生死符。\n");
+                return notify_fail("你的天賦不適合種生死符。\n");
 
 	if (!objectp(obj=present("jiudai", me)))
-		return notify_fail("你身上没有酒袋，不能化水为冰。\n");
+		return notify_fail("你身上沒有酒袋，不能化水爲冰。\n");
 		
-	if (me->query("owner")) return notify_fail("任务npc不能使用生死符。\n");
+	if (me->query("owner")) return notify_fail("任務npc不能使用生死符。\n");
 
-	msg = HIC "$N"HIC"左掌掌心中暗运内功，逆转北冥真气，不多时已将掌中酒水化成七八
-片寒冰，右掌飕飕飕连拍三掌。 \n";
+	msg = HIC "$N"HIC"左掌掌心中暗運內功，逆轉北冥真氣，不多時已將掌中酒水化成七八
+片寒冰，右掌颼颼颼連拍三掌。 \n";
 
 	me->start_busy(1);
 	me->add("neili", -400);
 	if((random( (int)me->query_skill("strike", 1))*1.5) > random(target->query_skill("dodge") ) )
 	{
-// 有个想法： 每次中的穴位都是不固定的，解毒的时候需要找对正确的穴位才行
-//            当然中生死府的穴位可以累加，
-//            如果我中毒在 缺盆穴 志室穴 两处穴道
-//            那么如果解毒的人不知道穴位乱解，反而有损身体
+// 有個想法： 每次中的穴位都是不固定的，解毒的時候需要找對正確的穴位纔行
+//            當然中生死府的穴位可以累加，
+//            如果我中毒在 缺盆穴 志室穴 兩處穴道
+//            那麼如果解毒的人不知道穴位亂解，反而有損身體
 //            - by qingyun
-		msg += RED " 结果$p猛地里肩间“缺盆穴”上微微一寒，便如碰上了一片雪花，跟着小腹“天枢穴”、大腿“伏兔穴”、上臂“天泉穴”三处也觉凉飕飕地。忽然间后颈“天柱穴”、背心“神道穴”
-、后腰“志室穴”三处也是微微一凉。\n" NOR;
+		msg += RED " 結果$p猛地裏肩間“缺盆穴”上微微一寒，便如碰上了一片雪花，跟着小腹“天樞穴”、大腿“伏兔穴”、上臂“天泉穴”三處也覺涼颼颼地。忽然間後頸“天柱穴”、背心“神道穴”
+、後腰“志室穴”三處也是微微一涼。\n" NOR;
 		target->receive_damage("qi",(int)me->query_skill("force", 1),me);
 		target->receive_wound("qi",15 + random(10),me);
 		if (fam_type(me)=="lingjiu")
@@ -91,7 +91,7 @@ int perform(object me, object target)
 		target->apply_condition("ss_poison", random(me->query_skill(bskill, 1)/8) + 1 + target->query_condition("ss_poison"));
 		me->start_busy(random(3));
 	} else {
-		msg += "可是$p急忙闪在一旁，躲了开去。\n" NOR;
+		msg += "可是$p急忙閃在一旁，躲了開去。\n" NOR;
 		me->start_busy(2);
 	}
 	message_combatd(msg, me, target);
@@ -110,16 +110,16 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		给对手种上灵鹫宫生死符
-		迟滞对方出手
+		給對手種上靈鷲宮生死符
+		遲滯對方出手
 		
 
 	出手要求：
-		八荒六合唯我独尊功40级
-		适当的天赋
-		天山六阳掌60级
-		身上带着酒袋
-		内力400
+		八荒六合唯我獨尊功40級
+		適當的天賦
+		天山六陽掌60級
+		身上帶着酒袋
+		內力400
 HELP
 	);
 	return 1;

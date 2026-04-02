@@ -8,16 +8,16 @@ void create()
   
     set("short", "墓室");
     set("long",@LONG
-这是一间墓室。墓室顶上有一颗特别大的明珠闪闪发光。中央放着
-一副玉棺，周围则堆放了无数的奇珍异玩。一张供桌摆在玉棺前，桌上
-放着一个香炉及一个盘子 (panzi)。墓室对面挂这一幅青年少妇的画像。
-画像上的少妇巧笑嫣然，和惨白的玉棺及碧油油的珠光形成了一幅奇诡
-的画面。忽然一阵阴风吹过，你不禁打了一个寒颤。
+這是一間墓室。墓室頂上有一顆特別大的明珠閃閃發光。中央放着
+一副玉棺，周圍則堆放了無數的奇珍異玩。一張供桌擺在玉棺前，桌上
+放着一個香爐及一個盤子 (panzi)。墓室對面掛這一幅青年少婦的畫像。
+畫像上的少婦巧笑嫣然，和慘白的玉棺及碧油油的珠光形成了一幅奇詭
+的畫面。忽然一陣陰風吹過，你不禁打了一個寒顫。
 LONG);
 	set("item_desc", ([
 		"panzi" : @TEXT
-    你仔细看了一下盘子，这是一个玉盘，里面放着数颗晶莹的
-    明珠。这些明珠似乎可以拿出来(pick zhu)。
+    你仔細看了一下盤子，這是一個玉盤，裏面放着數顆晶瑩的
+    明珠。這些明珠似乎可以拿出來(pick zhu)。
 TEXT
 	]) );
 	set("exits", ([
@@ -45,20 +45,20 @@ int do_pick(string arg)
 
        me = this_player();
        if( !arg || arg!="zhu" )
-              return notify_fail("你要拿什么? \n");
-       if( me->query("family/family_name") == "桃花岛" )
-              return notify_fail("你是桃花岛弟子, 岂能偷岛主的东西? \n");
+              return notify_fail("你要拿什麼? \n");
+       if( me->query("family/family_name") == "桃花島" )
+              return notify_fail("你是桃花島弟子, 豈能偷島主的東西? \n");
        if ( query("pick_available") )
        {
-         message_vision("$N从盘子里拿出来一颗明珠。\n",this_player() );
+         message_vision("$N從盤子裏拿出來一顆明珠。\n",this_player() );
          obj = new (__DIR__"obj/mingzhu");
          obj->move(me);
          add("pick_available", -1);
          me->start_busy(3);
          if ( me->query_temp("taohua/墓室") ) return 1;
          killer = new (__DIR__"npc/shoumu") ;
-         message_vision("\n突然墓室中打开了一道暗门，从里面走出一个守墓家奴。\n"
-         "对$N喝道：贼子敢尔！连夫人的东西你也敢动！\n", me);
+         message_vision("\n突然墓室中打開了一道暗門，從裏面走出一個守墓家奴。\n"
+         "對$N喝道：賊子敢爾！連夫人的東西你也敢動！\n", me);
          killer->move(environment(me));
          killer->kill_ob(me);
          me->set_temp("taohua/墓室", 1);

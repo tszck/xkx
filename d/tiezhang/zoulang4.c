@@ -8,8 +8,8 @@ void create()
 {
 	set("short", "走廊");
 	set("long", @LONG
-你走在一条走廊上。北面似乎有个黑暗的小屋，还隐隐传来一些酣
-声。东面是铁掌帮众的练功场。
+你走在一條走廊上。北面似乎有個黑暗的小屋，還隱隱傳來一些酣
+聲。東面是鐵掌幫衆的練功場。
 LONG );
 	set("exits", ([ 
 		"west" : __DIR__"zoulang1",
@@ -36,9 +36,9 @@ int close_men()
 	if(objectp(room))
 	{
 		delete("exits/north");
-		message("vision", "门吱吱呀呀地自己合上了。\n", this_object());
+		message("vision", "門吱吱呀呀地自己合上了。\n", this_object());
 		room->delete("exits/south");
-		message("vision", "门吱吱呀呀地自己合上了。\n", room);
+		message("vision", "門吱吱呀呀地自己合上了。\n", room);
 	}
 	else message("vision", "ERROR: men not found(close).\n", room);
 }
@@ -49,10 +49,10 @@ int do_tui(string arg)
 
 	if (!living(this_player())) return 0;
 	if (query("exits/north"))
-		return notify_fail("门已经是开着了。\n");
+		return notify_fail("門已經是開着了。\n");
 
 	if (arg != "door" && arg != "men")
-		return notify_fail("你要做什么？\n");
+		return notify_fail("你要做什麼？\n");
 
 	if(!(room = find_object(__DIR__"xxs")))
 		room = load_object(__DIR__"xxs");
@@ -62,7 +62,7 @@ int do_tui(string arg)
 //	if (!have_man())
 //	{
 		set("exits/north", __DIR__"xxs");
-		message_vision("$N轻轻地把门推开。\n", this_player());
+		message_vision("$N輕輕地把門推開。\n", this_player());
 		room->set("exits/south", __FILE__);
 		remove_call_out("close_men");
 		call_out("close_men", 10);

@@ -7,19 +7,19 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action": ""HIB"$N脸上露出诡异的笑容，隐隐泛出绿色的双掌扫向$n的$l"NOR"",
+([	"action": ""HIB"$N臉上露出詭異的笑容，隱隱泛出綠色的雙掌掃向$n的$l"NOR"",
 	"lvl"   : 0,
 	"skill_name" : "抽髓掌"
 ]),
-([	"action": ""BLU"$N突然身形旋转起来扑向$n，双掌飞舞着拍向$n的$l"NOR"",
+([	"action": ""BLU"$N突然身形旋轉起來撲向$n，雙掌飛舞着拍向$n的$l"NOR"",
 	"lvl"   : 10,
 	"skill_name" : "抽髓掌"
 ]),
-([	"action": ""HIB"$N将毒质运至右手，一招「腐尸毒」阴毒无比地抓向$n的$l"NOR"",
+([	"action": ""HIB"$N將毒質運至右手，一招「腐屍毒」陰毒無比地抓向$n的$l"NOR"",
 	"lvl"   : 20,
 	"skill_name" : "抽髓掌"
 ]),
-([	"action": ""BLU"$N双掌挟着一股腥臭之气拍向$n的$l"NOR"",
+([	"action": ""BLU"$N雙掌挾着一股腥臭之氣拍向$n的$l"NOR"",
 	"lvl"   : 30,
 	"skill_name" : "抽髓掌"
 ]),
@@ -31,21 +31,21 @@ int valid_combine(string combo) { return combo=="sanyin-wugongzhao"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练抽髓掌必须空手。\n");
+		return notify_fail("練抽髓掌必須空手。\n");
 	if ((int)me->query_skill("huagong-dafa", 1) < 10)
-		return notify_fail("你的化功大法火候不够，无法练抽髓掌。\n");
+		return notify_fail("你的化功大法火候不夠，無法練抽髓掌。\n");
 	if ((int)me->query("max_neili") < 60)
-		return notify_fail("你的内力太弱，无法练抽髓掌。");
+		return notify_fail("你的內力太弱，無法練抽髓掌。");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 50)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 40)
-		return notify_fail("你的内力不够练抽髓掌。\n");
+		return notify_fail("你的內力不夠練抽髓掌。\n");
 	if (me->query_skill("chousui-zhang", 1) < 50)
 		me->receive_damage("qi", 45);
 	else
@@ -82,16 +82,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 10; }
@@ -108,12 +108,12 @@ int help(object me)
 	write(HIC"\n抽髓掌："NOR"\n");
 	write(@HELP
 
-    星宿派掌法，以腐尸毒名慑天下。
-    可与三阴蜈蚣爪互备。
+    星宿派掌法，以腐屍毒名懾天下。
+    可與三陰蜈蚣爪互備。
 
-	学习要求：
-		化功大法10级
-		内力60
+	學習要求：
+		化功大法10級
+		內力60
 HELP
 	);
 	return 1;

@@ -8,7 +8,7 @@ int main(object me, string arg)
  
 	seteuid(geteuid(me));
 	if (!arg || sscanf(arg, "%s %s", src, dst)!=2 ) return
-		notify_fail("指令格式: cp <原档名> <目标档名> \n");
+		notify_fail("指令格式: cp <原檔名> <目標檔名> \n");
 
 	src = resolve_path(me->query("cwd"), src);
 	dst = resolve_path(me->query("cwd"), dst);
@@ -21,16 +21,16 @@ int main(object me, string arg)
 	if( cp(src, dst) )
 		write("Ok.\n");
 	else
-		write("你没有足够的读写权利。\n");
+		write("你沒有足夠的讀寫權利。\n");
 	return 1;
 }
  
 int help(object me)
 {
   write(@HELP
-指令格式 : cp <原档名> <目标档名>
+指令格式 : cp <原檔名> <目標檔名>
  
-此指令可让你(你)拷贝档案。
+此指令可讓你(你)拷貝檔案。
 HELP
     );
     return 1;

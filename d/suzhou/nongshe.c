@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "农舍");
+        set("short", "農舍");
         set("long",@long
-这是一间普通的农舍，里面陈设相当简陋，顶上的茅草也不整齐，
-露出好几个天床。一位农夫正坐在门边抽旱烟。
+這是一間普通的農舍，裏面陳設相當簡陋，頂上的茅草也不整齊，
+露出好幾個天牀。一位農夫正坐在門邊抽旱菸。
 long);
 	set("outdoors", "suzhou");
 	set("exits",([

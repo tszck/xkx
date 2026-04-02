@@ -1,14 +1,14 @@
-// Npc: /d/nanshaolin/obj/tong-ren.c 铜人
+// Npc: /d/nanshaolin/obj/tong-ren.c 銅人
 // Last Modified by winder on May. 29 2001
 
 inherit NPC;
 
 void create()
 {
-	set_name("铜人", ({ "tong ren", "tong" }) );
+	set_name("銅人", ({ "tong ren", "tong" }) );
 	set("gender", "男性" );
 	set("age", 30);
-	set("long", "一个练功用的比武铜人，制作精巧，如同真人一般。\n");
+	set("long", "一個練功用的比武銅人，製作精巧，如同真人一般。\n");
 	set("attitude", "heroism");
 	set_weight(30000000);
 
@@ -50,13 +50,13 @@ int accept_fight(object ob)
 	me = this_object();
 	if (is_fighting()) return 0;
 	if ( (int)ob->query("combat_exp") < 400000)
-		return notify_fail("你的功力不够，不能用铜人练功！\n");
+		return notify_fail("你的功力不夠，不能用銅人練功！\n");
 
 	if (random(me->query("fight_times")) >= 10)
 		me->set("damaged", 1);
 
 	if (me->query("damaged"))
-		return notify_fail("这个铜人已经被打坏了！\n");	
+		return notify_fail("這個銅人已經被打壞了！\n");	
 
 	if (me->query("last_fighter") == ob->query("id"))
 		return 1;

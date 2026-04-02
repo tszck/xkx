@@ -8,9 +8,9 @@ int main(object me, string arg)
 
 	if( me!=this_player(1) ) return 0;
 	if( wiz_level(me) < wiz_level("(arch)") )
-		return notify_fail("你的巫师等级太低，没有使用这个指令的权力。\n");
+		return notify_fail("你的巫師等級太低，沒有使用這個指令的權力。\n");
 	if( !arg || arg=="" )
-		return notify_fail("指令格式：wizlock <巫师等级>\n");
+		return notify_fail("指令格式：wizlock <巫師等級>\n");
 
 	if( sscanf(arg, "%d", lvl)!=1 ) lvl = wiz_level(arg);
 	seteuid(getuid());
@@ -18,17 +18,17 @@ int main(object me, string arg)
 		write("Ok.\n");
 		return 1;
 	} else
-		return notify_fail("上线权限设定失败。\n");
+		return notify_fail("上線權限設定失敗。\n");
 }
 
 int help (object me)
 {
         write(@HELP
-指令格式: wizlock <巫师等级>
+指令格式: wizlock <巫師等級>
  
-限制某个等级以下的使用者进入游戏。
-其中巫师等级分别为 (immortal) (wizard) (arch) (admin), 若要取
-消限制, 则输入 (player).
+限制某個等級以下的使用者進入遊戲。
+其中巫師等級分別爲 (immortal) (wizard) (arch) (admin), 若要取
+消限制, 則輸入 (player).
  
 HELP
 );

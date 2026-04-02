@@ -6,8 +6,8 @@ void create()
 	set_name("一心向佛", ({ "qianqiu"}));
 	set("gender", "男性");
 	set("class", "bonze");
-	set("title", "轩辕教外务长老少林派第三十八代弟子");
-	set("nickname", "酒肉穿肠过佛祖心中坐");
+	set("title", "軒轅教外務長老少林派第三十八代弟子");
+	set("nickname", "酒肉穿腸過佛祖心中坐");
 	set("age", 56);
 	set("attitude", "friendly");
 

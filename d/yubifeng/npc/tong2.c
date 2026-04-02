@@ -8,7 +8,7 @@ void create()
 	set_name("右僮", ({ "you tong", "you", "tong" }) );
 	set("gender", "男性");
 	set("age", 13);
-	set("long","他是雪山飞狐胡斐的童子。\n");
+	set("long","他是雪山飛狐胡斐的童子。\n");
 	set("attitude", "friendly");
 	set("str", 20);
 	set("int", 20);

@@ -1,13 +1,13 @@
-//Room: bgschanfang.c 禅房
+//Room: bgschanfang.c 禪房
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 
 void create()
 {
-      set("short","禅房");
+      set("short","禪房");
       set("long",@LONG
-这儿是报国寺内的一间禅房，布局简单，供寺内和尚诵经修行之用。
+這兒是報國寺內的一間禪房，佈局簡單，供寺內和尚誦經修行之用。
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "east"    : __DIR__"dxdian",

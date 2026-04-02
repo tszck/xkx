@@ -3,7 +3,7 @@
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "缠云手"
+#define PNAME "纏雲手"
 int perform(object me, object target)
 {
 	string msg;
@@ -18,14 +18,14 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 		//空手兵器均可
 		
@@ -41,18 +41,18 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 30 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query("max_neili")< 300 )
-		return notify_fail("你的内力修为不够。\n"); 
+		return notify_fail("你的內力修爲不夠。\n"); 
 
 	if( (int)me->query("neili")< 200 )
-		return notify_fail("你的内力不够。\n"); 
+		return notify_fail("你的內力不夠。\n"); 
 
-	msg = HIW"$N"HIW"使出破云手的绝技「缠云手」，双手出手鬼祟，乘$n"HIW"劲力的空隙蓦地拍向$n"HIW"的全身要穴！\n"NOR;
+	msg = HIW"$N"HIW"使出破雲手的絕技「纏雲手」，雙手出手鬼祟，乘$n"HIW"勁力的空隙驀地拍向$n"HIW"的全身要穴！\n"NOR;
 	message_combatd(msg, me, target);
 	plvl = target->query_skill("parry",1),
 	hlvl = me->query_skill(bskill,1),
@@ -60,7 +60,7 @@ int perform(object me, object target)
 	me->add("neili", -100);
 	if( random(me->query("combat_exp")*(hlvl/20+1)) >	(int)target->query("combat_exp")*(plvl/50+1)) 
 	{
-		msg = HIW"$n结果被$N狂风暴雨般的双掌拍中要穴，立时顿觉真气大散！\n"NOR;
+		msg = HIW"$n結果被$N狂風暴雨般的雙掌拍中要穴，立時頓覺真氣大散！\n"NOR;
 		damage =40+random((int)me->query("str")*hlvl/10);
 		message_combatd(msg, me, target);
 		target->receive_damage("qi", damage,me);
@@ -68,7 +68,7 @@ int perform(object me, object target)
 		return 1;
 	} else
 	{
-		msg = HIG "结果$p看破了$P的企图，身行后跃，并没有上当。\n" NOR;
+		msg = HIG "結果$p看破了$P的企圖，身行後躍，並沒有上當。\n" NOR;
 		message_combatd(msg, me, target);
 	}
 	return 1;
@@ -82,13 +82,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损害敌手气血
+		損害敵手氣血
 
 	出手要求：
-		寒冰真气50级
-		破云手30级
-		内力修为300
-		内力200
+		寒冰真氣50級
+		破雲手30級
+		內力修爲300
+		內力200
 HELP
 	);
 	return 1;

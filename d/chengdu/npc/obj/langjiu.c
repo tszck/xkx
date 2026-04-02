@@ -10,8 +10,8 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一瓶郎酒，大概装得两斤的酒。\n");
-		set("unit", "个");
+		set("long", "一瓶郎酒，大概裝得兩斤的酒。\n");
+		set("unit", "個");
 		set("value", 200);
 		set("max_liquid", 15);
 	}

@@ -1,14 +1,14 @@
-// Room: chaopath2.c 朝阳峰小路
+// Room: chaopath2.c 朝陽峯小路
 //Date: Oct. 2 1997 by Venus
 
 inherit ROOM;
 
 void create()
 {
-	set("short","朝阳峰小路");
+	set("short","朝陽峯小路");
 	set("long",@LONG
-这里是朝阳峰小路，山势陡峭，两边下临深谷，一不小心都会掉了
-下去。西面有一条小路，长草没径。
+這裏是朝陽峯小路，山勢陡峭，兩邊下臨深谷，一不小心都會掉了
+下去。西面有一條小路，長草沒徑。
 LONG);
 	set("outdoors", "huashan");
 	set("exits",([ /* sizeof() == 1 */
@@ -38,6 +38,6 @@ int valid_leave(object me, string dir)
 		objectp(present("shi daizi", environment(me))) &&
 		(me->query("family/master_id")!="gao laozhe") &&
 		(me->query("family/master_id")!="ai laozhe"))
-		return notify_fail("施戴子喝道：上面是两位长老清修之处，这位" + RANK_D->query_respect(me) + "请止步！\n");
+		return notify_fail("施戴子喝道：上面是兩位長老清修之處，這位" + RANK_D->query_respect(me) + "請止步！\n");
 	return ::valid_leave(me, dir);
 }

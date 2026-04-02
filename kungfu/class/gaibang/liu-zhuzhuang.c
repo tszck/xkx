@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("刘竹庄", ({"liu zhuzhuang", "liu", "zhuzhuang"}));
+	set_name("劉竹莊", ({"liu zhuzhuang", "liu", "zhuzhuang"}));
 	set("gender", "男性");
 	set("age", 35);
-	set("long", "这是位武艺精强的丐帮五袋弟子。\n");
+	set("long", "這是位武藝精強的丐幫五袋弟子。\n");
 	set("attitude", "peaceful");
 	set("class", "beggar");
  	set("beggarlvl", 7);
@@ -48,10 +48,10 @@ void create()
 	map_skill("parry", "suohou-hand");
 	map_skill("dodge", "xiaoyaoyou");
 
-	set("party/party_name", HIC"丐帮"NOR);
+	set("party/party_name", HIC"丐幫"NOR);
 	set("party/rank", GRN"大智分舵"HIY"五袋弟子"NOR);
 	set("party/level", 5);
-	create_family("丐帮", 11, "弟子");
+	create_family("丐幫", 11, "弟子");
 	setup();
 
 	carry_object(WEAPON_DIR"gangdao")->wield();

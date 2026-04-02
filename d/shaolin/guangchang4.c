@@ -5,12 +5,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "精进场");
+	set("short", "精進場");
 	set("long", @LONG
-这是后殿前的精进场，广场青砖铺地，因为多年的踩踏而凹
-凸不平。前后各是两堵高墙，把整个广场夹在中间，形成一个窄
-窄的长方形。西边开了扇小门，一股香气袅袅地飘了过来。北面
-是个大门，几位僧人在此把守。
+這是後殿前的精進場，廣場青磚鋪地，因爲多年的踩踏而凹
+凸不平。前後各是兩堵高牆，把整個廣場夾在中間，形成一個窄
+窄的長方形。西邊開了扇小門，一股香氣嫋嫋地飄了過來。北面
+是個大門，幾位僧人在此把守。
 LONG );
 	set("exits", ([
 		"south" : __DIR__"guangchang3",
@@ -35,6 +35,6 @@ int valid_leave(object me, string dir)
 
 	if ((!myfam || myfam["family_name"] != "少林派") && dir == "northup" &&
 		objectp(present("hui kong", environment(me))))
-			return notify_fail("慧空喝道：你不是少林出家弟子，不得进入后殿。\n");
+			return notify_fail("慧空喝道：你不是少林出家弟子，不得進入後殿。\n");
 	return ::valid_leave(me, dir);
 }

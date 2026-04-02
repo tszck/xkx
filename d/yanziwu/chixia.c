@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "赤霞庄");
+	set("short", "赤霞莊");
 	set("long", @LONG
-这里是赤霞庄。庄上是慕容世家藏兵之所。慕容家自失国以来，三
-十世以降，皆不忘复国。这里的兵器足应一时之需。
-    庄外湖面正系着一尾小舟(zhou)。
+這裏是赤霞莊。莊上是慕容世家藏兵之所。慕容家自失國以來，三
+十世以降，皆不忘復國。這裏的兵器足應一時之需。
+    莊外湖面正繫着一尾小舟(zhou)。
 LONG );
 	set("outdoors", "yanziwu");
 	set("exits", ([
@@ -19,7 +19,7 @@ LONG );
 		CLASS_D("murong")+"/gongye" : 1,
 	]));
 	set("item_desc", ([
-		"zhou" : "这是赤霞庄和外界联系的小舟。舟上一个绿衫少女。岛上的客人只要\n登舟(enter)就可以离开了。\n",
+		"zhou" : "這是赤霞莊和外界聯繫的小舟。舟上一個綠衫少女。島上的客人只要\n登舟(enter)就可以離開了。\n",
 	]));
 	set("coor/x", 820);
 	set("coor/y", -1850);
@@ -40,15 +40,15 @@ int do_enter(string arg)
 	 	return 1 ;
 	}
 	ob = this_player();
-message_vision("船上一个秀美温柔的江南少女看到$N登舟，竹篙轻点，舟已
-离岸，赤霞庄渐渐在视野里远去。\n", ob);
+message_vision("船上一個秀美溫柔的江南少女看到$N登舟，竹篙輕點，舟已
+離岸，赤霞莊漸漸在視野裏遠去。\n", ob);
 	ob ->move(__DIR__"taihu") ;
-	tell_object(ob, HIG "你在湖上飘流，四周看不尽的江南美景。\n" NOR ) ;
+	tell_object(ob, HIG "你在湖上飄流，四周看不盡的江南美景。\n" NOR ) ;
 	call_out("home", 10 , ob );
 	return 1 ;
 }
 void home( object ob )
 {
-	tell_object(ob , "小舟终于恋恋不舍地靠岸了。你走下小舟来。少女挥手依依道别。\n" ) ;
+	tell_object(ob , "小舟終於戀戀不捨地靠岸了。你走下小舟來。少女揮手依依道別。\n" ) ;
 	ob->move (__DIR__"muti") ;
 }

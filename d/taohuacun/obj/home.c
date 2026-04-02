@@ -24,10 +24,10 @@ int is_home() {return 1;}
 void create()
 {
 	 set_name("新房",({"room"}));
-	 set("short", "标准新房");
+	 set("short", "標準新房");
 	 set("long", @LONG
 
-一切都设置好了，只等一些室内装修。
+一切都設置好了，只等一些室內裝修。
 LONG
 	 );
 	 set("home_host",({"def_host"}));
@@ -94,22 +94,22 @@ void init()
 				 }
 				 if(!k)
 				 {
-					 write("主人不在家，您还是呆会儿再来吧。\n");
+					 write("主人不在家，您還是呆會兒再來吧。\n");
 					 me->move(out,1);
-					 tell_room(out,me->query("name")+"失望地走了出来。\n",({me}));
+					 tell_room(out,me->query("name")+"失望地走了出來。\n",({me}));
 					 return;
 				 }
 			 }
 			 else
 			 {
-				 tell_object(me, "啊哈！ 闯进来了！\n");
-				 tell_object(me, "某某飞起一脚，正好踢中你的屁股 。\n");
-				 tell_object(me, "某某飞起一脚，正好踢中你的屁股 。\n");
+				 tell_object(me, "啊哈！ 闖進來了！\n");
+				 tell_object(me, "某某飛起一腳，正好踢中你的屁股 。\n");
+				 tell_object(me, "某某飛起一腳，正好踢中你的屁股 。\n");
 				 me->move(out,1);
-				 tell_room(out,me->query("name")+"似乎被人一脚踢了出来，神色有点狼狈。\n", ({me}));
+				 tell_room(out,me->query("name")+"似乎被人一腳踢了出來，神色有點狼狽。\n", ({me}));
 				 return;
 			 }
-			 tell_room(env,me->query("name")+"拉开门，走了进来。\n",({me}));
+			 tell_room(env,me->query("name")+"拉開門，走了進來。\n",({me}));
 		 }
 		 add_action("do_bed", "gosleep");
 		 add_action("do_bed", "gobed" );
@@ -141,18 +141,18 @@ int do_invite(string arg)
 	if (sscanf(arg,"-d %s",arg)==1)
 	{
 		if (!sizeof(r_invited) || member_array(arg,r_invited)== -1)
-			return notify_fail(arg+"并没有在邀请名单上。\n");
-		write("从邀请名单上删除"+arg+"...");
+			return notify_fail(arg+"並沒有在邀請名單上。\n");
+		write("從邀請名單上刪除"+arg+"...");
 		r_invited -= ({arg});
 		write("成功。\n");
 		return list_invite();
 	}
 	if (  sizeof(r_invited)>0 && member_array(arg,r_invited) > -1  )
-		return notify_fail(arg+"已经在邀请名单上了。\n");
-    write("添加"+arg+"到邀请名单。\n");
+		return notify_fail(arg+"已經在邀請名單上了。\n");
+    write("添加"+arg+"到邀請名單。\n");
 	if (who=find_player(arg))
-    tell_object(who,me->query("name")+"("+me->query("id")+")告诉你：到我的"+home->query("short")+"看看吧。\n");
-//记录在本房间
+    tell_object(who,me->query("name")+"("+me->query("id")+")告訴你：到我的"+home->query("short")+"看看吧。\n");
+//記錄在本房間
 	if (!sizeof(r_invited))
 		r_invited = ({arg});
 	else if ( member_array(arg,r_invited) == -1 )
@@ -166,9 +166,9 @@ int list_invite()
 	int size;
 	int i;
 	if (!sizeof(r_invited))
-	 return notify_fail("没有任何人在家里的邀请名单上。\n");
+	 return notify_fail("沒有任何人在家裏的邀請名單上。\n");
   size=sizeof(r_invited);
-  write("家里目前邀请的人员为：("+implode(r_invited[0..size-1],"、")+")\n");
+  write("家裏目前邀請的人員爲：("+implode(r_invited[0..size-1],"、")+")\n");
   return 1;
 }
 
@@ -179,7 +179,7 @@ int do_findbaby()
 	string myid,*babyid;
 
 	number=me->query("child");
-	if(number==0) return notify_fail("您还没有生下孩子呢。:)\n");
+	if(number==0) return notify_fail("您還沒有生下孩子呢。:)\n");
 
 	myid=me->query("id");
 
@@ -199,7 +199,7 @@ int do_findbaby()
 					if(where)
 					{
 						found=1;
-						write(list[j]->query("name")+"现在在");
+						write(list[j]->query("name")+"現在在");
 						if(where->query("short"))
 						{
 							write(where->query("short"));
@@ -239,7 +239,7 @@ int do_findbaby()
 					baby->set_name(me->query("child_"+i+"/name"),babyid);
 					baby->update_me();
 					baby->move(environment(me));
-					message_vision("你忽然看到床底下"+ ({"探出一颗小脑瓜","伸出一双小脚丫","伸出一支小手"})[random(3)]+"．．．\n",me);
+					message_vision("你忽然看到牀底下"+ ({"探出一顆小腦瓜","伸出一雙小腳丫","伸出一支小手"})[random(3)]+"．．．\n",me);
 				}
 			}
 			else
@@ -298,16 +298,16 @@ int do_bed()
 {
 	object me=this_player(),bed;
 		 if (member_array(me->query("id"),this_object()->query("home_host")) == -1)
-		  return notify_fail("别人家里的床看看就好了，爬上去主人会生气的。\n");
+		  return notify_fail("別人家裏的牀看看就好了，爬上去主人會生氣的。\n");
 	bed=find_bed(me);
-	message_vision(HIY "$N掀开纱帐，准备上床了。\n\n" NOR, me);
+	message_vision(HIY "$N掀開紗帳，準備上牀了。\n\n" NOR, me);
 	if(!me->move(bed))
 	{
-		write(HIY "床上已经挤不下了！\n" NOR);
+		write(HIY "牀上已經擠不下了！\n" NOR);
 	}
 	else
 	{
-		message_vision(HIY "\n沙帐轻轻一动，$N钻了进来。\n" NOR, me);
+		message_vision(HIY "\n沙帳輕輕一動，$N鑽了進來。\n" NOR, me);
 	}
 	return 1;
 }
@@ -322,7 +322,7 @@ int save_room()
 	string file;
 
 	file=this_object()->query_save_file();
-	write("存档 ．．．．．\n");
+	write("存檔 ．．．．．\n");
 	if( save() )
 	{
 		write("Ok.\n");
@@ -330,7 +330,7 @@ int save_room()
 	}
 	else
 	{
-		write("你没有写入这个档案的权利。\n");
+		write("你沒有寫入這個檔案的權利。\n");
 		return 0;
 	}
 }
@@ -338,9 +338,9 @@ int save_room()
 int go_out()
 {
 	object me=this_player();
-	tell_room(this_object(),me->query("name")+"推开门，走了出去。\n",({me}));
+	tell_room(this_object(),me->query("name")+"推開門，走了出去。\n",({me}));
 	me->move(out);
-	message_vision("$N推开门，走了出来。\n",me);
+	message_vision("$N推開門，走了出來。\n",me);
 	return 1;
 }
 

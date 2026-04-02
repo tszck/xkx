@@ -11,10 +11,10 @@ void delete_served(object me);
 
 void create()
 {
-	set("short", "厨房");
+	set("short", "廚房");
 	set("long", @LONG
-这里是昆仑弟子用餐的地方。由于天长日久，墙壁都被烟熏黑了。
-屋里摆着几张桌椅，几位昆仑弟子正在大吃大喝，行酒猜拳。
+這裏是崑崙弟子用餐的地方。由於天長日久，牆壁都被煙燻黑了。
+屋裏擺着幾張桌椅，幾位崑崙弟子正在大喫大喝，行酒猜拳。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"jiuqulang7",
@@ -48,25 +48,25 @@ int do_tap(string arg)
 
 	if (!arg || (arg != "desk" && arg != "table"))
 	{
-		return notify_fail("你要敲什么？\n");
+		return notify_fail("你要敲什麼？\n");
 	}
 
 	me = this_player();
 	if( !objectp(cui = present("pu ren", environment(me))) )
-		return notify_fail("你敲了敲桌子，却还是没人理你。你突然感觉自己很无聊。\n");
+		return notify_fail("你敲了敲桌子，卻還是沒人理你。你突然感覺自己很無聊。\n");
 
 	if( !me->query_temp("marks/sit") )
-		return notify_fail("你敲了敲桌子，却没想到有对年轻人从桌底下钻出来，愕然地看着你，"
-			+"\n你突然感觉自己很愚蠢。\n");
+		return notify_fail("你敲了敲桌子，卻沒想到有對年輕人從桌底下鑽出來，愕然地看着你，"
+			+"\n你突然感覺自己很愚蠢。\n");
 
 	 if( me->query_temp("marks/served") )
 	 {
-		  message_vision("仆人不耐烦地对$N说道：刚给你上过茶你接着就要，"+
+		  message_vision("僕人不耐煩地對$N說道：剛給你上過茶你接着就要，"+
 				"你不累可我累啊！\n", me);
 		  return notify_fail("");
 	 }
 
-	message_vision("$N端坐在桌前，轻轻扣了下桌面，仆人连忙过来招呼。\n", me);
+	message_vision("$N端坐在桌前，輕輕釦了下桌面，僕人連忙過來招呼。\n", me);
 
 	cui->serve_tea(me) ;
 
@@ -88,13 +88,13 @@ int do_sit(string arg)
 {
 
 	if ( !arg || (arg != "chair") )
-		return notify_fail("你要坐什么上面？\n");
+		return notify_fail("你要坐什麼上面？\n");
 
 	if (this_player()->query_temp("marks/sit"))
-		return notify_fail("你已经有了个座位了。\n");
+		return notify_fail("你已經有了個座位了。\n");
 
 	this_player()->set_temp("marks/sit", 1);
-	return notify_fail("你找了个空位座下，等着上茶。\n");
+	return notify_fail("你找了個空位座下，等着上茶。\n");
 }
 
 
@@ -110,11 +110,11 @@ int valid_leave(object me, string dir)
 	switch ( random(2) )
 	{
 	case 0:
-		message_vision("仆人伸手拦住了$N：还是先把东西吃完了再走吧。",me);
+		message_vision("僕人伸手攔住了$N：還是先把東西喫完了再走吧。",me);
 		return notify_fail("\n");
 		break;
 	case 1:
-		message_vision("仆人拦住$N道：何掌门吩咐，饮食不得带出茶房。",me);
+		message_vision("僕人攔住$N道：何掌門吩咐，飲食不得帶出茶房。",me);
 		return notify_fail("\n");
 		break;
 	}

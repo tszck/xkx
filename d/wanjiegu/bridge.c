@@ -5,12 +5,12 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "铁索桥");
+        set("short", "鐵索橋");
         set("long", @LONG
-一座横跨澜沧江的铁索桥，此桥共有四道铁索，两条在下，上
-铺木板，以供行走，两条在旁，作为扶手。一踏上桥，几条铁索便
-即晃动。江水荡荡，如快马奔腾从脚底飞过，只要一个失足，卷入
-江水，任你多好的水性也难活命。
+一座橫跨瀾滄江的鐵索橋，此橋共有四道鐵索，兩條在下，上
+鋪木板，以供行走，兩條在旁，作爲扶手。一踏上橋，幾條鐵索便
+即晃動。江水蕩蕩，如快馬奔騰從腳底飛過，只要一個失足，捲入
+江水，任你多好的水性也難活命。
 LONG
         );
         set("outdoors", "wanjiegu");
@@ -37,19 +37,19 @@ int valid_leave(object me, string dir)
             case 0: 
             inv = all_inventory(me);
                     if( !sizeof(inv) ) {
-                        message_vision(HIW "$N在桥上晃了一下，差点儿掉入汹涌的澜沧江中！\n" NOR,me);
+                        message_vision(HIW "$N在橋上晃了一下，差點兒掉入洶湧的瀾滄江中！\n" NOR,me);
                         return notify_fail("");
                     } else {
                         i = random ( sizeof(inv) );
                         if(! inv[i]->query("no_drop") && !userp(inv[i])) {
-                           message_vision(HIW "$N在桥上一晃，身上的"+inv[i]->name()+HIW+"掉入了澜沧江之中！\n" NOR,me);
+                           message_vision(HIW "$N在橋上一晃，身上的"+inv[i]->name()+HIW+"掉入了瀾滄江之中！\n" NOR,me);
                            destruct(inv[i]);
                            return notify_fail("");
                         }
                     }
             case 1:
             case 2:  
-            message_vision( HIW "$N在桥上晃了一下，差点儿掉入汹涌的澜沧江中！\n" NOR,me);
+            message_vision( HIW "$N在橋上晃了一下，差點兒掉入洶湧的瀾滄江中！\n" NOR,me);
             return notify_fail("");
             default: return 1;
         }

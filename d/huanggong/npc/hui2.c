@@ -5,8 +5,8 @@ inherit NPC;
 void create()
 {
 	set_name("明妃", ({ "ming hui", "hui"}));
-	set("long", "她长得极美，尤其是那对眼睛，媚得直可以勾人魂魄。\n");
-	set("title", "皇贵妃");
+	set("long", "她長得極美，尤其是那對眼睛，媚得直可以勾人魂魄。\n");
+	set("title", "皇貴妃");
 	set("gender", "女性");
 	set("age", 17);
 	set("per", 28);

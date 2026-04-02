@@ -4,12 +4,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("华师傅", ({ "hua shifu", "hua" }));
+	set_name("華師傅", ({ "hua shifu", "hua" }));
 	set("gender", "男性");
 	set("age", 65);
 	set("long", 
-"他是镖局中的厨子，烹饪功夫著实不差，几位冬瓜盅、佛跳墙、糟鱼、肉
-皮馄饨，驰誉福州，是林震南结交达官富商的本钱之一。\n");
+"他是鏢局中的廚子，烹飪功夫著實不差，幾位冬瓜盅、佛跳牆、糟魚、肉
+皮餛飩，馳譽福州，是林震南結交達官富商的本錢之一。\n");
 	set("combat_exp", 10000);
 	set("shen_type", 1);
 

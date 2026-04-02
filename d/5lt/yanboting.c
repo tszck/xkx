@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "演播厅");
+	set("short", "演播廳");
 	set("long", @LONG
-这里是电视台的多功能演播厅。导播、摄像、灯光、主持、嘉宾，
-一个个忙得不可开交。
+這裏是電視臺的多功能演播廳。導播、攝像、燈光、主持、嘉賓，
+一個個忙得不可開交。
 LONG	);
 	set("outdoors", "5lt");
 	set("exits", ([

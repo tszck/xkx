@@ -5,15 +5,15 @@ inherit NPC;
 
 void create()
 {
-	set_name("细胳膊鹿", ({ "singleblue" }));
-	set("title", HIM"电视台秘书"NOR);
+	set_name("細胳膊鹿", ({ "singleblue" }));
+	set("title", HIM"電視臺祕書"NOR);
 	set("shen_type", 1);
 
 	set("gender", "女性" );
 	set("long", @LONG
-细胳膊鹿懒得理你，继续埋头写作业。
+細胳膊鹿懶得理你，繼續埋頭寫作業。
 LONG);
-	set("nickname", HIW"脑子有小包"NOR);
+	set("nickname", HIW"腦子有小包"NOR);
 	set("age", 20);
 	set("per", 30);
 	set("attitude", "friendly");		

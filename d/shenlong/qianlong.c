@@ -1,4 +1,4 @@
-// /d/shenlong/qianlong 潜龙堂
+// /d/shenlong/qianlong 潛龍堂
 // Last Modified by winder on Jul. 12 2002
 
 #include <ansi.h>
@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "潜龙堂");
+	set("short", "潛龍堂");
 	set("long", @LONG
-这是神龙教的潜龙堂，居中两张大竹椅，下面设了五张板凳，教主
-和五龙使常在此商量密事，这儿非教主允许是不可以进入此地的。
+這是神龍教的潛龍堂，居中兩張大竹椅，下面設了五張板凳，教主
+和五龍使常在此商量密事，這兒非教主允許是不可以進入此地的。
 LONG
 	);
 	set("exits", ([
@@ -26,12 +26,12 @@ void init()
 {
 	object *inv, me = this_player();
 
-	if( !(me->query("family/family_name") == "神龙教" ||
+	if( !(me->query("family/family_name") == "神龍教" ||
 		me->query("sg/spy")) )
 	{
 		inv = all_inventory(this_object());
 		for(int i = 0; i < sizeof(inv); i++ )
-			if( (inv[i]->query("family/family_name") == "神龙教" ||
+			if( (inv[i]->query("family/family_name") == "神龍教" ||
 				inv[i]->query("sg/spy")) && living(inv[i]) )
 				inv[i]->kill_ob(me);
 		me->start_busy(1);

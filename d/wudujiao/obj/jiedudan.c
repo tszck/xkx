@@ -4,9 +4,9 @@ inherit F_FOOD;
 #include <ansi.h>
 
 string *names = ({
-	"红色解毒丹",
-	"黄色解毒丹",
-	"绿色解毒丹",
+	"紅色解毒丹",
+	"黃色解毒丹",
+	"綠色解毒丹",
 	"白色解毒丹",
 	"黑色解毒丹",
 });
@@ -25,8 +25,8 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一颗米粒大小的丹丸。\n");
-		set("unit", "颗");
+		set("long", "一顆米粒大小的丹丸。\n");
+		set("unit", "顆");
 		set("value", 20000);
 		set("food_remaining", 5);
 		set("food_supply", 35);
@@ -46,9 +46,9 @@ void init()
 int do_eat(string arg)
 {
 	object me=this_player();
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if(arg=="red dan" ||
 		arg=="yellow dan" ||
 		arg=="green dan" ||
@@ -56,37 +56,37 @@ int do_eat(string arg)
 		arg=="black dan")
 	{
 		object ob = this_object();
-		if((string)ob->query("name")=="红色解毒丹" && arg=="red dan")
+		if((string)ob->query("name")=="紅色解毒丹" && arg=="red dan")
 		{
 			if((int)this_player()->query_condition("snake_poison") <1)
-				tell_object(this_player(), HIG "你吃下一棵红色解毒丹，但似乎没有什么效果！\n" NOR );
+				tell_object(this_player(), HIG "你喫下一棵紅色解毒丹，但似乎沒有什麼效果！\n" NOR );
 			else
 			{
-				tell_object(this_player(), HIG "你只觉一股清香沁入心肺，顿时灵台一片空明，神意清爽！\n" NOR );
+				tell_object(this_player(), HIG "你只覺一股清香沁入心肺，頓時靈臺一片空明，神意清爽！\n" NOR );
 				this_player()->apply_condition("snake_poison", 0);
 			}
 			destruct(this_object());
 			return 1;
 		}
-		if((string)ob->query("name")=="黄色解毒丹" && arg=="yellow dan")
+		if((string)ob->query("name")=="黃色解毒丹" && arg=="yellow dan")
 		{
 			if((int)this_player()->query_condition("wugong_poison") <1)
-			tell_object(this_player(), HIG "你吃下一棵黄色解毒丹，但似乎没有什么效果！\n" NOR );
+			tell_object(this_player(), HIG "你喫下一棵黃色解毒丹，但似乎沒有什麼效果！\n" NOR );
 			else
 			{
-				tell_object(this_player(), HIG "你只觉一股清香沁入心肺，顿时灵台一片空明，神意清爽！\n" NOR );
+				tell_object(this_player(), HIG "你只覺一股清香沁入心肺，頓時靈臺一片空明，神意清爽！\n" NOR );
 				this_player()->apply_condition("wugong_poison", 0);
 			}
 			destruct(this_object());
 			return 1;
 		}
-		if((string)ob->query("name")=="绿色解毒丹"& arg=="green dan")
+		if((string)ob->query("name")=="綠色解毒丹"& arg=="green dan")
 		{
 			if((int)this_player()->query_condition("zhizhu_poison") <1)
-				tell_object(this_player(), HIG "你吃下一棵绿色解毒丹，但似乎没有什么效果！\n" NOR );
+				tell_object(this_player(), HIG "你喫下一棵綠色解毒丹，但似乎沒有什麼效果！\n" NOR );
 			else
 			{
-				tell_object(this_player(), HIG "你只觉一股清香沁入心肺，顿时灵台一片空明，神意清爽！\n" NOR );
+				tell_object(this_player(), HIG "你只覺一股清香沁入心肺，頓時靈臺一片空明，神意清爽！\n" NOR );
 				this_player()->apply_condition("zhizhu_poison", 0);
 			}
 			destruct(this_object());
@@ -95,10 +95,10 @@ int do_eat(string arg)
 		if((string)ob->query("name")=="白色解毒丹"& arg=="white dan")
 		{
 			if((int)this_player()->query_condition("xiezi_poison") <1)
-				tell_object(this_player(), HIG "你吃下一棵白色解毒丹，但似乎没有什么效果！\n" NOR );
+				tell_object(this_player(), HIG "你喫下一棵白色解毒丹，但似乎沒有什麼效果！\n" NOR );
 			else
 			{
-				tell_object(this_player(), HIG "你只觉一股清香沁入心肺，顿时灵台一片空明，神意清爽！\n" NOR );
+				tell_object(this_player(), HIG "你只覺一股清香沁入心肺，頓時靈臺一片空明，神意清爽！\n" NOR );
 				this_player()->apply_condition("xiezi_poison", 0);
 			}
 			destruct(this_object());
@@ -107,10 +107,10 @@ int do_eat(string arg)
 		if((string)ob->query("name")=="黑色解毒丹"& arg=="black dan")
 		{
 			if((int)this_player()->query_condition("chanchu_poison") <1)
-				tell_object(this_player(), HIG "你吃下一棵黑色解毒丹，但似乎没有什么效果！\n" NOR );
+				tell_object(this_player(), HIG "你喫下一棵黑色解毒丹，但似乎沒有什麼效果！\n" NOR );
 			else
 			{
-				tell_object(this_player(), HIG "你只觉一股清香沁入心肺，顿时灵台一片空明，神意清爽！\n" NOR );
+				tell_object(this_player(), HIG "你只覺一股清香沁入心肺，頓時靈臺一片空明，神意清爽！\n" NOR );
 				this_player()->apply_condition("chanchu_poison", 0);
 			}
 			destruct(this_object());

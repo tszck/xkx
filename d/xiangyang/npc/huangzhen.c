@@ -4,12 +4,12 @@ inherit F_BANKER;
 #include <ansi.h>
 void create()
 {
-        set_name("黄真", ({"huang zhen", "zhen", "huang"}));
-        set("nickname", HIY"铜笔铁算盘"NOR);
+        set_name("黃真", ({"huang zhen", "zhen", "huang"}));
+        set("nickname", HIY"銅筆鐵算盤"NOR);
         set("gender", "男性");
 
         set("age", 59);
-        set("long","黄真是神剑仙猿穆人清的开门大弟子，也是这个钱庄的老板，管理襄阳军饷。\n");
+        set("long","黃真是神劍仙猿穆人清的開門大弟子，也是這個錢莊的老闆，管理襄陽軍餉。\n");
         set("attitude", "peaceful");
         set("per", 21);
         set("str", 26);
@@ -57,7 +57,7 @@ void create()
         prepare_skill("cuff", "poyu-quan");
         prepare_skill("strike", "huntian-zhang");
 
-        create_family("华山派", 21, "弟子");
+        create_family("華山派", 21, "弟子");
 
         setup();
 

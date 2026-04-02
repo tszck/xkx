@@ -1,16 +1,16 @@
-// yunbao.c 云豹
+// yunbao.c 雲豹
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-        set_name("云豹", ({ "yun bao", "bao" }) );
-	set("race", "走兽");
+        set_name("雲豹", ({ "yun bao", "bao" }) );
+	set("race", "走獸");
         set("gender", "雌性");
         set("age", 5);
         set("long", @LONG
-这是一只艾叶花皮的云豹，它的毛皮极为雄美、厚实。
+這是一隻艾葉花皮的雲豹，它的毛皮極爲雄美、厚實。
 LONG);
         set("attitude", "aggressive");
         set("shen_type", -1);
@@ -32,7 +32,7 @@ LONG);
 void die()
 {
 	object ob, corpse;
-	message_vision("$N发出震天动地的一声大吼，轰地倒在地上，死了！\n", this_object());
+	message_vision("$N發出震天動地的一聲大吼，轟地倒在地上，死了！\n", this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 	ob = new("/clone/medicine/vegetable/baotai");
 	ob->move(corpse);

@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "大门");
+	set("short", "大門");
 	set("long", @LONG
-你来到一栋大屋前，大门口进进出出的都是一身乞丐打扮，于是你
-突然醒悟，这里就是江湖中的丐儿帮吧。大门破破旧旧的，久经风雨的
-横梁发黑开裂，长上了绿苔，只有两个铜门环磨蹭得金光闪闪。
+你來到一棟大屋前，大門口進進出出的都是一身乞丐打扮，於是你
+突然醒悟，這裏就是江湖中的丐兒幫吧。大門破破舊舊的，久經風雨的
+橫樑發黑開裂，長上了綠苔，只有兩個銅門環磨蹭得金光閃閃。
 LONG );
 	set("outdoors", "yueyang");
 	set("exits", ([
@@ -30,9 +30,9 @@ int valid_leave(object me, string dir)
 	mapping myfam;
 	myfam = (mapping)me->query("family");
 
-	if ((!myfam || myfam["family_name"] != "丐帮") && dir == "north" &&
+	if ((!myfam || myfam["family_name"] != "丐幫") && dir == "north" &&
 		objectp(present("xi zhanglao", environment(me))))
-		return notify_fail("奚长老拦住你说：此处乃本帮禁地，请止步。\n");
+		return notify_fail("奚長老攔住你說：此處乃本幫禁地，請止步。\n");
 
 	return ::valid_leave(me, dir);
 }

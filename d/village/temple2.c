@@ -4,7 +4,7 @@ void create()
 {
         set("short", "小棚子");
         set("long", @LONG
-这是一个临时搭起来的小棚子。
+這是一個臨時搭起來的小棚子。
 LONG);
         set("exits", ([ /* sizeof() == 1 */
             "west" : __DIR__"temple1",

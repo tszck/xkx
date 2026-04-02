@@ -4,10 +4,10 @@ inherit  ROOM;
 
 void  create  ()
 {
-	set("short",  "关洛道");
+	set("short",  "關洛道");
 	set("long",  @LONG
-这是一条宽阔笔直的官道，足可容得下十马并驰。往东通向六朝古
-都，天心之麓的洛阳城。
+這是一條寬闊筆直的官道，足可容得下十馬並馳。往東通向六朝古
+都，天心之麓的洛陽城。
 LONG);
 	set("exits",  ([  /*  sizeof()  ==  2  */
 		"east"  :  "/d/luoyang/westgate",

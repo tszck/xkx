@@ -4,9 +4,9 @@
 inherit ROOM;
 void create()
 {
-        set("short", "法镜寺");
+        set("short", "法鏡寺");
         set("long", @LONG
-法镜寺建在小溪旁，格外的幽雅。进香的游客不时的进进出出。
+法鏡寺建在小溪旁，格外的幽雅。進香的遊客不時的進進出出。
 南上往中天竺。朝北是下山的路。
 LONG);
         set("exits", ([

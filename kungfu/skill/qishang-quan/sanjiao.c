@@ -1,10 +1,10 @@
-// sanjiao.c 三焦齐逆诀
+// sanjiao.c 三焦齊逆訣
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME "「" HIR "三焦齐逆诀" NOR "」"
+#define PNAME "「" HIR "三焦齊逆訣" NOR "」"
 int perform(object me,object target)
 {
 	string msg;
@@ -20,17 +20,17 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (objectp(weapon = me->query_temp("weapon")))
-		return notify_fail("你必须空手才能使用「三焦齐逆诀」。\n");
+		return notify_fail("你必須空手才能使用「三焦齊逆訣」。\n");
 		
 	fskill = "jiuyang-shengong";
 	bskill = "cuff";
@@ -44,20 +44,20 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 200 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不足，不能随便使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不足，不能隨便使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 200 )
-		return notify_fail("你的"+to_chinese(sskill)+"的修为不够，不能够体会"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"的修爲不夠，不能夠體會"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 200 )
-		return notify_fail("你的"+to_chinese(bskill)+"还不到家，无法体现七伤拳的"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"還不到家，無法體現七傷拳的"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 2000 )
-		return notify_fail("你的内力还不够高！\n");
+		return notify_fail("你的內力還不夠高！\n");
 
 	skill = me->query_skill(bskill,1) + me->query_skill("force",1);
 
-	msg = HIY"$N凝神定气，企图使出七伤拳总诀中的「" HIR "三焦齐逆诀" HIY "」，将敌方招数反弹！\n"NOR;
+	msg = HIY"$N凝神定氣，企圖使出七傷拳總訣中的「" HIR "三焦齊逆訣" HIY "」，將敵方招數反彈！\n"NOR;
 
 	ap = me->query("combat_exp") + skill * 400;
 	dp = target->query("combat_exp") / 3;
@@ -66,7 +66,7 @@ int perform(object me,object target)
 	{
 		if(userp(me)) me->add("neili",-500);
 
-		msg += HIG "$n只觉得胸前一阵剧痛，“哇”的一声喷出一口鲜血！\n"NOR;
+		msg += HIG "$n只覺得胸前一陣劇痛，“哇”的一聲噴出一口鮮血！\n"NOR;
 		neili_wound = 100 + random(skill);
 		qi_wound = neili_wound ;
 		if(qi_wound > target->query("qi"))
@@ -81,7 +81,7 @@ int perform(object me,object target)
 	}
 	else
 	{
-		msg+=HIG "只见$n不慌不忙，轻轻一闪，躲过了$N的必杀一击！\n"NOR;
+		msg+=HIG "只見$n不慌不忙，輕輕一閃，躲過了$N的必殺一擊！\n"NOR;
 		if(userp(me)) me->add("neili",-200);
 		me->start_busy(4);
 	}
@@ -98,15 +98,15 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
-		减损对方内力
-		迟滞对方出手
+		損傷對方氣血
+		減損對方內力
+		遲滯對方出手
 
 	出手要求：
-		九阳神功200级
-		基本拳法200级
-		七伤拳200级
-		内力2000
+		九陽神功200級
+		基本拳法200級
+		七傷拳200級
+		內力2000
 HELP
 	);
 	return 1;

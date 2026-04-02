@@ -12,7 +12,7 @@ void create()
 {
 	set_name("洪安通", ({ "hong antong", "hong", "antong" }));
 	set("nickname", HIR "永享仙福" NOR);
-	set("long","他年纪甚老，白鬓垂胸，脸上都是伤疤皱纹，丑陋之极。可他就是武功盖世、令江湖人等谈之色变的神龙教教主洪安通。\n");
+	set("long","他年紀甚老，白鬢垂胸，臉上都是傷疤皺紋，醜陋之極。可他就是武功蓋世、令江湖人等談之色變的神龍教教主洪安通。\n");
 	set("gender", "男性");
 	set("age", 70);
 	set("attitude", "friendly");
@@ -63,24 +63,24 @@ void create()
 	map_skill("parry", "yingxiong-sanzhao");
 	prepare_skill("finger", "yingxiong-sanzhao");
 	prepare_skill("hand", "shenlong-bashi");
-	set("party/party_name", HIY"神龙教"NOR);
+	set("party/party_name", HIY"神龍教"NOR);
 	set("party/rank", HIM"教主"NOR);
 	set("party/level", 3);
-	create_family("神龙教",1,"弟子");
+	create_family("神龍教",1,"弟子");
 	set("count", 1);
 
 	set("inquiry", ([
-		"神龙教" : "\n一般人是入不了我神龙教的(join shenlongjiao)。\n",
-		"入教"   : "\n一般人是入不了我神龙教的(join shenlongjiao)。\n",
+		"神龍教" : "\n一般人是入不了我神龍教的(join shenlongjiao)。\n",
+		"入教"   : "\n一般人是入不了我神龍教的(join shenlongjiao)。\n",
 		"洪安通" : "\n你不想活了是不是？\n",
-		"教主"   : "\n我就是神龙教教主。\n",
-		"口号"   : "\n万年不老！永享仙福！寿与天齐！文武仁圣！\n",
+		"教主"   : "\n我就是神龍教教主。\n",
+		"口號"   : "\n萬年不老！永享仙福！壽與天齊！文武仁聖！\n",
 		"掘地"   : "\n你想掘地啊，那得要工具。\n",
 		"陷阱"   : "\n你想掘地啊，那得要工具。\n",
 		"工具"   : (: ask_tool :),
 		"tool"   : (: ask_tool :),
-		"铁锹"   : (: ask_tool :),
-		"神龙锹" : (: ask_tool :),
+		"鐵鍬"   : (: ask_tool :),
+		"神龍鍬" : (: ask_tool :),
 		"qiao"   : (: ask_tool :),
 	]) );
 	set("no_get",1);
@@ -88,8 +88,8 @@ void create()
 	set("chat_msg_combat", ({
 		(: command("smile") :),
 		(: command("haha") :),
-		(: command("say 凭你这点脓水，也敢在太岁爷头上动土？\n") :),
-		(: command("say 你活得不耐烦了找死啊？\n") :),
+		(: command("say 憑你這點膿水，也敢在太歲爺頭上動土？\n") :),
+		(: command("say 你活得不耐煩了找死啊？\n") :),
 		(: perform_action, "finger.yingxiong" :),
 		(: perform_action, "staff.chang" :),
 		(: perform_action, "staff.chang2" :),
@@ -108,7 +108,7 @@ int recognize_apprentice(object me)
 	if( me->query("learnhong")) return 1;
 	if ((int)me->query("shen") > -1000)
 	{
-		command("say 我越看你越象白道派来卧底的。");
+		command("say 我越看你越象白道派來臥底的。");
 			this_object()->set_leader(me);
 			remove_call_out("kill_ob");
 			call_out("kill_ob", 1, me); 
@@ -116,7 +116,7 @@ int recognize_apprentice(object me)
 	}
 	if( me->query_temp("pending/flatter") )
 	{
-		command("say 你如此不把我放在眼里，我又怎能容你？!");
+		command("say 你如此不把我放在眼裏，我又怎能容你？!");
 			this_object()->set_leader(me);
 			remove_call_out("kill_ob");
 			call_out("kill_ob", 1, me); 
@@ -124,8 +124,8 @@ int recognize_apprentice(object me)
 	}
 	else
 	{
-		command("say 我洪安通比起古往今来的圣人怎么样啊？");
-		message_vision("洪安通微闭双眼，手捻长须，一副等人拍马(flatter)的样子。\n",
+		command("say 我洪安通比起古往今來的聖人怎麼樣啊？");
+		message_vision("洪安通微閉雙眼，手捻長鬚，一副等人拍馬(flatter)的樣子。\n",
 		this_player());
 		me->set_temp("pending/flatter", 1);
 	return 0;
@@ -136,20 +136,20 @@ int do_flatter(string arg)
 {
 	if( !this_player()->query_temp("pending/flatter") )
 		return 0;
-	if( !arg ) return notify_fail("你说我什么？\n");
+	if( !arg ) return notify_fail("你說我什麼？\n");
 	this_player()->set_temp("pending/flatter", 0);
-	message_vision("$N大声说道：" + arg + "\n", this_player());
-	if( strsrch(arg, "万年不老") >=0 && (strsrch(arg, "永享仙福") >=0 ||
-		strsrch(arg, "寿与天齐") >=0 || strsrch(arg, "文武仁圣") >=0 ))
+	message_vision("$N大聲說道：" + arg + "\n", this_player());
+	if( strsrch(arg, "萬年不老") >=0 && (strsrch(arg, "永享仙福") >=0 ||
+		strsrch(arg, "壽與天齊") >=0 || strsrch(arg, "文武仁聖") >=0 ))
 	{
 		command("smile");
-		command("say 这还差不多。\n");
+		command("say 這還差不多。\n");
 		this_player()->set("learnhong", 1);
 		command("recruit " + this_player()->query("id"));
 	}
 	else
 	{
-		command("say 你如此不把我放在眼里，我又怎能容你？!");
+		command("say 你如此不把我放在眼裏，我又怎能容你？!");
 		this_object()->set_leader(this_player());
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, this_player()); 
@@ -157,11 +157,11 @@ int do_flatter(string arg)
 	return 1;
 }
 
-// 万年不老,永享仙福,寿与天齐,文武仁圣
+// 萬年不老,永享仙福,壽與天齊,文武仁聖
 
 void die()
 {
-	message_vision("\n$N奇道：“咦，居然有人能杀了我，....”说完睁着两眼倒地死了。\n", this_object());
+	message_vision("\n$N奇道：“咦，居然有人能殺了我，....”說完睜着兩眼倒地死了。\n", this_object());
 	::die();
 }
 
@@ -196,19 +196,19 @@ void greeting(object ob)
 
 void attempt_apprentice(object ob)
 {
-	if (ob->query("party/party_name") != HIY "神龙教" NOR )
+	if (ob->query("party/party_name") != HIY "神龍教" NOR )
 	{
-		command("say 你不是本教教众，想来找死啊！");
+		command("say 你不是本教教衆，想來找死啊！");
 		return;
 	}
 	if ((int)ob->query_skill("dulong-dafa",1) < 60 )
 	{
-		command("say 你的本门内功心法太低了，还是努努力先提高一下吧！");
+		command("say 你的本門內功心法太低了，還是努努力先提高一下吧！");
 		return;
 	}
 	if ((int)ob->query("shen") > -10000 )
 	{
-		command( "say 我神龙教与世隔绝，向来不与您这种白道人物打交道，您请回吧！");
+		command( "say 我神龍教與世隔絕，向來不與您這種白道人物打交道，您請回吧！");
 		return;
 	}
 	command("say 很好，很好。");
@@ -221,18 +221,18 @@ string ask_tool()
 	object ob, me = this_player();
 
 	if (!(fam = me->query("family")) ||
-		fam["family_name"] != "神龙教")
-		return "这位"+RANK_D->query_respect(me)+ "与本教素无来往，不知此话从何谈起？";
+		fam["family_name"] != "神龍教")
+		return "這位"+RANK_D->query_respect(me)+ "與本教素無來往，不知此話從何談起？";
 	if( present("shenlong qiao", me) )
-		return "你现在身上不是有锹了嘛，怎么又来要了？真是贪得无餍！";
+		return "你現在身上不是有鍬了嘛，怎麼又來要了？真是貪得無饜！";
 	if( me->query_skill("digging", 1) <= 30)
-		return "你拿着东西也没什么用，还是留给别人吧！";
+		return "你拿着東西也沒什麼用，還是留給別人吧！";
 	if( query("count") < 1)
-		return "来晚啦，你要的东西给别人先拿走了！";
+		return "來晚啦，你要的東西給別人先拿走了！";
 	ob = new(__DIR__"obj/shenlongqiao");
 	ob->move(me);
 	add("count", -1);
-	return "好吧，这有一把神龙锹，你就拿去吧。";
+	return "好吧，這有一把神龍鍬，你就拿去吧。";
 }
 #include "/kungfu/class/shenlong/shenlong.h"; 
 

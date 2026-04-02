@@ -2,10 +2,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "康府花园");
+	set("short", "康府花園");
 	set("long", @LONG
-这是一个小花园，虽然花儿不太多，却十分幽雅清洁，显是平日
-有人修整打扫。花园北边是一间佛堂。
+這是一個小花園，雖然花兒不太多，卻十分幽雅清潔，顯是平日
+有人修整打掃。花園北邊是一間佛堂。
 LONG );
         set("outdoors", "beijing");
 	set("no_clean_up", 0);

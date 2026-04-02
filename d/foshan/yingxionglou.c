@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","英雄楼");
+	set("short","英雄樓");
 	set("long",@LONG
-酒楼里桌椅洁净。座中客人衣饰豪奢，十九是富商大贾。佛山
-地处交通要地，来这吃饭的人还真不少。
+酒樓裏桌椅潔淨。座中客人衣飾豪奢，十九是富商大賈。佛山
+地處交通要地，來這喫飯的人還真不少。
 LONG);
 	set("objects", ([
 	    __DIR__"npc/fengqi": 1,

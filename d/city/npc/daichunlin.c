@@ -7,11 +7,11 @@ inherit NPC;
 void create()
 {
 	set_name(YEL "戴春林" NOR, ({ "dai chunlin", "dai", "chunlin"}) );
-    set("title", "戴记香粉铺老板");
+    set("title", "戴記香粉鋪老闆");
     set("age", 42);
     set("long", @LONG
-他是扬州城里戴记香粉铺的老板，五短身材，肥肥胖胖，但看上去甚是威
-严，另人不敢亲近。
+他是揚州城裏戴記香粉鋪的老闆，五短身材，肥肥胖胖，但看上去甚是威
+嚴，另人不敢親近。
 LONG
 	);
 	set("attitude", "friendly");

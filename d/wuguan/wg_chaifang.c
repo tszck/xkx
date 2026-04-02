@@ -7,8 +7,8 @@ void create()
 {
 	set("short", "柴房");
 	set("long", @LONG
-这间屋里叮叮哐哐的，你仔细一看，几个人在劈柴火，屋子特别大，
-屋子一边堆满了已经锯短的木头，但是另一边劈好的柴火却没有多少。
+這間屋裏叮叮哐哐的，你仔細一看，幾個人在劈柴火，屋子特別大，
+屋子一邊堆滿了已經鋸短的木頭，但是另一邊劈好的柴火卻沒有多少。
 LONG);
 	set("exits", ([
 		"north" : __DIR__"wg_houyuan",
@@ -32,16 +32,16 @@ int do_pi(string arg)
 	me = this_player();
 
 	if(me->query_temp("job_name")!="劈柴") 
-		return notify_fail("你必须跟馆主领了这工作才能在这里干! \n");
-	if (me->is_busy()) return notify_fail("你现在正忙着呢！\n");
+		return notify_fail("你必須跟館主領了這工作才能在這裏幹! \n");
+	if (me->is_busy()) return notify_fail("你現在正忙着呢！\n");
 	if (me->is_fighting())
-		return notify_fail("你正在战斗中，无法专心干活！\n");
+		return notify_fail("你正在戰鬥中，無法專心幹活！\n");
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		weapon->query("id")!= "chaidao")
-		return notify_fail("你想用什么来劈柴，用手吗？\n");
+		return notify_fail("你想用什麼來劈柴，用手嗎？\n");
 
 	if ( !arg || arg != "柴" )
-		return notify_fail("你要劈什么？劈人吗？\n");
+		return notify_fail("你要劈什麼？劈人嗎？\n");
 
 	costj = random((int)me->query("con")/3)+1;
 	costq = random((int)me->query("str")/3)+1;
@@ -63,10 +63,10 @@ int do_pi(string arg)
 		present("chaifang guanshi", environment(me)))
 	{
 		me->set_temp("mark/劈完了",1);
-		message_vision(RED"柴房管事对$N说：干的不错，好了，你可以回去覆命(job ok)了。"NOR, me);
+		message_vision(RED"柴房管事對$N說：乾的不錯，好了，你可以回去覆命(job ok)了。"NOR, me);
 		return 1;
 	}  
-	message_vision("$N摆正一块木头，一刀劈了下去，“哐”的一声，木头被劈为两片。\n", me);
+	message_vision("$N擺正一塊木頭，一刀劈了下去，“哐”的一聲，木頭被劈爲兩片。\n", me);
 	me->start_busy(3);
 	me->add_temp("mark/劈",1);
 
@@ -75,7 +75,7 @@ int do_pi(string arg)
 	if ( ((c_skill*c_skill*c_skill/10)< c_exp) &&
 		(int)me->query_skill("blade", 1) < 30 && random(10)>5 )
 	{
-		write(HIM"你在劈柴中对于刀的用法有些体会！\n"NOR);
+		write(HIM"你在劈柴中對於刀的用法有些體會！\n"NOR);
 		me->improve_skill("blade", (int)(me->query("str") / 10));
 	}
 	return 1;

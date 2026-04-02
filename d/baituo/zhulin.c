@@ -6,7 +6,7 @@ void create()
 {
 	set("short","竹林");
 	set("long", @LONG
-这里是青竹林，常有蛇出没。南边是蒿草丛。北边有一个大岩洞。
+這裏是青竹林，常有蛇出沒。南邊是蒿草叢。北邊有一個大巖洞。
 LONG	);
 	set("exits",([
 		"northup" : __DIR__"cave",

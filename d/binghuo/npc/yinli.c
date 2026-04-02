@@ -6,10 +6,10 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name("殷离", ({ "yin li", "yin", "li"}));
+        set_name("殷離", ({ "yin li", "yin", "li"}));
         set("long",
-            "她是张无忌的表妹，殷野王的女儿，一张秀丽的脸蛋因为练千蛛万毒
-手的武功，变得浮肿不堪。\n");
+            "她是張無忌的表妹，殷野王的女兒，一張秀麗的臉蛋因爲練千蛛萬毒
+手的武功，變得浮腫不堪。\n");
         set("gender", "女性");
         set("age", 16);
         set("attitude", "peaceful");
@@ -39,8 +39,8 @@ void create()
         set_temp("apply/attack", 15);
         set_temp("apply/damage", 15);
         set("inquiry", ([
-            "张无忌" :  "你是问阿牛哥吗？",
-            "阿牛"   :  "这个狠心短命的......",
+            "張無忌" :  "你是問阿牛哥嗎？",
+            "阿牛"   :  "這個狠心短命的......",
         ]));
 
         setup();

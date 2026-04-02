@@ -8,7 +8,7 @@ void create()
 	set_name("金人", ({ "jin ren", "jin" }) );
 	set("gender", "男性" );
 	set("age", 30);
-	set("long", "一个练功用的比武金人，制作精巧，如同真人一般。\n");
+	set("long", "一個練功用的比武金人，製作精巧，如同真人一般。\n");
 	set("attitude", "heroism");
         set_weight(30000000);
 
@@ -52,13 +52,13 @@ int accept_fight(object ob)
 	if (is_fighting()) return 0;
 
         if ( (int)ob->query("combat_exp") < 1000000)
-                return notify_fail("你的功力不够，不能用金人练功！\n");
+                return notify_fail("你的功力不夠，不能用金人練功！\n");
 
 	if (random(me->query("fight_times")) >= 15)
 		me->set("damaged", 1);
 
 	if (me->query("damaged"))
-		return notify_fail("这个金人已经被打坏了！\n");	
+		return notify_fail("這個金人已經被打壞了！\n");	
 
 	if (me->query("last_fighter") == ob->query("id"))
 		return 1;

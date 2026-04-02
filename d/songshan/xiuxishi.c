@@ -6,9 +6,9 @@ void create()
 {
         set("short", "休息室");
         set("long", @LONG
-这是间整洁的厢房，是嵩山弟子休息起居的地方。因为门窗常年闭
-着，房间难免昏暗。房里靠窗处摆设桌椅，里边靠墙放着一张收拾得舒
-舒服服的大床，看着就让人想睡觉。
+這是間整潔的廂房，是嵩山弟子休息起居的地方。因爲門窗常年閉
+着，房間難免昏暗。房裏靠窗處擺設桌椅，裏邊靠牆放着一張收拾得舒
+舒服服的大牀，看着就讓人想睡覺。
 LONG );
 
         set("sleep_room", 1);
@@ -17,9 +17,9 @@ LONG );
 	set("coor/x", 10);
 	set("coor/y", 910);
 	set("coor/z", 90);
-  set("door_name","门");
+  set("door_name","門");
 	set("door_dir","west");
-	set("force_name","汤英鹄");
+	set("force_name","湯英鵠");
   set("outroom",__DIR__"eastpath2");
 	setup();
 }

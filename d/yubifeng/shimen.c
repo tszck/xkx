@@ -5,12 +5,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "石门");
+	set("short", "石門");
 	set("long", @LONG
-洞穴愈来愈窄，须得弓身而行方能通过，洞中到处是千年不化的尖
-冰，有些处所的冰条如刀剑般锋锐突出。有时头顶撞上了坚冰尖角，隐
-隐生疼。通道尽头，只见一块圆形巨岩叠在另一块圆岩上，两块巨岩封
-住了去路，俨然一座石门。两岩(yan)之间都是坚冰(bing)凝结。
+洞穴愈來愈窄，須得弓身而行方能通過，洞中到處是千年不化的尖
+冰，有些處所的冰條如刀劍般鋒銳突出。有時頭頂撞上了堅冰尖角，隱
+隱生疼。通道盡頭，只見一塊圓形巨巖疊在另一塊圓巖上，兩塊巨巖封
+住了去路，儼然一座石門。兩巖(yan)之間都是堅冰(bing)凝結。
 LONG );
 	set("exits", ([
 		"south" : __DIR__"tongdao2",
@@ -20,8 +20,8 @@ LONG );
 		__DIR__"npc/hu-wife" : 1,
 	]));
 	set("item_desc", ([
-		"yan"  : "这是两块封闭通道的巨岩。\n",
-		"bing" : "冻结巨岩的冰层，晶莹剔透，看来不是一时一日而成。\n",
+		"yan"  : "這是兩塊封閉通道的巨巖。\n",
+		"bing" : "凍結巨巖的冰層，晶瑩剔透，看來不是一時一日而成。\n",
 	]));
 	set("no_clean_up", 0);
 	set("coor/x", 6110);
@@ -48,11 +48,11 @@ int do_burn(string arg)
 	if (!objectp(ob = present("mu chai", me))) return 0;
 	if( arg=="yan" )
 	{
-		message_vision("$N点起木柴，去烧二岩之间的坚冰。\n火焰越烧越大，冰化为水，只听得叮钉之声不绝，一块块碎冰落在地下。\n", me);
+		message_vision("$N點起木柴，去燒二巖之間的堅冰。\n火焰越燒越大，冰化爲水，只聽得叮釘之聲不絕，一塊塊碎冰落在地下。\n", me);
 		destruct(ob);
 		if (me->query("neili",1) > 1000)
 		{
-			message_vision("眼见二岩之间的坚冰已融去大半，$N发力推挤，那巨岩幌了几幌，竟慢慢转将过去，露出一道空隙，宛似个天造地设的石门一般。\n", me);
+			message_vision("眼見二巖之間的堅冰已融去大半，$N發力推擠，那巨巖幌了幾幌，竟慢慢轉將過去，露出一道空隙，宛似個天造地設的石門一般。\n", me);
 			set("exits", ([
 				"enter" : __DIR__"baozang",
 				"south" : __DIR__"tongdao2",
@@ -60,12 +60,12 @@ int do_burn(string arg)
 		}
 		else
 		{
-			message_vision("$N双手在巨岩上运力一推，那岩石毫不动弹。\n", me);
+			message_vision("$N雙手在巨巖上運力一推，那岩石毫不動彈。\n", me);
 		}
 	}
 	else
 	{
-		write("你要在这个冰窟窿里点火干什么？\n");
+		write("你要在這個冰窟窿裏點火幹什麼？\n");
 	}
 	return 1;
 }
@@ -76,12 +76,12 @@ int do_push(string arg)
 
 	if (!arg || arg !="yan")
 	{
-		message_vision("这里地方这么小，推什么呀！\n", me);
+		message_vision("這裏地方這麼小，推什麼呀！\n", me);
 		return 1;
 	}
 	else
 	{
-		message_vision("$N伸手抵在巨岩上，运足内力就是这么一推，结果纹丝不动。\n", me);
+		message_vision("$N伸手抵在巨巖上，運足內力就是這麼一推，結果紋絲不動。\n", me);
 		return 1;
 	}
 }

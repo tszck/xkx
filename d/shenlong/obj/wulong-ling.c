@@ -14,7 +14,7 @@ void create()
 		set("unit", "支");
 		set("value", 50);
 		set("material", "wood");
-		set("long", "这是一支木令牌，上面用朱漆写着一个「神龙」两字。\n");
+		set("long", "這是一支木令牌，上面用朱漆寫着一個「神龍」兩字。\n");
 	}
 	setup();
 }

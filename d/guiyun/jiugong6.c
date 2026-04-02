@@ -12,7 +12,7 @@ int do_inv(string arg);
 
 void create()
 {
-	set("short", "九宫桃花阵");
+	set("short", "九宮桃花陣");
 	set("outdoors", "guiyun");
 	set("exits", ([
 		"west"  : __DIR__"jiugong5",

@@ -14,13 +14,13 @@ int exert(object me, object target)
   !me->query("perform/roar") &&
   !me->query("can_perform/bibo-shengong/roar") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("你所使用的内功中没有这种功能。");
+   return notify_fail("你所使用的內功中沒有這種功能。");
 
 	if( ((int)me->query("neili") < 300 ) || ((int)me->query("max_neili") < 300 ) || ( (int)me->query_skill("bibo-shengong",1) < 100) )
-		return notify_fail("你鼓足真气＂喵＂的吼了一声, 结果吓走了几只老鼠。\n");
+		return notify_fail("你鼓足真氣＂喵＂的吼了一聲, 結果嚇走了幾隻老鼠。\n");
 
 	if( environment(me)->query("no_fight") )
-		return notify_fail("在这里不能攻击他人。\n");
+		return notify_fail("在這裏不能攻擊他人。\n");
 
 	skill = me->query_skill("force");
 
@@ -29,7 +29,7 @@ int exert(object me, object target)
 	me->receive_damage("qi", 10);
 	me->start_busy(5);
 	message_combatd(
-	HIY "$N气凝丹田，运集全身内力吟出一曲「碧海生潮」！\n" NOR, me);
+	HIY "$N氣凝丹田，運集全身內力吟出一曲「碧海生潮」！\n" NOR, me);
 
 	ob = all_inventory(environment(me));
 	for(i=0; i<sizeof(ob); i++)
@@ -47,7 +47,7 @@ int exert(object me, object target)
 			ob[i]->receive_damage("jing", damage * 2 );
 			if( (int)ob[i]->query("neili") < skill * 2 )
 				ob[i]->receive_wound("jing", damage);
-			tell_object(ob[i], "你只觉得眼前一片模糊，朦胧中似乎无数排山巨浪向你打来......\n");
+			tell_object(ob[i], "你只覺得眼前一片模糊，朦朧中似乎無數排山巨浪向你打來......\n");
 		}
 		if( !ob[i]->is_killing(me) ) ob[i]->kill_ob(me);
 		if( !me->is_killing(ob[i]) ) me->fight_ob(ob[i]);
@@ -60,12 +60,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-                碧海生潮曲 ，灌注内力吟出曲子，使敌人心烦意
-                乱，不战自溃。伤害自己周围的所有生物的精气
+                碧海生潮曲 ，灌注內力吟出曲子，使敵人心煩意
+                亂，不戰自潰。傷害自己周圍的所有生物的精氣
 
 	出手要求：
-		碧波神功100级
-		内力300
+		碧波神功100級
+		內力300
 HELP
 	);
 	return 1;

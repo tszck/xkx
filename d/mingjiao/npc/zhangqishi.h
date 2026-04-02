@@ -30,7 +30,7 @@ int accept_object(object ob, object obj)
 
 	if ( ob->query_temp("have_letter") && present("tuijian xin3", ob) ) 
 	{
-		command("say 怎麽样，你拿我的推荐信去见堂主了吗 ?");
+		command("say 怎麼樣，你拿我的推薦信去見堂主了嗎 ?");
 		return 0;
 	}
 
@@ -40,7 +40,7 @@ int accept_object(object ob, object obj)
 	&& !ob->query_temp("have_letter") ) 
 	{
 		ob->set_temp("fight_ok",1);
-		command("say 好，既然已得到教主许可，我们就来验证一下武功。");
+		command("say 好，既然已得到教主許可，我們就來驗證一下武功。");
 		remove_call_out("destroying");
 		call_out("destroying", 1, me, obj);
 		return 1;
@@ -50,7 +50,7 @@ int accept_object(object ob, object obj)
 	&& ob->query_temp("have_letter") )
 	{
 		ob->set_temp("apprentice_ok",1);
-	        command("say 好，" + ob->query("name") + "，你愿意加入我旗吗？");
+	        command("say 好，" + ob->query("name") + "，你願意加入我旗嗎？");
 		remove_call_out("destroying");
 		call_out("destroying", 1, me, obj);
 		return 1;
@@ -58,7 +58,7 @@ int accept_object(object ob, object obj)
 
        
         command("?");
-        command("say 这东西给我可没有什麽用。");
+        command("say 這東西給我可沒有什麼用。");
 	return 0;
 
 }
@@ -102,8 +102,8 @@ int checking(object me, object ob)
 
 	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 ) 
 	{
-                command("say 青出於蓝胜於蓝，不愧是我明教的佳弟子 ! 恭喜你了 !\n");
-		message_vision("$N交给$n一封推荐信。\n", me, ob);
+                command("say 青出於藍勝於藍，不愧是我明教的佳弟子 ! 恭喜你了 !\n");
+		message_vision("$N交給$n一封推薦信。\n", me, ob);
 		ob->set_temp("have_letter",1);
                 obj=new("/d/mingjiao/obj/tuijianxin-3");
 		obj->move(ob);
@@ -112,8 +112,8 @@ int checking(object me, object ob)
 
 	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 ) 
 	{
-		command("say 看来" + RANK_D->query_respect(ob) + 
-                        "还得多加练习，方能在明教诸多弟子中出人头地 !\n");
+		command("say 看來" + RANK_D->query_respect(ob) + 
+                        "還得多加練習，方能在明教諸多弟子中出人頭地 !\n");
 		return 1;
 	}
 
@@ -131,13 +131,13 @@ void do_join()
 
         if (!(ob_party=ob->query("party"))||ob_party["party_name"]!="明教")
 	{
-                command("say " + RANK_D->query_respect(ob) + "与本教素无来往，不知此举是何用意？");
+                command("say " + RANK_D->query_respect(ob) + "與本教素無來往，不知此舉是何用意？");
 		return;
 	}
 
 	if ( ob_party["level"] <= me->query("level") )
 	{
-                command("say " + RANK_D->query_respect(ob) + "，在下哪里敢当 !");
+                command("say " + RANK_D->query_respect(ob) + "，在下哪裏敢當 !");
 		return;
 	}
 
@@ -149,17 +149,17 @@ void do_join()
 			ob->delete_temp("apprentice_ok");
 	
 			command("say 哈哈哈 !");
-                        command("say 本旗又得一可塑之才，真是可喜可贺 !");
+                        command("say 本旗又得一可塑之才，真是可喜可賀 !");
 
 			qi = me->query("title")[11..30];
 
-	        	command("say 恭喜你荣升为明教"+qi+"教众！");
-			new_rank = qi + "教众";
+	        	command("say 恭喜你榮升爲明教"+qi+"教衆！");
+			new_rank = qi + "教衆";
                         ob->set(ob_party["rank"],new_rank);
 		}
 		else
 		{
-			command("say " + RANK_D->query_respect(ob) + "，你没有推荐信，不能越级拜师。");
+			command("say " + RANK_D->query_respect(ob) + "，你沒有推薦信，不能越級拜師。");
 			return;
 		}
 	}

@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("小沙弥", ({ "xiao shami", "xiao", "shami"}));
-	set("long", "他是一位未通世故的少年和尚，脸上挂着天真的稚笑。\n");
+	set_name("小沙彌", ({ "xiao shami", "xiao", "shami"}));
+	set("long", "他是一位未通世故的少年和尚，臉上掛着天真的稚笑。\n");
 
-	set("nickname", "侍斋僧");
+	set("nickname", "侍齋僧");
 	set("gender", "男性");
 	set("attitude", "peaceful");
 	set("class", "bonze");
@@ -51,7 +51,7 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	say("小沙弥躬身说道：这位"+RANK_D->query_respect(ob)+"请先入座。\n");
+	say("小沙彌躬身說道：這位"+RANK_D->query_respect(ob)+"請先入座。\n");
 }
 
 void serve_food(object who)
@@ -64,7 +64,7 @@ void serve_food(object who)
 	if( !objectp(room = environment()) ) return;
  	ob = new(FOOD_DIR+"mizhi-tianou");
 	ob->move(room);
-	message_vision("小沙弥端来一盘蜜汁甜藕放在桌上．\n", who);
+	message_vision("小沙彌端來一盤蜜汁甜藕放在桌上．\n", who);
 	
 	return;
 }

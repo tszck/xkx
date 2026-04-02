@@ -10,7 +10,7 @@ void create()
 	set_name("刀客", ({ "dao ke","ke"}) );
 	set("gender", "男性");
 	set("age", 20);
-	set("long", "这家伙满脸横肉，一付凶神恶煞的模样，令人望而生畏。\n");
+	set("long", "這傢伙滿臉橫肉，一付凶神惡煞的模樣，令人望而生畏。\n");
 	set("combat_exp", 15000);
         set("shen_type", -1);
 	set("attitude", "heroism");
@@ -40,7 +40,7 @@ void init()
 	mengzhu = ob->query("winner");
 
 	if( this_player()->query("id") == mengzhu ) {
-		message_vision(HIY "刀客向$N躬身为礼，说道：盟主您老人家好！\n" NOR, 
+		message_vision(HIY "刀客向$N躬身爲禮，說道：盟主您老人家好！\n" NOR, 
 		this_player());
 	}	
 }

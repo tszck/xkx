@@ -7,7 +7,7 @@ inherit CLOTH;
 
 void create()
 {
-	set_name("黄布衣", ({ "cloth" }) );
+	set_name("黃布衣", ({ "cloth" }) );
 	set_weight(3000);
 	if( clonep() )
 		set_default_object(__FILE__);

@@ -6,7 +6,7 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name("吴六破", ({ "wu liupo", "liupo", "wu"}));
+        set_name("吳六破", ({ "wu liupo", "liupo", "wu"}));
         set("title", HIC "神箭八雄" NOR);
         set("gender", "男性");
         set("age", 25);
@@ -35,7 +35,7 @@ void create()
         map_skill("throwing", "xuanyuan-arrow");
         map_skill("unarmed", "changquan");
 
-	set_temp("is_riding", RED"映血马"NOR);
+	set_temp("is_riding", RED"映血馬"NOR);
         setup();
         carry_object(__DIR__"obj/arrow")->wield();
         carry_object("/clone/misc/cloth")->wear();

@@ -3,11 +3,11 @@ inherit NPC;
 string inquiry_shoupa();
 void create()
 {
-	set_name("温仪", ({ "wen yi","wen","yi"}) );
+	set_name("溫儀", ({ "wen yi","wen","yi"}) );
 	set("gender", "女性" );
-        set("title", "温家小姐");
+        set("title", "溫家小姐");
 	set("age", 18);
-	set("long", "这是一个美如天仙的女子，眉宇间却是仿佛隐藏着深忧。\n");
+	set("long", "這是一個美如天仙的女子，眉宇間卻是彷彿隱藏着深憂。\n");
 	set("shen_type", 1);
 	set("combat_exp", 500);
 	set("str", 16);
@@ -17,10 +17,10 @@ void create()
 	set("attitude", "friendly");
 	set("chat_chance",1);
 	set("chat_msg",({
-	    "温仪静静地坐着,双眼无神地望着窗外。\n",
-	    "温仪自言自语地说：郎君啊，你为什么要误会我啊？——\n",
-	    "温仪黯然泪下，无语地望着手中的手帕。\n",
-            "突然间，温仪的脸色变得苍白起来：那...那..那碗莲子羹......\n"
+	    "溫儀靜靜地坐着,雙眼無神地望着窗外。\n",
+	    "溫儀自言自語地說：郎君啊，你爲什麼要誤會我啊？——\n",
+	    "溫儀黯然淚下，無語地望着手中的手帕。\n",
+            "突然間，溫儀的臉色變得蒼白起來：那...那..那碗蓮子羹......\n"
 	   }) );
        set("inquiry",([
 	   "手帕" : (: inquiry_shoupa :),
@@ -37,14 +37,14 @@ string inquiry_shoupa()
 {
  object me=this_player();
  object obn;
- message_vision("温仪说道：这位"+ RANK_D->query_respect(me)+"，你能帮我个忙吗？我只是想让郎君知道我的心意。\n", me );
+ message_vision("溫儀說道：這位"+ RANK_D->query_respect(me)+"，你能幫我個忙嗎？我只是想讓郎君知道我的心意。\n", me );
  if(query_temp("shoupa")==0)
- {  message_vision("温仪又说道：这位"+ RANK_D->query_respect(me)+"，我已经托人帮我带了，就不麻烦你了。\n",me);
+ {  message_vision("溫儀又說道：這位"+ RANK_D->query_respect(me)+"，我已經託人幫我帶了，就不麻煩你了。\n",me);
    return "";
  }
-   message_vision("温仪说道：这位"+ RANK_D->query_respect(me)+"，这是我和郎君的信物，看见它，他就知道我的心意了。\n" , me);
+   message_vision("溫儀說道：這位"+ RANK_D->query_respect(me)+"，這是我和郎君的信物，看見它，他就知道我的心意了。\n" , me);
    obn=new("/d/shiliang/npc/obj/shoupa");
    obn->move(me);
    set_temp("shoupa",0);
-   return "请你一定交到他的手上，他就在庄西的山洞中。说完，温仪给你一张绣花的手帕。\n";
+   return "請你一定交到他的手上，他就在莊西的山洞中。說完，溫儀給你一張繡花的手帕。\n";
 }

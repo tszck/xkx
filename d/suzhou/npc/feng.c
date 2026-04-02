@@ -5,13 +5,13 @@ inherit NPC;
 
 void create()
 {
-	set_name("冯旭东", ({ "feng xudong", "feng" }));
-	set("title", "苏州知府");
+	set_name("馮旭東", ({ "feng xudong", "feng" }));
+	set("title", "蘇州知府");
 	set("gender", "男性");
 	set("age", 43);
 	set("str", 20);
 	set("dex", 20);
-	set("long", "他就是冯旭东，苏州现任知府。\n");
+	set("long", "他就是馮旭東，蘇州現任知府。\n");
 	set("combat_exp", 30000);
 	set("shen_type", 0);
 	set("attitude", "heroism");

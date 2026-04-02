@@ -11,8 +11,8 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一块又肥又香的羊肉。\n");
-		set("unit", "块");
+		set("long", "一塊又肥又香的羊肉。\n");
+		set("unit", "塊");
 		set("food_remaining", 3);
 		set("food_supply", 40);
 	}

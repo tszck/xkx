@@ -6,7 +6,7 @@ void create()
         set_name("官兵", ({ "guan bing", "bing" }));
         set("age", 22);
         set("gender", "男性");
-        set("long", "虽然官兵的武艺不能和武林人士相比，可是他们讲究的是人多力量大。\n");
+        set("long", "雖然官兵的武藝不能和武林人士相比，可是他們講究的是人多力量大。\n");
         set("attitude", "peaceful");
 
         set("str", 24);
@@ -26,8 +26,8 @@ void create()
 
         set("chat_chance_combat", 10);
         set("chat_msg_combat", ({
-                CYN "官兵喝道：大胆刁民，竟敢造反不成？\n" NOR,
-                CYN "官兵喝道：跑得了和尚跑不了庙，你还是快快束手就擒！\n" NOR,
+                CYN "官兵喝道：大膽刁民，竟敢造反不成？\n" NOR,
+                CYN "官兵喝道：跑得了和尚跑不了廟，你還是快快束手就擒！\n" NOR,
         }));
         setup();
         carry_object(WEAPON_DIR"blade")->wield();
@@ -47,7 +47,7 @@ void init()
 
 int accept_fight(object me)
 {
-        command("say 大爷我正想找人杀呐，今天算你倒霉。\n");
+        command("say 大爺我正想找人殺吶，今天算你倒黴。\n");
         kill_ob(me);
         return 1;
 }

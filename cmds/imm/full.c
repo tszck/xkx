@@ -24,12 +24,12 @@ int main(object me, string arg)
     }
 
     if (!ob)
-        return notify_fail("你要恢复谁的状态？\n");
+        return notify_fail("你要恢復誰的狀態？\n");
 
     if (ob != me)
     {
         if (wiz_level(me) < wiz_level("(wizard)"))
-            return notify_fail("你没有权限恢复" + ob->name() + "。\n");
+            return notify_fail("你沒有權限恢復" + ob->name() + "。\n");
     }
 
     my = ob->query_entire_dbase();
@@ -42,8 +42,8 @@ int main(object me, string arg)
 
     if (me == ob)
     {
-        message_vision(HIY "$N口中念念有词，不一会儿就变得"
-                           "精神焕发，神采奕奕。\n" NOR,
+        message_vision(HIY "$N口中唸唸有詞，不一會兒就變得"
+                           "精神煥發，神采奕奕。\n" NOR,
                        me);
         if (me->is_ghost())
             me->reincarnate();
@@ -51,8 +51,8 @@ int main(object me, string arg)
     }
     else
     {
-        message_vision(HIY "$N伸手一指，$n立刻精神焕"
-                           "发，神采奕奕。\n" NOR,
+        message_vision(HIY "$N伸手一指，$n立刻精神煥"
+                           "發，神采奕奕。\n" NOR,
                        me, ob);
         if (!living(ob))
             ob->revive();
@@ -66,9 +66,9 @@ int main(object me, string arg)
 int help()
 {
     write(@HELP
-指令格式 : full <对象名称>
+指令格式 : full <對象名稱>
 
-这个指令可以恢复你(你)或指定对象(含怪物)的精, 气, 内力等数值。
+這個指令可以恢復你(你)或指定對象(含怪物)的精, 氣, 內力等數值。
 
 HELP );
     return 1;

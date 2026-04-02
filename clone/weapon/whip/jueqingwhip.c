@@ -7,16 +7,16 @@ inherit WHIP;
 
 void create()
 {
-        set_name("情丝", ({"silk whip", "whip"}));
+        set_name("情絲", ({"silk whip", "whip"}));
         set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-		set("long","一条蓝色的长带，细看由无数细如毛发的长丝聚成，虽轻若无物，却无孔不入。\n");
-                set("unit", "条");
+		set("long","一條藍色的長帶，細看由無數細如毛髮的長絲聚成，雖輕若無物，卻無孔不入。\n");
+                set("unit", "條");
                 set("value", 12000);
-		set("wield_msg", "$N左手轻扬，一条蓝色绸带忽地甩了出来。\n");
-		set("unwield_msg", "$N把手中$n缠回腰间。\n");
+		set("wield_msg", "$N左手輕揚，一條藍色綢帶忽地甩了出來。\n");
+		set("unwield_msg", "$N把手中$n纏回腰間。\n");
 		set("weapon_prop/courage", 5);
 	}
         init_whip(60);

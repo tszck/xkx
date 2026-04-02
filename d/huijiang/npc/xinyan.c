@@ -6,8 +6,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("心砚", ({ "xin yan", "xin", "yan" }) );
-	set("title", "红花会总管");
+	set_name("心硯", ({ "xin yan", "xin", "yan" }) );
+	set("title", "紅花會總管");
 	set("gender", "男性");
 	set("age", 20);
 
@@ -17,7 +17,7 @@ void create()
 	set("kar", 25);
 	set("con", 23);
 	set("dex", 23);
-	set("long","他也是红花会总舵主陈家洛的书童，看上去一副极为精明能干的模样，\n红花会中大大小小的琐碎事务全归他管。\n");
+	set("long","他也是紅花會總舵主陳家洛的書童，看上去一副極爲精明能幹的模樣，\n紅花會中大大小小的瑣碎事務全歸他管。\n");
 	set("combat_exp", 30000);
 	set("attitude", "friendly");
 	set("env/wimpy", 30);
@@ -41,7 +41,7 @@ void create()
 	map_skill("parry", "zhuihun-jian");
 	map_skill("sword", "zhuihun-jian");
 
-	create_family("红花会", 3, "弟子");
+	create_family("紅花會", 3, "弟子");
 	setup();
 	
 	carry_object(WEAPON_DIR"changjian")->wield();

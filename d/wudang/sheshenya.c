@@ -1,4 +1,4 @@
-//Room: sheshenya.c 舍身崖
+//Room: sheshenya.c 捨身崖
 //Date: Sep 22 1997
 
 #include <combat.h>
@@ -25,11 +25,11 @@ string *wudang = ({
 
 void create()
 {
-	set("short","舍身崖");
+	set("short","捨身崖");
 	set("long",@LONG
-这是一处险峻的悬崖峭壁，相传真武帝在此舍身得道。此间峰岭奇
-峭，树木苍翠，上接碧霄，下临绝涧，是武当山三十六岩中最美的一处，
-崖上立有铁栅栏，防止有人自杀步真武帝的后尘。
+這是一處險峻的懸崖峭壁，相傳真武帝在此捨身得道。此間峯嶺奇
+峭，樹木蒼翠，上接碧霄，下臨絕澗，是武當山三十六巖中最美的一處，
+崖上立有鐵柵欄，防止有人自殺步真武帝的後塵。
 LONG);
 	set("exits",([ /* sizeof() == 1 */
 	    "east"     : __DIR__"nanyanfeng",
@@ -55,14 +55,14 @@ int do_jump(string arg)
 	object me = this_player();
 
 	if( !arg || arg == "" )
-		return notify_fail("什么？\n");
+		return notify_fail("什麼？\n");
 
 	if( arg == "cliff" )
 	{
 		if( me->query_skill("dodge") < 150 )
-			return notify_fail("那麽高的铁栅栏，你蹦得上去麽？\n");
-		message_vision("$N纵身跃过铁栅栏，足底踏空，半个身子已在深渊之上，左足跟着跨出，全身向前急扑，往绝壁跳下！\n", me);
-		me->set_temp("last_damage_from", "效仿真武跳崖飞升了");
+			return notify_fail("那麼高的鐵柵欄，你蹦得上去麼？\n");
+		message_vision("$N縱身躍過鐵柵欄，足底踏空，半個身子已在深淵之上，左足跟着跨出，全身向前急撲，往絕壁跳下！\n", me);
+		me->set_temp("last_damage_from", "效仿真武跳崖飛昇了");
 		fall_down(me, "char", 0);
 		return 1;
 	}
@@ -78,22 +78,22 @@ int do_push(string who)
 	mapping prepare;
 
 	victim = present(who, environment(me));
-	if( !who )return notify_fail("你想推什么？\n");
-	if( !victim ) return notify_fail("这个人不在这里吧。\n");
+	if( !who )return notify_fail("你想推什麼？\n");
+	if( !victim ) return notify_fail("這個人不在這裏吧。\n");
 	if( victim==me ) return notify_fail("指令格式：jump cliff\n");
 	if( me->is_busy() )
-		return notify_fail("你现在自顾都不暇，还有心思害别人？\n");
+		return notify_fail("你現在自顧都不暇，還有心思害別人？\n");
 	if( !victim->is_character() || victim->query("id") == "corpse" )
-		return notify_fail("要推，也只能推人下去才有意思啊。\n");
+		return notify_fail("要推，也只能推人下去纔有意思啊。\n");
 	if( objectp(weapon = me->query_temp("weapon")) )
-		return notify_fail("拿着"+weapon->name()+"怎么推人？\n");
-	message_vision( CYN"\n$N一晃之际，已绕到$n身旁，突然劲贯双臂，猛的将$p向峭壁推去"NOR"！\n", me, victim);
+		return notify_fail("拿着"+weapon->name()+"怎麼推人？\n");
+	message_vision( CYN"\n$N一晃之際，已繞到$n身旁，突然勁貫雙臂，猛的將$p向峭壁推去"NOR"！\n", me, victim);
 	me->start_busy(1);
 
 	if( !living(victim) )
 	{
 		message_vision("$n往山谷中直栽下去。\n", me, victim);
-		victim->set_temp("last_damage_from", "被"+me->name()+"推下悬崖摔死了");
+		victim->set_temp("last_damage_from", "被"+me->name()+"推下懸崖摔死了");
 		fall_down(victim, "char", 0);
 		victim->revive();
 		return 1;
@@ -120,8 +120,8 @@ int do_push(string who)
 		message_vision(SKILL_D(dodge_skill)->query_dodge_msg(), me, victim);
 		if( random( ap * 2 ) < dp && !random(10) )
 		{
-			message_vision("$N全身力道都用在这一推之上，不料竟被$n避开，身形一晃，踏了个空，从悬崖旁摔了下去。\n", me, victim);
-			me->set_temp("last_damage_from", "从百尺高空掉下，摔成一团肉泥");
+			message_vision("$N全身力道都用在這一推之上，不料竟被$n避開，身形一晃，踏了個空，從懸崖旁摔了下去。\n", me, victim);
+			me->set_temp("last_damage_from", "從百尺高空掉下，摔成一團肉泥");
 			fall_down(me, "char", 0);
 			return 1;
 		}
@@ -138,12 +138,12 @@ int do_push(string who)
 			if( !parry_skill || !SKILL_D(parry_skill)->parry_available() ) 
 				parry_skill = "parry";
 			message_vision(replace_string(SKILL_D(parry_skill)->query_parry_msg(victim->query_temp("weapon"), 
-				victim), "$w", "双手"), me, victim);
+				victim), "$w", "雙手"), me, victim);
 			if( !victim->is_killing(me->query("id")) ) victim->kill_ob(me);
 			return 1;
 		}
-		message_vision("$n一个没站稳，不由自主的往山谷中掉了下去。\n", me, victim);
-		victim->set_temp("last_damage_from", "被"+me->name()+"推下悬崖摔死了");
+		message_vision("$n一個沒站穩，不由自主的往山谷中掉了下去。\n", me, victim);
+		victim->set_temp("last_damage_from", "被"+me->name()+"推下懸崖摔死了");
 		fall_down(victim, "char", 0);
                 return 1;
         }
@@ -159,19 +159,19 @@ int fall_down(object me, string type, int stage)
 	{
 		switch( random(5) )
 		{
-			case 1 : tell_object(me, "你只觉身子虚浮，全做不得主，只是笔直的跌落。\n");
+			case 1 : tell_object(me, "你只覺身子虛浮，全做不得主，只是筆直的跌落。\n");
 				 break;
-			case 2 : tell_object(me, "你耳旁风声呼呼，虽是顷刻间之事，却似无穷无尽，永远跌个没完。\n");
+			case 2 : tell_object(me, "你耳旁風聲呼呼，雖是頃刻間之事，卻似無窮無盡，永遠跌個沒完。\n");
 				 break;
-			case 3 : tell_object(me, "你人在半空，虚虚晃晃，实是身不由己，全无半分着力处。\n");
+			case 3 : tell_object(me, "你人在半空，虛虛晃晃，實是身不由己，全無半分着力處。\n");
 				 break;
-			case 4 : tell_object(me, "你只觉身旁风声虎虎，身子不住的向下摔落。\n");
+			case 4 : tell_object(me, "你只覺身旁風聲虎虎，身子不住的向下摔落。\n");
 				 break;
-			default: tell_object(me, "你但觉耳旁风声不绝，顷刻之间，已到了");
+			default: tell_object(me, "你但覺耳旁風聲不絕，頃刻之間，已到了");
 				 break;
 		}
 		me->move(__DIR__+wudang[stage]);
-		message("vision","你隐隐见到一人从山峰上直堕而下，一时却看不清是谁。\n", environment(me), me);
+		message("vision","你隱隱見到一人從山峯上直墮而下，一時卻看不清是誰。\n", environment(me), me);
 		fall_down(me, type, ++stage);
 		return 1;
 	}
@@ -182,8 +182,8 @@ int fall_down(object me, string type, int stage)
 		{
 			if( !random(25) && random(inv[i]->query_kar()) < 15 )
 			{
-				tell_object(inv[i],"你赫然发现那人竟是向你直冲而来！！！\n");
-				tell_object(me,"你不由自主的笔直堕下，冲向一人，依稀看出是"+ inv[i]->name() +"。\n");
+				tell_object(inv[i],"你赫然發現那人竟是向你直衝而來！！！\n");
+				tell_object(me,"你不由自主的筆直墮下，衝向一人，依稀看出是"+ inv[i]->name() +"。\n");
 				if( random(inv[i]->query_skill("dodge")) > 200 )
 				{
 					dodge_skill = inv[i]->query_skill_mapped("dodge");
@@ -195,15 +195,15 @@ int fall_down(object me, string type, int stage)
 					inv[i]->query_skill_prepared("unarmed") == "taiji-quan" &&
 					inv[i]->query_skill_mapped("parry") == "taiji-quan" )
 				{
-					message_vision(CYN "$N当即使出一招「揽雀尾」，右脚实，左脚虚，运起“挤”字诀，粘连粘随，右掌已搭住$n，横劲发出，将$p下堕之力转直为横，将$n移得横飞出去。\n"NOR, inv[i], me);
-					tell_object(inv[i], HIR"你只觉霎时之间头晕眼花，几欲坐倒。\n"NOR);
+					message_vision(CYN "$N當即使出一招「攬雀尾」，右腳實，左腳虛，運起“擠”字訣，粘連粘隨，右掌已搭住$n，橫勁發出，將$p下墮之力轉直爲橫，將$n移得橫飛出去。\n"NOR, inv[i], me);
+					tell_object(inv[i], HIR"你只覺霎時之間頭暈眼花，幾欲坐倒。\n"NOR);
 					inv[i]->set("neili", 0);
 				}
 				else
 				{
 					count++;
-					message_vision("$n直冲入$N怀中，立时撞得$P腹破肠流，死于非命。\n", inv[i], me);
-					inv[i]->receive_wound("qi", inv[i]->query("max_qi")+100, "被"+me->name()+"撞得腹破肠流，死于非命");
+					message_vision("$n直衝入$N懷中，立時撞得$P腹破腸流，死於非命。\n", inv[i], me);
+					inv[i]->receive_wound("qi", inv[i]->query("max_qi")+100, "被"+me->name()+"撞得腹破腸流，死於非命");
 				}
 			break;
 			}
@@ -211,17 +211,17 @@ int fall_down(object me, string type, int stage)
 
 	if( !count )
 	{
-		tell_object(me, "你直撞到石阶上，");
+		tell_object(me, "你直撞到石階上，");
 		switch( random(3) )
 		{
-			case 0 : tell_object(me, "鲜血迸流，鼻子歪在半边，却便似开了个油铺∶咸的，酸的，辣的，一发都滚出来。\n");
+			case 0 : tell_object(me, "鮮血迸流，鼻子歪在半邊，卻便似開了個油鋪∶鹹的，酸的，辣的，一發都滾出來。\n");
 				 break;
-			case 1 : tell_object(me, "眼棱缝裂，乌珠迸出，也似开了个彩帛铺的∶"HIR"红"NOR"的，"BLU"黑"NOR"的，"MAG"紫"NOR"的，都绽将出来。\n");
+			case 1 : tell_object(me, "眼棱縫裂，烏珠迸出，也似開了個彩帛鋪的∶"HIR"紅"NOR"的，"BLU"黑"NOR"的，"MAG"紫"NOR"的，都綻將出來。\n");
 				 break;
-			case 2 : tell_object(me, "太阳上正着，却似做了一全堂水陆的道场∶磐儿，钹儿，铙儿，一齐响。\n");
+			case 2 : tell_object(me, "太陽上正着，卻似做了一全堂水陸的道場∶磐兒，鈸兒，鐃兒，一齊響。\n");
 				 break;
 		}
-		message("vision", "只听得「砰」的一声巨响，" +me->name()+"撞在石阶上，摔得粉身碎骨，成了一团肉浆。\n", environment(me), me);
+		message("vision", "只聽得「砰」的一聲巨響，" +me->name()+"撞在石階上，摔得粉身碎骨，成了一團肉漿。\n", environment(me), me);
 	}
 
 	me->receive_wound("qi", me->query("max_qi")+100, me->query_temp("last_damage_from"));
@@ -230,7 +230,7 @@ int fall_down(object me, string type, int stage)
 	for( i = 0; i < sizeof(inv); i++ )
 	{
 		if( inv[i]->is_character() )
-		inv[i]->receive_wound("qi", inv[i]->query("max_qi")+100, "被"+me->name()+"连累跌得粉身碎骨了");
+		inv[i]->receive_wound("qi", inv[i]->query("max_qi")+100, "被"+me->name()+"連累跌得粉身碎骨了");
 	}
 	return 1;
 }
@@ -242,5 +242,5 @@ int visit_room(string room_path, mapping info, mapping mapdb_info, mixed args)
 	if( strsrch(room_path, "/d/wudang/") != 0 ) return 1;
 	room = find_object(room_path);
 	if( !objectp(room) ) return 0;
-	message("info", HIR"「啊～～～」半山突然传来一阵极凄厉的惨叫声。\n"NOR, room, 0);
+	message("info", HIR"「啊～～～」半山突然傳來一陣極淒厲的慘叫聲。\n"NOR, room, 0);
 }

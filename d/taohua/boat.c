@@ -16,9 +16,9 @@ void create()
 {
 	set("short", "船上");
 	set("long", @LONG
-小船已经来到了茫茫大海上。四周除了偶尔掠过头顶的海鸟外，就
-只剩下你所乘坐的这艘小船和正在聚精会神地摇着橹的梢公了。海风阵
-阵袭来，你不禁感到一丝凉意。
+小船已經來到了茫茫大海上。四周除了偶爾掠過頭頂的海鳥外，就
+只剩下你所乘坐的這艘小船和正在聚精會神地搖着櫓的梢公了。海風陣
+陣襲來，你不禁感到一絲涼意。
 LONG
 	);
 	set("no_clean_up", 0);
@@ -41,15 +41,15 @@ void init()
 	if (!userp(ob)) return;
 	if (query_temp("busy")) {
 		if (!wizardp(ob)) {
-			message_vision("艄公对$N喝道：怎么？想白坐吗！\n",ob);
-			message_vision("艄公一桨将$N打落到海里。\n",ob);
+			message_vision("艄公對$N喝道：怎麼？想白坐嗎！\n",ob);
+			message_vision("艄公一槳將$N打落到海里。\n",ob);
 			ob->unconcious();
 			ob->move("/d/jiaxing/haibin");
-			message("vision","忽然一个大潮涌了过来，将一个被水泡得半死的家伙冲到了岸边。\n",environment(ob),ob);
+			message("vision","忽然一個大潮湧了過來，將一個被水泡得半死的傢伙衝到了岸邊。\n",environment(ob),ob);
 			return;
 		}
 		else {
-			message_vision("艄公无奈地对$N说道：当巫师就是好，船都可以白坐。\n",ob);
+			message_vision("艄公無奈地對$N說道：當巫師就是好，船都可以白坐。\n",ob);
 			return;
 		}
 	}
@@ -80,13 +80,13 @@ void init()
 
 int do_save()
 {
-	write("这里不准存盘！\n");
+	write("這裏不準存盤！\n");
 	return 1;
 }
 
 int do_quit()
 {
-	write("这里不准退出！\n");
+	write("這裏不準退出！\n");
 	return 1;
 }
 
@@ -118,7 +118,7 @@ void time_limit1(object ob)
 		delete_temp("busy");
 		return;
 	}
-	message_vision("艄公对$N说道：客官，要起风了，我们回去吧！\n", ob);
+	message_vision("艄公對$N說道：客官，要起風了，我們回去吧！\n", ob);
 	call_out("time_limit2", 180, ob);
 }
 
@@ -129,8 +129,8 @@ void time_limit2(object ob)
 		delete_temp("busy");
 		return;
 	}
-	message_vision("艄公对$N说道：客官，再划下去咱们可都要死在海上了，你不要命我还要哪！\n", ob);
-	write("艄公再也不理会你的命令，径直划回了岸边。\n");
+	message_vision("艄公對$N說道：客官，再劃下去咱們可都要死在海上了，你不要命我還要哪！\n", ob);
+	write("艄公再也不理會你的命令，徑直劃回了岸邊。\n");
 	ob->delete_temp("thd_dir");
 	remove_call_out("weizhi");
 	delete_temp("busy");
@@ -146,7 +146,7 @@ int do_turn(string arg)
 	switch(arg) {
 		case "e": 
 		case "east": 
-			dir = "东";
+			dir = "東";
 			break;
 		case "w": 
 		case "west": 
@@ -161,11 +161,11 @@ int do_turn(string arg)
 			dir = "南";
 			break;
 		default:
-			return notify_fail("你要往哪个方向开？\n");
+			return notify_fail("你要往哪個方向開？\n");
 	}
 	ob->set_temp("thd_dir", arg[0..0]);
-	message_vision("$N对艄公说：向" + dir + "开。\n", ob);
-	message_vision("艄公对$N应道：好的，到了位置(weizhi)我自然会告诉您。您要想眺望(tiaowang)也随便您。\n",ob);
+	message_vision("$N對艄公說：向" + dir + "開。\n", ob);
+	message_vision("艄公對$N應道：好的，到了位置(weizhi)我自然會告訴您。您要想眺望(tiaowang)也隨便您。\n",ob);
 	return 1;
 }
 
@@ -179,8 +179,8 @@ int do_tiaowang()
 	+ ABS(ob->query_temp("thd_locy") - ob->query("thd/y")) <= viewdist) 
 	&& ob->query_temp("thd_target") == "thd")
 	{
-		message_vision("艄公指着远处对$N说道：客官，那边就是桃花岛了，我这就划过去。\n", ob);
-		write("艄公一撑竹杆，将船慢慢地划向了岸边。\n");
+		message_vision("艄公指着遠處對$N說道：客官，那邊就是桃花島了，我這就劃過去。\n", ob);
+		write("艄公一撐竹杆，將船慢慢地划向了岸邊。\n");
 		remove_call_out("time_limit1");
 		remove_call_out("time_limit2");
 		ob->move(__DIR__"shore");
@@ -191,15 +191,15 @@ int do_tiaowang()
 	+ ABS(ob->query_temp("thd_locy") - 1) <= viewdist) 
 	&& ob->query_temp("thd_target") == "bay")
 	{
-		message_vision("艄公指着远处对$N说道：客官，那边就是渔港了，我这就划过去。\n", ob);
-		write("艄公一撑竹杆，将船慢慢地划向了岸边。\n");
+		message_vision("艄公指着遠處對$N說道：客官，那邊就是漁港了，我這就劃過去。\n", ob);
+		write("艄公一撐竹杆，將船慢慢地划向了岸邊。\n");
 		remove_call_out("time_limit1");
 		remove_call_out("time_limit2");
 		ob->move("/d/jiaxing/jiaxinggang");
 		delete_temp("busy");
 		return 1;
 	}
-	return notify_fail("你极目远眺，可是除了大海外却什么也看不到。\n");
+	return notify_fail("你極目遠眺，可是除了大海外卻什麼也看不到。\n");
 }
 
 void weizhi(object ob)
@@ -217,22 +217,22 @@ void weizhi(object ob)
 	if (!dir) {
 		call_out("weizhi", 3, ob);
 		if (!random(3))
-			message_vision("艄公不耐烦地对$N说：客官到底走不走啊？\n", ob);
+			message_vision("艄公不耐煩地對$N說：客官到底走不走啊？\n", ob);
 		return;
 	}
 	switch (dir) {
 		case "e": 
-			dir = "东";
+			dir = "東";
 			if (locy > 0) locx++;
 			break;
 		case "w": 
 			dir = "西";
-			if (locx == 1) message_vision("艄公对$N说：客官,要撞到岸边了。\n", ob);
+			if (locx == 1) message_vision("艄公對$N說：客官,要撞到岸邊了。\n", ob);
 			if (locx > 0 && locy > 0) locx--;
 			break;
 		case "n": 
 			dir = "北";
-			if (locy == 1) message_vision("艄公对$N说：客官,要撞到岸边了。\n", ob);
+			if (locy == 1) message_vision("艄公對$N說：客官,要撞到岸邊了。\n", ob);
 			if (locy > 0 && locx > 0) locy--;
 			break;
 		case "s": 
@@ -240,12 +240,12 @@ void weizhi(object ob)
 			if (locx > 0) locy++;
 			break;
 	}
-	if (locx < 1 || locy < 1) message_vision("小船停在了岸边。换个方向开吧。\n", ob);
-	else message_vision("小船正向着" + dir + "方前进。\n", ob);
+	if (locx < 1 || locy < 1) message_vision("小船停在了岸邊。換個方向開吧。\n", ob);
+	else message_vision("小船正向着" + dir + "方前進。\n", ob);
 	if (locx == ob->query("thd/x") && locy == ob->query("thd/y")
 	&& ob->query_temp("thd_target") == "thd")
 	{
-		message_vision("艄公对$N说道：客官，桃花岛到了，请下船吧。\n", ob);
+		message_vision("艄公對$N說道：客官，桃花島到了，請下船吧。\n", ob);
 		remove_call_out("time_limit1");
 		remove_call_out("time_limit2");
 		ob->move(__DIR__"shore");
@@ -254,7 +254,7 @@ void weizhi(object ob)
 	}
 	if (locx == 1 && locy == 1 && ob->query_temp("thd_target") == "bay")
 	{
-		message_vision("艄公对$N说道：客官，渔港到了，请下船吧。\n", ob);
+		message_vision("艄公對$N說道：客官，漁港到了，請下船吧。\n", ob);
 		remove_call_out("time_limit1");
 		remove_call_out("time_limit2");
 		ob->move("/d/jiaxing/jiaxinggang");

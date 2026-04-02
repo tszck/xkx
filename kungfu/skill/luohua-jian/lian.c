@@ -1,5 +1,5 @@
 // Last Modified by winder on Sep. 12 2001
-// lian.c 红花十三剑法「连」字诀
+// lian.c 紅花十三劍法「連」字訣
 
 #include <ansi.h>
 #include <skill.h>
@@ -7,7 +7,7 @@
 #include <combat.h>
 
 inherit F_SSERVER;
-#define PNAME "「连」字诀"
+#define PNAME "「連」字訣"
 int perform(object me, object target)
 {
 	object weapon;
@@ -23,18 +23,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	fskill = "honghua-shengong";
 	bskill = "sword";
@@ -48,20 +48,20 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够娴熟，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query("max_neili") < 500 )
-		return notify_fail("你的内力修为不够！\n");
+		return notify_fail("你的內力修爲不夠！\n");
 
 	if( (int)me->query("neili") < 400 )
-		return notify_fail("你的真气不够！\n");
+		return notify_fail("你的真氣不夠！\n");
 
 	me->add("neili", -200);
 
-	msg = HIY"$N"HIY"使出红花十三剑法「连」字诀，招式陡然变快，疯狂的扑向$n！\n"NOR;
+	msg = HIY"$N"HIY"使出紅花十三劍法「連」字訣，招式陡然變快，瘋狂的撲向$n！\n"NOR;
 	message_combatd(msg, me, target);
 	if(random(me->query("combat_exp"))>(int)target->query("combat_exp")/20)
 	{
@@ -75,7 +75,7 @@ int perform(object me, object target)
 			attack_time = 5 + random(attack_time);
 		}
 
-		msg = YEL"结果$p被$P一轮急攻，毫无还手余裕。\n"NOR;
+		msg = YEL"結果$p被$P一輪急攻，毫無還手餘裕。\n"NOR;
 		for(i = 0; i < attack_time; i++)
 		{
 			if (flag == 1) target = offensive_target(me);
@@ -91,7 +91,7 @@ int perform(object me, object target)
 	}
 	else
 	{
-		msg = CYN"可是$p出手在先，一下就制住了$P的剑路。\n"NOR;
+		msg = CYN"可是$p出手在先，一下就制住了$P的劍路。\n"NOR;
 		me->start_busy(1);
 	}
 	message_combatd(msg, me, target);
@@ -106,13 +106,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		对敌人连续出手
+		對敵人連續出手
 
 	出手要求：
-		红花神功120级
-		落花十三剑120级
-		内力修为500
-		内力400
+		紅花神功120級
+		落花十三劍120級
+		內力修爲500
+		內力400
 HELP
 	);
 	return 1;

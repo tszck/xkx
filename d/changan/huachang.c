@@ -4,10 +4,10 @@ inherit  ROOM;
 
 void  create  ()
 {
-	set  ("short",  "花场");
+	set  ("short",  "花場");
 	set  ("long",  @LONG
-虽说洛阳牡丹闻名天下，但长安菊花却也毫不逊色。这片空地满种
-“黄金甲”，黄巢在世，想必是十分喜欢的了。
+雖說洛陽牡丹聞名天下，但長安菊花卻也毫不遜色。這片空地滿種
+“黃金甲”，黃巢在世，想必是十分喜歡的了。
 LONG);
 	set("exits",  ([  //sizeof()  ==  4
 		"south"  :  __DIR__"eastroad1",

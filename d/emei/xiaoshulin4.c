@@ -1,4 +1,4 @@
-//Room: xiaoshulin4.c 小树林
+//Room: xiaoshulin4.c 小樹林
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
@@ -7,10 +7,10 @@ string look_paizi();
 
 void create()
 {
-      set("short","小树林");
+      set("short","小樹林");
       set("long",@LONG
-这是峨嵋山金顶华藏庵外的一片小树林。北边是峨嵋派女弟子们的寝宫的
-窗户，窗下好像蹲着一个人。
+這是峨嵋山金頂華藏庵外的一片小樹林。北邊是峨嵋派女弟子們的寢宮的
+窗戶，窗下好像蹲着一個人。
 LONG);
       set("objects", ([
            __DIR__"npc/xiaosong" : 1,
@@ -31,6 +31,6 @@ int valid_leave(object me, string dir)
       mapping myfam;
       myfam = (mapping)me->query("family");
       if ((!myfam || (myfam["family_name"] != "峨嵋派")) && (dir == "north"))
-          return notify_fail("你好大的胆子，想闯峨嵋女弟子的寝宫？\n");
+          return notify_fail("你好大的膽子，想闖峨嵋女弟子的寢宮？\n");
       else  return 1;
 }

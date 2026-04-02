@@ -12,7 +12,7 @@ void create()
 	set_name(HIR"喜糖"NOR, ({"xi tang", "tang"}));
 	set("unit", "包");
 	set("value",10000);
-	set("long", "这是一包「侠客行一百」飞雪堂特制的精美喜糖。\n");
+	set("long", "這是一包「俠客行一百」飛雪堂特製的精美喜糖。\n");
 	set("amount",100);
 	setup();
 }
@@ -20,12 +20,12 @@ void create()
 int do_eat(string arg)
 {
 	object me=this_player();
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
-	message_vision(NOR"$N把一包"HIR"喜糖"NOR"吃个精光，分享了新郎新娘的甜蜜与温馨。\n",me);
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
+	message_vision(NOR"$N把一包"HIR"喜糖"NOR"喫個精光，分享了新郎新娘的甜蜜與溫馨。\n",me);
 
 	destruct(this_object());
 	return 1;

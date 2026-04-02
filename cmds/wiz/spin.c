@@ -20,11 +20,11 @@ int main(object me, string arg)
 
 	inv = all_inventory(ob);
 	if( !sizeof(inv) ) {
-		write((ob==me)? "目前你身上没有任何东西。\n"
-			: ob->name() + "身上没有携带任何东西。\n");
+		write((ob==me)? "目前你身上沒有任何東西。\n"
+			: ob->name() + "身上沒有攜帶任何東西。\n");
 		return 1;
 	}
-	printf("%s身上带著下列这些东西(负重 %d%%)：\n%s\n",
+	printf("%s身上帶著下列這些東西(負重 %d%%)：\n%s\n",
 		(ob==me)? "你": ob->name(),
 		(int)ob->query_encumbrance() * 100 / (int)ob->query_max_encumbrance(),
 		implode(map_array(inv, "inventory_desc", this_object()), "\n") );
@@ -45,7 +45,7 @@ int help (object me)
         write(@HELP
 指令格式: inventory
  
-可列出你(你)目前身上所携带的所有物品。
+可列出你(你)目前身上所攜帶的所有物品。
  
 注 : 此指令可以 " i " 代替。
  

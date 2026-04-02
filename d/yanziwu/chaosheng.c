@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "潮声岩");
+	set("short", "潮聲巖");
 	set("long", @LONG
-潮声岩一半浸没在水中。岩石大可丈许，内里早被波浪掏空。一旦
-潮水来时，水波相激，轰然做响，声闻远近。湖浪冲击潮声岩内壁，猛
-然反溅回来，你一愣神，不自禁举手想挡(dang)一下。
+潮聲巖一半浸沒在水中。岩石大可丈許，內裏早被波浪掏空。一旦
+潮水來時，水波相激，轟然做響，聲聞遠近。湖浪衝擊潮聲巖內壁，猛
+然反濺回來，你一愣神，不自禁舉手想擋(dang)一下。
 LONG );
 	set("outdoors", "mantuo");
 	set("no_clean_up", 0);
@@ -32,16 +32,16 @@ int do_parry()
 	int skilllvl = me->query_skill("parry",1);
 	int exp = me->query("combat_exp");
 	if(me->query("qi") < 10)
-		return notify_fail("你出手想挡，可是没力气啦，当场水淋满头。\n");
+		return notify_fail("你出手想擋，可是沒力氣啦，當場水淋滿頭。\n");
 	me->add("qi",-10);
 	me->add("eff_qi",-2); 
 	if (skilllvl < 50)
-		return notify_fail("你出手想挡，可是来不及啦，浪头盖下，浇你个一头湿。\n");
+		return notify_fail("你出手想擋，可是來不及啦，浪頭蓋下，澆你個一頭溼。\n");
 	if (skilllvl > 150)
-		return notify_fail("挡什么挡！这点小浪有什么可怕的？\n");
+		return notify_fail("擋什麼擋！這點小浪有什麼可怕的？\n");
         if (!objectp(weapon = me->query_temp("weapon")))
-		return notify_fail("没有用兵器，恐怕挡不住吧？\n");
+		return notify_fail("沒有用兵器，恐怕擋不住吧？\n");
 	if ((skilllvl*skilllvl*skilllvl/10) < exp)
 		me->improve_skill("parry", random(me->query_skill("parry",1)));
-	return notify_fail("你提起"+ weapon->query("name")+"，向浪头挥去，一股罡气将浪头击得四散溅落。\n");
+	return notify_fail("你提起"+ weapon->query("name")+"，向浪頭揮去，一股罡氣將浪頭擊得四散濺落。\n");
 }

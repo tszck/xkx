@@ -7,7 +7,7 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("卖糖小贩" , ({ "tang fan", "fan" }) );
+	set_name("賣糖小販" , ({ "tang fan", "fan" }) );
 	set("gender", "男性" );
 	set("age",20);
 	set("combat_exp", 15000);
@@ -42,6 +42,6 @@ void init()
 void greeting(object ob)
 {
 	if (environment(ob)==environment())
-	message_vision("卖糖的小贩冲$P吆喝着：家里有喜事吗？买点糖果招待朋友吧。\n",ob);
+	message_vision("賣糖的小販衝$P吆喝着：家裏有喜事嗎？買點糖果招待朋友吧。\n",ob);
 	return;
 }

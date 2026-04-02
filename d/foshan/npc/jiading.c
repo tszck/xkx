@@ -7,7 +7,7 @@ void create()
 	set_name("家丁", ({ "jia ding", "jia" }));
 	set("gender", "男性");
 	set("age", 35);
-	set("long", "佛山凤老爷府上的家丁。占势欺人，横行霸道。\n");
+	set("long", "佛山鳳老爺府上的家丁。佔勢欺人，橫行霸道。\n");
 	set("combat_exp", 4000);
         set_skill("dodge", 20);
         set_skill("unarmed", 20);

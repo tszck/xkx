@@ -4,8 +4,8 @@ inherit NPC;
 void create()
 {
        set_name("丁同", ({ "ding tong", "ding", "tong" }) );
-       set("title", "镖师");
-       set("nickname", "两头蛇");
+       set("title", "鏢師");
+       set("nickname", "兩頭蛇");
        set("gender", "男性" );
        set("shen", -2000);
        set("age", 45);
@@ -14,7 +14,7 @@ void create()
        set("int", 20);
        set("dex", 20);
        set("env/wimpy", 60);
-       set("long","他是霍元龙手下的镖师之一，一直在这一带寻找着一个人。\n" );
+       set("long","他是霍元龍手下的鏢師之一，一直在這一帶尋找着一個人。\n" );
        set("combat_exp", 200000);
        set("attitude", "heroism");
        set("chat_chance", 30);

@@ -13,9 +13,9 @@ void init()
 
 void create()
 {
-        set_name("毒蛇胆", ({"shedan", "dan"}));
+        set_name("毒蛇膽", ({"shedan", "dan"}));
         set("unit", "只");
-        set("long", "这是一只绿莹莹的毒蛇胆，是制备毒药的原料。\n");
+        set("long", "這是一隻綠瑩瑩的毒蛇膽，是製備毒藥的原料。\n");
         set("value", 800);
         setup();
 }
@@ -23,7 +23,7 @@ void create()
 int do_eat(string arg)
 {
         if (!id(arg))
-                return notify_fail("你要吃什么？\n");
+                return notify_fail("你要喫什麼？\n");
         return notify_fail("你找死啊。\n");
 }
 

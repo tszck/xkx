@@ -5,11 +5,11 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short", "密林矮树");
+	set("short", "密林矮樹");
 	set("long", @LONG
-往前苦苦走了二里有余，但见黑森森的四下里都是树木，一入
-林中，再也无法直行，林中小路东盘西曲，密林中难辨方向，忙跃
-上树去眺望，无论你往那边望，都找不到出路。
+往前苦苦走了二里有餘，但見黑森森的四下裏都是樹木，一入
+林中，再也無法直行，林中小路東盤西曲，密林中難辨方向，忙躍
+上樹去眺望，無論你往那邊望，都找不到出路。
 LONG );
 	set("outdoors", "heizhao");
 	set("no_clean_up", 0);
@@ -47,7 +47,7 @@ int valid_leave (object who, string dir)
 		else
 		{
 			who->move(__DIR__"shanlu3");
-			return notify_fail(HIR"好辛苦哦！总算走过一程了！\n"NOR);
+			return notify_fail(HIR"好辛苦哦！總算走過一程了！\n"NOR);
 		}
         }
 }

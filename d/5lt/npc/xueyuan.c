@@ -6,14 +6,14 @@ inherit NPC;
 void create()
 {
 	set_name("雪原", ({ "xueyuan" }));
-	set("title", HIM"电视台秘书"NOR);
+	set("title", HIM"電視臺祕書"NOR);
 	set("shen_type", 1);
 
 	set("gender", "女性" );
 	set("long", @LONG
 雪原用很奇怪的眼神看着你。
 LONG);
-	set("nickname", HIW"脑袋没有包"NOR);
+	set("nickname", HIW"腦袋沒有包"NOR);
 	set("age", 20);
 	set("per", 30);
 	set("attitude", "friendly");		

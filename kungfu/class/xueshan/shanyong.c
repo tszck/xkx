@@ -10,10 +10,10 @@ void create()
 {
         set_name("善勇", ({ "shan yong", "shan", "yong" }));
         set("long",@LONG
-一个胖胖的西藏僧人，面带笑容，却常干笑里藏刀的事。
+一個胖胖的西藏僧人，面帶笑容，卻常幹笑裏藏刀的事。
 LONG
         );
-        set("title",HIR"血刀门第五代弟子"NOR);
+        set("title",HIR"血刀門第五代弟子"NOR);
         set("gender", "男性");
         set("age", 35);
         set("attitude", "peaceful");
@@ -73,6 +73,6 @@ int recruit_apprentice(object ob)
 {
         if( ::recruit_apprentice(ob) )
 		       {
-        ob->set("title", HIR "血刀门第六代弟子" NOR);
+        ob->set("title", HIR "血刀門第六代弟子" NOR);
  				  }
 }

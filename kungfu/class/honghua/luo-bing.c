@@ -1,4 +1,4 @@
-// luo-bing.c 骆冰
+// luo-bing.c 駱冰
 // Last Modified by winder on Sep. 12 2001
 
 #include <ansi.h>
@@ -7,10 +7,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("骆冰", ({ "luo bing", "luo" }));
-	set("title", HIR"红花会"HIG"十一当家"NOR);
-	set("nickname", HIG"鸳鸯刀"NOR);
-	set("long","她是一个秀美的少妇。\n她是红花会文四当家的浑家，神刀骆元通的女儿。\n她一手短刀，一手握着一柄长刀。双手执白刃，如持鲜花枝。风姿嫣然。\n");
+	set_name("駱冰", ({ "luo bing", "luo" }));
+	set("title", HIR"紅花會"HIG"十一當家"NOR);
+	set("nickname", HIG"鴛鴦刀"NOR);
+	set("long","她是一個秀美的少婦。\n她是紅花會文四當家的渾家，神刀駱元通的女兒。\n她一手短刀，一手握着一柄長刀。雙手執白刃，如持鮮花枝。風姿嫣然。\n");
 	set("gender", "女性");
 	set("class", "swordman");
 	set("age", 24);
@@ -58,7 +58,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("红花会", 2, "弟子");
+	create_family("紅花會", 2, "弟子");
 	setup();
 	carry_object(CLOTH_DIR"female-cloth")->wear();
 	carry_object(CLOTH_DIR"female-shoe")->wear();
@@ -74,9 +74,9 @@ void init()
 	if((int)ob->query("shen") < -1000 &&
 		ob->query("family/master_id")=="luo bing")
 	{
-		command( "chat "+ob->query("name")+"！你这等邪恶奸诈之徒，我岂能仍是你的师父。\n");
+		command( "chat "+ob->query("name")+"！你這等邪惡奸詐之徒，我豈能仍是你的師父。\n");
 		command("expell "+ ob->query("id"));
-		this_player()->set("title","红花会" + RED + "弃徒" NOR);
+		this_player()->set("title","紅花會" + RED + "棄徒" NOR);
 	}
 }
 
@@ -84,11 +84,11 @@ void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("shen") < 5000)
 	{
-		command("say 我红花会收徒极严。");
-		command("say 这位" + RANK_D->query_respect(ob) + "平时还要多做一些行侠仗义之事！");
+		command("say 我紅花會收徒極嚴。");
+		command("say 這位" + RANK_D->query_respect(ob) + "平時還要多做一些行俠仗義之事！");
 		return;
 	}
-	command("say 好，你这个年青人还不错，我收下你了！");
+	command("say 好，你這個年青人還不錯，我收下你了！");
 	command("recruit " + ob->query("id"));
 }
 

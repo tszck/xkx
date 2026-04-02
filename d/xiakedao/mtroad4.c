@@ -1,13 +1,13 @@
-// mtroad4.c  树林
+// mtroad4.c  樹林
 
 inherit ROOM;
 
 void create()
 {
-        set("short", "树林");
+        set("short", "樹林");
         set("long", @LONG
-这里是茂密的森林。四周都是数不清的长草，一股阴森恐怖的
-气氛。远处不时传来野兽的嚎叫，你实在不想在这里多留。
+這裏是茂密的森林。四周都是數不清的長草，一股陰森恐怖的
+氣氛。遠處不時傳來野獸的嚎叫，你實在不想在這裏多留。
 LONG );
         set("outdoors", "motianya");
         set("exits", ([

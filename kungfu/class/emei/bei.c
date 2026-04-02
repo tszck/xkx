@@ -1,11 +1,11 @@
-// bei.c 贝锦仪
+// bei.c 貝錦儀
 
 inherit NPC;
 inherit F_MASTER;
 int ask_for_ji();
 void create()
 {
-	set_name("贝锦仪", ({ "bei jinyi","bei","jinyi"}));
+	set_name("貝錦儀", ({ "bei jinyi","bei","jinyi"}));
 	set("long", "她是峨嵋派的第四代俗家弟子。\n");
 	set("gender", "女性");
 	set("age", 21);
@@ -28,8 +28,8 @@ void create()
 	set("jingli", 1500);
 	set("max_jingli", 1500);
 	set("inquiry",([
-		"倚天剑" : "师父把她交给纪师姊了。",
-		"纪晓芙" : (: ask_for_ji :),
+		"倚天劍" : "師父把她交給紀師姊了。",
+		"紀曉芙" : (: ask_for_ji :),
 	]));
 
 	set("combat_exp", 150000);
@@ -76,15 +76,15 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("combat_exp") > 10000) {
-		command("say 我峨嵋注重清修，对弟子要求能忍受寂寞。");
-		command("say 在江湖阅历方面，" + RANK_D->query_respect(ob) +
-			"经历丰富，是否能在峨嵋修道？");
+		command("say 我峨嵋注重清修，對弟子要求能忍受寂寞。");
+		command("say 在江湖閱歷方面，" + RANK_D->query_respect(ob) +
+			"經歷豐富，是否能在峨嵋修道？");
 		return;
 	}
 	if ((int)ob->query("shen") < 0) {
-		command("say 我峨嵋乃是堂堂名门正派，对弟子要求极严。");
+		command("say 我峨嵋乃是堂堂名門正派，對弟子要求極嚴。");
 		command("say 在德行方面，" + RANK_D->query_respect(ob) +
-			"是否还做得不够？");
+			"是否還做得不夠？");
 		return;
 	}
 	command("say 好吧，我就收下你了。");
@@ -96,10 +96,10 @@ int ask_for_ji()
 
 	if(query("ji_count") > 0)
 	{
-		tell_object(ob,"贝锦仪说道：你找晓芙？看看有没有在舍身崖。\n"); 
+		tell_object(ob,"貝錦儀說道：你找曉芙？看看有沒有在捨身崖。\n"); 
 		add("ji_count", -1);
 		ob->set("marks/ji",1);
 	}
-	else tell_object(ob,"贝锦仪说道：你找晓芙？我也在找她呢。\n"); 
+	else tell_object(ob,"貝錦儀說道：你找曉芙？我也在找她呢。\n"); 
 	return 1;
 }

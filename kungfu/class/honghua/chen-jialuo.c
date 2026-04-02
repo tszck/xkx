@@ -1,5 +1,5 @@
 // Last Modified by winder on Sep. 12 2001
-// chen-jialuo.c 陈家洛
+// chen-jialuo.c 陳家洛
 
 #include <ansi.h>
 inherit NPC;
@@ -12,10 +12,10 @@ int count=1;
 
 void create()
 {
-	set_name("陈家洛", ({ "chen jialuo", "chen" }));
-	set("title", HIR"红花会"HIG"总舵主"NOR);
-	set("nickname", HIY"玉面神龙"NOR);
-	set("long","他就是天下闻名的红花会的总舵主陈家洛。\n身穿一件干干净净的青色长袍。\n他一副模样直是个富贵人家的纨裤子弟，丰姿如玉，目朗似星，神采飞扬，气度闲雅，吐属斯文。服饰俨然是个贵介公子。\n");
+	set_name("陳家洛", ({ "chen jialuo", "chen" }));
+	set("title", HIR"紅花會"HIG"總舵主"NOR);
+	set("nickname", HIY"玉面神龍"NOR);
+	set("long","他就是天下聞名的紅花會的總舵主陳家洛。\n身穿一件乾乾淨淨的青色長袍。\n他一副模樣直是個富貴人家的紈褲子弟，丰姿如玉，目朗似星，神采飛揚，氣度閒雅，吐屬斯文。服飾儼然是個貴介公子。\n");
 	set("gender", "男性");
 	set("age", 22);
 	set("shen_type", 1);
@@ -65,18 +65,18 @@ void create()
 	prepare_skill("hand", "benlei-shou");
 
 	set("inquiry", ([
-		"红花会" : (: ask_me :),
+		"紅花會" : (: ask_me :),
 	]));
-	set("chat_chance", 5);	 // 随机动作概率 25%
+	set("chat_chance", 5);	 // 隨機動作概率 25%
 	set("chat_msg", ({
-		"陈家洛叹了一口气道：唉....想不到乾隆竟是我兄弟，这可如何是好？\n",
-		"陈家洛恨声说道：我们汉人的江山，一定要从满清手中夺回来。\n",
-		"陈家洛说道：这位兄弟，可要加入我们红花会吗？\n",
+		"陳家洛嘆了一口氣道：唉....想不到乾隆竟是我兄弟，這可如何是好？\n",
+		"陳家洛恨聲說道：我們漢人的江山，一定要從滿清手中奪回來。\n",
+		"陳家洛說道：這位兄弟，可要加入我們紅花會嗎？\n",
 	}) );
 	set("no_get",1);
-	set("chat_chance_combat", 50); // 战斗中随机动作概率
+	set("chat_chance_combat", 50); // 戰鬥中隨機動作概率
 	set("chat_msg_combat", ({
-		"陈家洛说道：你敢惹我，追到天涯海角我都要杀了你！\n",
+		"陳家洛說道：你敢惹我，追到天涯海角我都要殺了你！\n",
 		(: perform_action, "sword.beng" :),
 		(: perform_action, "sword.lian" :),
 		(: perform_action, "cuff.cuo" :),
@@ -84,7 +84,7 @@ void create()
 		(: exert_function, "recover" :),
 		(: exert_function, "powerup" :),
 	}) );
-	create_family("红花会", 2, "总舵主");
+	create_family("紅花會", 2, "總舵主");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();
@@ -96,11 +96,11 @@ void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("shen") < 50000)
 	{
-		command( "say 红花会中皆是敢作敢当的好汉子，你这小贼也想混进来么？");
-		command("say 想要加入红花会"+RANK_D->query_respect(ob) + "你先去杀几个清狗再说！");
+		command( "say 紅花會中皆是敢作敢當的好漢子，你這小賊也想混進來麼？");
+		command("say 想要加入紅花會"+RANK_D->query_respect(ob) + "你先去殺幾個清狗再說！");
 		return;
 	}
-	command("say 在下对"+RANK_D->query_respect(ob)+"已是神交已久，从今而后咱们就是一家人了！");
+	command("say 在下對"+RANK_D->query_respect(ob)+"已是神交已久，從今而後咱們就是一家人了！");
 	command("recruit " + ob->query("id"));
 }
 
@@ -118,9 +118,9 @@ void init()
 	if((int)ob->query("shen") < -1000 &&
 		ob->query("family/master_id")=="chen jialuo")
 	{
-		command( "chat "+ob->query("name")+"！你这等邪恶奸诈之徒，红花会岂能再容你！\n");
+		command( "chat "+ob->query("name")+"！你這等邪惡奸詐之徒，紅花會豈能再容你！\n");
 		command("expell "+ ob->query("id"));
-		this_player()->set("title","红花会" + RED + "弃徒" NOR);
+		this_player()->set("title","紅花會" + RED + "棄徒" NOR);
 	}
 	add_action("do_say", "say");
         add_action("do_qiecuo","qiecuo");
@@ -131,9 +131,9 @@ void greeting(object me)
        
        	mapping myfam;
 	myfam = (mapping)me->query("family");
-	if((myfam["family_name"] == "红花会")&&(!me->query_skill("honghua-shengong",1))&&(me->query("combat_exp")>500000))
+	if((myfam["family_name"] == "紅花會")&&(!me->query_skill("honghua-shengong",1))&&(me->query("combat_exp")>500000))
         {
-                command("say 你竟敢放弃本门心法！从我这里滚出去吧！");
+                command("say 你竟敢放棄本門心法！從我這裏滾出去吧！");
                 command("expell " + me->query("id"));
         }
         
@@ -143,25 +143,25 @@ int do_say(string arg)
 {
 	if( !arg || arg=="" ) return 0;
  
-	if( arg=="青叶红花白莲藕") 
+	if( arg=="青葉紅花白蓮藕") 
 	{
-		write("陈家洛说道：天下英雄是一家。\n");
-		message("vision", "陈家洛低声道：原来是自家弟兄，不知有何见教？\n", this_player());
+		write("陳家洛說道：天下英雄是一家。\n");
+		message("vision", "陳家洛低聲道：原來是自家弟兄，不知有何見教？\n", this_player());
 		set("inquiry", ([
-			"红花令" : (: ask_ling :),
+			"紅花令" : (: ask_ling :),
 		]));
 	}
 }
 string ask_me()
 {
-	return RANK_D->query_respect(this_player())+ "，我红花会乃天下第一大帮，专与清狗作对，哈...哈...";
+	return RANK_D->query_respect(this_player())+ "，我紅花會乃天下第一大幫，專與清狗作對，哈...哈...";
 }
 string ask_ling()
 {
 	object ob,me;
 
-	if (count == 0) return "红花令已经传出去了！\n";
-	message_vision(HIR"陈家洛说道：“想要红花令吗？，先接我三招！\n"NOR,this_player());
+	if (count == 0) return "紅花令已經傳出去了！\n";
+	message_vision(HIR"陳家洛說道：“想要紅花令嗎？，先接我三招！\n"NOR,this_player());
 	ob = this_object();
 	me = this_player();
 	COMBAT_D->do_attack(ob, me, query_temp("weapon") );
@@ -178,9 +178,9 @@ string ask_ling()
 		ob = new(__DIR__"obj/honghua-ling");
 		ob->move(this_player());
 		count=0;
-		message_vision(HIY"陈家洛交给$N一支红花令！\n"NOR, me);
-		return "好，这是红花令，兄弟你要好好保管！\n";
+		message_vision(HIY"陳家洛交給$N一支紅花令！\n"NOR, me);
+		return "好，這是紅花令，兄弟你要好好保管！\n";
 	}
-	else return "你这样武功怎能掌管红花令？";	
+	else return "你這樣武功怎能掌管紅花令？";	
 }
 

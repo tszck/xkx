@@ -7,7 +7,7 @@ inherit ITEM;
 
 void create()
 {
-	set_name( "道德经「第八章」", ({ "jing", "daode jing" }));
+	set_name( "道德經「第八章」", ({ "jing", "daode jing" }));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
@@ -16,9 +16,9 @@ void create()
 		set("long",
 			CYN "\n"
 			"\n\t\t\t第八章\n\n"
-			"\t上善若水。水善利万物而不争，处众人之所恶，故几于道。\n"
-			"\t居善地，心善渊，与善仁，言善信，政善治，事善能，动善时。\n"
-			"夫唯不争，故无尤。\n"
+			"\t上善若水。水善利萬物而不爭，處衆人之所惡，故幾於道。\n"
+			"\t居善地，心善淵，與善仁，言善信，政善治，事善能，動善時。\n"
+			"夫唯不爭，故無尤。\n"
 			"\n"NOR
 		);
 		set("value", 500);

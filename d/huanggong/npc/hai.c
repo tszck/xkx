@@ -8,21 +8,21 @@ int do_pretend ( string arg );
 void create()
 {
 	set_name("海公公", ({"hai gonggong", "hai", "gonggong"}));
-	set("title", "东厂千户");
+	set("title", "東廠千戶");
 	set("long",
-		"他是东厂大太监海大富，乔装改扮成商人模样出京寻欢作乐，长得既像老头又像老太太。\n"
+		"他是東廠大太監海大富，喬裝改扮成商人模樣出京尋歡作樂，長得既像老頭又像老太太。\n"
 	);
 
-	set("gender", "无性");
+	set("gender", "無性");
 	set("rank_info/respect", "公公");
 
 	set("attitude", "heroism");
 	set("class", "eunach");
 
 	set("inquiry",([
-		"自宫"  : (: ask_for_zigong :),
-		"进宫"  : (: ask_for_jingong :),
-		"皇宫"  : (: ask_for_jingong :),
+		"自宮"  : (: ask_for_zigong :),
+		"進宮"  : (: ask_for_jingong :),
+		"皇宮"  : (: ask_for_jingong :),
 	]));
 
 	set("age", 60);
@@ -74,16 +74,16 @@ string ask_for_zigong()
 
 	me = this_player();
 
-	if( (string)me->query("gender")=="无性" )
-		return "你我同是阉人，何必开如此无聊的玩笑？\n";
+	if( (string)me->query("gender")=="無性" )
+		return "你我同是閹人，何必開如此無聊的玩笑？\n";
 
 	if( (string)me->query("gender") == "女性" )
-		return "我虽已废，但一样可以给你这个小美人带来快乐，要不要试试？\n";
+		return "我雖已廢，但一樣可以給你這個小美人帶來快樂，要不要試試？\n";
 	if ((int)me->query_str() > 28 )
-		return "这位好汉过于粗壮，自宫有碍观瞻，不妥，不妥。\n";
+		return "這位好漢過於粗壯，自宮有礙觀瞻，不妥，不妥。\n";
 
 	me->set_temp("pending/zigong", 1);
-	return "自宫？这位公子相貌堂堂，何必... 我真希望能有你的那个。自宫之后，不可后悔，你若决心已定(decide)，告诉我。\n";
+	return "自宮？這位公子相貌堂堂，何必... 我真希望能有你的那個。自宮之後，不可後悔，你若決心已定(decide)，告訴我。\n";
 }
 
 string ask_for_jingong()
@@ -92,17 +92,17 @@ string ask_for_jingong()
 
 	me = this_player();
 
-	if( (string)me->query("gender")=="无性" )
-	return("海公公笑吟吟地说道：您既已是公公了，自然可以进宫。\n");          
+	if( (string)me->query("gender")=="無性" )
+	return("海公公笑吟吟地說道：您既已是公公了，自然可以進宮。\n");          
 
 	if( (string)me->query("gender") == "男性" )
 	{
 	me->set_temp("pending/zigong", 1);
-	return("海公公笑吟吟地说道：并不是一定要自宫才可以进皇宫的；\n"+"不过，你若决心已定(decide)，我就成全了你。\n");
+	return("海公公笑吟吟地說道：並不是一定要自宮纔可以進皇宮的；\n"+"不過，你若決心已定(decide)，我就成全了你。\n");
 	}
 
 	if( (string)me->query("gender")=="女性" )
-	return("海公公摇头道：不行的，你长得太丑了。\n");                
+	return("海公公搖頭道：不行的，你長得太醜了。\n");                
 }
 
 
@@ -112,15 +112,15 @@ int do_decide()
 		return 0;
 
 	message_vision(
-		"$N一咬牙，褪下中衣。（女玩家闭眼！）\n\n"
-		"$n伸出长剑插到$N两腿之间，飞速一剜，……\n\n"
-		"$N顿时惨叫一声昏了过去……\n\n",
+		"$N一咬牙，褪下中衣。（女玩家閉眼！）\n\n"
+		"$n伸出長劍插到$N兩腿之間，飛速一剜，……\n\n"
+		"$N頓時慘叫一聲昏了過去……\n\n",
 		this_player(), this_object() );
 	command("chat 嗨……");
 	command("hehe");
 	this_player()->delete_temp("pending/zigong");
 	this_player()->delete_temp("pending/jingong");
-	this_player()->set("gender","无性");
+	this_player()->set("gender","無性");
 	this_player()->set("class", "eunach");
 	this_player()->set("combat_exp",this_player()->query("combat_exp")+1000);
 	this_player()->unconcious();
@@ -132,31 +132,31 @@ int accept_object(object me, object ob)
 {
 	if( !me || environment(me) != environment() ) return 0;
 	if ( !objectp(ob) ) return 0; 
-	if ( !present(ob, me) ) return notify_fail("你没有这件东西。");
-	if ( (string)ob->query("name") == "药粉") 
+	if ( !present(ob, me) ) return notify_fail("你沒有這件東西。");
+	if ( (string)ob->query("name") == "藥粉") 
 	{
-	 write(HIC "海公公打开药包，伸出小指，用指甲挑了一点粉末，\n"
+	 write(HIC "海公公打開藥包，伸出小指，用指甲挑了一點粉末，\n"
 	 +"就着酒泯了，仍是不住咳嗽。\n" NOR);
 	       if(objectp(present("xiao", environment(me))))
 		{
-		command("say 奇怪，你怎么也有这种药。");   
+		command("say 奇怪，你怎麼也有這種藥。");   
 		}
 	       else
 		{
 		 command("smile "+ob->query("id"));
 		 if(me->query_temp("haspretend"))
 		 { 
-		 command("say 多谢啦，小桂子，我现在好多了 !");
+		 command("say 多謝啦，小桂子，我現在好多了 !");
 		 me->delete_temp("haspretend");
 		 me->set("huanggong\\canenter", 1);
 		 }              
-		 else command("say 奇怪，你怎么也有这种药。");   
+		 else command("say 奇怪，你怎麼也有這種藥。");   
 		}
 	}
 	else 
 	{
 		 command("shake ");
-		 command("say 这种东西鬼才要 ! 老子宰了你 !");
+		 command("say 這種東西鬼才要 ! 老子宰了你 !");
 		 remove_call_out("kill_ob");
 		 call_out("kill_ob", 1, this_player());
 	}   
@@ -169,11 +169,11 @@ int do_pretend ( string arg )
    object ob ;
    ob = this_player () ;
    if( !arg && arg!="guizi"&&arg!="xiao"&&arg!="xiao guizi")
-     return notify_fail("\n你要装成谁？\n");
+     return notify_fail("\n你要裝成誰？\n");
    
 if(objectp(present("xiao", environment(ob))))
 {
-write(HIR "\n海公公大叫一声：你敢冒充小桂子，老子宰了你！\n" NOR);
+write(HIR "\n海公公大叫一聲：你敢冒充小桂子，老子宰了你！\n" NOR);
 remove_call_out("kill_ob");
 call_out("kill_ob", 1, this_player());
 return 1;
@@ -181,8 +181,8 @@ return 1;
 if ( (string) ob -> query ("gender") == "男性")
 {
 ob->set_temp("haspretend",1);
-message_vision("\n$N装成了小桂子，$n没吭声。\n",this_player(),this_object());
-message_vision("\n海公公看了$N一眼，说“唉，是不是又该吃药了？”\n",this_player());
+message_vision("\n$N裝成了小桂子，$n沒吭聲。\n",this_player(),this_object());
+message_vision("\n海公公看了$N一眼，說“唉，是不是又該喫藥了？”\n",this_player());
 return 1;
 }
 }
@@ -190,8 +190,8 @@ return 1;
 
 void die()
 {
-	say("海公公挣扎着叹道：唉，老皇爷的事儿我没办成啊！\n");                 
-	message_vision("$N惨嚎一声，死了！\n", this_object());
+	say("海公公掙扎着嘆道：唉，老皇爺的事兒我沒辦成啊！\n");                 
+	message_vision("$N慘嚎一聲，死了！\n", this_object());
 	::die();
 }
 

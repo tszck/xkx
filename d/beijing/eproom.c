@@ -10,19 +10,19 @@ string look_rules();
 
 void create()
 {
-	set("short", "拱猪房");
+	set("short", "拱豬房");
 	set("long", @LONG
-	这是一间专门为拱猪而特别设计的拱猪房。房间里面灯火通明，仿佛永
-远准备着为拱猪狂们服务似的。房间的中心放着一张用百年老松树木材特制的拱
-猪桌(table)，周围放着四把楠木靠背椅。桌子上摆着一本记分簿(scoreboard)，
-北边的墙上贴着一张纸(paper)。
+	這是一間專門爲拱豬而特別設計的拱豬房。房間裏面燈火通明，彷彿永
+遠準備着爲拱豬狂們服務似的。房間的中心放着一張用百年老松樹木材特製的拱
+豬桌(table)，周圍放着四把楠木靠背椅。桌子上擺着一本記分簿(scoreboard)，
+北邊的牆上貼着一張紙(paper)。
 LONG );
 	set("pigging", 1);
 
 	set("item_desc", ([
 		"table" : (: look_table :),
 		"scoreboard" : (: look_scoreboard :),
-		"paper" : "请务必读 help pig_cmds 和 help pig_rules。\n",
+		"paper" : "請務必讀 help pig_cmds 和 help pig_rules。\n",
 	]));
 	set("exits", ([
 		"west": __DIR__"duchang2",
@@ -50,6 +50,6 @@ string look_scoreboard()
 int valid_leave(object me, string dir)
 {
 	if (me->query_temp("pigging_seat"))
-		return notify_fail("先离开拱猪桌才能行动。\n");
+		return notify_fail("先離開拱豬桌才能行動。\n");
 	return ::valid_leave(me, dir);
 }

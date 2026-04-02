@@ -21,7 +21,7 @@ int do_check()
 		}
 		if((string)file_name(environment(env))!="/d/city/huadian")
 		{
-			message_vision("$N身上的$n传出一阵阵迷人的幽香。\n", env,this_object());		
+			message_vision("$N身上的$n傳出一陣陣迷人的幽香。\n", env,this_object());		
 			add("flower_aroma",1);
 		}
 		remove_call_out("do_check");
@@ -30,7 +30,7 @@ int do_check()
 	}
 	else 
 	{
-		message_vision("一阵风吹来，将$N吹走了。\n", this_object());	
+		message_vision("一陣風吹來，將$N吹走了。\n", this_object());	
 		destruct(this_object());
 		return 1;
 	}

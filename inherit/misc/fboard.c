@@ -1,4 +1,4 @@
-// fboard.c 档案板
+// fboard.c 檔案板
 
 #include <ansi.h>
 
@@ -40,7 +40,7 @@ string short()
 
 	notes = query("notes");
 	if( !pointerp(notes) || !sizeof(notes) )
-		return ::short() + " [ 没有任何留言 ]";
+		return ::short() + " [ 沒有任何留言 ]";
 
 	if( this_player() ) {
 		last_read_time = (int)this_player()->query("board_last_read/" + (string)query("board_id"));
@@ -48,9 +48,9 @@ string short()
 			if( notes[i]["time"] <= last_read_time ) break;
 	}
 	if( unread )
-		return sprintf("%s [ %d 张留言，%d 张未读 ]", ::short(), sizeof(notes), unread);
+		return sprintf("%s [ %d 張留言，%d 張未讀 ]", ::short(), sizeof(notes), unread);
 	else
-		return sprintf("%s [ %d 张留言 ]", ::short(), sizeof(notes));
+		return sprintf("%s [ %d 張留言 ]", ::short(), sizeof(notes));
 }
 
 string long()
@@ -61,7 +61,7 @@ string long()
 
 	notes = query("notes");
 	msg = query("long");
-	msg = msg + "留言版的使用方法请见 help board。\n";
+	msg = msg + "留言版的使用方法請見 help board。\n";
 	if( !pointerp(notes) || !sizeof(notes) ) return query("long");
 
 	last_time_read = this_player()->query("board_last_read/" + (string)query("board_id"));
@@ -90,7 +90,7 @@ void done_post(object me, mapping note, string text)
 		notes = notes[BOARD_CAPACITY / 2 .. BOARD_CAPACITY];
 
 	set("notes", notes);
-	tell_object(me, "留言完毕。\n");
+	tell_object(me, "留言完畢。\n");
 
 	save();
 	return;
@@ -99,7 +99,7 @@ void done_post(object me, mapping note, string text)
 int do_post(string arg)
 {
 	mapping note;
-	if(!arg) return notify_fail("留言请指定一个标题。\n");
+	if(!arg) return notify_fail("留言請指定一個標題。\n");
 	
 	note = allocate_mapping(4);
 	note["title"] = arg;
@@ -120,9 +120,9 @@ int do_read(string arg)
 	notes = query("notes");
 
 	if( !pointerp(notes) || !sizeof(notes) )
-		return notify_fail("留言板上目前没有任何留言。\n");
+		return notify_fail("留言板上目前沒有任何留言。\n");
 
-	if( !arg ) return notify_fail("指令格式：read <留言编号>|new|next\n");
+	if( !arg ) return notify_fail("指令格式：read <留言編號>|new|next\n");
 	if( arg=="new" || arg=="next" ) {
 		if( !mapp(last_read_time) || undefinedp(last_read_time[myid]) )
 			num = 1;
@@ -131,10 +131,10 @@ int do_read(string arg)
 				if( notes[num-1]["time"] > last_read_time[myid] ) break;
 			
 	} else if( !sscanf(arg, "%d", num) )
-		return notify_fail("你要读第几张留言？\n");
+		return notify_fail("你要讀第幾張留言？\n");
 
 	if( num < 1 || num > sizeof(notes) )
-		return notify_fail("没有这张留言。\n");
+		return notify_fail("沒有這張留言。\n");
 	num--;
 	this_player()->start_more( sprintf(
 "[%d] %-40s %s(%s)\n----------------------------------------------------------------------\n",
@@ -158,18 +158,18 @@ int do_discard(string arg)
 	int num;
 
 	if( !arg || sscanf(arg, "%d", num)!=1 )
-		return notify_fail("指令格式：discard <留言编号>\n");
+		return notify_fail("指令格式：discard <留言編號>\n");
 	notes = query("notes");
 	if( !arrayp(notes) || num < 1 || num > sizeof(notes) )
-		return notify_fail("没有这张留言。\n");
+		return notify_fail("沒有這張留言。\n");
 	num--;
 	if( notes[num]["author"] != (string) this_player(1)->query("name")
 	&&	(string)SECURITY_D->get_status(this_player(1)) != "(admin)" )
-		return notify_fail("这个留言不是你写的。\n");
+		return notify_fail("這個留言不是你寫的。\n");
 
 	notes = notes[0..num-1] + notes[num+1..sizeof(notes)-1];
 	set("notes", notes);
 	save();
-	write("删除第 " + (num+1) + " 号留言....Ok。\n");
+	write("刪除第 " + (num+1) + " 號留言....Ok。\n");
 	return 1;
 }

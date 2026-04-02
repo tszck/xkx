@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("丫环", ({ "ya huan","ya","huan"}) );
+	set_name("丫環", ({ "ya huan","ya","huan"}) );
 	set("gender", "女性" );
 	set("age", 14);
-	set("long", "一个很能干的丫环。\n");
+	set("long", "一個很能幹的丫環。\n");
 	set("shen_type", 1);
 	set("combat_exp", 300);
 	set("str", 18);

@@ -1,4 +1,4 @@
-// /d/shenlong/datingkou 大厅口
+// /d/shenlong/datingkou 大廳口
 // Last Modified by winder on Jul. 12 2002
 
 #include <ansi.h>
@@ -13,11 +13,11 @@ string* npcs = ({
 
 void create()
 {
-	set("short", "大厅口");
+	set("short", "大廳口");
 	set("long", @LONG
-这是大厅的门口，向内可进入神龙教的大厅，门口站着许多神龙教
-的教徒，全副武装，警惕地注视四周，从厅内依稀传来一个浑厚的声音，
-似乎里面正在召开什么重要会议。
+這是大廳的門口，向內可進入神龍教的大廳，門口站着許多神龍教
+的教徒，全副武裝，警惕地注視四周，從廳內依稀傳來一個渾厚的聲音，
+似乎裏面正在召開什麼重要會議。
 LONG
 	);
 	set("valid_startroom",1);
@@ -45,19 +45,19 @@ int valid_leave(object me, string dir)
 	int haveguarder;
 
 	if( !(me->query("sg/spy") ||
-		me->query("family/family_name") == "神龙教") &&
+		me->query("family/family_name") == "神龍教") &&
 		dir == "enter" )
 	{
 		inv = all_inventory(this_object());
 		for(int i = 0; i < sizeof(inv); i++ )
-			if( inv[i]->query("family/family_name") == "神龙教" ||
+			if( inv[i]->query("family/family_name") == "神龍教" ||
 				inv[i]->query("sg/spy") )
 			{
 				 haveguarder++;
 				 if( living(inv[i]) ) inv[i]->kill_ob(me);
 			}
 		if( haveguarder > 0 )
-			return notify_fail("你也太目中无人了吧，这儿还有人守着呢。\n");
+			return notify_fail("你也太目中無人了吧，這兒還有人守着呢。\n");
 	 }
 
 	 return ::valid_leave(me, dir);

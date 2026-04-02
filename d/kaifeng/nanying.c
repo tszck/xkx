@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "南盈门");
+	set("short", "南盈門");
 	set("long", @LONG
-南盈门是开封城的南门，由于开封府尹治理有方，开封境内很是平
-安。出城不远就是禹王台。
+南盈門是開封城的南門，由於開封府尹治理有方，開封境內很是平
+安。出城不遠就是禹王臺。
 LONG);
 	set("objects", ([
 		__DIR__"npc/guanbing" : 2,

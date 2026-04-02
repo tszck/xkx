@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "断肠崖");
+	set("short", "斷腸崖");
 	set("long", @LONG
-这里是绝情谷后山峰顶，人迹鲜至，站到崖前，俯视深谷，但见灰
-雾茫茫。
+這裏是絕情谷後山峯頂，人跡鮮至，站到崖前，俯視深谷，但見灰
+霧茫茫。
 LONG
 	);
 	set("exits", ([
@@ -31,7 +31,7 @@ void init()
 int do_look(string arg)
 {
 	if( !arg || arg == "" || (arg !=  "ya" && arg!="崖")) return 0;
-	write("你仔细打量四周。发现在不远处有一块突出来的峭壁，可以勉强容身。\n");
+	write("你仔細打量四周。發現在不遠處有一塊突出來的峭壁，可以勉強容身。\n");
 	this_player()->set_temp("jqg_look1", 1);
 	return 1;
 	
@@ -43,17 +43,17 @@ int do_jump(string arg)
 	if (arg != "qiaobi" && arg != "峭壁" ) return 0;
 	if (!arg ) return 0;
 	if (!me->query_temp("jqg_look1"))
-		return notify_fail("你要往那里跳？\n");
+		return notify_fail("你要往那裏跳？\n");
 	
 	if (!living(me)) return 0;
 	if ((int)(me->query_encumbrance()*100/me->query_max_encumbrance())>=50)
-		return notify_fail("你身上负重太多，无法跳过去。\n");
+		return notify_fail("你身上負重太多，無法跳過去。\n");
  
 	if((int)me->query_skill("dodge",1) < 100 )  
-		return notify_fail("以你目前的轻功修为，无法跳过去。\n"); 
-	message_vision("$N纵身向前面的峭壁跳了过去。\n", me);
+		return notify_fail("以你目前的輕功修爲，無法跳過去。\n"); 
+	message_vision("$N縱身向前面的峭壁跳了過去。\n", me);
 	me->move(__DIR__"qiaobi");
-	tell_room(environment(me), me->name()+"从断肠崖跳了过来。\n", ({ me }));
+	tell_room(environment(me), me->name()+"從斷腸崖跳了過來。\n", ({ me }));
 	me->delete_temp("jqg_look1");
 	return 1;
 }

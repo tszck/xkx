@@ -6,11 +6,11 @@ inherit NPC;
 void create()
 {
 	set_name(HIW"玄冰蟾蜍"NOR, ({ "xuanbing chanchu", "chanchu", "hama", "xuanbing" }) );
-	set("race", "野兽");
+	set("race", "野獸");
 	set("age", 40);
-	set("long", "一只通体雪白的蟾蜍，趴在青石板上一动不动。\n");
+	set("long", "一隻通體雪白的蟾蜍，趴在青石板上一動不動。\n");
 	set("attitude", "peaceful");
-	set("limbs", ({ "头部", "身体", "后肢", "肚皮" }) );
+	set("limbs", ({ "頭部", "身體", "後肢", "肚皮" }) );
 	set("verbs", ({ "hoof"}) );
 	set("combat_exp", 15000);
 	set("max_jing", 500);

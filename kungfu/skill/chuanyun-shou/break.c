@@ -21,17 +21,17 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
  
 //	if (objectp(weapon = me->query_temp("weapon")))
-//		return notify_fail("你必须空手运功。\n");
+//		return notify_fail("你必須空手運功。\n");
 	// 兵器空手均可
 
 	fskill = "baiyun-xinfa";
@@ -45,18 +45,18 @@ int perform(object me,object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"等级不够, 不能使出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"等級不夠, 不能使出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 80 )
-		return notify_fail("你的"+to_chinese(sskill)+"等级不够, 不能使出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"等級不夠, 不能使出"+PNAME+"。\n");
 
 	if( me->query("neili") < 800 )
-		return notify_fail("你的内力不够，无法运功！\n");
+		return notify_fail("你的內力不夠，無法運功！\n");
  
 	if( me->query("max_neili") < 1000 )
-		return notify_fail("你的内力修为不够，无法运功！\n");
+		return notify_fail("你的內力修爲不夠，無法運功！\n");
  
-	msg = HIC"$N"HIC"沉肩滑步，自丹田中升起一股阴柔之气顺着血脉经络传至双手劳宫穴，接着这股阴柔之气就激射而出，喷向$n"HIC"手中的兵刃！\n"; 
+	msg = HIC"$N"HIC"沉肩滑步，自丹田中升起一股陰柔之氣順着血脈經絡傳至雙手勞宮穴，接着這股陰柔之氣就激射而出，噴向$n"HIC"手中的兵刃！\n"; 
 
 	ap = me->query("combat_exp");
 	dp = target->query("combat_exp") / 2;
@@ -69,7 +69,7 @@ int perform(object me,object target)
 		if( random(ap) > dp )
 		{	
 			me->add("neili",-400);
-			msg += HIW"却只听得一阵丁当作响，兵器碎片丢了一地！\n"NOR;
+			msg += HIW"卻只聽得一陣丁當作響，兵器碎片丟了一地！\n"NOR;
 			target_w->unequip();
 			target->reset_action();
       seteuid(getuid());
@@ -82,7 +82,7 @@ int perform(object me,object target)
 		}
 		else 
 		{
-			msg += "可是$p急急拆招，躲了开去。\n" NOR;
+			msg += "可是$p急急拆招，躲了開去。\n" NOR;
 			me->add("neili",-200);
 			me->start_busy(2);
 		}   
@@ -90,7 +90,7 @@ int perform(object me,object target)
 		if(!target->is_fighting(me)) target->fight_ob(me);
 		return 1;
 	}
-	return notify_fail(target->name() + "目前是空手，没什么可以震碎的。\n");
+	return notify_fail(target->name() + "目前是空手，沒什麼可以震碎的。\n");
 }
 
 string name() {return replace_string(replace_string(PNAME,"「",""),"」","");}
@@ -101,12 +101,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		毁坏对方兵器
+		毀壞對方兵器
 
 	出手要求：
-		白云心法100级
-		穿云手80级
-		内力1000
+		白雲心法100級
+		穿雲手80級
+		內力1000
 HELP
 	);
 	return 1;

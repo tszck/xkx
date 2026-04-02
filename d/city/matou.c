@@ -14,7 +14,7 @@ mapping *sign=({
 		"value": 100,
 		"time" : 10
 	]),
-	([	"name" : "苏州",
+	([	"name" : "蘇州",
 		"id"   : "sz",
 		"file" : "/d/suzhou/szyunhe",
 		"value": 100,
@@ -29,13 +29,13 @@ mapping *sign=({
 });
 void create()
 {
-	set("short","宁海桥码头");
+	set("short","寧海橋碼頭");
 	set("long",@LONG
-这里是扬州城里最大的码头，南方的粮食，两淮的盐铁在此卸下由
-漕运署的官员抽查，或转运或暂时储存。这里人员繁杂，有小贩在叫卖，
-有工人在搬运粮袋，有官员手持长鞭在监工，有几个泼皮在转来转去，
-不知打些什么主意。南边就是漕运署。东边是达士街，新开了几家店铺。
-    岸边停靠着一条客船。客船醒目处，挂着一个牌子(sign)。
+這裏是揚州城裏最大的碼頭，南方的糧食，兩淮的鹽鐵在此卸下由
+漕運署的官員抽查，或轉運或暫時儲存。這裏人員繁雜，有小販在叫賣，
+有工人在搬運糧袋，有官員手持長鞭在監工，有幾個潑皮在轉來轉去，
+不知打些什麼主意。南邊就是漕運署。東邊是達士街，新開了幾家店鋪。
+    岸邊停靠着一條客船。客船醒目處，掛着一個牌子(sign)。
 LONG );
 	set("outdoors", "yangzhoue");
 	set("worktimes", 20);
@@ -66,20 +66,20 @@ int do_work()
 {
 	object me = this_player();
 //	if ( query("worktimes") < 0)
-//		return notify_fail("码头上现在不需要人干活，下次吧！\n");
+//		return notify_fail("碼頭上現在不需要人幹活，下次吧！\n");
 	if ( me->query_temp("working") )
-		return notify_fail("你已经在干活了！！\n");
+		return notify_fail("你已經在幹活了！！\n");
 	if ( !objectp( present ("jian gong", environment(me) ) ) )
-		return notify_fail("码头上现在不需要人干活，下次吧！\n");
+		return notify_fail("碼頭上現在不需要人幹活，下次吧！\n");
 	if (me->query("combat_exp")<MIN_EXP)
 	{
-		tell_object(me,"这里都是重活，你现在还干不了。\n");
+		tell_object(me,"這裏都是重活，你現在還幹不了。\n");
 		return 1;
 	}
 	
 	if (me->query("combat_exp")>=MAX_EXP)
 	{
-		tell_object(me,"这种小事不敢劳您大驾。\n");
+		tell_object(me,"這種小事不敢勞您大駕。\n");
 		return 1;
 	}
 	if (me->is_busy() || me->is_fighting())
@@ -87,15 +87,15 @@ int do_work()
 	if ( (int)me->query("jing") < 10 || (int)me->query("qi") < 10 )
 	{
 		message_vision(
-"监工冲着$N就是一鞭子，$N身上顿时起了一道血痕，$N踉踉跄跄躲到一\n"
-"边去了。“妈的，你小子这副萎靡不振的样子还想干活？！！”监工骂\n"
-"到：“滚！！”\n", me);
+"監工衝着$N就是一鞭子，$N身上頓時起了一道血痕，$N踉踉蹌蹌躲到一\n"
+"邊去了。“媽的，你小子這副萎靡不振的樣子還想幹活？！！”監工罵\n"
+"到：“滾！！”\n", me);
 		me->receive_damage("qi", 11);
 		me->receive_wound("qi", 11);
 		return 1;
 	}
-	write("监工拿鞭子指了指，说道：“去那里搬麻袋吧。”\n");
-	write("你搬起一个麻袋，开始干活。\n");
+	write("監工拿鞭子指了指，說道：“去那裏搬麻袋吧。”\n");
+	write("你搬起一個麻袋，開始幹活。\n");
 	add("worktimes", -1);
 	me->start_busy(3);
 	me->set_temp("working",1);
@@ -108,8 +108,8 @@ int work_end(object me)
 {
 	object ob1;
 	int add_exp,add_pot,add_score;
-	write("终于做完苦工了，搬了一天的麻袋，累个半死。\n"
-"监工过来拍了拍你的肩膀，说道：“小子，好样的，这是你的工钱。”\n");
+	write("終於做完苦工了，搬了一天的麻袋，累個半死。\n"
+"監工過來拍了拍你的肩膀，說道：“小子，好樣的，這是你的工錢。”\n");
 	me->receive_damage("jing",10);
 	me->receive_damage("qi",10);
 		add_exp=60+random(20);
@@ -122,16 +122,16 @@ int work_end(object me)
 		ob1->set_amount(add_score);
 		ob1->move(me);	
 		tell_object(me,HIW"你得到了:"
-			+ chinese_number(add_exp) + "点实战经验，"
-			+ chinese_number(add_pot) + "点潜能，"
-			+ chinese_number(add_score) + "点江湖阅历。\n"NOR);				
+			+ chinese_number(add_exp) + "點實戰經驗，"
+			+ chinese_number(add_pot) + "點潛能，"
+			+ chinese_number(add_score) + "點江湖閱歷。\n"NOR);				
 	if ( me->query_temp("working") ) me->delete_temp("working");
 	return 1;
 }
 
 string look_sign()
 {
-	string str="由此去(qu)到下列码头：\n";
+	string str="由此去(qu)到下列碼頭：\n";
 	int i=sizeof(sign);
 
 	while (i--)
@@ -149,9 +149,9 @@ void do_move(object ob, int i)
 //	ob->enable_player();
 	ob->delete_temp("noliving");
 	ob->delete_temp("block_msg/all");
-	tell_object(ob, "终点站到了。\n");
+	tell_object(ob, "終點站到了。\n");
 	ob->move(sign[i]["file"]);
-	tell_room(environment(ob), ob->name() + "从船上走了下来。\n", ({ob}));
+	tell_room(environment(ob), ob->name() + "從船上走了下來。\n", ({ob}));
 }
 
 int do_go(string arg)
@@ -169,9 +169,9 @@ int do_go(string arg)
 			switch (MONEY_D->player_pay(ob, sign[i]["value"]))
 			{
 				case 0:
-					return notify_fail("穷光蛋，一边呆着去！\n");
+					return notify_fail("窮光蛋，一邊待著去！\n");
 				case 2:
-					return notify_fail("有零钱吗？\n");
+					return notify_fail("有零錢嗎？\n");
 			}
 			message_vision("$N登上了去" + sign[i]["name"] + "的船。\n", ob);
 //			ob->disable_player("<旅途中>");
@@ -182,6 +182,6 @@ int do_go(string arg)
 			return 1;
 		}
 	}
-	return notify_fail("你要去哪里？\n");
+	return notify_fail("你要去哪裏？\n");
 }
 

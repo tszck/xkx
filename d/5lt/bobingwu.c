@@ -1,4 +1,4 @@
-// bobingwu.c -搏饼屋
+// bobingwu.c -搏餅屋
 // Last Modified by winder on Sep. 22 2002
 inherit ROOM;
 
@@ -34,28 +34,28 @@ void create()
 	minperson=2;
 	allow_leave=1;
 	allow_start=0;
-	Max1=32;//一秀的个数
-	Max2=16;//二举的个数
-	Max3=8; //四进的个数
-	Max4=4; //三红的个数
-	Max5=2; //对堂的个数
-	Max6=1; //状元的个数
+	Max1=32;//一秀的個數
+	Max2=16;//二舉的個數
+	Max3=8; //四進的個數
+	Max4=4; //三紅的個數
+	Max5=2; //對堂的個數
+	Max6=1; //狀元的個數
 	Realmode=0;
-	roomname="西间搏饼屋";
+	roomname="西間搏餅屋";
 	set("no_fight","1");
 	set("no_magic","1");
 	set("no_steal","1");
 	set("no_beg","1");
-	set("short","西搏饼屋");
+	set("short","西搏餅屋");
 	set("long", @LONG
-这是一间古朴典雅的的搏饼屋。房间的装修充满了盛明时候的风味，
-满屋子的琳琅玉石衬着柔和的光线，洋溢着温馨的气氛，真是个温暖而
-热闹的地方。房间的四周点着一溜松明子，中间一张楠木桌，大家都席
-地而坐 (sit)，看着桌面上一个大海碗，碗里面滴溜溜转着六颗玉制的
-骰子！南边的墙上贴着一张发黄的陈纸(paper)。
+這是一間古樸典雅的的搏餅屋。房間的裝修充滿了盛明時候的風味，
+滿屋子的琳琅玉石襯着柔和的光線，洋溢着溫馨的氣氛，真是個溫暖而
+熱鬧的地方。房間的四周點着一溜松明子，中間一張楠木桌，大家都席
+地而坐 (sit)，看着桌面上一個大海碗，碗裏面滴溜溜轉着六顆玉製的
+骰子！南邊的牆上貼着一張發黃的陳紙(paper)。
 LONG);
 	set("item_desc", ([
-		"paper" : "介绍和命令请 help bobing。\n",
+		"paper" : "介紹和命令請 help bobing。\n",
 	]));
 	set("objects",([
 		__DIR__"npc/dog":1,
@@ -97,13 +97,13 @@ int fleader(string id)
 				if (member[i]->query("id")==id)
 				{
 					leader=member[i];
-					tell_room(environment(leader), "现在轮到"+ leader->query("name")+"掷了。\n");
+					tell_room(environment(leader), "現在輪到"+ leader->query("name")+"擲了。\n");
 					return 1;
 				}
 			}
-			notify_fail("这个人不在这里搏饼。\n");
+			notify_fail("這個人不在這裏搏餅。\n");
 		}
-		else notify_fail("没人在这搏饼。\n");
+		else notify_fail("沒人在這搏餅。\n");
 	}
 	else return 0;
 }
@@ -118,7 +118,7 @@ int startreal()
 	{
 		Realmode=1;
 		pl=users();
-		message("vision", HIY + ob->query("name") + "宣布：" + roomname + "正式开放，奖品立即兑现！\n"NOR, pl);
+		message("vision", HIY + ob->query("name") + "宣佈：" + roomname + "正式開放，獎品立即兌現！\n"NOR, pl);
 		if (arrayp(member))
 		{
 			for (i=0;i<sizeof(member);i++)
@@ -134,12 +134,12 @@ int startreal()
 				member[i]->set_temp("bobing/maxscore",0);
 			}
 		}
-		Max1=32; //一秀的个数
-		Max2=16; //二举的个数
-		Max3=8;  //四进的个数
-		Max4=4;  //三红的个数
-		Max5=2;  //对堂的个数
-		Max6=1;  //状元的个数
+		Max1=32; //一秀的個數
+		Max2=16; //二舉的個數
+		Max3=8;  //四進的個數
+		Max4=4;  //三紅的個數
+		Max5=2;  //對堂的個數
+		Max6=1;  //狀元的個數
 		return 1;
 	}
 	return 0;
@@ -154,16 +154,16 @@ int stopreal()
 	if (wizardp(ob))
 	{
 		pl=users();
-		Max1=32; //一秀的个数
-		Max2=16; //二举的个数
-		Max3=8;  //四进的个数
-		Max4=4;  //三红的个数
-		Max5=2;  //对堂的个数
-		Max6=1;  //状元的个数
+		Max1=32; //一秀的個數
+		Max2=16; //二舉的個數
+		Max3=8;  //四進的個數
+		Max4=4;  //三紅的個數
+		Max5=2;  //對堂的個數
+		Max6=1;  //狀元的個數
 		if (Realmode==1)
 		{
-			message("vision", HIY + ob->query("name") + "宣布：" + roomname + "兑奖已结束，下次努力了！\n"NOR, pl);
-			givegift();  //分饼
+			message("vision", HIY + ob->query("name") + "宣佈：" + roomname + "兌獎已結束，下次努力了！\n"NOR, pl);
+			givegift();  //分餅
 			Realmode=0;
 			if (arrayp(member))
 			{
@@ -192,7 +192,7 @@ int givegift()
 	int i, j, num;
 
 	if (!arrayp(member)||sizeof(member)==0)
-		notify_fail("没人在这搏饼，就别分啦。\n");
+		notify_fail("沒人在這搏餅，就別分啦。\n");
 	else
 	{
 		for (i=0;i<sizeof(member);i++)
@@ -292,9 +292,9 @@ int pass_token(int index,int passmode)
 		if ((!passok)||(sizeof(member)<minperson))
 		{
 			allow_start=0;
-			tell_room(environment(leader), "陪你玩的人还不够，等人来了吧。\n");
+			tell_room(environment(leader), "陪你玩的人還不夠，等人來了吧。\n");
 		}
-		else tell_room(environment(leader), "现在轮到" + leader->query("name") + "掷了。\n");
+		else tell_room(environment(leader), "現在輪到" + leader->query("name") + "擲了。\n");
 	}
 	if (passmode==1)
 	{
@@ -321,11 +321,11 @@ int fyao(string arg)
 				pass_token(i,0);
 				return 1;
 			}
-			else notify_fail(HIC"还没轮到你呢，瞎嚷嚷个啥劲呢！\n"NOR);
+			else notify_fail(HIC"還沒輪到你呢，瞎嚷嚷個啥勁呢！\n"NOR);
 		}
-		else notify_fail(HIC"你要先坐下来才能和大家一起搏饼。\n"NOR);
+		else notify_fail(HIC"你要先坐下來才能和大家一起搏餅。\n"NOR);
 	}
-	else notify_fail(HIY"现在人还不够，悠着点吧。\n"NOR);
+	else notify_fail(HIY"現在人還不夠，悠着點吧。\n"NOR);
 }
 
 int fview()
@@ -334,10 +334,10 @@ int fview()
 //	object ob = this_player();
 
 	if (!arrayp(member) || sizeof(member)==0)
-		notify_fail("没人在这搏饼。\n");
+		notify_fail("沒人在這搏餅。\n");
 	else
 	{
-		printf(HIY"  玩家          最高奖         "HIC"一秀  "HIB"二举  "HIG"四进  "HIR"三红  "HIY"对堂  "HIM"状元\n"NOR);
+		printf(HIY"  玩家          最高獎         "HIC"一秀  "HIB"二舉  "HIG"四進  "HIR"三紅  "HIY"對堂  "HIM"狀元\n"NOR);
 	        printf("┌----------------------------------------------------------------┐\n");
 		for (i=0;i<sizeof(member);i++)
 		{
@@ -352,11 +352,11 @@ int fview()
 				member[i]->query_temp("bobing/g6"),);
 		}
 		printf("└----------------------------------------------------------------┘\n");
-		printf("目前还有一秀饼%i块、二举饼%i块、四进饼%i块、三红饼%i块、对堂饼%i块。\n", Max1, Max2, Max3, Max4, Max5);
+		printf("目前還有一秀餅%i塊、二舉餅%i塊、四進餅%i塊、三紅餅%i塊、對堂餅%i塊。\n", Max1, Max2, Max3, Max4, Max5);
 		if (objectp(winner))
-			printf("现在的状元由%s保持。\n",winner->query("name"));
+			printf("現在的狀元由%s保持。\n",winner->query("name"));
 		if (objectp(leader))
-			printf("现在该轮到%s掷了。\n",leader->query("name"));
+			printf("現在該輪到%s擲了。\n",leader->query("name"));
 		return 1;
 	}
 }
@@ -375,9 +375,9 @@ int fleave(string id)
 				if (member[i]->query("id")==id) ob=member[i];
 			}
 			if (i==sizeof(member))
-				notify_fail("这个人不在这里搏饼。\n");
+				notify_fail("這個人不在這裏搏餅。\n");
 		}
-		else notify_fail("没人在这搏饼。\n");
+		else notify_fail("沒人在這搏餅。\n");
 	}
 	num=query_member(ob);
 	if (num)
@@ -391,8 +391,8 @@ int fleave(string id)
 	}
 	else return 1;
 	if (sizeof(member)>minperson)
-		message_vision(HIG"$N离开了大家少了一个伙伴了！\n"NOR,ob);
-	else message_vision(HIG"$N离开了大家玩不成了！\n"NOR,ob);
+		message_vision(HIG"$N離開了大家少了一個夥伴了！\n"NOR,ob);
+	else message_vision(HIG"$N離開了大家玩不成了！\n"NOR,ob);
 	Maxperson++;
 	if (ob==winner)
 	{
@@ -409,7 +409,7 @@ int fsit()
 
 	if ((int)ob->query("combat_exp") < 100)
 	{
-		tell_object(ob,HIY"抱歉，你就这点经验，该不会是dummy吧？\n"NOR);
+		tell_object(ob,HIY"抱歉，你就這點經驗，該不會是dummy吧？\n"NOR);
 		return 1;
 	}
 
@@ -417,7 +417,7 @@ int fsit()
 	{
 		if (Maxperson>0)
 		{
-			message_vision(HIC"$N坐下来和大家一起搏饼。\n"NOR,ob);
+			message_vision(HIC"$N坐下來和大家一起搏餅。\n"NOR,ob);
 			Maxperson--;
 			add_member(ob);
 			ob->set_temp("bobing/dest","");
@@ -430,7 +430,7 @@ int fsit()
 			ob->set_temp("bobing/maxscore",0);
 			ob->set_temp("bobing/maxaward",0);
 		}
-		else tell_object(ob,HIY"这一桌满了，你去别处看看吧。\n"NOR);
+		else tell_object(ob,HIY"這一桌滿了，你去別處看看吧。\n"NOR);
 	}
 	return 1;
 }
@@ -438,14 +438,14 @@ int fsit()
 int valid_leave(object me, string dir)
 {
 	if (query_member(me))
-		return notify_fail(HIB"你要先离开搏饼桌才能离开这里。\n"NOR);
+		return notify_fail(HIB"你要先離開搏餅桌才能離開這裏。\n"NOR);
 	return 1;
 }
 
 int quitgame(object me)
 {
 	if (query_member(me))
-		return notify_fail(HIB"你要先离开搏饼桌才能退出游戏。\n"NOR);
+		return notify_fail(HIB"你要先離開搏餅桌才能退出遊戲。\n"NOR);
 	return 1;
 }
 
@@ -484,8 +484,8 @@ int add_member(object ob)
 		if (sizeof(member)>=minperson)
 		{
 			allow_start=1;
-			tell_room(environment(leader), "太好了，人凑够了，可以开始玩了。\n");
-			tell_room(environment(leader), leader->query("name")+"先掷吧。\n");
+			tell_room(environment(leader), "太好了，人湊夠了，可以開始玩了。\n");
+			tell_room(environment(leader), leader->query("name")+"先擲吧。\n");
 		}
 	}
 	return 1;
@@ -509,17 +509,17 @@ int query_member(object ob)
 void do_yao(string arg)
 {
 	string *sha_msg = ({
-"抓起六个骰子放在手心里拼命摇，然后团起手来向手中吹了口气，口中还神神叨叨地念念有词：天灵灵，地灵灵……来来来，开了……\n",
-"瞪着一对红眼，大喝一声：状元！手中的六粒骰子往碗中一摔！\n",
-"往手上吹了口气，六粒骰子轻轻一抛．．．\n",
-"故作镇静地将六粒骰子往碗里一抛，不料一粒骰子从指缝中一不小心掉出碗外。完了！完了！白掷了一把！\n",
-"微微一笑，六粒骰子往碗里一滚．．．\n",
-"望空作了个揖：菩萨保佑！六粒骰子战战兢兢地碗中一投．．．\n",
-"拿着六粒骰子，抖足精神：娶老婆生孩子在此一举！\n",
-"衣袖一卷，大声叫道：看我的！\n",
-"咬牙切齿，六粒骰子往碗中上狠狠地一砸．．．\n",
-"满头大汗，自言自语道：我不要别的，有个对堂就够了．．\n",
-"潇洒地作了个四方揖：这把该我抢状元了，看好了．．．\n",
+"抓起六個骰子放在手心裏拼命搖，然後團起手來向手中吹了口氣，口中還神神叨叨地唸唸有詞：天靈靈，地靈靈……來來來，開了……\n",
+"瞪着一對紅眼，大喝一聲：狀元！手中的六粒骰子往碗中一摔！\n",
+"往手上吹了口氣，六粒骰子輕輕一拋．．．\n",
+"故作鎮靜地將六粒骰子往碗裏一拋，不料一粒骰子從指縫中一不小心掉出碗外。完了！完了！白擲了一把！\n",
+"微微一笑，六粒骰子往碗裏一滾．．．\n",
+"望空作了個揖：菩薩保佑！六粒骰子戰戰兢兢地碗中一投．．．\n",
+"拿着六粒骰子，抖足精神：娶老婆生孩子在此一舉！\n",
+"衣袖一捲，大聲叫道：看我的！\n",
+"咬牙切齒，六粒骰子往碗中上狠狠地一砸．．．\n",
+"滿頭大汗，自言自語道：我不要別的，有個對堂就夠了．．\n",
+"瀟灑地作了個四方揖：這把該我搶狀元了，看好了．．．\n",
 });
 
 	int t1,s1,s2,s3,s4,s5,s6,c1,c2,c3,c4,c5,c6,getaward,getscore,msgno;
@@ -529,7 +529,7 @@ void do_yao(string arg)
 	getscore=0;
 	dest="";
 
-//巫师作弊
+//巫師作弊
 	if (wizardp(ob) && arg &&
 		sscanf(arg, "%d %d %d %d %d %d", s1,s2,s3,s4,s5,s6) == 6 &&
 		s1 > 0 && s1 < 7 &&
@@ -544,7 +544,7 @@ void do_yao(string arg)
 	else
 	{
 		t1=random(50)+1;
-// 加大对堂概率
+// 加大對堂概率
 		if (t1==25)
 		{
 			s1=5; s2=2; s3=6; s4=4; s5=3; s6=1;
@@ -560,13 +560,13 @@ void do_yao(string arg)
 			s6=random(5)+1;
 		}
 	}
-//按点数统计
-	c1=countit(s1,s2,s3,s4,s5,s6,1); //一的个数
-	c2=countit(s1,s2,s3,s4,s5,s6,2); //二的个数
-	c3=countit(s1,s2,s3,s4,s5,s6,3); //三的个数
-	c4=countit(s1,s2,s3,s4,s5,s6,4); //四的个数
-	c5=countit(s1,s2,s3,s4,s5,s6,5); //五的个数
-	c6=countit(s1,s2,s3,s4,s5,s6,6); //六的个数
+//按點數統計
+	c1=countit(s1,s2,s3,s4,s5,s6,1); //一的個數
+	c2=countit(s1,s2,s3,s4,s5,s6,2); //二的個數
+	c3=countit(s1,s2,s3,s4,s5,s6,3); //三的個數
+	c4=countit(s1,s2,s3,s4,s5,s6,4); //四的個數
+	c5=countit(s1,s2,s3,s4,s5,s6,5); //五的個數
+	c6=countit(s1,s2,s3,s4,s5,s6,6); //六的個數
 
 	if (c1==6||c2==6||c3==6||c4==6||c5==6||c6==6)
 	{
@@ -598,7 +598,7 @@ void do_yao(string arg)
 		}
 		else if (c4==6)
 		{
-			dest="六  红(通吃)";
+			dest="六  紅(通喫)";
 			getscore=1207;
 		}
 	}
@@ -607,27 +607,27 @@ void do_yao(string arg)
 		getaward=6;
 		if (c1==1)
 		{
-			dest="五红带一";
+			dest="五紅帶一";
 			getscore=1102;
 		}
 		else if (c2==1)
 		{
-			dest="五红带二";
+			dest="五紅帶二";
 			getscore=1103;
 		}
 		else if (c3==1)
 		{
-			dest="五红带三";
+			dest="五紅帶三";
 			getscore=1104;
 		}
 		else if (c5==1)
 		{
-			dest="五红带五";
+			dest="五紅帶五";
 			getscore=1105;
 		}
 		else if (c6==1)
 		{
-			dest="五红带六";
+			dest="五紅帶六";
 			getscore=1106;
 		}
 	}
@@ -636,27 +636,27 @@ void do_yao(string arg)
 		getaward=6;
 		if (c1==1)
 		{
-			dest="五主(六)带一";
+			dest="五主(六)帶一";
 			getscore=1046;
 		}
 		else if (c2==1)
 		{
-			dest="五主(六)带二";
+			dest="五主(六)帶二";
 			getscore=1056;
 		}
 		else if (c3==1)
 		{
-			dest="五主(六)带三";
+			dest="五主(六)帶三";
 			getscore=1066;
 		}
 		else if (c4==1)
 		{
-			dest="五主(六)带四";
+			dest="五主(六)帶四";
 			getscore=1076;
 		}
 		else if (c5==1)
 		{
-			dest="五主(六)带五";
+			dest="五主(六)帶五";
 			getscore=1086;
 		}
 	}
@@ -665,27 +665,27 @@ void do_yao(string arg)
 		getaward=6;
 		if(c1==1)
 		{
-			dest="五主(五)带一";
+			dest="五主(五)帶一";
 			getscore=1045;
 		}
 		else if(c2==1)
 		{
-			dest="五主(五)带二";
+			dest="五主(五)帶二";
 			getscore=1055;
 		}
 		else if(c3==1)
 		{
-			dest="五主(五)带三";
+			dest="五主(五)帶三";
 			getscore=1065;
 		}
 		else if(c4==1)
 		{
-			dest="五主(五)带四";
+			dest="五主(五)帶四";
 			getscore=1075;
 		}
 		else if(c6==1)
 		{
-			dest="五主(五)带六";
+			dest="五主(五)帶六";
 			getscore=1096;
 		}
 	}
@@ -694,27 +694,27 @@ void do_yao(string arg)
 		getaward=6;
 		if(c1==1)
 		{
-			dest="五主(三)带一";
+			dest="五主(三)帶一";
 			getscore=1043;
 		}
 		else if(c2==1)
 		{
-			dest="五主(三)带二";
+			dest="五主(三)帶二";
 			getscore=1053;
 		}
 		else if(c4==1)
 		{
-			dest="五主(三)带四";
+			dest="五主(三)帶四";
 			getscore=1073;
 		}
 		else if(c5==1)
 		{
-			dest="五主(三 )带五";
+			dest="五主(三 )帶五";
 			getscore=1083;
 		}
 		else if(c6==1)
 		{
-			dest="五主(三)带六";
+			dest="五主(三)帶六";
 			getscore=1093;
 		}
 	}
@@ -723,27 +723,27 @@ void do_yao(string arg)
 		getaward=6;
 		if(c1==1)
 		{
-			dest="五主(二)带一";
+			dest="五主(二)帶一";
 			getscore=1042;
 		}
 		else if(c3==1)
 		{
-			dest="五主(二)带三";
+			dest="五主(二)帶三";
 			getscore=1062;
 		}
 		else if(c4==1)
 		{
-			dest="五主(二)带四";
+			dest="五主(二)帶四";
 			getscore=1072;
 		}
 		else if(c5==1)
 		{
-			dest="五主(二)带五";
+			dest="五主(二)帶五";
 			getscore=1082;
 		}
 		else if(c6==1)
 		{
-			dest="五主(二)带六";
+			dest="五主(二)帶六";
 			getscore=1092;
 		}
 	}
@@ -752,27 +752,27 @@ void do_yao(string arg)
 		getaward=6;
 		if(c2==1)
 		{
-			dest="五主(一)带二";
+			dest="五主(一)帶二";
 			getscore=1051;
 		}
 		else if(c3==1)
 		{
-			dest="五主(一)带三";
+			dest="五主(一)帶三";
 			getscore=1061;
 		}
 		else if(c4==1)
 		{
-			dest="五主(一)带四";
+			dest="五主(一)帶四";
 			getscore=1071;
 		}
 		else if(c5==1)
 		{
-			dest="五主(一)带五";
+			dest="五主(一)帶五";
 			getscore=1081;
 		}
 		else if(c6==1)
 		{
-			dest="五主(一)带六";
+			dest="五主(一)帶六";
 			getscore=1091;
 		}
 	}
@@ -781,57 +781,57 @@ void do_yao(string arg)
 		getaward=6;
 		if((s1+s2+s3+s4+s5+s6-16)==2)
 		{
-			dest="状元插金花";
+			dest="狀元插金花";
 			getscore=1206;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==12)
 		{
-			dest="状元带十二";
+			dest="狀元帶十二";
 			getscore=512;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==11)
 		{
-			dest="状元带十一";
+			dest="狀元帶十一";
 			getscore=511;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==10)
 		{
-			dest="状元带十";
+			dest="狀元帶十";
 			getscore=510;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==9)
 		{
-			dest="状元带九";
+			dest="狀元帶九";
 			getscore=509;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==8)
 		{
-			dest="状元带八";
+			dest="狀元帶八";
 			getscore=508;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==7)
 		{
-			dest="状元带七";
+			dest="狀元帶七";
 			getscore=507;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==6)
 		{
-			dest="状元带六";
+			dest="狀元帶六";
 			getscore=506;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==5)
 		{
-			dest="状元带五";
+			dest="狀元帶五";
 			getscore=505;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==4)
 		{
-			dest="状元带四";
+			dest="狀元帶四";
 			getscore=504;
 		}
 		else if((s1+s2+s3+s4+s5+s6-16)==3)
 		{
-			dest="状元带三";
+			dest="狀元帶三";
 			getscore=503;
 		}
 	}
@@ -841,24 +841,24 @@ void do_yao(string arg)
 		if (c4==2)
 		{
 			getscore=302;
-			dest="四进带二举";
+			dest="四進帶二舉";
 		}
 		else if(c4==1)
 		{
 			getscore=301;
-			dest="四进带一秀";
+			dest="四進帶一秀";
 		}
 		else if(c4==0)
 		{
 			getscore=300;
-			dest="四进";
+			dest="四進";
 		}
 	}
 	else if(c4==3)
 	{
 		getaward=4;
 		getscore=400;
-		dest="三红";
+		dest="三紅";
 	}
 	else if(c4==2)
 	{
@@ -866,9 +866,9 @@ void do_yao(string arg)
 		getscore=200;
 		if (c1==2)
 		{
-			dest="二举插金花";
+			dest="二舉插金花";
 		}
-		dest="二举";
+		dest="二舉";
 	}
 	else if (c4==1)
 	{
@@ -876,7 +876,7 @@ void do_yao(string arg)
 		{
 			getaward=5;
 			getscore=500;
-			dest="对堂";
+			dest="對堂";
 		}
 		else if (c1==2)
 		{
@@ -895,12 +895,12 @@ void do_yao(string arg)
 	{
 		getaward=0;
 		getscore=0;
-		dest=NOR"………哇塞！居然什么都不是耶！？呵呵呵呵，真同情你哦";
+		dest=NOR"………哇塞！居然什麼都不是耶！？呵呵呵呵，真同情你哦";
 	}
 	result=display_item(s1,s2,s3,s4,s5,s6);
 	msgno = random(sizeof(sha_msg));
-	if (msgno != 3) result=result+"\n居然是个"HIR+dest+NOR"？加油啊！\n";
-	else result=result+"\n跳槽了，让别人掷！\n";
+	if (msgno != 3) result=result+"\n居然是個"HIR+dest+NOR"？加油啊！\n";
+	else result=result+"\n跳槽了，讓別人擲！\n";
 	message_vision(HIC"$N"+sha_msg[msgno]+NOR+result,ob);
 	if (msgno != 3) getit(ob,getaward,getscore,dest);
 }
@@ -946,9 +946,9 @@ string getit(object ob,int getaward,int getscore,string dest)
 			ob->set_temp("bobing/g1",ob->query_temp("bobing/g1")+1);
 			Max1=(Max1==0)?0:Max1-1;
 			if (Realmode)
-				message_vision(HIY"$N搏到一秀一个，奖一秀饼一块！\n"NOR, ob);
+				message_vision(HIY"$N搏到一秀一個，獎一秀餅一塊！\n"NOR, ob);
 			else
-				message_vision(CYN"$N搏到一秀一个，真是可惜巫师不在，没有奖品……\n"NOR, ob);
+				message_vision(CYN"$N搏到一秀一個，真是可惜巫師不在，沒有獎品……\n"NOR, ob);
 		}
 	}
 	if (getaward==2)
@@ -962,9 +962,9 @@ string getit(object ob,int getaward,int getscore,string dest)
 			ob->set_temp("bobing/g2",ob->query_temp("bobing/g2")+1);
 			Max2=(Max2==0)?0:Max2-1;
 			if (Realmode)
-				message_vision(HIY"$N搏到二举一个，奖二举饼一块！\n"NOR,ob);
+				message_vision(HIY"$N搏到二舉一個，獎二舉餅一塊！\n"NOR,ob);
 			else
-				message_vision(CYN"$N搏到二举一个，真是可惜巫师不在，没有奖品……\n"NOR,ob);
+				message_vision(CYN"$N搏到二舉一個，真是可惜巫師不在，沒有獎品……\n"NOR,ob);
 		}
 	}
 	if (getaward==3)
@@ -978,9 +978,9 @@ string getit(object ob,int getaward,int getscore,string dest)
 			ob->set_temp("bobing/g3",ob->query_temp("bobing/g3")+1);
 			Max3=(Max3==0)?0:Max3-1;
 			if (Realmode)
-				message_vision(HIY"$N搏到四进一个，奖四进饼一块！\n"NOR,ob);
+				message_vision(HIY"$N搏到四進一個，獎四進餅一塊！\n"NOR,ob);
 			else
-				message_vision(CYN"$N搏到四进一个，真是可惜巫师不在，没有奖品……\n"NOR,ob);
+				message_vision(CYN"$N搏到四進一個，真是可惜巫師不在，沒有獎品……\n"NOR,ob);
 		}
 	}
 	if (getaward==4)
@@ -994,9 +994,9 @@ string getit(object ob,int getaward,int getscore,string dest)
 			ob->set_temp("bobing/g4",ob->query_temp("bobing/g4")+1);
 			Max4=(Max4==0)?0:Max4-1;
 			if (Realmode)
-				message_vision(HIY"$N搏到三红一个，奖三红饼一块！\n"NOR,ob);
+				message_vision(HIY"$N搏到三紅一個，獎三紅餅一塊！\n"NOR,ob);
 			else
-				message_vision(CYN"$N搏到三红一个，真是可惜巫师不在，没有奖品……\n"NOR,ob);
+				message_vision(CYN"$N搏到三紅一個，真是可惜巫師不在，沒有獎品……\n"NOR,ob);
 		}
 	}
 	if (getaward==5)
@@ -1010,16 +1010,16 @@ string getit(object ob,int getaward,int getscore,string dest)
 			ob->set_temp("bobing/g5",ob->query_temp("bobing/g5")+1);
 			Max5=(Max5==0)?0:Max5-1;
 			if (Realmode)
-				message_vision(HIY"$N搏到对堂一个，奖对堂饼一块！\n"NOR,ob);
+				message_vision(HIY"$N搏到對堂一個，獎對堂餅一塊！\n"NOR,ob);
 			else
-				message_vision(CYN"$N搏到对堂一个，真是可惜巫师不在，没有奖品……\n"NOR,ob);
+				message_vision(CYN"$N搏到對堂一個，真是可惜巫師不在，沒有獎品……\n"NOR,ob);
 		}
 	}
 	if (getaward==6)
 	{
 		if(Realmode) Max6=(Max6==0)?0:Max6-1;
 		else
-			message_vision(CYN"$N搏到状元一个，真是可惜巫师不在，没有奖品……\n"NOR,ob);
+			message_vision(CYN"$N搏到狀元一個，真是可惜巫師不在，沒有獎品……\n"NOR,ob);
 	}
 	if(getaward>=6)
 	{
@@ -1028,7 +1028,7 @@ string getit(object ob,int getaward,int getscore,string dest)
 			winner=ob;
 			ob->set_temp("bobing/g6",1);
 			play=users();
-			message("vision", HIY"\n\n[搏饼最新消息]\n----------------------------------------------\n恭喜！ 恭喜！" + ob->query("name") + "搏到了" + dest + "！成为 " + roomname+"的状元！！！\n"NOR, play);
+			message("vision", HIY"\n\n[搏餅最新消息]\n----------------------------------------------\n恭喜！ 恭喜！" + ob->query("name") + "搏到了" + dest + "！成爲 " + roomname+"的狀元！！！\n"NOR, play);
 		}
 		else
 		{
@@ -1039,10 +1039,10 @@ string getit(object ob,int getaward,int getscore,string dest)
 				winner=ob;
 				winner->set_temp("bobing/g6",1);
 				play=users();
-				message("vision", HIY"\n\n[搏饼最新消息]\n----------------------------------------------\n恭喜！ 恭喜！" + ob->query("name") + "搏到了" + dest + "！成为 " + roomname+"的状元！！！\n"NOR, play);
+				message("vision", HIY"\n\n[搏餅最新消息]\n----------------------------------------------\n恭喜！ 恭喜！" + ob->query("name") + "搏到了" + dest + "！成爲 " + roomname+"的狀元！！！\n"NOR, play);
 			}
 			else
-				message_vision(CYN"$N搏到状元一个，真是可惜你的状元没有奖品……\n"NOR,ob);
+				message_vision(CYN"$N搏到狀元一個，真是可惜你的狀元沒有獎品……\n"NOR,ob);
 		}
 	}
 }
@@ -1066,7 +1066,7 @@ int qianbing(object ob,int getaward)
 						{
 							member[i]->add_temp("bobing/g1",-1);
 							ob->add_temp("bobing/g1",1);
-							message_vision(HIY "$N搏到一秀一个，抢了$n一秀饼一块！\n"NOR,ob,member[i]);
+							message_vision(HIY "$N搏到一秀一個，搶了$n一秀餅一塊！\n"NOR,ob,member[i]);
 							return 1;
 						}
 						break;
@@ -1075,7 +1075,7 @@ int qianbing(object ob,int getaward)
 						{
 							member[i]->add_temp("bobing/g2",-1);
 							ob->add_temp("bobing/g2",1);
-							message_vision(HIY "$N搏到二举一个，抢了$n二举饼一块！\n"NOR,ob,member[i]);
+							message_vision(HIY "$N搏到二舉一個，搶了$n二舉餅一塊！\n"NOR,ob,member[i]);
 							return 1;
 						}
 						break;
@@ -1084,7 +1084,7 @@ int qianbing(object ob,int getaward)
 						{
 							member[i]->add_temp("bobing/g3",-1);
 							ob->add_temp("bobing/g3",1);
-							message_vision(HIY "$N搏到四进一个，抢了$n四进饼一块！\n"NOR,ob,member[i]);
+							message_vision(HIY "$N搏到四進一個，搶了$n四進餅一塊！\n"NOR,ob,member[i]);
 							return 1;
 						}
 						break;
@@ -1093,7 +1093,7 @@ int qianbing(object ob,int getaward)
 						{
 							member[i]->add_temp("bobing/g4",-1);
 							ob->add_temp("bobing/g4",1);
-							message_vision(HIY "$N搏到三红一个，抢了$n三红饼一块！\n"NOR,ob,member[i]);
+							message_vision(HIY "$N搏到三紅一個，搶了$n三紅餅一塊！\n"NOR,ob,member[i]);
 							return 1;
 						}
 						break;
@@ -1102,16 +1102,16 @@ int qianbing(object ob,int getaward)
 						{
 							member[i]->add_temp("bobing/g5",-1);
 							ob->add_temp("bobing/g5",1);
-							message_vision(HIY "$N搏到对堂一个，抢了$n对堂饼一块！\n"NOR,ob,member[i]);
+							message_vision(HIY "$N搏到對堂一個，搶了$n對堂餅一塊！\n"NOR,ob,member[i]);
 							return 1;
 						}
 						break;
 					default:
-						message_vision(HIY "$N搏到一块没有用的饼！\n"NOR,ob);
+						message_vision(HIY "$N搏到一塊沒有用的餅！\n"NOR,ob);
 						break;
 				}
 			}
-			message_vision(HIY"$N抢不到一块有用的饼！\n"NOR,ob);
+			message_vision(HIY"$N搶不到一塊有用的餅！\n"NOR,ob);
 			return 0;
 		}
 	}
@@ -1431,7 +1431,7 @@ string display_item(int i1, int i2, int i3, int i4, int i5, int i6)
 			str = str+" │"GRN"●　●"NOR"│\n"NOR;
 			break;
 	}
-/* 第三行. 总算搞完了! */
+/* 第三行. 總算搞完了! */
 	str = str+"└------┘ └------┘ └------┘ └------┘ └------┘ └------┘\n";
 	return str;
 }

@@ -9,7 +9,7 @@ int do_back(object me);
 void create()
 {
 	string weapon;
-	set_name("护镖镖师", ({ "hubiao biaoshi", "biaoshi"}));
+	set_name("護鏢鏢師", ({ "hubiao biaoshi", "biaoshi"}));
 	set("gender", "男性");
 	set("age", random(10) + 25);
 	set("no_quest", 1);
@@ -18,7 +18,7 @@ void create()
 	set("con", 26);
 	set("int", 20);
 	set("dex", 23);
-	set("long", "镖局的镖师。\n");
+	set("long", "鏢局的鏢師。\n");
 	set("combat_exp", 80000 + random(40000)); 
 	set("attitude", "friendly");
 	set_skill("force", 50);
@@ -47,7 +47,7 @@ void create()
 
 int do_back(object me)
 {		       
-	tell_room(environment(me), me->query("name")+"跳出战圈，转身几个起落就不见了。\n", ({me}));	
+	tell_room(environment(me), me->query("name")+"跳出戰圈，轉身幾個起落就不見了。\n", ({me}));	
 	destruct(me); 
 	return 1;
 }
@@ -79,7 +79,7 @@ int do_copy(object me)
 	i = (i + random(i))/2;
 	if( i < 60) i = 60;
 	
-	message_vision(HIR"突然从商队后窜出$N，二话不说就扑向了$n！\n"NOR, ob, me);
+	message_vision(HIR"突然從商隊後竄出$N，二話不說就撲向了$n！\n"NOR, ob, me);
 	me->add_temp("biaoshi", 1);
 	ob->set("combat_exp", me->query("combat_exp")/2+random(me->query("combat_exp"))/2);
 	ob->set_skill("force", i);

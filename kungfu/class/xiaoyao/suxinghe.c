@@ -1,4 +1,4 @@
-// suxinghe.c 苏星河
+// suxinghe.c 蘇星河
 // Modified by Winder June.25 2000
 
 inherit NPC;
@@ -10,9 +10,9 @@ string ask_book();
 
 void create()
 {
-	set_name("苏星河",({"su xinghe","su"}));
+	set_name("蘇星河",({"su xinghe","su"}));
 	set("gender", "男性" );
-	set("nickname", "聪辩老人");
+	set("nickname", "聰辯老人");
 	set("shen_type", 0);
 	set("class", "scholar");
 	set("age",60);
@@ -25,8 +25,8 @@ void create()
 	set("no_clean_up",1);
 
 	set("long",
-"此人就是号称聪辩老人的苏星河，据说他能言善辩， \n"
-"是一个武林中的智者，而他的武功也是无人能知。\n");
+"此人就是號稱聰辯老人的蘇星河，據說他能言善辯， \n"
+"是一個武林中的智者，而他的武功也是無人能知。\n");
 
 	set("combat_exp", 3000000);
 	set("attitude", "peaceful");
@@ -34,8 +34,8 @@ void create()
 	set("chat_chance", 1);
 
 	set("inquiry", ([
-		"秘密地道" :(:ask_me:),
-		"秘籍"     :(:ask_book:),
+		"祕密地道" :(:ask_me:),
+		"祕籍"     :(:ask_book:),
 	]) );
 
 	set("max_qi", 3400);
@@ -84,8 +84,8 @@ void create()
 		(: exert_function, "recover" :),
 	}) );	
 
-	create_family("逍遥派", 2, "掌门");
-	set("title","逍遥派第二代大弟子");
+	create_family("逍遙派", 2, "掌門");
+	set("title","逍遙派第二代大弟子");
 	setup();
 	carry_object("/clone/cloth/cloth")->wear();
 	carry_object("/clone/weapon/gangdao")->wield();
@@ -105,11 +105,11 @@ void attempt_apprentice(object ob)
 	if (ob->query_int() < 30) {
 		command("shake"+ ob->query("id")); 
 		command("say " + RANK_D->query_respect(ob) + 
-			"是否还应该在学问上多下点功夫？");
+			"是否還應該在學問上多下點功夫？");
 		return;
 	}
 
-	command("say 好吧，我就收下你了，今后要多加努力啊！");
+	command("say 好吧，我就收下你了，今後要多加努力啊！");
 	command("recruit " + ob->query("id"));
  }
 
@@ -119,12 +119,12 @@ string ask_book()
 	mapping fam; 
 	ob=this_player();
 	if (!(fam = ob->query("family")) 
-		|| fam["family_name"] != "逍遥派")
+		|| fam["family_name"] != "逍遙派")
 	{
-		return"想要秘籍就得加入逍遥派。";
+		return"想要祕籍就得加入逍遙派。";
 	}
 	command("sigh");
-	return"本派的武功秘籍藏在一个很秘密的地方，我也没去过。";
+	return"本派的武功祕籍藏在一個很祕密的地方，我也沒去過。";
 }
 string ask_me()
 {
@@ -132,12 +132,12 @@ string ask_me()
 	mapping fam; 
 	ob=this_player();
 	if (!(fam = ob->query("family")) 
-		|| fam["family_name"] != "逍遥派")
+		|| fam["family_name"] != "逍遙派")
 	{
-		return"想要知道密道就得加入逍遥派。";
+		return"想要知道密道就得加入逍遙派。";
 	}
 	command("sigh");
-	return"本派的密道在云南无量山之上，很是艰险。你有兴趣可以去看看。";
+	return"本派的密道在雲南無量山之上，很是艱險。你有興趣可以去看看。";
 }
 
 void recruit_apprentice(object ob)

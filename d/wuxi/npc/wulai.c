@@ -4,10 +4,10 @@ inherit NPC;
 void greeting(object ob);
 void create()
 {
-	set_name("无赖", ({ "wu lai", "wu", "lai" }));
+	set_name("無賴", ({ "wu lai", "wu", "lai" }));
 	set("gender", "男性");
 	set("age", 18);
-	set("long", "他是一个成天游手好闲的小混，一脸的邪劲，总喜欢没事找事。\n");
+	set("long", "他是一個成天遊手好閒的小混，一臉的邪勁，總喜歡沒事找事。\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 

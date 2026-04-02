@@ -5,9 +5,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "无相庵");
+	set("short", "無相庵");
 	set("long", @LONG
-一个小小庵堂。
+一個小小庵堂。
 LONG );
 	set("exits", ([
                 "south" : __DIR__"shulin",

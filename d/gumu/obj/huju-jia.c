@@ -4,14 +4,14 @@
 inherit ITEM;
 void create()
 {
-	set_name(HIW "护具架" NOR, ({ "huju jia", "jia" }) );	 
+	set_name(HIW "護具架" NOR, ({ "huju jia", "jia" }) );	 
 	set_weight(30000000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "个");
-		set("long", "一个木头制成的架子，上面挂着铁甲(armor)等护具。你可以拿(na)些去用。\n");
+		set("unit", "個");
+		set("long", "一個木頭製成的架子，上面掛着鐵甲(armor)等護具。你可以拿(na)些去用。\n");
 		set("material","wood");
 		set("no_get",1);
 	}
@@ -30,24 +30,24 @@ int do_get(string arg)
 	string arg1, arg2;
 
 	if(query("count") < 0)
-		return notify_fail("架上已经空空如也了。\n");
+		return notify_fail("架上已經空空如也了。\n");
 	if(!arg || sscanf(arg, "%s from %s", arg1, arg2)!=2)
-		return notify_fail("命令格式: na <护具名称> from jia。\n");
+		return notify_fail("命令格式: na <護具名稱> from jia。\n");
 	if (arg2!="jia")
-		return notify_fail("命令格式: na <护具名称> from jia。\n");
+		return notify_fail("命令格式: na <護具名稱> from jia。\n");
 	if(me->query_temp("marks/拿"))
-		return notify_fail("你怎么这么贪心，拿过了还要拿？\n");
+		return notify_fail("你怎麼這麼貪心，拿過了還要拿？\n");
 	if(me->query("combat_exp") > 120000)
-		return notify_fail("你武艺已到一定程度，还是自食其力吧。\n");
+		return notify_fail("你武藝已到一定程度，還是自食其力吧。\n");
 	if (arg1 =="armor")
 	{
 		ob=new(ARMOR_DIR"tiejia"); 
 		ob->move(me);
-		message_vision("$N从护具架上拿出一件$n。\n",me, ob); 
+		message_vision("$N從護具架上拿出一件$n。\n",me, ob); 
 		me->set_temp("marks/拿",1);
 		add("count", -1);
 		return 1;
 	}     
-	return notify_fail("护具架上没有你想要拿的东西。\n");
+	return notify_fail("護具架上沒有你想要拿的東西。\n");
 }
 

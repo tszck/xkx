@@ -1,4 +1,4 @@
-// /d/xiakedao/shihole2.c 侠客岛 石洞2
+// /d/xiakedao/shihole2.c 俠客島 石洞2
 
 inherit ROOM;
 
@@ -7,9 +7,9 @@ void create()
 {
         set("short", "石洞");
         set("long", @LONG
-此洞通向第二组石室。洞中水声淙淙，右面恰巧一道山泉流过。
-中间四个草书大字深入石壁「飘渺烟云」，两侧均是蓝色帷幔环绕。
-几名蓝衣弟子侍立。
+此洞通向第二組石室。洞中水聲淙淙，右面恰巧一道山泉流過。
+中間四個草書大字深入石壁「飄渺煙雲」，兩側均是藍色帷幔環繞。
+幾名藍衣弟子侍立。
 LONG );
         set("exits", ([
                 "out"   : __DIR__"shihole1",
@@ -34,6 +34,6 @@ int valid_leave(object me, string dir)
         if (  (dir == "south")
            && ((int)me->query("PKS") > 10)
            && objectp(present("ma liu", environment(me))) )
-                return notify_fail("马六把手一拦：你这种杀人狂魔，还敢到侠客岛来，快滚!\n");
+                return notify_fail("馬六把手一攔：你這種殺人狂魔，還敢到俠客島來，快滾!\n");
         return ::valid_leave(me, dir);
 }

@@ -7,12 +7,12 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(HIY"黄马褂"NOR, ({ "yellow magua", "cloth" }) );
+	set_name(HIY"黃馬褂"NOR, ({ "yellow magua", "cloth" }) );
 	set_weight(1000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long","这是件黄马褂，是当今御赐，极尽荣耀，极显恩宠。\n");
+		set("long","這是件黃馬褂，是當今御賜，極盡榮耀，極顯恩寵。\n");
 		set("unit", "件");
 		set("value", 0);
 		set("material", "cloth");

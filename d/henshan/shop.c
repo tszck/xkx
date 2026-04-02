@@ -7,8 +7,8 @@ void create()
 {
 	set("short", "小店");
 	set("long", @LONG
-这里是衡阳县城的一间小店，卖些简单的饮食，专门赚那些游客
-的钱。
+這裏是衡陽縣城的一間小店，賣些簡單的飲食，專門賺那些遊客
+的錢。
 LONG );
 	set("exits", ([
 		"north" : __DIR__"hengyang1",

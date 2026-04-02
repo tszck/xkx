@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("陶钧", ({ "tao jun", "tao", "jun" }) );
+        set_name("陶鈞", ({ "tao jun", "tao", "jun" }) );
         set("gender", "男性");
         set("age", 19);
         set("long",
-                "陶钧是岳不群的第七位弟子。\n");
+                "陶鈞是嶽不羣的第七位弟子。\n");
         set("attitude", "peaceful");
         set("str", 26);
         set("con", 30);
@@ -50,7 +50,7 @@ void create()
         map_skill("unarmed", "huashan-ken");
         map_skill("dodge", "feiyan-huixiang");
 
-        create_family("华山派", 14, "弟子");
+        create_family("華山派", 14, "弟子");
 
         setup();
 

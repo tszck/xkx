@@ -11,9 +11,9 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "双");
+		set("unit", "雙");
 		set("long",
-"一双皮靴，上等牛皮制成。做功考究，裁剪精致，看上去气派不凡。\n");
+"一雙皮靴，上等牛皮製成。做功考究，裁剪精緻，看上去氣派不凡。\n");
 		set("value", 800);
 		set("material", "cloth");
 		set("armor_prop/armor", 2);

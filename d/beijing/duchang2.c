@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "赌场");
+	set("short", "賭場");
 	set("long", @LONG
-这里有四条走廊通向不同的房间。
+這裏有四條走廊通向不同的房間。
 LONG );
 	set("exits", ([
 		"east"  : __DIR__"eproom",

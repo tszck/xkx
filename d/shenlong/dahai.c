@@ -5,8 +5,8 @@ void create()
 {
         set("short", "大海");
         set("long",@LONG
-你正处在茫茫大海之中。你极目远望，只见海天一线，周围连个黑点都没有。
-耳边只有海浪的拍打声。
+你正處在茫茫大海之中。你極目遠望，只見海天一線，周圍連個黑點都沒有。
+耳邊只有海浪的拍打聲。
 LONG);   
 	set("outdoors", "shenlong");
 	set("no_clean_up", 0);

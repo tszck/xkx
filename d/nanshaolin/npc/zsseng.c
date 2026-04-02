@@ -6,12 +6,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("执事僧", ({ "zhishi seng", "zhishi","seng" }) );
+	set_name("執事僧", ({ "zhishi seng", "zhishi","seng" }) );
 	set("gender", "男性" );
 	set("age", 30);
 	set("long",
-		"他是一位身材高大的青年僧人，两臂粗壮，膀阔腰圆。他手持兵\n"
-		"刃，身穿一袭白布镶边袈裟，似乎有一身武艺。\n"
+		"他是一位身材高大的青年僧人，兩臂粗壯，膀闊腰圓。他手持兵\n"
+		"刃，身穿一襲白布鑲邊袈裟，似乎有一身武藝。\n"
 	);
 
 	set("gender", "男性");

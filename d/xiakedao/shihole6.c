@@ -1,4 +1,4 @@
-// /d/xiakedao/shihole6.c 侠客岛 石洞6
+// /d/xiakedao/shihole6.c 俠客島 石洞6
 
 inherit ROOM;
 #include <ansi.h>
@@ -8,9 +8,9 @@ void create()
 {
         set("short", "石洞");
         set("long", @LONG
-眼前烛光黯淡，四周未见任何装饰，光秃粗糙的石壁上四字小篆，
-正是最后一句总纲：「天人归真」，下面又有一行小字(xiaozi)。几
-张石桌石凳随意地摆放着，似是杂乱无章，又似内藏玄机。
+眼前燭光黯淡，四周未見任何裝飾，光禿粗糙的石壁上四字小篆，
+正是最後一句總綱：「天人歸真」，下面又有一行小字(xiaozi)。幾
+張石桌石凳隨意地擺放着，似是雜亂無章，又似內藏玄機。
 LONG );
         set("exits", ([
                 "out"   : __DIR__"shihole5",
@@ -25,8 +25,8 @@ LONG );
         ]));
         set("item_desc", ([
                 "xiaozi": 
-"小字写的是：「昔年余等沉溺无术，惟石公妙悟神功，盖因...」，
-后面的字迹已模糊难辨。\n"
+"小字寫的是：「昔年餘等沉溺無術，惟石公妙悟神功，蓋因...」，
+後面的字跡已模糊難辨。\n"
         ]));
         set("no_clean_up", 0);
 	set("coor/x", -3090);
@@ -39,5 +39,5 @@ int valid_leave(object me, string dir)
 {
    if (dir != "west" )  return ::valid_leave(me, dir);
    if (me->query_temp("winner")) return ::valid_leave(me, dir);
-   return notify_fail(HIW"一股强大的力量自石洞中涌出，将你挡在洞外。\n"NOR);
+   return notify_fail(HIW"一股強大的力量自石洞中湧出，將你擋在洞外。\n"NOR);
 }

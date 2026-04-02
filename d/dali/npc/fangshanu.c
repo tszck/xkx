@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("纺纱女",({ "fangsha nv", "girl" }) );
+	set_name("紡紗女",({ "fangsha nv", "girl" }) );
         set("gender", "女性" );
         set("age", 17);
-        set("long", "一个年轻的摆夷村妇，心灵手巧，专擅纺纱。\n");
+        set("long", "一個年輕的擺夷村婦，心靈手巧，專擅紡紗。\n");
  	set_temp("apply/defense", 5);
 	set("combat_exp", 2000);
 //        set("shen", 100);

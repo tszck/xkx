@@ -13,7 +13,7 @@ void create()
 	set("age", 20);
 	set("no_get", 1);
 	set("long", 	
-		"她头上包着天青色纱巾，一领天青色布袍，没有一丝褶皱。\n");
+		"她頭上包着天青色紗巾，一領天青色布袍，沒有一絲褶皺。\n");
 	set("str", 25);
 	set("dex", 20);
 	set("con", 17);
@@ -33,8 +33,8 @@ void create()
 	set("score",0);
 	set("attitude", "peaceful");
 	set("inquiry", ([
-		"造鞭" : "师傅命我帮助别人造鞭，但到现在也不见一个人影。谁要造鞭呢？\n",
-		"原料" : "造鞭只能用寒丝羽竹。\n",
+		"造鞭" : "師傅命我幫助別人造鞭，但到現在也不見一個人影。誰要造鞭呢？\n",
+		"原料" : "造鞭只能用寒絲羽竹。\n",
 	]) );
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
@@ -45,7 +45,7 @@ int accept_object(object who, object ob)
 {	
 	if(!(who->query_temp("whip") ) )
 	{
-		message_vision(HIC"师傅没有同意为你造鞭，您请回吧！\n"NOR, who);
+		message_vision(HIC"師傅沒有同意爲你造鞭，您請回吧！\n"NOR, who);
 		return 0;
 	}
 	who->delete_temp("whip");
@@ -55,12 +55,12 @@ int accept_object(object who, object ob)
 		case "han zhu": 
 			break;
 		default :
-			message("vision","这是什么！师傅说这不能用来打造长鞭！\n",who);
+			message("vision","這是什麼！師傅說這不能用來打造長鞭！\n",who);
 			return 0;
 	}
-	message("vision", "侍鞭低头检视了一下手中的"+(string)ob->query("name")+"点了点头说：\n", who);
-	message("vision","。。。好我们现在就开始造鞭！\n", who);
-	write("请这位"+RANK_D->query_respect(who)+"给鞭起名字吧！(zhu 鞭的名字 英文代号)\n");
+	message("vision", "侍鞭低頭檢視了一下手中的"+(string)ob->query("name")+"點了點頭說：\n", who);
+	message("vision","。。。好我們現在就開始造鞭！\n", who);
+	write("請這位"+RANK_D->query_respect(who)+"給鞭起名字吧！(zhu 鞭的名字 英文代號)\n");
 	destruct(ob);
 	return 1;
 }

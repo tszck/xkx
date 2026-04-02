@@ -21,14 +21,14 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "片");
-		set("long", "一片刚刚从树上飘落的梅瓣。\n");
+		set("long", "一片剛剛從樹上飄落的梅瓣。\n");
 		set("value", 0);
 		set("material", "plant");
 		set_weight(4000);
 		set("armor_prop/armor", 0);
 		set("armor_prop/personality", 3);
-		set("wear_msg", "$N轻轻地把一朵$n戴在头上。\n");
-		set("unequip_msg", "$N轻轻地把$n从头上摘了下来。\n");
+		set("wear_msg", "$N輕輕地把一朵$n戴在頭上。\n");
+		set("unequip_msg", "$N輕輕地把$n從頭上摘了下來。\n");
 	}
 	setup();
 }

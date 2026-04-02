@@ -4,7 +4,7 @@ inherit NPC;
 
 void create()
 {
-	set_name("严妈妈", ({ "yan mama","yan" }) );
+	set_name("嚴媽媽", ({ "yan mama","yan" }) );
 	set("gender", "女性" );
 	set("age", 68);
 	set("shen_type", -1);

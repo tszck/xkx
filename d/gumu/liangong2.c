@@ -8,12 +8,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIR"练功房"NOR);
+	set("short", HIR"練功房"NOR);
 	set("long", @LONG
-一间石室，形状甚是奇特，南(southwall)窄北(northwall)宽，成
-为梯形，东(eastwall)边半圆，西(westwall)边却作三角型。室顶石板
-上(top) 刻满诸般花纹符号，均是已利器刻成，或深或浅，殊无规则。
-此处供古墓弟子修炼入门外功。
+一間石室，形狀甚是奇特，南(southwall)窄北(northwall)寬，成
+爲梯形，東(eastwall)邊半圓，西(westwall)邊卻作三角型。室頂石板
+上(top) 刻滿諸般花紋符號，均是已利器刻成，或深或淺，殊無規則。
+此處供古墓弟子修煉入門外功。
 LONG	);
 	set("exits", ([
 		"south" : __DIR__"mudao17",		
@@ -39,33 +39,33 @@ int do_xiulian(string arg)
 	int c_exp, c_skill;
 
 	if ( !arg ) 
-		return notify_fail("你要参照哪里来修炼？\n");
+		return notify_fail("你要參照哪裏來修煉？\n");
 	c_exp=me->query("combat_exp");
 	if (!(fam = me->query("family")) || fam["family_name"] != "古墓派")
-		return notify_fail("你不是古墓传人，如何能领悟古墓武功？\n");
+		return notify_fail("你不是古墓傳人，如何能領悟古墓武功？\n");
 	if (me->is_busy() || me->is_fighting())
 		return notify_fail("你正忙着哪！\n");
 	if (me->query("jing") < 20)
 		return notify_fail("你精力不能集中，去稍作歇息吧。\n");
 	if ((int)me->query_skill("literate", 1) < 30)
-		return notify_fail("你丫斗字不识一箩筐，领悟个啥？\n");
+		return notify_fail("你丫鬥字不識一籮筐，領悟個啥？\n");
 	if (arg == "top")
 	{
 		if ((int)me->query_skill("sword", 1) < 20)
-			return notify_fail("你基本剑法太差，无法研习全真剑法。\n"); 
+			return notify_fail("你基本劍法太差，無法研習全真劍法。\n"); 
 		if (me->query_skill("quanzhen-jian", 1) >= 1)
-			return notify_fail("你已经学会全真剑法，自己好好练吧。\n");	 
-		write("你仰视室顶的图纹，心中揣摩全真剑法的精妙之处。\n");
+			return notify_fail("你已經學會全真劍法，自己好好練吧。\n");	 
+		write("你仰視室頂的圖紋，心中揣摩全真劍法的精妙之處。\n");
 		me->receive_damage("jing", 5);
 		me->improve_skill("quanzhen-jian", 2);
 		return 1;
 	}
 	if (arg == "southwall")
 	{
-		write("你抡掌劈向南面石壁，蓬一声被震退数步，手臂一阵酸麻。\n");
+		write("你掄掌劈向南面石壁，蓬一聲被震退數步，手臂一陣痠麻。\n");
 		c_skill=(int)me->query_skill("strike", 1);
 		if (c_skill > 50)
-			return notify_fail("你掌力雄浑，不该再死练蛮力了。\n");
+			return notify_fail("你掌力雄渾，不該再死練蠻力了。\n");
 		me->receive_damage("jing", 5 + random(15));
 		if (c_skill*c_skill*c_skill/10<c_exp)
 			me->improve_skill("strike", random(me->query("int")));
@@ -73,10 +73,10 @@ int do_xiulian(string arg)
 	}
 	if (arg == "northwall")
 	{
-		write("你挥拳直击北壁，石粉四溅，你也被自己的猛劲震退数步。\n");
+		write("你揮拳直擊北壁，石粉四濺，你也被自己的猛勁震退數步。\n");
 		c_skill=(int)me->query_skill("unarmed", 1);
 		if (c_skill > 50)
-			return notify_fail("你拳力已刚猛无比，却无甚招数。\n");
+			return notify_fail("你拳力已剛猛無比，卻無甚招數。\n");
 		me->receive_damage("jing",5 + random(15));
 		if (c_skill*c_skill*c_skill/10<c_exp)
 			me->improve_skill("unarmed", random(me->query("int")));
@@ -84,10 +84,10 @@ int do_xiulian(string arg)
 	}
 	if (arg == "eastwall")
 	{
-		write("你绕东面石壁踏着剑步，用心揣摩壁上剑法精髓。\n");
+		write("你繞東面石壁踏着劍步，用心揣摩壁上劍法精髓。\n");
 		c_skill=(int)me->query_skill("sword", 1);
 		if (c_skill > 50)
-			return notify_fail("你对石壁上所述剑法已全然掌握，无须再费力了。\n");
+			return notify_fail("你對石壁上所述劍法已全然掌握，無須再費力了。\n");
 		me->receive_damage("jing", 5 + random(15));
 		if (c_skill*c_skill*c_skill/10<c_exp)
 			me->improve_skill("sword", random(me->query("int")));
@@ -95,16 +95,16 @@ int do_xiulian(string arg)
 	}
 	if (arg == "westwall")
 	{
-		write("你虚拈手指，面对西面石壁，细心操练暗器的收发手势。\n");
+		write("你虛拈手指，面對西面石壁，細心操練暗器的收發手勢。\n");
 		c_skill=(int)me->query_skill("throwing", 1);
 		if (c_skill > 50)
-			return notify_fail("你暗器收发随心，再不能提高于此。\n");
+			return notify_fail("你暗器收發隨心，再不能提高於此。\n");
 		me->receive_damage("jing", 5 + random(15));
 		if (c_skill*c_skill*c_skill/10<c_exp)
 			me->improve_skill("throwing", random(me->query("int")));
 		return 1;
 	}
-	return notify_fail("你无法参照那里来修炼。\n");
+	return notify_fail("你無法參照那裏來修煉。\n");
 }
 
 int do_tui(string arg)
@@ -117,19 +117,19 @@ int do_tui(string arg)
 	if ( arg == "eastwall")
 	{
 		if(!(fam=me->query("family")) || fam["family_name"] != "古墓派")
-			return notify_fail("你不是古墓传人，不能进入古墓密室！\n");
-		message_vision(YEL "$N伸手到半圆的弧底推了几下，一块大石缓缓移开，现出一扇洞门。\n"NOR, me);
+			return notify_fail("你不是古墓傳人，不能進入古墓密室！\n");
+		message_vision(YEL "$N伸手到半圓的弧底推了幾下，一塊大石緩緩移開，現出一扇洞門。\n"NOR, me);
 		set("exits/enter", __DIR__"liangong3");
 		me->receive_damage("qi", 30);
 		remove_call_out("close");
 		call_out("close", 5, this_object());
 		return 1;
 	}
-	return notify_fail("你要推什么？\n");
+	return notify_fail("你要推什麼？\n");
 }
 
 void close(object room)
 {
-	message("vision", HIY"大石慢慢退回了原位，又挡住了入口。\n"NOR, room);
+	message("vision", HIY"大石慢慢退回了原位，又擋住了入口。\n"NOR, room);
 	room->delete("exits/enter");
 }

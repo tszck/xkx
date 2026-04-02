@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "乱石");
+	set("short", "亂石");
 	set("long", @LONG
-这儿是乱石堆，似乎不是天然而成。一阵海风吹来，你打了一个哆
-嗦，不禁害怕起来，但细想一下不知其所以然。
+這兒是亂石堆，似乎不是天然而成。一陣海風吹來，你打了一個哆
+嗦，不禁害怕起來，但細想一下不知其所以然。
 LONG
 	);
 
@@ -30,11 +30,11 @@ void init()
 
 	if( interactive(me = this_player()) &&
 		!(me->query("sg/spy") ||
-		me->query("family/family_name") == "神龙教") &&
+		me->query("family/family_name") == "神龍教") &&
 		random((int)me->query_skill("dodge")) < 80 )
 	{
-		message_vision( HIR "$N的眼前突然出现一个无底的深渊...$N掉入了陷阱之中。\n" NOR, me);
-		message_vision( HIR"陷阱中的钢板突然冒出许多锋利的钢针，深深地扎进$N的身体中...\n" NOR, me);
+		message_vision( HIR "$N的眼前突然出現一個無底的深淵...$N掉入了陷阱之中。\n" NOR, me);
+		message_vision( HIR"陷阱中的鋼板突然冒出許多鋒利的鋼針，深深地扎進$N的身體中...\n" NOR, me);
 		damage = 100000 / ( 100 + (int)me->query_skill("force"));
 		me->receive_wound("qi", damage + random(damage), "被扎死了");
 		me->receive_damage("qi", damage + random(damage), "被扎死了");

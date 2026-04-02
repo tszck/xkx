@@ -4,7 +4,7 @@ inherit NPC;
 
 void create()
 {
-	set_name("武馆门丁",({ "meng ding","ding" }) );
+	set_name("武館門丁",({ "meng ding","ding" }) );
 	set("gender", "男性" );
 	set("age", 22);
 	set("combat_exp", 7000);

@@ -3,13 +3,13 @@ int do_out(string arg);
 
 void create()
 {
-        set("short", "金水桥");
+        set("short", "金水橋");
         set("long",  @LONG
-五座金水石桥横卧金水河上，中间那座桥是专供皇帝使用的，
-称为＂御路桥＂，桥的柱头全为龙形，人称＂蟠龙柱＂。两边为王
-公桥，桥的柱头雕成＂荷花柱＂。桥下是金水河缓缓的流水。水看
-上去很清，据说曾有人在这里跳河 (out)。这里是进皇宫正门的必
-经之路。
+五座金水石橋橫臥金水河上，中間那座橋是專供皇帝使用的，
+稱爲＂御路橋＂，橋的柱頭全爲龍形，人稱＂蟠龍柱＂。兩邊爲王
+公橋，橋的柱頭雕成＂荷花柱＂。橋下是金水河緩緩的流水。水看
+上去很清，據說曾有人在這裏跳河 (out)。這裏是進皇宮正門的必
+經之路。
 LONG);
         set("outdoors", "beijing");
         set("exits", ([
@@ -42,15 +42,15 @@ int do_out(string arg)
 	if(((int)me->query("jing") < ging_cost) || ((int)me->query("qi") < qi_cost))
 		i = 0;
 
-	message_vision("$N翻过石栏，一个纵身，跳了下去。\n", me);
+	message_vision("$N翻過石欄，一個縱身，跳了下去。\n", me);
 	if ( i < 75)
 		{
-	        message_vision("一股潜流立刻把$N吞没了。\n", me);
+	        message_vision("一股潛流立刻把$N吞沒了。\n", me);
 		me->die();
 	        }
 	else if( i < 100)
 		{
-	        message_vision("一股潜流立刻把$N吞没了。\n", me);
+	        message_vision("一股潛流立刻把$N吞沒了。\n", me);
 		me->unconcious();
 		switch( random(2) ) {
 		case 0:
@@ -59,25 +59,25 @@ int do_out(string arg)
 		case 1:
 		me->move(__DIR__"bridge3");
 			break;
-		message_vision("一股潜流把$N冲回岸边。\n", me);
+		message_vision("一股潛流把$N衝回岸邊。\n", me);
 		}
 	        }
 	else {
 		switch( random(5) ) {
 		case 0:
-		message_vision("一股潜流把$N冲回岸边。\n", me);
+		message_vision("一股潛流把$N衝回岸邊。\n", me);
 		me->move(__DIR__"bridge2");
 			break;
 		case 1:
-		message_vision("一股潜流把$N冲回岸边。\n", me);
+		message_vision("一股潛流把$N衝回岸邊。\n", me);
 		me->move(__DIR__"bridge3");
 			break;
 		case 2:
 		case 3:
 		case 4:
-		message_vision("$N在水中昏昏沉沉地胡乱挣扎，突然之间触到了一面硬壁。\n", me);
-		message_vision("$N恍若抓住了救命稻草，贴着滑溜溜的硬壁就浮出了水面。\n", me);
-		message_vision("$N吐了一口水，抬头一看，原来身在一口井中。\n", me);
+		message_vision("$N在水中昏昏沉沉地胡亂掙扎，突然之間觸到了一面硬壁。\n", me);
+		message_vision("$N恍若抓住了救命稻草，貼着滑溜溜的硬壁就浮出了水面。\n", me);
+		message_vision("$N吐了一口水，抬頭一看，原來身在一口井中。\n", me);
          	me->move("/d/huanggong/inwell");
 		break;
 		}

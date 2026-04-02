@@ -14,7 +14,7 @@ void create()
 		set("unit", "柄");
 		set("value", 100);
 		set("material", "wood");
-		set("long", "这是一柄长长的木耙，是练武时用的．\n");
+		set("long", "這是一柄長長的木耙，是練武時用的．\n");
 		set("wield_msg", "$N抽出一柄$n握在手中。\n");
 	}
 	init_rake(15);

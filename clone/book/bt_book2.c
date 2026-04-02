@@ -1,17 +1,17 @@
-// bt_book2.c 草药经
+// bt_book2.c 草藥經
 // Last Modified by Winder on May. 15 2001
 
 inherit ITEM;
 
 void create()
 {
-	set_name("草药经", ({ "caoyao jing", "jing", "caoyao" }));
+	set_name("草藥經", ({ "caoyao jing", "jing", "caoyao" }));
 	set_weight(1000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一本讲述各类草药的书。\n");
+		set("long", "這是一本講述各類草藥的書。\n");
 		set("value", 2500);
 		set("material", "paper");
 		set("skill", ([

@@ -7,9 +7,9 @@ inherit NPC;
 void create()
 {
 	set_name("方逝", ({ "fang shi", "fang", "shi"}));
-	set("long", "他是一位身穿黄布袈裟的青年僧人。脸上稚气未脱，身手却已相\n"
-		"当矫捷，看来似乎学过一点武功。\n");
-	set("nickname", "饭头");
+	set("long", "他是一位身穿黃布袈裟的青年僧人。臉上稚氣未脫，身手卻已相\n"
+		"當矯捷，看來似乎學過一點武功。\n");
+	set("nickname", "飯頭");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");

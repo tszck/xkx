@@ -14,54 +14,54 @@ int main(object me, string file)
 
 	if (!file) file = me->query("cwf");
 	if (!file)
-		return notify_fail("你要复制什麽物件？\n");
+		return notify_fail("你要複製什麼物件？\n");
 
 	file = resolve_path(me->query("cwd"), file);
 	if( sscanf(file, "%*s.c") != 1 ) file += ".c";
 	me->set("cwf", file);
 
 	if( file_size(file) < 0 )
-		return notify_fail("没有这个档案(" + file + ")。\n");
+		return notify_fail("沒有這個檔案(" + file + ")。\n");
 
 	if( !find_object(file) ) {
 		err = catch(call_other(file, "???"));
 		if (err) {
-			write("载入失败：" + err + "\n");
+			write("載入失敗：" + err + "\n");
 			return 1;
 		}
 	}
 
 	err = catch(obj = new(file));
 	if (err) {
-		write("复制失败：" + err + "\n");
+		write("複製失敗：" + err + "\n");
 		return 1;
 	}
   obj->set("clone_by",me->query("id"));
 	if( !stringp(msg = me->query("env/msg_clone")) )
-		msg = "只见$N伸手凌空一指，变出了$n。\n";
+		msg = "只見$N伸手凌空一指，變出了$n。\n";
   if (msg = "none") msg = "";
 
 	if( !obj->is_character() && obj->move(me) ) {
-		write(obj->query("name") + "复制成功，放在你的物品栏。\n\n");
+		write(obj->query("name") + "複製成功，放在你的物品欄。\n\n");
         message_vision(msg, me, obj);
 		return 1;
 	}
 	if( obj->move(environment(me)) ) {
-		write(obj->query("name") + "复制成功，放在这个房间。\n\n");
+		write(obj->query("name") + "複製成功，放在這個房間。\n\n");
         message_vision(msg , me, obj);
 		return 1;
 	}
 
 	destruct(obj);
-	return notify_fail("无法复制不能移动的物件(" + file + ")。\n");
+	return notify_fail("無法複製不能移動的物件(" + file + ")。\n");
 }
 
 int help(object me)
 {
   write(@HELP
-指令格式 : clone <档名>
+指令格式 : clone <檔名>
 
-利用此指令可复制任何能移动之物件(含怪物)。
+利用此指令可複製任何能移動之物件(含怪物)。
 HELP
     );
     return 1;

@@ -10,7 +10,7 @@ void create()
 	else {
    	        set("unit", "根");
         	set("material", "wood");
-       		set("long", "这是一根粗长的树枝。\n");
+       		set("long", "這是一根粗長的樹枝。\n");
         }
         init_staff(5);
         setup();

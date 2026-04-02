@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "新门集");
+	set("short", "新門集");
 	set("long", @LONG
-这是泉州南面东西向的一条干道，规模不大。南边有家茶居，西边
-是新门吊桥，东边则是市集。
+這是泉州南面東西向的一條幹道，規模不大。南邊有家茶居，西邊
+是新門吊橋，東邊則是市集。
 LONG );
 	set("outdoors", "quanzhou");
 	set("no_clean_up", 0);

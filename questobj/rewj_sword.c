@@ -5,7 +5,7 @@ inherit SWORD;
 
 void create()
 {
-	set_name(HIY"一阵云烟"NOR, ({ "cigar", "sword" }));
+	set_name(HIY"一陣雲煙"NOR, ({ "cigar", "sword" }));
 	set_weight(6000);
 	set("taskobj", 1);
 	if (clonep())
@@ -14,8 +14,8 @@ void create()
 		set("unit", "柄");
 		set("value", 2000);
 		set("material", "steel");
-		set("wield_msg", "$N抽了$n，惨然一笑，接着长叹一声，从裤兜里取出个白玉磁瓶，倒出菩提子吧唧吧唧啃了起来。\n");
-		set("unwield_msg", "$N一声长叹：人生如梦，梦如$n，烟如雾，雾如水蒸气，水蒸气如那个屁啊。\n");
+		set("wield_msg", "$N抽了$n，慘然一笑，接着長嘆一聲，從褲兜裏取出個白玉磁瓶，倒出菩提子吧唧吧唧啃了起來。\n");
+		set("unwield_msg", "$N一聲長嘆：人生如夢，夢如$n，煙如霧，霧如水蒸氣，水蒸氣如那個屁啊。\n");
 	}
 	init_sword(30);
 	setup();

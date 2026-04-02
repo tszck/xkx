@@ -14,43 +14,43 @@ int main(object me, string arg)
         thisroom = environment(me);
 
 //	if(1==1)
-//	return notify_fail("现在不许行窃。\n");
+//	return notify_fail("現在不許行竊。\n");
 	if( environment(me)->query("no_fight"))
-		return notify_fail("这里禁止行窃。\n");
+		return notify_fail("這裏禁止行竊。\n");
 
 	if( environment(me)->query("no_steal"))
-		return notify_fail("这里禁止行窃。\n");
+		return notify_fail("這裏禁止行竊。\n");
 
 	if( me->is_busy() )
-		return notify_fail("你上一个动作还没有完成！\n");
+		return notify_fail("你上一個動作還沒有完成！\n");
 
 	if( me->query_temp("stealing") )
-		return notify_fail("你已经在找机会下手了！\n");
+		return notify_fail("你已經在找機會下手了！\n");
 
 	if( !arg || sscanf(arg, "%s from %s", what, who)!=2 )
 		return notify_fail("指令格式：steal <物品> from <人物>\n");
 
  //       if(arg=="corpse"||arg=="skeleton")
- //               return notify_fail("偷什么偷，直接从尸体里拿就是了！\n");
+ //               return notify_fail("偷什麼偷，直接從屍體裏拿就是了！\n");
 	victim = present(who, environment(me));
 	if( !victim || victim==me)
-		return notify_fail("你想行窃的对象不在这里。\n");
+		return notify_fail("你想行竊的對象不在這裏。\n");
 
 	if( !wizardp(me) && wizardp(victim) )
-		return notify_fail("玩家不能偷巫师身上的东西。\n");
+		return notify_fail("玩家不能偷巫師身上的東西。\n");
 		
 	if (userp(me) && victim->query("owner") && me->query("id") != victim->query("owner"))
-			return notify_fail("不许对此人行窃。\n");					
+			return notify_fail("不許對此人行竊。\n");					
 
 	if( victim->query("no_steal"))
-		return notify_fail("不许对此人行窃。\n");
+		return notify_fail("不許對此人行竊。\n");
 
 	if( !living(victim) || victim->query_temp("noliving") )
-		return notify_fail("这种情况你还用得着偷吗？\n"); 
+		return notify_fail("這種情況你還用得着偷嗎？\n"); 
 	if(me->query("id") != victim->query_temp("bt_ownname") &&
 		me->query_temp("bt/working"))
-		return notify_fail("你身为捕快，执行公务，岂能知法犯法！\n");
-	notify_fail("此人来头不小，还是少惹为妙。\n");
+		return notify_fail("你身爲捕快，執行公務，豈能知法犯法！\n");
+	notify_fail("此人來頭不小，還是少惹爲妙。\n");
 	if (!userp(victim) && !victim->accept_hit(me)) return 0;
 
 	if( !ob = present(what, victim) )
@@ -58,7 +58,7 @@ int main(object me, string arg)
 		object *inv;
 		inv = all_inventory(victim);
 		if( !sizeof(inv) )
-			return notify_fail( victim->name() + "身上看起来没有什么值钱的东西好偷。\n");
+			return notify_fail( victim->name() + "身上看起來沒有什麼值錢的東西好偷。\n");
 		ob = inv[random(sizeof(inv))];
 	}
 
@@ -68,7 +68,7 @@ int main(object me, string arg)
 	sp = (int)me->query_skill("stealing") * 5 + (int)me->query("kar") * 2
 		- (int)me->query("thief") * 20;
 
-	if ( (myfam = me->query("family")) && myfam["family_name"] == "丐帮" )
+	if ( (myfam = me->query("family")) && myfam["family_name"] == "丐幫" )
 		sp = (int)me->query_skill("stealing")*10+(int)me->query("kar")*5
 			- (int)me->query("thief") * 20;
 
@@ -83,7 +83,7 @@ int main(object me, string arg)
 	if( victim->is_fighting() ) dp *= 10;
 	if( ob->query("equipped") ) dp *= 10;
 
-	write("你不动声色地慢慢靠近"+victim->name()+"，等待机会下手 ...\n\n");
+	write("你不動聲色地慢慢靠近"+victim->name()+"，等待機會下手 ...\n\n");
 
         thisroom->set_temp("no_sleep",1);
         me->start_busy(2);
@@ -101,7 +101,7 @@ private void compelete_steal(object me, object victim, object ob, int sp,int dp)
 
 	if( environment(victim) != environment(me) )
 	{
-		tell_object(me, "太可惜了，你下手的目标已经走了。\n");
+		tell_object(me, "太可惜了，你下手的目標已經走了。\n");
 		return;
 	}
 
@@ -110,25 +110,25 @@ private void compelete_steal(object me, object victim, object ob, int sp,int dp)
 	{
 		if( !present(ob, victim) )
 		{
-			tell_object(me,"你摸了半天没发现自己要偷的东西，看来对方已经把东西转移了！\n");
+			tell_object(me,"你摸了半天沒發現自己要偷的東西，看來對方已經把東西轉移了！\n");
 			return;
 		}
 		if( ob->query("no_steal") )
 		{
 			tell_object(me,"你摸到一"+ob->query("unit")+ob->name()
-			+ "，可是你突然作贼心虚，居然不敢下手，真是可惜了。\n");
+			+ "，可是你突然作賊心虛，居然不敢下手，真是可惜了。\n");
 			return;
 		}
 		if( ob->query_temp("is_rided_by") )
 		{
 			tell_object(me,"你摸到一"+ob->query("unit")+ob->name()
-			+ "，可是你发现那是人家的坐骑，真是可惜了。\n");
+			+ "，可是你發現那是人家的坐騎，真是可惜了。\n");
 			return;
 		}
 		if( !ob->move(me) )
 		{
 			tell_object(me,"你摸到一"+ob->query("unit")+ob->name()
-			+ "，可是对你而言太重了，不得不放弃。\n");
+			+ "，可是對你而言太重了，不得不放棄。\n");
 			return;
 		}
 
@@ -145,10 +145,10 @@ private void compelete_steal(object me, object victim, object ob, int sp,int dp)
 			}
 			else
 			{
-				tell_object(me," 就这点经验也要去偷？ \n");
+				tell_object(me," 就這點經驗也要去偷？ \n");
 			}
 			if ( (myfam = me->query("family")) &&
-				myfam["family_name"] == "丐帮" )
+				myfam["family_name"] == "丐幫" )
 			{
 //add by Java. Nov 16.1997
 				me->start_busy(2);
@@ -162,7 +162,7 @@ private void compelete_steal(object me, object victim, object ob, int sp,int dp)
 		}
 
 		if( random(sp) < dp/2 )
-			message("vision", "你看到" + me->name() + "鬼鬼祟祟地从"
+			message("vision", "你看到" + me->name() + "鬼鬼祟祟地從"
 			+ victim->name() + "身上偷走了一" + ob->query("unit")
 			+ ob->name()+"！\n", environment(me),({ me, victim }));
 	}
@@ -170,11 +170,11 @@ private void compelete_steal(object me, object victim, object ob, int sp,int dp)
 	{
 		if( random(sp) > dp/2 )
 		{
-			tell_object(me, victim->name() + "不经意地一转头，你急忙将手缩了回去！\n还好，没有被发现。\n");
+			tell_object(me, victim->name() + "不經意地一轉頭，你急忙將手縮了回去！\n還好，沒有被發現。\n");
 			return;
 		}
 		tell_object(me, HIR "糟糕！你失手了！\n\n" NOR);
-		message_vision("$N一回头，正好发现$n的手正抓着$P身上的" + ob->name() + "！\n\n" + "$N喝道：「干什么！」\n\n", victim, me);
+		message_vision("$N一回頭，正好發現$n的手正抓着$P身上的" + ob->name() + "！\n\n" + "$N喝道：「幹什麼！」\n\n", victim, me);
 		me->improve_skill("stealing", 1, 1);
 
 		me->delete("env/combatd");
@@ -196,9 +196,9 @@ int help(object me)
 write(@HELP
 指令格式 : steal <某物> from <某人>
 
-    这个指令让你有机会偷到他人身上的东西。成功了，当然你就能获
-得该样物品。可是，马有失蹄，人总有失风的时候，当你失败时当然就
-得付出代价，至于是什么代价......靠你自己去发掘罗。
+    這個指令讓你有機會偷到他人身上的東西。成功了，當然你就能獲
+得該樣物品。可是，馬有失蹄，人總有失風的時候，當你失敗時當然就
+得付出代價，至於是什麼代價......靠你自己去發掘羅。
 HELP
 	);
 	return 1;

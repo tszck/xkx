@@ -4,15 +4,15 @@ inherit ITEM;
 
 void create()
 {
-	set_name( "唐诗剑谱",({ "tangshi jianpu","book"}));
+	set_name( "唐詩劍譜",({ "tangshi jianpu","book"}));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long","这是一本唐诗选辑。经过水浸泡后一些字显得格外醒目：
+		set("long","這是一本唐詩選輯。經過水浸泡後一些字顯得格外醒目：
 
-    “江陵城南偏西天宁寺大殿佛像向之虔诚膜拜通灵祝告如来赐福往生极乐”。
+    “江陵城南偏西天寧寺大殿佛像向之虔誠膜拜通靈祝告如來賜福往生極樂”。
 
 \n");
 		set("value", 1500);

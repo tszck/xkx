@@ -6,8 +6,8 @@ void create()
 {       set_name("展昭", ({ "wpp"}));
 	set("gender", "男性");
 	set("class", "taoist");
-	set("title", HIW"圣人"HIG"明教风字门教众"NOR"武林泰斗武当派掌门大师兄");
-	set("nickname", HIW"玉猫"HIR"南侠"NOR);
+	set("title", HIW"聖人"HIG"明教風字門教衆"NOR"武林泰斗武當派掌門大師兄");
+	set("nickname", HIW"玉貓"HIR"南俠"NOR);
 	set("age", 51);
 	set("attitude", "friendly");
 
@@ -18,7 +18,7 @@ void create()
 	set("con", 20);
 	set("str", 25);
 	set("weiwang", 30);
-	create_family("武当派" ,2, "弟子");	
+	create_family("武當派" ,2, "弟子");	
 	setup();
 	carry_object(CLOTH_DIR"dao-cloth")->wear();
         carry_object(CLOTH_DIR"dao-shoe")->wear();

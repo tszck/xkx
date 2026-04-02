@@ -1,12 +1,12 @@
-//Room: hutouyan.c 虎头岩
+//Room: hutouyan.c 虎頭巖
 //Date: Sep 22 1997
 inherit ROOM;
 void create()
 {
-      set("short","虎头岩");
+      set("short","虎頭巖");
       set("long",@LONG
-一块巨大的岩石看上去好象一个虎头正张大了血盆大口咆哮，虎身
-隐藏在草木丛中。
+一塊巨大的岩石看上去好象一個虎頭正張大了血盆大口咆哮，虎身
+隱藏在草木叢中。
 LONG);
       set("objects", ([
           __DIR__"npc/laohu" : 1,

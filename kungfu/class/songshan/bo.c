@@ -6,8 +6,8 @@ inherit F_MASTER;
 void create()
 {
 	set_name("卜沉", ({ "bo chen", "chen", "bo" }) );
-	set("long", "他是一个白头发老者。嵩山派掌门人的师弟。\n");
-	set("nickname", HIW"白头翁"NOR);
+	set("long", "他是一個白頭髮老者。嵩山派掌門人的師弟。\n");
+	set("nickname", HIW"白頭翁"NOR);
 	set("gender", "男性");
 	set("class", "swordsman");
 	set("age", 53);

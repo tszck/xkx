@@ -8,7 +8,7 @@ void create()
 	set_name("管家", ({ "guan jia", "guanjia", "guan", "jia" }));
 	set("gender", "男性");
 	set("age", 44);
-	set("long", "他是归云庄的管家，负责日常的庄务。\n");
+	set("long", "他是歸雲莊的管家，負責日常的莊務。\n");
 	
 	set("combat_exp", 8000);
 	set("shen_type", 0);
@@ -26,7 +26,7 @@ void create()
 	set_temp("apply/defense", 22);
 
 	set("inquiry",([
-		"name" : "咳，那么麻烦干什么，有事您就直呼管家好了。",
+		"name" : "咳，那麼麻煩幹什麼，有事您就直呼管家好了。",
 	]));
 	setup();
 	carry_object("/clone/misc/cloth")->wear();

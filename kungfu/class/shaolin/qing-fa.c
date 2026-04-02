@@ -14,8 +14,8 @@ void create()
 		"biqiu",
 	}));
 	set("long",
-		"他是一位体格强健的壮年僧人，他生得虎背熊腰，全身似乎蕴含\n"
-		"着无穷劲力。他身穿一袭白布黑边袈裟，似乎身怀武艺。\n"
+		"他是一位體格強健的壯年僧人，他生得虎背熊腰，全身似乎蘊含\n"
+		"着無窮勁力。他身穿一襲白布黑邊袈裟，似乎身懷武藝。\n"
 	);
 
 	set("gender", "男性");
@@ -74,28 +74,28 @@ string ask_for_join()
 	object me = this_player();
 
 	if( (string)me->query("class")=="bonze" )
-		return "阿弥陀佛！你我同是出家人，何故跟贫僧开这等玩笑？\n";
+		return "阿彌陀佛！你我同是出家人，何故跟貧僧開這等玩笑？\n";
 
 	if( (string)me->query("gender") != "男性" )
-		return "阿弥陀佛！善哉！善哉！女施主若真心皈依我佛，可去后山庵里受戒。\n";
+		return "阿彌陀佛！善哉！善哉！女施主若真心皈依我佛，可去後山庵裏受戒。\n";
 
 	me->set_temp("pending/join_bonze", 1);
-	return "阿弥陀佛！善哉！善哉！施主若真心皈依我佛，请跪下(kneel)受戒。\n";
+	return "阿彌陀佛！善哉！善哉！施主若真心皈依我佛，請跪下(kneel)受戒。\n";
 }
 
 int do_kneel()
 {
 	object me = this_player();
 	string name, new_name;
-	string *prename = ({ "虚", "空", "明", "净" });
-//	({ "虚", "空", "明", "圆", "净", "悟", "法" });
+	string *prename = ({ "虛", "空", "明", "淨" });
+//	({ "虛", "空", "明", "圓", "淨", "悟", "法" });
 
 	if( !me->query_temp("pending/join_bonze") ) return 0;
 
-	message_vision("$N双手合十，恭恭敬敬地跪了下来。\n\n$n伸出手掌，在$N头顶轻轻地摩挲了几下，将$N的头发尽数剃去。\n\n", me, this_object() );
+	message_vision("$N雙手合十，恭恭敬敬地跪了下來。\n\n$n伸出手掌，在$N頭頂輕輕地摩挲了幾下，將$N的頭髮盡數剃去。\n\n", me, this_object() );
 	name = me->query("name");
 	new_name = prename[random(sizeof(prename))] + name[0..0];
-	command("say 从今以后你的法名叫做" + new_name + "。");
+	command("say 從今以後你的法名叫做" + new_name + "。");
 	command("smile");
 	me->delete_temp("pending/join_bonze");
 	me->set("name", new_name);
@@ -111,14 +111,14 @@ void attempt_apprentice(object ob)
 {
 	if( (string)ob->query("gender") != "男性" )
 	{
-		command ("say 阿弥陀佛！女施主呀，贫僧可不敢开这等玩笑啊。");
+		command ("say 阿彌陀佛！女施主呀，貧僧可不敢開這等玩笑啊。");
 		return;
 	}
 
 	if( (string)ob->query("class")!="bonze" )
 	{
-		command ("say 阿弥陀佛！贫僧就收下你做『俗家弟子』了。");
+		command ("say 阿彌陀佛！貧僧就收下你做『俗家弟子』了。");
 	}
-	command("say 阿弥陀佛，善哉！善哉！");
+	command("say 阿彌陀佛，善哉！善哉！");
 	command("recruit " + ob->query("id"));
 }

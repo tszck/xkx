@@ -1,14 +1,14 @@
-// caoyunqi.c 曹云奇
+// caoyunqi.c 曹雲奇
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("曹云奇", ({ "cao yunqi", "yunqi", "cao" }) );
+	set_name("曹雲奇", ({ "cao yunqi", "yunqi", "cao" }) );
 	set("gender", "男性");
-	set("title", "辽东天龙门北宗第六代掌门人");
-	set("nickname", "腾龙剑");
+	set("title", "遼東天龍門北宗第六代掌門人");
+	set("nickname", "騰龍劍");
 	set("age", 43);
 	set("attitude", "friendly");
 	set("str", 20);

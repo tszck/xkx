@@ -4,15 +4,15 @@
 inherit ITEM;
 inherit F_SAVE;
 
-// 全局变量，即储存玩家押注的所有数据
+// 全局變量，即儲存玩家押注的所有數據
 mapping *all_biao;
-// 全局变量，此处为目前数量
+// 全局變量，此處爲目前數量
 int num;
-// 全局变量，此处为最终结杲
+// 全局變量，此處爲最終結杲
 mapping *end_biao;
 int jieguo;
 
-// 以下七行为函数声明
+// 以下七行爲函數聲明
 int do_read(string);
 int do_post(string);
 int do_ya(string);
@@ -22,10 +22,10 @@ string ordercode(string arg, int arg1);
 string upcase(string arg);
 
 string *team = ({
-"阿根廷","巴西","比利时","喀麦隆","中国","哥斯达黎加", "德国","丹麦",
-"厄瓜多尔","西班牙","法国","克罗地亚","爱尔兰","意大利","日本","韩国",
-"墨西哥","尼日利亚","波兰","葡萄牙","巴拉圭","俄罗斯","沙特","瑞典",
-"斯洛文尼亚","塞内加尔","突尼斯","土耳其","英格兰","美国","乌拉圭","南非"});
+"阿根廷","巴西","比利時","喀麥隆","中國","哥斯達黎加", "德國","丹麥",
+"厄瓜多爾","西班牙","法國","克羅地亞","愛爾蘭","意大利","日本","韓國",
+"墨西哥","尼日利亞","波蘭","葡萄牙","巴拉圭","俄羅斯","沙特","瑞典",
+"斯洛文尼亞","塞內加爾","突尼斯","土耳其","英格蘭","美國","烏拉圭","南非"});
 string *code=({
 	"AR", "BR", "BE", "CM", "CN", "CR", "DE", "DK",
 	"EC", "ES", "FR", "HR", "IE", "IT", "JP", "KP",
@@ -35,13 +35,13 @@ string *code=({
 
 void create()
 {
-	set_name(HIY"世界杯竞猜版"NOR, ({ "board", "ban"}) );
-	set("long", "这是一个记录玩家的竞猜押注情况的版。
-押注请read rules，查看目前的投注情况请read ban。\n");
-	set("unit", "张");
+	set_name(HIY"世界盃競猜版"NOR, ({ "board", "ban"}) );
+	set("long", "這是一個記錄玩家的競猜押注情況的版。
+押注請read rules，查看目前的投注情況請read ban。\n");
+	set("unit", "張");
 	set("no_put", 1);
 	set("no_get", 1);
-//设大点不让玩家Get
+//設大點不讓玩家Get
 	set_weight(900000000);
 	seteuid(getuid());
 	restore();
@@ -58,7 +58,7 @@ void init()
 
 string query_save_file()
 {
-// 定义一个储存文件的路径
+// 定義一個儲存文件的路徑
 	return DATA_DIR + "board/fifa2002_b";
 }
 
@@ -70,46 +70,46 @@ int do_ya(string arg)
 	object /*ob,*/ me = this_player();
 	mapping biao;
 	
-// 表示停止下注，由巫师在do_post()函数里加入
+// 表示停止下注，由巫師在do_post()函數裏加入
 	if(query("end_ya"))
-		return notify_fail("截止时间已过，下回赶早。\n");
-// 防止多人同意押注产生意外
+		return notify_fail("截止時間已過，下回趕早。\n");
+// 防止多人同意押注產生意外
 	if (query_temp("busy"))
 		return notify_fail("稍候........\n");
 // 分析玩家指令
 	if(!arg)
-		return notify_fail("命令格式：ya <类别> <球队> <多少两黄金>\n");
+		return notify_fail("命令格式：ya <類別> <球隊> <多少兩黃金>\n");
 	arg=upcase(arg);
 	if(sscanf(arg, "%s %s %d", t, c, i) != 3)
-		return notify_fail("命令格式：ya <类别> <球队> <多少两黄金>\n");
+		return notify_fail("命令格式：ya <類別> <球隊> <多少兩黃金>\n");
 // 排除一些不可能的押注可能
 	if(t != "1" && t != "2" && t != "4" && t != "8")
-		return notify_fail("你总要先选定投注类别罢？\n");
+		return notify_fail("你總要先選定投注類別罷？\n");
 // 至少1gold
 	if(i < 1)
-		return notify_fail("你想白赚啊？\n");
-// 上限，可以自由调整
+		return notify_fail("你想白賺啊？\n");
+// 上限，可以自由調整
 	if(i > 1000)
-	    return notify_fail("押得太多，请少于1000。\n");
+	    return notify_fail("押得太多，請少於1000。\n");
 	if((int)i>me->query("balance")/10000)
-// 钱庄的存款不够押的钱
-		return notify_fail("这里不收现金！到钱庄存够了钱再来！\n");
+// 錢莊的存款不夠押的錢
+		return notify_fail("這裏不收現金！到錢莊存夠了錢再來！\n");
 
-// 押冠军
+// 押冠軍
 	switch ( t )
 	{
 		case "1":
-// 调玩家身上的参数
+// 調玩家身上的參數
 			if(me->query("fifa2002/1"))
-				return notify_fail("你只能给冠军下一次注！\n");
-			if(codetoteam(c) == "未知国名")
-				return notify_fail("先看好国家代码再来！\n");
-			message_vision("$N想了半天大声喊道：“我认为"HIR+codetoteam(c)+NOR"队能拿到冠军！押 "HIY+chinese_number(i)+NOR" 两黄金！”\n",me);
-// 在玩家身上设下押的结果
+				return notify_fail("你只能給冠軍下一次注！\n");
+			if(codetoteam(c) == "未知國名")
+				return notify_fail("先看好國家代碼再來！\n");
+			message_vision("$N想了半天大聲喊道：“我認爲"HIR+codetoteam(c)+NOR"隊能拿到冠軍！押 "HIY+chinese_number(i)+NOR" 兩黃金！”\n",me);
+// 在玩家身上設下押的結果
 			me->set("fifa2002/1", c);
-// 押的黄金数
+// 押的黃金數
 			me->set("fifa2002/10", i);
-// 这是一个记录该玩家押注数据的映射
+// 這是一個記錄該玩家押注數據的映射
 			biao = ([
 				"id"   : me->query("id"),
 				"name" : me->query("name"),
@@ -119,17 +119,17 @@ int do_ya(string arg)
 			]);
 			break;
 		case "2":
-// 调玩家身上的参数
+// 調玩家身上的參數
 			if(me->query("fifa2002/2"))
-				return notify_fail("你只能给亚军下一次注！\n");
-			if(codetoteam(c) == "未知国名")
-				return notify_fail("先看好国家代码再来！\n");
-			message_vision("$N想了半天大声喊道：“我认为"HIR+codetoteam(c)+NOR"队能拿到亚军！押 "HIY+chinese_number(i)+NOR" 两黄金！”\n",me);
-// 在玩家身上设下押的结果
+				return notify_fail("你只能給亞軍下一次注！\n");
+			if(codetoteam(c) == "未知國名")
+				return notify_fail("先看好國家代碼再來！\n");
+			message_vision("$N想了半天大聲喊道：“我認爲"HIR+codetoteam(c)+NOR"隊能拿到亞軍！押 "HIY+chinese_number(i)+NOR" 兩黃金！”\n",me);
+// 在玩家身上設下押的結果
 			me->set("fifa2002/2", c);
-// 押的黄金数
+// 押的黃金數
 			me->set("fifa2002/20", i);
-// 这是一个记录该玩家押注数据的映射
+// 這是一個記錄該玩家押注數據的映射
 			biao = ([
 				"id"   : me->query("id"),
 				"name" : me->query("name"),
@@ -139,26 +139,26 @@ int do_ya(string arg)
 			]);
 			break;
 		case "4":
-// 调玩家身上的参数
+// 調玩家身上的參數
 			if(me->query("fifa2002/4"))
-				return notify_fail("你只能给四强下一次注！\n");
+				return notify_fail("你只能給四強下一次注！\n");
 			if(sscanf(c, "%s-%s-%s-%s", c1, c2, c3, c4) != 4)
-				return notify_fail("国家代码输入格式错！\n");
-			if(codetoteam(c1) == "未知国名")
-				return notify_fail("没有"HIR+c1+NOR"这国家代码！\n");
-			if(codetoteam(c2) == "未知国名")
-				return notify_fail("没有"HIR+c2+NOR"这国家代码！\n");
-			if(codetoteam(c3) == "未知国名")
-				return notify_fail("没有"HIR+c3+NOR"这国家代码！\n");
-			if(codetoteam(c4) == "未知国名")
-				return notify_fail("没有"HIR+c4+NOR"这国家代码！\n");
+				return notify_fail("國家代碼輸入格式錯！\n");
+			if(codetoteam(c1) == "未知國名")
+				return notify_fail("沒有"HIR+c1+NOR"這國家代碼！\n");
+			if(codetoteam(c2) == "未知國名")
+				return notify_fail("沒有"HIR+c2+NOR"這國家代碼！\n");
+			if(codetoteam(c3) == "未知國名")
+				return notify_fail("沒有"HIR+c3+NOR"這國家代碼！\n");
+			if(codetoteam(c4) == "未知國名")
+				return notify_fail("沒有"HIR+c4+NOR"這國家代碼！\n");
 			c=ordercode(c, 4);
-			message_vision("$N想了半天大声喊道：“我认为"HIR+codetoteam(c1)+"、"+codetoteam(c2)+"、"+codetoteam(c3)+"、"+codetoteam(c4)+NOR"队能进入四强！押 "HIY+chinese_number(i)+NOR" 两黄金！”\n",me);
-// 在玩家身上设下押的结果
+			message_vision("$N想了半天大聲喊道：“我認爲"HIR+codetoteam(c1)+"、"+codetoteam(c2)+"、"+codetoteam(c3)+"、"+codetoteam(c4)+NOR"隊能進入四強！押 "HIY+chinese_number(i)+NOR" 兩黃金！”\n",me);
+// 在玩家身上設下押的結果
 			me->set("fifa2002/4", c);
-// 押的黄金数
+// 押的黃金數
 			me->set("fifa2002/40", i);
-// 这是一个记录该玩家押注数据的映射
+// 這是一個記錄該玩家押注數據的映射
 			biao = ([
 				"id"   : me->query("id"),
 				"name" : me->query("name"),
@@ -168,34 +168,34 @@ int do_ya(string arg)
 			]);
 			break;
 		case "8":
-// 调玩家身上的参数
+// 調玩家身上的參數
 			if(me->query("fifa2002/8"))
-				return notify_fail("你只能给八强下一次注！\n");
+				return notify_fail("你只能給八強下一次注！\n");
 			if(sscanf(c, "%s-%s-%s-%s-%s-%s-%s-%s", c1, c2, c3, c4, c5, c6, c7, c8) != 8)
-				return notify_fail("国家代码格式输入错！\n");
-			if(codetoteam(c1) == "未知国名")
-				return notify_fail("没有"HIR+c1+NOR"这国家代码！\n");
-			if(codetoteam(c2) == "未知国名")
-				return notify_fail("没有"HIR+c2+NOR"这国家代码！\n");
-			if(codetoteam(c3) == "未知国名")
-				return notify_fail("没有"HIR+c3+NOR"这国家代码！\n");
-			if(codetoteam(c4) == "未知国名")
-				return notify_fail("没有"HIR+c4+NOR"这国家代码！\n");
-			if(codetoteam(c5) == "未知国名")
-				return notify_fail("没有"HIR+c5+NOR"这国家代码！\n");
-			if(codetoteam(c6) == "未知国名")
-				return notify_fail("没有"HIR+c6+NOR"这国家代码！\n");
-			if(codetoteam(c7) == "未知国名")
-				return notify_fail("没有"HIR+c7+NOR"这国家代码！\n");
-			if(codetoteam(c8) == "未知国名")
-				return notify_fail("没有"HIR+c8+NOR"这国家代码！\n");
+				return notify_fail("國家代碼格式輸入錯！\n");
+			if(codetoteam(c1) == "未知國名")
+				return notify_fail("沒有"HIR+c1+NOR"這國家代碼！\n");
+			if(codetoteam(c2) == "未知國名")
+				return notify_fail("沒有"HIR+c2+NOR"這國家代碼！\n");
+			if(codetoteam(c3) == "未知國名")
+				return notify_fail("沒有"HIR+c3+NOR"這國家代碼！\n");
+			if(codetoteam(c4) == "未知國名")
+				return notify_fail("沒有"HIR+c4+NOR"這國家代碼！\n");
+			if(codetoteam(c5) == "未知國名")
+				return notify_fail("沒有"HIR+c5+NOR"這國家代碼！\n");
+			if(codetoteam(c6) == "未知國名")
+				return notify_fail("沒有"HIR+c6+NOR"這國家代碼！\n");
+			if(codetoteam(c7) == "未知國名")
+				return notify_fail("沒有"HIR+c7+NOR"這國家代碼！\n");
+			if(codetoteam(c8) == "未知國名")
+				return notify_fail("沒有"HIR+c8+NOR"這國家代碼！\n");
 			c=ordercode(c, 8);
-			message_vision("$N想了半天大声喊道：“我认为"HIR+codetoteam(c1)+"、"+codetoteam(c2)+"、"+codetoteam(c3)+"、"+codetoteam(c4)+"、"+codetoteam(c5)+"、"+codetoteam(c6)+"、"+codetoteam(c7)+"、"+codetoteam(c8)+NOR"队能进入八强！押 "HIY+chinese_number(i)+NOR" 两黄金！”\n",me);
-// 在玩家身上设下押的结果
+			message_vision("$N想了半天大聲喊道：“我認爲"HIR+codetoteam(c1)+"、"+codetoteam(c2)+"、"+codetoteam(c3)+"、"+codetoteam(c4)+"、"+codetoteam(c5)+"、"+codetoteam(c6)+"、"+codetoteam(c7)+"、"+codetoteam(c8)+NOR"隊能進入八強！押 "HIY+chinese_number(i)+NOR" 兩黃金！”\n",me);
+// 在玩家身上設下押的結果
 			me->set("fifa2002/8", c);
-// 押的黄金数
+// 押的黃金數
 			me->set("fifa2002/80", i);
-// 这是一个记录该玩家押注数据的映射
+// 這是一個記錄該玩家押注數據的映射
 			biao = ([
 				"id"   : me->query("id"),
 				"name" : me->query("name"),
@@ -206,18 +206,18 @@ int do_ya(string arg)
 			break;
 	}
 	me->add("balance",-i*10000);
-	tell_object(me,"钱庄已经扣除了你押下的"+chinese_number(i)+"两黄金。请等候结果吧！\n");
+	tell_object(me,"錢莊已經扣除了你押下的"+chinese_number(i)+"兩黃金。請等候結果吧！\n");
 	if( !pointerp(all_biao) ) all_biao = ({ biao });
 	else all_biao += ({ biao });
-// 储存进这个文件对应的.o文件里
+// 儲存進這個文件對應的.o文件裏
 	save();
 	remove_call_out("enough_rest");
-// 1秒后取消busy
+// 1秒後取消busy
 	call_out("enough_rest", 1);
 	return 1;
 }
 
-// 巫师专用，确定结果
+// 巫師專用，確定結果
 int do_post(string arg)
 {
 	int i;
@@ -230,67 +230,67 @@ int do_post(string arg)
 	{
 // 停止押注
 		set("end_ya", 1);
-		message("channel:sys", HIM"【谣言】"HIR"某人：竞猜版开始停止下注，请关注比赛结果！\n"NOR, users());
+		message("channel:sys", HIM"【謠言】"HIR"某人：競猜版開始停止下注，請關注比賽結果！\n"NOR, users());
 		save();
 		return 1;
 	}
-// 分析巫师指令
-	if(!arg) return notify_fail("命令格式：post <类别> <结果>\n");
+// 分析巫師指令
+	if(!arg) return notify_fail("命令格式：post <類別> <結果>\n");
 	arg=upcase(arg);
 	if(sscanf(arg, "%d %s", i, c) != 2 )
-		return notify_fail("命令格式：post <类别> <结果>\n");
+		return notify_fail("命令格式：post <類別> <結果>\n");
 	switch ( i )
 	{
 		case 1:
-			message("channel:sys", HIM"【谣言】"HIR"某人：竞猜版冠军结果公布，是 "HIY+codetoteam(c)+HIR" ！押对的快去兑奖啊！\n"NOR, users());
+			message("channel:sys", HIM"【謠言】"HIR"某人：競猜版冠軍結果公佈，是 "HIY+codetoteam(c)+HIR" ！押對的快去兌獎啊！\n"NOR, users());
 			break;
 		case 2:
-			message("channel:sys", HIM"【谣言】"HIR"某人：竞猜版亚军结果公布，是 "HIY+codetoteam(c)+HIR" ！押对的快去兑奖啊！\n"NOR, users());
+			message("channel:sys", HIM"【謠言】"HIR"某人：競猜版亞軍結果公佈，是 "HIY+codetoteam(c)+HIR" ！押對的快去兌獎啊！\n"NOR, users());
 			break;
 		case 4:
 			c=ordercode(c, 4);
 			if(sscanf(c, "%s-%s-%s-%s", c1, c2, c3, c4) != 4)
-				return notify_fail("国家代码输入格式错！\n");
-			if(codetoteam(c1) == "未知国名")
-				return notify_fail("没有"HIR+c1+NOR"这国家代码！\n");
-			if(codetoteam(c2) == "未知国名")
-				return notify_fail("没有"HIR+c2+NOR"这国家代码！\n");
-			if(codetoteam(c3) == "未知国名")
-				return notify_fail("没有"HIR+c3+NOR"这国家代码！\n");
-			if(codetoteam(c4) == "未知国名")
-				return notify_fail("没有"HIR+c4+NOR"这国家代码！\n");
-			message("channel:sys", HIM"【谣言】"HIR"某人：竞猜版四强结果公布，是 "HIY+codetoteam(c1)+"、"+codetoteam(c2)+"、"+codetoteam(c3)+"、"+codetoteam(c4)+HIR" ！押对的快去兑奖啊！\n"NOR, users());
+				return notify_fail("國家代碼輸入格式錯！\n");
+			if(codetoteam(c1) == "未知國名")
+				return notify_fail("沒有"HIR+c1+NOR"這國家代碼！\n");
+			if(codetoteam(c2) == "未知國名")
+				return notify_fail("沒有"HIR+c2+NOR"這國家代碼！\n");
+			if(codetoteam(c3) == "未知國名")
+				return notify_fail("沒有"HIR+c3+NOR"這國家代碼！\n");
+			if(codetoteam(c4) == "未知國名")
+				return notify_fail("沒有"HIR+c4+NOR"這國家代碼！\n");
+			message("channel:sys", HIM"【謠言】"HIR"某人：競猜版四強結果公佈，是 "HIY+codetoteam(c1)+"、"+codetoteam(c2)+"、"+codetoteam(c3)+"、"+codetoteam(c4)+HIR" ！押對的快去兌獎啊！\n"NOR, users());
 			break;
 		case 8: 
 			c=ordercode(c, 8);
 			if(sscanf(c, "%s-%s-%s-%s-%s-%s-%s-%s", c1, c2, c3, c4, c5, c6, c7, c8) != 8)
-				return notify_fail("国家代码格式输入错！\n");
-			if(codetoteam(c1) == "未知国名")
-				return notify_fail("没有"HIR+c1+NOR"这国家代码！\n");
-			if(codetoteam(c2) == "未知国名")
-				return notify_fail("没有"HIR+c2+NOR"这国家代码！\n");
-			if(codetoteam(c3) == "未知国名")
-				return notify_fail("没有"HIR+c3+NOR"这国家代码！\n");
-			if(codetoteam(c4) == "未知国名")
-				return notify_fail("没有"HIR+c4+NOR"这国家代码！\n");
-			if(codetoteam(c5) == "未知国名")
-				return notify_fail("没有"HIR+c5+NOR"这国家代码！\n");
-			if(codetoteam(c6) == "未知国名")
-				return notify_fail("没有"HIR+c6+NOR"这国家代码！\n");
-			if(codetoteam(c7) == "未知国名")
-				return notify_fail("没有"HIR+c7+NOR"这国家代码！\n");
-			if(codetoteam(c8) == "未知国名")
-				return notify_fail("没有"HIR+c8+NOR"这国家代码！\n");
-			message("channel:sys", HIM"【谣言】"HIR"某人：竞猜版八强结果公布，是 "HIY+codetoteam(c1)+"、"+codetoteam(c2)+"、"+codetoteam(c3)+"、"+codetoteam(c4)+"、"+codetoteam(c5)+"、"+codetoteam(c6)+"、"+codetoteam(c7)+"、"+codetoteam(c8)+HIR" ！押对的快去兑奖啊！\n"NOR, users());
+				return notify_fail("國家代碼格式輸入錯！\n");
+			if(codetoteam(c1) == "未知國名")
+				return notify_fail("沒有"HIR+c1+NOR"這國家代碼！\n");
+			if(codetoteam(c2) == "未知國名")
+				return notify_fail("沒有"HIR+c2+NOR"這國家代碼！\n");
+			if(codetoteam(c3) == "未知國名")
+				return notify_fail("沒有"HIR+c3+NOR"這國家代碼！\n");
+			if(codetoteam(c4) == "未知國名")
+				return notify_fail("沒有"HIR+c4+NOR"這國家代碼！\n");
+			if(codetoteam(c5) == "未知國名")
+				return notify_fail("沒有"HIR+c5+NOR"這國家代碼！\n");
+			if(codetoteam(c6) == "未知國名")
+				return notify_fail("沒有"HIR+c6+NOR"這國家代碼！\n");
+			if(codetoteam(c7) == "未知國名")
+				return notify_fail("沒有"HIR+c7+NOR"這國家代碼！\n");
+			if(codetoteam(c8) == "未知國名")
+				return notify_fail("沒有"HIR+c8+NOR"這國家代碼！\n");
+			message("channel:sys", HIM"【謠言】"HIR"某人：競猜版八強結果公佈，是 "HIY+codetoteam(c1)+"、"+codetoteam(c2)+"、"+codetoteam(c3)+"、"+codetoteam(c4)+"、"+codetoteam(c5)+"、"+codetoteam(c6)+"、"+codetoteam(c7)+"、"+codetoteam(c8)+HIR" ！押對的快去兌獎啊！\n"NOR, users());
 			break;
-		default : return notify_fail(HIR"哪有这个类别！\n"NOR);
+		default : return notify_fail(HIR"哪有這個類別！\n"NOR);
 	}
-// 这是一个记录结果数据的映射
+// 這是一個記錄結果數據的映射
 	end = ([
 		"type" : i,
 		"code" : c,
 	]);
-// 最终结果储存进这个文件对应的.o文件里
+// 最終結果儲存進這個文件對應的.o文件裏
 	if( !pointerp(end_biao) ) end_biao = ({ end });
 	else end_biao += ({ end });
 	jieguo = 1;
@@ -308,97 +308,97 @@ int do_read(string arg)
 	
 	if(arg == "rules")
 	{
-//这个规则根据每次巫师设计的定
+//這個規則根據每次巫師設計的定
 		write("
-    世界杯的冠军、亚军、四强、八强分别谁属？欢迎在此押注：
-押注者以黄金为单位，最高可押一千黄金，最少也要押一两黄金。现金
-不收，必须先存进钱庄。押赌后钱庄直接扣钱。押赌时间到六月十日截
-止。押对八强的一赔二十，四强的一赔十，冠亚军的一赔八，比赛揭晓，
-押中者按倍数返还黄金，不中者则罢。
-    想好了后就 "HIR"ya <类别> <国名编号> <多少两黄金> "NOR"。
+    世界盃的冠軍、亞軍、四強、八強分別誰屬？歡迎在此押注：
+押注者以黃金爲單位，最高可押一千黃金，最少也要押一兩黃金。現金
+不收，必須先存進錢莊。押賭後錢莊直接扣錢。押賭時間到六月十日截
+止。押對八強的一賠二十，四強的一賠十，冠亞軍的一賠八，比賽揭曉，
+押中者按倍數返還黃金，不中者則罷。
+    想好了後就 "HIR"ya <類別> <國名編號> <多少兩黃金> "NOR"。
     例如：
-    想压一千黄金给阿根廷为冠军，则ya 1 AR 1000。
-    如果认为四强是阿根廷、法国、巴西、德国，而且想押五百黄金的
-话，则ya 4 AR-BR-DE-FR 500。当然，顺序是无所谓的。
-    当然每个ID只能押一次，押过不许后悔！\n
+    想壓一千黃金給阿根廷爲冠軍，則ya 1 AR 1000。
+    如果認爲四強是阿根廷、法國、巴西、德國，而且想押五百黃金的
+話，則ya 4 AR-BR-DE-FR 500。當然，順序是無所謂的。
+    當然每個ID只能押一次，押過不許後悔！\n
 
-类    别：   "HIY"1-冠军 2-亚军 4-四强 8-八强"NOR"
-国家编号："HIC"
-           A组 法国FR    丹麦DK    乌拉圭UY    塞内加尔SN
-           B组 南非ZA    西班牙ES  巴拉圭PY    斯洛文尼亚SI
-           C组 巴西BR    中国CN    土耳其TU    哥斯达黎加CR
-           D组 波兰PL    美国US    韩国KP      葡萄牙PT  
-           E组 德国DE    沙特SA    爱尔兰IE    喀麦隆CM
-           F组 瑞典SE    阿根廷AR  英格兰UK    尼日利亚NG
-           G组 意大利IT  墨西哥MX  克罗地亚HR  厄瓜多尔EC
-           H组 日本JP    俄罗斯RU  比利时BE    突尼斯TN
+類    別：   "HIY"1-冠軍 2-亞軍 4-四強 8-八強"NOR"
+國家編號："HIC"
+           A組 法國FR    丹麥DK    烏拉圭UY    塞內加爾SN
+           B組 南非ZA    西班牙ES  巴拉圭PY    斯洛文尼亞SI
+           C組 巴西BR    中國CN    土耳其TU    哥斯達黎加CR
+           D組 波蘭PL    美國US    韓國KP      葡萄牙PT  
+           E組 德國DE    沙特SA    愛爾蘭IE    喀麥隆CM
+           F組 瑞典SE    阿根廷AR  英格蘭UK    尼日利亞NG
+           G組 意大利IT  墨西哥MX  克羅地亞HR  厄瓜多爾EC
+           H組 日本JP    俄羅斯RU  比利時BE    突尼斯TN
 \n"NOR);
-		write("开奖后请使用duixian <类别> 指令，你的奖金将自动进入你帐户。\n");
+		write("開獎後請使用duixian <類別> 指令，你的獎金將自動進入你帳戶。\n");
 		return 1;
 	}
 	if(arg == "ban")
 	{
-//有了分数的参数
-		if(num) write( "★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★\n"HIG"世界杯赛投注竞猜版  ");
-		write(!jieguo ? RED"还在投注中！":HIR"开始兑奖(duijiang)了！");
-//表示还没有数据
+//有了分數的參數
+		if(num) write( "★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★\n"HIG"世界盃賽投注競猜版  ");
+		write(!jieguo ? RED"還在投注中！":HIR"開始兌獎(duijiang)了！");
+//表示還沒有數據
 		if( !pointerp(end_biao) || !sizeof(end_biao) )
-			write(HIY"\n巫师尚未设定结果。\n"NOR);
+			write(HIY"\n巫師尚未設定結果。\n"NOR);
 		else
 		{
-			write(HIY"\n比赛结果\n"NOR);
+			write(HIY"\n比賽結果\n"NOR);
 			for(i=0; i<sizeof(end_biao); i++)
 			{
 				switch ( (int)end_biao[i]["type"])
 				{
-					case 1 : write(HIR"\n冠军 "); break;
-					case 2 : write(HIR"\n亚军 "); break;
-					case 4 : write(HIR"\n四强 "); break;
-					case 8 : write(HIR"\n八强 "); break;
+					case 1 : write(HIR"\n冠軍 "); break;
+					case 2 : write(HIR"\n亞軍 "); break;
+					case 4 : write(HIR"\n四強 "); break;
+					case 8 : write(HIR"\n八強 "); break;
 				}
 				for (j=0; j<sizeof(code); j++)
 					if (strsrch(end_biao[i]["code"], code[j]) >= 0)
 						write(HIY+team[j]+" "NOR);
 			}
 		}
-//表示还没有数据
+//表示還沒有數據
 		if( !pointerp(all_biao) || !sizeof(all_biao) )
 		{
-			write(HIG"\n\n还没有人开始投注。\n");
+			write(HIG"\n\n還沒有人開始投注。\n");
 			return 1;
 		}
-		write(HIG"\n\n已有 "+sizeof(all_biao)+" 个玩家投注：\n"
-		HIY"玩家名         投注类别 押黄金数  　             国家名\n"
+		write(HIG"\n\n已有 "+sizeof(all_biao)+" 個玩家投注：\n"
+		HIY"玩家名         投注類別 押黃金數  　             國家名\n"
 		HIG"———————————————————————————————————\n"NOR);
-		str1 = HIM"已经兑过奖的玩家：                \n"NOR;
-		str2 = HIM"还未兑过奖的玩家：                \n"NOR;
-// all_biao也是全局变量，看文件头
+		str1 = HIM"已經兌過獎的玩家：                \n"NOR;
+		str2 = HIM"還未兌過獎的玩家：                \n"NOR;
+// all_biao也是全局變量，看文件頭
 		for(i=0; i<sizeof(all_biao); i++)
 		{
-// 取出每个押注玩家的名字
+// 取出每個押注玩家的名字
 			str = sprintf("%18s ", all_biao[i]["name"]+"("+all_biao[i]["id"]+")");
 			switch ( (int)all_biao[i]["type"])
 			{
-				case 1 : str += HIR"冠军"NOR; break;
-				case 2 : str += HIR"亚军"NOR; break;
-				case 4 : str += HIR"四强"NOR; break;
-				case 8 : str += HIR"八强"NOR; break;
+				case 1 : str += HIR"冠軍"NOR; break;
+				case 2 : str += HIR"亞軍"NOR; break;
+				case 4 : str += HIR"四強"NOR; break;
+				case 8 : str += HIR"八強"NOR; break;
 			}
-			str += sprintf("%8s", all_biao[i]["gold"]+"两 ");
+			str += sprintf("%8s", all_biao[i]["gold"]+"兩 ");
 			for (j=0; j<sizeof(code); j++)
 				if (strsrch(all_biao[i]["code"], code[j]) >= 0)
 					str += team[j]+" ";
-// dui这个参数是在兑奖后加入的，这表示没兑奖的，加入str2
+// dui這個參數是在兌獎後加入的，這表示沒兌獎的，加入str2
 			if(!(int)all_biao[i]["dui"]) str2 += str+"\n";
-// 有dui参数的，记入str1
+// 有dui參數的，記入str1
 			else str1 += str+"\n";
 		}
-// 显示信息
+// 顯示信息
 		write(str1+"\n"+str2+"\n"NOR);
 		return 1;
 	}
 	else
-		write("你要看什么？押注规则请read rules，押注情况请read ban。\n");
+		write("你要看什麼？押注規則請read rules，押注情況請read ban。\n");
 	return 1;
 }
 
@@ -406,7 +406,7 @@ void enough_rest()
 {
 	delete_temp("busy");
 }
-// 兑奖指令
+// 兌獎指令
 int do_duijiang(string arg)
 {
 	int i, j, k, item, t;
@@ -414,14 +414,14 @@ int do_duijiang(string arg)
 	object ob, me = this_player();
 //	mapping biao,fifa2002;
 
-// 没有jieguo就表示没有开始兑奖
-	if(!jieguo) return notify_fail("还未到兑奖时间！\n");
-	if(!query("end_ya")) return notify_fail("还未到兑奖时间！\n");
+// 沒有jieguo就表示沒有開始兌獎
+	if(!jieguo) return notify_fail("還未到兌獎時間！\n");
+	if(!query("end_ya")) return notify_fail("還未到兌獎時間！\n");
 	if(query_temp("busy")) return notify_fail("稍候........\n");
 	set_temp("busy",1);
 	k = 0;
 // 分析指令
-	if(!arg) return notify_fail("命令格式：duijiang <类别>\n");
+	if(!arg) return notify_fail("命令格式：duijiang <類別>\n");
 
 	switch (arg)
 	{
@@ -429,7 +429,7 @@ int do_duijiang(string arg)
 		case "2" : item = 2; t = 8; break;
 		case "4" : item = 4; t = 10; break;
 		case "8" : item = 8; t = 20; break;
-		default : return notify_fail("没有这个项目吧！\n");
+		default : return notify_fail("沒有這個項目吧！\n");
 	}
 	for(i=0; i<sizeof(all_biao); i++)
 	{
@@ -437,12 +437,12 @@ int do_duijiang(string arg)
 			all_biao[i]["id"] == me->query("id"))
 		{
 			if (all_biao[i]["dui"] )
-				return notify_fail("你已兑过奖啦！\n");
+				return notify_fail("你已兌過獎啦！\n");
 			result = all_biao[i]["code"];
 			j = all_biao[i]["gold"];
-// 表示此人兑过奖了
+// 表示此人兌過獎了
 			all_biao[i]["dui"] = 1;
-// 存盘
+// 存盤
 			save();
 		}
 	}
@@ -455,26 +455,26 @@ int do_duijiang(string arg)
 		}
 	}
 	if(k>0)
-// 中奖就给吧
+// 中獎就給吧
 	{
-		write("你押 "+j+" 两黄金，按规定得奖金 "+k+" 两黄金，已划入你的钱庄帐户！\n");
+		write("你押 "+j+" 兩黃金，按規定得獎金 "+k+" 兩黃金，已劃入你的錢莊帳戶！\n");
 		me->add("balance",k*10000);
- 		message("channel:sys", HIM"【谣言】"HIR"某人："+me->name()+"兑奖得到 "+chinese_number(k)+" 两黄金！\n"NOR, users());
+ 		message("channel:sys", HIM"【謠言】"HIR"某人："+me->name()+"兌獎得到 "+chinese_number(k)+" 兩黃金！\n"NOR, users());
 		return 1;
 	}
 	else
-// 没有对的也来个空门奖吧
+// 沒有對的也來個空門獎吧
 	{
 		ob = new("/clone/food/jitui");
 		ob->move(me);
-		write("你没押对，但发一个安慰奖，送你一根鸡腿吧！\n");
-		message_vision( HIY"竞猜表上头突然油光一闪，“扑”地掉下一根油光光的鸡腿，正好掉进$N的手中。\n"NOR,me);
+		write("你沒押對，但發一個安慰獎，送你一根雞腿吧！\n");
+		message_vision( HIY"競猜表上頭突然油光一閃，“撲”地掉下一根油光光的雞腿，正好掉進$N的手中。\n"NOR,me);
 	}
 	remove_call_out("enough_rest");
 	call_out("enough_rest", 1);
 	return 1;
 }
-// 对玩家输入的国家代码进行字母排序
+// 對玩家輸入的國家代碼進行字母排序
 string ordercode(string arg, int arg1)
 {
 	int i, j;
@@ -501,7 +501,7 @@ string ordercode(string arg, int arg1)
 	if(arg1 == 8) nc = nc1+"-"+nc2+"-"+nc3+"-"+nc4+"-"+nc5+"-"+nc6+"-"+nc7+"-"+nc8;
 	return nc;
 }
-// 国家代码大写修正
+// 國家代碼大寫修正
 string upcase(string arg)
 {
 	arg = replace_string(arg, "a","A");
@@ -532,7 +532,7 @@ string upcase(string arg)
 	arg = replace_string(arg, "z","Z");
 	return arg;
 }
-// 国家代码和中文国家名的变换
+// 國家代碼和中文國家名的變換
 string codetoteam(string arg)
 {
 	int i;
@@ -540,6 +540,6 @@ string codetoteam(string arg)
 	for (i=0; i<sizeof(team); i++)
 		if (code[i] == arg)
 			return team[i];
-	return "未知国名";
+	return "未知國名";
 
 }

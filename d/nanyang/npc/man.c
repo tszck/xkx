@@ -6,9 +6,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("大汉", ({ "da han","man" }) );
+	set_name("大漢", ({ "da han","man" }) );
 	set("title","");
-	set("long","一位彪形大汉。\n");
+	set("long","一位彪形大漢。\n");
 	set("age", 20+random(20));
 	set("gender", "男性");
 	seteuid(getuid());
@@ -16,10 +16,10 @@ void create()
 	set_skill("blade",50);
 	set("combat_exp", 1000);
 	set("talk_msg",({
-		"这里是南阳城",
-		"这里是诸葛亮的故乡",
-		"柯府老爷为民除害，大家都感恩待德呀！",
-		"南阳城北接中原，南渡汉水。",
+		"這裏是南陽城",
+		"這裏是諸葛亮的故鄉",
+		"柯府老爺爲民除害，大家都感恩待德呀！",
+		"南陽城北接中原，南渡漢水。",
 	}));
 	setup();
 	carry_object(WEAPON_DIR"blade")->wield();

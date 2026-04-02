@@ -10,11 +10,11 @@ string ask_su();
 
 void create()
 {
-	set_name("何太冲", ({ "he taichong", "he" }));
-	set("nickname", "铁琴先生");
+	set_name("何太沖", ({ "he taichong", "he" }));
+	set("nickname", "鐵琴先生");
 	set("long",
-		"他就是昆仑派掌门、名扬江湖的铁琴先生何太冲。\n"
-		"虽然年纪已大，但仍然看得出他年轻时英俊潇洒。\n");
+		"他就是崑崙派掌門、名揚江湖的鐵琴先生何太沖。\n"
+		"雖然年紀已大，但仍然看得出他年輕時英俊瀟灑。\n");
 	set("gender", "男性");
 	set("class", "taoist");
 	set("age", 40);
@@ -64,14 +64,14 @@ void create()
 	
 	set("no_get",1);
 
-	create_family("昆仑派", 4, "掌门人");
+	create_family("崑崙派", 4, "掌門人");
 	set("class", "taoist");
 
 	set("inquiry",
 	([
 		"心法" : (: ask_me :),
-		"苏习之" : (: ask_su :),
-		"追杀" : (: ask_ding :),
+		"蘇習之" : (: ask_su :),
+		"追殺" : (: ask_ding :),
 	]));
 
 	set("book_count", 1);
@@ -91,9 +91,9 @@ void attempt_apprentice(object ob)
 /*
 	if((int)ob->query("shen")<0)
 	{
-		command("say 我昆仑乃是堂堂名门正派，"+RANK_D->query_respect(ob)+ "的品德实在令人怀疑。");
+		command("say 我崑崙乃是堂堂名門正派，"+RANK_D->query_respect(ob)+ "的品德實在令人懷疑。");
 		command("say "+RANK_D->query_respect(ob)+
-			"还是先回去做点善事吧。");
+			"還是先回去做點善事吧。");
 		return;
 	}
 */
@@ -107,7 +107,7 @@ void attempt_apprentice(object ob)
 
 	if(ob->query("appren_hezudao", 1) == 1)
 	{
-		command("say 前辈怎敢开这等玩笑，真是折杀做晚辈的了。");
+		command("say 前輩怎敢開這等玩笑，真是折殺做晚輩的了。");
 		return;
 	}
 
@@ -115,10 +115,10 @@ void attempt_apprentice(object ob)
 	{
 		command("hmm");
 		command("say "+RANK_D->query_respect(ob)+
-			"你的玄天无极功太差，我可不想收你。");
+			"你的玄天無極功太差，我可不想收你。");
 		return;
 	}
-	command("say 好吧，我便收下你，只是你投入我门下之后，须得安心学艺。");
+	command("say 好吧，我便收下你，只是你投入我門下之後，須得安心學藝。");
 	command("recruit " + ob->query("id"));
 }
 
@@ -129,18 +129,18 @@ string ask_me()
 	object ob;
         ob = this_player();
 	if (!(fam = this_player()->query("family"))
-		|| fam["family_name"] != "昆仑派")
+		|| fam["family_name"] != "崑崙派")
 		return RANK_D->query_respect(this_player()) +
-			"与本派素无来往，不知此话从何谈起？";
+			"與本派素無來往，不知此話從何談起？";
 	if (query("book_count") < 1)
-		return "你来晚了，本派心经已被你师兄拿走了。";
+		return "你來晚了，本派心經已被你師兄拿走了。";
 //     	if(ob->query("gender")=="男性"||ob->query("per")<23)
-//		return "本派心经不在我这里。";
+//		return "本派心經不在我這裏。";
 	add("book_count", -1);
 	ob = new("/clone/book/force-book2");
 	ob->move(this_player());
-	command("rumor "+this_player()->query("name")+"拿到昆仑心法啦。\n");
-	return "我这里有本「心法」，是有关吐呐吸气的，你拿回去好好钻研，有空多来找我哦！";
+	command("rumor "+this_player()->query("name")+"拿到崑崙心法啦。\n");
+	return "我這裏有本「心法」，是有關吐吶吸氣的，你拿回去好好鑽研，有空多來找我哦！";
 }
 
 string ask_ding()
@@ -149,23 +149,23 @@ string ask_ding()
 	object ob;
 
 	if (!(fam = this_player()->query("family"))
-		|| fam["family_name"] != "昆仑派")
+		|| fam["family_name"] != "崑崙派")
 		return RANK_D->query_respect(this_player()) +
-			"与本派素无来往，不知此话从何谈起？";
+			"與本派素無來往，不知此話從何談起？";
 		
 	if(this_player()->query_skill("mantian-huayu",1) < 60)
-		return "你如此自愿为师门效力，不枉我平时一番栽培，速速去吧！";
+		return "你如此自願爲師門效力，不枉我平時一番栽培，速速去吧！";
 
 	if ( present("sangmen ding", this_player()) )
 		return RANK_D->query_respect(this_player()) + 
-			"你现在身上不是有吗，怎么又来要了？";
+			"你現在身上不是有嗎，怎麼又來要了？";
 	if (query("ding_count") < 1)
-		return "丧门钉已给了我派去追杀苏习之的人，你就不用去了。";
+		return "喪門釘已給了我派去追殺蘇習之的人，你就不用去了。";
 	add("ding_count", -1);
 	this_player()->set_temp("kunlun/ding",1);
 	ob = new("/d/kunlun/obj/sangmending");
 	ob->move(this_player());
-	return "你如此自愿为师门效力，不枉我平时一番栽培，这把丧门钉你就拿去吧。";
+	return "你如此自願爲師門效力，不枉我平時一番栽培，這把喪門釘你就拿去吧。";
 }
 string ask_su()
 {
@@ -173,11 +173,11 @@ string ask_su()
 	object ob;
 
 	if (!(fam = this_player()->query("family"))
-		|| fam["family_name"] != "昆仑派")
+		|| fam["family_name"] != "崑崙派")
 		return RANK_D->query_respect(this_player()) +
-			"与本派素无来往，不知此话从何谈起？";
+			"與本派素無來往，不知此話從何談起？";
 		
 	if(this_player()->query_temp("kunlun/ding",1))
-		return "你还待在这里做什么，还不快去追苏习之！";
-	return "苏习之这家伙竟然敢偷看本派的两仪神剑，我派弟子必当将其追杀。";
+		return "你還待在這裏做什麼，還不快去追蘇習之！";
+	return "蘇習之這傢伙竟然敢偷看本派的兩儀神劍，我派弟子必當將其追殺。";
 }

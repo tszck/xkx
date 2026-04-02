@@ -8,7 +8,7 @@ void create()
         set_name("毒蟒", ({ "du mang", "mang" }));
 	set("race", "爬蛇");
         set("age", 200);
-        set("long", "一条庞大无比, 色彩斑斓的巨蟒。 浑身发出阵阵强烈的腥臭味。\n");
+        set("long", "一條龐大無比, 色彩斑斕的巨蟒。 渾身發出陣陣強烈的腥臭味。\n");
         set("attitude", "aggressive");
         set("str", 70);
         set("con", 50);

@@ -23,7 +23,7 @@ void time_out()
 {
 	if( objectp(query_temp("body_ob")) ) return;
 	if( interactive(this_object()) )
-		write("您花在连线进入手续的时间太久了，下次想好再来吧。\n");
+		write("您花在連線進入手續的時間太久了，下次想好再來吧。\n");
 	destruct(this_object());
 }
 

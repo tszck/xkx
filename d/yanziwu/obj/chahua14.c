@@ -11,14 +11,14 @@ void create()
         else {
                 set("unit", "朵");
                 set("long", 
-"一株雪白的茶花，亭亭而立如坚塔。\n");
+"一株雪白的茶花，亭亭而立如堅塔。\n");
                 set("value", 50);
                 set("material", "plant");
                 set_weight(10);
                 set("armor_prop/armor", 0);
                 set("armor_prop/personality", 3);
-                set("wear_msg", "$N轻轻地把一朵$n戴在头上。\n");
-                set("unequip_msg", "$N轻轻地把$n从头上摘了下来。\n");
+                set("wear_msg", "$N輕輕地把一朵$n戴在頭上。\n");
+                set("unequip_msg", "$N輕輕地把$n從頭上摘了下來。\n");
         }
         setup();
 }

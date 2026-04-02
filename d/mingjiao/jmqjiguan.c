@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 { 
-	set("short", "巨木旗机关");
+	set("short", "巨木旗機關");
 	set("long",@LONG
-你眼前骤然一暗，朦胧中，只见左右前后，到处都是铺天盖地的不
-知名的巨树，好象松柏，又似冷杉，簇在一起，密实的枝叶象一蓬蓬巨
-伞般伸向天空，遮天蔽日。你似乎迷失了方向，象没头苍蝇般到处乱闯。
+你眼前驟然一暗，朦朧中，只見左右前後，到處都是鋪天蓋地的不
+知名的巨樹，好象松柏，又似冷杉，簇在一起，密實的枝葉象一蓬蓬巨
+傘般伸向天空，遮天蔽日。你似乎迷失了方向，象沒頭蒼蠅般到處亂闖。
 LONG );
 	set("exits", ([
 		"east" :  __FILE__,
@@ -27,7 +27,7 @@ void init()
 {
 	this_player()->receive_damage("qi", 15);
 	this_player()->receive_wound("qi",  15);
-	message_vision(HIG"突然一阵巨木桩遮天蔽日凌空砸向$N！\n"NOR, this_player());
+	message_vision(HIG"突然一陣巨木樁遮天蔽日凌空砸向$N！\n"NOR, this_player());
 }
 
 int valid_leave(object me, string dir)
@@ -44,13 +44,13 @@ int valid_leave(object me, string dir)
 	{
 		me->move(__DIR__"jmqshenmu");
 		me->delete_temp("mingjiao/steps");
-		return notify_fail("你走了半天，终于走到神木。真累! \n");
+		return notify_fail("你走了半天，終於走到神木。真累! \n");
 	}  
 	if (me->query_temp("mingjiao/steps") == - total_steps )
 	{  
 		me->move(__DIR__"jmqshulin6");
 		me->delete_temp("mingjiao/steps");
-		return notify_fail("你走了半天，终于走出了巨木旗机关。\n");
+		return notify_fail("你走了半天，終於走出了巨木旗機關。\n");
 	}
 	return ::valid_leave(me,dir);
 }

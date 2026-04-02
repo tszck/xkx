@@ -6,7 +6,7 @@ void create()
 	set_name("獐", ({ "zhang" }) );
 	set("race", "走畜");
 	set("age", 2);
-	set("long", "一头可爱的獐，它的血是大补之物。\n");
+	set("long", "一頭可愛的獐，它的血是大補之物。\n");
 	set("attitude", "peaceful");
 	set("str", 30);
 	set("con", 26);
@@ -21,6 +21,6 @@ void create()
 
 void die()
 {
-	message_vision("$N两腿一蹬，$N死了。\n", this_object());
+	message_vision("$N兩腿一蹬，$N死了。\n", this_object());
 	destruct(this_object());
 }

@@ -1,12 +1,12 @@
-//Room: hcawest1.c 华藏庵西廊
+//Room: hcawest1.c 華藏庵西廊
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 void create()
 {
-      set("short","华藏庵西廊");
+      set("short","華藏庵西廊");
       set("long",@LONG
-这里是峨嵋华藏庵西廊。走廊往南通往禅房，东边通往广场。
+這裏是峨嵋華藏庵西廊。走廊往南通往禪房，東邊通往廣場。
 LONG);
       set("outdoors", "emei");
       set("exits",([ /* sizeof() == 1 */

@@ -1,15 +1,15 @@
-//Room: jietuopo.c 解脱坡
+//Room: jietuopo.c 解脫坡
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 
 void create()
 {
-      set("short","解脱坡");
+      set("short","解脫坡");
       set("long",@LONG
-这里是峨嵋胜地解脱坡。坡下一座小桥，叫解脱桥。行人至此，坐桥上听
-泉声甚美。当此良辰美景，心无芥蒂，心即解脱。坡上一座庵堂，东下一片密
-林。桥下山溪向东流淌到报国寺的西面。
+這裏是峨嵋勝地解脫坡。坡下一座小橋，叫解脫橋。行人至此，坐橋上聽
+泉聲甚美。當此良辰美景，心無芥蒂，心即解脫。坡上一座庵堂，東下一片密
+林。橋下山溪向東流淌到報國寺的西面。
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "eastdown"  : __DIR__"milin2",

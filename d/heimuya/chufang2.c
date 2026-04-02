@@ -3,16 +3,16 @@
 inherit ROOM;
 void create()
 {
-	set("short","厨房");
+	set("short","廚房");
 	set("long", @LONG
-这是圣姑堂的厨房，一位美丽侍女满脸堆笑。整个房间菜香胭脂香
-迷漫。墙上贴着一张醒目的启事(note)。
+這是聖姑堂的廚房，一位美麗侍女滿臉堆笑。整個房間菜香胭脂香
+迷漫。牆上貼着一張醒目的啓事(note)。
 LONG  );
 	set("exits",([
 		"west" : __DIR__"chitang",
 	]));
 	set("item_desc",([
-		"note" : "最难消受女人福，红颜祸水。----->岳不群题\n",
+		"note" : "最難消受女人福，紅顏禍水。----->嶽不羣題\n",
 	]));
 
 	set("objects",([
@@ -30,6 +30,6 @@ int valid_leave(object me, string dir)
 {
 	if (( present("tea", me)||present("she rou", me))
 		&&objectp(present("shi nu", environment(me))) )
-		return notify_fail("侍女美目一挑，想走，没门！\n");
+		return notify_fail("侍女美目一挑，想走，沒門！\n");
 	return ::valid_leave(me, dir);
 }

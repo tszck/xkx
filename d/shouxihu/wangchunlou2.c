@@ -5,19 +5,19 @@ inherit ROOM;
 
 void create()
 {
-	set("short","望春楼");
+	set("short","望春樓");
 	set("long",@LONG
-望春楼楼上均为活动门窗，卸去则成露台，为赏月佳处。上悬郑板
-桥墨迹“望春楼”匾，两柱悬挂张九龄李白集句楹联(lian)。
+望春樓樓上均爲活動門窗，卸去則成露臺，爲賞月佳處。上懸鄭板
+橋墨跡“望春樓”匾，兩柱懸掛張九齡李白集句楹聯(lian)。
 LONG );
 	set("outdoors", "shouxihu");
 	set("item_desc", ([
 		"lian" : HIG"
-        飞        双
-        阁        桥
+        飛        雙
+        閣        橋
         凌        落
         芳        彩
-        树        虹
+        樹        虹
 \n"NOR,
 	]));
 	set("objects", ([

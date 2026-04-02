@@ -5,15 +5,15 @@ inherit NPC;
 
 void create()
 {
-        set_name("采花子", ({ "caihua zi", "caihua" }) );
+        set_name("採花子", ({ "caihua zi", "caihua" }) );
         set("gender", "男性" );
-//	set("title", "星宿淫贼");
-	set("nickname", "赛昆仑");
+//	set("title", "星宿淫賊");
+	set("nickname", "賽崑崙");
         set("age", 38);
         set("long", 
-             "采花子是星宿派的一个小喽罗，武功虽不好，但生性淫邪，"
-	     "经常奸淫良家妇女，是官府通缉的犯人，故而星宿派名义上"
-	     "也不承认有这个弟子。\n");
+             "採花子是星宿派的一個小嘍羅，武功雖不好，但生性淫邪，"
+	     "經常姦淫良家婦女，是官府通緝的犯人，故而星宿派名義上"
+	     "也不承認有這個弟子。\n");
         set("str", 25);
         set("dex", 30);
         set("con", 17);
@@ -37,8 +37,8 @@ void create()
 
         set("attitude", "peaceful");
         set("inquiry", ([
-            "name" : "我也记不清我姓甚名谁了，江湖朋友送我雅号采花子。",
-            "采花" : "那可是学问，我不能随便教。",
+            "name" : "我也記不清我姓甚名誰了，江湖朋友送我雅號採花子。",
+            "採花" : "那可是學問，我不能隨便教。",
        ]) );
 
         setup();
@@ -62,8 +62,8 @@ void greeting(object me)
         myfam = (mapping)me->query("family");
 
         if (myfam && myfam["family_name"] == "星宿派") 
-          command("say 我昨天从山下捉了个小妞来，水灵极了，就关在我的逍遥洞里"
-		+"，你要不要进去试试？");
+          command("say 我昨天從山下捉了個小妞來，水靈極了，就關在我的逍遙洞裏"
+		+"，你要不要進去試試？");
 	me->set_temp("marks/花",0);
 
 }
@@ -72,7 +72,7 @@ void greeting(object me)
 void attempt_apprentice(object ob)
 {
 	command("hehe");
-	command("say 想学我的采花神技？没门儿！");
+	command("say 想學我的採花神技？沒門兒！");
 	return;
 }
 
@@ -87,19 +87,19 @@ int accept_object(object me, object obj)
 	  if (!obj->query("money_id")) {
  	    if (me->query("gender")=="女性") {
 	  	command("kiss " + me->query("id"));
-		command("say 想不到师姐也有这个爱好。");
+		command("say 想不到師姐也有這個愛好。");
 	    }
 	    else {
 		command("bow " + me->query("id"));
-                command("say 多谢师兄。");
+                command("say 多謝師兄。");
             }
-            command("say 对不起，那小妞昨天晚上被不知道哪个混蛋救走了，不过"
-			+ "你可以进洞睡一觉。");
+            command("say 對不起，那小妞昨天晚上被不知道哪個混蛋救走了，不過"
+			+ "你可以進洞睡一覺。");
 	    me->set_temp("marks/花", 1);
           }
           else {
 		command("thank " + me->query("id"));
-		command("say 钱我有的是，你还是给我点别的什么吧。");
+		command("say 錢我有的是，你還是給我點別的什麼吧。");
           }
         }
         return 1;

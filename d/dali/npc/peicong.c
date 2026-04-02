@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("陪从", ({ "pei cong", "cong", "pei" }));
+	set_name("陪從", ({ "pei cong", "cong", "pei" }));
 	set("age", 22);
 	set("gender", "男性");
-	set("long", "一个部族头领的陪从。\n");
+	set("long", "一個部族頭領的陪從。\n");
 	set("attitude", "peaceful");
 
 	set("str", 24);

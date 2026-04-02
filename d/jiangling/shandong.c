@@ -5,10 +5,10 @@ void create()
 {
 	set("short", "山洞");
 	set("long", @LONG
-洞中有戚芳用黏土捏的泥人，狄云用来弹鸟的弹弓，捉山兔的扳机，
-戚芳放牛时吹的短笛，放在洞里的石上。那边是戚芳的针线篮。篮中的
-剪刀已生满了黄锈。针线篮中还有一本旧书，那是戚芳用来夹鞋样、绣
-花样的。
+洞中有戚芳用黏土捏的泥人，狄雲用來彈鳥的彈弓，捉山兔的扳機，
+戚芳放牛時吹的短笛，放在洞裏的石上。那邊是戚芳的針線籃。籃中的
+剪刀已生滿了黃鏽。針線籃中還有一本舊書，那是戚芳用來夾鞋樣、繡
+花樣的。
 LONG );
 	set("exits", ([
 		"out"  : __DIR__"dashandong",
@@ -28,16 +28,16 @@ void init()
 int do_pick(string arg)
 {
 	object obj, me = this_player();
-	if( !arg || arg!="book" ) return notify_fail("你要拿什么?\n");
+	if( !arg || arg!="book" ) return notify_fail("你要拿什麼?\n");
 	if( query("book_count") )
 	{
 		obj = new (__DIR__"obj/tangshi");
 		obj->move(me);
 		add("book_count", -1);
-		message_vision("$N随手从针线篮中拿起一本旧书，书的封面上写着“唐诗选辑”四个字。\n",me );
-message("channel:rumor", MAG"【谣言】某人："+me->query("name")+"拿到唐诗选辑啦。\n"NOR, users());
+		message_vision("$N隨手從針線籃中拿起一本舊書，書的封面上寫着“唐詩選輯”四個字。\n",me );
+message("channel:rumor", MAG"【謠言】某人："+me->query("name")+"拿到唐詩選輯啦。\n"NOR, users());
 	}
 	else
-		return notify_fail("你要拿起那本书，却发现你看花了眼，其实那里什么都没有。\n");
+		return notify_fail("你要拿起那本書，卻發現你看花了眼，其實那裏什麼都沒有。\n");
 	return 1;
 }

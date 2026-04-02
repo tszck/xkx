@@ -6,7 +6,7 @@ inherit NPC;
 void create()
 {
 	set_name("小童", ({ "xiao tong", "xiao", "tong" }));
-	set("long", "他是一位未通世故的少年，脸上挂着天真的稚笑。\n");
+	set("long", "他是一位未通世故的少年，臉上掛着天真的稚笑。\n");
 	set("gender", "男性");
 	set("attitude", "peaceful");
 	set("age", 10);

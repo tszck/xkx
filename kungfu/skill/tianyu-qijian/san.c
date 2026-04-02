@@ -20,18 +20,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	fskill = "bahuang-gong";
 	bskill = "sword";
@@ -45,15 +45,15 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你本门内功实在太差，没法用"+PNAME+"。\n");
+		return notify_fail("你本門內功實在太差，沒法用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili", 1) < 300 )
-		return notify_fail("你现在内力太弱，不能使用「天女散花」。\n");
+		return notify_fail("你現在內力太弱，不能使用「天女散花」。\n");
 			
-	msg = CYN "$N凝神息气，手腕疾抖，挽出千万个剑花，铺天盖地飞向$n。\n"NOR;
+	msg = CYN "$N凝神息氣，手腕疾抖，挽出千萬個劍花，鋪天蓋地飛向$n。\n"NOR;
 
 
 	if ( (fam_type(me)=="lingjiu" && 
@@ -70,11 +70,11 @@ int perform(object me, object target)
 		target->receive_damage("qi", damage,me);
 		target->receive_wound("qi", damage/3,me);
 		me->add("neili", -damage);
-		msg += HIR"只见$N剑花聚为一线，穿向$n,\n$n只觉一股热流穿心而过，喉头一甜，鲜血狂喷而出！\n"NOR;
+		msg += HIR"只見$N劍花聚爲一線，穿向$n,\n$n只覺一股熱流穿心而過，喉頭一甜，鮮血狂噴而出！\n"NOR;
 		me->start_busy(2);
 	} else 
 	{
-		msg += CYN"可是$p猛地向前一跃,跳出了$P的攻击范围。\n"NOR;
+		msg += CYN"可是$p猛地向前一躍,跳出了$P的攻擊範圍。\n"NOR;
 		me->add("neili", -100);
 		me->start_busy(4);
 	}
@@ -91,13 +91,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
-		迟滞对方出手
+		損傷對方氣血
+		遲滯對方出手
 
 	出手要求：
-		八荒六合唯我独尊功50级
-		天羽奇剑50级
-		内力300
+		八荒六合唯我獨尊功50級
+		天羽奇劍50級
+		內力300
 HELP
 	);
 	return 1;

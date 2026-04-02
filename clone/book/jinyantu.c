@@ -1,4 +1,4 @@
-// jinyantu.c 金雁图谱
+// jinyantu.c 金雁圖譜
 // By Lgg,1998.9
 
 #include <ansi.h>
@@ -7,14 +7,14 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIC"金雁图谱" NOR, ({ "jinyan tu","tu", }));
+	set_name(HIC"金雁圖譜" NOR, ({ "jinyan tu","tu", }));
 	set_weight(800);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
 		set("long",
-		"这是本很普通的书，书里面好象有一些小人飞舞的图形。\n",
+		"這是本很普通的書，書裏面好象有一些小人飛舞的圖形。\n",
 		);
 		set("value", 0);
 		set("material", "paper");

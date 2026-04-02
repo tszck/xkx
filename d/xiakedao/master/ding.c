@@ -8,8 +8,8 @@ void create()
 	set_name("丁春秋", ({ "ding-chunqiu", "ding" }));
 	set("nickname", "星宿老怪");
 	set("long", 
-		"他就是星宿派开山祖师、令正派人士深恶痛绝的星宿老怪丁春秋。\n"
-		"可是他看起来形貌清奇，仙风道骨。\n");
+		"他就是星宿派開山祖師、令正派人士深惡痛絕的星宿老怪丁春秋。\n"
+		"可是他看起來形貌清奇，仙風道骨。\n");
 	set("gender", "男性");
 	set("age", 60);
 	set("attitude", "friendly");
@@ -52,7 +52,7 @@ void create()
 	map_skill("parry", "tianshan-zhang");
 	map_skill("staff", "tianshan-zhang");
 
-	create_family("星宿派", 1, "开山祖师");
+	create_family("星宿派", 1, "開山祖師");
 	set("class", "taoist");
 
 	setup();
@@ -77,7 +77,7 @@ void greeting(object ob)
 	int i;
 
 	obj = all_inventory(environment(me));
-        command("say 十步杀一人，想练成绝世神功就要残忍。");
+        command("say 十步殺一人，想練成絕世神功就要殘忍。");
 	for(i=0; i<sizeof(obj); i++)
 	{
 		if( obj[i]->query("id")=="ouyang-feng")

@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "阅览室");
+	set("short", "閱覽室");
 	set("long", @LONG
-这里是村支部的阅览室。自从配置了先进的多媒体设备，这儿就常
-常座无虚席。
+這裏是村支部的閱覽室。自從配置了先進的多媒體設備，這兒就常
+常座無虛席。
 LONG );
 	set("exits", ([
 		"south" : __DIR__"chuandashi",

@@ -5,16 +5,16 @@ inherit NPC;
 
 void create()
 {
-	set_name("翰飞", ({ "sunray" }));
-	set("title", "海滨管理员");
+	set_name("翰飛", ({ "sunray" }));
+	set("title", "海濱管理員");
 	set("shen_type", 1);
 
 	set("gender", "男性" );
 	set("long", @LONG
-一个标准的南方海边GG，黝黑的皮肤、阳光的笑容，可以看出他经常游
-泳，有着漂亮的胸肌和腹肌。他对着你咧嘴一笑，让你有种很亲切的感觉。
+一個標準的南方海邊GG，黝黑的皮膚、陽光的笑容，可以看出他經常遊
+泳，有着漂亮的胸肌和腹肌。他對着你咧嘴一笑，讓你有種很親切的感覺。
 LONG);
-	set("nickname", HIY"健康阳光型"NOR);
+	set("nickname", HIY"健康陽光型"NOR);
 	set("age", 25);
 	set("per", 30);
 	set("attitude", "friendly");		

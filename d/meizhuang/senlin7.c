@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "百木园");
+	set("short", "百木園");
 	set("long", @LONG
-这里是梅庄的百木园，你一走到这里，就象走到了一个连绵无尽的
-小森林一样，这里无数的松树，柏树，白杨，还有很多叫不出来名字的
-异种苗木，你走在其中，只想把这片树林尽情的欣赏一遍，永不出去才
+這裏是梅莊的百木園，你一走到這裏，就象走到了一個連綿無盡的
+小森林一樣，這裏無數的松樹，柏樹，白楊，還有很多叫不出來名字的
+異種苗木，你走在其中，只想把這片樹林盡情的欣賞一遍，永不出去才
 好。
 LONG
 	);
@@ -41,9 +41,9 @@ void init()
 		ob->query("guilty") != 1 )
 		ob->set("guilty",3);
 	ob->set("startroom", "/d/meizhuang/jianyu");
-	message_vision(HIR "\n$N脚下一滑，全身都埋进了厚厚的松针中！
-$N只觉得天旋地转，呼吸也开始困难起来。\n\n" NOR, ob);
-	message_vision(HIR "\n$N几乎就晕了过去......\n\n" NOR, ob);
+	message_vision(HIR "\n$N腳下一滑，全身都埋進了厚厚的松針中！
+$N只覺得天旋地轉，呼吸也開始困難起來。\n\n" NOR, ob);
+	message_vision(HIR "\n$N幾乎就暈了過去......\n\n" NOR, ob);
 	call_out("trapping", 20, ob, room);
 }
 
@@ -51,7 +51,7 @@ void trapping(object ob, object room)
 {
 	if ( !living(ob) ) return;
 
-	message_vision(HIY "\n家丁们把$N一把抓住，捆了个结实，扔进了监狱。\n\n\n" NOR, ob);
+	message_vision(HIY "\n家丁們把$N一把抓住，捆了個結實，扔進了監獄。\n\n\n" NOR, ob);
 	ob->move(__DIR__"jianyu");
 	room->set("exits/south", __DIR__"senlin"+(random(8)+3));
 	room->set("exits/north", __DIR__"senlin"+(random(8)+3));

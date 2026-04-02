@@ -8,10 +8,10 @@ int update_condition(object me, int duration)
 {
 	object bee;
 	string *msg=({
-HIR"\n$N手舞足蹈地想捉住一只"HIW"玉蜂"HIR"，可玉蜂一下子又飞开了。\n",
-HIW"\n玉蜂"HIY"一会儿聚在一起，一会儿又散开，在$N头上跳起舞来。\n",
-HIW"\n玉蜂"HIC"忽然一下子都不见了，$N着急地想把他们找出来，却怎么也找不着。\n",
-HIW"\n玉蜂"HIM"在飞舞！穿梭在飘香的花雨中，恍若来自天国的舞者，吸引着你的目光。\n",
+HIR"\n$N手舞足蹈地想捉住一隻"HIW"玉蜂"HIR"，可玉蜂一下子又飛開了。\n",
+HIW"\n玉蜂"HIY"一會兒聚在一起，一會兒又散開，在$N頭上跳起舞來。\n",
+HIW"\n玉蜂"HIC"忽然一下子都不見了，$N着急地想把他們找出來，卻怎麼也找不着。\n",
+HIW"\n玉蜂"HIM"在飛舞！穿梭在飄香的花雨中，恍若來自天國的舞者，吸引着你的目光。\n",
 	});
 	if( !duration || !me->query_temp("marks/bee1"))
 	{
@@ -21,7 +21,7 @@ HIW"\n玉蜂"HIM"在飞舞！穿梭在飘香的花雨中，恍若来自天国的
 	if(duration == 1)
 	{
 		me->reincarnate();
-		message_vision(HIY"玉蜂嗡地一声飞回蜂巢里面。$N喜道：该去取蜜了。\n"NOR,me);
+		message_vision(HIY"玉蜂嗡地一聲飛回蜂巢裏面。$N喜道：該去取蜜了。\n"NOR,me);
 		me->set_temp("marks/bee1",0);
 //		bee=present("yu bee", environment(me));
 //		destruct(bee);

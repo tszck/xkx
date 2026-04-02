@@ -8,7 +8,7 @@ void create()
         set("age", 28);
         set("gender", "男性");
         set("long",
-"他是桃花岛岛主夫人的守墓家奴。\n");
+"他是桃花島島主夫人的守墓家奴。\n");
         set("attitude", "peaceful");
         set("str", 24);
         set("dex", 16);
@@ -32,7 +32,7 @@ void create()
         map_skill("dodge", "anying-fuxiang");
         map_skill("unarmed", "jiuyin-baiguzhao");
 
-        create_family("桃花岛", 3, "守墓弟子");
+        create_family("桃花島", 3, "守墓弟子");
         setup();
         carry_object("/clone/cloth/cloth")->wear();
 }

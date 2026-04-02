@@ -18,7 +18,7 @@ object connect(int port)
     err = catch(login_ob = new(LOGIN_OB));
 
     if (err) {
-        write("现在有人正在修改使用者连线部份的程式，请待会再来。\n");
+        write("現在有人正在修改使用者連線部份的程式，請待會再來。\n");
         write(err);
         destruct(this_object());
     }
@@ -47,18 +47,18 @@ protected void crash(string error, object command_giver, object current_object)
     object *inv;
     int i;
 
-    efun::shout("系统核心发出一声惨叫：哇—哩—咧—\n");
-    efun::shout("系统核心告诉你：要当机了，自己保重吧！\n");
+    efun::shout("系統核心發出一聲慘叫：哇—哩—咧—\n");
+    efun::shout("系統核心告訴你：要當機了，自己保重吧！\n");
     log_file("static/CRASHES", MUD_NAME + " crashed on: " + ctime(time()) +
         ", error: " + error + "\n");
     if (command_giver)
     {
-        write_file("/log/static/crashes",sprintf("宕机人：%O 时间：%s 连机地址：%s\n", command_giver, ctime(time()), query_ip_name(command_giver)), 1);
+        write_file("/log/static/crashes",sprintf("宕機人：%O 時間：%s 連機地址：%s\n", command_giver, ctime(time()), query_ip_name(command_giver)), 1);
         inv = all_inventory(command_giver);
-        log_file("static/CRASHES",sprintf("宕机人：%O \n时间：%s \n地址：%s \n当时环境：%s \n身上物品\n", command_giver, ctime(time()), query_ip_name(command_giver), file_name(environment(command_giver))));
+        log_file("static/CRASHES",sprintf("宕機人：%O \n時間：%s \n地址：%s \n當時環境：%s \n身上物品\n", command_giver, ctime(time()), query_ip_name(command_giver), file_name(environment(command_giver))));
         for ( i = 0; i < sizeof(inv); i++)
         {
-            log_file("static/CRASHES", sprintf( "物品： %s   档案： %s\n", inv[i]->query("id"), file_name(inv[i])));
+            log_file("static/CRASHES", sprintf( "物品： %s   檔案： %s\n", inv[i]->query("id"), file_name(inv[i])));
         }
     }
     if (current_object)
@@ -136,7 +136,7 @@ void log_error(string file, string message)
         if (this_player(1))
         {
             if (wizardp(this_player(1)))
-                efun::write("编译时段错误：" + message + "\n");
+                efun::write("編譯時段錯誤：" + message + "\n");
             else
                 efun::write(get_config(__DEFAULT_ERROR_MESSAGE__) + "\n");
         }
@@ -183,7 +183,7 @@ void destruct_env_of(object ob)
 {
     if (!interactive(ob))
         return;
-    tell_object(ob, "你所存在的空间被毁灭了。\n");
+    tell_object(ob, "你所存在的空間被毀滅了。\n");
     ob->move(VOID_OB);
 }
 
@@ -235,14 +235,14 @@ string standard_trace(mapping error, int caught)
 
     /* keep track of number of errors per object...if you're into that */
 
-    res = (caught) ? "错误讯息被拦截: " : "";
-    res = sprintf("%s\n执行时段错误：%s\n程式：%s 第 %i 行\n物件: %s\n",
+    res = (caught) ? "錯誤訊息被攔截: " : "";
+    res = sprintf("%s\n執行時段錯誤：%s\n程式：%s 第 %i 行\n物件: %s\n",
         res, error["error"],
         error["program"], error["line"],
         file_name(error["object"]));
 
     for (i=0, s = sizeof(error["trace"]); i < s; i++) {
-        res = sprintf("%s呼叫来自：%s 的 %s() 第 %i 行，物件： %O\n",
+        res = sprintf("%s呼叫來自：%s 的 %s() 第 %i 行，物件： %O\n",
             res,
             error["trace"][i]["program"],
             error["trace"][i]["function"],

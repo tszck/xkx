@@ -4,13 +4,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "神武门");
+	set("short", "神武門");
 	set("long", @LONG
-原称玄武门. 这里是皇城的北门, 呈凹字形的建筑, 与午门合称两
-阙, 是防御和保卫皇城的宫门. 门楼重檐庑殿顶, 内设钟鼓, 黄昏时鸣
-钟百零八响, 而后起更击鼓报时, 直到次日拂晓鸣钟. 每年遴选秀女, 
-应选女子皆从此门入宫. 明末李自成攻进北京城时, 崇祯帝由此门逃上
-煤山, 自缢身亡. 
+原稱玄武門. 這裏是皇城的北門, 呈凹字形的建築, 與午門合稱兩
+闕, 是防禦和保衛皇城的宮門. 門樓重檐廡殿頂, 內設鐘鼓, 黃昏時鳴
+鍾百零八響, 而後起更擊鼓報時, 直到次日拂曉鳴鐘. 每年遴選秀女, 
+應選女子皆從此門入宮. 明末李自成攻進北京城時, 崇禎帝由此門逃上
+煤山, 自縊身亡. 
 LONG 	);
 	set("outdoors", "huanggong");
 	set("no_fight", "1");
@@ -34,6 +34,6 @@ LONG 	);
 int valid_leave(object me, string dir)
 {
 	if (dir!="north")
-		return notify_fail("察尔珠上前挡住你，朗声说道：这位"+RANK_D->query_respect(me)+"，入宫走前门。\n");
+		return notify_fail("察爾珠上前擋住你，朗聲說道：這位"+RANK_D->query_respect(me)+"，入宮走前門。\n");
 	return ::valid_leave(me, dir);
 }

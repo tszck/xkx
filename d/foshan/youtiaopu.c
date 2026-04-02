@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","烧饼油条铺");
+	set("short","燒餅油條鋪");
 	set("long",@LONG
-这家烧饼油条铺是新开张的。铺面不大，正中央摆了一个大炸
-锅和一个烤炉。
+這家燒餅油條鋪是新開張的。鋪面不大，正中央擺了一個大炸
+鍋和一個烤爐。
 LONG);
 	set("outdoors", "foshan");
 	set("exits",([ /* sizeof() == 1 */

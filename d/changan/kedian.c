@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "云来客栈");
+	set("short", "雲來客棧");
 	set("long", @LONG
-这是一家兴隆的客栈，门口挂着块匾，上书“客似云来”。据说是
-米芾的墨宝。店小二里里一边招呼客人，一边大声介绍米芾和客栈的渊
-源，神色甚为得意。墙上挂着一个牌子(paizi),想来不是什么墨宝，写
+這是一家興隆的客棧，門口掛着塊匾，上書“客似雲來”。據說是
+米芾的墨寶。店小二里裏一邊招呼客人，一邊大聲介紹米芾和客棧的淵
+源，神色甚爲得意。牆上掛着一個牌子(paizi),想來不是什麼墨寶，寫
 的歪歪扭扭。
 LONG );
 	set("no_fight", 1);
@@ -16,7 +16,7 @@ LONG );
 	set("no_sleep_room",1);
 //	set("no_clean_up", 0);
 	set("item_desc", ([
-		"paizi" : "楼上雅房，每夜五十两白银。\n",
+		"paizi" : "樓上雅房，每夜五十兩白銀。\n",
 	]));
 	set("objects", ([
 		"/d/city/npc/xiaoer" : 1,
@@ -38,11 +38,11 @@ int valid_leave(object me, string dir)
 {
 
 	if ( !me->query_temp("rent_paid") && dir == "up" )
-	return notify_fail("店小二一下挡在楼梯前，白眼一翻：怎麽着，想白住啊！\n");
+	return notify_fail("店小二一下擋在樓梯前，白眼一翻：怎麼着，想白住啊！\n");
 
 	if ( me->query_temp("rent_paid") && dir == "south" )
-	return notify_fail("店小二跑到门边拦住：客官已经付了银子，怎麽不住店就走了呢！
-旁人还以为小店伺候不周呢！\n");
+	return notify_fail("店小二跑到門邊攔住：客官已經付了銀子，怎麼不住店就走了呢！
+旁人還以爲小店伺候不周呢！\n");
 
 	return ::valid_leave(me, dir);
 }

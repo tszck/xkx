@@ -1,4 +1,4 @@
-// luo.c 骆冰
+// luo.c 駱冰
 
 #include <ansi.h>
 
@@ -7,11 +7,11 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("骆冰", ({ "luo bing", "luo","bing" }));
-	set("title", HIR "红花会"HIG"十一当家" NOR);
-	set("nickname", HIG "鸳鸯刀" NOR);
+	set_name("駱冰", ({ "luo bing", "luo","bing" }));
+	set("title", HIR "紅花會"HIG"十一當家" NOR);
+	set("nickname", HIG "鴛鴦刀" NOR);
 	set("long", 
-"她是一个秀美的少妇。一手短刀，一手握着一柄长刀。\n");
+"她是一個秀美的少婦。一手短刀，一手握着一柄長刀。\n");
 	set("gender", "女性");
 	set("class", "fighter");
 	set("age", 24);

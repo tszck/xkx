@@ -6,8 +6,8 @@ void create()
 {
         set("short", "北院");
         set("long", @LONG
-这里是北院，院子里静悄悄的。北面有一个厨房，远远飘来一
-股饭香，想是该开饭了。
+這裏是北院，院子裏靜悄悄的。北面有一個廚房，遠遠飄來一
+股飯香，想是該開飯了。
 LONG
         );
         set("outdoors", "wudujiao");

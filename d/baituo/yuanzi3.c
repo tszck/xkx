@@ -8,9 +8,9 @@ void create()
 {
 	set("short", "院子");
 	set("long", @LONG
-这里堆放着上百堆的石头。这些石头有大有小，大如一间房屋，小如
-一个鸭蛋，形状大多都呈长方形。你发现从有些石头之间的缝隙(fengxi)
-中飘出一股股的腥臭味，使你快要做呕了。
+這裏堆放着上百堆的石頭。這些石頭有大有小，大如一間房屋，小如
+一個鴨蛋，形狀大多都呈長方形。你發現從有些石頭之間的縫隙(fengxi)
+中飄出一股股的腥臭味，使你快要做嘔了。
 LONG);
 	set("exits", ([
 		"west"      : __DIR__"yuanzi4",
@@ -18,7 +18,7 @@ LONG);
 		"northwest" : __DIR__"yuanzi5",
 	]));
 	set("item_desc", ([
-		"fengxi": "\n缝隙里面漆黑一片，隐隐约约有沙沙的声响。\n",
+		"fengxi": "\n縫隙裏面漆黑一片，隱隱約約有沙沙的聲響。\n",
 	]));
 	set("no_clean_up", 0);
 	set("coor/x", -49900);
@@ -46,10 +46,10 @@ int do_enter(string arg)
 
 	if (arg == "fengxi" )
 	{
-		message_vision("$N刨开缝隙口的乱石子。\n", me); 
-		message("vision", me->name() + "一弯腰往缝隙里钻了进去。\n", environment(me), ({me}) );
+		message_vision("$N刨開縫隙口的亂石子。\n", me); 
+		message("vision", me->name() + "一彎腰往縫隙裏鑽了進去。\n", environment(me), ({me}) );
 		me->move(__DIR__"fengxi1");
-		message("vision", me->name() + "从外面钻了进来。\n", environment(me), ({me}) );
+		message("vision", me->name() + "從外面鑽了進來。\n", environment(me), ({me}) );
 		return 1;
 	}
 }

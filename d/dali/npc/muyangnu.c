@@ -7,7 +7,7 @@ void create()
 	set_name("牧羊女",({ "muyang nu", "nu" }) );
         set("gender", "女性" );
         set("age", 22);
-        set("long", "她是一个摆夷牧羊女子。\n");
+        set("long", "她是一個擺夷牧羊女子。\n");
         set_temp("apply/defense", 15);
 	set("combat_exp", 170);
 	set("shen_type", 1);

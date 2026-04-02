@@ -1,14 +1,14 @@
-//Room: toutiangate.c 头天门
+//Room: toutiangate.c 頭天門
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-      set("short","头天门");
+      set("short","頭天門");
       set("long",@LONG
-只见有石梯无数通往山巅，一座石坊上写着“头天门”三个大字，
-这是攀登武当绝顶天柱峰的起点。
+只見有石梯無數通往山巔，一座石坊上寫着“頭天門”三個大字，
+這是攀登武當絕頂天柱峯的起點。
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "north"    : __DIR__"huixianqiao",

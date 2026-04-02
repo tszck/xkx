@@ -6,12 +6,12 @@ inherit CLOTH;
 
 void create()
 {
-	set_name("宫袍", ({ "gong pao", "pao", "cloth" }) );
+	set_name("宮袍", ({ "gong pao", "pao", "cloth" }) );
 	set_weight(2700);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一件长袍．\n");
+		set("long", "一件長袍．\n");
 		set("unit", "件");
 		set("value", 1000);
 		set("material", "cloth");

@@ -7,7 +7,7 @@ inherit F_UNIQUE;
 void create()
 {
 	set_name(HIY "明珠" NOR, ({"ming zhu", "ming"}));
-	set("title", "兵部尚书");
+	set("title", "兵部尚書");
 	set("gender", "男性");
 	set("age", 36);
 	set("str", 25);
@@ -15,7 +15,7 @@ void create()
 	set("int", 28);
 	set("con", 28);
 	set("per", 20);
-	set("long", "这可是熙朝第一大滑头、第一大马屁精。\n");
+	set("long", "這可是熙朝第一大滑頭、第一大馬屁精。\n");
 
 	set("combat_exp", 1000);
 	set("score", 200);

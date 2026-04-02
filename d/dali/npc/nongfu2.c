@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("农夫",({ "nong fu", "fu" }) );
+	set_name("農夫",({ "nong fu", "fu" }) );
         set("gender", "男性" );
         set("age", 22);
-        set("long", "一位身强体壮的摆夷族农夫。\n");
+        set("long", "一位身強體壯的擺夷族農夫。\n");
         set_temp("apply/defense", 15);
 	set("combat_exp", 2700);
 	set("shen_type", 1);

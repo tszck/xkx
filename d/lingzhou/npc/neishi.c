@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("内侍", ({ "nei shi", "shi" }) );
+	set_name("內侍", ({ "nei shi", "shi" }) );
 	set("gender", "男性");
 	set("age", 35);
-	set("long", "这是个皇室的侍从。\n");
+	set("long", "這是個皇室的侍從。\n");
 	set("combat_exp", 1000);
 	set("shen_type", 0);
 	set("attitude", "peaceful");

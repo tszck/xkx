@@ -6,13 +6,13 @@ inherit NPC;
 
 void create()
 {
-	set_name("符敏仪", ({ "fu mingyi", "fu"}));
+	set_name("符敏儀", ({ "fu mingyi", "fu"}));
 	set("long",
-		"她是「灵鹫宫」九天九部中阳天部的首领。\n她号称「针神」。\n");
-	set("title", "灵鹫宫阳天部首领");
+		"她是「靈鷲宮」九天九部中陽天部的首領。\n她號稱「針神」。\n");
+	set("title", "靈鷲宮陽天部首領");
 	set("gender", "女性");
 	set("class", "dancer");
-	set("nickname", HIR "针神" NOR);
+	set("nickname", HIR "針神" NOR);
 	set("age", 20);
 	set("shen_type",1);
 	set("attitude", "peaceful");
@@ -51,7 +51,7 @@ void create()
 	prepare_skill("strike","liuyang-zhang");
 	prepare_skill("hand", "zhemei-shou");
 
-	create_family("灵鹫宫",3,"弟子");
+	create_family("靈鷲宮",3,"弟子");
 	setup();
 
 	carry_object("/d/lingjiu/obj/qingyi")->wear();

@@ -13,12 +13,12 @@ void init()
 
 void create()
 {
-	set_name(HIY"金钗"NOR, ({"jinchai"}));
+	set_name(HIY"金釵"NOR, ({"jinchai"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
 		set("unit", "包");
-		set("long", "这是一包湖北产的中药材。\n");
+		set("long", "這是一包湖北產的中藥材。\n");
 		set("value", 5000);
 	}
 	setup();
@@ -27,16 +27,16 @@ void create()
 int do_eat(string arg)
 {
 	object me = this_player();
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 	if ((int)me->query("eff_qi") == (int)me->query("max_qi"))
-		return notify_fail("你现在不需要用药。\n");
+		return notify_fail("你現在不需要用藥。\n");
 	else {
 		me->receive_curing("qi", 50);
-		message_vision("$N吃下一包金钗，气色看起来好多了。\n", me);
+		message_vision("$N喫下一包金釵，氣色看起來好多了。\n", me);
 		me->start_busy(2);
 		destruct(this_object());
 		return 1;

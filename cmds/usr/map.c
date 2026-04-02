@@ -99,7 +99,7 @@ int main(object me, string arg)
 				}
 			}
 			if (i==sizeof(dirs))
-				return notify_fail(HIG"这里不能查看地图，请到室外。\n"NOR);
+				return notify_fail(HIG"這裏不能查看地圖，請到室外。\n"NOR);
 		}
 		name = clean_color(environment(me)->query("short"));
 		if( file_size("/doc/map/" + file)>0 )
@@ -112,7 +112,7 @@ int main(object me, string arg)
 				return 1;
 			}
 		}
-		return notify_fail(HIY"暂时还没有开放这里的地图查询。\n"NOR);
+		return notify_fail(HIY"暫時還沒有開放這裏的地圖查詢。\n"NOR);
 	}
 	else
 	{
@@ -125,7 +125,7 @@ int main(object me, string arg)
 				return 1;
 			}
 		}
-		return notify_fail(HIR"没有你指定的地图查询。请map map查询地图册。\n"NOR);
+		return notify_fail(HIR"沒有你指定的地圖查詢。請map map查詢地圖冊。\n"NOR);
 	}
 }
 string clean_color(string arg)
@@ -201,11 +201,11 @@ string make_color(string map)
 int help(object me)
 {
 	write(@HELP
-指令格式：map <参量>
+指令格式：map <參量>
 
-    这个指令用来显示指定的地图。地图册，请用map map查询。
-    不带参数或带的参数是here，则显示你所在地的地图。亮红色表示你所
-处之地。
+    這個指令用來顯示指定的地圖。地圖冊，請用map map查詢。
+    不帶參數或帶的參數是here，則顯示你所在地的地圖。亮紅色表示你所
+處之地。
 
 HELP
 	);

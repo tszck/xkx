@@ -1,4 +1,4 @@
-// sougu.c 搜骨鹰爪功
+// sougu.c 搜骨鷹爪功
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,31 +7,31 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N双臂一拢，左爪直攻$n下盘，右爪却挟风雷之势推向$n腰间，一虚一实，正是一招"HIM"「推爪式」"NOR"",
+([	"action" : "$N雙臂一攏，左爪直攻$n下盤，右爪卻挾風雷之勢推向$n腰間，一虛一實，正是一招"HIM"「推爪式」"NOR"",
 	"lvl"    : 0,
 	"skill_name" : "推爪式"
 ]),
-([	"action" : "$N身形陡起，如雄鹰击日般“倏”地从$n头顶越过，使一招"HIR"「盖爪式」"NOR"双爪疾向$n脑后击下",
+([	"action" : "$N身形陡起，如雄鷹擊日般“倏”地從$n頭頂越過，使一招"HIR"「蓋爪式」"NOR"雙爪疾向$n腦後擊下",
 	"lvl"    : 5,
-	"skill_name" : "盖爪式"
+	"skill_name" : "蓋爪式"
 ]),
-([	"action" : "$N就地一滚，突然到了$n身前，使一招"HIB"「掏爪式」"NOR"，右爪直奔$n小腹",
+([	"action" : "$N就地一滾，突然到了$n身前，使一招"HIB"「掏爪式」"NOR"，右爪直奔$n小腹",
 	"lvl"    : 10,
 	"skill_name" : "掏爪式"
 ]),
-([	"action" : "\n$N左爪护胸，右爪凝劲后发，一招"HIC"「托爪式」"NOR"，缓缓托向$n的$l",
+([	"action" : "\n$N左爪護胸，右爪凝勁後發，一招"HIC"「託爪式」"NOR"，緩緩託向$n的$l",
 	"lvl"    : 20,
-	"skill_name" : "托爪式"
+	"skill_name" : "託爪式"
 ]),
-([	"action" : "\n$N身形诡异，疾速前扑，使一招"HIG"「撩爪式」"NOR"，直撩$n裆部",
+([	"action" : "\n$N身形詭異，疾速前撲，使一招"HIG"「撩爪式」"NOR"，直撩$n襠部",
 	"lvl"    : 35,
 	"skill_name" : "撩爪式"
 ]),
-([	"action" : "\n$N身形飘忽，陡然转到$n身后，一招"HIW"「锁爪式」"NOR"，双爪直向$n咽喉插下",
+([	"action" : "\n$N身形飄忽，陡然轉到$n身後，一招"HIW"「鎖爪式」"NOR"，雙爪直向$n咽喉插下",
 	"lvl"    : 60,
-	"skill_name" : "锁爪式"
+	"skill_name" : "鎖爪式"
 ]),
-([	"action" : "\n$N一声厉啸，身形拔起，使出"HIC"「千爪式」"NOR"，由半空盘旋下击，$n顿觉漫天爪影，罩向全身死穴",
+([	"action" : "\n$N一聲厲嘯，身形拔起，使出"HIC"「千爪式」"NOR"，由半空盤旋下擊，$n頓覺漫天爪影，罩向全身死穴",
 	"lvl"    : 85,
 	"skill_name" : "千爪式"
 ])
@@ -41,23 +41,23 @@ int valid_enable(string usage) { return usage=="claw" || usage=="parry"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练搜骨鹰爪功必须空手。\n");
+		return notify_fail("練搜骨鷹爪功必須空手。\n");
 	if (me->query_skill("jiuyang-shengong") < 30)
-		return notify_fail("你的九阳神功太弱，无法学搜骨鹰爪功。\n");
+		return notify_fail("你的九陽神功太弱，無法學搜骨鷹爪功。\n");
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail("你的内力太弱，无法学搜骨鹰爪功。\n");
+		return notify_fail("你的內力太弱，無法學搜骨鷹爪功。\n");
 	if ((int)me->query("str") < 24)
-		return notify_fail("你的膂力太差，无法学搜骨鹰爪功。\n");
+		return notify_fail("你的膂力太差，無法學搜骨鷹爪功。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 30)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够练鹰爪功。\n");
+		return notify_fail("你的內力不夠練鷹爪功。\n");
 	me->receive_damage("qi", 25);
 	me->add("neili", -5);
 	return 1;
@@ -84,16 +84,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "抓伤" : "内伤",
+		"damage_type" : random(2) ? "抓傷" : "內傷",
 	]);
 }
 int learn_bonus() { return 15; }
@@ -107,16 +107,16 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIC"\n搜骨鹰爪功："NOR"\n");
+	write(HIC"\n搜骨鷹爪功："NOR"\n");
 	write(@HELP
 
-    明教白眉鹰王殷天正之绝招，又手似鹰爪，手到擒来。是明教
-的入门武功。
+    明教白眉鷹王殷天正之絕招，又手似鷹爪，手到擒來。是明教
+的入門武功。
 
-	学习要求：
+	學習要求：
 		先天膂力24
-		九阳神功30级
-		内力100
+		九陽神功30級
+		內力100
 HELP
 	);
 	return 1;

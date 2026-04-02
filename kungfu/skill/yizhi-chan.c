@@ -1,4 +1,4 @@
-// yizhi-chan.c 一指禅
+// yizhi-chan.c 一指禪
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,21 +7,21 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N双指并拢，一式"HIY"「佛恩济世」"NOR"，和身而上，左右手一前一后戳向$n的胸腹间",
+([	"action" : "$N雙指併攏，一式"HIY"「佛恩濟世」"NOR"，和身而上，左右手一前一後戳向$n的胸腹間",
 	"lvl" : 0,
-	"skill_name" : "佛恩济世"
+	"skill_name" : "佛恩濟世"
 ]),
-([	"action" : "$N左掌护胸，一式"HIY"「佛光普照」"NOR"，右手中指前后划了个半弧，猛地一甩，疾点$n的$l",
+([	"action" : "$N左掌護胸，一式"HIY"「佛光普照」"NOR"，右手中指前後劃了個半弧，猛地一甩，疾點$n的$l",
 	"lvl" : 20,
 	"skill_name" : "佛光普照"
 ]),
-([	"action" : "$N身形闪动，一式"HIY"「佛门广渡」"NOR"，双手食指端部各射出一道青气，射向$n的全身要穴",
+([	"action" : "$N身形閃動，一式"HIY"「佛門廣渡」"NOR"，雙手食指端部各射出一道青氣，射向$n的全身要穴",
 	"lvl" : 40,
-	"skill_name" : "佛门广渡"
+	"skill_name" : "佛門廣渡"
 ]),
-([	"action" : "$N盘膝跌坐，一式"HIY"「佛法无边」"NOR"，左手握拳托肘，右手拇指直立，遥遥对着$n一捺",
+([	"action" : "$N盤膝跌坐，一式"HIY"「佛法無邊」"NOR"，左手握拳託肘，右手拇指直立，遙遙對着$n一捺",
 	"lvl" : 60,
-	"skill_name" : "佛法无边"
+	"skill_name" : "佛法無邊"
 ])
 });
 
@@ -31,21 +31,21 @@ int valid_combine(string combo) { return combo=="banruo-zhang"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练一指禅必须空手。\n");
+		return notify_fail("練一指禪必須空手。\n");
 	if ((int)me->query_skill("hunyuan-yiqi", 1) < 20)
-		return notify_fail("你的混元一气功火候不够，无法学一指禅。\n");
+		return notify_fail("你的混元一氣功火候不夠，無法學一指禪。\n");
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail("你的内力太弱，无法练一指禅。\n");
+		return notify_fail("你的內力太弱，無法練一指禪。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 50)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 50)
-		return notify_fail("你的内力不够练一指禅。\n");
+		return notify_fail("你的內力不夠練一指禪。\n");
 	me->receive_damage("qi", 40);
 	me->add("neili", -25);
 	return 1;
@@ -72,16 +72,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "刺伤" : "瘀伤",
+		"damage_type" : random(2) ? "刺傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 5; }
@@ -96,15 +96,15 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\n一指禅："NOR"\n");
+	write(HIC"\n一指禪："NOR"\n");
 	write(@HELP
 
-    一指禅为少林七十二绝技之一。
-    可与般若掌互备。
+    一指禪爲少林七十二絕技之一。
+    可與般若掌互備。
 
-	学习要求：
-		混元一气功20级
-		内力100
+	學習要求：
+		混元一氣功20級
+		內力100
 HELP
 	);
 	return 1;

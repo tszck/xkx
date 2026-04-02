@@ -1,15 +1,15 @@
-// wdroad10.c 黄土路
+// wdroad10.c 黃土路
 // Date: Feb.12 1998 By Java
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "黄土路");
+	set("short", "黃土路");
 	set("long", @LONG
-你走在一条尘土飞扬的黄土路上，两旁是阴森森的树林。这里是湖
-北境界，据说经常有土匪出没，不可久留。南边一条小道，通向密林深
-处。
+你走在一條塵土飛揚的黃土路上，兩旁是陰森森的樹林。這裏是湖
+北境界，據說經常有土匪出沒，不可久留。南邊一條小道，通向密林深
+處。
 LONG );
 	set("outdoors", "sanbuguan");
 	set("exits", ([

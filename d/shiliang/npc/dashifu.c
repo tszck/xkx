@@ -2,12 +2,12 @@
 inherit NPC;
 void create()
 {
-        set_name("大师傅", ({
+        set_name("大師傅", ({
                 "da shifu",
                 "shifu",
         }));
         set("long",
-                "这是位胖乎乎的大师傅，是陈麻婆一手调教出来的，他要是发现你的偷看他做豆腐，可是会打人的哦。\n"
+                "這是位胖乎乎的大師傅，是陳麻婆一手調教出來的，他要是發現你的偷看他做豆腐，可是會打人的哦。\n"
         );
         set("gender", "男性");
         set("attitude", "peaceful");

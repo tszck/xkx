@@ -1,4 +1,4 @@
-// daobaifeng.c 刀白凤
+// daobaifeng.c 刀白鳳
 
 #include <ansi.h>
 inherit NPC;
@@ -6,13 +6,13 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("刀白凤", ({ "dao baifeng", "dao" }));
-	set("title",  "大理国王妃" );
-	set("nickname",  CYN"玉虚散人"NOR );
+	set_name("刀白鳳", ({ "dao baifeng", "dao" }));
+	set("title",  "大理國王妃" );
+	set("nickname",  CYN"玉虛散人"NOR );
 	set("gender", "女性");
-	set("long", "这是个容貌秀丽的中年道姑，是个摆夷族女子，颇有雍容气质。
-她本是大理国皇帝段正淳的正房原配夫人。
-因恼丈夫风流不羁，沾花惹草，一怒之下跑到这里出了家。她看起来约三十多岁。\n");
+	set("long", "這是個容貌秀麗的中年道姑，是個擺夷族女子，頗有雍容氣質。
+她本是大理國皇帝段正淳的正房原配夫人。
+因惱丈夫風流不羈，沾花惹草，一怒之下跑到這裏出了家。她看起來約三十多歲。\n");
 	set("age", 35);
 	set("class", "officer");
 	set("attitude", "friendly");
@@ -75,7 +75,7 @@ void attempt_apprentice(object ob)
 {
 	if ((int)ob->query_skill("kurong-changong",1) < 30 )
 	{
-		command("say 你的本门内功心法太低了，还是努努力先提高一下吧。");
+		command("say 你的本門內功心法太低了，還是努努力先提高一下吧。");
 		return;
 	}
 	if ((string)ob->query("gender") != "女性")
@@ -85,17 +85,17 @@ void attempt_apprentice(object ob)
 	}
 	if ((int)ob->query("shen") < 10000  )
 	{
-		command("say 我大理段氏向来行侠仗义，您请回吧！");
+		command("say 我大理段氏向來行俠仗義，您請回吧！");
 		return;
 	}
-	if (strsrch(ob->query("guard"), "镇南王府") >= 0) 
+	if (strsrch(ob->query("guard"), "鎮南王府") >= 0) 
 	{
-		command("say 很好，既然入我门来就得终身为奴供我驱使。");
+		command("say 很好，既然入我門來就得終身爲奴供我驅使。");
 		command("recruit " + ob->query("id"));
 	}
 	else
 	{
-		command("say 你是何人，如此大胆，假冒我府中厮仆！");
+		command("say 你是何人，如此大膽，假冒我府中廝僕！");
 		return;
 	}
 }

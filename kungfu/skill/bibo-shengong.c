@@ -19,16 +19,16 @@ int valid_learn(object me)
 	int lvl = (int)me->query_skill("bibo-shengong", 1);
 
 	if ( me->query_skill("force", 1) < 10)
-		return notify_fail("你的基本内功还不到火候。\n");
-	if ( me->query("gender") == "无性" && lvl > 49)
-		return notify_fail("你无根无性，阴阳不调，难以领会高深的碧波神功。\n");
+		return notify_fail("你的基本內功還不到火候。\n");
+	if ( me->query("gender") == "無性" && lvl > 49)
+		return notify_fail("你無根無性，陰陽不調，難以領會高深的碧波神功。\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("碧波神功只能用学的，或是从运用(exert)中增加熟练度。\n");
+	return notify_fail("碧波神功只能用學的，或是從運用(exert)中增加熟練度。\n");
 }
 
 string exert_function_file(string func)
@@ -40,13 +40,13 @@ int help(object me)
 	write(HIC"\n碧波神功："NOR"\n");
 	write(@HELP
 
-    这是东海桃花岛黄药师所创的一门内功心法。传说当初黄药师行
-船海上，忽见碧海潮生，碧波汹涌，声势惊人，在与风浪搏斗之余，
-豁然顿悟，创出一门阳刚阴柔相结合的内功，此谓碧波神功。
+    這是東海桃花島黃藥師所創的一門內功心法。傳說當初黃藥師行
+船海上，忽見碧海潮生，碧波洶湧，聲勢驚人，在與風浪搏鬥之餘，
+豁然頓悟，創出一門陽剛陰柔相結合的內功，此謂碧波神功。
 
-	学习要求：
-		基本内功10级
-		太监无法领悟50级以上的碧波神功
+	學習要求：
+		基本內功10級
+		太監無法領悟50級以上的碧波神功
 HELP
 	);
 	return 1;

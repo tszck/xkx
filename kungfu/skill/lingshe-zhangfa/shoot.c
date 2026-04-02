@@ -1,10 +1,10 @@
-// throw.c 灵蛇杖法喷毒
+// throw.c 靈蛇杖法噴毒
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME "喷毒"
+#define PNAME "噴毒"
 
 int perform(object me, object target)
 {
@@ -20,23 +20,23 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 //	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-  	return notify_fail("你要对谁喷毒? \n");
+  	return notify_fail("你要對誰噴毒? \n");
 
 	if( environment(me)->query("no_fight") )
-		return notify_fail("这里不能攻击别人！\n");
-  notify_fail("你不能攻击这个人。\n");
+		return notify_fail("這裏不能攻擊別人！\n");
+  notify_fail("你不能攻擊這個人。\n");
 	if (!userp(target) && !target->accept_hit(me)) return 0;
 	
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "staff")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	fskill = "hamagong";
 	bskill = "staff";
@@ -50,30 +50,30 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 40 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够娴熟，不能"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠嫺熟，不能"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 40 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不能"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不能"+PNAME+"。\n");
 
 	if( (int)me->query("neili", 1) < 400 )
-		return notify_fail("你的内力不够，不能喷毒。\n");
+		return notify_fail("你的內力不夠，不能噴毒。\n");
 
 	if( (string)weapon->query("id") != "she zhang" )
-		return notify_fail("你手中没有蛇杖，不能喷毒。\n");
+		return notify_fail("你手中沒有蛇杖，不能噴毒。\n");
 
 	me->add("neili", -200);
 
-	msg = MAG "$N"MAG"喉间发出刺耳的格格声响，蛇杖前头的小蛇猛地扬头，一阵粉红毒雾带着甜香喷向$n"MAG"。\n";
+	msg = MAG "$N"MAG"喉間發出刺耳的格格聲響，蛇杖前頭的小蛇猛地揚頭，一陣粉紅毒霧帶着甜香噴向$n"MAG"。\n";
 
 	me->start_busy(1);
 
 	if( random( (int)me->query_skill(bskill, 1)) >
 		random(target->query_skill("dodge", 1)) )
 	{
-		msg += MAG "结果$p被$P杖头小蛇一口喷中！\n" NOR;
+		msg += MAG "結果$p被$P杖頭小蛇一口噴中！\n" NOR;
 		if (target->query("neili") < me->query("neili"))
 		{
-			msg += MAG "$p只闻到一阵甜香，眼前就模糊起来。\n" NOR;
+			msg += MAG "$p只聞到一陣甜香，眼前就模糊起來。\n" NOR;
 			target->receive_damage("qi",(int)me->query_skill("staff", 1),me);
 			target->receive_wound("qi",15 + random(10),me);
 			target->receive_wound("jing", 10,me);
@@ -82,8 +82,8 @@ int perform(object me, object target)
 		}
 		else
 		{
-			msg += CYN "$p急运内力，一口真气向蛇毒喷去，顿时蛇毒反向$P飘了回去。\n" NOR;
-			msg += MAG "$P只闻到一阵甜香，眼前就模糊起来。\n" NOR;
+			msg += CYN "$p急運內力，一口真氣向蛇毒噴去，頓時蛇毒反向$P飄了回去。\n" NOR;
+			msg += MAG "$P只聞到一陣甜香，眼前就模糊起來。\n" NOR;
 			me->receive_damage("qi", me->query_skill(bskill, 1),target);
 			me->receive_wound("qi", 15 + random(10),target);
 			me->receive_wound("jing", 10,target);
@@ -92,7 +92,7 @@ int perform(object me, object target)
 			me->start_busy(1 + random(2));
 		}
 	} else {
-		msg += CYN"可是$p急忙闪在一旁，躲了开去。\n" NOR;
+		msg += CYN"可是$p急忙閃在一旁，躲了開去。\n" NOR;
 		me->start_busy(3);
 	}
 	message_combatd(msg, me, target);
@@ -107,15 +107,15 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		伤害对方精气
-		使对手中蛇毒
-		若武功不够，可能反受其害
+		傷害對方精氣
+		使對手中蛇毒
+		若武功不夠，可能反受其害
 
 	出手要求：
 		蛤蟆功40
-		灵蛇杖法40
+		靈蛇杖法40
 		手持蛇杖
-		内力400
+		內力400
 HELP
 	);
 	return 1;

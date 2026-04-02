@@ -10,10 +10,10 @@ void create()
 {
 	set("short", GRN"瓜架"NOR);
 	set("long", @LONG
-转过一个小弯，忽然眼前一绿，面前是一片很大的瓜架。在高大的
-木架旁，种植着一些蔬菜和瓜类，架子上已爬满了各种植物，从茂密的
-叶子中，垂下各种已经成熟的果实，丝瓜，苦瓜，葫芦....还有一些叫
-不出名称的瓜果也缠杂在其中。
+轉過一個小彎，忽然眼前一綠，面前是一片很大的瓜架。在高大的
+木架旁，種植着一些蔬菜和瓜類，架子上已爬滿了各種植物，從茂密的
+葉子中，垂下各種已經成熟的果實，絲瓜，苦瓜，葫蘆....還有一些叫
+不出名稱的瓜果也纏雜在其中。
 LONG	);
 	set("outdoors", "tiezhang");
 	set("exits", ([ /* sizeof() == 2 */
@@ -40,20 +40,20 @@ int do_zhai(string arg)
 	object ob;
 
 	if (me->query_temp("marks/摘1") )
-		return notify_fail("你已经摘过了，不要这么贪心！\n");
+		return notify_fail("你已經摘過了，不要這麼貪心！\n");
 
-	if (!arg || (arg != "hulu" && arg != "葫芦"))
+	if (!arg || (arg != "hulu" && arg != "葫蘆"))
 	{
 		if (query("hulu_count") < 1)
 		{
-			message_vision("$N拨开枝叶找来找去，发现葫芦已经被别人摘没了！\n",this_player());
+			message_vision("$N撥開枝葉找來找去，發現葫蘆已經被別人摘沒了！\n",this_player());
 			return 1;
 		}
-		return notify_fail("你想摘什么？\n");
+		return notify_fail("你想摘什麼？\n");
 	}
 	else
 	{
-		write("你踮起脚尖，从架子上摘下了一个葫芦。\n");
+		write("你踮起腳尖，從架子上摘下了一個葫蘆。\n");
 		this_player()->set_temp("marks/摘1", 1);
 
 		ob=new("/d/emei/obj/qingshui-hulu");

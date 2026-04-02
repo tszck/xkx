@@ -4,12 +4,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("空空儿", ({ "qi gai","beggar","gai" }) );
+	set_name("空空兒", ({ "qi gai","beggar","gai" }) );
 	set("title", "妙手神丐");
 //	set("title", "乞丐");
 	set("gender", "男性" );
 	set("age", 53);
-	set("long", "一个满脸风霜之色的老乞丐。\n");
+	set("long", "一個滿臉風霜之色的老乞丐。\n");
 
 	set("str", 25);
 	set("con", 25);
@@ -44,9 +44,9 @@ void create()
 	setup();
 	set("chat_chance", 15);
 	set("chat_msg", ({
-		"空空儿说道: 好心的大爷哪～ 赏我要饭的几个铜板吧～\n",
-		"空空儿懒洋洋地打了个哈欠。\n",
-		"空空儿伸手捉住了身上的虱子，骂道: 老子身上没几两肉，全叫你们给咬糜了。 \n",
+		"空空兒說道: 好心的大爺哪～ 賞我要飯的幾個銅板吧～\n",
+		"空空兒懶洋洋地打了個哈欠。\n",
+		"空空兒伸手捉住了身上的蝨子，罵道: 老子身上沒幾兩肉，全叫你們給咬糜了。 \n",
 		(: random_move :)
 	}) );
         carry_object(FOOD_DIR+"jitui");
@@ -104,12 +104,12 @@ int accept_object(object me, object obj)
 {
 	if (obj->query("money_id") && obj->value() >= 1) {
         	 command("smile");
-	         command("say 多谢啦 ! 其实我还是有点钱的，这次只不过试试你罢了 !");
+	         command("say 多謝啦 ! 其實我還是有點錢的，這次只不過試試你罷了 !");
         	 command("give 10 silver to " + me->query("id"));
 	}
         else {
         	 command("shake");
-	         command("say 这种东西鬼才要 ! 滚一边去 !");
+	         command("say 這種東西鬼才要 ! 滾一邊去 !");
 	         command("give " + obj->query("id") + " to " + me->query("id"));
 //               obj->move(this_player());
         }
@@ -119,6 +119,6 @@ int accept_object(object me, object obj)
 
 int accept_fight(object me)
 {
-	command("say " + RANK_D->query_respect(me) + "饶命ⅵ小的这就离开ⅵ\n");
+	command("say " + RANK_D->query_respect(me) + "饒命ⅵ小的這就離開ⅵ\n");
 	return 0;
 }

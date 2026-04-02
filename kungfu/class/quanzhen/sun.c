@@ -1,4 +1,4 @@
-// sun.c 孙不二
+// sun.c 孫不二
 
 #include <ansi.h>
 inherit NPC;
@@ -7,14 +7,14 @@ string ask_me();
 
 void create()
 {
-        set_name("孙不二", ({"sun buer", "sun"}));
+        set_name("孫不二", ({"sun buer", "sun"}));
         set("gender", "女性");
         set("age", 33);
         set("class", "quanzhen");
-        set("nickname",CYN"清净散人"NOR);
+        set("nickname",CYN"清淨散人"NOR);
         set("long",
-                "她就是全真教二代弟子中唯一的女弟子孙不二孙真人。她本是\n"
-                "马钰入道前的妻子，道袍上绣着一个骷髅头。\n");
+                "她就是全真教二代弟子中唯一的女弟子孫不二孫真人。她本是\n"
+                "馬鈺入道前的妻子，道袍上繡着一個骷髏頭。\n");
         set("attitude", "peaceful");
         set("shen_type",1);
         set("str", 30);
@@ -47,9 +47,9 @@ void create()
 
         set_skill("array", 80);
         set_skill("force", 130);
-        set_skill("xiantian-qigong", 130);    //先天气功
+        set_skill("xiantian-qigong", 130);    //先天氣功
         set_skill("sword", 130);
-        set_skill("quanzhen-jian", 200);  //全真剑
+        set_skill("quanzhen-jian", 200);  //全真劍
         set_skill("dodge", 110);
         set_skill("jinyan-gong", 170);   //金雁功
         set_skill("parry", 140);
@@ -57,7 +57,7 @@ void create()
         set_skill("strike", 120);
         set_skill("haotian-zhang", 200);    //昊天掌
         set_skill("cuff", 120);
-        set_skill("chunyang-quan", 180);    //纯阳拳
+        set_skill("chunyang-quan", 180);    //純陽拳
         set_skill("literate", 100);
         set_skill("taoism", 100);
 
@@ -74,7 +74,7 @@ void create()
 
         set("book_count",1);
         set("inquiry", ([
-                "全真教" :  "我全真教是天下道家玄门正宗。\n",
+                "全真教" :  "我全真教是天下道家玄門正宗。\n",
                 "昊天掌" :  (: ask_me :),
                 "昊天掌法" :  (: ask_me :),
         ]) );
@@ -92,13 +92,13 @@ string ask_me()
 
         if (!(fam = this_player()->query("family")) || fam["family_name"] != "全真教")
                 return RANK_D->query_respect(this_player()) +
-                "与本教毫无瓜葛，我教的武功典籍可不能交给你。";
+                "與本教毫無瓜葛，我教的武功典籍可不能交給你。";
         if (query("book_count") < 1)
-                return "你来晚了，昊天掌谱已经被人取走了。";
+                return "你來晚了，昊天掌譜已經被人取走了。";
         add("book_count", -1);
         ob = new("/clone/book/zhangfapu");
         ob->move(this_player());
-        return "好吧，这本「昊天掌谱」你拿回去好好研读。";
+        return "好吧，這本「昊天掌譜」你拿回去好好研讀。";
 
 }
 

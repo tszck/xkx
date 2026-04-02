@@ -1,22 +1,22 @@
 //Cracked by Kafei
-// tongbo.c 铜钹
+// tongbo.c 銅鈸
 
 #include <weapon.h>
 inherit BLADE;
 
 void create()
 {
-	set_name("铜钹", ({ "tongbo", "bo" }));
+	set_name("銅鈸", ({ "tongbo", "bo" }));
 	set_weight(2000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "对");
-		set("long", "这是一对铜钹，钹边闪闪生光，锋利异常。\n");
+		set("unit", "對");
+		set("long", "這是一對銅鈸，鈸邊閃閃生光，鋒利異常。\n");
 		set("value", 300);
 		set("material", "steel");
-		set("wield_msg", "$N取出一对$n，双手合处，当地一声，震耳欲聋。\n");
-		set("unwield_msg", "$N将手中的$n收好。\n");
+		set("wield_msg", "$N取出一對$n，雙手合處，當地一聲，震耳欲聾。\n");
+		set("unwield_msg", "$N將手中的$n收好。\n");
 	}
 	init_blade(30);
 	setup();

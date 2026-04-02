@@ -8,7 +8,7 @@ void create()
 	set_name("申人俊", ({ "shen renjun", "shen", "renjun" }));
 	set("gender", "男性");
 	set("age", 25);
-	set("long", "他就是和吉人通焦孟不离的申人俊。\n");
+	set("long", "他就是和吉人通焦孟不離的申人俊。\n");
 
 	set("combat_exp", 60000);
 	set("shen_type", -1);

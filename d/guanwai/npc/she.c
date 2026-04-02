@@ -10,7 +10,7 @@ void create()
 	set("race", "走畜");
 	set("gender", "雄性");
 	set("age", 20);
-	set("long", "一只温驯的麝，正在低头吃草。\n");
+	set("long", "一隻溫馴的麝，正在低頭喫草。\n");
 	set("attitude", "peace");
 	set("shen_type", -1);
 
@@ -25,7 +25,7 @@ void create()
 void die()
 {
 	object ob, corpse;
-	message_vision("$N头一歪，静静倒在地上，死去了。\n", this_object());
+	message_vision("$N頭一歪，靜靜倒在地上，死去了。\n", this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 		ob = new("/clone/medicine/vegetable/shexiang");
 	ob->move(corpse);

@@ -6,17 +6,17 @@ void random_leave();
 void create()
 {
 	set_name("大白雕", ({ "bai diao", "diao"}) );
-	set("race", "飞禽");
+	set("race", "飛禽");
 	set("age", 18);
-	set("long", "生长在大草原中的一种猛禽。\n");
+	set("long", "生長在大草原中的一種猛禽。\n");
 	set("str", 28);
 	set("cor", 24);
 	set("combat_exp",180000);
 	set("env/wimpy",50);
 	set("chat_chance", 6);
 	set("chat_msg", ({
-		"大白雕在云层中盘旋，双翅掠过重重白云。\n",
-		"云层中一道闪电劈下，在你眼前闪过一道金光。\n",
+		"大白雕在雲層中盤旋，雙翅掠過重重白雲。\n",
+		"雲層中一道閃電劈下，在你眼前閃過一道金光。\n",
 		(:random_leave:),
 	}));
 	set_temp("apply/attack", 28);
@@ -44,26 +44,26 @@ void init()
 void random_leave()
 {
 mapping default_dirs = ([
-	"east":         "东",
+	"east":         "東",
 	"west":         "西",
 	"south":        "南",
 	"north":        "北",
-	"eastup":       "东边",
-	"westup":       "西边",
-	"southup":      "南边",
-	"northup":      "北边",
-	"eastdown":     "东边",
-	"westdown":     "西边",
-	"southdown":    "南边",
-	"northdown":    "北边",
-	"southeast":    "东南",
+	"eastup":       "東邊",
+	"westup":       "西邊",
+	"southup":      "南邊",
+	"northup":      "北邊",
+	"eastdown":     "東邊",
+	"westdown":     "西邊",
+	"southdown":    "南邊",
+	"northdown":    "北邊",
+	"southeast":    "東南",
 	"southwest":    "西南",
-	"northeast":    "东北",
+	"northeast":    "東北",
 	"northwest":    "西北",
 	"up":           "上",
 	"down":         "下",
 	"out":          "外",
-	"enter":        "里",
+	"enter":        "裏",
 ]);
 
 	mapping exits;
@@ -77,9 +77,9 @@ mapping default_dirs = ([
         
 	if( !undefinedp(default_dirs[dirs[i]]) ) dir = default_dirs[dirs[i]];
 	else dir =dirs[i];
-	message_vision("$N一声长鸣，振翅向"+dir+"飞去。\n",this_object());
+	message_vision("$N一聲長鳴，振翅向"+dir+"飛去。\n",this_object());
 	move(where[i]);
-	tell_room(where[i],"一只大白雕飞了过来，在云层中盘旋。\n");
+	tell_room(where[i],"一隻大白雕飛了過來，在雲層中盤旋。\n");
 	return;
 }
 void do_kill(string arg)

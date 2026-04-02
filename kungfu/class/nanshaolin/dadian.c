@@ -9,10 +9,10 @@ string ask_me();
 
 void create()
 {
-	set_name("大癫大师", ({ "dadian dashi", "dadian", "dashi"}));
+	set_name("大癲大師", ({ "dadian dashi", "dadian", "dashi"}));
 	set("long",
-		"他是一位体态威猛的老僧，身穿一袭青布镶边袈裟。他身材不高，\n"
-		"太阳穴微凸，双目如电。\n");
+		"他是一位體態威猛的老僧，身穿一襲青布鑲邊袈裟。他身材不高，\n"
+		"太陽穴微凸，雙目如電。\n");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -48,7 +48,7 @@ void create()
 	set_skill("nianhua-finger", 220);
 	set_skill("boruo-strike", 220);
 // basic skill end
-// 剑和腿
+// 劍和腿
 	set_skill("leg", 150);
 	set_skill("shaolin-leg", 220);
 	set_skill("ruying-leg", 220);

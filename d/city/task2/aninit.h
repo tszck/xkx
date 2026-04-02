@@ -1,17 +1,17 @@
-// aninit.h 定义杀手检查，自己消失的时间
+// aninit.h 定義殺手檢查，自己消失的時間
 #include <ansi.h>
 #define A_TIME 20
 
 string *shot_msg = ({
-	"蓦地，街边上一个看来毫不起眼的$N突然冲了出来！\n",
-	"这是个热闹所在，一个$N笑嘻嘻冲着$n迎了上来，似乎要交给$n什么东西。\n",
-	"街角上一个$N本来在那里懒洋洋地晒着太阳，突然象离弦之箭般跃进身来。\n",
-	"一个$N站在街心正在吆喝着什么，忽然转眼看见了$n，转身冲了过来！\n",
-	"一个很平常的$N站在那里，脸上木然地没什么表情。\n",
-	"街面上站着一个$N，嘴里嘟囔着什么话，结果看见$n就大叫一声扑了过来。\n",
+	"驀地，街邊上一個看來毫不起眼的$N突然衝了出來！\n",
+	"這是個熱鬧所在，一個$N笑嘻嘻衝着$n迎了上來，似乎要交給$n什麼東西。\n",
+	"街角上一個$N本來在那裏懶洋洋地曬着太陽，突然象離弦之箭般躍進身來。\n",
+	"一個$N站在街心正在吆喝着什麼，忽然轉眼看見了$n，轉身衝了過來！\n",
+	"一個很平常的$N站在那裏，臉上木然地沒什麼表情。\n",
+	"街面上站着一個$N，嘴裏嘟囔着什麼話，結果看見$n就大叫一聲撲了過來。\n",
 });
 
-string *name_msg = ({ "流氓", "进香客", "道士", "行者", "挑夫", "家丁", "官兵", "行人", "乞丐", "百姓", "卖花姑娘", "老船夫", "趟子手", "铁匠", "小贩", "刀客", "剑客", "游方和尚", "江湖豪客", });
+string *name_msg = ({ "流氓", "進香客", "道士", "行者", "挑夫", "家丁", "官兵", "行人", "乞丐", "百姓", "賣花姑娘", "老船伕", "趟子手", "鐵匠", "小販", "刀客", "劍客", "遊方和尚", "江湖豪客", });
 
 string *long_id = ({ "liu mang", "jinxiang ke", "dao shi", "xing zhe", "tiao fu", "jia ding", "guan bing", "xing ren", "qi gai", "bai xing", "flower girl", "lao chuanfu", "tangzi shou", "tie jiang", "xiao fan", "dao ke", "jian ke", "seng ren", "jianghu haoke", });
 
@@ -60,7 +60,7 @@ void do_check()
 			message_vision(HIG+shot_msg[random(sizeof(shot_msg))]+NOR,me,ob);
 			command("shot "+ob->query("id"));
 			ob -> add("combat_num",1);
-			message_vision(HIW"\n当你定过神来再找那个$N，却已经消失得无影无踪了。\n"NOR,me);
+			message_vision(HIW"\n當你定過神來再找那個$N，卻已經消失得無影無蹤了。\n"NOR,me);
 			destruct(me);
 		}
 	}
@@ -78,7 +78,7 @@ void do_wait()
 	}
 	else
 	{
-		message_vision("$N自言自语地说道：看来那个人不会来了，我还是回去吧。\n$N悄没声息地向远处走了开去。\n",this_object());
+		message_vision("$N自言自語地說道：看來那個人不會來了，我還是回去吧。\n$N悄沒聲息地向遠處走了開去。\n",this_object());
 		destruct(me);
 	}
 }

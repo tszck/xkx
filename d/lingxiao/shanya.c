@@ -9,12 +9,12 @@ void create()
 {
 	set("short","山崖");
 	set("long",
-"映照在阳光白云之间的，是一座巍峨之极的大城。只见城墙高逾三
-丈，墙头墙垣雪白一片，尽是冰雪。城墙上隐隐有人头晃动，城头树着
-一面在罡风中招展的大旗，上面写着三个大字："HIW"
+"映照在陽光白雲之間的，是一座巍峨之極的大城。只見城牆高逾三
+丈，牆頭牆垣雪白一片，盡是冰雪。城牆上隱隱有人頭晃動，城頭樹着
+一面在罡風中招展的大旗，上面寫着三個大字："HIW"
 		      凌霄城"NOR"
-    城门前有一张厚厚的吊桥（bridge），正紧紧关闭着。如果想要进
-入的话，必须要请人开（open）才行。\n"
+    城門前有一張厚厚的吊橋（bridge），正緊緊關閉着。如果想要進
+入的話，必須要請人開（open）纔行。\n"
 );
 	set("outdoors", "lingxiao");
 	set("exits",([ /* sizeof() == 1 */
@@ -23,7 +23,7 @@ void create()
 	    "down"  : __DIR__"yuan",
 	]));
 	set("item_desc", ([
-		"bridge": "一张极大的吊桥，是凌霄城守城的一道防线。\n"
+		"bridge": "一張極大的吊橋，是凌霄城守城的一道防線。\n"
 	]) );
 	set("coor/x", -31000);
 	set("coor/y", -8940);
@@ -41,10 +41,10 @@ int do_open(string arg)
  
 
 	if( !arg || arg != "bridge" ) {
-		return notify_fail("你乱叫什么？\n");
+		return notify_fail("你亂叫什麼？\n");
 	}
-	message_vision("$N运足力气，大叫一声：“开门呀！”，\n",this_player());
-	message_vision("只听得城上有人说道：“有人来了，放吊桥吧。”\n只听得轧轧声响，吊桥缓缓放下，露出一个方方正正的城门来。\n", this_player());
+	message_vision("$N運足力氣，大叫一聲：“開門呀！”，\n",this_player());
+	message_vision("只聽得城上有人說道：“有人來了，放吊橋吧。”\n只聽得軋軋聲響，吊橋緩緩放下，露出一個方方正正的城門來。\n", this_player());
 	set("exits/north", __DIR__"gate");
 	remove_call_out("close");
 	call_out("close", 10, this_object());
@@ -53,6 +53,6 @@ int do_open(string arg)
 
 void close(object room)
 {
-	message("vision","吊桥又“嘎嘎”地升了起来，把城门挡住了。\n", room);
+	message("vision","吊橋又“嘎嘎”地升了起來，把城門擋住了。\n", room);
 	room->delete("exits/north");
 }

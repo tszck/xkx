@@ -9,11 +9,11 @@ object  room  =  0;
 
 void  create()
 {
-    set_name("青鬏龟童",  ({"gui  tong",  "tong"  }));
+    set_name("青鬏龜童",  ({"gui  tong",  "tong"  }));
     set("gender",  "男性");
     set("age",  13);
     set("per",  30);
-    set("long",  "一位扎着青鬏的龟童。\n");
+    set("long",  "一位扎着青鬏的龜童。\n");
     set("combat_exp",  5000);
     set_skill("force",  50);
     set_skill("unarmed",  50);
@@ -41,7 +41,7 @@ void  init()
 
 void  refuse_message  (object  me,  object  who)
 {
-    message_vision  ("$N说：别别，杀$N哪有赛龟有趣。\n",me,who);
+    message_vision  ("$N說：別別，殺$N哪有賽龜有趣。\n",me,who);
 }
 
 int  do_fight(string  arg)
@@ -51,7 +51,7 @@ int  do_fight(string  arg)
 
     if  (arg  &&  present(arg,environment(who))==me)
     {
-        message_vision  ("$N看样子输红了眼，想找$n打架。\n",who,me);
+        message_vision  ("$N看樣子輸紅了眼，想找$n打架。\n",who,me);
         refuse_message  (me,who);
         return  1;
     }
@@ -65,7 +65,7 @@ int  do_kill(string  arg)
 
     if  (arg  &&  present(arg,environment(who))==me)
     {
-        message_vision  ("$N看样子输红了眼，想杀$n。\n",who,me);
+        message_vision  ("$N看樣子輸紅了眼，想殺$n。\n",who,me);
         refuse_message  (me,who);
         return  1;
     }

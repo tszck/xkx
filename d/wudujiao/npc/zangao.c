@@ -13,8 +13,8 @@ void create()
         name += name_words[random(sizeof(name_words))];
 
         set_name(name,({"zang ao","ao"}));
-	set("race", "走兽");
-        set("long", "一只凶猛的藏獒，正警觉的来回踱步。\n");
+	set("race", "走獸");
+        set("long", "一隻兇猛的藏獒，正警覺的來回踱步。\n");
         set("age", 5);
         set("attitude", "peaceful");
 
@@ -54,13 +54,13 @@ int do_train(string arg)
         me =this_object();
         who=this_player();
         if (!arg || (arg != "zang ao"))
-                return notify_fail("你要驯服什么？\n");
+                return notify_fail("你要馴服什麼？\n");
 
         if(me->is_fighting())
-                return notify_fail("这只藏獒正在战斗。\n");
+                return notify_fail("這隻藏獒正在戰鬥。\n");
         if((string)who->query("family/family_name")!="五毒教")
-                return notify_fail("什么？\n");
+                return notify_fail("什麼？\n");
 
-        message_vision("藏獒本来就是人驯养的，你有没有搞错哦？\n\n", who,me);
+        message_vision("藏獒本來就是人馴養的，你有沒有搞錯哦？\n\n", who,me);
         return 1;
 }

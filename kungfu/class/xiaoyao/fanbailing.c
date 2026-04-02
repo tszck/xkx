@@ -1,4 +1,4 @@
-// fanbailing.c 范百龄
+// fanbailing.c 範百齡
 // Modified by Winder June.25 2000
 inherit NPC;
 inherit F_MASTER;
@@ -8,8 +8,8 @@ string ask_me();
 
 void create()
 {
-	set_name("范百龄", ({ "fan bailing", "fan" }));
-	set("long", "他师从聪辩先生，学的是围棋，当今天下，少有敌手。\n");
+	set_name("範百齡", ({ "fan bailing", "fan" }));
+	set("long", "他師從聰辯先生，學的是圍棋，當今天下，少有敵手。\n");
 	set("nickname","“函谷八友”棋魔");
 	set("gender", "男性");
 	set("age", 48);
@@ -22,7 +22,7 @@ void create()
 	set("dex", 38);
 
 	set("inquiry", ([
-		"棋谱":(:ask_me:),
+		"棋譜":(:ask_me:),
 	]) );
 	
 	set("max_qi", 1000);
@@ -61,7 +61,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("逍遥派", 3, "弟子");
+	create_family("逍遙派", 3, "弟子");
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
 	carry_object("/clone/weapon/gangdao")->wield();
@@ -71,7 +71,7 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say 好吧，我就收下你了，以后要多为逍遥派出力啊。");
+	command("say 好吧，我就收下你了，以後要多爲逍遙派出力啊。");
 	command("recruit " + ob->query("id"));
 }
 
@@ -80,12 +80,12 @@ string ask_me()
 	object me,ob;
 	ob=this_player(); 
 	if (query("book_count") < 1)
-		return "你来晚了，棋谱我已经赠送给别入了。";   
+		return "你來晚了，棋譜我已經贈送給別入了。";   
 
 	add("book_count", -1);                  
-	command("say 好吧，那我就把它送给你了。\n");
-	message_vision(HIY"范百龄微笑着从怀中拿出了一本书，交了给$N\n\n"NOR,ob);
+	command("say 好吧，那我就把它送給你了。\n");
+	message_vision(HIY"範百齡微笑着從懷中拿出了一本書，交了給$N\n\n"NOR,ob);
 	me=new("/clone/book/hand_book");
 	me->move(ob);
-	return "这本棋谱可千万不要随便给别人。\n";
+	return "這本棋譜可千萬不要隨便給別人。\n";
 }

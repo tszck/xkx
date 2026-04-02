@@ -1,10 +1,10 @@
-// ju.c 三花聚顶
+// ju.c 三花聚頂
 // Last Modified by winder on Mar. 10 2000
  
 #include <ansi.h>
  
 inherit F_SSERVER;
-#define PNAME "「三花聚顶」"
+#define PNAME "「三花聚頂」"
 int perform(object me,object target)
 {
 	string msg;
@@ -22,20 +22,20 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if( me->query_temp("htz_ju"))
-		return notify_fail(HIR"你已经在运「三花聚顶」了。\n"NOR);
+		return notify_fail(HIR"你已經在運「三花聚頂」了。\n"NOR);
 		
 	if (objectp(weapon = me->query_temp("weapon")))
-		return notify_fail("你必须空手运功。\n");
+		return notify_fail("你必須空手運功。\n");
 
 	fskill = "xiantian-qigong";
 	bskill = "strike";
@@ -49,21 +49,21 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 135 )
-		return notify_fail("你的"+to_chinese(fskill)+"等级不够, 不能使出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"等級不夠, 不能使出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 135 )
-		return notify_fail("你的"+to_chinese(sskill)+"等级不够, 不能使出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"等級不夠, 不能使出"+PNAME+"。\n");
 
 	if( me->query("neili") < 800 )
-		return notify_fail("你的内力不够，无法运功！\n");
+		return notify_fail("你的內力不夠，無法運功！\n");
 
 	if( me->query("max_neili") < 1000 )
-		return notify_fail("你的内力修为不够，无法运功！\n");
+		return notify_fail("你的內力修爲不夠，無法運功！\n");
 
 	skill = me->query_skill(bskill,1);
  
-	msg = HIC "$N"HIC"猛地提起内力，一股"HIB"青气"HIC"直冒上脸前来，随即大喝一
-声，聚气于掌，一掌劈面而下，「三花聚顶」！\n"NOR;
+	msg = HIC "$N"HIC"猛地提起內力，一股"HIB"青氣"HIC"直冒上臉前來，隨即大喝一
+聲，聚氣於掌，一掌劈面而下，「三花聚頂」！\n"NOR;
 
 	ap = me->query("combat_exp");
 	dp = target->query("combat_exp") / 2;
@@ -75,14 +75,14 @@ int perform(object me,object target)
 		if(userp(me))
 			me->add("neili",-600);
 		target_w = target->query_temp("weapon");
-		msg += HIC"$N内力充满全身，守得更是沉稳！\n"NOR;
+		msg += HIC"$N內力充滿全身，守得更是沉穩！\n"NOR;
 
 		if (target->query_temp("weapon") ||
 			target->query_temp("secondary_weapon"))
 		{
 			target_w->unequip();
 			target->reset_action();
-			msg += HIY"却只听得一阵丁当作响，兵器碎片丢了一地！\n"NOR;
+			msg += HIY"卻只聽得一陣丁當作響，兵器碎片丟了一地！\n"NOR;
       	seteuid(getuid());
       	piece = new("/clone/misc/piece");
       	piece->set("long", "一堆兵器的碎片。\n");
@@ -101,7 +101,7 @@ int perform(object me,object target)
 	}
 	else
 	{
-		msg += HIC"$n见$N胁下空门大露，疾速抢攻，迫得$N连忙收掌！\n"NOR;
+		msg += HIC"$n見$N脅下空門大露，疾速搶攻，迫得$N連忙收掌！\n"NOR;
 		if(userp(me)) me->add("neili",-600);
 		me->start_busy(4);
 	}
@@ -117,7 +117,7 @@ void remove_effect(object me, int a_amount, int d_amount)
 	me->add_temp("apply/attack", a_amount);
 	me->add_temp("apply/dodge", -d_amount);
 	me->delete_temp("htz_ju");
-	tell_object(me, HIY "你的三花聚顶运行完毕，将内力收回丹田。\n"NOR);
+	tell_object(me, HIY "你的三花聚頂運行完畢，將內力收回丹田。\n"NOR);
 }
 
 string name() {return replace_string(replace_string(PNAME,"「",""),"」","");}
@@ -128,13 +128,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		增加自己的攻击力和防护力
-		有可能毁坏对方兵器
+		增加自己的攻擊力和防護力
+		有可能毀壞對方兵器
 
 	出手要求：
-		先天气功135级
-		昊天掌135级
-		内力1000
+		先天氣功135級
+		昊天掌135級
+		內力1000
 HELP
 	);
 	return 1;

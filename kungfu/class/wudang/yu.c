@@ -1,13 +1,13 @@
-// yu.c 俞莲舟
+// yu.c 俞蓮舟
 
 inherit NPC;
 inherit F_MASTER;
 
 void create()
 {
-	set_name("俞莲舟", ({ "yu lianzhou", "yu" }));
-	set("nickname", "武当二侠");
-	set("long","他就是张三丰的二弟子俞莲舟。\n他今年五十岁，身材魁梧，气度凝重。\n虽在武当七侠中排名第二，功夫却是最精。\n");
+	set_name("俞蓮舟", ({ "yu lianzhou", "yu" }));
+	set("nickname", "武當二俠");
+	set("long","他就是張三豐的二弟子俞蓮舟。\n他今年五十歲，身材魁梧，氣度凝重。\n雖在武當七俠中排名第二，功夫卻是最精。\n");
 	set("gender", "男性");
 	set("age", 50);
 	set("attitude", "peaceful");
@@ -60,7 +60,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("武当派", 2, "弟子");
+	create_family("武當派", 2, "弟子");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();
@@ -71,26 +71,26 @@ void attempt_apprentice(object ob)
 {
 	mapping fam;
 
-	if( mapp(fam = ob->query("family")) && fam["family_name"] != "武当派" )
+	if( mapp(fam = ob->query("family")) && fam["family_name"] != "武當派" )
 	{
-		command ("say " + RANK_D->query_respect(this_player()) + "并非我门中人，习武还是先从各位道长起吧！");
+		command ("say " + RANK_D->query_respect(this_player()) + "並非我門中人，習武還是先從各位道長起吧！");
 		return;
 	}
         if ((int)ob->query_skill("taiji-shengong", 1) < 60)
 	{
-                command("say 我武当派乃内家武功，最重视内功心法。");
+                command("say 我武當派乃內家武功，最重視內功心法。");
                 command("say " + RANK_D->query_respect(ob) +
-                        "是否还应该在太极神功上多下点功夫？");
+                        "是否還應該在太極神功上多下點功夫？");
                 return;
         }
 	if ((int)ob->query("shen") < 80000)
 	{
-		command("say 我武当乃是堂堂名门正派，对弟子要求极严。");
+		command("say 我武當乃是堂堂名門正派，對弟子要求極嚴。");
 		command("say " + RANK_D->query_respect(ob) + "若能做出" +
-			"几件侠义之事，我一定收你。");
+			"幾件俠義之事，我一定收你。");
 		return;
 	}
 	command("say 好吧，既然" + RANK_D->query_respect(ob) + "也是" +
-		"我辈中人，今天就收下你吧。");
+		"我輩中人，今天就收下你吧。");
 	command("recruit " + ob->query("id"));
 }

@@ -7,33 +7,33 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N左手一拳直攻，右手如开似闭，封住对方出手，底下暗出撩阴腿，正是"GRN"「痛快淋漓」"NOR"",
+([	"action" : "$N左手一拳直攻，右手如開似閉，封住對方出手，底下暗出撩陰腿，正是"GRN"「痛快淋漓」"NOR"",
 	"lvl"    : 0,
 	"skill_name" : "痛快淋漓"
 ]),
-([	"action" : "$N右手一掌封向$n面门，手掌暗颤，已是封住$n视线，左手直拳攻向$n胸口，正是一招"HIG"「敞开胸臆」"NOR"",
+([	"action" : "$N右手一掌封向$n面門，手掌暗顫，已是封住$n視線，左手直拳攻向$n胸口，正是一招"HIG"「敞開胸臆」"NOR"",
 	"lvl"    : 20,
-	"skill_name" : "敞开胸臆"
+	"skill_name" : "敞開胸臆"
 ]),
-([	"action" : "$N右手五直叉开，挥向$n面门，左手挥动，急点$n右身数处大穴，乃是"HIB"「六月挥扇」"NOR"",
+([	"action" : "$N右手五直叉開，揮向$n面門，左手揮動，急點$n右身數處大穴，乃是"HIB"「六月揮扇」"NOR"",
 	"lvl"    : 40,
-	"skill_name" : "六月挥扇"
+	"skill_name" : "六月揮扇"
 ]),
-([	"action": "$N使出"HIR"「腊月围炉」"NOR"，双臂向$n身体抱去，正中出腿疾踢$n$l",
+([	"action": "$N使出"HIR"「臘月圍爐」"NOR"，雙臂向$n身體抱去，正中出腿疾踢$n$l",
 	"lvl"    : 60,
-	"skill_name" : "腊月围炉"
+	"skill_name" : "臘月圍爐"
 ]),
-([	"action" : "$N使出"MAG"「月下赏梅」"NOR"，左掌入弯月，斜斜向$n面门劈下，右手五指半曲，如梅枝斜出，指向$n",
+([	"action" : "$N使出"MAG"「月下賞梅」"NOR"，左掌入彎月，斜斜向$n面門劈下，右手五指半曲，如梅枝斜出，指向$n",
 	"lvl"    : 80,
-	"skill_name" : "月下赏梅"
+	"skill_name" : "月下賞梅"
 ]),
-([	"action" : "$N腰间使出铁板桥功夫，双手成提壶斟酒状，片刻间已指向$n嘴角，正是一招"HIW"「花间酌酒」"NOR"",
+([	"action" : "$N腰間使出鐵板橋功夫，雙手成提壺斟酒狀，片刻間已指向$n嘴角，正是一招"HIW"「花間酌酒」"NOR"",
 	"lvl"    : 100,
-	"skill_name" : "花间酌酒"
+	"skill_name" : "花間酌酒"
 ]),
-([	"action" : "$N右手五指直颤，急点$n数处大穴，左手成鹤形击出，乃是"HIM"「弄鹤闲琴」"NOR"",
+([	"action" : "$N右手五指直顫，急點$n數處大穴，左手成鶴形擊出，乃是"HIM"「弄鶴閒琴」"NOR"",
 	"lvl"    : 120,
-	"skill_name" : "弄鹤闲琴"
+	"skill_name" : "弄鶴閒琴"
 ]),
 });
 
@@ -41,20 +41,20 @@ int valid_enable(string usage) { return usage=="strike" || usage=="parry"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练快活十三掌必须空手。\n");
+		return notify_fail("練快活十三掌必須空手。\n");
 	if ((int)me->query_skill("panshi-shengong", 1) < 20)
-		return notify_fail("你磐石神功火候不够，无法学快活十三掌。\n");
+		return notify_fail("你磐石神功火候不夠，無法學快活十三掌。\n");
 	if ((int)me->query("max_neili") < 50)
-		return notify_fail("你的内力太弱，无法练快活十三掌。\n");
+		return notify_fail("你的內力太弱，無法練快活十三掌。\n");
 	return 1;
 }
 
 int practice_skill(object me)
 {
 	if ((int)me->query("qi") < 40)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 40)
-		return notify_fail("你的内力不够练快活十三掌。\n");
+		return notify_fail("你的內力不夠練快活十三掌。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -15);
 	return 1;
@@ -81,16 +81,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 25; }
@@ -110,9 +110,9 @@ int help(object me)
 
     快活十三掌是泰山派的武功。
 
-	学习要求：
-		磐石神功20级
-		内力50
+	學習要求：
+		磐石神功20級
+		內力50
 HELP
 	);
 	return 1;

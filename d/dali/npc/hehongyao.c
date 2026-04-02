@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("何红药",({ "he hongyao", "he" }) );
+	set_name("何紅藥",({ "he hongyao", "he" }) );
         set("gender", "女性" );
         set("age", 47);
-        set("long", "这女人就象个老乞婆，蓬头垢面，头发乱得象鸡窝，十指尤如
-鸡爪。满脸都是奇怪的伤痕，好象是被虫蛇撕咬所致，伤痕青
+        set("long", "這女人就象個老乞婆，蓬頭垢面，頭髮亂得象雞窩，十指尤如
+雞爪。滿臉都是奇怪的傷痕，好象是被蟲蛇撕咬所致，傷痕青
 黑不堪入目。\n");
  	set_temp("apply/defense", 5);
 	set("combat_exp", 70000);

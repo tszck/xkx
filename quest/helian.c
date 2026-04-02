@@ -1,5 +1,5 @@
 //quest/helian.c
-// Modified by Zeratul May 2,2001 增加两个任务之间的时间限制，恢复用钱取消的功能
+// Modified by Zeratul May 2,2001 增加兩個任務之間的時間限制，恢復用錢取消的功能
 
 inherit NPC;
 //inherit F_SKILL;
@@ -8,14 +8,14 @@ inherit NPC;
 int time_period(int timep,object me);
 void create()
 {
-	set_name("赫连铁树", ({ "helian tieshu", "helian", "tieshu" }));
-	set("title", HIY"西夏国征东大将军"HIM"西夏一品堂"HIR"总管"NOR);
+	set_name("赫連鐵樹", ({ "helian tieshu", "helian", "tieshu" }));
+	set("title", HIY"西夏國徵東大將軍"HIM"西夏一品堂"HIR"總管"NOR);
 	set("gender", "男性");
 	set("age", 35);
 	set("str", 25);
 	set("dex", 26);
 	set("per", 16);
-	set("long", "他身穿大红锦袍，三十四五岁年纪，鹰钩鼻、八字须。\n");
+	set("long", "他身穿大紅錦袍，三十四五歲年紀，鷹鉤鼻、八字須。\n");
 
 	set("combat_exp", 500000);
 	set("shen_type", -1);
@@ -40,7 +40,7 @@ void create()
 	map_skill("claw", "jiuyin-baiguzhao");
 	prepare_skill("claw", "jiuyin-baiguzhao");
 	set("inquiry", ([
-		"一品堂": "一品堂就是要和中原武林做对！\n",
+		"一品堂": "一品堂就是要和中原武林做對！\n",
 	]) );
 
 	setup();
@@ -49,7 +49,7 @@ void create()
 
 int accept_fight(object me)
 {
-	command("say 你敢来一品堂撒野！不要命了！");
+	command("say 你敢來一品堂撒野！不要命了！");
 	return 0;
 }
 
@@ -138,31 +138,31 @@ int give_quest()
 	combatexp = (int) (me->query("combat_exp"));
 	if( !(int)me->query("yipin/joined"))
 	{
-		tell_object(me,"赫连铁树对你哼了一声道：“你不是本堂的吧？来这凑什么热闹！”\n");
+		tell_object(me,"赫連鐵樹對你哼了一聲道：“你不是本堂的吧？來這湊什麼熱鬧！”\n");
 		return 1;
 	}
 	//Modified by zeratul 2000-12-25
 	if(combatexp<10000)
 	{
-		tell_object(me,"赫连铁树对你哼了一声道：“这种小角色还想投机一品堂？”\n");
+		tell_object(me,"赫連鐵樹對你哼了一聲道：“這種小角色還想投機一品堂？”\n");
 		return 1;
 	}
 /*	if(combatexp>10000000)
 	{
-		tell_object(me,"赫连铁树躬身道：“这种小事怎敢劳烦您。”\n");
+		tell_object(me,"赫連鐵樹躬身道：“這種小事怎敢勞煩您。”\n");
 		return 1;
 	} */
 	if( me->query("quest/helian") && !me->query( "quest/helian/finished" ) )
 	{
 		if( ((int) me->query("/quest/helian/time")) > time() )
 		{
-//			tell_object(me,"赫连铁树对你冷冷一笑道：让你办的事如何了？\n");
-			tell_object(me,"赫连铁树很不屑地瞟了你一眼说道：你要是没本事，就拿点儿费用出来我让别的人去。\n");
+//			tell_object(me,"赫連鐵樹對你冷冷一笑道：讓你辦的事如何了？\n");
+			tell_object(me,"赫連鐵樹很不屑地瞟了你一眼說道：你要是沒本事，就拿點兒費用出來我讓別的人去。\n");
 			return 1;
 		}
 		else
 		{
-			tell_object( me, "赫连铁树对着你叹了一口气：哎，我就再给你一次机会吧。\n" );
+			tell_object( me, "赫連鐵樹對着你嘆了一口氣：哎，我就再給你一次機會吧。\n" );
 			me->delete( "quest/helian/finished" );
 			me->add("qi",-(int)(me->query("qi")/10));
 			me->add("quests/abandon", 1);
@@ -171,7 +171,7 @@ int give_quest()
 	else
 		if (me->query("/quest/helian/last_time")+60+random(60) > time())
 		{
-			tell_object(me,"赫连铁树对你笑道：你过于劳累，歇息会儿再上路吧。\n");
+			tell_object(me,"赫連鐵樹對你笑道：你過於勞累，歇息會兒再上路吧。\n");
 			return 1;
 		}
 	
@@ -183,7 +183,7 @@ int give_quest()
 	while (1 == 1)
 	{
 		quest = __DIR__"qslist"->query_quest();
-		quest["quest_type"] = "杀";
+		quest["quest_type"] = "殺";
 		quest["exp_bonus"] = expright[j];
 		quest["pot_bonus"] = potright[j];
 		quest["score"] = 150 + random(50);
@@ -196,7 +196,7 @@ int give_quest()
 	timep = random(60) * 10 + 600;
 
 	time_period(timep, me);
-	tell_object(me,"先替我把『"+quest["quest"]+"』给我杀了，看那些南蛮又能把一品堂怎么着？！\n" NOR);
+	tell_object(me,"先替我把『"+quest["quest"]+"』給我殺了，看那些南蠻又能把一品堂怎麼着？！\n" NOR);
 
 	me->set("/quest/helian/time", (int)time()+timep);
 	me->set("/quest/helian/factor",factor);
@@ -224,11 +224,11 @@ int time_period(int timep, object me)
 	if(d) time = chinese_number(d) + "天";
 	else time = "";
 
-	if(h) time += chinese_number(h) + "小时";
+	if(h) time += chinese_number(h) + "小時";
 	if(m) time += chinese_number(m) + "分";
 	time += chinese_number(s) + "秒";
 
-	tell_object(me,HIW "赫连铁树吩咐道：给你在" + time + "内");
+	tell_object(me,HIW "赫連鐵樹吩咐道：給你在" + time + "內");
 	return 1;
 }
 
@@ -239,7 +239,7 @@ int accept_object(object who, object ob)
 	if ( !ob->query("money_id") ) return 0;
 	if ( !who->query("quest/helian") ||
 		who->query("quest/helian/finished") || ob->value() < 10000 )
-		tell_object(who,"赫连铁树笑道：那我可就不客气了。\n");
+		tell_object(who,"赫連鐵樹笑道：那我可就不客氣了。\n");
 	else
 	{
 		require = who->query("quests/require");
@@ -256,22 +256,22 @@ int accept_object(object who, object ob)
 		who->set("quests/num",num);
 		if(num==2 && ob->value() < 1000000)
 		{
-			tell_object(who, "赫连铁树一双尖针般的眼睛直盯着你：我实在不想给你任务！十项完成不了一项。如果你不想完成这次的任务，拿一百两违约金来！\n");
+			tell_object(who, "赫連鐵樹一雙尖針般的眼睛直盯着你：我實在不想給你任務！十項完成不了一項。如果你不想完成這次的任務，拿一百兩違約金來！\n");
 			return 1;
 		}
 		if(num==1 && ob->value() < 100000)
 		{
-			tell_object(who, "赫连铁树一双尖针般的眼睛直盯着你：你的任务资信太差，要新任务，先拿十两黄金来！\n");
+			tell_object(who, "赫連鐵樹一雙尖針般的眼睛直盯着你：你的任務資信太差，要新任務，先拿十兩黃金來！\n");
 			return 1;
 		}		
 		if( ob->value() < 10000)
 		{
-			tell_object(who, "赫连铁树一双尖针般的眼睛直盯着你：这点钱可不够我们的开销！\n");
+			tell_object(who, "赫連鐵樹一雙尖針般的眼睛直盯着你：這點錢可不夠我們的開銷！\n");
 			return 1;
 		}
 		else
 		{
-			tell_object(who, "赫连铁树笑道：那好，咱们买卖不成仁义在。想讨差使再找我吧！\n");
+			tell_object(who, "赫連鐵樹笑道：那好，咱們買賣不成仁義在。想討差使再找我吧！\n");
 			who->set( "quest/helian/finished", 1 );
 			who->delete( "quest/helian/last_time" );
 			who->add("quests/abandon", 1);

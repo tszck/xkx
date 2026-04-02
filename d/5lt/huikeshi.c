@@ -6,10 +6,10 @@ inherit  ROOM;
 
 void  create  ()
 {
-	set  ("short",  "会客室");
+	set  ("short",  "會客室");
 	set  ("long",  @LONG
-这里是村支部的会客室。室里琳琅满目的锦旗、奖状和荣誉证书，
-让你不禁看花了眼。
+這裏是村支部的會客室。室裏琳琅滿目的錦旗、獎狀和榮譽證書，
+讓你不禁看花了眼。
 LONG);
 	set("exits",  ([  //sizeof()  ==  1
 		"north"  :  __DIR__"czoffice",
@@ -17,7 +17,7 @@ LONG);
 	set("objects",  ([
 	]));
 
-        create_door("north", "木门", "south", DOOR_CLOSED);
+        create_door("north", "木門", "south", DOOR_CLOSED);
 	set("no_fight", 1);
 	set("coor/x", -170);
 	set("coor/y", 20);

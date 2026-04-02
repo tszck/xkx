@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short","长春桥");
+	set("short","長春橋");
 	set("long",@LONG
-长春桥以青石块堆砌，桥身亚于大虹桥，而形制相似，距虹桥约里
-许，置短板立柱桥栏。二桥南北相望，为陆行上蜀冈要道。
+長春橋以青石塊堆砌，橋身亞於大虹橋，而形制相似，距虹橋約裏
+許，置短板立柱橋欄。二橋南北相望，爲陸行上蜀岡要道。
 LONG );
 	set("outdoors", "shouxihu");
 	set("exits", ([

@@ -9,8 +9,8 @@ void create()
         set("class", "quanzhen");
         set("age", 14);
         set("long",
-                "这是一位小道童，看来年纪不大，脸上稚气犹存，整天笑嘻嘻\n"
-                "的无忧无虑。\n");
+                "這是一位小道童，看來年紀不大，臉上稚氣猶存，整天笑嘻嘻\n"
+                "的無憂無慮。\n");
         set("attitude", "friendly");
 
         set("str", 20);
@@ -29,7 +29,7 @@ void create()
         set("combat_exp", 15000);
 
         set_skill("force", 50);
-        set_skill("xiantian-qigong", 40);    //先天气功
+        set_skill("xiantian-qigong", 40);    //先天氣功
         set_skill("dodge", 50);
         set_skill("jinyan-gong", 50);   //金雁功
         set_skill("parry", 50);

@@ -2,7 +2,7 @@
 // Last Modified by winder on Jul. 12 2002
 
 mapping info_business = ([
-"长白山人参" :
+"長白山人蔘" :
        ([   "changbai"  :  10 + (random(20)/19) * random(20),
             "city"      :  30 + (random(6)/5)   * random(180),
             "dali"      :  40 + (random(16)/15) * random(150),
@@ -24,7 +24,7 @@ mapping info_business = ([
             "xueshan"   :  40 + (random(19)/18) * random(120),
       ]),
 
-CYN"绸缎"NOR : 
+CYN"綢緞"NOR : 
       ([    "changbai"  :  50 + (random(20)/19) * random(180),
             "city"      :  20 + (random(6)/5)   * random(100),
             "dali"      :  45 + (random(16)/15) * random(120),

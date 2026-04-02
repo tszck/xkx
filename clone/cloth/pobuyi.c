@@ -11,7 +11,7 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long","这是一件破烂不堪的布衣，也不知多少年没洗过了，上面满是窟窿。\n");
+		set("long","這是一件破爛不堪的布衣，也不知多少年沒洗過了，上面滿是窟窿。\n");
 		set("material", "cloth");
 		set("unit", "件");
 		set("value", 0);

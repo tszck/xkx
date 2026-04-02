@@ -1,4 +1,4 @@
-// sanqing.c  一剑化三清
+// sanqing.c  一劍化三清
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,7 +7,7 @@
 #include <combat.h>
 
 inherit F_SSERVER;
-#define PNAME "「一剑化三清」"
+#define PNAME "「一劍化三清」"
 int perform(object me, object target)
 {
   object weapon, ob;
@@ -23,18 +23,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
  
   if (!objectp(weapon = me->query_temp("weapon")) ||
     (string)weapon->query("skill_type") != "sword")
-    return notify_fail(PNAME"开始时必须拿着一把剑！\n");
+    return notify_fail(PNAME"開始時必須拿着一把劍！\n");
 
 	fskill = "xiantian-qigong";
 	bskill = "sword";
@@ -48,16 +48,16 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 135 )
-		return notify_fail("你的"+to_chinese(sskill)+"还不到家，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"還不到家，無法使用"+PNAME+"。\n");
 
   if( (int)me->query("neili") < 100 )
-    return notify_fail("你的真气不够！\n");
+    return notify_fail("你的真氣不夠！\n");
 
-  msg =  HIY "$N"HIY"大喝一声，剑招突变，长剑逼出雪亮光芒，一剑化为三剑，剑剑快似闪电！\n" NOR;
-// 全心一片空明，剑在意先，使出「一剑化三清」，剑尖连闪，化为三剑，沛然而至！
+  msg =  HIY "$N"HIY"大喝一聲，劍招突變，長劍逼出雪亮光芒，一劍化爲三劍，劍劍快似閃電！\n" NOR;
+// 全心一片空明，劍在意先，使出「一劍化三清」，劍尖連閃，化爲三劍，沛然而至！
 
 //  me->clean_up_enemy();
  // ob = me->select_opponent();
@@ -70,7 +70,7 @@ int perform(object me, object target)
      me->add_temp("apply/dodge",sword_lvl);
      me->add_temp("apply/attack",sword_lvl);
      me->add_temp("apply/sword",sword_lvl);
-    msg =  HIR "第"+chinese_number(count)+"剑！" NOR;
+    msg =  HIR "第"+chinese_number(count)+"劍！" NOR;
     message_combatd(msg, me);
     COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 0);
   }
@@ -92,12 +92,12 @@ int help(object me)
   write(@HELP
 
   使用功效：
-    连续出手三剑
+    連續出手三劍
 
   出手要求：
-    先天气功60级
-    全真剑法135级
-    内力100
+    先天氣功60級
+    全真劍法135級
+    內力100
 HELP
   );
   return 1;

@@ -9,8 +9,8 @@ void create()
 {
 	set("short", "塔林");
 	set("long", @LONG
-这里是少林历代僧侣的墓地，上百座墓塔式样繁多，造型各异。你
-置身其中，只看得眼花缭乱，不知该往哪个方向走，你似乎迷路了。
+這裏是少林歷代僧侶的墓地，上百座墓塔式樣繁多，造型各異。你
+置身其中，只看得眼花繚亂，不知該往哪個方向走，你似乎迷路了。
 LONG );
 	set("exits", ([
 		"northeast" : __DIR__"talin2",
@@ -22,7 +22,7 @@ LONG );
                 "north"     : __DIR__"talin"+(random(10)+1),
                 "east" : __DIR__"slyuan",
 	]));
-	create_door("east", "木门", "west", DOOR_CLOSED);
+	create_door("east", "木門", "west", DOOR_CLOSED);
 	set("outdoors", "nanshaolin");
 	set("no_clean_up", 0);
 	set("coor/x", 1780);

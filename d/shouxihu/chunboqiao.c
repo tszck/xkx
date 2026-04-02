@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short","春波桥");
+	set("short","春波橋");
 	set("long",@LONG
-小红桥是一座木制拱桥，此桥西接桃花坞，东连四桥烟雨楼前南端
-小岛，与四桥烟雨楼相通。
+小紅橋是一座木製拱橋，此橋西接桃花塢，東連四橋煙雨樓前南端
+小島，與四橋煙雨樓相通。
 LONG );
 	set("outdoors", "shouxihu");
 

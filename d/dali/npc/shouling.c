@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("傣族首领", ({ "daizu shouling", "shouling" }));
+	set_name("傣族首領", ({ "daizu shouling", "shouling" }));
 	set("age", 42);
 	set("title", "洪源洞洞主");
 	set("gender", "男性");
-	set("long", "这是一个身裹虎皮的高大男性。\n");
+	set("long", "這是一個身裹虎皮的高大男性。\n");
 	set("attitude", "peaceful");
 
 	set("str", 34);

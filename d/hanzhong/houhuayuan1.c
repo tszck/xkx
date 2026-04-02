@@ -1,15 +1,15 @@
-// houhuayuan1.c 后花园
+// houhuayuan1.c 後花園
 // Winder Oct.10 1998
 
 inherit ROOM;
 
 void create()
 {
-        set("short", "后花园");
+        set("short", "後花園");
         set("long", @LONG
-这是一片荒废了的花园，本来这里有一片小池塘，养着一些
-金鱼之类，现在池塘差不多也干涸了。池塘边立着一座假山，山
-上长满了青苔，看来已经很久没有人来过了。
+這是一片荒廢了的花園，本來這裏有一片小池塘，養着一些
+金魚之類，現在池塘差不多也乾涸了。池塘邊立着一座假山，山
+上長滿了青苔，看來已經很久沒有人來過了。
 LONG
         );
         set("outdoors", "hanzhong");

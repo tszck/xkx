@@ -11,11 +11,11 @@ void create()
 {
 	set("short",HIY "五行洞" NOR);
 	set("long", HIY @LONG
-这是五行洞。四周一片亮晶晶的，定睛细看，却是无数锋利
-的刀尖从墙上，地上，顶上，四面八方向你伸过来，稍不留神就
-会自己撞到刀尖上去。刀光眩目，更添彻骨寒意。几具血淋淋的
-断肢残骸挂在刀尖上，看来已经有些时日了。墙壁黑乎乎的，似
-是钢铁铸成。
+這是五行洞。四周一片亮晶晶的，定睛細看，卻是無數鋒利
+的刀尖從牆上，地上，頂上，四面八方向你伸過來，稍不留神就
+會自己撞到刀尖上去。刀光眩目，更添徹骨寒意。幾具血淋淋的
+斷肢殘骸掛在刀尖上，看來已經有些時日了。牆壁黑乎乎的，似
+是鋼鐵鑄成。
 LONG
 NOR	);
 	set("exits", ([
@@ -65,14 +65,14 @@ int valid_leave(object me, string dir)
 			count++;
 			me->set_temp("wuxing/水", count);
 			if (check_out(me))
-				return notify_fail("你顺利地走出了五行迷宫。\n");
+				return notify_fail("你順利地走出了五行迷宮。\n");
 		}
 		else if (dir == "west")
 		{
 //			write("*金克木*\n");
 			me->delete_temp("wuxing");
 			me->move(__DIR__"jianyu1");
-			return notify_fail("你掉进机关，落入僧监。\n");
+			return notify_fail("你掉進機關，落入僧監。\n");
 		}
 	}
 	return ::valid_leave(me, dir);

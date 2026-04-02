@@ -1,10 +1,10 @@
-// sanqing.c 一剑化三清
+// sanqing.c 一劍化三清
 
 #include <ansi.h>
 #include <skill.h>
 #include <weapon.h>
 #include <combat.h>
-#define PNAME "「绝剑」"
+#define PNAME "「絕劍」"
 
 inherit F_SSERVER;
  
@@ -24,18 +24,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
  
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail(PNAME"必须使剑出手！\n");
+		return notify_fail(PNAME"必須使劍出手！\n");
 
 	fskill = "linji-zhuang";
 	bskill = "sword";
@@ -49,26 +49,26 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 80 )
-		return notify_fail("你的"+to_chinese(fskill)+"还不到家，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"還不到家，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"还不到家，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"還不到家，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 300 )
-		return notify_fail("你的真气不够！\n");
+		return notify_fail("你的真氣不夠！\n");
 
 	extra = me->query_skill(sskill,1) *2/ 15;
  
-        msg = HIY "$N使出回风拂柳剑绝技「连环三绝剑」，一招连环三剑，手中的"+ weapon->name()+  HIY"闪电般攻出第一剑！\n" NOR;
+        msg = HIY "$N使出迴風拂柳劍絕技「連環三絕劍」，一招連環三劍，手中的"+ weapon->name()+  HIY"閃電般攻出第一劍！\n" NOR;
         message_combatd(msg, me);
 
         me->add_temp("apply/attack", extra*4);
 
-        msg = HIC "只见$N右手一抖，"+ weapon->name()+ HIC"划向$n"HIC"的左肩！" NOR;
+        msg = HIC "只見$N右手一抖，"+ weapon->name()+ HIC"划向$n"HIC"的左肩！" NOR;
                COMBAT_D->do_attack(me,target, me->query_temp("weapon"),TYPE_REGULAR,msg);
         if (random(me->query_skill("dodge")) > target->query_skill("dodge") / 2)
         {                
-        msg = HIW "第一道剑气"HIR"击向$n"HIR"周身，$n"HIR"只觉得全身气脉通道阻塞，真气立受干挠！\n"NOR;   
+        msg = HIW "第一道劍氣"HIR"擊向$n"HIR"周身，$n"HIR"只覺得全身氣脈通道阻塞，真氣立受幹撓！\n"NOR;   
         message_combatd(msg, me, target);
         target->start_busy(2);
         }
@@ -76,16 +76,16 @@ int perform(object me, object target)
        	COMBAT_D->do_attack(me,target, me->query_temp("weapon"),TYPE_REGULAR,msg);
         if (me->query("combat_exp")> target->query("combat_exp")/2 )
         {                
-        msg = HIC "第二道剑气"HIM"扫中$n"HIM"的身上,$n"HIM"只觉得全身一阵急痛！\n"NOR;   
+        msg = HIC "第二道劍氣"HIM"掃中$n"HIM"的身上,$n"HIM"只覺得全身一陣急痛！\n"NOR;   
                 message_combatd(msg, me, target);
         target->receive_damage("jing",extra*2,me);
         target->receive_wound("jing",extra*2,me);
         }
-        msg = HIY "$N长啸一声，聚功力于左手，使出剑法的最高境界--绝剑，朝$n"HIY"的胸前劈去！" NOR;
+        msg = HIY "$N長嘯一聲，聚功力於左手，使出劍法的最高境界--絕劍，朝$n"HIY"的胸前劈去！" NOR;
         COMBAT_D->do_attack(me,target, me->query_temp("weapon"),TYPE_REGULAR,msg);
         if (random(me->query_skill("force")) > target->query_skill("force") / 2)
         {                
-        msg = MAG "最后一道剑气"HIB"扫中$n"HIB"的章门穴,$n"HIB"只觉得全身内力提不起来了！\n"NOR;   
+        msg = MAG "最後一道劍氣"HIB"掃中$n"HIB"的章門穴,$n"HIB"只覺得全身內力提不起來了！\n"NOR;   
         message_combatd(msg, me, target);
         target->add("neili",-extra*4);
         }
@@ -103,13 +103,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		连续出手三招
-		分别考验双方的轻功、内功和武功修为
+		連續出手三招
+		分別考驗雙方的輕功、內功和武功修爲
 
 	出手要求：
-		临济十二庄80级
-		回风拂柳剑100级
-		内力300
+		臨濟十二莊80級
+		迴風拂柳劍100級
+		內力300
 HELP
 	);
 	return 1;

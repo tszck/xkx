@@ -6,11 +6,11 @@ string look_gaoshi();
 
 void create()
 {
-	set("short", "威远楼");
+	set("short", "威遠樓");
 	set("long", @LONG
-这是泉州的北门城楼，青石筑成两层楼台坚固异常，巍峨宽阔的拱
-形城门上方，镂着「泉州」两个红漆大字。城墙上贴着一张泉州官府告
-示(gaoshi)。过了此门就是北边蜿蜒崎岖的清源山区了。
+這是泉州的北門城樓，青石築成兩層樓臺堅固異常，巍峨寬闊的拱
+形城門上方，鏤着「泉州」兩個紅漆大字。城牆上貼着一張泉州官府告
+示(gaoshi)。過了此門就是北邊蜿蜒崎嶇的清源山區了。
 LONG );
 	set("outdoors", "quanzhou");
 	set("exits", ([
@@ -32,5 +32,5 @@ LONG );
 
 string look_gaoshi()
 {
-	return FINGER_D->get_killer() + "\n靖海将军\n施琅\n";
+	return FINGER_D->get_killer() + "\n靖海將軍\n施琅\n";
 }

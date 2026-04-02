@@ -5,9 +5,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("狄镖头", ({ "di biaotou", "di" }));
+	set_name("狄鏢頭", ({ "di biaotou", "di" }));
 	set("gender", "男性");
-	set("title", HIR"福"HIC"威"YEL"镖局"HIY"镖头"NOR);
+	set("title", HIR"福"HIC"威"YEL"鏢局"HIY"鏢頭"NOR);
 	set("age", 45);
 
 	set("combat_exp", 10000);

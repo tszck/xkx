@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "向阳巷");
+	set("short", "向陽巷");
 	set("long", @LONG
-这里是福州城西向阳巷。北面有一所破败的宅子。西面有一家杂货
-铺，专卖女人家用的东西，男人不可以进去。
+這裏是福州城西向陽巷。北面有一所破敗的宅子。西面有一家雜貨
+鋪，專賣女人家用的東西，男人不可以進去。
 LONG );
 
 	set("exits", ([
@@ -27,6 +27,6 @@ LONG );
 int valid_leave(object me, string dir)
 {
         if (dir == "west" && ((string)me->query("gender") =="男性") && !wizardp(me))
-                return notify_fail("你个大老爷们儿去那干嘛！！\n");
+                return notify_fail("你個大老爺們兒去那幹嘛！！\n");
         return 1;
 }

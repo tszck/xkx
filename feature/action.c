@@ -11,7 +11,7 @@ varargs void start_busy(mixed new_busy, mixed new_interrupt)
 	if( !intp(new_busy) && !functionp(new_busy) )
 		error("action: Invalid busy action type.\n");
 // Add being busy time to New busy. By winder. 2001.10.18
-// 改dazuo状态下 start_busy(3)的bug 
+// 改dazuo狀態下 start_busy(3)的bug 
 	if( this_object() ->is_busy())
 	{
 		if (functionp(busy))	old_busy += new_busy;

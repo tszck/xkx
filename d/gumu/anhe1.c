@@ -8,8 +8,8 @@ void create()
 {
 	set("short", HIR"暗河"NOR);
 	set("long", @LONG
-原来这正是一条地下暗河，此处水声已是轰轰，声势极为骇人。你
-脚下一处踏空，便有水流直冲咽喉。此潜流不知来自何处，更不知通往
+原來這正是一條地下暗河，此處水聲已是轟轟，聲勢極爲駭人。你
+腳下一處踏空，便有水流直衝咽喉。此潛流不知來自何處，更不知通往
 何方。
 LONG	);
 
@@ -30,7 +30,7 @@ void init()
 
 	me->receive_damage("qi", 50 );
 	me->receive_damage("jing", 50 ); 
-	message_vision(HIB"$N的真气正在流失，呼吸十分困难。\n"NOR, me);
+	message_vision(HIB"$N的真氣正在流失，呼吸十分困難。\n"NOR, me);
 	if ( me->query("qi") < 10 || (int)me->query("jing") < 10)
 	{
 		me->set_temp("last_damage_from","在暗河中被淹");

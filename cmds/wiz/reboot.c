@@ -15,7 +15,7 @@ int main(object me, string arg)
 	
 	wiz_status = SECURITY_D->get_status(me);
 
-	message( "system", "游戏重新启动，请稍候一分钟再 login 。\n", users() );
+	message( "system", "遊戲重新啓動，請稍候一分鐘再 login 。\n", users() );
 
 	user = users();
 	for(i=0; i<sizeof(user); i++) {
@@ -35,7 +35,7 @@ int help (object me)
         write(@HELP
 指令格式: shutdown
  
-马上重新起动游戏。
+馬上重新起動遊戲。
  
 HELP
 );

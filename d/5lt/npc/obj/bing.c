@@ -5,12 +5,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name("红豆冰", ({ "hongdou bing","bing" }) );
+	set_name("紅豆冰", ({ "hongdou bing","bing" }) );
 	set_weight(100);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一杯上好的红豆冰。\n");
+		set("long", "一杯上好的紅豆冰。\n");
 		set("unit", "杯");
 		set("value", 50);
 		set("food_remaining", 2);

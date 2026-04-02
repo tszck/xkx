@@ -6,16 +6,16 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "石级");
+	set("short", "石級");
 	set("long", @LONG
-这是一段向南北方向伸展的石级，四周由于缺乏光亮，难免有点阴
-森森的感觉，北面是个月形的铜门，南面是个石室。
+這是一段向南北方向伸展的石級，四周由於缺乏光亮，難免有點陰
+森森的感覺，北面是個月形的銅門，南面是個石室。
 LONG );
 	set("exits", ([
 		"south" : __DIR__"shishi2",
 		"north" : __DIR__"tongmen",
 	]));
-	create_door("south", "石门", "north", DOOR_CLOSED);
+	create_door("south", "石門", "north", DOOR_CLOSED);
 	set("no_clean_up", 0);
 	set("coor/x", -50000);
 	set("coor/y", -21030);

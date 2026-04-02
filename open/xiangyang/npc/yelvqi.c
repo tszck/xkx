@@ -1,4 +1,4 @@
-// yelvqi.c 耶律齐
+// yelvqi.c 耶律齊
 
 #include <ansi.h>
 
@@ -7,13 +7,13 @@ inherit F_SKILL;
 
 void create()
 {
-        set_name("耶律齐", ({ "Yelv qi", "yelv", "qi" }));
-        set("title", "全真教第二代弟子 丐帮第二十一代帮主");
+        set_name("耶律齊", ({ "Yelv qi", "yelv", "qi" }));
+        set("title", "全真教第二代弟子 丐幫第二十一代幫主");
         set("gender", "男性");
         set("age", 25);
         set("per", 25);
         set("long",
-        "郭靖和黄蓉的大女婿，郭芙的丈夫。\n",);
+        "郭靖和黃蓉的大女婿，郭芙的丈夫。\n",);
 
         set("combat_exp", 600000);
         set("shen_type", 1);

@@ -1,4 +1,4 @@
-// /d/yixing/npc/shijian.c 侍剑
+// /d/yixing/npc/shijian.c 侍劍
 // Last Modified by winder on Jul. 12 2002
 
 #include <ansi.h>
@@ -6,8 +6,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("侍剑", ({ "shijian" }));
-	set("long","她是长乐帮主的小丫鬟，脸庞略作圆形，倒也妩媚可喜。\n她头发略见蓬松，雪白的赤足踏在一双绣花拖鞋中。\n");
+	set_name("侍劍", ({ "shijian" }));
+	set("long","她是長樂幫主的小丫鬟，臉龐略作圓形，倒也嫵媚可喜。\n她頭髮略見蓬鬆，雪白的赤足踏在一雙繡花拖鞋中。\n");
 	set("gender", "女性");
 	set("age", 16);
 	set("attitude", "friendly");

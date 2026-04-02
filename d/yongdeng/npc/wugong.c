@@ -5,10 +5,10 @@ inherit NPC;
 void create()
 {
 	set_name(HIR"蜈蚣"NOR, ({ "wu gong" }));
-	set("long", "一只有毒的火红色大蜈蚣。\n");
+	set("long", "一隻有毒的火紅色大蜈蚣。\n");
 
-	set("race", "昆虫");
-	set("subrace", "爬虫");
+	set("race", "昆蟲");
+	set("subrace", "爬蟲");
 	set("age", 3);
 	set("attitude", "aggressive");
 
@@ -32,6 +32,6 @@ int hit_ob(object me, object ob, int damage)
 		(int)ob->query_condition("scorpion_poison") < 10 )
 	{
 		ob->apply_condition("scorpion_poison", 20);
-		tell_object(ob, HIG "你开始感到身体变得冰凉！\n" NOR );
+		tell_object(ob, HIG "你開始感到身體變得冰涼！\n" NOR );
 	}
 }

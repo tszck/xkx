@@ -1,4 +1,4 @@
-// xinyan.c 心砚
+// xinyan.c 心硯
 
 #include <ansi.h>
 
@@ -7,10 +7,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("心砚", ({ "xin yan", "yan" }));
-	set("title", HIR "红花会"HIG"书僮" NOR);
+	set_name("心硯", ({ "xin yan", "yan" }));
+	set("title", HIR "紅花會"HIG"書僮" NOR);
 	set("long", 
-"他是红花会总舵主陈家洛的贴身书僮。\n");
+"他是紅花會總舵主陳家洛的貼身書僮。\n");
 	set("gender", "男性");
 	set("class", "scholar");
 	set("age", 15);

@@ -12,8 +12,8 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("material", "wood");
-		set("unit", "双");
-		set("long", "这是一双草编的草鞋，用以保护足部。\n");
+		set("unit", "雙");
+		set("long", "這是一雙草編的草鞋，用以保護足部。\n");
 		set("value", 100);
 		set("armor_prop/dodge", 2);
 	}

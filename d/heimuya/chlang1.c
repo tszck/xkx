@@ -3,10 +3,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","长廊");
+	set("short","長廊");
 	set("long", @LONG
-这里是非常气派的长廊。两边站着数十个刀斧手，警卫森严，透着
-腾腾杀气。
+這裏是非常氣派的長廊。兩邊站着數十個刀斧手，警衛森嚴，透着
+騰騰殺氣。
 LONG );
 
 	set("outdoors", "heimuya");

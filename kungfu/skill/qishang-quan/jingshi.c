@@ -1,10 +1,10 @@
-// jingshi.c 精失诀
+// jingshi.c 精失訣
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME "「" HIR "精失诀" NOR "」"
+#define PNAME "「" HIR "精失訣" NOR "」"
 int perform(object me,object target)
 {
 	string msg;
@@ -20,17 +20,17 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (objectp(weapon = me->query_temp("weapon")))
-		return notify_fail("你必须空手才能使用「精失诀」。\n");
+		return notify_fail("你必須空手才能使用「精失訣」。\n");
 
 	fskill = "jiuyang-shengong";
 	bskill = "cuff";
@@ -44,20 +44,20 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不足，不能随便使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不足，不能隨便使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(sskill)+"的修为不够，不能够体会"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"的修爲不夠，不能夠體會"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(bskill)+"还不到家，无法体现七伤拳的"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"還不到家，無法體現七傷拳的"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 900 )
-		return notify_fail("你的内力还不够高！\n");
+		return notify_fail("你的內力還不夠高！\n");
 
 	skill = me->query_skill(bskill,1) + me->query_skill("force",1);
 	
-	msg = HIY"$N凝神定气，使出七伤拳总诀中的「" HIR "精失诀" HIY "」，双拳势如雷霆，向$n击去。\n"NOR;
+	msg = HIY"$N凝神定氣，使出七傷拳總訣中的「" HIR "精失訣" HIY "」，雙拳勢如雷霆，向$n擊去。\n"NOR;
 	message_combatd(msg, me, target);
 
 	ap = me->query("combat_exp") + skill * 500;
@@ -67,7 +67,7 @@ int perform(object me,object target)
 	{
 		if(userp(me)) me->add("neili",-500);
 
-		msg = HIG "$N"HIG"的拳只是轻轻的碰到了$n"HIG"，但$N"HIG"的真气趁这一瞬间已流入了$n体内！\n$n只觉得有点疲惫。。。\n"NOR;
+		msg = HIG "$N"HIG"的拳只是輕輕的碰到了$n"HIG"，但$N"HIG"的真氣趁這一瞬間已流入了$n體內！\n$n只覺得有點疲憊。。。\n"NOR;
 		neili_wound = 100 + random(skill);
 		if(neili_wound > target->query("neili"))
 			neili_wound = target->query("neili");
@@ -80,7 +80,7 @@ int perform(object me,object target)
 	}
 	else
 	{
-		msg = HIG "只见$n不慌不忙，轻轻一闪，躲过了$N的必杀一击！\n"NOR;
+		msg = HIG "只見$n不慌不忙，輕輕一閃，躲過了$N的必殺一擊！\n"NOR;
 		if(userp(me)) me->add("neili",-200);
 		me->start_busy(3);
 	}
@@ -96,13 +96,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方精气
+		損傷對方精氣
 
 	出手要求：
-		九阳神功150级
-		基本拳法150级
-		七伤拳150级
-		内力900
+		九陽神功150級
+		基本拳法150級
+		七傷拳150級
+		內力900
 HELP
 	);
 	return 1;

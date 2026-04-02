@@ -6,8 +6,8 @@ void create()
 {
         set("short", "土路");
         set("long", @LONG
-路旁一条小溪。溪水哗哗地流着，不时有鱼儿(fish)跃出水面。
-溪旁几个男孩正低着头专心在钓鱼。
+路旁一條小溪。溪水嘩嘩地流着，不時有魚兒(fish)躍出水面。
+溪旁幾個男孩正低着頭專心在釣魚。
 LONG);
         set("exits", ([
             "southwest"     : __DIR__"shanlu5",
@@ -17,7 +17,7 @@ LONG);
             __DIR__"npc/boy" : 2,
         ]));
         set("item_desc", ([
-            "fish" : "“哗”一条大鱼跃水而出，“噗”的一声又掉回水里。溅得男孩一身水。\n",
+            "fish" : "“譁”一條大魚躍水而出，“噗”的一聲又掉回水裏。濺得男孩一身水。\n",
         ]));
         set("outdoors", "hangzhou");
 	set("coor/x", 2680);

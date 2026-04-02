@@ -7,7 +7,7 @@ void create()
 {
 	set("short","柴房");
 	set("long", @LONG
-这是间不宽的柴房，木柴已经快烧光了，墙角放着几把『柴刀』。
+這是間不寬的柴房，木柴已經快燒光了，牆角放着幾把『柴刀』。
 LONG );
 	set("exits",([
 		"west" : __DIR__"chufang",

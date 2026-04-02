@@ -5,10 +5,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "大字岭");
+	set("short", "大字嶺");
 	set("long", @LONG
-大字岭是入恒山必由之路。石壁上镌有 "恒宗" 二字，高可两丈，
-笔力遒劲，气势雄浑。
+大字嶺是入恆山必由之路。石壁上鐫有 "恆宗" 二字，高可兩丈，
+筆力遒勁，氣勢雄渾。
 LONG);
 	set("exits", ([ /* sizeof() == 4 */
 		"west"      : __DIR__"yunge",

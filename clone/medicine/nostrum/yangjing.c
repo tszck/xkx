@@ -5,7 +5,7 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIG"养精丹"NOR, ({"yangjing dan", "dan"}));
+	set_name(HIG"養精丹"NOR, ({"yangjing dan", "dan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
@@ -30,13 +30,13 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
-	message_vision("$N吃下一粒" + name() + "。\n", me);
+	message_vision("$N喫下一粒" + name() + "。\n", me);
 /*	if (((int)me->query_condition("xx_poison") > 0) ||
 		((int)me->query("eff_jing") < (int)me->query("max_jing")))
 	{

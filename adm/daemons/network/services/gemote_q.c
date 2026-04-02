@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 // by mon@xyj 10/2/97
@@ -68,7 +68,7 @@ void send_msg(string channel, object me, string verb, string id,
 //     "||FILTER:" + filter +
                 "||CHANNEL:" +channel+
      "||MSG:"+msg+"@@@\n");
-        tell_object(me, "网路讯息已送出，请稍候。\n");
+        tell_object(me, "網路訊息已送出，請稍候。\n");
 }
 
 // Someone on another mud has sent us an intermud emote.

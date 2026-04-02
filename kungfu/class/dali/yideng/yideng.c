@@ -7,15 +7,15 @@ void consider();
 
 void create()
 {
-	set_name("一灯大师", ({"yideng dashi", "dashi", "yideng"}));
+	set_name("一燈大師", ({"yideng dashi", "dashi", "yideng"}));
 	set("nickname", HIG "天南一帝" NOR );
 	set("gender", "男性");
 	set("age", 52);
 	set("long", 
-		"他就是号称「南帝」的一灯大师，俗名段智兴，现已逊位为僧。\n"
-		"他身穿粗布僧袍，两道长长的白眉从眼角垂了下来，面目慈祥，\n"
-		"长须垂肩，眉间虽隐含愁苦，但一番雍容高华的神色，却是一\n"
-		"望而知。大师一生行善，积德无穷。\n");
+		"他就是號稱「南帝」的一燈大師，俗名段智興，現已遜位爲僧。\n"
+		"他身穿粗布僧袍，兩道長長的白眉從眼角垂了下來，面目慈祥，\n"
+		"長鬚垂肩，眉間雖隱含愁苦，但一番雍容高華的神色，卻是一\n"
+		"望而知。大師一生行善，積德無窮。\n");
 	set("attitude", "peaceful");
 	set("class", "bonze");
 	
@@ -84,13 +84,13 @@ void attempt_apprentice(object ob)
 {
 	if ((int)ob->query_skill("kurong-changong",1) < 150 )
 	{
-		command("say 你的本门内功心法太低了，还是努努力先提高一下吧。");
+		command("say 你的本門內功心法太低了，還是努努力先提高一下吧。");
 		return;
 	}
 	if ((int)ob->query("shen") < 10000  ) {
-		command("say 我大理段氏向来行侠仗义，您请回吧！");
+		command("say 我大理段氏向來行俠仗義，您請回吧！");
 		return;
 	}
-	command("say 阿弥陀佛，我就收了你这个徒弟吧。");
+	command("say 阿彌陀佛，我就收了你這個徒弟吧。");
 	command("recruit " + ob->query("id"));
 }

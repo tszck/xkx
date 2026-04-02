@@ -6,14 +6,14 @@ inherit NPC;
 
 void create()
 {
-	set_name("侍枪", ({ "shiqiang"}) );
-	set("nickname", HIC "枪" NOR );
+	set_name("侍槍", ({ "shiqiang"}) );
+	set("nickname", HIC "槍" NOR );
 	set("gender", "男性" );
-	set("type","枪");
+	set("type","槍");
 	set("age", 20);
 	set("no_get", 1);
 	set("long", 	
-		"他头上包着紫布头巾，一袭紫衫，没有一丝褶皱。\n");
+		"他頭上包着紫布頭巾，一襲紫衫，沒有一絲褶皺。\n");
 	set("str", 25);
 	set("dex", 20);
 	set("con", 17);
@@ -33,8 +33,8 @@ void create()
 	set("score",0);
 	set("attitude", "peaceful");
 	set("inquiry", ([
-		"铸枪" : "师傅命我帮助别人铸枪，但到现在也不见一个人影。谁要铸剑呢？\n",
-		"原料" : "铸剑可用寒丝羽竹，海底金母，千年神木，陨星铁石。但效果各不一样。\n",
+		"鑄槍" : "師傅命我幫助別人鑄槍，但到現在也不見一個人影。誰要鑄劍呢？\n",
+		"原料" : "鑄劍可用寒絲羽竹，海底金母，千年神木，隕星鐵石。但效果各不一樣。\n",
 	]) );
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
@@ -45,11 +45,11 @@ int accept_object(object who, object ob)
 {	
 	if(!(who->query_temp("spear") ) )
 	{
-		message_vision(HIC"师傅没有同意为你铸枪，您请回吧！\n"NOR, who);
+		message_vision(HIC"師傅沒有同意爲你鑄槍，您請回吧！\n"NOR, who);
 		return 0;
 	}
 	who->delete_temp("spear");
-	who->set_temp("m_make","枪");
+	who->set_temp("m_make","槍");
 	switch ((string)ob->query("id") ) 
 	{
 		case "shen mu": 
@@ -65,12 +65,12 @@ int accept_object(object who, object ob)
 			who->add_temp("ironstone",1);
 			break;
 		default :
-			message("vision","这是什么！师傅说这不能用来打造兵器！\n",who);
+			message("vision","這是什麼！師傅說這不能用來打造兵器！\n",who);
 			return 0;
 	}
-	message("vision", "侍枪低头检视了一下手中的"+(string)ob->query("name")+"点了点头说：\n", who);
-	message("vision", "。。。好我们现在就开始铸枪。\n", who);
-	write("请这位"+RANK_D->query_respect(who)+"给枪起名字吧！(zhu 枪的名字 英文代号)\n");
+	message("vision", "侍槍低頭檢視了一下手中的"+(string)ob->query("name")+"點了點頭說：\n", who);
+	message("vision", "。。。好我們現在就開始鑄槍。\n", who);
+	write("請這位"+RANK_D->query_respect(who)+"給槍起名字吧！(zhu 槍的名字 英文代號)\n");
 	destruct(ob);
 	return 1;
 }

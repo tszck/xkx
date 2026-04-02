@@ -8,8 +8,8 @@ void create()
 { 
 	set("short",HIB"石室"NOR);
 	set("long", @LONG
-古墓中阴沉的石室，只听见远远传来你脚步的回音，空荡荡的感觉
-使你心中只有恐惧，甚至忘记孤独。你不知身处何地，四周如此漆黑一
+古墓中陰沉的石室，只聽見遠遠傳來你腳步的迴音，空蕩蕩的感覺
+使你心中只有恐懼，甚至忘記孤獨。你不知身處何地，四周如此漆黑一
 片，只能靠摸索前行。
 LONG	);
 	set("exits", ([
@@ -31,8 +31,8 @@ void init()
 	if(userp(me) && me->query("jing") < 200)
 	{
 		me->move(__DIR__"shishi0"); 
-		message("vision", me->name()+"昏昏沉沉地走了过来。\n",environment(me), ({me}));
-		write(HIR"你慢慢发现自己体力不支.....\n"NOR);
+		message("vision", me->name()+"昏昏沉沉地走了過來。\n",environment(me), ({me}));
+		write(HIR"你慢慢發現自己體力不支.....\n"NOR);
 		me->unconcious();
 	}
 	if(!me->query_temp("steps") && userp(me))
@@ -51,7 +51,7 @@ int valid_leave(object me, string dir)
 		me->delete_temp("step");
 		me->delete_temp("steps");
 		me->start_busy(2);
-		return notify_fail("你累得半死，终於发现前方有一道光亮。\n");
+		return notify_fail("你累得半死，終於發現前方有一道光亮。\n");
 	}
 	return ::valid_leave(me,dir);
 }

@@ -17,7 +17,7 @@ int main(object me, string file)
 
 	if (!file) file = me->query("cwf");
 	if (!file)
-		return notify_fail("你要重新编译什麽档案？\n");
+		return notify_fail("你要重新編譯什麼檔案？\n");
 
 	if( (obj = present(file, environment(me))) && interactive(obj) )
 		return update_player(obj);
@@ -30,14 +30,14 @@ int main(object me, string file)
 	}
 
 	if( file_size(file)==-1 )
-		return notify_fail("没有这个档案。\n");
+		return notify_fail("沒有這個檔案。\n");
 
 	me->set("cwf", file);
 
 	if (obj = find_object(file)) {
 		if( obj==environment(me) ) {
 			if( file_name(obj)==VOID_OB )
-				return notify_fail("你不能在 VOID_OB 里重新编译 VOID_OB。\n");
+				return notify_fail("你不能在 VOID_OB 裏重新編譯 VOID_OB。\n");
 			inv = all_inventory(obj);
 			i = sizeof(inv);
 			while(i--)
@@ -47,12 +47,12 @@ int main(object me, string file)
 		destruct(obj);
 	}
 
-	if (obj) return notify_fail("无法清除旧程式码。\n");
+	if (obj) return notify_fail("無法清除舊程式碼。\n");
 
-    write("重新编译 " + file + "：");
+    write("重新編譯 " + file + "：");
 	err = catch( call_other(file, "???") );
 	if (err)
-		printf( "发生错误：\n%s\n", err );
+		printf( "發生錯誤：\n%s\n", err );
 	else {
 		write("成功！\n");
 		if( (i=sizeof(inv)) && (obj = find_object(file))) {
@@ -84,7 +84,7 @@ int update_player(object me)
 	obj->restore();
 	LOGIN_D->enter_world(link_ob, obj, 1);
 
-	write("身体更新完毕。\n\n");
+	write("身體更新完畢。\n\n");
 	obj->move(env);
 	obj->write_prompt();
 
@@ -94,11 +94,11 @@ int update_player(object me)
 int help(object me)
 {
   write(@HELP
-指令格式 : update <档名|here|me|玩家名>
+指令格式 : update <檔名|here|me|玩家名>
 
-这个指令可以更新档案, 并将新档的内容载入记忆体内. 若目标为
-'here' 则更新所在环境. 若目标为 'me' 则更新自己的人物. 若目
-标为玩家则可更新玩家物件.
+這個指令可以更新檔案, 並將新檔的內容載入記憶體內. 若目標爲
+'here' 則更新所在環境. 若目標爲 'me' 則更新自己的人物. 若目
+標爲玩家則可更新玩家物件.
 
 HELP
     );

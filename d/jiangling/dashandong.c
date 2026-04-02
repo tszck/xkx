@@ -5,14 +5,14 @@ void create()
 {
 	set("short", "大山洞");
 	set("long", @LONG
-这是西山上一个大山洞，里面黑乎乎的，什么也没有。你睁眼仔细
-观察，发现洞中有一丛丛齐肩的长草(cao)。
+這是西山上一個大山洞，裏面黑乎乎的，什麼也沒有。你睜眼仔細
+觀察，發現洞中有一叢叢齊肩的長草(cao)。
 LONG );
 	set("exits", ([
 		"out"  : __DIR__"tulu4",
 	]));
 	set("item_desc", ([
-	    "cao" : "长草密集厚实，好象遮盖住了什么，你实在看不清楚。\n",
+	    "cao" : "長草密集厚實，好象遮蓋住了什麼，你實在看不清楚。\n",
 	]));
 	set("no_clean_up", 0);
 	set("coor/x", -1630);
@@ -34,7 +34,7 @@ int do_use(string arg)
 	if (!present("fire", me))  return 0;
 	if( arg=="fire" )
 	{
-		write("你点燃了火折，发现草后面好象还有个洞，似乎可以钻(zuan)进去。\n");
+		write("你點燃了火折，發現草後面好象還有個洞，似乎可以鑽(zuan)進去。\n");
 		me->set_temp("marks/dashandong", 1);
 		return 1;
 	}
@@ -45,14 +45,14 @@ int do_zuan(string arg)
 	object me = this_player();
 
 	if (me->query_temp("marks/dashandong") ) {
-		message("vision", me->name() + "往草丛中滋溜一钻就不见了。\n", environment(me), ({me}) );
+		message("vision", me->name() + "往草叢中滋溜一鑽就不見了。\n", environment(me), ({me}) );
 		me->move(__DIR__"shandong");
-		message("vision", me->name() + "从草丛中钻了过来。\n", environment(me), ({me}) );
+		message("vision", me->name() + "從草叢中鑽了過來。\n", environment(me), ({me}) );
 		me->delete_temp("marks/dashandong");
 		return 1;
 	}
         else {
-		write("你想往哪儿钻？！\n");
+		write("你想往哪兒鑽？！\n");
 		return 1;
         }
 }

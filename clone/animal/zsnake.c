@@ -6,15 +6,15 @@ inherit "/inherit/char/trainee";
 
 void create()
 {
-	set_name("竹叶青", ({ "zhuye qing", "snake" }) );
+	set_name("竹葉青", ({ "zhuye qing", "snake" }) );
 	set("race", "爬蛇");
 	set("age", 4);
-	set("long", "一只身体碧绿的蛇，显得特别细小。\n");
+	set("long", "一隻身體碧綠的蛇，顯得特別細小。\n");
 	set("attitude", "peaceful");
 
-	set("msg_fail", "$n冲$N嘶地一吐舌头");
-	set("msg_succ", "$n嘶嘶做响，蛇头随着$N的手动了起来");
-	set("msg_trained","$n悄无声息地游到$N的脚下不动了");
+	set("msg_fail", "$n衝$N嘶地一吐舌頭");
+	set("msg_succ", "$n嘶嘶做響，蛇頭隨着$N的手動了起來");
+	set("msg_trained","$n悄無聲息地游到$N的腳下不動了");
 	set("auto_follow",0);
 	set("wildness", 11);
 
@@ -36,7 +36,7 @@ void init()
 	::init();
 	add_action("convert","bian");
 	if (interactive(ob = this_player()) &&
-	    ob->query("family/family_name") != "白驼山" &&
+	    ob->query("family/family_name") != "白駝山" &&
 		random(ob->query_kar() + ob->query_per()) < 30) {
 			remove_call_out("kill_ob");
 			call_out("kill_ob", 1, ob); 
@@ -63,7 +63,7 @@ int convert(string arg)
 //	object ob;
 
 	if (arg!="snake" && arg!="zhuye qing") return 0;
-	if (me->query("family/family_name") != "白驼山") 
-		return notify_fail("你不能化蛇为杖。\n");
-	return notify_fail("竹叶青过于细小，不能化为杖。\n");
+	if (me->query("family/family_name") != "白駝山") 
+		return notify_fail("你不能化蛇爲杖。\n");
+	return notify_fail("竹葉青過於細小，不能化爲杖。\n");
 }

@@ -5,7 +5,7 @@ inherit F_MASTER;
 #include <ansi.h>
 void create()
 {
-	set_name("史登达", ({ "shi dengda", "dengda", "shi" }) );
+	set_name("史登達", ({ "shi dengda", "dengda", "shi" }) );
 	set("nickname", HIG"千丈松"NOR);
 	set("gender", "男性");
 	set("class", "swordsman");

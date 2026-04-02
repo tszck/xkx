@@ -4,9 +4,9 @@ inherit NPC;
 
 void create()
 {
-        set_name("小师妹", ({ "xiao shimei"}));
+        set_name("小師妹", ({ "xiao shimei"}));
         set("long",
-                "她是华山派的女弟子。\n");
+                "她是華山派的女弟子。\n");
         set("gender", "女性");
         set("age", 15);
         set("attitude", "peaceful");
@@ -33,7 +33,7 @@ void create()
         set_temp("apply/defense", 15);
         set_temp("apply/damage", 5);
 
-        create_family("华山派", 14, "弟子");
+        create_family("華山派", 14, "弟子");
 
         setup();
         carry_object("/clone/weapon/changjian")->wield();

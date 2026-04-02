@@ -3,11 +3,11 @@ inherit NPC;
 string ask_li();
 void create()
 {
-        set_name("计老人", ({ "ji laoren", "ji"}));
+        set_name("計老人", ({ "ji laoren", "ji"}));
         set("gender", "男性");
         set("age", 83);
-        set("long", "满头白发，竟无一根是黑的，身材甚是高大，
-只是弓腰曲背，脸上全是皱纹，衰老已极。\n");
+        set("long", "滿頭白髮，竟無一根是黑的，身材甚是高大，
+只是弓腰曲背，臉上全是皺紋，衰老已極。\n");
         set("attitude", "friendly");
         set("combat_exp", 475000);
         set("shen", 4800);
@@ -37,8 +37,8 @@ void create()
         prepare_skill("cuff", "changquan");
         set("inquiry", ([
             "李文秀" : (: ask_li :),
-            "哈萨克人" : "哈萨克人最爱喝又香又烈的美酒。\n",
-            "华辉" : "谁？我不知道这个人。\n",
+            "哈薩克人" : "哈薩克人最愛喝又香又烈的美酒。\n",
+            "華輝" : "誰？我不知道這個人。\n",
         ]) );
         setup();
         carry_object(__DIR__"obj/bishou")->wield();
@@ -52,8 +52,8 @@ string ask_li()
     object me, ob, where;
     me=this_player();
     ob = find_living("li wenxiu");
-    if (!ob) return "这孩子，不知道又跑哪去了，唉。。。\n";
+    if (!ob) return "這孩子，不知道又跑哪去了，唉。。。\n";
     where = environment(ob);
-       if (!where) return "这孩子，不知道又跑哪去了，唉。。。\n";
-    return "哦，这孩子好象跑到"+where->query("short")+"玩去了。";        
+       if (!where) return "這孩子，不知道又跑哪去了，唉。。。\n";
+    return "哦，這孩子好象跑到"+where->query("short")+"玩去了。";        
 }

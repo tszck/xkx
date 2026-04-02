@@ -1,6 +1,6 @@
 // topten.c
-// 1998/12/17 Modified by Winder 增加基本赌技排行榜,zeratul 2000.1.13
-// Last Modified by winder on Aug. 5 2001 增加宠物排行
+// 1998/12/17 Modified by Winder 增加基本賭技排行榜,zeratul 2000.1.13
+// Last Modified by winder on Aug. 5 2001 增加寵物排行
 
 #include <ansi.h>
 
@@ -134,28 +134,28 @@ mapping *kill_topten =
 
 string *whichpart =
 ({
-	HIR" 榜次         榜名              排行依据          "NOR,
+	HIR" 榜次         榜名              排行依據          "NOR,
 	HIB"--------------------------------------------------"NOR,
-	HIY"第一榜    十大高手排行榜  ------ 经    验 ----  B1"NOR,
-	HIY"第二榜    十大财主排行榜  ------ 存    款 ----  B2"NOR,
-	HIY"第三榜    十大寿星排行榜  ------ 年    龄 ----  B3"NOR,
-	HIY"第四榜    十大内功高手    ------ 内力修为 ----  B4"NOR,
-	HIY"第五榜    十大博学鸿儒    ------ 读书技能 ----  B5"NOR,
-	HIY"第六榜    江湖十大冷血    ------ ＰＫ人数 ----  B6"NOR,
-	HIY"第七榜    江湖十大杀手    ------ 实战业绩 ----  B7"NOR,
-	HIY"第八榜    江湖十大神偷    ------ 偷窃技能 ----  B8"NOR,
-	HIY"第九榜    天下十大剑客    ------ 剑法技能 ----  B9"NOR,
+	HIY"第一榜    十大高手排行榜  ------ 經    驗 ----  B1"NOR,
+	HIY"第二榜    十大財主排行榜  ------ 存    款 ----  B2"NOR,
+	HIY"第三榜    十大壽星排行榜  ------ 年    齡 ----  B3"NOR,
+	HIY"第四榜    十大內功高手    ------ 內力修爲 ----  B4"NOR,
+	HIY"第五榜    十大博學鴻儒    ------ 讀書技能 ----  B5"NOR,
+	HIY"第六榜    江湖十大冷血    ------ ＰＫ人數 ----  B6"NOR,
+	HIY"第七榜    江湖十大殺手    ------ 實戰業績 ----  B7"NOR,
+	HIY"第八榜    江湖十大神偷    ------ 偷竊技能 ----  B8"NOR,
+	HIY"第九榜    天下十大劍客    ------ 劍法技能 ----  B9"NOR,
 	HIY"第十榜    天下十大刀客    ------ 刀法技能 ----  B10"NOR,
-	HIY"第十一榜  天下十大神拳    ------ 拳脚技能 ----  B11"NOR,
-	HIY"第十二榜  十大逃跑高竿    ------ 轻功技能 ----  B12"NOR,
+	HIY"第十一榜  天下十大神拳    ------ 拳腳技能 ----  B11"NOR,
+	HIY"第十二榜  十大逃跑高竿    ------ 輕功技能 ----  B12"NOR,
 	HIY"第十三榜  中原十大暗器手  ------ 暗器技能 ----  B13"NOR,
 	HIY"第十四榜  中原十神鞭      ------ 鞭法技能 ----  B14"NOR,
-	HIY"第十五榜  中原十大锤      ------ 锤法技能 ----  B15"NOR,
+	HIY"第十五榜  中原十大錘      ------ 錘法技能 ----  B15"NOR,
 	HIY"第十六榜  神州十大杖客    ------ 杖法技能 ----  B16"NOR,
-	HIY"第十七榜  环宇十大神兵手  ------ 煅制兵器 ----  B17"NOR,
-	HIY"第十八榜  天下十大赌棍    ------ 赌博技能 ----  B18"NOR,
-	HIY"第十九榜  天下十大强宠物  ------ 宠物经验 ----  B19"NOR,
-	HIY"第二十榜  天下十大乖宠物  ------ 驯服宠物 ----  B20"NOR,
+	HIY"第十七榜  環宇十大神兵手  ------ 煅制兵器 ----  B17"NOR,
+	HIY"第十八榜  天下十大賭棍    ------ 賭博技能 ----  B18"NOR,
+	HIY"第十九榜  天下十大強寵物  ------ 寵物經驗 ----  B19"NOR,
+	HIY"第二十榜  天下十大乖寵物  ------ 馴服寵物 ----  B20"NOR,
 });
 string printdate = NATURE_D->game_time();
 
@@ -164,10 +164,10 @@ void create()
 //	string id;
 //	int i,exp;
 
-	set_name(HIY"侠客行英雄榜"NOR, ({ "hero board", "board" }));
+	set_name(HIY"俠客行英雄榜"NOR, ({ "hero board", "board" }));
 	set_weight(800);
 	set("unit", "幅");
-	set("long","这是记载侠客行一百英雄座次排行情况的金榜。你可以用(READ)来查阅。\n");
+	set("long","這是記載俠客行一百英雄座次排行情況的金榜。你可以用(READ)來查閱。\n");
 	set("value", 1600);
 	set("no_get", 1);
 	set("no_steal", 1);
@@ -209,9 +209,9 @@ void init()
 			)
 			destruct( ob );
 		else
-			write(CYN"\n江湖排行榜出现错误！请通知天帝。\n\n"NOR);
+			write(CYN"\n江湖排行榜出現錯誤！請通知天帝。\n\n"NOR);
 	else
-		write(CYN"\n江湖排行榜出现错误！请通知天帝。\n\n"NOR);
+		write(CYN"\n江湖排行榜出現錯誤！請通知天帝。\n\n"NOR);
 
 	add_action("do_read", "read");
 }
@@ -227,13 +227,13 @@ int do_read( string arg )
 		case "hero board":
 		case "board":
 		case "b":
-		case "侠客行英雄榜":
+		case "俠客行英雄榜":
 			write( "--------------------------------------------------------\n" );
 			for( i = 0; i < sizeof(whichpart); i++ )
 				write( "    "+whichpart[i]+"\n" );
 			write( "--------------------------------------------------------\n" );
 			write( "                          ----"+printdate+"公告\n" );
-			write( "你要阅读第几榜？\n" );
+			write( "你要閱讀第幾榜？\n" );
 			break;
 		case "B1":
 		case "b1":
@@ -253,8 +253,8 @@ int do_read( string arg )
 		case "B2":
 		case "b2":
 		case "第二榜":
-		case "十大财主排行榜":
-			write( "                    『"+HIC"十大财主排行榜"NOR+"』\n" );
+		case "十大財主排行榜":
+			write( "                    『"+HIC"十大財主排行榜"NOR+"』\n" );
 			write( "--------------------------------------------------------\n" );
 			si = "名次";
 			for ( i = 0; i < 10; i++ )
@@ -268,8 +268,8 @@ int do_read( string arg )
 		case "B3":
 		case "b3":
 		case "第三榜":
-		case "十大寿星排行榜":
-			write( "                    『"+HIC"十大寿星排行榜"NOR+"』\n" );
+		case "十大壽星排行榜":
+			write( "                    『"+HIC"十大壽星排行榜"NOR+"』\n" );
 			write( "--------------------------------------------------------\n" );
 			si = "名次";
 			for ( i = 0; i < 10; i++ )
@@ -283,8 +283,8 @@ int do_read( string arg )
 		case "B4":
 		case "b4":
 		case "第四榜":
-		case "十大内功高手":
-			write( "                    『"+HIC"十大内功高手"NOR+"』\n" );
+		case "十大內功高手":
+			write( "                    『"+HIC"十大內功高手"NOR+"』\n" );
 			write( "--------------------------------------------------------\n" );
 			si = "名次";
 			for ( i = 0; i < 10; i++ )
@@ -298,8 +298,8 @@ int do_read( string arg )
 		case "B5":
 		case "b5":
 		case "第五榜":
-		case "十大博学鸿儒":
-			write( "                    『"+HIC"十大博学鸿儒"NOR+"』\n" );
+		case "十大博學鴻儒":
+			write( "                    『"+HIC"十大博學鴻儒"NOR+"』\n" );
 			write( "--------------------------------------------------------\n" );
 			si = "名次";
 			for ( i = 0; i < 10; i++ )
@@ -329,8 +329,8 @@ int do_read( string arg )
 		case "B7":
 		case "b7":
 		case "第七榜":
-		case "江湖十大杀手":
-			write( "                    『"+HIC"江湖十大杀手"NOR+"』\n" );
+		case "江湖十大殺手":
+			write( "                    『"+HIC"江湖十大殺手"NOR+"』\n" );
 			write( "--------------------------------------------------------\n" );
 			si = "名次";
 			for ( i = 0; i < 10; i++ )
@@ -361,8 +361,8 @@ int do_read( string arg )
 		case "B9":
 		case "b9":
 		case "第九榜":
-		case "天下十大剑客":
-			write( "                    『"+HIC"天下十大剑客"NOR+"』\n" );
+		case "天下十大劍客":
+			write( "                    『"+HIC"天下十大劍客"NOR+"』\n" );
 			write( "--------------------------------------------------------\n" );
 			si = "名次";
 			for ( i = 0; i < 10; i++ )
@@ -450,8 +450,8 @@ int do_read( string arg )
 		case "B15":
 		case "b15":
 		case "第十五榜":
-		case "中原十大锤":
-			write( "                    『"+HIC"中原十大锤"NOR+"』\n" );
+		case "中原十大錘":
+			write( "                    『"+HIC"中原十大錘"NOR+"』\n" );
 			write( "--------------------------------------------------------\n" );
 			si = "名次";
 			for ( i = 0; i < 10; i++ )
@@ -480,8 +480,8 @@ int do_read( string arg )
 		case "B17":
 		case "b17":
 		case "第十七榜":
-		case "环宇十大神兵手":
-			write( "                    『"+HIC"环宇十大神兵手"NOR+"』\n" );
+		case "環宇十大神兵手":
+			write( "                    『"+HIC"環宇十大神兵手"NOR+"』\n" );
 			write( "--------------------------------------------------------\n" );
 			si = "名次";
 			for ( i = 0; i < 10; i++ )
@@ -495,8 +495,8 @@ int do_read( string arg )
 		case "B18":
 		case "b18":
 		case "第十八榜":
-		case "天下十大赌棍":
-			write( "                    『"+HIC"天下十大赌棍"NOR+"』\n" );
+		case "天下十大賭棍":
+			write( "                    『"+HIC"天下十大賭棍"NOR+"』\n" );
 			write( "--------------------------------------------------------\n" );
 			si = "名次";
 			for ( i = 0; i < 10; i++ )
@@ -510,8 +510,8 @@ int do_read( string arg )
 		case "B19":
 		case "b19":
 		case "第十九榜":
-		case "天下十大强宠物":
-			write( "                    『"+HIC"天下十大强宠物"NOR+"』\n" );
+		case "天下十大強寵物":
+			write( "                    『"+HIC"天下十大強寵物"NOR+"』\n" );
 			write( "--------------------------------------------------------\n" );
 			si = "名次";
 			for ( i = 0; i < 10; i++ )
@@ -525,8 +525,8 @@ int do_read( string arg )
 		case "B20":
 		case "b20":
 		case "第二十榜":
-		case "天下十大乖宠物":
-			write( "                    『"+HIC"天下十大乖宠物"NOR+"』\n" );
+		case "天下十大乖寵物":
+			write( "                    『"+HIC"天下十大乖寵物"NOR+"』\n" );
 			write( "--------------------------------------------------------\n" );
 			si = "名次";
 			for ( i = 0; i < 10; i++ )
@@ -540,8 +540,8 @@ int do_read( string arg )
 		case "B21":
 		case "b21":
 		case "第二十一榜":
-		case "天下十大长者":
-			write( "                    『"+HIC"天下十大长者"NOR+"』\n" );
+		case "天下十大長者":
+			write( "                    『"+HIC"天下十大長者"NOR+"』\n" );
 			write( "--------------------------------------------------------\n" );
 			si = "名次";
 			for ( i = 0; i < 10; i++ )
@@ -555,8 +555,8 @@ int do_read( string arg )
 		case "B22":
 		case "b22":
 		case "第二十二榜":
-		case "天下十大愤青":
-			write( "                    『"+HIC"天下十大愤青"NOR+"』\n" );
+		case "天下十大憤青":
+			write( "                    『"+HIC"天下十大憤青"NOR+"』\n" );
 			write( "--------------------------------------------------------\n" );
 			si = "名次";
 			for ( i = 0; i < 10; i++ )
@@ -571,8 +571,8 @@ int do_read( string arg )
 		case "B23":
 		case "b23":
 		case "第二十三榜":
-		case "天下十大帅哥":
-			write( "                    『"+HIC"天下十大帅哥"NOR+"』\n" );
+		case "天下十大帥哥":
+			write( "                    『"+HIC"天下十大帥哥"NOR+"』\n" );
 			write( "--------------------------------------------------------\n" );
 			si = "名次";
 			for ( i = 0; i < 10; i++ )
@@ -601,8 +601,8 @@ int do_read( string arg )
 		case "B25":
 		case "b25":
 		case "第二十五榜":
-		case "天下十大杀人狂":
-			write( "                    『"+HIC"天下十大杀人狂"NOR+"』\n" );
+		case "天下十大殺人狂":
+			write( "                    『"+HIC"天下十大殺人狂"NOR+"』\n" );
 			write( "--------------------------------------------------------\n" );
 			si = "名次";
 			for ( i = 0; i < 10; i++ )

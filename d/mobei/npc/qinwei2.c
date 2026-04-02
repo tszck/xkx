@@ -4,9 +4,9 @@
 inherit NPC;
 void create()
 {
-	set_name("近卫兵",({"jinwei bing","bing"}));
+	set_name("近衛兵",({"jinwei bing","bing"}));
 	set("gender","男性");
-	set("long","贴身保护铁木真的勇士！\n");
+	set("long","貼身保護鐵木真的勇士！\n");
 	set("combat_exp",200000);
 	set("age",18+random(30));
 	set("qi",1500);

@@ -13,13 +13,13 @@ void init()
 
 void create()
 {
-               set_name("铜牌", ({"tongpai" }));
+               set_name("銅牌", ({"tongpai" }));
 
                 set("unit", "面");
-                set("long", "这是一面四四方方的铜牌,上面刻着:“千蛛万毒”四个
-大字。\n铜牌背面好象雕着一些细细的花纹，需要仔细看(see)才能勉强看清楚。\n");
+                set("long", "這是一面四四方方的銅牌,上面刻着:“千蛛萬毒”四個
+大字。\n銅牌背面好象雕着一些細細的花紋，需要仔細看(see)才能勉強看清楚。\n");
                 set("value", 0);
-              set("no_drop", "这样东西不能离开你。\n");
+              set("no_drop", "這樣東西不能離開你。\n");
               set_weight(200);
 
         setup();

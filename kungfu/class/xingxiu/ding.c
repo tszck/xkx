@@ -26,10 +26,10 @@ void create()
 	set_name("丁春秋", ({ "ding chunqiu", "ding" }));
 	set("nickname", "星宿老怪");
 	set("long", 
-		"他脸色红润，满头白发，颌下三尺银髯，童颜鹤发，当真便如图\n"
-		"画中的神仙人物一般。\n"
-		"他就是星宿派开山祖师、令正派人士深恶痛绝的星宿老怪丁春秋。\n"
-		"可是他看起来形貌清奇，仙风道骨。\n");
+		"他臉色紅潤，滿頭白髮，頜下三尺銀髯，童顏鶴髮，當真便如圖\n"
+		"畫中的神仙人物一般。\n"
+		"他就是星宿派開山祖師、令正派人士深惡痛絕的星宿老怪丁春秋。\n"
+		"可是他看起來形貌清奇，仙風道骨。\n");
 	set("gender", "男性");
 	set("age", 60);
 	set("per", 50);
@@ -94,32 +94,32 @@ void create()
 	set("inquiry", ([
 		"阿紫" : (: ask_azi :),
 		"神木王鼎" : (: ask_ding :),
-		"毒经" : (: ask_me :),
-		"星宿毒经" : (: ask_me :),
-		"碧磷针" : (: ask_du1 :),
-		"三笑逍遥散" : (: ask_du2 :),
-		"逍遥三笑散" : (: ask_du2 :),
+		"毒經" : (: ask_me :),
+		"星宿毒經" : (: ask_me :),
+		"碧磷針" : (: ask_du1 :),
+		"三笑逍遙散" : (: ask_du2 :),
+		"逍遙三笑散" : (: ask_du2 :),
 //		"火焰" : (: ask_huoyan :),
 		"心情"  : (: ask_job :),
 		"job"  : (: ask_job :),
-		"木鼎" : "抓虫子练毒用的。你敢偷，就废了你。",
-		"星宿派" : "我老仙乃是星宿派开山祖师, 还不赶快磕头。", 
-		"星宿海" : "你瞎了眼啦, 这儿就是。",
-		"星宿" : "这儿方圆几百里都是老仙的练功房。",
-		"丁春秋" : "没大没小的。再叫我废了你。",
-		"老仙" : "我星宿老仙比起古往今来的圣人怎么样啊？",
-		"星宿老仙" : "以后叫老仙。",
-		"吹捧" : "本来就是麽。",
-		"银磷粉"	: (:ask_yinlinfen:),
+		"木鼎" : "抓蟲子練毒用的。你敢偷，就廢了你。",
+		"星宿派" : "我老仙乃是星宿派開山祖師, 還不趕快磕頭。", 
+		"星宿海" : "你瞎了眼啦, 這兒就是。",
+		"星宿" : "這兒方圓幾百裏都是老仙的練功房。",
+		"丁春秋" : "沒大沒小的。再叫我廢了你。",
+		"老仙" : "我星宿老仙比起古往今來的聖人怎麼樣啊？",
+		"星宿老仙" : "以後叫老仙。",
+		"吹捧" : "本來就是麼。",
+		"銀磷粉"	: (:ask_yinlinfen:),
 		"yinlin fen" : (:ask_yinlinfen:),
-		"红磷粉" : (:ask_honglinfen:),
+		"紅磷粉" : (:ask_honglinfen:),
 		"honglin fen" : (:ask_honglinfen:),
 		"冰魄粉" : (:ask_bingpofen:),
 		"bingpo fen" : (:ask_bingpofen:),
-		"毒虫粉": (:ask_duchongfen:),
+		"毒蟲粉": (:ask_duchongfen:),
 		"duchong fen": (:ask_duchongfen:),
 	]));
-	create_family("星宿派", 1, "开山祖师");
+	create_family("星宿派", 1, "開山祖師");
 	set("class", "taoist");
 	setup();
 //	carry_object("/clone/weapon/changjian")->wield();
@@ -150,22 +150,22 @@ void greeting(object me)
 	myfam = (mapping)me->query("family");
 	shen = me->query("shen");
 
-	if(!myfam) command("say 你千里迢迢来天山, 莫不是想加入我星宿派？");
+	if(!myfam) command("say 你千里迢迢來天山, 莫不是想加入我星宿派？");
 	else if(myfam["family_name"] != "星宿派" && !me->query_temp("xx_job"))
-		command("say 你千里迢迢来到天山，是仰慕本老仙我的仁德吧？");
+		command("say 你千里迢迢來到天山，是仰慕本老仙我的仁德吧？");
 	else if(myfam["family_name"] != "星宿派" && me->query_temp("xx_job"))
 	command("nod " + me->query("id"));
-	else if(shen > -1000 && shen < 0) command("say 你怎么搞的？搅和了一身的白道气息！");
-	else if(shen > 0 && shen < 100000) command("say 好哇！你敢和白道的人搅和，不想活了是不是？");
+	else if(shen > -1000 && shen < 0) command("say 你怎麼搞的？攪和了一身的白道氣息！");
+	else if(shen > 0 && shen < 100000) command("say 好哇！你敢和白道的人攪和，不想活了是不是？");
 	else if(shen > 100000)
 	{
-		command("say 你竟敢和白道的人搅和！从我这里滚出去吧！");
+		command("say 你竟敢和白道的人攪和！從我這裏滾出去吧！");
 		command("expell " + me->query("id"));
 	}
-	else command("say 好徒儿，功夫练得怎么样了？");
+	else command("say 好徒兒，功夫練得怎麼樣了？");
 	if((myfam["family_name"] == "星宿派")&&(!me->query_skill("huagong-dafa",1))&&(me->query("combat_exp")>500000))
         {
-                command("say 你竟敢放弃本门心法！从我这里滚出去吧！");
+                command("say 你竟敢放棄本門心法！從我這裏滾出去吧！");
                 command("expell " + me->query("id"));
         }
 }
@@ -173,19 +173,19 @@ void greeting(object me)
 void attempt_apprentice(object me)
 {
 	if ((int)me->query("shen") > -100) {
-		command("say 老仙越看你越象白道派来卧底的。");
+		command("say 老仙越看你越象白道派來臥底的。");
 		return;
 	}
 	if ((int)me->query("combat_exp") < 10000) {
-		command("say 你这点微末道行如何能学到老仙的神妙功夫。");
+		command("say 你這點微末道行如何能學到老仙的神妙功夫。");
 		return;
 	}
 	if( me->query_temp("pending/flatter") ) {
-		command("say 你如此不把老仙放在眼里，老仙怎会收你？");
+		command("say 你如此不把老仙放在眼裏，老仙怎會收你？");
 		return;
 	} else {
-		command("say 我星宿老仙比起古往今来的圣人怎么样啊？");
-		message_vision("星宿老怪微闭双眼，手捻长须，一副等$N拍马(flatter)的样子。\n", me);
+		command("say 我星宿老仙比起古往今來的聖人怎麼樣啊？");
+		message_vision("星宿老怪微閉雙眼，手捻長鬚，一副等$N拍馬(flatter)的樣子。\n", me);
 		me->set_temp("pending/flatter", 1);
 	}
 }
@@ -194,42 +194,42 @@ int do_flatter(string arg)
 {
 	object me=this_player(), ob=this_object();
 
-/* 别派也要能拍他马屁！
+/* 別派也要能拍他馬屁！
 	if( !me->query_temp("pending/flatter") )
 		return 0;
 */
-	if( !arg ) return notify_fail("你说老仙什么？\n");
+	if( !arg ) return notify_fail("你說老仙什麼？\n");
 //	ob->set_temp("pending/flatter", 0);
 	switch(random(5))
 	{
-		case 0: message_vision("$N对$n大声赞道：您老人家一蹬足天崩地裂，一摇手日月无光！\n", me,ob); break;
-		case 1: message_vision("$N对$n大声赞道：星宿老仙大袖摆动，口吐真言，叫旁门左道牛鬼蛇神，一个个死无葬身之地！\n", me,ob); break;
-		case 2: message_vision("$N对$n大声赞道：这天下武林盟主一席，非老仙莫属。只须老仙下令动手，小人赴汤蹈火，万死不辞！\n", me,ob); break;
-		case 3: message_vision("$N对$n大声赞道：日月无老仙之明，天地无老仙之大，自盘古氏开天辟地以来，更无第二人能有老仙的威德！\n", me,ob); break;
-		case 4: message_vision("$N对$n大声赞道：老仙神功盖世，天下第一，战无不胜，功无不克！\n", me,ob); break;
+		case 0: message_vision("$N對$n大聲讚道：您老人家一蹬足天崩地裂，一搖手日月無光！\n", me,ob); break;
+		case 1: message_vision("$N對$n大聲讚道：星宿老仙大袖擺動，口吐真言，叫旁門左道牛鬼蛇神，一個個死無葬身之地！\n", me,ob); break;
+		case 2: message_vision("$N對$n大聲讚道：這天下武林盟主一席，非老仙莫屬。只須老仙下令動手，小人赴湯蹈火，萬死不辭！\n", me,ob); break;
+		case 3: message_vision("$N對$n大聲讚道：日月無老仙之明，天地無老仙之大，自盤古氏開天闢地以來，更無第二人能有老仙的威德！\n", me,ob); break;
+		case 4: message_vision("$N對$n大聲讚道：老仙神功蓋世，天下第一，戰無不勝，功無不克！\n", me,ob); break;
 	}
-	message_vision("$N大声说道：" + arg + "\n", me);
+	message_vision("$N大聲說道：" + arg + "\n", me);
 	if( strsrch(arg, "星宿老仙") >=0 && (strsrch(arg, "德配天地") >=0 ||
-		strsrch(arg, "威震寰宇") >=0 || strsrch(arg, "古今无比") >=0 ))
+		strsrch(arg, "威震寰宇") >=0 || strsrch(arg, "古今無比") >=0 ))
 	{
 		if(me->query_temp("pending/flatter"))
 		{
 			me->set_temp("pending/flatter", 0);
 			me->set_temp("ding_flatter", 1);
 			command("smile");
-			command("say 这还差不多。\n");
+			command("say 這還差不多。\n");
 			command("recruit " + me->query("id"));
-			CHANNEL_D->do_channel(me, "chat",  "星宿老仙，德配天地，威震寰宇，古今无比！");
+			CHANNEL_D->do_channel(me, "chat",  "星宿老仙，德配天地，威震寰宇，古今無比！");
 		}
 		else
 		{
-			command("say 你对老仙我这么恭敬，今后前途不可限量啊！\n");
+			command("say 你對老仙我這麼恭敬，今後前途不可限量啊！\n");
 			me->set_temp("ding_flatter", 1);
 			return 1;
 		}
 	} else
 	{
-		command("say 你如此不把老仙放在眼里，老仙怎会收你？");
+		command("say 你如此不把老仙放在眼裏，老仙怎會收你？");
 	}
 	return 1;
 }
@@ -240,7 +240,7 @@ int recruit_apprentice(object ob)
 		add("apprentice_available", -1);
 }
 
-// 星宿老仙，德配天地，威震寰宇，古今无比
+// 星宿老仙，德配天地，威震寰宇，古今無比
 
 string ask_me()
 {
@@ -249,12 +249,12 @@ string ask_me()
 	
 	if(!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "星宿派")
-		return RANK_D->query_respect(this_player()) + "与本派素无来往，不知此话从何谈起？";
-	if(query("book_count") < 1) return "你来晚了，本派的内功心法不在此处。";
+		return RANK_D->query_respect(this_player()) + "與本派素無來往，不知此話從何談起？";
+	if(query("book_count") < 1) return "你來晚了，本派的內功心法不在此處。";
 	add("book_count", -1);
 	ob = new("/clone/book/dujing_2");
 	ob->move(this_player());
-	return "好吧，这本「星宿毒经」你拿回去好好钻研。";
+	return "好吧，這本「星宿毒經」你拿回去好好鑽研。";
 }
 string ask_du1()
 {
@@ -263,14 +263,14 @@ string ask_du1()
 	
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "星宿派")
-		return RANK_D->query_respect(this_player()) + "与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) + "與本派素無來往，不知此話從何談起？";
 	if (this_player()->query_skill("poison",1)<50)
-		return "你的毒技火候未到，用不了这种东西。";
-	if (query("zhen_count") < 1) return "你来晚了，碧磷针都发完了。";
+		return "你的毒技火候未到，用不了這種東西。";
+	if (query("zhen_count") < 1) return "你來晚了，碧磷針都發完了。";
 	add("zhen_count", -1);
 	ob = new("/d/xingxiu/obj/bilinzhen");
 	ob->move(this_player());
-	return "好吧，那你就先用这些针吧。";
+	return "好吧，那你就先用這些針吧。";
 }
 string ask_du2()
 {
@@ -279,14 +279,14 @@ string ask_du2()
 	
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "星宿派")
-		return RANK_D->query_respect(this_player()) + "与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) + "與本派素無來往，不知此話從何談起？";
 	if (this_player()->query_skill("poison",1)<100)
-		return "你的毒技火候未到，用不了这种东西。";
-	if (query("san_count") < 1) return "你来晚了，现在没什么剩的了。";
+		return "你的毒技火候未到，用不了這種東西。";
+	if (query("san_count") < 1) return "你來晚了，現在沒什麼剩的了。";
 	add("san_count", -1);
 	ob = new("/clone/medicine/poison/sanxiaosan");
 	ob->move(this_player());
-	return "好吧，这包毒药你拿回去善加利用吧。";
+	return "好吧，這包毒藥你拿回去善加利用吧。";
 }
 string ask_huoyan()
 {
@@ -295,14 +295,14 @@ string ask_huoyan()
 	
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "星宿派")
-		return RANK_D->query_respect(this_player()) + "与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) + "與本派素無來往，不知此話從何談起？";
 	if (this_player()->query_skill("poison",1)<100)
-		return "你的毒技火候未到，用不了这种东西。";
-	if (query("huoyan_count") < -100) return "你来晚了，现在没什么剩的了。";
+		return "你的毒技火候未到，用不了這種東西。";
+	if (query("huoyan_count") < -100) return "你來晚了，現在沒什麼剩的了。";
 	add("huoyan_count", -1);
 	ob = new("/d/xingxiu/npc/obj/huoyan.c");
 	ob->move(this_player());
-	return "好吧，我就给你堆火焰吧。";
+	return "好吧，我就給你堆火焰吧。";
 }
 
 string ask_ding()
@@ -312,20 +312,20 @@ string ask_ding()
 	
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "星宿派")
-		return RANK_D->query_respect(this_player()) + "与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) + "與本派素無來往，不知此話從何談起？";
 	switch (query("ding_count") )
 	{
 		case 0:
 			command("kick1 "+this_player()->query("id"));
 			add("ding_count", 1);
-			return "养你们这些忘恩负义的狗娘徒弟有什么用？连个小小的神木王鼎都会偷走！";
+			return "養你們這些忘恩負義的狗娘徒弟有什麼用？連個小小的神木王鼎都會偷走！";
 		case 1:
 			command("sigh "+this_player()->query("id"));
 			add("ding_count", 1);
-			return "小阿紫把神木王鼎拿走了，谁把她抓回来，谁就是本门大弟子！";
+			return "小阿紫把神木王鼎拿走了，誰把她抓回來，誰就是本門大弟子！";
 		default: 
 			command("grin");
-			return "这事我正难受呢，你还这么没眼色老揭伤疤。活够了是不是？";
+			return "這事我正難受呢，你還這麼沒眼色老揭傷疤。活夠了是不是？";
 	}
 	return "哼。";
 }
@@ -337,15 +337,15 @@ string ask_azi()
 	
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "星宿派")
-		return RANK_D->query_respect(this_player()) + "与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) + "與本派素無來往，不知此話從何談起？";
 	if(query("ding_count") == 2 || this_player()->query_temp("smwd/step"))
 	{
 		this_player()->set_temp("smwd/step", 1);
 		command("kick "+this_player()->query("id"));
 		add("ding_count", 1);
-		return "阿紫早她娘的跑了！你死人哪！还不快去追？";
+		return "阿紫早她孃的跑了！你死人哪！還不快去追？";
 	}
-	else return "阿紫是个蛮可爱的小马屁精。老夫我喜欢！";
+	else return "阿紫是個蠻可愛的小馬屁精。老夫我喜歡！";
 }
 
 string ask_job()
@@ -353,28 +353,28 @@ string ask_job()
 	object ob,me = this_player();
  
 	if(!me->query("family") || me->query("family/family_name") != "星宿派")
-		return "看你对老仙态度恭敬，何不加入我星宿派呢？";
+		return "看你對老仙態度恭敬，何不加入我星宿派呢？";
 	if(me->query("combat_exp") < 100000) 
-		return "哈哈哈，你再加把力练功，很快就可以为老仙我分忧了。";
+		return "哈哈哈，你再加把力練功，很快就可以爲老仙我分憂了。";
 	if(me->query("shen") >= 0 ||
 		me->query("shen") > -(me->query("combat_exp")/10)) 
-		return "徒儿，看来你的心肠还不够黑啊，有些事你不问也罢。";
+		return "徒兒，看來你的心腸還不夠黑啊，有些事你不問也罷。";
 	if(interactive(me) && me->query_temp("job_busy")) 
-		return "你说要替老仙分忧，怎么还在这里发呆？";
+		return "你說要替老仙分憂，怎麼還在這裏發呆？";
 	if(interactive(me) && me->query_condition("wait_xx_task")) 
-		return "老仙现在心情还好，不用你来为我分忧。";
+		return "老仙現在心情還好，不用你來爲我分憂。";
 	if(query("di_count") < 1) 
-		return "老仙现在心情还好，再来烦我就别怪老仙心情不好了。";
+		return "老仙現在心情還好，再來煩我就別怪老仙心情不好了。";
 
 	ob = new(__DIR__"obj/di");
 	add("di_count", -1);
 	ob->move(me);
-	ob->set("name", BLU"蓝玉短笛"NOR);
-	ob->set("long", BLU"这玉笛短得出奇，只不来七寸来长、通体碧蓝，晶莹可爱。\n" NOR);
+	ob->set("name", BLU"藍玉短笛"NOR);
+	ob->set("long", BLU"這玉笛短得出奇，只不來七寸來長、通體碧藍，晶瑩可愛。\n" NOR);
 	ob->set("xx_user", getuid(me));
 	me->set_temp("xx_job", 1);
-	message_vision("$N拿出一只玉制短笛，交给$n。\n", this_object(), me);
-	return "老仙我最近心情不佳，徒儿你要多多为我分忧才是！\n";    
+	message_vision("$N拿出一隻玉製短笛，交給$n。\n", this_object(), me);
+	return "老仙我最近心情不佳，徒兒你要多多爲我分憂纔是！\n";    
 }
 
 int do_xian(string arg)
@@ -386,35 +386,35 @@ int do_xian(string arg)
 
 	if(who->is_busy() || who->is_fighting()) 
 		return notify_fail("你正忙着呢。\n");
-	if(!arg) return notify_fail("你要献给老仙什么东西？\n");
+	if(!arg) return notify_fail("你要獻給老仙什麼東西？\n");
 	if(!objectp(ob = present(arg, who)))
-		return notify_fail("你身上没有这样东西。\n");
+		return notify_fail("你身上沒有這樣東西。\n");
 	if(!who->query_temp("xx_job"))
-		return notify_fail("连老仙现在的心情还没摸清楚就乱献东西？\n"); 
-	message_vision(HIY "\n$n毕恭毕敬地将"+ob->query("name")+HIY"拿出，双手捧上，想要献给$N。\n\n"NOR, me, who);
+		return notify_fail("連老仙現在的心情還沒摸清楚就亂獻東西？\n"); 
+	message_vision(HIY "\n$n畢恭畢敬地將"+ob->query("name")+HIY"拿出，雙手捧上，想要獻給$N。\n\n"NOR, me, who);
 	if(me->is_busy())
 	{
 		"/cmds/std/say"->main(this_object(),"我正忙着呢，你等等。");
-		return notify_fail("老仙让你等等。\n");
+		return notify_fail("老仙讓你等等。\n");
         }
 	if(!mapp(quest = who->query_temp("quest")) )
 	{
-		"/cmds/std/say"->main(this_object(),"你拿个"+ob->name()+CYN"给我干嘛？"NOR);
-		return notify_fail("老仙对这东西不感兴趣。\n");
+		"/cmds/std/say"->main(this_object(),"你拿個"+ob->name()+CYN"給我幹嘛？"NOR);
+		return notify_fail("老仙對這東西不感興趣。\n");
 	}
 	if( quest["time"] < time())
 	{
-		"/cmds/std/say"->main(this_object(),"嗯，这么久才办完，你干什么去了？给我滚一边去！");
+		"/cmds/std/say"->main(this_object(),"嗯，這麼久才辦完，你幹什麼去了？給我滾一邊去！");
 		who->apply_condition("wait_xx_task", 40);
-		return notify_fail("完了，老仙生气了。\n");
+		return notify_fail("完了，老仙生氣了。\n");
 	}
 	if(userp(ob))
 	{
 		command("stare " + who->query("id"));
-		"/cmds/std/say"->main(this_object(),"竟敢用假货来欺骗本老仙，给我滚出去！");
-		message_vision("\n说完$N长袖一挥，一股内劲拂出，就将$n扫出洞外！\n\n", me, who);
+		"/cmds/std/say"->main(this_object(),"竟敢用假貨來欺騙本老仙，給我滾出去！");
+		message_vision("\n說完$N長袖一揮，一股內勁拂出，就將$n掃出洞外！\n\n", me, who);
 		who->move("/d/xingxiu/riyuedong1");
-		message("vision","只听“呼”地一声，紧接着"+who->query("name")+"从日月洞里直飞了出来，摔了个四脚朝天！\n", environment(who), who);
+		message("vision","只聽“呼”地一聲，緊接着"+who->query("name")+"從日月洞裏直飛了出來，摔了個四腳朝天！\n", environment(who), who);
 		who->receive_wound("jing", 200);
 		who->receive_wound("qi", 250);
 		who->apply_condition("wait_xx_task", 30);
@@ -426,8 +426,8 @@ int do_xian(string arg)
 	if(ob->query("id") != quest["id"])
 	{
 		command("hmm " + who->query("id"));
-		"/cmds/std/say"->main(this_object(),"你拿个"+ob->query("name")+CYN"给老仙我有什么用？");
-		return notify_fail("好象是你献错东西了。\n");
+		"/cmds/std/say"->main(this_object(),"你拿個"+ob->query("name")+CYN"給老仙我有什麼用？");
+		return notify_fail("好象是你獻錯東西了。\n");
 	}
 	ob->move(me);
 	me->start_busy(2);
@@ -447,7 +447,7 @@ void done(object me)
 	fam = (mapping)me->query("family");
 
 	command("pat " + me->query("id"));       
-	command("say 不错不错，既然你找到了老仙我想要的东西，我就指点指点你吧。");
+	command("say 不錯不錯，既然你找到了老仙我想要的東西，我就指點指點你吧。");
 	if(fam["family_name"] == "星宿派")
 	{
 		if(hgdf < 180 && SKILL_D("huagong-dafa")->valid_learn(me))
@@ -455,16 +455,16 @@ void done(object me)
 		if(poison < 150 && SKILL_D("poison")->valid_learn(me))
 			me->improve_skill("poison", me->query("xx_points")*5);
 		me->add("xx_points", 1);          
-		tell_object(me, "你目前已经为老仙分担了"+chinese_number(me->query("xx_points"))+"次忧愁。\n");
+		tell_object(me, "你目前已經爲老仙分擔了"+chinese_number(me->query("xx_points"))+"次憂愁。\n");
 		me->add("family/fealty",me->query("xx_points"));
-		tell_object(me, "你的门派忠诚度上升了。\n");
+		tell_object(me, "你的門派忠誠度上升了。\n");
 	}
 	call_out("ok", 0, me);                    
 }
 
 void destroying(object obj, object me)
 {
-	message_vision("$N拿起$n仔细地端详了一会儿，满意地点了点头，脸上露出了笑容。\n", me, obj);
+	message_vision("$N拿起$n仔細地端詳了一會兒，滿意地點了點頭，臉上露出了笑容。\n", me, obj);
 	destruct(obj);
 }
 
@@ -474,8 +474,8 @@ void ok(object me)
 	if(!me) return;
    
 	quest = me->query_temp("quest");
-	tell_object(me, "你听了老仙的指点，功夫进步了不少！\n"); 
-	tell_object(me, GRN"你获得出"+chinese_number(quest["pot_reward"])+"点潜能和"+chinese_number(quest["exp_reward"])+"点经验的奖励！\n"NOR);
+	tell_object(me, "你聽了老仙的指點，功夫進步了不少！\n"); 
+	tell_object(me, GRN"你獲得出"+chinese_number(quest["pot_reward"])+"點潛能和"+chinese_number(quest["exp_reward"])+"點經驗的獎勵！\n"NOR);
 	me->add("combat_exp", quest["exp_reward"]);
 	me->add("potential", quest["pot_reward"]);
 	me->add("shen", -(quest["exp_reward"]*15));
@@ -495,9 +495,9 @@ string ask_yinlinfen()
 	object me=this_player();
 	if (!(fam = me->query("family")) ||
 		fam["family_name"] != "星宿派")
-		return RANK_D->query_respect(this_player()) + "与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) + "與本派素無來往，不知此話從何談起？";
 	if (me->query_skill("poison",1)<100)
-		return "你的毒技火候未到，用不了这种东西。";
+		return "你的毒技火候未到，用不了這種東西。";
 	ob=new(YINLINFEN);
 	if (temp=ob->violate_unique())
 	 {
@@ -505,21 +505,21 @@ string ask_yinlinfen()
 	 	ob=temp;
   	owner = environment(ob);
   	if (owner == me)
-     return ob->query("name")+"不就在你手中吗？";
+     return ob->query("name")+"不就在你手中嗎？";
   	if (objectp(owner) && owner != this_object())
      {
       if (! owner->is_character())
-           return "你来晚了，"+ob->query("name")+"现在不在我手中。";
+           return "你來晚了，"+ob->query("name")+"現在不在我手中。";
       if (owner->query("family/family_name") == "星宿派")
-           return ob->query("name")+"现在在本派" + owner->query("name") +"手中，你要用就去找他吧。";
+           return ob->query("name")+"現在在本派" + owner->query("name") +"手中，你要用就去找他吧。";
       else
-           return "我正为此事担忧呢，"+ob->query("name")+"现在落入了" + owner->query("name") +"之手，你快去把他杀了，把东西取回来！";
+           return "我正爲此事擔憂呢，"+ob->query("name")+"現在落入了" + owner->query("name") +"之手，你快去把他殺了，把東西取回來！";
      }
   }
 	command("nod");
   ob->move(this_object());
   command("give fen to " + me->query("id"));
-  return "这"+ob->query("name")+"你便拿去，希望你能好好利用。";
+  return "這"+ob->query("name")+"你便拿去，希望你能好好利用。";
 }
 
 string ask_duchongfen()
@@ -531,9 +531,9 @@ string ask_duchongfen()
 	object me=this_player();
 	if (!(fam = me->query("family")) ||
 		fam["family_name"] != "星宿派")
-		return RANK_D->query_respect(this_player()) + "与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) + "與本派素無來往，不知此話從何談起？";
 	if (me->query_skill("poison",1)<100)
-		return "你的毒技火候未到，用不了这种东西。";
+		return "你的毒技火候未到，用不了這種東西。";
 	ob=new(DUCHONGFEN);
 	if (temp=ob->violate_unique())
 	 {
@@ -541,21 +541,21 @@ string ask_duchongfen()
 	 	ob=temp;
   	owner = environment(ob);
   	if (owner == me)
-     return ob->query("name")+"不就在你手中吗？";
+     return ob->query("name")+"不就在你手中嗎？";
   	if (objectp(owner) && owner != this_object())
      {
       if (! owner->is_character())
-           return "你来晚了，"+ob->query("name")+"现在不在我手中。";
+           return "你來晚了，"+ob->query("name")+"現在不在我手中。";
       if (owner->query("family/family_name") == "星宿派")
-           return ob->query("name")+"现在在本派" + owner->query("name") +"手中，你要用就去找他吧。";
+           return ob->query("name")+"現在在本派" + owner->query("name") +"手中，你要用就去找他吧。";
       else
-           return "我正为此事担忧呢，"+ob->query("name")+"现在落入了" + owner->query("name") +"之手，你快去把他杀了，把东西取回来！";
+           return "我正爲此事擔憂呢，"+ob->query("name")+"現在落入了" + owner->query("name") +"之手，你快去把他殺了，把東西取回來！";
      }
   }
 	command("nod");
   ob->move(this_object());
   command("give fen to " + me->query("id"));
-  return "这"+ob->query("name")+"你便拿去，希望你能好好利用。";
+  return "這"+ob->query("name")+"你便拿去，希望你能好好利用。";
 }
 
 string ask_honglinfen()
@@ -567,9 +567,9 @@ string ask_honglinfen()
 	object me=this_player();
 	if (!(fam = me->query("family")) ||
 		fam["family_name"] != "星宿派")
-		return RANK_D->query_respect(this_player()) + "与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) + "與本派素無來往，不知此話從何談起？";
 	if (me->query_skill("poison",1)<100)
-		return "你的毒技火候未到，用不了这种东西。";
+		return "你的毒技火候未到，用不了這種東西。";
 	ob=new(HONGLINFEN);
 	if (temp=ob->violate_unique())
 	 {
@@ -577,21 +577,21 @@ string ask_honglinfen()
 	 	ob=temp;
   	owner = environment(ob);
   	if (owner == me)
-     return ob->query("name")+"不就在你手中吗？";
+     return ob->query("name")+"不就在你手中嗎？";
   	if (objectp(owner) && owner != this_object())
      {
       if (! owner->is_character())
-           return "你来晚了，"+ob->query("name")+"现在不在我手中。";
+           return "你來晚了，"+ob->query("name")+"現在不在我手中。";
       if (owner->query("family/family_name") == "星宿派")
-           return ob->query("name")+"现在在本派" + owner->query("name") +"手中，你要用就去找他吧。";
+           return ob->query("name")+"現在在本派" + owner->query("name") +"手中，你要用就去找他吧。";
       else
-           return "我正为此事担忧呢，"+ob->query("name")+"现在落入了" + owner->query("name") +"之手，你快去把他杀了，把东西取回来！";
+           return "我正爲此事擔憂呢，"+ob->query("name")+"現在落入了" + owner->query("name") +"之手，你快去把他殺了，把東西取回來！";
      }
   }
 	command("nod");
   ob->move(this_object());
   command("give fen to " + me->query("id"));
-  return "这"+ob->query("name")+"你便拿去，希望你能好好利用。";
+  return "這"+ob->query("name")+"你便拿去，希望你能好好利用。";
 }
 
 string ask_bingpofen()
@@ -603,9 +603,9 @@ string ask_bingpofen()
 	object me=this_player();
 	if (!(fam = me->query("family")) ||
 		fam["family_name"] != "星宿派")
-		return RANK_D->query_respect(this_player()) + "与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) + "與本派素無來往，不知此話從何談起？";
 	if (me->query_skill("poison",1)<100)
-		return "你的毒技火候未到，用不了这种东西。";
+		return "你的毒技火候未到，用不了這種東西。";
 	ob=new(BINGPOFEN);
 	if (temp=ob->violate_unique())
 	 {
@@ -613,19 +613,19 @@ string ask_bingpofen()
 	 	ob=temp;
   	owner = environment(ob);
   	if (owner == me)
-     return ob->query("name")+"不就在你手中吗？";
+     return ob->query("name")+"不就在你手中嗎？";
   	if (objectp(owner) && owner != this_object())
      {
       if (! owner->is_character())
-           return "你来晚了，"+ob->query("name")+"现在不在我手中。";
+           return "你來晚了，"+ob->query("name")+"現在不在我手中。";
       if (owner->query("family/family_name") == "星宿派")
-           return ob->query("name")+"现在在本派" + owner->query("name") +"手中，你要用就去找他吧。";
+           return ob->query("name")+"現在在本派" + owner->query("name") +"手中，你要用就去找他吧。";
       else
-           return "我正为此事担忧呢，"+ob->query("name")+"现在落入了" + owner->query("name") +"之手，你快去把他杀了，把东西取回来！";
+           return "我正爲此事擔憂呢，"+ob->query("name")+"現在落入了" + owner->query("name") +"之手，你快去把他殺了，把東西取回來！";
      }
   }
 	command("nod");
   ob->move(this_object());
   command("give fen to " + me->query("id"));
-  return "这"+ob->query("name")+"你便拿去，希望你能好好利用。";
+  return "這"+ob->query("name")+"你便拿去，希望你能好好利用。";
 }

@@ -7,7 +7,7 @@ void create()
 {
 	set("short", "碎石沙路");
 	set("long", @LONG
-你走在一条荒僻的碎石沙路上，东北面有一座雄伟的关隘，西南通
+你走在一條荒僻的碎石沙路上，東北面有一座雄偉的關隘，西南通
 向酒泉。
 LONG );
 	set("outdoors", "qilian");

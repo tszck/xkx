@@ -6,8 +6,8 @@ void  create  ()
 {
 	set("short",  "城郊小路");
 	set("long",  @LONG
-这是洛阳城郊的一条小路，向南望去已可以看见襄阳城的轮廓，北
-面就是通往洛阳城的龙门关口。
+這是洛陽城郊的一條小路，向南望去已可以看見襄陽城的輪廓，北
+面就是通往洛陽城的龍門關口。
 LONG);
 	set("exits",  ([  /*  sizeof()  ==  2  */
 		"south" :  "/d/xiangyang/caodi3",

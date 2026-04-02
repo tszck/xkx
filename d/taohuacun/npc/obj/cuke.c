@@ -4,12 +4,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name(YEL "黄瓜" NOR,({"cuke","huanggua"}));
+	set_name(YEL "黃瓜" NOR,({"cuke","huanggua"}));
 	set_weight(300);
 	if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "一篮黄瓜。\n");
-                set("unit", "篮");
+                set("long", "一籃黃瓜。\n");
+                set("unit", "籃");
         }
 }

@@ -1,4 +1,4 @@
-// zhangpu.c 铁掌掌谱
+// zhangpu.c 鐵掌掌譜
 // Last Modified by winder on Nov. 17 2000
 
 inherit ITEM;
@@ -13,17 +13,17 @@ void init()
 
 void create()
 {
-	set_name("铁掌掌谱", ({ "tiezhang zhangpu", "zhangpu", "pu" }));
+	set_name("鐵掌掌譜", ({ "tiezhang zhangpu", "zhangpu", "pu" }));
 	set_weight(600);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit","本");
-		set("long","铁掌掌谱\n这是一本落满灰尘的破书，纸质发黄，边缘处也已残缺不全了。\n");
+		set("long","鐵掌掌譜\n這是一本落滿灰塵的破書，紙質發黃，邊緣處也已殘缺不全了。\n");
 		set("value",50000);
 		set("material","paper");
-		set("no_drop","这样东西不能离开你。\n");
-		set("no_get", "这样东西不能离开那儿。\n");
+		set("no_drop","這樣東西不能離開你。\n");
+		set("no_get", "這樣東西不能離開那兒。\n");
 	}
 }
 
@@ -43,54 +43,54 @@ int do_du(string arg)
 		return 0;
 	if (where->query("pigging"))
 	{
-		write("你还是专心拱猪吧！\n");
+		write("你還是專心拱豬吧！\n");
 		return 1;
 	}
 	if( (int)me->query("jing") < 25 )
 	{
-		write("你现在过于疲倦，无法专心下来研读新知。\n");
+		write("你現在過於疲倦，無法專心下來研讀新知。\n");
 		return 1;
 	}
 	if (me->is_busy())
 	{
-		write("你现在正忙着呢。\n");
+		write("你現在正忙着呢。\n");
 		return 1;
 	}
 	if( me->is_fighting() )
 	{
-		write("你无法在战斗中专心下来研读新知！\n");
+		write("你無法在戰鬥中專心下來研讀新知！\n");
 		return 1;
 	}
 	if (!id(arg))
 	{	
-		write("你要读什么？\n");
+		write("你要讀什麼？\n");
 		return 1;
 	}
 	if( !me->query_skill("literate", 1) )
 	{
-		write("你是个文盲，先学点文化(literate)吧。\n");
+		write("你是個文盲，先學點文化(literate)吧。\n");
 		return 1;
 	}
 	switch(random(3))
 	{
 		case 0:
-			message("vision", me->name() + "翻出一本书在读。\n", environment(me), me);
+			message("vision", me->name() + "翻出一本書在讀。\n", environment(me), me);
 			break;
 		case 1:
-			message("vision", me->name() + "一边读书，浑身骨骼一边发出咯咯的脆响。\n", environment(me), me);
+			message("vision", me->name() + "一邊讀書，渾身骨骼一邊發出咯咯的脆響。\n", environment(me), me);
 			break;
 		case 2:
-			message("vision", me->name() + "的脸色时红时青，阴晴不定。\n", environment(me), me);
+			message("vision", me->name() + "的臉色時紅時青，陰晴不定。\n", environment(me), me);
 			break;
 	}
 	if( (int)me->query("jing") < 15 )
 	{
-		write("你现在过于疲倦，无法专心下来研读新知。\n");
+		write("你現在過於疲倦，無法專心下來研讀新知。\n");
 		return 1;
 	}
-	if (me->query("family/family_name") != "铁掌帮") {
+	if (me->query("family/family_name") != "鐵掌幫") {
 		me->delete_skill("tiezhang-zhangfa");
-		write("你研读了一会，发现上面所说的对你而言太深了。\n");
+		write("你研讀了一會，發現上面所說的對你而言太深了。\n");
 		return 1;
 	}
 
@@ -100,18 +100,18 @@ int do_du(string arg)
 		else neili_lost = 5;
 	if( (int)me->query("neili") < neili_lost)
 	{
-		write("你内力不够，无法钻研这么高深的武功。\n");
+		write("你內力不夠，無法鑽研這麼高深的武功。\n");
 		return 1;
 	}
 	level = me->query_skill("tiezhang-zhangfa", 1);
 	if( (int)me->query("combat_exp") < (int)level*level*level/10 )
 	{
-		write("你的实战经验不足，再怎么读也没用。\n");
+		write("你的實戰經驗不足，再怎麼讀也沒用。\n");
 		return 1;
 	}
 	if( me->query_skill("tiezhang-zhangfa", 1) > 120)
 	{
-		write( "你研读了一会儿，但是发现上面所说的对你而言都太浅了，没有学到任何东西。\n");
+		write( "你研讀了一會兒，但是發現上面所說的對你而言都太淺了，沒有學到任何東西。\n");
 		return 1;
 	}
 	me->receive_damage("jing", 15);
@@ -121,6 +121,6 @@ int do_du(string arg)
 		me->set_skill("tiezhang-zhangfa", 0);
 	}
 	me->improve_skill("tiezhang-zhangfa", (int)me->query_skill("literate", 1)/3+1);
-	write("你研读《铁掌掌谱》，颇有心得。\n");
+	write("你研讀《鐵掌掌譜》，頗有心得。\n");
 	return 1;
 }

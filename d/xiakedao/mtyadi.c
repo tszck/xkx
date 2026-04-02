@@ -7,9 +7,9 @@ void create()
 {
         set("short", "崖底");
         set("long", @TEXT
-你的面前是一座比直的山峰，高若千丈，峰顶在云雾中隐约可
-见，山峰光秃秃的，更无置手足处，山峰垂下一条铁链(lian)，仔
-细一看，铁链并无锈迹，似乎有人用它爬上爬下.
+你的面前是一座比直的山峯，高若千丈，峯頂在雲霧中隱約可
+見，山峯光禿禿的，更無置手足處，山峯垂下一條鐵鏈(lian)，仔
+細一看，鐵鏈並無鏽跡，似乎有人用它爬上爬下.
 TEXT );
         set("outdoors", "motianya");
         set("exits", ([
@@ -32,17 +32,17 @@ int do_climb(string arg)
         n = this_player()->query_skill("dodge",1);
         if ( !arg || arg != "lian")
         {
-            write("你要爬什么呀? \n");
+            write("你要爬什麼呀? \n");
             return 1;
         }
-message_vision("$N深吸了一口气，慢慢沿着铁链的向上爬。\n", this_player());
+message_vision("$N深吸了一口氣，慢慢沿着鐵鏈的向上爬。\n", this_player());
         if(n >80){
-message_vision("$N爬了半天，终于爬了上去，$N高兴的不禁跳了起来。\n", this_player());
+message_vision("$N爬了半天，終於爬了上去，$N高興的不禁跳了起來。\n", this_player());
             this_player()->move(__DIR__"mtdating");
         }
         else
         {
-message_vision("$N爬了一会，一不小心摔了下来。\n", this_player());
+message_vision("$N爬了一會，一不小心摔了下來。\n", this_player());
             this_player()->receive_damage("qi",50);
             this_player()->receive_wound("qi",50);
         }

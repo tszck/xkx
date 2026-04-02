@@ -6,7 +6,7 @@ void create()
 {
 	set("short", "密室");
 	set("long", @LONG
-这是个阴暗的密室，墙上的油灯发出昏暗的黄光。
+這是個陰暗的密室，牆上的油燈發出昏暗的黃光。
 LONG );
 	set("exits", ([
 		"south" : __DIR__"midao13",

@@ -6,8 +6,8 @@ void create()
 {
         set("short", "青石大道");
         set("long", @LONG
-大道上挤满了来灵隐寺上香和上飞来峰的游客。北边过了小溪就
-是灵隐寺了。南边是上飞来峰的路。
+大道上擠滿了來靈隱寺上香和上飛來峯的遊客。北邊過了小溪就
+是靈隱寺了。南邊是上飛來峯的路。
 LONG);
         set("exits", ([
                 "northwest" : "/d/jiaxing/jxnanmen",

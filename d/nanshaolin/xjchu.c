@@ -6,11 +6,11 @@ inherit ROOM;
 int do_pi(string arg);
 void create()
 {
-	set("short", "香积厨");
+	set("short", "香積廚");
 	set("long", @LONG
-一间不大的小屋，正中摆着一口大铁锅，正冒着腾腾的热气，一股
-粥香弥漫在室内。几个火工正在忙着加柴，煽火，全寺弟子做完早课都
-要喝粥。一位侍粥僧挥舞着沉重的大铁勺，正在吃力的搅动着粥汤。
+一間不大的小屋，正中擺着一口大鐵鍋，正冒着騰騰的熱氣，一股
+粥香瀰漫在室內。幾個火工正在忙着加柴，煽火，全寺弟子做完早課都
+要喝粥。一位侍粥僧揮舞着沉重的大鐵勺，正在喫力的攪動着粥湯。
 LONG );
 	set("exits", ([
 		"south"  : __DIR__"zhaitang",
@@ -37,20 +37,20 @@ int do_ao(string arg)
 	lvl1 = me->query_skill("hand",1);
 	lvl2 = me->query_skill("finger",1);
 	if(me->query_temp("job_name")!="熬粥") 
-		return notify_fail("厨房可不是闹着玩的地方，你还是走开吧！\n");
+		return notify_fail("廚房可不是鬧着玩的地方，你還是走開吧！\n");
 	if (me->is_busy())
 	{
-		write("你现在正忙着呢！\n");
+		write("你現在正忙着呢！\n");
 		return 1;
 	}
 	if (me->is_fighting())
 	{
-		write("你正在战斗中,无法专心干活！\n");
+		write("你正在戰鬥中,無法專心幹活！\n");
 		return 1;
 	}
 	if ( !arg || arg != "粥" )
 	{   
-		message_vision("$N要做什么？\n",me);
+		message_vision("$N要做什麼？\n",me);
 		return 1;
 	}
 	costj = random((int)me->query("con")/3);
@@ -58,7 +58,7 @@ int do_ao(string arg)
 	times=20+random(10);
 	if ((int)me->query("jing") < costj || (int)me->query("qi") < costq)
 	{
-		message_vision("$N手一松，掉进锅里。\n",me);
+		message_vision("$N手一鬆，掉進鍋裏。\n",me);
 		me->unconcious();
 		return 1;
 	}
@@ -71,21 +71,21 @@ int do_ao(string arg)
 		me->add("combat_exp",(int)(me->query_skill("buddhism",1)/5)+60);
 		me->delete_temp("job_name");
 		me->delete_temp("mark");
-		return notify_fail(RED "侍粥僧说道：多谢你来帮我的忙，还是快回去吧！！！\n"NOR);
+		return notify_fail(RED "侍粥僧說道：多謝你來幫我的忙，還是快回去吧！！！\n"NOR);
 	}
 	me->start_busy(1);
-	message_vision("$N身形一抖，双脚勾住房梁，倒悬在空中，接过铁勺用力搅拌粥锅。\n", me);
+	message_vision("$N身形一抖，雙腳勾住房梁，倒懸在空中，接過鐵勺用力攪拌粥鍋。\n", me);
 	me->add_temp("mark/做",1);
 	if ( (int)me->query_skill("hand", 1) < 20 && random(10)>6 )
 	{
 		if(lvl1 * lvl1 * lvl1 / 10 < exp)
 		{
-			write(HIM"你在挥舞铁勺中，对手上功夫有些领悟！\n"NOR);
+			write(HIM"你在揮舞鐵勺中，對手上功夫有些領悟！\n"NOR);
 			me->improve_skill("hand", (int)(me->query_skill("buddhism",1) / 5));
 		}
 		if(lvl2 * lvl2 * lvl2 / 10 < exp)
 		{
-			write(HIM"你在挥舞铁勺中，对指上功夫有些领悟！\n"NOR);
+			write(HIM"你在揮舞鐵勺中，對指上功夫有些領悟！\n"NOR);
 			me->improve_skill("finger", (int)(me->query_skill("buddhism",1) / 5));
 		}
 	}

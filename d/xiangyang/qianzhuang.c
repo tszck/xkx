@@ -5,21 +5,21 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "钱庄");
+	set("short", "錢莊");
 	set("long", @LONG
-这里是襄阳的钱庄，因为这里商业相当发达，各地的商号
-都和这里有银钱来往。钱庄里有很多人在存取钱，也有人在兑
-换银两。看着这么多的钱财滚来滚去，真是让人眼馋啊。但眼
-下大敌当前，全城一致抵御元兵。钱庄的业务由华山弟子接管，
-支援大侠郭靖和郭夫人。墙上贴着一个牌子(paizi)。
+這裏是襄陽的錢莊，因爲這裏商業相當發達，各地的商號
+都和這裏有銀錢來往。錢莊裏有很多人在存取錢，也有人在兌
+換銀兩。看着這麼多的錢財滾來滾去，真是讓人眼饞啊。但眼
+下大敵當前，全城一致抵禦元兵。錢莊的業務由華山弟子接管，
+支援大俠郭靖和郭夫人。牆上貼着一個牌子(paizi)。
 LONG );
 	set("item_desc", ([
 		"paizi" : @TEXT
-     本钱庄提供以下服务：
-      存钱        deposit或者cun
-      取钱        withdraw或者qu
-      钱币兑换    convert或者duihuan
-      查帐        check或者chazhang
+     本錢莊提供以下服務：
+      存錢        deposit或者cun
+      取錢        withdraw或者qu
+      錢幣兌換    convert或者duihuan
+      查帳        check或者chazhang
 TEXT
 	]));
 	set("no_fight", 1);

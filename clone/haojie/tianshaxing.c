@@ -6,10 +6,10 @@ inherit NPC;
 void copyto(object ob);
 void create()
 {
-	set_name("天杀星", ({"tian shaxing" ,"tian"}));
+	set_name("天殺星", ({"tian shaxing" ,"tian"}));
 	set("gender", "男性");
 	set("age", 40);
-	set("long", "他是七杀门的首领。\n");
+	set("long", "他是七殺門的首領。\n");
 	set("per", 10);
 	set("attitude", "peaceful");
     //  seteuid(getuid());
@@ -45,7 +45,7 @@ void create()
 	map_skill("dodge", "tiyunzong");
 	map_skill("parry", "taiji-jian");
 	map_skill("sword", "taiji-jian");
-	create_family("七杀门", 1, "杀手");
+	create_family("七殺門", 1, "殺手");
 	set("chat_chance_combat", 60);
 	set("chat_msg_combat", ({
 		(: exert_function, "recover" :),
@@ -87,9 +87,9 @@ void dest()
 		call_out("dest",300);
 		return;
 	}
-	message("channel/snow",HIC"【"HIM"侠客行一百"HIC"】"HIW"七杀门首领天杀星：看来中原的高手都是胆小鬼，我回去卷土重来！\n"NOR,users());
-	message("channel/snow",HIC"【"HIM"侠客行一百"HIC"】"HIW"七杀门首领天杀星仰天“哈哈”长笑几声。\n"NOR,users());
-	message_vision("$N一个纵身，转眼就消失在茫茫人海之中。\n",ob);
+	message("channel/snow",HIC"【"HIM"俠客行一百"HIC"】"HIW"七殺門首領天殺星：看來中原的高手都是膽小鬼，我回去捲土重來！\n"NOR,users());
+	message("channel/snow",HIC"【"HIM"俠客行一百"HIC"】"HIW"七殺門首領天殺星仰天“哈哈”長笑幾聲。\n"NOR,users());
+	message_vision("$N一個縱身，轉眼就消失在茫茫人海之中。\n",ob);
 	destruct(ob);
 }
 
@@ -99,15 +99,15 @@ void die()
 	object shu;
 	me = query("pk_target");
 	shu = present("zhan shu",me);
-	message_vision("$N说道：“哎,看来我命该如此啊！”说完两眼一闭倒地死了。\n", this_object());
+	message_vision("$N說道：“哎,看來我命該如此啊！”說完兩眼一閉倒地死了。\n", this_object());
   if (userp(me) &&  environment(me)==environment(this_object()) &&
    objectp(shu) &&  shu->is_zhanshu())
 	{
   destruct(shu);
 	me->add("combat_exp",25000);
 	me->add("potential",2500);
-	tell_object(me,HIW"你杀死七杀门首领天杀星有功，奖励你 25K 经验和 2500 点潜能！\n"NOR);
-	message("channel/snow",HIM"【谣言】某人：天杀星被"+me->name()+HIM"杀死了。\n"NOR,users());
+	tell_object(me,HIW"你殺死七殺門首領天殺星有功，獎勵你 25K 經驗和 2500 點潛能！\n"NOR);
+	message("channel/snow",HIM"【謠言】某人：天殺星被"+me->name()+HIM"殺死了。\n"NOR,users());
   }
 	::die();
 }
@@ -120,8 +120,8 @@ void if_die()
 		call_out("if_die",3);
 		return;
 	}
-	message("channel/snow",HIC"【"HIM"侠客行一百"HIC"】"HIW"七杀门首领天杀星大笑道：中原的武功也不过如此嘛！老子天下第一！待我回去卷土重来！哈！哈！哈！\n"NOR,users());
-	message_vision("$N一个纵身，转眼就消失在茫茫人海之中。\n",this_object());
+	message("channel/snow",HIC"【"HIM"俠客行一百"HIC"】"HIW"七殺門首領天殺星大笑道：中原的武功也不過如此嘛！老子天下第一！待我回去捲土重來！哈！哈！哈！\n"NOR,users());
+	message_vision("$N一個縱身，轉眼就消失在茫茫人海之中。\n",this_object());
 	destruct(this_object());
 }
 
@@ -137,10 +137,10 @@ int accept_hit(object me)
 		if (me!=ob->query_temp("last_damage_from")) copyto(me);
 		return 1;
 	}
-	message_vision(HIW "$N一见$n在此捣乱，跳出来大喝一声道：臭贼！给我滚到一边去，不要妨碍老子决斗！\n"NOR,ob,me);
-	message_vision("只见$N飞起一个三百六十度旋风腿将$n踢了出去。\n",ob,me);
+	message_vision(HIW "$N一見$n在此搗亂，跳出來大喝一聲道：臭賊！給我滾到一邊去，不要妨礙老子決鬥！\n"NOR,ob,me);
+	message_vision("只見$N飛起一個三百六十度旋風腿將$n踢了出去。\n",ob,me);
 	me->move("/d/city/wumiao");
-	message_vision("只听“乒”地一声，$N被人一脚踢了过来，模样狼狈万状。\n",me);
+	message_vision("只聽“乒”地一聲，$N被人一腳踢了過來，模樣狼狽萬狀。\n",me);
   me->unconcious();
   me->start_busy(5);
 	return notify_fail("");
@@ -155,7 +155,7 @@ void killing(object ob)
 	if ( environment(this_object()) != environment(ob) ) return;
 	if ( (environment(ob)->query("no_fight")) ) return;
 
-	message_vision("$N对著$n喝道：「"+RANK_D->query_rude(ob)+"！今天不是你死就是我亡！」\n",this_object(),ob);
+	message_vision("$N對著$n喝道：「"+RANK_D->query_rude(ob)+"！今天不是你死就是我亡！」\n",this_object(),ob);
 
   copyto(ob);
   

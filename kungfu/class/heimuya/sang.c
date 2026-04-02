@@ -11,7 +11,7 @@ void create()
 	set_name("桑三娘", ({ "sang sanniang", "sang", "sanniang"}) );
 	set("gender", "女性" );
 	set("age", 45);
-	set("long", "身情古怪，面无丝毫微笑，面容却相当清秀。 \n"
+	set("long", "身情古怪，面無絲毫微笑，面容卻相當清秀。 \n"
                     );
 	set("attitude", "friendly");
 	set("shen_type", -1);
@@ -50,7 +50,7 @@ void create()
 	]));
 
 	set("party/party_name", HIB"日月神教"NOR);
-	set("party/rank", HIM"天香堂长老"NOR);
+	set("party/rank", HIM"天香堂長老"NOR);
 	create_family("黑木崖", 9, "弟子");
 
 	set("chat_chance", 3);
@@ -83,7 +83,7 @@ void init()
 
 string ask_me()
 {
-	return "你想加入我日月神教(join riyuejiao)吗？";
+	return "你想加入我日月神教(join riyuejiao)嗎？";
 }
 
 #include "riyuejiao.h"

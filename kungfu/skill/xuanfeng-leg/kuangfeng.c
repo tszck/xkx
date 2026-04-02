@@ -1,4 +1,4 @@
-// kuangfeng.c  狂风绝技
+// kuangfeng.c  狂風絕技
 
 #include <ansi.h>
 #include <skill.h>
@@ -6,7 +6,7 @@
 #include <combat.h>
 
 inherit F_SSERVER;
-#define PNAME "「狂风绝技」"
+#define PNAME "「狂風絕技」"
 int perform(object me, object target)
 {
 	object weapon, ob;
@@ -22,17 +22,17 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("「狂风绝技」开始时不能拿着兵器！\n");
+		return notify_fail("「狂風絕技」開始時不能拿着兵器！\n");
 
 
 	fskill = "bibo-shengong";
@@ -47,22 +47,22 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"还不到家，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"還不到家，無法使用"+PNAME+"。\n");
 
 	if( !me->query_temp("murong/xingyi") )
 	{
 		if( (int)me->query_skill("luoying-zhang",1) < 100 ||
 			me->query_skill("xuanfeng-leg",1) < 100)
-			return notify_fail("你的腿掌功夫还不到家，无法使用狂风绝技！\n");
+			return notify_fail("你的腿掌功夫還不到家，無法使用狂風絕技！\n");
 	}
 
 	if( (int)me->query("neili") < 100 )
-		return notify_fail("你的真气不够！\n");
+		return notify_fail("你的真氣不夠！\n");
 
-	msg = HIY "$N使出桃花岛绝技「狂风绝技」，身法陡然加快！\n" NOR;
+	msg = HIY "$N使出桃花島絕技「狂風絕技」，身法陡然加快！\n" NOR;
 	message_combatd(msg, me);
 
 	for (count=0;count<6;count++)
@@ -86,13 +86,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		连续出手六招
+		連續出手六招
 
 	出手要求：
-		碧波神功50级
-		旋风扫叶腿100级
-		落英神剑掌100级
-		内力100
+		碧波神功50級
+		旋風掃葉腿100級
+		落英神劍掌100級
+		內力100
 HELP
 	);
 	return 1;

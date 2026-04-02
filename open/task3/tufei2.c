@@ -6,11 +6,11 @@ int ask_me();
 
 void create()
 {
-	set_name("卧虎花纹", ({ "picture"}) );
+	set_name("臥虎花紋", ({ "picture"}) );
 	set("gender", "男性" );
 	set("age", 34);
 	set("long",
-		"他就是大名鼎鼎的无影神偷，官府通缉多年的要犯。\n");
+		"他就是大名鼎鼎的無影神偷，官府通緝多年的要犯。\n");
 	set("max_qi", 5000);
 	set("max_jing", 5000);
 	set("max_neili", 5000);
@@ -93,9 +93,9 @@ ited"))
 		set_skill("yunlong-shengong", maxskill);
 		if (!present("tiegun",obj))
 			carry_object("/d/xingxiu/obj/tiegun")->wield();
-		obj->set("title","踏雪无痕");
+		obj->set("title","踏雪無痕");
 		obj->set_weight(500000);
-		set_name("无影神偷", ({ "shen tou","st"}) );
+		set_name("無影神偷", ({ "shen tou","st"}) );
 		if (ob->query("id") == obj->query_temp("bt_ownname"))
 			obj->kill_ob(ob);
 		remove_call_out ("destroy_npc");
@@ -104,7 +104,7 @@ ited"))
 }
 void destroy_npc()
 {
-	message_vision("" + (string)this_object()->query("name") + "忽然打了个哆嗦，不由心生惧意，身形一晃，顿时混入莽莽人海之中。\n", environment(this_object()));
+	message_vision("" + (string)this_object()->query("name") + "忽然打了個哆嗦，不由心生懼意，身形一晃，頓時混入莽莽人海之中。\n", environment(this_object()));
 	destruct(this_object());
 }
 // int active_died()

@@ -1,4 +1,4 @@
-// biluo-zhang.c 碧罗掌
+// biluo-zhang.c 碧羅掌
 // Last Modified by sir 10.23.2001
 
 #include <ansi.h>
@@ -7,43 +7,43 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N一式「起手式」，左手带风，右手拍向$n的$l",
+([	"action" : "$N一式「起手式」，左手帶風，右手拍向$n的$l",
 	"lvl" : 0,
 	"skill_name" : "起手式"
 ]),
-([  "action" : "$N右手微台，直出向前，一式「截手式」，疾向$n的$l击去",
+([  "action" : "$N右手微臺，直出向前，一式「截手式」，疾向$n的$l擊去",
 	"lvl" : 10,
 	"skill_name" : "截手式"
 ]),
-([	"action" : "$N使一式「逆风式」，左掌微拂，右掌顺势而进，猛地插往$n的$l",
+([	"action" : "$N使一式「逆風式」，左掌微拂，右掌順勢而進，猛地插往$n的$l",
         "lvl" : 30,
-	"skill_name" : "逆风式"
+	"skill_name" : "逆風式"
 ]),
-([	"action" : "$N双掌隐隐泛出青气，一式「御气式」，掌风激劲，雨点般向$n击去",
+([	"action" : "$N雙掌隱隱泛出青氣，一式「御氣式」，掌風激勁，雨點般向$n擊去",
         "lvl" : 40,
-	"skill_name" : "御气式"
+	"skill_name" : "御氣式"
 ]),
-([	"action" : "$N双掌不断反转，使出一式「潜手式」，双掌并拢，笔直地向$n的$l袭去",
+([	"action" : "$N雙掌不斷反轉，使出一式「潛手式」，雙掌併攏，筆直地向$n的$l襲去",
         "lvl" : 50,
-	"skill_name" : "潜手式"
+	"skill_name" : "潛手式"
 ]),
 
-([	"action" : "$N身形一变，使一式「齐掌式」，双掌带着萧刹的劲气，猛地击往$n的$l",
+([	"action" : "$N身形一變，使一式「齊掌式」，雙掌帶着蕭剎的勁氣，猛地擊往$n的$l",
         "lvl" : 60,
-	"skill_name" : "齐掌式"
+	"skill_name" : "齊掌式"
 ]),
-([	"action" : "$N使一式「青烟式」，双掌如梦似幻，同时向$n的$l击去",
+([	"action" : "$N使一式「青煙式」，雙掌如夢似幻，同時向$n的$l擊去",
         "lvl" : 70,
-	"skill_name" : "青烟式"
+	"skill_name" : "青煙式"
 ]),
 
-([	"action" : "$N一式「流云式」，身法忽变，似流云飘忽，不觉已击到$n的$l上",
+([	"action" : "$N一式「流雲式」，身法忽變，似流雲飄忽，不覺已擊到$n的$l上",
         "lvl" : 80,
-	"skill_name" : "流云式"
+	"skill_name" : "流雲式"
 ]),
-([	"action" : "$N突地一招「风雷式」，双掌挟着一阵风雷之势，猛地劈往$n的$l",
+([	"action" : "$N突地一招「風雷式」，雙掌挾着一陣風雷之勢，猛地劈往$n的$l",
         "lvl" : 100,
-	"skill_name" : "风雷式"
+	"skill_name" : "風雷式"
 ])
 });
 
@@ -53,21 +53,21 @@ int valid_combine(string combo) { return combo=="luoyan-hand"; }
 int valid_learn(object me)
 {
 	if(((int)me->query_skill("huiyan-xinfa", 1) < 15 ) )
-		return notify_fail("你的本门内功还不够娴熟。\n");
+		return notify_fail("你的本門內功還不夠嫺熟。\n");
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练碧罗掌必须空手。\n");
+		return notify_fail("練碧羅掌必須空手。\n");
 	if ((int)me->query("max_neili") < 50)
-		return notify_fail("你的内力太弱，无法练碧罗掌。\n");
+		return notify_fail("你的內力太弱，無法練碧羅掌。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 60)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 60)
-		return notify_fail("你的内力不够练碧罗掌。\n");
+		return notify_fail("你的內力不夠練碧羅掌。\n");
 	me->receive_damage("qi", 40);
 	me->add("neili", -30);
 	return 1;
@@ -94,16 +94,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 0; }
@@ -117,15 +117,15 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIC"\n碧罗掌："NOR"\n");
+	write(HIC"\n碧羅掌："NOR"\n");
 	write(@HELP
 
-    碧罗掌是衡山派的掌法。
-    可与大落雁手互备。
+    碧羅掌是衡山派的掌法。
+    可與大落雁手互備。
 
-	学习要求：
-		回雁心法15级
-		内力50
+	學習要求：
+		回雁心法15級
+		內力50
 HELP
 	);
 	return 1;

@@ -1,4 +1,4 @@
-// lianhuan.c 快刀连环
+// lianhuan.c 快刀連環
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,7 +7,7 @@
 #include <combat.h>
 
 inherit F_SSERVER;
-#define PNAME "「快刀连环」"
+#define PNAME "「快刀連環」"
 int perform(object me, object target)
 {
 	object weapon, ob;
@@ -23,18 +23,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
  
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "blade")
-		return notify_fail("「快刀连环」开始时必须拿着一把刀！\n");
+		return notify_fail("「快刀連環」開始時必須拿着一把刀！\n");
 
 	fskill = "huntian-qigong";
 	bskill = "liuhe-blade";
@@ -48,15 +48,15 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够！无法使出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠！無法使出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够熟练！无法使出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠熟練！無法使出"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 100 )
-		return notify_fail("你的真气不够！\n");
+		return notify_fail("你的真氣不夠！\n");
 
-	msg =  HIY "$N"HIY"大吼一声：“快刀连环！”\n" NOR;
+	msg =  HIY "$N"HIY"大吼一聲：“快刀連環！”\n" NOR;
 
 	message_combatd(msg, me);
 
@@ -84,12 +84,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		连续出手三刀
+		連續出手三刀
 
 	出手要求：
-		混天气功100级
-		六合刀法100级
-		内力200
+		混天氣功100級
+		六合刀法100級
+		內力200
 HELP
 	);
 	return 1;

@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "武馆大门");
+	set("short", "武館大門");
 	set("long", @LONG
-这里是一个大宅子，门口高悬一个大匾“扬州武馆”，立了两个石
-狮，你从大门口瞧进去，好象里面人来人往，都很繁忙的样子，门口站
-着两个门卫，神情威严。
+這裏是一個大宅子，門口高懸一個大匾“揚州武館”，立了兩個石
+獅，你從大門口瞧進去，好象裏面人來人往，都很繁忙的樣子，門口站
+着兩個門衛，神情威嚴。
 LONG);
 	set("exits", ([
 		"enter" : __DIR__"wg_dayuan",
@@ -34,7 +34,7 @@ int valid_leave(object me, string dir)
 			if(present("men wei", environment(me)) &&
 				living(present("men wei", environment(me))))
 			{
-				return notify_fail("武馆门卫喝道：本馆只收留江湖新手，这位" + RANK_D->query_respect(me) + "请止步。\n");
+				return notify_fail("武館門衛喝道：本館只收留江湖新手，這位" + RANK_D->query_respect(me) + "請止步。\n");
 			}
 			else return ::valid_leave(me, dir);
 		}

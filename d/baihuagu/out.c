@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "树林外");
+	set("short", "樹林外");
 	set("long", @LONG
-眼前一片光明，比起树林里的黑暗，简直有点刺眼。南边是一
-片阴森森的大树林，相信你是不敢再进去了。
+眼前一片光明，比起樹林裏的黑暗，簡直有點刺眼。南邊是一
+片陰森森的大樹林，相信你是不敢再進去了。
 LONG);
 	set("outdoors", "baihuagu");
 	set("exits", ([ 

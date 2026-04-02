@@ -7,11 +7,11 @@ int value() { return query_amount() * (int)query("base_value"); }
 
 void create()
 {
-	set_name(HIC "马蹄莲" NOR, ({"mati lian", "ma"}));
+	set_name(HIC "馬蹄蓮" NOR, ({"mati lian", "ma"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "这是一朵绽放着的马蹄莲，代表着永结同心，吉祥如意，圣洁虔诚。\n");
+		set("long", "這是一朵綻放着的馬蹄蓮，代表着永結同心，吉祥如意，聖潔虔誠。\n");
 		set("unit", "束");
 		set("value", 35);
 		set("base_unit", "朵");

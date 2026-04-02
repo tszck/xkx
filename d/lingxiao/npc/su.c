@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("苏万虹",({"su wanhong","su"}));
+	set_name("蘇萬虹",({"su wanhong","su"}));
 	set("gender", "男性");
 	set("age", 20);
-	set("long", "他是凌霄城第六代弟子苏万虹，是白自在挺喜欢的小弟子。\n");
+	set("long", "他是凌霄城第六代弟子蘇萬虹，是白自在挺喜歡的小弟子。\n");
 	set("attitude", "peaceful");
 	set("str", 25);
 	set("con", 30);

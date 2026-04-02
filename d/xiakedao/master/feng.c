@@ -1,16 +1,16 @@
-// feng.c 风清扬
+// feng.c 風清揚
 
 inherit NPC;
 inherit F_MASTER;
 
 void create()
 {
-	set_name("风清扬", ({ "feng-qingyang", "feng", "qingyang" }));
-	set("title", "华山第十二代剑宗长老");
+	set_name("風清揚", ({ "feng-qingyang", "feng", "qingyang" }));
+	set("title", "華山第十二代劍宗長老");
 	set("long", 
-"这便是当年名震江湖的华山名宿风清扬。他身著青袍，神气抑郁脸如金纸。
-身材瘦长，眉宇间一直笼罩着一股淡淡的忧伤神色，显然对当年的剑宗气宗
-之争一直难以忘怀。\n");
+"這便是當年名震江湖的華山名宿風清揚。他身著青袍，神氣抑鬱臉如金紙。
+身材瘦長，眉宇間一直籠罩着一股淡淡的憂傷神色，顯然對當年的劍宗氣宗
+之爭一直難以忘懷。\n");
 	set("gender", "男性");
 	set("age", 68);
 	set("attitude", "peaceful");
@@ -55,7 +55,7 @@ void create()
 	map_skill("blade", "fanliangyi-dao");
 	map_skill("strike", "hunyuan-zhang");
 
-	create_family("华山派", 12, "弟子");
+	create_family("華山派", 12, "弟子");
 	set("family/master_id", "feng qingyang");
 
 	set("chat_chance_combat", 80);
@@ -90,7 +90,7 @@ void greeting(object ob)
 	int i;
 
 	obj = all_inventory(environment(me));
-        command("say 非也，非也，这招应该剑意曲而剑势直。");
+        command("say 非也，非也，這招應該劍意曲而劍勢直。");
 	for(i=0; i<sizeof(obj); i++)
 	{
 		if( obj[i]->query("id")=="zhang-sanfeng")

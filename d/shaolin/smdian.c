@@ -11,14 +11,14 @@ int do_open(string arg);
 
 void create()
 {
-	set("short", "山门殿");
+	set("short", "山門殿");
 	set("long", @LONG
-这里是少林寺的前殿山门殿。殿内青砖铺地，两侧分列哼、
-哈二将。身躯雄伟，面相忿怒，头带宝冠，上半身裸露，手执
-金刚杵，一鼓鼻，一张口，露牙睁目，凶猛可畏。两边各放一
-红木供桌，陈列香烛，以供僧俗叩拜。自此左右各有一间偏殿，
-供比丘们打坐诵经之用。南面是一道三丈来高的朱红杉木包铜
-大门(gate)。
+這裏是少林寺的前殿山門殿。殿內青磚鋪地，兩側分列哼、
+哈二將。身軀雄偉，面相忿怒，頭帶寶冠，上半身裸露，手執
+金剛杵，一鼓鼻，一張口，露牙睜目，兇猛可畏。兩邊各放一
+紅木供桌，陳列香燭，以供僧俗叩拜。自此左右各有一間偏殿，
+供比丘們打坐誦經之用。南面是一道三丈來高的硃紅杉木包銅
+大門(gate)。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"smdian1",
@@ -54,21 +54,21 @@ void close_gate()
 	if(objectp(room))
 	{
 		delete("exits/south");
-			message("vision", "僧兵上前把大门关了起来。\n", this_object());
+			message("vision", "僧兵上前把大門關了起來。\n", this_object());
 		room->delete("exits/north");
-		message("vision", "乒地一声，里面有人把大门关上了。\n", room);
+		message("vision", "乒地一聲，裏面有人把大門關上了。\n", room);
 	}
 }
 
 int do_close(string arg)
 {
 	if (!query("exits/south"))
-		return notify_fail("大门已经是关着的了。\n");
+		return notify_fail("大門已經是關着的了。\n");
 
 	if (!arg || (arg != "gate" && arg != "south"))
-		return notify_fail("你要关什么？\n");
+		return notify_fail("你要關什麼？\n");
 
-	message_vision("$N朝僧兵点了点头。\n", this_player());
+	message_vision("$N朝僧兵點了點頭。\n", this_player());
 
 	remove_call_out("close_gate");
 	call_out("close_gate", 2);
@@ -81,19 +81,19 @@ int do_open(string arg)
 	object room;
 
 	if (query("exits/south"))
-		return notify_fail("大门已经是开着了。\n");
+		return notify_fail("大門已經是開着了。\n");
 
 	if (!arg || (arg != "gate" && arg != "south"))
-		return notify_fail("你要开什么？\n");
+		return notify_fail("你要開什麼？\n");
 
 	if(!( room = find_object(__DIR__"guangchang1")) )
 		room = load_object(__DIR__"guangchang1");
 	if(objectp(room))
 	{
 		set("exits/south", __DIR__"guangchang1");
-		message_vision("$N使劲把大门打了开来。\n", this_player());
+		message_vision("$N使勁把大門打了開來。\n", this_player());
 		room->set("exits/north", __FILE__);
-		message("vision", "吱地一声，里面有人把大门打开了。\n", room);
+		message("vision", "吱地一聲，裏面有人把大門打開了。\n", room);
 		remove_call_out("close_gate");
 		call_out("close_gate", 10);
 	}
@@ -103,7 +103,7 @@ int do_open(string arg)
 
 string look_gate()
 {
-	return "一道三丈来高的朱红杉木包铜大门。\n";
+	return "一道三丈來高的硃紅杉木包銅大門。\n";
 }
 
 int valid_leave(object me, string dir)

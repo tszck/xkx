@@ -1,4 +1,4 @@
-// dulong-dafa.c 蛇岛  毒龙大法
+// dulong-dafa.c 蛇島  毒龍大法
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -24,25 +24,25 @@ int valid_learn(object me)
 	for (j = 1; j < lvl / 10; j++) t *= 2;
 /*
 	if (!me->query("yijin_wan"))
-		return notify_fail("你未曾服食教主的豹胎易经丸，没有根基，无法学习毒龙大法。\n");
+		return notify_fail("你未曾服食教主的豹胎易經丸，沒有根基，無法學習毒龍大法。\n");
 
 	if (me->query("yijin_wan") < me->query("age") - 13 )
-		return notify_fail("你未曾每年按期服食教主的豹胎易经丸，无法继续学习毒龙大法。\n");
+		return notify_fail("你未曾每年按期服食教主的豹胎易經丸，無法繼續學習毒龍大法。\n");
 
 */
 	if ( (int)me->query_skill("force", 1) < 10 ||
 		(int)me->query_skill("force", 1)/2 < lvl/3 )
-		return notify_fail("你的基本内功火候还不够，无法领会毒龙大法。\n");
+		return notify_fail("你的基本內功火候還不夠，無法領會毒龍大法。\n");
 	if (lvl > 10 && (int)me->query("shen") > t * 100 &&
 		(me->query_skill("taoism", 1) ||
 		me->query_skill("buddhism", 1)) )
-		return notify_fail("你尚不适宜学习毒龙大法。\n");
+		return notify_fail("你尚不適宜學習毒龍大法。\n");
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("毒龙大法只能用学(learn)的来增加熟练度。\n");
+	return notify_fail("毒龍大法只能用學(learn)的來增加熟練度。\n");
 }
 
 string exert_function_file(string func)
@@ -52,17 +52,17 @@ string exert_function_file(string func)
 
 int help(object me)
 {
-	write(HIC"\n毒龙大法："NOR"\n");
+	write(HIC"\n毒龍大法："NOR"\n");
 	write(@HELP
 
-    毒龙大法为神龙教本门内功。
+    毒龍大法爲神龍教本門內功。
 
-	学习要求：
-		基本内功10级
-		不能修习禅宗或道家心法
+	學習要求：
+		基本內功10級
+		不能修習禪宗或道家心法
 HELP
 	);
-/*		定期服食豹胎易经丸 */
+/*		定期服食豹胎易經丸 */
 	return 1;
 }
 

@@ -1,4 +1,4 @@
-// kurong-changong.c 枯荣禅功
+// kurong-changong.c 枯榮禪功
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -17,16 +17,16 @@ int valid_enable(string usage) { return usage == "force"; }
 int valid_learn(object me)
 {
 	if ( me->query_skill("force", 1) < 10)
-		return notify_fail("你的基本内功不到火候，难以领会枯荣禅功。\n");
-	if ( me->query("gender") == "无性")
-		return notify_fail("你无根无性，阴阳不调，难以领会高深的枯荣禅功。\n");
+		return notify_fail("你的基本內功不到火候，難以領會枯榮禪功。\n");
+	if ( me->query("gender") == "無性")
+		return notify_fail("你無根無性，陰陽不調，難以領會高深的枯榮禪功。\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("枯荣禅功只能用学(learn)的来增加熟练度。\n");
+	return notify_fail("枯榮禪功只能用學(learn)的來增加熟練度。\n");
 }
 
 string exert_function_file(string func)
@@ -37,18 +37,18 @@ string exert_function_file(string func)
 
 int help(object me)
 {
-	write(HIC"\n枯荣禅功："NOR"\n");
+	write(HIC"\n枯榮禪功："NOR"\n");
 	write(@HELP
 
-    有常无常，双树枯荣，南北西东，非假非空！
-    佛门奇功，天龙寺枯荣长老精擅此技。相传释迦牟尼在桫椤双
-树之间入灭，代表了非枯非荣、非假非空的最高境界，后世弟子便
-以此为修行之法，静参枯禅。是为枯荣禅功之来由。
-    为天南大理段家的本门内功。
+    有常無常，雙樹枯榮，南北西東，非假非空！
+    佛門奇功，天龍寺枯榮長老精擅此技。相傳釋迦牟尼在桫欏雙
+樹之間入滅，代表了非枯非榮、非假非空的最高境界，後世弟子便
+以此爲修行之法，靜參枯禪。是爲枯榮禪功之來由。
+    爲天南大理段家的本門內功。
 
-	学习要求：
-		基本内功10级
-		不能是太监
+	學習要求：
+		基本內功10級
+		不能是太監
 HELP
 	);
 	return 1;

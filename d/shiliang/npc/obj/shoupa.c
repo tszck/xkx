@@ -7,7 +7,7 @@ void create()
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "张");
-                set("long","这是一张绣花手帕。\n");
+                set("unit", "張");
+                set("long","這是一張繡花手帕。\n");
              }
 }

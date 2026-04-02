@@ -1,4 +1,4 @@
-///xieyan.c 谢烟客
+///xieyan.c 謝煙客
 
 #include <ansi.h>
 
@@ -7,9 +7,9 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("谢烟客", ({ "xie yanke", "xie", "yanke" }));
-        set("long", "他就是摩天崖的主人。看年纪大约五十多岁，\n"
-                   +"年轻时好武成兴，无比骄傲，自认为天下第一。\n");
+        set_name("謝煙客", ({ "xie yanke", "xie", "yanke" }));
+        set("long", "他就是摩天崖的主人。看年紀大約五十多歲，\n"
+                   +"年輕時好武成興，無比驕傲，自認爲天下第一。\n");
         set("gender", "男性");
         set("age", 50);
         set("shen_type",1);

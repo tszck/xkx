@@ -8,7 +8,7 @@ void create()
 {
 	set_name("詹春", ({ "zhan chun", "zhan", "chun" }));
 	set("long",
-		"她是何太冲最喜欢的弟子，长得倒也颇为俏丽。\n");
+		"她是何太沖最喜歡的弟子，長得倒也頗爲俏麗。\n");
 	set("gender", "女性");
 	set("age", 24);
 	set("attitude", "friendly");
@@ -43,7 +43,7 @@ void create()
 	map_skill("sword", "xunlei-sword");
 	prepare_skill("leg", "chuanyun-leg");
 
-	create_family("昆仑派", 5, "弟子");
+	create_family("崑崙派", 5, "弟子");
 	set("env/wimpy", 60);
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();
@@ -56,13 +56,13 @@ void attempt_apprentice(object ob)
 	{
 		command("fear");
 		command("say "+RANK_D->query_respect(ob)+
-			"，师母不准我收男弟子，你去找我师兄去吧。");
+			"，師母不准我收男弟子，你去找我師兄去吧。");
 		return;
 	}
 
 	if(ob->query("appren_hezudao", 1) == 1)
 	{
-		command("say 师祖怎敢开如此玩笑，晚辈却是万万不敢的！");
+		command("say 師祖怎敢開如此玩笑，晚輩卻是萬萬不敢的！");
 		return;
 	}
 

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "太极亭");
+	set("short", "太極亭");
 	set("long", @LONG
-太极亭为重檐锥顶小亭，亭内地面绘有阴阳合抱的太极图。在这里
-可以饱览洞庭湖山景色。
+太極亭爲重檐錐頂小亭，亭內地面繪有陰陽合抱的太極圖。在這裏
+可以飽覽洞庭湖山景色。
 LONG );
 	set("outdoors", "dongting");
 	set("no_clean_up", 0);

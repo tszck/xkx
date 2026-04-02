@@ -1,4 +1,4 @@
-// dieying.c 松间蝶影
+// dieying.c 松間蝶影
 // Last Modified by sir on 4/25/2001
 
 
@@ -6,7 +6,7 @@
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME "「松间蝶影」"
+#define PNAME "「松間蝶影」"
 int perform(object me,object target)
 {
 	string msg;
@@ -22,18 +22,18 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	fskill = "qingming-xuangong";
 	bskill = "sword";
@@ -47,25 +47,25 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(fskill)+"等级不够, 不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"等級不夠, 不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(sskill)+"等级不够, 不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"等級不夠, 不能使用"+PNAME+"。\n");
 
 	if( me->query("neili") < 300 )
-		return notify_fail("你的内力不够，无法运用「松间蝶影」！\n");
+		return notify_fail("你的內力不夠，無法運用「松間蝶影」！\n");
 
-	msg = HIG "$N"HIG"凝神息气，剑附内力，一式「松间蝶影」，"+weapon->name()+HIG "挽出千万朵剑花，剑影如蝶般扑向$n"HIG"。\n";
+	msg = HIG "$N"HIG"凝神息氣，劍附內力，一式「松間蝶影」，"+weapon->name()+HIG "挽出千萬朵劍花，劍影如蝶般撲向$n"HIG"。\n";
 	message_combatd(msg, me, target);
 
 	skill = me->query_skill(bskill,1);
   dp = target->query_skill("force");
 	if( dp < 1 ) dp = 1;
-//	if( random(skill) > dp/2 ) //相同100级就是 random(100) > 150/2  好低...
+//	if( random(skill) > dp/2 ) //相同100級就是 random(100) > 150/2  好低...
 	if ( random(skill) > dp/4 ) // random(100) > 150/4  now
 	{
 		if(userp(me)) me->add("neili", -150);
-		msg ="$n顿时觉得眼前蝶影飘飞，双耳嗡嗡内鸣，全身上下一阵刺痛如针扎一般！\n" NOR;
+		msg ="$n頓時覺得眼前蝶影飄飛，雙耳嗡嗡內鳴，全身上下一陣刺痛如針扎一般！\n" NOR;
 		qi_wound = 2 * skill;
 		qi_wound = qi_wound/2 + random(qi_wound);
 
@@ -77,7 +77,7 @@ int perform(object me,object target)
 	else
 	{
 		me->add("neili",-50);
-		msg = "可是$n宁心静气，身行虚晃，跃出剑影。\n"NOR;
+		msg = "可是$n寧心靜氣，身行虛晃，躍出劍影。\n"NOR;
 		me->start_busy(1+random(3));
 	}
 	message_combatd(msg, me, target);
@@ -92,12 +92,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		伤敌气血并使其暂时不能动弹。
+		傷敵氣血並使其暫時不能動彈。
 
 	出手要求：
-		青冥玄功120级
-		松风剑法150级
-		内力300
+		青冥玄功120級
+		松風劍法150級
+		內力300
 HELP
 	);
 	return 1;

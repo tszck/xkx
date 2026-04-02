@@ -7,8 +7,8 @@ void create()
 {
 	set("short", "原野");
 	set("long", @LONG
-平野上一群梅花鹿正在低头吃草，极目四望，除了那火山有些骇
-人之外，周围一片平静，绝无可怖之处。
+平野上一羣梅花鹿正在低頭喫草，極目四望，除了那火山有些駭
+人之外，周圍一片平靜，絕無可怖之處。
 LONG );
 	set("outdoors", "binghuo");
 	set("no_clean_up", 0);

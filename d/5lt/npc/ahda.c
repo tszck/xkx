@@ -5,16 +5,16 @@ inherit NPC;
 
 void create()
 {
-	set_name("阿达", ({ "ahda" }));
-	set("title", HIM"电视台保安"NOR);
+	set_name("阿達", ({ "ahda" }));
+	set("title", HIM"電視臺保安"NOR);
 	set("shen_type", 1);
 
 	set("gender", "男性" );
 	set("long", @LONG
-这是一个穿着保安制服的大汉，身高七尺，穷凶极恶的样子。
-阿达很凶恶地告诉你："请问你找谁？电视台闲人免近"。
+這是一個穿着保安制服的大漢，身高七尺，窮兇極惡的樣子。
+阿達很兇惡地告訴你："請問你找誰？電視臺閒人免近"。
 LONG);
-	set("nickname", HIY"农村第一庶民警察"NOR);
+	set("nickname", HIY"農村第一庶民警察"NOR);
 	set("age", 25);
 	set("per", 30);
 	set("attitude", "friendly");		

@@ -8,18 +8,18 @@ int do_out(string arg);
 
 void create()
 {
-	set("short", "苦寒楼三层");
+	set("short", "苦寒樓三層");
 	set("long", @LONG
-很快就到了苦寒楼顶层。这里可以看到山门以及北边的诸多昆仑山
-峰，四周的杉林随风摇摆，发出“哗哗哗”的声音。山风夹着隐隐寒气，
-远处的景色单调而苍凉，你心里顿时生出一种莫名寂寞的感觉。房间里
-的布置十分简单。往外看，有个很大的红木窗台(out)。
+很快就到了苦寒樓頂層。這裏可以看到山門以及北邊的諸多崑崙山
+峯，四周的杉林隨風搖擺，發出“嘩嘩譁”的聲音。山風夾着隱隱寒氣，
+遠處的景色單調而蒼涼，你心裏頓時生出一種莫名寂寞的感覺。房間裏
+的佈置十分簡單。往外看，有個很大的紅木窗臺(out)。
 LONG );
 	set("exits", ([
 		"down" : __DIR__"kuhanlou2",
 	]));
 	set("item_desc", ([
-		"out" : "你突然有了一种想跳出去的欲望，怎么也克制不住。\n",
+		"out" : "你突然有了一種想跳出去的慾望，怎麼也剋制不住。\n",
 	]));
 	set("no_clean_up", 0);
 	set("coor/x", -119980);
@@ -56,17 +56,17 @@ int do_out(string arg)
 		((int)me->query("qi") < qi_cost))
 		i = 0;
 
-	message_vision("$N爬上窗台，一个纵身，跳了下去。\n", me);
+	message_vision("$N爬上窗臺，一個縱身，跳了下去。\n", me);
 	me->move(__DIR__"houyuan");
-	message_vision("只听『砰』地一声$N从楼顶跳了下来。\n", me);
-	me->set_temp("last_damage_from", "从楼上跳下来摔");
+	message_vision("只聽『砰』地一聲$N從樓頂跳了下來。\n", me);
+	me->set_temp("last_damage_from", "從樓上跳下來摔");
 
 	if ( i < 60)
 		me->die();
 	else if( i < 120)
 		me->unconcious();
 	else {
-		message_vision("$N已稳稳地站在地上。\n", me);
+		message_vision("$N已穩穩地站在地上。\n", me);
 		if( i > 250
 			&& me->query_skill("dodge", 1) < 120 )
 			me->improve_skill("dodge", 2*(int)me->query_skill("dodge", 1));

@@ -1,5 +1,5 @@
 // Last Modified by winder on May. 29 2001
-// one-finger.c 一指禅 不可互备 取自佛教《大般若经》。
+// one-finger.c 一指禪 不可互備 取自佛教《大般若經》。
 
 #include <ansi.h>
 inherit SKILL;
@@ -7,29 +7,29 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N双指并拢，一式"MAG"「道行般若」"NOR"，和身缓缓而上，左右手一前一后弹向$n$l",
+([	"action" : "$N雙指併攏，一式"MAG"「道行般若」"NOR"，和身緩緩而上，左右手一前一後彈向$n$l",
 	"lvl"   : 0,
 	"skill_name" : "道行般若"
 ]),
-([	"action" : "$N左掌护胸，含笑一式"GRN"「小品般若」"NOR"，右手中指前后划了个半弧，轻轻一甩，点向$n$l",
+([	"action" : "$N左掌護胸，含笑一式"GRN"「小品般若」"NOR"，右手中指前後劃了個半弧，輕輕一甩，點向$n$l",
 	"lvl"   : 20,
 	"skill_name" : "小品般若"
 ]),
-([	"action" : "$N身形闪动，一式"HIW"「光赞般若」"NOR"，双手食指端部各射出一道青光，射向$n的全身要穴",
+([	"action" : "$N身形閃動，一式"HIW"「光贊般若」"NOR"，雙手食指端部各射出一道青光，射向$n的全身要穴",
 	"lvl"   : 40,
-	"skill_name" : "光赞般若"
+	"skill_name" : "光贊般若"
 ]),
-([	"action" : "$N盘膝跌坐，一式"HIC"「放光般若」"NOR"，全身罡气密布，左手握拳托肘，右手拇指直立，遥遥对着$n一捺",
+([	"action" : "$N盤膝跌坐，一式"HIC"「放光般若」"NOR"，全身罡氣密佈，左手握拳託肘，右手拇指直立，遙遙對着$n一捺",
 	"lvl"   : 60,
 	"skill_name" : "放光般若"
 ]),
-([	"action" : "$N面露宝相，结兰花手，轻轻一下点出"GRN"「摩诃般若」"NOR"，凭空凝气成线，缓缓刺向$n",
+([	"action" : "$N面露寶相，結蘭花手，輕輕一下點出"GRN"「摩訶般若」"NOR"，憑空凝氣成線，緩緩刺向$n",
 	"lvl"   : 100,
-	"skill_name" : "摩诃般若"
+	"skill_name" : "摩訶般若"
 ]),
-([	"action" : "$N口念佛经，内息激发，衣衫渐渐胀鼓，身若金刚，便立指一式"HIY"「金刚般若」"NOR"，对着$n点去",
+([	"action" : "$N口唸佛經，內息激發，衣衫漸漸脹鼓，身若金剛，便立指一式"HIY"「金剛般若」"NOR"，對着$n點去",
 	"lvl"   : 150,
-	"skill_name" : "金刚般若"
+	"skill_name" : "金剛般若"
 ])
 });
 
@@ -37,22 +37,22 @@ int valid_enable(string usage) { return usage=="finger" || usage=="parry"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练一指禅必须空手。\n");
+		return notify_fail("練一指禪必須空手。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 100)
-		return notify_fail("你的站桩功火候不够，无法学一指禅。\n");
+		return notify_fail("你的站樁功火候不夠，無法學一指禪。\n");
 	if ((int)me->query("max_neili") < 1200)
-		return notify_fail("你的内力太弱，无法练习一指禅。\n");
+		return notify_fail("你的內力太弱，無法練習一指禪。\n");
 	if ((me->query_skill("nianhua-finger", 1) < 50) ||
 		(me->query_skill("boruo-strike", 1) < 50) )
-		return notify_fail("你的拈花指和般若掌火候不够，无法学一指禅。\n");
+		return notify_fail("你的拈花指和般若掌火候不夠，無法學一指禪。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if ((int)me->query("qi") < 60)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 30)
-		return notify_fail("你的内力不够练一指禅。\n");
+		return notify_fail("你的內力不夠練一指禪。\n");
 	me->receive_damage("qi", 55);
 	me->add("neili", -25);
 	return 1;
@@ -79,16 +79,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "刺伤" : "瘀伤",
+		"damage_type" : random(2) ? "刺傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 5; }
@@ -103,16 +103,16 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\n一指禅："NOR"\n");
+	write(HIC"\n一指禪："NOR"\n");
 	write(@HELP
 
-    一指禅是南少林高级指法，出自佛教《大般若经》。
+    一指禪是南少林高級指法，出自佛教《大般若經》。
 
-	学习要求：
-		站桩功100级
-		拈花指50级
-		般若掌50级
-		内力修为1200
+	學習要求：
+		站樁功100級
+		拈花指50級
+		般若掌50級
+		內力修爲1200
 HELP
 	);
 	return 1;

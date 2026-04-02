@@ -1,4 +1,4 @@
-// wuluo-zhang.c 五罗轻烟掌
+// wuluo-zhang.c 五羅輕煙掌
 // Last Modified by sir 10.22.2001
 
 #include <ansi.h>
@@ -7,29 +7,29 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N屏息静气，手起一掌"HIB"「轻烟袅袅」"NOR"，轻轻柔柔地拍向$n",
+([	"action" : "$N屏息靜氣，手起一掌"HIB"「輕煙嫋嫋」"NOR"，輕輕柔柔地拍向$n",
 	"lvl"    : 0,
-	"skill_name" : "轻烟袅袅"
+	"skill_name" : "輕煙嫋嫋"
 ]),
-([	"action" : "$N轻轻浅笑，绕到$n身后，左手做势温柔轻拥$n腰间。$n蹙眉急躲，$N右手一招"BLU"「烟雾缭绕」"NOR"，无声无息向$n的$l拍到",
+([	"action" : "$N輕輕淺笑，繞到$n身後，左手做勢溫柔輕擁$n腰間。$n蹙眉急躲，$N右手一招"BLU"「煙霧繚繞」"NOR"，無聲無息向$n的$l拍到",
 	"lvl"    : 20,
-	"skill_name" : "烟雾缭绕"
+	"skill_name" : "煙霧繚繞"
 ]),
-([	"action" : "$N一招"MAG"「烟海云涛」"NOR"，双掌幻化出一片掌影，如一阵轻烟，将$n细细密密地笼罩于内",
+([	"action" : "$N一招"MAG"「煙海雲濤」"NOR"，雙掌幻化出一片掌影，如一陣輕煙，將$n細細密密地籠罩於內",
 	"lvl"    : 40,
-	"skill_name" : "烟海云涛"
+	"skill_name" : "煙海雲濤"
 ]),
-([	"action" : "$N返身越出圈外，回首一招"HIC"「云烟渺渺」"NOR"，远远地向$n的$l轻轻拍出两掌，掌风刮到，陡然变盛直让$n呼不出气来",
+([	"action" : "$N返身越出圈外，回首一招"HIC"「雲煙渺渺」"NOR"，遠遠地向$n的$l輕輕拍出兩掌，掌風颳到，陡然變盛直讓$n呼不出氣來",
 	"lvl"    : 60,
-	"skill_name" : "云烟渺渺"
+	"skill_name" : "雲煙渺渺"
 ]),
-([	"action" : "$N左掌从右掌内围翻出，轻飘飘地向$n拍去，看到$n起手招架，右掌却自胸口疾速圈出，一招"HIW"「烟雾弥漫」"NOR"，赶超左掌，拍向$n的$l",
+([	"action" : "$N左掌從右掌內圍翻出，輕飄飄地向$n拍去，看到$n起手招架，右掌卻自胸口疾速圈出，一招"HIW"「煙霧瀰漫」"NOR"，趕超左掌，拍向$n的$l",
 	"lvl"    : 80,
-	"skill_name" : "烟雾弥漫"
+	"skill_name" : "煙霧瀰漫"
 ]),
-([	"action" : "$N双掌齐推，振起一阵劲风，一招"HIW"「烟消云散」"NOR"在一丈开外击向$n",
+([	"action" : "$N雙掌齊推，振起一陣勁風，一招"HIW"「煙消雲散」"NOR"在一丈開外擊向$n",
 	"lvl"    : 100,
-	"skill_name" : "烟消云散"
+	"skill_name" : "煙消雲散"
 ]),
 });
 
@@ -39,21 +39,21 @@ int valid_combine(string combo) { return combo=="jinyu-quan"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练五罗轻烟掌必须空手。\n");
+		return notify_fail("練五羅輕煙掌必須空手。\n");
 	if ((int)me->query_skill("kurong-changong",1) < 20)
-		return notify_fail("你的枯荣禅功太弱，无法练五罗轻烟掌。\n");
+		return notify_fail("你的枯榮禪功太弱，無法練五羅輕煙掌。\n");
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail("你的内力太弱，无法练五罗轻烟掌。\n");
+		return notify_fail("你的內力太弱，無法練五羅輕煙掌。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 50)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够练五罗轻烟掌。\n");
+		return notify_fail("你的內力不夠練五羅輕煙掌。\n");
 	me->receive_damage("qi", 25);
 	me->add("neili", -10);
 	return 1;
@@ -80,16 +80,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 30; }
@@ -99,15 +99,15 @@ int power_point(object me) { return 1.0; }
 
 int help(object me)
 {
-	write(HIC"\n五罗轻烟掌："NOR"\n");
+	write(HIC"\n五羅輕煙掌："NOR"\n");
 	write(@HELP
 
-    五罗轻烟掌是天南大理段家的武功。
-    可与金玉拳互备。
+    五羅輕煙掌是天南大理段家的武功。
+    可與金玉拳互備。
 
-	学习要求：
-		枯荣禅功20级
-		内力100
+	學習要求：
+		枯榮禪功20級
+		內力100
 HELP
 	);
 	return 1;

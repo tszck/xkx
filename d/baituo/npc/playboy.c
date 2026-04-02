@@ -6,10 +6,10 @@ inherit NPC;
 void create()
 {
 	set_name("花花公子", ({ "playboy" }) );
-	set("nickname", "采花大盗");
+	set("nickname", "採花大盜");
 	set("gender", "男性" );
 	set("age", 19);
-	set("long", "这是个流里流气的花花公子。\n");
+	set("long", "這是個流裏流氣的花花公子。\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 
@@ -44,8 +44,8 @@ void greeting(object ob)
 	if(ob->query("gender")=="女性")
 	{
 		if(random(2)==1)
-			say(" 花花公子色迷迷说："+RANK_D->query_respect(ob)+ "干嘛那么着急赶路，陪我玩玩不行吗？\n");
+			say(" 花花公子色迷迷說："+RANK_D->query_respect(ob)+ "幹嘛那麼着急趕路，陪我玩玩不行嗎？\n");
 		else
-			say(" 花花公子唱道：路边的野花不采白不采~~。这位"+RANK_D->query_respect(ob)+ "你说是吗？\n");
+			say(" 花花公子唱道：路邊的野花不採白不採~~。這位"+RANK_D->query_respect(ob)+ "你說是嗎？\n");
 	}
 }

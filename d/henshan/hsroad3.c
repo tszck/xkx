@@ -1,14 +1,14 @@
-// Room: /d/henshan/hsroad3.c 黄土路
+// Room: /d/henshan/hsroad3.c 黃土路
 // Modified by Java on Feb.14.1998
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "黄土路");
+	set("short", "黃土路");
 	set("long", @LONG
-你走在一条尘土飞扬的黄土路上，两旁是阴森森的树林。西面不远
-就是衡阳县城了。
+你走在一條塵土飛揚的黃土路上，兩旁是陰森森的樹林。西面不遠
+就是衡陽縣城了。
 LONG );
 	set("outdoors", "hengyang");
 

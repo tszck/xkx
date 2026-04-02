@@ -7,8 +7,8 @@ void create()
 {
 	set("short","兔苑");
 	set("long", @LONG
-这是个好玩的兔苑，几只大白兔静静地蹲在绿草地上吃草。西南方
-是竹园。西面传来阵阵猛兽的嚎叫，东面有一个蛇园。
+這是個好玩的兔苑，幾隻大白兔靜靜地蹲在綠草地上喫草。西南方
+是竹園。西面傳來陣陣猛獸的嚎叫，東面有一個蛇園。
 LONG );
 	set("exits",([
 		"east"  : __DIR__"sheyuan",
@@ -30,9 +30,9 @@ int valid_leave(object me, string dir)
 	mapping myfam;
 	me = this_player();
 	myfam = (mapping)me->query("family");
-	if((!myfam || (myfam["family_name"] != "白驼山派")) && (dir == "west"))
-		return notify_fail("你不是白驼山弟子，不能进兽舍。\n");
-	if((!myfam || (myfam["family_name"] != "白驼山派")) && (dir == "east"))
-		return notify_fail("你不是白驼山弟子，不能进蛇园。\n");
+	if((!myfam || (myfam["family_name"] != "白駝山派")) && (dir == "west"))
+		return notify_fail("你不是白駝山弟子，不能進獸舍。\n");
+	if((!myfam || (myfam["family_name"] != "白駝山派")) && (dir == "east"))
+		return notify_fail("你不是白駝山弟子，不能進蛇園。\n");
 	else return 1;
 }

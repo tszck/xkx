@@ -9,8 +9,8 @@ void create()
 {
 	set("short", HIB"巨石"NOR);
 	set("long", @LONG
-你落脚在一块黑褐色的巨石上。你身在半空，向下一望，不由得头晕目眩。
-因此只好远望对面山色。一阵山风吹来，令人心旷神怡，你才顿时发觉此乃练
+你落腳在一塊黑褐色的巨石上。你身在半空，向下一望，不由得頭暈目眩。
+因此只好遠望對面山色。一陣山風吹來，令人心曠神怡，你才頓時發覺此乃練
 功(liangong)一佳地。
 LONG
 	);
@@ -34,7 +34,7 @@ void init()
 		for ( int i = 0; i < sizeof(inv); i++ )
 			if ( (userp(inv[i]) && inv[i] != me && !wizardp(inv[i]) ) || time()-me->query_temp("LAST_PKER_TIME")<7200)
 			{	
-				write( WHT"你爬上巨石，却发现上面已无容身之处，只好悻悻的退了下来。\n"NOR );
+				write( WHT"你爬上巨石，卻發現上面已無容身之處，只好悻悻的退了下來。\n"NOR );
 				me->move( __DIR__"xiaolu" );
 				return;
 			}
@@ -51,36 +51,36 @@ int do_xxdazuo(string arg)
 	fam = this_player()->query("family");
 
 //	if (!fam || fam["family_name"] != "星宿派")
-//	       return notify_fail("你偷上星宿派禁地，还敢在这里打坐？\n");
+//	       return notify_fail("你偷上星宿派禁地，還敢在這裏打坐？\n");
     
 	if (me->is_busy())
-		return notify_fail("你现在正忙着呢。\n");
+		return notify_fail("你現在正忙着呢。\n");
 
 	if(me->query("max_qi") < 400)
-		return notify_fail("你现在的气太少了，无法在此练功。\n");
+		return notify_fail("你現在的氣太少了，無法在此練功。\n");
 
 	if(me->query_skill("force") < 100 )
-		return notify_fail("你的内功根基还不够，在此练功有害无益。\n");
+		return notify_fail("你的內功根基還不夠，在此練功有害無益。\n");
 
 	if( !stringp(me->query_skill_mapped("force")) )
-	return notify_fail("你必须先用 enable 选择你要用的特殊内功。\n");
+	return notify_fail("你必須先用 enable 選擇你要用的特殊內功。\n");
 
 	      if ((me->query_skill("force")*8 +  me->query("combat_exp",1)/1000 ) <= me->query("max_neili") )
-	      return notify_fail("这里已经无助于你的修为了。\n");
+	      return notify_fail("這裏已經無助於你的修爲了。\n");
 
 	if( !arg || !sscanf(arg, "%d", xxdazuo_cost))
-		return notify_fail("你要花多少气练功？\n");
+		return notify_fail("你要花多少氣練功？\n");
 	if (xxdazuo_cost < 10)
-	return notify_fail("你无法控制内息运行到如此精细的程度！\n");
+	return notify_fail("你無法控制內息運行到如此精細的程度！\n");
 
 	if( (int)me->query("qi") < xxdazuo_cost )
-		return notify_fail("你现在的气太少了，无法产生内息运行全身经脉。\n");
+		return notify_fail("你現在的氣太少了，無法產生內息運行全身經脈。\n");
 
 	if( (int)me->query("jing") * 100 / (int)me->query("max_jing") < 70 )
-		return notify_fail("你现在精不够，无法控制内息的流动！\n");
+		return notify_fail("你現在精不夠，無法控制內息的流動！\n");
 
-	message_vision("$N盘膝坐下运功，身体渐渐被一股青烟所包围。\n",me); 
-	write(BLU"你坐在巨石上，运动丹田内劲，你感觉到在山风的压迫下体内的内劲开始有所加强了。\n"NOR);
+	message_vision("$N盤膝坐下運功，身體漸漸被一股青煙所包圍。\n",me); 
+	write(BLU"你坐在巨石上，運動丹田內勁，你感覺到在山風的壓迫下體內的內勁開始有所加強了。\n"NOR);
 
 	me->set_temp("pending/xxdazuo", 1);
 	me->set_temp("xxdazuo_cost", xxdazuo_cost);	
@@ -104,20 +104,20 @@ int xxdazuo(object me)
 
 	me->delete_temp("pending/exercise");
 	me->delete_temp("pending/xxdazuo");
-	message_vision("山风渐渐加强，$N终于忍耐不住，双眼一睁，站了起来。\n", me);    
+	message_vision("山風漸漸加強，$N終於忍耐不住，雙眼一睜，站了起來。\n", me);    
 //	me->improve_skill("huagong-dafa", 1);
         if ((int)me->query_skill("force",1)<150)
 	    me->improve_skill("force", 1); 
 	if ((int)me->query("neili") < (int)me->query("max_neili") * 2)
 		return 0;
      if ((me->query_skill("force")*8 +  me->query("combat_exp",1)/1000 ) <= me->query("max_neili") ){
-		write("你的内力修为已经达到了此地所能帮助你的极限。\n"); 
+		write("你的內力修爲已經達到了此地所能幫助你的極限。\n"); 
 		me->set("neili", (int)me->query("max_neili"));
 		return 0;
 	}
 	me->add("max_neili", 1);
 	me->set("neili", (int)me->query("max_neili"));
-	write("你的内力修为增加了！！\n");   
+	write("你的內力修爲增加了！！\n");   
 	return 0;
 }
 
@@ -127,7 +127,7 @@ int halt_xxdazuo(object me)
 {
 	if ((int)me->query("neili") > (int)((int)me->query("max_neili") * 2)) 
 	{
-		message_vision("$N强压住内息，双眼一睁，站了起来。\n", me); 
+		message_vision("$N強壓住內息，雙眼一睜，站了起來。\n", me); 
 		me->set("neili", (int)((int)me->query("max_neili") * 2)); 
 	}
 	me->delete_temp("pending/xxdazuo");

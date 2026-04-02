@@ -1,13 +1,13 @@
-//      hubian1.c 湖边小路
+//      hubian1.c 湖邊小路
 
 inherit ROOM;
 
 void create()
 {
-        set("short","湖边小路");
+        set("short","湖邊小路");
         set("long",@LONG
-这是圣湖边的小路。路侧的湖水极为清澈。阳光下映着白顶雪山显
-出一片蓝幽幽的宁静。
+這是聖湖邊的小路。路側的湖水極爲清澈。陽光下映着白頂雪山顯
+出一片藍幽幽的寧靜。
 LONG );
         set("outdoors","xueshan");
         set("exits",([

@@ -15,18 +15,18 @@ int exert(object me, object target)
   !me->query("perform/powerup") &&
   !me->query("can_perform/huagong-dafa/powerup") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("你所使用的内功中没有这种功能。");
+   return notify_fail("你所使用的內功中沒有這種功能。");
 
 	if( target != me )
-		return notify_fail("你只能提升自己的战斗力。\n");
+		return notify_fail("你只能提升自己的戰鬥力。\n");
 	if( (int)me->query("neili")<200)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if( (int)me->query_temp("powerup"))
-		return notify_fail("你已经在运功中了。\n");
+		return notify_fail("你已經在運功中了。\n");
 
 	skill = me->query_skill("force");
 
-	message_combatd( HIG "$N舌尖一咬，喷出一口碧血，运起化功大法已将全身潜力尽数提起！\n" NOR, me);
+	message_combatd( HIG "$N舌尖一咬，噴出一口碧血，運起化功大法已將全身潛力盡數提起！\n" NOR, me);
 
 	me->add("neili", -100);
 	me->add_temp("apply/attack", skill/3);
@@ -47,7 +47,7 @@ void remove_effect(object me, int amount)
 		me->add_temp("apply/attack", - amount);
 		me->add_temp("apply/dodge", - amount);
 		me->delete_temp("powerup");
-		tell_object(me, "你的化功大法运行完毕，将内力收回丹田。\n");
+		tell_object(me, "你的化功大法運行完畢，將內力收回丹田。\n");
 	}
 }
 int help(object me)
@@ -56,10 +56,10 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		提升自己的攻击防御能力
+		提升自己的攻擊防禦能力
 
 	出手要求：
-		内力200
+		內力200
 HELP
 	);
 	return 1;

@@ -1,7 +1,7 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
-// guihuageng.c 桂花雪莲羹
+// guihuageng.c 桂花雪蓮羹
 
 inherit ITEM;
 
@@ -10,12 +10,12 @@ void eat();
 
 void create()
 {
-   set_name("桂花雪莲羹",({"guihua geng", "guihua", "geng"}));
+   set_name("桂花雪蓮羹",({"guihua geng", "guihua", "geng"}));
    set_weight(50);
    if (clonep())
      set_default_object(__FILE__);
    else {
-     set("long", "以昆仑山玉女峰顶的桂花与雪莲制成，对精神大有裨益。\n");
+     set("long", "以崑崙山玉女峯頂的桂花與雪蓮製成，對精神大有裨益。\n");
      set("unit", "碗");
      set("value", 800);
         set("remaining", 5);
@@ -38,10 +38,10 @@ int do_chi(string arg)
    
     if( !this_object()->id(arg) ) return 0;
     if( this_player()->is_busy() )
-        return notify_fail("你上一个动作还没有完成。\n");
+        return notify_fail("你上一個動作還沒有完成。\n");
     if(   (int)this_player()->query("food")
        >= (int)this_player()->max_food_capacity() )
-     return notify_fail("你已经吃得太多了，再吃就撑死了。\n");
+     return notify_fail("你已經喫得太多了，再喫就撐死了。\n");
 
     this_player()->add("food", (int)query("food_supply"));
 
@@ -80,10 +80,10 @@ int do_chi(string arg)
     add("remaining", -1);
    if ( query("remaining") )
    {
-         message_vision("$N拿起一碗桂花雪莲羹吃了几口。一股清香直入心脾，$N觉得精神好多了。\n", this_player());
+         message_vision("$N拿起一碗桂花雪蓮羹喫了幾口。一股清香直入心脾，$N覺得精神好多了。\n", this_player());
    } else 
    { 
-         message_vision("$N把碗里的桂花雪莲羹舔得干干净净，仍是意尤未尽。\n", this_player());
+         message_vision("$N把碗裏的桂花雪蓮羹舔得乾乾淨淨，仍是意尤未盡。\n", this_player());
      
      destruct(this_object());
    }

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "嘉兴南门");
+	set("short", "嘉興南門");
 	set("long", @LONG
-这里是嘉兴的南门。周围长着茂密的竹林。东面是座庙宇。向南可
-入福建。向东南就是号称天堂的杭州城了。
+這裏是嘉興的南門。周圍長着茂密的竹林。東面是座廟宇。向南可
+入福建。向東南就是號稱天堂的杭州城了。
 LONG );
 	set("exits", ([
 		"north"    : __DIR__"jiaxing",

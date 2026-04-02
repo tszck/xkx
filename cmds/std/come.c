@@ -13,43 +13,43 @@ int main(object me, string arg)
 	seteuid(getuid());
 
 	if( me->is_fighting() )
-		return notify_fail("一边打架一边驯兽？你真是活腻了！\n");
+		return notify_fail("一邊打架一邊馴獸？你真是活膩了！\n");
 	if( me->query_temp("comedby"))
-		return notify_fail("已经有野兽跟着你了！\n");
+		return notify_fail("已經有野獸跟着你了！\n");
 	if( !arg )
-		return notify_fail("你要让什么野兽跟随你？\n");
+		return notify_fail("你要讓什麼野獸跟隨你？\n");
 	if( !objectp(ob = present(arg, environment(me)) ))
-		return notify_fail("这里没有这只野兽吧？\n");
+		return notify_fail("這裏沒有這隻野獸吧？\n");
 	if( userp(ob) )
-		return notify_fail("人家也是玩家，你搞什么搞啊？\n");
+		return notify_fail("人家也是玩家，你搞什麼搞啊？\n");
 	if( me->query_skill("training",1) < 10 &&
 		ob->query("owner") != me->query("id"))
-		return notify_fail("你的驭兽术还不纯熟，无法让野兽跟随你！\n");
-	if( ob->query("race") == "人类") 
-		return notify_fail("这不是野兽，你晕头了吧？\n");
+		return notify_fail("你的馭獸術還不純熟，無法讓野獸跟隨你！\n");
+	if( ob->query("race") == "人類") 
+		return notify_fail("這不是野獸，你暈頭了吧？\n");
 	if( ob->is_fighting() )
-		return notify_fail(ob->name() + "正在打架，没空理你！\n");
+		return notify_fail(ob->name() + "正在打架，沒空理你！\n");
 	if( ob->is_busy() )
-		return notify_fail(ob->name() + "正在忙乎，没空理你！\n");
+		return notify_fail(ob->name() + "正在忙乎，沒空理你！\n");
 	if( !ob->query_temp("owner") )
-		return notify_fail(ob->name() + "是只无主野兽，你得先驯服(train)它啊！\n");
+		return notify_fail(ob->name() + "是隻無主野獸，你得先馴服(train)它啊！\n");
 	if( ob->query_temp("owner") &&
 		( ob->query_temp("owner") != me->query("id") ))
 	{
 		ob->kill_ob(me);
-		return notify_fail(ob->name() + "早被人家驯服了，你不是找死啊！\n");
+		return notify_fail(ob->name() + "早被人家馴服了，你不是找死啊！\n");
 	}
 	if ( ob == me )
-		return notify_fail("你没问题吧，自己跟自己？\n");
+		return notify_fail("你沒問題吧，自己跟自己？\n");
 	if (!living(ob)) 
-		return notify_fail("这只野兽晕倒了，你怎能让它跟你呢？\n");
+		return notify_fail("這隻野獸暈倒了，你怎能讓它跟你呢？\n");
 
 	cost = me->query("max_jing")/((me->query_skill("training",1)+10)/10)-10;
 
 	if ( me->query("jing") <= cost )
-		return notify_fail("现在你太累了，无法让野兽跟随。\n");
+		return notify_fail("現在你太累了，無法讓野獸跟隨。\n");
 
-	message_vision("只见$N冲着"+ob->name()+"手中摆了个手式，它一窜就跟上了。\n\n",me);
+	message_vision("只見$N衝着"+ob->name()+"手中擺了個手式，它一竄就跟上了。\n\n",me);
 
 	me->receive_damage("jing", cost );
 	me->set_temp("comedby", ob->query("id"));
@@ -60,24 +60,24 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-指令格式 : come <动物>
+指令格式 : come <動物>
 
-    此指令可用于让某动物跟随你。
+    此指令可用於讓某動物跟隨你。
 
-    对于已经驯服的动物，可以进行下述指令：
+    對於已經馴服的動物，可以進行下述指令：
 
 基本指令：
-        come <动物名>:                  让动物跟随主人行动。
-        stay:                           停止动物的跟随状态。
-        attack <某物>:                  让动物攻击敌人。
-        stop <动物名>:                  让动物停止对人的攻击。
-        release:                        结束主奴状态，将动物放离。
+        come <動物名>:                  讓動物跟隨主人行動。
+        stay:                           停止動物的跟隨狀態。
+        attack <某物>:                  讓動物攻擊敵人。
+        stop <動物名>:                  讓動物停止對人的攻擊。
+        release:                        結束主奴狀態，將動物放離。
 
-特殊指令：（只对某些动物适用）
-        ride <动物名>:                  骑，如骑马，虎，雕，鲨等。
-        unride <动物名>:                下，离开坐骑。
-        feed <饲料> to <动物名>:        替动物喂食。
-        imbibe <饮料>:                  给动物饮水。
+特殊指令：（只對某些動物適用）
+        ride <動物名>:                  騎，如騎馬，虎，雕，鯊等。
+        unride <動物名>:                下，離開坐騎。
+        feed <飼料> to <動物名>:        替動物餵食。
+        imbibe <飲料>:                  給動物飲水。
 
 HELP
 	);

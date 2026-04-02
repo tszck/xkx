@@ -3,13 +3,13 @@ inherit NPC;
 
 void create()
 {
-	set_name("吴之荣", ({ "wu zhi rong", "wu" ,"rong"}) );
+	set_name("吳之榮", ({ "wu zhi rong", "wu" ,"rong"}) );
 	set("gender", "男性" );
 	set("age", 40);
 	set("int", 28);
 	set("long",
-		"他原是归安县的知县，因贪赃枉法，百姓恨之切齿，终被告发革职。\n"
-               +"他长得尖嘴猴腮，一看就知不是好人 。\n");
+		"他原是歸安縣的知縣，因貪贓枉法，百姓恨之切齒，終被告發革職。\n"
+               +"他長得尖嘴猴腮，一看就知不是好人 。\n");
 	set("attitude", "peaceful");
 	set("shen_type", -1);
 	set("str", 25);

@@ -1,17 +1,17 @@
-// shourou2.c 野猪腿
+// shourou2.c 野豬腿
 
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-        set_name("野猪腿", ({"yezhu leg", "leg"}));
+        set_name("野豬腿", ({"yezhu leg", "leg"}));
         set_weight(200);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "一块风干的腊肉。\n");
-                set("unit", "条");
+                set("long", "一塊風乾的臘肉。\n");
+                set("unit", "條");
                 set("value", 20);
                 set("food_remaining", 15);
                 set("food_supply", 100);

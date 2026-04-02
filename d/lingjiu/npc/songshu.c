@@ -4,9 +4,9 @@ inherit NPC;
 void create()
 {
 	set_name("松鼠", ({ "song shu", "shu" }) );
-	set("race", "走兽");
+	set("race", "走獸");
 	set("age", 2);
-	set("long", "一只可爱的松鼠。\n");
+	set("long", "一隻可愛的松鼠。\n");
 	set("attitude", "peaceful");
 	set("str", 15);
 	set("con", 16);

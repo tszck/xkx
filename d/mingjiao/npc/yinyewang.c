@@ -9,11 +9,11 @@ void create()
 {
 	set_name("殷野王", ({ "yin yewang", "yin", "yewang", }));
 	set("long",
-	"他是一位手摇折扇的中年男子，身穿一件白布长袍。\n"
-	"他是白眉鹰王殷天正之子。一双眼睛犹如冷电，精光四射，气势摄人。\n"
+	"他是一位手搖摺扇的中年男子，身穿一件白布長袍。\n"
+	"他是白眉鷹王殷天正之子。一雙眼睛猶如冷電，精光四射，氣勢攝人。\n"
 	);
 
-	set("nickname", "一飞冲天");
+	set("nickname", "一飛沖天");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "fighert");

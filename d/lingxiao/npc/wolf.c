@@ -6,9 +6,9 @@ inherit NPC;
 void create()
 {
 	set_name("雪狼", ({ "xue lang","wolf", "lang" }) );
-	set("race", "走兽");
+	set("race", "走獸");
 	set("age", 5);
-	set("long","一头雪白的雪狼，昂首直立，两眼放着绿光，是大雪山上凶猛的野兽。\n");
+	set("long","一頭雪白的雪狼，昂首直立，兩眼放着綠光，是大雪山上兇猛的野獸。\n");
 	set("attitude", "aggressive");
 	set("str", 26);
 	set("cor", 30);

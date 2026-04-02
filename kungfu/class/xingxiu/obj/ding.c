@@ -13,9 +13,9 @@ void create()
 	else {
 		set("unit", "座");
 		set("long", 
-YEL"这是一座色作深黄的小小木鼎。木鼎雕琢甚是精细，木质坚润似
-似玉，木理之中隐隐约约的泛出"RED"红丝"YEL"。鼎侧有五个铜钱大的圆孔，
-木鼎齐颈处有一道细缝，似乎分为两截。\n    看来是练功用的(use)。\n"NOR);
+YEL"這是一座色作深黃的小小木鼎。木鼎雕琢甚是精細，木質堅潤似
+似玉，木理之中隱隱約約的泛出"RED"紅絲"YEL"。鼎側有五個銅錢大的圓孔，
+木鼎齊頸處有一道細縫，似乎分爲兩截。\n    看來是練功用的(use)。\n"NOR);
 		set("value", 2000);
 	}
 }
@@ -37,50 +37,50 @@ int do_use(string arg)
 	if (!present(ob,me)) return 0;
 
 	if( !arg || sscanf(arg, "%s with %s", arg, targetname)!=2 )
-		return notify_fail("用法是 use ding with 帮你练功的人\n");
+		return notify_fail("用法是 use ding with 幫你練功的人\n");
 
 	if ( !id(arg) )
-		return notify_fail("你要用什么？");
+		return notify_fail("你要用什麼？");
 
 //	if( query("count") < 1)
-//		return notify_fail("这个木鼎看来破烂不堪，恐怕不能用了。\n");
+//		return notify_fail("這個木鼎看來破爛不堪，恐怕不能用了。\n");
 
 	env = environment(me);
 	hgdf_sk = me->query_skill("huagong-dafa", 1);
 	poison_sk = me->query_skill("poison", 1);
 
 	if( env->query("no_fight") )
-		return notify_fail("这里不适合你用神木王鼎练功。\n");
+		return notify_fail("這裏不適合你用神木王鼎練功。\n");
 
 	if( !objectp(target = present(targetname, env)) )
-		return notify_fail("你附近没有这个人。\n");
+		return notify_fail("你附近沒有這個人。\n");
 
 	if( target == me)
-		return notify_fail("自己给自己做药罐？太不值了吧。\n");
+		return notify_fail("自己給自己做藥罐？太不值了吧。\n");
 
-	if( target->query("race") != "人类" ) 
-		return notify_fail("帮你练功的必须是人。\n");
+	if( target->query("race") != "人類" ) 
+		return notify_fail("幫你練功的必須是人。\n");
 
 	if( living(target) && !target->query_temp("noliving") ) 
-		return notify_fail("你只能找个不省人事的人做你的练功药罐。\n");
+		return notify_fail("你只能找個不省人事的人做你的練功藥罐。\n");
 
 	if (!(fam = me->query("family")) || fam["family_name"] != "星宿派")
-		return notify_fail("你试图想看看这木鼎有啥用，可是看不懂！\n");
+		return notify_fail("你試圖想看看這木鼎有啥用，可是看不懂！\n");
 
 	if( hgdf_sk < 20)
-		return notify_fail("你化功大法火候不够，不能使用神木王鼎！\n");
+		return notify_fail("你化功大法火候不夠，不能使用神木王鼎！\n");
 
 	if( poison_sk < 20)
-		return notify_fail("你的基本毒技太低，没法抵挡木鼎的毒力！\n");
+		return notify_fail("你的基本毒技太低，沒法抵擋木鼎的毒力！\n");
 
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("你必须空手才能使用神木王鼎！\n");
+		return notify_fail("你必須空手才能使用神木王鼎！\n");
 
 	if( me->is_fighting() )
-		return notify_fail("战斗中无法才能使用神木王鼎！\n");
+		return notify_fail("戰鬥中無法才能使用神木王鼎！\n");
 
 	if( me->is_busy() )
-		return notify_fail("你正忙着呢！哪有空做这水磨功夫？\n");
+		return notify_fail("你正忙着呢！哪有空做這水磨功夫？\n");
 
 //	add("count", -1);
 	skpoint = poison_sk + random(hgdf_sk);
@@ -88,39 +88,39 @@ int do_use(string arg)
 	switch( random(5))
 	{
 		case 0:
-			bugunit = HIR"一条红艳艳的";
+			bugunit = HIR"一條紅豔豔的";
 			bugname = HIR"大蜈蚣"HIG;
 			break;
 		case 1:
-			bugunit = HIC"一只青灰色的";
+			bugunit = HIC"一隻青灰色的";
 			bugname = HIC"大蜘蛛"HIG;
 			break;
 		case 2:
-			bugunit = BLK"一只花斑黑格";
-			bugname = BLK"大蝎子"HIG;
+			bugunit = BLK"一隻花斑黑格";
+			bugname = BLK"大蠍子"HIG;
 			break;
 		default:
-			bugunit = HIW"一条白身黑章";
+			bugunit = HIW"一條白身黑章";
 			bugname = HIW"大蟒蛇"HIG;
 	}
 
 	message_vision(HIG"
-$N取了一只深黄色的小木鼎出来，放在地下，又从鼎底取出一个小小
-布包，打了开来，里面是几块黄色、黑色、紫色的香料。$N从每一块
-香上捏了少许，放入鼎中，用火刀、火石打着了火，烧了起来，然后合
-上鼎盖。
+$N取了一隻深黃色的小木鼎出來，放在地下，又從鼎底取出一個小小
+布包，打了開來，裏面是幾塊黃色、黑色、紫色的香料。$N從每一塊
+香上捏了少許，放入鼎中，用火刀、火石打着了火，燒了起來，然後合
+上鼎蓋。
 
-过了一阵，忽听得草丛中瑟瑟声响，绿草中"+bugunit+bugname+"径直爬
-向木鼎，从鼎下的孔中钻了进去，便不再出来。
+過了一陣，忽聽得草叢中瑟瑟聲響，綠草中"+bugunit+bugname+"徑直爬
+向木鼎，從鼎下的孔中鑽了進去，便不再出來。
 
-$N把$n的手伸进木鼎，"+bugname+"一伸嘴，就一口咬住了$n的中指。
-过了好一会，但见$n的中指上隐隐罩上了一层深紫之色。紫色由浅而
-深，慢慢转成深黑，再过一会，黑色自指而掌，更自掌沿手臂上升。
+$N把$n的手伸進木鼎，"+bugname+"一伸嘴，就一口咬住了$n的中指。
+過了好一會，但見$n的中指上隱隱罩上了一層深紫之色。紫色由淺而
+深，慢慢轉成深黑，再過一會，黑色自指而掌，更自掌沿手臂上升。
 
-过得片刻，木鼎的孔中有一滴滴黑血滴了下来。$N脸现喜色，忙伸掌
-将血液接住，盘膝运功，将血液都吸入掌内。过了好一会，木鼎再无黑
-色滴下，$N双掌一搓，瞧自己手掌时，但见两只手掌如白玉无瑕，更
-无半点血污。\n"NOR, me, target);
+過得片刻，木鼎的孔中有一滴滴黑血滴了下來。$N臉現喜色，忙伸掌
+將血液接住，盤膝運功，將血液都吸入掌內。過了好一會，木鼎再無黑
+色滴下，$N雙掌一搓，瞧自己手掌時，但見兩隻手掌如白玉無瑕，更
+無半點血污。\n"NOR, me, target);
 
 	target->receive_wound("qi", 40); 
 	if (hgdf_sk > 20 && hgdf_sk < 150)
@@ -128,7 +128,7 @@ $N把$n的手伸进木鼎，"+bugname+"一伸嘴，就一口咬住了$n的中指
 		if( SKILL_D("huagong-dafa")->valid_learn(me) )
 		{
 			me->improve_skill("huagong-dafa", random(skpoint));
-			tell_object(me, HIC"你的「化功大法」进步了。\n"NOR);
+			tell_object(me, HIC"你的「化功大法」進步了。\n"NOR);
 		}
 	}
 	if (poison_sk > 20 && poison_sk < 100)
@@ -136,7 +136,7 @@ $N把$n的手伸进木鼎，"+bugname+"一伸嘴，就一口咬住了$n的中指
 		if( SKILL_D("poison")->valid_learn(me) )
 		{
 			me->improve_skill("poison", random(skpoint));
-			tell_object(me, HIC"你的「基本毒技」进步了。\n"NOR);
+			tell_object(me, HIC"你的「基本毒技」進步了。\n"NOR);
 		}
 	}
 	me->start_busy(3);

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-      set("short", "黄土大道");
+      set("short", "黃土大道");
       set("long", @LONG
-你走在一条黄土大道上，不时地有人挂剑跨马匆匆而过。
-    东北通向武当。
+你走在一條黃土大道上，不時地有人掛劍跨馬匆匆而過。
+    東北通向武當。
 LONG);
       set("outdoors", "sanbuguan");
       set("exits", ([

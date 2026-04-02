@@ -8,29 +8,29 @@ string martialtype() { return "skill"; }
 string *order = ({""HIY"", ""HIG"", ""RED"", ""MAG"", ""YEL"", ""HIC"", ""HIW"", ""HIR"",""HIB"", ""CYN"",""WHT"",""HIM"",""BLU""});
 
 mapping *action = ({
-([	"action":  "$N一招"+(order[random(13)])+"「梅林小酌」"NOR"，双手挥洒自如，轻飘飘地点向$n$l", 
+([	"action":  "$N一招"+(order[random(13)])+"「梅林小酌」"NOR"，雙手揮灑自如，輕飄飄地點向$n$l", 
 	"lvl"    : 0,
 	"skill_name" : "梅林小酌"
 ]),
-([	"action":  "$N左拳平削，右拳自下划了个半弧，一招" +(order[random(13)])+"「梅妻鹤子」"NOR",疾取$n的$l",
+([	"action":  "$N左拳平削，右拳自下劃了個半弧，一招" +(order[random(13)])+"「梅妻鶴子」"NOR",疾取$n的$l",
 	"lvl"    : 10,
-	"skill_name" : "梅妻鹤子"
+	"skill_name" : "梅妻鶴子"
 ]),
-([	"action":  "$N一招" +(order[random(13)])+"「急雪落梅」"NOR"，双掌如风中劲草，疾如流星般拍向$n$l",
+([	"action":  "$N一招" +(order[random(13)])+"「急雪落梅」"NOR"，雙掌如風中勁草，疾如流星般拍向$n$l",
 	"lvl"    : 20,
 	"skill_name" : "急雪落梅"
 ]),
-([	"action":  "$N信手一招"+(order[random(13)])+"「霜雪漫天」"NOR"，散出森森寒气，罩向$n的$l",
+([	"action":  "$N信手一招"+(order[random(13)])+"「霜雪漫天」"NOR"，散出森森寒氣，罩向$n的$l",
 	"lvl"    : 30,
 	"skill_name" : "霜雪漫天"
 ]),
-([	"action":  "$N使一招"+(order[random(13)])+"「余雪残梅」"NOR"，身随意转，随手拍向$n$l",
+([	"action":  "$N使一招"+(order[random(13)])+"「餘雪殘梅」"NOR"，身隨意轉，隨手拍向$n$l",
 	"lvl"    : 40,
-	"skill_name" : "余雪残梅"
+	"skill_name" : "餘雪殘梅"
 ]),
-([	"action":  "$N长身一笑，纵身而起，一式" +(order[random(13)])+"「寒江飘梅」"NOR"，围绕$n的$l轻飘飘接连出掌",
+([	"action":  "$N長身一笑，縱身而起，一式" +(order[random(13)])+"「寒江飄梅」"NOR"，圍繞$n的$l輕飄飄接連出掌",
 	"lvl"    : 50,
-	"skill_name" : "寒江飘梅"
+	"skill_name" : "寒江飄梅"
 ]),
 });
 
@@ -38,19 +38,19 @@ int valid_enable(string usage) { return usage=="strike" ||  usage=="parry"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练飞雪映梅掌必须空手。\n");
+		return notify_fail("練飛雪映梅掌必須空手。\n");
 	if ((int)me->query_skill("bingxue-xinfa", 1) < 10)
-		return notify_fail("你的冰雪心法修为太弱，无法练习。\n");
+		return notify_fail("你的冰雪心法修爲太弱，無法練習。\n");
 	if ((int)me->query("max_neili") < 10)
-		return notify_fail("你的内力修为太弱，无法练习。\n");
+		return notify_fail("你的內力修爲太弱，無法練習。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if ((int)me->query("qi") < 40)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 10)
-		return notify_fail("你的内力不够了！休息一下再练吧。\n");
+		return notify_fail("你的內力不夠了！休息一下再練吧。\n");
 	me->receive_damage("qi", 25);
 	me->add("neili", -10);
 	return 1;
@@ -77,16 +77,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 30; }
@@ -101,14 +101,14 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-        write(HIC"\n飞雪映梅掌："NOR"\n");
+        write(HIC"\n飛雪映梅掌："NOR"\n");
         write(@HELP
 
-    飞雪映梅掌是雪山派掌法。
+    飛雪映梅掌是雪山派掌法。
 
-        学习要求：
-                冰雪心法10级
-                内力10
+        學習要求：
+                冰雪心法10級
+                內力10
 HELP
         );
         return 1;

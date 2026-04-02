@@ -4,9 +4,9 @@
 inherit NPC;
 void create()
 {
-	set_name("哲别",({"zhe bie","zhe","bie"}));
+	set_name("哲別",({"zhe bie","zhe","bie"}));
 	set("gender","男性");
-	set("long","铁木真手下猛将之一，是郭靖的箭术师傅。\n");
+	set("long","鐵木真手下猛將之一，是郭靖的箭術師傅。\n");
 	set("combat_exp",300000);
 	set("nickle","神箭手");
 	set("age",35);

@@ -8,8 +8,8 @@ void create()
 {
 	set_name("程青霜", ({ "cheng qingshuang", "cheng"}));
 	set("long",
-		"她是「灵鹫宫」九天九部中钧天部的副首领。\n");
-	set("title", "灵鹫宫钧天部副首领");
+		"她是「靈鷲宮」九天九部中鈞天部的副首領。\n");
+	set("title", "靈鷲宮鈞天部副首領");
 	set("gender", "女性");
 	set("class", "dancer");
 	set("age", 20);
@@ -51,7 +51,7 @@ void create()
 	prepare_skill("strike","liuyang-zhang");
 	prepare_skill("hand", "zhemei-shou");
 
-	create_family("灵鹫宫",3,"弟子");
+	create_family("靈鷲宮",3,"弟子");
 	setup();
 	carry_object("/d/lingjiu/obj/qingyi")->wear();
 	carry_object("/d/lingjiu/obj/doupeng")->wear();

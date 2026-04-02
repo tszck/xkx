@@ -19,15 +19,15 @@ string* obj = ({
 
 void create()
 {
-	set("short", "储藏室");
+	set("short", "儲藏室");
 	set("long", @LONG
-这是一个储藏室，四周密不透风。你一进门便闻到一股霉味，在门
-外射进来的阳光的照耀下，你看见这里满屋的灰尘，成堆成堆的物品快
-堆满了整间房间。你很是奇怪为什么仆役们离开时不把这些物品也带走。
-只有关闭着的大门(door)。
+這是一個儲藏室，四周密不透風。你一進門便聞到一股黴味，在門
+外射進來的陽光的照耀下，你看見這裏滿屋的灰塵，成堆成堆的物品快
+堆滿了整間房間。你很是奇怪爲什麼僕役們離開時不把這些物品也帶走。
+只有關閉着的大門(door)。
 LONG	);
 	set("item_desc" , ([
-		"door" : "一扇木门，也许能打开。\n",
+		"door" : "一扇木門，也許能打開。\n",
 	]) );
 	set("no_clean_up", 0);
 	set("no_fight", "1");
@@ -50,15 +50,15 @@ int do_open(string arg)
 	object me=this_player();
 	object room;
 
-	if( me->is_busy()) return notify_fail("你正忙着呢，没手开门。\n");
-	if( !arg|| arg!="door") return notify_fail("你要开什么？\n");
+	if( me->is_busy()) return notify_fail("你正忙着呢，沒手開門。\n");
+	if( !arg|| arg!="door") return notify_fail("你要開什麼？\n");
 	if(!( room = find_object(__DIR__"kongdi")) )
 		room = load_object(__DIR__"kongdi");
 	if(!objectp(room)) return notify_fail("ERROR:not found 'kongdi.c' \n");
 	if(room->query_temp("lock")==1)
-		return notify_fail("门已经从外面锁住了。\n");
-	message_vision("$N轻轻推开门，走了出去，随手把门掩了起来。\n",me);
-	message("vision", "有人走了出来，随手把门掩上了。\n",room);
+		return notify_fail("門已經從外面鎖住了。\n");
+	message_vision("$N輕輕推開門，走了出去，隨手把門掩了起來。\n",me);
+	message("vision", "有人走了出來，隨手把門掩上了。\n",room);
 	me->move(room);
 	return 1;
 }
@@ -68,21 +68,21 @@ int do_find()
  object me;
 	me = this_player();
 	if( (int)me->query_temp("baituo_find") ) 
-		return notify_fail("你已经发现东西了，拿了就走吧。\n");
+		return notify_fail("你已經發現東西了，拿了就走吧。\n");
 	if (me->query_skill("hamagong", 1) > 10 &&
 		me->query_skill("xidu-poison", 1) > 30)
 	{
-		message_vision("$N捏着鼻子在物品堆中乱翻着。\n", me);
+		message_vision("$N捏着鼻子在物品堆中亂翻着。\n", me);
 		remove_call_out("found");
 		call_out("found", 1, me);    
 		return 1;
 	}
 	if (me->query_skill("xidu-poison", 1) < 50)
 	{
-		message_vision("$N捏着鼻子在物品堆中乱翻着。\n", me);
+		message_vision("$N捏着鼻子在物品堆中亂翻着。\n", me);
 		if(random((int)me->query("kar")) < 15)
 		{
-			write("你吸了口气，突然觉得头中一阵眩晕。\n");
+			write("你吸了口氣，突然覺得頭中一陣眩暈。\n");
 			me->unconcious();
 			return 1;
 		}
@@ -95,8 +95,8 @@ int do_find()
 	}
 	else
 	{ 
-		message_vision("$N捏着鼻子在物品堆中乱翻着。\n", me);
-		write("你吸了口气，突然觉得头中一阵眩晕。。不好！你中毒了！\n");
+		message_vision("$N捏着鼻子在物品堆中亂翻着。\n", me);
+		write("你吸了口氣，突然覺得頭中一陣眩暈。。不好！你中毒了！\n");
 		me->apply_condition("snake_poison", 22);
 		me->unconcious();
 		return 1;

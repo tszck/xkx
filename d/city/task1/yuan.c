@@ -1,13 +1,13 @@
-// yuan.c 元广波
+// yuan.c 元廣波
  
 inherit NPC;
  
 void create()
 {
-	set_name("元广波", ({ "yuan  guangbo"}));
-	set("nickname", "海砂帮帮主");
+	set_name("元廣波", ({ "yuan  guangbo"}));
+	set("nickname", "海砂幫幫主");
 	set("long", 
-	"海砂帮的帮主，在沿海地带打家劫舍，作恶多端。\n");
+	"海砂幫的幫主，在沿海地帶打家劫舍，作惡多端。\n");
 	set("gender", "男性");
 	set("age", 46);
 	set("attitude", "peaceful");

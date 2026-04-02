@@ -5,9 +5,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "乱石岗");
+	set("short", "亂石崗");
 	set("long", @LONG
-这里树木阴森，砾石嶙峋，坡陡坑深，地势险要，历来是土匪盘据
+這裏樹木陰森，礫石嶙峋，坡陡坑深，地勢險要，歷來是土匪盤據
 的地方。
 LONG );
 	set("outdoors", "quanzhou");

@@ -31,7 +31,7 @@ string finger_all()
 	int i;
 
 //	ob = users();
-	// 输出格式按照ip排序，Modified by Constant
+	// 輸出格式按照ip排序，Modified by Constant
 	ob = sort_array(users(), (: sort_user :));
 	msg = "";
 	if ( !wizardp(this_player()) )  // player finger
@@ -42,9 +42,9 @@ string finger_all()
 				msg, ob[i]->query("name"), ob[i]->query("id"),
 				query_idle(ob[i]) + "s");
 		}
-        return "◎ 侠客行一百\n" +
+        return "◎ 俠客行一百\n" +
 		"------------------------------------\n"
-		+ "姓名          帐号          发呆\n" +
+		+ "姓名          帳號          發呆\n" +
 		"------------------------------------\n"
 		+ msg +
 		"------------------------------------\n";
@@ -57,9 +57,9 @@ string finger_all()
 				age_string( (int)ob[i]->query("mud_age")),
 				query_idle(ob[i]) + "s", query_ip_name(ob[i]));
 		}
-		return "◎ 侠客行\n" +
+		return "◎ 俠客行\n" +
 		"--------------------------------------------------------------------------\n"
-		+ "姓名          帐号          年龄          发呆   连线\n" +
+		+ "姓名          帳號          年齡          發呆   連線\n" +
 		"--------------------------------------------------------------------------\n"
 		+ msg +
 		"------------------------------------------------------------------------\n";
@@ -75,7 +75,7 @@ string finger_user(string name)
 
 /*	if( sscanf(name, "%s@%s", name, mud)==2 ) {
 		GFINGER_Q->send_finger_q(mud, name, this_player(1));
-		return "网路指令传送过程可能需要一些时间，请稍候。\n";
+		return "網路指令傳送過程可能需要一些時間，請稍候。\n";
 	}
 */
 	ob = new(LOGIN_OB);
@@ -83,7 +83,7 @@ string finger_user(string name)
 	if( !ob->restore() )
 	{
 		destruct(ob);
-	 return "没有这个玩家。\n";
+	 return "沒有這個玩家。\n";
 	}
 
 	if ( !wizardp(this_player()) )  // player finger
@@ -104,34 +104,34 @@ string finger_user(string name)
 			{
 				destruct(ob);
 				destruct(body);
-				return "没有这个玩家。\n";
+				return "沒有這個玩家。\n";
 			}
 //			public_flag = body->query("env/public")?1:0;
 			public_flag = 1;
 			destruct(body);
 		}
 
-		msg =  sprintf("\n英文代号：\t%s\n姓    名：\t%s\n权限等级：\t%s\n"
-			"电子邮件地址：\t%s\n上次连线：\t%s\n\n",
+		msg =  sprintf("\n英文代號：\t%s\n姓    名：\t%s\n權限等級：\t%s\n"
+			"電子郵件地址：\t%s\n上次連線：\t%s\n\n",
 			ob->query("id"),
 			ob->query("name"),
 			SECURITY_D->get_status(name),
-			public_flag?ob->query("email"):"不告诉你",
+			public_flag?ob->query("email"):"不告訴你",
 			ctime(ob->query("last_on"))
 		);
 		if( objectp(body = find_player(name)) && (geteuid(body)==name || (body->query("id")==name && body->query("no_look_wiz")) )) {
 		if ( !wizardp(body) || this_player()->visible(body) || body->query("no_look_wiz")) {
-		msg += sprintf("\n%s目前正在连线中。\n", body->name(1));
+		msg += sprintf("\n%s目前正在連線中。\n", body->name(1));
 		if (ob->query("id") != this_player()->query("id"))
-message("channel:chat", HIC"【闲聊】“啊......嚏！”"+body->name(1)+
-"打了个大喷嚏，揉了揉鼻子嘟囔道：“一定是我那口子"+this_player()->query("name")+
+message("channel:chat", HIC"【閒聊】“啊......嚏！”"+body->name(1)+
+"打了個大噴嚏，揉了揉鼻子嘟囔道：“一定是我那口子"+this_player()->query("name")+
 "又在想我了。”\n"NOR,users());
-		} else tell_object(find_player(name),WHT+this_player()->query("name")+"("+this_player()->query("id")+")"+"正在乱捅你。\n"NOR);
+		} else tell_object(find_player(name),WHT+this_player()->query("name")+"("+this_player()->query("id")+")"+"正在亂捅你。\n"NOR);
 		}
 	} else  	// wizard finger
 	{
-		msg =  sprintf("\n英文代号：\t%s\n姓    名：\t%s\n权限等级：\t%s\n"
-			"电子邮件地址：\t%s\n上次连线地址：\t%s( %s )\n\n",
+		msg =  sprintf("\n英文代號：\t%s\n姓    名：\t%s\n權限等級：\t%s\n"
+			"電子郵件地址：\t%s\n上次連線地址：\t%s( %s )\n\n",
 			ob->query("id"),
 			ob->query("name"),
 			SECURITY_D->get_status(name),
@@ -140,7 +140,7 @@ message("channel:chat", HIC"【闲聊】“啊......嚏！”"+body->name(1)+
 			ctime(ob->query("last_on"))
 		);
 		if( objectp(body = find_player(name)) && geteuid(body)==name ) {
-			msg += sprintf("\n%s目前正在从 %s 连线中。\n", body->name(1),
+			msg += sprintf("\n%s目前正在從 %s 連線中。\n", body->name(1),
 				query_ip_name(body));
 		}
 	}
@@ -159,11 +159,11 @@ varargs string remote_finger_user(string name, int chinese_flag)
 	if( !ob->restore() )
 	{
 		destruct(ob);
-		return chinese_flag ? "没有这个玩家。\n" : "No such user.\n";
+		return chinese_flag ? "沒有這個玩家。\n" : "No such user.\n";
 	}
 	if( chinese_flag ) msg =  sprintf(
-		"\n英文代号：\t%s\n姓    名：\t%s\n权限等级：\t%s\n"
-		"电子邮件地址：\t%s\n上次连线地址：\t%s( %s )\n\n",
+		"\n英文代號：\t%s\n姓    名：\t%s\n權限等級：\t%s\n"
+		"電子郵件地址：\t%s\n上次連線地址：\t%s( %s )\n\n",
 		ob->query("id"),
 		ob->query("name"),
 		SECURITY_D->get_status(name),
@@ -182,10 +182,10 @@ varargs string remote_finger_user(string name, int chinese_flag)
 	if( body = find_player(name) ) {
 		if( !this_player() || this_player()->visible(body) )
 			msg += chinese_flag ?
-				("\n" + ob->query("name") + "目前正在线上。\n"):
+				("\n" + ob->query("name") + "目前正在線上。\n"):
 				("\n" + capitalize(name) + " is currently connected.\n");
-message("channel:chat", HIC"【闲聊】“啊......嚏！”"+body->name(1)+
-"打了个大喷嚏，揉了揉鼻子嘟囔道：“一定是我那口子"+this_player()->query("name")+
+message("channel:chat", HIC"【閒聊】“啊......嚏！”"+body->name(1)+
+"打了個大噴嚏，揉了揉鼻子嘟囔道：“一定是我那口子"+this_player()->query("name")+
 "又在想我了。”\n"NOR,users());
 	}
 
@@ -227,7 +227,7 @@ string get_killer()
 	if (msg == "")
 		return "本城治安良好。\n";
 	else
-		return "现在本城正在缉拿以下人犯：\n\n" + msg;
+		return "現在本城正在緝拿以下人犯：\n\n" + msg;
 }
 
 int sort_user(object ob1, object ob2)

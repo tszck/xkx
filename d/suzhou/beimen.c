@@ -6,11 +6,11 @@ inherit ROOM;
 string look_gaoshi();
 void create()
 {
-	set("short", "齐门");
+	set("short", "齊門");
 	set("long", @LONG
-这是苏州府的北城门。出门远远可见西面的虎丘山。放眼望去尽是
-绿的田，翠的草和清清的小河。门边官兵身后贴着一份告示(gaoshi)。
-南北一条笔直的官道。
+這是蘇州府的北城門。出門遠遠可見西面的虎丘山。放眼望去盡是
+綠的田，翠的草和清清的小河。門邊官兵身後貼着一份告示(gaoshi)。
+南北一條筆直的官道。
 LONG );
 	set("outdoors", "suzhou");
 //	set("no_clean_up", 0);
@@ -33,5 +33,5 @@ LONG );
 
 string look_gaoshi()
 {
-	return FINGER_D->get_killer() + "\n苏州知府\n冯旭东\n";
+	return FINGER_D->get_killer() + "\n蘇州知府\n馮旭東\n";
 }

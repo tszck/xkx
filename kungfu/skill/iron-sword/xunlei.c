@@ -21,18 +21,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("你必须在使用剑时才能使出"PNAME"！\n");
+		return notify_fail("你必須在使用劍時才能使出"PNAME"！\n");
 
 	fskill = "yunv-xinfa";
 	bskill = "sword";
@@ -46,22 +46,22 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 160 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，使不出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 160 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 
 	if( (int)me->query_str() < 32)
-		return notify_fail("你的膂力还不够，使不出「迅雷」。\n");
+		return notify_fail("你的膂力還不夠，使不出「迅雷」。\n");
 
 	if( (int)me->query_dex() < 30)
-		return notify_fail("你的身法还不够，使不出「迅雷」。\n");
+		return notify_fail("你的身法還不夠，使不出「迅雷」。\n");
 
 	if( (int)me->query("max_neili") < 1800 )
-		return notify_fail("你现在内力太弱，使不出「迅雷」。\n");
+		return notify_fail("你現在內力太弱，使不出「迅雷」。\n");
 
 	if( (int)me->query("neili") < 900 )
-		return notify_fail("你现在真气太弱，使不出「迅雷」。\n"); 
+		return notify_fail("你現在真氣太弱，使不出「迅雷」。\n"); 
 
 	j = me->query_skill(bskill, 1);
 	z = me->query_skill("force", 1);
@@ -70,7 +70,7 @@ int perform(object me, object target)
 	me->add_temp("apply/dodge",-j/10);
 	me->add_temp("apply/attack", j/6); 
  
-	msg = BLU"\n$N将手中的"+weapon->name()+BLU"缓缓向$n一压，忽然剑光一闪， 一剑幻为四剑，宛如奔雷掣电攻向$n！\n\n"NOR;
+	msg = BLU"\n$N將手中的"+weapon->name()+BLU"緩緩向$n一壓，忽然劍光一閃， 一劍幻爲四劍，宛如奔雷掣電攻向$n！\n\n"NOR;
 	message_combatd(msg, me, target);
 	for (i=0;i<4;i++)
 	{
@@ -96,15 +96,15 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		连续重剑出击
+		連續重劍出擊
 
 	出手要求：
-		玉女心法160级
-		玄铁剑法160级
-		内力修为1800
-		内力900
-		后天膂力32
-		后天身法30
+		玉女心法160級
+		玄鐵劍法160級
+		內力修爲1800
+		內力900
+		後天膂力32
+		後天身法30
 HELP
 	);
 	return 1;

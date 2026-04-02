@@ -7,12 +7,12 @@ string ask_me();
 
 void create()
 {
-	set_name("渡难", ({ "du-nan", "nan" }) );
-	set("title", "少林长老");
+	set_name("渡難", ({ "du-nan", "nan" }) );
+	set("title", "少林長老");
 	set("gender", "男性");
 	set("age", 90);
 	set("long",
-		"这是一个面颊深陷，瘦骨零丁的老僧，他脸色漆黑，象是生铁铸成。\n");
+		"這是一個面頰深陷，瘦骨零丁的老僧，他臉色漆黑，象是生鐵鑄成。\n");
 
 	set("attitude", "peaceful");
 	set("class", "bonze");

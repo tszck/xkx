@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "头门山");
+	set("short", "頭門山");
 	set("long", @LONG
-头山门在虎丘山的南面，形似虎头。隔河照墙上书着“海涌流辉”
-四个大字，以示虎丘与大海的渊源关系。
+頭山門在虎丘山的南面，形似虎頭。隔河照牆上書着“海湧流輝”
+四個大字，以示虎丘與大海的淵源關係。
 LONG );
 	set("outdoors", "suzhou");
 //	set("no_clean_up", 0);

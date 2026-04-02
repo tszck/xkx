@@ -16,19 +16,19 @@ int main(object me, string arg)
         string prefix, file, *file_name;
 
         if (!me->query("env/yesiknow"))
-                return notify_fail("危险指令，慎用！慎用！\n");
+                return notify_fail("危險指令，慎用！慎用！\n");
 
 	set_eval_limit(2100000000);
 	reset_eval_cost();
 
 	if (arg && arg != "here" && arg != "-a")
-		return notify_fail("用法不对，请参考帮助。\n");
+		return notify_fail("用法不對，請參考幫助。\n");
 
 	if (env->query("recoored") && arg!= "here")
-		return notify_fail("您所在的房间坐标已经写入过了。\n");
+		return notify_fail("您所在的房間座標已經寫入過了。\n");
 
 	if (!env->query("coor"))
-        	return notify_fail("您所在的房间尚未定位坐标，请先用hcoor指令。\n");
+        	return notify_fail("您所在的房間尚未定位座標，請先用hcoor指令。\n");
 
 	if (arg == "-a")
 		all = 1;
@@ -57,11 +57,11 @@ int main(object me, string arg)
 				x, y, z));
 		write_file(base_name(env) + ".c", file, 1);
                 file_count ++;
-        	write("房间 " + base_name(env) + " 坐标已成功写入文件。\n");
+        	write("房間 " + base_name(env) + " 座標已成功寫入文件。\n");
         } else
                 non_recur_do(env, prefix);
 
-	write("共写入 " + sprintf("%d", file_count) + " 个文件。\n");
+	write("共寫入 " + sprintf("%d", file_count) + " 個文件。\n");
         return 1;
 }
 
@@ -83,7 +83,7 @@ int non_recur_do(object room, string prefix)
 			x, y, z));
 	write_file(base_name(room), file, 1);
 	file_count ++;
-        write("房间 " + base_name(room) + " 坐标已成功写入文件。\n");
+        write("房間 " + base_name(room) + " 座標已成功寫入文件。\n");
         room->set("recoored", 1);
         roomlist += ([base_name(room) : room]);
 
@@ -123,7 +123,7 @@ int non_recur_do(object room, string prefix)
 						x, y, z));
 				write_file(base_name(next_room) + ".c", file, 1);
 				file_count ++;
-        			write("房间 " + base_name(next_room) + " 坐标已成功写入文件。\n");
+        			write("房間 " + base_name(next_room) + " 座標已成功寫入文件。\n");
         			next_room->set("recoored", 1);
        				roomlist += ([base_name(next_room) : next_room]);
        			}
@@ -139,10 +139,10 @@ write(@HELP
 指令格式 : recoor [-a | here]
 
 用法：
-	recoor		将当前房间所在目录下所有房间坐标
-			都写入文件，当前房间须未曾写入过。
-        recoor -a	同上，但无目录限制。
-	recoor here	强制将当前房间的坐标写入文件。
+	recoor		將當前房間所在目錄下所有房間座標
+			都寫入文件，當前房間須未曾寫入過。
+        recoor -a	同上，但無目錄限制。
+	recoor here	強制將當前房間的座標寫入文件。
 	
 HELP
 );

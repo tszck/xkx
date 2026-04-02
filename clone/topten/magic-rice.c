@@ -1,8 +1,8 @@
 // magic-rice.c
 // 1998/12/16 Modified by Winder
-// 增加基本赌技排行榜,zeratul 2000.1.13
-// Last Modified by winder on Aug. 5 2001 增加宠物排行
-// Last Modified by winder on Feb. 21 2002 增加秒杀排行
+// 增加基本賭技排行榜,zeratul 2000.1.13
+// Last Modified by winder on Aug. 5 2001 增加寵物排行
+// Last Modified by winder on Feb. 21 2002 增加秒殺排行
 
 #define TOPTEN DATA_DIR + "topten"
 
@@ -307,7 +307,7 @@ int simple_sort( mapping *which_chart,string chart_type,int chart_size,object me
 		i =  me->query("marks/mi_age")*86400;
 		i += me->query("mud_age");
 		i += me->query("vegetable/huichun")*86400;
-		if (i<86400*6) i = 86400*6; // 不够二十岁按二十岁算
+		if (i<86400*6) i = 86400*6; // 不夠二十歲按二十歲算
 		i /= 3600;
 		c_type[chart_size] =  me->query("combat_exp",1);
 		c_type[chart_size] += me->query("potential",1)*3;

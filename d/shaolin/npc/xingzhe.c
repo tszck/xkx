@@ -9,7 +9,7 @@ void create()
 	set_name("行者", ({"xingzhe","walker",}));
 	set("title", "少林派弟子");
 	set("long",
-		"他是一位云游四方的行者，风霜满面，行色匆匆，似乎正在办一件急事。\n"
+		"他是一位雲遊四方的行者，風霜滿面，行色匆匆，似乎正在辦一件急事。\n"
 	);
 
 	set("gender", "男性");
@@ -68,7 +68,7 @@ int random_move()
 
 	where = environment();
 
-	command("say 师父叫我在此办一件大事。");
+	command("say 師父叫我在此辦一件大事。");
 	
 	/* trapped */
 	if( !mapp(exits = where->query("exits")) )

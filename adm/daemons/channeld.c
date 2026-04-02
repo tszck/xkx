@@ -19,18 +19,18 @@ mapping blocks = ([
 ]);
 mapping channels = ([
   "sys":  ([
-      "msg_speak" : HIR "【系统】%s：%s\n" NOR,
-      "msg_emote" : HIR"【系统】%s\n" NOR,
+      "msg_speak" : HIR "【系統】%s：%s\n" NOR,
+      "msg_emote" : HIR"【系統】%s\n" NOR,
       "wiz_only"  : 1,
     ]),
   "wiz":  ([
-      "msg_speak" : YEL "【巫师】%s：%s\n" NOR,
-      "msg_emote" : YEL "【巫师】%s\n" NOR,
+      "msg_speak" : YEL "【巫師】%s：%s\n" NOR,
+      "msg_emote" : YEL "【巫師】%s\n" NOR,
       "wiz_only"  : 1,
     ]),
   "gwiz": ([
-      "msg_speak" : HIY "【网际巫师】%s：%s\n" NOR,
-      "msg_emote" : HIY "【网际巫师】%s\n" NOR,
+      "msg_speak" : HIY "【網際巫師】%s：%s\n" NOR,
+      "msg_emote" : HIY "【網際巫師】%s\n" NOR,
       "wiz_only"  : 1,
       "intermud": GWIZ,
       "channel": "gwiz",
@@ -38,24 +38,24 @@ mapping channels = ([
       "intermud_emote": 1,
     ]),
   "debug":([
-      "msg_speak" : HIW "【调试】%s：%s\n" NOR,
-      "msg_emote" : HIW "【调试】%s\n" NOR,
+      "msg_speak" : HIW "【調試】%s：%s\n" NOR,
+      "msg_emote" : HIW "【調試】%s\n" NOR,
       "wiz_only"  : 1,
     ]),
   "snp":  ([
-      "msg_speak" : HIB "【监听】%s：%s\n" NOR,
-      "msg_emote" : HIB "【监听】%s\n" NOR,
+      "msg_speak" : HIB "【監聽】%s：%s\n" NOR,
+      "msg_emote" : HIB "【監聽】%s\n" NOR,
       "wiz_only"  : 1,
     ]),
 // qst tune for display quest message
   "qst":  ([
-      "msg_speak" : HIR "【任务】%s：%s\n" NOR,
-      "msg_emote" : HIR "【任务】%s\n" NOR,
+      "msg_speak" : HIR "【任務】%s：%s\n" NOR,
+      "msg_emote" : HIR "【任務】%s\n" NOR,
       "wiz_only"  : 1,
     ]),
   "xkx":  ([
-      "msg_speak" : HIY "【侠客行】%s：%s\n" NOR,
-      "msg_emote" : HIY "【侠客行】%s\n" NOR,
+      "msg_speak" : HIY "【俠客行】%s：%s\n" NOR,
+      "msg_emote" : HIY "【俠客行】%s\n" NOR,
       "intermud"  : GCHANNEL,
       "channel": "xkx",
       "filter"    : (: $1["MUDLIB"]=="Xia Ke Xing" :),
@@ -66,8 +66,8 @@ mapping channels = ([
 // keep the channel name as "es" to be compatible with other ES2 type muds.
 // es tune for all the mud without filter limit
   "es": ([
-      "msg_speak" : CYN "【网际闲聊】%s：%s\n" NOR,
-      "msg_emote" : CYN "【网际闲聊】%s\n" NOR,
+      "msg_speak" : CYN "【網際閒聊】%s：%s\n" NOR,
+      "msg_emote" : CYN "【網際閒聊】%s\n" NOR,
       "intermud"  : GCHANNEL,
       "channel": "es",
       "filter"    : 1,
@@ -75,27 +75,27 @@ mapping channels = ([
       "intermud_emote": 1,
     ]),
   "party":([
-      "msg_speak" : GRN "【帮会】%s：%s\n" NOR,
-      "msg_emote" : GRN "【帮会】%s\n" NOR,
+      "msg_speak" : GRN "【幫會】%s：%s\n" NOR,
+      "msg_emote" : GRN "【幫會】%s\n" NOR,
       "party_only": 1,
     ]),
   "family":([
-      "msg_speak" : YEL "【门派】%s：%s\n" NOR,
-      "msg_emote" : YEL "【门派】%s\n" NOR,
+      "msg_speak" : YEL "【門派】%s：%s\n" NOR,
+      "msg_emote" : YEL "【門派】%s\n" NOR,
       "family_only": 1,
     ]),
   "chat": ([
-      "msg_speak" : HIC "【闲聊】%s：%s\n" NOR,
-      "msg_emote" : HIC "【闲聊】%s\n" NOR,
+      "msg_speak" : HIC "【閒聊】%s：%s\n" NOR,
+      "msg_emote" : HIC "【閒聊】%s\n" NOR,
     ]),
   "snow": ([
-      "msg_speak" : HIY "【风闻】%s：%s\n" NOR,
-      "msg_emote" : HIY "【风闻】%s\n" NOR,
+      "msg_speak" : HIY "【風聞】%s：%s\n" NOR,
+      "msg_emote" : HIY "【風聞】%s\n" NOR,
       "system_only" : 1,
     ]),
   "rumor":([
-      "msg_speak" : HIM "【谣言】%s：%s\n" NOR,
-      "msg_emote" : HIM "【谣言】%s\n" NOR,
+      "msg_speak" : HIM "【謠言】%s：%s\n" NOR,
+      "msg_emote" : HIM "【謠言】%s\n" NOR,
       "anonymous" : "某人",
       "age_limit" : 1,
     ]),
@@ -105,7 +105,7 @@ mapping channels = ([
     ]),
 ]);
 
-// 增加函数set_block和query_block，用来设置和判断所有玩家的公共频道情况。 Added by Spacenet@FXLT
+// 增加函數set_block和query_block，用來設置和判斷所有玩家的公共頻道情況。 Added by Spacenet@FXLT
 int set_block(string ch_name, int val)
 {
   return (blocks[ch_name] = val);
@@ -120,7 +120,7 @@ void create()
 {
   seteuid(getuid());
 // This is required to pass intermud access check.
-  set("channel_id", "频道精灵");
+  set("channel_id", "頻道精靈");
 }
 
 varargs int do_channel(object me, string verb, string arg, int cemote)
@@ -140,15 +140,15 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
     }
   if( !mapp(channels) || undefinedp(channels[verb]) ) return 0;
 
-// 系统专用频道
+// 系統專用頻道
   if( channels[verb]["system_only"] &&
     userp(me) && !wizardp(me) )
     return 0;
 
-// 门派频道
+// 門派頻道
   if( channels[verb]["family_only"] &&
     !me->query("family/family_name") )
-    return notify_fail("你还是先加入一个门派再说吧。\n");
+    return notify_fail("你還是先加入一個門派再說吧。\n");
   if( channels[verb]["family_only"] )
   {
     family = me->query("family/family_name");
@@ -156,10 +156,10 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
     channels[verb]["msg_emote"] = YEL"【"+family+YEL"】%s\n"NOR;
   }
 
-// 帮会频道
+// 幫會頻道
   if( channels[verb]["party_only"] &&
     !me->query("party/party_name") )
-    return notify_fail("你还是先加入一个帮会再说吧。\n");
+    return notify_fail("你還是先加入一個幫會再說吧。\n");
   if( channels[verb]["party_only"] )
   {
     party = me->query("party/party_name");
@@ -170,32 +170,32 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
   if( userp(me) )
   {
     if( channels[verb]["wiz_only"] && !wizardp(me) ) return 0;
-// 增加对所有人的公共频道是否被巫师关闭的判断。
+// 增加對所有人的公共頻道是否被巫師關閉的判斷。
     if( query_block(verb) || (query_block("all") &&
       (verb == "rumor" || verb == "chat" ||
       verb == "sing" || verb == "xkx" ||
       verb == "family" || verb == "party" ||
       verb == "es" || verb == "snow"
       )))
-      return notify_fail("这个公共频道已经被巫师关闭了！\n");
-// 如果在短时间内重复使用公共频道，则封闭该玩家所有频道3分钟。
+      return notify_fail("這個公共頻道已經被巫師關閉了！\n");
+// 如果在短時間內重複使用公共頻道，則封閉該玩家所有頻道3分鐘。
     if(me->query("channel/chat_block") &&
       (time()-me->query("channel/chat_block"))<0 )
-      return notify_fail("你的交谈频道被暂时关闭了，请稍后再试。\n");
+      return notify_fail("你的交談頻道被暫時關閉了，請稍後再試。\n");
     if (me->query("chblk_on"))
-      return notify_fail("你所有的频道都被关闭了！\n");
+      return notify_fail("你所有的頻道都被關閉了！\n");
     if (me->query("chblk_rumor") && (verb == "rumor"))
-      return notify_fail("你的谣言频道被关闭了！\n");
+      return notify_fail("你的謠言頻道被關閉了！\n");
     if (me->query("chblk_chat") && (verb == "chat"))
-      return notify_fail("你的聊天频道被关闭了！\n");
+      return notify_fail("你的聊天頻道被關閉了！\n");
     if (me->query("chblk_sing") && (verb == "sing"))
-      return notify_fail("你的音乐频道被关闭了！\n");
+      return notify_fail("你的音樂頻道被關閉了！\n");
     if (me->query("chblk_xkx") && (verb == "xkx"))
-      return notify_fail("你的侠客行频道被关闭了！\n");
+      return notify_fail("你的俠客行頻道被關閉了！\n");
     if (me->query("chblk_family") && (verb == "family"))
-      return notify_fail("你的门派频道被关闭了！\n");
+      return notify_fail("你的門派頻道被關閉了！\n");
     if (me->query("chblk_party") && (verb == "party"))
-      return notify_fail("你的帮会频道被关闭了！\n");
+      return notify_fail("你的幫會頻道被關閉了！\n");
     me->add("channel/chat_count",1);
 
     if (me->query("channel/chat_count")>2)
@@ -204,9 +204,9 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
       if(time()==me->query("channel/last_chat")&&!wizardp(me))
       {
         me->set("channel/chat_block",time()+180);
-        message("system",HIR"【警告】"HIY"演若达多大吼一声: “ｗａｋａｏ, Ｉ服了ｙｏｕ! 这么能叫唤, 你先歇会儿吧。”, 说着拿了块烤鸭屁股把"+me->query("name") +"的嘴塞了个严严实实。\n"NOR, users() );
+        message("system",HIR"【警告】"HIY"演若達多大吼一聲: “ｗａｋａｏ, Ｉ服了ｙｏｕ! 這麼能叫喚, 你先歇會兒吧。”, 說着拿了塊烤鴨屁股把"+me->query("name") +"的嘴塞了個嚴嚴實實。\n"NOR, users() );
         me->set("channel/last_chat",time());
-        return notify_fail("因为实在太罗嗦，你的交谈频道被暂时关闭了。\n");
+        return notify_fail("因爲實在太羅嗦，你的交談頻道被暫時關閉了。\n");
       }
       me->set("channel/last_chat",time());
     }
@@ -216,11 +216,11 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
       arg==(string)me->query_temp("last_channel_msg2") ||
       arg==(string)me->query_temp("last_channel_msg3") ||
       arg==(string)me->query_temp("last_channel_msg4")) )
-      return notify_fail("用交谈频道说话请不要重复相同的讯息。\n");
+      return notify_fail("用交談頻道說話請不要重複相同的訊息。\n");
     if( channels[verb]["age_limit"] && wiz_level(me) < 1 )
     {
       if( me->query("mud_age") < NEW_PERIOD )
-        return notify_fail("你刚刚立足江湖，说话还没那么响亮。\n");
+        return notify_fail("你剛剛立足江湖，說話還沒那麼響亮。\n");
     }
 
 // If we speaks something in this channel, then must tune it in.
@@ -232,7 +232,7 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
   }
 
 // Support of channel emote
-// 如果是emote  那么把emote分析出来 做成args继续下一步
+// 如果是emote  那麼把emote分析出來 做成args繼續下一步
 //  if( emote && !channels[verb]["intermud_emote"])
     if( emote && !cemote )
   {
@@ -255,7 +255,7 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
         if(sscanf(emote_arg,"%s@%s",id,site)==2)
         {
           "/adm/daemons/network/services/gemote_q"->send_msg(channels[verb]["channel"],me,vb,id,site,channels[verb]["filter"]);
-//送出了哪些东西？           频道,发送者,动作名,对方id,对方地址,过滤条件
+//送出了哪些東西？           頻道,發送者,動作名,對方id,對方地址,過濾條件
           return 1;
         }
       }
@@ -265,12 +265,12 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
 //emote now ok //
 //  tf(sprintf("after emote:\n是否是emote?\t%s\narg=%s\n ",emote,arg));
 // Make the identity of speaker.
-//   是谁说的话
+//   是誰說的話
   if( channels[verb]["anonymous"] )
   {
     who = channels[verb]["anonymous"];
     if (userp(me))
-      do_channel( this_object(), "sys", sprintf("谣言：%s(%s)。", me->name(),me->query("id")));
+      do_channel( this_object(), "sys", sprintf("謠言：%s(%s)。", me->name(),me->query("id")));
   }
   else
    who = me->query("channel_id");
@@ -286,10 +286,10 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
    if (!stringp(who))
      do_channel(this_object(),"sys","err when get names who use channel\n");
 // Ok, now send the message to those people listening us.
-// 说给谁听
+// 說給誰聽
   ob = filter_array( users(), "filter_listener", this_object(), channels[verb] );
-//  返回users()经过this_object()->filter_listener(channels[verb])过滤后的结果
-  if( !arg ) arg = "我好寂寞啊，谁来陪我聊天？";
+//  返回users()經過this_object()->filter_listener(channels[verb])過濾後的結果
+  if( !arg ) arg = "我好寂寞啊，誰來陪我聊天？";
 
   len=strlen(arg);
   while(len>1 && arg[len-1]=='\n')
@@ -298,7 +298,7 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
 
   if(userp(me))
   {
-//可以允许玩家自由编辑对话的颜色。
+//可以允許玩家自由編輯對話的顏色。
     arg=replace_string(arg, "$BLK$", "[30m");
     arg=replace_string(arg, "$RED$", "[31m");
     arg=replace_string(arg, "$GRN$", "[32m");
@@ -327,7 +327,7 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
     arg1=replace_string(arg, "$N", me->name());
   }
   else arg1=arg;
-// 这里是关键之一
+// 這裏是關鍵之一
   if( emote )
   {
 // Support of old behavier of intermud emote.
@@ -337,7 +337,7 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
   else
     message( "channel:" + verb, sprintf( channels[verb]["msg_speak"], who, arg1 ), ob );
 ///// end////
-// 这段干嘛的？//
+// 這段幹嘛的？//
   if( arrayp(channels[verb]["extra_listener"]) )
   {
     channels[verb]["extra_listener"] -= ({ 0 });
@@ -357,10 +357,10 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
       	arg=replace_string(arg, "$N", me->name() + "[" + capitalize(me->parse_command_id_list()[0]) + "@" + Mud_name() + "]", 1);
 //      arg=replace_string(arg, "$N", me->name());
     }
-  ///网际传输就看这句话
+  ///網際傳輸就看這句話
     channels[verb]["intermud"]->send_msg( channels[verb]["channel"], me->query("id"), me->name(1), arg, emote, channels[verb]["filter"] );
 //void send_msg(string channel, string id, string name, string msg, int emoted,   mixed filter)
-//                我用的频道,我的id,我的name,我传的内容,是否emote,过滤
+//                我用的頻道,我的id,我的name,我傳的內容,是否emote,過濾
   }
 
   if( userp(me) )

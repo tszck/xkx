@@ -8,8 +8,8 @@ inherit F_MASTER;
 void create()
 {
 	set_name("元痛", ({ "yuan tong", "tong", "yuan" }));
-	set("long","他是一位胖大和尚，身穿一袭青布镶边袈裟。太阳穴微凸，双目炯炯有神。\n");
-	set("nickname", "达摩院上座三僧");
+	set("long","他是一位胖大和尚，身穿一襲青布鑲邊袈裟。太陽穴微凸，雙目炯炯有神。\n");
+	set("nickname", "達摩院上座三僧");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -80,17 +80,17 @@ int accept_object(object who, object ob,object me)
 		fam["family_name"] != "南少林派")
 	{
 		command("hehe "+who->query("id"));
-		command("say 你给我东西有什么企图？！");
+		command("say 你給我東西有什麼企圖？！");
 		return 0;
 	}
 	if(!who->query_temp("lunzhi"))
 	{
-		command("say 你的令牌是那来的，轮值必须得到大苦大师的允许！");
+		command("say 你的令牌是那來的，輪值必須得到大苦大師的允許！");
 		return 0;
 	}
-	if(ob->query("name")=="轮值令")
+	if(ob->query("name")=="輪值令")
 	{
-		command( "say 好吧，你既然有大苦大师的令牌，你就在这和方通他们一起守卫吧。");
+		command( "say 好吧，你既然有大苦大師的令牌，你就在這和方通他們一起守衛吧。");
 		who->apply_condition("sl_lunzhi",30);
 		who->set_temp("lunzhied",1);
 		return 1;

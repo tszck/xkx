@@ -7,7 +7,7 @@ void create()
 	set_name("行人", ({ "xing ren", "ren" }));
 	set("gender", "男性");
 	set("age", 19);
-	set("long", "他是一个匆匆赶路的行人，没空理你。\n");
+	set("long", "他是一個匆匆趕路的行人，沒空理你。\n");
 	set("combat_exp", 1000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");

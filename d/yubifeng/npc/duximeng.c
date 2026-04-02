@@ -7,9 +7,9 @@ void create()
 {
 	set_name("杜希孟", ({ "du ximeng", "du", "ximeng" }) );
 	set("gender", "男性");
-	set("title", "玉笔山庄庄主");
+	set("title", "玉筆山莊莊主");
 	set("age", 53 + random(20));
-	set("long","他就是玉笔山庄的庄主，雪山飞狐的舅舅。\n");
+	set("long","他就是玉筆山莊的莊主，雪山飛狐的舅舅。\n");
 	set("attitude", "friendly");
 	set("str", 15);
 	set("int", 15);

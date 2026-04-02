@@ -17,20 +17,20 @@ int valid_learn(object me)
 {
 	int i, lvl = (int)me->query_skill("beiming-shengong", 1);
 
-	if(me->query("family/family_name")!="逍遥派")
-		return notify_fail("只有逍遥弟子才能学北冥神功。\n");
+	if(me->query("family/family_name")!="逍遙派")
+		return notify_fail("只有逍遙弟子才能學北冥神功。\n");
 	if ( me->query_skill("force",1) < 10)
-		return notify_fail("你的基本内功火候还不够，难以领会北冥神功。\n");
-	if ( me->query("gender") == "无性" && lvl > 49)
-		return notify_fail("你无根无性，阴阳不调，难以领会高深的北冥神功。\n");
+		return notify_fail("你的基本內功火候還不夠，難以領會北冥神功。\n");
+	if ( me->query("gender") == "無性" && lvl > 49)
+		return notify_fail("你無根無性，陰陽不調，難以領會高深的北冥神功。\n");
 	return valid_public(me,"bahuang-gong");
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("北冥神功只能用学的，或是从运用(exert)中增加熟练度。\n");
+	return notify_fail("北冥神功只能用學的，或是從運用(exert)中增加熟練度。\n");
 }
-/* 被击中对方的副作用，目前主要用在内功上 factor= 加力 damage_bonus=臂力 */
+/* 被擊中對方的副作用，目前主要用在內功上 factor= 加力 damage_bonus=臂力 */
 mixed be_hit_ob(object me, object victim, int damage_bonus, int factor)
 {
 	int ap, dp;
@@ -47,7 +47,7 @@ mixed be_hit_ob(object me, object victim, int damage_bonus, int factor)
        && !SCBORN_D->valid_learn(me,"beiming-shengong"))
        return ;
    jiali=factor;
-   if ( jiali <1 || victim->query("id")=="songyang" /*给布袋打木人开个后门*/ )
+   if ( jiali <1 || victim->query("id")=="songyang" /*給布袋打木人開個後門*/ )
       return;
 
 	ap=me->query_skill("force");
@@ -55,16 +55,16 @@ mixed be_hit_ob(object me, object victim, int damage_bonus, int factor)
 	switch (random(4))
                 {
                 case 0:
-                        msg=HIM "$N" HIM "只觉得内力源源而泻，不由得大吃一惊。\n" NOR;
+                        msg=HIM "$N" HIM "只覺得內力源源而瀉，不由得大喫一驚。\n" NOR;
                         break;
                 case 1:
-                        msg=HIM "$N" HIM "只觉得发出的内力犹如石沉大海，不知所踪。\n" NOR;
+                        msg=HIM "$N" HIM "只覺得發出的內力猶如石沉大海，不知所蹤。\n" NOR;
                         break;
                 case 2:
-                        msg=HIM "$N" HIM "只觉得发出的内力犹无影无踪，浑然不知着落。\n" NOR;
+                        msg=HIM "$N" HIM "只覺得發出的內力猶無影無蹤，渾然不知着落。\n" NOR;
                         break;
                 default:
-                        msg=HIM "$N" HIM "不住催动内力，但是只觉得$n竟似毫不费力。\n" NOR;
+                        msg=HIM "$N" HIM "不住催動內力，但是隻覺得$n竟似毫不費力。\n" NOR;
                         break;
                 }
 
@@ -92,24 +92,24 @@ int help(object me)
 	write(HIC"\n北冥神功："NOR"\n");
 	write(@HELP
 
-    北冥神功为逍遥派无上内功。
-    庄子‘逍遥游’有云：‘穷发之北有冥海者，天池也。有鱼焉，
-其广数千里，未有知其修也。’又云：‘且夫水之积也不厚，则其
-负大舟也无力。覆杯水于坳堂之上，则芥为之舟；置杯焉则胶，水
-浅而舟大也。’是故逍遥派武功，以积蓄内力为第一要义。内力既
-厚，天下武功无不为我所用，犹之北冥，大舟小舟无不载，大鱼小
-鱼无不容。是故内力为本，招数为末。北冥神功系引世人之内力而
-为我有。北冥大水，非由自生。语云：百川汇海，大海之水以容百
-川而得。汪洋巨浸，端在积聚。
-    世人练功，皆自云门而至少商，我逍遥派则反其道而行之，自
-少商而至云门，拇指与人相接，彼之内力即入我身，贮于云门等诸
-穴。然敌之内力若胜于我，则海水倒灌而入江河，凶险莫甚。逍遥
-派旁支，未窥要道，惟能消敌内力，不能引而为我用，犹日取千金
-而复弃之于地，暴殄珍物，殊可哂也。
+    北冥神功爲逍遙派無上內功。
+    莊子‘逍遙遊’有云：‘窮髮之北有冥海者，天池也。有魚焉，
+其廣數千裏，未有知其修也。’又云：‘且夫水之積也不厚，則其
+負大舟也無力。覆杯水於坳堂之上，則芥爲之舟；置杯焉則膠，水
+淺而舟大也。’是故逍遙派武功，以積蓄內力爲第一要義。內力既
+厚，天下武功無不爲我所用，猶之北冥，大舟小舟無不載，大魚小
+魚無不容。是故內力爲本，招數爲末。北冥神功系引世人之內力而
+爲我有。北冥大水，非由自生。語雲：百川匯海，大海之水以容百
+川而得。汪洋巨浸，端在積聚。
+    世人練功，皆自雲門而至少商，我逍遙派則反其道而行之，自
+少商而至雲門，拇指與人相接，彼之內力即入我身，貯於雲門等諸
+穴。然敵之內力若勝於我，則海水倒灌而入江河，兇險莫甚。逍遙
+派旁支，未窺要道，惟能消敵內力，不能引而爲我用，猶日取千金
+而復棄之於地，暴殄珍物，殊可哂也。
 
-	学习要求：
-		基本内功10级
-		太监无法学到50级以上的北冥神功
+	學習要求：
+		基本內功10級
+		太監無法學到50級以上的北冥神功
 HELP
 	);
 	return 1;

@@ -7,7 +7,7 @@ void create()
 	set_name("破嗔", ({ "po chen", "chen" }));
 	set("age", 22);
 	set("gender", "男性");
-	set("long", "他是一个和尚，是黄眉大师的二弟子。\n");
+	set("long", "他是一個和尚，是黃眉大師的二弟子。\n");
 	set("attitude", "peaceful");
 
 	set("str", 24);

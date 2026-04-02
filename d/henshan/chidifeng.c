@@ -5,10 +5,10 @@
 inherit ROOM;
 void create()
 {
-        set("short", "赤帝峰");
+        set("short", "赤帝峯");
         set("long", @LONG
-相传祝融能 "以火施化" ，是黄帝的 "火正官" ，并主管南方的事
-务，死后葬于此，故名赤帝峰。
+相傳祝融能 "以火施化" ，是黃帝的 "火正官" ，並主管南方的事
+務，死後葬於此，故名赤帝峯。
 LONG);
         set("exits", ([ /* sizeof() == 4 */
            "southdown"  : __DIR__"shanlu2",

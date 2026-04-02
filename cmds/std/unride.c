@@ -22,11 +22,11 @@ int main(object me)
 		}
 		i++;
 	}
-	if( i >= 0 ) return notify_fail("下什么下！你根本就没坐骑！\n");
-	message_vision("$N从$n上飞身跳下。\n", me, obj);
-//跳下动物减少膂力和身法。
+	if( i >= 0 ) return notify_fail("下什麼下！你根本就沒坐騎！\n");
+	message_vision("$N從$n上飛身跳下。\n", me, obj);
+//跳下動物減少膂力和身法。
 	if( !living(obj) || obj->query_temp("noliving"))
-		return notify_fail("这个东西自己都晕倒了，你也没法下了。\n");
+		return notify_fail("這個東西自己都暈倒了，你也沒法下了。\n");
 /*
 	if(obj->query("dex"))
 		me->delete_temp("apply/dexerity");
@@ -44,22 +44,22 @@ int help(object me)
 	write(@HELP
 指令格式 : unride
  
-    这个指令可以让你从骑着的已驯养的动物上跳下来。
+    這個指令可以讓你從騎着的已馴養的動物上跳下來。
  
-    对于已经驯服的动物，可以进行下述指令：
+    對於已經馴服的動物，可以進行下述指令：
 
 基本指令：
-        come <动物名>:                  让动物跟随主人行动。
-        stay:                           停止动物的跟随状态。
-        attack <某物>:                  让动物攻击敌人。
-        stop <动物名>:                  让动物停止对人的攻击。
-        release:                        结束主奴状态，将动物放离。
+        come <動物名>:                  讓動物跟隨主人行動。
+        stay:                           停止動物的跟隨狀態。
+        attack <某物>:                  讓動物攻擊敵人。
+        stop <動物名>:                  讓動物停止對人的攻擊。
+        release:                        結束主奴狀態，將動物放離。
 
-特殊指令：（只对某些动物适用）
-        ride <动物名>:                  骑，如骑马，虎，雕，鲨等。
-        unride <动物名>:                下，离开坐骑。
-        feed <饲料> to <动物名>:        替动物喂食。
-        imbibe <动物名>:                给动物饮水。
+特殊指令：（只對某些動物適用）
+        ride <動物名>:                  騎，如騎馬，虎，雕，鯊等。
+        unride <動物名>:                下，離開坐騎。
+        feed <飼料> to <動物名>:        替動物餵食。
+        imbibe <動物名>:                給動物飲水。
 
 HELP
 	);

@@ -6,9 +6,9 @@ inherit F_UNIQUE;
 inherit F_SAVE;
 #include "skill.h";
 
-string *first_name = ({ "赵","钱","孙","李","周","吴","郑","王","张","陈","柳","风","刘","林", }); 
+string *first_name = ({ "趙","錢","孫","李","周","吳","鄭","王","張","陳","柳","風","劉","林", }); 
 string *name_words = ({ "一","二","三","四","五","六","七","八","九","十", });
-string *color_title = ({"[天杀门]杀手","[地煞门]杀手",});
+string *color_title = ({"[天殺門]殺手","[地煞門]殺手",});
 string *k_weapon = ({"sword","blade","staff","whip","gun",});
 
 void create()
@@ -22,7 +22,7 @@ void create()
 	seteuid(getuid());
 	set("title", color_title[random(sizeof(color_title))]);
 	set("gender", "男性");
-	set("long", "这人身穿黑色紧装，面上蒙着一块黑布，只露出一双眼睛，精光四射。\n");
+	set("long", "這人身穿黑色緊裝，面上蒙着一塊黑布，只露出一雙眼睛，精光四射。\n");
 	set("age", random(20)+25);      
 	set("str", 20+random(5));
 	set("int",20+random(5));  

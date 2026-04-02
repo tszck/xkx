@@ -5,13 +5,13 @@ inherit NPC;
 
 void create()
 {
-        set_name("马贼", ({ "ma zei", "zei" }));
+        set_name("馬賊", ({ "ma zei", "zei" }));
         set("gender", "男性");
         set("age", random(10) + 30);
         set("str", 25);
         set("dex", 16);
         set("per", 16);
-        set("long", "一个彪悍的马贼。\n");
+        set("long", "一個彪悍的馬賊。\n");
         set("combat_exp", 50000);
         set("shen_type", -1);
         set("attitude", "peaceful");
@@ -42,7 +42,7 @@ void init()
 
         if (interactive(ob = this_player()) && (int)ob->query_temp("mazei"))
         {
-                say( "马贼对着你大吼：你竟敢不交！老子宰了你！\n");
+                say( "馬賊對着你大吼：你竟敢不交！老子宰了你！\n");
                 remove_call_out("kill_ob");
                 call_out("kill_ob", 1, ob);
         }
@@ -56,9 +56,9 @@ void init()
 void greeting(object ob)
 {
         if( !ob || environment(ob) != environment() ) return;
-        say( "马贼横刀当道，一声大喊：此山是我开，此树是我栽，若要
-从此过，留下买路财 !\n");
-        say( "马贼说道：识相点儿，宝贝儿留下来就让你小子走！\n");
+        say( "馬賊橫刀當道，一聲大喊：此山是我開，此樹是我栽，若要
+從此過，留下買路財 !\n");
+        say( "馬賊說道：識相點兒，寶貝兒留下來就讓你小子走！\n");
         ob->set_temp("mazei",1);
 }
 
@@ -67,11 +67,11 @@ int accept_object(object who, object ob)
 	
 	if (ob->query("money_id") && ob->value() >= 5000) 
 	{
-             say( "马贼大喊一声：既然交了钱，就请马前过。\n");
+             say( "馬賊大喊一聲：既然交了錢，就請馬前過。\n");
              ob->delete_temp("mazei");
 		return 1;
 	}
-       say( "马贼大怒：就这么点钱？\n");
+       say( "馬賊大怒：就這麼點錢？\n");
        return 0;
 }
 

@@ -8,8 +8,8 @@ inherit F_MASTER;
 void create()
 {
 	set_name("元恚", ({ "yuan hui", "hui", "yuan" }));
-	set("long","他是一位中等个子的和尚，身穿一袭青布镶边袈裟。太阳穴微凸，双目炯炯有神。\n");
-	set("nickname", "罗汉院精进罗汉");
+	set("long","他是一位中等個子的和尚，身穿一襲青布鑲邊袈裟。太陽穴微凸，雙目炯炯有神。\n");
+	set("nickname", "羅漢院精進羅漢");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");

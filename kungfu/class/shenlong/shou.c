@@ -8,9 +8,9 @@ int do_join(string arg);
 
 void create()
 {
-	set_name("瘦头陀", ({ "shou toutuo", "shou" ,"toutuo"}));
-	set("nickname",HIR "辽东瘦尊者" NOR);
-	set("long","这头陀身材奇矮，而且胖得出奇，整个人就活脱脱是一个大冬瓜。\n光溜溜的脑袋上瞪着一对铜铃大眼，样子非常滑稽，全身宛如个肉球。\n衣饰偏又十分华贵，长袍马褂都是锦缎。\n脸上五官挤在一起，倒是给人硬生生的搓成了一团。\n");
+	set_name("瘦頭陀", ({ "shou toutuo", "shou" ,"toutuo"}));
+	set("nickname",HIR "遼東瘦尊者" NOR);
+	set("long","這頭陀身材奇矮，而且胖得出奇，整個人就活脫脫是一個大冬瓜。\n光溜溜的腦袋上瞪着一對銅鈴大眼，樣子非常滑稽，全身宛如個肉球。\n衣飾偏又十分華貴，長袍馬褂都是錦緞。\n臉上五官擠在一起，倒是給人硬生生的搓成了一團。\n");
 	set("gender", "男性");
 	set("age", 44);
 	set("str", 35);
@@ -54,10 +54,10 @@ void create()
 		(: exert_function, "recover" :),
 		(: exert_function, "powerup" :),
 	}) );
-	set("party/party_name", HIY"神龙教"NOR);
-	set("party/rank", HIC"右护法"NOR);
+	set("party/party_name", HIY"神龍教"NOR);
+	set("party/rank", HIC"右護法"NOR);
 	set("party/level", 2);
-	create_family("神龙教", 2, "弟子");
+	create_family("神龍教", 2, "弟子");
 
 	set_temp("apply/attack", 50);
 	set_temp("apply/defense", 50);
@@ -67,14 +67,14 @@ void create()
 	set("max_neili", 1000);
 	set("jiali", 100);
 	set("inquiry", ([
-		"洪安通" : "这三个字是你说的吗？",
-		"洪教主" : "洪教主仙福永享，寿与天齐，洪教主神目如电，烛照四方。",
-		"苏荃"   : "没规没矩的。",
-		"神龙岛" : "神龙岛在汝州的东北方向，从塘沽口出海便到。",
-		"神龙教" : "一般人是入不了我神龙教的(join shenlongjiao)。\n",
-		"入教"   : "一般人是入不了我神龙教的(join shenlongjiao)。\n",
-		"教主"   : "教主脾气不好，要讨他欢心才好。\n",
-		"口号"   : "万年不老！永享仙福！寿与天齐！文武仁圣！\n",
+		"洪安通" : "這三個字是你說的嗎？",
+		"洪教主" : "洪教主仙福永享，壽與天齊，洪教主神目如電，燭照四方。",
+		"蘇荃"   : "沒規沒矩的。",
+		"神龍島" : "神龍島在汝州的東北方向，從塘沽口出海便到。",
+		"神龍教" : "一般人是入不了我神龍教的(join shenlongjiao)。\n",
+		"入教"   : "一般人是入不了我神龍教的(join shenlongjiao)。\n",
+		"教主"   : "教主脾氣不好，要討他歡心纔好。\n",
+		"口號"   : "萬年不老！永享仙福！壽與天齊！文武仁聖！\n",
 	]) );
 	setup();
 	carry_object(CLOTH_DIR"jinduan")->wear();
@@ -89,12 +89,12 @@ void init()
 
 void attempt_apprentice(object ob)
 {
-	if (ob->query("party/party_name") != HIY "神龙教" NOR ) {
-		command("say 你不是本教教众， 想来找死啊！");
+	if (ob->query("party/party_name") != HIY "神龍教" NOR ) {
+		command("say 你不是本教教衆， 想來找死啊！");
 		return;
 	}
 	if ((int)ob->query("shen") > 0 ) {
-		command("say 我神龙教与世隔绝，向来不与您这种白道人物打交道，您请回吧！");
+		command("say 我神龍教與世隔絕，向來不與您這種白道人物打交道，您請回吧！");
 		return;
 	}
 	command("say 很好，很好。");

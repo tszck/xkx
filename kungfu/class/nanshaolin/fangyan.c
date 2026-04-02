@@ -8,10 +8,10 @@ string ask_job();
 
 void create()
 {
-	set_name("方厌", ({ "fang yan", "fang", "yan"}));
-	set("long", "他是一位身穿黄布袈裟的青年僧人。脸上稚气未脱，身手却已相\n"
-		"当矫捷，看来似乎学过一点武功。\n");
-	set("nickname", "厕头");
+	set_name("方厭", ({ "fang yan", "fang", "yan"}));
+	set("long", "他是一位身穿黃布袈裟的青年僧人。臉上稚氣未脫，身手卻已相\n"
+		"當矯捷，看來似乎學過一點武功。\n");
+	set("nickname", "廁頭");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -78,7 +78,7 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	command("say " +RANK_D->query_rude(ob)+"，你还亲自来上厕所啊。");
+	command("say " +RANK_D->query_rude(ob)+"，你還親自來上廁所啊。");
 	command("laugh ");
 }
 #include "/kungfu/class/nanshaolin/fang.h";

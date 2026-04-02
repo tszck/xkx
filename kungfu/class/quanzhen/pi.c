@@ -11,7 +11,7 @@ void create()
         set("age", 24);
         set("class", "quanzhen");
         set("long",
-                "他是一位体格强健的壮年道士，似乎身怀武艺。\n");
+                "他是一位體格強健的壯年道士，似乎身懷武藝。\n");
         set("attitude", "friendly");
         set("shen_type",1);
         set("str", 26);
@@ -45,9 +45,9 @@ void create()
 
         set_skill("array", 20);
         set_skill("force", 40);
-        set_skill("xiantian-qigong", 40);    //先天气功
+        set_skill("xiantian-qigong", 40);    //先天氣功
         set_skill("sword", 40);
-        set_skill("quanzhen-jian",60);  //全真剑
+        set_skill("quanzhen-jian",60);  //全真劍
         set_skill("dodge", 40);
         set_skill("jinyan-gong", 60);   //金雁功
         set_skill("parry", 40);
@@ -55,7 +55,7 @@ void create()
         set_skill("strike", 40);
         set_skill("haotian-zhang", 60);    //昊天掌
         set_skill("cuff", 40);
-        set_skill("chunyang-quan", 60);    //纯阳拳
+        set_skill("chunyang-quan", 60);    //純陽拳
         set_skill("literate", 40);
         set_skill("taoism", 40);
 
@@ -71,7 +71,7 @@ void create()
         create_family("全真教", 4, "弟子");
 
         set("inquiry", ([
-                "全真教" :  "我全真教是天下道家玄门正宗。\n",
+                "全真教" :  "我全真教是天下道家玄門正宗。\n",
                 "出家"   :  (: ask_for_join() :),
         ]) );
 

@@ -7,26 +7,26 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N凌空跃起，双手握起$w，高举过头，一招"HIM"「劈天盖地满壮志」"NOR"，势
-如奔雷坠地，卷起漫天风尘，一刀向$n的$l劈了下来",
+([	"action" : "$N凌空躍起，雙手握起$w，高舉過頭，一招"HIM"「劈天蓋地滿壯志」"NOR"，勢
+如奔雷墜地，捲起漫天風塵，一刀向$n的$l劈了下來",
 	"lvl"    : 0,
-	"skill_name" : "劈天盖地满壮志",
+	"skill_name" : "劈天蓋地滿壯志",
 ]),
-([	"action" : "$N左腿斜跨一步，右手握着$w，横架前胸，猛地侧身旋转，以腰带
-臂，以臂扛刀，一招"HIR"「弯刀逆转倒乾坤」"NOR"，平刃挥向$n的$l",
+([	"action" : "$N左腿斜跨一步，右手握着$w，橫架前胸，猛地側身旋轉，以腰帶
+臂，以臂扛刀，一招"HIR"「彎刀逆轉倒乾坤」"NOR"，平刃揮向$n的$l",
 	"lvl"    : 20,
-	"skill_name" : "弯刀逆转倒乾坤",
+	"skill_name" : "彎刀逆轉倒乾坤",
 ]),
-([	"action" : "$N手握$w，展开身形，使动"HIW"「遥看万疆千里雪」"NOR"，突然之间，四周中
-白光闪动，丈余圈子之内，全是刀影",
+([	"action" : "$N手握$w，展開身形，使動"HIW"「遙看萬疆千里雪」"NOR"，突然之間，四周中
+白光閃動，丈餘圈子之內，全是刀影",
 	"lvl"    : 40,
-	"skill_name" : "遥看万疆千里雪",
+	"skill_name" : "遙看萬疆千里雪",
 ]),
-([	"action" : "$N一招"HIG"「壮志豪气满江湖」"NOR"，$w声势大变，东砍一刀少林寺的降魔刀
-法，西劈一刀广西黎山洞黎老汉的柴刀十八路，回转又是一刀江南史家的
-回风拂柳刀，刀刀不离$n左右",
+([	"action" : "$N一招"HIG"「壯志豪氣滿江湖」"NOR"，$w聲勢大變，東砍一刀少林寺的降魔刀
+法，西劈一刀廣西黎山洞黎老漢的柴刀十八路，迴轉又是一刀江南史家的
+迴風拂柳刀，刀刀不離$n左右",
 	"lvl"    : 60,
-	"skill_name" : "壮志豪气满江湖",
+	"skill_name" : "壯志豪氣滿江湖",
 ]),
 });
 
@@ -34,9 +34,9 @@ int valid_enable(string usage) { return (usage=="blade") || (usage=="parry"); }
 int valid_learn(object me)
 {
 	if ((int)me->query("max_neili") < 50)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if ((int)me->query_skill("shenyuan-gong", 1) < 10)
-		return notify_fail("你的神元功火候太浅。\n");
+		return notify_fail("你的神元功火候太淺。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -45,9 +45,9 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "blade")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if ((int)me->query("qi") < 50)
-		return notify_fail("你的体力不够练慕容刀法。\n");
+		return notify_fail("你的體力不夠練慕容刀法。\n");
 	me->receive_damage("qi", 30);
 	return 1;
 }
@@ -75,17 +75,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : "割伤",
+		"damage_type" : "割傷",
 	]);
 }
 int learn_bonus() { return 15; }
@@ -103,12 +103,12 @@ int help(object me)
 	write(HIC"\n慕容刀法："NOR"\n");
 	write(@HELP
 
-    慕容刀法为江南姑苏慕容祖传刀法。以雄浑沉厚、气势凝重著
-称。
+    慕容刀法爲江南姑蘇慕容祖傳刀法。以雄渾沉厚、氣勢凝重著
+稱。
 
-	学习要求：
-		神元功10级
-		内力50
+	學習要求：
+		神元功10級
+		內力50
 HELP
 	);
 	return 1;

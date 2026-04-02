@@ -1,4 +1,4 @@
-// hunyuan-yiqi.c 少林 混元一气功
+// hunyuan-yiqi.c 少林 混元一氣功
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -24,32 +24,32 @@ int valid_learn(object me)
 	ns = (int)me->query("guilty");
 
 	if ((int)me->query_skill("force", 1) < 10)
-		return notify_fail("你的基本内功火候还不够。\n");
+		return notify_fail("你的基本內功火候還不夠。\n");
 
 	if ( me->query("couple/have_couple") )
-		return notify_fail("你尘缘未了，无法再学习混元一气功！\n");
+		return notify_fail("你塵緣未了，無法再學習混元一氣功！\n");
 
 	if ( me->query("sex/number") )
-		return notify_fail("你已经破了色戒，无法再学习混元一气功！\n");
+		return notify_fail("你已經破了色戒，無法再學習混元一氣功！\n");
 
 	if ( me->query("gender") != "男性" )
-		return notify_fail("你非童男之体，不能练习混元一气功。\n");
+		return notify_fail("你非童男之體，不能練習混元一氣功。\n");
 
 	if ( nb < 100 && nb <= nh )
-		return notify_fail("你的禅宗心法修为不够，无法领会更高深的混元一气功。\n");
+		return notify_fail("你的禪宗心法修爲不夠，無法領會更高深的混元一氣功。\n");
 
 	if ( nf < 10)
-		return notify_fail("你的基本内功火候还不够，无法领会混元一气功。\n");
+		return notify_fail("你的基本內功火候還不夠，無法領會混元一氣功。\n");
 
 	if ( ns > 0 ) 
-		return notify_fail("你屡犯僧家数戒，无法领会更高深的混元一气功。\n");
+		return notify_fail("你屢犯僧家數戒，無法領會更高深的混元一氣功。\n");
 
 	return valid_public(me,"yijinjing");
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("混元一气功只能用学(learn)的来增加熟练度。\n");
+	return notify_fail("混元一氣功只能用學(learn)的來增加熟練度。\n");
 }
 
 string exert_function_file(string func)
@@ -58,15 +58,15 @@ string exert_function_file(string func)
 }
 int help(object me)
 {
-	write(HIC"\n混元一气功："NOR"\n");
+	write(HIC"\n混元一氣功："NOR"\n");
 	write(@HELP
 
-    混元一气功为少林派本门内功。
+    混元一氣功爲少林派本門內功。
 
-	学习要求：
-		基本内功10级
+	學習要求：
+		基本內功10級
 		不能破色戒的童男之身
-		禅宗心法修为不低于混元一气功
+		禪宗心法修爲不低於混元一氣功
 		不犯其它戒律
 HELP
 	);

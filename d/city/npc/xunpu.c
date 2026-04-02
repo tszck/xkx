@@ -36,7 +36,7 @@ mapping BigWay=([
                 ]);
 
 void create() {
-     string *surname=({"慕容","西门","公孙","上官","南宫","欧阳","司徒",});
+     string *surname=({"慕容","西門","公孫","上官","南宮","歐陽","司徒",});
 
      set_name(surname[random(sizeof(surname))]+"巡捕", ({ "xunpu","police"}) );
      set("gender", "男性" );
@@ -47,7 +47,7 @@ void create() {
      set("int", 20);
      set("per", 20);
      set("kar", 15);
-     set("long",@LONG 巡捕个个身手矫健，强盗、山贼和小偷无不闻风丧胆。 
+     set("long",@LONG 巡捕個個身手矯健，強盜、山賊和小偷無不聞風喪膽。 
 LONG );
      set("status","patrol");
      set("CatchWho",0);
@@ -55,16 +55,16 @@ LONG );
      set("attitude", "heroism");
      set("chat_chance_combat", 40);
      set("chat_msg_combat", ({
-                            "巡捕说道：你想干什么? 还不跟我去府衙受审!?\n",
-                            "巡捕说道：大胆! 居然敢当街拒捕! 想造反？\n",
-                            "巡捕手中的刀越砍越快，让你应接不暇。\n",
-                            "巡捕说道：别胡闹了，还是乖乖的跟我走吧。\n"
+                            "巡捕說道：你想幹什麼? 還不跟我去府衙受審!?\n",
+                            "巡捕說道：大膽! 居然敢當街拒捕! 想造反？\n",
+                            "巡捕手中的刀越砍越快，讓你應接不暇。\n",
+                            "巡捕說道：別胡鬧了，還是乖乖的跟我走吧。\n"
                             }) );
      set ("inquiry",([
-          "bribery":"说哪里话来，府太爷清贫廉正，我们作手下的岂能辱没他的名声？\n"+
-                    "收起你的钱吧！\n",
-          "salary" : "哎，老爷俸银微薄，我们的年饷自然更少了......\n",
-          "money"  : "说实在的，我也想要钱。但要是让老爷知道了我收受贿赂(bribery)，\n不死也得扒层皮。\n",
+          "bribery":"說哪裏話來，府太爺清貧廉正，我們作手下的豈能辱沒他的名聲？\n"+
+                    "收起你的錢吧！\n",
+          "salary" : "哎，老爺俸銀微薄，我們的年餉自然更少了......\n",
+          "money"  : "說實在的，我也想要錢。但要是讓老爺知道了我收受賄賂(bribery)，\n不死也得扒層皮。\n",
      ]));
      set ("chat_chance",99);
      set ("chat_msg", ({
@@ -102,9 +102,9 @@ void init()
             {
                 if (npc[i]->query("id")=="gangster"&&!userp(npc[i]))
                 {
-                        say(HIW "今儿是什么日子？\n"+"居然"+
+                        say(HIW "今兒是什麼日子？\n"+"居然"+
                                 npc[i]->query("name")+
-                               "也敢在大街上溜哒！" NOR);
+                               "也敢在大街上溜噠！" NOR);
                         npc[i]->remove_all_enemy();
                         say("去死吧！！\n");
                         EMOTE_D->do_emote( npc[i],"fear");
@@ -113,7 +113,7 @@ void init()
                 }
 /*                else if (npc[i]->query("title")=="野羊山寨三寨主"&&!userp(npc[i]))
                      {
-                        say(HIR "哼，手下败将！总有一天我们要荡平野羊山寨！\n" NOR);
+                        say(HIR "哼，手下敗將！總有一天我們要蕩平野羊山寨！\n" NOR);
                         npc[i]->remove_all_enemy();
                         EMOTE_D->do_emote( npc[i],"fear");
                         kill_ob(npc[i]);
@@ -122,8 +122,8 @@ void init()
             }
             if (you->query("thief")&&random(10)<7)
             {
-               say (HIR "闹了半天原来"+you->query("name")+
-                        "是个贼啊! 我走一趟吧!\n" NOR);
+               say (HIR "鬧了半天原來"+you->query("name")+
+                        "是個賊啊! 我走一趟吧!\n" NOR);
                you->add("crime_lv",THIEF);
                you->add("thief",-1);
                if (!you->query("thief")) you->delete("thief");
@@ -133,11 +133,11 @@ void init()
             else
             if (you->query_condition("killer")&&random(10)<9)
             {
-               message_vision("$N对着$n喝道：光天化日之下，你居然也敢行凶杀人？还不与我回去吃板子！\n"
-                +"说罢，$N解下铁链套在$n的脖子上。\n",this_object(),you);
+               message_vision("$N對着$n喝道：光天化日之下，你居然也敢行兇殺人？還不與我回去喫板子！\n"
+                +"說罷，$N解下鐵鏈套在$n的脖子上。\n",this_object(),you);
                         you->add("crime_lv",ROBBER);
-//                        you->add("marks/强盗",-1);
-//                        if (!you->query("marks/强盗")) you->delete("marks/强盗");
+//                        you->add("marks/強盜",-1);
+//                        if (!you->query("marks/強盜")) you->delete("marks/強盜");
                 catchyou(you);
             }
        }
@@ -145,7 +145,7 @@ void init()
     else if (query("status")=="catching")
          {
                 catchyou(catchwho);
-                message_vision(HIR "只见$N突然从腰间解下一条铁链套在$n的脖子上。\n"NOR,
+                message_vision(HIR "只見$N突然從腰間解下一條鐵鏈套在$n的脖子上。\n"NOR,
                              this_object(),catchwho);
          }
          else
@@ -161,7 +161,7 @@ void init()
                         write(oldman->query("id"));
                         catchwho->move(start_room);
                         move(start_room);
-                        say("老爷，人犯已带到，小人巡街去了。\n");
+                        say("老爺，人犯已帶到，小人巡街去了。\n");
                         set("CatchWho",0);
                         direction=GO;
                         set("status","patrol");
@@ -203,7 +203,7 @@ void patrol()
             else if (this_object()->query("status")=="catching")
                  {
                       catchyou(catchwho);
-                      message_vision(HIR "只见$N突然从腰间解下一条铁链套在$n的脖子上"NOR,
+                      message_vision(HIR "只見$N突然從腰間解下一條鐵鏈套在$n的脖子上"NOR,
                         this_object(),catchwho);
                  }
                  else
@@ -262,7 +262,7 @@ int do_go(string arg)
         object me;
         me=this_player();
         if (!me->query("being_caught")) return 0;
-        tell_object(me, "嘿嘿, 还想往哪逃?!\n");
+        tell_object(me, "嘿嘿, 還想往哪逃?!\n");
         return 1;
 }
 
@@ -277,7 +277,7 @@ int do_quit(string arg)
             set("status","patrol");
             return 0;
         }
-        message_vision(HIR"$N紧紧拎着$n的衣领, $n无法退出!\n" NOR,this_object(),me);
+        message_vision(HIR"$N緊緊拎着$n的衣領, $n無法退出!\n" NOR,this_object(),me);
         return 1;
 }
 
@@ -301,7 +301,7 @@ void die()
                 ob->set("persuer",1);
                 ob->set("startroom",query("startroom"));
                 ob->move(environment());
-                message_vision(HIR "大胆狂徒，$N...居然敢杀戮公差$n！休走，看刀！\n" NOR,killer,this_object());
+                message_vision(HIR "大膽狂徒，$N...居然敢殺戮公差$n！休走，看刀！\n" NOR,killer,this_object());
                 ob->kill_ob(killer);
                 if (stringp(file=find_command("kill")))
                         {
@@ -323,18 +323,18 @@ int accept_bribery(string arg)
         if(!(me->query("being_caught"))) return 0;
         if (!arg||sscanf(arg,"%s with %d %s",toid,amount,money)!=3) return 0;
         if (!objectp(present(toid,environment())))
-                return notify_fail("你要贿赂谁？\n");
+                return notify_fail("你要賄賂誰？\n");
         money_ob=present(money+"_money",this_player());
-        if (!money_ob) return notify_fail("你身上没有这种货币。\n");
-        if( amount < 1 ) return notify_fail("货币使用至少要一个/每次。\n");
+        if (!money_ob) return notify_fail("你身上沒有這種貨幣。\n");
+        if( amount < 1 ) return notify_fail("貨幣使用至少要一個/每次。\n");
         if( (int)money_ob->query_amount() < amount )
-                return notify_fail("你身上没有那多"+money_ob->query("name")+"。\n");
+                return notify_fail("你身上沒有那多"+money_ob->query("name")+"。\n");
         bv1 = money_ob->query("base_value");
-        if( !bv1 ) return notify_fail("这种东西不值钱。\n");
+        if( !bv1 ) return notify_fail("這種東西不值錢。\n");
         if (bv1*amount>=100000)
         {
-                write("这怎么好?......要是让老爷知道了......\n");
-                write("盛情难却....我就收下了..\n");
+                write("這怎麼好?......要是讓老爺知道了......\n");
+                write("盛情難卻....我就收下了..\n");
                 EMOTE_D->do_emote(this_object(),"grin",me->query("id"));
                 ob=new(base_name(money_ob));
                 ob->move(this_object());
@@ -352,7 +352,7 @@ int accept_bribery(string arg)
         }
         else
         {
-                write("你这是什么意思?......谁稀罕你的钱?!\n");
+                write("你這是什麼意思?......誰稀罕你的錢?!\n");
                 me->add("crime_lv",1);
         }
         return 1;

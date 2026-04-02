@@ -4,11 +4,11 @@
 inherit NPC;
 void create()
 {
-	set_name("朱聪",({"zhu cong","zhu","cong"}));
+	set_name("朱聰",({"zhu cong","zhu","cong"}));
 	set("gender","男性");
 	set("long","江南七怪老二，手上功夫了得。\n");
 	set("combat_exp", 300000);
-	set("nickname","妙手书生");
+	set("nickname","妙手書生");
 	set("age",34);
 	set("qi",1700);
 	set("max_qi",1700);

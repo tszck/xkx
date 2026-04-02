@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-        set("short", "柳浪桥");
+        set("short", "柳浪橋");
         set("long", @LONG
-每当春至，站在桥上，沿湖垂柳在风中摇曳如翠浪翻空，黄莺在
-枝头迎春嬉戏，鸣声婉转，故得名“浪桥闻莺”。
+每當春至，站在橋上，沿湖垂柳在風中搖曳如翠浪翻空，黃鶯在
+枝頭迎春嬉戲，鳴聲婉轉，故得名“浪橋聞鶯”。
 LONG);
         set("exits", ([
             "southwest" : __DIR__"jujingyuan",

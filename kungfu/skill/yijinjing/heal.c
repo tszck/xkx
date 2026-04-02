@@ -10,27 +10,27 @@ int exert(object me, object target)
   !me->query("perform/heal") &&
   !me->query("can_perform/yijinjing/heal") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("你所使用的内功中没有这种功能。");
+   return notify_fail("你所使用的內功中沒有這種功能。");
 	if( me->is_fighting() )
-		return notify_fail("战斗中运功疗伤？找死吗？\n");
+		return notify_fail("戰鬥中運功療傷？找死嗎？\n");
 
 	if( me->is_busy() )
-		return notify_fail("你现在正忙着呢，哪有空运功？\n");
+		return notify_fail("你現在正忙着呢，哪有空運功？\n");
 
 	if( (int)me->query_skill("yijinjing", 1) < 20)
-		return notify_fail("你的易筋经神功修为还不够。\n");
+		return notify_fail("你的易筋經神功修爲還不夠。\n");
 
 	if( (int)me->query("neili") < 50 )
-		return notify_fail("你的真气不够。\n");
+		return notify_fail("你的真氣不夠。\n");
 /*
 	if( (int)me->query("eff_qi") >= (int)me->query("max_qi") )
-		return notify_fail(HIR"你没有受伤，不必运真气疗伤！\n"NOR);
+		return notify_fail(HIR"你沒有受傷，不必運真氣療傷！\n"NOR);
 */
 	if( (int)me->query("eff_qi") < (int)me->query("max_qi") / 3 )
-		return notify_fail("你已经受伤过重，只怕一运真气便有生命危险！\n");
+		return notify_fail("你已經受傷過重，只怕一運真氣便有生命危險！\n");
 
-	write( HIW "你全身放松，坐下来开始运功疗伤。\n" NOR);
-	message("vision", HIW + me->name() + "吐出一口金灿灿的瘀血，脸色看起来好多了。\n" NOR, environment(me), me);
+	write( HIW "你全身放鬆，坐下來開始運功療傷。\n" NOR);
+	message("vision", HIW + me->name() + "吐出一口金燦燦的瘀血，臉色看起來好多了。\n" NOR, environment(me), me);
 
 	me->receive_curing("qi", 10 + (int)me->query_skill("force")/5 );
 	me->add("neili", -50);
@@ -42,15 +42,15 @@ int exert(object me, object target)
 
 int help(object me)
 {
-	write(WHT"\n易筋经神功之自疗："NOR"\n");
+	write(WHT"\n易筋經神功之自療："NOR"\n");
 	write(@HELP
 
 	使用功效：
-		为自己疗伤
+		爲自己療傷
 
 	出手要求：
-		易筋经神功20级
-	        内力50
+		易筋經神功20級
+	        內力50
 HELP
 	);
 	return 1;

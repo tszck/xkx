@@ -5,12 +5,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "大雄宝殿");
+	set("short", "大雄寶殿");
 	set("long", @LONG
-这里是少林寺的大雄宝殿。正中供奉着如来三宝，左右各是
-文殊、普贤菩萨。一群青衣小和尚们正在佛像前的地上诵经。
-缕缕香烟与梵唱交错在一起，仰视佛祖拈花浅笑的面容，令人顿
-时生起几分脱俗之感。身边经常有一队队僧人鱼贯而入，看他们
+這裏是少林寺的大雄寶殿。正中供奉着如來三寶，左右各是
+文殊、普賢菩薩。一羣青衣小和尚們正在佛像前的地上誦經。
+縷縷香菸與梵唱交錯在一起，仰視佛祖拈花淺笑的面容，令人頓
+時生起幾分脫俗之感。身邊經常有一隊隊僧人魚貫而入，看他們
 手持戒刀，似乎是巡寺的僧人。
 LONG );
 	set("exits", ([
@@ -45,7 +45,7 @@ int do_ketou()
 		
 	if ( me->query_temp("ketou_times") == 0 )
 	{
-		message_vision("$N磕头磕得晕了过去。\n", me);
+		message_vision("$N磕頭磕得暈了過去。\n", me);
 		me->set_temp("ketou_times", random(50));
 		me->unconcious();
 		return 1;
@@ -53,7 +53,7 @@ int do_ketou()
 
 	me->add_temp("ketou_times", -1);	
 
-	message_vision("$N虔诚地跪下来，在如来佛祖面前磕头。\n", me);
+	message_vision("$N虔誠地跪下來，在如來佛祖面前磕頭。\n", me);
 
 	if ( random(100) == 37 
 	&& !present("silk", me)
@@ -62,7 +62,7 @@ int do_ketou()
 		add("book_count", -1);
 		ob=new("/clone/book/book-silk");
 		ob->move("/d/shaolin/dxbdian");
-		tell_object(me, "突然你面前，啪地一声掉下一束羊皮线穿起来的薄绢！\n");
+		tell_object(me, "突然你面前，啪地一聲掉下一束羊皮線穿起來的薄絹！\n");
 	}
 
 	if ((int)me->query_skill("force", 1) >= 30 
@@ -72,7 +72,7 @@ int do_ketou()
 		me->receive_damage("jing", 20);
 		me->improve_skill("force", me->query("int"));
 		if ( random(5) == 0 )
-		tell_object(me, "冥冥之中，你似乎觉得佛祖在点拨你在内功方面的疑难。\n");
+		tell_object(me, "冥冥之中，你似乎覺得佛祖在點撥你在內功方面的疑難。\n");
 	}
 	return 1;
 

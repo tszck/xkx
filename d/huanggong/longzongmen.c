@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "隆宗门");
+	set("short", "隆宗門");
 	set("long", @LONG
-此门是通往宫外西路的大门. 外西路是太后的居所. 隆宗门外就是
-慈宁宫了.
+此門是通往宮外西路的大門. 外西路是太后的居所. 隆宗門外就是
+慈寧宮了.
 LONG
 	);
 	set("outdoors", "huanggong");

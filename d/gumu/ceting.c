@@ -1,4 +1,4 @@
-// ceting.c 侧厅
+// ceting.c 側廳
 // Java Oct.10 1998
 
 #include <ansi.h>
@@ -9,10 +9,10 @@ int do_niu(string arg);
 
 void create()
 {
-	set("short", "侧厅");
+	set("short", "側廳");
 	set("long", @LONG
-这里是古墓的侧厅，密封得严严实实，没有一丝的缝隙。在昏暗的
-灯光下，很难看清楚厅里的陈设。
+這裏是古墓的側廳，密封得嚴嚴實實，沒有一絲的縫隙。在昏暗的
+燈光下，很難看清楚廳裏的陳設。
 LONG	);
 	set("exits", ([
 		"east"  : __DIR__"mudao20",

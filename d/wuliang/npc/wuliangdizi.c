@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("无量剑弟子", ({ "wuliang dizi", "dizi" }));
+	set_name("無量劍弟子", ({ "wuliang dizi", "dizi" }));
 	set("age", 42);
 	set("gender", "男性");
-	set("long", "这是无量剑派的一名弟子，腰挎一柄长剑，神情有些鬼祟，象是惧怕些什么。\n");
+	set("long", "這是無量劍派的一名弟子，腰挎一柄長劍，神情有些鬼祟，象是懼怕些什麼。\n");
 	set("attitude", "peaceful");
 
 	set("str", 24);

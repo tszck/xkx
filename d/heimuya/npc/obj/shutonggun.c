@@ -7,18 +7,18 @@ inherit CLUB;
 
 void create()
 {
-	set_name("熟铜棍", ({"shutong gun", "club"}));
+	set_name("熟銅棍", ({"shutong gun", "club"}));
 	set_weight(2000);
 
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
 		set("unit", "杆");
-		set("long", "一杆十分灵便的熟铜棍。\n");
+		set("long", "一杆十分靈便的熟銅棍。\n");
 		set("value", 1000);
 		set("material", "bamboo");
-		set("wield_msg", "$N回手从身后抽出一杆熟铜棍。\n");
-		set("unwield_msg", "$N手往后一扣，把熟铜棍放在身后。\n");
+		set("wield_msg", "$N回手從身後抽出一杆熟銅棍。\n");
+		set("unwield_msg", "$N手往後一扣，把熟銅棍放在身後。\n");
 	}
 	init_club(30);
 	setup();

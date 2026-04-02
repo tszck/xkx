@@ -7,11 +7,11 @@ int value() { return query_amount() * (int)query("base_value"); }
 
 void create()
 {
-	set_name(HIY "金玉交辉" NOR, ({"jinyu jiaohui", "mudan"}));
+	set_name(HIY "金玉交輝" NOR, ({"jinyu jiaohui", "mudan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", HIY"这是一朵雍容华贵的黄色牡丹花，花朵婀娜多姿，委实令人心醉神迷。\n"NOR);
+		set("long", HIY"這是一朵雍容華貴的黃色牡丹花，花朵婀娜多姿，委實令人心醉神迷。\n"NOR);
 		set("unit", "束");
 		set("value", 100);
 		set("base_unit", "朵");

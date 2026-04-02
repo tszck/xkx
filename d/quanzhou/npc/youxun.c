@@ -11,11 +11,11 @@ int ask_meeting();
 
 void create()
 {
-        set_name("游讯", ({ "you xun", "you", "xun" }) );
+        set_name("遊訊", ({ "you xun", "you", "xun" }) );
         set("nickname", "滑不留手");
         set("gender", "男性" );
         set("age", 42);
-        set("long", "他就是专门打探、贩卖消息的游讯。\n");
+        set("long", "他就是專門打探、販賣消息的遊訊。\n");
         set("combat_exp", 100000);
         set("attitude", "friendly");
 
@@ -27,10 +27,10 @@ void create()
 	set("dex", 30);
 
         set("inquiry", ([
-		"name"   : "小的就是游讯，不知您要打听点什么？",
-		"欧冶子" : "您问可以帮玩家造兵器的欧冶老爷子呀！据说他现在带着徒弟到西域去\n居住了，有人说他现在本事更大了，也不知真假。\n",
+		"name"   : "小的就是遊訊，不知您要打聽點什麼？",
+		"歐冶子" : "您問可以幫玩家造兵器的歐冶老爺子呀！據說他現在帶着徒弟到西域去\n居住了，有人說他現在本事更大了，也不知真假。\n",
 		"news" : (: ask_news :),
-		"新闻" : (: ask_news :),
+		"新聞" : (: ask_news :),
         ]) );
 
         set_skill("literate", 100);
@@ -68,7 +68,7 @@ int ask_news()
 	temp = read_file(__DIR__"news.txt", 2, 1);
 	rows = atoi(temp);
 	temp = read_file(__DIR__"news.txt", 3, rows);
-	temp = "游讯说道：\n"+temp+"\n";
+	temp = "遊訊說道：\n"+temp+"\n";
 	write(temp);
 
 	return 1 ;

@@ -4,11 +4,11 @@ inherit ITEM;
 
 void create()
 {
-	set_name(RED"鹤顶红"NOR, ({"heding hong", "hong"}));
+	set_name(RED"鶴頂紅"NOR, ({"heding hong", "hong"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一瓶剧毒的毒药, 如果用来炼暗器有见血封喉之效. \n");
+		set("long", "一瓶劇毒的毒藥, 如果用來煉暗器有見血封喉之效. \n");
 		set("unit", "瓶");
 		set("value", 20000);
 	}
@@ -26,14 +26,14 @@ int do_drink(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要喝什么？\n");
+	if(!id(arg)) return notify_fail("你要喝什麼？\n");
 	if(!present(this_object(), this_player()))
-		return notify_fail("你要喝什么？\n");
+		return notify_fail("你要喝什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢喝，小心别呛着了。\n");
+		return notify_fail("別急，慢慢喝，小心別嗆着了。\n");
 
-	message_vision("$N仰头咕嘟咕嘟灌下一瓶" + name() + "。\n", me);
-	me->set_temp("die_reason","喝下鹤顶红，自杀身亡了");
+	message_vision("$N仰頭咕嘟咕嘟灌下一瓶" + name() + "。\n", me);
+	me->set_temp("die_reason","喝下鶴頂紅，自殺身亡了");
 	me->die();
 	destruct(this_object());
 	return 1;

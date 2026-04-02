@@ -11,24 +11,24 @@ int main(object me, string arg)
 	if( me!=this_player(1) ) return 0;
 
 	if( !arg || sscanf(arg, "%s %s", arg, new_status)!=2 )
-		return notify_fail("指令格式：promote <使用者> <等级>\n");
+		return notify_fail("指令格式：promote <使用者> <等級>\n");
 
-	if( wiz_level(new_status) < 0 ) return notify_fail("没有这种等级。\n");
+	if( wiz_level(new_status) < 0 ) return notify_fail("沒有這種等級。\n");
 
 	if( !objectp(ob = present(arg, environment(me))) 
 	||	!userp(ob) )
-		return notify_fail("你只能改变使用者的权限。\n");
+		return notify_fail("你只能改變使用者的權限。\n");
 
 	if( wiz_level(me) < wiz_level(new_status) )
-		return notify_fail("你没有这种权力。\n");
+		return notify_fail("你沒有這種權力。\n");
 
 	old_status = wizhood(ob);
 
 	seteuid(getuid());
 	if( !(SECURITY_D->set_status(ob, new_status)) )
-		return notify_fail("修改失败。\n");
+		return notify_fail("修改失敗。\n");
 
-	message_vision("$N将$n的权限从 " + old_status + " 改为 " + new_status + " 。\n", me, ob);
+	message_vision("$N將$n的權限從 " + old_status + " 改爲 " + new_status + " 。\n", me, ob);
 	seteuid(getuid());
 	ob->setup();
 
@@ -38,11 +38,11 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-指令格式 : promote <某人> (权限等级)
+指令格式 : promote <某人> (權限等級)
 
-用来提升权限等级, (player) (immortal) (apprentice) (wizard)
+用來提升權限等級, (player) (immortal) (apprentice) (wizard)
 (arch) (admin)
-一个 admin 能提升权限至任何等级, 而 arch 只能提升至 arch。
+一個 admin 能提升權限至任何等級, 而 arch 只能提升至 arch。
 HELP
     );
     return 1;

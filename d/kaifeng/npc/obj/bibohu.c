@@ -9,8 +9,8 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "只");
-                set("long", HIC "碧绿的瓷壁上留着点点胭脂"
-                            "红,乃是磁中绝品。\n" NOR);
+                set("long", HIC "碧綠的瓷壁上留着點點胭脂"
+                            "紅,乃是磁中絕品。\n" NOR);
                 set("value", 1500);
         }
 }

@@ -8,7 +8,7 @@ void create()
 	set_name("回回", ({ "hui hui", "huihui", "hui" }));
 	set("gender", "男性");
 	set("age", 25);
-	set("long","一个虔诚回回，正跪在地上向西方膜拜。\n");
+	set("long","一個虔誠回回，正跪在地上向西方膜拜。\n");
 	set("attitude", "friendly");
 	set("combat_exp", 1000);
 

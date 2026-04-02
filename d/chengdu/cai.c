@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "菜场");
+	set("short", "菜場");
 	set("long", @LONG
-这里是个小菜场，一般成都的居民都到这里买菜。虽然场地不是很
-大，但品种还是比较齐全的。所以，周围到也没有第二家。开菜场的是
-老大娘，平日喜欢跟人拉拉家常。只见墙角处似乎有个洞(dong)。
+這裏是個小菜場，一般成都的居民都到這裏買菜。雖然場地不是很
+大，但品種還是比較齊全的。所以，周圍到也沒有第二家。開菜場的是
+老大娘，平日喜歡跟人拉拉家常。只見牆角處似乎有個洞(dong)。
 LONG );
 	set("exits", ([
 		"northeast" : __DIR__"nanjie",
@@ -18,7 +18,7 @@ LONG );
 		__DIR__"npc/oldwomen" : 1,
 	]));
 	set("item_desc", ([
-		"dong" : "这是一个黑不溜湫的洞，里面不知道有些什么古怪。\n",
+		"dong" : "這是一個黑不溜湫的洞，裏面不知道有些什麼古怪。\n",
 	]));
 	set("coor/x", -8060);
 	set("coor/y", -3040);
@@ -39,10 +39,10 @@ int do_enter(string arg)
 	if( arg=="dong" )
 	{
 		message("vision",
-			me->name() + "一弯腰往洞里走了进去。\n",
+			me->name() + "一彎腰往洞裏走了進去。\n",
 			environment(me), ({me}) );
 		me->move(__DIR__"ruin1");
-		message("vision", me->name() + "从洞里走了进来。\n", environment(me), ({me}) );
+		message("vision", me->name() + "從洞裏走了進來。\n", environment(me), ({me}) );
 		return 1;
 	}
 }	

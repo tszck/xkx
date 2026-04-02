@@ -5,8 +5,8 @@ void create()
 {
 	set("short","池塘");
 	set("long",@LONG
-这是一个小池塘，池塘里有数对鸳鸯悠游其间，池边还有几只白鹤
-在觅食。
+這是一個小池塘，池塘裏有數對鴛鴦悠遊其間，池邊還有幾隻白鶴
+在覓食。
 LONG );
 	set("outdoors", "heimuya");
 	set("exits",([

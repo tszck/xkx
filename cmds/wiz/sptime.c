@@ -4,7 +4,7 @@ inherit F_CLEAN_UP;
 
 int main(object me, string arg)
 {
-	write("现在是" + time() + "。\n");
+	write("現在是" + time() + "。\n");
 	return 1;
 }
 
@@ -13,7 +13,7 @@ int help(object me)
      write(@HELP
 指令格式: time
 
-这个指令让你(你)知道现在的时辰。
+這個指令讓你(你)知道現在的時辰。
 
 HELP
     );

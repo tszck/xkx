@@ -1,4 +1,4 @@
-// honghua-shengong.c 红花神功
+// honghua-shengong.c 紅花神功
 // Last Modified by winder on Sep. 12 2001
 
 #include <ansi.h>
@@ -24,23 +24,23 @@ int valid_learn(object me)
 	if(i <= 100) for (j = 1; j < i / 10; j++) t *= 2;
 
 	if ((int)me->query_skill("force", 1) < 10)
-		return notify_fail("你的基本内功火候还不够。\n");
+		return notify_fail("你的基本內功火候還不夠。\n");
 	if(i <= 100)
 	{
 		if (i > 10 && (int)me->query("shen") < t * 100) 
-			return notify_fail("你的侠义正气太低了，无法领会更高深的红花神功。\n");
+			return notify_fail("你的俠義正氣太低了，無法領會更高深的紅花神功。\n");
 	}
 	else
 	{
 		if ((int)me->query("shen") < (51200 + (i - 100) * 1000)) 
-			return notify_fail("你的侠义正气太低了，无法领会更高深的红花神功。\n");
+			return notify_fail("你的俠義正氣太低了，無法領會更高深的紅花神功。\n");
 	}
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("红花神功只能用学(learn)的来增加熟练度。\n");
+	return notify_fail("紅花神功只能用學(learn)的來增加熟練度。\n");
 }
 
 string exert_function_file(string func)
@@ -49,14 +49,14 @@ string exert_function_file(string func)
 }
 int help(object me)
 {
-	write(HIM"\n红花神功："NOR"\n");
+	write(HIM"\n紅花神功："NOR"\n");
 	write(@HELP
 
-    红花会弟子内功，具自疗、他疗及运功之用。
+    紅花會弟子內功，具自療、他療及運功之用。
 
-	学习要求：
-		基本内功10级
-		相应的正气
+	學習要求：
+		基本內功10級
+		相應的正氣
 HELP
 	);
 	return 1;

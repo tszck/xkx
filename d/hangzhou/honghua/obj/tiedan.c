@@ -6,7 +6,7 @@ inherit THROWING;
 
 void create()
 {
-        set_name(HIW"铁胆"NOR, ({ "tiedan", "dan" }) );
+        set_name(HIW"鐵膽"NOR, ({ "tiedan", "dan" }) );
         if( clonep() )
                 set_default_object(__FILE__);
         else {
@@ -16,9 +16,9 @@ void create()
                 set("base_weight", 300);
                 set("base_value", 0);
                 set("material", "iron");
-                set("long", HIG"一些溜圆的铁胆，是一种凶猛的暗器。\n"NOR);
-                set("wield_msg", HIC"$N迅速地从身上摸出一些铁胆，捏在手中就待发出！\n"NOR);
-                set("unwield_msg",HIC"$N将手里剩下的铁胆一抖就不见了。\n"NOR);
+                set("long", HIG"一些溜圓的鐵膽，是一種兇猛的暗器。\n"NOR);
+                set("wield_msg", HIC"$N迅速地從身上摸出一些鐵膽，捏在手中就待發出！\n"NOR);
+                set("unwield_msg",HIC"$N將手裏剩下的鐵膽一抖就不見了。\n"NOR);
         }
         set_amount(50);
         init_throwing(50);

@@ -17,7 +17,7 @@ void create()
 	set("vegetable", 1);
 	set("value", 1000);
 	set("nostrum", 1);
-	set("long", "这是一粒绿油油的巴豆，看来可以入药。\n");
+	set("long", "這是一粒綠油油的巴豆，看來可以入藥。\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -26,13 +26,13 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
-	write("你一口就把巴豆吃了下去。结果蹲下就拉，拉得头晕眼花。\n");
+	write("你一口就把巴豆喫了下去。結果蹲下就拉，拉得頭暈眼花。\n");
 	me->set("qi",1);
 	destruct(this_object());
 	return 1;

@@ -7,8 +7,8 @@ void create()
 {
        set("short","山谷");
        set("long", @LONG
-你走进山谷，这里林木茂密，有如仙境。只见两山之间流出一条小溪来，
-清澈的溪水从你脚边静静地淌过。口渴的你正好可以饮(drink)个饱。
+你走進山谷，這裏林木茂密，有如仙境。只見兩山之間流出一條小溪來，
+清澈的溪水從你腳邊靜靜地淌過。口渴的你正好可以飲(drink)個飽。
 LONG);
         set("resource/water", 1);
         set("exits", ([
@@ -31,8 +31,8 @@ int do_drink(string arg)
         max_water = me->query("str")*10 + 100;
         if (current_water<max_water) {
             me->set("water", current_water+30);
-            message("vision", me->name()+"用手捧起清水喝了几口。\n", environment(me), ({me}));
-            write("你只觉溪水微带甜味，甚是清凉可口。\n");
+            message("vision", me->name()+"用手捧起清水喝了幾口。\n", environment(me), ({me}));
+            write("你只覺溪水微帶甜味，甚是清涼可口。\n");
             }
         else write("你喝不下了。\n");
         return 1;
@@ -44,8 +44,8 @@ void init()
              ob->add_temp("li_meet", 1);
              new(__DIR__"obj/shoujuan2")->move(ob);
              write("
-你发现树枝上有一方李文秀留下的白手绢，原来在你晕倒后是她救了你出来。
-你左右看了看，发现李文秀早就离开了，那这里。。。这里莫非就是。。。？\n");
+你發現樹枝上有一方李文秀留下的白手絹，原來在你暈倒後是她救了你出來。
+你左右看了看，發現李文秀早就離開了，那這裏。。。這裏莫非就是。。。？\n");
         }        
 */        add_action("do_drink", "drink");
 }

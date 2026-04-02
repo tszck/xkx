@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "慈宁门");
+	set("short", "慈寧門");
 	set("long", @LONG
-这是皇宫中太后起居宫院慈宁宫的院门. 门内是个小院, 院里小花
-园里有个荷花塘, 后面连着慈宁宫. 
+這是皇宮中太后起居宮院慈寧宮的院門. 門內是個小院, 院裏小花
+園裏有個荷花塘, 後面連着慈寧宮. 
 LONG
 	);
 	set("outdoors", "huanggong");

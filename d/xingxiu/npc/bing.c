@@ -7,7 +7,7 @@ void create()
         set_name("回族兵", ({ "guan bing", "bing" }));
         set("age", 32);
         set("gender", "男性");
-        set("long", "他是个戍边多年的老兵。年纪不小了，但尚未成家。\n");
+        set("long", "他是個戍邊多年的老兵。年紀不小了，但尚未成家。\n");
         set("attitude", "peaceful");
         set("str", 24);
         set("dex", 16);
@@ -27,8 +27,8 @@ void create()
 
         set("chat_chance_combat", 10);
         set("chat_msg_combat", ({
-                "回族官兵喝道：大胆刁民，竟敢造反不成？\n",
-                "回族官兵喝道：跑得了和尚跑不了庙，你还是快快束手就擒！\n",
+                "回族官兵喝道：大膽刁民，竟敢造反不成？\n",
+                "回族官兵喝道：跑得了和尚跑不了廟，你還是快快束手就擒！\n",
         }));
         setup();
         carry_object(__DIR__"obj/gangdao")->wield();
@@ -37,8 +37,8 @@ void create()
 
 int accept_fight(object me)
 {
-        command("say 大爷我守边关累得要死，没空和" + RANK_D->query_respect(me)
-		+ "过招玩。\n");
+        command("say 大爺我守邊關累得要死，沒空和" + RANK_D->query_respect(me)
+		+ "過招玩。\n");
         return 0;
 }
 

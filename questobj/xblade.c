@@ -13,11 +13,11 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "把");
-		set("long", HIR "这是一把缠在腰间的宝刀，刀锋带着淡淡的血影。\n" NOR );
+		set("long", HIR "這是一把纏在腰間的寶刀，刀鋒帶着淡淡的血影。\n" NOR );
 		set("value", 0);
 		set("material", "steel");
-		set("wield_msg", "$N「唰」的一声抽出一柄$n握在手中。\n");
-		set("unwield_msg", "$N将手中的$n插回刀鞘。\n");
+		set("wield_msg", "$N「唰」的一聲抽出一柄$n握在手中。\n");
+		set("unwield_msg", "$N將手中的$n插回刀鞘。\n");
 	}
 	setup();
 }

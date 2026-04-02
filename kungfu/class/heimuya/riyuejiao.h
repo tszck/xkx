@@ -6,7 +6,7 @@ void greeting(object me, object ob)
 	if ( ob->query("party/party_name") == HIB "日月神教" NOR )
 	{
 //		if ( ob->query("party/level") < me->query("level"))
-		message_vision("$N对$n躬身行礼，说道："+me->query("title")+me->query("name")+"，参见"+ob->query("party")["rank"]+ob->query("name")+"！教主千秋万载，一统江湖！\n", me, ob );
+		message_vision("$N對$n躬身行禮，說道："+me->query("title")+me->query("name")+"，參見"+ob->query("party")["rank"]+ob->query("name")+"！教主千秋萬載，一統江湖！\n", me, ob );
 	}
 	return;
 }

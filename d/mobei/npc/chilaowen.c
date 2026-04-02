@@ -4,10 +4,10 @@
 inherit NPC;
 void create()
 {
-	set_name("赤老温",({"chi laowen","chi","laowen"}));
+	set_name("赤老溫",({"chi laowen","chi","laowen"}));
 	set("gender","男性");
-	set("nickname","蒙古四杰");
-	set("long","铁木真手下四杰之一，草原上的雄鹰，大汗的猛将。\n");
+	set("nickname","蒙古四傑");
+	set("long","鐵木真手下四傑之一，草原上的雄鷹，大汗的猛將。\n");
 	set("combat_exp", 300000);
 	set("age",45);
 	set("qi",2000);

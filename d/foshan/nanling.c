@@ -1,13 +1,13 @@
-// Room: /d/foshan/nanling.c 南岭山口
+// Room: /d/foshan/nanling.c 南嶺山口
 // Modified by Java on Feb.14.1998
 inherit ROOM;
 
 void create()
 {
-	set("short", "南岭山口");
+	set("short", "南嶺山口");
 	set("long", @LONG
-这里是南岭的一个山口。南面就是佛山了，北面是横亘湖南广
-东的五岭。这里地气炎热，百物速生快长，口音也远异中原了。
+這裏是南嶺的一個山口。南面就是佛山了，北面是橫亙湖南廣
+東的五嶺。這裏地氣炎熱，百物速生快長，口音也遠異中原了。
 LONG );
 	set("outdoors", "foshan");
 	set("exits", ([

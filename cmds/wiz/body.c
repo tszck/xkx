@@ -10,8 +10,8 @@ int main(object me, string str)
 
         if( !me->query_condition("f_condi") )
         {
-                write(HIY"你口中念念有词，那咦咪哞嘻...\n"NOR);
-                tell_object(me,"你只觉神清气爽，哈哈！\n");
+                write(HIY"你口中唸唸有詞，那咦咪哞嘻...\n"NOR);
+                tell_object(me,"你只覺神清氣爽，哈哈！\n");
 
                 fw = (int)me->max_food_capacity();
                 me->set("food", fw);
@@ -30,7 +30,7 @@ int main(object me, string str)
         }
         else
         {
-                tell_object(me,"Ou。。你打了个饱嗝。。。Ou...Ou...\n");
+                tell_object(me,"Ou。。你打了個飽嗝。。。Ou...Ou...\n");
 
                 fw = (int)me->max_food_capacity();
                 me->set("food",fw);

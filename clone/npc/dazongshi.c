@@ -1,4 +1,4 @@
-// dazongshi.c 大宗师
+// dazongshi.c 大宗師
 
 #include <ansi.h>
 inherit NPC;
@@ -6,8 +6,8 @@ string ask_me();
 
 void create()
 {
-	set_name("大宗师", ({ "da zongshi", "zongshi" }));
-	set("long","他就是江湖的大宗师。你只有先向他挑战，才能获得江湖对你实力和地位的承认。\n");
+	set_name("大宗師", ({ "da zongshi", "zongshi" }));
+	set("long","他就是江湖的大宗師。你只有先向他挑戰，才能獲得江湖對你實力和地位的承認。\n");
 	set("gender", "男性");
 	set("age", 40);
 	set("class", "taoist");
@@ -61,11 +61,11 @@ void create()
 	map_skill("parry", "liangyi-jian");
 	map_skill("sword", "taiji-jian");
 	set("inquiry", ([
-		"秒杀" : (: ask_me :),
+		"秒殺" : (: ask_me :),
 		"出手" : (: ask_me :),
-		"杀手" : (: ask_me :),
-		"挑战" : (: ask_me :),
-		"品评" : (: ask_me :),
+		"殺手" : (: ask_me :),
+		"挑戰" : (: ask_me :),
+		"品評" : (: ask_me :),
 		"武功" : (: ask_me :),
 	]));
 	setup();
@@ -78,7 +78,7 @@ string ask_me()
 	object me = this_player(), ob = this_object();
 
 	if ( me->query("combat_exp") < 500000)
-		return "等你的经验凑够了五十万，再来找我吧。";
+		return "等你的經驗湊夠了五十萬，再來找我吧。";
 	ob->set("killer/id", me->query("id"));
 	ob->set("killer/time", time());
 	set("eff_qi", 6000);
@@ -92,7 +92,7 @@ string ask_me()
 	command("yun powerup");
 	set("neili", 5000);
 	set("jiali", 100);
-	return "好吧，那就来吧。";
+	return "好吧，那就來吧。";
 }
 void die()
 {
@@ -108,13 +108,13 @@ void die()
 			new_killer = 12345/(time() - ob->query("killer/time"));
 			if (me[i]->query("KILLER") >= new_killer )
 			{
-				tell_object(me[i],HIR"\n大宗师临死前告诉你：“没有进步，白来一趟。”\n"NOR);
+				tell_object(me[i],HIR"\n大宗師臨死前告訴你：“沒有進步，白來一趟。”\n"NOR);
 			        if(me[i]->quert("zongshi_winner")<3)  me[i]->add("score", -5000);
 			}
 			else
 			{
-				tell_object(me[i],HIR"\n大宗师临死前告诉你：“好，好！好！没有白来这一趟。”\n"NOR);
-				message("channel:chat", HIM"【闲聊】某人："+me[i]->query("name")+chinese_number(time()-ob->query("killer/time"))+"秒中刺杀大宗师成功。\n"NOR, users());
+				tell_object(me[i],HIR"\n大宗師臨死前告訴你：“好，好！好！沒有白來這一趟。”\n"NOR);
+				message("channel:chat", HIM"【閒聊】某人："+me[i]->query("name")+chinese_number(time()-ob->query("killer/time"))+"秒中刺殺大宗師成功。\n"NOR, users());
 				me[i]->set("KILLER", new_killer);
 				me[i]->add("zongshi_winner", 1);
 			        if(me[i]->quert("zongshi_winner")<3)  me[i]->add("score", 10000);

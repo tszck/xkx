@@ -13,8 +13,8 @@ void create()
 
         set_name(name,({"lao hu"}));
 
-	set("race", "走兽");
-        set("long", "一只高大威猛的大老虎，正躺在太阳底下打盹。\n");
+	set("race", "走獸");
+        set("long", "一隻高大威猛的大老虎，正躺在太陽底下打盹。\n");
         set("age", 5);
         set("attitude", "peaceful");
 
@@ -49,7 +49,7 @@ void init()
 void die()
 {
 	object ob, corpse;
-	message_vision("$N发出震天动地的一声长啸，轰地倒在地上，死了！\n", this_object());
+	message_vision("$N發出震天動地的一聲長嘯，轟地倒在地上，死了！\n", this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 	ob = new("/clone/medicine/vegetable/hugu");
 	ob->move(corpse);

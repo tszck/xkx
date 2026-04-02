@@ -3,10 +3,10 @@
 inherit ROOM;
 void create()
 {
-	 set("short", "黄土路");
+	 set("short", "黃土路");
 	set("long", @LONG
-你走在一条黄土路上。西南是一个小高岗，地势险恶，客旅断绝。
-东面隐隐可以看到平定州城。
+你走在一條黃土路上。西南是一個小高崗，地勢險惡，客旅斷絕。
+東面隱隱可以看到平定州城。
 LONG );
 	 set("outdoors", "heimuya");
 	 set("exits", ([

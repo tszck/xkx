@@ -8,7 +8,7 @@ void create()
 	set_name("尼姑", ({ "ni gu", "ni", "gu" }) );
 	set("gender", "女性" );
 	set("age", 32);
-	set("long","这位尼姑正坐在铺垫上，双手捻着珠链，嘴中念念有词。 \n");
+	set("long","這位尼姑正坐在鋪墊上，雙手捻着珠鏈，嘴中唸唸有詞。 \n");
 	set("combat_exp", 1000);
 	set("attitude", "friendly");
 	setup();
@@ -28,7 +28,7 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	say( "尼姑施了一礼说道：这位" + RANK_D->query_respect(ob) + "，佛家人慈善为本，捐一点银两吧。\n");
+	say( "尼姑施了一禮說道：這位" + RANK_D->query_respect(ob) + "，佛家人慈善爲本，捐一點銀兩吧。\n");
 	return;
 }
 

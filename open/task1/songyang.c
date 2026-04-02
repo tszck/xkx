@@ -1,11 +1,11 @@
-// songyang.c 宋扬
+// songyang.c 宋揚
  
 inherit NPC;
  
 void create()
 {
-	set_name("宋扬", ({ "song  yang", "song" }));
-	set("long", "一个行走江湖的独角大盗，一身轻功有所造脂。\n");
+	set_name("宋揚", ({ "song  yang", "song" }));
+	set("long", "一個行走江湖的獨角大盜，一身輕功有所造脂。\n");
 	set("gender", "男性");
 	set("age", 35);
 	set("attitude", "peaceful");

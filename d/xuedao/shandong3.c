@@ -6,9 +6,9 @@ void create()
 {
 	set("short","山洞");
 	set("long",@LONG
-这是一个小小的山洞，血刀老祖的藏身之地。由於此地比较隐秘，
-仇家很难寻到这来。洞底有一张供桌，上面供了什麽东西，你看不清。
-壁上画了一些模糊不清的文字图案，也不知道是些什么。
+這是一個小小的山洞，血刀老祖的藏身之地。由於此地比較隱祕，
+仇家很難尋到這來。洞底有一張供桌，上面供了什麼東西，你看不清。
+壁上畫了一些模糊不清的文字圖案，也不知道是些什麼。
 LONG );
 	set("exits",([
 		"out" : __DIR__"shandong2",
@@ -40,7 +40,7 @@ int do_watch()
 
 	if ((int)ob->query_skill("longxiang", 1) < 20)
 	{
-		message_vision("$N的龙象功不够，看不懂上面刻的是什么。\n",ob);
+		message_vision("$N的龍象功不夠，看不懂上面刻的是什麼。\n",ob);
 		return 1;
 	}
 	if ((int)ob->query_skill("xue-dao", 1) > 50)
@@ -50,15 +50,15 @@ int do_watch()
 	}
 	if((lvl * lvl * lvl) > (int)ob->query("combat_exp"))
 	{
-		message_vision("$N的实战经验不足，无法领悟壁上内容。\n",ob);
+		message_vision("$N的實戰經驗不足，無法領悟壁上內容。\n",ob);
 		return 1;
 	}
 	if (ob->query("jing")<20)
 	{
-		message_vision("$N太累了，现在无法领悟壁上内容。\n",ob);
+		message_vision("$N太累了，現在無法領悟壁上內容。\n",ob);
 		return 1;
 	}
-	message_vision("$N面对着壁上图案揣摩良久，似有所悟。\n",ob);
+	message_vision("$N面對着壁上圖案揣摩良久，似有所悟。\n",ob);
 	ob->improve_skill("xue-dao", random(ob->query("int")));
 	ob->receive_damage("jing", 20);
 	return 1;

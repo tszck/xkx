@@ -1,4 +1,4 @@
-//Room: nanyangong.c 南岩宫
+//Room: nanyangong.c 南巖宮
 //Date: Sep 29 1997
 
 #include <ansi.h>
@@ -10,12 +10,12 @@ int do_move(string arg);
 
 void create()
 {
-      set("short","南岩宫");
+      set("short","南巖宮");
       set("long",@LONG
-这里是就是南岩宫。此宫半卧悬崖之下。殿内三清坐像金光闪闪，
-气宇轩昂。殿内天井处芳草迷径，百卉争妍。
-    有几个装束醒目的武当三代弟子从这匆匆走过。南面高台就是真武
-剑阵。叛师或半路投师者珍重。
+這裏是就是南巖宮。此宮半臥懸崖之下。殿內三清坐像金光閃閃，
+氣宇軒昂。殿內天井處芳草迷徑，百卉爭妍。
+    有幾個裝束醒目的武當三代弟子從這匆匆走過。南面高臺就是真武
+劍陣。叛師或半路投師者珍重。
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "out"    : __DIR__"shizhu",
@@ -36,9 +36,9 @@ int valid_leave(object ob, string dir)
         mapping myfam;
         myfam = (mapping)ob->query("family");
         if ((int)ob->query("combat_exp",1)<10000 && (dir == "southup"))
-            return notify_fail("外面的真武剑阵威力太大，你被内力鼓荡，不能上去。\n");
-        if ((!myfam || (myfam["family_name"] != "武当派")) && (dir == "southup"))
-            return notify_fail("非武当弟子，不能试演真武剑阵。\n");
+            return notify_fail("外面的真武劍陣威力太大，你被內力鼓盪，不能上去。\n");
+        if ((!myfam || (myfam["family_name"] != "武當派")) && (dir == "southup"))
+            return notify_fail("非武當弟子，不能試演真武劍陣。\n");
         return 1;
 }
 
@@ -49,7 +49,7 @@ void init()
 
 string look_xiang()
 {
-        return "三清坐像纯铜打就，镀以纯金，光照满殿。只是好象三个坐像摆得并不很整齐。\n";
+        return "三清坐像純銅打就，鍍以純金，光照滿殿。只是好象三個坐像擺得並不很整齊。\n";
 }
 
 int do_move(string arg)
@@ -57,15 +57,15 @@ int do_move(string arg)
         object room, ob;
 
         ob = this_player();
-        if( !arg || arg!="xiang" ) return notify_fail("这里的摆设不能乱动！\n");
-        message_vision(HIC"$N走到三清坐像背后，用力使劲推移老君像，慢慢的推着，终于推动了……\n像下露出一个大洞，几排石阶往下伸去，从这里分明通向一个暗道。\n"NOR, ob);
+        if( !arg || arg!="xiang" ) return notify_fail("這裏的擺設不能亂動！\n");
+        message_vision(HIC"$N走到三清坐像背後，用力使勁推移老君像，慢慢的推着，終於推動了……\n像下露出一個大洞，幾排石階往下伸去，從這裏分明通向一個暗道。\n"NOR, ob);
         set("exits/down", __DIR__"nanyan0");
-        message_vision(HIC"$N毫不犹豫一纵而下……\n\n\n"NOR,ob);
+        message_vision(HIC"$N毫不猶豫一縱而下……\n\n\n"NOR,ob);
 
         if( room = find_object(__DIR__"nanyan0") )
         {
            room->set("exits/up", __FILE__);
-           message("vision", "天花板忽然发出轧轧的声音，露出一个向上的楼梯。\n",room );
+           message("vision", "天花板忽然發出軋軋的聲音，露出一個向上的樓梯。\n",room );
         }
         ob->move(__DIR__"nanyan0");
         remove_call_out("close_andao");
@@ -79,11 +79,11 @@ void close_andao()
     int i;
 
     if (!query("exits/down")) return;
-    message("vision","只听乒地一声响，老君像自动移回原处。\n", this_object() );
+    message("vision","只聽乒地一聲響，老君像自動移回原處。\n", this_object() );
     if( room = find_object(__DIR__"nanyan0") )
     {
         room->delete("exits/up");
-        message("vision","只听乒地一声响，向上的洞口自动严严实实地关了起来。\n",room);
+        message("vision","只聽乒地一聲響，向上的洞口自動嚴嚴實實地關了起來。\n",room);
     }
     delete("exits/down");
 }

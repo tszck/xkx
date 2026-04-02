@@ -5,8 +5,8 @@ void create()
 {
 	set("short", "山道");
 	set("long", @LONG
-这一路上山，地势极险，脚下是万丈深谷，而山道极之陡峭窄小，
-倘若一不留神，必将命丧于此。
+這一路上山，地勢極險，腳下是萬丈深谷，而山道極之陡峭窄小，
+倘若一不留神，必將命喪於此。
 LONG    );
 	set("outdoors", "heimuya");
 	set("exits", ([

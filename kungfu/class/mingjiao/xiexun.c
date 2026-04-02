@@ -8,13 +8,13 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("谢逊", ({"xie xun", "xie", "xun", }));
+	set_name("謝遜", ({"xie xun", "xie", "xun", }));
 	set("long",
-		"谢逊字退思。是一位身材魁伟异常的的老者，身穿一件白布长袍。\n"
-		"他满头黄发，威风凛凛，真如天神一般，只是两只眼睛并不睁开。\n"
+		"謝遜字退思。是一位身材魁偉異常的的老者，身穿一件白布長袍。\n"
+		"他滿頭黃髮，威風凜凜，真如天神一般，只是兩隻眼睛並不睜開。\n"
 	);
 
-	set("nickname", HIY "金毛狮王" NOR);
+	set("nickname", HIY "金毛獅王" NOR);
 	set("level",9);
 	set("gender", "男性");
 	set("attitude", "peaceful");
@@ -62,7 +62,7 @@ void create()
 		(: command("perform hunpofeiyang") :),
 	}) );
 	set("party/party_name",HIG"明教"NOR);
-	set("party/rank",HIW"护教法王"NOR);
+	set("party/rank",HIW"護教法王"NOR);
 	create_family("明教", 34, "弟子");
 	setup();
 	carry_object("/d/mingjiao/obj/baipao")->wear();
@@ -96,7 +96,7 @@ int accept_object(object who, object ob)
 		if(!query("qk_trigger"))
 		{
 			qkbook = new("/clone/book/qiankun_book");
-			say("谢逊说道：谢谢你终于让我知道了阳教主的下落，我无以酬谢，这张羊皮就聊表谢意吧。\n谢逊把" + qkbook->query("name") + "交给了" + who->query("name") + "。\n");
+			say("謝遜說道：謝謝你終於讓我知道了陽教主的下落，我無以酬謝，這張羊皮就聊表謝意吧。\n謝遜把" + qkbook->query("name") + "交給了" + who->query("name") + "。\n");
 			qkbook->move(who);
 			command("rumor "+who->query("name")+"拿到乾坤大挪移心法了。\n");
 			set("qk_trigger", 1);

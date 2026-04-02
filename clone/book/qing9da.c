@@ -10,7 +10,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一本很古旧的线装书，青字九打是青城镇山绝技。\n");
+		set("long", "這是一本很古舊的線裝書，青字九打是青城鎮山絕技。\n");
 		set("value", 7000);
 		set("material", "paper");
 		set("skill", ([

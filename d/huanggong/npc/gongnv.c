@@ -3,10 +3,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("宫女", ({ "gong nv", "nv"}) );
+	set_name("宮女", ({ "gong nv", "nv"}) );
 	set("gender", "女性" );
 	set("age", 14+random(10));
-	set("long", "这是一个宫女,容貌很清秀,看来挺能干.\n");
+	set("long", "這是一個宮女,容貌很清秀,看來挺能幹.\n");
 	set("shen_type", 1);
 	set("combat_exp", 3000);
 	set("per", 26);

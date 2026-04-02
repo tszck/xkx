@@ -1,5 +1,5 @@
 // Last Modified by Winder on May. 29 2001
-// boluomi-hand.c 波罗蜜手 和寂灭爪互备 截自佛经中之“六度”。
+// boluomi-hand.c 波羅蜜手 和寂滅爪互備 截自佛經中之“六度”。
 
 #include <ansi.h>
 inherit SKILL;
@@ -7,27 +7,27 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
  
 mapping *action = ({
-([	"action":"$N双手合十做鞠，第一式"BLU"「布施式」"NOR"打出，内劲已逼得衣带翻飞，将$n层层笼罩",
+([	"action":"$N雙手合十做鞠，第一式"BLU"「佈施式」"NOR"打出，內勁已逼得衣帶翻飛，將$n層層籠罩",
 	"lvl"   : 0,
-	"skill_name" : "布施式"
+	"skill_name" : "佈施式"
 ]),
-([	"action":"$N右手伸出，上翻下压，左挥右劈，在$n眼前连连变幻，这招叫做"RED"「持戒式」"NOR"，最是变化无穷",
+([	"action":"$N右手伸出，上翻下壓，左揮右劈，在$n眼前連連變幻，這招叫做"RED"「持戒式」"NOR"，最是變化無窮",
 	"lvl"   : 10,
 	"skill_name" : "持戒式"
 ]),
-([	"action":"$N低头垂肩，使"YEL"「忍辱式」"NOR"这招，对眼前$n不闻不问，暗地里却聚力双手，伺机拍出",
+([	"action":"$N低頭垂肩，使"YEL"「忍辱式」"NOR"這招，對眼前$n不聞不問，暗地裏卻聚力雙手，伺機拍出",
 	"lvl"   : 20,
 	"skill_name" : "忍辱式"
 ]),
-([	"action":"$N得理不饶人，一招"GRN"「精进式」"NOR"，双臂晃动，打出片片掌影，一步步向$n进逼过去",
+([	"action":"$N得理不饒人，一招"GRN"「精進式」"NOR"，雙臂晃動，打出片片掌影，一步步向$n進逼過去",
 	"lvl"   : 40,
-	"skill_name" : "精进式"
+	"skill_name" : "精進式"
 ]),
-([	"action":"$N一式"HIY"「禅定式」"NOR"，单臂凌空悬垂，心中平静如水，一点点向着$n顶门压将下来",
+([	"action":"$N一式"HIY"「禪定式」"NOR"，單臂凌空懸垂，心中平靜如水，一點點向着$n頂門壓將下來",
 	"lvl"   : 80,
-	"skill_name" : "禅定式"
+	"skill_name" : "禪定式"
 ]),
-([	"action":"$N双臂挥动，幻出一莲花般手印，以"MAG"「般若式」"NOR"向$n推来，不紧不慢，却又凝重异常",
+([	"action":"$N雙臂揮動，幻出一蓮花般手印，以"MAG"「般若式」"NOR"向$n推來，不緊不慢，卻又凝重異常",
 	"lvl"   : 100,
 	"skill_name" : "般若式"
 ]),
@@ -38,23 +38,23 @@ int valid_combine(string combo){ return combo=="jimie-claw"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练波罗蜜手必须空手。\n");
+		return notify_fail("練波羅蜜手必須空手。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 40)
-		 return notify_fail("你的站桩功火候不够，无法学波罗蜜手。\n");
+		 return notify_fail("你的站樁功火候不夠，無法學波羅蜜手。\n");
 	if ((int)me->query("max_neili") < 400)
-		return notify_fail("你的内力太弱，无法练波罗蜜手。\n");
+		return notify_fail("你的內力太弱，無法練波羅蜜手。\n");
 	if ((me->query_skill("qianye-hand", 1) < 40) ||
 		me->query_skill("sanhua-strike", 1) < 40)
-		return notify_fail("你的千叶手和散花掌火候不够，无法学波罗蜜手。\n");
+		return notify_fail("你的千葉手和散花掌火候不夠，無法學波羅蜜手。\n");
 	return 1;
 }
  
 int practice_skill(object me)
 {
 	if ((int)me->query("qi") < 50)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 50)
-		return notify_fail("你的内力不够练波罗蜜手。\n");
+		return notify_fail("你的內力不夠練波羅蜜手。\n");
 	me->receive_damage("qi", 40);
 	me->add("neili", -30);
 	return 1;
@@ -81,16 +81,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 0; }
@@ -104,17 +104,17 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\n波罗蜜手："NOR"\n");
+	write(HIC"\n波羅蜜手："NOR"\n");
 	write(@HELP
 
-    波罗蜜手是南少林手法，和寂灭爪互备。
-    出自佛经中之“六度”。
+    波羅蜜手是南少林手法，和寂滅爪互備。
+    出自佛經中之“六度”。
 
-	学习要求：
-		站桩功40级
-		散花掌40级
-		如来千叶手40级
-		内力修为400
+	學習要求：
+		站樁功40級
+		散花掌40級
+		如來千葉手40級
+		內力修爲400
 HELP
 	);
 	return 1;

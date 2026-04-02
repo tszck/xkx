@@ -5,12 +5,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(MAG "紫骝马" NOR, ({ "ziliuma"}));
+	set_name(MAG "紫騮馬" NOR, ({ "ziliuma"}));
 	set("race", "走畜");
 	set("gender", "雄性");
 	set("age", 2+random(3));
-	set("long", "这是一匹紫骝宝马，日行千里，夜行八百。\n"+
-		"玩家可以骑上它去指定的地方(ride)。\n");
+	set("long", "這是一匹紫騮寶馬，日行千里，夜行八百。\n"+
+		"玩家可以騎上它去指定的地方(ride)。\n");
 	set("ridable", 1);
 	set("int", 30);
 	set("qi", 300);
@@ -26,8 +26,8 @@ void create()
 
 	set("chat_chance", 5);
         set("chat_msg", ({
-		MAG"紫骝马"NOR"「吁嘘嘘」一阵嘶鸣，不停地踢着脚掌。\n",
-                MAG"紫骝马"NOR"的长尾巴很不老实地不停地甩来甩去。\n",
+		MAG"紫騮馬"NOR"「籲噓噓」一陣嘶鳴，不停地踢着腳掌。\n",
+                MAG"紫騮馬"NOR"的長尾巴很不老實地不停地甩來甩去。\n",
         }) );
 
 	setup();

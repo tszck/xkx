@@ -4,10 +4,10 @@ inherit NPC;
 void greeting(object ob);
 void create()
 {
-	set_name("破烂王", ({ "polan wang", "wang", "polan" }));
+	set_name("破爛王", ({ "polan wang", "wang", "polan" }));
 	set("gender", "男性");
 	set("age", 35);
-	set("long", "他一身破衣，整天在大街小巷找垃圾，富家门前拣洋落。\n");
+	set("long", "他一身破衣，整天在大街小巷找垃圾，富家門前揀洋落。\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 

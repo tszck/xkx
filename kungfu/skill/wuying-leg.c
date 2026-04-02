@@ -1,4 +1,4 @@
-// wuying-leg.c 无影腿
+// wuying-leg.c 無影腿
 // Last Modified by sir 10.21.2001
 
 #include <ansi.h>
@@ -7,37 +7,37 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N双手虚晃，左脚猛地飞起，一式"HIB"「无影无踪」"NOR"，脚尖晃动，踢向$n的屁股",	
+([	"action" : "$N雙手虛晃，左腳猛地飛起，一式"HIB"「無影無蹤」"NOR"，腳尖晃動，踢向$n的屁股",	
 	"lvl" : 0,
-	"skill_name" : "无影无踪"
+	"skill_name" : "無影無蹤"
 ]),
-([	"action" : "$N左脚顿地，别转身来抽身欲走，只一刹那间一回身，右脚一式"HIW"「无影乱舞」"NOR"，猛踹$n的$l",
+([	"action" : "$N左腳頓地，別轉身來抽身欲走，只一剎那間一回身，右腳一式"HIW"「無影亂舞」"NOR"，猛踹$n的$l",
 	"lvl" : 10,
-	"skill_name" : "无影乱舞"
+	"skill_name" : "無影亂舞"
 ]),
-([	"action" : "$N左手一挣，反手扭搭住$n的右手，右脚同时踹出，既猛且准，一式"GRN"「丛丛叠叠」"NOR"，踢中的$n的胸口",
+([	"action" : "$N左手一掙，反手扭搭住$n的右手，右腳同時踹出，既猛且準，一式"GRN"「叢叢疊疊」"NOR"，踢中的$n的胸口",
 	"lvl" : 20,
-	"skill_name" : "丛丛叠叠"
+	"skill_name" : "叢叢疊疊"
 ]),
-([	"action" : "$N突然跃起，双足连环圈转，一式"YEL"「秋风扫叶」"NOR"，足带风尘，攻向$n的全身",
+([	"action" : "$N突然躍起，雙足連環圈轉，一式"YEL"「秋風掃葉」"NOR"，足帶風塵，攻向$n的全身",
 	"lvl" : 30,
-	"skill_name" : "秋风扫叶"
+	"skill_name" : "秋風掃葉"
 ]),
-([	"action" : "$N两手护胸，双脚交叉踢起，一式"HIC"「腿扫残云」"NOR"，脚脚不离$n的面门左右",
+([	"action" : "$N兩手護胸，雙腳交叉踢起，一式"HIC"「腿掃殘雲」"NOR"，腳腳不離$n的面門左右",
 	"lvl" : 40,
-	"skill_name" : "腿扫残云"
+	"skill_name" : "腿掃殘雲"
 ]),
-([	"action" : "$N突然侧身，却步后退，一个前空翻，右脚自上而下一式"HIM "「慧星坠地」"NOR"，照$n的面门直劈下来",
+([	"action" : "$N突然側身，卻步後退，一個前空翻，右腳自上而下一式"HIM "「慧星墜地」"NOR"，照$n的面門直劈下來",
 	"lvl" : 50,
-	"skill_name" : "慧星坠地"
+	"skill_name" : "慧星墜地"
 ]),
-([	"action" : "$N使一式"HIW"「东风吹雪」"NOR"，全身突然飞速旋转，双足忽前忽后，迅猛无极踹向$n的胸口",
+([	"action" : "$N使一式"HIW"「東風吹雪」"NOR"，全身突然飛速旋轉，雙足忽前忽後，迅猛無極踹向$n的胸口",
 	"lvl" : 60,
-	"skill_name" : "东风吹雪"
+	"skill_name" : "東風吹雪"
 ]),
-([	"action" : "$N抽身跃起，开声吐气，大喝一声：嗨！一式"HIY"「佛山无影」"NOR"，双脚如旋风般踢向$n的$l",
+([	"action" : "$N抽身躍起，開聲吐氣，大喝一聲：嗨！一式"HIY"「佛山無影」"NOR"，雙腳如旋風般踢向$n的$l",
 	"lvl" : 80,
-	"skill_name" : "佛山无影"
+	"skill_name" : "佛山無影"
 ]),
 });
 
@@ -47,19 +47,19 @@ int valid_combine(string combo) { return combo=="cuixin-strike"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("无影腿必须空手。\n");
+		return notify_fail("無影腿必須空手。\n");
 	if ((int)me->query_skill("qingming-xuangong", 1) < 15)
-		return notify_fail("你的青冥玄功火候不够，无法学无影腿。\n");
+		return notify_fail("你的青冥玄功火候不夠，無法學無影腿。\n");
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail("你的内力太弱，无法练无影腿。\n");
+		return notify_fail("你的內力太弱，無法練無影腿。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if ((int)me->query("qi") < 50)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 50)
-		return notify_fail("你的内力不够练无影腿。\n");
+		return notify_fail("你的內力不夠練無影腿。\n");
 	me->receive_damage("qi", 45);
 	me->add("neili", -40);
 	return 1;
@@ -88,16 +88,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,		
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 
@@ -112,15 +112,15 @@ string perform_action_file(string action)
 }
 
 int help(object me) {
-	write(HIC"\n无影腿："NOR"\n");
+	write(HIC"\n無影腿："NOR"\n");
 	write(@HELP
 
-    无影腿是青城派的功夫。
-    可与摧心掌互备。
+    無影腿是青城派的功夫。
+    可與摧心掌互備。
 
-	学习要求：
-		青冥玄功15级
-		内力100
+	學習要求：
+		青冥玄功15級
+		內力100
 HELP
 	);
 	return 1;

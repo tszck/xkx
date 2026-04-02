@@ -1,4 +1,4 @@
-// sheerkou.c 蛇儿口
+// sheerkou.c 蛇兒口
 #include <ansi.h>
 inherit ITEM;
 
@@ -11,7 +11,7 @@ void init()
 
 void create()
 {
-	set_name(HIM"蛇儿口"NOR, ({ "sheer kou", "sk" }) );
+	set_name(HIM"蛇兒口"NOR, ({ "sheer kou", "sk" }) );
 	set_weight(600);
 	set("taskobj", 1);
 	if( clonep() )
@@ -20,7 +20,7 @@ void create()
 		set("unit", "支");
 		set("value", 0);
 		set("material", "steel");
-		set("long", "这是传说中古老而神秘的暗器--蛇儿口。\n");
+		set("long", "這是傳說中古老而神祕的暗器--蛇兒口。\n");
 	}
 	setup();
 }

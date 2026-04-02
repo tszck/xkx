@@ -10,7 +10,7 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一盆汤稠汁浓，味滑爽口的芙蓉花菇汤。\n");
+		set("long", "一盆湯稠汁濃，味滑爽口的芙蓉花菇湯。\n");
 		set("unit", "盆");
 		set("value", 150);
 		set("food_remaining", 4);

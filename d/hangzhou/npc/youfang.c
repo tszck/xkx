@@ -1,4 +1,4 @@
-// youfang.c 游方道人
+// youfang.c 遊方道人
 
 #include <command.h>
 #include <ansi.h>
@@ -7,10 +7,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("游方道人", ( {"youfang daoren","daoren","youfang" }));
+        set_name("遊方道人", ( {"youfang daoren","daoren","youfang" }));
         set("age",35);
         set("gender", "男性");
-        set("long", "武当派游方道人．\n");
+        set("long", "武當派遊方道人．\n");
         set("attitude", "peaceful");
 
         set("str", 24);
@@ -28,7 +28,7 @@ void create()
         set_temp("apply/damage", 20);
         set_temp("apply/armor", 80);
         set("chat_chance", 5);
-        create_family("武当派", 3, "弟子");
+        create_family("武當派", 3, "弟子");
 
         setup();
         carry_object("/clone/weapon/changjian");

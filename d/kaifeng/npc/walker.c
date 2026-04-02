@@ -12,8 +12,8 @@ void create()
         set("gender", "男性");
         set("age", 53 + random(20));
         set("long", @LONG
-这是一个拾荒者，看上去老实巴交的。不过听
-说他和官府有交情，最好别去招惹。
+這是一個拾荒者，看上去老實巴交的。不過聽
+說他和官府有交情，最好別去招惹。
 LONG);
         set("attitude", "heroism");
         set("str", 35);

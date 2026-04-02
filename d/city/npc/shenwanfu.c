@@ -1,6 +1,6 @@
 // npc: /d/city/npc/shenwanfu.c
 // Last Modified by Sir 9/15/2001
-//增加烫布任务
+//增加燙布任務
 
 #include <ansi.h>
 #include <command.h>
@@ -12,23 +12,23 @@ inherit F_DEALER;
 int do_gongzuo();
 void create()
 {
-	set_name( YEL "沈万福" NOR, ({ "shen wanfu","shen","wanfu" }) );
+	set_name( YEL "沈萬福" NOR, ({ "shen wanfu","shen","wanfu" }) );
 	set("gender", "男性" );
-	set("title", "沈家白衣铺老板");
+	set("title", "沈家白衣鋪老闆");
 	set("age", 45);
-	set("long", "沈万福是一个白胖子，脸上总是笑呵呵的，象一尊弥勒佛。看他的样子
-不象是个买卖人，然而如果你仔细看看他那双眯缝的笑眼，就会发现里
-面同样闪动着一丝狡黠的光芒。他就是这家白衣铺的老板。\n");
+	set("long", "沈萬福是一個白胖子，臉上總是笑呵呵的，象一尊彌勒佛。看他的樣子
+不象是個買賣人，然而如果你仔細看看他那雙眯縫的笑眼，就會發現裏
+面同樣閃動着一絲狡黠的光芒。他就是這家白衣鋪的老闆。\n");
 	set("chat_chance", 50);
 	set("chat_msg", ({
-		"沈万福道：这里就是扬州城啦，您家没有来过么？\n",
-		"沈万福道：啊，这位客官，听您的口音是……北方……南方……西边……到底是哪儿的人啊？\n",
-		"沈万福道：客官，咱这白衣，哎，没的说，您找不到比这更好的啦，来一件吧，啊？\n",
-		"沈万福道：客官，您瞧瞧，这件白衣您穿上多精神哪！人靠衣服马靠鞍嘛，您说是不是这个理儿？\n",
+		"沈萬福道：這裏就是揚州城啦，您家沒有來過麼？\n",
+		"沈萬福道：啊，這位客官，聽您的口音是……北方……南方……西邊……到底是哪兒的人啊？\n",
+		"沈萬福道：客官，咱這白衣，哎，沒的說，您找不到比這更好的啦，來一件吧，啊？\n",
+		"沈萬福道：客官，您瞧瞧，這件白衣您穿上多精神哪！人靠衣服馬靠鞍嘛，您說是不是這個理兒？\n",
 	}));
 	set("inquiry", ([
-		"白衣" : "要买白衣，您到我这儿就找对地方了，绝对没错！\n",
-		"here" : "吓，这儿可不就是扬州城嘛。\n",
+		"白衣" : "要買白衣，您到我這兒就找對地方了，絕對沒錯！\n",
+		"here" : "嚇，這兒可不就是揚州城嘛。\n",
 		"工作" : (: do_gongzuo :),
 		"job"  : (: do_gongzuo :),
 		"work" : (: do_gongzuo :),
@@ -64,21 +64,21 @@ int do_gongzuo()
 	
 	if (me->query("combat_exp")<MIN_EXP)
 	{
-		command("say 这里都是精细活，你现在还干不了。\n");
+		command("say 這裏都是精細活，你現在還幹不了。\n");
 		return 1;
 	}
 	
 	if (me->query("combat_exp")>=MAX_EXP)
 	{
-		command("say 这种小事不敢劳您大驾。\n");
+		command("say 這種小事不敢勞您大駕。\n");
 		return 1;
 	}
 	if( me->query_temp("gongzuo/yunbu")>0)
 	{
-		tell_object(me,"快去把布匹熨好后交给我吧。\n");
+		tell_object(me,"快去把布匹熨好後交給我吧。\n");
 		return 1;
 	}
-	message_vision(CYN"沈万福对$N说道：现在熨好的布匹不够用了，你就到后面的库房里去熨些布来。\n"NOR,me); 
+	message_vision(CYN"沈萬福對$N說道：現在熨好的布匹不夠用了，你就到後面的庫房裏去熨些布來。\n"NOR,me); 
 	me->set_temp("gongzuo/yunbu", 1);
 	return 1;
 }
@@ -88,20 +88,20 @@ int accept_object(object me, object ob)
 	int add_exp,add_pot,add_score;
 	if (strsrch(ob->query("name"), "熨好的布") < 0) 
 	{
-		command("say 你别来蒙我啦，这是熨好的布吗？\n");
+		command("say 你別來蒙我啦，這是熨好的布嗎？\n");
 	}
 	else if (me->query_temp("gongzuo/yunbu")<1)
 	{
-		command("say 我没有叫你帮我熨布呀！\n");
+		command("say 我沒有叫你幫我熨布呀！\n");
 	}
 	else if (me->query_temp("gongzuo/yunbuok")<1)
 	{
-		command("say 这不是你熨的布呀！\n");
+		command("say 這不是你熨的布呀！\n");
 	}
 	else
 	{
-		message_vision(CYN"沈万福对$N说道：辛苦了，这是你的工钱。\n"NOR,me);
-		message_vision(CYN"沈万福递给$N一些银子。\n"NOR,me);
+		message_vision(CYN"沈萬福對$N說道：辛苦了，這是你的工錢。\n"NOR,me);
+		message_vision(CYN"沈萬福遞給$N一些銀子。\n"NOR,me);
 
 		me->delete_temp("gongzuo/yunbu");
 		me->delete_temp("gongzuo/yunbuok");
@@ -116,9 +116,9 @@ int accept_object(object me, object ob)
 		ob1->set_amount(add_score);
 		ob1->move(me);	
 		tell_object(me,HIW"你得到了:"
-			+ chinese_number(add_exp) + "点实战经验，"
-			+ chinese_number(add_pot) + "点潜能，"
-			+ chinese_number(add_score) + "点江湖阅历。\n"NOR);				
+			+ chinese_number(add_exp) + "點實戰經驗，"
+			+ chinese_number(add_pot) + "點潛能，"
+			+ chinese_number(add_score) + "點江湖閱歷。\n"NOR);				
 		call_out("destroying", 1, this_object(), ob);
 		return 1;
 	}
@@ -147,6 +147,6 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	message_vision("沈老板笑呵呵的说道：“客官，您瞧瞧咱家的白衣怎么样？”\n",ob);
+	message_vision("沈老闆笑呵呵的說道：“客官，您瞧瞧咱家的白衣怎麼樣？”\n",ob);
 	return;
 }

@@ -2,9 +2,9 @@
 inherit ROOM;
 void create()
 {
-	set("short", "东门");
+	set("short", "東門");
 	set("long", @LONG
-这是荆州城的东门。城门不大，也无人看守。往南走出城，是一条
+這是荊州城的東門。城門不大，也無人看守。往南走出城，是一條
 蜿蜒曲折的山道。
 LONG );
 	set("outdoors", "jiangling");

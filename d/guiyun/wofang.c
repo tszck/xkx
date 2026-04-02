@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short","卧房");
+	set("short","臥房");
 	set("long",@LONG
-这是庄主的卧房。房间不大，收拾得很干净。屋中的小八仙桌上放
-着一把酒壶和一只酒盅，看来主人常常以饮酒自缱。
+這是莊主的臥房。房間不大，收拾得很乾淨。屋中的小八仙桌上放
+着一把酒壺和一隻酒盅，看來主人常常以飲酒自繾。
 LONG );
 	set("exits",([
 		"east" : __DIR__"houting",

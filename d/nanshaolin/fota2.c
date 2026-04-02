@@ -12,12 +12,12 @@ string look_tianming();
 string look_huizhi();
 void create()
 {
-	set("short", "圣僧塔");
+	set("short", "聖僧塔");
 	set("long", @LONG
-本层供奉着少林上代几位有德高僧的灵体法台，塔做六角之形，分
-六个方位，六碑上字迹乃是无色台(wuse)，无相牌 (wuxiang)，天鸣禅
-台(tianming), 苦智灵碑(kuzhi)，苦慧屏(kuhui)，晦智圣座(huizhi)。
-   几缕天光透过塔窗洒在塔内，似乎为千年古塔增添了一点活力。
+本層供奉着少林上代幾位有德高僧的靈體法臺，塔做六角之形，分
+六個方位，六碑上字跡乃是無色臺(wuse)，無相牌 (wuxiang)，天鳴禪
+臺(tianming), 苦智靈碑(kuzhi)，苦慧屏(kuhui)，晦智聖座(huizhi)。
+   幾縷天光透過塔窗灑在塔內，似乎爲千年古塔增添了一點活力。
 LONG );
 	set("exits", ([
 		"up"   : __DIR__"fota3",
@@ -56,21 +56,21 @@ int do_say(string arg)
 {
 	object me = this_player();
 // string dir;
-	if (arg=="今日大欢喜，舍却危脆身")
+	if (arg=="今日大歡喜，舍卻危脆身")
 	{
-		write( "无色禅师的灵台突然旋转起来，发出隆隆声响。一个声音直透你心底，你甘愿为我佛舍身吗？\n");
+		write( "無色禪師的靈臺突然旋轉起來，發出隆隆聲響。一個聲音直透你心底，你甘願爲我佛捨身嗎？\n");
 		me->set_temp("poem_said",1);
 		return 1;
 	}
-	if (arg=="若得不驰散，深入实相不")
+	if (arg=="若得不馳散，深入實相不")
 	{
-		write("既有此心，何不实施？\n");
+		write("既有此心，何不實施？\n");
 		me->set_temp("shen_said",1);
 		return 1;
 	}
-	if (arg=="其心无所乐")
+	if (arg=="其心無所樂")
 	{
-		write("你心中难过，不由得垂下眼，瞑目静思，冥冥中只要逃脱此地。\n");
+		write("你心中難過，不由得垂下眼，瞑目靜思，冥冥中只要逃脫此地。\n");
 		me->set_temp("m_said",1);
 		return 1;
 	}
@@ -83,27 +83,27 @@ int do_sheshen()
 		me->delete_temp("poem_said");
 		if ((int)me->query_skill("buddhism",1)<30)
 		{
-			write("你虽有此心，奈何佛法修为太差，反而伤到自己。\n");
+			write("你雖有此心，奈何佛法修爲太差，反而傷到自己。\n");
 			me->unconcious();
 			return 1;
 		}
-		write( "你口中诵到：“无嗔亦无忧，宁不当欣庆？”身形直向法台撞去，\n只听“砰”的一声，你已被送进了法台。\n");
+		write( "你口中誦到：“無嗔亦無憂，寧不當欣慶？”身形直向法臺撞去，\n只聽“砰”的一聲，你已被送進了法臺。\n");
 		me->move(__DIR__"wusetai");
-		tell_room(environment(me),me->name()+"一头撞了进来。\n",({me}));
+		tell_room(environment(me),me->name()+"一頭撞了進來。\n",({me}));
 		return 1;
 	}
 }
 int do_canchan(string arg)
 {
 	object me = this_player();
-	if (arg!="zuo" && arg!="圣座")
-		return notify_fail("你要对什么参悟禅理？\n");
-	message("vision", me->name()+"对着大师的圣座冥思参禅。\n", environment(me), ({me}) );
-	write("你在心中默默念诵“仁者所得法，幸愿示其要。”\n");
+	if (arg!="zuo" && arg!="聖座")
+		return notify_fail("你要對什麼參悟禪理？\n");
+	message("vision", me->name()+"對着大師的聖座冥思參禪。\n", environment(me), ({me}) );
+	write("你在心中默默唸誦“仁者所得法，幸願示其要。”\n");
 	if (random(3)==1)
 	{
-		write(HIR"你在虚空中，感觉大师座下打开了一个小门。\n" NOR);
-		me->set_temp("marks/门",1);
+		write(HIR"你在虛空中，感覺大師座下打開了一個小門。\n" NOR);
+		me->set_temp("marks/門",1);
 		return 1;
 	}
 	return 1;
@@ -112,20 +112,20 @@ int do_canchan(string arg)
 int do_enter()
 {
 	object me = this_player();
-	if ((int)this_player()->query_temp("marks/门"))
+	if ((int)this_player()->query_temp("marks/門"))
 	{
-		me->delete_temp("marks/门");
-		write("你连忙用手扶向小门。\n");
+		me->delete_temp("marks/門");
+		write("你連忙用手扶向小門。\n");
 		if ((int)me->query_skill("hand",1)<30)
 		{
-			write(HIR"你手法太慢，小门已经消失，你头脑中只觉一片昏乱。\n"NOR);
+			write(HIR"你手法太慢，小門已經消失，你頭腦中只覺一片昏亂。\n"NOR);
 			me->unconcious();
 			return 1;
 		}
-		message("vision", me->name()+"双手乱舞，身形飘出，突然消失在圣座下了。\n", environment(me), ({me}) );
-		write(HIR"你从小门中走了进去。\n"NOR);
+		message("vision", me->name()+"雙手亂舞，身形飄出，突然消失在聖座下了。\n", environment(me), ({me}) );
+		write(HIR"你從小門中走了進去。\n"NOR);
 		me->move(__DIR__"huizhizuo");
-		tell_room(environment(me), me->name() + "跳了下来。\n", ({me}));
+		tell_room(environment(me), me->name() + "跳了下來。\n", ({me}));
 		return 1;
 	}
 	return 0;
@@ -137,20 +137,20 @@ int do_shenru()
 	if(me->query_temp("shen_said"))
 	{
 		me->delete_temp("shen_said");
-		write("你身形一纵，十指如钩，在禅台边上一抓要借力跃起。\n");
-		message("vision", me->name()+"身形一纵，十指如钩，在禅台边上一抓要借力纵起。\n", environment(me), ({me}) );
+		write("你身形一縱，十指如鉤，在禪臺邊上一抓要借力躍起。\n");
+		message("vision", me->name()+"身形一縱，十指如鉤，在禪臺邊上一抓要借力縱起。\n", environment(me), ({me}) );
 		if((int)me->query_skill("claw",1)<30)
 		{
-			write("你手指与台边差了寸许，没有抓到。啊.....。\n");
-			message("vision", me->name()+"手指与台边还有一定距离，没有抓到。\n", environment(me), ({me}) );
-			message("vision", me->name()+"一声大叫，一个倒栽葱摔将下来。\n", environment(me), ({me}) );
+			write("你手指與臺邊差了寸許，沒有抓到。啊.....。\n");
+			message("vision", me->name()+"手指與臺邊還有一定距離，沒有抓到。\n", environment(me), ({me}) );
+			message("vision", me->name()+"一聲大叫，一個倒栽蔥摔將下來。\n", environment(me), ({me}) );
 			me->unconcious();
 			return 1;
 		}
-		write( "你在台边一借力，身子凌空直上，落在塔梁上，你脚下一滑，直摔向禅台。\n");
-		message("vision", me->name()+"凌空直上，落在塔梁上。突然向下一晃，便踪迹皆无。\n", environment(me), ({me}) );
+		write( "你在臺邊一借力，身子凌空直上，落在塔樑上，你腳下一滑，直摔向禪臺。\n");
+		message("vision", me->name()+"凌空直上，落在塔樑上。突然向下一晃，便蹤跡皆無。\n", environment(me), ({me}) );
 		me->move(__DIR__"tianming");
-		tell_room(environment(me), me->name() + "摔了下来。\n", ({me}));
+		tell_room(environment(me), me->name() + "摔了下來。\n", ({me}));
 		return 1;
 	}
 	return 0;
@@ -162,16 +162,16 @@ int do_taotuo()
 	if (me->query_temp("m_said"))
 	{
 		me->delete_temp("m_said");
-		message("vision", me->name()+"两腿连环踢出，身形跃向塔窗便要逃出。\n", environment(me), ({me}) );
+		message("vision", me->name()+"兩腿連環踢出，身形躍向塔窗便要逃出。\n", environment(me), ({me}) );
 		if ((int)me->query_skill("leg",1)<30)
 		{
-			write("你两腿已经麻木了，被定在当地。\n");
+			write("你兩腿已經麻木了，被定在當地。\n");
 			return 1;
 		}
-		message("vision", me->name()+"身子一下消失在窗边。\n", environment(me), ({me}) );
-		write(HIR "你刚到窗边，只觉眼前一黑，便跌将落去。\n"NOR);
+		message("vision", me->name()+"身子一下消失在窗邊。\n", environment(me), ({me}) );
+		write(HIR "你剛到窗邊，只覺眼前一黑，便跌將落去。\n"NOR);
 		me->move(__DIR__"kuhuiping");
-		tell_room(environment(me), me->name() + "跳了下来。\n", ({me}));
+		tell_room(environment(me), me->name() + "跳了下來。\n", ({me}));
 		return 1;
 	}
 	return 0;
@@ -180,12 +180,12 @@ int do_taotuo()
 int do_fushi(string arg)
 {
 	object me = this_player();
-	if (arg!="pai"&&arg!="牌") return notify_fail("你要拂拭什么？\n");
-	message("vision", me->name()+"轻轻地在无相牌上拭去尘土。\n", environment(me), ({me}) );
-	write("你轻轻地拂拭无相牌。\n");
+	if (arg!="pai"&&arg!="牌") return notify_fail("你要拂拭什麼？\n");
+	message("vision", me->name()+"輕輕地在無相牌上拭去塵土。\n", environment(me), ({me}) );
+	write("你輕輕地拂拭無相牌。\n");
 	if (random(2)==1)
 	{
-		write(HIR"你突然有一种出掌的冲动，便想一掌击出。\n"NOR);
+		write(HIR"你突然有一種出掌的衝動，便想一掌擊出。\n"NOR);
 		me->set_temp("marks/拍",1);
 	}
 	return 1;
@@ -201,14 +201,14 @@ int do_chuzhang(string arg)
 		me->delete_temp("marks/拍");
 		if ((int)me->query("neili",1)>100)
 		{
-			write(HIR"你气运丹田，嘿的一声向灵牌推出一掌。只听啪的一声，灵牌裂开一道大缝，你纵身向缝隙中跳去。\n"NOR);
-			message("vision", me->name()+"气运丹田，嘿的一声向灵牌推出一掌。只听啪的一声，灵牌裂开一道大缝\n", environment(me), ({me}));
-			message("vision", me->name()+"向缝隙直栽进去。一声闷响，无相牌神奇的合好如初。\n" , environment(me), ({me}));
+			write(HIR"你氣運丹田，嘿的一聲向靈牌推出一掌。只聽啪的一聲，靈牌裂開一道大縫，你縱身向縫隙中跳去。\n"NOR);
+			message("vision", me->name()+"氣運丹田，嘿的一聲向靈牌推出一掌。只聽啪的一聲，靈牌裂開一道大縫\n", environment(me), ({me}));
+			message("vision", me->name()+"向縫隙直栽進去。一聲悶響，無相牌神奇的合好如初。\n" , environment(me), ({me}));
 			me->receive_damage("neili",100);
 			me->move(__DIR__"wuxiangpai");
 			return 1;
 		}
-		message("vision", me->name()+"啪的推出一掌，但真气不纯，反而伤到自己\n", environment(me), ({me}));
+		message("vision", me->name()+"啪的推出一掌，但真氣不純，反而傷到自己\n", environment(me), ({me}));
 		me->set("neili",0);
 		return 1;
 	}
@@ -221,13 +221,13 @@ string look_wuse()
 	"    ********************************************\n"
 	"    ********************************************\n"
 	"    ********　　　　　　　　　　　　　　********\n"
-	"    ********　诸天无云翳，四面皆清明。　********\n"
+	"    ********　諸天無雲翳，四面皆清明。　********\n"
 	"    ********　　　　　　　　　　　　　　********\n"
-	"    ********　微风吹香气，众山寂无声。　********\n"
+	"    ********　微風吹香氣，衆山寂無聲。　********\n"
 	"    ********　　　　　　　　　　　　　　********\n"
-	"    ********　今日大欢喜，舍却危脆身。　********\n"
+	"    ********　今日大歡喜，舍卻危脆身。　********\n"
 	"    ********　　　　　　　　　　　　　　********\n"
-	"    ********　无嗔亦无忧，宁不当欣庆？　********\n"
+	"    ********　無嗔亦無憂，寧不當欣慶？　********\n"
 	"    ********　　　　　　　　　　　　　　********\n"
 	"    ********************************************\n"
 	"    ********************************************\n";
@@ -238,13 +238,13 @@ string look_wuxiang()
         "    ********************************\n"
 	"    ********************************\n"
 	"    ********　　　　　　　　********\n"
-	"    ********　身若菩提树，　********\n"
+	"    ********　身若菩提樹，　********\n"
 	"    ********　　　　　　　　********\n"
-	"    ********　心如明镜台。  ********\n"
+	"    ********　心如明鏡臺。  ********\n"
 	"    ********　　　　　　　　********\n"
-	"    ********　从今勤拂拭，　********\n"
+	"    ********　從今勤拂拭，　********\n"
 	"    ********　　　　　　　　********\n"
-	"    ********　不令惹尘埃。　********\n"
+	"    ********　不令惹塵埃。　********\n"
 	"    ********　　　　　　　　********\n"
 	"    ********************************\n"
 	"    ********************************\n";
@@ -255,13 +255,13 @@ string look_tianming()
         "    ********************************\n"
 	"    ********************************\n"
 	"    ********　　　　　　　　********\n"
-	"    ********　既已舍染乐，　********\n"
+	"    ********　既已舍染樂，　********\n"
 	"    ********　　　　　　　　********\n"
-	"    ********　心得善摄不？  ********\n"
+	"    ********　心得善攝不？  ********\n"
 	"    ********　　　　　　　　********\n"
-	"    ********  若得不驰散，　********\n"
+	"    ********  若得不馳散，　********\n"
 	"    ********　　　　　　　　********\n"
-	"    ********　深入实相不？　********\n"
+	"    ********　深入實相不？　********\n"
 	"    ********　　　　　　　　********\n"
 	"    ********************************\n"
 	"    ********************************\n";
@@ -272,13 +272,13 @@ string look_kuhui()
         "    ********************************\n"
 	"    ********************************\n"
 	"    ********　　　　　　　　********\n"
-	"    ********  毕竟空相中，  ********\n"
+	"    ********  畢竟空相中，  ********\n"
 	"    ********　　　　　　　　********\n"
-	"    ********　其心无所乐？  ********\n"
+	"    ********　其心無所樂？  ********\n"
 	"    ********　　　　　　　　********\n"
-	"    ********  若悦禅智慧，　********\n"
+	"    ********  若悅禪智慧，　********\n"
 	"    ********　　　　　　　　********\n"
-	"    ********　是法性无照。　********\n"
+	"    ********　是法性無照。　********\n"
 	"    ********　　　　　　　　********\n"
 	"    ********************************\n"
 	"    ********************************\n";
@@ -289,13 +289,13 @@ string look_huizhi()
         "    ********************************\n"
 	"    ********************************\n"
 	"    ********　　　　　　　　********\n"
-	"    ********  虚诳等无实，  ********\n"
+	"    ********  虛誑等無實，  ********\n"
 	"    ********　　　　　　　　********\n"
-	"    ********　亦非停心处。  ********\n"
+	"    ********　亦非停心處。  ********\n"
 	"    ********　　　　　　　　********\n"
 	"    ********  仁者所得法，　********\n"
 	"    ********　　　　　　　　********\n"
-	"    ********　幸愿示其要。　********\n"
+	"    ********　幸願示其要。　********\n"
 	"    ********　　　　　　　　********\n"
 	"    ********************************\n"
 	"    ********************************\n";
@@ -306,13 +306,13 @@ string look_kuzhi()
  	"    ********************************************\n"
 	"    ********************************************\n"
 	"    ********　　　　　　　　　　　　　　********\n"
-	"    ********　一切恩爱会，皆由因缘合。　********\n"
+	"    ********　一切恩愛會，皆由因緣合。　********\n"
 	"    ********　　　　　　　　　　　　　　********\n"
-	"    ********　会合有别离，无常难得久。　********\n"
+	"    ********　會合有別離，無常難得久。　********\n"
 	"    ********　　　　　　　　　　　　　　********\n"
-	"    ********　今我为尔母，恒恐不自保。　********\n"
+	"    ********　今我爲爾母，恆恐不自保。　********\n"
 	"    ********　　　　　　　　　　　　　　********\n"
-	"    ********　生死多畏惧，命危于晨露。　********\n"
+	"    ********　生死多畏懼，命危於晨露。　********\n"
 	"    ********　　　　　　　　　　　　　　********\n"
 	"    ********************************************\n"
 	"    ********************************************\n";

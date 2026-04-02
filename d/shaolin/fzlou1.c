@@ -8,9 +8,9 @@ void create()
 {
 	set("short", "茶室");
 	set("long", @LONG
-这里是方丈待客的地方，靠墙左右两侧摆着一溜太师椅。北
-面墙上挂了一付对联。墙角一几，放着几个茶壶。有个茶壶壶身
-上题了“碧螺春”三个篆字，壶嘴热气腾腾，似乎是刚沏的新茶。
+這裏是方丈待客的地方，靠牆左右兩側擺着一溜太師椅。北
+面牆上掛了一付對聯。牆角一幾，放着幾個茶壺。有個茶壺壺身
+上題了“碧螺春”三個篆字，壺嘴熱氣騰騰，似乎是剛沏的新茶。
 往北是方丈室。
 LONG );
 	set("exits", ([
@@ -36,7 +36,7 @@ int valid_leave(object me, string dir)
 	{
 		if (dir == "north" )
 		{
-			return notify_fail("你资格不够，不能进入方丈室。\n");
+			return notify_fail("你資格不夠，不能進入方丈室。\n");
 		}
 	}
 	return ::valid_leave(me, dir);

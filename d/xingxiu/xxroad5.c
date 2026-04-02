@@ -7,8 +7,8 @@ void create()
 {
 	set("short", "小路");
 	set("long", @LONG
-山势在这里渐渐变得平缓，你已经可以听见西边山涧底的水声。东
-面有一个山洞。
+山勢在這裏漸漸變得平緩，你已經可以聽見西邊山澗底的水聲。東
+面有一個山洞。
 LONG );
 	set("exits", ([
 		"south" : __DIR__"xxroad4",
@@ -34,8 +34,8 @@ int valid_leave(object me, string dir)
 	if ((!myfam || myfam["family_name"] != "星宿派") &&
 		dir != "south" && (present("chuchen zi", environment(me))))
 	{
-		say("出尘子一言不发，闪身拦在"+me->name()+"面前。\n");
-		return notify_fail("出尘子一言不发，闪身拦在你面前。\n");
+		say("出塵子一言不發，閃身攔在"+me->name()+"面前。\n");
+		return notify_fail("出塵子一言不發，閃身攔在你面前。\n");
 	}
 	return ::valid_leave(me, dir);
 }

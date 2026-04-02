@@ -1,4 +1,4 @@
-//bing4.c 三红饼
+//bing4.c 三紅餅
 inherit ITEM;
 #include <ansi.h>
 
@@ -9,9 +9,9 @@ void init()
 
 void create()
 {
-	set_name(HIR "三红饼" NOR, ({"bing4", "sanhongbing"}));
-	set("unit", "个");
-	set("long", "这是一个清香的三红饼。\n");
+	set_name(HIR "三紅餅" NOR, ({"bing4", "sanhongbing"}));
+	set("unit", "個");
+	set("long", "這是一個清香的三紅餅。\n");
 	set("no_get", 1);
 	set("no_drop", 1);
 	set("no_put", 1);
@@ -23,17 +23,17 @@ void create()
 int do_eat(string arg)
 {
 	object me=this_player();
-	if (!id(arg))  return notify_fail("你要吃什么？\n");
+	if (!id(arg))  return notify_fail("你要喫什麼？\n");
 	if (query("owner") != me->query("id"))
 	{
-		write(HIR"你只能吃自个赢来的饼。\n"NOR);
+		write(HIR"你只能喫自個贏來的餅。\n"NOR);
 		return 1;
 	}
 	if(arg=="bing4"||arg=="sanhongbing")
 	{
 		me->add("combat_exp",668);
 		me->add("potential",198);
-		message_vision(HIY "$N三口两口吃下一块$n。\n" NOR, this_player(), this_object());
+		message_vision(HIY "$N三口兩口吃下一塊$n。\n" NOR, this_player(), this_object());
 		destruct(this_object());
 	}
 	return 1;

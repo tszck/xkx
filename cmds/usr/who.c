@@ -14,34 +14,34 @@ inherit F_CLEAN_UP;
 string *faction_name = ({
 	"少林派",
 	"南少林派",
-	"武当派",
+	"武當派",
 	"峨嵋派",
 	"青城派",
-	"昆仑派",
+	"崑崙派",
 	"嵩山派",
 	"泰山派",
-	"华山派",
+	"華山派",
 	"衡山派",
-	"恒山派",
+	"恆山派",
 	"星宿派",
-	"丐帮",
+	"丐幫",
 	"明教",
-	"神龙教",
+	"神龍教",
 	"大理段家",
-	"桃花岛",
-	"白驼山派",
-	"姑苏慕容",
+	"桃花島",
+	"白駝山派",
+	"姑蘇慕容",
 	"全真教",
 	"古墓派",
 	"雪山寺",
-	"逍遥派",
-	"灵鹫宫",
+	"逍遙派",
+	"靈鷲宮",
 	"凌霄城",
-	"云龙门",
-	"红花会",
+	"雲龍門",
+	"紅花會",
 	"黑木崖",
 	"五毒教",
-	"铁掌帮",
+	"鐵掌幫",
 });
 int sort_user(object,object);
 int visiblep(object);
@@ -68,7 +68,7 @@ mixed main(object me, string arg, int remote)
                                 case "-p": opt_party = 1;       break;
                                 case "-a": opt_age = 1;         break;
   //                              case "-e": opt_exp = 1;         break;
-                                //如果不带以上几种参数，则为who + player_id情况
+                                //如果不帶以上幾種參數，則爲who + player_id情況
                                 default:
 
                                        if(option[i][0]=='@' ) {
@@ -77,7 +77,7 @@ mixed main(object me, string arg, int remote)
                                                 RWHO_Q->send_rwho_q(option[i][1..sizeof(option[i])-1],
                                                         //me, opt_long);
                                                         me, replace_string(arg,option[i],""));
-                                                write("网路讯息已送出，请稍候。\n");
+                                                write("網路訊息已送出，請稍候。\n");
                                                 return 1;
                                               }
                                               else
@@ -85,11 +85,11 @@ mixed main(object me, string arg, int remote)
                                               	return main(this_player(),replace_string(arg,option[i],""),remote);
                                               	}
                                         }
-                                        //先于该玩家所处的环境中找寻被查玩家。
+                                        //先於該玩家所處的環境中找尋被查玩家。
                                         ob1 = present(option[i], environment(me));
-                                        //如果没找到，则在所有玩家列表中找寻。
+                                        //如果沒找到，則在所有玩家列表中找尋。
                                         if (!ob1) ob1 = find_player(option[i]);
-                                        //如果还是没找到，则在所有生物列表中找寻。
+                                        //如果還是沒找到，則在所有生物列表中找尋。
                                         if (!ob1) ob1 = find_living(option[i]);
                                         if (!ob1)
                                         {
@@ -100,49 +100,49 @@ mixed main(object me, string arg, int remote)
                                          	   {ob1 = list[j];break;}
                                          	}
                                         }
-                                        if (!ob1) return notify_fail("没有这个玩家或参数错误。\n指令格式 : who [-h] [-l] [-w] [-p] [<ID>]\n");
+                                        if (!ob1) return notify_fail("沒有這個玩家或參數錯誤。\n指令格式 : who [-h] [-l] [-w] [-p] [<ID>]\n");
                                        // if ( objectp(this_player()) && userp(this_player())&& !wizardp(this_player()) && !this_player()->visible(ob1))
                                         if ( objectp(me) && userp(me) && !wizardp(me) && !me->visible(ob1))
-                                        	return notify_fail("没有这个玩家或参数错误。\n指令格式 : who [-h] [-l] [-w] [-p] [<ID>]\n");
-                                        /* 由于下面这行，使得当who + 巫师名时，无论该巫师隐身与否，玩家都能
-                                           看见，加了上面这行便避免了这种情况的发生。Modified by Spacenet */
+                                        	return notify_fail("沒有這個玩家或參數錯誤。\n指令格式 : who [-h] [-l] [-w] [-p] [<ID>]\n");
+                                        /* 由於下面這行，使得當who + 巫師名時，無論該巫師隱身與否，玩家都能
+                                           看見，加了上面這行便避免了這種情況的發生。Modified by Spacenet */
                                         me = ob1; opt_party = 1;
                         }
         }
 
         if( objectp(me) && userp(me) && opt_long && !wizardp(me)) {
                 if( (int)me->query("jing") < 5 )
-                        return notify_fail("你的精神太差了，没有办法得知其他玩家的详细资料。\n");
+                        return notify_fail("你的精神太差了，沒有辦法得知其他玩家的詳細資料。\n");
                 me->receive_damage("jing", 5);
         }
-	//根据不同的参数设置表头。
+	//根據不同的參數設置表頭。
         str = HIG "◎"+MUD_NAME+HIG "◎"+HIW+"    目前江湖中的 " NOR;
         if(opt_party)
                 if(me->query("family/family_name"))
                         str += HIR+"("+me->query("family/family_name")+") "+NOR;
-                else str += HIR + "(无门派) " + NOR;
+                else str += HIR + "(無門派) " + NOR;
         if ( opt_wiz )
                 str += "神仙有：";
         else
                 if ( opt_long ) str += "玩家有：";
-                else str += "总人物有：";
+                else str += "總人物有：";
 
         str += "\n";
         str +=
                 HIC"≡"+HIY"----------------------------------------------------------------------"HIC"≡\n"NOR;
         ob = filter_array( objects(), (: visiblep :) );
         if (opt_party) {
-               //在数组ob中找寻符合party指定的同门玩家。
+               //在數組ob中找尋符合party指定的同門玩家。
                ob = filter_array(ob, (: $1->query("family/family_name") ==
                         $2->query("family/family_name") :), me);
                         }
         list = sort_array(ob, (: sort_user :));
-        ppl_cnt = 0;   //ppl_cnt ?= party player count（同门玩家数）。
+        ppl_cnt = 0;   //ppl_cnt ?= party player count（同門玩家數）。
 
-        //处理who -l的情况。
+        //處理who -l的情況。
         if( opt_long )
         {
-               //按照门派分类列出玩家。
+               //按照門派分類列出玩家。
                for (fac_no=0; fac_no<fac_amt; fac_no++)
                {
                        i = sizeof(list);
@@ -150,17 +150,17 @@ mixed main(object me, string arg, int remote)
                        {
                                 if( interactive(list[i]) )
                                 	ppl_cnt++;
-                                //把同门的玩家列在一起。
+                                //把同門的玩家列在一起。
                                 if( list[i]->query("family/family_name") == faction_name[fac_no])
                                         str = sprintf("%s%12s%s%s\n",
                                                 str,
                                                 RANK_D->query_rank(list[i]),
-                                                //根据玩家当前状态（发呆，断线）分别加上不同标志。
+                                                //根據玩家當前狀態（發呆，斷線）分別加上不同標誌。
                                                 interactive(list[i])?(query_idle(list[i]) > 150? HIG "*" NOR:" "):HIR "#" NOR,
                                                 list[i]->short(1));
 			}
                 }
-                //处理无门派玩家。
+                //處理無門派玩家。
                 i = sizeof(list);
                 while ( i-- )
                 {
@@ -173,7 +173,7 @@ mixed main(object me, string arg, int remote)
                                         interactive(list[i])?(query_idle(list[i]) > 120? HIG "*" NOR:" "):HIR "#" NOR,
                                         list[i]->short(1));
                 }
-        } else  if( opt_wiz )  //处理who -w的情况。
+        } else  if( opt_wiz )  //處理who -w的情況。
                 {
                         i = sizeof(list);
                         while( i-- )
@@ -188,7 +188,7 @@ mixed main(object me, string arg, int remote)
                                         interactive(list[i])?(query_idle(list[i]) > 120? HIG "*" NOR:" "):HIR "#" NOR,
                                         list[i]->short(1));
                         }
-        } else  if( opt_exp )  //处理who -e的情况。
+        } else  if( opt_exp )  //處理who -e的情況。
                 {
                 	      list = sort_array(list,(: $1->query("combat_exp") - $2->query("combat_exp") :));
                         i = sizeof(list);
@@ -203,7 +203,7 @@ mixed main(object me, string arg, int remote)
                                         interactive(list[i])?(query_idle(list[i]) > 120? HIG "*" NOR:" "):HIR "#" NOR,
                                         list[i]->short(1));
                         }
-                } else  //处理其他情况。
+                } else  //處理其他情況。
                 {
                 i = sizeof(list);
                 while ( i-- )
@@ -237,7 +237,7 @@ mixed main(object me, string arg, int remote)
         }
 
         str += HIC"≡"+HIY"----------------------------------------------------------------------"HIC"≡\n"NOR;
-        str = sprintf("%s共有 %s 位使用者连线中，系统负担：%s\n "HIG"*"NOR" 表示发呆中，"HIR"#"NOR" 表示断线中。", str, CHINESE_D->chinese_number(sizeof(list)),
+        str = sprintf("%s共有 %s 位使用者連線中，系統負擔：%s\n "HIG"*"NOR" 表示發呆中，"HIR"#"NOR" 表示斷線中。", str, CHINESE_D->chinese_number(sizeof(list)),
                 query_load_average());
 
         if( remote ) return str+"\n";
@@ -277,19 +277,19 @@ int help()
 write("
 指令格式 : who [-h] [-l] [-w] [-p] [<ID>]
 
-    这个指令可以列出所有在线上的玩家及其等级。
+    這個指令可以列出所有在線上的玩家及其等級。
 
--h 列出帮助屏幕。
--l 选项列出较长的讯息。
--p 只列出同门的玩家。
--w 只列出线上所有的巫师。
-<ID> 列出<ID>代表玩家所属门派的玩家。
+-h 列出幫助屏幕。
+-l 選項列出較長的訊息。
+-p 只列出同門的玩家。
+-w 只列出線上所有的巫師。
+<ID> 列出<ID>代表玩家所屬門派的玩家。
 
-    who @mudname 则显示其他联网泥巴里的玩家。
+    who @mudname 則顯示其他聯網泥巴里的玩家。
 
-"HIG"*"NOR" 表示"HIG"发呆"NOR"中，"HIR"#"NOR" 表示"HIR"断线"NOR"中。
+"HIG"*"NOR" 表示"HIG"發呆"NOR"中，"HIR"#"NOR" 表示"HIR"斷線"NOR"中。
 
-相关指令： finger
+相關指令： finger
 "
     );
     return 1;

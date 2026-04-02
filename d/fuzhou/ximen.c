@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "西门");
+	set("short", "西門");
 	set("long", @LONG
-这里是福州西门。一条笔直的官道向西延伸，直到西边闽江大拐弯
-处，官道便转入北岸山坳处，直达中原。
+這裏是福州西門。一條筆直的官道向西延伸，直到西邊閩江大拐彎
+處，官道便轉入北岸山坳處，直達中原。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"xixiaojie",

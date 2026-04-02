@@ -10,12 +10,12 @@ int do_duanmo(string arg);
 
 void create()
 {
-	set("short", "苦寒楼二层");
+	set("short", "苦寒樓二層");
 	set("long", @LONG
-每个楼层上都铺设了结实的木楼板，八角形的墙身上则开了四扇大
-窗。四周墙壁贴着昆仑派历代掌门和高手的画像，并有专门的文字记载
-着他们的事迹。从这里往外眺望，只能看到围绕塔周的密密匝匝的云杉
-林，正是通过这种忍饥耐寒，清心寡欲的办法以求得对武学孜孜不倦的
+每個樓層上都鋪設了結實的木樓板，八角形的牆身上則開了四扇大
+窗。四周牆壁貼着崑崙派歷代掌門和高手的畫像，並有專門的文字記載
+着他們的事蹟。從這裏往外眺望，只能看到圍繞塔周的密密匝匝的雲杉
+林，正是通過這種忍飢耐寒，清心寡慾的辦法以求得對武學孜孜不倦的
 追求。
 LONG );
 	set("exits", ([
@@ -43,10 +43,10 @@ int do_duanmo(string arg)
 	object ob, me = this_player();
 
 	if ( (int)me->query("kar") < 20 )
-		return notify_fail("你要干什么？\n");
+		return notify_fail("你要幹什麼？\n");
 
 	if ( !arg && (arg != "huaxiang") && (arg != "wall") )
-		return notify_fail("你想要端摩什么东西？\n");
+		return notify_fail("你想要端摩什麼東西？\n");
 
 	if ( query("item_count") < 1 ||
 		me->query_temp("count", 1) <= query("times") )
@@ -54,7 +54,7 @@ int do_duanmo(string arg)
 		me->add_temp("count", 1);
 		me->receive_damage("jing", 10);
 		me->receive_damage("qi", 10);
-		return notify_fail("你仔细端摩昆仑派前辈高人的画像，想象他们当年纵横江湖，快意恩仇，不由心中生出许多感慨。\n");
+		return notify_fail("你仔細端摩崑崙派前輩高人的畫像，想象他們當年縱橫江湖，快意恩仇，不由心中生出許多感慨。\n");
 	}
 
 	if ( query("item_count") > 0)

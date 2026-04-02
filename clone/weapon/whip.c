@@ -11,8 +11,8 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long","一条长长的皮鞭．\n");
-		set("unit", "条");
+		set("long","一條長長的皮鞭．\n");
+		set("unit", "條");
 		set("value", 500);
 	}
 	init_whip(15);

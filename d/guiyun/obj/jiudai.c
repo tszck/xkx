@@ -11,8 +11,8 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一个用来装甜酒的大酒袋，大概装得四、五升的酒。\n");
-		set("unit", "个");
+		set("long", "一個用來裝甜酒的大酒袋，大概裝得四、五升的酒。\n");
+		set("unit", "個");
 		set("value", 60);
 		set("max_liquid", 10);
 	}

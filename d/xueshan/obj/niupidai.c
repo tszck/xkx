@@ -10,8 +10,8 @@ void create()
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "这是用来装酥油茶的牛皮袋，散发出淡淡的乳香。\n");
-                set("unit", "个");
+                set("long", "這是用來裝酥油茶的牛皮袋，散發出淡淡的乳香。\n");
+                set("unit", "個");
                 set("value", 150);
                 set("max_liquid", 10);
         } 

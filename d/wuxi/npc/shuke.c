@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("书客",({ "shuke" }) );
+	set_name("書客",({ "shuke" }) );
 	set("gender", "男性" );
 	set("age", 26);
 	set("long", 
-"这是个听书的书客，一副专注的神情，对进出的人等视而不见。\n");
+"這是個聽書的書客，一副專注的神情，對進出的人等視而不見。\n");
 	set("combat_exp", 5000);
 	set("shen_type", 1);
 	set("str", 20);

@@ -12,8 +12,8 @@ void create()
 	name += name_words[random(sizeof(name_words))];
 
 	set_name(name,({"chan chu"}));
-	set("race", "野兽");
-	set("long", "一只拳头大小，鬼头鬼脑的小蛤蟆。\n");
+	set("race", "野獸");
+	set("long", "一隻拳頭大小，鬼頭鬼腦的小蛤蟆。\n");
 	set("age", 100);
 	set("attitude", "peaceful");
 
@@ -23,7 +23,7 @@ void create()
 	set("str", 20);
 	set("con", 50);
 
-	set("limbs", ({ "头部", "身体", "尾巴" }) );
+	set("limbs", ({ "頭部", "身體", "尾巴" }) );
 	set("verbs", ({ "bite" }) );
 
 	set_temp("apply/attack", 50);
@@ -56,7 +56,7 @@ int hit_ob(object me, object ob, int damage)
        if ((string)ob->query("family/family_name") != "五毒教") {
 		ob->apply_condition("chanchu_poison", 20
 	      +(int)ob->query_condition("chanchu_poison") );
-	      tell_object(ob, HIG "你觉得被咬中的地方一阵麻木！\n" NOR );
+	      tell_object(ob, HIG "你覺得被咬中的地方一陣麻木！\n" NOR );
        }
 }
 #include "baidu.h";

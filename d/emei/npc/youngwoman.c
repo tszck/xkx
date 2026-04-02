@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("年轻少妇",({ "nianqing shaofu","shaofu" }) );
+        set_name("年輕少婦",({ "nianqing shaofu","shaofu" }) );
         set("gender", "女性" );
         set("age", 16);
         set("long",
-"这是一个长途疲惫的年轻少妇。\n");
+"這是一個長途疲憊的年輕少婦。\n");
         set_temp("apply/defense", 5);
         set("combat_exp", 1000);
         set("shen", 500);

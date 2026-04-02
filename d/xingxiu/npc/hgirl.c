@@ -8,7 +8,7 @@ void create()
 	set_name("牧羊女", ({ "muyang nu", "nu", "muyang" }));
 	set("gender", "女性");
 	set("age", 18 + random(5));
-	set("long", "一个维吾尔族女孩。\n");
+	set("long", "一個維吾爾族女孩。\n");
 	set("attitude", "friendly");
 	set("env/wimpy", 80);
 	set("combat_exp", 500);
@@ -21,8 +21,8 @@ void create()
 	set_temp("apply/attack", 10);
 	set_temp("apply/defense", 10);
 	set("inquiry", ([
-	       "星宿派" : "他们躲在星宿海。",
-	       "星宿海" : "星宿海就是北边方圆几百里的湖泊和沼泽地。\n",
+	       "星宿派" : "他們躲在星宿海。",
+	       "星宿海" : "星宿海就是北邊方圓幾百裏的湖泊和沼澤地。\n",
 	]) );
 
 	setup();

@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "书房");
+	set("short", "書房");
 	set("long", @LONG
-这是大理国镇南王的书房，靠窗放着一个大木桌桌上放着不少书，
-靠墙的地方还有一个书架，镇南王经常在这里看书。
+這是大理國鎮南王的書房，靠窗放着一個大木桌桌上放着不少書，
+靠牆的地方還有一個書架，鎮南王經常在這裏看書。
 LONG);
 	set("exits",([ /* sizeof() == 1 */
 	    "west"  : __DIR__"tingfang",

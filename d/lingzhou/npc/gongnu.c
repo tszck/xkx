@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("宫女", ({ "gong nu", "nu", "girl" }) );
+	set_name("宮女", ({ "gong nu", "nu", "girl" }) );
 	set("gender", "女性");
 	set("age", 25);
-	set("long", "这是伺侯娘娘的宫女。\n");
+	set("long", "這是伺侯娘娘的宮女。\n");
 	set("combat_exp", 1000);
         set("shen_type", 0);
 	set("attitude", "peaceful");

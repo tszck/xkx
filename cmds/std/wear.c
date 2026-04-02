@@ -12,7 +12,7 @@ int main(object me, string arg)
 	object ob, *inv;
 	int i, count;
 
-	if( !arg ) return notify_fail("你要穿戴什么？\n");
+	if( !arg ) return notify_fail("你要穿戴什麼？\n");
 
 	if(arg=="all")
 	{
@@ -27,10 +27,10 @@ int main(object me, string arg)
 	}
 
 	if( !objectp(ob = present(arg, me)) )
-		return notify_fail("你身上没有这样东西。\n");
+		return notify_fail("你身上沒有這樣東西。\n");
 
 	if( ob->query("equipped") )
-		return notify_fail("你已经装备着了。\n");
+		return notify_fail("你已經裝備着了。\n");
 
 	return do_wear(me, ob);
 }
@@ -40,10 +40,10 @@ int do_wear(object me, object ob)
 	string str;
 
 	if( ob->query("id") == "jinsi jia" && me->query("age") >= 20)
-		return notify_fail("你长大了，穿不上金丝甲了。\n");
+		return notify_fail("你長大了，穿不上金絲甲了。\n");
 
 	if( ob->query("female_only") && (string)me->query("gender") =="男性")
-		return notify_fail("这是女人的衣衫，你一个大男人也想穿，羞也不羞？\n");
+		return notify_fail("這是女人的衣衫，你一個大男人也想穿，羞也不羞？\n");
 
 	if( ob->wear() )
 	{
@@ -63,10 +63,10 @@ int do_wear(object me, object ob)
 					str = YEL "$N戴上一" + ob->query("unit") + "$n。\n" NOR;
 					break;
 				case "waist":
-					str = YEL "$N将一" + ob->query("unit") + "绑在腰间。\n" NOR;
+					str = YEL "$N將一" + ob->query("unit") + "綁在腰間。\n" NOR;
 					break;
 				default:
-					str = YEL "$N装备$n。\n" NOR;
+					str = YEL "$N裝備$n。\n" NOR;
 			}
 		message_vision(str, me, ob);
 		return 1;
@@ -77,9 +77,9 @@ int do_wear(object me, object ob)
 int help(object me)
 {
 	write(@HELP
-指令格式：wear <装备名称>
+指令格式：wear <裝備名稱>
  
-    这个指令让你装备某件防具。
+    這個指令讓你裝備某件防具。
  
 HELP
 	);

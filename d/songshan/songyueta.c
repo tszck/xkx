@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "嵩岳寺塔");
+	set("short", "嵩嶽寺塔");
 	set("long", @LONG
-嵩岳寺塔为密檐式砖塔，高达十余丈，外廓十二面，内室八方四门，
-十五层密檐塔刹向上收紧，优美绝伦。
+嵩嶽寺塔爲密檐式磚塔，高達十餘丈，外廓十二面，內室八方四門，
+十五層密檐塔剎向上收緊，優美絕倫。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"songyuesi",

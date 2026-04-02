@@ -16,7 +16,7 @@ void create()
 	set("combat_exp", 5000+age*40);
 	set("shen_type", -1);
 	set("party/party_name", HIB"日月神教"NOR);
-	set("party/rank", HIW"教众"NOR);
+	set("party/rank", HIW"教衆"NOR);
 	setup();
 	add_money("silver", 10+age/10);
 }	
@@ -35,7 +35,7 @@ void greeting(object ob)
         if( !ob || environment(ob) != environment() ) return;
         switch( random(1) ) {
                 case 0:
-                        say( "日月神教，日出东方，唯我不败。\n");
+                        say( "日月神教，日出東方，唯我不敗。\n");
                         break;
                 
         }

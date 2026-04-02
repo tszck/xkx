@@ -7,23 +7,23 @@ int ask_letter();
 void create()
 {
 	set_name("阿祥", ({ "nongfu" , "a xiang", "a", "xiang" }) );
-	set("nickname", "农夫");
+	set("nickname", "農夫");
 	set("gender", "男性" );
 	set("age", 44);
 	set("combat_exp", 5000);
 	set("attitude", "friendly");
-	set("rank_info/respect", "农民伯伯");
+	set("rank_info/respect", "農民伯伯");
 	set("inquiry", ([
-		"name"   : "俺叫阿祥，不过俺不是这里土生土长的人。",
-		"rumors" : "真怀念年轻时和阿根一起盗墓的时光呀。",
-		"here"   : "这里是曹娥江，你看到那块碑了吗？背后的文字是东汉蔡邕读完碑文后写的，不知道是什么意思，好难理解呀！",
-		"碑"     : "就在那边呀，你不会没看见吧？",
-		"字"     : "蔡邕写的那八个字吗？自己看去！",
-		"文字"   : "蔡邕写的那八个字吗？自己看去！",
-		"阿根"   : "小时候的好伙伴了，我现在来到这里，他却还留在大理。",
-		"铁铲"   : "嘿嘿，要铁铲做什么？难不成你也想盗墓？",
-		"盗墓"   : "那是以前干的勾当啦。干这种活需要好工具呀，普通的铁铲什么的可不顺手！",
-		"工具"   : "我这里没有啦，阿根那里可能还有。不过听说他在大理当了大官，不会再干这个了。如果我写封信去，他也许还会卖我这个老脸。",
+		"name"   : "俺叫阿祥，不過俺不是這裏土生土長的人。",
+		"rumors" : "真懷念年輕時和阿根一起盜墓的時光呀。",
+		"here"   : "這裏是曹娥江，你看到那塊碑了嗎？背後的文字是東漢蔡邕讀完碑文後寫的，不知道是什麼意思，好難理解呀！",
+		"碑"     : "就在那邊呀，你不會沒看見吧？",
+		"字"     : "蔡邕寫的那八個字嗎？自己看去！",
+		"文字"   : "蔡邕寫的那八個字嗎？自己看去！",
+		"阿根"   : "小時候的好夥伴了，我現在來到這裏，他卻還留在大理。",
+		"鐵鏟"   : "嘿嘿，要鐵鏟做什麼？難不成你也想盜墓？",
+		"盜墓"   : "那是以前乾的勾當啦。幹這種活需要好工具呀，普通的鐵鏟什麼的可不順手！",
+		"工具"   : "我這裏沒有啦，阿根那裏可能還有。不過聽說他在大理當了大官，不會再幹這個了。如果我寫封信去，他也許還會賣我這個老臉。",
 		"信"     : (: ask_letter :),
 	]) );
 	setup();
@@ -38,7 +38,7 @@ void init()
 int ask_letter()
 {
 	this_player()->set_temp("axiang_letter", 1);
-	say( "农夫说道：“要我写信也成，不过你得先告诉(answer)我碑后面那八个字的意思。”\n");
+	say( "農夫說道：“要我寫信也成，不過你得先告訴(answer)我碑後面那八個字的意思。”\n");
 	return 1;
 }
 
@@ -48,20 +48,20 @@ int do_answer(string arg)
 	int flag;
 
 	if (!(flag = me->query_temp("axiang_letter"))) return 0;
-	if (!arg) return notify_fail("你要回答什么？\n");
-	if (arg == "绝妙好辞")
+	if (!arg) return notify_fail("你要回答什麼？\n");
+	if (arg == "絕妙好辭")
 	{
-		write( "你说道：“这不过是隐语罢了。‘黄绢’是颜色之丝，乃‘绝’字；‘幼妇’者，少女也，乃‘妙’字；‘外孙’，女之子，乃‘好’字；‘齑臼’，受五辛之器，是为‘辞’字。所以意思是‘绝妙好辞’。”\n");
-		tell_room(environment(), me->name() + "对着农夫侃侃而谈。\n", ({me}));
+		write( "你說道：“這不過是隱語罷了。‘黃絹’是顏色之絲，乃‘絕’字；‘幼婦’者，少女也，乃‘妙’字；‘外孫’，女之子，乃‘好’字；‘齏臼’，受五辛之器，是爲‘辭’字。所以意思是‘絕妙好辭’。”\n");
+		tell_room(environment(), me->name() + "對着農夫侃侃而談。\n", ({me}));
 		if (flag == 2)
 		{
 			command("kick " + me->query("id"));
-			message_vision("$N骂道：“你不是说过一遍了吗？怎么又来罗嗦！”\n", this_object());
+			message_vision("$N罵道：“你不是說過一遍了嗎？怎麼又來羅嗦！”\n", this_object());
 		}
 		else
 		{
-			message_vision("$N一拍大腿：“我怎么没有想到呀！”\n", this_object());
-			write("阿祥说：“好吧，我就写封信给阿根。”\n");
+			message_vision("$N一拍大腿：“我怎麼沒有想到呀！”\n", this_object());
+			write("阿祥說：“好吧，我就寫封信給阿根。”\n");
 			me->set_temp("axiang_letter", 2);
 			ob = new(__DIR__"obj/axiang_xin");
 			ob->move(me);
@@ -71,7 +71,7 @@ int do_answer(string arg)
 	{
 		message_vision("$N道：“容易！不就是" + arg + "的意思嘛。”\n", me);
 		command("laugh " + me->query("id"));
-		message_vision("农夫对$N说道：“我本以为自己是天底下最没文化的，现在看来只能排第二了。”\n", me);
+		message_vision("農夫對$N說道：“我本以爲自己是天底下最沒文化的，現在看來只能排第二了。”\n", me);
 	}
 	return 1;
 }

@@ -9,9 +9,9 @@ string ask_me_2(string name);
 void create()
 {
 	set_name("方土", ({ "fang tu", "fang", "tu"}));
-	set("long", "他是一位身穿黄布袈裟的青年僧人。脸上稚气未脱，身手却已相\n"
-		"当矫捷，看来似乎学过一点武功。\n");
-	set("nickname", "防具头");
+	set("long", "他是一位身穿黃布袈裟的青年僧人。臉上稚氣未脫，身手卻已相\n"
+		"當矯捷，看來似乎學過一點武功。\n");
+	set("nickname", "防具頭");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -55,13 +55,13 @@ void create()
 	prepare_skill("hand", "fengyun-hand");
 
 	set("inquiry", ([
-		"护腕"   : (: ask_me_1, "huwan" :),
-		"护腰"   : (: ask_me_1, "huyao" :),
+		"護腕"   : (: ask_me_1, "huwan" :),
+		"護腰"   : (: ask_me_1, "huyao" :),
 		"沙袋"   : (: ask_me_1, "shadai" :),
-		"护心"   : (: ask_me_1, "huxin" :),
-		"护指"   : (: ask_me_1, "huzhi" :),
+		"護心"   : (: ask_me_1, "huxin" :),
+		"護指"   : (: ask_me_1, "huzhi" :),
 		"僧鞋"   : (: ask_me_1, "sengxie" :),
-		"铁背心" : (: ask_me_2, "beixin" :)
+		"鐵背心" : (: ask_me_2, "beixin" :)
 	]));
 	set("huju_count", 50);
 	set("beixin_count", 5);
@@ -79,16 +79,16 @@ string ask_me_1(string name)
 
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "南少林派")
-		return RANK_D->query_respect(this_player()) +"与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) +"與本派素無來往，不知此話從何談起？";
 	if ( present(name, this_player()) )
-		return RANK_D->query_respect(this_player()) +"你现在身上不是有这样防具吗，怎麽又来要了？真是贪得无餍！";
+		return RANK_D->query_respect(this_player()) +"你現在身上不是有這樣防具嗎，怎麼又來要了？真是貪得無饜！";
 	if (query("huju_count") < 1)
-		return "抱歉，你来得不是时候，防具已经发完了。";
+		return "抱歉，你來得不是時候，防具已經發完了。";
 	ob = new(ARMOR_DIR + name);
 	ob->move(this_player());
 	add("huju_count", -1);
-	message_vision("方土给$N一件"+ob->query("name")+"。\n", this_player());
-	return "拿去吧。不过要记住，防具只可防身练武，不可凭此妨害他人。";
+	message_vision("方土給$N一件"+ob->query("name")+"。\n", this_player());
+	return "拿去吧。不過要記住，防具只可防身練武，不可憑此妨害他人。";
 }
 
 string ask_me_2(string name)
@@ -98,13 +98,13 @@ string ask_me_2(string name)
 
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "南少林派")
-		return RANK_D->query_respect(this_player()) +"与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) +"與本派素無來往，不知此話從何談起？";
 	if (query("beixin_count") < 1)
-		return "抱歉，你来得不是时候，武器已经发完了。";
+		return "抱歉，你來得不是時候，武器已經發完了。";
 	ob = new(ARMOR_DIR + name);
 	ob->move(this_player());
 	add("beixin_count", -1);
-	message_vision("方土给$N一件"+ob->query("name")+"。\n", this_player());
-	return "拿去吧。不过要记住，铁背心乃是防身宝物，不可凭此妨害他人。";
+	message_vision("方土給$N一件"+ob->query("name")+"。\n", this_player());
+	return "拿去吧。不過要記住，鐵背心乃是防身寶物，不可憑此妨害他人。";
 }
 #include "/kungfu/class/nanshaolin/fang.h";

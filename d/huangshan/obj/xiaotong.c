@@ -12,8 +12,8 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "个");
-		set("long", "一块恰如跪拜的童子小石。\n");
+		set("unit", "個");
+		set("long", "一塊恰如跪拜的童子小石。\n");
 		set("value", 1);
 	}
 }

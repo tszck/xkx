@@ -9,12 +9,12 @@ string look_gate();
 
 void create()
 {
-	set("short", "少林山门");
+	set("short", "少林山門");
 	set("long", @LONG
-转过山坳，举目望去，山谷里一大片房屋都是碧瓦黄墙，却是一座
-大丛林。到庙前抬头一望，见山门(gate)正中金字写着“少林古刹”四
-个大字。原来这里就是南少林寺。福建少林寺虽是嵩山下院，但南方莆
-田少林下院的武功与嵩山少林一脉相传，寺中僧人武功之强，不下嵩山
+轉過山坳，舉目望去，山谷裏一大片房屋都是碧瓦黃牆，卻是一座
+大叢林。到廟前抬頭一望，見山門(gate)正中金字寫着“少林古剎”四
+個大字。原來這裏就是南少林寺。福建少林寺雖是嵩山下院，但南方莆
+田少林下院的武功與嵩山少林一脈相傳，寺中僧人武功之強，不下嵩山
 本寺。
 LONG );
 	set("outdoors", "nanshaolin");
@@ -49,11 +49,11 @@ int close_gate()
 	if(objectp(room))
 	{
 		delete("exits/north");
-		message("vision","乒地一声，里面有人把大门关上了。\n",this_object());
+		message("vision","乒地一聲，裏面有人把大門關上了。\n",this_object());
 		room->delete("exits/south");
 		if (objectp(present("yuan tong", room)))
-			message("vision","元痛上前把大门关了起来。\n",room);
-		else message("vision","壮年僧人上前把大门关了起来。\n",room);
+			message("vision","元痛上前把大門關了起來。\n",room);
+		else message("vision","壯年僧人上前把大門關了起來。\n",room);
 	}
 	else message("vision", "ERROR: gate not found(close).\n", room);
 }
@@ -62,19 +62,19 @@ int do_knock(string arg)
 {
 	object room;
 
-	if (query("exits/north")) return notify_fail("大门已经是开着了。\n");
+	if (query("exits/north")) return notify_fail("大門已經是開着了。\n");
 
 	if (!arg || (arg != "gate" && arg != "north"))
-		return notify_fail("你要敲什么？\n");
+		return notify_fail("你要敲什麼？\n");
 
 	if(!( room = find_object(__DIR__"gchang-1")) )
 		room = load_object(__DIR__"gchang-1");
 	if(objectp(room))
 	{
 		set("exits/north", __DIR__"gchang-1");
-		message_vision("$N轻轻地敲了敲门，只听吱地一声，一位壮年僧人应声打开大门，\n他用锐利的目光上上下下打量着$N。\n", this_player());
+		message_vision("$N輕輕地敲了敲門，只聽吱地一聲，一位壯年僧人應聲打開大門，\n他用銳利的目光上上下下打量着$N。\n", this_player());
 		room->set("exits/south", __FILE__);
-		message("vision","外面传来一阵敲门声，壮年僧人应声上前把大门开。\n", room);
+		message("vision","外面傳來一陣敲門聲，壯年僧人應聲上前把大門開。\n", room);
 		remove_call_out("close_gate");
 		call_out("close_gate", 10);
 	}
@@ -93,7 +93,7 @@ int valid_leave(object me, string dir)
 		if (((int)me->query("guilty") == 0) &&
 			((int)me->query("K_record") == ((int)me->query("PKS") + (int)me->query("MKS"))))
 		{
-			message_vision("壮年僧人侧身让开，说道：师兄辛苦了，请进。\n", me);
+			message_vision("壯年僧人側身讓開，說道：師兄辛苦了，請進。\n", me);
 			return 1;
 		}
 		else
@@ -107,13 +107,13 @@ int valid_leave(object me, string dir)
 				me->set("K_record", me->query("PKS") + me->query("MKS"));
 				me->set("shen_record", me->query("shen"));
 			}
-			write("壮年僧人沉下脸来，说道：戒律院主持大癫大师请师兄\n火速去戒律院陈述此行过犯。\n");
+			write("壯年僧人沉下臉來，說道：戒律院主持大癲大師請師兄\n火速去戒律院陳述此行過犯。\n");
 			return 1;
 		}
 	}
 	else if( present("yingxiong ling", me) )
 		{
-			message_vision("壮年僧人合十为礼，侧身让开，说道：原来是贵客驾到，请进请进！\n", me);
+			message_vision("壯年僧人合十爲禮，側身讓開，說道：原來是貴客駕到，請進請進！\n", me);
 			return 1;
 		}
     
@@ -121,18 +121,18 @@ int valid_leave(object me, string dir)
 	{
 		if (me->query("gender") == "女性")
 		{
-			return notify_fail("壮年僧人说道：这位女施主还是请回罢，本寺从不接待女客。\n");
+			return notify_fail("壯年僧人說道：這位女施主還是請回罷，本寺從不接待女客。\n");
 		}
 		else
 		{
-			return notify_fail("壮年僧人说道：这位施主请回罢，本寺不接待俗人。\n");
+			return notify_fail("壯年僧人說道：這位施主請回罷，本寺不接待俗人。\n");
 		}
 	}
 
-	return notify_fail("壮年僧人立时从身畔挚出一把雪亮的戒刀来，把明晃晃的\n刀尖对准你的胸口，横眉怒目地说道：你等邪魔外道，还不给我滚开！\n以后再敢走近少林一步，我立时就斩断你们的狗腿！\n");
+	return notify_fail("壯年僧人立時從身畔摯出一把雪亮的戒刀來，把明晃晃的\n刀尖對準你的胸口，橫眉怒目地說道：你等邪魔外道，還不給我滾開！\n以後再敢走近少林一步，我立時就斬斷你們的狗腿！\n");
 }
 
 string look_gate()
 {
-	return "一道三丈来高的朱红杉木包铜大门。\n";
+	return "一道三丈來高的硃紅杉木包銅大門。\n";
 }

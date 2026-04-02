@@ -13,7 +13,7 @@ void create()
 	set_name(NOR"莽牯"HIR"朱"NOR"蛤", ({"ha"}));
 	set("unit", "只");
 	set("value", 40000);
-	set("long","莽牯朱蛤是瘟神爷的坐骑，那也是说说罢了。文殊菩萨骑狮子，普贤菩萨骑白象，太上老君骑青牛，这莽牯朱蛤是万毒之王，神通广大，毒性厉害，故老相传，就说它是瘟菩萨的坐骑。\n");
+	set("long","莽牯朱蛤是瘟神爺的坐騎，那也是說說罷了。文殊菩薩騎獅子，普賢菩薩騎白象，太上老君騎青牛，這莽牯朱蛤是萬毒之王，神通廣大，毒性厲害，故老相傳，就說它是瘟菩薩的坐騎。\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -22,13 +22,13 @@ int do_eat(string arg)
 {
 	object me=this_player();
 
-	if (!id(arg)) return notify_fail("你要吃什么？\n");
+	if (!id(arg)) return notify_fail("你要喫什麼？\n");
 	if (!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if (me->is_busy() || random(2)==1 )
-		return notify_fail("别急，慢慢吃，小心别毒死了。\n");
+		return notify_fail("別急，慢慢喫，小心別毒死了。\n");
 
-	message_vision(HIG"$N吃下一只"+name()+HIG"，顿觉精力渐生，全身委顿渐渐消去。\n" NOR, me);
+	message_vision(HIG"$N喫下一隻"+name()+HIG"，頓覺精力漸生，全身委頓漸漸消去。\n" NOR, me);
 	if (me->query_condition("drunk"))
 		me->apply_condition("drunk",0);
 	if (me->query_condition("flower_poison"))

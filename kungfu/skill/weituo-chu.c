@@ -1,5 +1,5 @@
 // Last Modified by winder on May. 29 2001
-// weituo-chu.c 韦陀杵
+// weituo-chu.c 韋陀杵
 
 #include <ansi.h>
 inherit SKILL;
@@ -8,44 +8,44 @@ string martialtype() { return "skill"; }
  
 mapping *action = ({
 ([
-	"action" : "$N跃在半空，一招"HIG"「仙鹤展翅入灵山」"NOR"，手中$w已化成无数棍影，令$n眼花缭乱，不知所措，连连倒退",
+	"action" : "$N躍在半空，一招"HIG"「仙鶴展翅入靈山」"NOR"，手中$w已化成無數棍影，令$n眼花繚亂，不知所措，連連倒退",
 	"lvl"    : 0,
-	"skill_name" : "仙鹤展翅入灵山"
+	"skill_name" : "仙鶴展翅入靈山"
 ]),
 ([
-	"action" : "$N挺$w将$n的$W架住，顺势一招"HIC"「玉马衔环拜仙宫」"NOR"，$w上下左右飞快搅动，身随棍走，向$n压了下来",
+	"action" : "$N挺$w將$n的$W架住，順勢一招"HIC"「玉馬銜環拜仙宮」"NOR"，$w上下左右飛快攪動，身隨棍走，向$n壓了下來",
 	"lvl"    : 40,
-	"skill_name" : "玉马衔环拜仙宫"
+	"skill_name" : "玉馬銜環拜仙宮"
 ]),
 ([
-	"action" : "$N一招"HIY"「鸣鹿踏蹄觅仙草」"NOR"，屈膝俯身，手中$w连点$n下盘，却未等招数用老，猛的一提，向$n的胸腹间戳去",
+	"action" : "$N一招"HIY"「鳴鹿踏蹄覓仙草」"NOR"，屈膝俯身，手中$w連點$n下盤，卻未等招數用老，猛的一提，向$n的胸腹間戳去",
 	"lvl"    : 60,
-	"skill_name" : "鸣鹿踏蹄觅仙草"
+	"skill_name" : "鳴鹿踏蹄覓仙草"
 ]),
 ([
-	"action" : "$N突然滚到在地，$n错愕间，一招"HIR"「金鲤跃水潜天池」"NOR"，竟从$n的裆下窜过，更不回头，$w反手扫向$n的$l",
+	"action" : "$N突然滾到在地，$n錯愕間，一招"HIR"「金鯉躍水潛天池」"NOR"，竟從$n的襠下竄過，更不回頭，$w反手掃向$n的$l",
 	"lvl"    : 80,
-	"skill_name" : "金鲤跃水潜天池"
+	"skill_name" : "金鯉躍水潛天池"
 ]),
 ([
-	"action" : "$N一招"HIM"「灵猿献果赴蓬莱」"NOR"，身形如电，绕着$n飞快奔跑，手中$w一招快似一招，刹那间向$n连打出十六棍",
+	"action" : "$N一招"HIM"「靈猿獻果赴蓬萊」"NOR"，身形如電，繞着$n飛快奔跑，手中$w一招快似一招，剎那間向$n連打出十六棍",
 	"lvl"    : 100,
-	"skill_name" : "灵猿献果赴蓬莱"
+	"skill_name" : "靈猿獻果赴蓬萊"
 ]),
 ([
-	"action" : "$N大踏步上前，劲贯双臂，手中$w大开大阖，呼呼风声中一招"HIC"「飞鹰盘旋扫乾坤」"NOR"扫向$n的腰间",
+	"action" : "$N大踏步上前，勁貫雙臂，手中$w大開大闔，呼呼風聲中一招"HIC"「飛鷹盤旋掃乾坤」"NOR"掃向$n的腰間",
 	"lvl"    : 120,
-	"skill_name" : "飞鹰盘旋扫乾坤"
+	"skill_name" : "飛鷹盤旋掃乾坤"
 ]),
 ([
-	"action" : "$N大喝一声，一招"HIY"「天龙出水腾宇宙」"NOR"，$w脱手飞出，夹着劲风射向$n的前心，随即抢到$n的身后，伸手又把$w抄在手中",
+	"action" : "$N大喝一聲，一招"HIY"「天龍出水騰宇宙」"NOR"，$w脫手飛出，夾着勁風射向$n的前心，隨即搶到$n的身後，伸手又把$w抄在手中",
 	"lvl"    : 130,
-	"skill_name" : "天龙出水腾宇宙"
+	"skill_name" : "天龍出水騰宇宙"
 ]),
 ([
-	"action" : "$N双目圆睁，口中默诵真言，一招"HIW"「白象卷云憾天柱」"NOR"，$w似有千斤，缓缓举起，又缓缓向$n的当头砸落",
+	"action" : "$N雙目圓睜，口中默誦真言，一招"HIW"「白象捲雲憾天柱」"NOR"，$w似有千斤，緩緩舉起，又緩緩向$n的當頭砸落",
 	"lvl"    : 150,
-	"skill_name" : "白象卷云憾天柱"
+	"skill_name" : "白象捲雲憾天柱"
 ]),
 });
 
@@ -54,15 +54,15 @@ int valid_learn(object me)
 {
 	if ((int)me->query_skill("ranmu-blade",1) > 1 ||
 		(int)me->query_skill("riyue-whip",1) > 1 )
-		return notify_fail("你如果有达摩老祖的修为，方可同时学习少林三绝技。\n"); 
+		return notify_fail("你如果有達摩老祖的修爲，方可同時學習少林三絕技。\n"); 
 	if ((int)me->query("max_neili") < 1500)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 150)
-		return notify_fail("你的站桩功火候太浅。\n");
+		return notify_fail("你的站樁功火候太淺。\n");
 	if ((int)me->query_skill("yijinjing", 1) < 150)
-		return notify_fail("你的易筋经内功火候太浅。\n");
+		return notify_fail("你的易筋經內功火候太淺。\n");
 	if((int)me->query_skill("zui-club",1) < 150)
-		return notify_fail("你的醉棍火候不足，难以领悟韦陀杵。\n");
+		return notify_fail("你的醉棍火候不足，難以領悟韋陀杵。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -71,11 +71,11 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "club")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if ((int)me->query("qi") < 70)
-		return notify_fail("你的体力不够练韦陀棍。\n");
+		return notify_fail("你的體力不夠練韋陀棍。\n");
 	if ((int)me->query("neili") < 70)
-		return notify_fail("你的内力不够练韦陀棍。\n");
+		return notify_fail("你的內力不夠練韋陀棍。\n");
 	me->receive_damage("qi", 60);
 	if((int)me->query_skill("weituo-chu",1)> 200)
 	{
@@ -107,17 +107,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : "挫伤",
+		"damage_type" : "挫傷",
 	]);
 }
 int learn_bonus() { return 0; }
@@ -131,18 +131,18 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIC"\n韦陀杵："NOR"\n");
+	write(HIC"\n韋陀杵："NOR"\n");
 	write(@HELP
 
-    韦陀杵是南少林顶级棍法。
-    韦陀杵、日月鞭法和燃木刀法并列为南少林三绝技。
-    三绝技不能同时修习。
+    韋陀杵是南少林頂級棍法。
+    韋陀杵、日月鞭法和燃木刀法並列爲南少林三絕技。
+    三絕技不能同時修習。
 
-	学习要求：
-		易筋经150级
-		站桩功150级
-		少林醉棍150级
-		内力修为1500
+	學習要求：
+		易筋經150級
+		站樁功150級
+		少林醉棍150級
+		內力修爲1500
 HELP
 	);
 	return 1;

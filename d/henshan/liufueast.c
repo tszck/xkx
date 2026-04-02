@@ -7,10 +7,10 @@ int do_knock(string arg);
 
 void create()
 {
-	set("short", "东厢房");
+	set("short", "東廂房");
 	set("long", @LONG
-这儿是东厢房，这儿整理得干干净净，窗外露出点绿绿的枝叶，家
-具上一尘不染，地上铺着很大块的青砖，一点灰尘也不沾。
+這兒是東廂房，這兒整理得乾乾淨淨，窗外露出點綠綠的枝葉，家
+具上一塵不染，地上鋪着很大塊的青磚，一點灰塵也不沾。
 LONG);
 	set("exits", ([
 	    "west"   : __DIR__"liufudating",

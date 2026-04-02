@@ -5,10 +5,10 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("小贩", ({ "seller" }) );
+	set_name("小販", ({ "seller" }) );
 	set("gender", "男性" );
 	set("age", 32);
-	set("long", "这是个小贩，别看他长的老老实实，可你别想从他那儿掏便宜。\n");
+	set("long", "這是個小販，別看他長的老老實實，可你別想從他那兒掏便宜。\n");
 	set("combat_exp", 300);
 	set("str", 17);
 	set("dex", 20);
@@ -16,7 +16,7 @@ void create()
 	set("int", 22);
 	set("attitude", "friendly");
 	set("inquiry", ([
-		"大力丸" : "看你也是正人君子，怎么问这个？\n",
+		"大力丸" : "看你也是正人君子，怎麼問這個？\n",
 	]) );
 	set("vendor_goods", ({
 		"/d/village/npc/obj/bottle",
@@ -42,6 +42,6 @@ void init()
 void greeting(object ob)
 {
 	if (ob->query("gender")!="女性")
-		say("小贩吆喝道：大力丸，大力丸，一夜管睡百姑娘！\n");
+		say("小販吆喝道：大力丸，大力丸，一夜管睡百姑娘！\n");
 	return;
 }

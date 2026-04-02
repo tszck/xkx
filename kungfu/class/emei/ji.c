@@ -1,4 +1,4 @@
-// ji.c 纪晓芙
+// ji.c 紀曉芙
 
 inherit NPC;
 inherit F_MASTER;
@@ -6,9 +6,9 @@ int ask_jian();
 
 void create()
 {
-	set_name("纪晓芙", ({ "ji xiaofu","ji","xiaofu"}));
-	set("long", "她是峨嵋派的第四代俗家弟子。偏心偏听的灭绝抛弃她，\n"
-		"她独自在这里苦度光阴。\n");
+	set_name("紀曉芙", ({ "ji xiaofu","ji","xiaofu"}));
+	set("long", "她是峨嵋派的第四代俗家弟子。偏心偏聽的滅絕拋棄她，\n"
+		"她獨自在這裏苦度光陰。\n");
 	set("gender", "女性");
 	set("age", 22);
 	set("attitude", "peaceful");
@@ -22,11 +22,11 @@ void create()
 	set("dex", 30);
 	set("per", 30);
 	set("inquiry",([
-		"倚天剑" : (:ask_jian:),
-		"屠龙刀" : "这里没有屠龙刀。倚天剑倒是有一柄。",
-		"杨不悔" : "我的女儿啊。她在哪里？你知道么？",
-		"杨逍"   : "我这辈子是不指望见到他了。",
-		"灭绝"   : "师父就是太偏心。",
+		"倚天劍" : (:ask_jian:),
+		"屠龍刀" : "這裏沒有屠龍刀。倚天劍倒是有一柄。",
+		"楊不悔" : "我的女兒啊。她在哪裏？你知道麼？",
+		"楊逍"   : "我這輩子是不指望見到他了。",
+		"滅絕"   : "師父就是太偏心。",
 	]));
 
 	set("max_qi", 1500);
@@ -81,15 +81,15 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("shen") < 0) {
-		command("say 我峨嵋乃是堂堂名门正派，对弟子要求极严。");
+		command("say 我峨嵋乃是堂堂名門正派，對弟子要求極嚴。");
 		command("say 在德行方面，" + RANK_D->query_respect(ob) +
-			"是否还做得不够？");
+			"是否還做得不夠？");
 		return;
 	}
 	if ((int)ob->query("combat_exp") > 100) {
-		command("say 我峨嵋注重清修，对弟子要求能忍受寂寞。");
-		command("say 在江湖阅历方面，" + RANK_D->query_respect(ob) +
-			"经历丰富，是否能在峨嵋修道？");
+		command("say 我峨嵋注重清修，對弟子要求能忍受寂寞。");
+		command("say 在江湖閱歷方面，" + RANK_D->query_respect(ob) +
+			"經歷豐富，是否能在峨嵋修道？");
 		return;
 	}
 	command("say 好吧，我就收下你了。");
@@ -100,8 +100,8 @@ int ask_jian()
 	object ob = this_player();
 	ob->set("marks/ji",0);
 	ob->set("marks/skysword",1);
-	say( "纪晓芙微微叹了口气：“倚天剑就在舍身崖下。”\n");
-	tell_object(ob,"说完，她飘然跃下舍身崖去。衣袂飘动，白云荡处，伤感顿生。\n");
+	say( "紀曉芙微微嘆了口氣：“倚天劍就在捨身崖下。”\n");
+	tell_object(ob,"說完，她飄然躍下捨身崖去。衣袂飄動，白雲蕩處，傷感頓生。\n");
 	call_out("goway",2);
 	return 1;
 }

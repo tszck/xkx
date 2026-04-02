@@ -41,10 +41,10 @@ void create()
 	map_skill("parry", "damo-jian");
 
 	set("inquiry", ([
-		"无量玉壁"  : "那是本派禁地，任何外人不得擅入。干犯禁忌，可叫你死葬身之地。",
+		"無量玉壁"  : "那是本派禁地，任何外人不得擅入。干犯禁忌，可叫你死葬身之地。",
 	]));
 
-	create_family("无量剑东宗", 4, "弟子");
+	create_family("無量劍東宗", 4, "弟子");
 	setup();
 
         carry_object("/d/wudang/obj/greyrobe")->wear();

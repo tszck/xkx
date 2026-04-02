@@ -6,12 +6,12 @@ inherit ROOM;
 string look_gaoshi();
 void create()
 {
-	set("short", "熙春门");
+	set("short", "熙春門");
 	set("long", @LONG
-这是无锡的东城门，城门正上方刻着“熙春门”三个楷书大字，城
-墙上贴着几张官府告示(gaoshi)。护城河水一刻不停地流着，过了吊桥
-便是一条笔直的大道向东方延伸，那是去苏州的驿道，常有驿使的快马
-疾驰而过。西边是城里。
+這是無錫的東城門，城門正上方刻着“熙春門”三個楷書大字，城
+牆上貼着幾張官府告示(gaoshi)。護城河水一刻不停地流着，過了吊橋
+便是一條筆直的大道向東方延伸，那是去蘇州的驛道，常有驛使的快馬
+疾馳而過。西邊是城裏。
 LONG );
 	set("outdoors", "wuxi");
 	set("no_clean_up", 0);
@@ -35,5 +35,5 @@ LONG );
 
 string look_gaoshi()
 {
-	return FINGER_D->get_killer() + "\n无锡知府\n晨宜\n";
+	return FINGER_D->get_killer() + "\n無錫知府\n晨宜\n";
 }

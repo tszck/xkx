@@ -6,12 +6,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", BLU"证道院"NOR);
+	set("short", BLU"證道院"NOR);
 	set("long", @LONG
-穿过西侧廊，前面出现一片宽阔的院落。院门的匾额上写着“证道
-院”三个大字，这里乃是僧人们日常念经诵佛，参禅打坐的地方。院中
-种满了翠竹，显得极是幽静。从周围的禅房中不断传出阵阵的梵唱和木
-鱼敲击的声音。
+穿過西側廊，前面出現一片寬闊的院落。院門的匾額上寫着“證道
+院”三個大字，這裏乃是僧人們日常唸經誦佛，參禪打坐的地方。院中
+種滿了翠竹，顯得極是幽靜。從周圍的禪房中不斷傳出陣陣的梵唱和木
+魚敲擊的聲音。
 LONG );
 	set("exits", ([
 		"west" : __DIR__"chanfang-1",
@@ -34,7 +34,7 @@ int valid_leave(object me, string dir)
 
 	if ((!myfam || myfam["family_name"] != "南少林派") && dir == "west" &&
 		objectp(present("dapi dashi", environment(me))))
-		return notify_fail("大疲大师喝道：证道院乃本寺弟子禅修之处，你非本寺弟子，不能入内。\n");
+		return notify_fail("大疲大師喝道：證道院乃本寺弟子禪修之處，你非本寺弟子，不能入內。\n");
 	return ::valid_leave(me, dir);
 }
 

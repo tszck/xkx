@@ -1,16 +1,16 @@
-// 密宗心经
+// 密宗心經
 
 inherit ITEM;
 
 void create()
 {
-	set_name( "密宗心经", ({ "jing" , "shu", "book" }));
+	set_name( "密宗心經", ({ "jing" , "shu", "book" }));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一册密宗心经,记载着佛学的要旨。\n");
+		set("long", "這是一冊密宗心經,記載着佛學的要旨。\n");
 		set("value", 0);
 		set("material", "paper");
 		set("skill", ([

@@ -1,4 +1,4 @@
-// qianzhu-wandushou.c 千蛛万毒手
+// qianzhu-wandushou.c 千蛛萬毒手
 // Last Modified by winder on May. 17 2001
 
 #include <ansi.h>
@@ -7,35 +7,35 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N身形一晃而至，一招"HIB"「小鬼勾魂」"NOR"，双掌带着一缕腥风拍向$n的前心",
+([	"action" : "$N身形一晃而至，一招"HIB"「小鬼勾魂」"NOR"，雙掌帶着一縷腥風拍向$n的前心",
 	"lvl"    : 0,
 	"skill_name" : "小鬼勾魂"
 ]),
-([	"action" : "$N身形化做一缕轻烟绕着$n急转，一招"MAG"「天网恢恢」"NOR"，双掌幻出无数掌影罩向$n",
+([	"action" : "$N身形化做一縷輕煙繞着$n急轉，一招"MAG"「天網恢恢」"NOR"，雙掌幻出無數掌影罩向$n",
 	"lvl"    : 20,
-	"skill_name" : "天网恢恢"
+	"skill_name" : "天網恢恢"
 ]),
-([	"action" : "$N大喝一声，一招"BLU"「恶鬼推门」"NOR"，单掌如巨斧开山带着一股腥风猛劈向$n的面门",
+([	"action" : "$N大喝一聲，一招"BLU"「惡鬼推門」"NOR"，單掌如巨斧開山帶着一股腥風猛劈向$n的面門",
 	"lvl"    : 30,
-	"skill_name" : "恶鬼推门"
+	"skill_name" : "惡鬼推門"
 ]),
-([	"action" : "$N一声冷笑，一招"HIR"「灵蛇九转」"NOR"，身形一闪而至，一掌轻轻拍出，手臂宛若无骨，掌到中途竟连变九变，如鬼魅般印向$n的$l",
+([	"action" : "$N一聲冷笑，一招"HIR"「靈蛇九轉」"NOR"，身形一閃而至，一掌輕輕拍出，手臂宛若無骨，掌到中途竟連變九變，如鬼魅般印向$n的$l",
 	"lvl"    : 40,
-	"skill_name" : "灵蛇九转"
+	"skill_name" : "靈蛇九轉"
 ]),
-([	"action" : "$N侧身向前，一招"BLU"「地府阴风」"NOR"，双掌连环拍出，一缕缕彻骨的寒气从掌心透出，将$n周围的空气都凝结了",
+([	"action" : "$N側身向前，一招"BLU"「地府陰風」"NOR"，雙掌連環拍出，一縷縷徹骨的寒氣從掌心透出，將$n周圍的空氣都凝結了",
 	"lvl"    : 50,
-	"skill_name" : "地府阴风"
+	"skill_name" : "地府陰風"
 ]),
-([	"action" : "$N厉叫一声，身形忽的蜷缩如球，飞身撞向$n，一招"YEL "「黄蜂吐刺」"NOR"单掌如剑，直刺$n的心窝",
+([	"action" : "$N厲叫一聲，身形忽的蜷縮如球，飛身撞向$n，一招"YEL "「黃蜂吐刺」"NOR"單掌如劍，直刺$n的心窩",
 	"lvl"    : 60,
-	"skill_name" : "黄蜂吐刺"
+	"skill_name" : "黃蜂吐刺"
 ]),
-([	"action" : "$N一个急旋，飞身纵起，半空中一式"HIB"「毒龙摆尾」"NOR"，反手击向$n的$l",
+([	"action" : "$N一個急旋，飛身縱起，半空中一式"HIB"「毒龍擺尾」"NOR"，反手擊向$n的$l",
 	"lvl"    : 70,
-	"skill_name" : "毒龙摆尾"
+	"skill_name" : "毒龍擺尾"
 ]),
-([	"action" : "$N大喝一声，运起五毒神功，一招"RED"「毒火焚身」"NOR"，刹那间全身毛发尽绿，一对碧绿的双爪闪电般的朝$n的$l抓去",
+([	"action" : "$N大喝一聲，運起五毒神功，一招"RED"「毒火焚身」"NOR"，剎那間全身毛髮盡綠，一對碧綠的雙爪閃電般的朝$n的$l抓去",
 	"lvl"    : 80,
 	"skill_name" : "毒火焚身"
 ]),
@@ -47,21 +47,21 @@ int valid_combine(string combo) { return combo=="wudu-zhang"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练千蛛万毒手必须空手。\n");
+		return notify_fail("練千蛛萬毒手必須空手。\n");
 	if ((int)me->query_skill("wudu-shengong", 1) < 10)
-		return notify_fail("你五毒神功火候不够，无法练千蛛万毒手。\n");
+		return notify_fail("你五毒神功火候不夠，無法練千蛛萬毒手。\n");
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail("你的内力太弱，无法练千蛛万毒手");
+		return notify_fail("你的內力太弱，無法練千蛛萬毒手");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 60)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 60)
-		return notify_fail("你的内力不够练千蛛万毒手。\n");
+		return notify_fail("你的內力不夠練千蛛萬毒手。\n");
 	me->receive_damage("qi", 40);
 	me->add("neili", -30);
 	return 1;
@@ -91,14 +91,14 @@ mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 				victim->apply_condition("chanchu_poison", (me->query_skill("wudu-shengong"))/10 + victim->query_condition("chanchu_poison"));
 				break;
 		}
-		return HIR "$n只觉得伤处一阵发麻，似乎中毒了。\n" NOR;
+		return HIR "$n只覺得傷處一陣發麻，似乎中毒了。\n" NOR;
 	}
 }
 void skill_improved(object me)
 {
 	if(random(15) < 1 && me->query("per") > 5)
 	{
-		tell_object(me, HIR"你忽然觉得体内毒气狂窜，面上顿时罩着一层黑气！\n" NOR );
+		tell_object(me, HIR"你忽然覺得體內毒氣狂竄，面上頓時罩着一層黑氣！\n" NOR );
 		me->add("per", -1);
 	}
 }
@@ -124,16 +124,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 0; }
@@ -147,16 +147,16 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIC"\n千蛛万毒手："NOR"\n");
+	write(HIC"\n千蛛萬毒手："NOR"\n");
 	write(@HELP
 
-    千蛛万毒手是五毒教的独门功夫，有独门修炼方法。靠吸取毒
-虫身上的毒气来练成毒功，虽然厉害，但毒气会损坏自己的容貌，
-使自己变的丑陋无比。
+    千蛛萬毒手是五毒教的獨門功夫，有獨門修煉方法。靠吸取毒
+蟲身上的毒氣來練成毒功，雖然厲害，但毒氣會損壞自己的容貌，
+使自己變的醜陋無比。
 
-	学习要求：
-		五毒神功20级
-		内力100
+	學習要求：
+		五毒神功20級
+		內力100
 HELP
 	);
 	return 1;

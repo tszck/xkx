@@ -1,11 +1,11 @@
-// ruying.c 如影随形
+// ruying.c 如影隨形
 // Last Modified by winder on May. 29 2001
 
 #include <ansi.h>
 #include <combat.h>
 
 inherit F_SSERVER;
-#define PNAME "「如影随形」"
+#define PNAME "「如影隨形」"
 int perform(object me, object target)
 {
 	string msg;
@@ -20,16 +20,16 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("使用「如影随形」时双手必须空着！\n");
+		return notify_fail("使用「如影隨形」時雙手必須空着！\n");
 	fskill = "zhanzhuang-gong";
 	bskill = "leg";
 	if (SCBORN_D->valid_perform(me,sskill,pfname))
@@ -42,18 +42,18 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"等级不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"等級不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query_dex() < 27 )
-		return notify_fail("你的身法不够强，不能使用"PNAME"。\n");
+		return notify_fail("你的身法不夠強，不能使用"PNAME"。\n");
 
 	if( (int)me->query("neili") < 1000 )
-		return notify_fail("你现在内力太弱，不能使用"PNAME"。\n");
+		return notify_fail("你現在內力太弱，不能使用"PNAME"。\n");
 
-	msg = HIY"$N"HIY"忽然身随掌起，双腿连环，霎时之间连踢五腿，一腿既出，第二腿如影随形，紧跟而至。\n" NOR;
+	msg = HIY"$N"HIY"忽然身隨掌起，雙腿連環，霎時之間連踢五腿，一腿既出，第二腿如影隨形，緊跟而至。\n" NOR;
 	message_combatd(msg, me, target);
 	for (count=0;count<5;count++)
 	{
@@ -74,12 +74,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		可以连续踢出五腿，使敌人无喘息之机，威力强大。
+		可以連續踢出五腿，使敵人無喘息之機，威力強大。
 	出手要求：
-		站桩功50级
-		如影随形腿100级
-		后天身法27
-		内力1000
+		站樁功50級
+		如影隨形腿100級
+		後天身法27
+		內力1000
 HELP
 	);
 	return 1;

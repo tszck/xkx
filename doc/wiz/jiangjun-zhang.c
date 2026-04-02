@@ -1,53 +1,53 @@
-// jiangjun-zhang.c 裴将军诗杖法
+// jiangjun-zhang.c 裴將軍詩杖法
 
 inherit SKILL;
 
 mapping *action = ({
 ([      "action":               
-"$N手中$w向$n的$l连点三点，正是「裴」字起首三笔！",
+"$N手中$w向$n的$l連點三點，正是「裴」字起首三筆！",
 	"damage":		100,
-	"damage_type":  "挫伤"
+	"damage_type":  "挫傷"
 ]),
 ([      "action":               
-"$N挥起$w，对准$n的$l虚点，自右上角至右下角弯曲而下，正是「如」字草书！",
+"$N揮起$w，對準$n的$l虛點，自右上角至右下角彎曲而下，正是「如」字草書！",
 	"damage":		120,
-	"damage_type":  "挫伤"
+	"damage_type":  "挫傷"
 ]),
 ([      "action":               
-"$N横过$w，写了个「猛」字，对着$n斜扫过去！",
+"$N橫過$w，寫了個「猛」字，對着$n斜掃過去！",
 	"damage":		140,
-	"damage_type":  "挫伤"
+	"damage_type":  "挫傷"
 ]),
 ([      "action":               
-"$N大喝一声，笔法一变写出个「将」字，$w一挺撞向$n$l！",
+"$N大喝一聲，筆法一變寫出個「將」字，$w一挺撞向$n$l！",
 	"damage":		160,
-	"damage_type":  "挫伤"
+	"damage_type":  "挫傷"
 ]),
 ([	"action":
-"$N身形微转，$w向着$n的$l横扫过去，顺势带出个「龙」字！",
+"$N身形微轉，$w向着$n的$l橫掃過去，順勢帶出個「龍」字！",
 	"damage":		180,
-	"damage_type":		"瘀伤",
+	"damage_type":		"瘀傷",
 ]),
 ([	"action":
-"$N高高跃起，手中$w划出个「壮」字，向着$n的$l撞了过来！",
+"$N高高躍起，手中$w劃出個「壯」字，向着$n的$l撞了過來！",
 	"damage":		200,
-	"damage_type":		"挫伤",
+	"damage_type":		"挫傷",
 ]),
 ([	"action":
-"$N怒喝一声，手中$w急舞正是个「腾」字，将$n$l罩于杖下！",
+"$N怒喝一聲，手中$w急舞正是個「騰」字，將$n$l罩於杖下！",
 	"damage":	250,
-	"damage_type":	"内伤",
+	"damage_type":	"內傷",
 ]),
 });
 
 int valid_learn(object me)
 {
 	if(me->query_skill("xuantian-zhi",1)<20)
-		return notify_fail("你的「玄天指法」不够娴熟。\n");
+		return notify_fail("你的「玄天指法」不夠嫺熟。\n");
 	if ((int)me->query_skill("kuihua-xinfa", 1) < 120)
-		return notify_fail("你的葵花心法火候不够。\n");
+		return notify_fail("你的葵花心法火候不夠。\n");
 	if(me->query("max_neili")<50)
-		return notify_fail("你的内力修为不够。\n");
+		return notify_fail("你的內力修爲不夠。\n");
         return 1;
 }
 
@@ -67,10 +67,10 @@ int practice_skill(object me)
 
         if( !objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "staff" )
-                return notify_fail("你必须先找一根木杖或者是类似的武器，才能练杖法。\n");
+                return notify_fail("你必須先找一根木杖或者是類似的武器，才能練杖法。\n");
 
 	if((int)me->query("qi") <40)
-                return notify_fail("你的体力不够练这门杖法，还是先休息休息吧。\n");
+                return notify_fail("你的體力不夠練這門杖法，還是先休息休息吧。\n");
 	me->receive_damage("qi",40);
         return 1;
 }

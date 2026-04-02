@@ -7,9 +7,9 @@ inherit NPC;
 void create()
 {
 	set_name("小豹子", ({ "xiao baozi", "baozi" }) );
-	set("race", "走兽");
+	set("race", "走獸");
 	set("age", 1);
-	set("long", "一只身体不大可是很结实的小豹子，它正瞪着眼睛看着你。\n");
+	set("long", "一隻身體不大可是很結實的小豹子，它正瞪着眼睛看着你。\n");
 	set("attitude", "aggressive");
 	set_weight(200000);
 	set("max_qi", 100);
@@ -36,7 +36,7 @@ void die()
 
 	ob = new(__DIR__"obj/baodan");
 	ob->move(environment(this_object()));
-	message_vision("$N惨嚎一声，死了！\n", this_object());
+	message_vision("$N慘嚎一聲，死了！\n", this_object());
 	destruct(ob2);
 }
 

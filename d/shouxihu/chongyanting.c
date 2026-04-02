@@ -7,8 +7,8 @@ void create()
 {
 	set("short","重檐亭");
 	set("long",@LONG
-熙春台南侧，有一重檐亭。湖石亭座，重檐六角，上覆铬绿琉璃瓦
-和宝顶。
+熙春臺南側，有一重檐亭。湖石亭座，重檐六角，上覆鉻綠琉璃瓦
+和寶頂。
 LONG );
 	set("outdoors", "shouxihu");
 	set("exits", ([

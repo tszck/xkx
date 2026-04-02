@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("大汉", ({ "da han","han" }) );
+	set_name("大漢", ({ "da han","han" }) );
 	set("gender", "男性" );
 
 	set("age", 35);
-	set("long", "明教的守门武士，是烈火旗属下。\n");
+	set("long", "明教的守門武士，是烈火旗屬下。\n");
 	set("shen_type",1);
 	set("combat_exp", 20000);
 
@@ -24,7 +24,7 @@ void create()
 	set_skill("parry", 40);
 	set_skill("dodge", 50);
 	set("party/party_name",HIG"明教"NOR);
-	set("party/rank",HIR "烈火旗" NOR "教众" );
+	set("party/rank",HIR "烈火旗" NOR "教衆" );
 
 	setup();
 	carry_object("/clone/misc/cloth")->wear();

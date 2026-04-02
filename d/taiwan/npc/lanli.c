@@ -7,10 +7,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("蓝理", ({"lan li", "lan", "li"}));
-	set("long", "他是一位身材魁梧的豪爽汉子。\n");
+	set_name("藍理", ({"lan li", "lan", "li"}));
+	set("long", "他是一位身材魁梧的豪爽漢子。\n");
                                                           
-	set("title", HIY "左营游击" NOR);
+	set("title", HIY "左營遊擊" NOR);
 	set("gender", "男性");
 	set("attitude", "peaceful");
 

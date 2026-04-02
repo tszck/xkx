@@ -7,7 +7,7 @@
 inherit WRISTS;
 void create()
 {
-	set_name( "镣铐", ({ "liao kao", "kao" }) );
+	set_name( "鐐銬", ({ "liao kao", "kao" }) );
 	set_weight(10000);
 	if( clonep() )
 		set_default_object(__FILE__);
@@ -47,7 +47,7 @@ void init()
 
 int unequip()
 {
-	return notify_fail("你不能自已打开镣铐。\n");
+	return notify_fail("你不能自已打開鐐銬。\n");
 }
 
 int do_fight()
@@ -56,7 +56,7 @@ int do_fight()
 
 	if ((objectp(ob = present("liao kao", ob)) ) )
 	{
-		write("你现在手脚戴着镣铐，不能跟人动武。\n");
+		write("你現在手腳戴着鐐銬，不能跟人動武。\n");
 		return 1;
 	}
 	return 0;
@@ -67,7 +67,7 @@ int do_dazuo()
 	object ob = this_player();
 	if ((objectp(ob = present("liao kao", ob)) ) )
 	{
-		write("你现在手脚戴着镣铐，不能做出正确的姿势来打坐。\n");
+		write("你現在手腳戴着鐐銬，不能做出正確的姿勢來打坐。\n");
 		return 1;
 	}
 	return 0;
@@ -78,7 +78,7 @@ int do_tuna()
 	object ob = this_player();
 	if ((objectp(ob = present("liao kao", ob)) ) )
 	{
-		write("你现在手脚戴着镣铐，不能做出正确的姿势来吐纳。\n");
+		write("你現在手腳戴着鐐銬，不能做出正確的姿勢來吐納。\n");
 		return 1;
 	}
 	return 0;
@@ -90,7 +90,7 @@ int do_remove(string arg)
 
 	if(arg=="all")
 	{
-		write("你身上有镣铐，手脚不便利，还是一件件的除吧。\n");
+		write("你身上有鐐銬，手腳不便利，還是一件件的除吧。\n");
 		return 1;
 	}
 	return 0;

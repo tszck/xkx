@@ -4,9 +4,9 @@
 inherit NPC;
 void create()
 {
-	set_name("寂禅石人", ({ "jichan shiren", "jichan", "shiren" }));
-	set("long", "年代久远已无法看清他当年之相貌，\n"
-		"他生的异常结实，浑身筋骨犹如铁铸一般。\n");
+	set_name("寂禪石人", ({ "jichan shiren", "jichan", "shiren" }));
+	set("long", "年代久遠已無法看清他當年之相貌，\n"
+		"他生的異常結實，渾身筋骨猶如鐵鑄一般。\n");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");

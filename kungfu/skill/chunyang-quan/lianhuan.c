@@ -1,10 +1,10 @@
-// lian.c 连环拳
+// lian.c 連環拳
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
 #include <skill.h>
 #include <combat.h>
-#define PNAME "「连环拳」"
+#define PNAME "「連環拳」"
 inherit F_SSERVER;
  
 int perform(object me, object target)
@@ -22,14 +22,14 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
  
 	if (objectp(weapon = me->query_temp("weapon")))
 		return notify_fail(PNAME"不能持兵刃！\n");
@@ -45,13 +45,13 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 140 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 135 )
-		return notify_fail("你的"+to_chinese(sskill)+"还不到家，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"還不到家，無法使用"+PNAME+"。\n");
 	if( (int)me->query("neili") < 100 )
-		return notify_fail("你的真气不够！\n");
-	msg = HIY "$N"HIY"已然领悟了「先天纯阳」之真义，「连环拳」出拳愈来愈急，毫
-无停顿滞涩之感！\n" NOR;
+		return notify_fail("你的真氣不夠！\n");
+	msg = HIY "$N"HIY"已然領悟了「先天純陽」之真義，「連環拳」出拳愈來愈急，毫
+無停頓滯澀之感！\n" NOR;
 	message_combatd(msg, me);
 	
 	for(count=0;count<3;count++)
@@ -75,12 +75,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		连续出手三招
+		連續出手三招
 
 	出手要求：
-		先天气功140级
-		纯阳拳135级
-		内力100
+		先天氣功140級
+		純陽拳135級
+		內力100
 HELP
 	);
 	return 1;

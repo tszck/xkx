@@ -1,11 +1,11 @@
-// mengmian.c 蒙面大汉
+// mengmian.c 蒙面大漢
 
 inherit NPC;
 
 void create()
 {
-        set_name("蒙面大汉", ({ "mengmian dahan", "dahan" }));
-        set("long", "他是一个蒙面大汉。\n");
+        set_name("蒙面大漢", ({ "mengmian dahan", "dahan" }));
+        set("long", "他是一個蒙面大漢。\n");
         set("gender", "男性");
         set("age", 30);
         set("attitude", "aggressive");

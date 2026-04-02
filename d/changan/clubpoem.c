@@ -26,11 +26,11 @@ string  enscript(string  arg);
 
 void  create  ()
 {
-    set  ("short",  "乐府诗社");
+    set  ("short",  "樂府詩社");
     set  ("long",  @LONG
-高楼之上，满城繁华尽收眼底。文人骚客都喜欢在这里品茶吟诗，
-谈古论今，你瞧，不知谁在茶桌上刚刚写好一首诗(poem)。里边柜台上
-新贴了张启事(qishi)，你不由得走过去看了几眼。
+高樓之上，滿城繁華盡收眼底。文人騷客都喜歡在這裏品茶吟詩，
+談古論今，你瞧，不知誰在茶桌上剛剛寫好一首詩(poem)。裏邊櫃檯上
+新貼了張啓事(qishi)，你不由得走過去看了幾眼。
 LONG);
 
     set("exits",  ([  /*  sizeof()  ==  1  */
@@ -84,17 +84,17 @@ int  do_answer(string  arg)
 {
         object  me=this_player(),ob;
 
-        if(!arg)  return  notify_fail("回答什么？\n");
+        if(!arg)  return  notify_fail("回答什麼？\n");
 
         if(me->is_busy())
-            return  notify_fail("你上一个动作还没有完成。\n");
+            return  notify_fail("你上一個動作還沒有完成。\n");
 
         if(  living(me)  )  me->receive_damage("sen",5+random(15));
 
         if(objectp(ob=present("cha  boshi",this_object()))
               &&  living(ob))  {
         switch(random(2))  {
-          case  0:  message_vision("$N说道：是．．．"+arg+"？\n",me);
+          case  0:  message_vision("$N說道：是．．．"+arg+"？\n",me);
                           break;
           case  1:  message_vision("$N答道："+arg+"？\n",me);
                           break;
@@ -104,7 +104,7 @@ int  do_answer(string  arg)
         arg=replace_string(arg,"，","");
         if(arg==current&&strwidth(current)>2)  {
             if(ans_curr==1)  {
-              write("别人已经回答过这句诗了。\n");
+              write("別人已經回答過這句詩了。\n");
               return  1;
             }
             ans_curr=1;
@@ -116,18 +116,18 @@ int  do_answer(string  arg)
             poem_reward(me,current_all);
         }  else  if(arg==last&&strwidth(last)>2)  {
             if(ans_last==1)  {
-              write("别人已经回答过这句诗了。\n");
+              write("別人已經回答過這句詩了。\n");
               return  1;
             }
             ans_last=1;
             poem_reward(me,last_all);
         }  else  {
-            message_vision("茶博士摇了摇头：好象不对吧？\n",me);
+            message_vision("茶博士搖了搖頭：好象不對吧？\n",me);
             me->add_temp("poem/wrong",1);
             if(me->query_temp("poem/wrong")>10)  poem_penalty(me);
         }
         }  else  {
-            write("现在没有人裁判对错了．．．  ：（\n");
+            write("現在沒有人裁判對錯了．．．  ：（\n");
         }
         return  1;
 }
@@ -143,7 +143,7 @@ void  poem_penalty(object  me)
 void  poem_reward(object  me,string  arg)
 {
         me->set_temp("poem/wrong",0);
-        message_vision("茶博士点头道：“"+arg+"”不错！不错！\n",me);
+        message_vision("茶博士點頭道：“"+arg+"”不錯！不錯！\n",me);
         poem_reward1(me);
 }
 
@@ -153,16 +153,16 @@ void  poem_reward1(object  me)
         switch(random(3))  {
           case  0:  dx=4+random(6);
                           me->add("combat_exp",dx);
-	          write("你的经验增加了！\n");
+	          write("你的經驗增加了！\n");
 	          break;
           case  1:  pot=3+random(4);
 	          if(me->query("potential")+pot-me->query("learned_points")<=100)
                               me->add("potential",pot);
-                          write("你的潜能增加了！\n");
+                          write("你的潛能增加了！\n");
 	          break;
           case  2:  lite=4+random(6);
                           me->improve_skill("literate",lite);
-	          write("你的读书识字进步了！\n");
+	          write("你的讀書識字進步了！\n");
 	          break;
         }
         me->add("poem_answered",1);
@@ -218,7 +218,7 @@ void  do_test()
           switch(random(1))  {
               case  0:
                   tell_room(this_object(),
-	      "茶博士提笔在墙上写道："+quest+"\n");
+	      "茶博士提筆在牆上寫道："+quest+"\n");
                   break;
           }
       }
@@ -263,17 +263,17 @@ int  do_look(string  arg)
             write("        "+poem1[i]+"\n");
           }
           write("\n\n\n");
-          write("当前题目：　　　"+curr_show+"\n\n");
+          write("當前題目：　　　"+curr_show+"\n\n");
           return  1;
         }  else  if(arg=="qishi")  {
             write("\n"+@LONG
-                      本社新增猜诗游戏，由茶博士将一句诗词的若干字
-              颠倒次序，写在墙上。能准确答出(answer)原句者为胜。
+                      本社新增猜詩遊戲，由茶博士將一句詩詞的若干字
+              顛倒次序，寫在牆上。能準確答出(answer)原句者爲勝。
 
-              例如：茶博士提笔在墙上写道：离离原上草一荣一枯岁
-              你应该回答：answer  离离原上草一岁一枯荣
+              例如：茶博士提筆在牆上寫道：離離原上草一榮一枯歲
+              你應該回答：answer  離離原上草一歲一枯榮
 
-                          侠客行一百启: 暂时关闭 answer
+                          俠客行一百啓: 暫時關閉 answer
 LONG);
             write("\n\n");
           return  1;
@@ -295,9 +295,9 @@ void  copy_to_old()
 
           if(objectp(ob=present("suan  xiucai",this_object()))
               &&  random(2)==0  &&  living(ob))  {
-              message_vision(({ob->name()+"摇头晃脑地吟诵道：",
-                ob->name()+"高声朗读道：",
-                ob->name()+"仿佛在自言自语："})[random(3)]+"\n",ob);
+              message_vision(({ob->name()+"搖頭晃腦地吟誦道：",
+                ob->name()+"高聲朗讀道：",
+                ob->name()+"彷彿在自言自語："})[random(3)]+"\n",ob);
               message_vision("\n        "+author1+"："+title1+"\n",ob);
               for  (i=0;i<length1;i++)  {
                   message_vision("        "+poem1[i]+"\n",ob);

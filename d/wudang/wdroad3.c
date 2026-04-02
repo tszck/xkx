@@ -7,7 +7,7 @@ void create()
 {
 	set("short", "青石大道");
 	set("long", @LONG
-你走在一条青石大道上，四周静悄悄的。
+你走在一條青石大道上，四周靜悄悄的。
 LONG );
 	set("outdoors", "sanbuguan");
 	set("exits", ([

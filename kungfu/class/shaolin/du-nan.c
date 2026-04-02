@@ -7,12 +7,12 @@ string ask_me();
 
 void create()
 {
-	set_name("渡难", ({ "du nan", "nan" }) );
-	set("title", "少林长老");
+	set_name("渡難", ({ "du nan", "nan" }) );
+	set("title", "少林長老");
 	set("gender", "男性");
 	set("age", 90);
 	set("long",
-		"这是一个面颊深陷，瘦骨零丁的老僧，他脸色漆黑，象是生铁铸成。\n");
+		"這是一個面頰深陷，瘦骨零丁的老僧，他臉色漆黑，象是生鐵鑄成。\n");
 
 	set("attitude", "peaceful");
 	set("class", "bonze");
@@ -158,33 +158,33 @@ string ask_me()
 	if ( !this_player()->query_temp("fighter") 
 	||    this_player()->query("combat_exp") < 5000 )
 	{
-		command("say 大胆鼠辈，乳臭未干，竟敢偷入金刚伏魔圈，且让老衲来超度与你！");
+		command("say 大膽鼠輩，乳臭未乾，竟敢偷入金剛伏魔圈，且讓老衲來超度與你！");
 		this_object()->kill_ob(this_player());
 		this_player()->kill_ob(this_object());
 	}
 
 	if (uptime() < 1800)
-		return "菩提子乃天地之灵物，制炼艰难无比，我现在还没炼成。";
+		return "菩提子乃天地之靈物，制煉艱難無比，我現在還沒煉成。";
 
 	if ( present("puti zi", this_player()) )
 		return RANK_D->query_respect(this_player()) + 
-		"菩提子只有一颗，而且就在你身上，真是贪得无餍！";
+		"菩提子只有一顆，而且就在你身上，真是貪得無饜！";
 
 	if ( present("puti zi", environment()) )
 		return RANK_D->query_respect(this_player()) + 
-		"菩提子只有一颗，而且就在这里任你取走，真是贪得无餍！";
+		"菩提子只有一顆，而且就在這裏任你取走，真是貪得無饜！";
 
 	if (query("count") < 1)
-		return "菩提子乃天地之灵物，采集艰难无比，我这里现在可没有。";
+		return "菩提子乃天地之靈物，採集艱難無比，我這裏現在可沒有。";
 
 	ob = new("/clone/medicine/nostrum/puti-zi");
 	ob->move(this_player());
 
 	add("count", -1);
 
-	message_vision("\n渡难惨然一笑，接着长叹一声，从树洞里取出个白玉磁瓶，倒出菩提子递给$N。\n\n", this_player());
+	message_vision("\n渡難慘然一笑，接着長嘆一聲，從樹洞裏取出個白玉磁瓶，倒出菩提子遞給$N。\n\n", this_player());
 
-	return "我等昔年于佛祖座前发下宏愿，每十年遍访名山大川，历尽艰险，\n" +
-	       "方采得数颗菩提子，君乃有缘人，能得此造化奇物，望好自为之！";
+	return "我等昔年於佛祖座前發下宏願，每十年遍訪名山大川，歷盡艱險，\n" +
+	       "方採得數顆菩提子，君乃有緣人，能得此造化奇物，望好自爲之！";
 }
 #include "/kungfu/class/shaolin/du.h"

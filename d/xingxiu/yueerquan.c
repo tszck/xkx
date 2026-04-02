@@ -5,13 +5,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "月儿泉");
+	set("short", "月兒泉");
 	set("long", @LONG
 出乎你的意料之外，在浩瀚沙漠中竟然有的泉水，一泓清澈的泉水
-形成一个月牙的形状，因而得名月儿泉。涟漪萦回，水草丛生，清澈见
-底。这里出产铁背鱼、七星草，但不常见。此泉虽在流沙山群中，风起
-沙飞，均绕泉而过，从不落入泉内。北面是一片峭壁(cliff) ，东边传
-来嗡嗡的声响。
+形成一個月牙的形狀，因而得名月兒泉。漣漪縈迴，水草叢生，清澈見
+底。這裏出產鐵背魚、七星草，但不常見。此泉雖在流沙山羣中，風起
+沙飛，均繞泉而過，從不落入泉內。北面是一片峭壁(cliff) ，東邊傳
+來嗡嗡的聲響。
 LONG );
 	set("outdoors", "qilian");
 	set("resource/water", 1);
@@ -20,7 +20,7 @@ LONG );
 		"east"    : "/d/qilian/loulan",
 	]));
 	set("item_desc", ([
-		"cliff" : "峭壁上似乎有一个洞(hole)。\n"
+		"cliff" : "峭壁上似乎有一個洞(hole)。\n"
 	]) );
 	set("no_clean_up", 0);
 	set("coor/x", -20310);
@@ -43,14 +43,14 @@ int do_enter(string arg)
 	{
 		if(me->query_encumbrance()*100/me->query_max_encumbrance()< 20)
 		{
-			message("vision", me->name() + "一纵身跃进了洞里。\n", environment(me), ({me}) );
+			message("vision", me->name() + "一縱身躍進了洞裏。\n", environment(me), ({me}) );
 			me->move("/d/xingxiu/mogaoku");
-			message("vision", me->name() + "从洞外跳了进来。\n", environment(me), ({me}) );
+			message("vision", me->name() + "從洞外跳了進來。\n", environment(me), ({me}) );
 			return 1;
 		}
 		else
 		{
-			write("你身上背的东西太重，洞口又太高，你够不着。\n");
+			write("你身上背的東西太重，洞口又太高，你夠不着。\n");
 			return 1;
 		}
 	}

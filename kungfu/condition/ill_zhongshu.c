@@ -10,15 +10,15 @@ int update_condition(object me, int duration)
 	if (me->is_ghost()) return 1;
 	if( !living(me) || me->query_temp("noliving") )
 	{
-		message("vision", me->name() + "头重脚轻，脑门发热，看来是中暑了。\n", environment(me), me);
+		message("vision", me->name() + "頭重腳輕，腦門發熱，看來是中暑了。\n", environment(me), me);
 	}
 	else
 	{
-		tell_object(me, HIB"你觉得头重脚轻，脑门发热，看来是中暑了。\n"NOR );
-		message("vision", me->name() + "只觉得胸臆之间一阵翻腾，头重脚轻，抬不起头来，脑门发热，看来是中暑了。\n", environment(me), me);
+		tell_object(me, HIB"你覺得頭重腳輕，腦門發熱，看來是中暑了。\n"NOR );
+		message("vision", me->name() + "只覺得胸臆之間一陣翻騰，頭重腳輕，抬不起頭來，腦門發熱，看來是中暑了。\n", environment(me), me);
 	}
-	me->receive_wound("qi", 1,"积劳成疾累死了");
-	me->receive_damage("qi", 1,"积劳成疾累死了");
+	me->receive_wound("qi", 1,"積勞成疾累死了");
+	me->receive_damage("qi", 1,"積勞成疾累死了");
 	me->apply_condition("ill_zhongshu", duration - 1);
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;
 	if( duration < 1 ) return 0;

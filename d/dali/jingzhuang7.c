@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","第七层");
+	set("short","第七層");
 	set("long",@LONG
-这里是经幢的顶部，圆弧形顶篷，向徵天穹。上面刻有诸天神佛，
-飞天力士等。
+這裏是經幢的頂部，圓弧形頂篷，向徵天穹。上面刻有諸天神佛，
+飛天力士等。
 LONG);
 	set("exits",([ /* sizeof() == 1 */
 	    "down"  : __DIR__"jingzhuang6",

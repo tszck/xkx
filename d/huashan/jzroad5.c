@@ -4,16 +4,16 @@
 inherit ROOM;
 void create()
 {
-	set("short", "中条山密林");
+	set("short", "中條山密林");
 	set("long", @LONG
-山路越来越小，周围茂密森林里和脚下的茅草封住了路，上不见天
-光，后不见归路(road)，你简直绝望了。
+山路越來越小，周圍茂密森林裏和腳下的茅草封住了路，上不見天
+光，後不見歸路(road)，你簡直絕望了。
 LONG );
 	set("exits", ([
 		"northdown" : __DIR__"jzroad4",
 	]));
 	set("item_desc", ([
-		"road" : "路边模模糊糊，好象有个碑。可是太暗了实在看不见。\n",
+		"road" : "路邊模模糊糊，好象有個碑。可是太暗了實在看不見。\n",
 	]));
 	set("no_clean_up", 0);
 	set("coor/x", -920);
@@ -36,8 +36,8 @@ int do_use(string arg)
 	if (!present("fire", me)) return 0;
 	if( arg=="fire" )
 	{
-		write("你点燃了火折，发现是一围大树，被削去树皮的树干上书“中条山”三字。\n侧边一个树洞，似乎可以钻(zuan)过去。\n");
-		me->set_temp("marks/钻1", 1);
+		write("你點燃了火折，發現是一圍大樹，被削去樹皮的樹幹上書“中條山”三字。\n側邊一個樹洞，似乎可以鑽(zuan)過去。\n");
+		me->set_temp("marks/鑽1", 1);
 		return 1;
 	}
 }
@@ -47,17 +47,17 @@ int do_zuan(string arg)
 	object me;
 	me = this_player();
 
-	if (me->query_temp("marks/钻1") )
+	if (me->query_temp("marks/鑽1") )
 	{
-		message("vision", me->name() + "侧身滋溜一下钻进树洞不见了。\n", environment(me), ({me}) );
+		message("vision", me->name() + "側身滋溜一下鑽進樹洞不見了。\n", environment(me), ({me}) );
 		me->move(__DIR__"jzroad6");
-		message("vision", me->name() + "从树里钻了出来。\n", environment(me), ({me}) );
-		this_player()->delete_temp("marks/钻1");
+		message("vision", me->name() + "從樹裏鑽了出來。\n", environment(me), ({me}) );
+		this_player()->delete_temp("marks/鑽1");
 		return 1;
 	}
 	else
 	{
-		write("你想往哪儿钻?!\n");
+		write("你想往哪兒鑽?!\n");
 		return 1;
 	}
 }

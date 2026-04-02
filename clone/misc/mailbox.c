@@ -1,9 +1,9 @@
 // mailbox.c
 // Last Modified by sir on 5.5.2002
-// 限制玩家收信总数为100封 wiz不受此限制
+// 限制玩家收信總數爲100封 wiz不受此限制
 
 #include <ansi.h>
-#define MAX_MAIL 20 //玩家收信总数
+#define MAX_MAIL 20 //玩家收信總數
 
 inherit ITEM;
 inherit F_SAVE;
@@ -16,14 +16,14 @@ void create()
 {
 	set_name("信箱", ({ "mailbox", "box" }) );
 	set("long",
-		"这是个人信箱，但信件内容对巫师无法保密，请勿谈及个人隐私：\n\n"
-		"mailto  <某人>            寄信给别人。\n"
-		"forward <信件编号> <某人> 将某封信转寄给别人。\n"
+		"這是個人信箱，但信件內容對巫師無法保密，請勿談及個人隱私：\n\n"
+		"mailto  <某人>            寄信給別人。\n"
+		"forward <信件編號> <某人> 將某封信轉寄給別人。\n"
 		"from                      查看信箱中的信件。\n"
-		"read    <信件编号>        阅读某一封信件。\n"
-		"discard <信件编号>        丢弃一封信件。\n"
+		"read    <信件編號>        閱讀某一封信件。\n"
+		"discard <信件編號>        丟棄一封信件。\n"
 	);
-	set("unit", "个");
+	set("unit", "個");
 	set("no_drop", 1);
 	set("no_steal", 1);
 	set("no_put", 1);
@@ -59,7 +59,7 @@ void init()
 	for(i=0; i<sizeof(mails); i++)
 		if(mails[i]["read"] == "N") j++;
 	if( j >0 )
-		tell_object(this_player(), HIG"绿林邮差跑步过来递给你"+chinese_number(j)+"封信，然后转身疾步离去。\n"NOR);
+		tell_object(this_player(), HIG"綠林郵差跑步過來遞給你"+chinese_number(j)+"封信，然後轉身疾步離去。\n"NOR);
 }
 
 string query_save_file()
@@ -81,11 +81,11 @@ void receive_mail(string rcvr,mapping mail)
 	if(sizeof(mails) >=MAX_MAIL && !wizardp(this_player()) && !wizardp(ppl))
 	{ 
 		if (obj->query("id")==this_player()->query("id"))
-			write("你信箱已经满了！\n");
+			write("你信箱已經滿了！\n");
 		else
 		{
-			write(HIR"对方信箱已经满了。你没法寄出此信！\n"NOR);
-			tell_object(obj,HIR"你的信箱已经满了，别人已经无法寄信给你，快整理整理吧！\n"NOR);
+			write(HIR"對方信箱已經滿了。你沒法寄出此信！\n"NOR);
+			tell_object(obj,HIR"你的信箱已經滿了，別人已經無法寄信給你，快整理整理吧！\n"NOR);
 		}
 		mails = mails;
 		save();
@@ -96,11 +96,11 @@ void receive_mail(string rcvr,mapping mail)
 		else mails += ({ mail });
 		save();
 		if (obj->query("id")==this_player()->query("id"))
-			write("你已经成功备份了！\n");
+			write("你已經成功備份了！\n");
 		else 
 		{
-			tell_object(obj,HIG"绿林邮差跑步过来递给你一封信，然后转身疾步离去。\n"NOR);
-			write(HIG"信已发送成功。\n"NOR);
+			tell_object(obj,HIG"綠林郵差跑步過來遞給你一封信，然後轉身疾步離去。\n"NOR);
+			write(HIG"信已發送成功。\n"NOR);
 		}
 	}
 }
@@ -113,14 +113,14 @@ void send_mail(string rcvr, mapping mail)
 	for (i = 0; i < sizeof(rcvr); i++) 
 	if (rcvr[i]<'a' || rcvr[i]>'z') 
 	{
-		 write("没有这个人存在。\n");
+		 write("沒有這個人存在。\n");
 		 return;
 	}
 	// Acquire the login object of receiver and mark the arrival of newmail.
 	ob = FINGER_D->acquire_login_ob(rcvr);
 	if( !ob ) 
 	{
-		write("没有这个人存在。\n");
+		write("沒有這個人存在。\n");
 		return;
 	}
 
@@ -158,16 +158,16 @@ int do_mail(string arg)
 	object me = this_player();
 
 	if( me!=environment() ) return 0;
-	if( !arg || arg=="" ) return notify_fail("你要给谁寄信？\n");
+	if( !arg || arg=="" ) return notify_fail("你要給誰寄信？\n");
 	mail = ([
 		"from":	me->name(1)+"("+me->query("id")+")",
-		"title": "无题",
+		"title": "無題",
 		"to": arg,
 		"time": time(),
 		"text": "",
 		"read": "N"
 	]);
-	write("信件标题：");
+	write("信件標題：");
 	input_to("get_mail_title", mail);
 	return 1;
 }
@@ -175,7 +175,7 @@ int do_mail(string arg)
 void get_mail_title(string str, mapping mail)
 {
 	if( str!="" ) mail["title"] = str;
-	write("信件内容：\n");
+	write("信件內容：\n");
 	this_player()->edit( (: get_mail_text, mail :) );
 }
 
@@ -184,12 +184,12 @@ void get_mail_text(mapping mail, string str)
 	mail["text"] = str;
 	if( sizeof(mails)>=MAX_MAIL && !wizardp(this_player()) )
 	{
-		write("您信箱已经满了！请及时清理。\n");
+		write("您信箱已經滿了！請及時清理。\n");
 		confirm_copy("nonono", mail);
 	}
 	else
 	{
-		write("您要给自己留一份备份吗(y/n)？[n]");
+		write("您要給自己留一份備份嗎(y/n)？[n]");
 		input_to("confirm_copy", mail);
 	}
 }
@@ -208,13 +208,13 @@ int do_from()
 	if (!present(this_object(), this_player())) return 0;
 	if( !pointerp(mails) || !sizeof(mails) )
 	{
-		write("您的信箱中目前没有任何信件。\n");
+		write("您的信箱中目前沒有任何信件。\n");
 		return 1;
 	}
-	write("您的信箱中现在共有 " + sizeof(mails) + " 封信件：\n\n");
+	write("您的信箱中現在共有 " + sizeof(mails) + " 封信件：\n\n");
 	for(i=0; i<sizeof(mails); i++)
-		printf("%4s %2d %-40s "HIY"来自"NOR"：%-20s\n",
-			mails[i]["read"] == "N" ? HIR"未阅"NOR : HIG"已阅"NOR,
+		printf("%4s %2d %-40s "HIY"來自"NOR"：%-20s\n",
+			mails[i]["read"] == "N" ? HIR"未閱"NOR : HIG"已閱"NOR,
 			i+1, mails[i]["title"], mails[i]["from"]);
 	write("\n");
 
@@ -227,11 +227,11 @@ int do_read(string arg)
 
 	if (!present(this_object(), this_player())) return 0;
 	if( !arg || !sscanf(arg, "%d", num) )
-		return notify_fail("您要读哪一封信？\n");
+		return notify_fail("您要讀哪一封信？\n");
 	if( !pointerp(mails) || num < 1 || num > sizeof(mails) )
-		return notify_fail("没有这个编号的信件。\n");
+		return notify_fail("沒有這個編號的信件。\n");
 	num --;
-	printf("信件标题：%s\n寄 信 人：%s\n寄信时间：%s\n\n%s\n", mails[num]["title"], mails[num]["from"], ctime(mails[num]["time"]), mails[num]["text"] );
+	printf("信件標題：%s\n寄 信 人：%s\n寄信時間：%s\n\n%s\n", mails[num]["title"], mails[num]["from"], ctime(mails[num]["time"]), mails[num]["text"] );
 	mails[num]["read"]="Y";
 	save();
 
@@ -244,14 +244,14 @@ int do_discard(string arg)
 
 	if (!present(this_object(), this_player())) return 0;
 	if( !arg || !sscanf(arg, "%d", num) )
-		return notify_fail("您要丢弃哪一封信？\n");
+		return notify_fail("您要丟棄哪一封信？\n");
 	if( !pointerp(mails) || num > sizeof(mails) )
-		return notify_fail("没有这个编号的信件。\n");
+		return notify_fail("沒有這個編號的信件。\n");
 	num --;
 	if(num == 0) mails = mails[num+1..sizeof(mails)-1];
 	else mails = mails[0..num-1] + mails[num+1..sizeof(mails)-1];
 	save();
-	write("丢弃成功。\n");
+	write("丟棄成功。\n");
 
 	return 1;
 }
@@ -264,15 +264,15 @@ int do_forward(string arg)
 
 	if (!present(this_object(), this_player())) return 0;
 	if( !arg || sscanf(arg, "%d %s", num, dest)!=2 )
-		return notify_fail("您要将哪一封信转寄给别人？\n");
+		return notify_fail("您要將哪一封信轉寄給別人？\n");
 	if( !pointerp(mails) || num > sizeof(mails) )
-		return notify_fail("没有这个编号的信件。\n");
+		return notify_fail("沒有這個編號的信件。\n");
 	num --;
 	m = ([]);
 	m["title"] = mails[num]["title"];
 	m["text"] = mails[num]["text"];
 	m["time"] = mails[num]["time"];
-	m["from"] = mails[num]["from"]+"/转寄自"+this_player()->query("name");
+	m["from"] = mails[num]["from"]+"/轉寄自"+this_player()->query("name");
 	m["to"] = dest;
 	m["read"]="N";
 	send_mail( dest, m );

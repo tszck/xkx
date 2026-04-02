@@ -4,11 +4,11 @@ inherit NPC;
 void greeting(object ob);
 void create()
 {
-	set_name("看门僧", ({ "kanmen seng", "seng" })); 
-	set("long", "一个中年僧人，却是一脸的疲态，一双眼睛倒不象是出家人，势利得很。\n");
+	set_name("看門僧", ({ "kanmen seng", "seng" })); 
+	set("long", "一箇中年僧人，卻是一臉的疲態，一雙眼睛倒不象是出家人，勢利得很。\n");
 	set("gender", "男性");
 	set("class", "bonze");
-	set("title", "禅智寺和尚");
+	set("title", "禪智寺和尚");
 	set("age", 35);
 	set("attitude", "friendly");
 	set("shen_type", -1);

@@ -25,7 +25,7 @@ int main(object me, string arg)
 		}	
 		
 	}
-	for (j=0;j<10;j++) printf("%d : 个数为 %d\n",j,a[j]);
+	for (j=0;j<10;j++) printf("%d : 個數爲 %d\n",j,a[j]);
 	return 1;
 }
 
@@ -34,7 +34,7 @@ int help(object me)
 write(@HELP
 指令格式 : ran <number>
 
-用处 : 测试随机函数的分布。
+用處 : 測試隨機函數的分佈。
 HELP
      );
      return 1;

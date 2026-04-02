@@ -20,20 +20,20 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("你必须空手才能使用"PNAME"！\n");	
+		return notify_fail("你必須空手才能使用"PNAME"！\n");	
 
 	if(me->query_temp("pfm_chousui"))
-		return notify_fail("你正在驱动火堆进行攻击！\n");
+		return notify_fail("你正在驅動火堆進行攻擊！\n");
 
 	fskill = "huagong-dafa";
 	bskill = "strike";
@@ -48,27 +48,27 @@ int perform(object me, object target)
 		pskill = "douzhuan-xingyi";
 	}
 	if( (int)me->query_skill(fskill, 1) < 180 )
-		return notify_fail("你发现自己的"+to_chinese(fskill)+"修为不够，无法使用"+PNAME+"。\n");
+		return notify_fail("你發現自己的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 180 )
-		return notify_fail("你发现自己的"+to_chinese(sskill)+"还不够娴熟，无法使用"+PNAME+"。\n");
+		return notify_fail("你發現自己的"+to_chinese(sskill)+"還不夠嫺熟，無法使用"+PNAME+"。\n");
 	if( (int)me->query_skill(pskill, 1) < 150 )
-		return notify_fail("你发现自己体内聚毒不够，无法使用"+PNAME+"进行攻击。\n");
+		return notify_fail("你發現自己體內聚毒不夠，無法使用"+PNAME+"進行攻擊。\n");
 	if( me->query_skill_mapped("force") != fskill)
-		return notify_fail("你发现自己所用的内功无法进行"PNAME"攻击。\n");
+		return notify_fail("你發現自己所用的內功無法進行"PNAME"攻擊。\n");
 	if( (int)me->query("max_neili") < 2500)
-		return notify_fail("你发现自己内力太弱，无法驱动"PNAME"进行攻击。\n");
+		return notify_fail("你發現自己內力太弱，無法驅動"PNAME"進行攻擊。\n");
 	if((int)me->query("neili") < 1500)
-		return notify_fail("你发现自己现在真气太弱，使不出"PNAME"进行攻击。\n");	   
+		return notify_fail("你發現自己現在真氣太弱，使不出"PNAME"進行攻擊。\n");	   
 	if(!objectp(ob = present("huo yan", environment(me))))
 	{
 		if (userp(me))
-		return notify_fail("没有火堆怎么驱动"PNAME"进行攻击？\n");
-	  message_combatd(HIR"\n$N"HIR"咬破指尖，数滴鲜血落到地面，再用内力一鼓，轰地一声燃起一堆熊熊火焰！\n\n"NOR,me);
+		return notify_fail("沒有火堆怎麼驅動"PNAME"進行攻擊？\n");
+	  message_combatd(HIR"\n$N"HIR"咬破指尖，數滴鮮血落到地面，再用內力一鼓，轟地一聲燃起一堆熊熊火焰！\n\n"NOR,me);
  	  seteuid(getuid());
 	  ob = new("/d/xingxiu/npc/obj/huoyan");
 	  ob->move(environment(me));
 	}
-	message_combatd(HIR "\n$N"HIR"厉声大喝，掌力加盛，火焰中突然生出一个斗大的"RED"火球"HIR"，在空中骨碌碌的迅速转动！\n\n"NOR,me);
+	message_combatd(HIR "\n$N"HIR"厲聲大喝，掌力加盛，火焰中突然生出一個斗大的"RED"火球"HIR"，在空中骨碌碌的迅速轉動！\n\n"NOR,me);
 
 	me->start_busy(2);
 	me->set_temp("pfm_chousui", 1);
@@ -106,12 +106,12 @@ int check_pfm(object me, object target, object ob)
 		environment(me)->query("no_fight") ||
 		environment(me)!=environment(target))
 	{
-		message_combatd(HIY"$N衣袖再拂，将升起的"RED"火球"HIY"压回火焰之中。\n"NOR,me);
+		message_combatd(HIY"$N衣袖再拂，將升起的"RED"火球"HIY"壓回火焰之中。\n"NOR,me);
 		return 1;
 	}
 	if(!objectp(present(ob, environment(me))))
 	{
-		message_combatd(HIY"$N眼看火堆熄灭，散开内息，放下举起的双手。\n"NOR,me);
+		message_combatd(HIY"$N眼看火堆熄滅，散開內息，放下舉起的雙手。\n"NOR,me);
 		return 1;
 	}
 
@@ -122,7 +122,7 @@ int check_pfm(object me, object target, object ob)
 	me->add("neili", -500);
 	me->receive_damage("jing", 100);
 
-	msg = WHT"\n此时$N脸上已无半点血色，一口口鲜血不住向"RED"火球"WHT"中吐去，" HIR"\n火势一盛，嗤嗤两声轻响，爆出几朵火花，"RED"火球"HIR"陡然变大向$n疾冲过来！\n"NOR;
+	msg = WHT"\n此時$N臉上已無半點血色，一口口鮮血不住向"RED"火球"WHT"中吐去，" HIR"\n火勢一盛，嗤嗤兩聲輕響，爆出幾朵火花，"RED"火球"HIR"陡然變大向$n疾衝過來！\n"NOR;
 
 	if(random(ap) > dp/3)
 	{
@@ -135,7 +135,7 @@ int check_pfm(object me, object target, object ob)
 				{
 					me->start_busy(3);
 					target->start_busy(2);
-					msg += HIY "猛烈间火球温度飙升，火花迸射，炸开了$p的护具！\n" NOR;
+					msg += HIY "猛烈間火球溫度飆升，火花迸射，炸開了$p的護具！\n" NOR;
 					for(i=0; i<sizeof(inv); i++)
 						if((string)inv[i]->query("equipped")=="worn" && !inv[i]->query("unique"))
 						{
@@ -154,7 +154,7 @@ int check_pfm(object me, object target, object ob)
 					target->receive_wound("qi",damage/2,me);
 					target->apply_condition("xx_poison", random(5) + (me->query_skill("poison", 1)/10) + target->query_condition("xx_poison"));
 					p = (int)target->query("qi")*100/(int)target->query("max_qi");
-					msg += damage_msg(damage, "砸伤");
+					msg += damage_msg(damage, "砸傷");
 					msg += "( $n"+eff_status_msg(p)+" )\n";
 					me->start_busy(2);
 					target->start_busy(1);	       
@@ -163,7 +163,7 @@ int check_pfm(object me, object target, object ob)
 				{
 					me->start_busy(3);
 					target->start_busy(3);
-					msg += HIY "只见火球猛然升温，火花四溅，热力直透$p的护具！\n" NOR;
+					msg += HIY "只見火球猛然升溫，火花四濺，熱力直透$p的護具！\n" NOR;
 					for(i=0; i<sizeof(inv); i++)
 						if((string)inv[i]->query("equipped")=="worn" && !inv[i]->query("unique"))
 						{
@@ -184,7 +184,7 @@ int check_pfm(object me, object target, object ob)
 					target->receive_wound("qi",damage/2,me);
 					target->apply_condition("xx_poison", random(5) + (me->query_skill("poison", 1)/10) + target->query_condition("xx_poison"));
 					p = (int)target->query("qi")*100/(int)target->query("max_qi");
-					msg += damage_msg(damage, "砸伤");
+					msg += damage_msg(damage, "砸傷");
 					msg += "( $n"+eff_status_msg(p)+" )\n";
 					me->start_busy(2);
 					target->start_busy(1);
@@ -194,14 +194,14 @@ int check_pfm(object me, object target, object ob)
 			{
 				me->start_busy(3);
 				target->start_busy(3);
-				msg += HIY "火球急速滚动，火光四溅，掀起阵阵火焰撞向$p怀里！\n" NOR;		  
+				msg += HIY "火球急速滾動，火光四濺，掀起陣陣火焰撞向$p懷裏！\n" NOR;		  
 				damage = damage * 2;
 				//if (damage > 1800) damage = 1800;
 				target->receive_damage("qi", damage,me);
 				target->receive_wound("qi", damage/2,me);
 				target->apply_condition("xx_poison", 30 + target->query_condition("xx_poison"));
 				p = (int)target->query("qi")*100/(int)target->query("max_qi");
-				msg += damage_msg(damage, "砸伤");
+				msg += damage_msg(damage, "砸傷");
 				msg += "( $n"+eff_status_msg(p)+" )\n";
 				me->start_busy(2);
 				target->start_busy(1);
@@ -217,7 +217,7 @@ int check_pfm(object me, object target, object ob)
 			target->receive_wound("qi", damage/2,me);	     
 			target->apply_condition("xx_poison", 30 + target->query_condition("xx_poison"));
 			p = (int)target->query("qi")*100/(int)target->query("max_qi");
-			msg += damage_msg(damage, "砸伤");
+			msg += damage_msg(damage, "砸傷");
 			msg += "( $n"+eff_status_msg(p)+" )\n";
 			me->start_busy(2);
 			target->start_busy(1);
@@ -226,7 +226,7 @@ int check_pfm(object me, object target, object ob)
 	else
 	{
 		me->start_busy(2);
-		msg += HIY "\n$p眼看就要被打中，冒死一个“铁板桥”，全身自膝盖处向后倒去，堪堪避过$w"HIY"！\n" NOR;
+		msg += HIY "\n$p眼看就要被打中，冒死一個“鐵板橋”，全身自膝蓋處向後倒去，堪堪避過$w"HIY"！\n" NOR;
 	}
 	limbs = target->query("limbs");
 	msg = replace_string(msg, "$l", limbs[random(sizeof(limbs))]);
@@ -243,17 +243,17 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		伤害对方气血
-		使对手中星宿毒
-		毁损对方护具
+		傷害對方氣血
+		使對手中星宿毒
+		毀損對方護具
 
 	出手要求：
-		化功大法180级
-		抽髓掌180级
-		基本毒技150级
-		内力修为2500
-		内力1500
-		周围有火堆
+		化功大法180級
+		抽髓掌180級
+		基本毒技150級
+		內力修爲2500
+		內力1500
+		周圍有火堆
 HELP
 	);
 	return 1;

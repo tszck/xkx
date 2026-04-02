@@ -1,12 +1,12 @@
-// Room: /d/baihuagu/tree.c 树林
+// Room: /d/baihuagu/tree.c 樹林
 // Last Modified by Winder on Mar. 5 2001
 inherit ROOM;
 void create()
 {
-	set("short", "树林");
+	set("short", "樹林");
 	set("long", @LONG
-丛林中一片黑暗，你瞪大眼睛，觉得到处都是路，又好象到处
-都不是路。若是在丛林中迷失了方向，这辈子就别想活着走出去了。
+叢林中一片黑暗，你瞪大眼睛，覺得到處都是路，又好象到處
+都不是路。若是在叢林中迷失了方向，這輩子就別想活着走出去了。
 LONG);
 	set("outdoors", "baihuagu");
 	set("exits", ([ 

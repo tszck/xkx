@@ -5,9 +5,9 @@ inherit NPC;
 void create()
 {
 	set_name("老鼠", ({ "lao shu", "shu", "mouse" }) );
-	set("race", "走兽");
+	set("race", "走獸");
 	set("age", 2);
-	set("long", "一只赃兮兮的小老鼠。\n");
+	set("long", "一隻贓兮兮的小老鼠。\n");
 	set("attitude", "peaceful");
 	set("combat_exp", 100);
 	set("shen_type", -1);
@@ -46,7 +46,7 @@ int random_move()
 void die()
 {
         object ob;
-        message_vision("$N凄惨的嚎了几声，死了。\n", this_object());
+        message_vision("$N悽慘的嚎了幾聲，死了。\n", this_object());
         ob = new(__DIR__"shurou");
         ob->move(environment(this_object()));
         destruct(this_object());

@@ -6,7 +6,7 @@ inherit THROWING;
 
 void create()
 {
-        set_name(HIG"碧磷针"NOR, ({ "bilin zhen", "zhen" }) );
+        set_name(HIG"碧磷針"NOR, ({ "bilin zhen", "zhen" }) );
         if( clonep() )
                 set_default_object(__FILE__);
         else {
@@ -16,9 +16,9 @@ void create()
                 set("base_weight", 300);
                 set("base_value", 0);
                 set("material", "iron");
-                set("long", HIG"碧磷针是星宿派淬毒暗器，针长寸许，发出诡异的光。\n"NOR);
-                set("wield_msg", HIC"$N迅速地从身上摸出一些碧磷针，捏在手中就待发出！\n"NOR);
-                set("unwield_msg",HIC"$N将手里剩下的碧磷针一抖就不见了。\n"NOR);
+                set("long", HIG"碧磷針是星宿派淬毒暗器，針長寸許，發出詭異的光。\n"NOR);
+                set("wield_msg", HIC"$N迅速地從身上摸出一些碧磷針，捏在手中就待發出！\n"NOR);
+                set("unwield_msg",HIC"$N將手裏剩下的碧磷針一抖就不見了。\n"NOR);
         }
         set_amount(50);
         init_throwing(50);

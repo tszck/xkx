@@ -11,16 +11,16 @@ mapping *quest = ({
     "place" :              "仙人崖",]),
   (["name":                "silk1",
     "start" :              "/d/xingxiu/silk1",
-    "place" :              "嘉峪关以西的丝绸之路",]),
+    "place" :              "嘉峪關以西的絲綢之路",]),
   (["name":                "shanjiao",
     "start" :              "/d/xingxiu/shanjiao",
-    "place" :              "天山脚下",]),
+    "place" :              "天山腳下",]),
   (["name":                "xinglongshan",
     "start" :              "/d/xingxiu/xinglongshan",
-    "place" :              "兴隆山",]),  
+    "place" :              "興隆山",]),  
   (["name":                "tugu",
     "start" :              "/d/xingxiu/tugu",
-    "place" :              "吐谷浑伏俟城",]), 
+    "place" :              "吐谷渾伏俟城",]), 
 });    
 string ask_job();
 
@@ -33,7 +33,7 @@ void create()
 	set("location", 1);
 	set("unique", 1);
 	set("long", "黯然子在星宿二代十弟子中排行第六，
-但他对星宿派武功有些独创，功力不浅。\n");
+但他對星宿派武功有些獨創，功力不淺。\n");
 	set("env/wimpy", 40);
 	set("str", 29);
 	set("dex", 26);
@@ -77,12 +77,12 @@ void create()
 	create_family("星宿派", 2, "弟子");
 	set("attitude", "peaceful");
 	set("inquiry", ([
-		"丁春秋" : "丁春秋是你叫的吗？没大没小的。以后叫老仙！",
-		"截杀" : (: ask_job :),
-		"抢劫" : (: ask_job :),
+		"丁春秋" : "丁春秋是你叫的嗎？沒大沒小的。以後叫老仙！",
+		"截殺" : (: ask_job :),
+		"搶劫" : (: ask_job :),
 		"rob"  : (: ask_job :),
 		"job"  : (: ask_job :),
-		"吹捧" : "小师妹最讨老仙喜欢，你去问她吧。",
+		"吹捧" : "小師妹最討老仙喜歡，你去問她吧。",
 	]));	
 	setup();
 	carry_object("/clone/weapon/gangzhang")->wield();
@@ -92,7 +92,7 @@ void create()
 void attempt_apprentice(object ob)
 {
 	command("consider");
-	command("say 星宿门中各人都有专职，要拜师你去找我师兄弟吧！");
+	command("say 星宿門中各人都有專職，要拜師你去找我師兄弟吧！");
 	return;
 }
 int accept_object(object me, object obj)
@@ -100,24 +100,24 @@ int accept_object(object me, object obj)
 	object ob=this_object();
 	if(!me || environment(me) != environment()) return 0;
 	if(!objectp(obj)) return 0;
-	if(!present(obj, me)) return notify_fail("你没有这件东西。");	
+	if(!present(obj, me)) return notify_fail("你沒有這件東西。");	
 	if(userp(obj))
 	{
 		command("consider "+(string)me->query("id"));
-		command("say 你拿个快死的人来骗我？");
+		command("say 你拿個快死的人來騙我？");
 		return 0;
 	}
 	if(!me->query_condition("xx_task2"))
 	{
 		command("shake "+(string)me->query("id"));
-		command("say 这么久才回来，我还不如找别人来干！");
+		command("say 這麼久纔回來，我還不如找別人來幹！");
 		return 0;
 	}
 	if(obj->query("id")=="prize" && obj->query("owner")==me->query("id"))
 	{
 		command("nod "+(string)me->query("id"));
-		command("say 好样的！这才象我们星宿派的作风！\n");
-		message_vision(HIY"$N将$n"HIY"拆开，拿出了一大堆金银财宝。\n"NOR,ob, obj);
+		command("say 好樣的！這才象我們星宿派的作風！\n");
+		message_vision(HIY"$N將$n"HIY"拆開，拿出了一大堆金銀財寶。\n"NOR,ob, obj);
 	        remove_call_out("del_temp");
                 remove_call_out("destroying");
 		call_out("destroying", 5, obj, ob, me);
@@ -126,13 +126,13 @@ int accept_object(object me, object obj)
 	if(obj->query("money_id"))
 	{
 		command("pat " + me->query("id"));
-		command("say 钱我有的是，你以后还是留给自己吧。");
+		command("say 錢我有的是，你以後還是留給自己吧。");
 		return 0;
 	}
 	if(obj->query("owner") != me->query("id"))
 	{
 		command("hehe "+(string)me->query("id"));
-		command("say 不错啊，但这活可不是你干的。");
+		command("say 不錯啊，但這活可不是你乾的。");
 		return 1;
 	}
 	else return 0;		
@@ -149,7 +149,7 @@ void destroying(object obj, object ob, object me)
 		return;
 	}
 	command("pat "+me->query("id"));
-	message_vision(HIY "$N对$n说道：你这次做得极为出色，这是你该得的部分，拿去吧！\n"NOR,ob, me);
+	message_vision(HIY "$N對$n說道：你這次做得極爲出色，這是你該得的部分，拿去吧！\n"NOR,ob, me);
 	n_money = new("/clone/money/gold");
 	n_money->move(me); 
 	n_money->add_amount(1);
@@ -158,13 +158,13 @@ void destroying(object obj, object ob, object me)
 	pot = me->query_temp("biaoshi")*20;
 	me->add("combat_exp", exp);
 	me->add("potential", pot);
-	me->set_temp("prize_reason","抢劫");
+	me->set_temp("prize_reason","搶劫");
 	me->set_temp("can_give_prize",1);
 	me->set_temp("prize_exp",exp);
 	me->set_temp("prize_pot",pot);
-	tell_room(environment(me),me->name()+"数着钱袋里的金子，脸上的肌肉不住地颤动，眼睛散发着一种奇怪的光芒。\n" NOR, ({ me }));	 
-	tell_object(me,"嘿嘿，发了！得到"+chinese_number(me->query_temp("job2_exp"))+"点经验。\n");
-	log_file("mission/ms_shangdui",sprintf("%20s做抢劫任务，杀了%2i个镖师，得到：%4i点EXP和%4i点潜能。\n",
+	tell_room(environment(me),me->name()+"數着錢袋裏的金子，臉上的肌肉不住地顫動，眼睛散發着一種奇怪的光芒。\n" NOR, ({ me }));	 
+	tell_object(me,"嘿嘿，發了！得到"+chinese_number(me->query_temp("job2_exp"))+"點經驗。\n");
+	log_file("mission/ms_shangdui",sprintf("%20s做搶劫任務，殺了%2i個鏢師，得到：%4i點EXP和%4i點潛能。\n",
 	me->name(1)+"("+ getuid(me)+")", me->query_temp("biaoshi"), me->query_temp("job2_exp"),me->query_temp("biaoshi")*20));
         me->delete_temp("job2_exp");
 	me->delete_temp("biaoshi");
@@ -183,28 +183,28 @@ string ask_job()
 	exp = me->query("combat_exp"); 
  
 	if(ob->is_busy() || ob->is_fighting())
-		return "没看见我正忙着吗？一边等着去！";
+		return "沒看見我正忙着嗎？一邊等着去！";
 	if(!me->query("family"))
-		return "看得出你对老仙态度恭敬，何不加入我星宿派呢？";
+		return "看得出你對老仙態度恭敬，何不加入我星宿派呢？";
 	if(me->query("family/family_name") != "星宿派" &&
 		!me->query_temp("ding_flatter"))
-		return "你对老仙的态度看上去不太恭敬啊！";
+		return "你對老仙的態度看上去不太恭敬啊！";
 	if(me->query_condition("wait_xx_task"))
-		return "上次把我师兄给的任务搞砸了，这次你就等等吧。";
+		return "上次把我師兄給的任務搞砸了，這次你就等等吧。";
 	if(me->query_condition("xx_task2"))
-		return "我现在还没有得到任何消息，你等会儿再来吧。";
+		return "我現在還沒有得到任何消息，你等會兒再來吧。";
 //	if(me->query_condition("job_busy"))
-  //      	return "你现在还有任务在身，等会儿再来吧。";		
+  //      	return "你現在還有任務在身，等會兒再來吧。";		
 	if(ob->query_temp("job_asked") == me->query("id")) 
-		return "不是叫你先去那里等我吗？怎么还赖在这里？";
+		return "不是叫你先去那裏等我嗎？怎麼還賴在這裏？";
 	if(ob->query_temp("job_asked")) 
-		return "嘿嘿，你来晚了，等下一次吧。";
+		return "嘿嘿，你來晚了，等下一次吧。";
 	if(exp<200000)
-		return "哈哈哈，你再加把力练功吧。";
+		return "哈哈哈，你再加把力練功吧。";
 	if(exp>=750000)
-		return "你的功力已经超过我了，还用跟我出去做事？";
+		return "你的功力已經超過我了，還用跟我出去做事？";
 	if(me->query("shen") > -10000)
-		return "哼！看来你的心肠还不够黑啊，这种事你不问也罢。";
+		return "哼！看來你的心腸還不夠黑啊，這種事你不問也罷。";
 	if(exp>=600000) j=6;
 	else if(exp>=500000) j=5;
 	else if(exp>=400000) j=5;
@@ -213,7 +213,7 @@ string ask_job()
   
 	me->set_temp("xx_job2", 1);
 	me->delete_temp("biaoshi");
-	message_vision(CYN "\n$N阴阴一笑，说道：这两天会有一队骆驼商队经过，你够胆就和我一起去看看吧。\n"NOR, ob, me);
+	message_vision(CYN "\n$N陰陰一笑，說道：這兩天會有一隊駱駝商隊經過，你夠膽就和我一起去看看吧。\n"NOR, ob, me);
 	ob->set_temp("job_asked", me->query("id"));
 	ob->set_temp("dest", aquest["name"]);
 	ob->set_temp("start_place", aquest["start"]);
@@ -222,13 +222,13 @@ string ask_job()
 	me->apply_condition("xx_task2", 10 + j);
 	me->start_busy(1);
 	call_out("going", 30, ob); 
-	return "我还有些事要办，你先去"+ob->query_temp("place")+"等我。\n";
+	return "我還有些事要辦，你先去"+ob->query_temp("place")+"等我。\n";
 }
 void going(object me)
 {
 	message_vision("$N急急忙忙地走了出去。\n", me);
 	me->move(me->query_temp("start_place"));
-	message_vision("$N急急忙忙地走了过来。\n", me);
+	message_vision("$N急急忙忙地走了過來。\n", me);
 }
 void init()
 {
@@ -258,7 +258,7 @@ void waiting(object ob, object me)
 {	
 	if(!ob || !living(me)) return;
 	command("nod "+me->query("id"));
-	command("say 好，我们就在这里等着他们来吧。");
+	command("say 好，我們就在這裏等着他們來吧。");
 	ob->set_temp("wait_target", 1);
 	me->set_temp("wait_target", 1);
 	remove_call_out("wait_target");
@@ -271,9 +271,9 @@ void do_back(object me)
 	me->delete_temp("start_place");
 	me->delete_temp("place");
 	me->delete_temp("dest");
-	message_vision("$N转过山丘，几个起落就不见了。\n", me);
+	message_vision("$N轉過山丘，幾個起落就不見了。\n", me);
 	me->move("/d/xingxiu/riyuedong1");  
-	message_vision("$N急急忙忙地走了过来。\n", me);
+	message_vision("$N急急忙忙地走了過來。\n", me);
 	remove_call_out("del_temp");
 	call_out("del_temp", 300, me);		 
 }
@@ -284,15 +284,15 @@ int wait_target(object ob, object me)
 	object obj;
 	if(!objectp(present(me, environment(ob))))
 	{
-		message_vision("$N说道：耶？那家伙怎么不见了？\n", ob);
+		message_vision("$N說道：耶？那傢伙怎麼不見了？\n", ob);
 		remove_call_out("do_back");
 		do_back(ob);
 		return 1;
 	}
 	if(!objectp(ob = present("anran zi", environment(me))))
 	{
-		tell_object(me,"你发现黯然子不见了，只好灰溜溜地转身离开。\n");
-		tell_room(environment(me),me->name()+"突然一脸茫然的表情，看来是想要离开了。\n", ({ me }));
+		tell_object(me,"你發現黯然子不見了，只好灰溜溜地轉身離開。\n");
+		tell_room(environment(me),me->name()+"突然一臉茫然的表情，看來是想要離開了。\n", ({ me }));
 		me->delete_temp("xx_job2");
 		me->clear_condition("xx_task2");
 		me->delete_temp("wait_target");
@@ -301,10 +301,10 @@ int wait_target(object ob, object me)
 	obj = new("/d/xingxiu/npc/shangdui");
 	obj->move(environment(me)); 
 	obj->set("arg", ob->query_temp("dest"));
-	message_vision(HIY"\n只听一阵骆驼风铃声传来，一只骆驼商队出现在眼前！\n\n"NOR, ob);
-	tell_object(me,"猎物终于出现了！\n"); 
-	message_vision(HIY"$N对着$n大声命令道：你快抢(qiang)商队，我来对付其他人！\n"NOR, ob, me); 
-	message_vision("说完$N就冲上前去，和几个护镖镖师打斗追逐开了。\n", ob);
+	message_vision(HIY"\n只聽一陣駱駝風鈴聲傳來，一隻駱駝商隊出現在眼前！\n\n"NOR, ob);
+	tell_object(me,"獵物終於出現了！\n"); 
+	message_vision(HIY"$N對着$n大聲命令道：你快搶(qiang)商隊，我來對付其他人！\n"NOR, ob, me); 
+	message_vision("說完$N就衝上前去，和幾個護鏢鏢師打鬥追逐開了。\n", ob);
 	remove_call_out("do_back");
 	do_back(ob);
 	me->delete_temp("wait_target");

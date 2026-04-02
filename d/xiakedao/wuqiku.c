@@ -3,10 +3,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "武器库");
+        set("short", "武器庫");
         set("long", @LONG
-这里是侠客岛的武器库，架上摆满了各种武器，任由来岛的武士
-们挑选。
+這裏是俠客島的武器庫，架上擺滿了各種武器，任由來島的武士
+們挑選。
 LONG );
         set("exits", ([
                 "east" : __DIR__"dating",

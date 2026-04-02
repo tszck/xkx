@@ -1,5 +1,5 @@
 // title.c (Mon 09-04-95)
-// 增加巫师察看在线或不在线玩家阶级和头衔的功能。
+// 增加巫師察看在線或不在線玩家階級和頭銜的功能。
 // Modified by Spacenet@FXLT 1.16.2000
 inherit F_CLEAN_UP;
  
@@ -29,10 +29,10 @@ int main(object me, string name)
     	if (!ob->restore())
     	{
     		destruct(ob);
-    		return notify_fail("没有这个玩家。\n");
+    		return notify_fail("沒有這個玩家。\n");
     	}
     	printf(BOLD "%s" NOR "%s\n", RANK_D->query_rank(ob), ob->short(1));
-	printf("%s \n\n", "该玩家目前不在线。");	
+	printf("%s \n\n", "該玩家目前不在線。");	
 	destruct(ob);
 	return 1;
     	
@@ -43,8 +43,8 @@ int help(object me)
     write(@HELP
 指令格式: title [玩家名]
  
-    玩家用 title 可以显示目前自己的阶级和头衔。
-    巫师用 title + 玩家名 可以显示该玩家的阶级和头衔。
+    玩家用 title 可以顯示目前自己的階級和頭銜。
+    巫師用 title + 玩家名 可以顯示該玩家的階級和頭銜。
  
 HELP
     );

@@ -14,20 +14,20 @@ void create()
 {
         set("short", "茶室");
         set("long", @LONG
-满屋的果香和茶香，沁人心脾。山西面的茶农们因感激武当弟子保
-护他们免受土匪的骚乱和官府的苛捐杂税，每年开春采茶季节，总要送
-来上好的茶叶。这茶叶由少女在三更至日出间采摘，并放在怀中用体温
-焙制，得天地精华，汇处子体香，故名＂女儿香＂，据说喝了能提精补
-神，十分珍贵。屋里四周得体地摆着些桌子(table)和椅子(chair)，坐
-满了武当的男女弟子。南边有扇窗子(window)，景色宜人。
+滿屋的果香和茶香，沁人心脾。山西面的茶農們因感激武當弟子保
+護他們免受土匪的騷亂和官府的苛捐雜稅，每年開春採茶季節，總要送
+來上好的茶葉。這茶葉由少女在三更至日出間採摘，並放在懷中用體溫
+焙制，得天地精華，匯處子體香，故名＂女兒香＂，據說喝了能提精補
+神，十分珍貴。屋裏四周得體地擺着些桌子(table)和椅子(chair)，坐
+滿了武當的男女弟子。南邊有扇窗子(window)，景色宜人。
 LONG );
         set("exits", ([
                 "north" : __DIR__"donglang2",
         ]));
         set("item_desc", ([
-            "table" : "一张典雅的桃木小桌，上面放着水果盘和饮茶器具。\n",
-            "chair" : "一只青竹打制的靠椅，躺上去摇摇晃晃，好舒服耶！\n",
-            "window" : "可以看得见东南远处桃花一片，拟似彩云盖地，让人神往。窗子下面就是广场．\n",
+            "table" : "一張典雅的桃木小桌，上面放着水果盤和飲茶器具。\n",
+            "chair" : "一隻青竹打製的靠椅，躺上去搖搖晃晃，好舒服耶！\n",
+            "window" : "可以看得見東南遠處桃花一片，擬似彩雲蓋地，讓人神往。窗子下面就是廣場．\n",
         ]));
         set("objects",([
                 __DIR__"npc/xiaocui" : 1,
@@ -62,18 +62,18 @@ int do_jump(string arg)
         me->delete_temp("marks/sit");
         me->delete_temp("tea_cup");
 
-    message_vision("$N＂嗖＂地一声跳出窗户。\n", me);
+    message_vision("$N＂嗖＂地一聲跳出窗戶。\n", me);
     if ((dex <= 23)&&(random(3)<2) || (dex > 23)&&(dex <= 26)&&random(2) )
     {
-        message_vision("结果＂啪＂地一声$N在下面的广场上摔了个结结实实。\n", me);
+        message_vision("結果＂啪＂地一聲$N在下面的廣場上摔了個結結實實。\n", me);
             if ( objectp(ob=present("mi tao", this_player())) )
             {
-                message_vision("水蜜桃砸烂了，溅了$N一屁股桃汁。\n", me);
+                message_vision("水蜜桃砸爛了，濺了$N一屁股桃汁。\n", me);
                 destruct(ob);
                 }
             if ( objectp(ob=present("xiang cha", this_player())) )
             {
-                message_vision("怀里的香茶翻了，湿了$N一裤子茶水。\n", me);
+                message_vision("懷裏的香茶翻了，溼了$N一褲子茶水。\n", me);
                 destruct(ob);
                 }
 
@@ -83,12 +83,12 @@ int do_jump(string arg)
                     me->improve_skill("dodge", random(3));
     } else if (dex <= 26)
     {
-        message_vision("$N摇摇晃晃地落在下面的广场上，差点摔倒！\n", me);
+        message_vision("$N搖搖晃晃地落在下面的廣場上，差點摔倒！\n", me);
                 if (me->query_skill("dodge",1)<101)
                     me->improve_skill("dodge", random(2));
     } else
     {
-        message_vision("$N提一口气，姿态潇洒地飘落在下面广场上！\n", me);
+        message_vision("$N提一口氣，姿態瀟灑地飄落在下面廣場上！\n", me);
     }
 
     me->move(__DIR__"guangchang");
@@ -104,25 +104,25 @@ int do_tap(string arg)
 
         if (!arg || (arg != "desk" && arg != "table"))
         {
-                return notify_fail("你要敲什么？\n");
+                return notify_fail("你要敲什麼？\n");
         }
 
         me = this_player();
         if( !objectp(cui = present("xiao cui", environment(me))) )
-                return notify_fail("你敲了敲桌子，却还是没人理你。你突然感觉自己很无聊。\n");
+                return notify_fail("你敲了敲桌子，卻還是沒人理你。你突然感覺自己很無聊。\n");
 
         if( !me->query_temp("marks/sit") )
-                return notify_fail("你敲了敲桌子，却没想到有对年轻人从桌底下钻出来，愕然地看着你，"
-                        +"\n你突然感觉自己很愚蠢。\n");
+                return notify_fail("你敲了敲桌子，卻沒想到有對年輕人從桌底下鑽出來，愕然地看着你，"
+                        +"\n你突然感覺自己很愚蠢。\n");
 
     if( me->query_temp("marks/served") )
     {
-        message_vision("小翠不耐烦地对$N说道：刚给你上过茶你接着就要，"+
-                                "你是个Ｒｏｂｏｔ我可不是啊！\n", me);
+        message_vision("小翠不耐煩地對$N說道：剛給你上過茶你接着就要，"+
+                                "你是個Ｒｏｂｏｔ我可不是啊！\n", me);
         return notify_fail("");
     }
 
-        message_vision("$N端坐在桌前，轻轻扣了下桌面，小翠莞尔一笑，过来招呼。\n", me);
+        message_vision("$N端坐在桌前，輕輕釦了下桌面，小翠莞爾一笑，過來招呼。\n", me);
 
         cui->serve_tea(me) ;
 
@@ -144,13 +144,13 @@ int do_sit(string arg)
 {
 
         if ( !arg || (arg != "chair") )
-                return notify_fail("你要坐什么上面？\n");
+                return notify_fail("你要坐什麼上面？\n");
 
         if (this_player()->query_temp("marks/sit"))
-                return notify_fail("你已经有了个座位了。\n");
+                return notify_fail("你已經有了個座位了。\n");
 
         this_player()->set_temp("marks/sit", 1);
-        return notify_fail("你找了个空位座下，等着上茶。\n");
+        return notify_fail("你找了個空位座下，等着上茶。\n");
 }
 
 
@@ -164,10 +164,10 @@ int valid_leave(object me, string dir)
         {
         case 0:
          return notify_fail
-                ("小翠把嘴一撇：吃饱了喝足了还不够，临走怀里还揣上一些，小女子也替您脸红呢！\n");
+                ("小翠把嘴一撇：喫飽了喝足了還不夠，臨走懷裏還揣上一些，小女子也替您臉紅呢！\n");
          break;
         case 1:
-         message_vision("小翠对$N道了个万福：张真人吩咐，饮食不得带出茶房。", me);
+         message_vision("小翠對$N道了個萬福：張真人吩咐，飲食不得帶出茶房。", me);
          return notify_fail("\n");
          break;
         }

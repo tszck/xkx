@@ -9,10 +9,10 @@ string ask_me();
 
 void create()
 {
-	set_name("大疾大师", ({ "daji dashi", "daji", "dashi"}));
+	set_name("大疾大師", ({ "daji dashi", "daji", "dashi"}));
 	set("long",
-		"他是一位笑容可掬的老僧，身穿一袭青布镶边袈裟。他身材不高，\n"
-		"太阳穴微凸，双目炯炯有神。\n");
+		"他是一位笑容可掬的老僧，身穿一襲青布鑲邊袈裟。他身材不高，\n"
+		"太陽穴微凸，雙目炯炯有神。\n");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -75,7 +75,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("南少林派", 19, "罗汉堂首座");
+	create_family("南少林派", 19, "羅漢堂首座");
 	setup();
 	carry_object(WEAPON_DIR+"qimeigun")->wield();
 	carry_object("/d/shaolin/obj/hui-cloth")->wear();

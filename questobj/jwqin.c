@@ -13,13 +13,13 @@ void create()
 	if(clonep())
 		 set_default_object(__FILE__);
 	else{
-		set("unit","张");
+		set("unit","張");
 		set("value",0);
 		set("material","steel");
-		set("long","相传这便是当年蔡文姬从火中所救出的焦木做成的美琴，琴的尾端仍可见焦黑色。\n");
-		set("wield_msg",HIY"$N伸手轻轻一挥,一张焦尾琴便已出现在$N手中.\n"NOR);
-		set("unwield_msg",HIY"$N十指一拂，琴声曳然而止。$N收起焦尾琴，放进背着的包袱里。\n"NOR);
-		set("unequip_msg",HIY"你十指一拂，琴声曳然而止。你收起焦尾琴，放进背着的包袱里。.\n"NOR);
+		set("long","相傳這便是當年蔡文姬從火中所救出的焦木做成的美琴，琴的尾端仍可見焦黑色。\n");
+		set("wield_msg",HIY"$N伸手輕輕一揮,一張焦尾琴便已出現在$N手中.\n"NOR);
+		set("unwield_msg",HIY"$N十指一拂，琴聲曳然而止。$N收起焦尾琴，放進揹着的包袱裏。\n"NOR);
+		set("unequip_msg",HIY"你十指一拂，琴聲曳然而止。你收起焦尾琴，放進揹着的包袱裏。.\n"NOR);
 	}
 	setup();
 }
@@ -29,7 +29,7 @@ int wield()
  
 
 /*	if (ob && !wizardp(ob)) {
-		tell_object(ob, name() + "是巫师用品，你不能使用，请马上向巫师报告，否则后果自负。\n");
+		tell_object(ob, name() + "是巫師用品，你不能使用，請馬上向巫師報告，否則後果自負。\n");
 		call_out("let_him_die", 300, ob);
 		return 0;
 	}*/
@@ -40,7 +40,7 @@ void let_him_die(object ob)
 {
 	if (ob = environment()) {
 		ob->add("combat_exp", -30000);
-		ob->set_temp("last_damage_from", "盗用巫师用品中毒");
+		ob->set_temp("last_damage_from", "盜用巫師用品中毒");
 		ob->die();
 	}
 }

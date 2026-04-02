@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("食尸蝎",({"xie zi"}));
-	set("race", "昆虫");
-	set("subrace", "爬虫");
-        set("long", "一条三尺来长，全身铁甲的毒蝎子。\n");
+        set_name("食屍蠍",({"xie zi"}));
+	set("race", "昆蟲");
+	set("subrace", "爬蟲");
+        set("long", "一條三尺來長，全身鐵甲的毒蠍子。\n");
         set("age", 1000);
         set("attitude", "peaceful");
 
@@ -46,7 +46,7 @@ int hit_ob(object me, object ob, int damage)
        if ((string)ob->query("family/family_name") != "五毒教") {
                 ob->apply_condition("xiezi_poison", 20
               +(int)ob->query_condition("xiezi_poison") );
-              tell_object(ob, HIG "你觉得被咬中的地方一阵麻木！\n" NOR );
+              tell_object(ob, HIG "你覺得被咬中的地方一陣麻木！\n" NOR );
        }
 }
 

@@ -1,12 +1,12 @@
-//Room: qinggong.c 峨嵋寝宫
+//Room: qinggong.c 峨嵋寢宮
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 void create()
 {
-      set("short","峨嵋寝宫");
+      set("short","峨嵋寢宮");
       set("long",@LONG
-这是峨嵋山金顶华藏庵外的一片小树林峨嵋寝宫。
+這是峨嵋山金頂華藏庵外的一片小樹林峨嵋寢宮。
 LONG);
       set("objects", ([
            CLASS_D("emei") + "/zhou" : 1,

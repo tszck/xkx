@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name( "轮值令", ({ "lunzhi ling", "ling", "iron" }) );
+	set_name( "輪值令", ({ "lunzhi ling", "ling", "iron" }) );
 	set_weight(100);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "块");
-		set("long", "这是一块用于南少林轮值用的令牌。\n");
+		set("unit", "塊");
+		set("long", "這是一塊用於南少林輪值用的令牌。\n");
 		set("value", 100);
 		set("material", "iron");
 	}

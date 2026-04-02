@@ -9,20 +9,20 @@ int exert(object me, object target)
   !me->query("perform/heal") &&
   !me->query("can_perform/bingxue-xinfa/heal") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("你所使用的内功中没有这种功能。");
+   return notify_fail("你所使用的內功中沒有這種功能。");
 
 	if( me->is_fighting() )
-		return notify_fail("战斗中运功疗伤？找死吗？\n");
+		return notify_fail("戰鬥中運功療傷？找死嗎？\n");
 	if( me->is_busy() )
-		return notify_fail("你现在正忙着呢，哪有空运功？\n");
+		return notify_fail("你現在正忙着呢，哪有空運功？\n");
 	if ((int)me->query_skill("bingxue-xinfa", 1) < 20)
-		return notify_fail("你的冰雪心法修为还不够。\n");
+		return notify_fail("你的冰雪心法修爲還不夠。\n");
 	if( (int)me->query("neili") < 50 ) 
-		return notify_fail("你的真气不够。\n");
+		return notify_fail("你的真氣不夠。\n");
 	if( (int)me->query("eff_qi") < (int)me->query("max_qi") / 2 )
-		return notify_fail("你已经受伤过重，只怕一运真气便有生命危险！\n");
-        write( HIW "你全身寒气缭绕，坐下来开始运功疗伤。\n" NOR);
-	message("vision", HIW + me->name() + "吐出一口瘀血，脸色看起来好多了。\n" NOR, environment(me), me);
+		return notify_fail("你已經受傷過重，只怕一運真氣便有生命危險！\n");
+        write( HIW "你全身寒氣繚繞，坐下來開始運功療傷。\n" NOR);
+	message("vision", HIW + me->name() + "吐出一口瘀血，臉色看起來好多了。\n" NOR, environment(me), me);
 
 	me->receive_curing("qi", 10 + (int)me->query_skill("force")/5 );
 	me->add("neili", -50);
@@ -33,15 +33,15 @@ int exert(object me, object target)
 }
 int help(object me)
 {
-	write(WHT"\n冰雪心法之自疗："NOR"\n");
+	write(WHT"\n冰雪心法之自療："NOR"\n");
 	write(@HELP
 
 	使用功效：
-		为自己疗伤
+		爲自己療傷
 
 	出手要求：
-		冰雪心法20级
-	        内力50
+		冰雪心法20級
+	        內力50
 HELP
 	);
 	return 1;

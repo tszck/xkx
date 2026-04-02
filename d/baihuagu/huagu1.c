@@ -8,8 +8,8 @@ void create()
 {
 	set("short", MAG"百花谷"NOR);
 	set("long", 
-HIR"来到此处，你突然眼前一亮，但觉青青翠谷，点缀着或红或紫，
-或黄或白的鲜花，竟是换了一个世界。道旁有一株桃树，开得正艳。\n"NOR);  
+HIR"來到此處，你突然眼前一亮，但覺青青翠谷，點綴着或紅或紫，
+或黃或白的鮮花，竟是換了一個世界。道旁有一株桃樹，開得正豔。\n"NOR);  
 	set("outdoors", "baihuagu");
 	set("exits", ([
 		"enter": __DIR__"huagu2",
@@ -37,7 +37,7 @@ int dropleaf(object me)
 	if(me)
 	if(environment(me) == this_object())
 	{
-		tell_object(me,HIM"一枝桃花随风飘下．．．．\n"NOR);
+		tell_object(me,HIM"一枝桃花隨風飄下．．．．\n"NOR);
 		leaf = new(__DIR__"obj/leaf");
 		leaf->move(this_object());      
 	}

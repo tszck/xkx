@@ -1,15 +1,15 @@
-// fu-zhangfang 帐房
+// fu-zhangfang 帳房
 // Winder Oct.10 1998
 
 inherit ROOM;
 
 void create()
 {
-        set("short", "帐房");
+        set("short", "帳房");
         set("long", @LONG
-这里是侯员外家的帐房。屋内青砖铺地，进门处横摆着一张桌
-子，一个管家正坐在桌后，小眼睛不住地跟着你转，好象又在打什
-么坏主意。
+這裏是侯員外家的帳房。屋內青磚鋪地，進門處橫擺着一張桌
+子，一個管家正坐在桌後，小眼睛不住地跟着你轉，好象又在打什
+麼壞主意。
 LONG
         );
         set("exits", ([

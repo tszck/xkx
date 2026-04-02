@@ -6,8 +6,8 @@ void create()
 {
 	set("short", "石板路");
 	set("long", @LONG
-你走在一条石板路上，东面和西面都是习武堂，不少人在这里进进
-出出的，南面是武馆大厅。
+你走在一條石板路上，東面和西面都是習武堂，不少人在這裏進進
+出出的，南面是武館大廳。
 LONG);
 	set("exits", ([
 		"southup" : __DIR__"wg_dating",

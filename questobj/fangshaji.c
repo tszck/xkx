@@ -3,10 +3,10 @@ inherit ITEM;
 
 void create()
 {
-	set_name("纺纱机", ({"fangsha ji","ji"}));
-	set("unit", "台");
+	set_name("紡紗機", ({"fangsha ji","ji"}));
+	set("unit", "臺");
 	set("taskobj", 1);
-	set("long", "一台构造相当简单的手工纺纱机，心灵手巧的摆夷妇女就用这种粗糙的飞梭编织精秀的织品。\n");
+	set("long", "一臺構造相當簡單的手工紡紗機，心靈手巧的擺夷婦女就用這種粗糙的飛梭編織精秀的織品。\n");
 	set("value", 0);
 	setup();
 }

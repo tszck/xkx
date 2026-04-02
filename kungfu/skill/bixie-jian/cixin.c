@@ -1,4 +1,4 @@
-// cixin.c  辟邪剑法「刺心」
+// cixin.c  辟邪劍法「刺心」
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -19,18 +19,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("你要使出"PNAME"，手上自然要有剑。\n");
+		return notify_fail("你要使出"PNAME"，手上自然要有劍。\n");
 
 	fskill = "kuihua-xinfa";
 	bskill = "sword";
@@ -43,15 +43,15 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"火候不够，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"火候不夠，使不出"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 180 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 	if ((int)me->query("max_neili") < 1000)
-		return notify_fail(RED"你内力修为不足，无法运足内力。\n"NOR);
+		return notify_fail(RED"你內力修爲不足，無法運足內力。\n"NOR);
 	if ((int)me->query("neili") < 600)
-		return notify_fail("你现在内力不够，没能将"PNAME"使完！\n");
+		return notify_fail("你現在內力不夠，沒能將"PNAME"使完！\n");
 
-	msg = HIC "突然之间，$N"HIC"一声大喝，"+weapon->name()+HIC"电闪而前，直刺$n"HIC"心口！\n"NOR;
+	msg = HIC "突然之間，$N"HIC"一聲大喝，"+weapon->name()+HIC"電閃而前，直刺$n"HIC"心口！\n"NOR;
 
 	if(random(me->query("combat_exp")) > (int)target->query("combat_exp")/4)
 	{
@@ -64,13 +64,13 @@ int perform(object me, object target)
 		target->receive_wound("qi", damage,me);
     target->receive_damage("jing",damage/3+random(damage/3),me);
 		target->receive_wound("jing", damage/3,me);
-		msg += HIC "$n"HIC"大骇之下，忙伸手招架，哪里还来得及，卟的一声，剑尖已刺中$n"HIC"心口。\n"NOR;
+		msg += HIC "$n"HIC"大駭之下，忙伸手招架，哪裏還來得及，卟的一聲，劍尖已刺中$n"HIC"心口。\n"NOR;
 		message_combatd(msg, me, target);
 	} else
 	{
 		me->start_busy(2);
 		me->add("neili", -300);
-		msg += HIY"$n"HIY"情急智生，抬手也往$N"HIY"心口刺去，迫得$P回剑跃开。\n"NOR;
+		msg += HIY"$n"HIY"情急智生，抬手也往$N"HIY"心口刺去，迫得$P回劍躍開。\n"NOR;
 		message_combatd(msg, me, target);
 	}
 	if(!target->is_fighting(me)) target->fight_ob(me);
@@ -84,15 +84,15 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		施招刺对方的心口
-		此招为辟邪剑法招势之最，阴险毒辣
-		损伤对方气血和精气
+		施招刺對方的心口
+		此招爲辟邪劍法招勢之最，陰險毒辣
+		損傷對方氣血和精氣
 
 	出手要求：
-		辟邪剑法180级
-		葵花心法100级
-		最大内力1000
-		内力600
+		辟邪劍法180級
+		葵花心法100級
+		最大內力1000
+		內力600
 HELP
 	);
 	return 1;

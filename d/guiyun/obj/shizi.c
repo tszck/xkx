@@ -17,7 +17,7 @@ void create()
 		set("unit", "堆");
 		set("value", 1);
 		set("base_value", 0);
-		set("base_unit", "颗");
+		set("base_unit", "顆");
 		set("base_weight", 12);
 	}
 	set_amount(random(70) + 81);

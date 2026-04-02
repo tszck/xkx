@@ -8,7 +8,7 @@ void create()
 	set_name("野山羊", ({ "shan yang", "sheep" }) );
 	set("race", "走畜");
 	set("age", 5);
-	set("long","一只温顺可爱的野山羊。它正在低头吃草，见了人也不惊避。\n");
+	set("long","一隻溫順可愛的野山羊。它正在低頭喫草，見了人也不驚避。\n");
 
 	set("combat_exp", 100);
 	set_temp("apply/attack", 30);
@@ -21,7 +21,7 @@ void create()
 void die()
 {
        object ob;
-       message_vision("$N惨嚎一声，慢慢倒下死了！\n", this_object());
+       message_vision("$N慘嚎一聲，慢慢倒下死了！\n", this_object());
        ob = new(__DIR__"obj/yang-rou");
        ob->move(environment(this_object()));
        destruct(this_object());

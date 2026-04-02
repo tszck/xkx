@@ -5,18 +5,18 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "铁枪庙");
+	set("short", "鐵槍廟");
 	set("long", @LONG
-这铁枪庙祀奉的是五代时名将铁枪王彦章。庙旁有座高塔，塔顶群
-鸦世代为巢，当地乡民传说铁枪庙的乌鸦是神兵神将，向来不敢侵犯，
-以致生养繁殖，越来越多。案桌下有个小洞(dong)。
+這鐵槍廟祀奉的是五代時名將鐵槍王彥章。廟旁有座高塔，塔頂羣
+鴉世代爲巢，當地鄉民傳說鐵槍廟的烏鴉是神兵神將，向來不敢侵犯，
+以致生養繁殖，越來越多。案桌下有個小洞(dong)。
 LONG );
 	set("exits", ([
                 "west"  : __DIR__"jxnanmen",
 		"north" : __DIR__"nanhu",
 	]));
         set("item_desc", ([
-	    "dong" : "一个在案桌下隐藏得很好的土洞。\n",
+	    "dong" : "一個在案桌下隱藏得很好的土洞。\n",
 	]));
         set("objects", ([
 		__DIR__"npc/wuya": 4
@@ -44,18 +44,18 @@ int do_enter(string arg)
 	if( !arg || arg=="" ) return 0;
 	if( arg=="dong" )
 	{
-		if( (fam = me->query("family")) && fam["family_name"] == "丐帮" ) 
+		if( (fam = me->query("family")) && fam["family_name"] == "丐幫" ) 
 		{
 			message("vision",
-				me->name() + "运起丐帮缩骨功，一弯腰往洞里钻了进去。\n",
+				me->name() + "運起丐幫縮骨功，一彎腰往洞裏鑽了進去。\n",
 				environment(me), ({me}) );
 			me->move("/d/gaibang/underqz");
                 	message("vision",
-				me->name() + "从洞里走了进来。\n",
+				me->name() + "從洞裏走了進來。\n",
                 		environment(me), ({me}) );
 			return 1;
 		}
 		else 
-			return notify_fail("这么小的洞，你钻得进去吗？\n");
+			return notify_fail("這麼小的洞，你鑽得進去嗎？\n");
 	}
 }

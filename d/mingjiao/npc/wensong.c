@@ -6,10 +6,10 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name("闻苍松", ({ "wen cangsong", "wen", "cangsong", }));
+        set_name("聞蒼松", ({ "wen cangsong", "wen", "cangsong", }));
 	set("long",
-        "他是一位高大魁伟的中年男子，身穿一件白布长袍。\n"
-        "他天生神力，手中的两头狼牙棒有万夫不当之勇，真是一条威风凛凛的汉子。\n"
+        "他是一位高大魁偉的中年男子，身穿一件白布長袍。\n"
+        "他天生神力，手中的兩頭狼牙棒有萬夫不當之勇，真是一條威風凜凜的漢子。\n"
 	);
 
 	set("gender", "男性");

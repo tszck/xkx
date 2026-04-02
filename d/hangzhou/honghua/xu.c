@@ -8,11 +8,11 @@ inherit F_MASTER;
 void create()
 {
 	set_name("徐天宏", ({ "xu tianhong", "xu","tianhong" }));
-	set("title", HIR "红花会"HIG"七当家" NOR);
-	set("nickname", HIC "武诸葛" NOR);
+	set("title", HIR "紅花會"HIG"七當家" NOR);
+	set("nickname", HIC "武諸葛" NOR);
 	set("long", 
-"其人身材矮小，足智多谋，是红花会的智囊军师，武功也颇
-不弱，冷静持重。\n");
+"其人身材矮小，足智多謀，是紅花會的智囊軍師，武功也頗
+不弱，冷靜持重。\n");
 	set("gender", "男性");
 	set("class", "scholar");
 	set("age", 27);

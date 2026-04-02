@@ -27,18 +27,18 @@ string do_delete_Mj(string datastr,string str,int amount);
 string show_mj(string str,int flag);
 string sort_data(string str);
 mixed do_check_num(string str,int flag);
-//牌资料
+//牌資料
 string MjE= "1w2w3w4w5w6w7w8w9w1t2t3t4t5t6t7t8t9t1s2s3s4s5s6s7s8s9seasowenojofabaf1f2f3f4f5f6f7f8";
 string *MjC = ({"",
-	"一万","二万","三万","四万","五万","六万","七万","八万","九万",
+	"一萬","二萬","三萬","四萬","五萬","六萬","七萬","八萬","九萬",
 	"一筒","二筒","三筒","四筒","五筒","六筒","七筒","八筒","九筒",
 	"一索","二索","三索","四索","五索","六索","七索","八索","九索",
-	"东风","南风","西风","北风","红中","青发","白板",
-	"1 春","2 夏","3 秋","4 冬","1 梅","2 兰","3 竹","4 菊","暗杠 "
+	"東風","南風","西風","北風","紅中","青發","白板",
+	"1 春","2 夏","3 秋","4 冬","1 梅","2 蘭","3 竹","4 菊","暗槓 "
 });
 int K;
 string Tc = "";
-//资料
+//資料
 int Auto;
 int Auto_Tin;
 int Auto_Gang;
@@ -81,13 +81,13 @@ void create()
 {
 	set_name("麻童",({"ma tong","matong","kid"}));
 	set_weight(1);
-	set("long","一个脸上生了一些小麻子的小孩。");
+	set("long","一個臉上生了一些小麻子的小孩。");
 	set("inquiry",([
 		"mj": (: to_say_play :),
-		"麻将": (: to_say_play :),
+		"麻將": (: to_say_play :),
 		"玩法": (: to_say_play :),
 		"play": (: to_say_play :),
-		"规则": (: to_say_rule :),
+		"規則": (: to_say_rule :),
 		"rule": (: to_say_rule :),
 	]));
 	setup();
@@ -133,24 +133,24 @@ int do_sit()
 	||  me->query("id")==P3Data["Id"]
 	||  me->query("id")==P4Data["Id"])
 	{
-		if(!Playing) message_vision("$N坐在地上蹬着腿儿耍泼，瘪着嘴儿哭哭啼啼。\n",me);
-		else message_vision("$N搓了搓手，呵了一口气：今天自摸"+(random(12)+1)+"次就好。\n",me);
+		if(!Playing) message_vision("$N坐在地上蹬着腿兒耍潑，癟着嘴兒哭哭啼啼。\n",me);
+		else message_vision("$N搓了搓手，呵了一口氣：今天自摸"+(random(12)+1)+"次就好。\n",me);
 		return 1;
 	}
 	if (Playing)
 	{
 		if (random(1))
 			message_vision(this_object()->name()+
-			"指着"+me->name()+"说道：人家正玩着呢，您到旁边坐会儿吧。\n",me);
+			"指着"+me->name()+"說道：人家正玩着呢，您到旁邊坐會兒吧。\n",me);
 		else
-			message_vision("$N坐在地上蹬腿儿耍泼，瘪着嘴儿哭哭啼啼地嚷嚷：我也要玩啦～～。\n",me);
+			message_vision("$N坐在地上蹬腿兒耍潑，癟着嘴兒哭哭啼啼地嚷嚷：我也要玩啦～～。\n",me);
 		return 1;
 	}
 	if (!P1Data["Id"] || P1Data["Id"]=="")
 	{
 		P1Data["Id"]=me->query("id");
 		NowPlayerId[Play]=me->query("id");
-		message_vision("$N加入了这场牌局。\n",me);
+		message_vision("$N加入了這場牌局。\n",me);
 		Play++;
 		Times=0;
 		LookP+="在前面有"+me->name()+"，";
@@ -158,7 +158,7 @@ int do_sit()
 	} else if (!P2Data["Id"] || P2Data["Id"]=="")
 		{
 			P2Data["Id"]=me->query("id");
-			message_vision("$N加入了这场牌局。\n",me);
+			message_vision("$N加入了這場牌局。\n",me);
 			NowPlayerId[Play]=me->query("id");
 			Play++;
 			Times=0;
@@ -167,7 +167,7 @@ int do_sit()
 		} else if (!P3Data["Id"] || P3Data["Id"]=="")
 			{
 				P3Data["Id"]=me->query("id");
-				message_vision("$N加入了这场牌局。\n",me);
+				message_vision("$N加入了這場牌局。\n",me);
 				NowPlayerId[Play]=me->query("id");
 				Play++;
 				Times=0;
@@ -176,14 +176,14 @@ int do_sit()
 			} else if (!P4Data["Id"] || P4Data["Id"]=="")
 				{
 					P4Data["Id"]=me->query("id");
-					message_vision("$N加入了这场牌局。\n",me);
+					message_vision("$N加入了這場牌局。\n",me);
 					NowPlayerId[Play]=me->query("id");
 					Play++;
 					Times=0;
 					LookP+=me->name();
 					return wash_mj(Play);
 				}
-	return notify_fail("人齐了哦。\n");
+	return notify_fail("人齊了哦。\n");
 }
 int do_da(string str,object me)
 {
@@ -198,17 +198,17 @@ int do_da(string str,object me)
 	else
 	{
 		command("stare "+me->query("id"));
-		command("say 这牌局跟你没关系。");
+		command("say 這牌局跟你沒關係。");
 		return 1;
 	}
 	if (!Playing)
 	{
 		command("kick "+me->query("id"));
-		command("say 牌局还没开始呢，您可别拿牌乱丢！");
+		command("say 牌局還沒開始呢，您可別拿牌亂丟！");
 		return 1;
 	}
-	tell_object(me,"换谁打牌:"+NowPlayerId[NowPlayer]+"\n");
-	if (!str) return notify_fail("指令：da <代码>\n");
+	tell_object(me,"換誰打牌:"+NowPlayerId[NowPlayer]+"\n");
+	if (!str) return notify_fail("指令：da <代碼>\n");
 	if (me->query("id")!=NowPlayerId[NowPlayer])
 	{
 		command("hammer "+me->query("id"));
@@ -218,12 +218,12 @@ int do_da(string str,object me)
 	if (!Touched)
 	{
 		command("faint "+me->query("id"));
-		command("say 您还没摸牌哪！");
+		command("say 您還沒摸牌哪！");
 		return 1;
 	}
 	if (Goned==5)
 	{
-		message_vision("$N说道：这把呀，是"+HIR+"五花合牌"+NOR+"，重新开始吧。\n",this_object());
+		message_vision("$N說道：這把呀，是"+HIR+"五花合牌"+NOR+"，重新開始吧。\n",this_object());
 		Playing=0;
 		Count++;
 		if (Play==4)
@@ -251,12 +251,12 @@ int do_da(string str,object me)
 	else if (me->query("id")==P3Data["Id"]) who=P3Data;
 	else if (me->query("id")==P4Data["Id"]) who=P4Data;
 	check=do_check_Mj(MjE,str);
-	if (check==0) return notify_fail("没有["+str+"]这种代码。\n");
+	if (check==0) return notify_fail("沒有["+str+"]這種代碼。\n");
 	check=do_check_Mj(who["Mj"],str);
-	if (check==0) return notify_fail("您没"+do_check_num(str,0)+"这张牌呀。\n");
-	tell_object(me,"你说道："+do_check_num(str,0)+"。\n");
-	tell_room(environment(this_object()),me->name()+"说道："+do_check_num(str,0)+"\n",me);
-	command("say "+me->name()+"打出了一张"+do_check_num(str,0)+"。\n");
+	if (check==0) return notify_fail("您沒"+do_check_num(str,0)+"這張牌呀。\n");
+	tell_object(me,"你說道："+do_check_num(str,0)+"。\n");
+	tell_room(environment(this_object()),me->name()+"說道："+do_check_num(str,0)+"\n",me);
+	command("say "+me->name()+"打出了一張"+do_check_num(str,0)+"。\n");
 	who["Mj"]=do_delete_Mj(who["Mj"],str,1);
 	LastDump=str;
 	who["Dump"]+=str;
@@ -264,7 +264,7 @@ int do_da(string str,object me)
 	Touched=0;
 	NowPlayer++;
 	NowPlayer%=Play;
-	message_vision("$N说道：该"+HIY+NowPlayerId[NowPlayer]+NOR+"摸牌了。\n",this_object());
+	message_vision("$N說道：該"+HIY+NowPlayerId[NowPlayer]+NOR+"摸牌了。\n",this_object());
 	if (Auto_Tin)
 	{
 		ponid=check_id(str,"ting");
@@ -302,7 +302,7 @@ int do_da(string str,object me)
 	{
 		Playing=0;
 		Count++;
-		message_vision("$N说道：这把呀，是"+HIY+"流局"+NOR+"，重新开始吧。\n",this_object());
+		message_vision("$N說道：這把呀，是"+HIY+"流局"+NOR+"，重新開始吧。\n",this_object());
 		str="所剩下的牌只有："+show_mj(List[count..end],2)+"\n";
 		tell_room(environment(this_object()),str);
 		if (Play==4)
@@ -351,19 +351,19 @@ int do_eat(string str)
 	else
 	{
 		command("stare "+me->query("id"));
-		command("say 这把呀，您就边上看着吧。");
+		command("say 這把呀，您就邊上看着吧。");
 		return 1;
 	}
 	if (!Playing)
 	{
-		command("say 都还没开始呢。");
+		command("say 都還沒開始呢。");
 		return 1;
 	}
-	tell_object(me,"换谁摸牌:"+NowPlayerId[NowPlayer]+"\n");
+	tell_object(me,"換誰摸牌:"+NowPlayerId[NowPlayer]+"\n");
 	if (me->query("id")!=NowPlayerId[NowPlayer])
 	{
 		command("hammer "+me->query("id"));
-		command("say 没轮到您呢，悠着点儿来吧。");
+		command("say 沒輪到您呢，悠着點兒來吧。");
 		return 1;
 	}
 	if (!LastDump || LastDump=="")
@@ -381,13 +381,13 @@ int do_eat(string str)
 	if (do_check_eat(num1,num2,LastDump)==0)
 	{
 		command("crab "+me->name());
-		command("say 瞧您那眼神儿，这样也能吃呀。");
+		command("say 瞧您那眼神兒，這樣也能喫呀。");
 		return 1;
 	}
 	if (num1==num2)
 	{
 		command("faint "+me->name());
-		command("say 相同的牌不能吃。");
+		command("say 相同的牌不能喫。");
 		return 1;
 	}
 	if (me->query("id")==P1Data["Id"]) who=P1Data;
@@ -396,19 +396,19 @@ int do_eat(string str)
 	else if (me->query("id")==P4Data["Id"]) who=P4Data;
 	LastDumpMan=do_check_Mj(MjE,num1);
 	if (LastDumpMan==0)
-		return notify_fail("没有["+num1+"]这种代码。\n");
+		return notify_fail("沒有["+num1+"]這種代碼。\n");
 	LastDumpMan=do_check_Mj(MjE,num2);
 	if (LastDumpMan==0)
-		return notify_fail("没有["+num2+"]这种代码。\n");
+		return notify_fail("沒有["+num2+"]這種代碼。\n");
 	LastDumpMan=do_check_Mj(who["Mj"],num1);
 	if (LastDumpMan==0)
-		return notify_fail("您没"+do_check_num(num1,0)+"这张牌呀。\n");
+		return notify_fail("您沒"+do_check_num(num1,0)+"這張牌呀。\n");
 	LastDumpMan=do_check_Mj(who["Mj"],num2);
 	if (LastDumpMan==0)
-		return notify_fail("您没"+do_check_num(num2,0)+"这张牌呀。\n");
+		return notify_fail("您沒"+do_check_num(num2,0)+"這張牌呀。\n");
 	message_vision("\n$N拍出"+HIG+do_check_num(num1,0)+NOR+
 		"和"+HIY+do_check_num(num2,0)+NOR+
-		"吃下了"+HIR+do_check_num(LastDump,0)+NOR+"。\n\n",me);
+		"喫下了"+HIR+do_check_num(LastDump,0)+NOR+"。\n\n",me);
 	who["Out"]+=num2;
 	who["Out"]+=LastDump;
 	who["Out"]+=num1;
@@ -418,7 +418,7 @@ int do_eat(string str)
 	NO_HU=1;
 	NO_GANG=1;
 	i=0;
-	if (who["Show"]=="代码") i=3;
+	if (who["Show"]=="代碼") i=3;
 	if (who["Show"]=="color") i=5;
 	tell_object(me,show_mj(who["Mj"],i));
 	return delete_last_dump(who["Id"]);
@@ -434,24 +434,24 @@ int do_gang(string str,object me)
 	else
 	{
 		command("stare "+me->query("id"));
-		command("say 这把呀，您就边上看着吧。");
+		command("say 這把呀，您就邊上看着吧。");
 		return 1;
 	}
 	if (!Playing)
 	{
-		command("say 都还没开始呢。");
+		command("say 都還沒開始呢。");
 		return 1;
 	}
 	if (LastDumpId==me->query("id"))
 	{
 		command("stare "+me->query("id"));
-		command("say 那张牌可是您自个儿打的。");
+		command("say 那張牌可是您自個兒打的。");
 		return 1;
 	}
 	if (Touched && NowPlayerId[NowPlayer]!=me->query("id"))
 	{
 		command("hammer "+me->query("id"));
-		command("say 别人都还没打牌呢，您杠什么呀。");
+		command("say 別人都還沒打牌呢，您槓什麼呀。");
 		return 1;
 	}
 	if (!str) str=LastDump;
@@ -464,20 +464,20 @@ int do_gang(string str,object me)
 	i=do_check_Mj(who["Mj"],str);
 	if (i==1)
 	{
-		if (!Touched) return notify_fail("您还没摸牌呢。\n");
+		if (!Touched) return notify_fail("您還沒摸牌呢。\n");
 		i=do_check_Mj(who["OutPeng"],str);
-		if (!i) return notify_fail("您只有一张不能杠。\n");
-		if (NO_GANG) return notify_fail("这样可杠不了。\n");
-		message_vision("\n$N说道："+HIB+"木工"+NOR+"～～～\n\n",me);
+		if (!i) return notify_fail("您只有一張不能槓。\n");
+		if (NO_GANG) return notify_fail("這樣可槓不了。\n");
+		message_vision("\n$N說道："+HIB+"木工"+NOR+"～～～\n\n",me);
 		who["Mj"]=do_delete_Mj(who["Mj"],str,1);
 		sort_data(who["OutPeng"]+=str);
 		str=List[end..end+1];
 		end-=2;
 		Goned++;
-		message_vision("\n$N从后面补了一张牌。\n\n",me);
-		printf("你补到一张%s\n",do_check_num(str,0));
+		message_vision("\n$N從後面補了一張牌。\n\n",me);
+		printf("你補到一張%s\n",do_check_num(str,0));
 		i=0;
-		if (who["Show"]=="代码") i=3;
+		if (who["Show"]=="代碼") i=3;
 		if (who["Show"]=="color") i=5;
 		who["Mj"]+=str;
 		check_flower(who);
@@ -486,13 +486,13 @@ int do_gang(string str,object me)
 		return 1;
 	}
 	if (i < 3)
-		return notify_fail("你手中要有三张"+do_check_num(str,0)+"才能杠。\n");
+		return notify_fail("你手中要有三張"+do_check_num(str,0)+"才能槓。\n");
 	if (!Touched)
 	{
-		if (str!=LastDump) return notify_fail("这样可杠不了。\n");
+		if (str!=LastDump) return notify_fail("這樣可槓不了。\n");
 	}
 	else if (i < 4)
-			return notify_fail("你手中要有四张"+do_check_num(str,0)+"才能暗杠。\n");
+			return notify_fail("你手中要有四張"+do_check_num(str,0)+"才能暗槓。\n");
 	for (i=0;i<Play;i++)
 	{
 		if (NowPlayerId[NowPlayer]==me->query("id")) break;
@@ -503,7 +503,7 @@ int do_gang(string str,object me)
 	if (Touched && NowPlayerId[NowPlayer]==me->query("id"))
 	{
 		NO_HU=0;
-		message_vision("\n$N脸上不禁露出邪恶的笑容：hia hia hia ...\n\n",me);
+		message_vision("\n$N臉上不禁露出邪惡的笑容：hia hia hia ...\n\n",me);
 		who["Mj"]=do_delete_Mj(who["Mj"],str,1);
 		for (i=0;i<4;i++) who["Out"]+="xx";
 		for (i=0;i<4;i++) who["OutGang"]+=str;
@@ -516,12 +516,12 @@ int do_gang(string str,object me)
 	str=List[end..end+1];
 	end-=2;
 	Goned++;
-	message_vision("$N从后面补了一张牌。\n",me);
-	tell_object(me,"你补到一张"+do_check_num(str,0)+"\n");
+	message_vision("$N從後面補了一張牌。\n",me);
+	tell_object(me,"你補到一張"+do_check_num(str,0)+"\n");
 	who["Mj"]+=str;
 	check_flower(who);
 	i=0;
-	if (who["Show"]=="代码") i=3;
+	if (who["Show"]=="代碼") i=3;
 	if (who["Show"]=="color") i=5;
 	tell_object(me,show_mj(who["Mj"],i));
 	if (Touched) return 1;
@@ -542,16 +542,16 @@ varargs int do_win(string str,object me)
 	else
 	{
 		command("stare "+me->query("id"));
-		command("say 这把呀，您就在边上瞧着吧。");
+		command("say 這把呀，您就在邊上瞧着吧。");
 		return 1;
 	}
 	if (!Playing)
 	{
-		command("say 都还没开始呢。");
+		command("say 都還沒開始呢。");
 		return 1;
 	}
 	if (NO_HU || LastDumpId==me->query("id"))
-		return notify_fail("这样可不能胡牌。\n");
+		return notify_fail("這樣可不能胡牌。\n");
 	if (LastDump==""&&Touched)
 		message_vision("\n$N大叫："+HIW+"天～～～胡～～～"+NOR+"\n\n",me);
 	else
@@ -560,7 +560,7 @@ varargs int do_win(string str,object me)
 		tell_object(me,"\n你大叫："+HIW+"我～胡～啦～"+NOR+"\n\n");
 	}
 	if (Touched&&NowPlayerId[NowPlayer]==me->query("id"))
-		message_vision("$N说道：胡家"+me->name()+HIG+"自摸"+NOR+"～～～～～～～"+HIR+"吃红"+NOR+"～～～～～\n",this_object());
+		message_vision("$N說道：胡家"+me->name()+HIG+"自摸"+NOR+"～～～～～～～"+HIR+"喫紅"+NOR+"～～～～～\n",this_object());
 	else command("say "+me->name()+"胡了");
 	if (me->query("id")==P1Data["Id"]) who=P1Data;
 	else if (me->query("id")==P2Data["Id"]) who=P2Data;
@@ -580,14 +580,14 @@ varargs int do_win(string str,object me)
 			else if (sizeof(P2Data["OutFlower"])==2) LastDumpId=P2Data["Id"];
 			else if (sizeof(P3Data["OutFlower"])==2) LastDumpId=P3Data["Id"];
 			else if (sizeof(P4Data["OutFlower"])==2) LastDumpId=P4Data["Id"];
-			Mj+="\n花牌放枪者："+HIB+LastDumpId+NOR+"\n";
+			Mj+="\n花牌放槍者："+HIB+LastDumpId+NOR+"\n";
 		}
 	} else
 	{
 		Mj+="胡家的牌是：\n";
 		if (who["OutGang"]!="")
 		{
-			Mj+="暗杠的有：\n";
+			Mj+="暗槓的有：\n";
 			Mj+=show_mj(who["OutGang"],0);
 		}
 		Mj+=who["Id"]+":手中的牌有：\n";
@@ -597,7 +597,7 @@ varargs int do_win(string str,object me)
 			who["Mj"]=sort_data(who["Mj"]);
 			Mj+=show_mj(who["Mj"],0);
 			Mj+="所胡的牌是："+HIR+do_check_num(LastDump,0)+NOR;
-			Mj+="\n放枪者："+HIB+LastDumpId+NOR+"\n";
+			Mj+="\n放槍者："+HIB+LastDumpId+NOR+"\n";
 		} else
 		{
 			Mj+=show_mj(who["Mj"],0);
@@ -609,35 +609,35 @@ varargs int do_win(string str,object me)
 	Tc="";
 	if (do_check_win(who["Mj"])==1||i==1)
 	{
-//算台///////////////////////////////////
+//算臺///////////////////////////////////
 		mixed MjT = ([
-"@1" : ({ "庄家", 1 }),"@2" : ({ "自摸", 1 }),"@3" : ({ "花牌", 1 }),"@4" : ({ "门清", 1 }),
-"@5" : ({ "东风", 1 }),"@6" : ({ "南风", 1 }),"@7" : ({ "西风", 1 }),"@8" : ({ "北风", 1 }),
-"@9" : ({ "红中", 1 }),"@0" : ({ "青发", 1 }),"@a" : ({ "白板", 1 }),"@G" : ({ "一丕口", 1 }),
-"@b" : ({ "海底摸月", 1 }),"@c" : ({ "海底捞鱼", 1 }),"@d" : ({ "平胡", 2 }),"@e" : ({ "东风东", 2 }),
-"@f" : ({ "南风南", 2 }),"@g" : ({ "西风西", 2 }),"@h" : ({ "北风北", 2 }),"@i" : ({ "全求人", 2 }),
-"@j" : ({ "三暗刻", 2 }),"@H" : ({ "二丕口", 2 }),"@k" : ({ "三杠子", 2 }),"@B" : ({ "春夏秋冬", 2 }),
-"@C" : ({ "梅兰菊竹", 2 }),"@l" : ({ "门清自摸", 3 }),"@m" : ({ "碰碰胡", 4 }),"@n" : ({ "混一色", 4 }),
+"@1" : ({ "莊家", 1 }),"@2" : ({ "自摸", 1 }),"@3" : ({ "花牌", 1 }),"@4" : ({ "門清", 1 }),
+"@5" : ({ "東風", 1 }),"@6" : ({ "南風", 1 }),"@7" : ({ "西風", 1 }),"@8" : ({ "北風", 1 }),
+"@9" : ({ "紅中", 1 }),"@0" : ({ "青發", 1 }),"@a" : ({ "白板", 1 }),"@G" : ({ "一丕口", 1 }),
+"@b" : ({ "海底摸月", 1 }),"@c" : ({ "海底撈魚", 1 }),"@d" : ({ "平胡", 2 }),"@e" : ({ "東風東", 2 }),
+"@f" : ({ "南風南", 2 }),"@g" : ({ "西風西", 2 }),"@h" : ({ "北風北", 2 }),"@i" : ({ "全求人", 2 }),
+"@j" : ({ "三暗刻", 2 }),"@H" : ({ "二丕口", 2 }),"@k" : ({ "三槓子", 2 }),"@B" : ({ "春夏秋冬", 2 }),
+"@C" : ({ "梅蘭菊竹", 2 }),"@l" : ({ "門清自摸", 3 }),"@m" : ({ "碰碰胡", 4 }),"@n" : ({ "混一色", 4 }),
 "@o" : ({ "小三元", 4 }),"@p" : ({ "四暗刻", 6 }),"@q" : ({ "清一色", 8 }),"@r" : ({ "字一色", 8 }),
-"@s" : ({ "七对子", 8 }),"@t" : ({ "大三元", 8 }),"@u" : ({ "五暗刻", 8 }),"@F" : ({ "小四喜", 8 }),
-"@D" : ({ "七抢一", 8 }),"@E" : ({ "绿一色", 16 }),"@v" : ({ "大四喜", 16 }),"@w" : ({ "天胡", 16 }),
-"@x" : ({ "地胡", 16 }),"@y" : ({ "人胡", 16 }),"@z" : ({ "国士无双", 16 }),"@A" : ({ "八仙过海", 16 }),
-"@J" : ({ "清老头", 8 }),"@I" : ({ "混老头", 4 }),
+"@s" : ({ "七對子", 8 }),"@t" : ({ "大三元", 8 }),"@u" : ({ "五暗刻", 8 }),"@F" : ({ "小四喜", 8 }),
+"@D" : ({ "七搶一", 8 }),"@E" : ({ "綠一色", 16 }),"@v" : ({ "大四喜", 16 }),"@w" : ({ "天胡", 16 }),
+"@x" : ({ "地胡", 16 }),"@y" : ({ "人胡", 16 }),"@z" : ({ "國士無雙", 16 }),"@A" : ({ "八仙過海", 16 }),
+"@J" : ({ "清老頭", 8 }),"@I" : ({ "混老頭", 4 }),
 ]);//H
 		get_tc(who);
 ////////////////
 		str="\t\t\t≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡\n";
 		for (i=0;i<sizeof(Tc);i+=2)
 		{
-			str+=sprintf("\t\t\t%-12s%8s 台\n",MjT[Tc[i..i+1]][0],chinese_number(MjT[Tc[i..i+1]][1]));
+			str+=sprintf("\t\t\t%-12s%8s 臺\n",MjT[Tc[i..i+1]][0],chinese_number(MjT[Tc[i..i+1]][1]));
 			j+=MjT[Tc[i..i+1]][1];
 		}
 		if (Count)
 		{
-			str+=sprintf("\t\t\t%-12s%8s 台\n","连"+chinese_number(Count)+"拉"+chinese_number(Count),chinese_number(Count*2));
+			str+=sprintf("\t\t\t%-12s%8s 臺\n","連"+chinese_number(Count)+"拉"+chinese_number(Count),chinese_number(Count*2));
 			j+=Count*2;
 		}
-		str+=sprintf("\t\t\t%20s\n","总台数:"+chinese_number(j+5)+" 台");
+		str+=sprintf("\t\t\t%20s\n","總檯數:"+chinese_number(j+5)+" 臺");
 		str+="\t\t\t≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡\n";
 		tell_room(environment(this_player()),str);
 /////////////
@@ -654,8 +654,8 @@ varargs int do_win(string str,object me)
 				else
 				{
 					if (!winner=get_mjdata(LastDumpId)) winner=({0,0,0,0});
-					winner[1]-=j; //战绩
-					winner[3]++; //放枪
+					winner[1]-=j; //戰績
+					winner[3]++; //放槍
 					set_mjdata(met,winner);
 				}
 				for (i=0;i<Play;i++)
@@ -667,7 +667,7 @@ varargs int do_win(string str,object me)
 					{
 						if (!winner=get_mjdata(NowPlayerId[i]))
 							winner=({0,0,0,0});
-						winner[0]++; //局数
+						winner[0]++; //局數
 						set_mjdata(met,winner);
 					}
 				}
@@ -707,7 +707,7 @@ varargs int do_win(string str,object me)
 	} else
 	{
 		command("sigh "+who["Id"]);
-		message_vision("$N说道：玩家 ["+HIR+who["Id"]+HIG+"] 言乍～ 古月～～～"+NOR+"。\n",this_object());
+		message_vision("$N說道：玩家 ["+HIR+who["Id"]+HIG+"] 言乍～ 古月～～～"+NOR+"。\n",this_object());
 		Times++;
 		Count=0;
 		if (Play==4)
@@ -738,8 +738,8 @@ varargs int do_win(string str,object me)
 			}
 ////////////////
 			str="\t\t\t≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡\n";
-			str+=sprintf("\t\t\t%-12s%8s 台\n","言乍古月",chinese_number(j));
-			str+=sprintf("\t\t\t%20s\n","总台数:"+chinese_number(j+5)+" 台");
+			str+=sprintf("\t\t\t%-12s%8s 臺\n","言乍古月",chinese_number(j));
+			str+=sprintf("\t\t\t%20s\n","總檯數:"+chinese_number(j+5)+" 臺");
 			str+="\t\t\t≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡\n";
 			tell_room(environment(this_player()),str);
 /////////////
@@ -762,7 +762,7 @@ varargs int do_win(string str,object me)
 	Mj="\n[0;1;36;46m  ";
 	for (i=0; i<26; i++) Mj+="  ";
 	Mj+="[1;36;46m  [0m\n";
-	Mj+="[1;36;46m  [0;36m      "+HIW+"中[0m文名字  [1m已[0m玩局数  [1m总[0m战绩  [1m自[0m摸次数  [1m放[0m枪次数[1;36;46m  [0m\n";
+	Mj+="[1;36;46m  [0;36m      "+HIW+"中[0m文名字  [1m已[0m玩局數  [1m總[0m戰績  [1m自[0m摸次數  [1m放[0m槍次數[1;36;46m  [0m\n";
 	for (i=0;i<Play;i++)
 	{
 		if (Play==4) winner=get_mjdata(NowPlayerId[i]);
@@ -790,7 +790,7 @@ int do_check_win(string str)
 		do_check_Mj(str,"1w")&&do_check_Mj(str,"9w")&&do_check_Mj(str,"1s")&&
 		do_check_Mj(str,"9s")&&do_check_Mj(str,"1t")&&do_check_Mj(str,"9t"))
 		{
-			//先删掉13只
+			//先刪掉13只
 			for (i=0;i<sizeof(Special);i+=2)
 			{
 				if (do_check_Mj(str,Special[i..i+1]))
@@ -798,7 +798,7 @@ int do_check_win(string str)
 					str=do_delete_Mj(str,Special[i..i+1],1);
 				}
 			}
-			//查还有没13么中的牌只
+			//查還有沒13麼中的牌只
 			for (i=0;i<sizeof(Special);i+=2)
 			{
 				if (do_check_Mj(str,Special[i..i+1]))
@@ -814,7 +814,7 @@ int do_check_win(string str)
 					{
 						str=do_delete_Mj(str,Special[i..i+1],1);
 						t++;
-						Tc+="@z";//13么
+						Tc+="@z";//13麼
 					}
 				}
 			}
@@ -867,7 +867,7 @@ int do_check_win(string str)
 						else if (do_check_Mj(str,str[i..i+1])==3) t++;
 				}
 				t=1;
-				Tc+="@s";//7对子
+				Tc+="@s";//7對子
 			}
 		}
 	}
@@ -917,7 +917,7 @@ int check_hu(string strW)
  int t;
 	int A,B,C,D,E,F;
 	for (i=0;i<sizeof(strW);i+=2)
-	{//再把顺子删掉
+	{//再把順子刪掉
 		A=do_check_num(strW[i..i+1],2);
 		B=do_check_num(strW[i+2..i+3],2);
 		C=do_check_num(strW[i+4..i+5],2);
@@ -935,7 +935,7 @@ int check_hu(string strW)
 				} else Tc+="@G";
 			}
 			for (j=0;j<6;j++)
-			{  //删掉顺子1 22 33 4 && 22 33 44
+			{  //刪掉順子1 22 33 4 && 22 33 44
 				strW=do_delete_Mj(strW,strW[i..i+1],1);
 			}
 			i=-2;
@@ -943,14 +943,14 @@ int check_hu(string strW)
 		else if (A+1==B&&B==C&&C==D&&D==E&&E+1==F)
 			{
 				for (j=0;j<2;j++)
-				{  //删掉顺子1 2 2 2 2 3
+				{  //刪掉順子1 2 2 2 2 3
 					strW=do_delete_Mj(strW,strW[i..i+1],1);
 				}
 				strW=do_delete_Mj(strW,strW[i+6..i+7],1);
 				i=-2;
 			}
 			else if (sizeof(strW) > 9 && A+1==B&&B==C&&C==D&&D+1==E)
-				{  //删掉顺子12223中的1 2 3
+				{  //刪掉順子12223中的1 2 3
 					strW=do_delete_Mj(strW,strW[i..i+1],1);
 					strW=do_delete_Mj(strW,strW[i..i+1],1);
 					strW=do_delete_Mj(strW,strW[i+4..i+5],1);
@@ -959,7 +959,7 @@ int check_hu(string strW)
 				else if (sizeof(strW) > 9 && A==B&&B+1==C&&C+1==D&&D+1==E)
 					{
 						for (j=0;j<3;j++)
-						{	//删掉顺子11234中的2 3 4
+						{	//刪掉順子11234中的2 3 4
 							strW=do_delete_Mj(strW,strW[i+4..i+5],1);
 						}
 						i=-2;
@@ -967,7 +967,7 @@ int check_hu(string strW)
 					else if (sizeof(strW) > 5 && A+1==B&&B+1==C)
 						{
 							for (j=0;j<3;j++)
-							{	//删掉顺子123中的1 2 3
+							{	//刪掉順子123中的1 2 3
 								strW=do_delete_Mj(strW,strW[i..i+1],1);
 							}
 							i=-2;
@@ -977,7 +977,7 @@ int check_hu(string strW)
 	if (sizeof(strW) > 5)
 	{
 		for (i=0;i<sizeof(strW);i+=2)
-		{  //再把刻删掉
+		{  //再把刻刪掉
 			check=do_check_Mj(strW,strW[i..i+1]);
 			if (check==3)
 			{
@@ -988,7 +988,7 @@ int check_hu(string strW)
 		}
 	}
 	for (i=0;i<sizeof(strW);i+=2)
-	{  //再把对删掉
+	{  //再把對刪掉
 		check=do_check_Mj(strW,strW[i..i+1]);
 		if (check==2)
 		{
@@ -1011,25 +1011,25 @@ int do_touch(string str,object me)
 	else
 	{
 		command("stare "+me->query("id"));
-		command("say 这把呀，您就在一边儿瞧着吧。");
+		command("say 這把呀，您就在一邊兒瞧着吧。");
 		return 1;
 	}
 	if (!Playing)
 	{
-		command("say 都还没开始呢，您摸牌藏起来干嘛呀。");
+		command("say 都還沒開始呢，您摸牌藏起來幹嘛呀。");
 		return 1;
 	}
-	tell_object(me,"换谁摸牌:"+NowPlayerId[NowPlayer]+"\n");
+	tell_object(me,"換誰摸牌:"+NowPlayerId[NowPlayer]+"\n");
 	if (me->query("id")!=NowPlayerId[NowPlayer])
 	{
 		command("hammer "+me->query("id"));
-		command("say 想偷牌呀，没那麽容易哦。");
+		command("say 想偷牌呀，沒那麼容易哦。");
 		return 1;
 	}
 	if (Touched)
 	{
 		command("slap "+me->query("id"));
-		command("say 打牌啦！别磨磨蹭蹭的。");
+		command("say 打牌啦！別磨磨蹭蹭的。");
 		return 1;
 	}
 	NO_HU=0;
@@ -1043,16 +1043,16 @@ int do_touch(string str,object me)
 		if (str=="AUTO");
 		else
 		{
-			write("设定自动听牌后、不可自己摸牌。\n");
+			write("設定自動聽牌後、不可自己摸牌。\n");
 			return 1;
 		}
 	}
 	Touched=1;
 	str=List[count..count+1];
 	count+=2;
-	tell_room(environment(this_object()),me->name()+"摸了一张牌。\n",me);
-	tell_object(me,"你摸了一张牌。\n");
-	tell_object(me,"你摸到一张"+do_check_num(str,0)+"。\n");
+	tell_room(environment(this_object()),me->name()+"摸了一張牌。\n",me);
+	tell_object(me,"你摸了一張牌。\n");
+	tell_object(me,"你摸到一張"+do_check_num(str,0)+"。\n");
 	if (who["Auto"]=="auto")
 	{
 		if (do_check_num(str,1) > 34)
@@ -1061,11 +1061,11 @@ int do_touch(string str,object me)
 			{
 				who["OutFlower"]+=str;
 				HU_F=1;
-				tell_room(environment(this_object()),me->name()+"说道："+HIB+"花牌"+NOR+"补花。\n\n"+me->name()+"往后面补了一张牌。\n",me);
-				tell_object(me,"你说道："+HIB+"花牌"+NOR+"补花。\n\n你往后面补了一张牌。\n");
+				tell_room(environment(this_object()),me->name()+"說道："+HIB+"花牌"+NOR+"補花。\n\n"+me->name()+"往後面補了一張牌。\n",me);
+				tell_object(me,"你說道："+HIB+"花牌"+NOR+"補花。\n\n你往後面補了一張牌。\n");
 				str=List[end..end+1];
 				end-=2;
-				tell_object(me,"你摸到了一张"+do_check_num(str,0)+"。\n");
+				tell_object(me,"你摸到了一張"+do_check_num(str,0)+"。\n");
 				if (do_check_num(str,1) > 34) i--;
 			}
 		}
@@ -1081,7 +1081,7 @@ int do_touch(string str,object me)
 	who["Mj"]+=str;
 	check_flower(who);
 	i=0;
-	if (who["Show"]=="代码") i=3;
+	if (who["Show"]=="代碼") i=3;
 	if (who["Show"]=="color") i=5;
 	tell_object(me,show_mj(who["Mj"],i));
 	return 1;
@@ -1097,30 +1097,30 @@ int do_peng(string str,object me)
 	else
 	{
 		command("stare "+me->query("id"));
-		command("say 这把呀，您就在一边儿瞧着吧。");
+		command("say 這把呀，您就在一邊兒瞧着吧。");
 		return 1;
 	}
 	if (!Playing)
 	{
 		command("die "+me->query("id"));
-		command("say 都还没开始呢，碰你个头啊。");
+		command("say 都還沒開始呢，碰你個頭啊。");
 		return 1;
 	}
 	if (Touched)
 	{
 		command("hammer "+me->query("id"));
-		command("say 别人没打牌您可怎麽碰哟。");
+		command("say 別人沒打牌您可怎麼碰喲。");
 		return 1;
 	}
 	if (LastDumpId==me->query("id"))
 	{
 		command("stare "+me->query("id"));
-		command("say 那张牌可是您自个儿打的。");
+		command("say 那張牌可是您自個兒打的。");
 		return 1;
 	}
 	if (!str) str=LastDump;
 	else if (str!=LastDump)
-			return notify_fail("那张"+do_check_num(str,0)+"已经过期了。\n");
+			return notify_fail("那張"+do_check_num(str,0)+"已經過期了。\n");
 	if (me->query("id")==P1Data["Id"]) who=P1Data;
 	else if (me->query("id")==P2Data["Id"]) who=P2Data;
 	else if (me->query("id")==P3Data["Id"]) who=P3Data;
@@ -1128,9 +1128,9 @@ int do_peng(string str,object me)
 	if (who["Auto"]=="auto") return 1;
 	i=do_check_Mj(who["Mj"],str);
 	if (i==0)
-		return notify_fail("你没"+do_check_num(str,0)+"这张牌要怎麽碰。\n");
+		return notify_fail("你沒"+do_check_num(str,0)+"這張牌要怎麼碰。\n");
 	if (i < 2)
-		return notify_fail("你手中要有两张"+do_check_num(str,0)+"才能碰。\n");
+		return notify_fail("你手中要有兩張"+do_check_num(str,0)+"才能碰。\n");
 
 	message_vision("\n$N大叫："+do_check_num(str,0)+"～"+HIM+"石並～～～"+NOR+"\n\n",me);
 	for (i=0;i<Play;i++)
@@ -1146,7 +1146,7 @@ int do_peng(string str,object me)
 	NO_GANG=1;
 	Touched=1;
 	i=0;
-	if (who["Show"]=="代码") i=3;
+	if (who["Show"]=="代碼") i=3;
 	if (who["Show"]=="color") i=5;
 	tell_object(me,show_mj(who["Mj"],i));
 	return delete_last_dump(who["Id"]);
@@ -1162,12 +1162,12 @@ int do_restart(string str)
 		else
 		{
 			command("stare "+me->query("id"));
-			command("say 这把呀，您就在一边儿瞧着吧。");
+			command("say 這把呀，您就在一邊兒瞧着吧。");
 			return 1;
 		}
 	}
-	message_vision("$N把牌局重新设定。\n",me);
-	message_vision("$N说道：牌局重新设定请用"+HIR+" sit "+NOR+"加入牌局。\n",this_object());
+	message_vision("$N把牌局重新設定。\n",me);
+	message_vision("$N說道：牌局重新設定請用"+HIR+" sit "+NOR+"加入牌局。\n",this_object());
 	NowPlayerId[0]="";
 	NowPlayerId[1]="";
 	NowPlayerId[2]="";
@@ -1199,16 +1199,16 @@ int wash_mj(int amount)
 ]);
 	if (!Play)
 	{
-		command("say 都没人玩儿，要我白洗牌呀？门儿都没有。");
+		command("say 都沒人玩兒，要我白洗牌呀？門兒都沒有。");
 		return 1;
 	}
 	if (Playing)
 	{
-		command("say 那几位正打着呢。");
+		command("say 那幾位正打着呢。");
 		return 1;
 	}
-	command("say 我帮着洗牌，待会儿谁胡我可要吃红哦 :)");
-	if (Play<4) command("say 都没凑齐四个，咱就不计分了。");
+	command("say 我幫着洗牌，待會兒誰胡我可要喫紅哦 :)");
+	if (Play<4) command("say 都沒湊齊四個，咱就不計分了。");
 	P1Data["Mj"]="";
 	P1Data["OutGang"]="";
 	P1Data["Out"]="";
@@ -1290,8 +1290,8 @@ int wash_mj(int amount)
 	}
 
 //	for (i=0;i<sizeof(X);i++) printf("%s=%d ",X[i],MjE_Data[X[i]]);
-	command("say 嗯，好啦，可以开始了。来吧！");
-	if (Count) countstr="[连庄"+chinese_number(Count)+"]";
+	command("say 嗯，好啦，可以開始了。來吧！");
+	if (Count) countstr="[連莊"+chinese_number(Count)+"]";
 	if (!Times);
 	else
 	{
@@ -1306,14 +1306,14 @@ int wash_mj(int amount)
 		}
 	}
 	if (Times/Play == 4) Times=0;
-	if (Times/Play == 3) str=HIW+"北风"+NOR;
-	if (Times/Play == 2) str=HIY+"西风"+NOR;
-	if (Times/Play == 1) str=HIR+"南风"+NOR;
-	if (Times/Play == 0) str=HIG+"东风"+NOR;
+	if (Times/Play == 3) str=HIW+"北風"+NOR;
+	if (Times/Play == 2) str=HIY+"西風"+NOR;
+	if (Times/Play == 1) str=HIR+"南風"+NOR;
+	if (Times/Play == 0) str=HIG+"東風"+NOR;
 	i=Times;
 	i%=Play;
 	i++;
-	message_vision("["+str+chinese_number(i)+"]牌局开始：庄家"+HIY+NowPlayerId[0]+HIR+countstr+NOR+"掷出骰子"+ "["+HIG+chinese_number(i=3+random(16))+NOR+ "]点。\n",this_object());
+	message_vision("["+str+chinese_number(i)+"]牌局開始：莊家"+HIY+NowPlayerId[0]+HIR+countstr+NOR+"擲出骰子"+ "["+HIG+chinese_number(i=3+random(16))+NOR+ "]點。\n",this_object());
 
 	//玩家取牌一次取16只:Q
 	if (Play>0) P1Data["Mj"]=List[0..31];
@@ -1326,7 +1326,7 @@ int wash_mj(int amount)
 	if (Play>2) check_flower(P3Data);
 	if (Play>3) check_flower(P4Data);
 	Playing=1;
-	message_vision("$N说道：庄家"+HIY+NowPlayerId[0]+NOR+"请开门牌。\n",this_object());
+	message_vision("$N說道：莊家"+HIY+NowPlayerId[0]+NOR+"請開門牌。\n",this_object());
 	return 1;
 }
 
@@ -1344,37 +1344,37 @@ int do_setmj(string str)
 	else return 1;
 	if (!str)
 	{
-		numstr=this_object()->name()+"偷偷告诉你：您设定了这些——\n";
-		if (who["AutoTin"]!="") numstr+="遇到"+HIB+show_mj(who["AutoTin"],2)+NOR+"会自动"+HIB+"[胡牌]"+NOR+"。\n";
-		if (who["AutoGang"]!="") numstr+="遇到"+HIY+show_mj(who["AutoGang"],2)+NOR+"会自动"+HIY+"[杠牌]"+NOR+"。\n";
-		if (who["AutoPeng"]!="") numstr+="遇到"+HIG+show_mj(who["AutoPeng"],2)+NOR+"会自动"+HIG+"[碰牌]"+NOR+"。\n";
-		if (who["Show"]=="代码")	 numstr+="显示方式为"+HIY+"[代码]"+NOR+"方式。\n";
-		if (who["Show"]=="color")	numstr+="显示方式为"+HIG+"[彩色]"+NOR+"。\n";
-		if (who["Auto"]=="auto")	 numstr+="你设定"+HIR+"[自动听牌]"+NOR+"。\n";
-		if (who["AutoTin"]==""&&who["AutoGang"]==""&&who["AutoPeng"]==""&&who["Show"]==""&&who["Auto"]=="") numstr+="你没有任何设定。\n";
-		tell_room(environment(me),this_object()->name()+"凑近"+me->name()+"耳边嘀咕了半天。\n",me);
+		numstr=this_object()->name()+"偷偷告訴你：您設定了這些——\n";
+		if (who["AutoTin"]!="") numstr+="遇到"+HIB+show_mj(who["AutoTin"],2)+NOR+"會自動"+HIB+"[胡牌]"+NOR+"。\n";
+		if (who["AutoGang"]!="") numstr+="遇到"+HIY+show_mj(who["AutoGang"],2)+NOR+"會自動"+HIY+"[槓牌]"+NOR+"。\n";
+		if (who["AutoPeng"]!="") numstr+="遇到"+HIG+show_mj(who["AutoPeng"],2)+NOR+"會自動"+HIG+"[碰牌]"+NOR+"。\n";
+		if (who["Show"]=="代碼")	 numstr+="顯示方式爲"+HIY+"[代碼]"+NOR+"方式。\n";
+		if (who["Show"]=="color")	numstr+="顯示方式爲"+HIG+"[彩色]"+NOR+"。\n";
+		if (who["Auto"]=="auto")	 numstr+="你設定"+HIR+"[自動聽牌]"+NOR+"。\n";
+		if (who["AutoTin"]==""&&who["AutoGang"]==""&&who["AutoPeng"]==""&&who["Show"]==""&&who["Auto"]=="") numstr+="你沒有任何設定。\n";
+		tell_room(environment(me),this_object()->name()+"湊近"+me->name()+"耳邊嘀咕了半天。\n",me);
 		tell_object(me,numstr);
 		return 1;
 	}
-	if (sscanf(str,"%s %s",str,numstr)!=2) return notify_fail("指令：setmj <ting>&<gang>&<peng> <代码>\n");
+	if (sscanf(str,"%s %s",str,numstr)!=2) return notify_fail("指令：setmj <ting>&<gang>&<peng> <代碼>\n");
 	if (str=="ting")
 	{
 		if (numstr=="none")
 		{
 			who["AutoTin"]="";
-			return notify_fail("你取消自动胡牌设定。\n");
+			return notify_fail("你取消自動胡牌設定。\n");
 		}
 		check=do_check_Mj(MjE,numstr);
-		if (check!=1) return notify_fail("没有["+numstr+"]这种牌。\n");
+		if (check!=1) return notify_fail("沒有["+numstr+"]這種牌。\n");
 		check=do_check_Mj(who["AutoTin"],numstr);
 		if (check)
 		{
 			who["AutoTin"]=do_delete_Mj(who["AutoTin"],numstr,1);
-			return notify_fail("你"+HIR+"删掉了"+NOR+"遇到"+do_check_num(numstr,0)+"会自动胡牌的设定。\n");
+			return notify_fail("你"+HIR+"刪掉了"+NOR+"遇到"+do_check_num(numstr,0)+"會自動胡牌的設定。\n");
 		}
 		who["AutoTin"]+=numstr;
 		Auto_Tin=1;
-		write("你设定遇到"+do_check_num(numstr,0)+"时会自动胡牌。\n");
+		write("你設定遇到"+do_check_num(numstr,0)+"時會自動胡牌。\n");
 		return 1;
 	}
 	else if (str=="gang")
@@ -1382,22 +1382,22 @@ int do_setmj(string str)
 			if (numstr=="none")
 			{
 				who["AutoGang"]="";
-				return notify_fail("你取消自动杠牌设定。\n");
+				return notify_fail("你取消自動槓牌設定。\n");
 			}
 			check=do_check_Mj(who["Mj"],numstr);
 			if (check==0)
-				return notify_fail("你没"+do_check_num(numstr,0)+"这张牌。\n");
+				return notify_fail("你沒"+do_check_num(numstr,0)+"這張牌。\n");
 			if (check < 3)
-				return notify_fail("你手中要有三张"+do_check_num(numstr,0)+"才能设定杠此牌。\n");
+				return notify_fail("你手中要有三張"+do_check_num(numstr,0)+"才能設定槓此牌。\n");
 			check=do_check_Mj(who["AutoGang"],numstr);
 			if (check)
 			{
 				who["AutoGang"]=do_delete_Mj(who["AutoGang"],numstr,1);
-				return notify_fail("你"+HIR+"删掉了"+NOR+"遇到"+do_check_num(numstr,0)+"会自动杠牌的设定。\n");
+				return notify_fail("你"+HIR+"刪掉了"+NOR+"遇到"+do_check_num(numstr,0)+"會自動槓牌的設定。\n");
 			}
 			who["AutoGang"]+=numstr;
 			Auto_Gang=1;
-			write("你设定遇到"+do_check_num(numstr,0)+"时会自动杠牌。\n");
+			write("你設定遇到"+do_check_num(numstr,0)+"時會自動槓牌。\n");
 			return 1;
 		}
 		else if (str=="peng")
@@ -1405,22 +1405,22 @@ int do_setmj(string str)
 				if (numstr=="none")
 				{
 					who["AutoPeng"]="";
-					return notify_fail("你取消自动碰牌设定。\n");
+					return notify_fail("你取消自動碰牌設定。\n");
 				}
 				check=do_check_Mj(who["Mj"],numstr);
 				if (check==0)
-					return notify_fail("你没"+do_check_num(numstr,0)+"这张牌。\n");
+					return notify_fail("你沒"+do_check_num(numstr,0)+"這張牌。\n");
 				if (check < 2)
-					return notify_fail("你手中要有两张"+do_check_num(numstr,0)+"才能设定碰此牌。\n");
+					return notify_fail("你手中要有兩張"+do_check_num(numstr,0)+"才能設定碰此牌。\n");
 				check=do_check_Mj(who["AutoPeng"],numstr);
 				if (check)
 				{
 					who["AutoPeng"]=do_delete_Mj(who["AutoPeng"],numstr,1);
-					return notify_fail("你"+HIR+"删掉了"+NOR+"遇到"+do_check_num(numstr,0)+"会自动碰牌的设定。\n");
+					return notify_fail("你"+HIR+"刪掉了"+NOR+"遇到"+do_check_num(numstr,0)+"會自動碰牌的設定。\n");
 				}
 				who["AutoPeng"]+=numstr;
 				Auto_Peng=1;
-				write("你设定遇到"+do_check_num(numstr,0)+"时会自动碰牌。\n");
+				write("你設定遇到"+do_check_num(numstr,0)+"時會自動碰牌。\n");
 				return 1;
 			}
 			else if (str=="show")
@@ -1428,18 +1428,18 @@ int do_setmj(string str)
 					if (numstr=="none"||numstr=="1")
 					{
 						who["Show"]="";
-						return notify_fail("你取消显示设定。\n");
+						return notify_fail("你取消顯示設定。\n");
 					}
 
-					if (numstr=="代码"||numstr=="3")
+					if (numstr=="代碼"||numstr=="3")
 					{
-						numstr="代码";
-						write("你设定只显示代码。\n");
+						numstr="代碼";
+						write("你設定只顯示代碼。\n");
 					}
 					else if (numstr=="color"||numstr=="2")
 						{
 							numstr="color";
-							write("你设定彩色显示。\n");
+							write("你設定彩色顯示。\n");
 						}
 						else return 1;
 					who["Show"]=numstr;
@@ -1449,21 +1449,21 @@ int do_setmj(string str)
 					{
 						if (numstr=="none")
 						{
-							return notify_fail("不能取消自动听牌，要是设定错误等着诈胡吧!!:>。\n");
+							return notify_fail("不能取消自動聽牌，要是設定錯誤等着詐胡吧!!:>。\n");
 						}
 						if (who["AutoTin"]=="")
-							return notify_fail("请先设定要听的牌。\n");
+							return notify_fail("請先設定要聽的牌。\n");
 						if (!Touched)
-							return notify_fail("请先摸牌再做此设定。\n");
+							return notify_fail("請先摸牌再做此設定。\n");
 						if (numstr=="ting")
-							write("你设定自动听牌。\n");
+							write("你設定自動聽牌。\n");
 						else return 1;
-						message_vision("\n$N大叫一声："+HIW+"我听啦～～～"+NOR+"\n\n",me);
+						message_vision("\n$N大叫一聲："+HIW+"我聽啦～～～"+NOR+"\n\n",me);
 						Auto=1;
 						who["Auto"]="auto";
 						return 1;
 					}
-	else return notify_fail("没有这种设定。\n");
+	else return notify_fail("沒有這種設定。\n");
 }
 
 int do_check_eat(string num1,string num2,string LastDump)
@@ -1540,15 +1540,15 @@ string show_mj(string str,int flag)
 			{
 				if (flag==5 || flag==6)
 				{
-					if (Mj[a+2..a+3]=="万") Mj1+=HIR;
+					if (Mj[a+2..a+3]=="萬") Mj1+=HIR;
 					else if (Mj[a+2..a+3]=="筒") Mj1+=HIC;
 					else if (Mj[a+2..a+3]=="索") Mj1+=HIG;
-					else if (Mj[a+2..a+3]=="风") Mj1+=HIM;
+					else if (Mj[a+2..a+3]=="風") Mj1+=HIM;
 					else if (Mj[a+2..a+3]=="中") Mj1+=HIR;
-					else if (Mj[a+2..a+3]=="发") Mj1+=HIG;
+					else if (Mj[a+2..a+3]=="發") Mj1+=HIG;
 					else if (Mj[a+2..a+3]=="板") Mj1+=HIW;
 					else if (Mj[a+2..a+3]=="春" || Mj[a+2..a+3]=="夏" || Mj[a+2..a+3]=="秋" || Mj[a+2..a+3]=="冬") Mj1+=HIR;
-					else if (Mj[a+2..a+3]=="梅" || Mj[a+2..a+3]=="兰" || Mj[a+2..a+3]=="竹" || Mj[a+2..a+3]=="菊") Mj1+="[1;30m";
+					else if (Mj[a+2..a+3]=="梅" || Mj[a+2..a+3]=="蘭" || Mj[a+2..a+3]=="竹" || Mj[a+2..a+3]=="菊") Mj1+="[1;30m";
 				}
 				Mj1+=Mj[a..a+1];
 				a++;a++;a++;
@@ -1559,19 +1559,19 @@ string show_mj(string str,int flag)
 			{
 				if (flag==5 || flag==6)
 				{
-					if (Mj[a..a+1]=="万") Mj1+=RED;
+					if (Mj[a..a+1]=="萬") Mj1+=RED;
 					else if (Mj[a..a+1]=="索") Mj1+=GRN;
 					else if (Mj[a..a+1]=="筒") Mj1+=CYN;
-					else if (Mj[a..a+1]=="风") Mj1+=MAG;
+					else if (Mj[a..a+1]=="風") Mj1+=MAG;
 					else if (Mj[a..a+1]=="中") Mj1+=HIR;
-					else if (Mj[a..a+1]=="发") Mj1+=HIG;
+					else if (Mj[a..a+1]=="發") Mj1+=HIG;
 					else if (Mj[a..a+1]=="白") Mj1+=HIW;
 					else if (Mj[a..a+1]=="春") Mj1+=HIG;
 					else if (Mj[a..a+1]=="夏") Mj1+=HIB;
 					else if (Mj[a..a+1]=="秋") Mj1+=HIY;
 					else if (Mj[a..a+1]=="冬") Mj1+=HIW;
 					else if (Mj[a..a+1]=="梅") Mj1+=HIW;
-					else if (Mj[a..a+1]=="兰") Mj1+=HIR;
+					else if (Mj[a..a+1]=="蘭") Mj1+=HIR;
 					else if (Mj[a..a+1]=="竹") Mj1+=HIG;
 					else if (Mj[a..a+1]=="菊") Mj1+=HIY;
 				}
@@ -1709,7 +1709,7 @@ int delete_last_dump(string whoId)
 	return 1;
 }
 
-//把英文字转为代码 or 中文 flag 1 就是转为代码 flag 2 转为1..9
+//把英文字轉爲代碼 or 中文 flag 1 就是轉爲代碼 flag 2 轉爲1..9
 mixed do_check_num(string str,int flag)
 {
 	int number;
@@ -1762,9 +1762,9 @@ void check_flower(mapping who)
 		{
 			if (Playing)
 			{
-				tell_room(environment(this_object()),this_player()->name()+"说道："+HIB+"花牌"+NOR+"补花。\n\n"+this_player()->name()+"往后面补了一张牌。\n",this_player());
-				tell_object(this_player(),"你说道："+HIB+"花牌"+NOR+"补花。\n\n你往后面补了一张牌。\n");
-				tell_object(this_player(),"你摸到了一张"+do_check_num(List[end..end+1],0)+"。\n");
+				tell_room(environment(this_object()),this_player()->name()+"說道："+HIB+"花牌"+NOR+"補花。\n\n"+this_player()->name()+"往後面補了一張牌。\n",this_player());
+				tell_object(this_player(),"你說道："+HIB+"花牌"+NOR+"補花。\n\n你往後面補了一張牌。\n");
+				tell_object(this_player(),"你摸到了一張"+do_check_num(List[end..end+1],0)+"。\n");
 			}
 			HU_F=1;
 			who["OutFlower"]+=temp;
@@ -1865,21 +1865,21 @@ int do_look(string arg)
 	if (arg=="1p"||arg=="2p"||arg=="3p"||arg=="4p")
 	{
 		i=0;
-		if (who["Show"]=="代码") i=3;
+		if (who["Show"]=="代碼") i=3;
 		if (who["Show"]=="color") i=5;
 		if (!Playing||check_id(me->query("id"),"player")==""||l==1)
 		{
 			if (who["OutGang"]!="")
 			{
-				Mj+=who["Id"]+":暗杠的牌有\n";
+				Mj+=who["Id"]+":暗槓的牌有\n";
 				Mj+=show_mj(who["OutGang"],i+1);
 			}
 			Mj+=who["Id"]+":手中的牌有\n";
 			Mj+=show_mj(who["Mj"],i);
 		}
-		Mj+=who["Id"]+":摆在外面的牌有\n";
+		Mj+=who["Id"]+":擺在外面的牌有\n";
 		Mj+=show_mj(who["Out"]+who["OutPeng"]+who["OutFlower"],i+1);
-		Mj+=who["Id"]+":打过的牌:\n";
+		Mj+=who["Id"]+":打過的牌:\n";
 		Mj+=show_mj(who["Dump"],2);
 	}
 	else if (arg=="mj")
@@ -1887,80 +1887,80 @@ int do_look(string arg)
 			if (!Playing) return 0;
 			if (who["OutGang"]!="")
 			{
-				Mj+="你的暗杠的牌有\n";
+				Mj+="你的暗槓的牌有\n";
 				Mj+=show_mj(who["OutGang"],1);
 			}
-			if (who["Show"]=="代码") i=3;
+			if (who["Show"]=="代碼") i=3;
 			if (who["Show"]=="color") i=5;
-			Mj+="你摆在外面的牌有\n";
+			Mj+="你擺在外面的牌有\n";
 			Mj+=show_mj(who["Out"]+who["OutPeng"]+who["OutFlower"],i+1);
 			Mj+="你手中的牌有\n";
 			Mj+=show_mj(who["Mj"],i);
-			Mj+="你的设定有";
+			Mj+="你的設定有";
 		} else if (arg=="all")
 			{
 				i=0;
-				if (who["Show"]=="代码") i=3;
+				if (who["Show"]=="代碼") i=3;
 				if (who["Show"]=="color") i=5;
-				Mj+=P1Data["Id"]+":摆在外面的牌有\n";
+				Mj+=P1Data["Id"]+":擺在外面的牌有\n";
 				Mj+=show_mj(P1Data["Out"]+P1Data["OutPeng"]+P1Data["OutFlower"],i+1);
-				Mj+=P1Data["Id"]+":打过的牌有\n";
+				Mj+=P1Data["Id"]+":打過的牌有\n";
 				Mj+=show_mj(P1Data["Dump"],2)+"\n";
-				Mj+=P2Data["Id"]+":摆在外面的牌有\n";
+				Mj+=P2Data["Id"]+":擺在外面的牌有\n";
 				Mj+=show_mj(P2Data["Out"]+P2Data["OutPeng"]+P2Data["OutFlower"],i+1);
-				Mj+=P2Data["Id"]+":打过的牌有\n";
+				Mj+=P2Data["Id"]+":打過的牌有\n";
 				Mj+=show_mj(P2Data["Dump"],2)+"\n";
-				Mj+=P3Data["Id"]+":摆在外面的牌有\n";
+				Mj+=P3Data["Id"]+":擺在外面的牌有\n";
 				Mj+=show_mj(P3Data["Out"]+P3Data["OutPeng"]+P3Data["OutFlower"],i+1);
-				Mj+=P3Data["Id"]+":打过的牌有\n";
+				Mj+=P3Data["Id"]+":打過的牌有\n";
 				Mj+=show_mj(P3Data["Dump"],2)+"\n";
-				Mj+=P4Data["Id"]+":摆在外面的牌有\n";
+				Mj+=P4Data["Id"]+":擺在外面的牌有\n";
 				Mj+=show_mj(P4Data["Out"]+P4Data["OutPeng"]+P4Data["OutFlower"],i+1);
-				Mj+=P4Data["Id"]+":打过的牌有\n";
+				Mj+=P4Data["Id"]+":打過的牌有\n";
 				Mj+=show_mj(P4Data["Dump"],2)+"\n";
 			} else if (arg=="chicken")
 				{
 					if (Playing)
 					{
-						Mj=LookP+"俩眼眯成一条缝儿，正聚精会神地打牌呢。\n";
-						Mj+="还剩下"+sprintf("%d",(end-count-16-Goned)/2)+"张牌就流局了。\n";
+						Mj=LookP+"倆眼眯成一條縫兒，正聚精會神地打牌呢。\n";
+						Mj+="還剩下"+sprintf("%d",(end-count-16-Goned)/2)+"張牌就流局了。\n";
 						if (LastDump!="")
-							Mj+=LastDumpId+"刚刚打出了"+show_mj(LastDump,2)+"。\n";
+							Mj+=LastDumpId+"剛剛打出了"+show_mj(LastDump,2)+"。\n";
 						if (Count)
-							Mj+=NowPlayerId[0]+":连庄"+chinese_number(Count)+"。\n";
+							Mj+=NowPlayerId[0]+":連莊"+chinese_number(Count)+"。\n";
 						if (P1Data["Out"]=="" && P1Data["OutPeng"]=="")
-							p1o=HIY+"门清"+NOR;
+							p1o=HIY+"門清"+NOR;
 						if (P2Data["Out"]=="" && P2Data["OutPeng"]=="")
-							p2o=HIY+"门清"+NOR;
+							p2o=HIY+"門清"+NOR;
 						if (P3Data["Out"]=="" && P3Data["OutPeng"]=="")
-							p3o=HIY+"门清"+NOR;
+							p3o=HIY+"門清"+NOR;
 						if (P4Data["Out"]=="" && P4Data["OutPeng"]=="")
-							p4o=HIY+"门清"+NOR;
-						Mj+="1.东家是:"+NowPlayerId[0]+p1o+"\n2.南家是:"+NowPlayerId[1]+p2o+"\n";
+							p4o=HIY+"門清"+NOR;
+						Mj+="1.東家是:"+NowPlayerId[0]+p1o+"\n2.南家是:"+NowPlayerId[1]+p2o+"\n";
 						Mj+="3.西家是:"+NowPlayerId[2]+p3o+"\n4.北家是:"+NowPlayerId[3]+p4o+"\n";
 					}
 					else if (NowPlayerId[0]!="") Mj=LookP+"正在等人打牌。";
-					else Mj=LookP+"一只麻将鸡正等人加入(sit)牌局。";
+					else Mj=LookP+"一隻麻將雞正等人加入(sit)牌局。";
 				} else if (arg=="end")
 					{
-						Mj+="还有"+chinese_number((end-count-16-Goned)/2)+"张牌就流局了。\n";
+						Mj+="還有"+chinese_number((end-count-16-Goned)/2)+"張牌就流局了。\n";
 					} else if (arg=="da")
 						{
-							Mj+=LastDumpId+"刚刚打出了"+show_mj(LastDump,2)+"。\n";
+							Mj+=LastDumpId+"剛剛打出了"+show_mj(LastDump,2)+"。\n";
 						} else return 0;
 	if (arg=="mj")
 	{
 		if (who["AutoTin"]!="")
-			Mj+="遇到"+show_mj(who["AutoTin"],2)+"会自动胡牌、";
+			Mj+="遇到"+show_mj(who["AutoTin"],2)+"會自動胡牌、";
 		if (who["AutoGang"]!="")
-			Mj+="遇到"+show_mj(who["AutoGang"],2)+"会自动杠牌、";
+			Mj+="遇到"+show_mj(who["AutoGang"],2)+"會自動槓牌、";
 		if (who["AutoPeng"]!="")
-			Mj+="遇到"+show_mj(who["AutoPeng"],2)+"会自动碰牌。";
-		if (who["Show"]=="代码") Mj+="显示方式为代码方式。";
-		if (who["Show"]=="color") Mj+="显示方式为彩色。";
-		if (who["Auto"]=="auto") Mj+="你设定自动听牌。";
+			Mj+="遇到"+show_mj(who["AutoPeng"],2)+"會自動碰牌。";
+		if (who["Show"]=="代碼") Mj+="顯示方式爲代碼方式。";
+		if (who["Show"]=="color") Mj+="顯示方式爲彩色。";
+		if (who["Auto"]=="auto") Mj+="你設定自動聽牌。";
 		if (who["AutoTin"]==""&&who["AutoGang"]==""&&who["AutoPeng"]==""&&who["Show"]==""&&who["Auto"]=="")
-			Mj+="你没有任何设定。\n";
+			Mj+="你沒有任何設定。\n";
 	}
 	printf("%s\n",Mj);
 	return 1;
@@ -1972,19 +1972,19 @@ int do_help(string str)
 	{
 write(@HELP
 
-                       基  本  设  定
+                       基  本  設  定
 
-            setmj 可用的有自动胡、杠 、碰、听、显式方法。
+            setmj 可用的有自動胡、槓 、碰、聽、顯式方法。
 --------------------------------------------------------------------
-例子1: setmj peng 1w    设定会自动碰1w 当别人打出一万时会自动碰一万。
-       setmj gang 1w    设定会自动杠1w 当别人打出一万时会自动杠一万。
-       setmj ting 1w    设定会自动听1w 当别人打出一万时会自动胡一万。
-例子2: setmj show 代码  设定为只显示代码。
-       setmj show color 设定为彩色显示。
-例子3: setmj ting none  取消会自动胡牌设定。
-       setmj gang none  取消会自动杠牌设定。
-       setmj peng none  取消会自动碰牌设定。
-例子4: setmj auto ting  设定自动听牌。
+例子1: setmj peng 1w    設定會自動碰1w 當別人打出一萬時會自動碰一萬。
+       setmj gang 1w    設定會自動槓1w 當別人打出一萬時會自動槓一萬。
+       setmj ting 1w    設定會自動聽1w 當別人打出一萬時會自動胡一萬。
+例子2: setmj show 代碼  設定爲只顯示代碼。
+       setmj show color 設定爲彩色顯示。
+例子3: setmj ting none  取消會自動胡牌設定。
+       setmj gang none  取消會自動槓牌設定。
+       setmj peng none  取消會自動碰牌設定。
+例子4: setmj auto ting  設定自動聽牌。
 --------------------------------------------------------------------
 HELP);
 		return 1;
@@ -1996,22 +1996,22 @@ int to_say_play()
 {
 	write(@HELP
 
-  指  令        例          子              说    明
+  指  令        例          子              說    明
 ┌----------------------------------------------------┐
 │sit   ------------------------------------ 坐下入局 │
 │look  l mj或.看自己牌,l 1p或.1看玩家1的牌           │
 │      l all或..看全部,l end看流局l dump。  看牌     │
 │mo    ------------------------------------ 摸牌     │
-│da            da <代码>。                  打牌     │
-│chi           chi <代码1> <代码2>。        吃牌     │
+│da            da <代碼>。                  打牌     │
+│chi           chi <代碼1> <代碼2>。        喫牌     │
 │peng  ------------------------------------ 碰牌     │
-│gang          gang 或 gang <代码>(暗杠用)  杠牌     │
+│gang          gang 或 gang <代碼>(暗槓用)  槓牌     │
 │hu    ------------------------------------ 胡牌     │
-│setmj         请看桌面(look table)         设定参数 │
-│start ------------------------------------ 牌局开始 │
-│restart       restart 或 restart mj        重新开始 │
+│setmj         請看桌面(look table)         設定參數 │
+│start ------------------------------------ 牌局開始 │
+│restart       restart 或 restart mj        重新開始 │
 │top   top aip,top -p,top -w,top -h,top -d           │
-│      top -l看全部,-lw,-lh,-ld。           查资料   │
+│      top -l看全部,-lw,-lh,-ld。           查資料   │
 └----------------------------------------------------┘
 
 HELP);
@@ -2022,8 +2022,8 @@ int to_say_rule()
 {
 write(@HELP
 
-　　每胡就有底台５，在加上所得的台就是总台，要是自摸就＊３，相
-当於五一的算法。放枪就由总战绩那扣掉所失的台数。胡者则加上去。
+　　每胡就有底臺５，在加上所得的臺就是總檯，要是自摸就＊３，相
+當於五一的算法。放槍就由總戰績那扣掉所失的臺數。胡者則加上去。
 
 HELP);
 		  return 1;
@@ -2042,7 +2042,7 @@ int show_top(string str)
 	else if (str=="-lh"||str=="-hl") str="all3";
 	else if (str=="-ld"||str=="-dl") str="all4";
 	if (file_size(MJ_DATA)==-1)
-		return notify_fail("资料档没没有找到。\n");
+		return notify_fail("資料檔沒沒有找到。\n");
 	MjData=explode(read_file(MJ_DATA),",");
 	if (str=="all1") e=2;
 	else if (str=="all2") e=3;
@@ -2073,7 +2073,7 @@ int show_top(string str)
 	show=HBWHT+"\n  ";
 	for (i=0; i<34; i++) show+="[47m　";
 	show+=HBWHT+"  \n";
-	show+="  "+HBRED+"   英文名字 │  中文名字  │已玩局数│ 总战绩 │自摸次数│放枪次数  "+HBWHT+"  \n";
+	show+="  "+HBRED+"   英文名字 │  中文名字  │已玩局數│ 總戰績 │自摸次數│放槍次數  "+HBWHT+"  \n";
 	if (str=="all")
 	{
 		for (i=0; i<sizeof(MjData); i+=6)
@@ -2107,7 +2107,7 @@ int show_top(string str)
 				show+="  "+HBRED;
 				show+=sprintf("  %10s│%12s│%8s│%8s│%8s│%8s  ", MjData[i],MjData[i+1],MjData[i+2],MjData[i+3],MjData[i+4],MjData[i+5]);
 				show+=HBWHT+"  \n";
-			} else return notify_fail("没有这个人的资料。\n");
+			} else return notify_fail("沒有這個人的資料。\n");
 		}
 	show+=HBWHT+"  ";
 	for (i=0; i<34; i++) show+="[47m　";
@@ -2189,9 +2189,9 @@ int get_tc(mapping who)
 	int size,i,check;
 	string str,tempW="",tempT="",tempS="",tempB="";
 	str=who["Mj"]+who["Out"]+who["OutPeng"]+who["OutGang"];
-	//庄家
+	//莊家
 	if (NowPlayerId[0]==who["Id"]) Tc+="@1";
-	//门清&自摸
+	//門清&自摸
 	if (who["Out"]==""&&who["OutPeng"]==""&&Touched) Tc+="@l";
 	else if (who["Out"]==""&&who["OutPeng"]=="") Tc+="@4";
 	else if (Touched) Tc+="@2";
@@ -2209,7 +2209,7 @@ int get_tc(mapping who)
 					tempS+=str[size..size+1];
 			 else tempB+=str[size..size+1];
 	}
-	//风牌
+	//風牌
 	if (Times/Play==0 && NowPlayerId[0]==who["Id"] && do_check_Mj(tempB,"ea")>2)
 		Tc+="@e";
 	else if (Times/Play==0 && do_check_Mj(tempB,"ea") > 2 || NowPlayerId[0]==who["Id"] && do_check_Mj(tempB,"ea")>2)
@@ -2232,16 +2232,16 @@ int get_tc(mapping who)
 	//花牌
 	if (sizeof(who["OutFlower"])==16)
 		Tc+="@A";
-	//八仙过海
+	//八仙過海
 	else if (sizeof(who["OutFlower"])==14 && sizeof(P1Data["OutFlower"]+P2Data["OutFlower"]+P3Data["OutFlower"]+P4Data["OutFlower"])==16)
 			Tc+="@D";
-	//七抢一
+	//七搶一
 		else if (do_check_Mj(who["OutFlower"],"f1")==1 && do_check_Mj(who["OutFlower"],"f2")==1 && do_check_Mj(who["OutFlower"],"f3")==1 && do_check_Mj(who["OutFlower"],"f4")==1)
 				Tc+="@B";
 	//春夏秋冬
 			else if (do_check_Mj(who["OutFlower"],"f5")==1 && do_check_Mj(who["OutFlower"],"f6")==1 && do_check_Mj(who["OutFlower"],"f7")==1 && do_check_Mj(who["OutFlower"],"f8")==1)
 					Tc+="@C";
-	//梅兰菊竹
+	//梅蘭菊竹
 				else if (NowPlayerId[0]==who["Id"] && do_check_Mj(who["OutFlower"],"f1")==1 || NowPlayerId[0]==who["Id"]&&do_check_Mj(who["OutFlower"],"f5")==1 || NowPlayerId[1]==who["Id"]&&do_check_Mj(who["OutFlower"],"f2")==1 || NowPlayerId[1]==who["Id"]&&do_check_Mj(who["OutFlower"],"f6")==1 || NowPlayerId[2]==who["Id"]&&do_check_Mj(who["OutFlower"],"f3")==1 || NowPlayerId[2]==who["Id"]&&do_check_Mj(who["OutFlower"],"f7")==1 || NowPlayerId[3]==who["Id"]&&do_check_Mj(who["OutFlower"],"f4")==1 || NowPlayerId[3]==who["Id"]&&do_check_Mj(who["OutFlower"],"f8")==1)
 						Tc+="@3";
 	//清一色跟字一色
@@ -2254,7 +2254,7 @@ int get_tc(mapping who)
 		Tc+="@n";
 	else if (tempW==""&&tempT!=""&&tempS==""&&tempB!="")
 			Tc+="@n";
-	//绿一色
+	//綠一色
 		else if (tempW==""&&tempT==""&&tempS!=""&&tempB!="")
 			{
 				if (do_check_Mj(tempB,"fa")==3&&sizeof(tempB)==6
@@ -2305,14 +2305,14 @@ int get_tc(mapping who)
 		if (do_check_num(str[i..i+1],1)!=1&&do_check_num(str[i..i+1],1)>8)
 			check++;
 	}
-	if (check=0&&tempB!="") Tc+="@I";//混老头
-	else if (check=0&&tempB="") Tc+="@J";//清老头
+	if (check=0&&tempB!="") Tc+="@I";//混老頭
+	else if (check=0&&tempB="") Tc+="@J";//清老頭
 	//平胡
 	if (tempB==""&&who["OutFlower"]==""&&check==0&&sizeof(who["AutoTin"])>3)
 		Tc+="@d";
 	//河底摸月
 	if (count==((end-16-(Goned*2))-2)&&Touched) Tc+="@b";
-	//捞鱼
+	//撈魚
 	if (count==((end-16-(Goned*2))-2)&&!Touched) Tc+="@c";
 	//天胡
 	if (LastDump==""&&count==(Play*2*16)+2) Tc+="@w";
@@ -2338,7 +2338,7 @@ int ch(string str)
 	else if (me->query("id")==P3Data["Id"]) who=P3Data;
 	else if (me->query("id")==P4Data["Id"]) who=P4Data;
 	if (!str) return 0;
-	write("你把牌"+who["Mj"]+"换成"+str+" ok.\n");
+	write("你把牌"+who["Mj"]+"換成"+str+" ok.\n");
 	str=sort_data(str);
 	who["Mj"]=str;
 	return 1;

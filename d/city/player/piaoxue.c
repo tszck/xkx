@@ -3,11 +3,11 @@
 
 inherit NPC;
 void create()
-{       set_name("飘雪", ({ "piaoxue"}));
+{       set_name("飄雪", ({ "piaoxue"}));
 	set("gender", "男性");
 	set("class", "swordman");
-	set("title", GRN"探花"NOR"武当派第三代弟子");
-	set("nickname", HIC"飘"MAG"香"HIY"剑"HIG"雨"NOR);
+	set("title", GRN"探花"NOR"武當派第三代弟子");
+	set("nickname", HIC"飄"MAG"香"HIY"劍"HIG"雨"NOR);
 	set("age", 16);
 	set("attitude", "friendly");
 

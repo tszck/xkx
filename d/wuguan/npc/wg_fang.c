@@ -4,7 +4,7 @@ inherit NPC;
 void create()
 {
 	set_name("方先生", ({ "fang xiansheng", "fang", "xiansheng"}));
-	set("long", "这位老先生，正在认真地读书。\n");
+	set("long", "這位老先生，正在認真地讀書。\n");
 	set("gender", "男性");
 	set("age", 35);
 	set_skill("literate", 60);

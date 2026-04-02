@@ -1,11 +1,11 @@
-// nenlvchoushan.c 嫩绿绸衫
+// nenlvchoushan.c 嫩綠綢衫
 
 #include <ansi.h>
 #include <armor.h>
 inherit CLOTH;
 void create()
 {
-	set_name( GRN "嫩绿绸衫" NOR, ({ "nenlv choushan", "cloth" }) );
+	set_name( GRN "嫩綠綢衫" NOR, ({ "nenlv choushan", "cloth" }) );
 	set_weight(800);
 	if( clonep() )
 		set_default_object(__FILE__);

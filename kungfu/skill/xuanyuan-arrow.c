@@ -1,4 +1,4 @@
-// xuanyuan-arrow.c 轩辕箭
+// xuanyuan-arrow.c 軒轅箭
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -10,73 +10,73 @@ void throw_weapon(object,object,object,int);
 
 mapping *action = ({
 ([
-	"action": "$N忽然纵声长啸，横跃于空，取箭上弦。\n"
-"只听弓弦响处，$w已到$n左肩，眼看就要对穿而过！\n"
-"这招「李广射石」果然有穿石之力",
+	"action": "$N忽然縱聲長嘯，橫躍於空，取箭上弦。\n"
+"只聽弓弦響處，$w已到$n左肩，眼看就要對穿而過！\n"
+"這招「李廣射石」果然有穿石之力",
 	"damage":  25,
 	"dodge":   -20,
 	"parry":   10,
-	"damage_type": "刺伤",
+	"damage_type": "刺傷",
 	"post_action": (: throw_weapon :),
-	"name":      "声东击西",
+	"name":      "聲東擊西",
 ]),
 ([
-	"action": "$N弓交背后，俯身一招「廉颇负荆」，$w已带呼啸声向$n前胸飞去",
+	"action": "$N弓交背後，俯身一招「廉頗負荊」，$w已帶呼嘯聲向$n前胸飛去",
 	"damage":   35,
 	"dodge":   20,
 	"parry":   20,
-	"damage_type":   "刺伤",
+	"damage_type":   "刺傷",
 	"post_action":   (: throw_weapon :),
-	"name":     "廉颇负荆",
+	"name":     "廉頗負荊",
 ]),
 ([
-	"action": "突然间，$N几个筋斗倒翻而去，已在$n数丈之外。\n"
-"$n正待追击，$N忽然转身，好一个「百步穿杨」，\n"
-"$w已带着破空之声，直射$n面门",
+	"action": "突然間，$N幾個筋斗倒翻而去，已在$n數丈之外。\n"
+"$n正待追擊，$N忽然轉身，好一個「百步穿楊」，\n"
+"$w已帶着破空之聲，直射$n面門",
 	"damage":   20,
 	"dodge":       -10,
 	"parry":       -10,
-	"damage_type":   "刺伤",
+	"damage_type":   "刺傷",
 	"post_action":   (: throw_weapon :),
-	"name":     "百步穿杨",
+	"name":     "百步穿楊",
 ]),
 ([
-	"action": "$N力开长弓，瞄准$n的左臂虚晃一箭。\n"
-"$n纵起闪避，突然发现并无羽箭射来。正在无处可去时，\n"
-"$N弯弓搭箭，只见一支$w向$n的$l疾飞而至",
+	"action": "$N力開長弓，瞄準$n的左臂虛晃一箭。\n"
+"$n縱起閃避，突然發現並無羽箭射來。正在無處可去時，\n"
+"$N彎弓搭箭，只見一支$w向$n的$l疾飛而至",
 	"damage":   25,
 	"dodge":       -20,
 	"parry":   10,
-	"damage_type":   "刺伤",
+	"damage_type":   "刺傷",
 	"post_action":   (: throw_weapon :),
-	"name":     "声东击西",
+	"name":     "聲東擊西",
 ]),
 ([
-	"action": "$N手指微动，$n只听到「嗖」地一声，$w已到$l前数寸。\n"
-"$n没放到这招「后翌落日」来势如此之快，不禁手足无措",
+	"action": "$N手指微動，$n只聽到「嗖」地一聲，$w已到$l前數寸。\n"
+"$n沒放到這招「後翌落日」來勢如此之快，不禁手足無措",
 	"damage":   35,
 	"dodge":   10,
 	"parry":       -10,
-	"damage_type":   "刺伤",
+	"damage_type":   "刺傷",
 	"post_action":   (: throw_weapon :),
-	"name":     "后翌落日",
+	"name":     "後翌落日",
 ]),
 ([
-	"action": "$N马步站稳，劲力透背，拉的弓如满月，$w飞一般冲向$n的$l",
+	"action": "$N馬步站穩，勁力透背，拉的弓如滿月，$w飛一般衝向$n的$l",
 	"damage":   40,
 	"dodge":   20,
 	"parry":   20,
-	"damage_type":   "刺伤",
+	"damage_type":   "刺傷",
 	"post_action":   (: throw_weapon :),
-	"name":     "流星赶月",
+	"name":     "流星趕月",
 ]),
 ([
-	"action": "$n纵身而起，正待凌空一击。$N作势似要逃跑，突然扭腰回身，\n"
-"一招「犀牛望月」，手中$w如同长眼一般，直刺向$n的$l",
+	"action": "$n縱身而起，正待凌空一擊。$N作勢似要逃跑，突然扭腰回身，\n"
+"一招「犀牛望月」，手中$w如同長眼一般，直刺向$n的$l",
 	"damage":       30,
 	"dodge":       -10,
 	"parry":       -10,
-	"damage_type":  "刺伤",
+	"damage_type":  "刺傷",
 	"post_action":  (: throw_weapon :),
 	"name":       "犀牛望月",
 ]),
@@ -88,12 +88,12 @@ int valid_learn(object me)
 	object ob;
 
 	if(me->query_skill("throwing",1) < 20)
-		return notify_fail("如果弓箭不熟，怎能在激战中上箭开弓射敌？\n");
+		return notify_fail("如果弓箭不熟，怎能在激戰中上箭開弓射敵？\n");
 	if( (int)me->query("max_neili") < 50 )
-		return notify_fail("你的内力不够，拉不开弓！\n");
+		return notify_fail("你的內力不夠，拉不開弓！\n");
 	if( !(ob=me->query_temp("weapon")) ||
 		(string)ob->query("skill_type") != "throwing")
-		return notify_fail("手中无弓箭怎能领悟师父所教？\n");
+		return notify_fail("手中無弓箭怎能領悟師父所教？\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -102,13 +102,13 @@ int practice_skill(object me)
 
 	if( !objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "throwing" )
-		return notify_fail("没有弓箭如何练准头？\n");
+		return notify_fail("沒有弓箭如何練準頭？\n");
 
 	if( (int)me->query("qi") < 40 || (int)me->query("force") < 10)
-		return notify_fail("你的体力不足，拉不开弓！\n");
+		return notify_fail("你的體力不足，拉不開弓！\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -5);
-	message_combatd("$N弯弓搭箭，一箭射中红心！");
+	message_combatd("$N彎弓搭箭，一箭射中紅心！");
 	(: throw_weapon :);
 	return 1;
 }
@@ -124,7 +124,7 @@ mapping query_action(object me)
 string learning_message(int level)
 {
 	if (level / 15 >= sizeof(action) ) return "";
-	else return "对「" + action[level/15]["name"] + "」这招有所领悟";
+	else return "對「" + action[level/15]["name"] + "」這招有所領悟";
 }
 void throw_weapon(object me, object victim, object weapon, int damage)
 {
@@ -145,14 +145,14 @@ int power_point(object me) { return 1; }
 
 int help(object me)
 {
-	write(HIC"\n轩辕箭："NOR"\n");
+	write(HIC"\n軒轅箭："NOR"\n");
 	write(@HELP
 
-    轩辕箭为赵敏手下神箭八骑所具功夫。
+    軒轅箭爲趙敏手下神箭八騎所具功夫。
 
-	学习要求：
-		基本暗器20级
-		内力50
+	學習要求：
+		基本暗器20級
+		內力50
 HELP
 	);
 	return 1;

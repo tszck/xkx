@@ -10,10 +10,10 @@ int do_save();
 
 void create()
 {
-	set("short", "阳");
+	set("short", "陽");
 	set("long", @LONG
-这里是两仪层的阳。阳是太极的一端，古人以光明为阳，以生命为
-阳，又以地理而认为南方属阳，山之南水之北为阳。
+這裏是兩儀層的陽。陽是太極的一端，古人以光明爲陽，以生命爲
+陽，又以地理而認爲南方屬陽，山之南水之北爲陽。
 LONG
 	);
 	set("exits", ([ 
@@ -45,12 +45,12 @@ void init()
 
 int do_save()
 {
-	write("这里不准存盘！\n");
+	write("這裏不準存盤！\n");
 	return 1;
 }
 
 int do_quit()
 {
-	write("这里不准退出！\n");
+	write("這裏不準退出！\n");
 	return 1;
 }

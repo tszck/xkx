@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "枫桥");
+	set("short", "楓橋");
 	set("long", @LONG
-寺的北面有一座桥孔呈半圆的单空石桥--枫桥，她跨于运河的枫桥
-湾。桥的东面是铁岭关，它与白虎关，浒墅关，合称苏州三关。
+寺的北面有一座橋孔呈半圓的單空石橋--楓橋，她跨於運河的楓橋
+灣。橋的東面是鐵嶺關，它與白虎關，滸墅關，合稱蘇州三關。
 LONG );
 	set("outdoors", "suzhou");
 	set("no_clean_up", 0);

@@ -4,12 +4,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short","画廊");
+	set("short","畫廊");
 	set("long",@LONG
-这是一条非常精美的长廊，柱子和栏杆是用华贵的紫檀木制成，上
-面雕饰着美丽的图画，画工精巧，美不胜收。地板不知是用什么材料做
-的，走在上面毫无声息，你只感到脚下软软的，非常舒服。一阵阵花香
-从北边传来。
+這是一條非常精美的長廊，柱子和欄杆是用華貴的紫檀木製成，上
+面雕飾着美麗的圖畫，畫工精巧，美不勝收。地板不知是用什麼材料做
+的，走在上面毫無聲息，你只感到腳下軟軟的，非常舒服。一陣陣花香
+從北邊傳來。
 LONG );
 	set("exits",([
 		"west"  : __DIR__"changl7",
@@ -27,17 +27,17 @@ LONG );
 void init()
 {
 	object me = this_player();
-	if((string)me->query("family/family_name")!="逍遥派"
-	&& (string)me->query("family/family_name")!="灵鹫宫"
+	if((string)me->query("family/family_name")!="逍遙派"
+	&& (string)me->query("family/family_name")!="靈鷲宮"
 	)
 	{
 		if(random(3)>0)
 		{
 			me->receive_damage("qi",80);
 			me->receive_wound("qi",80);
-			message_vision(HIR"$N脚下一滑,...啊...,一声惨叫!\n"NOR,me);
+			message_vision(HIR"$N腳下一滑,...啊...,一聲慘叫!\n"NOR,me);
 			me->move(__DIR__"shanjiao");
-			tell_object(me,HIR"你莫名其妙的到了山脚.\n"NOR);
+			tell_object(me,HIR"你莫名其妙的到了山腳.\n"NOR);
 		}
 	}
 }	

@@ -4,7 +4,7 @@ void create()
 {
         set("short", "山道");
 	set("long", @LONG
-这是一条崎岖不平的山道，人迹罕至，听说这里不是很太平。
+這是一條崎嶇不平的山道，人跡罕至，聽說這裏不是很太平。
 LONG
 	);
         set("outdoors", "shiliang");

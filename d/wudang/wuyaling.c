@@ -1,15 +1,15 @@
-//Room: wuyaling.c 乌鸦岭
+//Room: wuyaling.c 烏鴉嶺
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-      set("short","乌鸦岭");
+      set("short","烏鴉嶺");
       set("long",@LONG
-这是一狭长的脊岭，两侧悬削，一无所傍，但见白云朵朵，冉冉而
-过，山风拂拂，阵阵袭来。数百只乌鸦正翱翔云际，黑白分明，蔚成奇
-观。
+這是一狹長的脊嶺，兩側懸削，一無所傍，但見白雲朵朵，冉冉而
+過，山風拂拂，陣陣襲來。數百隻烏鴉正翱翔雲際，黑白分明，蔚成奇
+觀。
 LONG);
       set("objects", ([
                 __DIR__"npc/wuya" : 5,

@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create ()
 {
-	set ("short", "东楼");
+	set ("short", "東樓");
 	set ("long", @LONG
-上得楼来，只见中间靠窗放着一张大书桌，放着笔墨纸砚与十来本
-书，还有一件缝了一半的小孩衣衫。这是万家公子万圭住的地方。
+上得樓來，只見中間靠窗放着一張大書桌，放着筆墨紙硯與十來本
+書，還有一件縫了一半的小孩衣衫。這是萬家公子萬圭住的地方。
 LONG);
 	set("exits", ([
 		"down"  : __DIR__"ketang",
@@ -32,10 +32,10 @@ int do_put(string arg)
 {
 	object ob, me = this_player();
 	if (arg != "tangshi book")
-		return notify_fail("你要把什么浸到脸盆中去？\n");
+		return notify_fail("你要把什麼浸到臉盆中去？\n");
 	if (! objectp(ob = present("tangshi book", me)))
-		return notify_fail("你没有这本书。\n");
-	message("vision", me->name()+"把唐诗选辑浸到脸盆中去，书上慢慢显示出数字来。哇！唐诗剑法！\n", environment(me));
+		return notify_fail("你沒有這本書。\n");
+	message("vision", me->name()+"把唐詩選輯浸到臉盆中去，書上慢慢顯示出數字來。哇！唐詩劍法！\n", environment(me));
 	destruct(ob);
 	ob = new("/clone/book/tangshi_book");
 	ob->move(me);

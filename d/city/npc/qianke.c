@@ -9,11 +9,11 @@ object  room  =  0;
 
 void  create()
 {
-    set_name("签客",  ({"qian  ke",  "ke"  }));
+    set_name("籤客",  ({"qian  ke",  "ke"  }));
     set("gender",  "男性");
     set("age",  30);
     set("per",  30);
-    set("long",  "一位精瘦的签客。\n");
+    set("long",  "一位精瘦的籤客。\n");
     set("combat_exp",  5000);
     set_skill("force",  50);
     set_skill("unarmed",  50);
@@ -43,7 +43,7 @@ void  init()
 
 void  refuse_message  (object  me,  object  who)
 {
-    message_vision  ("$N向$n摇了摇头。\n",me,who);
+    message_vision  ("$N向$n搖了搖頭。\n",me,who);
 }
 
 int  do_fight(string  arg)
@@ -53,7 +53,7 @@ int  do_fight(string  arg)
 
     if  (arg  &&  present(arg,environment(who))==me)
     {
-        message_vision  ("$N看样子输红了眼，想找$n打架。\n",who,me);
+        message_vision  ("$N看樣子輸紅了眼，想找$n打架。\n",who,me);
         refuse_message  (me,who);
         return  1;
     }
@@ -67,7 +67,7 @@ int  do_kill(string  arg)
 
     if  (arg  &&  present(arg,environment(who))==me)
     {
-        message_vision  ("$N看样子输红了眼，想杀$n。\n",who,me);
+        message_vision  ("$N看樣子輸紅了眼，想殺$n。\n",who,me);
         refuse_message  (me,who);
         return  1;
     }
@@ -79,7 +79,7 @@ int  do_cast(string  arg)
     object  who  =  this_player();
     object  me  =  this_object();
 
-    message_vision  ("$N看样子输红了眼，想念咒语。\n",who,me);
+    message_vision  ("$N看樣子輸紅了眼，想念咒語。\n",who,me);
     refuse_message  (me,who);
     return  1;
 }
@@ -89,7 +89,7 @@ int  do_exert(string  arg)
     object  who  =  this_player();
     object  me  =  this_object();
 
-    message_vision  ("$N看样子输红了眼，想施内功。\n",who,me);
+    message_vision  ("$N看樣子輸紅了眼，想施內功。\n",who,me);
     refuse_message  (me,who);
     return  1;
 }
@@ -99,7 +99,7 @@ int  do_steal(string  arg)
     object  who  =  this_player();
     object  me  =  this_object();
 
-    message_vision  ("$N看样子输红了眼，鬼鬼祟祟地想偷什么。\n",who,me);
+    message_vision  ("$N看樣子輸紅了眼，鬼鬼祟祟地想偷什麼。\n",who,me);
     refuse_message  (me,who);
     return  1;
 }

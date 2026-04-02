@@ -5,9 +5,9 @@ inherit F_MASTER;
 #include <ansi.h>
 void create()
 {
-	set_name("元广波", ({ "yuan guangbo", "yuan", "guangbo" }));
-	set("title", HIB"海沙派总舵主"NOR);
-	set("long", "海沙派武艺平常，专靠毒盐害人。\n");
+	set_name("元廣波", ({ "yuan guangbo", "yuan", "guangbo" }));
+	set("title", HIB"海沙派總舵主"NOR);
+	set("long", "海沙派武藝平常，專靠毒鹽害人。\n");
 	set("gender", "男性");
 	set("age", 22);
 	set("attitude", "peaceful");

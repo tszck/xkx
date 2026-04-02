@@ -6,12 +6,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "药铺内室");
+	set("short", "藥鋪內室");
 	set("long", @LONG
-这是药铺的内室，四壁都是药柜子，有开有关，半开的柜子里可以
-看到半露的药材。地上、板凳上也放置了一些零碎药材，还有一些药罐、
-药臼等配药器具。你可以用分药(fenyao)命令，帮助药铺老板分配这些
-中药。
+這是藥鋪的內室，四壁都是藥櫃子，有開有關，半開的櫃子裏可以
+看到半露的藥材。地上、板凳上也放置了一些零碎藥材，還有一些藥罐、
+藥臼等配藥器具。你可以用分藥(fenyao)命令，幫助藥鋪老闆分配這些
+中藥。
 LONG
 	);
 	set("no_fight",1);
@@ -38,7 +38,7 @@ void init()
 }
 int do_ban()
 {
-	write ("你干什么这是别人的内室呀，不要影响别人工作。\n");
+	write ("你幹什麼這是別人的內室呀，不要影響別人工作。\n");
 	return 1;
 }
 int do_fenyao()
@@ -47,12 +47,12 @@ int do_fenyao()
 	int bonus,exp,pot;
 
 	if((int)me->query_temp("fengyaoover"))
-		return notify_fail("你的药已经分完了，快去找老板要报酬吧。\n");	
+		return notify_fail("你的藥已經分完了，快去找老闆要報酬吧。\n");	
 	if( (int)me->query_temp("fengyao") ) 
-		return notify_fail("你已经在工作了。\n");
+		return notify_fail("你已經在工作了。\n");
 	if (!(int)(me->query_temp("fengyaobegin")))
-		return notify_fail("外间有人在喊：里面的人在做什么？快走快走。\n");
-	message_vision("$N将袖子一缅，做出一副要大干一场的样子，唉，分个药也要这么样吗？\n\n",me);
+		return notify_fail("外間有人在喊：裏面的人在做什麼？快走快走。\n");
+	message_vision("$N將袖子一緬，做出一副要大幹一場的樣子，唉，分個藥也要這麼樣嗎？\n\n",me);
 	me->set_temp("fengyao",1);
 	me->add("qi",-5);
 	me->delete_temp("fengyaobegin");
@@ -70,7 +70,7 @@ void del_fengyao(object me, object mon, int bonus, int exp, int pot)
 	{
 		if (random (8) <1)
 		{
-			message_vision( HIY"哎呀，$N累的满头大汗，一不小心分错了药。\n"NOR,me);
+			message_vision( HIY"哎呀，$N累的滿頭大汗，一不小心分錯了藥。\n"NOR,me);
 			me->add("qi",-5);
 			me->start_busy(1);
 			me->set_temp("fengyaow",1);
@@ -80,15 +80,15 @@ void del_fengyao(object me, object mon, int bonus, int exp, int pot)
 			switch(random(5))
 			{
 				case 0: 
-					message_vision("只见$N随手一扔，药居然刚好扔进药箱，好运气呀。\n",me); 
+					message_vision("只見$N隨手一扔，藥居然剛好扔進藥箱，好運氣呀。\n",me); 
 					me->add("qi",-1);
 					break;
 				case 1: 
-					message_vision("$N分的好仔细呀，还要检查一次。\n",me);
+					message_vision("$N分的好仔細呀，還要檢查一次。\n",me);
 					me->add("qi",-3);
 					break;
 				default:
-					message_vision("$N看着手上的药材，想了半天终于还是没有找到该放的地方。\n",me); 
+					message_vision("$N看着手上的藥材，想了半天終於還是沒有找到該放的地方。\n",me); 
 					me->add("qi",-4);
 					break;
 			}
@@ -96,7 +96,7 @@ void del_fengyao(object me, object mon, int bonus, int exp, int pot)
 		}
 		xunhuan--;
 	} 
-	write(HIW"\n 终于完成了，累死人了，好了终于可以去休息一下了.\n对了我还要去拿报酬呢，可不能白干。\n"NOR);
+	write(HIW"\n 終於完成了，累死人了，好了終於可以去休息一下了.\n對了我還要去拿報酬呢，可不能白乾。\n"NOR);
 	me->set_temp("fengyaoover", 1);
 	me->start_busy(3);
 	return ;

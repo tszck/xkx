@@ -5,8 +5,8 @@ void create()
 {
 	set("short", "石道");
 	set("long", @LONG
-一路上日月教教众把守严密，经过三处山道，来到一处水滩之前，
-西面有一道石阶通往水滩。
+一路上日月教教衆把守嚴密，經過三處山道，來到一處水灘之前，
+西面有一道石階通往水灘。
 LONG    );
 	set("outdoors", "heimuya");
 	set("exits", ([

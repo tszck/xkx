@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "杂货铺");
+	set("short", "雜貨鋪");
 	set("long", @LONG
-这是一个杂货铺。房屋内铺着地毯。店老板坐在地毯上，旁边堆着
-他的货。墙上有个牌子，是个价目表(sign)。
+這是一個雜貨鋪。房屋內鋪着地毯。店老闆坐在地毯上，旁邊堆着
+他的貨。牆上有個牌子，是個價目表(sign)。
 LONG
 	);
 	set("exits", ([ 
@@ -18,18 +18,18 @@ LONG
 		__DIR__"npc/maimaiti": 1
 	]) );
 	set("item_desc", ([ /* sizeof() == 1 */
-"sign" : "牌子上写道：
+"sign" : "牌子上寫道：
 
-中原钱币通用。
+中原錢幣通用。
 
-       马奶酒壶(hu)           一百文
-       馕(nang)	              五十文
+       馬奶酒壺(hu)           一百文
+       饢(nang)	              五十文
        火折(fire)             一百文
        哈密瓜(gua)            四十文
        冬不拉(dongbula)       一百文
-       弯刀(wandao)       一千五百文
+       彎刀(wandao)       一千五百文
        羊皮(yangpi)           三百文
-       伊犁马(horse)          一千文 ( 售完 )
+       伊犁馬(horse)          一千文 ( 售完 )
 \n"
 	]));
 //	set("no_clean_up", 0);

@@ -1,16 +1,16 @@
-// shiwei.c 带刀侍卫
+// shiwei.c 帶刀侍衛
 
 inherit NPC;
 //inherit F_SKILL;
 
 void create()
 {
-	set_name("侍卫", ({ "shi wei", "shi", "wei" }));
+	set_name("侍衛", ({ "shi wei", "shi", "wei" }));
 	set("gender", "男性");
 	set("age", random(20) + 30);
 	set("str", 25);
 	set("dex", 16);
-	set("long", "他手握钢刀，目视前方，真是威风凛凛。\n");
+	set("long", "他手握鋼刀，目視前方，真是威風凜凜。\n");
 	set("combat_exp", 75000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");
@@ -46,7 +46,7 @@ void init()
         switch(random(10))
 	{   
         case 1:
-	message_vision("\n侍卫忽然对$N大喝一声：何方刁民，竟敢在此撒野！看刀！\n",this_player());
+	message_vision("\n侍衛忽然對$N大喝一聲：何方刁民，竟敢在此撒野！看刀！\n",this_player());
 	remove_call_out("kill_ob");
 	call_out("kill_ob", 1, ob);
 	break;

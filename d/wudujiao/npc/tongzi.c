@@ -1,13 +1,13 @@
-// tongzi.c 锦衣童子
+// tongzi.c 錦衣童子
 
 inherit NPC;
 
 void create()
 {
-        set_name("锦衣童子", ({ "tong zi", "tong" }));
+        set_name("錦衣童子", ({ "tong zi", "tong" }));
         set("age", 15);
         set("gender", "男性");
-        set("long", "一个眉清目秀的童子，别看他年纪不大，已深得五毒教真传。\n");
+        set("long", "一個眉清目秀的童子，別看他年紀不大，已深得五毒教真傳。\n");
         set("attitude", "peaceful");
         set("max_qi",600);
         set("str", 25);

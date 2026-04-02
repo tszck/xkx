@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "松树林");
+	set("short", "松樹林");
 	set("long", @LONG
-这是一片松树林。中间一条小路，两边都是黑森森的几丈高的松树。
-快出林了，可以看到东边好高的一道大山。
+這是一片松樹林。中間一條小路，兩邊都是黑森森的幾丈高的松樹。
+快出林了，可以看到東邊好高的一道大山。
 LONG );
 	set("exits", ([
 		"west" : __DIR__"jzroad1",

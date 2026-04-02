@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "福州乌山");
+	set("short", "福州烏山");
 	set("long", @LONG
-福州古城三山，以城内乌山、于山和屏山三山恃立之故也。乌山上
-有乌塔。
+福州古城三山，以城內烏山、于山和屏山三山恃立之故也。烏山上
+有烏塔。
 LONG );
 	set("exits", ([
                 "northdown" : __DIR__"xidajie",

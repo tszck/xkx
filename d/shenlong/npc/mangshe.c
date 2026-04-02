@@ -9,7 +9,7 @@ void create()
 	set_name("蟒蛇", ({ "snake", "mangshe", "she", "mang"}) );
 	set("race", "爬蛇");
 	set("age", 100);
-	set("long", "一条碗口粗细的三角头巨蟒，有两丈多长。\n");
+	set("long", "一條碗口粗細的三角頭巨蟒，有兩丈多長。\n");
 	set("attitude", "peaceful");
 
 	set("str", 32);

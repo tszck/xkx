@@ -1,4 +1,4 @@
-// shenlong-staff 神龙杖法
+// shenlong-staff 神龍杖法
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,61 +7,61 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N一立一个翻身，一式「乌龙盘树」，杖尾霍地横卷过来，扫击$n的$l",
+([	"action" : "$N一立一個翻身，一式「烏龍盤樹」，杖尾霍地橫捲過來，掃擊$n的$l",
         "lvl"    : 0,
-        "skill_name" : "乌龙盘树"
+        "skill_name" : "烏龍盤樹"
 ]),
-([	"action" : "$N大喝一声，手中$w化成一片银光，一招「夜战八方」，向$n的$l猛扫过去",
+([	"action" : "$N大喝一聲，手中$w化成一片銀光，一招「夜戰八方」，向$n的$l猛掃過去",
         "lvl"    : 10,
-        "skill_name" : "夜战八方"
+        "skill_name" : "夜戰八方"
 ]),
-([	"action" : "$N蓦然一声长啸，一招「流星赶月」，手中$w幻成三道白光，分袭$n胸腹要穴",
+([	"action" : "$N驀然一聲長嘯，一招「流星趕月」，手中$w幻成三道白光，分襲$n胸腹要穴",
         "lvl"    : 15,
-        "skill_name" : "流星赶月"
+        "skill_name" : "流星趕月"
 ]),
-([	"action" : "$N身形陡然飞起三丈多，一式「千斤压顶」，手中$w带着呼啸破空声从天而降",
+([	"action" : "$N身形陡然飛起三丈多，一式「千斤壓頂」，手中$w帶着呼嘯破空聲從天而降",
         "lvl"    : 20,
-        "skill_name" : "千斤压顶"
+        "skill_name" : "千斤壓頂"
 ]),
-([      "action" : "$N趁着$n脚步未稳，撵杖向前进招，骤然一指，杖尾起处，「毒蛇寻穴」，直取白$n丹田下“血海穴”",
+([      "action" : "$N趁着$n腳步未穩，攆杖向前進招，驟然一指，杖尾起處，「毒蛇尋穴」，直取白$n丹田下“血海穴”",
         "lvl"    : 25,
-        "skill_name" : "毒蛇寻穴"
+        "skill_name" : "毒蛇尋穴"
 ]),
-([      "action" : "$N杖头一转，迅即一招「横扫千军」，刚猛迅捷，如雷霆疾发向$n下三路猛扫过去",
+([      "action" : "$N杖頭一轉，迅即一招「橫掃千軍」，剛猛迅捷，如雷霆疾發向$n下三路猛掃過去",
         "lvl"    : 30,
-        "skill_name" : "横扫千军"
+        "skill_name" : "橫掃千軍"
 ]),
-([	"action" : "陡然间，$N手中杖光华大盛，$w宛似「蛟龙出海」，登时把$n圈在当中",
+([	"action" : "陡然間，$N手中杖光華大盛，$w宛似「蛟龍出海」，登時把$n圈在當中",
         "lvl"    : 35,
-        "skill_name" : "蛟龙出海"
+        "skill_name" : "蛟龍出海"
 ]),
-([	"action" : "$N手中$w盘旋，左右飞舞宛如银龙入海，十荡十决，一式「横云断峰」向$n的$l横扫过去",
+([	"action" : "$N手中$w盤旋，左右飛舞宛如銀龍入海，十蕩十決，一式「橫雲斷峯」向$n的$l橫掃過去",
         "lvl"    : 40,
-        "skill_name" : "横云断峰",
+        "skill_name" : "橫雲斷峯",
 ]),
-([      "action" : "$N高高跃起，挥舞着手中的$w一招「一柱擎天」犹如一条黑蟒般向$n当头直落而下",
+([      "action" : "$N高高躍起，揮舞着手中的$w一招「一柱擎天」猶如一條黑蟒般向$n當頭直落而下",
         "lvl"    : 50,
         "skill_name" : "一柱擎天",
 ]),
-([	"action" : "$N一声暴喝「蛟龙横空」！将$w由下往上一撩，双手握住$w尾，转身猛得横扫打向$n的$l",
+([	"action" : "$N一聲暴喝「蛟龍橫空」！將$w由下往上一撩，雙手握住$w尾，轉身猛得橫掃打向$n的$l",
         "lvl"    : 60,
-        "skill_name" : "蛟龙横空",
+        "skill_name" : "蛟龍橫空",
 ]),
-([      "action" : "$N忽然招数一变，使出「灵蛇出洞」，杖法显得灵巧之极，手中$w化作条条蛇影缠向$n",
+([      "action" : "$N忽然招數一變，使出「靈蛇出洞」，杖法顯得靈巧之極，手中$w化作條條蛇影纏向$n",
         "lvl"    : 70,
-        "skill_name" : "灵蛇出洞"
+        "skill_name" : "靈蛇出洞"
 ]),
-([      "action" : "$N以杖代剑，$w中宫直进，夹着一阵狂风刺出，逼向$n的$l，正是招「长蛟化龙」",
+([      "action" : "$N以杖代劍，$w中宮直進，夾着一陣狂風刺出，逼向$n的$l，正是招「長蛟化龍」",
         "lvl"    : 80,
-        "skill_name" : "长蛟化龙"
+        "skill_name" : "長蛟化龍"
 ]),
-([	"action" : "$N一式「一杖定海」，当头一$w击将下来，杖头未至，一股风已将$n逼得难以喘气",
+([	"action" : "$N一式「一杖定海」，當頭一$w擊將下來，杖頭未至，一股風已將$n逼得難以喘氣",
         "lvl"    : 90,
         "skill_name" : "一杖定海"
 ]),
-([	"action" : "$N变招「群蛇狂舞」，$w扫出一道道灰影从四面八方围向$n，要将$n淹没吞食",
+([	"action" : "$N變招「羣蛇狂舞」，$w掃出一道道灰影從四面八方圍向$n，要將$n淹沒吞食",
         "lvl"    : 100,
-        "skill_name" : "群蛇狂舞"
+        "skill_name" : "羣蛇狂舞"
 ]),
 });
 
@@ -72,15 +72,15 @@ int valid_learn(object me)
 
 	if (objectp(weapon = me->query_temp("weapon")))
 	if ((string)weapon->query("skill_type") != "staff")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if ((int)me->query_skill("dulong-dafa", 1) < 30)
-		return notify_fail("你的毒龙大法火候不够，无法学神龙杖法。\n");
+		return notify_fail("你的毒龍大法火候不夠，無法學神龍杖法。\n");
 	if ((int)me->query_skill("force", 1) < 30)
-		return notify_fail("你的基本内功火候不够，无法学神龙杖法。\n");
+		return notify_fail("你的基本內功火候不夠，無法學神龍杖法。\n");
 	if ((int)me->query_skill("shenlong-bashi", 1) < 30)
-		return notify_fail("你的神龙八式火候不够，无法学神龙杖法。\n");
+		return notify_fail("你的神龍八式火候不夠，無法學神龍杖法。\n");
 	if ((int)me->query_skill("dulong-dafa",1) <(int)me->query_skill("shenlong-staff",1))
-		return notify_fail("你的毒龙大法火候不够，无法继续学神龙杖法。\n");
+		return notify_fail("你的毒龍大法火候不夠，無法繼續學神龍杖法。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -89,11 +89,11 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "staff")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if ((int)me->query("qi") < 60)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 50)
-		return notify_fail("你的内力不够练神龙杖法。\n");
+		return notify_fail("你的內力不夠練神龍杖法。\n");
 	me->receive_damage("qi", 55);
 	me->add("neili", -30);
 	return 1;
@@ -122,17 +122,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : "挫伤",
+		"damage_type" : "挫傷",
 	]);
 }
 int learn_bonus() { return 0; }
@@ -146,16 +146,16 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIC"\n神龙杖法："NOR"\n");
+	write(HIC"\n神龍杖法："NOR"\n");
 	write(@HELP
 
-    神龙杖法是神龙岛杖法，相当狠辣。
+    神龍杖法是神龍島杖法，相當狠辣。
 
-	学习要求：
-		基本内功30级
-		毒龙大法30级且不低于神龙杖法的级别
-		神龙八式30级
-		内力100
+	學習要求：
+		基本內功30級
+		毒龍大法30級且不低於神龍杖法的級別
+		神龍八式30級
+		內力100
 HELP
 	);
 	return 1;

@@ -7,8 +7,8 @@ inherit F_MASTER;
 void create()
 {
 	set_name("殷梨亭", ({ "yin liting","yin"}));
-	set("nickname", "武当六侠");
-	set("long","他就是张三丰的最软弱的弟子、武当七侠之六的殷梨亭。\n身穿一件干干净净的青布长衫。\n他不过二十出头年纪，精明能干，嫉恶如仇，性如烈火，却一直一副不愉快的表情。\n只见他满脸风尘之色，两鬓微见斑白，\n在武当七侠中排名第六，对剑法尤为精通。\n");
+	set("nickname", "武當六俠");
+	set("long","他就是張三豐的最軟弱的弟子、武當七俠之六的殷梨亭。\n身穿一件乾乾淨淨的青布長衫。\n他不過二十出頭年紀，精明能幹，嫉惡如仇，性如烈火，卻一直一副不愉快的表情。\n只見他滿臉風塵之色，兩鬢微見斑白，\n在武當七俠中排名第六，對劍法尤爲精通。\n");
 	set("gender", "男性");
 	set("age", 23);
 	set("attitude", "peaceful");
@@ -61,12 +61,12 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 	set("inquiry", ([
-		"纪晓芙" : "可怜我那未过门的妻子，居然被杨逍那淫徒。。。",
-		"杨逍"   : "总有一天我要手刃这魔教淫贼，以祭晓芙在天。。。",
-		"神门十三剑" : "神门十三剑乃。。。唉，可怜晓芙居然被杨消那淫徒。。。",
+		"紀曉芙" : "可憐我那未過門的妻子，居然被楊逍那淫徒。。。",
+		"楊逍"   : "總有一天我要手刃這魔教淫賊，以祭曉芙在天。。。",
+		"神門十三劍" : "神門十三劍乃。。。唉，可憐曉芙居然被楊消那淫徒。。。",
 	]));
 
-	create_family("武当派", 2, "弟子");
+	create_family("武當派", 2, "弟子");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();
@@ -77,22 +77,22 @@ void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("wudang/offerring") < 5) {
 		command("say " + RANK_D->query_respect(ob) +
-			"你对我武当派尽了多少心力，有几分忠心呢？");
+			"你對我武當派盡了多少心力，有幾分忠心呢？");
 		return;
 	}
 	if ((int)ob->query_skill("taiji-shengong", 1) < 40) {
-		command("say 我武当派乃内家武功，最重视内功心法。");
+		command("say 我武當派乃內家武功，最重視內功心法。");
 		command("say " + RANK_D->query_respect(ob) +
-			"是否还应该在太极神功上多下点功夫？");
+			"是否還應該在太極神功上多下點功夫？");
 		return;
 	}
 	if ((int)ob->query("shen") < 80000) {
-		command("say 我武当乃是堂堂名门正派，对弟子要求极严。");
+		command("say 我武當乃是堂堂名門正派，對弟子要求極嚴。");
 		command("say 在德行方面，" + RANK_D->query_respect(ob) +
-			"是否还做得不够？");
+			"是否還做得不夠？");
 		return;
 	}
         command("sigh");
-        command("say 虽然"+RANK_D->query_respect(ob)+"也是我辈中人，但自晓芙去后，我已无心收徒；不过你我今日相见也是有缘，我就传你一式“天地同寿”，也不枉你我相识一场。");
+        command("say 雖然"+RANK_D->query_respect(ob)+"也是我輩中人，但自曉芙去後，我已無心收徒；不過你我今日相見也是有緣，我就傳你一式“天地同壽”，也不枉你我相識一場。");
         ob->set("wudang/yinliting_teach", 1);
 }

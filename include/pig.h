@@ -1,4 +1,4 @@
-// pig.h 拱猪支持
+// pig.h 拱豬支持
 // Written by Xiang Tu <tu@uwalpha.uwinnipeg.ca>
 
 #ifndef _PIG_H

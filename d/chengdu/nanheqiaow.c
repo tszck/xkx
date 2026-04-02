@@ -5,10 +5,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","南河桥");
+	set("short","南河橋");
 	set("long",@LONG
-这里是成都西门外南河桥。府河和南河夹城流过，呵护着这个天
-府之国的首府之地。河水清新碧透。
+這裏是成都西門外南河橋。府河和南河夾城流過，呵護着這個天
+府之國的首府之地。河水清新碧透。
 LONG);
 	set("outdoors", "chengdu");
 	set("exits",([ /* sizeof() == 1 */	    

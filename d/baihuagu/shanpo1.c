@@ -7,7 +7,7 @@ void create()
 {
 	set("short", HIY"山坡"NOR);
 	set("long", 
-"这是一面山坡，山势甚为平坦。山坡上有几间茅屋。\n");
+"這是一面山坡，山勢甚爲平坦。山坡上有幾間茅屋。\n");
 	set("outdoors", "baihuagu");
 	set("count", 3);
 	set("exits", ([
@@ -33,11 +33,11 @@ int do_dig(string arg)
 	me=this_player();
 	if (query("count") > 0)
 	{
-		message_vision("你挖了一会儿，挖到一颗茯苓。\n",me);
+		message_vision("你挖了一會兒，挖到一顆茯苓。\n",me);
 		food=new(VEGETABLE_DIR"fuling");
 		food->move(me);
 		add("count", -1);
 	}
-	else message_vision("你挖了一会儿，没挖到什么。\n",me);
+	else message_vision("你挖了一會兒，沒挖到什麼。\n",me);
 	return 1;
 }

@@ -16,10 +16,10 @@ int main(object me, string arg)
 
 int help(object me)
 {
-	write("指令格式：cip <ip|网址>
+	write("指令格式：cip <ip|網址>
 
-   用来查询玩家的所在之处。
-   因为对玩家有一定影响，少用
+   用來查詢玩家的所在之處。
+   因爲對玩家有一定影響，少用
 
    例如： cip 210.34.4.100
           cip 210.34.4

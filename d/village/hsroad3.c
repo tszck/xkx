@@ -5,9 +5,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "黄土路");
+	set("short", "黃土路");
 	set("long", @LONG
-一条坑坑洼洼的土路，弯弯曲曲的通向山里。
+一條坑坑窪窪的土路，彎彎曲曲的通向山裏。
 LONG );
         set("outdoors", "village");
 	set("exits", ([

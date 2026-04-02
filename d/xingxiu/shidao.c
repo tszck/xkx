@@ -7,9 +7,9 @@ void create()
 {
 	set("short", "石道");
 	set("long", @LONG
-这是一条两旁点缀花卉的小径。花儿发出的香味多多少少冲淡了周
-围弥漫着沼泽的瘴气。来来往往都是星宿弟子，而且都是男的，哼着小
-曲。西边有一山洞，洞里不时传来嬉笑声，其中也夹杂了哭叫求饶声。
+這是一條兩旁點綴花卉的小徑。花兒發出的香味多多少少衝淡了周
+圍瀰漫着沼澤的瘴氣。來來往往都是星宿弟子，而且都是男的，哼着小
+曲。西邊有一山洞，洞裏不時傳來嬉笑聲，其中也夾雜了哭叫求饒聲。
 LONG
 	);
 	set("outdoors","xingxiu");
@@ -35,11 +35,11 @@ int valid_leave(object me, string dir)
 		if (present("caihua zi", environment(me)))
 		{
 			if (!myfam || myfam["family_name"] != "星宿派") 
-return notify_fail("采花子挡住了你：我的小妞可不是给你们邪派弟子准备的！\n");
-			if  (me->query("gender")=="无性") 
-return notify_fail("采花子挡住了你，一脸讥笑：您这小身板还想玩妞？别开玩笑了。\n");
+return notify_fail("採花子擋住了你：我的小妞可不是給你們邪派弟子準備的！\n");
+			if  (me->query("gender")=="無性") 
+return notify_fail("採花子擋住了你，一臉譏笑：您這小身板還想玩妞？別開玩笑了。\n");
 			if (!(int)this_player()->query_temp("marks/花"))
-return notify_fail("采花子挡住了你：喂，你总该意思意思吧？\n");
+return notify_fail("採花子擋住了你：喂，你總該意思意思吧？\n");
 		}
 		return 1;
 	}

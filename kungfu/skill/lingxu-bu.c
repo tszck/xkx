@@ -1,4 +1,4 @@
-// lingxu-bu 凌虚步
+// lingxu-bu 凌虛步
 // Last Modified by sir on 10.18.2001
 
 #include <ansi.h>
@@ -7,24 +7,24 @@ string type() { return "martial"; }
 string martialtype() { return "dodge"; }
 
 string *dodge_msg = ({
-	"$n一式"HIW"「雪地莲花」"NOR"，身子掣忽一转，$N只觉的眼前一花，失去了目标。\n",
-	"$n一式"HIY"「一狐冲天」"NOR"，双脚点地，身子突然拔高了丈许，缓缓飘落在$N身后。\n",
-	"$n一式"CYN"「移行幻影」"NOR"，身行一晃，顿时无数条身影一下子出现在$N的面前。\n",
-	"$n一式"MAG"「狡兔三窟」"NOR"，飘然向后一退，躲开$N的凌厉攻势。\n",
-	"$n一式"BLU"「烟雨飘渺」"NOR"，身体急转，化为一道白光，虚幻不定的出现在$N的周围。\n",
+	"$n一式"HIW"「雪地蓮花」"NOR"，身子掣忽一轉，$N只覺的眼前一花，失去了目標。\n",
+	"$n一式"HIY"「一狐沖天」"NOR"，雙腳點地，身子突然拔高了丈許，緩緩飄落在$N身後。\n",
+	"$n一式"CYN"「移行幻影」"NOR"，身行一晃，頓時無數條身影一下子出現在$N的面前。\n",
+	"$n一式"MAG"「狡兔三窟」"NOR"，飄然向後一退，躲開$N的凌厲攻勢。\n",
+	"$n一式"BLU"「煙雨飄渺」"NOR"，身體急轉，化爲一道白光，虛幻不定的出現在$N的周圍。\n",
 });
 
 int valid_enable(string usage) { return (usage=="dodge") || (usage=="move"); }
 int valid_learn(object me)
 {      	
 	if( (int)me->query_skill("baiyun-xinfa", 1) < 10 )
-	return notify_fail("你的白云心法不够精熟，无法领会凌虚步。\n");
+	return notify_fail("你的白雲心法不夠精熟，無法領會凌虛步。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if( (int)me->query("qi") < 30 || (int)me->query("neili") < 6 )
-		return notify_fail("你的体力太差了，无法能练习凌虚步。\n");
+		return notify_fail("你的體力太差了，無法能練習凌虛步。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -6);
 	return 1;
@@ -41,13 +41,13 @@ int power_point(object me) { return 1.3; }
 
 int help(object me)
 {
-	write(HIC"\n凌虚步："NOR"\n");
+	write(HIC"\n凌虛步："NOR"\n");
 	write(@HELP
 
-    凌虚步为恒山派轻功。
+    凌虛步爲恆山派輕功。
 
-	学习要求：
-          白云心法10级
+	學習要求：
+          白雲心法10級
 HELP
 	);
 	return 1;

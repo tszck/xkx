@@ -3,9 +3,9 @@
 inherit ROOM;
 void create()
 {
-	set("short", "黄土路");
+	set("short", "黃土路");
 	set("long", @LONG
-你走在一条黄土路上。西面望去，隐隐可以看到平定州。望东，北
+你走在一條黃土路上。西面望去，隱隱可以看到平定州。望東，北
 京城快到了。
 LONG );
 	set("outdoors", "huabei");

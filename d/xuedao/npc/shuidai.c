@@ -7,10 +7,10 @@ void create()
        set_name("水岱", ({ "shui dai", "shui" }));
        set("long", 
        "他就是南四奇“落花流水”中的老四。\n"
-       "南四奇横行江南，行侠仗义，水岱虽富甲东南，现在却深有忧色。\n");
+       "南四奇橫行江南，行俠仗義，水岱雖富甲東南，現在卻深有憂色。\n");
        set("gender", "男性");
        set("title", "南四奇");
-       set("nickname", HIC"冷月剑"NOR);
+       set("nickname", HIC"冷月劍"NOR);
        set("age", 39);
        set("attitude", "peaceful");
        set("shen_type", 0);
@@ -45,7 +45,7 @@ void create()
        map_skill("sword", "huashan-jianfa");
        set("chat_chance", 20);
        set("chat_msg", ({
-              "水岱急提中气，啸声如虹：“落花流水～～……”声势劲急，远远传开。\n",
+              "水岱急提中氣，嘯聲如虹：“落花流水～～……”聲勢勁急，遠遠傳開。\n",
 	}));
 
        setup();

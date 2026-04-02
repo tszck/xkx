@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("绿营清兵", ({ "qing bing","bing" }) );
+	set_name("綠營清兵", ({ "qing bing","bing" }) );
 	set("gender", "男性");
 	set("age", 25);
 	set("long",
-		"这是位手执长枪的绿营清兵，满脸凶狠。\n");
+		"這是位手執長槍的綠營清兵，滿臉兇狠。\n");
 	set("combat_exp", 20000);
         set("shen_type", -1);
 	set("attitude", "heroism");

@@ -1,14 +1,14 @@
-// jiguan.c 机关人
+// jiguan.c 機關人
 
 inherit NPC;
 //inherit F_CLEAN_UP;
 
 void create()
 {
-	set_name("机关人", ({ "jiguan ren", "jiguan" }) );
+	set_name("機關人", ({ "jiguan ren", "jiguan" }) );
 	set("gender", "男性" );
 	set("age", 30);
-	set("long", "一个桃花岛练功用的比武机关人，制作精巧，如同真人一般。\n");
+	set("long", "一個桃花島練功用的比武機關人，製作精巧，如同真人一般。\n");
 	set("attitude", "heroism");
 
 	set("str", 25);
@@ -52,15 +52,15 @@ int accept_fight(object ob)
 	if (is_fighting()) return 0;
 
 	if (me->query("damaged"))
-		return notify_fail("这个机关人已经被打坏了！\n");	
+		return notify_fail("這個機關人已經被打壞了！\n");	
 
 	if (random(me->query("fight_times")) >= 10) {
 		me->set("damaged", 1);
-		return notify_fail("这个机关人已经被打坏了！\n");	
+		return notify_fail("這個機關人已經被打壞了！\n");	
 	}
 
 	if (me->query("last_fighter") == ob->query("id"))
-		return notify_fail("你刚跟这个机关人练过功！\n");		
+		return notify_fail("你剛跟這個機關人練過功！\n");		
 
 	me->set("last_fighter", ob->query("id"));
 	me->add("fight_times", 1);

@@ -5,12 +5,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "练武场");
+	set("short", "練武場");
 	set("long", @LONG
-这里是少林寺的练武场。由无数块巨大的花岗岩石板铺就。
-上千年的踩踏已使得这些石板如同镜子般平整光滑。练武场中间
-竖立着不少木人和草靶。西边角上还有两个大沙坑，十来个僧人
-正在练习武艺。东西两面各有一长溜僧房。
+這裏是少林寺的練武場。由無數塊巨大的花崗巖石板鋪就。
+上千年的踩踏已使得這些石板如同鏡子般平整光滑。練武場中間
+豎立着不少木人和草靶。西邊角上還有兩個大沙坑，十來個僧人
+正在練習武藝。東西兩面各有一長溜僧房。
 LONG
 	);
 
@@ -41,7 +41,7 @@ int valid_leave(object me, string dir)
 	{
 		if (dir == "northup")
 		{
-			return notify_fail("你级别不够，不能进入达摩院。\n");
+			return notify_fail("你級別不夠，不能進入達摩院。\n");
 		}
 	}
 	return ::valid_leave(me, dir);

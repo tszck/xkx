@@ -7,8 +7,8 @@ void create()
 {
 	set("short", "物品房");
 	set("long", @LONG
-这是聚义馆的堆放各种各样物品的房间。郭靖的二弟子武
-修文正在这儿负责向有任务的新手分发各种物品。
+這是聚義館的堆放各種各樣物品的房間。郭靖的二弟子武
+修文正在這兒負責向有任務的新手分發各種物品。
 LONG );
 	set("exits", ([
 		"northwest" : __DIR__"juyihuayuan",

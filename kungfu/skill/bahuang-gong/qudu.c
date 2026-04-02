@@ -9,42 +9,42 @@ int exert(object me, object target)
   !me->query("perform/qudu") &&
   !me->query("can_perform/bahuang-gong/qudu") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("你所使用的内功中没有这种功能。");
+   return notify_fail("你所使用的內功中沒有這種功能。");
 
 	if( (!target) )
-		return notify_fail("你要用真气为谁驱毒？\n");
+		return notify_fail("你要用真氣爲誰驅毒？\n");
 
 	if( me->is_fighting() || target->is_fighting())
-		return notify_fail("战斗中无法运功驱毒！\n");
+		return notify_fail("戰鬥中無法運功驅毒！\n");
 
-	notify_fail("不是你要抓的人，凑什么热闹！\n");
+	notify_fail("不是你要抓的人，湊什麼熱鬧！\n");
 	if (!userp(target) && !target->accept_hit(me)) return 0;
 
 	if( me->is_busy() )
-		return notify_fail("你现在正忙着呢，哪有空运功？\n");
+		return notify_fail("你現在正忙着呢，哪有空運功？\n");
 
 	if( target->is_busy())
-		return notify_fail(target->name()+"现在正忙着呢！\n");
+		return notify_fail(target->name()+"現在正忙着呢！\n");
 
 	if( !target->query_condition("ss_poison"))
-		return notify_fail(target->name()+"并没有中生死符！\n");
+		return notify_fail(target->name()+"並沒有中生死符！\n");
 		
 	if( (int)me->query_skill("bahuang-gong",1) < 50 )
-		return notify_fail("你的八荒六合唯我独尊功修为不够。\n");
+		return notify_fail("你的八荒六合唯我獨尊功修爲不夠。\n");
 
 	if( (int)me->query("max_neili") < 150 )
-		return notify_fail("你的内力修为不够。\n");
+		return notify_fail("你的內力修爲不夠。\n");
 
 	if( (int)me->query("neili") < 150)
-		return notify_fail("你的真气不够。\n");
+		return notify_fail("你的真氣不夠。\n");
 
 	if( (int)me->query_skill("force") < (int)target->query_skill("force") / 3 )
-		return notify_fail( target->name() + "中毒已经深，以你的内功修为恐怕解不了他的生死符！\n");
+		return notify_fail( target->name() + "中毒已經深，以你的內功修爲恐怕解不了他的生死符！\n");
 
   if (me != target)
-	  message_combatd( HIW"$N坐了下来运起八荒六合唯我独尊功，将手掌贴在$n背心，缓缓地将真气输入$n体内....\n\n过了不久，$N额头上冒出豆大的汗珠，$n指尖渗出一缕白色雾气，脸色看起来红润多了。\n" NOR, me, target );
+	  message_combatd( HIW"$N坐了下來運起八荒六合唯我獨尊功，將手掌貼在$n背心，緩緩地將真氣輸入$n體內....\n\n過了不久，$N額頭上冒出豆大的汗珠，$n指尖滲出一縷白色霧氣，臉色看起來紅潤多了。\n" NOR, me, target );
   else
-    message_vision( HIC"$N右掌以阳刚之气急拍，左掌以阴柔之力缓运，开始自行化解生死符之毒....\n\n过了许久，$N只觉“阴陵泉”穴上一团窒滞之意霍然而解，关节灵活，说不出的舒适。\n"NOR,me);
+    message_vision( HIC"$N右掌以陽剛之氣急拍，左掌以陰柔之力緩運，開始自行化解生死符之毒....\n\n過了許久，$N只覺“陰陵泉”穴上一團窒滯之意霍然而解，關節靈活，說不出的舒適。\n"NOR,me);
 	//target->set("qi", (int)target->query("eff_qi"));
 	target->clear_condition("ss_poison",0);
 
@@ -57,16 +57,16 @@ int exert(object me, object target)
 
 int help(object me)
 {
-	write(WHT"\n八荒六合唯我独尊功之驱毒："NOR"\n");
+	write(WHT"\n八荒六合唯我獨尊功之驅毒："NOR"\n");
 	write(@HELP
 
 	使用功效：
 		解生死符
 
 	出手要求：
-		八荒六合唯我独尊功50级
-	        内力150
-	        双方基本内功悬殊不大
+		八荒六合唯我獨尊功50級
+	        內力150
+	        雙方基本內功懸殊不大
 HELP
 	);
 	return 1;

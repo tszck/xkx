@@ -1,7 +1,7 @@
 // cunmin.c
 
 inherit NPC;
-string *first_name = ({"张", "赵", "钱", "孙","李"});
+string *first_name = ({"張", "趙", "錢", "孫","李"});
 string *name_words = ({"大叔","二伯","大哥","半仙","大傻"});
 
 void create()
@@ -13,7 +13,7 @@ void create()
         set_name(name,({"cun min"}));
         set("gender", "男性" );
         set("age", 32);
-        set("long", "这是个普普通通的乡下人，紫红的脸膛，手上长满了厚厚的老茧。\n");
+        set("long", "這是個普普通通的鄉下人，紫紅的臉膛，手上長滿了厚厚的老繭。\n");
 
         set("max_qi", 200);
         set("shen_type", 1);

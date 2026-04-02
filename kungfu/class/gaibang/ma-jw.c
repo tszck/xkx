@@ -6,11 +6,11 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("马俱为", ({"ma juwei", "ma", "juwei"}));
+	set_name("馬俱爲", ({"ma juwei", "ma", "juwei"}));
 	set("gender", "男性");
 	set("age", 35);
 	set("long", 
-		"这是位武艺精强，却沉默寡言的丐帮七袋弟子。\n");
+		"這是位武藝精強，卻沉默寡言的丐幫七袋弟子。\n");
 	set("attitude", "peaceful");
 	set("class", "beggar");
  	set("beggarlvl", 7);
@@ -50,10 +50,10 @@ void create()
 	map_skill("parry", "suohou-hand");
 	map_skill("dodge", "xiaoyaoyou");
 
-	set("party/party_name", HIC"丐帮"NOR);
+	set("party/party_name", HIC"丐幫"NOR);
 	set("party/rank", GRN"七袋弟子"NOR);
 	set("party/level", 7);
-	create_family("丐帮", 19, "弟子");
+	create_family("丐幫", 19, "弟子");
 	setup();
 
 	carry_object(WEAPON_DIR"gangdao")->wield();
@@ -63,7 +63,7 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if( ob->query("con") < 20 ) return;
-	command("say 你拜我为师，可要做好吃苦的准备，好好做个丐帮弟子！");
+	command("say 你拜我爲師，可要做好喫苦的準備，好好做個丐幫弟子！");
 	command("recruit " + ob->query("id"));
 }
 #include "/kungfu/class/gaibang/gaibang.h"

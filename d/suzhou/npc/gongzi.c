@@ -6,7 +6,7 @@ void create()
 	set_name("公子哥", ({ "gongzi" }) );
 	set("gender", "男性" );
 	set("age", 19);
-	set("long", "这是个流里流气到处揩油挥霍的花花公子。\n");
+	set("long", "這是個流裏流氣到處揩油揮霍的花花公子。\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 
@@ -42,11 +42,11 @@ void greeting(object ob)
 	if(ob->query("gender")=="女性")
 	{
 	    if(random(2)==1)
-		say(" 公子哥拧了一下"+ob->query("name")+"的脸蛋，一脸坏笑道："+RANK_D->query_respect(ob)+
-		     "长得好象还很不赖嘛，陪我玩玩可好？\n");
+		say(" 公子哥擰了一下"+ob->query("name")+"的臉蛋，一臉壞笑道："+RANK_D->query_respect(ob)+
+		     "長得好象還很不賴嘛，陪我玩玩可好？\n");
         else
-		say(" 公子哥一眼看到"+ob->query("name")+"顿时大乐：这位"+RANK_D->query_respect(ob)+
-		     "来得正好，走，乐乐去？\n");
+		say(" 公子哥一眼看到"+ob->query("name")+"頓時大樂：這位"+RANK_D->query_respect(ob)+
+		     "來得正好，走，樂樂去？\n");
           }
 
 }

@@ -7,9 +7,9 @@ void create()
 {
 	set_name("猴子", ({ "monkey" }) );
 	set("gender", "雄性");
-	set("race", "走兽");
+	set("race", "走獸");
 	set("age", 25);
-	set("long", "这只猴子在在桃树间跳上跳下，还不时津津有味地啃几口着蜜桃。\n");
+	set("long", "這隻猴子在在桃樹間跳上跳下，還不時津津有味地啃幾口着蜜桃。\n");
 	set("combat_exp", 5000);
 	set("attitude", "peaceful");
 	
@@ -21,7 +21,7 @@ void create()
 
 //	set("chat_chance", 30);
 //	set("chat_msg", ({
-//		"土匪一声大喊: 此山是我开，此树是我栽，若要从此过，留下买路财 !\n",
+//		"土匪一聲大喊: 此山是我開，此樹是我栽，若要從此過，留下買路財 !\n",
 //	}) );
 
 	set_skill("unarmed", 25);

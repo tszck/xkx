@@ -1,14 +1,14 @@
-//Room: yunupath2.c 玉女峰山路
+//Room: yunupath2.c 玉女峯山路
 //Date: Oct. 2 1997 by Venus
 
 inherit ROOM;
 
 void create()
 {
-	set("short","玉女峰山路");
+	set("short","玉女峯山路");
 	set("long",@LONG
-这里是玉女峰后山的一条山路。路边长满了翠竹，每当微风拂过，
-竹叶便沙沙作响，显得分外的幽静。
+這裏是玉女峯後山的一條山路。路邊長滿了翠竹，每當微風拂過，
+竹葉便沙沙作響，顯得分外的幽靜。
 LONG);
 	set("outdoors", "huashan");
 	set("no_clean_up", 0);

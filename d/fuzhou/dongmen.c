@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "东门");
+	set("short", "東門");
 	set("long", @LONG
-东门外是福州平原。从这里看去，可以见到密密的丛林。出东门十
-里地就是鼓山了。
+東門外是福州平原。從這裏看去，可以見到密密的叢林。出東門十
+裏地就是鼓山了。
 LONG );
 	set("exits", ([
                 "east" : __DIR__"shulin",

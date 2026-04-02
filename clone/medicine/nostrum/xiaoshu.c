@@ -15,7 +15,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "包");
-		set("long", "这是一包治疗中暑的药，立刻见效。\n");
+		set("long", "這是一包治療中暑的藥，立刻見效。\n");
 		set("value", 2000);
 	}
 	setup();
@@ -27,14 +27,14 @@ int do_eat(string arg)
 	if (!id(arg))
 		return 0;
 	if (me->is_busy() )
-		return notify_fail("别急，慢慢来。\n");
+		return notify_fail("別急，慢慢來。\n");
 	if (!me->query_condition("ill_zhongshu"))
 	{
-		write("你现在又没有中暑，别乱吃药。\n");
+		write("你現在又沒有中暑，別亂喫藥。\n");
 		return 1;
 	} else {
 		me->clear_condition("ill_zhongshu");
-		message_vision("$N吃下一包消暑丸，看起来精神多了。\n", me);
+		message_vision("$N喫下一包消暑丸，看起來精神多了。\n", me);
 		me->start_busy(2);
 		destruct(this_object());
 		return 1;

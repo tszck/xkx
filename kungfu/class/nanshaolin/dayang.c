@@ -9,10 +9,10 @@ string ask_me();
 
 void create()
 {
-	set_name("大痒大师", ({ "dayang dashi", "dayang", "dashi"}));
+	set_name("大癢大師", ({ "dayang dashi", "dayang", "dashi"}));
 	set("long",
-		"他是一位笑容可掬的老僧，身穿一袭青布镶边袈裟。他身材不高，\n"
-		"太阳穴微凸，双目炯炯有神。\n");
+		"他是一位笑容可掬的老僧，身穿一襲青布鑲邊袈裟。他身材不高，\n"
+		"太陽穴微凸，雙目炯炯有神。\n");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");

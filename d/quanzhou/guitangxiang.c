@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "桂坛巷");
+	set("short", "桂壇巷");
 	set("long", @LONG
-桂坛巷顺着施府高墙蜿蜒而出，一面是潺潺流水的沟渠，幽暗宁静。
-桂坛巷西南面便是承天寺。
+桂壇巷順着施府高牆蜿蜒而出，一面是潺潺流水的溝渠，幽暗寧靜。
+桂壇巷西南面便是承天寺。
 LONG );
 	set("outdoors", "quanzhou");
 	set("no_clean_up", 0);

@@ -4,7 +4,7 @@ inherit ITEM;
 
 void create()
 {
-	set_name("西墙", ({ "xi qiang", "west wall", "wall" }) );
+	set_name("西牆", ({ "xi qiang", "west wall", "wall" }) );
 	set_weight(500);
 	set_max_encumbrance(80000);
 	set("no_get", 1);
@@ -14,7 +14,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "堵");
-		set("long", "一堵墙。\n");
+		set("long", "一堵牆。\n");
 		set("value", 1);
 	}
 }

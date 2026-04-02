@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "胡同");
+	set("short", "衚衕");
 	set("long", @LONG
-这是一条黑暗、肮脏的小巷，空气中仿佛飘扬着一股罪恶的气息，
-几个流氓在游荡，向东南就能回到大街，你还是赶快走吧。
+這是一條黑暗、骯髒的小巷，空氣中彷彿飄揚着一股罪惡的氣息，
+幾個流氓在遊蕩，向東南就能回到大街，你還是趕快走吧。
 LONG );
 	set("outdoors", "suzhou");
 	set("no_clean_up", 0);

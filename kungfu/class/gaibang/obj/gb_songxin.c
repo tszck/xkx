@@ -14,7 +14,7 @@ int update_condition(object me, int duration)
 	{
 		if (me->query_temp("gb_songxin"))
 		{
-			tell_object(me, HIY "你时间已过，任务失效！\n" NOR);
+			tell_object(me, HIY "你時間已過，任務失效！\n" NOR);
 		}
 		me->delete_temp("gb_songxin");
 		me->delete_temp("songxin_name");
@@ -36,7 +36,7 @@ int update_condition(object me, int duration)
 	{
 		if (me->query("tili")<80)
 		{
-			tell_object(me, RED "你这样急行送信，消耗太多精力，不由想停下来歇一下！\n" NOR);
+			tell_object(me, RED "你這樣急行送信，消耗太多精力，不由想停下來歇一下！\n" NOR);
 			me->set_temp("wait",1);
 			me->start_busy(1);
 		}
@@ -47,14 +47,14 @@ int update_condition(object me, int duration)
 		}
 	} 
 */
-//减少被盗的机率
+//減少被盜的機率
 	if(duration > time/7 && present("secret letter", me) &&
 		!me->query_temp("wait") && duration < time &&
 		!me->query_temp("songxin_zuji",1)&&random(10)>7 &&
 		(interactive(me))&&!environment(me)->query("no_fight") &&
 		me->query("disable_type") != " <昏迷不醒>")
 	{
-		tell_object(me, HIY "你觉的有些不妙，似乎被人跟踪上了！\n" NOR);
+		tell_object(me, HIY "你覺的有些不妙，似乎被人跟蹤上了！\n" NOR);
 		me->start_busy(1);
 		call_out("zuji", 0, me);    
 	}
@@ -67,11 +67,11 @@ void zuji(object me)
 	object obj; 
 	if (present("secret letter", me)) 
 	{
-		tell_object(me,"你隐约感觉到有人围了过来。。!!! \n");
+		tell_object(me,"你隱約感覺到有人圍了過來。。!!! \n");
 		if (random(10)>9)
 		{
 //this is killer kill npc
-			tell_object(me, RED "糟糕！有人要抢信!\n" NOR);
+			tell_object(me, RED "糟糕！有人要搶信!\n" NOR);
 
 			obj = new("/kungfu/class/gaibang/npc/npc1");
 			obj->set("target", me);
@@ -88,7 +88,7 @@ void zuji(object me)
 //this is stealer steal letter
 			obj = present("secret letter", me);
 			destruct(obj);
-			tell_object(me,RED"你紧张起来，不由一摸衣袋，不好！信被偷了!\n"NOR);
+			tell_object(me,RED"你緊張起來，不由一摸衣袋，不好！信被偷了!\n"NOR);
 			me->set_temp("songxin_zuji",1);
 			obj = new("/kungfu/class/gaibang/npc/snpc1");
 			obj->set("target", me);
@@ -111,7 +111,7 @@ void zuji(object me)
 	}
 	else
 	{
-		tell_object(me,"信已送出，你庆幸的躲过了一次追杀!\n");
+		tell_object(me,"信已送出，你慶幸的躲過了一次追殺!\n");
 	}   
     return;
 }
@@ -120,7 +120,7 @@ void killer_clone(object me)
 {
 	object obj;
 
-	tell_object(me,"糟糕，又冲上来了个人。。!!! \n");
+	tell_object(me,"糟糕，又衝上來了個人。。!!! \n");
 	obj = new("/kungfu/class/gaibang/npc/npc2");
 	obj->set("target", me);
 	obj->move(environment(me));
@@ -131,7 +131,7 @@ void stealer_clone(object me)
 {
 	object obj;
 
-	tell_object(me,"糟糕，又冲上来了个人。。!!! \n");
+	tell_object(me,"糟糕，又衝上來了個人。。!!! \n");
 	obj = new("/kungfu/class/gaibang/npc/snpc2");
 	obj->set("target", me);
 	obj->move(environment(me));

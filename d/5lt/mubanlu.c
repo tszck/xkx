@@ -6,7 +6,7 @@ void create()
 {
 	set("short", "木板路");
 	set("long", @LONG
-这是电视台新近铺好的木板路，踩上去咯吱咯吱作响。
+這是電視臺新近鋪好的木板路，踩上去咯吱咯吱作響。
 LONG	);
 	set("outdoors", "5lt");
 	set("exits", ([

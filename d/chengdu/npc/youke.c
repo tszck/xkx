@@ -1,4 +1,4 @@
-// youke.c 游客 
+// youke.c 遊客 
 // Last Modifyed by Winder on Dec. 24 2001
 //
 
@@ -6,7 +6,7 @@ inherit NPC;
 
 void create()
 {
-	set_name("游客", ({ "youke" }));
+	set_name("遊客", ({ "youke" }));
 	set("gender", "男性");
 	set("age", 20 + random(30));
 

@@ -4,12 +4,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("赵鹤", ({"zhao he", "zhao", "he"}));
-	set("nickname", HIC "飞天神魔" NOR );
+	set_name("趙鶴", ({"zhao he", "zhao", "he"}));
+	set("nickname", HIC "飛天神魔" NOR );
 	set("gender", "男性");
 	set("age", 42);
 	set("shen_type", -1);
-	set("long", "他是日月神教前辈长老。\n");
+	set("long", "他是日月神教前輩長老。\n");
 	set("attitude", "peaceful");
 	set("env/wimpy", 40);
 
@@ -47,12 +47,12 @@ void create()
 	map_skill("parry", "tianshan-zhang");
 
 	set("inquiry", ([
-		"日月神教" : "你想加入我日月神教，就得找四大堂长老。",
-		"入教"     : "你想加入我日月神教，就得找四大堂长老。",
+		"日月神教" : "你想加入我日月神教，就得找四大堂長老。",
+		"入教"     : "你想加入我日月神教，就得找四大堂長老。",
 	]));
 
 	set("party/party_name", HIB"日月神教"NOR);
-	set("party/rank", HIR"前辈长老"NOR);
+	set("party/rank", HIR"前輩長老"NOR);
 	create_family("黑木崖", 4, "弟子");
 
 	setup();

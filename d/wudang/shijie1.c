@@ -1,15 +1,15 @@
-//Room: shijie1.c 石阶
+//Room: shijie1.c 石階
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-      set("short","石阶");
+      set("short","石階");
       set("long",@LONG
-你走在一条坚实的石阶上，不时地有进香客从你的身边走过。一边
-是峭壁，一边是悬崖，抬头隐约可见笼罩在云雾中的天柱峰，听着流水
-淙淙，令人心旷神怡。
+你走在一條堅實的石階上，不時地有進香客從你的身邊走過。一邊
+是峭壁，一邊是懸崖，抬頭隱約可見籠罩在雲霧中的天柱峯，聽着流水
+淙淙，令人心曠神怡。
 LONG);
       set("objects", ([
           __DIR__+"npc/guest": 2,

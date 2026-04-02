@@ -1,4 +1,4 @@
-// bird.c 飞禽
+// bird.c 飛禽
 // Last Modified by winder on Aug. 1 2002
 
 inherit F_DBASE;
@@ -16,17 +16,17 @@ mapping *combat_action = ({
 ([
 	"action":	"$N用爪子往$n的$l猛地一抓",
 	"damage":	10,
-	"damage_type":	"抓伤",
+	"damage_type":	"抓傷",
 ]),
 ([
-	"action":	"$N飞过来往$n的$l狠狠地一啄",
+	"action":	"$N飛過來往$n的$l狠狠地一啄",
 	"damage":	30,
-	"damage_type":	"刺伤",
+	"damage_type":	"刺傷",
 ]),
 ([
-	"action":	"$N用翅膀向$n的$l拍了过去",
+	"action":	"$N用翅膀向$n的$l拍了過去",
 	"damage":	30,
-	"damage_type":	"刺伤",
+	"damage_type":	"刺傷",
 ])
 });
 
@@ -35,16 +35,16 @@ void create()
 	seteuid(getuid());
 	set("attitude", "peaceful");
 	set("limbs", ({
-		"头部",	"颈部",	"后背",	"腹部",	"脚爪",	"翅膀"
+		"頭部",	"頸部",	"後背",	"腹部",	"腳爪",	"翅膀"
 	}) );
 
-	set("dead_message", "\n$N发出一声凄厉的鸣叫，从半空中跌了下来。\n\n");
-	set("unconcious_message", "\n$N从半空中砰地跌下来，晕了过去。\n\n");
-	set("revive_message", "\n$N醒过来动弹了一下，双翅一振，又飞了起来。\n\n");
-	set("comeout_message", "往$d疾飞而去。\n");
-	set("comein_message", "飞了过来。\n");
-	set("fleeout_message", "一声凄鸣，往$d疾飞而去。\n");
-	set("fleein_message", "缓缓地飞了过来，沉重地在半空中打着旋儿。\n");
+	set("dead_message", "\n$N發出一聲淒厲的鳴叫，從半空中跌了下來。\n\n");
+	set("unconcious_message", "\n$N從半空中砰地跌下來，暈了過去。\n\n");
+	set("revive_message", "\n$N醒過來動彈了一下，雙翅一振，又飛了起來。\n\n");
+	set("comeout_message", "往$d疾飛而去。\n");
+	set("comein_message", "飛了過來。\n");
+	set("fleeout_message", "一聲悽鳴，往$d疾飛而去。\n");
+	set("fleein_message", "緩緩地飛了過來，沉重地在半空中打着旋兒。\n");
 }
 
 void setup_bird(object ob)
@@ -88,13 +88,13 @@ void setup_bird(object ob)
 
 	if( ob->query("subrace") == "走禽" )
 	{
-		set("dead_message", "\n$N发出一声凄厉的鸣叫，栽倒在地上死了。\n\n");
-		set("unconcious_message", "\n$N凄鸣一声栽倒在地，晕了过去。\n\n");
-		set("revive_message", "\n$N醒过来动弹了一下，双翅扑腾了几下站了起来。\n\n");
+		set("dead_message", "\n$N發出一聲淒厲的鳴叫，栽倒在地上死了。\n\n");
+		set("unconcious_message", "\n$N悽鳴一聲栽倒在地，暈了過去。\n\n");
+		set("revive_message", "\n$N醒過來動彈了一下，雙翅撲騰了幾下站了起來。\n\n");
 		set("comeout_message", "往$d疾奔而去。\n");
-		set("comein_message", "跑了过来。\n");
-		set("fleeout_message", "一声凄鸣，往$d疾奔而去。\n");
-		set("fleein_message", "摇摇摆摆的跑了过来。\n");
+		set("comein_message", "跑了過來。\n");
+		set("fleeout_message", "一聲悽鳴，往$d疾奔而去。\n");
+		set("fleein_message", "搖搖擺擺的跑了過來。\n");
 	}
 }
 

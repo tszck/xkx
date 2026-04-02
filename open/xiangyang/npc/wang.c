@@ -1,17 +1,17 @@
-// wang.c 王坚
+// wang.c 王堅
 #include <ansi.h>
 inherit NPC;
 inherit F_SKILL;
 
 void create()
 {
-	set_name("王坚", ({ "wang jian", "wang", "jian" }));
+	set_name("王堅", ({ "wang jian", "wang", "jian" }));
 	set("gender", "男性");
-	set("title", HIY"襄阳守备大将"NOR);
+	set("title", HIY"襄陽守備大將"NOR);
 	set("age", 40);
 	set("str", 35);
 	set("dex", 36);
-	set("long", "这是一个大宋襄阳守备主将，满脸征尘。\n");
+	set("long", "這是一個大宋襄陽守備主將，滿臉徵塵。\n");
 	set("combat_exp", 150000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");

@@ -9,8 +9,8 @@ void create()
 {
 	set_name("守律僧", ({ "shoulu seng", "seng", "shoulu" }));
 	set("long",
-		"他是一位身材高大的中年僧人，两臂粗壮，膀阔腰圆。他手持兵\n"
-		"刃，身穿一袭灰布镶边袈裟，似乎有一身武艺。\n"
+		"他是一位身材高大的中年僧人，兩臂粗壯，膀闊腰圓。他手持兵\n"
+		"刃，身穿一襲灰布鑲邊袈裟，似乎有一身武藝。\n"
 	);
 
 	set("gender", "男性");
@@ -74,7 +74,7 @@ void init()
 		if ( ob->query("guilty") == 1 )
 		{
 			if ( random(2) ==1 )
-				command("say 你这佛门败类，哪里逃！ 还不速到戒律院领罪！\n");
+				command("say 你這佛門敗類，哪裏逃！ 還不速到戒律院領罪！\n");
 			me->set_leader(ob);
 			remove_call_out("fight_ob");
 			call_out("fight_ob", 1, ob); 
@@ -82,7 +82,7 @@ void init()
 		if ( ob->query("guilty") >= 2 )
 		{
 			if ( random(2) ==1 )
-			command("say 戒律院大癫大师请你去陈述此次下山经过 ！\n");
+			command("say 戒律院大癲大師請你去陳述此次下山經過 ！\n");
 			me->set_leader(ob);
 		}       
 	}

@@ -5,11 +5,11 @@
 inherit ROOM;
 void create()
 {
-	set("short", "缝隙");
+	set("short", "縫隙");
 	set("long", @LONG
-这里是石块与石块之间的夹缝，光线昏暗。你明显感觉到四周的沙
-沙声是各种毒虫爬行的声音，一股股腥味中也夹杂着一些刺鼻的气息。
-你发现前面有一石块(shikuai) 隐隐发出淡淡的光芒。
+這裏是石塊與石塊之間的夾縫，光線昏暗。你明顯感覺到四周的沙
+沙聲是各種毒蟲爬行的聲音，一股股腥味中也夾雜着一些刺鼻的氣息。
+你發現前面有一石塊(shikuai) 隱隱發出淡淡的光芒。
 LONG);
 	set("objects", ([
 		__DIR__"npc/yanjing1" : 1,
@@ -20,7 +20,7 @@ LONG);
 		"out"  : __DIR__"yuanzi4",
 	]));
 	set("item_desc", ([		    
-		"shikuai":HIW"\n这块石头呈乳白色，散发着阵阵暖气，石面有一道五彩色的细线，\n石块上凹陷进去的是个左右两个手掌的手掌形。\n"NOR,
+		"shikuai":HIW"\n這塊石頭呈乳白色，散發着陣陣暖氣，石面有一道五彩色的細線，\n石塊上凹陷進去的是個左右兩個手掌的手掌形。\n"NOR,
 	]));
 	set("coor/x", -49920);
 	set("coor/y", 20080);
@@ -41,12 +41,12 @@ int do_push(string arg)
 	if( !arg || arg=="" ) return 0;
 	if( !me->query_temp("baituo_stone1") ) return 0;
 	if( (int)me->query_temp("baituo_stone2") ) 
-		return notify_fail("你已经推动过了石块。\n");
+		return notify_fail("你已經推動過了石塊。\n");
 	if (arg == "shikuai" )
 	{
-		message_vision("$N深深吸了口气，伸出双手按住石块上的手印，缓缓向下推去。\n", me);	   
+		message_vision("$N深深吸了口氣，伸出雙手按住石塊上的手印，緩緩向下推去。\n", me);	   
 		me->set_temp("baituo_stone2", 1);
-		message_vision("$N将石块按下寸许，隐隐约约听到地下传来一阵轰隆声。\n", me);	    
+		message_vision("$N將石塊按下寸許，隱隱約約聽到地下傳來一陣轟隆聲。\n", me);	    
 		me->start_busy(5);	
 		call_out("poisoned", 5, me);
 		return 1;
@@ -59,8 +59,8 @@ int poisoned()
 	if ((int)me->query_skill("poison", 1) < 120 &&
 		!me->query_skill("hamagong", 1))
 	{
-		tell_object(me, MAG"你感到手心一凉，那道五彩细线已经附在你的手心上。\n" NOR );
-		message_vision("$N突然身子一颤，好象是中了毒！\n", me);
+		tell_object(me, MAG"你感到手心一涼，那道五彩細線已經附在你的手心上。\n" NOR );
+		message_vision("$N突然身子一顫，好象是中了毒！\n", me);
 		me->apply_condition("bt_poison", 50);
 		me->delete_temp("baituo_stone1");
 		return 1;
@@ -68,8 +68,8 @@ int poisoned()
 	if (me->query_skill("hamagong", 1) ||
 		me->query_skill("poison", 1) >= 120)
 	{
-		tell_object(me, MAG"忽然你的手心一凉，那道五彩细线已经附在你的手上。\n" NOR );
-		tell_object(me, HIW"你连忙运功调气，将手心的五彩细线逼出了大半。\n" NOR );
+		tell_object(me, MAG"忽然你的手心一涼，那道五彩細線已經附在你的手上。\n" NOR );
+		tell_object(me, HIW"你連忙運功調氣，將手心的五彩細線逼出了大半。\n" NOR );
 		me->apply_condition("snake_poison", 30);
 		me->delete_temp("baituo_stone1");
 		return 1;

@@ -11,8 +11,8 @@ void create()
 	if ( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一双麻绳编制的鞋子。\n");
-		set("unit", "双");
+		set("long", "一雙麻繩編制的鞋子。\n");
+		set("unit", "雙");
 		set("value", 5);
 		set("material", "silk");
 		set("armor_prop/armor", 1);

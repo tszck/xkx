@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","南城门");
+	set("short","南城門");
 	set("long",@LONG
-这里是南阳南门。南阳处南阳盆地内，水土肥沃，物产丰饶。再往
-南就是汉水了，偶尔有渔夫在河上张网捕鱼。
+這裏是南陽南門。南陽處南陽盆地內，水土肥沃，物產豐饒。再往
+南就是漢水了，偶爾有漁夫在河上張網捕魚。
 LONG);
 	set("exits",([
 		"north"   : __DIR__"dajie1",

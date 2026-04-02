@@ -1,9 +1,9 @@
-// luanhuan.c 太极拳「乱环诀」
+// luanhuan.c 太極拳「亂環訣」
 // Last Modified by winder on Aug. 18 2002
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "「乱环诀」"
+#define PNAME "「亂環訣」"
 int perform(object me, object target)
 {
 	string *circle, msg;
@@ -18,19 +18,19 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 		//兵器空手均可
 		
 	if( me->query("combat_exp") < 500000 )
-		return notify_fail("你实战经验不足，不会使用「乱环诀」。\n");
+		return notify_fail("你實戰經驗不足，不會使用「亂環訣」。\n");
 
 	fskill = "taiji-shengong";
 	bskill = "unarmed";
@@ -44,36 +44,36 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，无法运功伤敌。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法運功傷敵。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 
 	if( me->query_skill_mapped("force") != fskill )
-		return notify_fail("你所用的内功与「乱环诀」气路相悖！\n");
+		return notify_fail("你所用的內功與「亂環訣」氣路相悖！\n");
 
 	if( !me->query_temp("murong/xingyi") )
 	{
 		if( userp(me) && !me->query_temp("taiji") && (int)me->query("jiali") )
-		return notify_fail("用意不用力，太极圆转无使断绝。你加了力难以划圈成圆。\n");
+		return notify_fail("用意不用力，太極圓轉無使斷絕。你加了力難以劃圈成圓。\n");
 	}
 	
 	if( (int)me->query("max_neili") < 2000 )
-		return notify_fail("你的内力修为不够，无法运功伤敌。\n");
+		return notify_fail("你的內力修爲不夠，無法運功傷敵。\n");
 
 	if( (int)me->query("neili") < 200 )
-		return notify_fail("你现在的内力太弱，无法运功伤敌。\n");
+		return notify_fail("你現在的內力太弱，無法運功傷敵。\n");
 
 	if( (int)me->query("qi") < 200 )
-		return notify_fail("你现在的体力太弱，每一招难以暗蓄环劲。\n");
+		return notify_fail("你現在的體力太弱，每一招難以暗蓄環勁。\n");
 
 	if( (int)me->query("jing") < 200 )
-		return notify_fail("你现在的精神太差，难以划圆成圈。\n");
+		return notify_fail("你現在的精神太差，難以劃圓成圈。\n");
 
 	circle = ({
-		 "$N「双风贯耳」，连消带打，双手成圆形击出，随即左圈右圈，一个圆圈跟着一个圆圈，大圈、小圈、平圈、立圈、正圈、斜圈，一个个太极圆圈发出。",
-		 "$N「云手」使出时连绵不断，有如白云行空，一个圆圈未完，第二个圆圈已生。",
-		 "$N右肩斜闪，左手凭空划了几个圈子。"
+		 "$N「雙風貫耳」，連消帶打，雙手成圓形擊出，隨即左圈右圈，一個圓圈跟着一個圓圈，大圈、小圈、平圈、立圈、正圈、斜圈，一個個太極圓圈發出。",
+		 "$N「雲手」使出時連綿不斷，有如白雲行空，一個圓圈未完，第二個圓圈已生。",
+		 "$N右肩斜閃，左手憑空劃了幾個圈子。"
 	});
 	msg = WHT"\n"+ circle[random(sizeof(circle))] +"\n";
 	me->receive_damage("jing", 50);
@@ -83,13 +83,13 @@ int perform(object me, object target)
 	if( random(me->query("combat_exp") * me->query_int() / 100) 
 		> (int)target->query("combat_exp") * target->query_int() / foo )
 	{
-		msg += HIY"结果$N以环形之力，推得$n进了$P的无形圈内。\n"NOR;
+		msg += HIY"結果$N以環形之力，推得$n進了$P的無形圈內。\n"NOR;
 		me->start_busy(1);
 		call_out("zhen", 1, me, target); 
 	}
 	else
 	{
-		msg += CYN"可是$p看破了$P的企图，并没有上当。\n"NOR;
+		msg += CYN"可是$p看破了$P的企圖，並沒有上當。\n"NOR;
 		me->start_busy(1+random(2));
 	}
 
@@ -109,30 +109,30 @@ int zhen(object me, object target)
 	tjq = (int)me->query_skill("unarmed");
 
 	zhen = ({
-		 "但见$N双臂一圈一转，使出「六合劲」中的“钻翻”“螺旋”二劲，已将$n圈住。",
-		 "$N接着使出一招「云手」，左手高，右手低，一个圆圈已将$n套住。"
+		 "但見$N雙臂一圈一轉，使出「六合勁」中的“鑽翻”“螺旋”二勁，已將$n圈住。",
+		 "$N接着使出一招「雲手」，左手高，右手低，一個圓圈已將$n套住。"
 	});
 
 	fooo = me->query_temp("taiji") ? 120 : 179;
 	if( random(me->query_skill("taiji-quan", 1)) > fooo )
 	{
-		type = "瘀伤";
-		msg = HIY"\n只见$N左掌阳、右掌阴，目光凝视左手手臂，双掌慢慢合拢，竟是凝重如山，却又轻灵似羽。右捺左收，使得犹如行云流水，潇洒无比！\n"NOR
-		"$n只觉上盘各路已全处在$P双掌的笼罩之下，无可闪避，无可抵御！\n";
+		type = "瘀傷";
+		msg = HIY"\n只見$N左掌陽、右掌陰，目光凝視左手手臂，雙掌慢慢合攏，竟是凝重如山，卻又輕靈似羽。右捺左收，使得猶如行雲流水，瀟灑無比！\n"NOR
+		"$n只覺上盤各路已全處在$P雙掌的籠罩之下，無可閃避，無可抵禦！\n";
 	}
 	else
 	{
-		type = "内伤";
-		msg = "\n"+zhen[random(sizeof(zhen))] +"随即潜运神功，企图以内力震伤$p！\n";
+		type = "內傷";
+		msg = "\n"+zhen[random(sizeof(zhen))] +"隨即潛運神功，企圖以內力震傷$p！\n";
 	}
 
 	if( target->query("neili") <= 0 )
 	{
-		msg += "$p只得强行运劲与$P相抗，不料猛然发觉自己真气已然枯竭耗尽。\n";
-		if( type == "内伤" )
-			msg += RED "结果只听见几声喀喀轻响，$n一声惨叫，像滩软泥般塌了下去！！\n"NOR;
+		msg += "$p只得強行運勁與$P相抗，不料猛然發覺自己真氣已然枯竭耗盡。\n";
+		if( type == "內傷" )
+			msg += RED "結果只聽見幾聲喀喀輕響，$n一聲慘叫，像灘軟泥般塌了下去！！\n"NOR;
 		else 
-			msg += RED "结果只听见「砰」地一声巨响，$n像一捆稻草般飞了出去！！\n"NOR;
+			msg += RED "結果只聽見「砰」地一聲巨響，$n像一捆稻草般飛了出去！！\n"NOR;
 
 		target->receive_damage("qi", (int)target->query("qi")+1, me);
 	}
@@ -145,7 +145,7 @@ int zhen(object me, object target)
 		damage = tjsg + tjq/2;		
 		damage = damage/2 + random(damage);
 
-		if( type == "瘀伤" )
+		if( type == "瘀傷" )
 			damage = damage + tjq/2;
 		if( me->query("neili") > target->query("neili")*2 )
 			damage = damage + tjsg/2; 
@@ -175,15 +175,15 @@ int zhen(object me, object target)
 		target->receive_wound("qi", damage/3, me);
 		me->add("neili", -damage/10);
 
-		msg+= HIR"$p只得强行运劲与$N相抗，";
+		msg+= HIR"$p只得強行運勁與$N相抗，";
 		if( damage < 100 ) 
-			msg += "结果受到$P的内力反震，闷哼一声。\n"NOR;
+			msg += "結果受到$P的內力反震，悶哼一聲。\n"NOR;
 		else if( damage < 200 ) 
-			msg += "结果被$P以内力反震，「嘿」地一声退了两步。\n"NOR;
+			msg += "結果被$P以內力反震，「嘿」地一聲退了兩步。\n"NOR;
 		else if( damage < 400 ) 
-			msg += "结果被$P以内力一震，胸口有如受到一记重锤，连退了五六步！\n"NOR;
+			msg += "結果被$P以內力一震，胸口有如受到一記重錘，連退了五六步！\n"NOR;
 		else 
-			msg += "结果被$P的内力一震，眼前一黑，身子向后飞出丈许！！\n"NOR;
+			msg += "結果被$P的內力一震，眼前一黑，身子向後飛出丈許！！\n"NOR;
 	}
 	else if( me->query("neili")*2 < target->query("neili") ) 
 	{
@@ -198,13 +198,13 @@ int zhen(object me, object target)
 		target->add("neili", -damage/10);
 		
 		if( damage < 100 ) 
-			msg += HIY "不料$P受到$p的内力反震，闷哼一声。\n"NOR;
+			msg += HIY "不料$P受到$p的內力反震，悶哼一聲。\n"NOR;
 		else if( damage < 200 ) 
-			msg += HIY "不料$P被$p以内力反震，「嘿」地一声退了两步。\n"NOR;
+			msg += HIY "不料$P被$p以內力反震，「嘿」地一聲退了兩步。\n"NOR;
 		else if( damage < 400 ) 
-			msg += RED "不料$P被$p以内力反震，胸口有如受到一记重锤，连退了五六步！\n"NOR;
+			msg += RED "不料$P被$p以內力反震，胸口有如受到一記重錘，連退了五六步！\n"NOR;
 		else 
-			msg += HIR "不料$P被$p的内力反震，眼前一黑，身子向后飞出丈许！！\n"NOR;
+			msg += HIR "不料$P被$p的內力反震，眼前一黑，身子向後飛出丈許！！\n"NOR;
 	}
 	else
 	{
@@ -214,7 +214,7 @@ int zhen(object me, object target)
 		me->add("neili", -300);
 		target->receive_damage("qi", 50);
 		target->add("neili", -300);
-		msg += HIY"$p只得强行运劲与$P相抗，两人身子都是一晃，各自退开几步！\n"NOR;
+		msg += HIY"$p只得強行運勁與$P相抗，兩人身子都是一晃，各自退開幾步！\n"NOR;
 	} 
 
 	message_combatd(msg, me, target);
@@ -222,7 +222,7 @@ int zhen(object me, object target)
 }
 
 /*
-紧跟着$N双臂一合，一招「双耳贯风」，双拳击向$n的左右两耳。这一招绵劲中蓄，其软如绵，其坚胜铁！
+緊跟着$N雙臂一合，一招「雙耳貫風」，雙拳擊向$n的左右兩耳。這一招綿勁中蓄，其軟如綿，其堅勝鐵！
 */
 string name() {return replace_string(replace_string(PNAME,"「",""),"」","");}
 
@@ -232,17 +232,17 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
+		損傷對方氣血
 
 	出手要求：
-		太极神功150级
-		太极拳150级
-		经验500000
-		内力修为2000
-		内力200
-		气血200
-		精气200
-		不能运加力或太极心法
+		太極神功150級
+		太極拳150級
+		經驗500000
+		內力修爲2000
+		內力200
+		氣血200
+		精氣200
+		不能運加力或太極心法
 HELP
 	);
 	return 1;

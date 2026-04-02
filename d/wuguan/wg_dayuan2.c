@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "武馆大院");
+	set("short", "武館大院");
 	set("long", @LONG
-这是武馆前的大院子，馆内的弟子忙碌地进出着，东面上了台阶就
-是武馆大厅。
+這是武館前的大院子，館內的弟子忙碌地進出着，東面上了臺階就
+是武館大廳。
 LONG);
 	set("outdoors", "wuguan");
 	set("no_fight", 1);

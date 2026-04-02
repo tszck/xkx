@@ -1,4 +1,4 @@
-// yu.c 余鱼同
+// yu.c 餘魚同
 
 #include <ansi.h>
 
@@ -7,16 +7,16 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("余鱼同", ({ "yu yutong", "yu","yutong" }));
-	set("title", HIR "红花会"HIG"十四当家" NOR);
+	set_name("餘魚同", ({ "yu yutong", "yu","yutong" }));
+	set("title", HIR "紅花會"HIG"十四當家" NOR);
 	set("nickname", YEL "金笛秀才" NOR);
 	set("long", 
-"一个长身玉立，眉清目秀，风流英俊的书生。余鱼同乃江南望族
-子弟，中过秀才。他父亲因和一家豪门争一块坟地，官司打得倾家
-荡产，又被豪门借故陷害，瘐死狱中。余鱼同一气出走，得遇机缘，
-拜马真为师，弃文习武，回来把士豪刺死，从此亡命江湖，后来入
-了红花会。他为人机警灵巧，多识各地乡谈，在会中任联络四方、
-刺探讯息之职。\n");
+"一個長身玉立，眉清目秀，風流英俊的書生。餘魚同乃江南望族
+子弟，中過秀才。他父親因和一家豪門爭一塊墳地，官司打得傾家
+蕩產，又被豪門藉故陷害，瘐死獄中。餘魚同一氣出走，得遇機緣，
+拜馬真爲師，棄文習武，回來把士豪刺死，從此亡命江湖，後來入
+了紅花會。他爲人機警靈巧，多識各地鄉談，在會中任聯絡四方、
+刺探訊息之職。\n");
 	set("gender", "男性");
 	set("class", "scholar");
 	set("age", 20);
@@ -70,7 +70,7 @@ void create()
 	prepare_skill("hand","yunlong-shou");
 	prepare_skill("claw","yunlong-zhua");
 	set("env/wimpy", 20);
-	create_family("武当派", 18, "弟子");
+	create_family("武當派", 18, "弟子");
 
  	setup();
 	carry_object(CLOTH_DIR"jinduan")->wear();

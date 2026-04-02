@@ -1,4 +1,4 @@
-// xuantian-wuji 玄天无极功
+// xuantian-wuji 玄天無極功
 
 #include <ansi.h>
 #include "force.h";
@@ -22,14 +22,14 @@ int valid_learn(object me)
 	nx = (int)me->query_skill("xuantian-wuji", 1);
 
 	if ( nf < 20)
-		return notify_fail("你的基本内功火候还不够，无法领会玄天无极功。\n");
+		return notify_fail("你的基本內功火候還不夠，無法領會玄天無極功。\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("玄天无极功只能用学(learn)的来增加熟练度。\n");
+	return notify_fail("玄天無極功只能用學(learn)的來增加熟練度。\n");
 }
 
 string exert_function_file(string func)
@@ -38,14 +38,14 @@ string exert_function_file(string func)
 }
 int help(object me)
 {
-	write(HIC"\n玄天无极功："NOR"\n");
+	write(HIC"\n玄天無極功："NOR"\n");
 	write(@HELP
 
-    玄天无极功是昆仑派的本门内功。
+    玄天無極功是崑崙派的本門內功。
 
-	学习要求：
-		基本内功10级
-		相当的琴棋技艺的造诣
+	學習要求：
+		基本內功10級
+		相當的琴棋技藝的造詣
 HELP
 	);
 	return 1;

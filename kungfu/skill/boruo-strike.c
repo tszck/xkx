@@ -1,5 +1,5 @@
 // Last Modified by Winder on May. 29 2001
-// boruo-strike.c 般若掌 和龙爪功互备 取自佛门《十愿》。
+// boruo-strike.c 般若掌 和龍爪功互備 取自佛門《十願》。
 
 #include <ansi.h>
 inherit SKILL;
@@ -7,41 +7,41 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N后腿脚尖点地而出，一式"HIY"「礼敬诸佛」"NOR"，二掌合十，罡气直出，攻向$n全身",
+([	"action" : "$N後腿腳尖點地而出，一式"HIY"「禮敬諸佛」"NOR"，二掌合十，罡氣直出，攻向$n全身",
 	"lvl"   : 0,
-	"skill_name" : "礼敬诸佛"
+	"skill_name" : "禮敬諸佛"
 ]),
-([	"action" : "$N左掌划一半圆护胸，一式"YEL"「称赞如来」"NOR"，右掌化刀斜穿而出，疾插$n$l",
+([	"action" : "$N左掌劃一半圓護胸，一式"YEL"「稱讚如來」"NOR"，右掌化刀斜穿而出，疾插$n$l",
 	"lvl"   : 10,
-	"skill_name" : "称赞如来"
+	"skill_name" : "稱讚如來"
 ]),
-([	"action" : "$N使一式"HIB"「广修供养」"NOR"，右掌上引，左掌由后而上一个甩拍，穿过$n护墙击出",
+([	"action" : "$N使一式"HIB"「廣修供養」"NOR"，右掌上引，左掌由後而上一個甩拍，穿過$n護牆擊出",
 	"lvl"   : 30,
-	"skill_name" : "广修供养"
+	"skill_name" : "廣修供養"
 ]),
-([	"action" : "$N左掌护胸，右拳凝劲，一式"MAG"「忏悔业障」"NOR"，四周罡气弥漫，出掌缓缓拍向$n$l",
+([	"action" : "$N左掌護胸，右拳凝勁，一式"MAG"「懺悔業障」"NOR"，四周罡氣瀰漫，出掌緩緩拍向$n$l",
 	"lvl"   : 50,
-	"skill_name" : "忏悔业障"
+	"skill_name" : "懺悔業障"
 ]),
-([	"action" : "$N使一式"BLU"「请转法轮」"NOR"，全身飞速旋转，罡气飞卷，双掌一前一后，猛地按向$n的胸口",
+([	"action" : "$N使一式"BLU"「請轉法輪」"NOR"，全身飛速旋轉，罡氣飛卷，雙掌一前一後，猛地按向$n的胸口",
 	"lvl"   : 60,
-	"skill_name" : "请转法轮"
+	"skill_name" : "請轉法輪"
 ]),
-([	"action" : "$N合掌抱球，猛吸一口气，一式"HIM"「随喜功德」"NOR"，全身护满至阳罡气，跟着双掌疾推$n",
+([	"action" : "$N合掌抱球，猛吸一口氣，一式"HIM"「隨喜功德」"NOR"，全身護滿至陽罡氣，跟着雙掌疾推$n",
 	"lvl"   : 80,
-	"skill_name" : "随喜功德"
+	"skill_name" : "隨喜功德"
 ]),
-([	"action" : "$N向上高高跃起，一式"RED"「请佛往世」"NOR"，罡气居高临下，四散而出，将掌力笼罩了$n的全身",
+([	"action" : "$N向上高高躍起，一式"RED"「請佛往世」"NOR"，罡氣居高臨下，四散而出，將掌力籠罩了$n的全身",
 	"lvl"   : 100,
-	"skill_name" : "请佛往世"
+	"skill_name" : "請佛往世"
 ]),
-([	"action" : "$N使一式"HIR"「恒顺众生」"NOR"，瞬间劲气弥漫，$P双掌连劈如轮，一环环向$n的$l斩去",
+([	"action" : "$N使一式"HIR"「恆順衆生」"NOR"，瞬間勁氣瀰漫，$P雙掌連劈如輪，一環環向$n的$l斬去",
 	"lvl"   : 120,
-	"skill_name" : "恒顺众生"
+	"skill_name" : "恆順衆生"
 ]),
-([	"action" : "$N两掌上下护胸，一式"HIC"「普皆回向」"NOR"拍出，掌影重重叠叠，带起无边罡气攻向$n",
+([	"action" : "$N兩掌上下護胸，一式"HIC"「普皆迴向」"NOR"拍出，掌影重重疊疊，帶起無邊罡氣攻向$n",
 	"lvl"   : 150,
-	"skill_name" : "普皆回向"
+	"skill_name" : "普皆迴向"
 ]),
 });
 int valid_enable(string usage) { return usage=="strike" || usage=="parry"; }
@@ -50,22 +50,22 @@ int valid_combine(string combo){ return combo=="dragon-claw"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练般若掌必须空手。\n");
+		return notify_fail("練般若掌必須空手。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 80)
-		return notify_fail("你的站桩功火候不够，无法学般若掌。\n");
+		return notify_fail("你的站樁功火候不夠，無法學般若掌。\n");
 	if ((int)me->query("max_neili") < 800)
-		return notify_fail("你的内力太弱，无法练般若掌。\n");
+		return notify_fail("你的內力太弱，無法練般若掌。\n");
 	if ((me->query_skill("nianhua-finger", 1) < 50) ||
 		(me->query_skill("jingang-strike", 1) < 50))
-		return notify_fail("你的大金刚神掌和拈花指火候不够，无法学般若掌。\n");
+		return notify_fail("你的大金剛神掌和拈花指火候不夠，無法學般若掌。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if ((int)me->query("qi") < 55)
-		return notify_fail("你的力气太低了。\n");
+		return notify_fail("你的力氣太低了。\n");
 	if ((int)me->query("neili") < 35)
-		return notify_fail("你的内力不够练般若掌。\n");
+		return notify_fail("你的內力不夠練般若掌。\n");
 	me->receive_damage("qi", 50);
 	me->add("neili", -30);
 	return 1;
@@ -92,16 +92,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 5; }
@@ -118,14 +118,14 @@ int help(object me)
 	write(HIC"\n般若掌："NOR"\n");
 	write(@HELP
 
-    般若掌是南少林掌法，和龙爪功互备。
-    出自佛门《十愿》。
+    般若掌是南少林掌法，和龍爪功互備。
+    出自佛門《十願》。
 
-	学习要求：
-		站桩功80级
-		拈花指50级
-		大金刚神掌50级
-		内力修为800
+	學習要求：
+		站樁功80級
+		拈花指50級
+		大金剛神掌50級
+		內力修爲800
 HELP
 	);
 	return 1;

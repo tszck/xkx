@@ -1,4 +1,4 @@
-// guiyuan.c 归元丹
+// guiyuan.c 歸元丹
 
 inherit ITEM;
 
@@ -13,12 +13,12 @@ void init()
 
 void create()
 {
-	set_name("归元丹", ({"guiyuan dan", "dan"}));
+	set_name("歸元丹", ({"guiyuan dan", "dan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "颗");
-		set("long", "这是一颗莹白溜圆的归元丹。\n");
+		set("unit", "顆");
+		set("long", "這是一顆瑩白溜圓的歸元丹。\n");
 		set("value", 10000);
 	}
 	setup();
@@ -28,14 +28,14 @@ int do_eat(string arg)
 {
 	object me=this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
 	this_player()->add("neili", 200);
-	message_vision("$N吃下一颗归元丹，只觉得四肢百骸真气充盈无比！\n", this_player());
+	message_vision("$N喫下一顆歸元丹，只覺得四肢百骸真氣充盈無比！\n", this_player());
 	destruct(this_object());
 	return 1;
 }

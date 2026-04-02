@@ -7,10 +7,10 @@ inherit ROOM;
 int do_quit();
 void create()
 {
-	set("short", "广陵当铺");
+	set("short", "廣陵當鋪");
 	set("long", @LONG
-这是一家以买卖公平著称的当铺，一个五尺高的柜台挡在你的面前，
-柜台上摆着一个牌子 (paizi)，柜台后坐着唐老板，一双精明的眼睛上上
+這是一家以買賣公平著稱的當鋪，一個五尺高的櫃檯擋在你的面前，
+櫃檯上擺着一個牌子 (paizi)，櫃檯後坐着唐老闆，一雙精明的眼睛上上
 下下打量着你。
 LONG
 	);
@@ -22,19 +22,19 @@ LONG
 ┏------------------ "HIR"公平交易"HIY" ------------------┓
 ┃  ┌--------------------------------------┐  ┃
 ┃  │                                      │  ┃
-┃  │  sell    ：卖                        │  ┃
-┃  │  buy     : 买                        │  ┃
-┃  │  redeem  : 赎                        │  ┃
-┃  │  value   : 估价                      │  ┃
-┃  │  list    : 看货                      │  ┃
-┃  │        list armor    看防具类货物    │  ┃
-┃  │        list weapon   看兵器类货物    │  ┃
-┃  │        list book     看书籍类货物    │  ┃
-┃  │        list medicine 看药品类货物    │  ┃
-┃  │        list food     看食品类货物    │  ┃
-┃  │        list liquid   看饮品类货物    │  ┃
-┃  │        list fruit    看果品类货物    │  ┃
-┃  │        list other    看其他类货物    │  ┃
+┃  │  sell    ：賣                        │  ┃
+┃  │  buy     : 買                        │  ┃
+┃  │  redeem  : 贖                        │  ┃
+┃  │  value   : 估價                      │  ┃
+┃  │  list    : 看貨                      │  ┃
+┃  │        list armor    看防具類貨物    │  ┃
+┃  │        list weapon   看兵器類貨物    │  ┃
+┃  │        list book     看書籍類貨物    │  ┃
+┃  │        list medicine 看藥品類貨物    │  ┃
+┃  │        list food     看食品類貨物    │  ┃
+┃  │        list liquid   看飲品類貨物    │  ┃
+┃  │        list fruit    看果品類貨物    │  ┃
+┃  │        list other    看其他類貨物    │  ┃
 ┃  │                                      │  ┃
 ┃  └--------------------------------------┘  ┃
 ┗----------------------------------------------┛

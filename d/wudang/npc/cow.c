@@ -1,4 +1,4 @@
-// cow.c 大黄牛
+// cow.c 大黃牛
 
 #include <command.h>
 #include <dbase.h>
@@ -9,8 +9,8 @@ inherit NPC;
 
 void create()
 {
-	set_name(HIW"大黄牛"NOR, ({ "cow" }));
-	set("long","一头大黄牛。\n");
+	set_name(HIW"大黃牛"NOR, ({ "cow" }));
+	set("long","一頭大黃牛。\n");
 	set("race", "走畜");
 	set("age", 5);
 	set("int", 30);
@@ -32,7 +32,7 @@ void create()
 void die()
 {
 	object ob, corpse;
-	message_vision("$N哞地一声，静静倒在地上，死去了。\n", this_object());
+	message_vision("$N哞地一聲，靜靜倒在地上，死去了。\n", this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 		ob = new("/clone/medicine/vegetable/niuhuang");
 	ob->move(corpse);

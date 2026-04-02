@@ -34,7 +34,7 @@ int accept_fight(object who)
 			command("say 哼！出招吧！\n");
 			break;
 		default:
-			command("say 想倚多为胜，这不是欺人太甚吗！\n");
+			command("say 想倚多爲勝，這不是欺人太甚嗎！\n");
 			return 0;
 	}
 
@@ -43,8 +43,8 @@ int accept_fight(object who)
 		switch(att) {
 			case "friendly":
 				command("say " + RANK_D->query_self(this_object())
-					+ "怎么可能是" + RANK_D->query_respect(who)
-					+ "的对手？\n");
+					+ "怎麼可能是" + RANK_D->query_respect(who)
+					+ "的對手？\n");
 				return 0;
 			case "aggressive":
 			case "killer":
@@ -53,7 +53,7 @@ int accept_fight(object who)
 			default:
 				if( !is_fighting() )
 					command("say 既然" + RANK_D->query_respect(who)
-						+ "赐教，" + RANK_D->query_self(this_object())
+						+ "賜教，" + RANK_D->query_self(this_object())
 						+ "只好奉陪。\n");
 		}
 		return 1;
@@ -69,8 +69,8 @@ int accept_hit(object who)
 {
 /*
 
-如果取消这个注释 那么hit可能导致kill
-因为木人要经常hit 加上去木人就打不了了
+如果取消這個註釋 那麼hit可能導致kill
+因爲木人要經常hit 加上去木人就打不了了
         int t;
         string att;
         int perqi;
@@ -97,27 +97,27 @@ int accept_hit(object who)
                 switch(att)
                 {
                 case "friendly":
-                        command("say 这位" + RANK_D->query_respect(who)
+                        command("say 這位" + RANK_D->query_respect(who)
                                 + "，且慢！");
                         break;
                 case "aggressive":
                         if (random(t) > 8)
                         {
-                                command("say 他奶奶的，怎么这么烦？就让" +
+                                command("say 他奶奶的，怎麼這麼煩？就讓" +
                                         RANK_D->query_self_rude(this_object()) +
-                                        "开开杀戒！");
+                                        "開開殺戒！");
                                 kill_ob(who);
                                 return 1;
                         }
-                        command("say 好个" + RANK_D->query_rude(who) +
+                        command("say 好個" + RANK_D->query_rude(who) +
                                 "，接招！");
                         break;
                 case "killer":
                         if (random(t) > 2)
                         {
-                                command("say 哼，找死找到这里来了，" +
+                                command("say 哼，找死找到這裏來了，" +
                                         RANK_D->query_self_rude(this_object()) +
-                                        "手正痒呢！");
+                                        "手正癢呢！");
                                 kill_ob(who);
                                 return 1;
                         }
@@ -130,19 +130,19 @@ int accept_hit(object who)
                                 kill_ob(who);
                                 return 1;
                         }
-                        command("say 这位" + RANK_D->query_respect(who)
+                        command("say 這位" + RANK_D->query_respect(who)
                                 + "，且慢！");
 //                        break;
                         switch (random(3))
                         {
                         case 0:
-                                command("say 来来来！");
+                                command("say 來來來！");
                                 break;
                         case 1:
-                                command("say 那就较量较量！");
+                                command("say 那就較量較量！");
                                 break;
                         case 2:
-                                command("say 来吧！我还会怕了你不成？");
+                                command("say 來吧！我還會怕了你不成？");
                                 break;
                         }
                         break;
@@ -152,7 +152,7 @@ int accept_hit(object who)
                 switch(att) {
                 case "friendly":
                         command("say 既然" + RANK_D->query_respect(who)
-                                + "如此无礼，我只有不容情了！");
+                                + "如此無禮，我只有不容情了！");
                         break;
                 case "aggressive":
                 case "killer":
@@ -160,7 +160,7 @@ int accept_hit(object who)
                                 "！你找死。");
                         break;
                 default:
-                        command("say 你不仁，我不义！" + RANK_D->query_rude(who) +
+                        command("say 你不仁，我不義！" + RANK_D->query_rude(who) +
                                 "，可不要怪我。");
                         break;
                 }
@@ -197,7 +197,7 @@ int accept_kill(object who)
                 break;
         default:
                 command("say 好！" + RANK_D->query_rude(who)
-                        + "，咱们就一决生死！");
+                        + "，咱們就一決生死！");
                 break;
         }
 */
@@ -215,7 +215,7 @@ int accept_ansuan(object who)
         if (this_object()->is_guarder())
                 return this_object()->check_enemy(who, "ansuan");
 
-        command(random(2) ? "say 嗯？怎么…" : "say 啊呀，不好！");
+        command(random(2) ? "say 嗯？怎麼…" : "say 啊呀，不好！");
         return 1;
 }
 
@@ -227,7 +227,7 @@ int accept_touxi(object who)
         if (this_object()->is_guarder())
                 return this_object()->check_enemy(who, "touxi");
 
-        command(random(2) ? "say 嗯！怎么...是谁！" : "say 啊！你.. ");
+        command(random(2) ? "say 嗯！怎麼...是誰！" : "say 啊！你.. ");
         return 1;
 }
 //////////add end///////////////////////
@@ -255,7 +255,7 @@ int return_home(object home)
 	}
 
 	// Leave for home now.
-	message("vision", this_object()->name() + "急急忙忙地离开了。\n",
+	message("vision", this_object()->name() + "急急忙忙地離開了。\n",
 		environment(), this_object());
 	return move(home);
 }
@@ -340,7 +340,7 @@ int accept_ai(object who)
 	if (tage>17)
 	{
 		command("say 既蒙" + RANK_D->query_respect(who)
-	+ "青眼，" + RANK_D->query_self(this_object())	+ "恭敬不如从命。\n");
+	+ "青眼，" + RANK_D->query_self(this_object())	+ "恭敬不如從命。\n");
 		return 1;
 	} else
 		return 0;

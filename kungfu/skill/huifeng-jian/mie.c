@@ -1,8 +1,8 @@
-// mie.c  回风拂柳剑法「灭剑」
+// mie.c  迴風拂柳劍法「滅劍」
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
-#define PNAME "「灭剑」"
+#define PNAME "「滅劍」"
 inherit F_SSERVER;
 int perform(object me, object target)
 {
@@ -19,18 +19,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail(RED"开什么玩笑，没装备剑就想使"PNAME"？\n"NOR);
+		return notify_fail(RED"開什麼玩笑，沒裝備劍就想使"PNAME"？\n"NOR);
 
 	fskill = "linji-zhuang";
 	bskill = "sword";
@@ -44,20 +44,20 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(fskill)+"火候不够，"+PNAME+"不成招式。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"火候不夠，"+PNAME+"不成招式。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(sskill)+"剑法不够娴熟，还使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"劍法不夠嫺熟，還使不出"+PNAME+"。\n");
 
 	if ((int)me->query("max_neili") < 400)
-		return notify_fail(RED"你的内力修为不足，无法运足"PNAME"的内力。\n"NOR);
+		return notify_fail(RED"你的內力修爲不足，無法運足"PNAME"的內力。\n"NOR);
 
 	if ((int)me->query("neili")<400)
-		return notify_fail(HIC"你现在内力不够，没能将"PNAME"使完！\n"NOR);
+		return notify_fail(HIC"你現在內力不夠，沒能將"PNAME"使完！\n"NOR);
 
-	msg = HIC "$N手中"+weapon->query("name")+HIC+"剑芒跃动，剑光暴长，幻出死亡的色彩，剑尖渐\n"NOR;
-	msg += HIC"渐逼近$n"HIC"，$n"HIC"看到漫天剑光，抽身后跃，只这一刹，漫天剑\n"NOR;
-	msg += HIC"影化为一剑直刺$n"HIC"前胸，快捷无伦，只有一剑！\n"NOR;
+	msg = HIC "$N手中"+weapon->query("name")+HIC+"劍芒躍動，劍光暴長，幻出死亡的色彩，劍尖漸\n"NOR;
+	msg += HIC"漸逼近$n"HIC"，$n"HIC"看到漫天劍光，抽身後躍，只這一剎，漫天劍\n"NOR;
+	msg += HIC"影化爲一劍直刺$n"HIC"前胸，快捷無倫，只有一劍！\n"NOR;
 	if (random(me->query_skill("force"))>target->query_skill("force")/2 || 
 		random(me->query("combat_exp"))>target->query("combat_exp")/3)
 	{
@@ -70,12 +70,12 @@ int perform(object me, object target)
 		target->receive_wound("qi", damage,me);
 		target->receive_damage("jing", damage,me);
 		target->receive_wound("jing", (int)(damage/2),me);
-		msg +=HIC"$n根本没法躲避，一式「回风拂柳剑」的绝招「灭剑」端端正\n正扎进在$n胸口！$n一低头，便看到长剑自胸口挟"HIR"血"HIC"拔出！\n"NOR;
+		msg +=HIC"$n根本沒法躲避，一式「迴風拂柳劍」的絕招「滅劍」端端正\n正扎進在$n胸口！$n一低頭，便看到長劍自胸口挾"HIR"血"HIC"拔出！\n"NOR;
 		me->add("neili", -400);
 	} else
 	{
 		me->start_busy(4);
-		msg +=HIY"可是$p轻轻一笑，侧身右转，伸出两指，正弹在$P的剑上，长\n剑在$p身侧划过，毫发无伤。\n"NOR;
+		msg +=HIY"可是$p輕輕一笑，側身右轉，伸出兩指，正彈在$P的劍上，長\n劍在$p身側劃過，毫髮無傷。\n"NOR;
 		me->add("neili", -200);
 	}
 	message_combatd(msg, me, target);
@@ -90,12 +90,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方精气和气血
+		損傷對方精氣和氣血
 
 	出手要求：
-		临济十二庄60级
-		回风拂柳剑60级
-		内力400
+		臨濟十二莊60級
+		迴風拂柳劍60級
+		內力400
 HELP
 	);
 	return 1;

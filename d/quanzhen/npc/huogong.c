@@ -9,7 +9,7 @@ void create()
         set("age", 35);
         set("class", "quanzhen");
         set("long",
-                "这里全真教掌管厨房的火工道人。\n");
+                "這裏全真教掌管廚房的火工道人。\n");
         set("attitude", "friendly");
 
         set("str", 20);
@@ -28,7 +28,7 @@ void create()
         set("combat_exp", 15000);
 
         set_skill("force", 50);
-        set_skill("xiantian-qigong", 40);    //先天气功
+        set_skill("xiantian-qigong", 40);    //先天氣功
         set_skill("dodge", 50);
         set_skill("jinyan-gong", 50);   //金雁功
         set_skill("parry", 50);

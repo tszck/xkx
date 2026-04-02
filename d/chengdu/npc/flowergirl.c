@@ -7,10 +7,10 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("卖花姑娘", ({ "flower girl","girl"}) );
+	set_name("賣花姑娘", ({ "flower girl","girl"}) );
 	set("gender", "女性" );
 	set("age", 18);
-	set("long", "一个容貌清丽的小姑娘。\n");
+	set("long", "一個容貌清麗的小姑娘。\n");
 	set("shen_type", 1);
 	set("combat_exp", 5000);
 	set("str", 20);
@@ -62,6 +62,6 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-		say("卖花姑娘说道：这位" + RANK_D->query_respect(ob) + "，买一朵花吧。\n");
+		say("賣花姑娘說道：這位" + RANK_D->query_respect(ob) + "，買一朵花吧。\n");
 	return;
 }

@@ -1,4 +1,4 @@
-// huahegen.c 华赫艮
+// huahegen.c 華赫艮
 
 #include <ansi.h>
 inherit NPC;
@@ -6,15 +6,15 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("华赫艮", ({ "hua hegen", "hua" }));
+	set_name("華赫艮", ({ "hua hegen", "hua" }));
 	set("title",  "大理司徒" );
-	set("long", "他是大理国三大公之一。
-华司徒本名阿根，出身贫贱，现今在大理国位列三公，未发迹时，干
-部的却是盗墓掘坟的勾当，  最擅长的本领是偷盗王公巨贾的坟墓。这些富贵人物
-死后，必有珍异宝物殉葬，华阿根从极远处挖掘地道，通入坟墓，然后盗取宝物。
-所花的一和虽巨，却由此而从未为人发觉。有一次他掘入一坟，在棺木中得到了一
-本殉葬的武功秘诀，依法修习，练成了一身卓绝的外门功夫，便舍弃了这下贱的营
-生，辅佐保定帝，累立奇功，终于升到司徒之职。\n");
+	set("long", "他是大理國三大公之一。
+華司徒本名阿根，出身貧賤，現今在大理國位列三公，未發跡時，幹
+部的卻是盜墓掘墳的勾當，  最擅長的本領是偷盜王公巨賈的墳墓。這些富貴人物
+死後，必有珍異寶物殉葬，華阿根從極遠處挖掘地道，通入墳墓，然後盜取寶物。
+所花的一和雖巨，卻由此而從未爲人發覺。有一次他掘入一墳，在棺木中得到了一
+本殉葬的武功祕訣，依法修習，練成了一身卓絕的外門功夫，便捨棄了這下賤的營
+生，輔佐保定帝，累立奇功，終於升到司徒之職。\n");
 	set("gender", "男性");
 	set("age", 40);
 	set("class", "officer");
@@ -67,7 +67,7 @@ void create()
 	carry_object("/clone/weapon/changjian")->wield();
 	add_money("silver", 20);
 
-	create_family("大理段家",19,"武将");
+	create_family("大理段家",19,"武將");
 }
 
 int accept_object(object who, object ob)
@@ -75,13 +75,13 @@ int accept_object(object who, object ob)
 	object tool;
 	if (ob->id("axiang letter")) 
 	{
-		tell_object(who, "你给华赫艮一封阿祥的信。\n");
-		tell_object(who, "华赫艮拆开信看了看，点头说道：“既然是阿祥写信来，我就把东西给你吧。”\n");
+		tell_object(who, "你給華赫艮一封阿祥的信。\n");
+		tell_object(who, "華赫艮拆開信看了看，點頭說道：“既然是阿祥寫信來，我就把東西給你吧。”\n");
 		destruct(ob);
 		tool = new("/d/suzhou/npc/obj/diggertools");
 		tool->move(who);
-		tell_object(who, "华赫艮给你一套盗墓工具。\n");
-		return notify_fail("华赫艮收了阿祥的信。");
+		tell_object(who, "華赫艮給你一套盜墓工具。\n");
+		return notify_fail("華赫艮收了阿祥的信。");
 	}
 	return 0;
 }

@@ -19,12 +19,12 @@ int main(object me, string arg)
         else
         if (wizardp(me) )
         {
-                // 添加 bug 点数
+                // 添加 bug 點數
                 if (sscanf(arg, "%s %d", arg, bug) == 2)
                 {
                         if (bug == 0)
- 	                        return notify_fail("你到底是想添加还是"
-                                                   "减少？\n");
+ 	                        return notify_fail("你到底是想添加還是"
+                                                   "減少？\n");
                         if (! objectp(ob = find_player(arg)))
                                 ob = LOGIN_D->find_body(arg);
                         if (! objectp(ob))
@@ -36,23 +36,23 @@ int main(object me, string arg)
                             if (!ob->restore())
                             {
                             	destruct(ob);
-                            	return notify_fail("没有这个玩家。\n");
+                            	return notify_fail("沒有這個玩家。\n");
                             }
                         }
                         ob->add("bug", bug);
                         ob->add("bug_count",bug);
                         ob->save();
-                        sp = sprintf("用户 " WHT "%s" NOR " 的报告点数"
-                                     "增加了 " WHT "%d" NOR " 点，现为"
-                                     WHT " %d " NOR "点。\n", arg, bug,
+                        sp = sprintf("用戶 " WHT "%s" NOR " 的報告點數"
+                                     "增加了 " WHT "%d" NOR " 點，現爲"
+                                     WHT " %d " NOR "點。\n", arg, bug,
                                      ob->query("bug", 1));
 
                         if (bug > 0)
                         tell_object(ob, HIG + me->name() + "增加了你的 " +
-                                        bug + " 点报告点数。\n" NOR);
+                                        bug + " 點報告點數。\n" NOR);
                         else 
-                        tell_object(ob, HIG + me->name() + "减少了你的 " +
-                                        -bug + " 点报告点数。\n" NOR);
+                        tell_object(ob, HIG + me->name() + "減少了你的 " +
+                                        -bug + " 點報告點數。\n" NOR);
                         
 
                         log_file("static/bug", sprintf("[%s] wizard %s a"
@@ -78,13 +78,13 @@ int main(object me, string arg)
                    if (!ob->restore())
                    {
                     	destruct(ob);
-                     	return notify_fail("没有这个玩家。\n");
+                     	return notify_fail("沒有這個玩家。\n");
                     }
                  }
                 if (base_name(ob)!=USER_OB)
                 {
                 	if (flag == 1) destruct(ob);
-                    return notify_fail("只有玩家才具有此参数。\n");
+                    return notify_fail("只有玩家才具有此參數。\n");
                 }
                         
         }
@@ -93,11 +93,11 @@ int main(object me, string arg)
 
         if (! bug)
                 sp = ((ob == me ? "你" : ob->name()) + "在" +
-                         MUD_NAME + NOR "中尚无报告过任何错误。\n");
+                         MUD_NAME + NOR "中尚無報告過任何錯誤。\n");
         else
                 sp = ((ob == me ? "你" : ob->name()) + "在" +
-                         MUD_NAME + NOR "中的错误报告积累点数为"
-                         HIC + bug +"/"+ob->query("bug_count")+ NOR "点。\n");
+                         MUD_NAME + NOR "中的錯誤報告積累點數爲"
+                         HIC + bug +"/"+ob->query("bug_count")+ NOR "點。\n");
 
         tell_object(me, sp);
         if (flag == 1) destruct(ob);
@@ -108,23 +108,23 @@ int help(object me)
 {
         write(@HELP
 指令格式： bugs
-           bugs       <对象名称>               (巫师专用)
-           bugs       [<对象名称> <点数>]      (巫师专用)
+           bugs       <對象名稱>               (巫師專用)
+           bugs       [<對象名稱> <點數>]      (巫師專用)
 
-这个指令可以显示你在游戏中的错误报告积累点数。玩家可通过
-此点数获得一些奖励。如果有巫师在线，可直接在公众频道汇报
-错误，这时巫师可视 BUG大小给玩家增加报告点数。如游戏中无
-巫师在线，请用正式ID留言到巫师会客室或BUG留言室，我们会
-在第一时间内修复 BUG及给此ID增加报告点数。（注意，只有汇
-报 BUG的ID才能获得点数。如果一个 BUG被数个玩家同时发现，
-报告点数将加到最先汇报此 BUG的ID上。）
+這個指令可以顯示你在遊戲中的錯誤報告積累點數。玩家可通過
+此點數獲得一些獎勵。如果有巫師在線，可直接在公衆頻道彙報
+錯誤，這時巫師可視 BUG大小給玩家增加報告點數。如遊戲中無
+巫師在線，請用正式ID留言到巫師會客室或BUG留言室，我們會
+在第一時間內修復 BUG及給此ID增加報告點數。（注意，只有匯
+報 BUG的ID才能獲得點數。如果一個 BUG被數個玩家同時發現，
+報告點數將加到最先彙報此 BUG的ID上。）
 
-巫师可以使用添加或者减少玩家的报告点数。
+巫師可以使用添加或者減少玩家的報告點數。
 
-细小错误：1点           (含错别字、语句不通、帮助遗漏等)
-一般错误：3点           (不会影响到游戏正常进行的错误)
-严重错误：5点           (视情况而论、包含某些系统错误)
-练功错误：10至1000点    (有益于自身修炼及获得利益的错误)
+細小錯誤：1點           (含錯別字、語句不通、幫助遺漏等)
+一般錯誤：3點           (不會影響到遊戲正常進行的錯誤)
+嚴重錯誤：5點           (視情況而論、包含某些系統錯誤)
+練功錯誤：10至1000點    (有益於自身修煉及獲得利益的錯誤)
 
 HELP);
         return 1;

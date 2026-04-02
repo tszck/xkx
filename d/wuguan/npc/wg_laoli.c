@@ -9,7 +9,7 @@ void create()
 	set_name("老李",({ "lao li", "li" }) );
 	set("gender", "男性" );
 	set("age", 45);
-	set("long","他是扬州武馆里管物品工具的，人们都习惯称他老李，真名反而倒没什么人知道了。\n");
+	set("long","他是揚州武館裏管物品工具的，人們都習慣稱他老李，真名反而倒沒什麼人知道了。\n");
 	set("combat_exp", 25000);
 	set("attitude", "friendly");
 	set("inquiry", ([
@@ -35,23 +35,23 @@ int give_tools()
 	ob = this_player();
 
 	if(ob->query_temp("mark/工具"))
-		return notify_fail("老李说：你已经领了工具了，怎么没还又来领了？");
-	if(ob->query_temp("mark/还了"))
-		return notify_fail("老李说：你还没覆命领新活吧，跑来要什么工具。");
+		return notify_fail("老李說：你已經領了工具了，怎麼沒還又來領了？");
+	if(ob->query_temp("mark/還了"))
+		return notify_fail("老李說：你還沒覆命領新活吧，跑來要什麼工具。");
 
-	if(!((ob->query_temp("job_name")=="锯木头" ) ||
-		(ob->query_temp("job_name")=="锄草" ) ||
-		(ob->query_temp("job_name")=="浇菜地" ) ||
+	if(!((ob->query_temp("job_name")=="鋸木頭" ) ||
+		(ob->query_temp("job_name")=="鋤草" ) ||
+		(ob->query_temp("job_name")=="澆菜地" ) ||
 		(ob->query_temp("job_name")=="劈柴" ) ||
 		(ob->query_temp("job_name")=="挑水" ) ||
-		(ob->query_temp("job_name")=="打扫马房")))
-		return notify_fail("老李说：你没跟张总管领活吧，跑来要什么工具。");
+		(ob->query_temp("job_name")=="打掃馬房")))
+		return notify_fail("老李說：你沒跟張總管領活吧，跑來要什麼工具。");
  
-	if(ob->query_temp("job_name")=="锄草")
+	if(ob->query_temp("job_name")=="鋤草")
 		tools = new((__DIR__"obj/wg_chutou"));
-	else if(ob->query_temp("job_name")=="浇菜地")
+	else if(ob->query_temp("job_name")=="澆菜地")
 		tools = new((__DIR__"obj/wg_piao"));
-	else if(ob->query_temp("job_name")=="锯木头")
+	else if(ob->query_temp("job_name")=="鋸木頭")
 		tools = new((__DIR__"obj/wg_juzi"));
 	else if(ob->query_temp("job_name")=="劈柴")
 		tools = new((__DIR__"obj/wg_chaidao"));
@@ -59,8 +59,8 @@ int give_tools()
 		tools = new((__DIR__"obj/wg_shuitong"));
 	else tools = new((__DIR__"obj/wg_saozhou"));
 	tools->move(this_player());
-	command("say 既然你已经领了活，我就给你这把工具，小心保管，别弄丢了。");
-	message_vision("$N交给$n一把工具。\n", me, ob);
+	command("say 既然你已經領了活，我就給你這把工具，小心保管，別弄丟了。");
+	message_vision("$N交給$n一把工具。\n", me, ob);
 	ob->set_temp("mark/工具",1);
 	return 1;
 }
@@ -72,13 +72,13 @@ int accept_object(object me, object obj)
 	ob=this_player();
 
 	if(!(ob->query_temp("mark/劈完了") ||
-		ob->query_temp("mark/浇完了") ||
-		ob->query_temp("mark/锄完了") ||
+		ob->query_temp("mark/澆完了") ||
+		ob->query_temp("mark/鋤完了") ||
 		ob->query_temp("mark/挑完了") ||
-		ob->query_temp("mark/锯完了") ||
-		ob->query_temp("mark/扫完了")))
+		ob->query_temp("mark/鋸完了") ||
+		ob->query_temp("mark/掃完了")))
 	{
-		command("say 你还没完成工作，怎么就回来还工具了，偷懒吗？");
+		command("say 你還沒完成工作，怎麼就回來還工具了，偷懶嗎？");
 		return 0;
 	}
 	if ((obj->query("id")!="juzi") &&
@@ -88,18 +88,18 @@ int accept_object(object me, object obj)
 		(obj->query("id") != "shuitong") &&
 		(obj->query("id") != "chaidao"))
 	{
-		command("say 你还错东西了吧，我从没有发过这样工具。");
+		command("say 你還錯東西了吧，我從沒有發過這樣工具。");
 		return 0;
 	}
 	if(!ob->query_temp("job_name"))
 	{
 		command("shake");
-		command("say 我没有发给你过东西，你是不是还错了？");
+		command("say 我沒有發給你過東西，你是不是還錯了？");
 		return 0;
 	}
 	command("nod");
-	command("say 欢迎下次再来！");
-	ob->set_temp("mark/还了",1);
+	command("say 歡迎下次再來！");
+	ob->set_temp("mark/還了",1);
 	call_out("destroying", 1, me, obj);	   
 	return 1;
 }
@@ -114,25 +114,25 @@ void greeting(object ob)
 	if(ob->query_temp("mark/工具")) return 0; 
 
 	if(ob->query_temp("mark/劈完了") ||
-		ob->query_temp("mark/浇完了") ||
-		ob->query_temp("mark/锄完了") ||
-		ob->query_temp("mark/锯完了") ||
-		ob->query_temp("mark/扫完了") ||
+		ob->query_temp("mark/澆完了") ||
+		ob->query_temp("mark/鋤完了") ||
+		ob->query_temp("mark/鋸完了") ||
+		ob->query_temp("mark/掃完了") ||
 		ob->query_temp("mark/挑完了"))
 	{
 		command("smile"+ob->query("id"));
-		command("say 工作做完了，可以还工具"HIR"(give xxx to laoli)"NOR"给我了! \n");
+		command("say 工作做完了，可以還工具"HIR"(give xxx to laoli)"NOR"給我了! \n");
 		return; 
 	}
-	if((ob->query_temp("job_name")=="锯木头" ) ||
-		(ob->query_temp("job_name")=="锄草" ) ||
-		(ob->query_temp("job_name")=="浇菜地" ) ||
+	if((ob->query_temp("job_name")=="鋸木頭" ) ||
+		(ob->query_temp("job_name")=="鋤草" ) ||
+		(ob->query_temp("job_name")=="澆菜地" ) ||
 		(ob->query_temp("job_name")=="劈柴" ) ||
 		(ob->query_temp("job_name")=="挑水" ) ||
-		(ob->query_temp("job_name")=="打扫马房" ))
+		(ob->query_temp("job_name")=="打掃馬房" ))
 	{
 		command("bow "+ob->query("id"));
-		command("say 这位" + RANK_D->query_respect(ob) + "，到我这领工具(ask li about 工具)吧。\n");
+		command("say 這位" + RANK_D->query_respect(ob) + "，到我這領工具(ask li about 工具)吧。\n");
 	}
 }				
 

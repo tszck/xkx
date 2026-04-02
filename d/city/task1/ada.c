@@ -6,9 +6,9 @@ inherit NPC;
 void create()
 {
 	set_name("阿大", ({"a  da"}));
-	set("nickname", "八臂神剑");
+	set("nickname", "八臂神劍");
 	set("long", 
-	"原丐帮四大长老之首，出身少林，剑术之精，名动江湖，据说出手极快。\n");
+	"原丐幫四大長老之首，出身少林，劍術之精，名動江湖，據說出手極快。\n");
 	set("gender", "男性");
 	set("age", 66);
 	set("attitude", "peaceful");

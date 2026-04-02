@@ -16,7 +16,7 @@ int main(object me, string arg)
                 return 1;
         }
         if (! wizardp(me))
-                return notify_fail("你没有权力使用店铺管理指令。\n");
+                return notify_fail("你沒有權力使用店鋪管理指令。\n");
 
         switch (arg)
         {
@@ -55,18 +55,18 @@ int help (object me)
 {
 	write(@HELP
 
-指令格式：shop [ open [店铺名称] ]  | [ close [店铺名称] ] |
-               [ reset [店铺名称] ] | [ owner <店铺名称> <店主ID> ]
+指令格式：shop [ open [店鋪名稱] ]  | [ close [店鋪名稱] ] |
+               [ reset [店鋪名稱] ] | [ owner <店鋪名稱> <店主ID> ]
                [ all ]
 
-玩家查看当前游戏中的店铺经营状况。
+玩家查看當前遊戲中的店鋪經營狀況。
 
-巫师可以用于管理店铺：
-使用 open 参数开放指定的一个店铺或者所有店铺。
-使用 close 参数将关闭指定的一个店铺或者所有店铺。
-使用 reset 参数重新初始化指定的一个店铺或者所有店铺。
-而使用owner 参数则是设置店主的 id。
-使用 all 则显示所有商店货物。
+巫師可以用於管理店鋪：
+使用 open 參數開放指定的一個店鋪或者所有店鋪。
+使用 close 參數將關閉指定的一個店鋪或者所有店鋪。
+使用 reset 參數重新初始化指定的一個店鋪或者所有店鋪。
+而使用owner 參數則是設置店主的 id。
+使用 all 則顯示所有商店貨物。
 
 HELP);
         return 1;

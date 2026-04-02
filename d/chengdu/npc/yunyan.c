@@ -5,9 +5,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("谢云烟", ({ "xie yunyan", "xie", "yunyan" }));
-	set("long", "她面容娇媚，皮肤光滑白嫩，一双黑眸顾盼留情，明目善睐。\n");
-	set("title", "千娇百媚");
+	set_name("謝雲煙", ({ "xie yunyan", "xie", "yunyan" }));
+	set("long", "她面容嬌媚，皮膚光滑白嫩，一雙黑眸顧盼留情，明目善睞。\n");
+	set("title", "千嬌百媚");
 	set("gender", "女性");
 	set("age", 17);
 

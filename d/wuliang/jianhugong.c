@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "剑湖宫");
+	set("short", "劍湖宮");
 	set("long", @LONG
-剑湖宫高居剑湖之侧，隔着剑湖，遥遥对着无量玉壁。这里是无
-量剑掌门人日常起居之所。
+劍湖宮高居劍湖之側，隔着劍湖，遙遙對着無量玉壁。這裏是無
+量劍掌門人日常起居之所。
 LONG );
 	set("exits", ([
 		"southdown"  : __DIR__"road4",

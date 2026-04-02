@@ -8,11 +8,11 @@ void create()
 {
 	set("short", HIY"天庭"NOR);
 	set("long", HIC @LONG
-这里就是天庭。祥云朵朵，色泽洁白无瑕，慢慢从你眼前飘过，那
-翠绿色一片的草地上开满了色彩各异的鲜花，香气缭绕不散，闻着看着，
-你都快要醉了。远处一栋洁白的宫殿，巍然耸入云霄，从那儿传来阵阵
-仙乐，音律和祥悦耳，听着听着，你觉得自己的心灵都已得了到净化，
-从此脱离了凡尘俗世……。这儿的一切都令你觉得安然、陶醉、宁静、
+這裏就是天庭。祥雲朵朵，色澤潔白無瑕，慢慢從你眼前飄過，那
+翠綠色一片的草地上開滿了色彩各異的鮮花，香氣繚繞不散，聞着看着，
+你都快要醉了。遠處一棟潔白的宮殿，巍然聳入雲霄，從那兒傳來陣陣
+仙樂，音律和祥悅耳，聽着聽着，你覺得自己的心靈都已得了到淨化，
+從此脫離了凡塵俗世……。這兒的一切都令你覺得安然、陶醉、寧靜、
 和祥……
 LONG
 NOR   );
@@ -34,16 +34,16 @@ int valid_leave(object me, string dir)
 	switch(dir)
 	{
 		case "up":
-			write(HIC"你心如明镜，慢慢走向圣殿。\n"NOR);
+			write(HIC"你心如明鏡，慢慢走向聖殿。\n"NOR);
 			return 1;
 		case "down":
-			write(HIW"你要返回凡尘俗世了吗？……\n\n"NOR);
+			write(HIW"你要返回凡塵俗世了嗎？……\n\n"NOR);
 			break;
 		default:
-			write(HIG"唉……你既然心意已决，那就去吧……\n\n"NOR);
+			write(HIG"唉……你既然心意已決，那就去吧……\n\n"NOR);
 	}
-	write(HIB"去吧……去吧……一个声音轻轻地说道。\n\n\n\n"NOR);
-	write(HIY"你脚下忽然升起一朵祥云，你一踏上去，就慢慢向下飘去了，……\n\n\n\n"NOR);
+	write(HIB"去吧……去吧……一個聲音輕輕地說道。\n\n\n\n"NOR);
+	write(HIY"你腳下忽然升起一朵祥雲，你一踏上去，就慢慢向下飄去了，……\n\n\n\n"NOR);
 	me->reincarnate();
 /*
 	me->add("combat_exp", (int)me->query("combat_exp") / 49);

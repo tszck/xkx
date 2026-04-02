@@ -1,4 +1,4 @@
-// damo-jian.c 达摩剑
+// damo-jian.c 達摩劍
 // Last Modified by sir 10.22.2001
 
 #include <ansi.h>
@@ -7,37 +7,37 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action":"$N使一式"MAG"「万事随缘往」"NOR"，手中$w嗡嗡微振，幻成一条疾光刺向$n的$l",
+([	"action":"$N使一式"MAG"「萬事隨緣往」"NOR"，手中$w嗡嗡微振，幻成一條疾光刺向$n的$l",
 	"lvl" : 0,
-	"skill_name" : "万事随缘往"
+	"skill_name" : "萬事隨緣往"
 ]),
-([	"action":"$N错步上前，使出"HIC"「来去若梦行」"NOR"，剑意若有若无，$w淡淡地向$n的$l挥去",
+([	"action":"$N錯步上前，使出"HIC"「來去若夢行」"NOR"，劍意若有若無，$w淡淡地向$n的$l揮去",
 	"lvl" : 10,
-	"skill_name" : "来去若梦行"
+	"skill_name" : "來去若夢行"
 ]),
-([	"action":"$N一式"YEL"「浮世沧桑远」"NOR"，纵身飘开数尺，运发剑气，手中$w遥摇指向$n的$l",
+([	"action":"$N一式"YEL"「浮世滄桑遠」"NOR"，縱身飄開數尺，運發劍氣，手中$w遙搖指向$n的$l",
 	"lvl" : 20,
-	"skill_name" : "浮世沧桑远"
+	"skill_name" : "浮世滄桑遠"
 ]),
-([	"action":"$N纵身轻轻跃起，一式"BLU"「轮回法舟轻」"NOR"，剑光如轮疾转，霍霍斩向$n的$l",
+([	"action":"$N縱身輕輕躍起，一式"BLU"「輪迴法舟輕」"NOR"，劍光如輪疾轉，霍霍斬向$n的$l",
 	"lvl" : 30,
-	"skill_name" : "轮回法舟轻"
+	"skill_name" : "輪迴法舟輕"
 ]),
-([	"action":"$N手中$w中宫直进，一式"HIW"「水月通禅寂」"NOR"，无声无息地对准$n的$l刺出一剑",
+([	"action":"$N手中$w中宮直進，一式"HIW"「水月通禪寂」"NOR"，無聲無息地對準$n的$l刺出一劍",
 	"lvl" : 40,
-	"skill_name" : "水月通禅寂"
+	"skill_name" : "水月通禪寂"
 ]),
-([	"action":"$N手中$w斜指苍天，剑芒吞吐，一式"HIM"「鱼龙听梵音」"NOR"，对准$n的$l斜斜击出",
+([	"action":"$N手中$w斜指蒼天，劍芒吞吐，一式"HIM"「魚龍聽梵音」"NOR"，對準$n的$l斜斜擊出",
 	"lvl" : 50,
-	"skill_name" : "鱼龙听梵音"
+	"skill_name" : "魚龍聽梵音"
 ]),
-([	"action":"$N左指凌空虚点，右手$w逼出丈许雪亮剑芒，一式"GRN "「千里一苇去」"NOR"刺向$n的$l",
+([	"action":"$N左指凌空虛點，右手$w逼出丈許雪亮劍芒，一式"GRN "「千里一葦去」"NOR"刺向$n的$l",
 	"lvl" : 60,
-	"skill_name" : "千里一苇去"
+	"skill_name" : "千里一葦去"
 ]),
-([	"action":"$N合掌跌坐，一式"HIG"「禅心顿自明」"NOR"，$w自怀中跃出，如疾电般射向$n的胸口",
+([	"action":"$N合掌跌坐，一式"HIG"「禪心頓自明」"NOR"，$w自懷中躍出，如疾電般射向$n的胸口",
 	"lvl" : 70,
-	"skill_name" : "禅心顿自明"
+	"skill_name" : "禪心頓自明"
 ]),
 });
 
@@ -46,9 +46,9 @@ int valid_enable(string usage) { return usage == "sword" || usage == "parry"; }
 int valid_learn(object me)
 {
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if ((int)me->query_skill("hunyuan-yiqi", 1) < 20)
-		return notify_fail("你的混元一气功火候太浅。\n");
+		return notify_fail("你的混元一氣功火候太淺。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -57,10 +57,10 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if( (int)me->query("qi") < 30
 	|| (int)me->query("neili") < 15 )
-		return notify_fail("你的内力或气不够练达摩剑。\n");
+		return notify_fail("你的內力或氣不夠練達摩劍。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -15);
 	return 1;
@@ -89,17 +89,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "割伤" : "刺伤",
+		"damage_type" : random(2) ? "割傷" : "刺傷",
 	]);
 }
 int learn_bonus() { return 30; }
@@ -114,14 +114,14 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\n达摩剑："NOR"\n");
+	write(HIC"\n達摩劍："NOR"\n");
 	write(@HELP
 
-    达摩剑为少林七十二绝技之一。
+    達摩劍爲少林七十二絕技之一。
 
-	学习要求：
-		混元一气功20级
-		内力100
+	學習要求：
+		混元一氣功20級
+		內力100
 HELP
 	);
 	return 1;

@@ -6,8 +6,8 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("侠客岛弟子", ({ "di zi", "di", "zi" }));
-        set("long", "这是三十多岁的壮汉，膀大腰圆，是岛主从中原招募来的。\n");
+        set_name("俠客島弟子", ({ "di zi", "di", "zi" }));
+        set("long", "這是三十多歲的壯漢，膀大腰圓，是島主從中原招募來的。\n");
 
         set("gender", "男性");
         set("age", 30);
@@ -36,7 +36,7 @@ void create()
         set_skill("hand", 70);
         set_skill("staff", 50);
 
-        create_family("侠客岛", 2, "弟子");
+        create_family("俠客島", 2, "弟子");
         setup();
         carry_object("/clone/misc/cloth")->wear();
 }
@@ -65,12 +65,12 @@ void greeting(object ob)
         switch( random(2) )
         {
                 case 0:
-                        say( "侠客岛弟子说道：这位" + RANK_D->query_respect(ob)
-                                 + "，快请到迎宾馆中歇歇脚吧。\n");
+                        say( "俠客島弟子說道：這位" + RANK_D->query_respect(ob)
+                                 + "，快請到迎賓館中歇歇腳吧。\n");
                         break;
                 case 1:
-                        say( "侠客岛弟子恭手说道：这位" + RANK_D->query_respect(ob)
-                                 + "，岛主正在等你呢。\n");
+                        say( "俠客島弟子恭手說道：這位" + RANK_D->query_respect(ob)
+                                 + "，島主正在等你呢。\n");
                         break;
         }
 }

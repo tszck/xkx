@@ -37,7 +37,7 @@ int loadall(string dir)
         switch (file_size(dir + file))
         {
         case -1:
-            //无法读取该目录，跳过
+            //無法讀取該目錄，跳過
             break;
         case -2:
             if (file != "." && file != "..")
@@ -59,12 +59,12 @@ int loadall(string dir)
 int help(object me)
 {
     write(@HELP
-    载入某个目录下的所有.c文件(包含子目录)，以查找所有
-可能的编译错误。
+    載入某個目錄下的所有.c文件(包含子目錄)，以查找所有
+可能的編譯錯誤。
 
 指令格式： loadall [dir]
 比如      loadall /d/city/
-没有 dir，则dir默认为 / ，文件太多可能会卡一会。
+沒有 dir，則dir默認爲 / ，文件太多可能會卡一會。
 
 HELP );
     return 1;

@@ -1,4 +1,4 @@
-// Modified by Zeratul 4.12 2001 匕首和宝甲修改为唯一物品
+// Modified by Zeratul 4.12 2001 匕首和寶甲修改爲唯一物品
 #include <room.h>
 inherit ROOM;
 
@@ -11,7 +11,7 @@ void create()
 	object ob;
 	set("short", "暗室");
 	set("long", @LONG
-这里是鳌拜藏宝的地方，各种珠宝玉器，应有尽有，有几样尤其显眼。
+這裏是鰲拜藏寶的地方，各種珠寶玉器，應有盡有，有幾樣尤其顯眼。
 LONG );
 
 	set("objects", ([
@@ -53,12 +53,12 @@ void close_gate()
 	if(objectp(room))
 	{
 		delete("exits/south");
-		message("vision","只听乒地一声，暗门自动关了起来。\n",this_object());
-                message("vision","你脑海中闪过一个念头：坏了！出不去了！\n" ,
+		message("vision","只聽乒地一聲，暗門自動關了起來。\n",this_object());
+                message("vision","你腦海中閃過一個念頭：壞了！出不去了！\n" ,
 			this_object());
 		room->delete("exits/north");
-		message("vision","只听乒地一声，暗门自动关了起来。\n",room);
-                message("vision","你脑海中闪过一个念头：哎哟！又进不去了！\n" ,
+		message("vision","只聽乒地一聲，暗門自動關了起來。\n",room);
+                message("vision","你腦海中閃過一個念頭：哎喲！又進不去了！\n" ,
 			room );
 	}
 }
@@ -68,19 +68,19 @@ int do_open(string arg)
 	object room;
 
 	if (query("exits/south"))
-		return notify_fail("暗门已经是开着了。\n");
+		return notify_fail("暗門已經是開着了。\n");
 
 	if (!arg || (arg != "door" && arg != "south"))
-		return notify_fail("你要开什么？\n");
+		return notify_fail("你要開什麼？\n");
 
 	if(!( room = find_object(__DIR__"aobai7")) )
 		room = load_object(__DIR__"aobai7");
 	if(objectp(room))
 	{
 		set("exits/south", __DIR__"aobai7");
-		message_vision("$N使劲把暗门打了开来。\n",this_player());
+		message_vision("$N使勁把暗門打了開來。\n",this_player());
 		room->set("exits/north", __FILE__);
-		message("vision","里面有人把暗门打开了。\n",room);
+		message("vision","裏面有人把暗門打開了。\n",room);
 		remove_call_out("close_gate");
 		call_out("close_gate", 10);
 	}

@@ -6,8 +6,8 @@ void  create  ()
 {
 	set("short",  "北郊小路");
 	set("long",  @LONG
-这是洛阳城郊的一条茅草小路，东北面仿佛是通往渡口的小路，而
-南面则是洛阳城门。
+這是洛陽城郊的一條茅草小路，東北面彷彿是通往渡口的小路，而
+南面則是洛陽城門。
 LONG);
 	set("exits",  ([  /*  sizeof()  ==  2  */
 		"northeast" :  __DIR__"dukou",

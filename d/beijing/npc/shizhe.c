@@ -5,7 +5,7 @@ void create()
 	set_name("侍者", ({ "shi zhe", "shi", "zhe" }) );
 	set("gender", "男性" );
 	set("age", 22);
-	set("long", "一个下人。\n");
+	set("long", "一個下人。\n");
 	set("shen_type", 1);
 	set("combat_exp", 2000);
 	set("str", 10);

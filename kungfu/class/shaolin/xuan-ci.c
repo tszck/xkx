@@ -7,14 +7,14 @@ inherit F_MANAGER;
 
 void create()
 {
-	set_name("玄慈大师", ({
+	set_name("玄慈大師", ({
 		"xuanci dashi",
 		"xuanci",
 		"dashi",
 	}));
 	set("long",
-		"他是一位白须白眉的老僧，身穿一袭金丝绣红袈裟。\n"
-		"他身材略显佝偻，但却满面红光，目蕴慈笑，显得神完气足。\n"
+		"他是一位白鬚白眉的老僧，身穿一襲金絲繡紅袈裟。\n"
+		"他身材略顯佝僂，但卻滿面紅光，目蘊慈笑，顯得神完氣足。\n"
 	);
 
 
@@ -32,9 +32,9 @@ void create()
 /*
         set("chat_chance", 3);
         set("chat_msg", ({
-"玄慈大师叹了口气道：“可惜我少林泱泱大派，而今如此人才凋落”\n",
-"玄慈大师低头自语道：“唉...我少林自渡西之后，再无可塑之才”\n",
-"玄慈大师又叹气道：“本来澄药也算是个旷世之奇才，只可惜尘缘未脱，归隐于山林” \n",
+"玄慈大師嘆了口氣道：“可惜我少林泱泱大派，而今如此人才凋落”\n",
+"玄慈大師低頭自語道：“唉...我少林自渡西之後，再無可塑之才”\n",
+"玄慈大師又嘆氣道：“本來澄藥也算是個曠世之奇才，只可惜塵緣未脫，歸隱於山林” \n",
         }) );
 */
 	set("max_qi", 1500);
@@ -108,30 +108,30 @@ void attempt_apprentice(object ob)
 
 	if (!(ob_fam = ob->query("family")) || ob_fam["family_name"] != "少林派")
 	{
-		command("say " + RANK_D->query_respect(ob) + "与本派素无来往，不知此话从何谈起？");
+		command("say " + RANK_D->query_respect(ob) + "與本派素無來往，不知此話從何談起？");
 		return;
 	}
 
 	if ( (string)ob->query("class")!="bonze" && ob_fam["family_name"] == "少林派")
 	{
-		command("say " + RANK_D->query_respect(ob) + "是俗家弟子，不能在寺内学艺。");
+		command("say " + RANK_D->query_respect(ob) + "是俗家弟子，不能在寺內學藝。");
 		return;
 	}
 
 	if ( ob_fam["generation"] <= my_fam["generation"] )
 	{
-		command("say " + RANK_D->query_respect(ob) + "，贫僧哪里敢当 !");
+		command("say " + RANK_D->query_respect(ob) + "，貧僧哪裏敢當 !");
 		return;
 	}
 
 	if ( ob_fam["generation"] == (my_fam["generation"] + 1) && name[0..0] == "澄")
 	{
-		command("say " + ob_fam["master_name"] + "的徒弟怎麽跑到我这儿来了，哈哈哈 !");
+		command("say " + ob_fam["master_name"] + "的徒弟怎麼跑到我這兒來了，哈哈哈 !");
 		command("recruit " + ob->query("id"));
 	}
 	else
 	{
-		command("say " + RANK_D->query_respect(ob) + "，你辈份不合，不能越级拜师。");
+		command("say " + RANK_D->query_respect(ob) + "，你輩份不合，不能越級拜師。");
 		return;
 	}
 

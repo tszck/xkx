@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "栈道");
+	set("short", "棧道");
 	set("long", @LONG
-这里是通往明教的栈道，脚下茂林生云，极其艰险。
+這裏是通往明教的棧道，腳下茂林生雲，極其艱險。
 LONG );
 	set("exits", ([
 		"northup"   : __DIR__"zhandao2",
@@ -29,10 +29,10 @@ void init()
 	{
 		me->receive_damage("qi", 50);
 		me->receive_wound("qi",  50);
-message_vision(HIR"$N一不小心脚下踏了个空，... 啊...！\n"NOR, me);
+message_vision(HIR"$N一不小心腳下踏了個空，... 啊...！\n"NOR, me);
 		me->move(__DIR__"lhqpaifang");
-		tell_object(me, HIR"你从栈道跌了下来，好疼 !还受了伤。\n"NOR);
-message("vision", HIR"只见" + me->query("name") + "从栈道上扑通一声跌了下来，躺在地上半天爬不起来！\n"NOR, environment(me), me);
+		tell_object(me, HIR"你從棧道跌了下來，好疼 !還受了傷。\n"NOR);
+message("vision", HIR"只見" + me->query("name") + "從棧道上撲通一聲跌了下來，躺在地上半天爬不起來！\n"NOR, environment(me), me);
 	}
 }
 		

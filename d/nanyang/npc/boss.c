@@ -7,22 +7,22 @@ inherit NPC;
 inherit F_DEALER;
 void create()
 {
-	set_name("樊子发", ({ "fan zifa","fan","seller"}) );
+	set_name("樊子發", ({ "fan zifa","fan","seller"}) );
 	set("gender", "男性" );
 	set("age", 46);
-	set("long", "樊子发是这间小商号的老板，写得一手好字。\n");
+	set("long", "樊子發是這間小商號的老闆，寫得一手好字。\n");
 	set("chat_chance", 20);
 	set("chat_msg", ({
-		"樊子发道：“这里是南阳城。”\n",
-		"樊子发道：“南阳城北接中原，南渡汉水，客官想去哪里呀？”\n",
+		"樊子發道：“這裏是南陽城。”\n",
+		"樊子發道：“南陽城北接中原，南渡漢水，客官想去哪裏呀？”\n",
 	}));
 	set("chat_chance_combat", 20);
 	set("chat_msg_combat",({
-		"樊子发喊道：“你干什么？如此无理？！！！”\n",
-		"樊子发边打边喊：“我可是嵩山派的红人，你竟敢杀我？！！！”\n",
+		"樊子發喊道：“你幹什麼？如此無理？！！！”\n",
+		"樊子發邊打邊喊：“我可是嵩山派的紅人，你竟敢殺我？！！！”\n",
 	}) );
 	set("inquiry", ([
-		"here"   : "这里是南阳城，南阳诸葛祠，天下闻名耶！",
+		"here"   : "這裏是南陽城，南陽諸葛祠，天下聞名耶！",
 	]) );
 	set("attitude", "friendly");
 	set("rank_info/respect", "老哥");
@@ -51,5 +51,5 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	message_vision("樊老板笑嘻嘻地迎上前来，说道：“客官，您来啦？”\n",ob);
+	message_vision("樊老闆笑嘻嘻地迎上前來，說道：“客官，您來啦？”\n",ob);
 }

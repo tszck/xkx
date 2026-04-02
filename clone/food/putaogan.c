@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 inherit ITEM;
@@ -7,12 +7,12 @@ void eat();
 
 void create()
 {
-        set_name("葡萄干", ({"putao gan", "gan"}));
+        set_name("葡萄乾", ({"putao gan", "gan"}));
         set_weight(300);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "葡萄干是西北边疆的特产，吃起来香甜可口．\n");
+                set("long", "葡萄乾是西北邊疆的特產，喫起來香甜可口．\n");
                 set("unit", "把");
                 set("value", 60);
                 set("food_remaining", 4);
@@ -31,15 +31,15 @@ int do_chi(string arg)
      return 0;
 
         if( this_player()->is_busy() )
-            return notify_fail("你上一个动作还没有完成。\n");
+            return notify_fail("你上一個動作還沒有完成。\n");
 
         if(!arg) 
-     return notify_fail("你要吃什么？\n");
+     return notify_fail("你要喫什麼？\n");
            
         if( (int)this_player()->query("food") >= (int)this_player()->max_food_capacity() )
-                return notify_fail("你已经吃太饱了，再也塞不下任何东西了。\n");
+                return notify_fail("你已經喫太飽了，再也塞不下任何東西了。\n");
 
-        message_vision("$N从兜里掏出把葡萄干，一颗一颗的塞到嘴里，\n一颗，一颗，又一颗．．．\n" , this_player());
+        message_vision("$N從兜裏掏出把葡萄乾，一顆一顆的塞到嘴裏，\n一顆，一顆，又一顆．．．\n" , this_player());
    this_player()->add("food", 30);
    destruct(this_object());
         return 1;

@@ -14,12 +14,12 @@ int do_destroy(object);
 
 void create()
 {
-	set_name("帮众", ({ "bangzhong" }));
+	set_name("幫衆", ({ "bangzhong" }));
 	set("gender", "男性");
-	set("party/party_name", HIC"长乐帮"NOR);
+	set("party/party_name", HIC"長樂幫"NOR);
 	set("party/rank", "豹捷堂");
 	set("age", 20 + random(10));
-	set("long", "一名身材高大的壮汉，满脸杀气，一付凶神恶煞的模样。\n");
+	set("long", "一名身材高大的壯漢，滿臉殺氣，一付凶神惡煞的模樣。\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 
@@ -75,12 +75,12 @@ int auto_check()
 
 	room = environment();
 	if( room != dest ) {
-		message("vision", me->name() + "急急忙忙地离开了。\n", room, ({me}));
+		message("vision", me->name() + "急急忙忙地離開了。\n", room, ({me}));
 		me->move(dest);
-		message("vision", me->name() + "走了过来。\n", dest, ({me}));
+		message("vision", me->name() + "走了過來。\n", dest, ({me}));
 
 		me->set_leader(ob);
-		message_vision("$N诚惶诚恐地说道：望帮主恕罪！\n", me);
+		message_vision("$N誠惶誠恐地說道：望幫主恕罪！\n", me);
 		return 1;
 	}
 
@@ -92,7 +92,7 @@ int auto_check()
 
 int do_destroy(object ob)
 {
-	message("vision", ob->name() + "急急忙忙地离开了。\n", environment(ob), ({ob}));
+	message("vision", ob->name() + "急急忙忙地離開了。\n", environment(ob), ({ob}));
 
 	destruct(ob);
 	return 1;
@@ -109,7 +109,7 @@ int accept_kill(object me)
 	||  ob->is_busy()
 	||  ob->is_killing() ) return 1;
 
-	message_vision("$N对$n喝道：敢伤我弟兄，胆子不小！\n", ob, me);
+	message_vision("$N對$n喝道：敢傷我弟兄，膽子不小！\n", ob, me);
 	ob->kill_ob(me);
 	return 1;
 }
@@ -130,7 +130,7 @@ void die()
 		record = bonus + random(bonus);
 		killer->add("combat_exp", record);
 
-		log_file("BangJob", sprintf("%s于%s时因杀人示威得%s经验点\n", killer->query("name"), ctime(time()), chinese_number(record)));
+		log_file("BangJob", sprintf("%s於%s時因殺人示威得%s經驗點\n", killer->query("name"), ctime(time()), chinese_number(record)));
 
 		bonus /= 4;
 		if( obj = present("bang ling", killer) ) {

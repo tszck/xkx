@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 /* File    : ping_q.c
@@ -29,7 +29,7 @@ void create()
    seteuid(ROOT_UID);
    my_address = query_host_name();
    my_port = udp_port();
-   set("channel_id", "网路回应精灵");
+   set("channel_id", "網路回應精靈");
 }
 
 // Someone has ping'd us

@@ -11,7 +11,7 @@ void create()
 	set("quest_no_guard",1);
 	set("no_steal",1);
 	set("no_ansuan",1);
-	set("long", "一个穿着黑色夜行衣的人。\n");
+	set("long", "一個穿着黑色夜行衣的人。\n");
 	set( "chat_chance_combat", 80);         
         set( "chat_msg_combat",({
         		(: exert_function, "recover" :),
@@ -26,7 +26,7 @@ int do_back(object me)
 {			
 	if (objectp(environment(me)))
 	{
-		tell_room(environment(me), me->query("name")+"匆匆忙忙的离开了。\n", ({me}));	
+		tell_room(environment(me), me->query("name")+"匆匆忙忙的離開了。\n", ({me}));	
 		destruct(me); 
 	}
   return 1;
@@ -48,7 +48,7 @@ int do_back(object me)
          me->add("combat_exp",exp);
          me->add("potential",pot);
 //         me->add("score",score);
-	me->set_temp("prize_reason","义士");
+	me->set_temp("prize_reason","義士");
 	me->set_temp("can_give_prize",1);
 	me->set_temp("prize_exp",exp);
 	me->set_temp("prize_pot",pot);
@@ -57,9 +57,9 @@ int do_back(object me)
 	       me->delete_temp("guoys_mis_flag");
 	       me->clear_condition("guoys_mis");	
 
-        tell_object(me,HIW"你成功地保护了义士的安全，\n你被奖励了：\n");
-        tell_object(me,chinese_number(exp) +"点实战经验\n" +
-        chinese_number(pot) + "点潜能\n"NOR);
+        tell_object(me,HIW"你成功地保護了義士的安全，\n你被獎勵了：\n");
+        tell_object(me,chinese_number(exp) +"點實戰經驗\n" +
+        chinese_number(pot) + "點潛能\n"NOR);
        } 
         ::die();    
    }
@@ -71,7 +71,7 @@ int accept_hit(object me)
 		if (!this_object()->is_fighting(me)) this_object()->kill_ob(me);
 		return 1;
 	}
-	else return notify_fail(HIW"不是你要抓的人，凑什么热闹！\n"NOR);
+	else return notify_fail(HIW"不是你要抓的人，湊什麼熱鬧！\n"NOR);
 }
 int accept_fight(object who)	{return accept_hit(who);}
 int accept_kill(object who)		{return accept_hit(who);}

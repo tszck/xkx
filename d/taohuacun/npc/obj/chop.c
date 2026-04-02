@@ -9,7 +9,7 @@ void create()
 	if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "一块新鲜的猪排骨。\n");
-                set("unit", "块");
+                set("long", "一塊新鮮的豬排骨。\n");
+                set("unit", "塊");
         }
 }

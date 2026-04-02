@@ -1,14 +1,14 @@
-//Room: huixianqiao.c 会仙桥
+//Room: huixianqiao.c 會仙橋
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-      set("short","会仙桥");
+      set("short","會仙橋");
       set("long",@LONG
-这里地势稍平，一道山涧缓缓流过，一座窄窄的木桥横在涧上，只
-容一人经过。
+這裏地勢稍平，一道山澗緩緩流過，一座窄窄的木橋橫在澗上，只
+容一人經過。
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "north"    : __DIR__"chaotiangong",

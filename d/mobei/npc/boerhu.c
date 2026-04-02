@@ -4,10 +4,10 @@
 inherit NPC;
 void create()
 {
-	set_name("博尔术",({"bo ershu","bo","ershu"}));
+	set_name("博爾術",({"bo ershu","bo","ershu"}));
 	set("gender","男性");
-	set("nickname","蒙古四杰");
-	set("long","铁木真手下四杰之一，勇猛过人！\n");
+	set("nickname","蒙古四傑");
+	set("long","鐵木真手下四傑之一，勇猛過人！\n");
 	set("combat_exp", 300000);
 	set("age",45);
 	set("qi",2000);
@@ -16,8 +16,8 @@ void create()
 	set("water",250);
 	set("chat_chance",8);
 	set("chat_msg", ({
-//		"博尔术偷偷告诉你：只有九天浣花神箭才能对付草原上的鹰鹫。\n",
-		"博尔术叹道：悬崖下的白雕是鹰鹫的天敌。\n",
+//		"博爾術偷偷告訴你：只有九天浣花神箭才能對付草原上的鷹鷲。\n",
+		"博爾術嘆道：懸崖下的白雕是鷹鷲的天敵。\n",
 	}));
 	set("neili", 1500);
 	set("max_neili", 1500);

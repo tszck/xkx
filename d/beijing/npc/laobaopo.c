@@ -3,12 +3,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("老鸨婆", ({ "laobao po", "laobao", "po" }) );
+	set_name("老鴇婆", ({ "laobao po", "laobao", "po" }) );
 	set("gender", "女性" );
-	set("title", "怡红院老板娘");
+	set("title", "怡紅院老闆娘");
 	set("age", 42);
 	set("long", 
-		"\n这老鸨婆虽是徐娘半老，但仍风韵尤存，只不过脸上的粉太厚了。\n");
+		"\n這老鴇婆雖是徐娘半老，但仍風韻尤存，只不過臉上的粉太厚了。\n");
 	set("str", 25);
 	set("dex", 25);
 	set("con", 25);
@@ -29,7 +29,7 @@ void create()
 
 	set("attitude", "friendly");
 	set("inquiry", ([
-		"怡红院" : "我们怡红院可是北京城里头一份的找乐子去处。",
+		"怡紅院" : "我們怡紅院可是北京城裏頭一份的找樂子去處。",
 	]) );
 
 	setup();
@@ -52,29 +52,29 @@ void greeting(object me)
 {
 	command("look " + me->query("id"));
 
-	if ((me->query("gender")=="无性") &&
+	if ((me->query("gender")=="無性") &&
 		(file_name(environment(me))=="/d/beijing/yihongyu"))
 	{
-		command( "say 你当老娘是烂婊子吗？辣块妈妈，老娘满汉蒙藏回都接，就是不伺候太监！");
+		command( "say 你當老孃是爛婊子嗎？辣塊媽媽，老孃滿漢蒙藏回都接，就是不伺候太監！");
 		command("kick " + me->query("id"));
-		message("vision", me->name() +"被老鸨婆一脚踢出门外。\n", environment(me), ({me}));
+		message("vision", me->name() +"被老鴇婆一腳踢出門外。\n", environment(me), ({me}));
 		me->move("/d/beijing/dongcha2");
-		message("vision", me->name()+"被人从怡红院里踢了出来，栽倒在地上，磕掉两颗门牙。\n", environment(me), ({me}));
+		message("vision", me->name()+"被人從怡紅院裏踢了出來，栽倒在地上，磕掉兩顆門牙。\n", environment(me), ({me}));
 	}
 	else
 	{
 		if (me->query("class") =="bonze")
 		{
-			command("say 呦，"+RANK_D->query_respect(me)+"也来光顾我们怡红院啊。");
-			command( "say 想当年我接过一个西藏喇嘛，他上床前一定要念经，一面念经，眼珠子就骨溜溜的瞧着我。");
+			command("say 呦，"+RANK_D->query_respect(me)+"也來光顧我們怡紅院啊。");
+			command( "say 想當年我接過一個西藏喇嘛，他上牀前一定要念經，一面唸經，眼珠子就骨溜溜的瞧着我。");
 		}
 		if (me->query("gender")=="女性")
 		{
-			command("say 哎呀，这年月大姑娘也逛窑子，成何体统。");
+			command("say 哎呀，這年月大姑娘也逛窯子，成何體統。");
 			command("sigh");
-			command("say 可惜我儿子不在，不然让他伺候你。");
+			command("say 可惜我兒子不在，不然讓他伺候你。");
 		}
-		command("say 楼上楼下的姑娘们，客人来了！");
+		command("say 樓上樓下的姑娘們，客人來了！");
 	}
 	return ;
 }

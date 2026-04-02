@@ -6,9 +6,9 @@ inherit F_BANKER;
 
 void create()
 {
-	set_name("马有财", ({"ma youcai", "ma", "youcai"}));
-	set("title", "钱庄老板");
-	set("nickname", "三只眼");
+	set_name("馬有財", ({"ma youcai", "ma", "youcai"}));
+	set("title", "錢莊老闆");
+	set("nickname", "三隻眼");
 	set("gender", "男性");
 	set("age", 45);
 	set("str", 22);

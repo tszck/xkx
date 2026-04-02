@@ -5,7 +5,7 @@ inherit F_FOOD;
 #include <ansi.h>
 void create()
 {
-	set_name(HIR"烧卖"NOR, ({"shao mai", "mai"}));
+	set_name(HIR"燒賣"NOR, ({"shao mai", "mai"}));
 	set_weight(80);
 	if (clonep())
 		set_default_object(__FILE__);

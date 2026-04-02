@@ -1,4 +1,4 @@
-// pigd.c 拱猪 Daemon
+// pigd.c 拱豬 Daemon
 
 // #pragma optimize all
 
@@ -8,11 +8,11 @@ inherit F_DBASE;
 
 
 string *suit_char = ({ "S", "H", "D", "C" });
-string *suit_str = ({ "黑桃", "红心", "方块", "梅花" });
+string *suit_str = ({ "黑桃", "紅心", "方塊", "梅花" });
 string *rank_char = ({ "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A" });
 string *rank_str = ({ "２", "３", "４", "５", "６", "７", "８", "９", "⒑", "Ｊ", "Ｑ", "Ｋ", "Ａ" });
 string *seat_char = ({ "N", "W", "S", "E" });
-string *seat_str = ({ "北", "西", "南", "东" });
+string *seat_str = ({ "北", "西", "南", "東" });
 int *heart_score = ({ 0, 0, 0, -10, -10, -10, -10, -10, -10, -20, -30, -40, -50 });
 
 int is_validcard(string str)

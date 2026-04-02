@@ -1,5 +1,5 @@
-// zhudao2.c 竹剑
-// 可以卖的竹刀，2两银子
+// zhudao2.c 竹劍
+// 可以賣的竹刀，2兩銀子
 
 #include <weapon.h>
 
@@ -16,8 +16,8 @@ void create()
 		set("value", 2000);
 		set("material", "bamboo");
 		set("long", 
-"这是一把做工精致的竹刀，刀柄用细帆布包裹，刀身稍弯，刀刃处特意加厚，以免误伤同伴。\n");
-		set("wield_msg", "$N抽出一把练刀用的$n，握在手中。\n");
+"這是一把做工精緻的竹刀，刀柄用細帆布包裹，刀身稍彎，刀刃處特意加厚，以免誤傷同伴。\n");
+		set("wield_msg", "$N抽出一把練刀用的$n，握在手中。\n");
 		set("unequip_msg", "$N放下手中的$n。\n");
 	}
 	init_blade(1);

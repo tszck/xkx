@@ -7,19 +7,19 @@ void create()
 {
 	set("short","春草池塘");
 	set("long",@LONG
-春草池塘吟榭面东三楹。榭内悬姚元三题匾，外柱悬挂魏之祯所书
-集杜牧、韦庄诗句楹联(lian)。
+春草池塘吟榭面東三楹。榭內懸姚元三題匾，外柱懸掛魏之禎所書
+集杜牧、韋莊詩句楹聯(lian)。
 LONG );
 	set("outdoors", "shouxihu");
 	set("item_desc", ([
 		"lian" : "
-        碧        绿
+        碧        綠
         落        波
         青        春
         山        浪
-        飘        满
+        飄        滿
         古        前
-        韵        陂
+        韻        陂
 \n",
 	]));
 	set("exits", ([

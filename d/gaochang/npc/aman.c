@@ -8,7 +8,7 @@ void create()
 	set("gender", "女性");
 	set("age", 18);
 	set("long", 
-"一个娇美的哈萨克姑娘，苏普的情侣。\n");
+"一個嬌美的哈薩克姑娘，蘇普的情侶。\n");
 	set("combat_exp", 2000);
 	set("shen_type", 1);
 

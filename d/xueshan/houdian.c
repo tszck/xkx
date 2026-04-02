@@ -1,13 +1,13 @@
-//      houdian.c 后殿
+//      houdian.c 後殿
 
 inherit ROOM;
 
 void create()
 {
-        set("short","后殿");
+        set("short","後殿");
         set("long",@LONG
-这里是雪山寺的后殿，也是雪山弟子闭门练功的地方。殿内是一些
-练功的蒲团和木人，还有一些吊挂着的沙袋和直竖的木桩。
+這裏是雪山寺的後殿，也是雪山弟子閉門練功的地方。殿內是一些
+練功的蒲團和木人，還有一些吊掛着的沙袋和直豎的木樁。
 LONG );
         set("exits",([
                 "south" : __DIR__"neidian",

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "平台");
+	set("short", "平臺");
 	set("long", @LONG
-这是法性寺山门门前平台，平台设甬道通湖岸道路。平台两端栽桧
-柏、梧桐。北通莲花桥，西南方就是莲性寺的山门了。
+這是法性寺山門門前平臺，平臺設甬道通湖岸道路。平臺兩端栽檜
+柏、梧桐。北通蓮花橋，西南方就是蓮性寺的山門了。
 LONG );
 	set("outdoors", "shouxihu");
 	set("exits", ([

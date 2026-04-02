@@ -5,11 +5,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("采药人", ({ "caiyao ren", "caiyao", "ren" }));
+        set_name("採藥人", ({ "caiyao ren", "caiyao", "ren" }));
         set("gender", "男性");
         set("age", 30 + random(10));
 
-        set("long", "一个辛苦工作的采药人。\n");
+        set("long", "一個辛苦工作的採藥人。\n");
         set("attitude", "friendly");
 
         set("combat_exp", 1000);

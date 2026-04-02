@@ -6,23 +6,23 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action":  "$N轻抖手腕，一招"HIG"「青蛇吐芯」"NOR"，手中$w抖得笔直，直向$n卷去",
+([	"action":  "$N輕抖手腕，一招"HIG"「青蛇吐芯」"NOR"，手中$w抖得筆直，直向$n捲去",
 	"lvl"   :  0,
 	"skill_name" : "青蛇吐芯",
 ]),
-([	"action":  "$N身形一转，一招"RED"「毒蝎反尾」"NOR"，$w在空中转了个圈，以怪异的角度劈向$n",
+([	"action":  "$N身形一轉，一招"RED"「毒蠍反尾」"NOR"，$w在空中轉了個圈，以怪異的角度劈向$n",
 	"lvl"   :  10,
-	"skill_name" : "毒蝎反尾",
+	"skill_name" : "毒蠍反尾",
 ]),
-([	"action":  "$N一抖长鞭，一招"BLK"「黑蛛吐丝」"NOR"，手中$w化做无数幻影，罩向$n",
+([	"action":  "$N一抖長鞭，一招"BLK"「黑蛛吐絲」"NOR"，手中$w化做無數幻影，罩向$n",
 	"lvl"   :  20,
-	"skill_name" : "黑蛛吐丝",
+	"skill_name" : "黑蛛吐絲",
 ]),
-([	"action":  "$N力贯鞭梢，一招"YEL"「蟾蜍出洞」"NOR"，手中$w忽左忽右，直劈向$n胸口",
+([	"action":  "$N力貫鞭梢，一招"YEL"「蟾蜍出洞」"NOR"，手中$w忽左忽右，直劈向$n胸口",
 	"lvl"   :  30,
 	"skill_name" : "蟾蜍出洞",
 ]),
-([	"action":  "$N运气于腕，一招"BLU"「蜈蚣翻身」"NOR"，手中$w转起无数个圈圈，带着一股阴风，直向$n扑去",
+([	"action":  "$N運氣於腕，一招"BLU"「蜈蚣翻身」"NOR"，手中$w轉起無數個圈圈，帶着一股陰風，直向$n撲去",
 	"lvl"   :  40,
 	"skill_name" : "蜈蚣翻身",
 ])
@@ -34,12 +34,12 @@ int valid_learn(object me)
 	object weapon;
 
 	if( (int)me->query_skill("wudu-shengong", 1) < 30 )
-		return notify_fail("你的五毒神功太低，不能练五毒鞭。\n");
+		return notify_fail("你的五毒神功太低，不能練五毒鞭。\n");
 	if( (int)me->query("max_neili") < 30 )
-		return notify_fail("你的内力修为太低，不能练五毒鞭。\n");
+		return notify_fail("你的內力修爲太低，不能練五毒鞭。\n");
 	if ( !objectp(weapon = me->query_temp("weapon")) ||
 		( string)weapon->query("skill_type") != "whip" )
-		return notify_fail("你必须先找一条鞭子才能练鞭法。\n");
+		return notify_fail("你必須先找一條鞭子才能練鞭法。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -48,9 +48,9 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "whip")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if( (int)me->query("qi") < 30 || (int)me->query("neili") < 30 )
-		return notify_fail("你的体力不够练五毒鞭法。\n");
+		return notify_fail("你的體力不夠練五毒鞭法。\n");
 	me->receive_damage("qi", 20);
 	me->add("neili", -20);
 	return 1;
@@ -78,17 +78,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "瘀伤" : "刺伤",
+		"damage_type" : random(2) ? "瘀傷" : "刺傷",
 	]);
 }
 
@@ -106,11 +106,11 @@ int help(object me)
 	write(HIC"\n五毒鞭法："NOR"\n");
 	write(@HELP
 
-    五毒鞭法为五毒教的独门鞭法。
+    五毒鞭法爲五毒教的獨門鞭法。
 
-	学习要求：
-		五毒神功30级
-		内力30
+	學習要求：
+		五毒神功30級
+		內力30
 HELP
 	);
 	return 1;

@@ -2,8 +2,8 @@ inherit NPC;
 
 void create()
 {
-        set_name("素斋师傅",({"suzhai shifu", "shifu", "suzhai"}));
-        set("long", "在寺庙中烧饭的和尚。\n" );
+        set_name("素齋師傅",({"suzhai shifu", "shifu", "suzhai"}));
+        set("long", "在寺廟中燒飯的和尚。\n" );
         set("gender", "男性");
         set("attitude", "peace");
 

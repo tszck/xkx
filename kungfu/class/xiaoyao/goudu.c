@@ -1,4 +1,4 @@
-// goudu.c 苟读
+// goudu.c 苟讀
 // Modified by Winder June.25 2000
 inherit NPC;
 inherit F_MASTER;
@@ -8,9 +8,9 @@ string ask_me();
 
 void create()
 {
-	set_name("苟读", ({ "gou du", "gou" }));
-	set("nickname","“函谷八友”书呆");
-	set("long","他看上去也是几十岁的人了，性好读书，诸子百家，无所不窥，是一位极有学问的宿儒，却是纯然一个书呆子的模样。\n");
+	set_name("苟讀", ({ "gou du", "gou" }));
+	set("nickname","“函谷八友”書呆");
+	set("long","他看上去也是幾十歲的人了，性好讀書，諸子百家，無所不窺，是一位極有學問的宿儒，卻是純然一個書呆子的模樣。\n");
 	set("gender", "男性");
 	set("age", 44);
 	set("attitude", "friendly");
@@ -22,7 +22,7 @@ void create()
 	set("dex", 25);
 
 	set("inquiry", ([
-		"论语":(:ask_me:),
+		"論語":(:ask_me:),
 	]) );
 
 	set("max_qi", 800);
@@ -62,7 +62,7 @@ void create()
 
 	set("book_count", 1);
 
-	create_family("逍遥派", 3, "弟子");
+	create_family("逍遙派", 3, "弟子");
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
 	carry_object("/clone/weapon/gangdao")->wield();
@@ -71,7 +71,7 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say 好吧，我就收下你了，以后要多为逍遥派出力啊。");
+	command("say 好吧，我就收下你了，以後要多爲逍遙派出力啊。");
 	command("recruit " + ob->query("id"));
 }
 
@@ -81,23 +81,23 @@ string ask_me()
 	ob=this_player(); 
 
 	if (query("book_count") < 1)
-		return "你来晚了，那本《论语》我已经赠送给别人了。";   
+		return "你來晚了，那本《論語》我已經贈送給別人了。";   
 	add("book_count", -1);                  
 
 	if(ob->query("family/master_id")=="xiaoyao zi")
 	{
-		command("say 师叔想要《论语》，拿去就是。");
-		message_vision(HIY"苟读从怀里掏出一本旧书，交了给$N \n\n"NOR,ob);
+		command("say 師叔想要《論語》，拿去就是。");
+		message_vision(HIY"苟讀從懷裏掏出一本舊書，交了給$N \n\n"NOR,ob);
 		me=new("/clone/book/lbook5");
 		me->move(ob);
-		return "这本书可千万不要借给别人啊，他们一借就不还的了。\n";
+		return "這本書可千萬不要借給別人啊，他們一借就不還的了。\n";
 	}
-	command("say 哈哈，《论语》就没有了，这里有我派高手从少林盗来的书。");
-	command("say 既然你那么好学，我就把它送给你吧。\n");
-	message_vision(HIY"苟读翻箱倒柜找了半天，找出一本旧书，交了给$N \n\n"NOR,ob);
+	command("say 哈哈，《論語》就沒有了，這裏有我派高手從少林盜來的書。");
+	command("say 既然你那麼好學，我就把它送給你吧。\n");
+	message_vision(HIY"苟讀翻箱倒櫃找了半天，找出一本舊書，交了給$N \n\n"NOR,ob);
 	if (random(2) == 1) me=new("/clone/book/strike_book");
 	else me=new("/clone/book/book-paper");
 	me->move(ob);
 
-	return "这本书可千万不要借给别人啊，他们一借就不还的了。\n";
+	return "這本書可千萬不要借給別人啊，他們一借就不還的了。\n";
 }

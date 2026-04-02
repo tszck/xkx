@@ -1,12 +1,12 @@
-//      chanshi.c 禅室
+//      chanshi.c 禪室
 
 inherit ROOM;
 
 void create()
 {
-        set("short","禅室");
+        set("short","禪室");
         set("long",@LONG
-这里是僧人门参禅打坐的地方。侧壁一列禅床让人看了就想到该想
+這裏是僧人門參禪打坐的地方。側壁一列禪牀讓人看了就想到該想
 的事。
 LONG );
         set("no_fight",1);

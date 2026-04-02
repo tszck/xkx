@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "月华门");
+	set("short", "月華門");
 	set("long", @LONG
-月华门北边是批本处, 南边是奏事房, 这里是皇帝经常出行坐轿的
+月華門北邊是批本處, 南邊是奏事房, 這裏是皇帝經常出行坐轎的
 地方.
 LONG
 	);

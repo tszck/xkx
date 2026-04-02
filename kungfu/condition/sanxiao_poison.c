@@ -4,13 +4,13 @@
 
 int update_condition(object me, int duration)
 {
-//	me->receive_wound("qi", 500,1,"三笑逍遥散发作死了，死的时候还面带微笑");
-//	me->receive_damage("qi", 500,1,"三笑逍遥散发作死了，死的时候还面带微笑");
-  message("vision", HIG + me->name() + "脸上忽然露出诡异的一笑。\n"NOR, environment(me), me);
+//	me->receive_wound("qi", 500,1,"三笑逍遙散發作死了，死的時候還面帶微笑");
+//	me->receive_damage("qi", 500,1,"三笑逍遙散發作死了，死的時候還面帶微笑");
+  message("vision", HIG + me->name() + "臉上忽然露出詭異的一笑。\n"NOR, environment(me), me);
   if ( duration >= 2 )  duration = 2;
   if ( duration == 0 )
   {
-  	me->set_temp("die_reason","三笑逍遥散发作死了，死的时候还面带微笑。");
+  	me->set_temp("die_reason","三笑逍遙散發作死了，死的時候還面帶微笑。");
   	me->die();
 	}
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;

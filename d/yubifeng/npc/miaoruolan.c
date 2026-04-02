@@ -1,14 +1,14 @@
-// miaoruolan.c 苗若兰
+// miaoruolan.c 苗若蘭
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("苗若兰", ({ "miao ruolan", "ruolan", "miao" }) );
+	set_name("苗若蘭", ({ "miao ruolan", "ruolan", "miao" }) );
 	set("gender", "女性");
 	set("age", 17);
-	set("long","她是天下第一高手，“打遍天下无敌手”的“金面佛”苗人凤之女。只是自小家教，不习武功。\n");
+	set("long","她是天下第一高手，“打遍天下無敵手”的“金面佛”苗人鳳之女。只是自小家教，不習武功。\n");
 	set("attitude", "friendly");
 	set("str", 15);
 	set("int", 15);
@@ -19,8 +19,8 @@ void create()
 
 	set("chat_chance", 10);
 	set("chat_msg", ({
-		"苗若兰幽幽地道：当年那个可怜的小男孩现在也不知怎么样了？\n",
-		"苗若兰皱了皱秀眉：爹爹怎么还没上山？\n",
+		"苗若蘭幽幽地道：當年那個可憐的小男孩現在也不知怎麼樣了？\n",
+		"苗若蘭皺了皺秀眉：爹爹怎麼還沒上山？\n",
         }) );
 
 	setup();

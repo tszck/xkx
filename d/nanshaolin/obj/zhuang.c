@@ -7,15 +7,15 @@ void setup()
 
 void create()
 {
-	set_name("梅花桩", ({"meihua zhuang", "zhuang"}));
+	set_name("梅花樁", ({"meihua zhuang", "zhuang"}));
 	set_weight(2000000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "这是一组青竹制成的木桩，高一丈两寸，状成梅花排列。\n");
-		set("unit", "组");
+		set("long", "這是一組青竹製成的木樁，高一丈兩寸，狀成梅花排列。\n");
+		set("unit", "組");
 		set("material", "wood");
-		set("no_get", "这样东西不能离开那儿。\n");
+		set("no_get", "這樣東西不能離開那兒。\n");
 	}
 	setup();
 }
@@ -37,24 +37,24 @@ int do_jump(string arg)
 	}
 	if((int)me->query_skill("dodge",1)>101)
 	{
-		write("你在梅花桩上不停的穿梭来去，但已无法再提高轻功了。\n");
+		write("你在梅花樁上不停的穿梭來去，但已無法再提高輕功了。\n");
 		return 1;
 	}
 	if((int)me->query("qi")<30)
 	{
 		me->receive_damage("qi",10);
-		write("你脚下一个不稳，从梅花桩上栽了下去。\n");
+		write("你腳下一個不穩，從梅花樁上栽了下去。\n");
 		me->unconcious();
 		return 1;
 	}
 	if(lvl * lvl * lvl / 10 > exp)
-		return notify_fail("这样再走下去已无法再提高了。\n");
+		return notify_fail("這樣再走下去已無法再提高了。\n");
 	if (me->query_skill("dodge",1)<31)
 	{
 		me->receive_damage("qi",random(30)); 
 		me->receive_damage("jing",random(30)); 
-		write("你在梅花桩上不停的穿梭来去，对基本轻功有所领悟。\n");
-		message_vision("$N纵身一跃上了梅花桩，在桩上回旋来去。\n", me);
+		write("你在梅花樁上不停的穿梭來去，對基本輕功有所領悟。\n");
+		message_vision("$N縱身一躍上了梅花樁，在樁上回旋來去。\n", me);
 		me->improve_skill("dodge", me->query_dex());
 		return 1;
 	}
@@ -64,8 +64,8 @@ int do_jump(string arg)
 	{
 		me->receive_damage("qi",random(30)); 
 		me->receive_damage("jing",random(30)); 
-		write("你在梅花桩上不停的穿梭来去，对基本轻功有所领悟。\n");
-		message_vision("$N纵身一跃上了梅花桩，在桩上回旋来去。\n", me);
+		write("你在梅花樁上不停的穿梭來去，對基本輕功有所領悟。\n");
+		message_vision("$N縱身一躍上了梅花樁，在樁上回旋來去。\n", me);
 		me->improve_skill("dodge", me->query_dex());
 		return 1;
 	}

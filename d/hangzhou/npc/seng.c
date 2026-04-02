@@ -5,7 +5,7 @@ void create()
 {
 	set_name("老和尚", ({"lao heshang","seng"}));
 	set("long",
-"一个慈眉善目的老和尚。\n"
+"一個慈眉善目的老和尚。\n"
 	);
 
 	set("gender", "男性");

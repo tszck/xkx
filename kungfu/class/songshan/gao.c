@@ -6,8 +6,8 @@ inherit F_MASTER;
 void create()
 {
 	set_name("高克新", ({ "gao kexin", "kexin", "gao" }) );
-	set("long", "他是一个削瘦汉子。嵩山派掌门人的师弟。\n");
-	set("nickname", "锦毛狮");
+	set("long", "他是一個削瘦漢子。嵩山派掌門人的師弟。\n");
+	set("nickname", "錦毛獅");
 	set("gender", "男性");
 	set("class", "swordsman");
 	set("age", 35);

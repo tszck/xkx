@@ -14,7 +14,7 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "堆");
-        				set("long", "一堆不知道什么东西的碎片。\n");
+        				set("long", "一堆不知道什麼東西的碎片。\n");
         }
         setup();
 }

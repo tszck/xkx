@@ -13,12 +13,12 @@ void init()
 
 void create()
 {
-	set_name("诸葛行军散", ({"xingjun san"}));
+	set_name("諸葛行軍散", ({"xingjun san"}));
 
 	set("unit", "包");
-	set("long", "这是一包预防瘴气的药散，带在身上可以预防瘴气。\n");
+	set("long", "這是一包預防瘴氣的藥散，帶在身上可以預防瘴氣。\n");
 	set("value", 0);
-//	set("no_drop", "这样东西不能离开你。\n");
+//	set("no_drop", "這樣東西不能離開你。\n");
 	set_weight(200);
 	setup();
 }

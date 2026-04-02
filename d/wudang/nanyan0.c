@@ -1,4 +1,4 @@
-// Room: nanyan0.c 南岩宫地下室
+// Room: nanyan0.c 南巖宮地下室
 // Date: Oct.5 1997
 #include <login.h>
 #include <ansi.h>
@@ -7,10 +7,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "南岩宫地下室");
+        set("short", "南巖宮地下室");
         set("long", @LONG
-这是一个干燥洁净的地下室，四壁用光滑的大理石砌就，十数支松
-明照得这里通明透亮。
+這是一個乾燥潔淨的地下室，四壁用光滑的大理石砌就，十數支松
+明照得這裏通明透亮。
 LONG );
         set("objects", ([
            CLASS_D("wudang") +"/xiaosong": 1,
@@ -38,13 +38,13 @@ int valid_leave(object me, string dir)
     	fskill = me->query_skill_mapped("force");
        if ( !fskill || me->query_skill(fskill, 1) < 80 )
           {
-              return notify_fail("你试着推了推顶上的砖盖，触手冰凉，纹丝不动。\n"
+              return notify_fail("你試着推了推頂上的磚蓋，觸手冰涼，紋絲不動。\n"
               + "哈哈，你完蛋了。\n");
           }
           message_vision( HIY
-            "$N全身运足"+to_chinese(fskill)+"，拔身错步，嘿地一声，举起双掌向上猛击。只见\n"
-            "一股白气自$N掌心而出，迅猛无比地击中顶上的砖盖。克剌剌一声\n"
-            "巨响，砖盖被震成无数小碎片四散飘飞。露出一个向上的洞口来。\n" NOR, me );
+            "$N全身運足"+to_chinese(fskill)+"，拔身錯步，嘿地一聲，舉起雙掌向上猛擊。只見\n"
+            "一股白氣自$N掌心而出，迅猛無比地擊中頂上的磚蓋。克剌剌一聲\n"
+            "巨響，磚蓋被震成無數小碎片四散飄飛。露出一個向上的洞口來。\n" NOR, me );
        me->move(__DIR__"nanyangong");
        return notify_fail("");
      }

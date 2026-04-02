@@ -1,13 +1,13 @@
-// meng.c 孟正鹏
+// meng.c 孟正鵬
  
 inherit NPC;
  
 void create()
 {
-	set_name("孟正鹏", ({ "meng  zhengpeng", "meng" }));
-	set("nickname", "五凤刀掌门");
+	set_name("孟正鵬", ({ "meng  zhengpeng", "meng" }));
+	set("nickname", "五鳳刀掌門");
 	set("long", 
-	"五凤刀的掌门，一身刀法传说甚为了得。\n");
+	"五鳳刀的掌門，一身刀法傳說甚爲了得。\n");
 	set("gender", "男性");
 	set("age", 52);
 	set("attitude", "peaceful");

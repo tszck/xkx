@@ -6,8 +6,8 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIW"钢芯钥匙"NOR, ({"gang yaoshi", "yaoshi"}));
-	set("long", "这是一把钢芯钥匙，看起来非常坚固。\n");
+	set_name(HIW"鋼芯鑰匙"NOR, ({"gang yaoshi", "yaoshi"}));
+	set("long", "這是一把鋼芯鑰匙，看起來非常堅固。\n");
 	set("unit", "把");
 	set("weight", 10);
 }

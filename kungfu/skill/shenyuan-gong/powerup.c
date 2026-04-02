@@ -11,21 +11,21 @@ int exert(object me, object target)
   !me->query("perform/powerup") &&
   !me->query("can_perform/shenyuan-gong/powerup") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("你所使用的内功中没有这种功能。");
+   return notify_fail("你所使用的內功中沒有這種功能。");
 
 	if( target != me )
-		return notify_fail("你只能用神元功提升自己的战斗力。\n");
+		return notify_fail("你只能用神元功提升自己的戰鬥力。\n");
 	if( (int)me->query("neili") < 100 )
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if( (int)me->query_temp("powerup") )
-		return notify_fail("你已经在运功中了。\n");
+		return notify_fail("你已經在運功中了。\n");
 
 	skill = me->query_skill("force");
 
 	me->add("neili", -100);
 	me->receive_damage("qi",0);
 
-	message_combatd(HIY"$N长袖一拂，两道劲气如飞矢般射出，将两袖扯个笔直。\n" NOR, me);
+	message_combatd(HIY"$N長袖一拂，兩道勁氣如飛矢般射出，將兩袖扯個筆直。\n" NOR, me);
 
 	me->add_temp("apply/attack", skill/3);
 	me->add_temp("apply/dodge", skill/3);
@@ -40,7 +40,7 @@ void remove_effect(object me, int amount)
 	me->add_temp("apply/attack", - amount);
 	me->add_temp("apply/dodge", - amount);
 	me->delete_temp("powerup");
-	tell_object(me, "你的神元功运行完毕，将内力收回丹田。\n");
+	tell_object(me, "你的神元功運行完畢，將內力收回丹田。\n");
 }
 
 int help(object me)
@@ -49,10 +49,10 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		提升自己的攻击防御能力
+		提升自己的攻擊防禦能力
 
 	出手要求：
-	        内力100
+	        內力100
 HELP
 	);
 	return 1;

@@ -12,7 +12,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "副");
-		set("long", "这是五个环环相链的铁指套，前端锋利如刃，既可暗藏掌中伤人，又可保护指关节。\n");
+		set("long", "這是五個環環相鏈的鐵指套，前端鋒利如刃，既可暗藏掌中傷人，又可保護指關節。\n");
 		set("value", 6000);
 		set("material", "steel");
 		set("armor_prop/armor", 5);

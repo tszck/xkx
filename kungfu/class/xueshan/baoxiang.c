@@ -1,4 +1,4 @@
-// /kungfu/class/xueshan/baoxiang.c  宝象
+// /kungfu/class/xueshan/baoxiang.c  寶象
 // by secret
 
 #include <ansi.h>
@@ -8,12 +8,12 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("宝象", ({ "bao xiang", "bao", "xiang" }));
+        set_name("寶象", ({ "bao xiang", "bao", "xiang" }));
         set("long",@LONG
-一个极高极瘦的僧人，俩眼凶芒四射。此人在血刀老祖门下，最是心狠手辣。
+一個極高極瘦的僧人，倆眼兇芒四射。此人在血刀老祖門下，最是心狠手辣。
 LONG
         );
-        set("title",HIR"血刀门第五代弟子"NOR);
+        set("title",HIR"血刀門第五代弟子"NOR);
         set("gender", "男性");
         set("age", 35);
         set("attitude", "peaceful");
@@ -76,13 +76,13 @@ void attempt_apprentice(object ob)
         }
         if (ob->query("shen") > 0)
         {
-                command("say 我正想找你们侠义道的晦气。\n");
+                command("say 我正想找你們俠義道的晦氣。\n");
                 this_object()->kill_ob(ob);
                 return;
         }
         if ((int)ob->query_skill("longxiang", 1) < 30)
         {
-                command("say 入我血刀门，修习龙象功法是首要的。\n");
+                command("say 入我血刀門，修習龍象功法是首要的。\n");
                 return;
         }
         command("haha");
@@ -93,6 +93,6 @@ int recruit_apprentice(object ob)
 {
         if( ::recruit_apprentice(ob) )
 		       {
-        ob->set("title", HIR "血刀门第六代弟子" NOR);
+        ob->set("title", HIR "血刀門第六代弟子" NOR);
  				  }
 }

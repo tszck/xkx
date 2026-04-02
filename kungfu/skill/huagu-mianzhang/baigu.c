@@ -19,17 +19,17 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if( me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail(PNAME"开始时不能拿着兵器！\n");
+		return notify_fail(PNAME"開始時不能拿着兵器！\n");
 
 	fskill = "dafa";
 	bskill = "strike";
@@ -43,15 +43,15 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"火候不够，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"火候不夠，使不出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 
 	if ((int)me->query("neili")<400 || (int)me->query("max_neili")<400)
-		return notify_fail(RED"你内力修为不足，无法运足内力。\n"NOR);
+		return notify_fail(RED"你內力修爲不足，無法運足內力。\n"NOR);
 
-	msg = BLU "$N"BLU"面无表情，蓦然游身而上，绕着$n"BLU"疾转数圈，猛地身形一缩，转到$n"BLU"身前，右手划出一道光圈，往$n"BLU"丹田印了下去！\n"NOR;
+	msg = BLU "$N"BLU"面無表情，驀然遊身而上，繞着$n"BLU"疾轉數圈，猛地身形一縮，轉到$n"BLU"身前，右手劃出一道光圈，往$n"BLU"丹田印了下去！\n"NOR;
 
 	if(random(me->query("combat_exp")) > (int)target->query("combat_exp")/3)
 	{
@@ -61,12 +61,12 @@ int perform(object me, object target)
 		if (damage < 300) damage = 300;
 		if (damage > target->query("neili")) damage = target->query("neili");
 		target->add("neili",-damage);		
-		msg +=CYN"$n"CYN"匆忙闪身，却已不及，只觉浑身真气难聚，人如软泥般向后瘫倒！\n"NOR;
+		msg +=CYN"$n"CYN"匆忙閃身，卻已不及，只覺渾身真氣難聚，人如軟泥般向後癱倒！\n"NOR;
 		me->add("neili", -damage/4);
 	} else
 	{
 		me->start_busy(2);
-		msg += HIY"可是$p也随着纵身斜跃，避开了丹田要害。\n"NOR;
+		msg += HIY"可是$p也隨着縱身斜躍，避開了丹田要害。\n"NOR;
 		me->add("neili",-100);
 	}
 	message_combatd(msg, me, target);
@@ -81,13 +81,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方内力
-		迟滞对方出手
+		損傷對方內力
+		遲滯對方出手
 
 	出手要求：
-		毒龙大法100级
-		化骨绵掌150级
-		内力400
+		毒龍大法100級
+		化骨綿掌150級
+		內力400
 HELP
 	);
 	return 1;

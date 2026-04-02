@@ -6,7 +6,7 @@ inherit F_MASTER;
 void create()
 {
 	set_name("瞎子", ({ "xia zi", "xia", "zi" }) );
-	set("long", "这就是被令狐冲刺瞎的瞎子。");
+	set("long", "這就是被令狐沖刺瞎的瞎子。");
 	set("gender", "男性");
 	set("class", "swordsman");
 	set("age", 25);

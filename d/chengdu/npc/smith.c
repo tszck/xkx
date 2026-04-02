@@ -6,13 +6,13 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("铁匠", ({ "tiejiang", "smith" }));
-	set("title", "铁匠铺老板");
+	set_name("鐵匠", ({ "tiejiang", "smith" }));
+	set("title", "鐵匠鋪老闆");
 	set("shen_type", 1);
 
 	set("gender", "男性" );
 	set("age", 33);
-	set("long", "铁匠正用铁钳夹住一块红热的铁块放进炉中。\n");
+	set("long", "鐵匠正用鐵鉗夾住一塊紅熱的鐵塊放進爐中。\n");
 
 	set("combat_exp", 400);
 	set("attitude", "friendly");
@@ -52,8 +52,8 @@ void compelete_trade(object who, string what)
 	if( what=="changjian" )  ob = new(__DIR__"changjian");
 	ob->move(who);
 	if( what=="hammer" )
-message_vision("$N交给$n一把沈甸甸的打铁用铁锤。\n", this_object(), who);
+message_vision("$N交給$n一把沈甸甸的打鐵用鐵錘。\n", this_object(), who);
 	if( what=="changjian" )
-message_vision("$N交给$n一把青光闪闪的长剑。\n", this_object(), who);
+message_vision("$N交給$n一把青光閃閃的長劍。\n", this_object(), who);
 }
 */ 

@@ -1,11 +1,11 @@
-// 这是玩家自创武功程序。
+// 這是玩家自創武功程序。
 // waiter
 // 店小二
-// 武林至尊逍遥派护法使者
+// 武林至尊逍遙派護法使者
 // 15395700
 // 男性
 // sword
-// 龙腾
+// 龍騰
 #include <ansi.h>
 inherit SKILL;
 string type() { return "martial"; }

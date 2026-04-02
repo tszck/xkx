@@ -5,10 +5,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "悬根松");
+	set("short", "懸根松");
 	set("long", @LONG
-就在虎风口这个风口险地，却有一株古松，虽被大风吹得树根裸露，
-千百年来仍迎风挺立，这就是恒山著名的“梵宫悬根”。
+就在虎風口這個風口險地，卻有一株古松，雖被大風吹得樹根裸露，
+千百年來仍迎風挺立，這就是恆山著名的“梵宮懸根”。
 LONG);
 	set("exits", ([ /* sizeof() == 4 */
 		"east"      : __DIR__"hufengkou",

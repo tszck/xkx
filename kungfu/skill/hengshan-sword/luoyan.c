@@ -1,9 +1,9 @@
-// luoyan.c 回风落雁
+// luoyan.c 迴風落雁
 // Last Modified by ahda on Aug.31 2001
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "「回风落雁」"
+#define PNAME "「迴風落雁」"
 
 int perform(object me,object target)
 {
@@ -20,18 +20,18 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	fskill = "huiyan-xinfa";
 	bskill = "sword";
@@ -45,15 +45,15 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 80 )
-		return notify_fail("你的"+to_chinese(fskill)+"等级不够, 不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"等級不夠, 不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 80 )
-		return notify_fail("你的"+to_chinese(sskill)+"等级不够, 不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"等級不夠, 不能使用"+PNAME+"。\n");
 
 	if( me->query("neili") < 250 )
-		return notify_fail("你的内力不够，无法运用"PNAME"！\n");
+		return notify_fail("你的內力不夠，無法運用"PNAME"！\n");
 
-	msg = HIC"$N"HIC"一声长啸，剑附内力，一式「回风落雁」，"+weapon->name()+HIC"疾如闪电，瞬间罩住$n"HIC"全身各处大穴。\n剑影中，只见$N微一侧身，右手翻转，寒光中"+weapon->name()+"突然自上而下刺出，直指$n"HIC"身上要害 \n" NOR;
+	msg = HIC"$N"HIC"一聲長嘯，劍附內力，一式「迴風落雁」，"+weapon->name()+HIC"疾如閃電，瞬間罩住$n"HIC"全身各處大穴。\n劍影中，只見$N微一側身，右手翻轉，寒光中"+weapon->name()+"突然自上而下刺出，直指$n"HIC"身上要害 \n" NOR;
 	message_combatd(msg, me, target);
 
 	ap = me->query("combat_exp");
@@ -62,7 +62,7 @@ int perform(object me,object target)
 	if( random(ap) > dp )
 	{
 		if(userp(me)) me->add("neili",-200);
-		msg = HIY"$n顿时觉得眼前金光乱闪，双耳嗡嗡内鸣，不知那里一阵刺痛如针扎一般！\n" NOR;
+		msg = HIY"$n頓時覺得眼前金光亂閃，雙耳嗡嗡內鳴，不知那裏一陣刺痛如針扎一般！\n" NOR;
 		qi_wound = (int)me->query_skill(bskill,1) * 2;
 		qi_wound = qi_wound/2 + random(qi_wound);
 
@@ -74,7 +74,7 @@ int perform(object me,object target)
 	else
 	{
 		if(userp(me)) me->add("neili",-100);
-		msg =HIW"可是$n宁神静气，随手将$N的招数撇在一边。\n"NOR;
+		msg =HIW"可是$n寧神靜氣，隨手將$N的招數撇在一邊。\n"NOR;
 		me->start_busy(random(3));
 	}
 	message_combatd(msg, me, target);
@@ -89,12 +89,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
+		損傷對方氣血
 
 	出手要求：
-		回雁心法80级
-		衡山剑法90级
-		内力250
+		回雁心法80級
+		衡山劍法90級
+		內力250
 HELP
 	);
 	return 1;

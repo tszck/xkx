@@ -9,7 +9,7 @@ void create()
         set("gender", "女性" );
         set("age", 65);
         set("combat_exp",100);
-        set("long","这老婆婆看起来慈眉善目，特别可亲。\n");
+        set("long","這老婆婆看起來慈眉善目，特別可親。\n");
         set("attitude", "friendly");
         setup();
         carry_object("/clone/misc/cloth")->wear();

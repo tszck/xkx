@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "驻鹤庄");
+	set("short", "駐鶴莊");
 	set("long", @LONG
-驻鹤庄相传为仙人休息赏玩之所。常有成群丹顶鹤栖息、飞鸣
-于林间。
+駐鶴莊相傳爲仙人休息賞玩之所。常有成羣丹頂鶴棲息、飛鳴
+於林間。
 LONG );
 	set("outdoors", "qingcheng");
 	set("exits", ([

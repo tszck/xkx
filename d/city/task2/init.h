@@ -1,4 +1,4 @@
-// init.h 定义杀手检查，自己消失的时间
+// init.h 定義殺手檢查，自己消失的時間
 #define A_TIME 20
 
 void init()
@@ -78,7 +78,7 @@ void do_check()
 	    if( ! living(me)&& ob = present("ren zhi",environment(me)))    
                 { 
                   ob -> add("combat_num",1);
-                message_vision("$N咬牙切齿地对着天空大叫：“贼老天！”\n",me);
+                message_vision("$N咬牙切齒地對着天空大叫：“賊老天！”\n",me);
                  }
                 remove_call_out("do_check");
 		call_out("do_check",0);
@@ -95,7 +95,7 @@ void do_check()
 			if (! environment()->query("no_fight") )
 			{
 				me->set_leader(ob);
-				message_vision("$N对着$n大喝一声：你这"+RANK_D->query_rude(ob)+"，拿命来！\n",me,ob);
+				message_vision("$N對着$n大喝一聲：你這"+RANK_D->query_rude(ob)+"，拿命來！\n",me,ob);
 				me->kill_ob(ob);
 				command("kill "+ob->query("id"));
                               //  if(!ob->is_busy())   ob->start_busy(20);
@@ -129,12 +129,12 @@ void do_wait()
 	{
 		if (ob = present("corpse",environment(me)))
 		{
-			message_vision("$N狂笑道：人质既死，我可以回去交差了。\n一阵烟尘过后，$N的身影飞快地消失了。\n",this_object());
+			message_vision("$N狂笑道：人質既死，我可以回去交差了。\n一陣煙塵過後，$N的身影飛快地消失了。\n",this_object());
 			destruct(me);
 		}
 		else
 		{
-			message_vision("$N自言自语地说道：看来人质不会从这里来了，我还是回去吧。\n$N满面无奈地向远处走了开去。\n",this_object());
+			message_vision("$N自言自語地說道：看來人質不會從這裏來了，我還是回去吧。\n$N滿面無奈地向遠處走了開去。\n",this_object());
 			destruct(me);
 		}
 	}
@@ -146,7 +146,7 @@ void killed_enemy(object victim)
 
 	if (victim->query("id") == "ren zhi")
 	{
-		message_vision("$N仰天狂笑一声：哈哈，终于得手了！说罢，几个起落，身形消失在远处的屋檐角。\n",me);
+		message_vision("$N仰天狂笑一聲：哈哈，終於得手了！說罷，幾個起落，身形消失在遠處的屋檐角。\n",me);
 		destruct(me);
 	}
 }

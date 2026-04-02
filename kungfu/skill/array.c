@@ -12,13 +12,13 @@ int power_point(object me) { return 1; }
 
 int help(object me)
 {
-	write(HIC"\n基本阵法："NOR"\n");
+	write(HIC"\n基本陣法："NOR"\n");
 	write(@HELP
 
-    桃花岛弟子布阵所用基本技能。
+    桃花島弟子佈陣所用基本技能。
 
-	学习要求：
-		无
+	學習要求：
+		無
 HELP
 	);
 	return 1;

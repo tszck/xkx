@@ -4,13 +4,13 @@ inherit NPC;
 void create()
 {
         set_name("包拯", ({ "bao zheng", "bao", "zheng" }));
-        set("title", HIY "龙图大学士" NOR);
+        set("title", HIY "龍圖大學士" NOR);
         set("gender", "男性");
         set("age", 53);
         set("str", 20);
         set("dex", 20);
-        set("long", "他就是朝中的龙图大学士包丞相。只见他面色黝\n"
-                    "黑，相貌清奇，气度不凡。让你不由自主，好生\n"
+        set("long", "他就是朝中的龍圖大學士包丞相。只見他面色黝\n"
+                    "黑，相貌清奇，氣度不凡。讓你不由自主，好生\n"
                     "敬仰\n");
         set("combat_exp", 3000000);
         set("shen_type", 1);

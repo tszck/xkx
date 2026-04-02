@@ -1,5 +1,5 @@
 // Last Modified by winder on May. 29 2001
-// jingang-cuff.c 大金刚拳 不能互备 截自佛经中之“八正道”。
+// jingang-cuff.c 大金剛拳 不能互備 截自佛經中之“八正道”。
 
 #include <ansi.h>
 inherit "/inherit/skill/cuff.c";
@@ -7,35 +7,35 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
  
 mapping *action = ({
-([	"action" : "$N双臂一挥，第一式"HIY"「正见」"NOR"打出，以通臂之势，拳消力不消，劲风直逼$n而去",
+([	"action" : "$N雙臂一揮，第一式"HIY"「正見」"NOR"打出，以通臂之勢，拳消力不消，勁風直逼$n而去",
 	"lvl"   : 0,
-	"skill_name" : "正见"
+	"skill_name" : "正見"
 ]),
-([	"action" : "$N躬腰曲背，左臂一抡，架起一道气墙，接着右手握拳，对着$n，一招"HIY"「正思」"NOR"穿墙而出",
+([	"action" : "$N躬腰曲背，左臂一掄，架起一道氣牆，接着右手握拳，對着$n，一招"HIY"「正思」"NOR"穿牆而出",
 	"lvl" : 10,
 	"skill_name" : "正思"
 ]),
-([	"action" : "$N一个马步式"HIY"「正业」"NOR"，双拳凝力，跟着两臂相并，对准$n$l一式挥出，劲力异常",
+([	"action" : "$N一個馬步式"HIY"「正業」"NOR"，雙拳凝力，跟着兩臂相併，對準$n$l一式揮出，勁力異常",
 	"lvl" : 20,
-	"skill_name" : "正业"
+	"skill_name" : "正業"
 ]),
-([	"action" : "$N使出一招"HIY"「正语」"NOR"，双臂连连挥动，拳风伴着口中的狮子吼，如猛兽下山般袭向$n",
+([	"action" : "$N使出一招"HIY"「正語」"NOR"，雙臂連連揮動，拳風伴着口中的獅子吼，如猛獸下山般襲向$n",
 	"lvl" : 40,
-	"skill_name" : "正语"
+	"skill_name" : "正語"
 ]),
-([	"action" : "$N单臂抡起一式"HIY"「正命」"NOR"打出，接着又是一拳相随，后浪推前浪，两波劲力合击$n",
+([	"action" : "$N單臂掄起一式"HIY"「正命」"NOR"打出，接着又是一拳相隨，後浪推前浪，兩波勁力合擊$n",
 	"lvl" : 60,
 	"skill_name" : "正命"
 ]),
-([	"action" : "$N挥出数拳，正当$n质疑这花拳之势时，一股劲风爆出，正对$p胸口，是招虚实的"HIY"「正勤」"NOR"",
+([	"action" : "$N揮出數拳，正當$n質疑這花拳之勢時，一股勁風爆出，正對$p胸口，是招虛實的"HIY"「正勤」"NOR"",
 	"lvl" : 70,
 	"skill_name" : "正勤"
 ]),
-([	"action" : "$N口颂佛经，打出一招"HIY"「正念」"NOR"，直轰$n前胸，拳风至刚至阳，正大光明，不带丝毫阴气",
+([	"action" : "$N口頌佛經，打出一招"HIY"「正念」"NOR"，直轟$n前胸，拳風至剛至陽，正大光明，不帶絲毫陰氣",
  	"lvl" : 80,
 	"skill_name" : "正念"
 ]),
-([	"action" : "只见$N合十而立，以这"HIY"「正定」"NOR"一招为本，以身为拳，劲力布满全身，重重压向$n",
+([	"action" : "只見$N合十而立，以這"HIY"「正定」"NOR"一招爲本，以身爲拳，勁力佈滿全身，重重壓向$n",
 	"lvl" : 100,
 	"skill_name" : "正定"
 ]),
@@ -45,22 +45,22 @@ int valid_enable(string usage) { return usage=="cuff" || usage=="parry"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		 return notify_fail("练大金刚拳必须空手。\n");
+		 return notify_fail("練大金剛拳必須空手。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 140)
-		 return notify_fail("你的站桩功火候不够，无法学大金刚拳。\n");
+		 return notify_fail("你的站樁功火候不夠，無法學大金剛拳。\n");
 	if ((int)me->query("max_neili") < 2000)
-		return notify_fail("你的内力太弱，无法练大金刚拳。\n");
+		return notify_fail("你的內力太弱，無法練大金剛拳。\n");
 	if ((me->query_skill("shaolin-cuff", 1) < 50) ||
 		(me->query_skill("one-finger", 1) < 50))
-		return notify_fail("你的少林南拳和一指禅火候不够，无法学大金刚拳。\n");
+		return notify_fail("你的少林南拳和一指禪火候不夠，無法學大金剛拳。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if ((int)me->query("qi") < 50)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够练大金刚拳。\n");
+		return notify_fail("你的內力不夠練大金剛拳。\n");
 	me->receive_damage("qi", 45);
 	me->add("neili", -20);
 	return 1;
@@ -87,16 +87,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : "瘀伤",
+		"damage_type" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 0; }
@@ -111,16 +111,16 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\n大金刚拳："NOR"\n");
+	write(HIC"\n大金剛拳："NOR"\n");
 	write(@HELP
 
-    大金刚拳是南少林高级拳法，出自佛经中之“八正道”。
+    大金剛拳是南少林高級拳法，出自佛經中之“八正道”。
 
-	学习要求：
-		站桩功140级
-		少林南拳50级
-		一指禅50级
-		内力修为2000
+	學習要求：
+		站樁功140級
+		少林南拳50級
+		一指禪50級
+		內力修爲2000
 
 HELP
 	);

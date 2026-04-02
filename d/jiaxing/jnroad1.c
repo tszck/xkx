@@ -7,8 +7,8 @@ void create()
 {
 	set("short", "山路");
 	set("long", @LONG
-你走在江南的一条山路上，到处莺飞草长。时值春日，路旁的山坡
-上开满了金黄色的油菜花。
+你走在江南的一條山路上，到處鶯飛草長。時值春日，路旁的山坡
+上開滿了金黃色的油菜花。
 LONG );
 	set("exits", ([
 		"northwest" : "/d/taishan/yidao1",

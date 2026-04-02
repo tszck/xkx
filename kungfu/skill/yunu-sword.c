@@ -1,4 +1,4 @@
-// yunu-sword.c 玉女金针十三剑
+// yunu-sword.c 玉女金針十三劍
 // Last Modified by sir 10.22.2001
 
 #include <ansi.h>
@@ -7,24 +7,24 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"skill_name" : "穿针引线",
-	"action":  "$N使一招"HIM"「穿针引线」"NOR"，脚踏中宫，手中$w直指$n$l",
+([	"skill_name" : "穿針引線",
+	"action":  "$N使一招"HIM"「穿針引線」"NOR"，腳踏中宮，手中$w直指$n$l",
 	"lvl" : 0
 ]),
-([	"skill_name" : "天衣无缝",
-	"action":  "$N剑随身转，一招"HIB"「天衣无缝」"NOR"，撒出一片剑影，罩向$n的$l",
+([	"skill_name" : "天衣無縫",
+	"action":  "$N劍隨身轉，一招"HIB"「天衣無縫」"NOR"，撒出一片劍影，罩向$n的$l",
 	"lvl" : 10
 ]),
-([	"skill_name" : "夜绣鸳鸯",
-	"action":  "$N舞动$w，使出一招"HIG"「夜绣鸳鸯」"NOR"剑光忽左忽右，闪烁不定，直刺$n的$l",
+([	"skill_name" : "夜繡鴛鴦",
+	"action":  "$N舞動$w，使出一招"HIG"「夜繡鴛鴦」"NOR"劍光忽左忽右，閃爍不定，直刺$n的$l",
 	"lvl" : 20
 ]),
-([	"skill_name" : "织女穿梭",
-	"action":  "$N一声娇喝，祭出"HIW"「织女穿梭」"NOR"，手中$w化为一道弧光，射向$n的$l",
+([	"skill_name" : "織女穿梭",
+	"action":  "$N一聲嬌喝，祭出"HIW"「織女穿梭」"NOR"，手中$w化爲一道弧光，射向$n的$l",
 	"lvl" : 30
 ]),
-([	"skill_name" :  "小鸟依人",
-	"action":  "$N忽然蹂身直上，一招"HIR"「小鸟依人」"NOR"，手中$w自下往上刺向$n的$l",
+([	"skill_name" :  "小鳥依人",
+	"action":  "$N忽然蹂身直上，一招"HIR"「小鳥依人」"NOR"，手中$w自下往上刺向$n的$l",
 	"lvl" : 40
 ]),
 });
@@ -34,14 +34,14 @@ int valid_learn(object me)
 {
 	object ob;
 	if( (string)me->query("gender") != "女性" )
-		return notify_fail("玉女金针十三剑是只有女子才能练的武功。\n");
+		return notify_fail("玉女金針十三劍是隻有女子才能練的武功。\n");
 	if( (int)me->query("max_neili") < 50 )
-		return notify_fail("你的内力不够，没有办法练玉女金针十三剑。\n") ;
+		return notify_fail("你的內力不夠，沒有辦法練玉女金針十三劍。\n") ;
 	if( (string)me->query_skill_mapped("force")!= "zixia-shengong")
-		return notify_fail("玉女金针十三剑必须配合紫霞神功才能练。\n");
+		return notify_fail("玉女金針十三劍必須配合紫霞神功才能練。\n");
 	if( !(ob = me->query_temp("weapon"))
 		|| (string)ob->query("skill_type") != "sword" )
-		return notify_fail("你必须先找一把剑才能练剑法。\n");
+		return notify_fail("你必須先找一把劍才能練劍法。\n");
 
 	return 1;
 }
@@ -51,12 +51,12 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if( (int)me->query("qi") < 35 || (int)me->query("neili") < 15 )
-		return notify_fail("你的内力或气不够，没有办法练习玉女金针十三剑。\n");
+		return notify_fail("你的內力或氣不夠，沒有辦法練習玉女金針十三劍。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -15);
-//	write("你按著所学练了一遍玉女金针十三剑。\n");
+//	write("你按著所學練了一遍玉女金針十三劍。\n");
 	return 1;
 }
 string query_skill_name(int level)
@@ -83,17 +83,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "劈伤" : "刺伤",
+		"damage_type" : random(2) ? "劈傷" : "刺傷",
 	]);
 }
 int learn_bonus() { return 25; }
@@ -111,15 +111,15 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIC"\n玉女金针十三剑："NOR"\n");
+	write(HIC"\n玉女金針十三劍："NOR"\n");
 	write(@HELP
 
-    玉女金针十三剑是岳夫人宁中则传给女弟子的华山派剑法。
+    玉女金針十三劍是嶽夫人甯中則傳給女弟子的華山派劍法。
 
-	学习要求：
+	學習要求：
 		女性
 		紫霞神功
-		内力50
+		內力50
 HELP
 	);
 	return 1;

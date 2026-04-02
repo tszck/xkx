@@ -6,16 +6,16 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "小花园");
+	set("short", "小花園");
 	set("long", @LONG
-这是个不大的花园，中间一堆假山，一条小溪。旁边种满了各类花
-草，芳香宜人。北面有一道锁着的铁门(tiemen)，可以通往另一个院子。
+這是個不大的花園，中間一堆假山，一條小溪。旁邊種滿了各類花
+草，芳香宜人。北面有一道鎖着的鐵門(tiemen)，可以通往另一個院子。
 LONG);
 	set("exits", ([
 		"west" : __DIR__"tuitang",
 	]));
 	set("item_desc", ([		
-		"tiemen" : "\n这道铁门极其沉重，看来没有几百斤臂力推它不动。真是奇怪为\n何会有如此铁门在此，就连一般人都可以翻越(climb)旁边的矮墙。\n",
+		"tiemen" : "\n這道鐵門極其沉重，看來沒有幾百斤臂力推它不動。真是奇怪爲\n何會有如此鐵門在此，就連一般人都可以翻越(climb)旁邊的矮牆。\n",
 	]));
 	set("outdoors", "baituo");
 	set("coor/x", -49900);
@@ -43,12 +43,12 @@ int do_fan(string arg)
 	dex = this_player()->query_dex();
 	me = this_player();	
 	if( (int)me->query("hamagong") ) 
-		return notify_fail("你正想翻过墙去，突然有了一股想推开铁门的冲动。\n");
+		return notify_fail("你正想翻過牆去，突然有了一股想推開鐵門的衝動。\n");
 	if (dex < 18 )
-		return notify_fail("这矮墙虽矮，你却怎么也翻不过去。\n");
+		return notify_fail("這矮牆雖矮，你卻怎麼也翻不過去。\n");
 	if (dex > 17 && dex < 25)
 	{
-		message_vision("$N双手在矮墙上一按，一翻身便纵了过去。\n", me);
+		message_vision("$N雙手在矮牆上一按，一翻身便縱了過去。\n", me);
 		me->set_temp("baituo_climb", 1);
 		me->move(__DIR__"shetan");
 		me->start_busy(2);
@@ -56,7 +56,7 @@ int do_fan(string arg)
 	}
 	if (dex > 24 && dex < 36)
 	{
-		message_vision("$N运功提气轻轻一纵，便跃了过去。\n", me);
+		message_vision("$N運功提氣輕輕一縱，便躍了過去。\n", me);
 		me->set_temp("baituo_climb1", 1);
 		me->move(__DIR__"shetan");
 		me->start_busy(2);
@@ -64,7 +64,7 @@ int do_fan(string arg)
 	}
 	if (dex > 35)
 	{
-		message_vision("$N脚尖轻轻一点，高高跃起，飘了进去。\n", me);
+		message_vision("$N腳尖輕輕一點，高高躍起，飄了進去。\n", me);
 		me->set_temp("baituo_climb2", 1);
 		me->move(__DIR__"shetan");
 		me->start_busy(2);
@@ -83,33 +83,33 @@ int do_push(string arg)
 	{
 		if( (int)me->query_skill("hamagong", 1))
 		{
-			message_vision("$N蹲下身子，双掌平伸推向铁门。\n", me);
-			message_vision("铁门突然打开，$N一没留神滚了进去。铁门却又合上了。\n", me);
+			message_vision("$N蹲下身子，雙掌平伸推向鐵門。\n", me);
+			message_vision("鐵門突然打開，$N一沒留神滾了進去。鐵門卻又合上了。\n", me);
 			me->add("neili", -100);
 			me->receive_damage("qi", 50);
 			me->move(__DIR__"yuanzi1");
 			return 1;
 		}
 		if (str < 21 )
-			return notify_fail("你使出了吃奶的力气，可就是推不动这铁门。\n");
+			return notify_fail("你使出了喫奶的力氣，可就是推不動這鐵門。\n");
 		if (str > 20 && str < 30)
 		{
-			message_vision("$N使出全身力气推向铁门，可铁门只轻轻动了一下。\n", me);
+			message_vision("$N使出全身力氣推向鐵門，可鐵門只輕輕動了一下。\n", me);
 			me->add("neili", -300);
 			me->receive_damage("qi", 200);
 			return 1;
 		}
 		if (str > 29 && str < 38)
 		{
-			message_vision("$N运功提气猛地推向铁门，铁门发出了轰轰的震动声，看来马上就可以推开了。\n可这时$N的力气刚好使完，只得作罢。\n", me);
+			message_vision("$N運功提氣猛地推向鐵門，鐵門發出了轟轟的震動聲，看來馬上就可以推開了。\n可這時$N的力氣剛好使完，只得作罷。\n", me);
 			me->add("neili", -300);
 			me->receive_damage("qi", 200);
 			return 1;
 		}
 		if (str > 37)
 		{
-			message_vision("$N内劲运转，双掌平伸推向铁门。\n", me);
-			message_vision("铁门突然打开，$N一没留神滚了进去。铁门却又合上了。\n", me);
+			message_vision("$N內勁運轉，雙掌平伸推向鐵門。\n", me);
+			message_vision("鐵門突然打開，$N一沒留神滾了進去。鐵門卻又合上了。\n", me);
 			me->add("neili", -300);
 			me->receive_damage("qi", 200);
 			me->move(__DIR__"yuanzi1");
@@ -125,11 +125,11 @@ int do_wen(string arg)
 	con = this_player()->query_con();
 
 	if ( con > 29 && con < 37)
-		write( "你轻轻吸了吸气，突然感觉到花香中隐隐带有股腥味。但闻不出是从哪儿来的。\n");
+		write( "你輕輕吸了吸氣，突然感覺到花香中隱隱帶有股腥味。但聞不出是從哪兒來的。\n");
 	if ( con > 36 )
-		write( "你轻轻吸了吸气，突然感觉到花香中隐隐带有股腥味。好象是从铁门那边的院子飘来的。\n");
+		write( "你輕輕吸了吸氣，突然感覺到花香中隱隱帶有股腥味。好象是從鐵門那邊的院子飄來的。\n");
 	if ( con < 30 )
-		write("你轻轻吸了吸气，全是芬芳的花香，你都快醉了。\n");
+		write("你輕輕吸了吸氣，全是芬芳的花香，你都快醉了。\n");
 	return 1;	
 }
 

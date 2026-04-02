@@ -6,12 +6,12 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "房间");
+        set("short", "房間");
         set("long", @LONG
-你只觉得眼前陡然一亮，一个宫装的美女，正拿着一把长剑，对准
-了你的胸膛！。。。。一场虚惊之后，你才发现原来只是个白玉雕成的
-玉像，但是看上去却与真人一般无异。玉像的一双眸子莹然有光，神采
-飞扬。你此时只觉得神驰目眩，竟如着魔中邪，眼光再也离不开玉像。
+你只覺得眼前陡然一亮，一個宮裝的美女，正拿着一把長劍，對準
+了你的胸膛！。。。。一場虛驚之後，你才發現原來只是個白玉雕成的
+玉像，但是看上去卻與真人一般無異。玉像的一雙眸子瑩然有光，神采
+飛揚。你此時只覺得神馳目眩，竟如着魔中邪，眼光再也離不開玉像。
 。。。
 LONG );
 	set("exits", ([
@@ -44,8 +44,8 @@ int do_kneel(string arg)
 	if ( arg != "putuan") return 0;
 	if (!present("putuan",environment(me))) return 0;
 	if (me->query_temp("marks/kneel") == 1 )
-		return notify_fail("你已经跪下来了。\n");
-	message_vision("$N双膝一屈，跪了下来。\n", me);
+		return notify_fail("你已經跪下來了。\n");
+	message_vision("$N雙膝一屈，跪了下來。\n", me);
 	me->add_temp("marks/kneel",1);
 	return 1;
 }
@@ -59,7 +59,7 @@ int do_ketou()
 	if (!present("putuan",environment(me))) return 0;
 	if ( me->query_temp("ketou_times") == 0 )
 	{
-		message_vision("$N磕头太拼命了。\n", me);
+		message_vision("$N磕頭太拼命了。\n", me);
 		me->set_temp("ketou_times", random(50));
 		me->unconcious();
 		return 1;
@@ -67,7 +67,7 @@ int do_ketou()
 
 	me->add_temp("ketou_times", -1);	
 
-	message_vision("$N恭恭敬敬地给玉像磕头。咚、咚、咚。。。。\n", me);
+	message_vision("$N恭恭敬敬地給玉像磕頭。咚、咚、咚。。。。\n", me);
 
 	if ( random(100) == 37 
 	&& !present("bojuan", me)
@@ -77,9 +77,9 @@ int do_ketou()
 		ob=new("/clone/book/bojuan");
 		if (ob->violate_unique()) {destruct(ob);return 1;}
 		ob->move(me);
-message("channel:rumor", MAG"【谣言】某人："+this_player()->query("name")+"取到了北冥神功帛卷啦。\n"NOR, users());
-		tell_object(me, "突然，你发现小蒲团面上的一层薄薄的蒲草已然破裂，露出下面有物！\n");
-		tell_object(me, "你急忙把它拿了出来。\n");
+message("channel:rumor", MAG"【謠言】某人："+this_player()->query("name")+"取到了北冥神功帛卷啦。\n"NOR, users());
+		tell_object(me, "突然，你發現小蒲團面上的一層薄薄的蒲草已然破裂，露出下面有物！\n");
+		tell_object(me, "你急忙把它拿了出來。\n");
 	}
 
 	return 1;

@@ -4,12 +4,12 @@ inherit NPC;
 
 void create()
 {
-        set_name("令狐冲", ({ "ling huchong", "ling", "huchong" }) );
+        set_name("令狐沖", ({ "ling huchong", "ling", "huchong" }) );
 
         set("gender", "男性");
         set("age", 29);
         set("long",
-                "令狐冲是华山派的开门大弟子，也是风清扬独孤九剑在尘世中的唯一传人。\n");
+                "令狐沖是華山派的開門大弟子，也是風清揚獨孤九劍在塵世中的唯一傳人。\n");
         set("attitude", "peaceful");
         set("str", 26);
         set("con", 30);
@@ -51,7 +51,7 @@ void create()
         map_skill("unarmed", "huashan-ken");
         map_skill("dodge", "feiyan-huixiang");
 
-        create_family("华山派", 14, "弟子");
+        create_family("華山派", 14, "弟子");
 
         setup();
 
@@ -75,7 +75,7 @@ void greeting(object ob)
            && ((int)ob->query("marks/feng-qingyang")==1) )
       {
            ob->set("marks/feng-qingyang",2);
-           say( "令狐冲说道：“我风太师叔住在南峰，这就去吧!”\n");
+           say( "令狐沖說道：“我風太師叔住在南峯，這就去吧!”\n");
       }
       set("exits/southdown", __DIR__"sgyhole");
 

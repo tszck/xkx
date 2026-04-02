@@ -1,10 +1,10 @@
-//kuang.c -「狂风二十一式」
+//kuang.c -「狂風二十一式」
 // Last Modified by winder on Mar. 10 2000
 #include <ansi.h>
 #include <combat.h>
 
 inherit F_SSERVER;
-#define PNAME "「狂风二十一式」"
+#define PNAME "「狂風二十一式」"
 int perform(object me, object target)
 {
 	int damage;
@@ -20,18 +20,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 */
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "blade")
-		return notify_fail("你必须先去找一把刀！\n");
+		return notify_fail("你必須先去找一把刀！\n");
 
 	bskill = "blade";
 	if (SCBORN_D->valid_perform(me,sskill,pfname))
@@ -45,12 +45,12 @@ int perform(object me, object target)
 
 
 	if( (int)me->query_skill(sskill, 1) < 70 )
-		return notify_fail("你的"+to_chinese(sskill)+"还不够娴熟，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"還不夠嫺熟，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 400 )
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 
-	msg = HIC"$N"HIC"淡然一笑，本就快捷绝伦的刀法骤然变得更加凌厉！就在这一瞬之间，"+ "$N已劈出二十一刀！刀夹杂着风，风里含着刀影！$n"HIC"只觉得心跳都停止了！\n"NOR;
+	msg = HIC"$N"HIC"淡然一笑，本就快捷絕倫的刀法驟然變得更加凌厲！就在這一瞬之間，"+ "$N已劈出二十一刀！刀夾雜着風，風裏含着刀影！$n"HIC"只覺得心跳都停止了！\n"NOR;
 	me->start_busy(2);
 
 	if(random(me->query("combat_exp")) > (int)target->query("combat_exp")/2)
@@ -59,9 +59,9 @@ int perform(object me, object target)
 		me->add("neili", -300);
 		target->receive_damage("qi", damage,me);
 		target->receive_wound("qi", damage/2,me);
-		msg += RED "只见$n"HIC"已被$N"HIC"切得体无完肤，血如箭般由全身喷射而出！\n"NOR;
+		msg += RED "只見$n"HIC"已被$N"HIC"切得體無完膚，血如箭般由全身噴射而出！\n"NOR;
 	} else {
-		msg += HIC "可是$p急忙抽身躲开，$P这招没有得逞。\n" NOR;
+		msg += HIC "可是$p急忙抽身躲開，$P這招沒有得逞。\n" NOR;
 	}
 	message_combatd(msg, me, target);
 	if(userp(target)) target->fight_ob(me);
@@ -78,11 +78,11 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
+		損傷對方氣血
 
 	出手要求：
-		狂风刀法70级
-		内力400
+		狂風刀法70級
+		內力400
 HELP
 	);
 	return 1;

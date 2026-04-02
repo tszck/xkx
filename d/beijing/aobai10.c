@@ -6,19 +6,19 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "东厂暗道");
+	set("short", "東廠暗道");
 	set("long", @LONG
-这是一条暗道，是专为鳌拜从鳌府直接到东厂用的。南边是一扇木
-门(door)。
+這是一條暗道，是專爲鰲拜從鰲府直接到東廠用的。南邊是一扇木
+門(door)。
 LONG );
 	set("exits", ([
 		"south"     :  __DIR__"aobai6",
 		"northeast" : __DIR__"aobai11",
 	]));
 	set("item_desc", ([
-		"door" : "这是一扇极厚的木门。\n",
+		"door" : "這是一扇極厚的木門。\n",
 	]));
-	create_door("south", "木门", "north", DOOR_CLOSED);
+	create_door("south", "木門", "north", DOOR_CLOSED);
 	set("no_clean_up", 0);
 	set("coor/x", -220);
 	set("coor/y", 4010);

@@ -5,12 +5,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("乌夷老祭司", ({ "lao jisi", "lao", "jisi" }));
+	set_name("烏夷老祭司", ({ "lao jisi", "lao", "jisi" }));
 	set("gender", "男性");
 	set("age", random(10) + 60);
 	set("str", 25);
 	set("dex", 16);
-	set("long", "一个乌夷族的祭司，身披乌夷大麾，戴着颇多金银饰物，显示其地位不凡。\n");
+	set("long", "一個烏夷族的祭司，身披烏夷大麾，戴着頗多金銀飾物，顯示其地位不凡。\n");
 	set("combat_exp", 3000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");

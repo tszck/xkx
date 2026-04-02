@@ -5,9 +5,9 @@ inherit NPC;
 void create()
 {
         set_name("蝙蝠", ({"bianfu","bat"}) );
-	set("race", "飞禽");
+	set("race", "飛禽");
         set("age", 8);
-        set("long", "这是一只蝙蝠，正倒挂在洞顶。\n");
+        set("long", "這是一隻蝙蝠，正倒掛在洞頂。\n");
 
         set("str", 40);
         set("dex", 50);
@@ -18,7 +18,7 @@ void create()
         set("chat_chance", 2);
         set("chat_msg", ({
                 (: this_object(), "random_move" :),
-        "蝙蝠扑扑地飞过来，在你头上转了一圈，又飞走了。\n",
+        "蝙蝠撲撲地飛過來，在你頭上轉了一圈，又飛走了。\n",
          }) );
 
         setup();

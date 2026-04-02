@@ -1,5 +1,5 @@
 //Map here功能  By JackyBoy 1999/11/19
-//由于严重影响速度（递归调用导致！），所以进行此命令的使用应该减少玩家的精力或者气息
+//由於嚴重影響速度（遞歸調用導致！），所以進行此命令的使用應該減少玩家的精力或者氣息
 inherit F_CLEAN_UP;
 
 #include <ansi.h>
@@ -39,18 +39,18 @@ int main(object me, string arg)
 	int i,j;
 	string tmp;
 	if(me->query("qi")<40)
-		return notify_fail("你的体力不太好了，先休息一下吧！\n");
+		return notify_fail("你的體力不太好了，先休息一下吧！\n");
 	me->add("qi",-20);
 	if(arg)
 	{
-		//允许在指定范围内自定义房间搜索范围！
+		//允許在指定範圍內自定義房間搜索範圍！
 		arg=lower_case(arg);
 		sscanf(arg,"%*sx=%d%*s",X);
 		sscanf(arg,"%*sy=%d%*s",Y);
 		if(X>MaxX||X==0) X=MaxX;
 		if(Y>MaxY||Y==0) Y=MaxY;
 	}
-	tmp="即时地图v1.0(By JackyBoy) 99/11/20 地图大小："+X+"/"+Y+"\n";
+	tmp="即時地圖v1.0(By JackyBoy) 99/11/20 地圖大小："+X+"/"+Y+"\n";
 	m=allocate(2*X+1);
 	rfile=({});
 	for(i=0;i<2*X+1;i++)
@@ -61,7 +61,7 @@ int main(object me, string arg)
 	}
 	where=environment(me);
 	if(!objectp(where))
-		return notify_fail("对不起，不知道你到底在哪里呀！找巫师吧！\n");
+		return notify_fail("對不起，不知道你到底在哪裏呀！找巫師吧！\n");
 	draw_room((2*X+1)/2,(2*Y+1)/2,where);
 	for(i=0;i<2*Y+1;i++)
 	{
@@ -71,7 +71,7 @@ int main(object me, string arg)
 				tmp+="        ";
 			else
 			{
-				//如果此项为空，并且此时j为偶数列，则输出空格
+				//如果此項爲空，並且此時j爲偶數列，則輸出空格
 				if(m[j][i]==" "&&!(j%2))
 					tmp+="  ";
 				else
@@ -137,7 +137,7 @@ int draw_path(int x,int y,string direc)
 		xx--;
 	if(x+xx<0||y+yy<0||x+xx>2*X||y+yy>2*Y)
 		return 0;
-	//write("设置第 "+(x+xx)+ " "+(y+yy)+" 项\n");
+	//write("設置第 "+(x+xx)+ " "+(y+yy)+" 項\n");
 	m[x+xx][y+yy]=str;
 	return 1;
 }
@@ -151,8 +151,8 @@ int draw_room(int x,int y,object room)
 	reset_eval_cost();
 	if(x<0||y<0||!objectp(room)||x>2*X||y>2*Y)
 		return 0;
-	name=clean_color(room->query("short"));//求取无颜色的房间short描述
-	//write("坐标："+x+" / "+ y+ "处理 "+name+" 文件名："+base_name(room)+"\n");
+	name=clean_color(room->query("short"));//求取無顏色的房間short描述
+	//write("座標："+x+" / "+ y+ "處理 "+name+" 文件名："+base_name(room)+"\n");
 	rfile=rfile + ({ base_name(room) });
 	dir=room->query("exits");
 	if(!mapp(dir)||sizeof(dir)<1)
@@ -172,7 +172,7 @@ int draw_room(int x,int y,object room)
 		if(!draw_path(x,y,dirs[i])||(xx==0&&yy==0))
 			nst=1;
 		nroom=find_room(dir[dirs[i]]);
-		//避免重复调用
+		//避免重複調用
 		if(!objectp(nroom)||nst)
 			continue;
 		if(member_array(base_name(nroom),rfile)==-1)
@@ -180,7 +180,7 @@ int draw_room(int x,int y,object room)
 	}
 	if(strwidth(name)>8)
 		name=name[0..7];
-	if(strwidth(name)<7)//对不足4个汉字的房间名进行居中处理
+	if(strwidth(name)<7)//對不足4個漢字的房間名進行居中處理
 	{
 		int d=8-strwidth(name);
 		if(d%2)
@@ -203,17 +203,17 @@ int draw_room(int x,int y,object room)
 int help()
 {
 	write(@HELP
-	即时地图 v1.0 (Write By JackyBoy 99/11/20)
+	即時地圖 v1.0 (Write By JackyBoy 99/11/20)
 	命令用法：map [x=1-7] [y=1-30]
-本命令帮助玩家了解周围的房间地图的分布状况，并标志出房间之间的连接情况。
-理论上讲，该命令应该能完全正确地反应地图，但是由于巫师设计地图不规范等多
-种原因（比如迷宫、有不规范出口比如enter之类的，房间之间无法双向关联等），
-导致地图可能在显示时与行走方向上有一定区别，甚至会出现走一步路，地图就完
-全变样的情况。比如，房间A可以从south走到B房间，但是B房间走north却走到C房
-间，这时在A用该命令与在B用该命令效果完全不一样！
-此外，连接标志中箭头所指方向地势更高，有不规范出口的房间以黄色标志，你所
-处的房间以闪烁来标志！
-本命令默认以x=7,y=10 的地图大小显示，你可以在命令行手动指定地图大小。
+本命令幫助玩家瞭解周圍的房間地圖的分佈狀況，並標誌出房間之間的連接情況。
+理論上講，該命令應該能完全正確地反應地圖，但是由於巫師設計地圖不規範等多
+種原因（比如迷宮、有不規範出口比如enter之類的，房間之間無法雙向關聯等），
+導致地圖可能在顯示時與行走方向上有一定區別，甚至會出現走一步路，地圖就完
+全變樣的情況。比如，房間A可以從south走到B房間，但是B房間走north卻走到C房
+間，這時在A用該命令與在B用該命令效果完全不一樣！
+此外，連接標誌中箭頭所指方向地勢更高，有不規範出口的房間以黃色標誌，你所
+處的房間以閃爍來標誌！
+本命令默認以x=7,y=10 的地圖大小顯示，你可以在命令行手動指定地圖大小。
 HELP);
 	return 1;
 }

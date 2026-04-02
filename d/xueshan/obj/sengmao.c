@@ -12,8 +12,8 @@ void create()
         if( clonep() ) 
                 set_default_object(__FILE__); 
         else { 
-                set("unit", "顶"); 
-                set("long", "这是一顶藏僧戴的僧帽。\n"); 
+                set("unit", "頂"); 
+                set("long", "這是一頂藏僧戴的僧帽。\n"); 
                 set("value", 100); 
                 set("material", "head"); 
                 set("armor_prop/armor", 10); 

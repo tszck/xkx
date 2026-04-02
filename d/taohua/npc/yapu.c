@@ -1,15 +1,15 @@
-// yapu.c 哑仆
+// yapu.c 啞僕
 
 inherit NPC;
 
 void create()
 {
-         set_name("哑仆", ({ "ya pu"}));
+         set_name("啞僕", ({ "ya pu"}));
         set("age", 18);
         set("gender", "男性");
         set("long",
-"这是一个桃花岛的哑仆。他们全是十恶不赦的混蛋，黄药师刺哑他们，\n
-充为下御。\n");
+"這是一個桃花島的啞僕。他們全是十惡不赦的混蛋，黃藥師刺啞他們，\n
+充爲下御。\n");
         set("attitude", "peaceful");
         set("str", 24);
         set("dex", 16);

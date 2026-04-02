@@ -12,11 +12,11 @@ string* npcs = ({
 
 void create()
 {
-        set("short", "万毒窟");
+        set("short", "萬毒窟");
         set("long", @LONG
-这里是山洞内部的支洞，这里已经没有一丝光线了，黑洞洞的
-什么也看不见。洞内岩壁上好象生着几株不知名的小草。身旁传来
-一阵“咝咝”的声音。
+這裏是山洞內部的支洞，這裏已經沒有一絲光線了，黑洞洞的
+什麼也看不見。洞內巖壁上好象生着幾株不知名的小草。身旁傳來
+一陣“噝噝”的聲音。
 LONG
         );
 
@@ -44,12 +44,12 @@ int do_climb(string arg)
 
         object me=this_player();
         object ob;
-        if( (!arg) ||!((arg == "岩壁") || (arg == "洞壁")))
-                return notify_fail("你要爬什么？\n");
-                message_vision(HIC"$N攀着岩壁上突出的石笋艰难的爬了上去。\n\n"NOR,me);
+        if( (!arg) ||!((arg == "巖壁") || (arg == "洞壁")))
+                return notify_fail("你要爬什麼？\n");
+                message_vision(HIC"$N攀着巖壁上突出的石筍艱難的爬了上去。\n\n"NOR,me);
         ob = load_object(__DIR__"dongxue");
         ob = find_object(__DIR__"dongxue");
-        message("vision", me->query("name")+"从下面爬了上来。\n", ob);
+        message("vision", me->query("name")+"從下面爬了上來。\n", ob);
         me->move(__DIR__"dongxue");
         return 1;
 }

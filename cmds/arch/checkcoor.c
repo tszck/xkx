@@ -40,10 +40,10 @@ int main(object me, string arg)
 	recur_check(me ,dir, recur);
 
 	if (file_count) {
-		write("\n共处理" + file_count + "个文件。\n");
-		write("结果已写入" + COOR_LOG + "中，请查看。\n");
+		write("\n共處理" + file_count + "個文件。\n");
+		write("結果已寫入" + COOR_LOG + "中，請查看。\n");
 	} else
-		write("\n未检测到不合要求的文件。\n");
+		write("\n未檢測到不合要求的文件。\n");
 
 	return 1;
 }
@@ -60,9 +60,9 @@ int recur_check(object me, string dir, int recur)
 
 	if (!sizeof(file)) {
 		if (file_size(dir) == -2)
-			return notify_fail("目录是空的。\n");
+			return notify_fail("目錄是空的。\n");
 		else
-			return notify_fail("没有这个目录。\n");
+			return notify_fail("沒有這個目錄。\n");
 	}
 
 	i = sizeof(file);
@@ -71,7 +71,7 @@ int recur_check(object me, string dir, int recur)
 			file[i][0] += "/";
 	}
 
-	write("\n正在处理目录：" + dir);
+	write("\n正在處理目錄：" + dir);
 
 	if (sizeof(file)) {
 		for(i = 0,j = sizeof(file); i < j; i ++) {
@@ -117,11 +117,11 @@ int check_one_file(object me,string file)
 int help(object me)
 {
 write(@HELP
-指令格式: checkcoor [-d] [<路径名>]
+指令格式: checkcoor [-d] [<路徑名>]
 
-检查指定目录下所有的文件的坐标情况，如果不指定
-目录, 则使用当前目录。如果带参数-d，则连带处理
-子目录。
+檢查指定目錄下所有的文件的座標情況，如果不指定
+目錄, 則使用當前目錄。如果帶參數-d，則連帶處理
+子目錄。
 
 HELP
 );

@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "石桥");
+	set("short", "石橋");
 	set("long", @LONG
-只是一座小石桥，虽然不大，却非常精美。桥栏上雕刻了许多花草
-动物，栩栩如生。
+只是一座小石橋，雖然不大，卻非常精美。橋欄上雕刻了許多花草
+動物，栩栩如生。
 LONG
 	);
 	set("exits", ([

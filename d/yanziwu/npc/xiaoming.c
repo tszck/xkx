@@ -6,9 +6,9 @@ void create()
 {
 	set_name("小茗", ({ "xiao ming","ming" }) );
 	set("gender", "女性" );
-	set("title", HIG"蔓陀山庄青衣小环"NOR );
+	set("title", HIG"蔓陀山莊青衣小環"NOR );
 	set("age", 18);
-	set("long", "这是一个蔓陀山庄的丫环。\n");
+	set("long", "這是一個蔓陀山莊的丫環。\n");
 	set("shen_type", 1);
 	set("combat_exp", 1000);
 	set("str", 20);

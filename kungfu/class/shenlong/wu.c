@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("无根道长", ( { "wugen daozhang", "wugen","daozhang" }) );
+	set_name("無根道長", ( { "wugen daozhang", "wugen","daozhang" }) );
 	set("gender", "男性" );
 	set("age", 55);
-	set("long","这是个五十来岁的黑须道长，相貌威武，眼中略带杀气，脸上充满了激愤之情。\n");
+	set("long","這是個五十來歲的黑鬚道長，相貌威武，眼中略帶殺氣，臉上充滿了激憤之情。\n");
 
 	set("int", 30);
 	set("str", 25);
@@ -46,19 +46,19 @@ void create()
 	prepare_skill("leg", "juming-leg");
 
 	set("env/wimpy", 60);
-	set("party/party_name", HIY"神龙教"NOR);
-	set("party/rank", HIR"赤龙门"NOR"掌门使");
+	set("party/party_name", HIY"神龍教"NOR);
+	set("party/rank", HIR"赤龍門"NOR"掌門使");
 	set("party/level", 2);
-	create_family("神龙教", 2, "弟子");
+	create_family("神龍教", 2, "弟子");
 
 	set("inquiry", ([
-		"洪安通" : "这三个字是你说的吗？",
-		"洪教主" : "洪教主仙福永享，寿与天齐，洪教主神目如电，烛照四方。",
-		"苏荃"   : "没规没矩的。",
-		"神龙岛" : "神龙岛在汝州的东北方向，从塘沽口出海便到。",
-		"神龙教" : "一般人是入不了我神龙教的(join shenlongjiao)。\n",
-		"入教"   : "一般人是入不了我神龙教的(join shenlongjiao)。\n",
-		"教主"   : "教主脾气不好，要讨他欢心才好。\n",
+		"洪安通" : "這三個字是你說的嗎？",
+		"洪教主" : "洪教主仙福永享，壽與天齊，洪教主神目如電，燭照四方。",
+		"蘇荃"   : "沒規沒矩的。",
+		"神龍島" : "神龍島在汝州的東北方向，從塘沽口出海便到。",
+		"神龍教" : "一般人是入不了我神龍教的(join shenlongjiao)。\n",
+		"入教"   : "一般人是入不了我神龍教的(join shenlongjiao)。\n",
+		"教主"   : "教主脾氣不好，要討他歡心纔好。\n",
 	]));
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();

@@ -7,8 +7,8 @@ inherit NPC;
 void create()
 {
 	set_name("朱九真", ({ "zhu jiuzhen", "zhu"}));
-	set("long", "她长得极美，容貌娇媚，又白又腻。\n");
-	set("nickname", HIW"雪岭双姝"NOR);
+	set("long", "她長得極美，容貌嬌媚，又白又膩。\n");
+	set("nickname", HIW"雪嶺雙姝"NOR);
 	set("gender", "女性");
 	set("per", 30);
 	set("age", 17);

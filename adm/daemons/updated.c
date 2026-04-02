@@ -1,5 +1,5 @@
 // /adm/daemons/updated.c
-// Modified by Zeratul Jan 6 2001 修改了衰老速度，增加了存款上限判断
+// Modified by Zeratul Jan 6 2001 修改了衰老速度，增加了存款上限判斷
 
 #include <ansi.h>
 void create() { seteuid(getuid()); }
@@ -63,37 +63,37 @@ void check_user(object ob)
 		ob->set_skill("wuyun-jian", ob->query_skill("wuyun-jianfa",1));
 		ob->delete_skill("wuyun-jianfa");
 	}*/
-/*	if( ob->query("family/family_name") == "灵鹫宫")
+/*	if( ob->query("family/family_name") == "靈鷲宮")
 	{
-		ob->set("family/family_name","逍遥派");
+		ob->set("family/family_name","逍遙派");
 	}*/
 	
-// 喇嘛属性
+// 喇嘛屬性
 	if( ob->query("family/family_name") == "雪山寺" && 
 		ob->query("class") == "bonze")
 	{
 		ob->set("class", "lama");
 	}
-// 镇南王府
+// 鎮南王府
 	if( ob->query("family/family_name") == "大理段家" &&
 		!ob->query("guard"))
 	{
-		ob->set("guard", "镇南王府家臣");
+		ob->set("guard", "鎮南王府家臣");
 	}
 	if( ob->query("no_get")) ob->delete("no_get");
-// 不允许比开山祖师还老
+// 不允許比開山祖師還老
 	if( ob->query("family/generation")==0) ob->delete("family");
 //	if( ob->query("family/generation")>=100)
 //	      ob->set("family/genearation",99);
-// 强制太监属性
-	if( ob->query("gender")=="无性") ob->set("class", "eunach");
-	if( ob->query("class")=="eunach") ob->set("gender", "无性");
-// 临济庄
+// 強制太監屬性
+	if( ob->query("gender")=="無性") ob->set("class", "eunach");
+	if( ob->query("class")=="eunach") ob->set("gender", "無性");
+// 臨濟莊
 	if( ob->query("linji/jing") )
 	{
 		ob->apply_condition("linji_daxiao", 1);
 	}
-// 不允许自制兵器名为corpse, 九阴白骨抓需corpse才能练
+// 不允許自制兵器名爲corpse, 九陰白骨抓需corpse才能練
 	if( (ob->query("weapon/id")== "corpse") )
 	{
 		ob->set("weapon/id","shiti");
@@ -103,13 +103,13 @@ void check_user(object ob)
 	{
 		ob->set("weiwang", 80 + 20*ob->query("officerlvl"));
 	}
-// 登录时记录经验和潜能, 以及登录时间, 为离线信息预留
-// 转移到logind.c
+// 登錄時記錄經驗和潛能, 以及登錄時間, 爲離線信息預留
+// 轉移到logind.c
 //	ob->set_temp("nowexp", ob->query("combat_exp"));
 //	ob->set_temp("nowpot", ob->query("potential"));
 //	ob->set_temp("nowtime", time());
-// 潜能上限100000 神上限百万 江湖阅历上限 10万
-// 以下转移到chard.c 断线不会消去多余潜能
+// 潛能上限100000 神上限百萬 江湖閱歷上限 10萬
+// 以下轉移到chard.c 斷線不會消去多餘潛能
 /*
 	if ((ob->query("potential")-ob->query("learned_points"))>100000) 
 		ob->set("potential", ob->query("learned_points")+100000);
@@ -117,7 +117,7 @@ void check_user(object ob)
         if( ob->query("shen")<-1000000) ob->set("shen",-1000000);
         if( ob->query("score")>100000) ob->set("score",100000);
 */        
-// 隐性天赋
+// 隱性天賦
 	if( undefinedp(my["per"]) ) my["per"] = 10 + random(21);
 	if( undefinedp(my["kar"]) ) my["kar"] = 10 + random(21);
 	if( undefinedp(my["cor"]) ) my["cor"] = 10 + random(21);
@@ -166,7 +166,7 @@ void check_user(object ob)
 			my["max_jing"] += i;
 		}
 
-		// 佛家养精：３０岁前补精，３０岁后长精
+		// 佛家養精：３０歲前補精，３０歲後長精
 		if((xism_age=(int)ob->query_skill("buddhism", 1)) > 39)
 		{
 			xism_age = xism_age/2;
@@ -177,7 +177,7 @@ void check_user(object ob)
 			if (xism_age > 0) my["max_jing"] += xism_age *((int)ob->query_skill("zhanzhuang-gong", 1)/10);
 			if (xism_age > 0) my["max_jing"] += xism_age *((int)ob->query_skill("baiyun-xinfa", 1)/10);
 		}
-		// 紫氲吟长精：
+		// 紫氳吟長精：
 		if((xism_age=(int)ob->query_skill("ziyunyin", 1)) > 39) 
 		{
 			xism_age = xism_age/2;
@@ -206,7 +206,7 @@ void check_user(object ob)
 			else my["max_qi"] = 10;  
 		}
 
-		// 佛家保气：
+		// 佛家保氣：
 		if(my["age"] > 60 && (int)ob->query_skill("buddhism", 1) >= 120)
 		{
 			// Modified by zeratul Jan 6 2001
@@ -215,7 +215,7 @@ void check_user(object ob)
 			my["max_qi"] += i;
 		}
 
-		// 道家正一派练气：３０岁前补气，３０岁后长气
+		// 道家正一派練氣：３０歲前補氣，３０歲後長氣
 		if((xism_age=(int)ob->query_skill("taoism", 1)) > 39)
 		{
 			xism_age = xism_age/2;
@@ -225,7 +225,7 @@ void check_user(object ob)
 			if (xism_age > 0) my["max_qi"] += xism_age *((int)ob->query_skill("taiji-shengong", 1) / 10);
 		}
 
-		// 道家全真派练气：３０岁前补气，３０岁后长气
+		// 道家全真派練氣：３０歲前補氣，３０歲後長氣
 		if((xism_age=(int)ob->query_skill("taoism", 1)) > 39)
 		{
 			xism_age = xism_age/2;
@@ -235,7 +235,7 @@ void check_user(object ob)
 			if (xism_age > 0) my["max_qi"] += xism_age *((int)ob->query_skill("xiantian-qigong", 1) / 10);
 		}
 
-		// 正气诀长气：
+		// 正氣訣長氣：
 		if((xism_age=(int)ob->query_skill("zhengqijue", 1)) > 39) 
 		{
 			xism_age = xism_age/2;
@@ -244,7 +244,7 @@ void check_user(object ob)
 			if (xism_age > 0) my["max_qi"] += xism_age *((int)ob->query_skill("zixia-shengong", 1) / 20);
 		}
 
-		// 毒技练气：３０岁前补气，３０岁后长气
+		// 毒技練氣：３０歲前補氣，３０歲後長氣
 		if((xism_age=(int)ob->query_skill("poison", 1)) > 39)
 		{
 			xism_age = xism_age/2;
@@ -254,11 +254,11 @@ void check_user(object ob)
 			if (xism_age > 0) my["max_qi"] += xism_age *((int)ob->query_skill("huagong-dafa", 1) / 10);		        
 		             
 		}
-		// 内力可长气血
+		// 內力可長氣血
 		if( my["max_neili"] > 0 ) my["max_qi"] += my["max_neili"] / 4;
 		if ( my["max_qi"] < 1 ) my["max_qi"] = 1;
 			
-		// 体力与年龄相关
+		// 體力與年齡相關
 		if( my["age"] <= 14 ) my["max_tili"] = 100;
 		else if( my["age"] <= 30 )
 			my["max_tili"] = 100 + (my["age"]-14)*my["sta"];
@@ -266,12 +266,12 @@ void check_user(object ob)
 		if( my["age"] > 60 ) my["max_tili"] -= (my["age"] - 60) * 5;
 	}
 
-        // 限制存款数量。
+        // 限制存款數量。
         // Modified by zeratul Jan 6 2001
         ob->set( "max_balance", 500000000 + ob->query( "combat_exp" ) );
         if ( ob->query( "balance" ) > ob->query( "max_balance" ) )
                 ob->set( "balance", ob->query( "max_balance" ) );
-        // 限制自铸兵器威力上限。
+        // 限制自鑄兵器威力上限。
 	if( ob->query("weapon/lv") > (ob->query_sta() + ob->query_con())/3)
 		ob->set("weapon/lv", (ob->query_sta() + ob->query_con())/3);
 

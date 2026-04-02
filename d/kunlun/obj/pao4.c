@@ -8,18 +8,18 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(YEL "白边黄色长袍" NOR, ({ "chang pao", "cloth","changpao","pao"}));
+	set_name(YEL "白邊黃色長袍" NOR, ({ "chang pao", "cloth","changpao","pao"}));
 	set_weight(5000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "这是一件白色滚边黄色长袍，做工似乎比较简单。\n");
+		set("long", "這是一件白色滾邊黃色長袍，做工似乎比較簡單。\n");
 		set("unit", "件");
 		set("material", "cloth");
 		set("armor_prop/armor", 10);
 		set("value", 100);
-		set("wear_msg","$N把$n迎风一展，缓缓的披在身上。\n");
-		set("remove_msg","$N轻轻的把$n从身上脱了下来。\n");
+		set("wear_msg","$N把$n迎風一展，緩緩的披在身上。\n");
+		set("remove_msg","$N輕輕的把$n從身上脫了下來。\n");
 	}
 	setup();
 }

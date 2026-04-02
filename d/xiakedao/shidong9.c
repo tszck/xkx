@@ -6,9 +6,9 @@ void create()
 {
         set("short", "石洞");
         set("long", @LONG
-这是一个很小的石洞，两边点着红烛，光线虽暗，却也能辩得
-出方向。走着走着，你隐约看见在前面有一个身影，只见他身穿青
-色长衫，眼视前方，一副唯我独尊的样子。
+這是一個很小的石洞，兩邊點着紅燭，光線雖暗，卻也能辯得
+出方向。走着走着，你隱約看見在前面有一個身影，只見他身穿青
+色長衫，眼視前方，一副唯我獨尊的樣子。
 LONG );
         set("exits", ([
                 "west" : __DIR__"shidong10",
@@ -31,6 +31,6 @@ int valid_leave(object me, string dir)
            || ((int)me->query("PKS") > 10)
            && objectp(present("bai shou",environment(me))) )
         return notify_fail
-                ("白首把手一拦：你这种邪派人物，还敢到这来，快滚! \n");
+                ("白首把手一攔：你這種邪派人物，還敢到這來，快滾! \n");
         return ::valid_leave(me, dir);
 }

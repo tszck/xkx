@@ -17,7 +17,7 @@ void create()
 		set("long", "一根泛着淡淡青光的竹杖。\n");
 		set("value", 10000);
 		set("material", "bamboo");
-		set("wield_msg", "$N抽出一根青光闪闪的竹杖抓在手中。\n");
+		set("wield_msg", "$N抽出一根青光閃閃的竹杖抓在手中。\n");
 		set("unwield_msg", "$N把手中的玉竹杖插回腰中。\n");
 	}
 	init_staff(30);

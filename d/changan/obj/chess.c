@@ -14,23 +14,23 @@ int bb = 0;
 
 mapping TABLE = ([ // table /*┌┐┖┚--┃├┤┬┴┼*/
 0: ([
-	0 :({ "┌",HIR"车"NOR, 1,1 }),
+	0 :({ "┌",HIR"車"NOR, 1,1 }),
 	1 :({ "--", "  ", 0,0 }),
-	2 :({ "┬",HIR"马"NOR, 2,1 }),
+	2 :({ "┬",HIR"馬"NOR, 2,1 }),
 	3 :({ "--", "  ", 0,0 }),
 	4 :({ "┬",HIR"相"NOR, 3,1 }),
 	5 :({ "--", "  ", 0,0 }),
 	6 :({ "┬",HIR"仕"NOR, 4,1 }),
 	7 :({ "--", "  ", 0,0 }),
-	8 :({ "┬",HIR"帅"NOR, 5,1 }),
+	8 :({ "┬",HIR"帥"NOR, 5,1 }),
 	9 :({ "--", "  ", 0,0 }),
 	10:({ "┬",HIR"仕"NOR, 4,1 }),
 	11:({ "--", "  ", 0,0 }),
 	12:({ "┬",HIR"相"NOR, 3,1 }),
 	13:({ "--", "  ", 0,0 }),
-	14:({ "┬",HIR"马"NOR, 2,1 }),
+	14:({ "┬",HIR"馬"NOR, 2,1 }),
 	15:({ "--", "  ", 0,0 }),
-	16:({ "┐",HIR"车"NOR, 1,1 }),
+	16:({ "┐",HIR"車"NOR, 1,1 }),
 	]),
 1: ([
 	0 : ({ "┃", "  ", 0,0 }),
@@ -185,7 +185,7 @@ mapping TABLE = ([ // table /*┌┐┖┚--┃├┤┬┴┼*/
 	16:({ "┚", "  ", 0,0 }),
 	]),
 9 : ([
-	0 : ({ " ～～ 楚  河 ～～～～ 汉  界 ～～ ", "  ", 0,0 }),
+	0 : ({ " ～～ 楚  河 ～～～～ 漢  界 ～～ ", "  ", 0,0 }),
 	]),
 10: ([
 	0 :({ "┌", "  ", 0,0 }),
@@ -406,14 +406,14 @@ int do_deploy();
 
 void create()
 {
-	set_name("中国象棋盘", ({ "chinese chess board","ccb","board" }) );
+	set_name("中國象棋盤", ({ "chinese chess board","ccb","board" }) );
 	set_weight(3000000);
 	set_max_encumbrance(0);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "张");
-		set("long", "这是一张中国象棋盘，用来下象棋的。\n");
+		set("unit", "張");
+		set("long", "這是一張中國象棋盤，用來下象棋的。\n");
 		set("value", 0);
 		set("material", "wood");
 		set("no_get",1);
@@ -458,30 +458,30 @@ int do_move(string arg)
 	me = this_player();
 	msg1 = "";
 
-	if( ob->query("over") ) return notify_fail("这盘棋已经结束了。 \n");
+	if( ob->query("over") ) return notify_fail("這盤棋已經結束了。 \n");
 
 	if( me->name() != ob->query("name1") && me->name() != ob->query("name2") )
-		return notify_fail("你还是先投骰子吧！\n");
+		return notify_fail("你還是先投骰子吧！\n");
 
 	if( !ob->query("name2") )
-		return notify_fail("还要有一个人才能下棋！\n");
+		return notify_fail("還要有一個人才能下棋！\n");
 
 	if( ob->query("round") == 0 && ob->query("first") != me->name() )
-		return notify_fail("这个回合不该你走棋！\n");
+		return notify_fail("這個回合不該你走棋！\n");
 
 	if( ob->query("round") == 1 && ob->query("first") == me->name() )
-		return notify_fail("这个回合不该你走棋！\n");
+		return notify_fail("這個回合不該你走棋！\n");
 
-	if( !arg ) return notify_fail("移动棋子：move 横坐标 纵坐标 to 横坐标 纵坐标 \n");
+	if( !arg ) return notify_fail("移動棋子：move 橫座標 縱座標 to 橫座標 縱座標 \n");
 
 	if( sscanf(arg,"%d %d to %d %d",sCOL,sROW,tCOL,tROW) != 4 )
-		return notify_fail("移动棋子：move 横坐标 纵坐标 to 横坐标 纵坐标 \n");
+		return notify_fail("移動棋子：move 橫座標 縱座標 to 橫座標 縱座標 \n");
 
 	if( tCOL > 9 || tCOL < 1 || tROW > 9 || tROW < 0 || sCOL > 9 || sCOL < 1 || sROW > 9 || sROW < 0)
-		return notify_fail("你的输入已经超越象棋盘界线了。\n");
+		return notify_fail("你的輸入已經超越象棋盤界線了。\n");
 
 	if( tCOL == sCOL && sROW == tROW )
-		return notify_fail("这还用移动吗？\n");
+		return notify_fail("這還用移動嗎？\n");
 
 	sCOL -= 1;
 	tCOL -= 1;
@@ -492,30 +492,30 @@ int do_move(string arg)
 	tCOL = tCOL * 2;
 
 	if( TABLE[table[sROW]][sCOL][1] == "  " )
-		return notify_fail("这个地方没有棋子。\n");
+		return notify_fail("這個地方沒有棋子。\n");
 
 	if( TABLE[table[tROW]][tCOL][3] == TABLE[table[sROW]][sCOL][3] )
-		return notify_fail("你要吃掉自己的棋子？\n");
+		return notify_fail("你要喫掉自己的棋子？\n");
 
 	if( ob->query("round") == 0 && cc != 1 )
-		return notify_fail("你拿错棋子了吧！\n");
+		return notify_fail("你拿錯棋子了吧！\n");
 
 	if( ob->query("round") == 1 && cc != 2 )
-		return notify_fail("你拿错棋子了吧！\n");
+		return notify_fail("你拿錯棋子了吧！\n");
 
 
-//车
+//車
 	if( che == 1 )
 	{
 		if( tCOL != sCOL && sROW != tROW )
-			return notify_fail("这个棋子只能走直线。\n");
+			return notify_fail("這個棋子只能走直線。\n");
 
 		if( tCOL > sCOL && tCOL - sCOL > 2 )
 			for (i=sCOL+2;i<tCOL;i++)
 			{
 				if( i%2!=0) continue;
 				if( TABLE[table[sROW]][i][1] != "  " )
-					return notify_fail("这个棋子不能移动到那个地方。\n");
+					return notify_fail("這個棋子不能移動到那個地方。\n");
 			}
 
 		if( sCOL > tCOL && sCOL - tCOL > 2 )
@@ -523,7 +523,7 @@ int do_move(string arg)
 			{
 				if( i%2!=0) continue;
 				if( TABLE[table[sROW]][i][1] != "  " )
-						return notify_fail("这个棋子不能移动到那个地方。\n");
+						return notify_fail("這個棋子不能移動到那個地方。\n");
 			}
 
 		if( tROW > sROW && tROW - sROW > 2  )
@@ -531,7 +531,7 @@ int do_move(string arg)
 			{
 				if( i%2!=0) continue;
 				if( TABLE[table[i]][sCOL][1] != "  " )
-				return notify_fail("这个棋子不能移动到那个地方。\n");
+				return notify_fail("這個棋子不能移動到那個地方。\n");
 			}
 
 		if( sROW > tROW && sROW - tROW > 2 )
@@ -539,109 +539,109 @@ int do_move(string arg)
 			{
 				if( i%2!=0) continue;
 				if( TABLE[table[i]][sCOL][1] != "  " )
-					return notify_fail("这个棋子不能移动到那个地方。\n");
+					return notify_fail("這個棋子不能移動到那個地方。\n");
 			}
 	}
 
-//马
+//馬
 	if( che == 2 )
 	{
 		if( tCOL==sCOL || sROW==tROW )
-			return notify_fail("马不能走直线。\n");
+			return notify_fail("馬不能走直線。\n");
 
 		if( tCOL<(sCOL-4) || tCOL>(sCOL+4) || tROW<(sROW-4) || tROW>(sROW+4))
-			return notify_fail("这个棋子不能移动到那个地方。\n");
+			return notify_fail("這個棋子不能移動到那個地方。\n");
 
 		if( (tCOL==sCOL-2 || tCOL==sCOL+2) && (tROW!=sROW-4 && tROW!=sROW+4))
-			return notify_fail("这个棋子不能移动到那个地方。\n");
+			return notify_fail("這個棋子不能移動到那個地方。\n");
 
 		if( (tCOL==sCOL-4 || tCOL==sCOL+4) && (tROW!=sROW-2 && tROW!=sROW+2))
-			return notify_fail("这个棋子不能移动到那个地方。\n");
+			return notify_fail("這個棋子不能移動到那個地方。\n");
 
 		if( sCOL-tCOL < -2 && TABLE[table[sROW]][sCOL+2][1] != "  ")
-			return notify_fail("这个棋子不能移动到那个地方。\n");
+			return notify_fail("這個棋子不能移動到那個地方。\n");
 
 		if( sCOL-tCOL > 2 && TABLE[table[sROW]][sCOL-2][1] != "  ")
-			return notify_fail("这个棋子不能移动到那个地方。\n");
+			return notify_fail("這個棋子不能移動到那個地方。\n");
 
 		if( sROW-tROW > 2 && TABLE[table[sROW-2]][sCOL][1] != "  ")
-			return notify_fail("这个棋子不能移动到那个地方。\n");
+			return notify_fail("這個棋子不能移動到那個地方。\n");
 
 		if( sROW-tROW < -2 && TABLE[table[sROW+2]][sCOL][1] != "  ")
-			return notify_fail("这个棋子不能移动到那个地方。\n");
+			return notify_fail("這個棋子不能移動到那個地方。\n");
 	}
 //相
 	if( che == 3 )
 	{
 		if( tCOL == sCOL || sROW == tROW )
-			return notify_fail("相不能走直线。\n");
+			return notify_fail("相不能走直線。\n");
 
 		if( (tROW!=sROW-4 && tROW!=sROW+4) || (tCOL!=sCOL-4 && tCOL!=sCOL+4))
-			return notify_fail("这个棋子不能移动到那个地方。\n");
+			return notify_fail("這個棋子不能移動到那個地方。\n");
 
 		if( tCOL > sCOL )
 		{
 			if( tROW > sROW && TABLE[table[sROW+2]][sCOL+2][1] != "  " )
-				return notify_fail("这个棋子不能移动到那个地方。\n");
+				return notify_fail("這個棋子不能移動到那個地方。\n");
 
 			if( tROW < sROW && TABLE[table[sROW-2]][sCOL+2][1] != "  " )
-				return notify_fail("这个棋子不能移动到那个地方。\n");
+				return notify_fail("這個棋子不能移動到那個地方。\n");
 		}
 
 		if( tCOL < sCOL )
 		{
 			if( tROW > sROW && TABLE[table[sROW+2]][sCOL-2][1] != "  " )
-				return notify_fail("这个棋子不能移动到那个地方。\n");
+				return notify_fail("這個棋子不能移動到那個地方。\n");
 
 			if( tROW < sROW && TABLE[table[sROW-2]][sCOL-2][1] != "  " )
-				return notify_fail("这个棋子不能移动到那个地方。\n");
+				return notify_fail("這個棋子不能移動到那個地方。\n");
 		}
 
 		if( (cc == 1 && tROW > 9) || (cc == 2 && tROW < 9) )
-			return notify_fail("相不能过河。\n");
+			return notify_fail("相不能過河。\n");
 	}
 //仕
 	if( che == 4 )
 	{
 		if( tCOL == sCOL || sROW == tROW )
-			return notify_fail("仕不能走直线。\n");
+			return notify_fail("仕不能走直線。\n");
 
 		if( (tROW!=sROW-2 && tROW!=sROW+2) || (tCOL!=sCOL-2 && tCOL!=sCOL+2))
-			return notify_fail("这个棋子不能移动到那个地方。\n");
+			return notify_fail("這個棋子不能移動到那個地方。\n");
 
 		if( cc == 1 && (tCOL > 10 || tCOL < 6 || tROW > 4))
-			return notify_fail("那个位置超出仕移动的范围了。\n");
+			return notify_fail("那個位置超出仕移動的範圍了。\n");
 
 		if( cc == 2 && (tCOL > 10 || tCOL < 6 || tROW < 14))
-			return notify_fail("那个位置超出仕移动的范围了。\n");
+			return notify_fail("那個位置超出仕移動的範圍了。\n");
 	}
-//帅
+//帥
 	if( che == 5 )
 	{
 		if( tCOL != sCOL && sROW != tROW )
-			return notify_fail("这个棋子只能走直线。\n");
+			return notify_fail("這個棋子只能走直線。\n");
 
 		if( tCOL-sCOL>2 || tCOL-sCOL<-2 || tROW-sROW>2 || tROW-sROW<-2)
-			return notify_fail("帅一次只能走一格。\n");
+			return notify_fail("帥一次只能走一格。\n");
 
 		if( cc == 1 )
 			if( tCOL > 10 || tCOL < 6 || tROW > 4 )
-				return notify_fail("那个位置超出帅移动的范围了。\n");
+				return notify_fail("那個位置超出帥移動的範圍了。\n");
 
 		if( cc == 2 )
 			if( tCOL > 10 || tCOL < 6 || tROW < 14 )
-				return notify_fail("那个位置超出帅移动的范围了。\n");
+				return notify_fail("那個位置超出帥移動的範圍了。\n");
 	}
 //炮
 	if( che == 6 )
 	{
 		ii = 0;
 		if( tCOL != sCOL && sROW != tROW )
-			return notify_fail("这个棋子只能走直线。\n");
+			return notify_fail("這個棋子只能走直線。\n");
 
 		if( cc1 != 0 )
 			if( tCOL-sCOL==2 || tCOL-sCOL==-2 || tROW-sROW==2 || tROW-sROW==-2)
-				return notify_fail("这个棋子不能移动到那个地方。\n");
+				return notify_fail("這個棋子不能移動到那個地方。\n");
 
 		if( tCOL > sCOL )
 		{
@@ -651,12 +651,12 @@ int do_move(string arg)
 				if( TABLE[table[sROW]][i][1] != "  " )
 					ii += 1;
 				if( ii > 1 )
-					return notify_fail("这个棋子不能移动到那个地方。\n");
+					return notify_fail("這個棋子不能移動到那個地方。\n");
 				if( ii == 1 && cc1 == 0 )
-					return notify_fail("这个棋子不能移动到那个地方。\n");
+					return notify_fail("這個棋子不能移動到那個地方。\n");
 			}
 			if( ii == 0 && cc1 != 0 )
-				return notify_fail("这个棋子不能移动到那个地方。\n");
+				return notify_fail("這個棋子不能移動到那個地方。\n");
 		}
 
 		if( sCOL > tCOL )
@@ -667,12 +667,12 @@ int do_move(string arg)
 				if( TABLE[table[sROW]][i][1] != "  " )
 					ii += 1;
 				if( ii > 1 )
-					return notify_fail("这个棋子不能移动到那个地方。\n");
+					return notify_fail("這個棋子不能移動到那個地方。\n");
 				if( ii == 1 && cc1 == 0 )
-					return notify_fail("这个棋子不能移动到那个地方。\n");
+					return notify_fail("這個棋子不能移動到那個地方。\n");
 			}
 			if( ii == 0 && cc1 != 0 )
-				return notify_fail("这个棋子不能移动到那个地方。\n");
+				return notify_fail("這個棋子不能移動到那個地方。\n");
 		}
 
 		if( tROW > sROW && tROW - sROW > 2  )
@@ -683,12 +683,12 @@ int do_move(string arg)
 				if( TABLE[table[i]][sCOL][1] != "  " )
 					ii += 1;
 				if( ii > 1 )
-					return notify_fail("这个棋子不能移动到那个地方。\n");
+					return notify_fail("這個棋子不能移動到那個地方。\n");
 				if( ii == 1 && cc1 == 0 )
-					return notify_fail("这个棋子不能移动到那个地方。\n");
+					return notify_fail("這個棋子不能移動到那個地方。\n");
 			}
 			if( ii == 0 && cc1 != 0 )
-				return notify_fail("这个棋子不能移动到那个地方。\n");
+				return notify_fail("這個棋子不能移動到那個地方。\n");
 		}
 
 		if( sROW > tROW && sROW - tROW > 2 )
@@ -699,12 +699,12 @@ int do_move(string arg)
 				if( TABLE[table[i]][sCOL][1] != "  " )
 					ii += 1;
 				if( ii > 1 )
-					return notify_fail("这个棋子不能移动到那个地方。\n");
+					return notify_fail("這個棋子不能移動到那個地方。\n");
 				if( ii == 1 && cc1 == 0 )
-					return notify_fail("这个棋子不能移动到那个地方。\n");
+					return notify_fail("這個棋子不能移動到那個地方。\n");
 			}
 			if( ii == 0 && cc1 != 0 )
-				return notify_fail("这个棋子不能移动到那个地方。\n");
+				return notify_fail("這個棋子不能移動到那個地方。\n");
 		}
 	}
 
@@ -714,24 +714,24 @@ int do_move(string arg)
 		if( tCOL-sCOL>2 || tCOL-sCOL<-2 || tROW-sROW>2 || tROW-sROW<-2)
 			return notify_fail("兵一次只能走一格。\n");
 		if( tCOL != sCOL && sROW != tROW )
-			return notify_fail("这个棋子只能走直线。\n");
+			return notify_fail("這個棋子只能走直線。\n");
 		if( cc == 1 )
 		{
 			if( sROW > tROW ) return notify_fail("兵不能往回走。\n");
 			if( tCOL != sCOL && sROW < 9 )
-				return notify_fail("这个棋子不能移动到那个地方。\n");
+				return notify_fail("這個棋子不能移動到那個地方。\n");
 		}
 		if( cc == 2 )
 		{
 			if( sROW < tROW ) return notify_fail("兵不能往回走。\n");
 			if( tCOL != sCOL && sROW > 9 )
-				return notify_fail("这个棋子不能移动到那个地方。\n");
+				return notify_fail("這個棋子不能移動到那個地方。\n");
 		}
 	}
 
 	if ( TABLE[table[tROW]][tCOL][2] != 0 )
 	{
-		msg1+="$N吃掉了对手一个"+sprintf("%s。\n",TABLE[table[tROW]][tCOL][1]);
+		msg1+="$N喫掉了對手一個"+sprintf("%s。\n",TABLE[table[tROW]][tCOL][1]);
 		if( cc1 == 1 )
 			bche+=TABLE[table[tROW]][tCOL][1];
 		else
@@ -740,7 +740,7 @@ int do_move(string arg)
 
 	if ( TABLE[table[tROW]][tCOL][2] == 5 )
 	{
-		msg1 += HIY"$N赢得了这场比赛的胜利。\n"NOR;
+		msg1 += HIY"$N贏得了這場比賽的勝利。\n"NOR;
 		ob->set("over",this_player()->name());
 	}
 
@@ -792,7 +792,7 @@ int do_move(string arg)
 		}
 		if( tem4 == 0 )
 		{
-			msg1 += (sprintf(HIY"%s赢得了这场比赛的胜利。\n"NOR,
+			msg1 += (sprintf(HIY"%s贏得了這場比賽的勝利。\n"NOR,
 			ob->query("name1") == me->name()?ob->query("name2"):
 			ob->query("name1")) );
 			ob->set("over", ob->query("name1") == me->name()?ob->query("name2"):
@@ -809,12 +809,12 @@ int do_move(string arg)
 	else
 		if( cc1 == 2 )
 			if( sROW>tROW )
-				msg = sprintf("『%s』%s进%s", TABLE[table[tROW]][tCOL][1], chinese_number(sCOL/2+1), sCOL==tCOL?chinese_number( (sROW-tROW)/2 ):chinese_number(tCOL/2+1) );
+				msg = sprintf("『%s』%s進%s", TABLE[table[tROW]][tCOL][1], chinese_number(sCOL/2+1), sCOL==tCOL?chinese_number( (sROW-tROW)/2 ):chinese_number(tCOL/2+1) );
 			else
 				msg = sprintf("『%s』%s退%s", TABLE[table[tROW]][tCOL][1], chinese_number(sCOL/2+1), sCOL==tCOL?chinese_number( (tROW-sROW)/2 ):chinese_number(tCOL/2+1) );
 		else
 			if( tROW>sROW )
-				msg = sprintf("『%s』%s进%s", TABLE[table[tROW]][tCOL][1], chinese_number(10-(sCOL/2+1)), sCOL==tCOL?chinese_number( (tROW-sROW)/2 ):chinese_number(10-(tCOL/2+1)) );
+				msg = sprintf("『%s』%s進%s", TABLE[table[tROW]][tCOL][1], chinese_number(10-(sCOL/2+1)), sCOL==tCOL?chinese_number( (tROW-sROW)/2 ):chinese_number(10-(tCOL/2+1)) );
 			else
 				msg = sprintf("『%s』%s退%s", TABLE[table[tROW]][tCOL][1], chinese_number(10-(sCOL/2+1)), sCOL==tCOL?chinese_number( (sROW-tROW)/2 ):chinese_number(10-(tCOL/2+1)) );
 
@@ -846,23 +846,23 @@ int do_toss()
 	ob = this_object();
 
 	if( ob->query("name2") )
-		return notify_fail("已经有两个人在下棋了。\n");
+		return notify_fail("已經有兩個人在下棋了。\n");
 
 	if( me->name() == ob->query("name1") )
-		return notify_fail("你已经投过一次骰子了。\n");
+		return notify_fail("你已經投過一次骰子了。\n");
 
 	num = random(6);
 
 	if( ob->query("num") == num ) num = random(6);
 
-	text = "拿起骰子在手中摇了两摇, 掷出了一个：\n";
+	text = "拿起骰子在手中搖了兩搖, 擲出了一個：\n";
 	text += tossText[6]+tossText[num]+tossText[7];
 	message_vision( "$N"+text,me );
 
 	if( ob->query("name1") )
 	{
 		ob->query("num")>num?ob->set("first",ob->query("name1")):ob->set("first",me->name());
-		message_vision( ob->query("first")+"使用红色棋子先行。\n",me );
+		message_vision( ob->query("first")+"使用紅色棋子先行。\n",me );
 	}
 
 	ob->set("num",num);
@@ -885,12 +885,12 @@ string long()
 	if( ob->query("name2") )
 	{
 		if( ob->query("over") )
-			round = " 这盘棋"+ob->query("over")+"赢了。";
+			round = " 這盤棋"+ob->query("over")+"贏了。";
 		else
 			if( ob->query("round") == 1 )
-				round = " 现在轮到"+HIC"蓝子"NOR+"下";
+				round = " 現在輪到"+HIC"藍子"NOR+"下";
 			else
-				round = " 现在轮到"+HIR"红子"NOR+"下";
+				round = " 現在輪到"+HIR"紅子"NOR+"下";
 		TABLE[table[9]][0][1] = sprintf("%s%s",TABLE[table[9]][0][0],round );
 	}
 
@@ -918,14 +918,14 @@ string long()
 				= TABLE[table[14]][0][0] = TABLE[table[16]][0][0]
 				= "├";
 
-		TABLE[table[1]][16][1] = "┃ 如有问题，请参看“help cchess”";
+		TABLE[table[1]][16][1] = "┃ 如有問題，請參看“help cchess”";
 		TABLE[table[15]][16][1] = sprintf("%s%s%s",TABLE[table[15]][16][0]," ",bche );
 		TABLE[table[5]][16][1] = sprintf("%s%s%s",TABLE[table[5]][16][0]," ",rche);
 
 		if( ob->query("name2") )
 		{
-			TABLE[table[3]][16][1] = sprintf("%s%s%s","┃"," ("+ob->query("first")+") ",HIR"红方"NOR+"所吃棋子：" );
-			TABLE[table[13]][16][1] = sprintf("%s%s%s","┃"," ("+msg+") ",HIC"蓝方"NOR+"所吃棋子：" );
+			TABLE[table[3]][16][1] = sprintf("%s%s%s","┃"," ("+ob->query("first")+") ",HIR"紅方"NOR+"所喫棋子：" );
+			TABLE[table[13]][16][1] = sprintf("%s%s%s","┃"," ("+msg+") ",HIC"藍方"NOR+"所喫棋子：" );
 		}
 
 		for( i=2;i<16;i++)
@@ -975,14 +975,14 @@ string long()
 			= TABLE[table[14]][0][0] = TABLE[table[16]][0][0]
 			= "┤";
 
-		TABLE[table[17]][0][1] = "┃ 如有问题，请参看“help cchess”";
+		TABLE[table[17]][0][1] = "┃ 如有問題，請參看“help cchess”";
 		TABLE[table[13]][0][1] = sprintf("%s%s%s",TABLE[table[15]][16][0]," ",bche);
 		TABLE[table[3]][0][1] = sprintf("%s%s%s",TABLE[table[5]][16][0]," ",rche);
 
 		if( ob->query("name2") )
 		{
-			TABLE[table[5]][0][1] = sprintf("%s%s%s","┃"," ("+ob->query("first")+") ",HIR"红方"NOR+"所吃棋子：" );
-			TABLE[table[15]][0][1] = sprintf("%s%s%s","┃"," ("+msg+") ",HIC"蓝方"NOR+"所吃棋子：" );
+			TABLE[table[5]][0][1] = sprintf("%s%s%s","┃"," ("+ob->query("first")+") ",HIR"紅方"NOR+"所喫棋子：" );
+			TABLE[table[15]][0][1] = sprintf("%s%s%s","┃"," ("+msg+") ",HIC"藍方"NOR+"所喫棋子：" );
 		}
 
 		for( i=2;i<16;i++)
@@ -1182,14 +1182,14 @@ void do_check()
 		}
 	}
 
-	if( check ) message_vision("$N说道"+HIG"“将军！！”\n"NOR,this_player() );
+	if( check ) message_vision("$N說道"+HIG"“將軍！！”\n"NOR,this_player() );
 }
 
 int do_save()
 {
 	bb = 1;
 	save();
-	write("记录完毕。\n");
+	write("記錄完畢。\n");
 	return 1;
 }
 
@@ -1203,9 +1203,9 @@ int do_deploy()
 	if( ob->query("id1") )
 		if( (present(ob->query("id1"),environment(ob))) || (present(ob->query("id2"),environment(ob))) )
 			if( me->name() != ob->query("name1") && me->name() != ob->query("name2") && !ob->query("over") )
-				return notify_fail("比赛还在进行中，你不能乱动棋盘！\n");
+				return notify_fail("比賽還在進行中，你不能亂動棋盤！\n");
 
-	if( !restore() ) return notify_fail("你目前没有纪录的残局。\n");
+	if( !restore() ) return notify_fail("你目前沒有紀錄的殘局。\n");
 
 	setup();
 	write("OK！\n");
@@ -1219,15 +1219,15 @@ int do_lose()
 	me = this_player();
 
 	if( me->name() != ob->query("name1") && me->name() != ob->query("name2") )
-		return notify_fail("你并没有在下棋。\n");
+		return notify_fail("你並沒有在下棋。\n");
 
 	if( ob->query("over") )
-		return notify_fail("这盘棋已经结束了。\n");
+		return notify_fail("這盤棋已經結束了。\n");
 
 	if( bche == "" && rche == "" )
-		return notify_fail("这样就认输了?\n");
+		return notify_fail("這樣就認輸了?\n");
 
-	message_vision(HIW"$N长叹一声“...我输了！...”\n"NOR,this_player());
+	message_vision(HIW"$N長嘆一聲“...我輸了！...”\n"NOR,this_player());
 	ob->set("over", ob->query("name1") == me->name()?ob->query("name2"):
 	ob->query("name1") );
 
@@ -1240,16 +1240,16 @@ int do_help(string arg)
 	{
 		write(sprintf("%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
 "———————————————————————————",
-"中国象棋（cchess）",
+"中國象棋（cchess）",
 "———————————————————————————",
-"下子        ：move <横座标> <纵座标> to <横座标> <纵座标>",
+"下子        ：move <橫座標> <縱座標> to <橫座標> <縱座標>",
 "重下        ：reset",
-"读出残局    ：deploy",
-"记录残局    ：csave",
-"掷骰确认先行：toss",
-"回顾        ：review",
-"认输        ：lose",
-"观看棋局    ：look或l board或ccb",
+"讀出殘局    ：deploy",
+"記錄殘局    ：csave",
+"擲骰確認先行：toss",
+"回顧        ：review",
+"認輸        ：lose",
+"觀看棋局    ：look或l board或ccb",
 )
 );
 		return 1;
@@ -1258,7 +1258,7 @@ int do_help(string arg)
 
 int do_review()
 {
-	write("目前走过的棋子。\n");
+	write("目前走過的棋子。\n");
 	write(aaa+"\n");
 	return 1;
 }
@@ -1273,11 +1273,11 @@ int do_reset()
 	if( ob->query("id2") )
 		if( (present(ob->query("id1"),environment(ob))) || (present(ob->query("id2"),environment(ob))) )
 			if( me->name() != ob->query("name1") && me->name() != ob->query("name2") && !ob->query("over") )
-				return notify_fail("比赛还在进行中，你不能乱动棋盘！\n");
+				return notify_fail("比賽還在進行中，你不能亂動棋盤！\n");
 	if( restore() )
 	{
 		setup();
-		message_vision( "$N把棋盘重新摆好了。\n",this_player());
+		message_vision( "$N把棋盤重新擺好了。\n",this_player());
 	}
 	return 1;
 }

@@ -14,25 +14,25 @@ int exert(object me, object target)
   !me->query("perform/guimei") &&
   !me->query("can_perform/kuihua-xinfa/guimei") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("你所使用的内功中没有这种功能。");
+   return notify_fail("你所使用的內功中沒有這種功能。");
 
 	if( me->query_temp("bixie/guimei"))
-		return notify_fail("你已经在运用鬼魅身法了吧？\n");
+		return notify_fail("你已經在運用鬼魅身法了吧？\n");
 
 //	if( !target || !target->is_character() || !me->is_fighting(target) )
-//		return notify_fail("你一个人跳来跳去干什么？\n");
+//		return notify_fail("你一個人跳來跳去幹什麼？\n");
 
 	if( !me->query_temp("murong/xingyi") )
 	{
 		if((int)me->query_skill("kuihua-xinfa", 1) < 100)
-			return notify_fail(HIY "你的葵花心法修为不够。\n" NOR);
+			return notify_fail(HIY "你的葵花心法修爲不夠。\n" NOR);
 		if((int)me->query_skill("bixie-jian", 1) < 120)
-			return notify_fail(HIY "你的辟邪剑法不够熟练。\n" NOR);
+			return notify_fail(HIY "你的辟邪劍法不夠熟練。\n" NOR);
 	}
 	if((int)me->query("neili") < 200)
-		return notify_fail(HIY "你现在真气不足。\n" NOR);
+		return notify_fail(HIY "你現在真氣不足。\n" NOR);
 
-	msg = HIC"但见$N的身形如鬼如魅，飘忽来去，直似轻烟。衣袖带风，却不发出半点声息。\n"NOR;
+	msg = HIC"但見$N的身形如鬼如魅，飄忽來去，直似輕煙。衣袖帶風，卻不發出半點聲息。\n"NOR;
 	message_combatd(msg, me);
 	me->add("neili", -200);
 	me->set_temp("bixie/guimei", 1);
@@ -46,7 +46,7 @@ void remove_effect(object me, int count)
 //	me->delete_temp("apply/dexerity");
   me->add_temp("apply/dexerity",-count);
 	me->delete_temp("bixie/guimei");
-	tell_object(me,HIY"你觉得一股浊气沉下丹田，你的鬼魅身法收功了！\n" NOR);
+	tell_object(me,HIY"你覺得一股濁氣沉下丹田，你的鬼魅身法收功了！\n" NOR);
 }
 
 int help(object me)
@@ -55,12 +55,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		暂时提高身法
+		暫時提高身法
 
 	出手要求：
-		葵花心法100级
-		辟邪剑法120级
-		内力200
+		葵花心法100級
+		辟邪劍法120級
+		內力200
 HELP
 	);
 	return 1;

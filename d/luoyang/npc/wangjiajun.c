@@ -6,7 +6,7 @@ inherit NPC;
 void create()
 {
 	set_name("王家俊", ({ "wang jiajun", "wang", "jiajun" }) );
-	set("title", HIY"金刀门"NOR"第五代弟子");
+	set("title", HIY"金刀門"NOR"第五代弟子");
 	set("gender", "男性" );
 	set("shen_type", 1);
 	set("age", 16);
@@ -16,8 +16,8 @@ void create()
 	set("dex", 25);
 	set("int", 25);
 	set("long",
-"他是王仲强的大儿子，武功不过尔尔。不过在洛阳城中，教训起地痞流氓
-来，那倒是够了。\n" );
+"他是王仲強的大兒子，武功不過爾爾。不過在洛陽城中，教訓起地痞流氓
+來，那倒是夠了。\n" );
 	set("combat_exp", 60000);
 	set("attitude", "friendly");
 	set_skill("blade", 30);

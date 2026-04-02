@@ -11,9 +11,9 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "双");
+		set("unit", "雙");
 		set("long", 
-"这是一双麻布鞋，不易大滑，供游人登山使用。\n");
+"這是一雙麻布鞋，不易大滑，供遊人登山使用。\n");
 		set("value", 150);
 		set("material", "cloth");
                 set("armor_type", "boots");

@@ -9,10 +9,10 @@ string ask_me();
 
 void create()
 {
-	set_name("常金鹏", ({ "chang jinpeng", "chang", "jinpeng", }));
+	set_name("常金鵬", ({ "chang jinpeng", "chang", "jinpeng", }));
 	set("long",
-        "他是一位体健如牛的大汉，身穿一件白布长袍。\n"
-        "他脸上手上的肌肉凹凹凸凸，盘根错节，看来武功修为不浅。\n"
+        "他是一位體健如牛的大漢，身穿一件白布長袍。\n"
+        "他臉上手上的肌肉凹凹凸凸，盤根錯節，看來武功修爲不淺。\n"
 	);
 
 	set("gender", "男性");
@@ -56,7 +56,7 @@ void create()
 	]));
 
 	set("party/party_name",HIG"明教"NOR);
-	set("party/rank",HIR"朱雀坛" NOR "坛主");
+	set("party/rank",HIR"朱雀壇" NOR "壇主");
 	create_family("明教", 35, "弟子");
 	setup();
 
@@ -82,7 +82,7 @@ void init()
 
 string ask_me()
 {
-	return "你想加入我明教(join mingjiao)吗？";
+	return "你想加入我明教(join mingjiao)嗎？";
 }
 
 #include "tanzhu.h"

@@ -8,7 +8,7 @@ void create()
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "木头的澡盆,已经很陈旧。\n");
+                set("long", "木頭的澡盆,已經很陳舊。\n");
                 set("unit", "只");
                 set("value", 100);
                 set("max_liquid", 15);

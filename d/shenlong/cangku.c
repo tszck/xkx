@@ -21,8 +21,8 @@ int is_keeper(object, object);
 void destroy_ob(object);
 void create()
 {
-	set("short", "储藏室");
-	set("long", "@LONG 这里原来是一个长在山壁上的天然溶洞，后来被人改造成了一个仓库。LONG"
+	set("short", "儲藏室");
+	set("long", "@LONG 這裏原來是一個長在山壁上的天然溶洞，後來被人改造成了一個倉庫。LONG"
 	);
 	set("exits", ([
 	]));
@@ -86,7 +86,7 @@ void refresh_stuff()
 						"/cmds/std/wear"->do_wear(keeper, inv[i]); 
 					}
 
-					message("channel:snow",HIM"【谣言】某人："+sprintf( "听说%s"+HIM+"好象落在%s的%s"+HIM+"手里了！"NOR,
+					message("channel:snow",HIM"【謠言】某人："+sprintf( "聽說%s"+HIM+"好象落在%s的%s"+HIM+"手裏了！"NOR,
 					inv[i]->name(),
 					to_chinese(explode(base_name(environment(keeper)), "/")[1]),
 					keeper->name())+"\n",users());
@@ -130,7 +130,7 @@ void destroy_ob(object ob)
 		return;
 	}
 
-	message("vision", ob->name() + "急急忙忙地离开了。\n", environment(ob), ({ob}));
+	message("vision", ob->name() + "急急忙忙地離開了。\n", environment(ob), ({ob}));
 
 	destruct(ob);
 }

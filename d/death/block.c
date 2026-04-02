@@ -2,7 +2,7 @@ inherit ROOM;
 
 void create()
 {
-	set("short","空房间");
+	set("short","空房間");
 	set("long","你完了...\n");
 	set("valid_startroom",1);
 	set("no_clean_up", 0);

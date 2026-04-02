@@ -3,7 +3,7 @@ void init()
         object ob, me;
         me = this_object();
         if (interactive(ob = this_player()) && present("shou juan", ob)){
-           message_vision(HIY"$N突然拦身在$n前，眼睛直盯着$n怀里的手绢！\n"NOR,me,ob); 
+           message_vision(HIY"$N突然攔身在$n前，眼睛直盯着$n懷裏的手絹！\n"NOR,me,ob); 
            me->set("chat_chance", 0);
            remove_call_out("do_kill");
            call_out("do_kill", 0, me, ob);
@@ -14,8 +14,8 @@ int do_kill(object me, object dest)
 {
 	if( objectp(dest) && present(dest, environment(me))
 		 && !environment(me)->query("no_fight")){
-		message_vision(HIR "$N对$n阴阴一笑：这手绢大爷我找了十年了，"
-			+RANK_D->query_rude(dest)+"你就乖乖认命吧！\n" NOR, me, dest);
+		message_vision(HIR "$N對$n陰陰一笑：這手絹大爺我找了十年了，"
+			+RANK_D->query_rude(dest)+"你就乖乖認命吧！\n" NOR, me, dest);
 		me->set_leader(dest);
 		me->kill_ob(dest);
 		dest->fight_ob(me);
@@ -58,7 +58,7 @@ int checking(object me, object dest)
           remove_call_out("checking");
           command("get shou juan from corpse");
           tell_room(environment(me),
-          me->query("name")+"拍了拍身上的灰尘，快步走了出去。\n" NOR, ({me}));
+          me->query("name")+"拍了拍身上的灰塵，快步走了出去。\n" NOR, ({me}));
     	  call_out("do_back", 1, me);
           return 1;
 	  }
@@ -69,7 +69,7 @@ int checking(object me, object dest)
 int do_back(object me)
 {        
   me->move(me->query("startroom"));                       
-  tell_room(environment(me), me->query("name")+"快步走了过来。\n", ({me}));	
+  tell_room(environment(me), me->query("name")+"快步走了過來。\n", ({me}));	
   me->set_leader(0);
   me->set("chat_chance", 40);
   return 1;

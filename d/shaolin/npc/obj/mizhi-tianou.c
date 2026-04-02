@@ -10,7 +10,7 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一盆香甜软糯，色泽粉红的蜜汁甜藕。\n");
+		set("long", "一盆香甜軟糯，色澤粉紅的蜜汁甜藕。\n");
 		set("unit", "盆");
 		set("value", 150);
 		set("food_remaining", 4);

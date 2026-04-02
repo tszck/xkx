@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "雷门宿舍");
+	set("short", "雷門宿舍");
 	set("long", @LONG
-走进这间宿舍，满目异国情调。雷门教众似乎不大理睬你。许是言
-语不通，你也不想在此多留。
+走進這間宿舍，滿目異國情調。雷門教衆似乎不大理睬你。許是言
+語不通，你也不想在此多留。
 LONG );
 	set("exits", ([
 		"out" : __DIR__"mjleimen1",

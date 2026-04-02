@@ -7,10 +7,10 @@ inherit RIVER;
 void create()
 {
 	::create();
-	set("short", "划船坞");
+	set("short", "划船塢");
 	set("long", @long
-这里名为“画船楼”，俗称“划船坞”，相传西施在此玩龙舟。向
-南有一条直通太湖的人工开凿的小溪。从这坐船能够到达运河之上。
+這裏名爲“畫船樓”，俗稱“划船塢”，相傳西施在此玩龍舟。向
+南有一條直通太湖的人工開鑿的小溪。從這坐船能夠到達運河之上。
 long);
 	set("outdoors", "suzhou");
 	set("exits",([
@@ -18,31 +18,31 @@ long);
 		"southwest" : __DIR__"caixiangjing",
 	]));
 	set("item_desc", ([
-		"river" : "近岸处有一叶小舟，也许喊(yell)一声船家就能听见。\n",
+		"river" : "近岸處有一葉小舟，也許喊(yell)一聲船家就能聽見。\n",
 	]));
 	set("outdoors", "suzhou");
 	set("coor/x", 930);
 	set("coor/y", -1110);
 	set("coor/z", 0);
   set("yell_about", "船家");             // yell 船家
-  set("river_type", "湖");               // 江面上传来回响
-  set("need_dodge",300);                 // 需要多少轻功
-  set("come_msg_out",   "一叶扁舟缓缓地驶了过来，采莲女将一块踏脚板搭上堤岸，以便乘客上下。\n");
-  set("busy_msg",       "只听得湖面上隐隐传来：“别急嘛，这儿正忙着呐……”\n");
-  set("wait_msg",       "岸边一只渡船上的采莲女说道：正等着你呢，上来吧。\n");
-  set("leave_msg_out",  "采莲女把踏脚板收了起来，竹篙一点，扁舟向湖边驶去。\n");
-  set("leave_msg_in",   "采莲女把踏脚板收起来，说了一声“坐稳喽”，竹篙一点，扁舟向湖边驶去。\n");
-  set("come_msg_in",    "采莲女说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。\n");
-  set("item_desc/river", HIC "\n只见近岸处有一叶小舟，也许大声喊("
-                         HIY "yell" HIC ")一声船家(" HIY "boat" HIC
-                        ")就\n能听见。倘若你自负轻功绝佳,也可直接"
-                        "渡水(" HIY "cross" HIC ")踏水而过。\n" NOR);
+  set("river_type", "湖");               // 江面上傳來回響
+  set("need_dodge",300);                 // 需要多少輕功
+  set("come_msg_out",   "一葉扁舟緩緩地駛了過來，採蓮女將一塊踏腳板搭上堤岸，以便乘客上下。\n");
+  set("busy_msg",       "只聽得湖面上隱隱傳來：“別急嘛，這兒正忙着吶……”\n");
+  set("wait_msg",       "岸邊一隻渡船上的採蓮女說道：正等着你呢，上來吧。\n");
+  set("leave_msg_out",  "採蓮女把踏腳板收了起來，竹篙一點，扁舟向湖邊駛去。\n");
+  set("leave_msg_in",   "採蓮女把踏腳板收起來，說了一聲“坐穩嘍”，竹篙一點，扁舟向湖邊駛去。\n");
+  set("come_msg_in",    "採蓮女說“到啦，上岸吧”，隨即把一塊踏腳板搭上堤岸。\n");
+  set("item_desc/river", HIC "\n只見近岸處有一葉小舟，也許大聲喊("
+                         HIY "yell" HIC ")一聲船家(" HIY "boat" HIC
+                        ")就\n能聽見。倘若你自負輕功絕佳,也可直接"
+                        "渡水(" HIY "cross" HIC ")踏水而過。\n" NOR);
   set("boat_short", "渡船");    
   set("boat_desc",  @LONG
-一叶小舟，最多也就能载七、八个人。一名十多岁的采莲小姑娘手
-持长竹篙，正在船尾轻轻地荡舟。
+一葉小舟，最多也就能載七、八個人。一名十多歲的採蓮小姑娘手
+持長竹篙，正在船尾輕輕地盪舟。
 LONG );
-  set("to",         __DIR__"szyunhe");  // 船的终点 /*   必选   */
+  set("to",         __DIR__"szyunhe");  // 船的終點 /*   必選   */
 	setup();
 }
 

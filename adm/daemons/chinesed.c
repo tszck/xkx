@@ -14,10 +14,10 @@ inherit F_SAVE;
 
 
 // some constatns
-nosave string *c_digit = ({ "零","十","百","千","万","亿","兆" });
+nosave string *c_digit = ({ "零","十","百","千","萬","億","兆" });
 nosave string *c_num = ({"零","一","二","三","四","五","六","七","八","九","十"});
 nosave string *sym_tian = ({ "甲","乙","丙","丁","戊","己","庚","辛","壬","癸" });
-nosave string *sym_di = ({ "子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥" });
+nosave string *sym_di = ({ "子","醜","寅","卯","辰","巳","午","未","申","酉","戌","亥" });
 
 mapping dict = ([]);
 
@@ -38,7 +38,7 @@ void remove()
 string chinese_number(int i)
 {
 	if (i < 0)
-		return "负" + chinese_number(-i);
+		return "負" + chinese_number(-i);
 	if (i < 11)
 		return c_num[i];
 	if (i < 20)
@@ -146,7 +146,7 @@ string chinese_date(int date)
 	if (date <=0) date=1;
 	local = localtime(date);
 
-	return sprintf("%s%s年%s月%s日%s时%s刻",
+	return sprintf("%s%s年%s月%s日%s時%s刻",
 		sym_tian[local[LT_YEAR] % 10], sym_di[local[LT_YEAR] % 12],
 		chinese_number(local[LT_MON] + 1),
 		chinese_number(local[LT_MDAY] + (local[LT_HOUR] > 23 ? 1 : 0)),

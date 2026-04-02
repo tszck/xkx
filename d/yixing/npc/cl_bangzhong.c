@@ -1,4 +1,4 @@
-// /d/yixing/npc/cl_bangzhong.c 帮众
+// /d/yixing/npc/cl_bangzhong.c 幫衆
 // Last Modified by winder on Jul. 12 2002
 
 #include <ansi.h>
@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("帮众", ({ "changle bangzhong", "bangzhong" }));
-	set("party/party_name", HIC"长乐帮"NOR);
+	set_name("幫衆", ({ "changle bangzhong", "bangzhong" }));
+	set("party/party_name", HIC"長樂幫"NOR);
 	set("party/rank", "虎猛堂");
-	set("long", "这是一个惯于为非作歹的长乐帮众。\n他眼珠乱转，似乎正在想什么坏主意。\n");
+	set("long", "這是一個慣於爲非作歹的長樂幫衆。\n他眼珠亂轉，似乎正在想什麼壞主意。\n");
 	set("gender", "男性");
 	set("age", 25);
 	set("attitude", "friendly");
@@ -32,14 +32,14 @@ void create()
 	set_skill("parry", 50);
 
 	set("inquiry", ([
-		"长乐帮" : "这里就是长乐帮总舵所在地。",
-		"司徒横" : "我对我们帮主老人家的景仰之情，有如滔滔江水连绵不绝。",
-		"虎猛堂" : "虎猛堂自从邱香主上任后，一日千里！",
+		"長樂幫" : "這裏就是長樂幫總舵所在地。",
+		"司徒橫" : "我對我們幫主老人家的景仰之情，有如滔滔江水連綿不絕。",
+		"虎猛堂" : "虎猛堂自從邱香主上任後，一日千里！",
 		"邱香主" : "他在外面接待客人。",
-		"邱山风" : "他在外面接待客人。",
-		"香主" : "各位香主的任命由帮主老人家说了算。",
-		"贝海石" : "贝大夫在弊帮劳苦功高，颇得帮主信任。",
-		"帮主" : "我家帮主司徒大爷乃威镇江南的“东霸天”也。",
+		"邱山風" : "他在外面接待客人。",
+		"香主" : "各位香主的任命由幫主老人家說了算。",
+		"貝海石" : "貝大夫在弊幫勞苦功高，頗得幫主信任。",
+		"幫主" : "我家幫主司徒大爺乃威鎮江南的“東霸天”也。",
 	]));
 
 	setup();

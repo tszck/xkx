@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","绝谷");
+	set("short","絕谷");
 	set("long",@LONG
-还好，你运气好，从万丈深渊上摔下来，居然摔到厚厚的雪堆上，
-不但没断腿少胳膊，连皮都没伤到一点。但是，到了这绝谷之下，如何
+還好，你運氣好，從萬丈深淵上摔下來，居然摔到厚厚的雪堆上，
+不但沒斷腿少胳膊，連皮都沒傷到一點。但是，到了這絕谷之下，如何
 上去呢？攀攀(pan)看呢？
 LONG);
 	set("outdoors", "lingxiao");
@@ -26,9 +26,9 @@ void init()
 int do_pan()
 {
 	object me = this_player();
-	message("vision", me->name() + "手脚并用，猫着腰往上爬。\n", environment(me), ({me}) );
+	message("vision", me->name() + "手腳並用，貓着腰往上爬。\n", environment(me), ({me}) );
 	me->move(__DIR__"shiya");
-	message("vision", me->name() + "从石崖下猫着腰爬了上来。\n", environment(me), ({me}) );
+	message("vision", me->name() + "從石崖下貓着腰爬了上來。\n", environment(me), ({me}) );
 	return 1;
 }
 

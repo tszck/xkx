@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("观众甲", ({ "jia" }));
+	set_name("觀衆甲", ({ "jia" }));
 	set("long",
-		"他是一位十分安静的观众，但发起火来却又如此厉害。\n"+
-                "他两臂粗壮，膀阔腰圆，手持兵刃，似乎有一身武艺。\n"
+		"他是一位十分安靜的觀衆，但發起火來卻又如此厲害。\n"+
+                "他兩臂粗壯，膀闊腰圓，手持兵刃，似乎有一身武藝。\n"
 	);
 
 	set("gender", "男性");
@@ -64,12 +64,12 @@ void init()
 	&& !environment(ob)->query("no_fight"))
 	{
 		if( !ob->query_temp("warned") ) {
-			command("say 你是谁，居然敢来这儿捣乱，不想活了是不是？！");
-			command("say 快给我滚远点儿，别让我再看见你，不然见你一次就砍你一次！");
+			command("say 你是誰，居然敢來這兒搗亂，不想活了是不是？！");
+			command("say 快給我滾遠點兒，別讓我再看見你，不然見你一次就砍你一次！");
 		}
 		else if( ob->query_temp("stay") < 10 ) ob->add_temp("stay", 1);
 		else {
-			command("say 大胆狂徒，哪里逃？！\n");
+			command("say 大膽狂徒，哪裏逃？！\n");
 			me->set_leader(ob);
 			remove_call_out("kill_ob");
 			call_out("kill_ob", 1, ob); 

@@ -6,7 +6,7 @@ void create()
 {
         set("short","大雪山口");
         set("long",@LONG
-这儿遍地冰雪，你眼前白皑皑的一片。从东边爬上来的，心跳开始加速。
+這兒遍地冰雪，你眼前白皚皚的一片。從東邊爬上來的，心跳開始加速。
 LONG );
         set("exits",([
                 "eastdown"  : __DIR__"sroad4",

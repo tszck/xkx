@@ -30,37 +30,37 @@ int main(object me, string arg)
 	myfam =(mapping)me->query("family");
 	
 	if( !arg || !ob = present(arg, environment(me)) )
-		return notify_fail("你要将谁逐出师门？\n");
+		return notify_fail("你要將誰逐出師門？\n");
 
 	if( !ob->is_character() || !myfam)
-		return notify_fail("你逐不动他。\n");
+		return notify_fail("你逐不動他。\n");
 
 	if( !userp(ob) )
-		return notify_fail("你只能开除玩家所扮演的人物。\n");
+		return notify_fail("你只能開除玩家所扮演的人物。\n");
 	
 	if(
 	ob->query("combat_exp")>10000
-	&&(myfam["title"]!= "开山祖师")
-	&&(myfam["title"]!= "掌门")
-	&&(myfam["title"]!= "总舵主")
+	&&(myfam["title"]!= "開山祖師")
+	&&(myfam["title"]!= "掌門")
+	&&(myfam["title"]!= "總舵主")
 	&&(me->query("id")!= "feng qingyang")
-	&&(myfam["title"]!= "帮主")
+	&&(myfam["title"]!= "幫主")
 	)
-		return notify_fail("对方经验太高，恐怕要找你掌门师尊为你做主了！\n");
+		return notify_fail("對方經驗太高，恐怕要找你掌門師尊爲你做主了！\n");
 
 		if( ob->is_apprentice_of(me) )
 		{
-			message_vision("\n$N对着$n说道：从今天起，你我师徒恩断情绝，你走吧！\n\n", me, ob);
-			tell_object(ob, "\n你被师父开革出师门了！\n\n");
+			message_vision("\n$N對着$n說道：從今天起，你我師徒恩斷情絕，你走吧！\n\n", me, ob);
+			tell_object(ob, "\n你被師父開革出師門了！\n\n");
 		}
 		else if( me->query("family/privs")==-1 &&
 		(string)me->query("family/family_name") ==
 		(string)ob->query("family/family_name") )
 	{
-		message_vision("\n$N对着$n说道：从今天起，你再也不是我" + me->query("family/family_name") + "的弟子了，你走吧！\n\n", me, ob);
-		tell_object(ob, "\n你被" + me->query("family/title") + "开革出师门了！\n\n");
+		message_vision("\n$N對着$n說道：從今天起，你再也不是我" + me->query("family/family_name") + "的弟子了，你走吧！\n\n", me, ob);
+		tell_object(ob, "\n你被" + me->query("family/title") + "開革出師門了！\n\n");
 	}  else
-			return notify_fail("这个人不是你的弟子。\n");
+			return notify_fail("這個人不是你的弟子。\n");
 
 	ob->add("detach/"+ob->query("family/family_name"),1);
 	ob->delete("family");
@@ -117,9 +117,9 @@ int help(object me)
 	write(@HELP
 指令格式 : expell|kaichu <某人>
  
-    这个指令可以让你开除不成才的弟子，被开除的弟子所有基本技能都会
-降到原来的一半，武功全废，综合评价一项也会变成零，这对于一个人物而
-言是一个「比死还严重」的打击，请你在开除一名弟子之前务必审慎考虑。
+    這個指令可以讓你開除不成才的弟子，被開除的弟子所有基本技能都會
+降到原來的一半，武功全廢，綜合評價一項也會變成零，這對於一個人物而
+言是一個「比死還嚴重」的打擊，請你在開除一名弟子之前務必審慎考慮。
  
 HELP
 	);

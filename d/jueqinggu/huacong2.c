@@ -5,9 +5,9 @@
 inherit ROOM;
 void create()
 {
-	set("short", "花丛");
+	set("short", "花叢");
 	set("long", @LONG
-这里是一片花丛，你感到已经很难辨清道路了。
+這裏是一片花叢，你感到已經很難辨清道路了。
 LONG
 	);
 

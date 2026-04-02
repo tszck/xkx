@@ -1,5 +1,5 @@
 // Last Modified by winder on Apr. 25 2001
-// 看临时参数的命令文件
+// 看臨時參數的命令文件
 inherit F_CLEAN_UP;
 
 #include <login.h>
@@ -25,10 +25,10 @@ int main(object me, string arg)
     sum += DISASTER_D->query_children("/clone/haojie/pker3.c");
     sum += DISASTER_D->query_children("/clone/haojie/pker2.c");
     sum += DISASTER_D->query_children("/clone/haojie/pker1.c");
-    write("被杀 NPC人数："+i+"\n");
-    write("系统封锁状态："+j+"\n");
-    write("封锁持续时间："+time_period(tim)+"\n");
-    write("当前杀手数量："+sum+"\n");
+    write("被殺 NPC人數："+i+"\n");
+    write("系統封鎖狀態："+j+"\n");
+    write("封鎖持續時間："+time_period(tim)+"\n");
+    write("當前殺手數量："+sum+"\n");
         return 1;
 }
 
@@ -36,7 +36,7 @@ string time_period(int timep)
 {
     int t, d, h, m, s;
     string time;
-    if ( timep>=1800 ) return "已超时";
+    if ( timep>=1800 ) return "已超時";
     t = timep;
     s = t % 60;	t /= 60;
     m = t % 60;	t /= 60;
@@ -46,7 +46,7 @@ string time_period(int timep)
     if(d) time = chinese_number(d) + "天";
     else time = "";
 
-    if(h) time += chinese_number(h) + "小时";
+    if(h) time += chinese_number(h) + "小時";
     if(m) time += chinese_number(m) + "分";
     time += chinese_number(s) + "秒";
     return time;

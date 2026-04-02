@@ -1,16 +1,16 @@
-// pian.c 偏将
+// pian.c 偏將
 
 inherit NPC;
 //inherit F_SKILL;
 
 void create()
 {
-	set_name("偏将", ({ "pian jiang", "pian", "jiang" }));
+	set_name("偏將", ({ "pian jiang", "pian", "jiang" }));
 	set("gender", "男性");
 	set("age", random(10) + 30);
 	set("str", 25);
 	set("dex", 16);
-	set("long", "这是一个大宋将领，满脸征尘。\n");
+	set("long", "這是一個大宋將領，滿臉徵塵。\n");
 	set("combat_exp", 75000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");

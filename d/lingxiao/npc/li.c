@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("李万山",({"li wanshan","li"}));
+	set_name("李萬山",({"li wanshan","li"}));
 	set("gender", "男性");
 	set("age", 20);
-	set("long", "他是凌霄城第六代弟子李万山，长得肥肥矮矮的。\n");
+	set("long", "他是凌霄城第六代弟子李萬山，長得肥肥矮矮的。\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);

@@ -1,4 +1,4 @@
-// /d/shenlong/houshan 后山
+// /d/shenlong/houshan 後山
 // Last Modified by winder on Jul. 12 2002
 
 #include <ansi.h>
@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "后山");
+	set("short", "後山");
 	set("long", @LONG
-这里是后山，人迹罕至，杂草丛生，前面的路越来越小，路上还有
-什么动物爬过的痕迹，你越走越害怕，不时回头。突然，你看见草堆中
-似乎有一个洞，但是又看不太清楚。
+這裏是後山，人跡罕至，雜草叢生，前面的路越來越小，路上還有
+什麼動物爬過的痕跡，你越走越害怕，不時回頭。突然，你看見草堆中
+似乎有一個洞，但是又看不太清楚。
 LONG
 	);
 	set("outdoors", "shenlong");

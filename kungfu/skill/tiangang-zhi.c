@@ -7,37 +7,37 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N左手轻轻拨动，右手五指徐徐弹出拨，一式"CYN"「浪起湖心」"NOR"，拂向$n的$l",
+([	"action" : "$N左手輕輕撥動，右手五指徐徐彈出撥，一式"CYN"「浪起湖心」"NOR"，拂向$n的$l",
 	"lvl" : 0,
 	"skill_name" : "浪起湖心"
 ]),
-([	"action" : "$N双手上下起落，俯身掠向$n，一式"HIC"「瀑落清潭」"NOR"，左手化掌成指，汹涌袭向$n的$l",
+([	"action" : "$N雙手上下起落，俯身掠向$n，一式"HIC"「瀑落清潭」"NOR"，左手化掌成指，洶湧襲向$n的$l",
 	"lvl" : 12,
 	"skill_name" : "瀑落清潭"
 ]),
-([	"action" : "$N左手由拳变掌，右手扭曲如灵蛇，一式"BLU"「龟蛇竞渡」"NOR"，左右并用，拍向$n的$l",
+([	"action" : "$N左手由拳變掌，右手扭曲如靈蛇，一式"BLU"「龜蛇競渡」"NOR"，左右並用，拍向$n的$l",
 	"lvl" : 24,
-	"skill_name" : "龟蛇竞渡"
+	"skill_name" : "龜蛇競渡"
 ]),
-([	"action" : "$N一式"YEL"「倒索攀山」"NOR"，左手抽回，右手前探，戟指点向$n的$l",	
+([	"action" : "$N一式"YEL"「倒索攀山」"NOR"，左手抽回，右手前探，戟指點向$n的$l",	
 	"lvl" : 36,
 	"skill_name" : "倒索攀山"
 ]),
-([	"action" : "$N使一式"MAG"「闪现雷鸣」"NOR"，身影变幻不定地掠至$n身后，猛地拍向$n的$l",
+([	"action" : "$N使一式"MAG"「閃現雷鳴」"NOR"，身影變幻不定地掠至$n身後，猛地拍向$n的$l",
 	"lvl" : 48,
-	"skill_name" : "闪现雷鸣"
+	"skill_name" : "閃現雷鳴"
 ]),
-([	"action" : "$N两臂大开大阖，吸一口气，一式"HIB"「地动山摇」"NOR"，劲力透彻，双手快速一拨，激出数道劲气逼向$n的$l",
+([	"action" : "$N兩臂大開大闔，吸一口氣，一式"HIB"「地動山搖」"NOR"，勁力透徹，雙手快速一撥，激出數道勁氣逼向$n的$l",
 	"lvl" : 60,
-	"skill_name" : "地动山摇"
+	"skill_name" : "地動山搖"
 ]),
-([	"action" : "$N身形纵起，衣袂飘荡，双手轻轻拍动，一式"HIW"「水拍云崖」"NOR"，居高临下，连绵不绝拍向$n的$l",
+([	"action" : "$N身形縱起，衣袂飄蕩，雙手輕輕拍動，一式"HIW"「水拍雲崖」"NOR"，居高臨下，連綿不絕拍向$n的$l",
 	"lvl" : 72,
-	"skill_name" : "水拍云崖"
+	"skill_name" : "水拍雲崖"
 ]),
-([	"action" : "$N腾空而起，双掌合一，十指如钩，一招"HIY"「泰山压顶」"NOR"，疾向$n的击落，势道凶猛已极",
+([	"action" : "$N騰空而起，雙掌合一，十指如鉤，一招"HIY"「泰山壓頂」"NOR"，疾向$n的擊落，勢道兇猛已極",
 	"lvl" : 84,
-	"skill_name" : "泰山压顶"
+	"skill_name" : "泰山壓頂"
 ])
 });
 
@@ -47,21 +47,21 @@ int valid_combine(string combo) { return combo=="jinding-zhang"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail(HIC"练天罡指穴法必须空手。\n"NOR);
+		return notify_fail(HIC"練天罡指穴法必須空手。\n"NOR);
 	if ((int)me->query_skill("linji-zhuang", 1) < 20)
-		return notify_fail("你的临济十二庄火候不够，无法学天罡指穴法。\n");
+		return notify_fail("你的臨濟十二莊火候不夠，無法學天罡指穴法。\n");
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail("你的内力太弱，无法练天罡指穴法。\n");
+		return notify_fail("你的內力太弱，無法練天罡指穴法。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 40)
-		return notify_fail("你的体力太低了，无法练天罡指穴法。\n");
+		return notify_fail("你的體力太低了，無法練天罡指穴法。\n");
 	if ((int)me->query("neili") < 25)
-		return notify_fail("你的内力不够练天罡指穴法。\n");
+		return notify_fail("你的內力不夠練天罡指穴法。\n");
 	me->receive_damage("qi", 35);
 	me->add("neili", -20);
 	return 1;
@@ -88,16 +88,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "刺伤" : "瘀伤",
+		"damage_type" : random(2) ? "刺傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 15; }
@@ -114,12 +114,12 @@ int help(object me)
 	write(HIC"\n天罡指穴法："NOR"\n");
 	write(@HELP
 
-    天罡指穴法为峨嵋派武功。
-    可与金顶绵掌互备。
+    天罡指穴法爲峨嵋派武功。
+    可與金頂綿掌互備。
 
-	学习要求：
-		临济十二庄20级
-		内力100
+	學習要求：
+		臨濟十二莊20級
+		內力100
 HELP
 	);
 	return 1;

@@ -7,7 +7,7 @@ inherit CLOTH;
 
 void create()
 {
-	set_name( "铁背心", ({ "tie beixin", "beixin" }) );
+	set_name( "鐵背心", ({ "tie beixin", "beixin" }) );
 	set_weight(3000);
 	if( clonep() )
 		set_default_object(__FILE__);

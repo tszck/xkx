@@ -4,15 +4,15 @@ int valid_learn(object me)
 	string creater;
 
 	if( (int)me->query("max_neili") < 50 )
-		return notify_fail("你的内力不够，没有办法练"+SKILL_CH_NAME+"。\n");
+		return notify_fail("你的內力不夠，沒有辦法練"+SKILL_CH_NAME+"。\n");
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != SKILL_BASE_NAME)
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	creater = this_object()->owner();
 	if (userp(me) &&
 	me->query("id")!=creater && 
 	me->query("couple/couple_id")!=creater)
-	return notify_fail("不能向其他玩家学习自创的武功。\n");
+	return notify_fail("不能向其他玩家學習自創的武功。\n");
 	return 1;
 }
 int valid_enable(string usage)
@@ -32,15 +32,15 @@ int practice_skill(object me)
 	nlcost = (F_E1 + F_E2)/15;
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != SKILL_BASE_NAME)
-		return notify_fail("你使用的武器不对。\n");	
+		return notify_fail("你使用的武器不對。\n");	
 	if( (int)me->query("qi") < qicost )
-		return notify_fail("你的体力不够了，休息一下再练吧。\n");
+		return notify_fail("你的體力不夠了，休息一下再練吧。\n");
 	if( (int)me->query("neili") < nlcost )
-		return notify_fail("你的内力不够了，休息一下再练吧。\n");
+		return notify_fail("你的內力不夠了，休息一下再練吧。\n");
 	me->receive_damage("qi", qicost);
 	me->add("neili", -nlcost);
 	if (lvl>=action[i-1]["lvl"]+20)
-		return notify_fail("这一招你已经练到顶了，该钻研钻研新的招式了。\n");
+		return notify_fail("這一招你已經練到頂了，該鑽研鑽研新的招式了。\n");
 	return 1;
 }
 string query_skill_name(int level)
@@ -67,17 +67,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "割伤" : "刺伤",
+		"damage_type" : random(2) ? "割傷" : "刺傷",
 	]);
 }
 int learn_bonus() { return 20; }

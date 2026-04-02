@@ -5,7 +5,7 @@ inherit NPC;
 void create()
 {
 	set_name("小菊", ({ "xiao ju", "ju" }));
-	set("long", "一个模样乖巧的小丫环，瓜子脸，肤色白晰。细看时，嘴角有一颗小痣。\n");
+	set("long", "一個模樣乖巧的小丫環，瓜子臉，膚色白晰。細看時，嘴角有一顆小痣。\n");
 	set("gender", "女性");
 	set("age", 15);
 	set("combat_exp", 1000);

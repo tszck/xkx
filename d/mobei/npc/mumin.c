@@ -6,7 +6,7 @@ void create()
 {
 	set_name("蒙古牧民",({"mu min"}));
 	set("gender","男性");
-	set("long","铁木真部落中族人。\n");
+	set("long","鐵木真部落中族人。\n");
 	set("combat_exp",600);
 	
 	set("age",54);

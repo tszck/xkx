@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "秘密通道");
+        set("short", "祕密通道");
         set("long", @LONG
-这是一个石室，地上和角落都是灰尘，大概好久没人来过了。在
-石缝之间，长着几棵小草(cao) ，你仔细一看，原来它就是断肠蚀骨
+這是一個石室，地上和角落都是灰塵，大概好久沒人來過了。在
+石縫之間，長着幾棵小草(cao) ，你仔細一看，原來它就是斷腸蝕骨
 腐心草。
 LONG );
        set("exits", ([
@@ -27,6 +27,6 @@ LONG );
 int valid_leave(object me,string dir)
 {
         if(dir=="out")
-            tell_object(me,"你走出了秘密通道，神秘地出现在大厅之中。\n");
+            tell_object(me,"你走出了祕密通道，神祕地出現在大廳之中。\n");
         return ::valid_leave(me,dir);
 }

@@ -8,9 +8,9 @@ inherit F_MASTER;
 void create()
 {
 	set_name("徐天宏", ({ "xu tianhong", "xu", "tianhong" }));
-	set("nickname", HIM"武诸葛"NOR);
-	set("title", HIR"红花会"HIG"七当家"NOR);
-	set("long","他是红花会的七当家，\n他年纪好像在四十上下，身材矮小，足智多谋，是红花会的智囊军师。武功也颇不弱，冷静持重。\n");
+	set("nickname", HIM"武諸葛"NOR);
+	set("title", HIR"紅花會"HIG"七當家"NOR);
+	set("long","他是紅花會的七當家，\n他年紀好像在四十上下，身材矮小，足智多謀，是紅花會的智囊軍師。武功也頗不弱，冷靜持重。\n");
 	set("gender", "男性");
 	set("class", "swordman");
 	set("age", 40);
@@ -47,7 +47,7 @@ void create()
 	map_skill("sword", "zhuihun-jian");
 	prepare_skill("hand", "benlei-shou");
 
-	create_family("红花会", 2, "弟子");
+	create_family("紅花會", 2, "弟子");
 	
 	set("env/wimpy", 60);
 	set("chat_chance_combat", 60);
@@ -73,9 +73,9 @@ void init()
 	if((int)ob->query("shen") < 1000 &&
 		ob->query("family/master_id")=="xu tianhong")
 	{
-		command( "chat "+ob->query("name")+"！你这等邪恶奸诈之徒，我岂能仍是你的师父。\n");
+		command( "chat "+ob->query("name")+"！你這等邪惡奸詐之徒，我豈能仍是你的師父。\n");
 		command("expell "+ ob->query("id"));
-		this_player()->set("title","红花会" + RED + "弃徒" NOR);
+		this_player()->set("title","紅花會" + RED + "棄徒" NOR);
 	}
 }
 
@@ -83,11 +83,11 @@ void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("shen") < 2000)
 	{
-		command("say 我红花会收徒极严。");
-		command("say 这位" + RANK_D->query_respect(ob) + "平时还要多做一些行侠仗义之事！");
+		command("say 我紅花會收徒極嚴。");
+		command("say 這位" + RANK_D->query_respect(ob) + "平時還要多做一些行俠仗義之事！");
 		return;
 	}
-	command("say 好，你这个年青人还不错，我收下你了！");
+	command("say 好，你這個年青人還不錯，我收下你了！");
 	command("recruit " + ob->query("id"));
 }
 

@@ -1,13 +1,13 @@
-// ouyangzhan.c 欧阳詹
+// ouyangzhan.c 歐陽詹
 
 inherit NPC;
 #include <ansi.h>
 
 void create()
 {
-	set_name("欧阳詹", ({ "ouyang zhan", "zhan", "ouyang" }));
+	set_name("歐陽詹", ({ "ouyang zhan", "zhan", "ouyang" }));
 	set("long",
-"欧阳詹是泉州名士。\n");
+"歐陽詹是泉州名士。\n");
 	set("gender", "男性");
 	set("age", 65);
 	set("no_get", 1);
@@ -39,7 +39,7 @@ int accept_object(object who, object ob)
 		who->set_temp("mark/朱", 0);
 	if (ob->query("money_id") && ob->value() >= 1000)
 	{
-		message_vision("欧阳詹同意指点$N一些读书写字的问题。\n", who);
+		message_vision("歐陽詹同意指點$N一些讀書寫字的問題。\n", who);
 		who->add_temp("mark/朱", ob->value() / 50);
 		return 1;
 	}

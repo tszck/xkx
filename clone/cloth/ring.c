@@ -11,7 +11,7 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "个");
+		set("unit", "個");
 		set("material", "gold");
 		set("value", 100);
 		set("armor_prop/armor", 2);

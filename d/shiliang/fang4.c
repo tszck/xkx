@@ -2,10 +2,10 @@
 inherit ROOM;
 void create()
 {
-        set("short", "侧房");
+        set("short", "側房");
 	set("long", @LONG
-这里就是温家老五温方南的住处，他是个爱附庸风雅的人，正
-拿着本诗集摇头晃脑地读着。
+這裏就是溫家老五溫方南的住處，他是個愛附庸風雅的人，正
+拿着本詩集搖頭晃腦地讀着。
 LONG
 	);
 	set("exits", ([ 

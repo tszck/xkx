@@ -1,25 +1,25 @@
 // bbsboard.c
 // Last modified by jjgod@FYTX. 01/03/06.
-/*增强功能留言版：BBS_BOARD
- *增加：回复功能、斑竹功能、整理功能、防止 FLOOD 功能 */
+/*增強功能留言版：BBS_BOARD
+ *增加：回覆功能、斑竹功能、整理功能、防止 FLOOD 功能 */
 
 #include <ansi.h>
 inherit ITEM;
 inherit F_SAVE;
-// 最多容纳 100 个贴子
+// 最多容納 100 個貼子
 #define MAX_PLAN	100
-// 假如贴子超过了 MAX_PLAN，删掉前 10 个
+// 假如貼子超過了 MAX_PLAN，刪掉前 10 個
 #define DEL_TO		10
-// 是否保存所有原来的贴子，是则设为0，否则设为 1
+// 是否保存所有原來的貼子，是則設爲0，否則設爲 1
 #define SAVE_ALL_OLD_PLAN 0
-// 如果需要显示整理情况（很长很长），请：
+// 如果需要顯示整理情況（很長很長），請：
 // #define DEBUG		1
-// 最大的标题长度
+// 最大的標題長度
 #define MAX_TITLE_LEN	30
-// 发表文章需要的能力
+// 發表文章需要的能力
 #define NEED_EXP	0
 #define NEED_AGE	15
-string content(mapping *notes,int num);//返回note[num]的内容和回文内容
+string content(mapping *notes,int num);//返回note[num]的內容和迴文內容
 string replace_str(string w_name);
 string makeup_space(string s,int max);
 void setup()
@@ -61,7 +61,7 @@ string short()
 
 	notes = query("notes");
 	if( !pointerp(notes) || !sizeof(notes) )
-		return ::short() + " [ 没有任何贴子 ]";
+		return ::short() + " [ 沒有任何貼子 ]";
 
 	if( this_player() )
 	{
@@ -70,9 +70,9 @@ string short()
 			if( notes[i]["time"] <= last_read_time ) break;
 	}
 	if( unread )
-		return sprintf(HIC"%s"NOR" [ "HIW"%d"NOR" 个贴子，"HIR"%d"NOR" 篇未读 ]", ::short(), sizeof(notes), unread);
+		return sprintf(HIC"%s"NOR" [ "HIW"%d"NOR" 個貼子，"HIR"%d"NOR" 篇未讀 ]", ::short(), sizeof(notes), unread);
 	else
-		return sprintf("%s [ "HIW"%d"NOR" 个贴子 ]", ::short(), sizeof(notes));
+		return sprintf("%s [ "HIW"%d"NOR" 個貼子 ]", ::short(), sizeof(notes));
 }
 
 int do_look(string arg)
@@ -93,8 +93,8 @@ int do_look(string arg)
 		return 1;
 	}
 
-	msg=query("long")+(query("banzhu")?("这个版的的版主是 "HIG+query("banzhu")+NOR"。\n"):"")+
-	HIW"编号"NOR"----"HIY"标题"NOR"--------------------------------"HIR"作者"NOR"--"HIG"回复数"NOR"------"HIM"时间"NOR"----------"NOR;
+	msg=query("long")+(query("banzhu")?("這個版的的版主是 "HIG+query("banzhu")+NOR"。\n"):"")+
+	HIW"編號"NOR"----"HIY"標題"NOR"--------------------------------"HIR"作者"NOR"--"HIG"回覆數"NOR"------"HIM"時間"NOR"----------"NOR;
 	last_time_read = this_player()->query("board_last_read/" + (string)query("board_id"));
 	message("vision", msg, me);
 	for(t=0; t<=size; t++)
@@ -111,7 +111,7 @@ int do_look(string arg)
     		message("vision", msg, me);
         }
         msg = "\n------------------------------------------------------------------------------\n";
-        msg += sprintf("该版共有 %d 张帖子。\n", sizeof(notes));
+        msg += sprintf("該版共有 %d 張帖子。\n", sizeof(notes));
     	message("vision", msg, me);
     	return 1;
 }
@@ -136,13 +136,13 @@ void done_post(object me, mapping note, string text)
 
 	set("notes", notes);
 	save();
-	tell_object(me, HIW"新贴子完成。\n"NOR);
+	tell_object(me, HIW"新貼子完成。\n"NOR);
 
 	if (sizeof(query("notes"))>MAX_PLAN)
 	{
-// DEL_TO 以前的贴子将保存到 /data/board/这里的board_id 文件中
-// 删除目前 board 里的 DEL_TO 以前的贴子
-// 需对mark文章保留
+// DEL_TO 以前的貼子將保存到 /data/board/這裏的board_id 文件中
+// 刪除目前 board 裏的 DEL_TO 以前的貼子
+// 需對mark文章保留
 		i = 0;
 		j = 0;
 		while (i<sizeof(notes))
@@ -159,7 +159,7 @@ void done_post(object me, mapping note, string text)
 		}
 		set("notes",notes);
 		save();
-		tell_object(me, HIR"……整理完毕，删除 "HIW+(DEL_TO+1)+HIR" 号以前的贴子。\n"NOR);
+		tell_object(me, HIR"……整理完畢，刪除 "HIW+(DEL_TO+1)+HIR" 號以前的貼子。\n"NOR);
 	}
 	return;
 }
@@ -167,7 +167,7 @@ void done_post(object me, mapping note, string text)
 void done_re(object me, mapping report, int project, string text)
 {
 	mapping *notes, *reports;
-// 支持签名和颜色
+// 支持簽名和顏色
 	text = replace_str(text);
 	if (me->query("signature"))
 		report["msg"]= text+"\n---------------------------------\n"+me->query("signature");
@@ -183,7 +183,7 @@ void done_re(object me, mapping report, int project, string text)
 	notes[project]["time"] = time();
 
 	set("notes", notes);
-	tell_object(me, HIW"回复完毕。\n"NOR);
+	tell_object(me, HIW"回覆完畢。\n"NOR);
 
 	save();
 	return;
@@ -195,17 +195,17 @@ int do_post(string arg)
 	object me=this_player();
 	string holded;
 
-	if(!arg) return notify_fail("新贴子请指定一个标题。\n");
+	if(!arg) return notify_fail("新貼子請指定一個標題。\n");
 	if (!query("hold")) holded = "0"; else holded = query("hold");
 	if (strsrch(holded,"*"+me->query("id")+"*") >= 0 && !wizardp(me))
-		return notify_fail("你在本版的权限已经被封了。\n");
+		return notify_fail("你在本版的權限已經被封了。\n");
 	arg = replace_str(arg);
 	if (strwidth(arg)>MAX_TITLE_LEN && !wizardp(me))
-		return notify_fail("这个标题太长了，请换一个简洁一点的。\n");
+		return notify_fail("這個標題太長了，請換一個簡潔一點的。\n");
 
 	if (query("avoid_flood") && me->query("combat_exp")<NEED_EXP &&
 		me->query("age")<NEED_AGE)
-		return notify_fail("你暂时还没有权力在这里发表文章，需要 "WHT +NEED_EXP+NOR" 点经验值或者 "WHT+NEED_AGE+NOR" 岁的年龄。\n");
+		return notify_fail("你暫時還沒有權力在這裏發表文章，需要 "WHT +NEED_EXP+NOR" 點經驗值或者 "WHT+NEED_AGE+NOR" 歲的年齡。\n");
 
 	note = allocate_mapping(5);
 	note["title"] = arg;
@@ -224,22 +224,22 @@ int do_re(string arg)
 	object me=this_player();
 
 	if(!arg || sscanf(arg, "%d.%s", num, title)<1)
-		return notify_fail("指令格式：re <贴子编号>.<回复标题>\n");
+		return notify_fail("指令格式：re <貼子編號>.<回覆標題>\n");
 	if (!query("hold")) holded = "0"; else holded = query("hold");
 	if (strsrch(holded,"*"+me->query("id")+"*") >= 0 && !wizardp(me))
-		return notify_fail("你在本版的权限已经被封了。\n");
+		return notify_fail("你在本版的權限已經被封了。\n");
 
 	notes = query("notes");
 	if( !arrayp(notes) || num < 1 || num > sizeof(notes) )
-		return notify_fail("没有这个贴子。\n");
+		return notify_fail("沒有這個貼子。\n");
 
 	if (strwidth(title)>MAX_TITLE_LEN)
-		return notify_fail("这个标题太长了，请换一个简洁一点的。\n");
+		return notify_fail("這個標題太長了，請換一個簡潔一點的。\n");
 
 	if (query("avoid_flood") && me->query("combat_exp")<NEED_EXP &&
 		me->query("age")<NEED_AGE)
-		return notify_fail("你暂时还没有权力在这里发表文章，需要 "WHT
-			+NEED_EXP+NOR" 点经验值或者 "WHT+NEED_AGE+NOR" 岁的年龄。\n");
+		return notify_fail("你暫時還沒有權力在這裏發表文章，需要 "WHT
+			+NEED_EXP+NOR" 點經驗值或者 "WHT+NEED_AGE+NOR" 歲的年齡。\n");
 
 	if (!title) title="Re: "+notes[num-1]["title"];
 
@@ -264,15 +264,15 @@ int do_read(string arg)
 	notes = query("notes");
 
 	if( !pointerp(notes) || !sizeof(notes) )
-		return notify_fail("板子上目前没有任何贴子。\n");
+		return notify_fail("板子上目前沒有任何貼子。\n");
 
-	if( !arg ) return notify_fail("指令格式：read <贴子编号>[.<回复编号>]|new|next|old\n");
+	if( !arg ) return notify_fail("指令格式：read <貼子編號>[.<回覆編號>]|new|next|old\n");
 
-// 显示以前备份的旧贴子
+// 顯示以前備份的舊貼子
 	if (arg=="old")
 	{
 		file=LOG_DIR+"board/"+query("board_id")+".old";
-		if (file_size(file)<=0) return notify_fail("对不起，目前本版没有保存的旧贴。\n");
+		if (file_size(file)<=0) return notify_fail("對不起，目前本版沒有保存的舊貼。\n");
 		else
 		{
 			msg=read_file(file);
@@ -280,7 +280,7 @@ int do_read(string arg)
 			return 1;
 		}
 	}
-// 显示未读的贴子
+// 顯示未讀的貼子
 	if( arg=="new" || arg=="next" )
 	{
 		if( !intp(last_read_time) || undefinedp(last_read_time) )
@@ -291,15 +291,15 @@ int do_read(string arg)
 	} else if( sscanf(arg, "%d.%d", num, rep)==2 )
 		{
 			if( num < 1 || num > sizeof(notes) )
-				return notify_fail("没有这个贴子。\n");
+				return notify_fail("沒有這個貼子。\n");
 			else num--;
 			if( rep < 1 || rep > sizeof(notes[num]["re"]) )
-				return notify_fail("没有这个回复。\n");
+				return notify_fail("沒有這個回覆。\n");
 			else rep --;
 			me->start_more( sprintf(
-		"[ "HIW"编号："NOR"%2d | "HIW"回复编号："NOR"%2d] [ "HIW"原题："NOR"%-27s%s ] \n"
-		"[ "HIW"回复标题："NOR"%-50s%s ]\n----------------------------------------------------------------\n"
-		"%s\n----------------------------------------------------------------\n[ "HIW"时间："NOR"%s ] [ "
+		"[ "HIW"編號："NOR"%2d | "HIW"回覆編號："NOR"%2d] [ "HIW"原題："NOR"%-27s%s ] \n"
+		"[ "HIW"回覆標題："NOR"%-50s%s ]\n----------------------------------------------------------------\n"
+		"%s\n----------------------------------------------------------------\n[ "HIW"時間："NOR"%s ] [ "
 		HIW"作者："NOR" %19s]\n",
 			num + 1, rep + 1,
 			notes[num]["title"],
@@ -317,14 +317,14 @@ int do_read(string arg)
 
 		return 1;
 	} else if( !sscanf(arg, "%d", num) )
-		return notify_fail("你要读第几个贴子的回复？\n");
+		return notify_fail("你要讀第幾個貼子的回覆？\n");
 
 	if( num < 1 || num > sizeof(notes) )
-		return notify_fail("没有这个贴子。\n");
+		return notify_fail("沒有這個貼子。\n");
 	num--;
 	msg=sprintf(
-	"[ "HIW"编号："NOR"%2d ] [ "HIW"作者："NOR"%20s ] [ "HIW"时间："NOR"%-9s ]\n[ "
-	HIW"标题："NOR"%-54s%s ]\n----------------------------------------------------------------\n%s\n"
+	"[ "HIW"編號："NOR"%2d ] [ "HIW"作者："NOR"%20s ] [ "HIW"時間："NOR"%-9s ]\n[ "
+	HIW"標題："NOR"%-54s%s ]\n----------------------------------------------------------------\n%s\n"
 	"----------------------------------------------------["HIW" 本 篇 完 "NOR"]\n",
 		num + 1,
 		notes[num]["author"]+"("+notes[num]["owner"]+")",
@@ -332,16 +332,16 @@ int do_read(string arg)
 		notes[num]["title"],
 		makeup_space(notes[num]["title"],54),
 		notes[num]["msg"],);
-// 显示回复的数目
-	if (sizeof(notes[num]["re"])&&me->query("env/show_reply")!="all") msg+=sprintf(HIW"回复："NOR"%d 份。\n",sizeof(notes[num]["re"]));
-// 显示最后的一个回复
+// 顯示回覆的數目
+	if (sizeof(notes[num]["re"])&&me->query("env/show_reply")!="all") msg+=sprintf(HIW"回覆："NOR"%d 份。\n",sizeof(notes[num]["re"]));
+// 顯示最後的一個回覆
 	if (me->query("env/show_reply")=="last")
 	{
 		last=sizeof(notes[num]["re"])-1;
 		msg+=sprintf(
-			"\n[ "HIW"回复编号："NOR"%2d] [ "HIW"回复标题："NOR"%-34s%s ] \n"
+			"\n[ "HIW"回覆編號："NOR"%2d] [ "HIW"回覆標題："NOR"%-34s%s ] \n"
 			"----------------------------------------------------------------\n"
-			"%s\n----------------------------------------------------------------\n[ "HIW"时间："NOR"%s ] [ "
+			"%s\n----------------------------------------------------------------\n[ "HIW"時間："NOR"%s ] [ "
 			HIW"作者："NOR" %19s]\n",
 			last+1,
 			notes[num]["re"][last]["title"],
@@ -351,15 +351,15 @@ int do_read(string arg)
 			notes[num]["re"][last]["author"]+"("+
 			notes[num]["re"][last]["owner"]+")");
 	}
-// 显示所有的回复
+// 顯示所有的回覆
 	if (me->query("env/show_reply")=="all")
 	{
 		for (i=0;i<sizeof(notes[num]["re"]);i++)
 		{
 			msg+=sprintf(
-		"\n[ "HIW"回复编号："NOR"%2d] [ "HIW"回复标题："NOR"%-34s%s ] \n"
+		"\n[ "HIW"回覆編號："NOR"%2d] [ "HIW"回覆標題："NOR"%-34s%s ] \n"
 		"----------------------------------------------------------------\n"
-		"%s\n----------------------------------------------------------------\n[ "HIW"时间："NOR"%s ] [ "
+		"%s\n----------------------------------------------------------------\n[ "HIW"時間："NOR"%s ] [ "
 		HIW"作者："NOR" %19s]\n",
 			i+1,
 			notes[num]["re"][i]["title"],
@@ -387,25 +387,25 @@ int do_banzhu(string arg)
 		return notify_fail("指令格式： banzhu +|- <版主id>\n");
 //	if (SECURITY_D->get_status(this_player(1)) != "(admin)")
 	if (!wizardp(this_player(1)) )
-		return notify_fail("你不是巫师，不可以任命版主。\n");
-	if (!stringp(arg)||strwidth(arg)<3) return notify_fail("没有这个人。\n");
+		return notify_fail("你不是巫師，不可以任命版主。\n");
+	if (!stringp(arg)||strwidth(arg)<3) return notify_fail("沒有這個人。\n");
 	if (oper == "+")
 	{
 		if (query("banzhu")==arg)
 			return notify_fail("目前的版主就是 "+arg+"，不需要任命。\n");
 		set("banzhu",arg);
 		save();
-		write("任命 "HIY+arg+NOR" 为"+name()+"版主成功。\n");
+		write("任命 "HIY+arg+NOR" 爲"+name()+"版主成功。\n");
 	}
 	else
 	{
 		if (!query("banzhu"))
-			return notify_fail("目前没有版主，不需要撤换。\n");
+			return notify_fail("目前沒有版主，不需要撤換。\n");
 		if (query("banzhu")!=arg)
-			return notify_fail("目前的版主不是 "+arg+"，不能撤换。\n");
+			return notify_fail("目前的版主不是 "+arg+"，不能撤換。\n");
 		delete("banzhu");
 		save();
-		write("撤换 "HIY+arg+NOR" "+name()+"版主职位成功。\n");
+		write("撤換 "HIY+arg+NOR" "+name()+"版主職位成功。\n");
 	}
 	return 1;
 }
@@ -416,30 +416,30 @@ int do_hold(string arg)
 	if (!arg) return notify_fail("指令格式： hold +|- <id>\n");
 	if (sscanf(arg, "%s %s", oper, arg) != 2 || oper!="+" && oper!="-")
 		return notify_fail("指令格式： hold +|- <id>\n");
-	if (!stringp(arg)||strwidth(arg)<3) return notify_fail("没有这个人。\n");
+	if (!stringp(arg)||strwidth(arg)<3) return notify_fail("沒有這個人。\n");
 	if ((string)this_player(1)->query("id") &&
 		query("banzhu")!=this_player(1)->query("id") &&
 		(string)SECURITY_D->get_status(this_player(1)) != "(admin)")
-		return notify_fail("你不是版主，不可以封玩家权限。\n");
+		return notify_fail("你不是版主，不可以封玩家權限。\n");
 	if (!query("hold")) holded = "0"; else holded = query("hold");
 	if (oper == "+")
 	{
 		if (strsrch(holded, "*"+arg+"*") >= 0)
-			return notify_fail(arg+"已经被封，不需要再费劲了。\n");
+			return notify_fail(arg+"已經被封，不需要再費勁了。\n");
 		set("hold", query("hold")+"*"+arg+"*");
 		save();
-		write("封杀 "HIY+arg+NOR" 权限成功。\n");
+		write("封殺 "HIY+arg+NOR" 權限成功。\n");
 	}
 	else
 	{
 		if (holded == "0")
-			return notify_fail("目前没封过人，不需要解封。\n");
+			return notify_fail("目前沒封過人，不需要解封。\n");
 		if (!strsrch(holded, "*"+arg+"*") >= 0)
-			return notify_fail(arg+"没被封权限，不需要解封。\n");
+			return notify_fail(arg+"沒被封權限，不需要解封。\n");
                 holded = replace_string(holded, "*"+arg+"*", "");
 		set("hold", holded);
 		save();
-		write("解封 "HIY+arg+NOR" 权限成功。\n");
+		write("解封 "HIY+arg+NOR" 權限成功。\n");
 	}
 	return 1;
 }
@@ -449,31 +449,31 @@ int delete_post(string arg)
 	int num,re_num;
 
 	if(!arg ||sscanf(arg, "%d.%d",num,re_num)<1)
-		return notify_fail("指令格式：delete <贴子编号>[.<回复编号>]\n");
+		return notify_fail("指令格式：delete <貼子編號>[.<回覆編號>]\n");
 	notes = query("notes");
 	if( !arrayp(notes)|| num <1 || num > sizeof(notes))
-		return notify_fail("没有这张贴子。\n");
+		return notify_fail("沒有這張貼子。\n");
 	if( notes[num-1]["mark"] == "M")
 	{
-		return notify_fail("这张贴子为保留贴，请先去掉保留标志。\n");
+		return notify_fail("這張貼子爲保留貼，請先去掉保留標誌。\n");
 	}
 	else if(re_num)
 		{
 			if (re_num<1 ||
 				!arrayp(notes[num-1]["re"])||re_num>sizeof(notes[num-1]["re"]))
-				return notify_fail("没有这张回复。\n");
+				return notify_fail("沒有這張回覆。\n");
 			else
 			{
 				num--;
 				re_num--;
 				if( notes[num]["re"][re_num]["owner"] != (string)this_player(1)->query("id") && query("banzhu")!=this_player(1)->query("id") &&	(string)SECURITY_D->get_status(this_player(1)) != "(admin)")
-					return notify_fail("这个回复不是你写的，你又不是版主。\n");
+					return notify_fail("這個回覆不是你寫的，你又不是版主。\n");
 				else
 				{
 					notes[num]["re"]=notes[num]["re"][0..re_num-1] + notes[num]["re"][re_num+1..sizeof(notes[num]["re"])-1];
 					set("notes", notes);
 					save();
-					write("删除第 " + (num+1) + " 号贴子的第 "+ (re_num+1)+" 号回复....Ok。\n");
+					write("刪除第 " + (num+1) + " 號貼子的第 "+ (re_num+1)+" 號回覆....Ok。\n");
 					return 1;
 				}
 			}
@@ -484,11 +484,11 @@ int delete_post(string arg)
 			if( notes[num]["owner"] != (string)this_player(1)->query("id") &&
 				query("banzhu")!=this_player(1)->query("id") &&
 				(string)SECURITY_D->get_status(this_player(1)) != "(admin)" )
-				return notify_fail("这个贴子不是你写的，你又不是版主。\n");
+				return notify_fail("這個貼子不是你寫的，你又不是版主。\n");
 			notes = notes[0..num-1] + notes[num+1..sizeof(notes)-1];
 			set("notes", notes);
 			save();
-			write("删除第 " + (num+1) + " 号贴子....Ok。\n");
+			write("刪除第 " + (num+1) + " 號貼子....Ok。\n");
 			return 1;
 		}
 }
@@ -498,24 +498,24 @@ int do_mark(string arg)
 	int num;
 
 	if(!arg ||sscanf(arg, "%d",num)<1)
-		return notify_fail("指令格式：mark <贴子编号>\n");
+		return notify_fail("指令格式：mark <貼子編號>\n");
 	notes = query("notes");
 	if( !arrayp(notes)|| num <1 || num > sizeof(notes))
-		return notify_fail("没有这张贴子。\n");
+		return notify_fail("沒有這張貼子。\n");
 
 	num--;
 	if(query("banzhu")!=this_player(1)->query("id") &&
 		(string)SECURITY_D->get_status(this_player(1)) != "(admin)" )
-		return notify_fail("你不是版主，无法保留文章。\n");
+		return notify_fail("你不是版主，無法保留文章。\n");
 	if( notes[num]["mark"] == "M")
 	{
 		notes[num]["mark"] = " ";
-		write("去除第 " + (num+1) + " 号贴子的保留标志成功。\n");
+		write("去除第 " + (num+1) + " 號貼子的保留標誌成功。\n");
 	}
 	else
 	{
 		notes[num]["mark"] = "M";
-		write("保留第 " + (num+1) + " 号贴子成功。\n");
+		write("保留第 " + (num+1) + " 號貼子成功。\n");
 	}
 	save();
 	return 1;
@@ -528,7 +528,7 @@ int do_wenxuan(string arg)
 	mapping *notes= query("notes");
 	string msg,file_name;
 
-// 之所以 return 0 而不 return notify_fail... 是因为有 wenxuan 这个指令
+// 之所以 return 0 而不 return notify_fail... 是因爲有 wenxuan 這個指令
 	if (!arg) return 0;
 	if (sscanf(arg,"add %d",num)!=1) return 0;
 
@@ -539,7 +539,7 @@ int do_wenxuan(string arg)
 	{
 		num--;
 		msg=sprintf(
-		"%s \n\t   ——由 "HIW"%s(%s)"NOR" 于 "HIW"%-10s"NOR" 发表在 "HIW"%s"NOR" \n"
+		"%s \n\t   ——由 "HIW"%s(%s)"NOR" 於 "HIW"%-10s"NOR" 發表在 "HIW"%s"NOR" \n"
 		"----------------------------------------------------------------\n%s\n"
 		"----------------------------------------------------["HIW" 本 篇 完 "NOR"]",
 		notes[num]["title"],
@@ -553,7 +553,7 @@ int do_wenxuan(string arg)
 			for (i=0;i<sizeof(notes[num]["re"]);i++)
 			{
 				msg+=sprintf(
-				"\n\n本文回复["HIW"%2d"NOR"]："NOR"%-34s%s\n\t   ——由 "HIW"%s(%s)"NOR" 发表于 "HIW"%-10s"NOR"\n"
+				"\n\n本文回覆["HIW"%2d"NOR"]："NOR"%-34s%s\n\t   ——由 "HIW"%s(%s)"NOR" 發表於 "HIW"%-10s"NOR"\n"
 				"----------------------------------------------------------------\n"
 				"%s\n----------------------------------------------------------------\n",
 				i+1,
@@ -568,7 +568,7 @@ int do_wenxuan(string arg)
 
 		file_name=DATA_DIR+"wenxuan/"+localtime(time())[5]+"/"+(sizeof(get_dir(DATA_DIR+"wenxuan/"+localtime(time())[5]+"/"))+1)+".w";
 
-		write("正在写入"+file_name+"……");
+		write("正在寫入"+file_name+"……");
 		write_file(file_name,msg,);
 		write("成功！\n");
 		return 1;
@@ -579,10 +579,10 @@ string content(mapping *notes,int num)
 	string msg;
 	int i;
 
-	//原文内容
+	//原文內容
 	msg=sprintf(
-	"[ "HIW"编号："NOR"%2d ] [ "HIW"作者："NOR"%20s ] [ "HIW"时间："NOR"%-9s ]\n[ "
-	HIW"标题："NOR"%-54s%s ]\n----------------------------------------------------------------\n%s\n"
+	"[ "HIW"編號："NOR"%2d ] [ "HIW"作者："NOR"%20s ] [ "HIW"時間："NOR"%-9s ]\n[ "
+	HIW"標題："NOR"%-54s%s ]\n----------------------------------------------------------------\n%s\n"
 	"----------------------------------------------------["HIW" 本 篇 完 "NOR"]\n",
 		num + 1,
 		notes[num]["author"]+"("+notes[num]["owner"]+")",
@@ -590,16 +590,16 @@ string content(mapping *notes,int num)
 		notes[num]["title"],
 		makeup_space(notes[num]["title"],34),
 		notes[num]["msg"],);
-// 显示回复的数目
-	if (sizeof(notes[num]["re"])) msg+=sprintf(HIW"回复："NOR"%d 份。\n",sizeof(notes[num]["re"]));
+// 顯示回覆的數目
+	if (sizeof(notes[num]["re"])) msg+=sprintf(HIW"回覆："NOR"%d 份。\n",sizeof(notes[num]["re"]));
 
-// 回复内容
+// 回覆內容
 		for (i=0;i<sizeof(notes[num]["re"]);i++)
 		{
 			msg+=sprintf(
-		"\n[ "HIW"回复编号："NOR"%2d] [ "HIW"回复标题："NOR"%-34s%s ] \n"
+		"\n[ "HIW"回覆編號："NOR"%2d] [ "HIW"回覆標題："NOR"%-34s%s ] \n"
 		"----------------------------------------------------------------\n"
-		"%s\n----------------------------------------------------------------\n[ "HIW"时间："NOR"%s ] [ "
+		"%s\n----------------------------------------------------------------\n[ "HIW"時間："NOR"%s ] [ "
 		HIW"作者："NOR" %19s]\n",
 			i+1,
 			notes[num]["re"][i]["title"],

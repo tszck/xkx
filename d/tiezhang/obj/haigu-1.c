@@ -20,7 +20,7 @@ void create()
 		set_default_object(__FILE__);
 	else{
 	set("unit", "具");
-	set("long", "这副骸骨躺在这里已经很久了。\n");
+	set("long", "這副骸骨躺在這裏已經很久了。\n");
 	set("value", 0);
 	set("material","wood");
 	set("no_get",1);
@@ -34,7 +34,7 @@ int do_move(string arg)
 	object book;
 	object me = this_player();
 	if (!id(arg)) return 0;
-	message_vision( HIR"$N轻轻地挪动骸骨，突然从骸骨的身后射出一枚钢针，刺入$N的体内。\n"NOR, this_player());
+	message_vision( HIR"$N輕輕地挪動骸骨，突然從骸骨的身後射出一枚鋼針，刺入$N的體內。\n"NOR, this_player());
 	me->unconcious();
 	me->move("/d/tiezhang/shanlu6");
 	return 1;

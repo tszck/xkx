@@ -7,7 +7,7 @@ void create()
         set_name("小土匪", ({"xiao tufei", "tufei"}));
         set("gender", "男性" );
         set("age", 22);
-        set("long", "这是个胆大包天的小土匪，杀人越或货，无恶不做。\n");
+        set("long", "這是個膽大包天的小土匪，殺人越或貨，無惡不做。\n");
 
         set_temp("apply/attack", 15);
         set_temp("apply/defense", 15);

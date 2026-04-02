@@ -8,11 +8,11 @@ void create()
 	string weapon;
  
 
-	set_name("陌生镖头", ({ "fake biaotou" }) );
-	set("title", HIR"福"HIC"威"YEL"镖局"HIY"镖头"NOR);
+	set_name("陌生鏢頭", ({ "fake biaotou" }) );
+	set("title", HIR"福"HIC"威"YEL"鏢局"HIY"鏢頭"NOR);
 	set("gender", random(2)>0 ? "女性" : "男性" );
 	set("age", 30 + random(20) );
-	set("long","一个普通的人，放在人群中没有一点突出之处。\n");
+	set("long","一個普通的人，放在人羣中沒有一點突出之處。\n");
 
 	weapon = weapon_msg[random(sizeof(weapon_msg))];
         set("combat_exp",100000 +random(50000));
@@ -23,7 +23,7 @@ void create()
         set("int", 20 + random(11));    // 悟性
         set("con", 20 + random(11));    // 根骨
         set("dex", 100 + random(11));   // 身法
-        set("kar", 20 + random(11));    // 福缘
+        set("kar", 20 + random(11));    // 福緣
         setup();
 	carry_object(weapon);
 	carry_object("/clone/misc/cloth")->wear();

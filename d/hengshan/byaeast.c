@@ -1,12 +1,12 @@
 // Last Modified by Sir on May. 22 2001
-//Room: byaeast.c 白云庵东廊
+//Room: byaeast.c 白雲庵東廊
 
 inherit ROOM;
 void create()
 {
-	set("short","白云庵东廊");
+	set("short","白雲庵東廊");
 	set("long",@LONG
-这里是恒山白云庵东廊。走廊往北通往练武房，东边通往藏经阁。
+這裏是恆山白雲庵東廊。走廊往北通往練武房，東邊通往藏經閣。
 LONG);
 	set("outdoors", "hengshan");
 	set("exits",([ /* sizeof() == 1 */

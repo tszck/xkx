@@ -1,4 +1,4 @@
-// wu-shi1.c 盟主卫士
+// wu-shi1.c 盟主衛士
 
 #include <ansi.h>
 
@@ -10,7 +10,7 @@ void create()
 	set("gender", "男性");
 	set("age", 35);
 	set("long",
-		"这是位白衣武士，身披钢甲，手执长剑，双目精光炯炯，警惕地巡视着四周的情形。\n");
+		"這是位白衣武士，身披鋼甲，手執長劍，雙目精光炯炯，警惕地巡視着四周的情形。\n");
 	set("combat_exp", 100000);
         set("shen_type", 1);
 	set("attitude", "heroism");
@@ -62,15 +62,15 @@ void init()
 	fae = ob3->query("winner");
 
 	if( this_player()->query("id") == mengzhu ) {
-		message_vision(HIY "白衣武士举起长剑，向$N齐声大喊：盟主万岁，万岁，万万岁！\n" NOR, 
+		message_vision(HIY "白衣武士舉起長劍，向$N齊聲大喊：盟主萬歲，萬歲，萬萬歲！\n" NOR, 
 		this_player());
 	}	
 	else if( this_player()->query("id") == shangshan ) {
-		message_vision(HIY "白衣武士举起长剑，向$N齐声大喊：赏善使者好！\n" NOR, 
+		message_vision(HIY "白衣武士舉起長劍，向$N齊聲大喊：賞善使者好！\n" NOR, 
 		this_player());
 	}	
 	else if( this_player()->query("id") == fae ) {
-		message_vision(HIY "白衣武士举起长剑，向$N齐声大喊：罚恶使者好！\n" NOR, 
+		message_vision(HIY "白衣武士舉起長劍，向$N齊聲大喊：罰惡使者好！\n" NOR, 
 		this_player());
 	}	
 }

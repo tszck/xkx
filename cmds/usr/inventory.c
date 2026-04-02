@@ -26,14 +26,14 @@ int main(object me, string arg)
   	   ob = me;
     else 
     if ( ob && ob->is_baby() && member_array(me->query("id"),ob->query("parents")) < 0 ) 
-        return notify_fail("只有爹娘能察看宝宝身上的东西。");
+        return notify_fail("只有爹孃能察看寶寶身上的東西。");
   }
   if (!ob) ob = me;
 	inv = all_inventory(ob);
 	if( !sizeof(inv) )
 	{
-		write((ob==me)? "目前你身上没有任何东西。\n"
-			: ob->name() + "身上没有携带任何东西。\n");
+		write((ob==me)? "目前你身上沒有任何東西。\n"
+			: ob->name() + "身上沒有攜帶任何東西。\n");
 		return 1;
 	}
 	for (i = 0;i < sizeof(inv);i ++)
@@ -51,7 +51,7 @@ int main(object me, string arg)
 		  }
 		}
  
-	printf("%s身上带着下列这些东西(负重 %d%%)：\n", (ob==me)? "你": ob->name(), (int)ob->query_encumbrance() * 100 / (int)ob->query_max_encumbrance());
+	printf("%s身上帶着下列這些東西(負重 %d%%)：\n", (ob==me)? "你": ob->name(), (int)ob->query_encumbrance() * 100 / (int)ob->query_max_encumbrance());
 	for (i = 0;i < sizeof(inv1);i ++)
 	{
 		printf("%s%s%s%s \n",inv1[i]->query("equipped") ? ((inv1[i] == me->query_temp("secondary_weapon")) ? HIC "○" NOR: HIC "□" NOR): "  ",
@@ -67,7 +67,7 @@ int help (object me)
 	write(@HELP
 指令格式: inventory
  
-    可列出你目前身上所携带的所有物品。
+    可列出你目前身上所攜帶的所有物品。
     □表示右手兵器，○表示左手兵器。
 
 注 : 此指令可以 " i " 代替。

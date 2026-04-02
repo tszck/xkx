@@ -8,13 +8,13 @@ void create()
 {
 	set("short", "山洞");
 	set("long", @LONG
-在这小山洞(dong)的深处，一股强大的水流自地上流出，形成一条
-小河流向洞外。如果想再进一步深入的话，就得要跳入水中了。往外可
-到小河边。往里就要潜水了。
+在這小山洞(dong)的深處，一股強大的水流自地上流出，形成一條
+小河流向洞外。如果想再進一步深入的話，就得要跳入水中了。往外可
+到小河邊。往裏就要潛水了。
 LONG
 	);
 	set("item_desc", ([
-		"dong" : "一个深邃、幽暗、恐怖的小山洞。\n",
+		"dong" : "一個深邃、幽暗、恐怖的小山洞。\n",
 	]));
 	set("exits", ([
 		"out"       : __DIR__"xiaohebian",
@@ -30,12 +30,12 @@ int valid_leave(object me, string dir)
 {
 	if (dir == "southdown" && me->query("family/family_name")!="古墓派")
 	{
-		return notify_fail("这么急的水，你想跳下去自杀呀？\n");
+		return notify_fail("這麼急的水，你想跳下去自殺呀？\n");
 	}
 	if (dir == "southdown" && me->query("family/family_name")=="古墓派")
 	{
-		message_vision(HIG "$N纵身一跃，跳入水潭之中。\n"NOR,me);
-		write(HIC"许多游鱼从你边游过，你伸手一捞，却抓了空。突然你眼前一亮，一股暗流扑面而来，将你冲入一个所在。\n"NOR);
+		message_vision(HIG "$N縱身一躍，跳入水潭之中。\n"NOR,me);
+		write(HIC"許多遊魚從你邊遊過，你伸手一撈，卻抓了空。突然你眼前一亮，一股暗流撲面而來，將你衝入一個所在。\n"NOR);
 		return 1;
 	}
 	return ::valid_leave(me, dir);

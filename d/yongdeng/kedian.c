@@ -7,16 +7,16 @@ void create()
 {
 	set("short", "客店");
 	set("long", @LONG
-这是一家当地居民开的鸡毛小店，楼下卖些卤菜和劣酒，楼上则是
-客房。这是在进祁连山区前的唯一休息之处，贩夫走卒，采药客等皆在
-此休憩，不时还可看见一两个寻仙访道之辈。墙上有一块牌子(paizi)，
-西面是一间马厩。
+這是一家當地居民開的雞毛小店，樓下賣些滷菜和劣酒，樓上則是
+客房。這是在進祁連山區前的唯一休息之處，販夫走卒，採藥客等皆在
+此休憩，不時還可看見一兩個尋仙訪道之輩。牆上有一塊牌子(paizi)，
+西面是一間馬廄。
 LONG);
 	set("no_fight", 1);
 	set("valid_startroom", 1);
 	set("no_sleep_room",1);
 	set("item_desc", ([
-		"paizi" : "楼上雅房，每夜五两白银。\n",
+		"paizi" : "樓上雅房，每夜五兩白銀。\n",
 	]));
 	set("objects", ([
 		"/d/city/npc/xiaoer" : 1,
@@ -35,11 +35,11 @@ LONG);
 int valid_leave(object me, string dir)
 {
 	if ( !me->query_temp("rent_paid") && dir == "up" )
-     return notify_fail("店小二一下挡在楼梯前，白眼一翻：怎麽着，想白住啊！\n");
+     return notify_fail("店小二一下擋在樓梯前，白眼一翻：怎麼着，想白住啊！\n");
 
 	if ( me->query_temp("rent_paid") && dir == "west" )
-	return notify_fail("店小二跑到门边拦住：客官已经付了银子，怎麽不住店就住
-旁人还以为小店伺候不周呢！\n");
+	return notify_fail("店小二跑到門邊攔住：客官已經付了銀子，怎麼不住店就住
+旁人還以爲小店伺候不周呢！\n");
 
 	return ::valid_leave(me, dir);
 }

@@ -5,11 +5,11 @@ inherit THROWING;
 
 void create()
 {
-	set_name("七寸长的短剑", ({ "short sword", "sword" }) );
+	set_name("七寸長的短劍", ({ "short sword", "sword" }) );
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "精光四射的短剑，剑长七寸，剑柄两寸。\n");
+		set("long", "精光四射的短劍，劍長七寸，劍柄兩寸。\n");
 		set("unit", "把");
 		set("base_unit", "把");
 		set("base_weight", 40);

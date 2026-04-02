@@ -4,13 +4,13 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-       set_name("花铁干", ({ "Hua tiegan", "hua" }));
+       set_name("花鐵幹", ({ "Hua tiegan", "hua" }));
        set("long", 
        "他就是南四奇“落花流水”中的老二。\n"
-       "南四奇横行江南，行侠仗义，花铁干一手中平枪，号称中平无敌。可是他的为人却不咋的。\n");
+       "南四奇橫行江南，行俠仗義，花鐵幹一手中平槍，號稱中平無敵。可是他的爲人卻不咋的。\n");
        set("gender", "男性");
        set("title", "南四奇");
-       set("nickname", HIR"中平无敌"NOR);
+       set("nickname", HIR"中平無敵"NOR);
        set("age", 45);
        set("attitude", "peaceful");
        set("shen_type", 0);
@@ -45,7 +45,7 @@ void create()
        map_skill("parry", "zhongping-qiang");
        set("chat_chance", 20);
        set("chat_msg", ({
-              "花铁干缓缓提起中气，啸声如潮涌出：“落花～～流水……”震人耳馈。\n",
+              "花鐵幹緩緩提起中氣，嘯聲如潮湧出：“落花～～流水……”震人耳饋。\n",
        }));
 
        setup();

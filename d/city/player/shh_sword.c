@@ -6,7 +6,7 @@ inherit SWORD;
 
 void create()
 {
-	set_name(HIC"长生剑"NOR, ({ "LongLife", "sword" }));
+	set_name(HIC"長生劍"NOR, ({ "LongLife", "sword" }));
 	set_weight(6000);
 	if (clonep())
 		set_default_object(__FILE__);
@@ -14,8 +14,8 @@ void create()
 		set("unit", "柄");
 		set("value", 2000);
 		set("material", "steel");
-		set("wield_msg", "$N「唰」的一声抽出一柄$n握在手中。\n");
-		set("unwield_msg", "$N将手中的$n插回剑鞘。\n");
+		set("wield_msg", "$N「唰」的一聲抽出一柄$n握在手中。\n");
+		set("unwield_msg", "$N將手中的$n插回劍鞘。\n");
 	}
 	init_sword(30);
 	setup();

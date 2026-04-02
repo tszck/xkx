@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","佛山镇街");
+	set("short","佛山鎮街");
 	set("long",@LONG
-佛山镇街道横亘东西。南边有一座破败的庙宇，里面是一家赌
-场，大门上写着“英雄会馆”四个大字。
+佛山鎮街道橫亙東西。南邊有一座破敗的廟宇，裏面是一家賭
+場，大門上寫着“英雄會館”四個大字。
 LONG);
 	set("objects", ([
 	    "/d/city/npc/liumang": 1,

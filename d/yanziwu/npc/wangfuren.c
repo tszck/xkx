@@ -6,9 +6,9 @@ void create()
 {
 	set_name("王夫人", ({ "wang furen","wang" }) );
 	set("gender", "女性" );
-	set("title", HIM"蔓陀山庄庄主"NOR );
+	set("title", HIM"蔓陀山莊莊主"NOR );
 	set("age", 35);
-	set("long", "她身穿鹅黄绸衫，眉目口鼻均美艳无伦，脸上却颇有风霜岁月的痕迹。\n");
+	set("long", "她身穿鵝黃綢衫，眉目口鼻均美豔無倫，臉上卻頗有風霜歲月的痕跡。\n");
 	set("shen_type", -1);
 	set("combat_exp", 100000);
 	set("per", 30);

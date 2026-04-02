@@ -7,17 +7,17 @@ void create()
 {
 	set("short", "陶然茶居");
 	set("long", @LONG
-这是专供品尝和销售茶叶的店铺，店里清香四溢进门就有心旷神怡
-之感。墙上有一价目表(sign)。
+這是專供品嚐和銷售茶葉的店鋪，店裏清香四溢進門就有心曠神怡
+之感。牆上有一價目表(sign)。
 LONG );
 	set("outdoors", "quanzhou");
 	set("item_desc", ([
 		"sign" : "
-茶杯(Cha bei)                 ：三十文铜板
-铁观音茶杯(Guanying chabei)   ：三十文铜板
-龙井茶杯(Longjing chabei)     ：三十文铜板
-茉莉花茶杯(Moli chabei)       ：三十文铜板
-香片茶杯(Xiangpian chabei)    ：三十文铜板\n"
+茶杯(Cha bei)                 ：三十文銅板
+鐵觀音茶杯(Guanying chabei)   ：三十文銅板
+龍井茶杯(Longjing chabei)     ：三十文銅板
+茉莉花茶杯(Moli chabei)       ：三十文銅板
+香片茶杯(Xiangpian chabei)    ：三十文銅板\n"
 	]));
 	set("exits", ([
 		"south" : __DIR__"xinmenji",

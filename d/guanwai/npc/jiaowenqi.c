@@ -7,9 +7,9 @@ void create()
 {
         set_name("焦文期", ({ "jiao wenqi", "jiao" }));
         set("long",@LONG
-他是关外六魔中的三魔焦文期。背上一把铁琵琶，是武林中少见的奇门兵器。
+他是關外六魔中的三魔焦文期。背上一把鐵琵琶，是武林中少見的奇門兵器。
 LONG );
-        set("nickname", HIC "关外三魔" NOR);
+        set("nickname", HIC "關外三魔" NOR);
         set("gender", "男性");
         set("age", 36);
         set("attitude", "peaceful");

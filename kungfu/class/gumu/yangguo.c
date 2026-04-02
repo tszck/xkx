@@ -1,5 +1,5 @@
 // Last Modified by winder on Feb. 28 2001
-// yangguo.c 杨过
+// yangguo.c 楊過
 
 #include <ansi.h>
 inherit NPC;
@@ -9,13 +9,13 @@ string ask_me();
 
 void create()
 {
-	set_name("杨过", ({"yang guo", "yang", "guo"}));
-	set("nickname", HIB"神雕大侠"NOR);
+	set_name("楊過", ({"yang guo", "yang", "guo"}));
+	set("nickname", HIB"神鵰大俠"NOR);
 	set("gender", "男性");
 	set("age", 26);
 	set("long",
-	"他就是神雕大侠杨过，一张清癯俊秀的脸孔，剑眉入鬓，凤眼生威。\n"
-	"虽然他只有一只胳膊，但是魁伟的身材仍让人感觉英气逼人。\n");
+	"他就是神鵰大俠楊過，一張清癯俊秀的臉孔，劍眉入鬢，鳳眼生威。\n"
+	"雖然他只有一隻胳膊，但是魁偉的身材仍讓人感覺英氣逼人。\n");
 	set("attitude", "friendly");
 
 	set("per", 28);
@@ -25,8 +25,8 @@ void create()
 	set("dex", 38);
 	set("chat_chance", 1);
 	set("chat_msg", ({
-		"杨过叹了口气道：“不知龙儿现在可好？十六年了，她一直在哪里？”\n", 
-		"杨过喃喃道：“独孤求败！独孤求败！求一败而不可得？”\n", 
+		"楊過嘆了口氣道：“不知龍兒現在可好？十六年了，她一直在哪裏？”\n", 
+		"楊過喃喃道：“獨孤求敗！獨孤求敗！求一敗而不可得？”\n", 
 	}));
 	set("chat_chance_combat",50);
 	set("chat_msg_combat", ({
@@ -70,16 +70,16 @@ void create()
 	set("letter_count", 1);
 
 	set("inquiry", ([
-		"龙儿"     :(: ask_me :),
-		"小龙女"   :"你知道我龙儿的下落？\n",
-		"玉女剑法" :"玉女剑法和全真剑法合壁，天下无敌！\n",
-		"古墓派"   :"我的林祖师爷爷本来和重阳先师是一对璧人，可是...\n",
-		"郭靖"     :"我郭伯父是当世一代大侠。\n",
-		"黄蓉"     :"我郭伯母确实是算无遗策。\n",
-		"雕兄"     :"雕兄既是我师，亦复我友。\n",
-		"神雕"     :"你问雕兄？\n",
-		"玄铁剑"   :"玄铁剑在独孤剑冢。\n",
-		"独孤剑冢" :"独孤剑冢嘛，自己找吧。\n",
+		"龍兒"     :(: ask_me :),
+		"小龍女"   :"你知道我龍兒的下落？\n",
+		"玉女劍法" :"玉女劍法和全真劍法合壁，天下無敵！\n",
+		"古墓派"   :"我的林祖師爺爺本來和重陽先師是一對璧人，可是...\n",
+		"郭靖"     :"我郭伯父是當世一代大俠。\n",
+		"黃蓉"     :"我郭伯母確實是算無遺策。\n",
+		"雕兄"     :"雕兄既是我師，亦復我友。\n",
+		"神鵰"     :"你問雕兄？\n",
+		"玄鐵劍"   :"玄鐵劍在獨孤劍冢。\n",
+		"獨孤劍冢" :"獨孤劍冢嘛，自己找吧。\n",
 	]) );
 	set("env/wimpy", 40);
 	setup();
@@ -96,36 +96,36 @@ void attempt_apprentice(object ob)
 	mapping myfam;
 	myfam = (mapping)ob->query("family");
 	if ( myfam["family_name"] != "古墓派") return;
-	if ((int)ob->query_temp("marks/小龙女") == 1 )
+	if ((int)ob->query_temp("marks/小龍女") == 1 )
 	{
 		if (ob->query_int() < 40)
 		{
-			message_vision("杨过看了看$N说道：看你笨头笨脑的，还是先去读点书吧。\n", ob);
+			message_vision("楊過看了看$N說道：看你笨頭笨腦的，還是先去讀點書吧。\n", ob);
 			return;
 		}
 		if (ob->query_skill("yunv-xinfa",1) < 150)
 		{
-			message_vision("杨过看了看$N说道：你的本门心法还差点火候，再努力一把吧。\n", ob);
+			message_vision("楊過看了看$N說道：你的本門心法還差點火候，再努力一把吧。\n", ob);
 			return;
 		}
 		if (ob->query_skill("yunv-jian",1) < 150)
 		{
-			message_vision("杨过看了看$N说道：你的本门剑法还差点火候，再努力一把吧。\n", ob);
+			message_vision("楊過看了看$N說道：你的本門劍法還差點火候，再努力一把吧。\n", ob);
 			return;
 		}
 		if (ob->query_skill("quanzhen-jian",1) < 150)
 		{
-			message_vision("杨过看了看$N说道：你的全真剑法还差点火候，再努力一把吧。\n", ob);
+			message_vision("楊過看了看$N說道：你的全真劍法還差點火候，再努力一把吧。\n", ob);
 			return;
 		}
-//message_vision("杨过叹了口气，看看$N，说道：你没找到我的龙儿么？\n", ob);
-		command("say 好吧，我就收下你这个徒弟了。\n");
+//message_vision("楊過嘆了口氣，看看$N，說道：你沒找到我的龍兒麼？\n", ob);
+		command("say 好吧，我就收下你這個徒弟了。\n");
 		command("recruit " + ob->query("id"));
 		return;
 	}
 	else
 	{
-		message_vision("杨过叹了口气，看看$N，说道：你没找到我的龙儿么？\n", ob);
+		message_vision("楊過嘆了口氣，看看$N，說道：你沒找到我的龍兒麼？\n", ob);
 		return;
 	}
 }
@@ -135,10 +135,10 @@ int accept_object(object me, object ob)
 	object obn;
 	if ( (string) ob->query("id") =="junzi jian" )
 	{
-		message_vision("杨过说道：这位"+ RANK_D->query_respect(me)+"，我实在高兴你带来我的龙儿的信物，她现在好吗？\n",me);
+		message_vision("楊過說道：這位"+ RANK_D->query_respect(me)+"，我實在高興你帶來我的龍兒的信物，她現在好嗎？\n",me);
 		if(query("letter_count") > 0)
 		{
-			message_vision("杨过又对$N说道：麻烦你帮我把信交给她，告诉她我等她等了十六年了，带她来我这里。\n" , me);
+			message_vision("楊過又對$N說道：麻煩你幫我把信交給她，告訴她我等她等了十六年了，帶她來我這裏。\n" , me);
 			obn=new("/d/gumu/npc/obj/letter");
 			obn->move(me);
 			add("letter_count", -1);
@@ -152,11 +152,11 @@ string ask_me()
 {
 	object me=this_player();
 	if(present("junzi jian",this_object()))
-		return "多谢你的关心啦，我已经有龙儿的消息了。\n";
+		return "多謝你的關心啦，我已經有龍兒的消息了。\n";
 	else
 	{
-		me->set_temp("mark/杨",1);
-		return "你有龙儿的消息吗？\n";
+		me->set_temp("mark/楊",1);
+		return "你有龍兒的消息嗎？\n";
 	}	
 }
 

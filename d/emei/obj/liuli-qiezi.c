@@ -10,7 +10,7 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一盆青红相间，金黄透烂，清香四溢的琉璃茄子。\n");
+		set("long", "一盆青紅相間，金黃透爛，清香四溢的琉璃茄子。\n");
 		set("unit", "盆");
 		set("value", 150);
 		set("food_remaining", 4);

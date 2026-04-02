@@ -1,5 +1,5 @@
 // stone.c
-// 各种原料初始状态
+// 各種原料初始狀態
 
 #include <ansi.h>
 
@@ -16,15 +16,15 @@ void init()
 
 void create()
 {
-	set_name( "补天石", ({ "butian shi","shi","butian"}));
+	set_name( "補天石", ({ "butian shi","shi","butian"}));
 	set_weight(30000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "块");
-		set("long","这是一块五彩的石头，光华闪烁，叫人爱不释手，久久把玩不愿放下。\n"
-			+"这块石头似乎包含着什么，你不由想冶炼(yelian)一下，可能会有些什\n"
-			+"么新奇的东西出现\n");
+		set("unit", "塊");
+		set("long","這是一塊五彩的石頭，光華閃爍，叫人愛不釋手，久久把玩不願放下。\n"
+			+"這塊石頭似乎包含着什麼，你不由想冶煉(yelian)一下，可能會有些什\n"
+			+"麼新奇的東西出現\n");
 		set("value", 0);
 		set("material", "iron");
 	}
@@ -38,34 +38,34 @@ int do_yelian()
 	stone=this_object();
 
 	if( (int)me->query("neili") < 50 )
-		return notify_fail("你的内力不够无法锻炼补天石！\n");
-	message_vision(HIR "$N盘膝而坐，手托补天石，真气游走，开始冶炼补天石。\n" NOR, me);
+		return notify_fail("你的內力不夠無法鍛鍊補天石！\n");
+	message_vision(HIR "$N盤膝而坐，手託補天石，真氣遊走，開始冶煉補天石。\n" NOR, me);
 	me->add("neili",-50);
 	switch(random(4) )
 	{
 		case 0:
 			new_ob=new("/d/npc/m_weapon/tan/item/jinmu",1);
 			new_ob->move(me);			
-			message_vision(HIY "补天石渐渐变形，终于成了一块紫色的金属！！\n" NOR, me );
+			message_vision(HIY "補天石漸漸變形，終於成了一塊紫色的金屬！！\n" NOR, me );
 //			destruct(stone);
 			stone->move("/u/java/room/readroom");
 			break;
 		case 1:
 			new_ob=new("/d/npc/m_weapon/tan/item/shenmu",1);
 			new_ob->move(me);			
-			message_vision(HIY "补天石层层剥落，终于成了一块黑中透红的木头！！\n" NOR, me );
+			message_vision(HIY "補天石層層剝落，終於成了一塊黑中透紅的木頭！！\n" NOR, me );
 //			destruct(stone);
 			stone->move("/u/java/room/readroom");
 			break;
 		case 2:
 			new_ob=new("/d/npc/m_weapon/tan/item/hanzhu",1);
 			new_ob->move(me);			
-			message_vision(HIY "补天石啪的一声爆响听起来竟象是竹子燃烧的声音！！\n" NOR, me );
+			message_vision(HIY "補天石啪的一聲爆響聽起來竟象是竹子燃燒的聲音！！\n" NOR, me );
 //			destruct(stone);	
 			stone->move("/u/java/room/readroom");
 			break;
 		default:
-			message_vision(HIY "补天石渐渐变软，终于化做一滩泥水渗入地下，不见了。\n" NOR, me );
+			message_vision(HIY "補天石漸漸變軟，終於化做一灘泥水滲入地下，不見了。\n" NOR, me );
 //			destruct(stone);
 			stone->move("/u/java/room/readroom");
 	}
@@ -79,16 +79,16 @@ int do_eat(string arg)
  
 	me=this_player();
 	if( !id(arg) )
-		return notify_fail("你要吃什么?\n");
+		return notify_fail("你要喫什麼?\n");
 	n=random(3);
 	switch(n) {
 		case 0:
-			message_vision(HIY "$N看来急坏了，拿起补天石就啃，结果当场大牙蹦掉了十二颗!这也算冶炼？真傻！\n" NOR,me);
+			message_vision(HIY "$N看來急壞了，拿起補天石就啃，結果當場大牙蹦掉了十二顆!這也算冶煉？真傻！\n" NOR,me);
 			me->add("food",200);
 			me->add("water",200);
 			break;
 		default:
-			message_vision(HIY "$N看来饿坏了，拿起补天石就啃，结果当场大牙蹦掉了十二颗!\n" NOR,me);
+			message_vision(HIY "$N看來餓壞了，拿起補天石就啃，結果當場大牙蹦掉了十二顆!\n" NOR,me);
 		}
 //	destruct(this_object() );
 	this_object()->move("/u/java/room/readroom");

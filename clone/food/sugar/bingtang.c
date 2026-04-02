@@ -13,9 +13,9 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("long", "冰糖。\n");
-		set("unit", "块");
-		set("value", 20);//很便宜，（基本食物都应该很便宜）.
+		set("unit", "塊");
+		set("value", 20);//很便宜，（基本食物都應該很便宜）.
 		set("food_remaining", 3);
-		set("food_supply", 10);//正常饭量的人一顿吃二斤。
+		set("food_supply", 10);//正常飯量的人一頓喫二斤。
 	}
 }

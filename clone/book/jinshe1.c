@@ -12,19 +12,19 @@ void init()
 }
 void create()
 {
-	set_name(YEL"「金蛇秘芨」"NOR"上册", ({ "jinshe book1","book1", }));
+	set_name(YEL"「金蛇祕芨」"NOR"上冊", ({ "jinshe book1","book1", }));
 	set_weight(500);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
 		set("material", "paper");
-		set("no_drop", "这样东西不能离开你。\n");
-		set("no_get", "这样东西不能离开那儿。\n");
-		set("no_put", "这样东西不能放在那儿。\n");
+		set("no_drop", "這樣東西不能離開你。\n");
+		set("no_get", "這樣東西不能離開那兒。\n");
+		set("no_put", "這樣東西不能放在那兒。\n");
 		set("long",
-	"这是一本用薄纸写成的书。上书：「金蛇秘芨」。\n"
-	"书皮泛黄，看来已经保存很久了。\n", );
+	"這是一本用薄紙寫成的書。上書：「金蛇祕芨」。\n"
+	"書皮泛黃，看來已經保存很久了。\n", );
 	}
 }
 
@@ -41,59 +41,59 @@ int do_du(string arg)
 	if (!present(this_object(), this_player())) return 0;
 	if (where->query("pigging"))
 	{
-		write("你还是专心拱猪吧！\n");
+		write("你還是專心拱豬吧！\n");
 		return 1;
 	}
 	if (me->is_busy())
 	{
-		write("你现在正忙着呢。\n");
+		write("你現在正忙着呢。\n");
 		return 1;
 	}
 	if( me->is_fighting() )
 	{
-		write("你无法在战斗中专心下来研读新知！\n");
+		write("你無法在戰鬥中專心下來研讀新知！\n");
 		return 1;
 	}
 	if (!id(arg))
 	{	
-		write("你要读什么？\n");
+		write("你要讀什麼？\n");
 		return 1;
 	}
 	if( !me->query_skill("literate", 1) )
 	{
-		write("你是个文盲，先学点文化(literate)吧。\n");
+		write("你是個文盲，先學點文化(literate)吧。\n");
 		return 1;
 	}
-	message("vision", me->name() + "正专心地研读金蛇密芨。\n", environment(me), me);
+	message("vision", me->name() + "正專心地研讀金蛇密芨。\n", environment(me), me);
 	if( (int)me->query("jing") < 25 )
 	{
-		write("你现在过于疲倦，无法专心下来研读新知。\n");
+		write("你現在過於疲倦，無法專心下來研讀新知。\n");
 		return 1;
 	}
 	neili_lost = 5;
 	if( (int)me->query("neili") < neili_lost)
 	{
-		write("你内力不够，无法钻研这么高深的武功。\n");
+		write("你內力不夠，無法鑽研這麼高深的武功。\n");
 		return 1;
 	}
 	pxlevel = me->query_skill("jinshe-jian", 1);
 	if( (int)me->query("combat_exp") < (int)pxlevel*pxlevel*pxlevel/10 ) {
-		write("你的实战经验不足，再怎么读也没用。\n");
+		write("你的實戰經驗不足，再怎麼讀也沒用。\n");
 		return 1;
 	}
 	if( me->query_skill("jinshe-jian", 1) < 50)
 	{
-		write("你研读了一会儿，但是发现上面所说的对你而言都太深奥了，没有学到任何东西。\n");
+		write("你研讀了一會兒，但是發現上面所說的對你而言都太深奧了，沒有學到任何東西。\n");
 		return 1;
 	}
 	if( me->query_skill("jinshe-jian", 1) > 199)
 	{
-		write("你研读了一会儿，但是发现上面所说的对你而言都太浅了，没有学到任何东西。\n");
+		write("你研讀了一會兒，但是發現上面所說的對你而言都太淺了，沒有學到任何東西。\n");
 		return 1;
 	}
 	me->receive_damage("jing", 15);
 	me->set("neili",(int)me->query("neili")-neili_lost);
 	me->improve_skill("jinshe-jian", (int)me->query_skill("literate", 1)/3+1);
-	write("你研读金蛇密芨，颇有心得。\n");
+	write("你研讀金蛇密芨，頗有心得。\n");
 	return 1;
 }

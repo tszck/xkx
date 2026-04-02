@@ -58,7 +58,7 @@ void init()
 int accept_hit(object me)
 {
 	if( this_object()->query("owner") == me->query("id")) return 1;
-	else return notify_fail(HIW"不是你要抓的人，凑什么热闹！\n"NOR);
+	else return notify_fail(HIW"不是你要抓的人，湊什麼熱鬧！\n"NOR);
 }
 int accept_fight(object who)	{return accept_hit(who);}
 int accept_kill(object who)		{return accept_hit(who);}
@@ -71,7 +71,7 @@ int do_halt()
         
         if ( me->is_fighting(ob) )
         {
-                message_vision(HIW"$N喝道：“你既然识破我的身份，就休想活着离开！”\n"NOR, ob, me);
+                message_vision(HIW"$N喝道：“你既然識破我的身份，就休想活着離開！”\n"NOR, ob, me);
                 return 1;
         }
         return 0;
@@ -110,6 +110,6 @@ int set_perform()
 }
 void dest_me(object ob)
 {
-	message_vision("只见$N忽然急转身行，纵身钻进行人中，转眼就踪迹皆无。\n",ob);
+	message_vision("只見$N忽然急轉身行，縱身鑽進行人中，轉眼就蹤跡皆無。\n",ob);
 	destruct(ob);
 }

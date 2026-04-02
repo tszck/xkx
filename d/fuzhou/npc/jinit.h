@@ -1,4 +1,4 @@
-// jinit.h 劫匪检查，自己消失的时间
+// jinit.h 劫匪檢查，自己消失的時間
 #define A_TIME 20
 
 void init()
@@ -79,13 +79,13 @@ void do_check()
 	{
 		if(cart = present("cart",environment(me)))
 		{
-			message_vision(HIY"\n$N对着$n大喝一声：“你这"+RANK_D->query_rude(ob)+"，你大爷我可走了！”\n",me,ob);
-			message_vision(HIR"\n镖车给黄河帮劫匪一路推着，一阵“轰隆隆”响着驶了开去。\n\n"NOR,me);
+			message_vision(HIY"\n$N對着$n大喝一聲：“你這"+RANK_D->query_rude(ob)+"，你大爺我可走了！”\n",me,ob);
+			message_vision(HIR"\n鏢車給黃河幫劫匪一路推着，一陣“轟隆隆”響着駛了開去。\n\n"NOR,me);
 			if (mapp(exits=environment(me)->query("exits")))
 				dirs = keys(exits);
 			command("go " + dirs[random(sizeof(dirs))]);
 			cart->move(environment(me));
-			message_vision(HIR"\n镖车给黄河帮劫匪一路推着，一阵“轰隆隆”响着驶了开去。\n"NOR,me);
+			message_vision(HIR"\n鏢車給黃河幫劫匪一路推着，一陣“轟隆隆”響着駛了開去。\n"NOR,me);
 		}
 		remove_call_out("do_check");
 		call_out("do_check", 0);
@@ -102,9 +102,9 @@ void do_wait()
 	{
 		if (cart=present("cart",where))
 		{
-			message_vision("$N冷笑道：“这些臭保镖的赶不上啦！大爷这就把镖车拉回山寨了！”\n",me);
+			message_vision("$N冷笑道：“這些臭保鏢的趕不上啦！大爺這就把鏢車拉回山寨了！”\n",me);
 			if (sscanf(file_name(where), "/d/%s/%s", area, home))
-message("channel:chat", HIM"【谣言】"+cart->query("guardby")+"保的镖，在"+to_chinese(area)+"地面上被黄河劫匪夺回山寨去了！\n"NOR,users());
+message("channel:chat", HIM"【謠言】"+cart->query("guardby")+"保的鏢，在"+to_chinese(area)+"地面上被黃河劫匪奪回山寨去了！\n"NOR,users());
 			cart->move(VOID_OB);
 			destruct(cart);
 			destruct(me);

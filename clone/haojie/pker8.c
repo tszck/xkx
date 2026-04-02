@@ -4,8 +4,8 @@ void create()
 {
   ::create();
 	set("level",8);
-	set_name("紫衣杀手", ({"sha shou", "shashou", "zi", "ziyi"}));
-	set("long", "他是七杀门的紫衣杀手。\n");
+	set_name("紫衣殺手", ({"sha shou", "shashou", "zi", "ziyi"}));
+	set("long", "他是七殺門的紫衣殺手。\n");
 	set("qi", 2000);
 	set("max_qi", 2000);
 	set("jing", 2000);
@@ -30,5 +30,5 @@ void create()
 	map_skill("dodge", "tiyunzong");
 	map_skill("parry", "taiji-jian");
 	map_skill("sword", "taiji-jian");
-  create_family("七杀门", 11-query("level"), "杀手");
+  create_family("七殺門", 11-query("level"), "殺手");
 }

@@ -1,16 +1,16 @@
-// liu.c 刘正风
+// liu.c 劉正風
 // Last Modified by ahda on Sep.1 2001
 inherit NPC;
 inherit F_MASTER;
 #include <ansi.h>
 void create()
 {
-	set_name("刘正风", ({ "liu zhengfeng", "liu" }) );
+	set_name("劉正風", ({ "liu zhengfeng", "liu" }) );
 	set("gender", "男性");
 	set("class", "swordsman");
-	set("long", "一个胖老者。恂恂有礼，便如一个财主乡绅，有些小小的
-富贵之气，又有些土气，但有时突然显出勃勃英气，不失
-高手风范。\n");
+	set("long", "一個胖老者。恂恂有禮，便如一個財主鄉紳，有些小小的
+富貴之氣，又有些土氣，但有時突然顯出勃勃英氣，不失
+高手風範。\n");
 	set("age", 45);
 	set("attitude", "peaceful");
 	set("per", 19);
@@ -69,9 +69,9 @@ void attempt_apprentice(object ob)
 {
 	if ((int)ob->query_skill("huiyan-xinfa",1) < 120 ) 
 	{
-		command("say 你的本门内功心法火候不足,难以领略更高深的武功。");
+		command("say 你的本門內功心法火候不足,難以領略更高深的武功。");
 		return;
 	}
-	command("say 入我门来，定须光大我衡山一派。");
+	command("say 入我門來，定須光大我衡山一派。");
 	command("recruit " + ob->query("id"));
 }

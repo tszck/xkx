@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("陆万通",({"lu wantong","lu",}));
+	set_name("陸萬通",({"lu wantong","lu",}));
 	set("gender", "男性");
 	set("age", 20);
-	set("long", "他是凌霄城第六代弟子陆万通。\n");
+	set("long", "他是凌霄城第六代弟子陸萬通。\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);

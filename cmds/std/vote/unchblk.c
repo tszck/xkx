@@ -29,11 +29,11 @@ int vote(object me, object victim)
 
   if ((reason = (int)victim->query("vote/reason"))>0 && (reason!=V_UNCHBLK))
   {
-  	return notify_fail("要把当前的表决完成以后才可以提新的动议。\n");
+  	return notify_fail("要把當前的表決完成以後纔可以提新的動議。\n");
   }
 
   if ( !victim->query("chblk_on"))
-  	return notify_fail(victim->name()+"的交谈频道已经是打开的了。\n");
+  	return notify_fail(victim->name()+"的交談頻道已經是打開的了。\n");
 
   if (reason <= 0)
   {
@@ -55,7 +55,7 @@ int vote(object me, object victim)
   } else
   {
 	me->add("vote/abuse", 10);
-  	return notify_fail("一人一票！滥用表决权是要受惩罚的！\n");
+  	return notify_fail("一人一票！濫用表決權是要受懲罰的！\n");
   }
 
 /*  vv = (int) ("/cmds/std/vote")->valid_voters(me)/3;  
@@ -82,9 +82,9 @@ int vote(object me, object victim)
 
   if (df>0)
   {
-	shout( HIG "【表决】"+my_name+"投票打开" +v_name +"的交谈频道，还差"
+	shout( HIG "【表決】"+my_name+"投票打開" +v_name +"的交談頻道，還差"
 			+sprintf("%d", df)+"票。\n" NOR);
-	write( HIG "【表决】"+my_name+"投票打开" +v_name +"的交谈频道，还差"
+	write( HIG "【表決】"+my_name+"投票打開" +v_name +"的交談頻道，還差"
 			+sprintf("%d", df)+"票。\n" NOR);
     
 	victim->apply_condition("vote_clear", 10);
@@ -93,16 +93,16 @@ int vote(object me, object victim)
   {
   	if (me != victim)
   	{
-	shout( HIG "【表决】"+my_name+"投票打开" +v_name+"的交谈频道。"
-		+v_name+"的"+channel+"频道被打开了！\n" NOR);
-	write( HIG "【表决】"+my_name+"投票打开" +v_name+"的交谈频道。"
-		+v_name+"的"+channel+"频道被打开了！\n" NOR);
+	shout( HIG "【表決】"+my_name+"投票打開" +v_name+"的交談頻道。"
+		+v_name+"的"+channel+"頻道被打開了！\n" NOR);
+	write( HIG "【表決】"+my_name+"投票打開" +v_name+"的交談頻道。"
+		+v_name+"的"+channel+"頻道被打開了！\n" NOR);
 	} else 
 	{
-	shout( HIG "【表决】"+my_name+"投票打开自己的交谈频道。"
-		+my_name+"的"+channel+"频道被打开了！\n" NOR);
-	write( HIG "【表决】"+my_name+"投票打开自己的交谈频道。"
-		+my_name+"的"+channel+"频道被打开了！\n" NOR);
+	shout( HIG "【表決】"+my_name+"投票打開自己的交談頻道。"
+		+my_name+"的"+channel+"頻道被打開了！\n" NOR);
+	write( HIG "【表決】"+my_name+"投票打開自己的交談頻道。"
+		+my_name+"的"+channel+"頻道被打開了！\n" NOR);
 	}		
 	
 	victim->apply_condition("vote_clear", -10);

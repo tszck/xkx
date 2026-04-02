@@ -24,14 +24,14 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
 		return notify_fail(PNAME "只能空手施展。\n");
@@ -47,28 +47,28 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 250 )
-		return notify_fail("你的"+to_chinese(fskill)+"火候不够，难以施展"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"火候不夠，難以施展"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 200 )
-		return notify_fail("你的"+to_chinese(sskill)+"等级不够，难以施展"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"等級不夠，難以施展"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 200 )
-		return notify_fail("你的"+to_chinese(bskill)+"等级不够，难以施展"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"等級不夠，難以施展"+PNAME+"。\n");
 
 	if (userp(me) && (int)me->query("dex", 1) < 20)
-		return notify_fail("你先天身法不够灵活，难以施展" PNAME "。\n");
+		return notify_fail("你先天身法不夠靈活，難以施展" PNAME "。\n");
 		
 	if (me->query("max_neili") < 4000)
-		return notify_fail("你的内力修为不足，难以施展" PNAME "。\n");
+		return notify_fail("你的內力修爲不足，難以施展" PNAME "。\n");
 
 	if (me->query_skill_mapped("force") != fskill)
-		return notify_fail("你没有激发北冥神功，难以施展" PNAME "。\n");
+		return notify_fail("你沒有激發北冥神功，難以施展" PNAME "。\n");
 
 	if (me->query("neili") < 800)
-		return notify_fail("你现在真气不足，难以施展" PNAME "。\n");
+		return notify_fail("你現在真氣不足，難以施展" PNAME "。\n");
 
-    msg = HIM "$N" HIM "深深吸进一口气，单手挥出，掌缘顿时霞光万道，漾出"
-	      "七色虹彩向$n" HIM "席卷而至。\n" NOR;
+    msg = HIM "$N" HIM "深深吸進一口氣，單手揮出，掌緣頓時霞光萬道，漾出"
+	      "七色虹彩向$n" HIM "席捲而至。\n" NOR;
 
 	ap = me->query_skill("dodge", 1) + me->query_skill(bskill);
 	dp = target->query_skill("dodge", 1) + target->query_skill("parry");
@@ -82,9 +82,9 @@ int perform(object me, object target)
 		lv = me->query_skill(sskill, 1);
 		if (me->query("max_neili") > target->query("max_neili") * 2)
 		{
-			msg += HIM "只听$n" HIM "一声尖啸，$N" HIM "的七色掌"
-			       "劲已尽数注入$p" HIM "体内，顿时将$p" HIM "化"
-			       "为一滩血水。\n" NOR ;
+			msg += HIM "只聽$n" HIM "一聲尖嘯，$N" HIM "的七色掌"
+			       "勁已盡數注入$p" HIM "體內，頓時將$p" HIM "化"
+			       "爲一灘血水。\n" NOR ;
 			msg += "( $n" + eff_status_msg(0) + " )\n";
 
 		 target->receive_wound("jing",target->query("eff_jing"),me);
@@ -109,16 +109,16 @@ int perform(object me, object target)
 			me->add("neili",-1 * (damage /3+50));
 			p = (int)target->query("qi") * 100 / (int)target->query("max_qi");
 
-			msg += HIM "$n" HIM "只是微微一愣，$N" HIM "的七色掌劲已破体而"
-			       "入，$p" HIM "便犹如身置洪炉一般，连呕数口鲜血。\n" NOR;
+			msg += HIM "$n" HIM "只是微微一愣，$N" HIM "的七色掌勁已破體而"
+			       "入，$p" HIM "便猶如身置洪爐一般，連嘔數口鮮血。\n" NOR;
 			msg += "( $n" + eff_status_msg(p) + " )\n";
 			
 			me->start_busy(3);
 		}
 	} else
 	{
-		msg += CYN "$p" CYN "见状大惊失色，完全勘破不透$P"
-		       CYN "招中奥秘，当即飞身跃起丈许，躲闪开来。\n" NOR;
+		msg += CYN "$p" CYN "見狀大驚失色，完全勘破不透$P"
+		       CYN "招中奧祕，當即飛身躍起丈許，躲閃開來。\n" NOR;
 		me->add("neili", -200);
 		me->start_busy(4);
 	}
@@ -134,15 +134,15 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		伤敌精、气
+		傷敵精、氣
 
 	出手要求：
 		先天身法20
-		北冥神功250级
-		天山折梅手200级
-		基本手法200级
-		最大内力4000
-		内力800
+		北冥神功250級
+		天山折梅手200級
+		基本手法200級
+		最大內力4000
+		內力800
 HELP
 	);
 	return 1;

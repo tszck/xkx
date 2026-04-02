@@ -6,12 +6,12 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("梁长老", ({"liang zhanglao", "liang", "zhanglao"}));
+	set_name("梁長老", ({"liang zhanglao", "liang", "zhanglao"}));
 	set("gender", "男性");
 	set("age", 55);
 	set("long", 
-		"梁长老是丐帮出道最久，武功最高的长老，在武林中享名已久。\n"
-		"丐帮武功向来较强，近来梁长老一力整顿，更是蒸蒸日上。\n");
+		"梁長老是丐幫出道最久，武功最高的長老，在武林中享名已久。\n"
+		"丐幫武功向來較強，近來梁長老一力整頓，更是蒸蒸日上。\n");
 
 	set("attitude", "peaceful");
 	set("class", "beggar");
@@ -48,7 +48,7 @@ void create()
 	set_skill("checking", 90);
 	set_skill("training", 80);
 	set_skill("strike",85);  // 基本掌法
-	set_skill("lianhua-zhang",85); // 莲花掌
+	set_skill("lianhua-zhang",85); // 蓮花掌
 	set_skill("xianglong-zhang",85);
 
 	map_skill("strike","lianhua-zhang");
@@ -61,10 +61,10 @@ void create()
 	map_skill("parry", "liuhe-blade");
 	map_skill("dodge", "xiaoyaoyou");
 	
-	set("party/party_name", HIC"丐帮"NOR);
-	set("party/rank", RED"九袋长老"NOR);
+	set("party/party_name", HIC"丐幫"NOR);
+	set("party/rank", RED"九袋長老"NOR);
 	set("party/level", 9);
-	create_family("丐帮", 18, "传功长老");
+	create_family("丐幫", 18, "傳功長老");
 	setup();
 
 	carry_object(__DIR__"obj/cloth")->wear();
@@ -82,7 +82,7 @@ void init()
 		file_name(environment(ob))!="/d/city/undertre") 
 	{
 		myfam = (mapping)ob->query("family");
-		if (!myfam || myfam["family_name"] != "丐帮")
+		if (!myfam || myfam["family_name"] != "丐幫")
 		{
 			remove_call_out("saying");
 			call_out("saying",1,ob);
@@ -94,7 +94,7 @@ void saying(object ob)
 {
 	if (!ob || environment(ob) != environment()) return;
 
-	message_vision("\n粱长老看到$N闯进来，大喝一声：你不是丐帮弟子，给我滚出去！\n\n", ob);
+	message_vision("\n粱長老看到$N闖進來，大喝一聲：你不是丐幫弟子，給我滾出去！\n\n", ob);
 	call_out("kicking", 0, ob);	
 }
 
@@ -103,20 +103,20 @@ void kicking(object ob)
 	if (!ob || environment(ob) != environment()) return;
 
 	ob->move("/d/gaibang/inhole");
-	message("vision","只听“乒”地一声，" + ob->query("name") +
-		"从小门里飞了出来。\n", environment(ob), ob);
+	message("vision","只聽“乒”地一聲，" + ob->query("name") +
+		"從小門裏飛了出來。\n", environment(ob), ob);
 }
 */
 void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("str") < 25) {
-		command("say 我们丐帮的武艺一向以刚猛为主，" + 
-		RANK_D->query_respect(ob) + "臂力太弱，似乎不宜学丐帮的功夫？");
+		command("say 我們丐幫的武藝一向以剛猛爲主，" + 
+		RANK_D->query_respect(ob) + "臂力太弱，似乎不宜學丐幫的功夫？");
 		return;
 	}
 
 	command("say 好吧，希望" + RANK_D->query_respect(ob) +
-	"能好好学习本门武功，将来在江湖中闯出一番作为。");
+	"能好好學習本門武功，將來在江湖中闖出一番作爲。");
 	command("recruit " + ob->query("id"));
 }
 #include "/kungfu/class/gaibang/gaibang.h"

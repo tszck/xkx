@@ -5,9 +5,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("圆觉禅师", ({ "Yuan chanshi", "yuan", "chanshi" }));
-	set("title","昭觉寺主持");
-	set("long", "昭觉寺第九代主持，慈眉善目，雪白的长须挂在胸前。\n");
+	set_name("圓覺禪師", ({ "Yuan chanshi", "yuan", "chanshi" }));
+	set("title","昭覺寺主持");
+	set("long", "昭覺寺第九代主持，慈眉善目，雪白的長鬚掛在胸前。\n");
 	set("gender", "男性");
 	set("attitude", "peaceful");
 	set("class", "bonze");

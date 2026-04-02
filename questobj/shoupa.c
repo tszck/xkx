@@ -9,8 +9,8 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "张");
+		set("unit", "張");
 		set("value",0);
-		set("long","这是一张绣花手帕。\n");
+		set("long","這是一張繡花手帕。\n");
 	}
 }

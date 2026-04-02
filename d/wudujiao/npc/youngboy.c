@@ -8,7 +8,7 @@ void create()
         set("age", 20);
         set("per",30);
         set("max_qi",400);
-        set("long", "一个身穿苗族服饰的英俊少年。\n");
+        set("long", "一個身穿苗族服飾的英俊少年。\n");
         set("combat_exp", 8000);
         set("shen_type", 1);
         set_skill("unarmed", 30);

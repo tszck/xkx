@@ -7,13 +7,13 @@ void consider();
 
 void create()
 {
-    set_name("一灯大师", ({"yideng-dashi", "dashi", "yideng"}));
+    set_name("一燈大師", ({"yideng-dashi", "dashi", "yideng"}));
     set("nickname", HIG "南帝" NOR );
     set("gender", "男性");
     set("age", 52);
     set("long", 
-        "他就是号称「南帝」的一灯大师，俗名段智兴，现已逊位为僧。\n"
-        "大师一生行善，积德无穷。\n");
+        "他就是號稱「南帝」的一燈大師，俗名段智興，現已遜位爲僧。\n"
+        "大師一生行善，積德無窮。\n");
     set("attitude", "peaceful");
     set("class", "scholar");
 	
@@ -33,14 +33,14 @@ void create()
     set("combat_exp", 1500000);
     set("score", 0);
 	 
-    set_skill("force", 150);             // 基本内功
+    set_skill("force", 150);             // 基本內功
     set_skill("finger", 170);            // 基本指法
-    set_skill("dodge", 150);             // 基本躲闪
+    set_skill("dodge", 150);             // 基本躲閃
     set_skill("parry", 150);             // 基本招架
-    set_skill("six-finger", 200);        // 六脉神剑
+    set_skill("six-finger", 200);        // 六脈神劍
     set_skill("taixuan-gong", 200);      // 太玄神功
-    set_skill("lingxu-bu", 200);         // 凌虚步
-    set_skill("literate",150);           // 读书识字
+    set_skill("lingxu-bu", 200);         // 凌虛步
+    set_skill("literate",150);           // 讀書識字
 	
     map_skill("force"  , "taixuan-gong");
     map_skill("finger" , "six-finger");
@@ -72,9 +72,9 @@ void greeting(object ob)
 	int i;
 
 	obj = all_inventory(environment(me));
-//一灯大师哈哈大笑，对着黄药师拱了拱手道：老爷子过奖了!
+//一燈大師哈哈大笑，對着黃藥師拱了拱手道：老爺子過獎了!
         command("nali huang");
-        command("say 劲力内含，发之无形，伤人与不觉之中。");
+        command("say 勁力內含，發之無形，傷人與不覺之中。");
 	for(i=0; i<sizeof(obj); i++)
 	{
 		if( obj[i]->query("id")=="huang-yaoshi")

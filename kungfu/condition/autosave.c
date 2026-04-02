@@ -10,16 +10,16 @@ int update_condition(object me, int duration)
 	switch (duration)
 	{
 		case 1:
-			message("channel:snow",HIG"【存盘】您的档案已自动存盘。\n"NOR,me);
+			message("channel:snow",HIG"【存盤】您的檔案已自動存盤。\n"NOR,me);
 			me->save();
 			break;
 		case 4:
 			if (me->query("food") <= 20 && !(wizardp(me) && me->query("env/invisibility")))
-				message_vision( HIY"突然$N发出一阵“咕咕”声响，忙用双手捂了捂肚子：“好饿哦，要不找点吃的去？”\n"NOR, me);
+				message_vision( HIY"突然$N發出一陣“咕咕”聲響，忙用雙手捂了捂肚子：“好餓哦，要不找點喫的去？”\n"NOR, me);
 			break;
 		case 7:
 			if (me->query("water") <= 20 && !(wizardp(me) && me->query("env/invisibility")))
-				message_vision( HIY"$N伸伸舌头舔了舔干裂的嘴唇，看来要喝点什么了。\n"NOR, me);
+				message_vision( HIY"$N伸伸舌頭舔了舔乾裂的嘴脣，看來要喝點什麼了。\n"NOR, me);
 			break;
 		default:
 			if (duration == 13) duration = 0;	
@@ -35,7 +35,7 @@ int update_condition(object me, int duration)
 		{
 			if (me->query_temp("guardfor"))
 			{
-				message_vision( HIY"$N守护这么久，实在是太累了，只好放弃了守护"+obj->name()+"的想法。\n"NOR, me);
+				message_vision( HIY"$N守護這麼久，實在是太累了，只好放棄了守護"+obj->name()+"的想法。\n"NOR, me);
 				guards = obj->query_temp("guarded");
 				guards -= ({ me });
 				obj->set_temp("guarded", guards);
@@ -43,7 +43,7 @@ int update_condition(object me, int duration)
 			}
 			else
 			{
-				message_vision( HIY"$N把守这么久，实在是太累了，只好放弃了把守"+obj->query("short")+"的想法。\n"NOR, me);
+				message_vision( HIY"$N把守這麼久，實在是太累了，只好放棄了把守"+obj->query("short")+"的想法。\n"NOR, me);
 				obj->delete("guarded/"+me->query_temp("guardto"));
 				me->delete_temp("guardto");
 			}
@@ -51,8 +51,8 @@ int update_condition(object me, int duration)
 		else
 		{
 			if(me->query("qi")<500 || me->query("jing")<300)
-				message_vision("$N守了这么久，觉得好累。\n",me);
-			else message_vision("$N守了一会，腰有点酸了。\n", me);
+				message_vision("$N守了這麼久，覺得好累。\n",me);
+			else message_vision("$N守了一會，腰有點酸了。\n", me);
 		}
 	}
   if (me->query("max_nuqi")>0 && me->query("nuqi")>0 && 

@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("摆夷小孩",({ "kid" }) );
+	set_name("擺夷小孩",({ "kid" }) );
         set("gender", "男性" );
         set("age", 5);
-        set("long", "一个幼小的摆夷儿童。\n");
+        set("long", "一個幼小的擺夷兒童。\n");
         set("combat_exp", 50);
 //        set("shen", 50);
 	set("shen_type", 1);

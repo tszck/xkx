@@ -20,10 +20,10 @@ string* armors = ({
 
 void create()
 {
-	set_name("打铁僧", ({ "datie seng", "datie", "seng" }) );
+	set_name("打鐵僧", ({ "datie seng", "datie", "seng" }) );
 	set("gender", "男性" );
 	set("age", 38);
-	set("long", "这是个身强力壮、皮肤拗黑的打铁僧人。\n");
+	set("long", "這是個身強力壯、皮膚拗黑的打鐵僧人。\n");
 	set("str", 25);
 	set("dex", 20);
 	set("con", 17);
@@ -38,13 +38,13 @@ void create()
 
 	set("attitude", "peaceful");
 	set("inquiry", ([
-		"老乔" : (: ask_qiao :),
-		"铁手掌" : (: ask_armor :),
+		"老喬" : (: ask_qiao :),
+		"鐵手掌" : (: ask_armor :),
 	]));
 	set("chat_chance", 3);
 	set("chat_msg", ({
-	"打铁僧喃喃自语：让山脚下的老乔给我买铁，结果送过来的都是些锈得发烂的旧铁！\n",
-	"打铁僧嘟囔道：寺内上等精铁都用得差不多了，得让慧合尊者派人去市上买些好铁来 ......！\n"
+	"打鐵僧喃喃自語：讓山腳下的老喬給我買鐵，結果送過來的都是些鏽得發爛的舊鐵！\n",
+	"打鐵僧嘟囔道：寺內上等精鐵都用得差不多了，得讓慧合尊者派人去市上買些好鐵來 ......！\n"
 	}) );
 	                
 	setup();
@@ -53,14 +53,14 @@ void create()
 
 int ask_qiao()
 {
-	if ( this_player()->query_temp("marks/问过老乔") )
+	if ( this_player()->query_temp("marks/問過老喬") )
 	{
-		command("say 哎呀，我真记不清楚！\n");
+		command("say 哎呀，我真記不清楚！\n");
 	}
    	else
    	{
-		command("say 老乔就住在少室山山脚下，好象是在东头…还是西头？看我这记性！\n");
-		this_player()->set_temp("marks/问过老乔", 1);
+		command("say 老喬就住在少室山山腳下，好象是在東頭…還是西頭？看我這記性！\n");
+		this_player()->set_temp("marks/問過老喬", 1);
 	}
 	return 1;
 }
@@ -75,24 +75,24 @@ int ask_armor()
 
 	if ( present("iron hand", ob) )
 	{
-		say("你不已经有一块了吗？ 这玩意儿有啥用？\n");
+		say("你不已經有一塊了嗎？ 這玩意兒有啥用？\n");
 		return 1;
 	}
 
 	if ( present("iron hand", environment(ob)) )
 	{
-		say("地上这不有一块吗？ 你要的话就捡走吧。\n");
+		say("地上這不有一塊嗎？ 你要的話就撿走吧。\n");
 		return 1;
 	}
 
-	say("铁手掌？ 这玩意儿有啥用？\n"
-		"老乔送了一大堆给我，你要的话，就拿一个去罢。\n");
+	say("鐵手掌？ 這玩意兒有啥用？\n"
+		"老喬送了一大堆給我，你要的話，就拿一個去罷。\n");
 
 	armor = new( armors[random(sizeof(armors))] );
   armor->set("value",0);
 	armor->move(ob);
 
-	message_vision("$N交给$n一个铁手掌。\n", me, ob);
+	message_vision("$N交給$n一個鐵手掌。\n", me, ob);
 
 	return 1;
 }

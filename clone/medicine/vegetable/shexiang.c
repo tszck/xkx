@@ -16,8 +16,8 @@ void create()
 	set("vegetable", 16);
 	set("value", 1600);
 	set("nostrum", 8);
-	set("unit", "块");
-	set("long", "这是一块香气馥郁的麝香，看来可以入药。\n");
+	set("unit", "塊");
+	set("long", "這是一塊香氣馥郁的麝香，看來可以入藥。\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -26,12 +26,12 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
-	write("麝香没这种吃法。\n");
+	write("麝香沒這種喫法。\n");
 	return 1;
 }

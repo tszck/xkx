@@ -7,13 +7,13 @@ int ask_stop();
 
 void create()
 {
-	set_name("程药发", ({ "cheng yaofa", "cheng" , "yaofa"}) );
-	set("title", "扬州知府" );
+	set_name("程藥發", ({ "cheng yaofa", "cheng" , "yaofa"}) );
+	set("title", "揚州知府" );
 	set("gender", "男性" );
 	set("age", 43);
 	set("str", 20);
 	set("dex", 20);
-	set("long", "他就是程药发，扬州现任知府。\n");
+	set("long", "他就是程藥發，揚州現任知府。\n");
 	set("combat_exp", 30000);
 	set("shen_type", 0);
 	set("attitude", "heroism");
@@ -32,13 +32,13 @@ void create()
 	set("max_neili", 500);
 	set("jiali", 10);
 	set("inquiry", ([
-		"任务": (: ask_me :),
+		"任務": (: ask_me :),
 		"捕快": (: ask_me :),
 		"work": (: ask_me :),
 		"效力": (: ask_me :),
 		"quest": (: ask_me :),
-		"扬州府": (: ask_me :),
-		"放弃": (: ask_stop :),
+		"揚州府": (: ask_me :),
+		"放棄": (: ask_stop :),
 		"stop": (: ask_stop :),
 	]) );
 	setup();
@@ -64,12 +64,12 @@ int ask_me()
 	me = this_player();
 	if(me->query("officerlvl") < 1)
 	{
-		command("say 这位"+ RANK_D->query_respect(me)
-			+ "若有意为朝廷效力，不妨到签押房报名！\n");
+		command("say 這位"+ RANK_D->query_respect(me)
+			+ "若有意爲朝廷效力，不妨到簽押房報名！\n");
 		return 1;
 	}
-	command("say 你身为朝廷官员，不能白吃国家俸禄，须得努力工作(work)才是
-啊！每次办差归来须如实向本府汇报(finish)。");
+	command("say 你身爲朝廷官員，不能白喫國家俸祿，須得努力工作(work)纔是
+啊！每次辦差歸來須如實向本府彙報(finish)。");
 	return 1;
 }
 int ask_stop()
@@ -78,11 +78,11 @@ int ask_stop()
 	me = this_player();
 	if (!(int)me->query_temp("bt/working"))
 	{
-		command("say 这位"+ RANK_D->query_respect(me)
-			+ "若不愿意为朝廷效力，本府也不勉强！\n");
+		command("say 這位"+ RANK_D->query_respect(me)
+			+ "若不願意爲朝廷效力，本府也不勉強！\n");
 		return 1;
 	}
-	command("say 你真的没有抓到罪犯吗？(answer yes或answer no)");
+	command("say 你真的沒有抓到罪犯嗎？(answer yes或answer no)");
 	me->set_temp("bt/stop",1);
 	return 1;
 }
@@ -90,21 +90,21 @@ int do_answer(string arg)
 {
  object me;
 	me = this_player();
-	if (!me->query_temp("bt/stop")) return notify_fail("什么？\n");
+	if (!me->query_temp("bt/stop")) return notify_fail("什麼？\n");
 	if (!arg || (arg !="yes"&&arg !="no"))
 	{
-		command("say 你吞吞吐吐的在说什么啊！\n");
+		command("say 你吞吞吐吐的在說什麼啊！\n");
 		return 1;
 	}
 	if (arg =="no")
 	{			       //113
-		command("say 罪犯既已抓到了你还要放弃什么？\n");
+		command("say 罪犯既已抓到了你還要放棄什麼？\n");
 		return 1;
 	}
-	message_vision (BLU"程药发不由大怒，拍案而起。\n"NOR,me);
-	command("say 大胆！汝身为朝廷官员，食国家俸禄，办差如此不力，休怪本府无");
-	command("say 来啊，与我重责二十大板。");
-	message_vision (BLU"四下里顿时拥出几个如狼似虎的衙役将"+me->query("name")+"按翻在地。\n"NOR,me);
+	message_vision (BLU"程藥發不由大怒，拍案而起。\n"NOR,me);
+	command("say 大膽！汝身爲朝廷官員，食國家俸祿，辦差如此不力，休怪本府無");
+	command("say 來啊，與我重責二十大板。");
+	message_vision (BLU"四下裏頓時擁出幾個如狼似虎的衙役將"+me->query("name")+"按翻在地。\n"NOR,me);
 	me->delete_temp("bt/stop");
 	me->apply_condition("bt_stop", 10);
 	return 1;

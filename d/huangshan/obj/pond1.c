@@ -13,8 +13,8 @@ void create()
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "个");
-                set("long", HIR"一个水色为赤的池潭。\n"NOR);
+                set("unit", "個");
+                set("long", HIR"一個水色爲赤的池潭。\n"NOR);
                 set("value", 1);
         }
 }

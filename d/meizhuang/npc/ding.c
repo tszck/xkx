@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("丁坚", ({"ding jian","ding",}));
-	set("long", "他就是隐居江湖数年的一字电剑丁坚，现在在梅庄当管家。\n");
+	set_name("丁堅", ({"ding jian","ding",}));
+	set("long", "他就是隱居江湖數年的一字電劍丁堅，現在在梅莊當管家。\n");
 	set("gender", "男性");
-	set("nickname", HIC"一字电剑"NOR);
+	set("nickname", HIC"一字電劍"NOR);
 	set("attitude", "friendly");
 
 	set("age", 30);
@@ -32,7 +32,7 @@ void create()
 	set_skill("parry", 100);
 
 	set("party/party_name", HIB"日月神教"NOR);
-	set("party/rank", HIW"教众"NOR);
+	set("party/rank", HIW"教衆"NOR);
 	create_family("黑木崖", 10, "弟子");
 
 	setup();

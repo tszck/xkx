@@ -6,7 +6,7 @@ inherit NPC;
 void create()
 {
 	set_name("五步蛇", ({ "wubushe" }) );
-	set("long", "五步蛇是福建地方毒蛇，相传中毒行路五步即行倒毙。\n");
+	set("long", "五步蛇是福建地方毒蛇，相傳中毒行路五步即行倒斃。\n");
 	set("race", "爬蛇");
 	set("age", 3);
 	set("attitude", "peaceful");
@@ -46,6 +46,6 @@ int hit_ob(object me, object ob, int damage)
 		(int)ob->query_condition("snake_poison") < 10 )
 	{
 		ob->apply_condition("snake_poison", 40);
-		tell_object(ob, HIG "你觉得被咬中的地方一阵麻木！\n" NOR );
+		tell_object(ob, HIG "你覺得被咬中的地方一陣麻木！\n" NOR );
 	}
 }

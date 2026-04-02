@@ -1,21 +1,21 @@
 // Last Modified by winder on Sep. 12 2001
-// shi-shuangying.c 石双英
+// shi-shuangying.c 石雙英
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("石双英", ({ "shi shuangying", "shi","shuangying" }));
-	set("title", HIR "红花会"HIG"十二当家" NOR);
-	set("nickname", HIG "鬼见愁" NOR);
+	set_name("石雙英", ({ "shi shuangying", "shi","shuangying" }));
+	set("title", HIR "紅花會"HIG"十二當家" NOR);
+	set("nickname", HIG "鬼見愁" NOR);
 	set("long", 
-"鬼见愁石双英在会中坐第十二把交椅，执掌刑堂，铁面无私，心狠手
-辣，犯了规条的就是逃到天涯海角，他也必派人抓来处刑，原来依据红
-花会规条，会中兄弟犯了大罪，若是一时胡涂，此后诚心悔悟，可在开
-香堂执法之前，自行用尖刀在大腿上连戳三刀，这三刀须对穿而过，即
-所谓“三刀六洞”，然后向该管舵主和执法香主求恕，有望从轻发落，
-但若真正罪重出自不能饶恕。是以红花会数万兄弟，提到鬼见愁时无不
+"鬼見愁石雙英在會中坐第十二把交椅，執掌刑堂，鐵面無私，心狠手
+辣，犯了規條的就是逃到天涯海角，他也必派人抓來處刑，原來依據紅
+花會規條，會中兄弟犯了大罪，若是一時胡塗，此後誠心悔悟，可在開
+香堂執法之前，自行用尖刀在大腿上連戳三刀，這三刀須對穿而過，即
+所謂“三刀六洞”，然後向該管舵主和執法香主求恕，有望從輕發落，
+但若真正罪重出自不能饒恕。是以紅花會數萬兄弟，提到鬼見愁時無不
 悚然。\n");
 	set("gender", "男性");
 	set("class", "scholar");
@@ -60,7 +60,7 @@ void create()
 		(: exert_function, "regenerate" :),
 		(: exert_function, "recover" :),
 	}) );
-	create_family("红花会", 2, "弟子");
+	create_family("紅花會", 2, "弟子");
 
  	setup();
 	carry_object("/clone/misc/cloth")->wear();

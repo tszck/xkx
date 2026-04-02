@@ -5,8 +5,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("庄家", ({ "zhuang jia", "zhuang", "jia" }));
-	set("long", "一位赌场老手，正笑眯眯地看着你。\n请输入 ya 来获取帮助。\n");
+	set_name("莊家", ({ "zhuang jia", "zhuang", "jia" }));
+	set("long", "一位賭場老手，正笑眯眯地看着你。\n請輸入 ya 來獲取幫助。\n");
 	set("no_get", 1);
 	set("age", 40);
 	set("per", 20);
@@ -56,13 +56,13 @@ varargs int gen_point(int j)
 int in_bet = 0;
 int tc1, tc2;
 mapping t=([
-	"tc": HIR"头彩"NOR,
+	"tc": HIR"頭彩"NOR,
 	"dc": HIW"大彩"NOR,
-	"sd": HIG"双对"NOR,
+	"sd": HIG"雙對"NOR,
 	"qx": HIY"七星"NOR,
-	"dd": HIB"单对"NOR,
+	"dd": HIB"單對"NOR,
 	"sx": HIC"散星"NOR,
-	"kp": HIM"空盘"NOR
+	"kp": HIM"空盤"NOR
 ]);
 mapping b=([
 	"tc": 35,
@@ -82,34 +82,34 @@ int do_ya(string arg)
 
 	if (!arg || sscanf(arg, "%s %d %s", type, mount, money) != 3)
 		return notify_fail(
-"ya tc <数量> <coin|silver|gold> 押头彩(两数顺序及点数均正确)       一赔卅五\n"
-"ya dc <数量> <coin|silver|gold> 押大彩(两数点数正确)               一赔十七\n"
-"ya sd <数量> <coin|silver|gold> 押双对(两数相同且均为偶数)         一赔十一\n"
-"ya kp <数量> <coin|silver|gold> 押空盘(两数不同且均为偶数)         一赔五\n"
-"ya qx <数量> <coin|silver|gold> 押七星(两数之和为七)               一赔五\n"
-"ya dd <数量> <coin|silver|gold> 押单对(两数均为奇数)               一赔三\n"
-"ya sx <数量> <coin|silver|gold> 押散星(两数之和为三、五、九、十一) 一赔二\n"
-"每盘按从上到下的顺序只出现一种点型(头彩和大彩可同时出现)，其他情况都算庄家赢。\n");
-	if (undefinedp(t[type])) return notify_fail("您要押什么？\n");
-	if (mount < 1) return notify_fail("你要押多少钱？\n");
-	if (mount > 200000) return notify_fail("您押的数目太大了。\n");
+"ya tc <數量> <coin|silver|gold> 押頭彩(兩數順序及點數均正確)       一賠卅五\n"
+"ya dc <數量> <coin|silver|gold> 押大彩(兩數點數正確)               一賠十七\n"
+"ya sd <數量> <coin|silver|gold> 押雙對(兩數相同且均爲偶數)         一賠十一\n"
+"ya kp <數量> <coin|silver|gold> 押空盤(兩數不同且均爲偶數)         一賠五\n"
+"ya qx <數量> <coin|silver|gold> 押七星(兩數之和爲七)               一賠五\n"
+"ya dd <數量> <coin|silver|gold> 押單對(兩數均爲奇數)               一賠三\n"
+"ya sx <數量> <coin|silver|gold> 押散星(兩數之和爲三、五、九、十一) 一賠二\n"
+"每盤按從上到下的順序只出現一種點型(頭彩和大彩可同時出現)，其他情況都算莊家贏。\n");
+	if (undefinedp(t[type])) return notify_fail("您要押什麼？\n");
+	if (mount < 1) return notify_fail("你要押多少錢？\n");
+	if (mount > 200000) return notify_fail("您押的數目太大了。\n");
 	switch(money)
 	{
 		case "gold":   mount *= 100;
 		case "silver": mount *= 100;
 		case "coin":   break;
 		default:
-		return notify_fail("只能押黄金(gold)、白银(silver)和铜钱(coin)。\n");
+		return notify_fail("只能押黃金(gold)、白銀(silver)和銅錢(coin)。\n");
 	}
-	if (mount > 100000) return notify_fail("您押的数目太大了。\n");
+	if (mount > 100000) return notify_fail("您押的數目太大了。\n");
 	if (mount > me->query("balance"))
-		return notify_fail("您没有这么多存款。\n");
-	if (mount % 10) return notify_fail("必须以十个铜钱为基数下注。\n");
-	if (!in_bet) return notify_fail("赌局还没开始呢。\n");
-	if (in_bet > 1) return notify_fail("赌局已经开始了，等下一轮吧。\n");
+		return notify_fail("您沒有這麼多存款。\n");
+	if (mount % 10) return notify_fail("必須以十個銅錢爲基數下注。\n");
+	if (!in_bet) return notify_fail("賭局還沒開始呢。\n");
+	if (in_bet > 1) return notify_fail("賭局已經開始了，等下一輪吧。\n");
 	uid = me->query("id");
 	if (query("bet/"+uid+"/"+type))
-		return notify_fail("您已经押过"+t[type]+"了。\n");
+		return notify_fail("您已經押過"+t[type]+"了。\n");
 	me->add("balance", -mount);
 	set("bet/"+uid+"/"+type, mount);
 	message_vision("$N拿出"+MONEY_D->money_str(mount)+"的存款押在"+t[type]+"上。\n", me);
@@ -136,12 +136,12 @@ int zuobi(string arg)
 
 void casino()
 {
-	say(name()+"唱道：新开盘！预叫头彩！\n");
-	say(name()+"将两枚玉骰往银盘中一撒。\n");
+	say(name()+"唱道：新開盤！預叫頭彩！\n");
+	say(name()+"將兩枚玉骰往銀盤中一撒。\n");
 	tc1 = gen_point();
 	tc2 = gen_point();
-	say(name()+"唱道：头彩骰号是" HIW +chinese_number(tc1)+ NOR "、" HIW +chinese_number(tc2)+ NOR "！\n");
-	say("接着"+name()+"麻利地将玉骰从银盘中收回：现在开盘押钱！\n");
+	say(name()+"唱道：頭彩骰號是" HIW +chinese_number(tc1)+ NOR "、" HIW +chinese_number(tc2)+ NOR "！\n");
+	say("接着"+name()+"麻利地將玉骰從銀盤中收回：現在開盤押錢！\n");
 	delete("bet");
 	delete("total");
 	set("total/tc", 0);
@@ -157,7 +157,7 @@ void casino()
 
 void wait_start(int i)
 {
-	say(name()+"喊道：本盘头彩骰号是" HIW +chinese_number(tc1)+ NOR "、" HIW +chinese_number(tc2)+ NOR "，各位客倌快押(ya)啊！\n");
+	say(name()+"喊道：本盤頭彩骰號是" HIW +chinese_number(tc1)+ NOR "、" HIW +chinese_number(tc2)+ NOR "，各位客倌快押(ya)啊！\n");
 	if (debug) message("wiz:yuj", sprintf("%O\n", query("total")), environment());
 	if (i--) call_out("wait_start", 8, i);
 	else call_out("readystart", 2, 3);
@@ -173,8 +173,8 @@ void readystart(int i)
 void start()
 {
 	in_bet = 2;
-	say(name()+"喊道：封盘停押！本盘头彩骰号是" HIW +chinese_number(tc1)+ NOR "、" HIW +chinese_number(tc2)+ NOR "！\n");
-	say(name()+"将两枚玉骰扔进两个金盅，一手持一盅摇将起来。\n");
+	say(name()+"喊道：封盤停押！本盤頭彩骰號是" HIW +chinese_number(tc1)+ NOR "、" HIW +chinese_number(tc2)+ NOR "！\n");
+	say(name()+"將兩枚玉骰扔進兩個金盅，一手持一盅搖將起來。\n");
 	call_out("kai1", 3);
 }
 
@@ -241,7 +241,7 @@ void kai1()
 			}
 		}
 	}
-	say(name()+"将左手的金盅倒扣在银盘上，玉骰滚了出来。\n");
+	say(name()+"將左手的金盅倒扣在銀盤上，玉骰滾了出來。\n");
 	p1 = gen_point(zb1);
 	zb1 = 0;
 	call_out("kai2", 5);
@@ -249,7 +249,7 @@ void kai1()
 
 void kai2()
 {
-	say(name()+"将右手的金盅倒扣在银盘上，玉骰滚了出来。\n");
+	say(name()+"將右手的金盅倒扣在銀盤上，玉骰滾了出來。\n");
 	p2 = gen_point(zb2);
 	zb2 = 0;
 	call_out("kai", 2);
@@ -313,7 +313,7 @@ void kai()
 		while (i--)
 		{
 			me = LOGIN_D->find_body(uid[i]);
-// 不在房间的不给钱
+// 不在房間的不給錢
 			if (!me || !present(me, environment())) continue;
 			utc = query("bet/"+uid[i]+"/tc");
 			udc = query("bet/"+uid[i]+"/dc");
@@ -326,59 +326,59 @@ void kai()
 			if (utc)
 				if (tc)
 				{
-					tell_object(me, name()+"赔给了你押中"+t["tc"]+"的"+MONEY_D->money_str(utc*b["tc"])+"。\n");
+					tell_object(me, name()+"賠給了你押中"+t["tc"]+"的"+MONEY_D->money_str(utc*b["tc"])+"。\n");
 					me->add("balance", utc + utc*b["tc"]);
 					total += utc + utc*b["tc"];
 				} else tell_object(me, name()+"收走了你押在"+t["tc"]+"上的"+MONEY_D->money_str(utc)+"。\n");
 			if (udc)
 				if (dc)
 				{
-					tell_object(me, name()+"赔给了你押中"+t["dc"]+"的"+MONEY_D->money_str(udc*b["dc"])+"。\n");
+					tell_object(me, name()+"賠給了你押中"+t["dc"]+"的"+MONEY_D->money_str(udc*b["dc"])+"。\n");
 					me->add("balance", udc + udc*b["dc"]);
 					total += udc + udc*b["dc"];
 				} else tell_object(me, name()+"收走了你押在"+t["dc"]+"上的"+MONEY_D->money_str(udc)+"。\n");
 			if (usd)
 				if (sd)
 				{
-					tell_object(me, name()+"赔给了你押中"+t["sd"]+"的"+MONEY_D->money_str(usd*b["sd"])+"。\n");
+					tell_object(me, name()+"賠給了你押中"+t["sd"]+"的"+MONEY_D->money_str(usd*b["sd"])+"。\n");
 					me->add("balance", usd + usd*b["sd"]);
 					total += usd + usd*b["sd"];
 				} else tell_object(me, name()+"收走了你押在"+t["sd"]+"上的"+MONEY_D->money_str(usd)+"。\n");
 			if (uqx)
 				if (qx)
 				{
-					tell_object(me, name()+"赔给了你押中"+t["qx"]+"的"+MONEY_D->money_str(uqx*b["qx"])+"。\n");
+					tell_object(me, name()+"賠給了你押中"+t["qx"]+"的"+MONEY_D->money_str(uqx*b["qx"])+"。\n");
 					me->add("balance", uqx + uqx*b["qx"]);
 					total += uqx + uqx*b["qx"];
 				} else tell_object(me, name()+"收走了你押在"+t["qx"]+"上的"+MONEY_D->money_str(uqx)+"。\n");
 			if (udd)
 				if (dd)
 				{
-					tell_object(me, name()+"赔给了你押中"+t["dd"]+"的"+MONEY_D->money_str(udd*b["dd"])+"。\n");
+					tell_object(me, name()+"賠給了你押中"+t["dd"]+"的"+MONEY_D->money_str(udd*b["dd"])+"。\n");
 					me->add("balance", udd + udd*b["dd"]);
 					total += udd + udd*b["dd"];
 				} else tell_object(me, name()+"收走了你押在"+t["dd"]+"上的"+MONEY_D->money_str(udd)+"。\n");
 			if (usx)
 				if (sx)
 				{
-					tell_object(me, name()+"赔给了你押中"+t["sx"]+"的"+MONEY_D->money_str(usx*b["sx"])+"。\n");
+					tell_object(me, name()+"賠給了你押中"+t["sx"]+"的"+MONEY_D->money_str(usx*b["sx"])+"。\n");
 					me->add("balance", usx + usx*b["sx"]);
 					total += usx + usx*b["sx"];
 				} else tell_object(me, name()+"收走了你押在"+t["sx"]+"上的"+MONEY_D->money_str(usx)+"。\n");
 			if (ukp)
 				if (kp)
 				{
-					tell_object(me, name()+"赔给了你押中"+t["kp"]+"的"+MONEY_D->money_str(ukp*b["kp"])+"。\n");
+					tell_object(me, name()+"賠給了你押中"+t["kp"]+"的"+MONEY_D->money_str(ukp*b["kp"])+"。\n");
 					me->add("balance", ukp + ukp*b["kp"]);
 					total += ukp + ukp*b["kp"];
 				} else tell_object(me, name()+"收走了你押在"+t["kp"]+"上的"+MONEY_D->money_str(ukp)+"。\n");
-			if (!total) message_vision(name()+ "唱道：$N本盘不赔不赚。\n", me);
-			else if (total > 0) message_vision(name()+ "唱道：$N本盘净赚"+MONEY_D->money_str(total)+"。\n", me);
-			else message_vision(name()+"唱道：$N本盘净赔"+MONEY_D->money_str(-total)+"。\n", me);
+			if (!total) message_vision(name()+ "唱道：$N本盤不賠不賺。\n", me);
+			else if (total > 0) message_vision(name()+ "唱道：$N本盤淨賺"+MONEY_D->money_str(total)+"。\n", me);
+			else message_vision(name()+"唱道：$N本盤淨賠"+MONEY_D->money_str(-total)+"。\n", me);
 			if (!wiz_level(me)) tt += total/100;
 		}
 		cc++;
-		if (debug) message("wiz:yuj", "赌场情况："+cc+" "+tt+"。\n", environment());
+		if (debug) message("wiz:yuj", "賭場情況："+cc+" "+tt+"。\n", environment());
 	}
 	in_bet = 0;
 	call_out("casino", 10);

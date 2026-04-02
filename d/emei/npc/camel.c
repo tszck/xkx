@@ -8,8 +8,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("白骆驼", ({ "camel" }));
-	set("long","一匹白骆驼。\n");
+	set_name("白駱駝", ({ "camel" }));
+	set("long","一匹白駱駝。\n");
 	set("race", "走畜");
 	set("age", 5);
 	set("attitude","heroism");

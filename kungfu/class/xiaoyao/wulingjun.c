@@ -1,4 +1,4 @@
-// wulingjun.c 吴领军
+// wulingjun.c 吳領軍
 // Modified by Winder June 25. 2000
 inherit NPC;
 inherit F_MASTER;
@@ -7,9 +7,9 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("吴领军", ({ "wu lingjun", "wu" }));
-	set("long","他雅擅丹青，山水人物，翎毛花卉，并皆精巧。拜入师门之前，在大宋朝廷做过领军将军之职，因此大家便叫他吴领军。\n");
-	set("nickname","“函谷八友”画狂");
+	set_name("吳領軍", ({ "wu lingjun", "wu" }));
+	set("long","他雅擅丹青，山水人物，翎毛花卉，並皆精巧。拜入師門之前，在大宋朝廷做過領軍將軍之職，因此大家便叫他吳領軍。\n");
+	set("nickname","“函谷八友”畫狂");
 	set("gender", "男性");
 	set("age", 40);
 	set("attitude", "friendly");
@@ -56,7 +56,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("逍遥派", 3, "弟子");
+	create_family("逍遙派", 3, "弟子");
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
 	carry_object("/clone/weapon/gangdao")->wield();

@@ -11,12 +11,12 @@ void init()
 
 void create()
 {
-        set_name("明史辑略", ({"book ming","book","ming"}));
+        set_name("明史輯略", ({"book ming","book","ming"}));
         set_weight(1500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "一本厚厚的书。\n");
+                set("long", "一本厚厚的書。\n");
                 set("unit", "本");
                 set("gold", 1);
                 set("material", "paper");
@@ -35,7 +35,7 @@ int do_shake(string arg)
 	{
                 if(query("gold") == 1)
 		{
-								message("vision","突然，几片金叶从书中掉了出来。\n",environment(me));
+								message("vision","突然，幾片金葉從書中掉了出來。\n",environment(me));
                 goldleaf1 = new(__DIR__"goldleaf");
                 goldleaf1->move(environment(me));
                 goldleaf2 = new(__DIR__"goldleaf");
@@ -45,7 +45,7 @@ int do_shake(string arg)
                 newbook->move(me);
                 destruct(this_object());
     }
-		else message("vision","不管怎么抖，再没金叶了。\n",environment(me));
+		else message("vision","不管怎麼抖，再沒金葉了。\n",environment(me));
 	return 1;
 	}
 }	

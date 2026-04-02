@@ -1,10 +1,10 @@
-// wuji.c 混元无极
+// wuji.c 混元無極
 // Last Modified by winder on Mar. 10 2000
  
 #include <ansi.h>
  
 inherit F_SSERVER;
-#define PNAME "「混元无极」"
+#define PNAME "「混元無極」"
 
 int perform(object me,object target)
 {
@@ -21,14 +21,14 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (objectp(weapon = me->query_temp("weapon")))
 		return notify_fail("你使用了武器。\n");
@@ -45,15 +45,15 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 140 )
-		return notify_fail("你的"+to_chinese(fskill)+"等级不够, 不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"等級不夠, 不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 140 )
-		return notify_fail("你的"+to_chinese(sskill)+"等级不够, 不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"等級不夠, 不能使用"+PNAME+"。\n");
 
 	if( me->query("neili") < 150 )
-		return notify_fail("你的内力不够，无法运用"PNAME"！\n");
+		return notify_fail("你的內力不夠，無法運用"PNAME"！\n");
  
-	msg = HIC "$N"HIC"潜运「混元无极」，双拳挟着隐隐的风雷之声向$n"HIC"击去。\n"NOR;
+	msg = HIC "$N"HIC"潛運「混元無極」，雙拳挾着隱隱的風雷之聲向$n"HIC"擊去。\n"NOR;
 	message_combatd(msg, me, target);
  
 	ap = me->query("combat_exp") + skill * 400;
@@ -62,7 +62,7 @@ int perform(object me,object target)
 	if( random(ap) > dp )
 	{
 		if(userp(me)) me->add("neili",-100);
-		msg =HIG"$n只觉得胸前一阵剧痛，“哇”的一声喷出一口鲜血！\n"NOR;
+		msg =HIG"$n只覺得胸前一陣劇痛，“哇”的一聲噴出一口鮮血！\n"NOR;
 		neili_wound = 100 + random(skill);
 		qi_wound = neili_wound * 2;
 		if(qi_wound > target->query("qi"))
@@ -78,7 +78,7 @@ int perform(object me,object target)
 	}
 	else
 	{
-		msg = HIG "只见$n"HIG"不慌不忙，轻轻一闪，躲过了$N"HIG"的必杀一击！\n"NOR;
+		msg = HIG "只見$n"HIG"不慌不忙，輕輕一閃，躲過了$N"HIG"的必殺一擊！\n"NOR;
 		if(userp(me)) me->add("neili",-100);
 		me->start_busy(4);
 	}
@@ -96,13 +96,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
-		迟滞对方出手
+		損傷對方氣血
+		遲滯對方出手
 
 	出手要求：
-		紫霞神功60级
-		混元掌60级
-		内力150
+		紫霞神功60級
+		混元掌60級
+		內力150
 HELP
 	);
 	return 1;

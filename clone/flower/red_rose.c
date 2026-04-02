@@ -7,11 +7,11 @@ int value() { return query_amount() * (int)query("base_value"); }
 
 void create()
 {
-	set_name(HIR "红玫瑰" NOR, ({"hong meigui", "red rose"}));
+	set_name(HIR "紅玫瑰" NOR, ({"hong meigui", "red rose"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "这是一朵含苞欲放的深红玫瑰，象征着美，爱，恋。\n");
+		set("long", "這是一朵含苞欲放的深紅玫瑰，象徵着美，愛，戀。\n");
 		set("unit", "束");
 		set("value", 30);
 		set("base_unit", "朵");

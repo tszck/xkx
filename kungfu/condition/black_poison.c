@@ -10,15 +10,15 @@ int update_condition(object me, int duration)
   if (me->is_ghost()) return 1;
 	if( !living(me) || me->query_temp("noliving") )
 	{
-		message("vision", me->name()+"喘着粗气，中掌处黑丝如墨。\n", environment(me), me);
+		message("vision", me->name()+"喘着粗氣，中掌處黑絲如墨。\n", environment(me), me);
 	}
 	else
 	{
-		tell_object(me, HIB"你只觉浑身冰冷刺骨，甚为难受！\n" NOR );
-		message("vision", HIB+me->name()+"突然面色铁青，全身上下黑丝隐约可辨，看来是中了黑砂掌后掌毒发作了。\n"NOR, environment(me), me);
+		tell_object(me, HIB"你只覺渾身冰冷刺骨，甚爲難受！\n" NOR );
+		message("vision", HIB+me->name()+"突然面色鐵青，全身上下黑絲隱約可辨，看來是中了黑砂掌後掌毒發作了。\n"NOR, environment(me), me);
 	}
-	me->receive_damage("qi", 25,"黑砂掌毒发作");
-	me->receive_wound("jing", 20,"黑砂掌毒发作");
+	me->receive_damage("qi", 25,"黑砂掌毒發作");
+	me->receive_wound("jing", 20,"黑砂掌毒發作");
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;
 	me->apply_condition("black_poison", duration - 1);
 	if( duration < 1 ) return 0;

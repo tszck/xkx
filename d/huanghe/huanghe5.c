@@ -6,10 +6,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "黄河岸边");
+	set("short", "黃河岸邊");
 	set("long", @LONG
-这里是黄河岸边。黄河流淌到这里，河床宽阔。黄色的河水在静静
-地向东流去，使人忘记它发洪水时的狂威。
+這裏是黃河岸邊。黃河流淌到這裏，河牀寬闊。黃色的河水在靜靜
+地向東流去，使人忘記它發洪水時的狂威。
 LONG );
 	set("exits", ([
 		"east"      : "/d/taishan/daizong",

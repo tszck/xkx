@@ -8,8 +8,8 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("韦一笑", ({"wei yixiao", "wei", "yixiao",}));
-	set("long", "他长得活象是一只青翼大蝙蝠。\n他的脸色灰扑扑的。\n");
+	set_name("韋一笑", ({"wei yixiao", "wei", "yixiao",}));
+	set("long", "他長得活象是一隻青翼大蝙蝠。\n他的臉色灰撲撲的。\n");
 	set("nickname", HIB "青翼蝠王" NOR);
 	set("level",9);
 	set("gender", "男性");
@@ -56,7 +56,7 @@ void create()
 		(: command("perform strike.xixueqingfu") :),
 	}) );
 	set("party/party_name",HIG"明教"NOR);
-	set("party/rank",HIW"护教法王"NOR);
+	set("party/rank",HIW"護教法王"NOR);
 	create_family("明教", 34, "弟子");
 	setup();
 

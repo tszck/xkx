@@ -5,8 +5,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("沐剑屏", ({"mu jianping", "mu" }));
-	set("long","她是沐王府小郡主，流落江湖成了神龙教赤龙门女弟子，长得十分娇羞秀美。\n");
+	set_name("沐劍屏", ({"mu jianping", "mu" }));
+	set("long","她是沐王府小郡主，流落江湖成了神龍教赤龍門女弟子，長得十分嬌羞秀美。\n");
 	set("gender", "女性");
 	set("attitude", "peaceful");
 
@@ -32,10 +32,10 @@ void create()
 	map_skill("hand","shenlong-bashi");
 	map_skill("sword","meiren-sanzhao");
 	prepare_skill("hand","shenlong-bashi");
-	set("party/party_name", HIY"神龙教"NOR);
-	set("party/rank", HIR"赤龙门"NOR"教众");
+	set("party/party_name", HIY"神龍教"NOR);
+	set("party/rank", HIR"赤龍門"NOR"教衆");
 	set("party/level", 1);
-	create_family("神龙教",3,"弟子");
+	create_family("神龍教",3,"弟子");
 
 	setup();
 	carry_object(VEGETABLE_DIR"xionghuang");

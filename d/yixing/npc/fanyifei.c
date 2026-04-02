@@ -7,10 +7,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("范一飞", ({ "fan yifei", "fan"}));
-	set("title", HIB "鹤笔门掌门人" NOR);
-	set("long", "他是一个矮瘦的老者，一张黑脸。腰里插着判官
-笔，人称‘辽东鹤’。\n");
+	set_name("範一飛", ({ "fan yifei", "fan"}));
+	set("title", HIB "鶴筆門掌門人" NOR);
+	set("long", "他是一個矮瘦的老者，一張黑臉。腰裏插着判官
+筆，人稱‘遼東鶴’。\n");
 	set("gender", "男性");
 	set("age", 51);
 	set("attitude", "peaceful");
@@ -44,14 +44,14 @@ void create()
 	set_temp("apply/damage", 25);
 	set("chat_chance", 3);
 	set("chat_msg", ({
-		"范一飞说道：长乐帮的司徒大哥与俺们有过命的交情，真想去拜访他老人家。\n",
+		"範一飛說道：長樂幫的司徒大哥與俺們有過命的交情，真想去拜訪他老人家。\n",
 	}) );
 
 	set("inquiry",([
-		"丁不四" : "下次再遇到这老贼，定在他各处要穴点上一点。",
-		"长乐帮" : "我也正要到长乐帮拜山。",
+		"丁不四" : "下次再遇到這老賊，定在他各處要穴點上一點。",
+		"長樂幫" : "我也正要到長樂幫拜山。",
 		"司徒大哥" : "司徒大哥的事就是兄弟我的事。",
-		"司徒横" : "听说长乐帮的奸贼作乱饭上害死了他。",
+		"司徒橫" : "聽說長樂幫的奸賊作亂飯上害死了他。",
 	]));
 	setup();
 	carry_object("/d/meizhuang/npc/obj/panguan-bi")->wield();

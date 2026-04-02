@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "乾清门");
+	set("short", "乾清門");
 	set("long", @LONG
-这是皇宫后廷的正门. 门中有一个宝座, 有些时候, 皇上为表示亲
-政, 就在这听取各衙门主管依次奏事, 这叫御门听政.
+這是皇宮後廷的正門. 門中有一個寶座, 有些時候, 皇上爲表示親
+政, 就在這聽取各衙門主管依次奏事, 這叫御門聽政.
 LONG
 	);
 	set("outdoors", "huanggong");
@@ -36,7 +36,7 @@ int valid_leave(object me, string dir)
 {
 	if ((dir=="north") &&
 	objectp(present("duo long", environment(me))))
-		return notify_fail("多隆拦住你说：此处禁地，请止步。\n");
+		return notify_fail("多隆攔住你說：此處禁地，請止步。\n");
 
 	return ::valid_leave(me, dir);
 }

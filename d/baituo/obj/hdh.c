@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(RED"鹤顶红"NOR, ({"heding hong", "hong", "heding"}));
+	set_name(RED"鶴頂紅"NOR, ({"heding hong", "hong", "heding"}));
 	set_weight(2000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "个");
-		set("long", RED"这是一个新鲜的鹤顶红，还散发着阵阵热气。\n"NOR);
+		set("unit", "個");
+		set("long", RED"這是一個新鮮的鶴頂紅，還散發着陣陣熱氣。\n"NOR);
 		set("value", 50000);
 	}
 	setup();
@@ -28,14 +28,14 @@ int do_eat(string arg)
 	object me = this_player();
 	int damage;
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
-	message_vision("$N服下一个" + name() + "。\n", me);  
-	tell_object(me, MAG "你感觉腹中一股巨疼传来，瞬间全身火热滚烫！\n" NOR);
+	message_vision("$N服下一個" + name() + "。\n", me);  
+	tell_object(me, MAG "你感覺腹中一股巨疼傳來，瞬間全身火熱滾燙！\n" NOR);
 	damage = (int)me->query("max_jing");
 	damage = damage/15;
 	damage = damage*14;
@@ -61,7 +61,7 @@ void dest()
 {
 	object me = this_player();
 	if (present(this_object(), me))
-	tell_object(me, HIR "鹤顶红的热气散尽，慢慢干枯了。\n" NOR);
+	tell_object(me, HIR "鶴頂紅的熱氣散盡，慢慢乾枯了。\n" NOR);
 
 	destruct(this_object());
 }

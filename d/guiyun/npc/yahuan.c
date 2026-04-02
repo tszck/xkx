@@ -8,7 +8,7 @@ void create()
 	set_name("丫鬟", ({ "ya huan", "ya", "huan" }));
 	set("gender", "女性");
 	set("age", 12);
-	set("long", "她是一个小丫鬟，形容尚小，身量未足。\n");
+	set("long", "她是一個小丫鬟，形容尚小，身量未足。\n");
 	
 	set("combat_exp", 1500 + random(100));
 	set("shen_type", 0);
@@ -26,7 +26,7 @@ void create()
 	set("jiali", 5);
 
 	set("inquiry",([
-		"name" : "我叫烟儿，从小就被卖在这里做丫鬟。",
+		"name" : "我叫煙兒，從小就被賣在這裏做丫鬟。",
 	]));
 	setup();
 	carry_object("/clone/misc/cloth")->wear();

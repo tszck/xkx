@@ -5,7 +5,7 @@ void  create()
 {
 	set_name("老大娘", ({ "old woman" }));
 	set("gender", "女性");
-	set("long","一个满脸风霜之色的老婆婆。\n");
+	set("long","一個滿臉風霜之色的老婆婆。\n");
 	set("age", 50);
 	set("per", 15);
 	set("combat_exp", 100);

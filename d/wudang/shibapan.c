@@ -1,14 +1,14 @@
-//Room: shibapan.c 十八盘
+//Room: shibapan.c 十八盤
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-      set("short","十八盘");
+      set("short","十八盤");
       set("long",@LONG
-这是一个很大的斜坡，俗称十八盘，大石阶一级一级笔直而上，颇
-费脚力。这里坡坡有神，拐拐有祠，往上十里之后即是灵霄宫。
+這是一個很大的斜坡，俗稱十八盤，大石階一級一級筆直而上，頗
+費腳力。這裏坡坡有神，拐拐有祠，往上十里之後即是靈霄宮。
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "northdown"  : __DIR__"shiliang",

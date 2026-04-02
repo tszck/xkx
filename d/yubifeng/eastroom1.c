@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "剑房");
+	set("short", "劍房");
 	set("long", @long
-这里原是杜庄主藏剑纳宝之所。数十年来，他在这里穷极山野，一
-无所获，这里也就徒有四壁了。
+這裏原是杜莊主藏劍納寶之所。數十年來，他在這裏窮極山野，一
+無所獲，這裏也就徒有四壁了。
 long );
 	set("exits", ([
 		"west" : __DIR__"zoulang4",

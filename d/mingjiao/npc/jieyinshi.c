@@ -11,7 +11,7 @@ void create()
 {
 	set_name("接引使", ({"jieyin shi","jieyin","shi",}));
 	set("long",
-		"他是一位精明的中年人，身穿一件白布长袍。\n"
+		"他是一位精明的中年人，身穿一件白布長袍。\n"
 		"他正在上下打量着你。\n"
 		);
 
@@ -53,7 +53,7 @@ void create()
 
 	prepare_skill("cuff", "jingang-quan");
 	set("party/party_name",HIG"明教"NOR);
-	set("party/rank",HIY"总坛" NOR "教众");
+	set("party/rank",HIY"總壇" NOR "教衆");
 
 	setup();
 
@@ -64,7 +64,7 @@ void create()
 
 string ask_for_join()
 {
-	return "有介绍信就可以加入我明教。\n";
+	return "有介紹信就可以加入我明教。\n";
 }
 
 int accept_object(object ob, object obj)
@@ -80,48 +80,48 @@ int accept_object(object ob, object obj)
 	{
 	  if(  ob->query("party") && ob->query("party/party_name") != HIG "明教" NOR )
 	  {
-	  	message_vision("$N摇摇头，对$n说道：你已经加入其他帮会了，不能再入我明教。\n",me,ob);
+	  	message_vision("$N搖搖頭，對$n說道：你已經加入其他幫會了，不能再入我明教。\n",me,ob);
 	  	return 1;
 	  }
    	if( !mapp(party = ob->query("party")) && present("tuijian xin1", ob ))
    	{
 		if ( (string)ob->query("gender") == "女性" ) men="地";
 		else if ( (string)ob->query("class")=="taoist" 
-		  || (string)ob->query("class")=="bonze" ) men="风";
+		  || (string)ob->query("class")=="bonze" ) men="風";
 		else if ( ob->query("shen") < 0 ) men="雷";
 		else men="天";
 
 		ob->delete_temp("have_letter");
 
 		if ( (string)ob->query("gender") == "女性" )
-			command("say 我明教又得一女中豪杰，真是可喜可贺！");
+			command("say 我明教又得一女中豪傑，真是可喜可賀！");
 		else 
-			command("say 我明教又得一英雄好汉，真是可喜可贺！");
+			command("say 我明教又得一英雄好漢，真是可喜可賀！");
 
 		party = allocate_mapping(5);
 		party["party_name"] = HIG "明教" NOR;
-		party["rank"] = men+"字门教众";
+		party["rank"] = men+"字門教衆";
 		party["level"] = 1;
 		party["tasks"] = 0;
 		party["enter_time"] = time();
 		ob->set("party", party);
 
 		command("smile");
-		message_vision("接引使对$N说道：恭喜$N成为明教"+men+"字门教众！\n",ob);
+		message_vision("接引使對$N說道：恭喜$N成爲明教"+men+"字門教衆！\n",ob);
 		remove_call_out("destroying");
 		call_out("destroying", 1, me, obj);
 		return 1;
 	}
    	if( party["party_name"] != HIG "明教" NOR )
 	{
-		message_vision("接引使对$N摇摇头，说道：$N已经加入其他帮会了，不能再入我明教。\n",me,ob);
+		message_vision("接引使對$N搖搖頭，說道：$N已經加入其他幫會了，不能再入我明教。\n",me,ob);
 		return 1;
 	}
 	else
-		message_vision("$N摇摇头，对$n说道：你已经是我明教的人了。\n",me,ob);
+		message_vision("$N搖搖頭，對$n說道：你已經是我明教的人了。\n",me,ob);
 	}
         command("?");
-        command("say 这东西给我可没有什麽用。");
+        command("say 這東西給我可沒有什麼用。");
 	return 0;
 
 }

@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIR"军机密件"NOR, ({ "mi jian"}));
+	set_name(HIR"軍機密件"NOR, ({ "mi jian"}));
 	set_weight(10);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "封");
-		set("long", "一封军机密件，记载着襄阳城守军的兵力部署。\n");
+		set("long", "一封軍機密件，記載着襄陽城守軍的兵力部署。\n");
 		set("value", 0);
 		set("material", "paper");
 	}
@@ -25,15 +25,15 @@ int do_xiaohui(string arg)
 	object ob,me,*team;
 	me=this_player();
 	ob=this_object();
-	if(!arg||arg!="mi jian") return notify_fail("你要销毁什么？\n");
+	if(!arg||arg!="mi jian") return notify_fail("你要銷燬什麼？\n");
 	if(ob->query_temp("host")!= me->query("id") ||
 		!me->query_condition("zzz_busy") ||
 		!me->query_temp("team_count"))
-		return notify_fail("这件事好像和你没关系吧？\n");
+		return notify_fail("這件事好像和你沒關係吧？\n");
 	if (!present("mi jian",me) )
-		return notify_fail("你身上没有密件。\n"); 
+		return notify_fail("你身上沒有密件。\n"); 
 //check ok
-	message_vision("$N从怀中掏出一只火折点燃了密件。\n"+HIR"只听「轰」的一声，密件在火中慢慢化为灰烬。\n"NOR, me);
+	message_vision("$N從懷中掏出一隻火折點燃了密件。\n"+HIR"只聽「轟」的一聲，密件在火中慢慢化爲灰燼。\n"NOR, me);
 	count=me->query_temp("team_count");
 	if (count<2) count=2;	
 	base_exp=1500/count;
@@ -54,9 +54,9 @@ int do_xiaohui(string arg)
 				pot=exp/3+random(100);
 				team[i]->add("potential",pot);
 				team[i]->add("combat_exp",exp);
-				tell_object(team[i],HIW"你被奖励了：" + 
-				chinese_number(exp) + "点实战经验，" +
-				chinese_number(pot) + "点潜能。\n"+ NOR);
+				tell_object(team[i],HIW"你被獎勵了：" + 
+				chinese_number(exp) + "點實戰經驗，" +
+				chinese_number(pot) + "點潛能。\n"+ NOR);
 			}
 		} 
 	}

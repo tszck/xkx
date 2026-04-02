@@ -1,11 +1,11 @@
-// xiaosong.c 宋青书
+// xiaosong.c 宋青書
 
 inherit NPC;
 
 void create()
 {
-	set_name("宋青书", ({ "song qingshu", "song" }));
-	set("long","他就是宋远桥的儿子宋青书。\n他今年二十岁，乃是武当第三代中出类拔萃的人物。\n");
+	set_name("宋青書", ({ "song qingshu", "song" }));
+	set("long","他就是宋遠橋的兒子宋青書。\n他今年二十歲，乃是武當第三代中出類拔萃的人物。\n");
 	set("gender", "男性");
 	set("age", 20);
 	set("attitude", "peaceful");
@@ -56,7 +56,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("武当派", 3, "弟子");
+	create_family("武當派", 3, "弟子");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();

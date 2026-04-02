@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("台夷商贩", ({ "shang fan", "shang", "fan" }) );
+	set_name("臺夷商販", ({ "shang fan", "shang", "fan" }) );
 	set("gender", "女性" );
 	set("age", 32);
-	set("long", "一个台夷妇女，背着个竹篓贩卖些丝织物品和手工艺品。\n");
+	set("long", "一個臺夷婦女，揹着個竹簍販賣些絲織物品和手工藝品。\n");
 	set("combat_exp", 2500);
 	set("per", 17);
 	set("str", 17);

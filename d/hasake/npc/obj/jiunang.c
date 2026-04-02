@@ -10,7 +10,7 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一只是草原牧民的大酒囊，里面装满了香辣的马奶酒。\n");
+		set("long", "一隻是草原牧民的大酒囊，裏面裝滿了香辣的馬奶酒。\n");
 		set("unit", "只");
 		set("value", 250);
 		set("max_liquid", 400);
@@ -18,7 +18,7 @@ void create()
 
 	set("liquid", ([
 		"type": "alcohol",
-		"name": "马奶酒",
+		"name": "馬奶酒",
 		"remaining": 10,
 		"drunk_apply": 40,
 	]));

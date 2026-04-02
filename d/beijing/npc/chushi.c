@@ -3,7 +3,7 @@ inherit NPC;
 
 void create()
 {
-	set_name("厨师", ({ "chu shi", "chu" }));
+	set_name("廚師", ({ "chu shi", "chu" }));
 	set("gender", "男性");
 	set("age", 45);
 

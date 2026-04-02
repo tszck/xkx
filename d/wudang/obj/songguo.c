@@ -12,8 +12,8 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一颗从林子里采来的野松果。\n");
-		set("unit", "颗");
+		set("long", "一顆從林子裏採來的野松果。\n");
+		set("unit", "顆");
 		set("value", 60);
 		set("food_remaining", 3);
 		set("food_supply", 30);

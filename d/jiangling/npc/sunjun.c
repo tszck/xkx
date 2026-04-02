@@ -4,8 +4,8 @@ inherit NPC;
 
 void create ()
 {
-	set_name("孙均", ({"sun jun","sun"}));
-	set("title","万门四弟子");
+	set_name("孫均", ({"sun jun","sun"}));
+	set("title","萬門四弟子");
 	set("long", "\n");
 	set("gender", "男性");
 	set("age", 20);

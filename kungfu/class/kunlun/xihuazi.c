@@ -6,9 +6,9 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("西华子", ({ "xi huazi", "xi" }));
+	set_name("西華子", ({ "xi huazi", "xi" }));
 	set("long",
-		"他是昆仑派第五代弟子，满腮虬髯，性子十分暴躁。\n");
+		"他是崑崙派第五代弟子，滿腮虯髯，性子十分暴躁。\n");
 	set("gender", "男性");
 	set("class", "taoist");
 	set("age", 26);
@@ -47,7 +47,7 @@ void create()
 	map_skill("cuff", "zhentian-cuff");
 	prepare_skill("cuff", "zhentian-cuff");
 
-	create_family("昆仑派", 5, "弟子");
+	create_family("崑崙派", 5, "弟子");
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();
 	carry_object("/d/kunlun/obj/pao3")->wear();
@@ -59,24 +59,24 @@ void attempt_apprentice(object ob)
 	{
 		command("fear");
 		command("say "+RANK_D->query_respect(ob)+
-			"，师母不准我收女弟子，你去找我师姊去吧。");
+			"，師母不准我收女弟子，你去找我師姊去吧。");
 		return;
 	}
 	if(ob->query_skill("xuantian-wuji",1)<60)
 	{
 		command("hmm");
 		command("say "+RANK_D->query_respect(ob)+
-			"你的玄天无极功太差，我可不想收你。");
+			"你的玄天無極功太差，我可不想收你。");
 		return;
 	}
 
 	if(ob->query("appren_hezudao", 1) == 1)
 	{
-		command("say 前辈怎敢开这等玩笑，真是折杀做晚辈的了。");
+		command("say 前輩怎敢開這等玩笑，真是折殺做晚輩的了。");
 		return;
 	}
 	command("say 既然"+RANK_D->query_respect(ob)+
-		"这么努力，我就收下你吧。");
+		"這麼努力，我就收下你吧。");
 	command("recruit " + ob->query("id"));
 }
 

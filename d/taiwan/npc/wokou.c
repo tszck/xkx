@@ -11,7 +11,7 @@ void create()
 	set("age", random(10) + 20);
 	set("str", 25);
 	set("dex", 16);
-	set("long", "入侵我天朝宝岛台湾的日本武人，江湖通称武士。我天朝篾之倭寇。\n");
+	set("long", "入侵我天朝寶島臺灣的日本武人，江湖通稱武士。我天朝篾之倭寇。\n");
 	set("combat_exp", 30000);
 	set("shen_type", 1);
 	set("attitude", "aggressive");
@@ -43,6 +43,6 @@ void init()
 void greeting(object ob)
 {
 	if( environment(ob) != environment() ) return;
-	say("倭寇抬眼大怒，牙缝里出声：八格牙路！你的，敢说台湾是你们的？死啦死啦的！\n");
+	say("倭寇抬眼大怒，牙縫裏出聲：八格牙路！你的，敢說臺灣是你們的？死啦死啦的！\n");
 }
 

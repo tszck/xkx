@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "乡间小道");
+	set("short", "鄉間小道");
 	set("long", @LONG
-这是条坑坑洼洼的乡间小道，路两旁都栽上了村里新引进的亚热带
-植物。往前走就到电视台了。
+這是條坑坑窪窪的鄉間小道，路兩旁都栽上了村裏新引進的亞熱帶
+植物。往前走就到電視臺了。
 LONG	);
 	set("outdoors", "5lt");
 	set("exits", ([

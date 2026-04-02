@@ -4,14 +4,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name("太极拳经", ({ "taiji book", "book" }));
+	set_name("太極拳經", ({ "taiji book", "book" }));
 	set_weight(600);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
 		set("long", @LONG
-这是一本发黄的手抄典籍。是张三丰亲手抄录的。翻开首页，每页都有招式图谱。
+這是一本發黃的手抄典籍。是張三豐親手抄錄的。翻開首頁，每頁都有招式圖譜。
 
     o,     o,    o     o      o     o      o
     )-'   /|'    )-'   )-'   (-'    )-'    )-'

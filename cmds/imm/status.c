@@ -17,7 +17,7 @@ int help(object me)
   write(@HELP
 指令格式 : status [detail]
  
-这个指令可以显示出目前游戏的一些相关资料及状况.
+這個指令可以顯示出目前遊戲的一些相關資料及狀況.
  
 HELP
     );

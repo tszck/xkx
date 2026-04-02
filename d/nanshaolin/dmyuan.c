@@ -6,12 +6,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIY"达摩院"NOR);
+	set("short", HIY"達摩院"NOR);
 	set("long", @LONG
-这是一座古朴的殿堂。西首的墙上挂满了各类武功图谱，不少白须
-白眉的老僧们正端坐在图谱画轴之前，似乎在苦苦思索。南北山墙是高
-及屋顶的大书架，走近细看，它们是各门各派的武功秘笈，屋正中摆着
-几张矮几诃和几个团，几位老僧正在入定中。北面有个小门通向后殿。
+這是一座古樸的殿堂。西首的牆上掛滿了各類武功圖譜，不少白鬚
+白眉的老僧們正端坐在圖譜畫軸之前，似乎在苦苦思索。南北山牆是高
+及屋頂的大書架，走近細看，它們是各門各派的武功祕笈，屋正中擺着
+幾張矮几訶和幾個團，幾位老僧正在入定中。北面有個小門通向後殿。
 LONG );
 	set("exits", ([
 		"south" : __DIR__"huilang4",
@@ -34,14 +34,14 @@ int valid_leave(object me, string dir)
 
         if ((!myfam || myfam["family_name"] != "南少林派") && dir == "north" &&
 		objectp(present("tianjing dashi", environment(me))))
-		return notify_fail("天镜大师喝道：达摩院乃本寺重地，你非南少林弟子，不能入内。\n");
+		return notify_fail("天鏡大師喝道：達摩院乃本寺重地，你非南少林弟子，不能入內。\n");
 	skill = me->query_skill("yijinjing", 1);
 	if (!wizardp(me) && skill < 80 &&
 		objectp(present("tianjing dashi", environment(me))))
 	{
 		if (dir == "north")
 		{
-			return notify_fail("天镜大师摇头道：你功夫还不够，不能进入达摩院。\n");
+			return notify_fail("天鏡大師搖頭道：你功夫還不夠，不能進入達摩院。\n");
 		}
 	}
         return ::valid_leave(me, dir);

@@ -11,7 +11,7 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一粒龙眼大的珍珠。\n");
+		set("long", "一粒龍眼大的珍珠。\n");
 		set("unit", "粒");
 		set("value", 20000 );
 	}

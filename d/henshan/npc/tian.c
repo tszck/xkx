@@ -7,8 +7,8 @@ void create()
 {
 	seteuid(getuid());
 	set_name("田伯光", ({ "tian boguang", "tian" }));
-	set("long", "他一身飘逸的白色长衫，风流儒雅。\n");
-	set("nickname", HIM "万里独行" NOR);
+	set("long", "他一身飄逸的白色長衫，風流儒雅。\n");
+	set("nickname", HIM "萬裏獨行" NOR);
 	set("gender", "男性");
 	set("age", 37);
 	set("attitude", "friendly");
@@ -47,7 +47,7 @@ void create()
         }) );
 	set("chat_chance", 10);
 	set("chat_msg", ({
-		"田伯光笑道：尼姑也没关系嘛，蓄起头发，两个月就是小美人了。\n",
+		"田伯光笑道：尼姑也沒關係嘛，蓄起頭髮，兩個月就是小美人了。\n",
 	}) );
 
 	setup();
@@ -73,10 +73,10 @@ void greeting(object ob)
 	if( !ob || environment(ob) != environment() ) return;
 	if ((string)ob->query("gender")=="女性")
 	{
-if (ob->query("age")<26) say("田伯光笑道：妙极，妙极，又来了一个小姑娘。\n");     
-else say("田伯光笑道：妙极，妙极，可惜太老了点，我可没胃口。\n");     
+if (ob->query("age")<26) say("田伯光笑道：妙極，妙極，又來了一個小姑娘。\n");     
+else say("田伯光笑道：妙極，妙極，可惜太老了點，我可沒胃口。\n");     
 	}
-	else say("田伯光笑着招招手：这位"+RANK_D->query_respect(ob) + "来喝两杯，这个小尼姑嘛，反正也没什么事，就让她坐着就是。\n");
+	else say("田伯光笑着招招手：這位"+RANK_D->query_respect(ob) + "來喝兩杯，這個小尼姑嘛，反正也沒什麼事，就讓她坐着就是。\n");
 	return;
 }
 
@@ -84,7 +84,7 @@ int accept_fight(object ob)
 {
 	if ((string)ob->query("gender") == "女性")
 	{
-		write("田伯光笑道：花姑娘？杀了太可惜了的。\n");
+		write("田伯光笑道：花姑娘？殺了太可惜了的。\n");
 		return 0;
         }
 	return 1;
@@ -107,7 +107,7 @@ int accept_object(object who, object ob)
         if (!(int)who->query_temp("mark/田"))
                 who->set_temp("mark/田", 0);
         if (ob->query("money_id") && ob->value() >= 1000) {
-                message_vision("田伯光说：好说好说，你要学大爷就教给你。\n", who);
+                message_vision("田伯光說：好說好說，你要學大爺就教給你。\n", who);
                 who->add_temp("mark/田", (int)(ob->value() / 50));
                 return 1;
          }

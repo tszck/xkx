@@ -1,4 +1,4 @@
-// spear.c 基本枪法
+// spear.c 基本槍法
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -13,15 +13,15 @@ int power_point(object me) { return 1; }
 
 int help(object me)
 {
-	write(HIC"\n基本枪法："NOR"\n");
+	write(HIC"\n基本槍法："NOR"\n");
 	write(@HELP
 
-    枪类武技的基本功。
-    枪是历代重要兵器之一，为「百兵之王」。武林中人称「百日
-刀、千日枪、万日剑」，上阵冲锋枪为首选。
+    槍類武技的基本功。
+    槍是歷代重要兵器之一，爲「百兵之王」。武林中人稱「百日
+刀、千日槍、萬日劍」，上陣衝鋒槍爲首選。
 
-	学习要求：
-		无
+	學習要求：
+		無
 HELP
 	);
 	return 1;

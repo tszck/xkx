@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create ()
 {
-	set ("short", "南楼");
+	set ("short", "南樓");
 	set ("long", @LONG
-这是万门弟子住的地方。万门一共有八个弟子，除第三个弟子万圭
-外，其余的都住在这里。墙上挂了几把刀剑。
+這是萬門弟子住的地方。萬門一共有八個弟子，除第三個弟子萬圭
+外，其餘的都住在這裏。牆上掛了幾把刀劍。
 LONG);
 	set("exits", ([
 		"north" : __DIR__"dating",

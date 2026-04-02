@@ -1,12 +1,12 @@
-// maliu.c 马六
+// maliu.c 馬六
 
 inherit NPC;
 
 void create()
 {
-        set_name("马六", ({ "ma liu", "ma" }));
+        set_name("馬六", ({ "ma liu", "ma" }));
         set("long",
-                "他大约二十多岁，精明能干，总是阴沉着脸。但却嫉恶如仇，性如烈火。\n");
+                "他大約二十多歲，精明能幹，總是陰沉着臉。但卻嫉惡如仇，性如烈火。\n");
         set("gender", "男性");
         set("age", 25);
         set("attitude", "peaceful");
@@ -17,11 +17,11 @@ void create()
         set("dex", 28);
 
         set("inquiry",([
-            "here" : "这里当然就是侠客岛啦",
-            "侠客行" : "往南面走，进山后就明白了",
-            "腊八粥":"\n去找龙岛主看看你的缘分吧。\n",
-//                 "石破天":"\n他是我的结拜兄弟呀，他也在这呢。\n",
-//                 "赏善罚恶令":"\n这是我们兄弟的信物。\n",
+            "here" : "這裏當然就是俠客島啦",
+            "俠客行" : "往南面走，進山後就明白了",
+            "臘八粥":"\n去找龍島主看看你的緣分吧。\n",
+//                 "石破天":"\n他是我的結拜兄弟呀，他也在這呢。\n",
+//                 "賞善罰惡令":"\n這是我們兄弟的信物。\n",
         ]) );
         set("max_qi", 2000);
         set("qi", 2000);
@@ -51,7 +51,7 @@ void create()
         map_skill("parry", "taiji-jian");
         map_skill("sword", "taiji-jian");
 
-        create_family("侠客岛", 2, "弟子");
+        create_family("俠客島", 2, "弟子");
         setup();
         carry_object("/clone/weapon/changjian")->wield();
         carry_object("/d/wudang/obj/whiterobe")->wear();

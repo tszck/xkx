@@ -6,17 +6,17 @@ void create()
 {
         set("short", "山壁");
         set("long", @LONG
-这里是华山绝壁上的山壁。山壁似乎有个山洞(dong)。你向下一
-望，只见脚下雾气一团团的随风飘过，绝峰险岭，却不看见地。转头
-向洞里张望，黑沉沉的看不清楚，只觉得洞穴很深。洞口甚小，那是
-钻不进去。
+這裏是華山絕壁上的山壁。山壁似乎有個山洞(dong)。你向下一
+望，只見腳下霧氣一團團的隨風飄過，絕峯險嶺，卻不看見地。轉頭
+向洞裏張望，黑沉沉的看不清楚，只覺得洞穴很深。洞口甚小，那是
+鑽不進去。
 LONG );
         set("outdoors", "jinshe");
         set("exits", ([ /* sizeof() == 2 */
             "up" : "/d/huashan/ziqitai",
         ]));
         set("item_desc", ([
-            "dong" : "一个被烂泥堵住的山洞。\n"
+            "dong" : "一個被爛泥堵住的山洞。\n"
         ]) );
         set("no_clean_up", 0);
 	set("coor/x", -880);
@@ -35,18 +35,18 @@ int do_break(string arg)
         object me=this_player();
         if (arg != "dong") return 0;
         message_vision(HIY
-"$N走到洞口前，运气双掌，猛地击向土层！\n"NOR,me);
+"$N走到洞口前，運氣雙掌，猛地擊向土層！\n"NOR,me);
 
         if (me->query("neili") < 100)
         {
                message_vision(HIY
-"结果只听一声闷哼，$N被土层的反弹力震得眼前一黑....\n"NOR,me);
+"結果只聽一聲悶哼，$N被土層的反彈力震得眼前一黑....\n"NOR,me);
                me->set("neili",0);
                me->unconcious();
                return 1;
         }
         message_vision(HIY
-"$N只听一声轰响，土层被捅穿了，原来里面有一个大洞！\n"NOR,me);
+"$N只聽一聲轟響，土層被捅穿了，原來裏面有一個大洞！\n"NOR,me);
         set("exits/enter",__DIR__"yongdao1");
         me->add("neili",-200);
         remove_call_out("close");
@@ -56,6 +56,6 @@ int do_break(string arg)
 
 void close(object room)
 {
-    message("vision","崖上忽然掉下来一块大土块，将洞口封了个严严实实。\n", room);
+    message("vision","崖上忽然掉下來一塊大土塊，將洞口封了個嚴嚴實實。\n", room);
     room->delete("exits/enter");
 }

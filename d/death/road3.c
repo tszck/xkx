@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "路的尽头");
+	set("short", "路的盡頭");
 	set("long", @LONG
 
-..... 还没想到 ....
+..... 還沒想到 ....
 
 LONG );
        set("no_fight", 1); 

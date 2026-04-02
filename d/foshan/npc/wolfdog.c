@@ -5,9 +5,9 @@ inherit NPC;
 void create()
 {
 	set_name("大狼狗", ({ "wolf dog", "dog" }) );
-	set("race", "走兽");
+	set("race", "走獸");
 	set("age", 4);
-	set("long", "凤老爷府上的一只昂首挺胸，吐着长舌头的大狼狗。\n");
+	set("long", "鳳老爺府上的一隻昂首挺胸，吐着長舌頭的大狼狗。\n");
 	set("attitude", "peaceful");
 	
 	set("str", 26);
@@ -17,8 +17,8 @@ void create()
 	
 	set("chat_msg_combat", ({
 		(: this_object(), "random_move" :),
-		"大狼狗大声吠叫：汪！汪！汪！汪！汪！汪！\n",
-		"大狼狗突然跳了起来，口中乱咬，却不知道是在咬谁。\n"
+		"大狼狗大聲吠叫：汪！汪！汪！汪！汪！汪！\n",
+		"大狼狗突然跳了起來，口中亂咬，卻不知道是在咬誰。\n"
 	}) );
 		
 	set_temp("apply/attack", 15);
@@ -41,7 +41,7 @@ void init()
 void die()
 {
 	object ob;
-	message_vision("$N惨嚎一声，死了！\n", this_object());
+	message_vision("$N慘嚎一聲，死了！\n", this_object());
 	ob = new(__DIR__"obj/goupi");
 	ob->move(environment(this_object()));
 	destruct(this_object());

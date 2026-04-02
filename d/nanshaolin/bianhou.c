@@ -6,9 +6,9 @@ inherit ROOM;
 
 void create()
 {
-    set("short", "匾后");
+    set("short", "匾後");
     set("long", @LONG
-这里就是罗汉堂匾额之后，黑漆漆的什么都看不清楚。
+這裏就是羅漢堂匾額之後，黑漆漆的什麼都看不清楚。
 LONG );
 	set("objects",([
 		BOOK_DIR+"yijinjing" : 1,   
@@ -27,9 +27,9 @@ int do_jump(string arg)
 	object me,room;
 	me=this_player();  
 	if (arg!="down") return 0;
-		message("vision",me->name()+"一纵身，跳了下去。\n",this_object());
+		message("vision",me->name()+"一縱身，跳了下去。\n",this_object());
 	if(room=find_object(__DIR__"lhtang"))
-		message("vision",me->name()+"从匾额上跳了过来。\n",room);
+		message("vision",me->name()+"從匾額上跳了過來。\n",room);
 	me->move(__DIR__"lhtang");
 	return 1;
 }

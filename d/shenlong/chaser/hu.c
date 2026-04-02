@@ -11,14 +11,14 @@ int random_walk();
 int is_valuable(object);
 void dest_me()
 {
-	message_vision("$N急急忙忙离开了。\n",this_object());
+	message_vision("$N急急忙忙離開了。\n",this_object());
 	destruct(this_object());
 }
 void create()
 {
 	set_name("胡桂南", ({ "hu guinan", "hu" }) );
-	set("nickname", "圣手神偷");
-	set("long","这是一个身材瘦小的汉子。\n他上唇留了两撇鼠须，眸子一翻，精光逼人。\n");
+	set("nickname", "聖手神偷");
+	set("long","這是一個身材瘦小的漢子。\n他上脣留了兩撇鼠須，眸子一翻，精光逼人。\n");
 	set("gender", "男性" );
 	set("age", 35);
 	set("attitude", "peaceful");
@@ -110,7 +110,7 @@ int stealing(object ob, object* inv)
 	if( !ob || environment(ob) != environment() ) return 1;
 	if( !environment(ob)->query("no_fight") )
 	{
-//		if(tester) tell_object(tester,"胡桂南告诉你：这里可以战斗，我好怕怕，不偷了。\n");
+//		if(tester) tell_object(tester,"胡桂南告訴你：這裏可以戰鬥，我好怕怕，不偷了。\n");
 		return 1;
 	}
 	obj = inv[random(sizeof(inv))];
@@ -119,9 +119,9 @@ int stealing(object ob, object* inv)
 	ap = (int)query_skill("stealing", 1);
 
 	if (obj == ob) return 1;
-//	if(tester) tell_object(tester, "胡桂南告诉你：我要偷"+ob->query("id")+"的"+obj->query("name")+"。\n");
-// make 神照经 harder to steal, so player can dazuo more -:)  -winder
-	if(obj->query("name") == "神照经")
+//	if(tester) tell_object(tester, "胡桂南告訴你：我要偷"+ob->query("id")+"的"+obj->query("name")+"。\n");
+// make 神照經 harder to steal, so player can dazuo more -:)  -winder
+	if(obj->query("name") == "神照經")
 	{
 		ap = ap * ap * ap / 1000;
 	}
@@ -134,12 +134,12 @@ int stealing(object ob, object* inv)
 		if( obj->move(this_object()) )
 			call_out("do_destroy", 1, obj);
 	command("pat " + ob->query("id"));
-//		if(tester) tell_object(tester, "胡桂南告诉你：我偷到了"+ob->query("id")+"的"+obj->query("name")+"。\n");
+//		if(tester) tell_object(tester, "胡桂南告訴你：我偷到了"+ob->query("id")+"的"+obj->query("name")+"。\n");
 		ob->delete("unique_hold");
 		return random_walk();
 	}
 
-//	if(tester) tell_object(tester, "胡桂南告诉你：真倒霉，没偷到。\n");
+//	if(tester) tell_object(tester, "胡桂南告訴你：真倒黴，沒偷到。\n");
 	remove_call_out("stealing");
 	call_out("stealing", 60, ob, inv);
 	// if fail, will try to steal again  -winder
@@ -205,7 +205,7 @@ int random_walk()
 	command("go " + dir);
 	set_temp("last_room", base_name(here));
 
-//	if(tester) tell_object(tester, "胡桂南告诉你：我从"+base_name(here) +"走到"+ base_name(environment()) +"。\n");
+//	if(tester) tell_object(tester, "胡桂南告訴你：我從"+base_name(here) +"走到"+ base_name(environment()) +"。\n");
 	return 1;
 }
 

@@ -1,4 +1,4 @@
-// Room: /d/kunlun/sanshengao.c 昆仑山三圣坳
+// Room: /d/kunlun/sanshengao.c 崑崙山三聖坳
 // Last Modified by Winder on Nov. 15 2000
 
 #include <ansi.h>
@@ -7,12 +7,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "三圣坳");
+	set("short", "三聖坳");
 	set("long", @long
-但见遍地绿草如锦，到处果树香花。原来那三圣坳四周都是插天高
-山，挡住了寒气。昆仑派历代掌门人曾花了极大力气整顿这个山坳，派
-遣弟子东至江南，西至天竺，搬移奇花异树前来种植。忽听得山坳后隐
-隐传出一阵琴声，你好奇心起，便循声寻去。
+但見遍地綠草如錦，到處果樹香花。原來那三聖坳四周都是插天高
+山，擋住了寒氣。崑崙派歷代掌門人曾花了極大力氣整頓這個山坳，派
+遣弟子東至江南，西至天竺，搬移奇花異樹前來種植。忽聽得山坳後隱
+隱傳出一陣琴聲，你好奇心起，便循聲尋去。
 long );
 	set("exits", ([
 		"north" : __DIR__"jingshenfeng",

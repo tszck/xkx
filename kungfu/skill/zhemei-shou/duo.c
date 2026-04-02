@@ -21,20 +21,20 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (objectp(weapon = me->query_temp("weapon")))
-		return notify_fail("你必须空手。\n");
+		return notify_fail("你必須空手。\n");
 
 	if (!objectp(weapon2 = target->query_temp("weapon")))
-		return notify_fail("对方没有兵刃，你不用担心。\n");
+		return notify_fail("對方沒有兵刃，你不用擔心。\n");
 
 	fskill = "beiming-shengong";
 	bskill = "hand";
@@ -48,20 +48,20 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够, 不能"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠, 不能"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(sskill)+"火候不够, 不能"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"火候不夠, 不能"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(bskill)+"火候不够, 不能"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"火候不夠, 不能"+PNAME+"。\n");
 
 	if( me->query("neili") < 50 )
-		return notify_fail("你的内力不够，无法空手入白刃！\n");
+		return notify_fail("你的內力不夠，無法空手入白刃！\n");
 
 	skill = me->query_skill(bskill, 1);
 
-	msg = CYN "$N"CYN"凝神闭息，打算施展空手入白刃的绝技。\n";
+	msg = CYN "$N"CYN"凝神閉息，打算施展空手入白刃的絕技。\n";
 	message_combatd(msg, me);
  
 	dp = target->query_skill("parry", 1);
@@ -71,19 +71,19 @@ int perform(object me,object target)
 	if( random(skill) > dp *4/5)
 	{
 		me->add("neili",-50);
-		msg ="$N使出空手入白刃的绝招, $n顿时觉得眼前一花，手腕一麻，手中兵刃脱手而出！\n" NOR;
+		msg ="$N使出空手入白刃的絕招, $n頓時覺得眼前一花，手腕一麻，手中兵刃脫手而出！\n" NOR;
 		target->start_busy(2);
 		weapon2->move(me);
 		if (weapon2->query("ownmake")==1||weapon2->query("no_get"))
 		{
 			weapon2->move(environment(me));
-			msg += "只听一声脆响！兵刃落地。\n" NOR;
+			msg += "只聽一聲脆響！兵刃落地。\n" NOR;
 		}
 		me->start_busy(2);
 	}
 	else
 	{
-		msg = "可是$n的看破了$N的企图，立刻采取守势，使$N没能夺下兵刃。\n"NOR;
+		msg = "可是$n的看破了$N的企圖，立刻採取守勢，使$N沒能奪下兵刃。\n"NOR;
 		me->start_busy(4);
 	}
 	message_combatd(msg, me, target);
@@ -98,13 +98,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		劫夺对方兵刃
+		劫奪對方兵刃
 
 	出手要求：
-		北冥神功50级
-		天山折梅手50级
-		基本手法50级
-		内力50
+		北冥神功50級
+		天山折梅手50級
+		基本手法50級
+		內力50
 HELP
 	);
 	return 1;

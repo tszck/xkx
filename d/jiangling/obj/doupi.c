@@ -9,7 +9,7 @@ void create()
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "这是武汉人爱吃的一种小吃。\n");
+                set("long", "這是武漢人愛喫的一種小喫。\n");
                 set("unit", "碗");
                 set("value", 100);
                 set("food_remaining", 3);

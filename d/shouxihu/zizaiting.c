@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short","观自在亭");
+	set("short","觀自在亭");
 	set("long",@LONG
-琴室东南湖岸边，旧有御碑亭一座，现故址重修为“观自在亭”，
-内置石桌、石凳，以观水景。
+琴室東南湖岸邊，舊有御碑亭一座，現故址重修爲“觀自在亭”，
+內置石桌、石凳，以觀水景。
 LONG );
 	set("outdoors", "shouxihu");
 	set("exits", ([

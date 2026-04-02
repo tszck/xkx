@@ -15,7 +15,7 @@ void create()
 	set("con", 26);
 	set("int", 20);
 	set("dex", 23);
-	//set("long", "一个穿着黑色夜行衣的人。\n");
+	//set("long", "一個穿着黑色夜行衣的人。\n");
 	set("combat_exp", 80000 + random(40000)); 
 	set("attitude", "friendly");
 	set_skill("force", 50);
@@ -74,7 +74,7 @@ int do_copy(object me,int maxpot)
 }
 int do_back(object me)
 {			
-	tell_room(environment(me), me->query("name")+"匆匆忙忙的离开了。\n", ({me}));	
+	tell_room(environment(me), me->query("name")+"匆匆忙忙的離開了。\n", ({me}));	
 	destruct(me); 
 	return 1;
 }

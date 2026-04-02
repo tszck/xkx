@@ -9,7 +9,7 @@
 #include <ansi.h>
 
 string makeup_space(string s);
-string filter_color(string arg);//去除颜色
+string filter_color(string arg);//去除顏色
 
 int is_dealer() {return 1;}
 string is_vendor_good(string arg)
@@ -43,10 +43,10 @@ int do_value(string arg)
 	int value;
 
 	if (!arg || !(ob = present(arg, this_player())))
-		return notify_fail("你要估什么的价？\n");
+		return notify_fail("你要估什麼的價？\n");
 
 	if (ob->query("money_id"))
-		return notify_fail("你没用过钱啊？\n");
+		return notify_fail("你沒用過錢啊？\n");
 
 	if (userp(ob))
 		ob->set("value", ob->query("per") * 500);
@@ -71,10 +71,10 @@ int do_sell(string arg)
 	object *obs;
 
 	if (!arg )
-		return notify_fail("你要卖什么？\n");
+		return notify_fail("你要賣什麼？\n");
 
 	if( this_player()->is_busy() )
-		return notify_fail("哟，抱歉，我这儿正忙着呢……您请稍候。\n");
+		return notify_fail("喲，抱歉，我這兒正忙着呢……您請稍候。\n");
 
   sscanf(arg,"%d %s",amount,arg);
   ob = present(arg,this_player());
@@ -92,28 +92,28 @@ int do_sell(string arg)
   }
 
   if ( !objectp(ob) || amount < 1 )
-    return notify_fail("你要卖什么？\n");
+    return notify_fail("你要賣什麼？\n");
 
 	if (ob->query("money_id"))
-		return notify_fail("你想卖「钱」？？\n");
+		return notify_fail("你想賣「錢」？？\n");
 
   if (intp(ob->query("no_sell")) && ob->query("no_sell") >0 )
-    return notify_fail("这样东西不能卖。\n");
+    return notify_fail("這樣東西不能賣。\n");
 
   if (stringp(ob->query("no_sell")))
     return notify_fail(ob->query("no_sell"));
 
 	if (stringp(ob->query("no_drop")))
-		return notify_fail("这样东西不能卖。\n");
+		return notify_fail("這樣東西不能賣。\n");
 
 	if (is_vendor_good(arg) != "")
-		return notify_fail("卖给你好不好？\n");
+		return notify_fail("賣給你好不好？\n");
 
 	if (ob->query("food_supply") || ob->query("water_supply"))
-		return notify_fail("剩菜剩饭留给您自己用吧。\n");
+		return notify_fail("剩菜剩飯留給您自己用吧。\n");
 
 	if (ob->query("shaolin"))
-		return notify_fail("小的只有一个脑袋，可不敢买少林庙产。\n");
+		return notify_fail("小的只有一個腦袋，可不敢買少林廟產。\n");
 
 	inv = all_inventory(this_player());
 	count1=0;
@@ -123,7 +123,7 @@ int do_sell(string arg)
 			count1++;
 	}
 	if (count1 < amount)
-    return notify_fail("你没有那么多的"+ob->name(1)+"。\n");
+    return notify_fail("你沒有那麼多的"+ob->name(1)+"。\n");
 
 	inv = all_inventory(this_object());
 	count=0;
@@ -133,7 +133,7 @@ int do_sell(string arg)
 			count++;
 	}
 	if (count+amount > 100 && !wizardp(this_player()))
-		return notify_fail("此物本店存货太多，你去别的店看看。\n");
+		return notify_fail("此物本店存貨太多，你去別的店看看。\n");
 
 	if (userp(ob))
 	{
@@ -141,11 +141,11 @@ int do_sell(string arg)
       ob->set("value", ob->query("per") * 3);
 	//	ob->set("value", 0);
 		CHANNEL_D->do_channel(ob, "rumor",
-			sprintf("%s被某人拐卖给唐楠了。", ob->name(1)));
+			sprintf("%s被某人拐賣給唐楠了。", ob->name(1)));
 	}
 
 	value = ob->query("value");
-	if (value < 30 || ob->query_amount())//有数量的物品sell存在潜在bug，目前不允许sell
+	if (value < 30 || ob->query_amount())//有數量的物品sell存在潛在bug，目前不允許sell
 		write(ob->query("name") + "一文不值！\n");
 	else
 	{
@@ -179,14 +179,14 @@ int do_sell(string arg)
 		        		inv[j]->delete("last_value");
 		        	}
       		    MONEY_D->pay_player(this_player(), value * 70 / 100);
-	            MONEY_D->player_pay(this_player(), 0);//换成整钱
+	            MONEY_D->player_pay(this_player(), 0);//換成整錢
 		          break;
 		        }
 		    }
       }
     }
-		message_vision("$N卖掉了" +chinese_number(i)+ ob->query("unit") +
-		ob->query("name") + "给$n。\n", this_player(), this_object());
+		message_vision("$N賣掉了" +chinese_number(i)+ ob->query("unit") +
+		ob->query("name") + "給$n。\n", this_player(), this_object());
 
 	}
 	this_player()->start_busy(1);
@@ -206,7 +206,7 @@ int do_list(string arg)
 		arg!="book" && arg!="medicine" &&
 		arg!="food" && arg!="fruit" && arg!="liquid" &&
 		arg!="other")
-		return notify_fail("没有这种分类的东西。\n");
+		return notify_fail("沒有這種分類的東西。\n");
 
 	for (i = 0; i < sizeof(inv); i++)
 	{
@@ -224,34 +224,34 @@ int do_list(string arg)
 	}
 
 	if (!sizeof(inv1) && !arrayp(goods = query("vendor_goods")))
-		return notify_fail("目前没有可以卖的东西。\n");
+		return notify_fail("目前沒有可以賣的東西。\n");
 
 	str = "";
 	if( !arg || arg == "other" )
-		str = sprintf("你可以向%s购买下列物品：\n", query("name"));
+		str = sprintf("你可以向%s購買下列物品：\n", query("name"));
 	else
 		switch (arg)
 		{
 			case "armor":
-				str = sprintf("你可以向%s购买下列防具：\n", query("name"));
+				str = sprintf("你可以向%s購買下列防具：\n", query("name"));
 				break;
 			case "weapon":
-				str = sprintf("你可以向%s购买下列兵器：\n", query("name"));
+				str = sprintf("你可以向%s購買下列兵器：\n", query("name"));
 				break;
 			case "food":
-				str = sprintf("你可以向%s购买下列食品：\n", query("name"));
+				str = sprintf("你可以向%s購買下列食品：\n", query("name"));
 				break;
 			case "fruit":
-				str = sprintf("你可以向%s购买下列果品：\n", query("name"));
+				str = sprintf("你可以向%s購買下列果品：\n", query("name"));
 				break;
 			case "liquid":
-				str = sprintf("你可以向%s购买下列饮品：\n", query("name"));
+				str = sprintf("你可以向%s購買下列飲品：\n", query("name"));
 				break;
 			case "medicine":
-				str = sprintf("你可以向%s购买下列药品：\n", query("name"));
+				str = sprintf("你可以向%s購買下列藥品：\n", query("name"));
 				break;
 			case "book":
-				str = sprintf("你可以向%s购买下列书籍：\n", query("name"));
+				str = sprintf("你可以向%s購買下列書籍：\n", query("name"));
 				break;
 		}
 
@@ -273,7 +273,7 @@ int do_list(string arg)
 			(arg=="food" && inv1[i]->query("food_remaining")) ||
 			(arg=="fruit" && inv1[i]->query("fruit_remaining")) ||
 			(arg=="liquid" && inv1[i]->query("liquid")) )
-			str += sprintf("%30-s%s数量：%3-i %s\n",
+			str += sprintf("%30-s%s數量：%3-i %s\n",
 				inv1[i]->short(),
 				makeup_space(inv1[i]->short()), count[i],
 				MONEY_D->price_str(inv1[i]->query("value") * 6 / 5));
@@ -306,11 +306,11 @@ int do_list(string arg)
 	}
 	if( !arg )
 		str += sprintf(HIY
-"------------------------"HIC"看货类别"HIY"--------------------------"HIG"
-armor 防具类  weapon 兵器类  book  书籍类  medicine 药品类
-food  食品类  liquid 饮品类  fruit 果品类  other    其他类"NOR);
+"------------------------"HIC"看貨類別"HIY"--------------------------"HIG"
+armor 防具類  weapon 兵器類  book  書籍類  medicine 藥品類
+food  食品類  liquid 飲品類  fruit 果品類  other    其他類"NOR);
   if (SHOP_D->is_owner(this_player()->query("id")))
-    str += HIW"\n你是商业协会的成员，在此购物享受八折优惠。"NOR;
+    str += HIW"\n你是商業協會的成員，在此購物享受八折優惠。"NOR;
 
 	this_player()->start_more(str);
 
@@ -330,21 +330,21 @@ int do_buy(string arg)
 	int zscount;
 	string unit;
 
-	if ((fam = this_player()->query("family")) && fam["family_name"] == "丐帮")
-		return notify_fail("你是个穷叫化，买什麽东西！\n");
+	if ((fam = this_player()->query("family")) && fam["family_name"] == "丐幫")
+		return notify_fail("你是個窮叫化，買什麼東西！\n");
 
 	if( this_player()->is_busy() )
-		return notify_fail("哟，抱歉，我这儿正忙着呢……您请稍候。\n");
+		return notify_fail("喲，抱歉，我這兒正忙着呢……您請稍候。\n");
 
 	if (!arg)
-	  return notify_fail("你想买什么？ \n");
+	  return notify_fail("你想買什麼？ \n");
 
   sscanf(arg,"%d %s",amount,arg);
 
   if (amount<1)
-    return notify_fail("你想买什么？ \n");
+    return notify_fail("你想買什麼？ \n");
   if (amount>100)
-    return notify_fail("别急，慢慢来。\n");
+    return notify_fail("別急，慢慢來。\n");
   if (!(ob = present(arg, this_object())))
 	 {
 	  inv = all_inventory(this_object());
@@ -358,7 +358,7 @@ int do_buy(string arg)
 	  }
 	 }
 	if (!ob && (ob_file = is_vendor_good(arg)) == "")
-			return notify_fail("你想买什么？ \n");
+			return notify_fail("你想買什麼？ \n");
 
 	if (!ob)
 	{
@@ -368,9 +368,9 @@ int do_buy(string arg)
 	}
 	else {
 		if (ob->query("equipped"))
-			return notify_fail("你想买什么？ \n");
+			return notify_fail("你想買什麼？ \n");
 		if (ob->query("money_id"))
-		  return notify_fail("你要买钱？\n");
+		  return notify_fail("你要買錢？\n");
 		from="pawn";
 		val_factor = 12;
 		inv=all_inventory(this_object());
@@ -381,10 +381,10 @@ int do_buy(string arg)
       count++;
 		}
 		if (count < amount)
-		 return notify_fail("店里没有这么多的"+ob->name()+"。\n");
+		 return notify_fail("店裏沒有這麼多的"+ob->name()+"。\n");
 	}
 	if (query_temp("busy"))
-		return notify_fail("哟，抱歉啊，我这儿正忙着呢……您请稍候。\n");
+		return notify_fail("喲，抱歉啊，我這兒正忙着呢……您請稍候。\n");
   if (SHOP_D->is_owner(this_player()->query("id")))
    discount = 8;
   else
@@ -395,14 +395,14 @@ int do_buy(string arg)
 	switch(MONEY_D->player_pay(this_player(),ob->query("value") * discount/10 * amount * val_factor/10 * zscount/10))
 	{
 		case 0:
-			return notify_fail("穷光蛋，一边呆着去！\n");
+			return notify_fail("窮光蛋，一邊待著去！\n");
 		case 2:
-			return notify_fail("您的零钱不够了，银票又没人找得开。\n");
+			return notify_fail("您的零錢不夠了，銀票又沒人找得開。\n");
 		default:
 			set_temp("busy", 1);
 			if (ob->query("base_unit")) unit = ob->query("base_unit");
 			else unit = ob->query("unit");
-			message_vision("$N从$n那里买下了"+chinese_number(amount) + unit +
+			message_vision("$N從$n那裏買下了"+chinese_number(amount) + unit +
 			ob->query("name") + "。\n", this_player(), this_object());
 	}
 	  for(i=0;i<amount;i++)
@@ -440,7 +440,7 @@ void enough_rest()
 	delete_temp("busy");
 }
 
-// 增加函数makeup_space，用于填充空格，对齐输出格式。
+// 增加函數makeup_space，用於填充空格，對齊輸出格式。
 // Added by Constant Jan 1 2001
 string makeup_space(string s)
 {

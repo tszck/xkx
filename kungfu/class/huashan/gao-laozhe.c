@@ -6,10 +6,10 @@ inherit F_MASTER;
 void create()
 {
 	set_name("高老者", ({ "gao laozhe", "gao" }));
-	set("title", HIR"华山第十二代长老"NOR);
+	set("title", HIR"華山第十二代長老"NOR);
 	set("long", 
-"他就是华山的长老高老者。一副浑不在乎的模样，开朗乐天，万事不萦怀，\n"
-"但事事追随他的师兄矮老者。\n");
+"他就是華山的長老高老者。一副渾不在乎的模樣，開朗樂天，萬事不縈懷，\n"
+"但事事追隨他的師兄矮老者。\n");
 	set("gender", "男性");
 	set("age", 65);
 	set("attitude", "peaceful");
@@ -54,7 +54,7 @@ void create()
 	map_skill("cuff", "poyu-quan");
 	prepare_skill("strike", "hunyuan-zhang");
 	prepare_skill("cuff", "poyu-quan");
-	create_family("华山派", 12, "弟子");
+	create_family("華山派", 12, "弟子");
 
 	set("env/wimpy", 60);
 	set("chat_chance_combat", 60);
@@ -79,28 +79,28 @@ void attempt_apprentice(object ob)
  
 
 	if ((string)ob->query("family/family_name") != "" &&
-	    (string)ob->query("family/family_name") != "华山派")
+	    (string)ob->query("family/family_name") != "華山派")
 	{
-		command("say " + RANK_D->query_respect(ob) + "既然已有名师指点，何必又来拜老朽呢？");
+		command("say " + RANK_D->query_respect(ob) + "既然已有名師指點，何必又來拜老朽呢？");
 		return;
 	}
 
         if (((int)ob->query_skill("force",1) < 80) || ((int)ob->query_skill("zixia-shengong",1) < 80))
 	{
-		command("say 我看" + RANK_D->query_respect(ob) + "的紫霞神功还没学到家吧。");
+		command("say 我看" + RANK_D->query_respect(ob) + "的紫霞神功還沒學到家吧。");
 		return;
 	}
         if (((int)ob->query_skill("dodge",1) < 80) || ((int)ob->query_skill("feiyan-huixiang",1) < 80))
 	{
-                command("say 我看" + RANK_D->query_respect(ob) + "的飞燕回翔还没学到家吧。");
+                command("say 我看" + RANK_D->query_respect(ob) + "的飛燕迴翔還沒學到家吧。");
 		return;
 	}
 
         if ((int)ob->query("shen") < 50000)
 	{
-		command("say 我华山派乃是堂堂名门正派，对弟子要求极严。");
+		command("say 我華山派乃是堂堂名門正派，對弟子要求極嚴。");
 		command("say 在德行方面，" + RANK_D->query_respect(ob) +
-			"是否还做得不够？");
+			"是否還做得不夠？");
 		return;
 	}
 

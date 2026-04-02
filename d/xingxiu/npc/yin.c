@@ -7,10 +7,10 @@ void create()
 {
 	object ob;
 	set_name("尹克西", ({ "yin kexi", "yin", "kexi" }));
-	set("title", "西域大贾");
+	set("title", "西域大賈");
 	set("long", 
-"他高鼻深目，曲发黄须，是个胡人，颈悬明珠腕带玉镯，
-珠光宝器。是波斯大贾，世代贩卖珠宝。\n");
+"他高鼻深目，曲發黃須，是個胡人，頸懸明珠腕帶玉鐲，
+珠光寶器。是波斯大賈，世代販賣珠寶。\n");
 	set("gender", "男性");       
 	set("age", 43);
 	set("attitude","peaceful");
@@ -40,12 +40,12 @@ void create()
 	set("eff_jingli", 1500);
 	set("jiali", 50);
 	set("inquiry", ([	    
-	    "金轮法王" : "嘿嘿，我迟早会把那个老和尚的国师名号抢过来。", 
+	    "金輪法王" : "嘿嘿，我遲早會把那個老和尚的國師名號搶過來。", 
 	]));
 
 	set("chat_chance", 30);
 	set("chat_msg", ({
-	    "尹克西眼睛向你斜望，嘴角边微微冷笑。\n",
+	    "尹克西眼睛向你斜望，嘴角邊微微冷笑。\n",
 	    (: random_move :),
 	}));
 	setup();

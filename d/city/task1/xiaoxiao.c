@@ -5,7 +5,7 @@ inherit NPC;
 void create()
 {
 	set_name("江湖宵小", ({ "jianghu  xiaoxiao"}));
-	set("long","一个功夫不是很好，但是已经开始作恶江湖的小辈。\n神态龌龊，让人讨厌。\n");
+	set("long","一個功夫不是很好，但是已經開始作惡江湖的小輩。\n神態齷齪，讓人討厭。\n");
 	set("gender", "男性");
 	set("age", random(10) + 25);
 	set("attitude", "peaceful");

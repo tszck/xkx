@@ -8,8 +8,8 @@ void create()
 {
 	set("short", RED"百花谷"NOR);
 	set("long", 
-HIC"又转了几个弯，迎面两面山壁夹峙三株大松树冲天而起，挡在
-山壁间。成为两道天然的屏障。\n"NOR);
+HIC"又轉了幾個彎，迎面兩面山壁夾峙三株大松樹沖天而起，擋在
+山壁間。成爲兩道天然的屏障。\n"NOR);
 	set("exits", ([ /* sizeof() == 1 */
 		"west" : __DIR__"huagu6",
 	]));
@@ -29,17 +29,17 @@ void init()
 int do_swear(string arg)
 {
 	if( !arg) return 0;
-	if( arg == "老顽童" ) 
+	if( arg == "老頑童" ) 
 	{
-		message_vision(HIG "$N朗声喊道：老顽童，小朋友来找你玩儿啦！！！\n"NOR, this_player());
-		message_vision(HIY "只听见里面呵呵的笑声传来：又有人来找我玩儿了，快进快进！\n"NOR, this_player() );
+		message_vision(HIG "$N朗聲喊道：老頑童，小朋友來找你玩兒啦！！！\n"NOR, this_player());
+		message_vision(HIY "只聽見裏面呵呵的笑聲傳來：又有人來找我玩兒了，快進快進！\n"NOR, this_player() );
 		call_out("close_passage", 10);
 		set("exits/enter", __DIR__"baihuagu");
 		return 1;
 	}
 	else
 	{
-		message_vision(HIG"$N朗声高喊：“"+arg+"！！！”空谷回音，长久不绝。\n"NOR, this_player());
+		message_vision(HIG"$N朗聲高喊：“"+arg+"！！！”空谷迴音，長久不絕。\n"NOR, this_player());
 		return 1;
 	}
 }

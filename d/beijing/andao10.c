@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "天地会暗道");
+	set("short", "天地會暗道");
 	set("long", @LONG
-终于走出了暗道，你长长的舒了一口气。北边是天地会青木堂的大
-厅，明亮的灯光让人感到无比温暖。
+終於走出了暗道，你長長的舒了一口氣。北邊是天地會青木堂的大
+廳，明亮的燈光讓人感到無比溫暖。
 LONG );
 	set("exits", ([
 		"west"  : __DIR__"andao9",

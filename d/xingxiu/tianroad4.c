@@ -10,9 +10,9 @@ void create()
 {
 	set("short", "天山山路");
 	set("long", @LONG
-这里是天山东麓，山风从山上吹来，你冷得瑟瑟发抖。路边是一片
-针叶林。石壁上盛开着一朵洁白的天山雪莲，一个采药人正在采药。东
-面一条深涧(valley)挡住了下山的路。
+這裏是天山東麓，山風從山上吹來，你冷得瑟瑟發抖。路邊是一片
+針葉林。石壁上盛開着一朵潔白的天山雪蓮，一個採藥人正在採藥。東
+面一條深澗(valley)擋住了下山的路。
 LONG );
 	set("exits", ([
 	    "westup" : __DIR__"tianroad5"
@@ -23,7 +23,7 @@ LONG );
 	]));
 
 	set("item_desc", ([
-	"valley" : "深涧有三丈多宽，不过因为这边地势高，应该不难跳(jump)过去。\n"
+	"valley" : "深澗有三丈多寬，不過因爲這邊地勢高，應該不難跳(jump)過去。\n"
 	]) );
 //	set("no_clean_up", 0);
 	set("outdoors", "xingxiu");
@@ -47,9 +47,9 @@ int do_jump(string arg)
 	if( !arg || arg=="" ) return 0;
 	if( arg=="valley" )
 	{
-		message("vision", me->name() + "一提气，双足点地跳过了深涧。\n", environment(me), ({me}) );
+		message("vision", me->name() + "一提氣，雙足點地跳過了深澗。\n", environment(me), ({me}) );
 		me->move("/d/xingxiu/tianroad3");
-		message("vision", me->name() + "从深涧上面跳了下来。\n", environment(me), ({me}) );
+		message("vision", me->name() + "從深澗上面跳了下來。\n", environment(me), ({me}) );
 		return 1;
 	}
 }

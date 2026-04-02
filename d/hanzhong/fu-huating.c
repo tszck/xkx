@@ -1,15 +1,15 @@
-// fu-huating 花厅
+// fu-huating 花廳
 // Winder Oct.10 1998
 
 inherit ROOM;
 
 void create()
 {
-        set("short", "花厅");
+        set("short", "花廳");
         set("long", @LONG
-这里是这户人家喝酒赏月的所在，一个小亭子建造在厅的中央，
-四周围绕着一些葡萄藤(teng)。一阵微风吹过，空气中似乎有隐隐
-的花香飘来，中人欲醉。
+這裏是這戶人家喝酒賞月的所在，一個小亭子建造在廳的中央，
+四周圍繞着一些葡萄藤(teng)。一陣微風吹過，空氣中似乎有隱隱
+的花香飄來，中人慾醉。
 LONG
         );
         set("outdoors", "hanzhong");
@@ -19,7 +19,7 @@ LONG
         ]));
         set("no_clean_up", 0);
         set("item_desc", ([
-            "teng": "这些藤好象长得有些日子了，密不透风，夏天呆在藤下肯定阴凉极了。\n"
+            "teng": "這些藤好象長得有些日子了，密不透風，夏天呆在藤下肯定陰涼極了。\n"
         ]) );
 	set("coor/x", -3120);
 	set("coor/y", -30);

@@ -13,10 +13,10 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "把");
-		set("long", "这是把沉重的大斧，有八尺多长，锋利无比。\n");
+		set("long", "這是把沉重的大斧，有八尺多長，鋒利無比。\n");
 		set("value", 5000);
 		set("material", "iron");
-		set("wield_msg", "$N拿出一把$n握在手中，眼前闪过一道寒光。\n");
+		set("wield_msg", "$N拿出一把$n握在手中，眼前閃過一道寒光。\n");
 		set("unwield_msg", "$N放下手中的$n。\n");
 	}
 	init_axe(60);

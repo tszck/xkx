@@ -5,14 +5,14 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("买卖提", ({ "maimaiti", "seller" }) );
-	set("title", "杂货铺老板");
+	set_name("買賣提", ({ "maimaiti", "seller" }) );
+	set("title", "雜貨鋪老闆");
 	set("shen_type", 1);
 
 	set("gender", "男性" );
 	set("age", 43);
 	set("long", 
-"买卖提是个中年维吾尔族商人，去过几次中原，能讲一点儿汉话。\n");
+"買賣提是個中年維吾爾族商人，去過幾次中原，能講一點兒漢話。\n");
 	set_skill("unarmed", 50);
 	set_skill("dodge", 50);
 	set_temp("apply/damage", 15);
@@ -32,8 +32,8 @@ void create()
 	}) );
 
 	set("inquiry", ([
-		"马" : "要说好马还得数咱们伊犁马。",
-		"伊犁马" : "嗨，都让赛马的那帮姑娘小伙买光了。",
+		"馬" : "要說好馬還得數咱們伊犁馬。",
+		"伊犁馬" : "嗨，都讓賽馬的那幫姑娘小夥買光了。",
 	]) );
 
 	setup();
@@ -58,10 +58,10 @@ void greeting(object ob)
 	switch( random(2) )
 	{
 		case 0:
-			say( "买卖提笑嘻嘻地说道：色兰姆阿里空。\n");
+			say( "買賣提笑嘻嘻地說道：色蘭姆阿里空。\n");
 			break;
 		case 1:
-			say( "买卖提右手放在胸前，浅鞠一躬说道：阿里空色兰姆。\n");
+			say( "買賣提右手放在胸前，淺鞠一躬說道：阿里空色蘭姆。\n");
 			break;
 	}
 }

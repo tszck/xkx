@@ -9,7 +9,7 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "柄");
-                set("long", "这是一柄亮晃晃的匕首\n");
+                set("long", "這是一柄亮晃晃的匕首\n");
                 set("value", 500);
                 set("material", "steel");                
         }

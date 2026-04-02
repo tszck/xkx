@@ -8,7 +8,7 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(HIY"黄布衣"NOR, ({ "yellow cloth", "cloth" }) );
+	set_name(HIY"黃布衣"NOR, ({ "yellow cloth", "cloth" }) );
 	set_weight(3000);
 	if( clonep() )
 		set_default_object(__FILE__);

@@ -1,8 +1,8 @@
-// fugu.c 金蛇游身掌-附骨缠身
+// fugu.c 金蛇遊身掌-附骨纏身
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
-#define PNAME "「附骨缠身」"
+#define PNAME "「附骨纏身」"
 inherit F_SSERVER;
 
 int perform(object me, object target)
@@ -21,14 +21,14 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if( me->query_temp("weapon"))
 		return notify_fail("你不是空手，不能使用"PNAME"。\n");
@@ -44,12 +44,12 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili", 1) < 300 )
-		return notify_fail("你现在内力太弱，不能使用附骨缠身。\n");
+		return notify_fail("你現在內力太弱，不能使用附骨纏身。\n");
 
-	msg = HIC "$N大喝一声，缠身而上左手一探刁住$n"HIC"手腕，右掌猛下杀手！\n"NOR;
+	msg = HIC "$N大喝一聲，纏身而上左手一探刁住$n"HIC"手腕，右掌猛下殺手！\n"NOR;
 	message_combatd(msg, me, target);
 
 
@@ -63,12 +63,12 @@ int perform(object me, object target)
 		}
 		me->add("neili", -50);
 		me->start_busy(2+random(2));
-		msg=HIR"结果$n被$N的左手所制，在「附骨缠身」下，竟然无法还手！\n"NOR;
+		msg=HIR"結果$n被$N的左手所制，在「附骨纏身」下，竟然無法還手！\n"NOR;
 	}
 	else
 	{
 		me->start_busy(3);
-		msg=CYN"可是$p识破了$P这一招，手肘一送，摆脱了对方控制。\n"NOR;
+		msg=CYN"可是$p識破了$P這一招，手肘一送，擺脫了對方控制。\n"NOR;
 	}
 	message_combatd(msg, me, target);
 	if( !target->is_fighting(me) ) target->fight_ob(me);
@@ -84,11 +84,11 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		连续出手三掌
+		連續出手三掌
 
 	出手要求：
-		金蛇游身掌100级
-		内力300
+		金蛇遊身掌100級
+		內力300
 HELP
 	);
 	return 1;

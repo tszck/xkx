@@ -3,15 +3,15 @@ inherit F_UNIQUE;
  
 void create()
 {
-	set_name("「九阴真经」上册", ({ "jiuyin zhenjing1","zhenjing1", }));
+	set_name("「九陰真經」上冊", ({ "jiuyin zhenjing1","zhenjing1", }));
 	set_weight(500);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
 		set("long",
-	"这是一本用薄绢写成的书。上书：“九阴真经(上)”。\n"
-	"书皮泛黄，看来已经保存很久了。\n",
+	"這是一本用薄絹寫成的書。上書：“九陰真經(上)”。\n"
+	"書皮泛黃，看來已經保存很久了。\n",
 
 	);
 		set("value", 0);

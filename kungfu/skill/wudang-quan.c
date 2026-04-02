@@ -1,4 +1,4 @@
-// wudang-quan.c 武当长拳
+// wudang-quan.c 武當長拳
 // Last Modified by Winder on Feb. 18 2001
 #include <ansi.h>
 inherit SKILL;
@@ -10,25 +10,25 @@ mapping *action = ({
 	"lvl" : 0,
 	"skill_name" : "七星手"
 ]),
-([	"action" : "$N身行前探，闪身跨奔$n身侧，一招"HIB"「推手」"NOR"，向$n的$l推去",
+([	"action" : "$N身行前探，閃身跨奔$n身側，一招"HIB"「推手」"NOR"，向$n的$l推去",
 	"lvl" : 10,
 	"skill_name" : "推手"
 ]),
-([	"action" : "$N双臂微曲，身行晃动，一招"HIM"「一条鞭」"NOR"守中带攻打向$n的$l",
+([	"action" : "$N雙臂微曲，身行晃動，一招"HIM"「一條鞭」"NOR"守中帶攻打向$n的$l",
 	"lvl" : 20,
-	"skill_name" : "一条鞭"
+	"skill_name" : "一條鞭"
 ]),
-([	"action" : "$N马步扎稳，左手虚晃，右手握拳一式"GRN"「直击」"NOR"迅猛打向$n的胸口",
+([	"action" : "$N馬步扎穩，左手虛晃，右手握拳一式"GRN"「直擊」"NOR"迅猛打向$n的胸口",
 	"lvl" : 40,
-	"skill_name" : "直击"
+	"skill_name" : "直擊"
 ]),
-([	"action" : "$N施出"HIC"「雁回头」"NOR"，纵身跃向空中，双手同时击向$n的$l",
+([	"action" : "$N施出"HIC"「雁回頭」"NOR"，縱身躍向空中，雙手同時擊向$n的$l",
 	"lvl" : 50,
-	"skill_name" : "雁回头"
+	"skill_name" : "雁回頭"
 ]),
-([	"action" : "$N双臂回环，身行微微后仰，一招"HIW"「井栏」"NOR"，缠向$n的双手",
+([	"action" : "$N雙臂迴環，身行微微後仰，一招"HIW"「井欄」"NOR"，纏向$n的雙手",
 	"lvl" : 60,
-	"skill_name" : "井栏"
+	"skill_name" : "井欄"
 ])
 });
 
@@ -36,9 +36,9 @@ int valid_enable(string usage) { return usage=="unarmed" || usage=="parry"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练武当长拳必须空手。\n");
+		return notify_fail("練武當長拳必須空手。\n");
 	if ((int)me->query_skill("taiji-shengong", 1) < 1)
-		return notify_fail("你的太极神功火候不够，无法学武当长拳。\n");
+		return notify_fail("你的太極神功火候不夠，無法學武當長拳。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -49,7 +49,7 @@ int practice_skill(object me)
 	while (i--) if (lvl == action[i]["lvl"]) return 0;
 
 	if ((int)me->query("qi") < 30)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	me->receive_damage("qi", 20);
 	return 1;
 }
@@ -76,16 +76,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,		
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 
@@ -96,13 +96,13 @@ int power_point(object me) { return 1.0; }
 
 int help(object me)
 {
-	write(HIC"\n武当长拳："NOR"\n");
+	write(HIC"\n武當長拳："NOR"\n");
 	write(@HELP
 
-    武当长拳为武当派入门拳法。
+    武當長拳爲武當派入門拳法。
 
-	学习要求：
-		太极神功1级
+	學習要求：
+		太極神功1級
 HELP
 	);
 	return 1;

@@ -1,4 +1,4 @@
-// mafu1.c 马夫
+// mafu1.c 馬伕
 
 inherit NPC;
 #include <ansi.h>
@@ -6,10 +6,10 @@ int do_ride();
 
 void create()
 {
-        set_name("马夫", ({ "ma fu","ma fu"}));
+        set_name("馬伕", ({ "ma fu","ma fu"}));
         set("age", 32);
         set("gender", "男性");
-        set("long","驯马和租马的小贩，给他租金就可以雇到马。\n");
+        set("long","馴馬和租馬的小販，給他租金就可以僱到馬。\n");
         set("attitude", "peaceful");
         set("str", 24);
         set("dex", 16);
@@ -44,7 +44,7 @@ void greeting(object ob)
 	chance = random(10);		
         if( !ob || environment(ob) != environment() ) return;
         ob->set_temp("ridechance",chance);        
-        say( "马夫点头哈腰地说道：这位客官，是想到这里挑一匹好马吧？\n");
+        say( "馬伕點頭哈腰地說道：這位客官，是想到這裏挑一匹好馬吧？\n");
 }
 
 int accept_object(object who, object ob)
@@ -55,19 +55,19 @@ int accept_object(object who, object ob)
 	{
 	  if ((int)this_player()->query_temp("ridechance")<=2)
 	  {
-	    message_vision("马夫惊慌地对$N说：对不起大爷，最近道上不太平，小的可不敢担这个险。\n", who); 
+	    message_vision("馬伕驚慌地對$N說：對不起大爺，最近道上不太平，小的可不敢擔這個險。\n", who); 
 	    return 0;
 	   }
 	  else  
 	   {     
-	        message_vision("马夫对$N说：好！这位"+RANK_D->query_respect(who) +
-		"现在就出发吗？那就上马吧。\n", who);
+	        message_vision("馬伕對$N說：好！這位"+RANK_D->query_respect(who) +
+		"現在就出發嗎？那就上馬吧。\n", who);
 		this_player()->set_temp("marks/horserent",1);		
  	      	return 1;
  	    }  	
 	}
 	else  
-		message_vision("马夫皱眉对$N说：您给的也太少了吧？\n", who);
+		message_vision("馬伕皺眉對$N說：您給的也太少了吧？\n", who);
 	return 1;
 }
 

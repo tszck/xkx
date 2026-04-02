@@ -8,8 +8,8 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIY"锦镧袈裟"NOR, ({ "jinlan jiasha", "jiasha", "cloth" }) );
-	set("long", "一件色彩斑斓的锦斓袈裟。\n");
+	set_name(HIY"錦鑭袈裟"NOR, ({ "jinlan jiasha", "jiasha", "cloth" }) );
+	set("long", "一件色彩斑斕的錦斕袈裟。\n");
 	set_weight(3000);
 	if( clonep() )
 		set_default_object(__FILE__);

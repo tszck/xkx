@@ -4,15 +4,15 @@ inherit ITEM;
 
 void create()
 {
-	set_name( "旋风扫叶腿法", ({ "paper" , "shu", "book" }));
+	set_name( "旋風掃葉腿法", ({ "paper" , "shu", "book" }));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
 		set("long", 
-"这是两张纸片，上面写的都是练功的口诀要旨，却是黄药师的
-亲笔，字迹遒劲挺拔，第一叶上右首写着题目，是“旋风扫叶
+"這是兩張紙片，上面寫的都是練功的口訣要旨，卻是黃藥師的
+親筆，字跡遒勁挺拔，第一葉上右首寫着題目，是“旋風掃葉
 腿法”六字。\n");
 		set("value", 100);
 		set("material", "paper");

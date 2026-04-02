@@ -6,7 +6,7 @@ void create ()
 {
 	set ("short", "柴房");
 	set ("long", @LONG
-这是万家堆放柴草的地方。
+這是萬家堆放柴草的地方。
 LONG);
 	set("exits", ([
 		"west"  : __DIR__"nanlou",

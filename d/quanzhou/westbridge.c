@@ -4,11 +4,11 @@
 inherit ROOM;
 void create()
 {
-	set("short","西门吊桥");
+	set("short","西門吊橋");
 	set("long",@LONG
-这是泉州西面的一座吊桥，从傍着晋江而建的城楼大门上以两
-个滑轮维系。日出放下吊，日落绞起。过了桥向西南走可达岭南广
-东。
+這是泉州西面的一座吊橋，從傍着晉江而建的城樓大門上以兩
+個滑輪維繫。日出放下吊，日落絞起。過了橋向西南走可達嶺南廣
+東。
 LONG);
 	set("outdoors", "quanzhou");
 	set("exits",([ /* sizeof() == 1 */

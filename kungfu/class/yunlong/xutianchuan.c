@@ -10,7 +10,7 @@ void create()
 	set_name("徐天川", ({ "xu tianchuan", "xu", "tianchuan" }));
 	set("nickname", "八臂猿猴");
 	set("gender", "男性");
-	set("long","他是青木堂数一数二的好手，手上功夫十分了得，尤其擅使一套猴拳。\n");
+	set("long","他是青木堂數一數二的好手，手上功夫十分了得，尤其擅使一套猴拳。\n");
 	set("age", 55);
 	set("int", 30);
 	set("qi", 1000);
@@ -46,27 +46,27 @@ void create()
 
 	set("chat_chance", 3);
 	set("chat_msg", ({
-		"徐天川想了想，说：有人想要进出皇宫，我得想个法子才好啊。\n",
-		"徐天川说道: 江湖威望很重要，威望值高大有好处啊。\n",
-		"徐天川突然说：自此传得众兄弟，后来相认团圆时。\n",
-		"徐天川突然说：初进洪门结义兄，对天明誓表真心。\n",
+		"徐天川想了想，說：有人想要進出皇宮，我得想個法子纔好啊。\n",
+		"徐天川說道: 江湖威望很重要，威望值高大有好處啊。\n",
+		"徐天川突然說：自此傳得衆兄弟，後來相認團圓時。\n",
+		"徐天川突然說：初進洪門結義兄，對天明誓表真心。\n",
 	}));
 
 	set("inquiry", ([
-		"陈近南" : "想见总舵主可不容易啊。\n",
-		"天地会" : "只要是英雄好汉，都可以入我天地会(join tiandihui)。\n",
-		"入会" : "只要入了我天地会，可以向会中各位好手学武功。\n",
+		"陳近南" : "想見總舵主可不容易啊。\n",
+		"天地會" : "只要是英雄好漢，都可以入我天地會(join tiandihui)。\n",
+		"入會" : "只要入了我天地會，可以向會中各位好手學武功。\n",
 		"威望" : (: ask_weiwang :),
 		"江湖威望" : (: ask_weiwang :),
-		"去清复明膏" : "去药铺内室里仔细瞧瞧吧！\n",
-		"去清复明" : "去药铺内室里仔细瞧瞧吧！\n",
-		"反清复明" : "去药铺内室里仔细瞧瞧吧！\n",
-		"暗号" : "敲三下！\n",
+		"去清復明膏" : "去藥鋪內室裏仔細瞧瞧吧！\n",
+		"去清復明" : "去藥鋪內室裏仔細瞧瞧吧！\n",
+		"反清復明" : "去藥鋪內室裏仔細瞧瞧吧！\n",
+		"暗號" : "敲三下！\n",
 		"切口" : "敲三下！\n",
 	]) );
-	set("party/party_name", HIR"天地会"NOR);
-	set("party/rank", HIG"青木堂"NOR"护法");
-	create_family("云龙门", 2, "弟子");
+	set("party/party_name", HIR"天地會"NOR);
+	set("party/rank", HIG"青木堂"NOR"護法");
+	create_family("雲龍門", 2, "弟子");
 
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
@@ -83,10 +83,10 @@ void init()
 
 int ask_weiwang()
 {
-command("tell "+this_player()->query("id")+" 你现在的江湖威望是 " +(string)(this_player()->query("weiwang")));
-say("\n徐天川说：如果你威望值很高，有些人见了你不但不会杀你，还会教你武功，送你宝贝。\n"
-+"而且你还可以加入帮会，率领会众去攻打目标，就连去钱庄取钱也会有利息 。。。。。\n");
-say("徐天川又说：杀某些坏人或救某些好人可以提高江湖威望。\n");
+command("tell "+this_player()->query("id")+" 你現在的江湖威望是 " +(string)(this_player()->query("weiwang")));
+say("\n徐天川說：如果你威望值很高，有些人見了你不但不會殺你，還會教你武功，送你寶貝。\n"
++"而且你還可以加入幫會，率領會衆去攻打目標，就連去錢莊取錢也會有利息 。。。。。\n");
+say("徐天川又說：殺某些壞人或救某些好人可以提高江湖威望。\n");
 return 1;
 }
 
@@ -94,8 +94,8 @@ int recognize_apprentice(object ob)
 {
 	if (ob->query("weiwang")<50)
 	{
-		message_vision("$N摇了摇头。\n",this_object());
-		command("tell "+ob->query("id")+" 不是天地会弟子我不教。\n"); 
+		message_vision("$N搖了搖頭。\n",this_object());
+		command("tell "+ob->query("id")+" 不是天地會弟子我不教。\n"); 
 	}
 	return 1;
 }
@@ -107,23 +107,23 @@ int do_skills(string arg)
 	if( !arg || arg!="xu" )
 		return 0;
 	if(wizardp(ob)) return 0;
-	if (ob->query("party/party_name") != HIR "天地会" NOR )
+	if (ob->query("party/party_name") != HIR "天地會" NOR )
 	{
-		message_vision("$N摇了摇头。\n",this_object());
-//		command("tell "+ob->query("id")+" 不是天地会弟子不能察看。\n"); 
-	write("徐天川怒道：非天地会弟子不能察看！顿了一顿，又陪笑道:当然，巫师除外。\n");
+		message_vision("$N搖了搖頭。\n",this_object());
+//		command("tell "+ob->query("id")+" 不是天地會弟子不能察看。\n"); 
+	write("徐天川怒道：非天地會弟子不能察看！頓了一頓，又陪笑道:當然，巫師除外。\n");
 		return 1;
 	}
 
 	command("tell "+ob->query("id")+" 我所有的武功如下：\n"+
-"  基本内功 (force)                         - 出神入化  70 \n"+
-"  基本轻功 (dodge)                         - 出神入化  70 \n"+    
-"  基本招架 (parry)                         - 一代宗师  90 \n"+
-"  基本拳脚 (unarmed)                       - 一代宗师  90 \n"+
-"  基本手法 (hand)                          - 深不可测 100 \n"+
-"□混元一气功 (hunyuan-yiqi)                - 出神入化  70 \n"+
+"  基本內功 (force)                         - 出神入化  70 \n"+
+"  基本輕功 (dodge)                         - 出神入化  70 \n"+    
+"  基本招架 (parry)                         - 一代宗師  90 \n"+
+"  基本拳腳 (unarmed)                       - 一代宗師  90 \n"+
+"  基本手法 (hand)                          - 深不可測 100 \n"+
+"□混元一氣功 (hunyuan-yiqi)                - 出神入化  70 \n"+
 "□少林身法 (shaolin-shenfa)                - 出神入化  70 \n"+
-"□猴拳 (houquan)                           - 深不可测 100 \n");
+"□猴拳 (houquan)                           - 深不可測 100 \n");
 	return 1;
 }
 */

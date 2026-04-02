@@ -13,7 +13,7 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
- 		set("long", GRN"这就是传说中著名的孟婆茶。每个鬼魂在投胎转世之前，都要喝上一碗孟婆茶，据说喝了这碗茶后，你在阳间的一切一切就都会忘得干干净净，就此与今世脱离了一切关系。\n");
+ 		set("long", GRN"這就是傳說中著名的孟婆茶。每個鬼魂在投胎轉世之前，都要喝上一碗孟婆茶，據說喝了這碗茶後，你在陽間的一切一切就都會忘得乾乾淨淨，就此與今世脫離了一切關係。\n");
 		set("unit", "碗");
 	}
 	set("pour_type", "1");
@@ -30,18 +30,18 @@ int do_drink(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 //if a ghost
 	if( !me->is_ghost() )
 	{
-		write("你得先死了才能喝这碗茶......\n\n\n要不，先死一次？......\n");
+		write("你得先死了才能喝這碗茶......\n\n\n要不，先死一次？......\n");
 		return 1;
 	}
-	message_vision("$N犹豫了一会儿，还是把一碗孟婆茶喝了下去。\n\n\n\n",me);
+	message_vision("$N猶豫了一會兒，還是把一碗孟婆茶喝了下去。\n\n\n\n",me);
 	remove_call_out("mpc_effect");
 	call_out("mpc_effect", 5, me);
 	return 1;
@@ -59,8 +59,8 @@ int mpc_effect(object me)
 		me->set("eff_jing",(int)me->query("max_jing"));
 		me->set("jing",(int)me->query("max_jing"));
 	}
-	message_vision(BLU "$N觉得一阵头晕目眩，以前发生的事情似乎忘记了许多许多..........\n\n\n"NOR, me);
-	tell_object(me,BLU "忘记吧...................\n\n\n\n" NOR);
+	message_vision(BLU "$N覺得一陣頭暈目眩，以前發生的事情似乎忘記了許多許多..........\n\n\n"NOR, me);
+	tell_object(me,BLU "忘記吧...................\n\n\n\n" NOR);
 	destruct(this_object());
 	return 1;
 }

@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "禅房");
+	set("short", "禪房");
 	set("long", @LONG
-这里是诵经的禅房。房中有一座小香炉，淡淡的清烟从中散出，弥
-漫在整间房内。阳光透过窗格照在青石地上，在青烟中形成根根耀眼的
-光柱。屋中的地上散放着几个蒲团，几个年青的僧人正闭目打坐于其上。
+這裏是誦經的禪房。房中有一座小香爐，淡淡的清煙從中散出，彌
+漫在整間房內。陽光透過窗格照在青石地上，在青煙中形成根根耀眼的
+光柱。屋中的地上散放着幾個蒲團，幾個年青的僧人正閉目打坐於其上。
 LONG
 	);
 	set("exits", ([
@@ -38,19 +38,19 @@ int do_ask()
 	me = this_player();
 	if ((int)me->query("jing")<35)
 	{
-		write(RED"你太累了精力无法集中。\n"NOR);
+		write(RED"你太累了精力無法集中。\n"NOR);
 		return 1;
 	} 
 	if ((int)me->query_skill("buddhism",1)<50 &&
 		present("moheseng dilu", me) )
 	{
-		write("你的禅宗修为不到，无法在此领悟禅理。\n");
+		write("你的禪宗修爲不到，無法在此領悟禪理。\n");
 		return 1;
 	}
 	if ((int)me->query_skill("buddhism",1)>101
 		&& present("moheseng dilu", me) )    
 	{
-		write("大疯大师低声说道："+ RANK_D->query_respect(this_player()) +"的佛法已颇为渊深，已不需老衲指点。\n");
+		write("大瘋大師低聲說道："+ RANK_D->query_respect(this_player()) +"的佛法已頗爲淵深，已不需老衲指點。\n");
 		return 1;
 	}
 	if ((int)me->query_skill("buddhism", 1) >= 50 &&
@@ -60,7 +60,7 @@ int do_ask()
 		me->receive_damage("jing", 35);
 		me->improve_skill("buddhism", me->query("int"));
 		if ( random(5) == 0 )
-			tell_object(me, RED"你听了大疯大师对于禅悟的讲解，顿时觉得禅宗心法有所提高。\n"NOR);
+			tell_object(me, RED"你聽了大瘋大師對於禪悟的講解，頓時覺得禪宗心法有所提高。\n"NOR);
 	}
 	return 1;
 } 

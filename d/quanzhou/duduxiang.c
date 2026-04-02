@@ -7,8 +7,8 @@ void create()
 {
 	set("short", "都督巷");
 	set("long", @LONG
-这是泉州的一条小巷，清净整洁。远远可见巷底红墙高砌，把守森
-严，显然不是普通的住家。
+這是泉州的一條小巷，清淨整潔。遠遠可見巷底紅牆高砌，把守森
+嚴，顯然不是普通的住家。
 LONG );
 	set("outdoors", "quanzhou");
 	set("exits", ([

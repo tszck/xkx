@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("侍从", ({ "shi cong", "shi", "cong" }));
+	set_name("侍從", ({ "shi cong", "shi", "cong" }));
 	set("age", 32);
 	set("gender", "男性");
-	set("long", "这位倒也打扮的利索，一身短打，白布包头，翘起的裤腿，一双
-洁白的布鞋，格外醒目。他正准备出去筹备白尼族一年一度的大会。\n");
+	set("long", "這位倒也打扮的利索，一身短打，白布包頭，翹起的褲腿，一雙
+潔白的布鞋，格外醒目。他正準備出去籌備白尼族一年一度的大會。\n");
 	set("attitude", "peaceful");
 
 	set("str", 24);

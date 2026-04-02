@@ -4,7 +4,7 @@
 inherit ROOM;
 void create()
 {
-	set("short", "铁索");
+	set("short", "鐵索");
 	set("long", @LONG
 
 ∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞
@@ -26,10 +26,10 @@ void init()
 	if(me->query_kar() < random(30))
 	{
 		me->move(this_object());
-		message_vision("$N脚下一个不稳，从铁索上直摔下去！\n", me);
+		message_vision("$N腳下一個不穩，從鐵索上直摔下去！\n", me);
 		ob = load_object(__DIR__"kuzhu");
 		me->move(ob);
-		message_vision("只听到一声惨叫，$N不知从什么地方重重的摔了下来！\n", me);
+		message_vision("只聽到一聲慘叫，$N不知從什麼地方重重的摔了下來！\n", me);
 		me->unconcious();
 	}
 	return;

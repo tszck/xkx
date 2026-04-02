@@ -6,10 +6,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("高则成", ({ "gao zecheng", "gao" }));
+	set_name("高則成", ({ "gao zecheng", "gao" }));
 	set("long",
-		"他穿青色长袍，背上斜插长剑，二十八九岁年纪。\n"
-		"脸罩寒霜，一副要惹事生非的模样。\n");
+		"他穿青色長袍，背上斜插長劍，二十八九歲年紀。\n"
+		"臉罩寒霜，一副要惹事生非的模樣。\n");
 	set("gender", "男性");
 	set("class", "taoist");
 	set("age", 20);
@@ -45,7 +45,7 @@ void create()
 	map_skill("cuff", "zhentian-cuff");
 	prepare_skill("cuff", "zhentian-cuff");
 
-	create_family("昆仑派", 5, "弟子");
+	create_family("崑崙派", 5, "弟子");
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();
 	carry_object("/d/kunlun/obj/pao3")->wear();
@@ -57,15 +57,15 @@ void attempt_apprentice(object ob)
 	{
 		command("fear");
 		command("say "+RANK_D->query_respect(ob)+
-			"，师母不准我收女弟子，你去找我师姊吧。");
+			"，師母不准我收女弟子，你去找我師姊吧。");
 		return;
 	}
 	if(ob->query("appren_hezudao", 1) == 1)
 	{
-		command("say 前辈怎敢开这等玩笑，真是折杀做晚辈的了。");
+		command("say 前輩怎敢開這等玩笑，真是折殺做晚輩的了。");
 		return;
 	}
 	command("say 既然"+RANK_D->query_respect(ob)+
-	"慕昆仑派之名，千里而来，我昆仑派自当广纳天下英才，我就收下你吧。");
+	"慕崑崙派之名，千里而來，我崑崙派自當廣納天下英才，我就收下你吧。");
 	command("recruit " + ob->query("id"));
 }

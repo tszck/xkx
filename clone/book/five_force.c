@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name("五毒真经", ({ "jing", "book" }));
+	set_name("五毒真經", ({ "jing", "book" }));
 	set_weight(50);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一本薄薄的小册，上面绘了许多打坐的人像。\n");
+		set("long", "這是一本薄薄的小冊，上面繪了許多打坐的人像。\n");
 		set("value", 0);
 		set("material", "paper");
 		set("skill", ([

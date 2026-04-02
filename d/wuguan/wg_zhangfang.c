@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "帐房");
+	set("short", "帳房");
 	set("long", @LONG
-这里是武馆内的一个帐房，室内一个帐房先生在这里认真地做着帐。
-武馆内的大小收支都在这里打理。
+這裏是武館內的一個帳房，室內一個帳房先生在這裏認真地做着帳。
+武館內的大小收支都在這裏打理。
 LONG);
 	set("exits", ([
 		"east" : __DIR__"wg_shilu-1",

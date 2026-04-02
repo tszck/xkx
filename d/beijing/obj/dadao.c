@@ -11,11 +11,11 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "柄");
-		set("long", "这是一柄亮晃晃的大刀。\n");
+		set("long", "這是一柄亮晃晃的大刀。\n");
 		set("value", 2000);
 		set("material", "steel");
-		set("wield_msg", "$N「唰」的一声从背后拨出一柄$n。\n");
-		set("unwield_msg", "$N将手中的$n插回背后。\n");
+		set("wield_msg", "$N「唰」的一聲從背後撥出一柄$n。\n");
+		set("unwield_msg", "$N將手中的$n插回背後。\n");
 	}
 	init_blade(40);
 	setup();

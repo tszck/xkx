@@ -1,14 +1,14 @@
-// yang.c 绵羊
+// yang.c 綿羊
 // Last Modified by winder on Aug. 1 2002
 
 inherit NPC;
 
 void create()
 {
-	set_name("绵羊", ({ "mian yang", "yang", "sheep" }) );
+	set_name("綿羊", ({ "mian yang", "yang", "sheep" }) );
 	set("race", "走畜");
 	set("age", 6);
-	set("long", "一头温顺的小绵羊。\n");
+	set("long", "一頭溫順的小綿羊。\n");
 	set("attitude", "peaceful");
 	
 	set("str", 16);
@@ -27,7 +27,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$N凄惨的嚎了几声，倒在地上死了。\n", this_object());
+	message_vision("$N悽慘的嚎了幾聲，倒在地上死了。\n", this_object());
 	ob = new(__DIR__"obj/yangrou2");
 	ob->move(environment(this_object()));
 	destruct(this_object());

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "坤宁门");
+	set("short", "坤寧門");
 	set("long", @LONG
-这是皇宫后廷的后门. 门外是御花园. 门内南连坤宁宫, 由此进入
-所谓的三宫六院.
+這是皇宮後廷的後門. 門外是御花園. 門內南連坤寧宮, 由此進入
+所謂的三宮六院.
 LONG
 	);
 	set("outdoors", "huanggong");
@@ -29,7 +29,7 @@ int valid_leave(object me, string dir)
 {
 	if (dir == "south" &&
 	objectp(present("rui dong", environment(me))))
-		return notify_fail("瑞栋拦住你说：此处禁地，请止步。\n");
+		return notify_fail("瑞棟攔住你說：此處禁地，請止步。\n");
 
 	return ::valid_leave(me, dir);
 }

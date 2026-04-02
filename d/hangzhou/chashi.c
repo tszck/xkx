@@ -6,7 +6,7 @@ void create()
 {
         set("short", "茶室");
         set("long", @LONG
-这里是龙井茶茶室。在这里可以品到最新鲜的龙井。
+這裏是龍井茶茶室。在這裏可以品到最新鮮的龍井。
 LONG);
         set("exits", ([
                 "west"     : __DIR__"longjing",

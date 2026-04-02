@@ -38,7 +38,7 @@ string short()
 
 	notes = query("notes");
 	if( !pointerp(notes) || !sizeof(notes) )
-		return ::short() + " [ 没有任何工作计画 ]";
+		return ::short() + " [ 沒有任何工作計畫 ]";
 
 	if( this_player() ) {
 		last_read_time = (int)this_player()->query("board_last_read/" + (string)query("board_id"));
@@ -46,9 +46,9 @@ string short()
 			if( notes[i]["time"] <= last_read_time ) break;
 	}
 	if( unread )
-		return sprintf("%s [ %d 个工作计画，%d 份新进度报告 ]", ::short(), sizeof(notes), unread);
+		return sprintf("%s [ %d 個工作計畫，%d 份新進度報告 ]", ::short(), sizeof(notes), unread);
 	else
-		return sprintf("%s [ %d 个工作计画 ]", ::short(), sizeof(notes));
+		return sprintf("%s [ %d 個工作計畫 ]", ::short(), sizeof(notes));
 }
 
 string long()
@@ -92,7 +92,7 @@ void done_describe_project(object me, mapping note, string text)
 		notes += ({ note });
 
 	set("notes", notes);
-	tell_object(me, "新工作计画提出。\n");
+	tell_object(me, "新工作計畫提出。\n");
 
 	save();
 	return;
@@ -114,7 +114,7 @@ void done_report(object me, mapping report, int project, string text)
 	notes[project]["time"] = time();
 
 	set("notes", notes);
-	tell_object(me, "进度报告完毕。\n");
+	tell_object(me, "進度報告完畢。\n");
 
 	save();
 	return;
@@ -124,7 +124,7 @@ int do_project(string arg)
 {
 	mapping note;
 
-	if(!arg) return notify_fail("工作计画请指定一个标题。\n");
+	if(!arg) return notify_fail("工作計畫請指定一個標題。\n");
 	
 	note = allocate_mapping(5);
 	note["title"] = arg;
@@ -142,11 +142,11 @@ int do_report(string arg)
 	mapping note, *notes;
 
 	if(!arg || sscanf(arg, "%d %s", num, title)!=2 )
-		return notify_fail("指令格式：report <计画编号> <进度报告标题>\n");
+		return notify_fail("指令格式：report <計畫編號> <進度報告標題>\n");
 
 	notes = query("notes");
 	if( !arrayp(notes) || num < 1 || num > sizeof(notes) )
-		return notify_fail("没有这个工作计画。\n");
+		return notify_fail("沒有這個工作計畫。\n");
 
 	note = allocate_mapping(5);
 	note["title"] = arg;
@@ -168,16 +168,16 @@ int do_read(string arg)
 	notes	= query("notes");
 
 	if( !pointerp(notes) || !sizeof(notes) )
-		return notify_fail("进度表上目前没有任何计画。\n");
+		return notify_fail("進度表上目前沒有任何計畫。\n");
 
-	if( !arg ) return notify_fail("指令格式：read <计画编号>[.<报告编号>]|new|next\n");
+	if( !arg ) return notify_fail("指令格式：read <計畫編號>[.<報告編號>]|new|next\n");
 	if( arg=="new" || arg=="next" ) {
 		for(num = 1; num<=sizeof(notes); num++)
 			if( notes[num-1]["time"] > last_read_time ) break;
 	} else if( sscanf(arg, "%d.%d", num, rep)==2 ) {
-		if( num < 1 || num > sizeof(notes) ) return notify_fail("没有这个计画。\n");
+		if( num < 1 || num > sizeof(notes) ) return notify_fail("沒有這個計畫。\n");
 		else num--;
-		if( rep < 1 || rep > sizeof(notes[num]["report"]) )	return notify_fail("没有这个进度报告。\n");
+		if( rep < 1 || rep > sizeof(notes[num]["report"]) )	return notify_fail("沒有這個進度報告。\n");
 		else rep --;
 		this_player()->start_more( sprintf(
 "[%d.%d] %s: %s\n-------------------------------------------------------------------\n"
@@ -196,14 +196,14 @@ int do_read(string arg)
 
 		return 1;
 	} if( !sscanf(arg, "%d", num) )
-		return notify_fail("你要读第几个计画的简报？\n");
+		return notify_fail("你要讀第幾個計畫的簡報？\n");
 
 	if( num < 1 || num > sizeof(notes) )
-		return notify_fail("没有这个计画。\n");
+		return notify_fail("沒有這個計畫。\n");
 	num--;
 	this_player()->start_more( sprintf(
-"[%2d]\t%s\n负责人：%s(%s) : %s\n----------------------------------------------------------------------\n%s"
-"----------------------------------------------------------------------\n进度报告：%d 份。\n",
+"[%2d]\t%s\n負責人：%s(%s) : %s\n----------------------------------------------------------------------\n%s"
+"----------------------------------------------------------------------\n進度報告：%d 份。\n",
 		num + 1,
 		notes[num]["title"],
 		notes[num]["author"], notes[num]["owner"],
@@ -226,18 +226,18 @@ int do_terminate(string arg)
 	int num;
 
 	if( !arg || sscanf(arg, "%d", num)!=1 )
-		return notify_fail("指令格式：discard <留言编号>\n");
+		return notify_fail("指令格式：discard <留言編號>\n");
 	notes = query("notes");
 	if( !arrayp(notes) || num < 1 || num > sizeof(notes) )
-		return notify_fail("没有这张留言。\n");
+		return notify_fail("沒有這張留言。\n");
 	num--;
 	if( notes[num]["owner"] != (string)this_player(1)->query("id")
 	&&	(string)SECURITY_D->get_status(this_player(1)) != "(admin)" )
-		return notify_fail("这个留言不是你写的。\n");
+		return notify_fail("這個留言不是你寫的。\n");
 
 	notes = notes[0..num-1] + notes[num+1..sizeof(notes)-1];
 	set("notes", notes);
 	save();
-	write("删除第 " + (num+1) + " 号留言....Ok。\n");
+	write("刪除第 " + (num+1) + " 號留言....Ok。\n");
 	return 1;
 }

@@ -6,12 +6,12 @@ void create()
 {
 	set("short", "棺材店");
 	set("long", @LONG
-这是一家棺材店，一进门，一股楠木味扑鼻而来。屋子里很阴暗，
-桌子椅子都很破旧。往东是一间内室，一个三十出头的精壮汉子挡在门
+這是一家棺材店，一進門，一股楠木味撲鼻而來。屋子裏很陰暗，
+桌子椅子都很破舊。往東是一間內室，一個三十出頭的精壯漢子擋在門
 口。
 LONG );
 	set("item_desc", ([
-		"guancai" : "本店出售棺材，每个五十两黄金。\n",
+		"guancai" : "本店出售棺材，每個五十兩黃金。\n",
 	]));
 	set("objects", ([
 		CLASS_D("yunlong")+"/gaoyanchao" : 1,
@@ -32,9 +32,9 @@ int valid_leave(object me, string dir)
 	if ( !me->query_temp("money_paid") && dir == "up" )
 	{
         if(objectp(present("gaoyanca", environment(me))))
-        return notify_fail("高彦超一下挡在楼梯前，怒道：先交钱！\n");
+        return notify_fail("高彥超一下擋在樓梯前，怒道：先交錢！\n");
         }
 	if ( me->query_temp("money_paid") && dir == "west" )
-	return notify_fail("高彦超跑到门边拦住：客官已经付了金子，怎麽不上楼就走了呢！\n");
+	return notify_fail("高彥超跑到門邊攔住：客官已經付了金子，怎麼不上樓就走了呢！\n");
 	return ::valid_leave(me, dir);
 }

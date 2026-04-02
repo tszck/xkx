@@ -11,8 +11,8 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一树如火般夺目光华的七尺珊瑚，很是珍贵。\n");
-		set("unit", "树");
+		set("long", "一樹如火般奪目光華的七尺珊瑚，很是珍貴。\n");
+		set("unit", "樹");
 		set("value", 50000 );
 	}
 

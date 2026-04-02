@@ -6,8 +6,8 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("察尔珠", ({"chaer zhu", "chaer", "zhu"}));
-	set("title", HIY"骁骑营正黄旗都统"NOR);
+	set_name("察爾珠", ({"chaer zhu", "chaer", "zhu"}));
+	set("title", HIY"驍騎營正黃旗都統"NOR);
 	set("gender", "男性");
 	set("age", 36);
 	set("per", 20);

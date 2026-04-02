@@ -9,7 +9,7 @@ void create()
 	set_weight(1000000);
 	set("race", "爬蛇");
 	set("age", 110);
-	set("long", "一条愈丈长的巨蟒，盘着身子睡觉。\n");
+	set("long", "一條愈丈長的巨蟒，盤着身子睡覺。\n");
 	set("attitude", "aggressive");
 
 	set("str", 40);

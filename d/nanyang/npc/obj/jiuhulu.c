@@ -1,19 +1,19 @@
 // Room: /d/nanyang/npc/obj/jiuhulu.c
 // Last Modified by winder on Nov. 20 2001
-//这是用来买酒用的葫芦，不是common装备用的，所以比较贵。
+//這是用來買酒用的葫蘆，不是common裝備用的，所以比較貴。
 
 inherit ITEM;
 inherit F_LIQUID;
 #include <ansi.h>
 void create()
 {
-	set_name(YEL"酒葫芦"NOR, ({"jiu hulu", "hulu", "pot"}));
+	set_name(YEL"酒葫蘆"NOR, ({"jiu hulu", "hulu", "pot"}));
 	set_weight(3000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一个用来装酒的大葫芦，外皮金黄，里面能装好几斤酒。\n");
-		set("unit", "个");
+		set("long", "一個用來裝酒的大葫蘆，外皮金黃，裏面能裝好幾斤酒。\n");
+		set("unit", "個");
 		set("value", 300);
 		set("max_liquid", 30);
 	}
@@ -21,7 +21,7 @@ void create()
 	// we set it to contain wine at the beginning
 	set("liquid", ([
 		"type": "alcohol",
-		"name": "黄酒",
+		"name": "黃酒",
 		"remaining": 30,
 		"drunk_apply": 10,
 	]));

@@ -1,20 +1,20 @@
 // /d/xiakedao/obj/tongpai1.c
 //edit by noz
-// Modified by Zeratul Jan 11 2001 铜牌退出不丢，不能给人
+// Modified by Zeratul Jan 11 2001 銅牌退出不丟，不能給人
 
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-	set_name( "赏善铜牌",({"shan pai"}));
+	set_name( "賞善銅牌",({"shan pai"}));
   	set_weight(100);
 
   	if( clonep() )
         	set_default_object(__FILE__);
 
-  	set("unit", "块");
-  	set("long", "这是一块闪闪发光的白铜片子，约有巴掌大小，牌子正面刻着一张笑脸，和蔼慈祥。\n");
+  	set("unit", "塊");
+  	set("long", "這是一塊閃閃發光的白銅片子，約有巴掌大小，牌子正面刻着一張笑臉，和藹慈祥。\n");
 	set("no_put",1);
 	set("no_get",1);
 	set("no_drop",1);
@@ -53,7 +53,7 @@ int init()
 	string long_msg = this_object()->query( "long" );
 	
   	if ( this_player()->query( "xkd/time" ) )
-  		long_msg += HIC"牌子背面刻得有字：侠客岛于" + CHINESE_D->chinese_date( ( (this_player()->query( "xkd/time" ) - 950000000 ) * 60 ) ) + "前恭候大驾。\n"NOR;
+  		long_msg += HIC"牌子背面刻得有字：俠客島於" + CHINESE_D->chinese_date( ( (this_player()->query( "xkd/time" ) - 950000000 ) * 60 ) ) + "前恭候大駕。\n"NOR;
   	this_object()->set( "long", long_msg );
 	return 1;
 }

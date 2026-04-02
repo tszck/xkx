@@ -9,7 +9,7 @@ void create()
 	set_name("腹蛇", ({ "snake", "fushe" }) );
 	set("race", "爬蛇");
 	set("age", 10);
-	set("long", "一条身形粗壮的腹蛇，奇毒无比。\n");
+	set("long", "一條身形粗壯的腹蛇，奇毒無比。\n");
 	set("attitude", "peaceful");
 
 	set("str", 33);

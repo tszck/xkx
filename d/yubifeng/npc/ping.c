@@ -8,7 +8,7 @@ void create()
 	set_name("平阿四", ({ "ping asi", "asi", "ping" }) );
 	set("gender", "男性");
 	set("age", 53);
-	set("long","他是雪山飞狐的家仆。一生跟随胡一刀父子。\n");
+	set("long","他是雪山飛狐的家僕。一生跟隨胡一刀父子。\n");
 	set("attitude", "friendly");
 	set("str", 15);
 	set("int", 15);

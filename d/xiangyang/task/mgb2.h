@@ -6,7 +6,7 @@ int accept_hit(object who)
 	object me = this_object();
 	if (me->query("ygjg")==who) return 1;
 	else 	if (me->query("ygjg"))
-	  return notify_fail(CYN"想对付"HIR"蒙古兵"CYN"？快去找郭靖大侠，他会安排你来守城的！\n"NOR);
+	  return notify_fail(CYN"想對付"HIR"蒙古兵"CYN"？快去找郭靖大俠，他會安排你來守城的！\n"NOR);
 	return 1;
 }
 int accept_fight(object who)	{return accept_hit(who);}

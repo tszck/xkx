@@ -9,11 +9,11 @@ void create()
 	set_name("岑其斯", ({ "cen qisi", "cen" }));
 	set("nickname", HIG "五毒秀士" NOR);
 	set("long",@LONG
-他就是五毒教的右护法，人称五毒秀士的岑其斯。经常装扮成一个
-白衣秀士的模样，没事总爱附庸风雅。
+他就是五毒教的右護法，人稱五毒秀士的岑其斯。經常裝扮成一個
+白衣秀士的模樣，沒事總愛附庸風雅。
 LONG
 	);
-	set("title","五毒教护法");
+	set("title","五毒教護法");
 	set("gender", "男性");
 	set("class", "shaman");
 	set("age", 38);
@@ -67,7 +67,7 @@ LONG
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("五毒教", 12, "护法");
+	create_family("五毒教", 12, "護法");
 
 	setup();
 	carry_object("/d/wudujiao/npc/obj/ganggou")->wield();
@@ -80,40 +80,40 @@ LONG
 void attempt_apprentice(object ob)
 {
 
-	if ((string)ob->query("gender") == "无性")
+	if ((string)ob->query("gender") == "無性")
 	{
-		command("say 这位公公不要开玩笑了。");
-		command("say 这位"+RANK_D->query_respect(ob)+"还是快去伺候皇上吧！\n");
+		command("say 這位公公不要開玩笑了。");
+		command("say 這位"+RANK_D->query_respect(ob)+"還是快去伺候皇上吧！\n");
 		return;
 	}
 
 	if ((int)ob->query("shen") > -5000)
 	{
-		command("say 做我五毒教弟子必须心狠手辣。");
-		command("say 这位"+RANK_D->query_respect(ob)+"心慈手软，可惜与我教没有缘分啊！\n");
+		command("say 做我五毒教弟子必須心狠手辣。");
+		command("say 這位"+RANK_D->query_respect(ob)+"心慈手軟，可惜與我教沒有緣分啊！\n");
 		return;
 	}
 
 	if ((string)ob->query("family/family_name") != "五毒教")
 	{
-		command("say 这位" + RANK_D->query_respect(ob) + "不是本教弟子，还是请回吧！\n");
+		command("say 這位" + RANK_D->query_respect(ob) + "不是本教弟子，還是請回吧！\n");
 		return;
 	}
 
 	if ((int)ob->query_skill("five-poison", 1) < 60)
 	{
-		command("say 我五毒教弟子以毒杀人，修习毒技是首要的。");
-		command("say 这位" + RANK_D->query_respect(ob)+"是否还应该多多钻研本门的绝学？\n");
+		command("say 我五毒教弟子以毒殺人，修習毒技是首要的。");
+		command("say 這位" + RANK_D->query_respect(ob)+"是否還應該多多鑽研本門的絕學？\n");
 		return;
 	}
 	if ((int)ob->query_skill("wudu-shengong", 1) < 60)
 	{
-		command("say 你的五毒神功还学的不够啊。");
+		command("say 你的五毒神功還學的不夠啊。");
 		return;
 	}
 
 //	command("chat 嘿嘿嘿嘿！！！！！");
-//	command("chat 该当我五毒教发扬光大，称霸武林指日可待了。");
+//	command("chat 該當我五毒教發揚光大，稱霸武林指日可待了。");
 //	command("chat 嘿嘿嘿嘿！！！！！");
 	command("recruit " + ob->query("id"));
 	ob->set("title",HIY"五毒教弟子"NOR);

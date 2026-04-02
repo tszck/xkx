@@ -11,14 +11,14 @@ void create()
         else {
                 set("unit", "支");
                 set("long", 
-"一支翠绿的羽毛。\n");
+"一支翠綠的羽毛。\n");
                 set("value", 800);
                 set("material", "plant");
                 set_weight(10);
                 set("armor_prop/armor", 10);
                 set("armor_prop/personality", 3);
-                set("wear_msg", "$N轻轻地把一朵$n戴在头上。\n");
-                set("unequip_msg", "$N轻轻地把$n从头上摘了下来。\n");
+                set("wear_msg", "$N輕輕地把一朵$n戴在頭上。\n");
+                set("unequip_msg", "$N輕輕地把$n從頭上摘了下來。\n");
         }
         setup();
 }

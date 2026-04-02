@@ -12,9 +12,9 @@ void create()
 {
 	set("short", "三清殿");
 	set("long", @LONG
-这里是凌霄宫的三清殿，是武当派会客的地点。供着元始天尊、太
-上道君和天上老君的神像，香案(an)上香烟缭绕。靠墙放着几张太师椅，
-地上放着几个蒲团。东西两侧是走廊，北边是练武的广场，南边是后院。
+這裏是凌霄宮的三清殿，是武當派會客的地點。供着元始天尊、太
+上道君和天上老君的神像，香案(an)上香菸繚繞。靠牆放着幾張太師椅，
+地上放着幾個蒲團。東西兩側是走廊，北邊是練武的廣場，南邊是後院。
 LONG );
 	set("valid_startroom", 1);
 	set("exits", ([
@@ -85,16 +85,16 @@ string look_an()
 	switch (burnt)
 	{
 		case 0:
-			return(HIC"香案上供奉着新上的香火，芬芳满堂。\n"NOR);
+			return(HIC"香案上供奉着新上的香火，芬芳滿堂。\n"NOR);
 			break;
 		case 1:
-			return(HIC"香案上香烟缭绕，香火烧得正旺。\n"NOR);
+			return(HIC"香案上香菸繚繞，香火燒得正旺。\n"NOR);
 			break;
 		case 2:
-			return(HIC"香案上的香火已经烧了大半，几缕余烟，奄奄欲息。\n"NOR);
+			return(HIC"香案上的香火已經燒了大半，幾縷餘煙，奄奄欲息。\n"NOR);
 			break;
 		default:
-			return(HIY"香案上只剩下一堆烟灰，等着有人敬(jing)奉香火！！\n"NOR);
+			return(HIY"香案上只剩下一堆菸灰，等着有人敬(jing)奉香火！！\n"NOR);
 			break;
 	}
 }  // end of look_an
@@ -112,9 +112,9 @@ int do_jing(string arg)
 	object obj, me;
 	
 	if( !objectp(me = this_player()) ) return 0;	
-	if( !arg ) return notify_fail("你要敬什么？\n");  
+	if( !arg ) return notify_fail("你要敬什麼？\n");  
 	if( !objectp(obj = present(arg, me)) )
-		return notify_fail("你身上没有这样东西。\n");
+		return notify_fail("你身上沒有這樣東西。\n");
 	if ( obj->query("id") != "incense" ||
 		obj->is_character() ) return notify_fail("只能敬香！\n");  
 

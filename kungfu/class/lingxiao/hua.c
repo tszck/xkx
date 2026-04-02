@@ -7,11 +7,11 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("花万紫",({"hua wanzi","hua","wanzi"}));
-	set("nickname", HIW"寒梅女侠"NOR);
+	set_name("花萬紫",({"hua wanzi","hua","wanzi"}));
+	set("nickname", HIW"寒梅女俠"NOR);
 	set("gender", "女性");
 	set("age", 20);
-	set("long", "她是凌霄城第六代弟子花万紫。\n");
+	set("long", "她是凌霄城第六代弟子花萬紫。\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);
@@ -68,12 +68,12 @@ void attempt_apprentice(object ob)
 {
 	if (ob->query_int() < 20)
 	{
-		command("say 你这种资质,不宜学剑！");
+		command("say 你這種資質,不宜學劍！");
 		return;
 	}
 	if( (string)ob->query("gender") != "女性" )
 	{
-		command("say 这位"+RANK_D->query_respect(ob)+"我不收男徒的，你还是去找我师兄们吧。");
+		command("say 這位"+RANK_D->query_respect(ob)+"我不收男徒的，你還是去找我師兄們吧。");
 		return;
 	}
 	command("say 很好，很好。");

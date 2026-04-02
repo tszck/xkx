@@ -11,8 +11,8 @@ void create()
 	set("gender", "女性" );
 	set("age", 14+random(3));
 	set("long",
-	"这是个年龄不大的小丫鬟，但宽松的衣服也遮不住她过早发育的身体。\n"
-	"一脸聪明乖巧，满口伶牙俐齿。见有人稍微示意，便过去加茶倒水。\n");
+	"這是個年齡不大的小丫鬟，但寬鬆的衣服也遮不住她過早發育的身體。\n"
+	"一臉聰明乖巧，滿口伶牙俐齒。見有人稍微示意，便過去加茶倒水。\n");
 	set("attitude", "friendly");
 	set("shen_type", 1);
 
@@ -36,7 +36,7 @@ void create()
 	set_temp("apply/attack", 10);
 	set_temp("apply/defense", 15);
 	set_temp("apply/damage", 3);
-	create_family("姑苏慕容", 34, "弟子");
+	create_family("姑蘇慕容", 34, "弟子");
 
 	setup();
 }
@@ -58,8 +58,8 @@ void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
 
-	say("素素笑吟吟地说道：这位" + RANK_D->query_respect(ob)
-	     + "请先入座，" + "我这就给您上茶。\n");
+	say("素素笑吟吟地說道：這位" + RANK_D->query_respect(ob)
+	     + "請先入座，" + "我這就給您上茶。\n");
 }
 
 
@@ -76,11 +76,11 @@ void serve_tea(object who)
 
 	obn = new("/d/yanziwu/obj/cha");
 	obn->move(room);
-	message_vision("素素拿出一个小茶壶，沏上一杯香浓的碧螺春．\n",who);
+	message_vision("素素拿出一個小茶壺，沏上一杯香濃的碧螺春．\n",who);
 
 	obn = new("/d/yanziwu/obj/gao");
 	obn->move(room);
-	message_vision("素素拿出一碟精致的四色点心，放在桌上．\n", who);
+	message_vision("素素拿出一碟精緻的四色點心，放在桌上．\n", who);
 
 	return;
 }

@@ -6,7 +6,7 @@ int do_copy(object me,int maxpot,int type);
 
 void create()
 {
-	set_name("蒙古大汉", ({ "menggu dahan","dahan"}));
+	set_name("蒙古大漢", ({ "menggu dahan","dahan"}));
 	set("gender", "男性");
 	seteuid(getuid());
 	set("age", random(20) + 25);

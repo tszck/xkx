@@ -13,7 +13,7 @@ mapping *sign=({
 		"value": 200,
 		"time" : 20
 	]),
-	([	"name" : "扬州",
+	([	"name" : "揚州",
 		"id"   : "yz",
 		"file" : "/d/city/matou",
 		"value": 100,
@@ -30,18 +30,18 @@ mapping *sign=({
 void create()
 {
 	::create();
-	set("short", "运河");
+	set("short", "運河");
 	set("long", @long
-这里是古老的运河的桥头边，只见这条运河(river) 蜿蜒流淌，从
-苏州城里穿过。运河的两岸都是苏州的寻常百姓家，在苏州的城里出门
-最好的交通工具就是船了。只见进处有一位老船夫，见你走过来，起身
-向你迎来，手上挂着一个竹牌(sign)。
+這裏是古老的運河的橋頭邊，只見這條運河(river) 蜿蜒流淌，從
+蘇州城裏穿過。運河的兩岸都是蘇州的尋常百姓家，在蘇州的城裏出門
+最好的交通工具就是船了。只見進處有一位老船伕，見你走過來，起身
+向你迎來，手上掛着一個竹牌(sign)。
 long);
 	set("exits",([
 		"southeast" : __DIR__"xidajie1",
 	]));
 	set("item_desc", ([
-		"river" : "近岸处有一叶小舟，也许喊(yell)一声船家就能听见。\n",
+		"river" : "近岸處有一葉小舟，也許喊(yell)一聲船家就能聽見。\n",
 		"sign" : (: look_sign :)
 	]));
 	set("coor/x", 830);
@@ -50,25 +50,25 @@ long);
 	set("outdoors", "suzhou");
 	set("no_clean_up", 0);
   set("yell_about", "船家");             // yell 船家
-  set("river_type", "湖");               // 江面上传来回响
-  set("need_dodge",300);                 // 需要多少轻功
-  set("come_msg_out",   "一叶扁舟缓缓地驶了过来，采莲女将一块踏脚板搭上堤岸，以便乘客上下。\n");
-  set("busy_msg",       "只听得河面不远处隐隐传来：“别急嘛，这儿正忙着呐……”\n");
-  set("wait_msg",       "岸边一只渡船上的采莲女说道：正等着你呢，上来吧。\n");
-  set("leave_msg_out",  "采莲女把踏脚板收了起来，竹篙一点，扁舟向运河驶去。\n");
-  set("leave_msg_in",   "采莲女把踏脚板收起来，说了一声“坐稳喽”，竹篙一点，扁舟向运河驶去。\n");
-  set("come_msg_in",    "采莲女说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。\n");
-  set("item_desc/river", HIC "\n只见近岸处有一叶小舟，也许大声喊("
-                         HIY "yell" HIC ")一声船家(" HIY "boat" HIC
-                        ")就\n能听见。倘若你自负轻功绝佳,也可直接"
-                        "渡水(" HIY "cross" HIC ")踏水而过。\n" NOR);
+  set("river_type", "湖");               // 江面上傳來回響
+  set("need_dodge",300);                 // 需要多少輕功
+  set("come_msg_out",   "一葉扁舟緩緩地駛了過來，採蓮女將一塊踏腳板搭上堤岸，以便乘客上下。\n");
+  set("busy_msg",       "只聽得河面不遠處隱隱傳來：“別急嘛，這兒正忙着吶……”\n");
+  set("wait_msg",       "岸邊一隻渡船上的採蓮女說道：正等着你呢，上來吧。\n");
+  set("leave_msg_out",  "採蓮女把踏腳板收了起來，竹篙一點，扁舟向運河駛去。\n");
+  set("leave_msg_in",   "採蓮女把踏腳板收起來，說了一聲“坐穩嘍”，竹篙一點，扁舟向運河駛去。\n");
+  set("come_msg_in",    "採蓮女說“到啦，上岸吧”，隨即把一塊踏腳板搭上堤岸。\n");
+  set("item_desc/river", HIC "\n只見近岸處有一葉小舟，也許大聲喊("
+                         HIY "yell" HIC ")一聲船家(" HIY "boat" HIC
+                        ")就\n能聽見。倘若你自負輕功絕佳,也可直接"
+                        "渡水(" HIY "cross" HIC ")踏水而過。\n" NOR);
   set("boat_short", "渡船");    
   set("boat_desc",  @LONG
-一叶小舟，最多也就能载七、八个人。一名十多岁的采莲小姑娘手
-持长竹篙，正在船尾轻轻地荡舟。
+一葉小舟，最多也就能載七、八個人。一名十多歲的採蓮小姑娘手
+持長竹篙，正在船尾輕輕地盪舟。
 LONG );
                                    // 渡船上的描述
-  set("to",         __DIR__"huzhongdao");  // 船的终点 /*   必选   */
+  set("to",         __DIR__"huzhongdao");  // 船的終點 /*   必選   */
 	setup();
 }
 
@@ -83,9 +83,9 @@ void do_move(object ob, int i)
 //	ob->enable_player();
 	ob->delete_temp("noliving");
 	ob->delete_temp("block_msg/all");
-	tell_object(ob, "终点站到了。\n");
+	tell_object(ob, "終點站到了。\n");
 	ob->move(sign[i]["file"]);
-	tell_room(environment(ob), ob->name() + "从船上走了下来。\n", ({ob}));
+	tell_room(environment(ob), ob->name() + "從船上走了下來。\n", ({ob}));
 }
 
 int do_go(string arg)
@@ -103,9 +103,9 @@ int do_go(string arg)
 			switch (MONEY_D->player_pay(ob, sign[i]["value"]))
 			{
 				case 0:
-					return notify_fail("穷光蛋，一边呆着去！\n");
+					return notify_fail("窮光蛋，一邊待著去！\n");
 				case 2:
-					return notify_fail("有零钱吗？\n");
+					return notify_fail("有零錢嗎？\n");
 			}
 			message_vision("$N登上了去" + sign[i]["name"] + "的船。\n", ob);
 //			ob->disable_player("<旅途中>");
@@ -116,11 +116,11 @@ int do_go(string arg)
 			return 1;
 		}
 	}
-	return notify_fail("你要去哪里？\n");
+	return notify_fail("你要去哪裏？\n");
 }
 string look_sign()
 {
-	string str="由此去(qu)到下列码头：\n";
+	string str="由此去(qu)到下列碼頭：\n";
 	int i=sizeof(sign);
 
 	while (i--)

@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "古龙桥");
+	set("short", "古龍橋");
 	set("long", @LONG
-你走在古龙桥上。望见岩壁上一个大裂槽。宽二十余丈深，深
-达六、七丈，传说是张天师降魔时以笔划山而过的仙家痕迹。
+你走在古龍橋上。望見巖壁上一個大裂槽。寬二十餘丈深，深
+達六、七丈，傳說是張天師降魔時以筆劃山而過的仙家痕跡。
 LONG );
         set("outdoors","qingcheng");
 	set("exits", ([

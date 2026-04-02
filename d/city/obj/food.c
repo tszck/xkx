@@ -10,8 +10,8 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "还没定义，给下层调用。\n");
-		set("unit", "盘");
+		set("long", "還沒定義，給下層調用。\n");
+		set("unit", "盤");
 		set("value", 40);
 //		set("no_get", "1");
 		set("food_remaining", 5);

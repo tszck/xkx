@@ -5,7 +5,7 @@ inherit EQUIP;
 void create()
 {
         set_name("青布袍", ({ "bupao","pao", }) );
-        set("long","这是一件质地上佳的青衣。\n");
+        set("long","這是一件質地上佳的青衣。\n");
         set_weight(1000);
         if( clonep() )
                 set_default_object(__FILE__);

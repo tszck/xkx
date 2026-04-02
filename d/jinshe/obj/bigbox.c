@@ -4,11 +4,11 @@ inherit ITEM;
 
 void create()
 {
-	set_name("大铁盒", ({"big box", "box"}));
+	set_name("大鐵盒", ({"big box", "box"}));
 	set("long",
-"这盒子高约一尺，然而入手轻飘飘地，似乎盒里并没藏着甚么
-东西。打开盒盖，那盒子竟浅得出奇，离底仅只一寸，一只尺
-来高的盒子，怎地盒里却这般浅？料得必有夹层。\n");
+"這盒子高約一尺，然而入手輕飄飄地，似乎盒裏並沒藏着甚麼
+東西。打開盒蓋，那盒子竟淺得出奇，離底僅只一寸，一隻尺
+來高的盒子，怎地盒裏卻這般淺？料得必有夾層。\n");
 	set("unit", "只");
 	set("open_count", 1);
 	set("weight", 2000);
@@ -24,9 +24,9 @@ int do_open()
 	if (query("open_count") > 0)
 	{
 		add("open_count", -1);
-	        message_vision(HIR "$N伸手打开铁盒，只见眼前黑影骤起，原来盒里是毒箭！\n" NOR, this_player());
+	        message_vision(HIR "$N伸手打開鐵盒，只見眼前黑影驟起，原來盒裏是毒箭！\n" NOR, this_player());
         	this_player()->die();
 	}
-	else return notify_fail("铁盒早被别人打开了。\n");
+	else return notify_fail("鐵盒早被別人打開了。\n");
         return 1;
 }

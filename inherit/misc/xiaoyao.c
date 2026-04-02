@@ -13,7 +13,7 @@ string fam_type(object ob)
 		return "lingjiu";
 	}
 	if (!ob->query("family") || 
-	ob->query("family/family_name")!="逍遥派")	return 0;
+	ob->query("family/family_name")!="逍遙派")	return 0;
 	if (!objectp(weapon= ob->query_temp("weapon")))
 	{
 		if (ob->query_skill_mapped("hand")=="zhemei-shou"

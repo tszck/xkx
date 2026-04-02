@@ -10,17 +10,17 @@ void create()
 {
         set("short", "瀑布");
         set("long", @LONG
-你猛听得水声响亮，轰轰隆隆，便如潮水大至一般，抬头一看，
-只见一条大瀑布(pubu)，犹如银河倒悬，从高崖上直泻下来下面是万
-丈悬崖(xuanya)，云雾弥漫，望不到尽头!!!
+你猛聽得水聲響亮，轟轟隆隆，便如潮水大至一般，抬頭一看，
+只見一條大瀑布(pubu)，猶如銀河倒懸，從高崖上直瀉下來下面是萬
+丈懸崖(xuanya)，雲霧瀰漫，望不到盡頭!!!
 LONG  );
         set("exits", ([ /* sizeof() == 3 */
                 "northdown" : __DIR__"road4",
         ]));
         set("outdoors", "xiakedao");
         set("item_desc",([
-            "pubu"   : "你仔细一看，瀑布里面好象有出口，你似乎可以跳(jump)进去。\n",
-            "xuanya" : "下面弥漫着烟雾，什么也看不见，你可不要跳(plump)下去呀！\n",
+            "pubu"   : "你仔細一看，瀑布裏面好象有出口，你似乎可以跳(jump)進去。\n",
+            "xuanya" : "下面瀰漫着煙霧，什麼也看不見，你可不要跳(plump)下去呀！\n",
         ]) );
         set("no_clean_up", 0);
 	set("coor/x", -3000);
@@ -40,22 +40,22 @@ int do_jump(string arg)
         n = this_player()->query_skill("dodge",1);
         if( !arg || arg!= "pubu" )
           {
-          write("不要在这里乱跳!\n");
+          write("不要在這裏亂跳!\n");
           return 1;
         }
-message_vision("$N在瀑布前站定，深呼一口气，突然跃起。\n", this_player());
+message_vision("$N在瀑布前站定，深呼一口氣，突然躍起。\n", this_player());
         if(n >=80)
         {
-message_vision("只见$N脚尖一点地，身子轻飘飘的跃进瀑布之中。\n", this_player());
+message_vision("只見$N腳尖一點地，身子輕飄飄的躍進瀑布之中。\n", this_player());
             this_player()->move(__DIR__"yongdao1");
         }
         else if(n >=50)
         {
-message_vision("只见$N使出全身的力量，身子再空中摇摇惶惶，终于落在瀑布里面。\n", this_player());
+message_vision("只見$N使出全身的力量，身子再空中搖搖惶惶，終於落在瀑布裏面。\n", this_player());
            this_player()->move(__DIR__"yongdao1");
         }
         else
-        message_vision("只见$N高高跃起，还差很远呢! \n", this_player());
+        message_vision("只見$N高高躍起，還差很遠呢! \n", this_player());
         return 1;
 
 }
@@ -69,11 +69,11 @@ int do_plump(string arg)
         if ( new_gin > ob->query("gin") ) new_gin = ob->query("gin") + 1;
         if( !arg || arg!= "down")
         {
-            write("你要跳什么呀? \n");
+            write("你要跳什麼呀? \n");
             return 1;
         }
-        tell_object(ob,HIR"你不加思索，纵身跳下了悬崖。\n"NOR);
-        message("visoin",NOR"只见" + ob->query("name") + "纵身跳下了悬崖。\n"NOR,environment(ob), ob);
+        tell_object(ob,HIR"你不加思索，縱身跳下了懸崖。\n"NOR);
+        message("visoin",NOR"只見" + ob->query("name") + "縱身跳下了懸崖。\n"NOR,environment(ob), ob);
         if((random((int)ob->query("kar")) <15 ) && ((int)ob->query_skill("dodge",1) < 30) )
         {
             ob->die();

@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "有所不为轩");
+	set("short", "有所不爲軒");
 	set("long", @LONG
-这是华山掌门岳不群的居所「有所不为轩」，此处是前厅，厅上挂
-着「正气堂」三字匾额。厅中很宽敞，却没什么摆设，靠墙放着两把交
-椅，这里是岳不群议事、授徒的地方，后面是寝室。
+這是華山掌門嶽不羣的居所「有所不爲軒」，此處是前廳，廳上掛
+着「正氣堂」三字匾額。廳中很寬敞，卻沒什麼擺設，靠牆放着兩把交
+椅，這裏是嶽不羣議事、授徒的地方，後面是寢室。
 LONG );
 	set("exits", ([ /* sizeof() == 2 */
 		"north" : __DIR__"buwei2",
@@ -31,9 +31,9 @@ int valid_leave(object me, string dir)
 {
 	mapping myfam;
 	myfam=(mapping)me->query("family");
-	if ((!myfam ||myfam["family_name"] != "华山派") && dir == "north" &&
+	if ((!myfam ||myfam["family_name"] != "華山派") && dir == "north" &&
 		objectp(present("lu dayou", environment(me))))
-		return notify_fail("陆大有喝道：后面是家师寝室，这位" + RANK_D->query_respect(me) + "请止步。\n");
+		return notify_fail("陸大有喝道：後面是家師寢室，這位" + RANK_D->query_respect(me) + "請止步。\n");
 	return ::valid_leave(me, dir);
 }
  

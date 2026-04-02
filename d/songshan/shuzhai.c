@@ -15,10 +15,10 @@ string *book = ({
 
 void create()
 {
-	set("short","书斋");
+	set("short","書齋");
 	set("long",@LONG
-这里是嵩山派的书斋，靠墙是一排书架，上面整整齐齐码着一排排
-书，大略看去各派武籍都有。南侧靠窗处有张书桌，桌上四宝俱备。
+這裏是嵩山派的書齋，靠牆是一排書架，上面整整齊齊碼着一排排
+書，大略看去各派武籍都有。南側靠窗處有張書桌，桌上四寶俱備。
 LONG);
 	set("exits",([
 		"north" : __DIR__"eastting",
@@ -42,10 +42,10 @@ int do_get()
 	{
 		ob=new(book[random(5)]);
 		ob->move(me);
-		message_vision(HIY"$N在书架上翻来翻去翻了半天，取下一本"+ob->query("name")+HIY"来。\n"NOR,me);
+		message_vision(HIY"$N在書架上翻來翻去翻了半天，取下一本"+ob->query("name")+HIY"來。\n"NOR,me);
 		add("book_count", -1);
 	}
 	else 
-		message_vision("$N在书架上翻来翻去翻了半天，也不知道在找啥。\n",me);
+		message_vision("$N在書架上翻來翻去翻了半天，也不知道在找啥。\n",me);
 	return 1;
 }

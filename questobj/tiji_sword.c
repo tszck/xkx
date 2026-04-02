@@ -15,8 +15,8 @@ void create()
 		set("unit", "柄");
 		set("value", 0);
 		set("material", "steel");
-		set("wield_msg", "$N往腰中一带，抽出了一口$n握在手中。\n");
-		set("unwield_msg", "$N手中$n迎风一抖，眨眼间已然不见影踪。\n");
+		set("wield_msg", "$N往腰中一帶，抽出了一口$n握在手中。\n");
+		set("unwield_msg", "$N手中$n迎風一抖，眨眼間已然不見影蹤。\n");
 	}
 	setup();
 }

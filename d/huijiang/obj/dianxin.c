@@ -6,12 +6,12 @@ inherit F_FOOD;
 
 void create()
 {
-	set_name("点心", ({"dian xin", "dianxin"}));
+	set_name("點心", ({"dian xin", "dianxin"}));
 	set_weight(40);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一碟香喷喷的点心，还冒着热气.\n");
+		set("long", "一碟香噴噴的點心，還冒着熱氣.\n");
 		set("unit", "碟");
 		set("value", 80);
 		set("food_remaining", 4);

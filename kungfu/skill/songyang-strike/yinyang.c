@@ -3,7 +3,7 @@
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "阴阳掌"
+#define PNAME "陰陽掌"
 int perform(object me, object target)
 {
 	string msg;
@@ -18,17 +18,17 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if ( me->query_temp("weapon"))
-		return notify_fail("你只能空手出绝招。\n");
+		return notify_fail("你只能空手出絕招。\n");
 
 	fskill = "hanbing-zhenqi";
 	bskill = "strike";
@@ -42,19 +42,19 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query("max_neili")< 600 )
-		return notify_fail("你的内力修为不够。\n"); 
+		return notify_fail("你的內力修爲不夠。\n"); 
 
 	if( (int)me->query("neili")< 400 )
-		return notify_fail("你的内力不够。\n"); 
+		return notify_fail("你的內力不夠。\n"); 
 
 	skill = me->query_skill(bskill, 1);
-	msg = HIY"使出大嵩阳掌的绝技「阴阳掌」，双掌远远一推一拉，$n顿觉一股\n"HIB"寒气"HIY"袭上身来，登时机伶伶打了个冷战。$n只一呆，一股"HIR"炙热的掌风"HIY"跟着扑到，击得$n几乎窒息，身子晃了几晃。\n";
+	msg = HIY"使出大嵩陽掌的絕技「陰陽掌」，雙掌遠遠一推一拉，$n頓覺一股\n"HIB"寒氣"HIY"襲上身來，登時機伶伶打了個冷戰。$n只一呆，一股"HIR"炙熱的掌風"HIY"跟着撲到，擊得$n幾乎窒息，身子晃了幾晃。\n";
 
 	damage = me->query("jiali") * 3 + 100;
 
@@ -62,7 +62,7 @@ int perform(object me, object target)
 	{
 	  if( me->query("jiali") * 10 > (int)target->query("neili") ) 
 	  {
-			msg += HIR"掌力击在$n胸口，打得$n身子飞了出去。\n"NOR;
+			msg += HIR"掌力擊在$n胸口，打得$n身子飛了出去。\n"NOR;
 			target->receive_damage("qi", damage,me);
 			target->receive_damage("jing", damage,me);
 			me->start_busy(1);
@@ -70,7 +70,7 @@ int perform(object me, object target)
 	  } 
 	  else
 	  {
-			msg += HIB"这一阴一阳两股掌力打在$n身上，$n体内真气自然而然生出相应之力，护住心脉内脏，不受损伤。但霎时间全身剧震，说不出的难受。\n"NOR;
+			msg += HIB"這一陰一陽兩股掌力打在$n身上，$n體內真氣自然而然生出相應之力，護住心脈內臟，不受損傷。但霎時間全身劇震，說不出的難受。\n"NOR;
 			target->receive_damage("qi", (int)(damage/2),me);
 			target->receive_damage("jing", damage,me);
 			me->start_busy(2);
@@ -79,7 +79,7 @@ int perform(object me, object target)
 	}
 	else 
 	  {     
-	  	msg+=HIG "结果$p看破了$P的企图，身行后跃，避开了$P的掌力。\n" NOR;
+	  	msg+=HIG "結果$p看破了$P的企圖，身行後躍，避開了$P的掌力。\n" NOR;
 	        me->start_busy(3);
  	        me->add("neili", -200);
           }
@@ -95,13 +95,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损害敌手气血
+		損害敵手氣血
 
 	出手要求：
-		寒冰真气120级
-		大嵩阳掌120级
-		内力修为600
-		内力400
+		寒冰真氣120級
+		大嵩陽掌120級
+		內力修爲600
+		內力400
 HELP
 	);
 	return 1;

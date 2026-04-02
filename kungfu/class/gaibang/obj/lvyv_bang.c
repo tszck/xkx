@@ -6,7 +6,7 @@ inherit STICK;
 
 void create()
 {
-	set_name("绿玉棒", ({"lvyv bang", "zhu", "stick"}));
+	set_name("綠玉棒", ({"lvyv bang", "zhu", "stick"}));
 	set_weight(5000);
 
 	if (clonep())
@@ -16,7 +16,7 @@ void create()
 		set("long", "一根泛着淡淡青光的竹棒。\n");
 		set("value", 10000);
 		set("material", "bamboo");
-		set("wield_msg", "$N抽出一根青光闪闪的竹棒抓在手中。\n");
+		set("wield_msg", "$N抽出一根青光閃閃的竹棒抓在手中。\n");
 		set("unwield_msg", "$N把手中的玉竹杖插回腰中。\n");
 	}
 	init_stick(30);

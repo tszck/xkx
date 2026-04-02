@@ -1,9 +1,9 @@
-// emei.c 事件：长白山天池流星
+// emei.c 事件：長白山天池流星
 // for XKX100 , by Sir 2003.11.3
 
 #include <ansi.h>
 
-// 奖励
+// 獎勵
 private void do_bonus(object room)
 {
         object *obs;
@@ -18,15 +18,15 @@ private void do_bonus(object room)
         r = random(365);
         if (r == 0)
         {
-        	msg = HIW "【自然奇观】天池流星雨\n"NOR;
-                msg += HIC "只听天空骤然传来一阵刺耳的摩擦声，你仰望上苍，发现穹苍里已豁然出现\n"
-                           "无数颗流星。夜陨如雨飞坠，锋芒划空，尔落入天池之中，又再激起万股七\n"
-                           "色浪涛，漆黑夜穹竟犹如白昼一般。你不禁感叹，大自然之威，当真神鬼莫\n"
-                           "测。\n" NOR;
+        	msg = HIW "【自然奇觀】天池流星雨\n"NOR;
+                msg += HIC "只聽天空驟然傳來一陣刺耳的摩擦聲，你仰望上蒼，發現穹蒼裏已豁然出現\n"
+                           "無數顆流星。夜隕如雨飛墜，鋒芒劃空，爾落入天池之中，又再激起萬股七\n"
+                           "色浪濤，漆黑夜穹竟猶如白晝一般。你不禁感嘆，大自然之威，當真神鬼莫\n"
+                           "測。\n" NOR;
 
-                msg += HIG "你仔细的观察了流星雨的全过程，发现其中竟有很多奥秘可以融于武学。\n" NOR;
+                msg += HIG "你仔細的觀察了流星雨的全過程，發現其中竟有很多奧祕可以融於武學。\n" NOR;
                 
-                for ( i = 0 ; i < sizeof(obs); i++)  // 增加潜能基本轻功基本暗器
+                for ( i = 0 ; i < sizeof(obs); i++)  // 增加潛能基本輕功基本暗器
                 {
                 	if( !living(obs[i]) || !userp(obs[i]) ) continue;                
 			p_bonus = 5000 + random( 5000 );
@@ -49,15 +49,15 @@ private void do_bonus(object room)
                 
                 
                 message("vision", msg, obs);
-                message("channel:rumor", HIM"【谣言】"+"听说长白山天池上夜空竟现流星雨，五彩缤纷，煞为壮观。\n"NOR, users());
+                message("channel:rumor", HIM"【謠言】"+"聽說長白山天池上夜空竟現流星雨，五彩繽紛，煞爲壯觀。\n"NOR, users());
         } else
         if (r < 40)
         {
-        	msg = HIW "【自然奇观】夜空流星\n"NOR;
-                msg += HIC "只听远处一阵刺耳的摩擦声，举目望去，发现竟有流星从天边划过，怎奈距\n"
-                          "隔委实太远，根本无法看清。\n" NOR;
+        	msg = HIW "【自然奇觀】夜空流星\n"NOR;
+                msg += HIC "只聽遠處一陣刺耳的摩擦聲，舉目望去，發現竟有流星從天邊劃過，怎奈距\n"
+                          "隔委實太遠，根本無法看清。\n" NOR;
 
-                msg += HIG "你观罢流星，隐隐的对武学有了一丝体会。\n" NOR;
+                msg += HIG "你觀罷流星，隱隱的對武學有了一絲體會。\n" NOR;
 
                 for ( i = 0 ; i < sizeof(obs); i++)
                 {
@@ -74,24 +74,24 @@ private void do_bonus(object room)
                 switch (random(2))
                 {
                 case 0:
-                        msg = WHT "眼见天边一片明亮，知是流星雨将至，可怎奈间隔遥且云层厚，却无缘得见。\n" NOR;
+                        msg = WHT "眼見天邊一片明亮，知是流星雨將至，可怎奈間隔遙且雲層厚，卻無緣得見。\n" NOR;
                         break;
                 default:
-                        msg = WHT "眼见天边一片明亮，但是水气，雾气和云层交杂，让你什么都看不清楚。\n" NOR;
+                        msg = WHT "眼見天邊一片明亮，但是水氣，霧氣和雲層交雜，讓你什麼都看不清楚。\n" NOR;
                         break;
                 }
-                msg += HIG "你心中连叹：“太可惜了！”\n" NOR;
+                msg += HIG "你心中連嘆：“太可惜了！”\n" NOR;
 
                 message("vision", msg, obs);
         }
 }
 
-// 事件触发
+// 事件觸發
 void trigger_event()
 {
         object room;
 
-        // 长白山天池夜陨
+        // 長白山天池夜隕
         if (objectp(room = find_object("/d/guanwai/tianchi1")))
                 do_bonus(room);
 }
@@ -99,6 +99,6 @@ void trigger_event()
 void create() 
 { 
 	seteuid(getuid()); 
-	message("channel:sys", HIR"【自然奇观】长白山天池流星。\n"NOR, users());
+	message("channel:sys", HIR"【自然奇觀】長白山天池流星。\n"NOR, users());
 	trigger_event();
 }

@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIR"秘道"NOR);
+	set("short", HIR"祕道"NOR);
 	set("long", @LONG
-这条阴暗的秘道在山腹中曲折延伸，不知通往何处。前面的道路越
-来越暗，你快要看不见东西了。这里空气污浊，还夹杂着一股刺鼻的味
-道，你一走过来便觉得头脑发晕，象是中毒了。
+這條陰暗的祕道在山腹中曲折延伸，不知通往何處。前面的道路越
+來越暗，你快要看不見東西了。這裏空氣污濁，還夾雜着一股刺鼻的味
+道，你一走過來便覺得頭腦發暈，象是中毒了。
 LONG);	
 	set("objects", ([
 		__DIR__"npc/zhuye" : 1,
@@ -33,8 +33,8 @@ void init()
 	object me = this_player();
 	if (random(me->query("kar")) <15 && me->query_con() < 35)
 	{
-		tell_object(me, HIB"你忽然感到呼吸一紧，原来是这里的空气污浊、流通不畅。\n" NOR );
-		tell_room(environment(me),me->name()+"突然脸色变得极为难看，并深深地吸了口气。\n" NOR, ({ me }));
+		tell_object(me, HIB"你忽然感到呼吸一緊，原來是這裏的空氣污濁、流通不暢。\n" NOR );
+		tell_room(environment(me),me->name()+"突然臉色變得極爲難看，並深深地吸了口氣。\n" NOR, ({ me }));
 		me->add("neili", -50);
 		me->receive_wound("qi", 10);
 		me->receive_wound("jing", 20);
@@ -50,9 +50,9 @@ int do_use(string arg)
 	if( arg=="fire" )
 	{
 		write(
-"你点燃了火折，只见地上铺满了一堆堆的蛇骨，这里的毒气便
-是由这多年堆积的毒蛇尸骨所产生。由于此处空气不流通，所以
-毒素越积越多，常人已无法忍受。\n");
+"你點燃了火折，只見地上鋪滿了一堆堆的蛇骨，這裏的毒氣便
+是由這多年堆積的毒蛇屍骨所產生。由於此處空氣不流通，所以
+毒素越積越多，常人已無法忍受。\n");
 		me->set_temp("learn_poison", 1);
 		return 1;
 	}

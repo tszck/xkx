@@ -1,4 +1,4 @@
-// cangjingge.c 雪山藏经室
+// cangjingge.c 雪山藏經室
 
 inherit ROOM;
 
@@ -12,10 +12,10 @@ string* books = ({
 });
 void create()
 {
-        set("short", "雪山藏经室");
+        set("short", "雪山藏經室");
 	set("long", @LONG
-这里是雪山寺的藏经室，靠墙是一排书架，摆满了各种拳谱、书籍。
-大多是当年掌门人鸠摩智翻译的佛经和从少林寺取来的武学典籍。
+這裏是雪山寺的藏經室，靠牆是一排書架，擺滿了各種拳譜、書籍。
+大多是當年掌門人鳩摩智翻譯的佛經和從少林寺取來的武學典籍。
 LONG );
 	set("exits", ([
                 "southeast" : __DIR__"dating",

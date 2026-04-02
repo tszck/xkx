@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("穷汉", ({ "poor man", "man" }) );
+	set_name("窮漢", ({ "poor man", "man" }) );
 	set("gender", "男性" );
 	set("age", 33);
-	set("long", "一个骨瘦如柴，满脸菜色的穷汉。\n");
+	set("long", "一個骨瘦如柴，滿臉菜色的窮漢。\n");
 	set("attitude", "friendly");
 	set("combat_exp", 250);
 //      set("shen", 50);
@@ -19,8 +19,8 @@ void create()
 	setup();
 	set("chat_chance", 15);
 	set("chat_msg", ({
-"穷汉懒洋洋地打了个哈欠。\n",
-"穷汉伸手捉住了身上的虱子，骂道：老子身上没几两肉，全叫你们给咬了。 \n",
+"窮漢懶洋洋地打了個哈欠。\n",
+"窮漢伸手捉住了身上的蝨子，罵道：老子身上沒幾兩肉，全叫你們給咬了。 \n",
 		(: random_move :)
 	}) );
 	carry_object(CLOTH_DIR"cloth")->wear();

@@ -7,8 +7,8 @@ void create()
 {
         set("short", "山路");
         set("long", @LONG
-你走在衡山山路上，四望山峰错落，林壑幽深，溪泉飞瀑，云雾缭
-绕，不觉心胸大快。
+你走在衡山山路上，四望山峯錯落，林壑幽深，溪泉飛瀑，雲霧繚
+繞，不覺心胸大快。
 LONG);
         set("exits", ([ /* sizeof() == 4 */
            "southup"    : __DIR__"chidifeng",

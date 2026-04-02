@@ -12,7 +12,7 @@ int perform(object me)
 	int skill, ap, dp, wound;
 
 	if(me->query("family/master_id") != "feng qingyang")
-	   return notify_fail("你不是风清扬的弟子，不能使用绝招！\n");
+	   return notify_fail("你不是風清揚的弟子，不能使用絕招！\n");
 
 	me->clean_up_enemy();
 	target = me->select_opponent();
@@ -20,22 +20,22 @@ int perform(object me)
 	skill = me->query_skill("lonely-sword",1);
 
 	if( !(me->is_fighting() ))
-	    return notify_fail("「破掌式」只能对战斗中的对手使用。\n");
+	    return notify_fail("「破掌式」只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "sword")
-	    return notify_fail("你使用的武器不对。\n");
+	    return notify_fail("你使用的武器不對。\n");
 
 	if (objectp(weapon2 = target->query_temp("weapon")))
-	    return notify_fail("对方手里拿了武器，你用不了「破掌式」。\n");
+	    return notify_fail("對方手裏拿了武器，你用不了「破掌式」。\n");
 
 	if( skill < 70)
-	    return notify_fail("你的独孤九剑等级不够, 不能使用「破掌式」！\n");
+	    return notify_fail("你的獨孤九劍等級不夠, 不能使用「破掌式」！\n");
 
 	if( me->query("neili") < 50 )
-	    return notify_fail("你的内力不够，无法运用「破掌式」！\n");
+	    return notify_fail("你的內力不夠，無法運用「破掌式」！\n");
 
-	msg = HIC "$N使出独孤九剑之「破掌式」, 劲力聚在剑尖，企图以意使剑.\n";
+	msg = HIC "$N使出獨孤九劍之「破掌式」, 勁力聚在劍尖，企圖以意使劍.\n";
 	message_combatd(msg, me, target);
 
 	ap = me->query("combat_exp") + skill * 1000;
@@ -46,8 +46,8 @@ int perform(object me)
 	{
 	    if(userp(me))
 		 me->add("neili",-50);
-	    msg = "$N运起「破掌式」, $n顿时觉得眼前一花，手心一凉，手掌中心一
-截剑尖冒了出来。\n"NOR;
+	    msg = "$N運起「破掌式」, $n頓時覺得眼前一花，手心一涼，手掌中心一
+截劍尖冒了出來。\n"NOR;
 
 //	    wound = 60 + random(skill);
 	    wound = (int)me->query_skill("sword",1)/2 + skill;
@@ -67,7 +67,7 @@ int perform(object me)
 	{
 	    if(userp(me))
 		me->add("neili",-100);
-	    msg = "可是$n看破了$N的企图，全力防守，堪堪抵住了$N的攻势。\n"NOR;
+	    msg = "可是$n看破了$N的企圖，全力防守，堪堪抵住了$N的攻勢。\n"NOR;
 	    me->start_busy(random(3));
 	}
 	message_combatd(msg, me, target);
@@ -75,16 +75,16 @@ int perform(object me)
 }
 int help(object me)
 {
-	write(WHT"\n独孤九剑之破掌式："NOR"\n");
+	write(WHT"\n獨孤九劍之破掌式："NOR"\n");
 	write(@HELP
 
 	使用功效：
-		破解空手搏击的敌手之招数，并伤敌气血
+		破解空手搏擊的敵手之招數，並傷敵氣血
 
 	出手要求：
-		身为风清扬嫡传弟子
-		独孤九剑50级
-		内力50
+		身爲風清揚嫡傳弟子
+		獨孤九劍50級
+		內力50
 HELP
 	);
 	return 1;

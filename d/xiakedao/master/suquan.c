@@ -1,4 +1,4 @@
-// suquan.c 苏荃
+// suquan.c 蘇荃
 
 #include <ansi.h>
 inherit NPC;
@@ -9,8 +9,8 @@ int do_join(string arg);
 
 void create()
 {
-	set_name("苏荃", ({ "su-quan", "su" }));
-	set("long", "一个千娇百媚、明艳不可方物的少妇。\n");
+	set_name("蘇荃", ({ "su-quan", "su" }));
+	set("long", "一個千嬌百媚、明豔不可方物的少婦。\n");
 	set("gender", "女性");
 	set("age", 25);
 	set("attitude", "friendly");
@@ -49,10 +49,10 @@ void create()
 	map_skill("sword", "meiren-sanzhao");
 	prepare_skill("strike", "huagu-mianzhang");
 	prepare_skill("leg", "jueming-leg");
-	set("party/party_name", HIY"神龙教"NOR);
+	set("party/party_name", HIY"神龍教"NOR);
 	set("party/rank", HIR"教主夫人"NOR );
 	set("party/level", 3);
-	create_family("神龙教", 2, "弟子");
+	create_family("神龍教", 2, "弟子");
 
 	setup();
 	carry_object(WEAPON_DIR"sword/duanjian")->wield();
@@ -78,7 +78,7 @@ void greeting(object ob)
 	int i;
 
 	obj = all_inventory(environment(me));
-        command("say 横剑纯为守势，膝前膝前更不可解。");
+        command("say 橫劍純爲守勢，膝前膝前更不可解。");
 	for(i=0; i<sizeof(obj); i++)
 	{
 		if( obj[i]->query("id")=="hong-antong")

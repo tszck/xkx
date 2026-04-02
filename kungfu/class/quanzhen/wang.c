@@ -1,4 +1,4 @@
-// wang.c 王重阳
+// wang.c 王重陽
 
 #include <ansi.h>
 
@@ -12,16 +12,16 @@ string ask_duan();
 
 void create()
 {
-	set_name("王重阳", ({"wang chongyang", "wang"}));
+	set_name("王重陽", ({"wang chongyang", "wang"}));
 	set("gender", "男性");
 	set("age", 66);
 	set("class", "quanzhen");
 	set("nickname",HIW"中神通"NOR);
 	set("long",
-		"他就是全真教的开山祖师、首代掌教王重阳王真人。他白须飘\n"
-		"飘，宽袍缓袖，眉目清癯，颇有些仙风道骨的味道。他本来一\n"
-		"腔热血欲报效国家力抗金兵，可惜朝廷腐败，于是心灰意冷，\n"
-		"又从道德经中悟得了天地滋生的大道，手创全真教。\n");
+		"他就是全真教的開山祖師、首代掌教王重陽王真人。他白鬚飄\n"
+		"飄，寬袍緩袖，眉目清癯，頗有些仙風道骨的味道。他本來一\n"
+		"腔熱血欲報效國家力抗金兵，可惜朝廷腐敗，於是心灰意冷，\n"
+		"又從道德經中悟得了天地滋生的大道，手創全真教。\n");
 	set("attitude", "peaceful");
 	set("shen_type",1);
 	set("str", 45);
@@ -56,9 +56,9 @@ void create()
 
 	set_skill("array", 150);
 	set_skill("force", 200);
-	set_skill("xiantian-qigong", 200);    //先天气功
+	set_skill("xiantian-qigong", 200);    //先天氣功
 	set_skill("sword", 200);
-	set_skill("quanzhen-jian", 300);  //全真剑
+	set_skill("quanzhen-jian", 300);  //全真劍
 	set_skill("dodge", 200);
 	set_skill("jinyan-gong", 300);   //金雁功
 	set_skill("parry", 200);
@@ -66,13 +66,13 @@ void create()
 	set_skill("strike", 200);
 	set_skill("haotian-zhang", 300);    //昊天掌
 	set_skill("cuff", 200);
-	set_skill("chunyang-quan", 300);    //纯阳拳
+	set_skill("chunyang-quan", 300);    //純陽拳
 	set_skill("whip", 200);
-	set_skill("duanyun-bian", 300);    //断云鞭
+	set_skill("duanyun-bian", 300);    //斷雲鞭
 	set_skill("literate", 140);
 	set_skill("taoism", 150);
 	set_skill("finger", 200);
-	set_skill("sun-finger", 200);  //一阳指
+	set_skill("sun-finger", 200);  //一陽指
 	map_skill("force", "xiantian-qigong");
 	map_skill("sword", "quanzhen-jian");
 	map_skill("dodge", "jinyan-gong");
@@ -88,10 +88,10 @@ void create()
 
 	set("book_count",1);
 	set("inquiry", ([
-		"全真教" :  "我全真教是天下道家玄门正宗。\n",
-		"九阴真经" : (: ask_jiuyin :),
-		"一阳指" : (: ask_zhipu :),
-		"段皇爷" : (: ask_duan :),
+		"全真教" :  "我全真教是天下道家玄門正宗。\n",
+		"九陰真經" : (: ask_jiuyin :),
+		"一陽指" : (: ask_zhipu :),
+		"段皇爺" : (: ask_duan :),
 	]) );
 
 	setup();
@@ -109,38 +109,38 @@ void attempt_apprentice(object ob)
 /*
 	if (!ob->query("qixing"))
 	{
-		command("say 你要先过天罡北斗阵，再来找我学艺。");
+		command("say 你要先過天罡北斗陣，再來找我學藝。");
 		return;
 	}
 */
 	if (ob->query("class") != "quanzhen")
 	{
-		command("say 你不是玄门清修之士，所以，请回吧。");
+		command("say 你不是玄門清修之士，所以，請回吧。");
 		return;
 	}
 	if (ob->query_int() < 30)
 	{
-		command("say 你的资质不够，还是先找我那几个徒弟学习吧。");
+		command("say 你的資質不夠，還是先找我那幾個徒弟學習吧。");
 		return;
 	}
 	if ((int)ob->query_skill("xiantian-qigong",1) < 140 )
 	{
-		command("say 你的本门内功心法火候不足，难以领略更高深的武功。");
+		command("say 你的本門內功心法火候不足，難以領略更高深的武功。");
 		return;
 	}
 	if ((int)ob->query("shen")<100000)
 	{
-		command( "say 我辈武人份当行侠仗义除暴安良，你若能多为侠义之举，当能承我衣钵。\n");
+		command( "say 我輩武人份當行俠仗義除暴安良，你若能多爲俠義之舉，當能承我衣鉢。\n");
 		return;
 	}
-	command("say 好吧，依你资质，定可传我衣钵，我就收下你这个徒弟了。");
+	command("say 好吧，依你資質，定可傳我衣鉢，我就收下你這個徒弟了。");
 	command("recruit " + ob->query("id"));
 	new_name=ob->query("name");
 	if(new_name[1..1]=="志")
 	{
-		new_name=new_name[0..0]+"处"+new_name[2..2];
+		new_name=new_name[0..0]+"處"+new_name[2..2];
 		ob->set("name", new_name);
-		command("say 从今以后你的道号叫做"+new_name+ "，你现在是全真教处字辈弟子了。");
+		command("say 從今以後你的道號叫做"+new_name+ "，你現在是全真教處字輩弟子了。");
 	}
 }
 
@@ -151,11 +151,11 @@ string ask_jiuyin()
 
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "全真教")
-		return RANK_D->query_respect(this_player()) +"与本教毫无瓜葛，这话从何说起？";
+		return RANK_D->query_respect(this_player()) +"與本教毫無瓜葛，這話從何說起？";
 	if (!(lvl_force = this_player()->query_skill("force",1)) ||
 		lvl_force < 50)
-		return RANK_D->query_respect(this_player()) +"的基本内功火候如此之浅，强练真经上的上乘武功有害无益。";
-	return "九阴真经是天下武学正宗，我已交给我师弟周伯通保管，\n不过....在古墓派的石棺内，我还刻着一些图形。\n";
+		return RANK_D->query_respect(this_player()) +"的基本內功火候如此之淺，強練真經上的上乘武功有害無益。";
+	return "九陰真經是天下武學正宗，我已交給我師弟周伯通保管，\n不過....在古墓派的石棺內，我還刻着一些圖形。\n";
 }
 
 string ask_duan()
@@ -164,11 +164,11 @@ string ask_duan()
 	if(me->query_temp("tmark/指")==2)
 	{
 		me->add_temp("tmark/指",1);
-		return("段皇爷号称‘南帝’，家传的一阳指是天下最厉害的指法。\n");
+		return("段皇爺號稱‘南帝’，家傳的一陽指是天下最厲害的指法。\n");
 	}
 	else {
 		me->set_temp("tmark/指",0);
-		return("你问段皇爷做甚么，莫非想与他为难？\n");
+		return("你問段皇爺做甚麼，莫非想與他爲難？\n");
 	}
 }
 
@@ -183,13 +183,13 @@ string ask_zhipu()
 			ob=new(BOOK_DIR"sun_book");
 			ob->move(me);
 			add("book_count",-1);
-message("channel:rumor",MAG"【谣言】某人："+this_player()->query("name")+"拿了一阳指诀啦。\n"NOR, users());
-			return("好吧，你历经艰苦，意志甚坚，这本指法谱就交给你了。\n");
+message("channel:rumor",MAG"【謠言】某人："+this_player()->query("name")+"拿了一陽指訣啦。\n"NOR, users());
+			return("好吧，你歷經艱苦，意志甚堅，這本指法譜就交給你了。\n");
 		}
-		else return("你来晚了，指法谱已经被人取走了。\n");
+		else return("你來晚了，指法譜已經被人取走了。\n");
 	}
 	else {
 		me->set_temp("tmark/指",0);
-		return  RANK_D->query_respect(me) + "不是想跟我较量较量吧？\n";
+		return  RANK_D->query_respect(me) + "不是想跟我較量較量吧？\n";
 	}
 }

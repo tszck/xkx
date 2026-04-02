@@ -10,8 +10,8 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "块");
-		set("long","这是一块雪白的玉牌，触手生寒，凝人气血。\n");
+		set("unit", "塊");
+		set("long","這是一塊雪白的玉牌，觸手生寒，凝人氣血。\n");
 		set("material", "yu");
 	}
 }

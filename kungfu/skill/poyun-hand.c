@@ -1,4 +1,4 @@
-// poyun-hand.c 破云手
+// poyun-hand.c 破雲手
 // Last Modified by sir 10.23.2001
 
 #include <ansi.h>
@@ -7,31 +7,31 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N双臂一拢，左爪直攻$n下盘，右爪却挟风雷之势推向$n腰间，一虚一实，正是一招"BLU"「翻云覆雨」"NOR"",
+([	"action" : "$N雙臂一攏，左爪直攻$n下盤，右爪卻挾風雷之勢推向$n腰間，一虛一實，正是一招"BLU"「翻雲覆雨」"NOR"",
 	"lvl"    : 0,
-	"skill_name"  : "翻云覆雨"
+	"skill_name"  : "翻雲覆雨"
 ]),
-([	"action" : "$N身形陡起，如雄鹰击日般“倏”地从$n头顶越过，使一招"CYN"「排山倒海」"NOR"双手疾向$n脑后拍下",
+([	"action" : "$N身形陡起，如雄鷹擊日般“倏”地從$n頭頂越過，使一招"CYN"「排山倒海」"NOR"雙手疾向$n腦後拍下",
 	"lvl"    : 10,
 	"skill_name"  : "排山倒海"
 ]),
-([	"action" : "$N就地一滚，突然到了$n身前，使一招"MAG"「风卷残云」"NOR"，双手直拍$n小腹",
+([	"action" : "$N就地一滾，突然到了$n身前，使一招"MAG"「風捲殘雲」"NOR"，雙手直拍$n小腹",
 	"lvl"    : 20,
-	"skill_name"  : "风卷残云"
+	"skill_name"  : "風捲殘雲"
 ]),
-([	"action" : "$N左手护胸，右手凝劲后发，一招"HIC"「云过天晴」"NOR"，缓缓托向$n的$l",
+([	"action" : "$N左手護胸，右手凝勁後發，一招"HIC"「雲過天晴」"NOR"，緩緩託向$n的$l",
 	"lvl"    : 40,
-	"skill_name"  : "云过天晴"
+	"skill_name"  : "雲過天晴"
 ]),
-([	"action" : "$N微微一笑，疾速前扑，使一招"HIW"「梦幻尘缘」"NOR"，直拍$n胸前三大要穴",
+([	"action" : "$N微微一笑，疾速前撲，使一招"HIW"「夢幻塵緣」"NOR"，直拍$n胸前三大要穴",
 	"lvl"    : 60,
-	"skill_name"  : "梦幻尘缘"
+	"skill_name"  : "夢幻塵緣"
 ]),
-([	"action" : "$N身形诡异，忽左忽右，陡然转到$n身后，一招"HIR"「电光火石」"NOR"，双手直向$n咽喉插下",
+([	"action" : "$N身形詭異，忽左忽右，陡然轉到$n身後，一招"HIR"「電光火石」"NOR"，雙手直向$n咽喉插下",
 	"lvl"    : 80,
-	"skill_name"  : "电光火石"
+	"skill_name"  : "電光火石"
 ]),
-([	"action" : "$N一声长啸，身形突然拔起，使出"HIG"「如水中月」"NOR"，由半空盘旋下击，$n顿觉漫天掌影，罩向全身要穴",
+([	"action" : "$N一聲長嘯，身形突然拔起，使出"HIG"「如水中月」"NOR"，由半空盤旋下擊，$n頓覺漫天掌影，罩向全身要穴",
 	"lvl"    : 100,
 	"skill_name"  : "如水中月"
 ])
@@ -43,13 +43,13 @@ int valid_combine(string combo) { return combo=="songyang-strike"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练破云手必须空手。\n");
+		return notify_fail("練破雲手必須空手。\n");
 	if ((int)me->query_skill("hanbing-zhenqi", 1) < 10)
-		return notify_fail("你的寒冰真气火候不够，无法学破云手。\n");
+		return notify_fail("你的寒冰真氣火候不夠，無法學破雲手。\n");
 	if ((int)me->query("max_neili") < 10)
-		return notify_fail("你的内力太弱，无法学破云手。\n");
+		return notify_fail("你的內力太弱，無法學破雲手。\n");
 	if ((int)me->query("str") < 25)
-		return notify_fail("你的臂力太差，无法学破云手。\n");
+		return notify_fail("你的臂力太差，無法學破雲手。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -57,7 +57,7 @@ int practice_skill(object me)
 	if ((int)me->query("qi") < 50)
 		return notify_fail("你的精力太低了。\n");
 	if ((int)me->query("neili") < 30)
-		return notify_fail("你的内力不够练破云手。\n");
+		return notify_fail("你的內力不夠練破雲手。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -20);
 	return 1;
@@ -84,16 +84,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 20; }
@@ -108,15 +108,15 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\n破云手："NOR"\n");
+	write(HIC"\n破雲手："NOR"\n");
 	write(@HELP
 
-    破云手为嵩山派手法。可与大嵩阳掌互备。
+    破雲手爲嵩山派手法。可與大嵩陽掌互備。
 
-	学习要求：
-		寒冰真气10级
+	學習要求：
+		寒冰真氣10級
 		先天膂力25
-		内力10
+		內力10
 HELP
 	);
 	return 1;

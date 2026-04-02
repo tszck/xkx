@@ -5,10 +5,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("本参", ({ "ben can","can"}) );
+	set_name("本參", ({ "ben can","can"}) );
 	set("gender", "男性" );
-	set("long", "他身材魁伟，为本因方丈的师兄。\n" );
-	set("title", "天龙寺第十七代僧人");
+	set("long", "他身材魁偉，爲本因方丈的師兄。\n" );
+	set("title", "天龍寺第十七代僧人");
 	set("class", "bonze");
 	set("age", 49);
 	set("shen_type", 1);

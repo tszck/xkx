@@ -7,7 +7,7 @@ void create()
 	set_name("王夫人", ({ "wang furen", "wang" }));
 	set("gender", "女性");
 	set("nickname", HIY"金刀"NOR);
-	set("long", "她是洛阳金刀王老爷子的独生爱女，福威镖局总镖头夫人。");
+	set("long", "她是洛陽金刀王老爺子的獨生愛女，福威鏢局總鏢頭夫人。");
 	set("age", 39);
 
 	set("combat_exp", 25000);

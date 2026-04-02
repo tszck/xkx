@@ -10,10 +10,10 @@ string ask_me();
 
 void create()
 {
-	set_name("天虹大师", ({ "tianhong dashi", "tianhong", "dashi"}));
+	set_name("天虹大師", ({ "tianhong dashi", "tianhong", "dashi"}));
 	set("long",
-		"他是一位白须白眉的老僧，身穿一袭金丝绣红袈裟。\n"
-		"他身材略显佝偻，但却满面红光，目蕴慈笑，显得神完气足。\n");
+		"他是一位白鬚白眉的老僧，身穿一襲金絲繡紅袈裟。\n"
+		"他身材略顯佝僂，但卻滿面紅光，目蘊慈笑，顯得神完氣足。\n");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -133,7 +133,7 @@ void greeting(object ob)
 	if(ob->query_temp("job_name") == "服侍方丈")
 	{
 		command("pat "+ob->query("id"));
-		command("say " + RANK_D->query_respect(ob) + "你就给我按摩一下吧(massage 方丈)呵呵呵。\n");
+		command("say " + RANK_D->query_respect(ob) + "你就給我按摩一下吧(massage 方丈)呵呵呵。\n");
 	}
 	return;
 }

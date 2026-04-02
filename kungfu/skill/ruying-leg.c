@@ -1,5 +1,5 @@
 // Last Modified by winder on May. 29 2001
-// ruying-leg.c 如影随形腿 不能互备 取自佛经中“六和敬”。
+// ruying-leg.c 如影隨形腿 不能互備 取自佛經中“六和敬”。
 
 #include <ansi.h>
 inherit SKILL;
@@ -7,27 +7,27 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N纵身向前，忽然凌空伸出左腿，一式"HIC"「见和同解」"NOR"，卷起飞砂直踢$n的$l",
+([	"action" : "$N縱身向前，忽然凌空伸出左腿，一式"HIC"「見和同解」"NOR"，捲起飛砂直踢$n的$l",
 	"lvl"   : 0,
-	"skill_name" : "见和同解"
+	"skill_name" : "見和同解"
 ]),
-([	"action" : "$N身形一闪，双足一点跃如空中，一式"HIM"「戒和同修」"NOR"，在半空连踢七脚，直奔$n$l",
+([	"action" : "$N身形一閃，雙足一點躍如空中，一式"HIM"「戒和同修」"NOR"，在半空連踢七腳，直奔$n$l",
 	"lvl"   : 10,
 	"skill_name" : "戒和同修"
 ]),
-([	"action" : "$N身体前倾，左脚画圆，凌空而起，右腿顺势使出一式"HIW"「身和同住」"NOR"，横扫$n$l",
+([	"action" : "$N身體前傾，左腳畫圓，凌空而起，右腿順勢使出一式"HIW"「身和同住」"NOR"，橫掃$n$l",
 	"lvl"   : 30,
 	"skill_name" : "身和同住"
 ]),
-([	"action" : "$N一言不发，左足倏地弹出，连环三腿，分踢$n的头，胸，腹，正是一式"HIB"「口和无净」"NOR"",
+([	"action" : "$N一言不發，左足倏地彈出，連環三腿，分踢$n的頭，胸，腹，正是一式"HIB"「口和無淨」"NOR"",
 	"lvl"   : 60,
-	"skill_name" : "口和无净"
+	"skill_name" : "口和無淨"
 ]),
-([	"action" : "$N左足独立，身体旋转，右腿随身形反转横扫，一招"HIR"「意和同悦」"NOR"，拉起劲风扫向$n$l",
+([	"action" : "$N左足獨立，身體旋轉，右腿隨身形反轉橫掃，一招"HIR"「意和同悅」"NOR"，拉起勁風掃向$n$l",
 	"lvl"   : 100,
-	"skill_name" : "意和同悦"
+	"skill_name" : "意和同悅"
 ]),												
-([	"action" : "$N跃起在半空，双足带起无数劲风，一式"HIW"「利和同均」"NOR"，全身旋转而下，迅捷无伦地轰向$n",
+([	"action" : "$N躍起在半空，雙足帶起無數勁風，一式"HIW"「利和同均」"NOR"，全身旋轉而下，迅捷無倫地轟向$n",
 	"lvl"   : 150,
 	"skill_name" : "利和同均"
 ]),
@@ -37,14 +37,14 @@ int valid_enable(string usage) { return usage=="leg" || usage=="parry"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("学如影随形腿时手里不能拿武器。\n");
+		return notify_fail("學如影隨形腿時手裏不能拿武器。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 120)
-		return notify_fail("你的站桩功火候不够，无法学如影随形腿。\n");
+		return notify_fail("你的站樁功火候不夠，無法學如影隨形腿。\n");
 	if ((int)me->query("max_neili") < 1500)
-		return notify_fail("你的内力太弱，无法练如影随形腿。\n");
+		return notify_fail("你的內力太弱，無法練如影隨形腿。\n");
 	if ((me->query_skill("shaolin-leg", 1) < 50) ||
 		(me->query_skill("boruo-strike", 1) < 50))
-		return notify_fail("你的少林弹腿和般若掌火候不够，无法学如影随形腿。\n");
+		return notify_fail("你的少林彈腿和般若掌火候不夠，無法學如影隨形腿。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -52,7 +52,7 @@ int practice_skill(object me)
 	if ((int)me->query("qi") < 30)
 		return notify_fail("你的精力太低了。\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够练如影随形腿。\n");
+		return notify_fail("你的內力不夠練如影隨形腿。\n");
 	me->receive_damage("qi", 50);
 	me->add("neili", -20);
 	return 1;
@@ -79,16 +79,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 10; }
@@ -103,16 +103,16 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\n如影随形腿："NOR"\n");
+	write(HIC"\n如影隨形腿："NOR"\n");
 	write(@HELP
 
-   如影随形腿是南少林高级腿法，不能互备，出自佛经中“六和敬”。
+   如影隨形腿是南少林高級腿法，不能互備，出自佛經中“六和敬”。
 
-	学习要求：
-		站桩功120级
-		少林弹腿50级
-		般若掌50级
-		内力修为1500
+	學習要求：
+		站樁功120級
+		少林彈腿50級
+		般若掌50級
+		內力修爲1500
 HELP
 	);
 	return 1;

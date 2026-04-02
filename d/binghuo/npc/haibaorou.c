@@ -10,8 +10,8 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一块鲜血淋漓肥嫩的海豹肉。\n");
-		set("unit", "块");
+		set("long", "一塊鮮血淋漓肥嫩的海豹肉。\n");
+		set("unit", "塊");
 		set("value", 200);
 		set("food_remaining", 5);
 		set("food_supply", 100);

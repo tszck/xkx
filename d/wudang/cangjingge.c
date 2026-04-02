@@ -1,4 +1,4 @@
-// cangjingge.c 藏经阁
+// cangjingge.c 藏經閣
 // by Xiang
 // 05/30/96 Marz
 
@@ -20,10 +20,10 @@ string* books = ({
 
 void create()
 {
-        set("short", "藏经阁");
+        set("short", "藏經閣");
         set("long", @LONG
-这里是藏经阁，靠墙是一排书架，摆满了道教的典籍。中央有一个
-长方形的大桌子，上面也堆满了书。一个道童正在整理书籍。
+這裏是藏經閣，靠牆是一排書架，擺滿了道教的典籍。中央有一個
+長方形的大桌子，上面也堆滿了書。一個道童正在整理書籍。
 LONG );
         set("exits", ([
                 "southdown" : __DIR__"xilang",

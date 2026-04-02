@@ -8,7 +8,7 @@ void create()
 	set_name("曲洋", ({ "qu yang", "qu"}) );
 	set("gender", "男性" );
 	set("age", 45);
-	set("long", "他就是日月神教十大长老之一，琴技天下无双。\n" );
+	set("long", "他就是日月神教十大長老之一，琴技天下無雙。\n" );
 	set("attitude", "friendly");
 	set("shen_type", 1);
 
@@ -39,7 +39,7 @@ void create()
 	map_skill("dodge", "tiyunzong");
 	map_skill("parry", "taiji-dao");
 	map_skill("blade", "taiji-dao");
-	create_family("日月神教",2,"长老");
+	create_family("日月神教",2,"長老");
 
 	setup();
 	carry_object("/clone/weapon/gangdao")->wield();

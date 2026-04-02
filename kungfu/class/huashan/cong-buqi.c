@@ -1,17 +1,17 @@
-// cong-buqi.c  丛不弃
+// cong-buqi.c  叢不棄
 inherit NPC;
 inherit F_MASTER;
 #include <ansi.h>
 
 void create()
 {
-        set_name("丛不弃", ({ "cong buqi", "cong" }) );
+        set_name("叢不棄", ({ "cong buqi", "cong" }) );
         set("gender", "男性");
         set("class", "swordsman");
-        set("title", "华山剑宗第十三代弟子");
+        set("title", "華山劍宗第十三代弟子");
         set("age", 52);
         set("long",
-                "丛不弃是华山剑宗高手。\n");
+                "叢不棄是華山劍宗高手。\n");
         set("attitude", "peaceful");
         set("str", 26);
         set("con", 30);
@@ -56,7 +56,7 @@ void create()
 //        map_skill("unarmed", "huashan-zhangfa");
         map_skill("dodge", "huashan-shenfa");
 
-        create_family("华山派剑宗", 13, "弟子");
+        create_family("華山派劍宗", 13, "弟子");
         setup();
 
         carry_object("/clone/weapon/changjian")->wield();

@@ -8,7 +8,7 @@ inherit F_MASTER;
 void create()
 {
         set_name("弟子", ({ "di zi", "di", "zi" }));
-        set("long", "这是三十多岁的壮汉，膀大腰圆，是岛主从中原招募来的。\n");
+        set("long", "這是三十多歲的壯漢，膀大腰圓，是島主從中原招募來的。\n");
 
         set("gender", "男性");
         set("age", 30);
@@ -36,7 +36,7 @@ void create()
         set_skill("parry", 70);
         set_skill("hand", 70);
         set_skill("staff", 50);
-        create_family("侠客岛", 2, "弟子");
+        create_family("俠客島", 2, "弟子");
         setup();
         carry_object("/clone/misc/cloth")->wear();
 }

@@ -10,8 +10,8 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一个牛皮缝的大酒袋，大概装得八、九升的酒。\n");
-		set("unit", "个");
+		set("long", "一個牛皮縫的大酒袋，大概裝得八、九升的酒。\n");
+		set("unit", "個");
 		set("value", 20);
 		set("max_liquid", 15);
 	}
@@ -20,7 +20,7 @@ void create()
 	// in each cloned copy.
 	set("liquid", ([
 		"type": "alcohol",
-		"name": "红酒",
+		"name": "紅酒",
 		"remaining": 15,
 		"drunk_apply": 6,
 	]) );

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "东海海面");
+	set("short", "東海海面");
 	set("long", @LONG
-东海海面波平如镜，大船在海鸥游鱼中穿行，风带风帆，你也不
-知道船往哪里去。
+東海海面波平如鏡，大船在海鷗遊魚中穿行，風帶風帆，你也不
+知道船往哪裏去。
 LONG );
         set("no_sleep_room",1);
         set("outdoors", "binghuo");

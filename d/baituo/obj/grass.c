@@ -4,12 +4,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name("断肠草", ({"duanchang cao", "cao", "duanchang"}));
+	set_name("斷腸草", ({"duanchang cao", "cao", "duanchang"}));
 	set_weight(25);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", HIM"\n这是一株深紫色的小草，散发出一股恶臭，中人欲呕。\n"NOR);
+		set("long", HIM"\n這是一株深紫色的小草，散發出一股惡臭，中人慾嘔。\n"NOR);
 		set("unit", "株");
 		set("value", 100);
 	}
@@ -27,17 +27,17 @@ int do_eat(string arg)
 	object me = this_player();
 	int damage;
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
-	if(!id(arg)) return notify_fail("你要什么？\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
+	if(!id(arg)) return notify_fail("你要什麼？\n");
 
 	message_vision("$N服下一株" + name() + "。\n", me);	
-	tell_room(environment(me),HIR+me->name()+"突然露出非常痛苦的样子，全身大汗淋漓。\n" NOR, ({ me }));
-	tell_object(me, HIR "你腹中猛地一动，跟着便一阵阵巨痛传来！\n" NOR);
-	message_vision(RED"$N忽地“哇”的一声，吐出一大口血来。\n"NOR,me);
+	tell_room(environment(me),HIR+me->name()+"突然露出非常痛苦的樣子，全身大汗淋漓。\n" NOR, ({ me }));
+	tell_object(me, HIR "你腹中猛地一動，跟着便一陣陣巨痛傳來！\n" NOR);
+	message_vision(RED"$N忽地“哇”的一聲，吐出一大口血來。\n"NOR,me);
 
 	damage = me->query_con()*10;
 	damage = me->query_skill("force") + damage;

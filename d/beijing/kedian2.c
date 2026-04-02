@@ -2,12 +2,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "客店后院");
+	set("short", "客店後院");
 	set("long", @LONG
-这里客店后院。一阵阵打斗之声从东面的厢房 (room) 中传来，其
-中夹杂着一个女子的声音。房门的板壁(wall)不住的震动，似乎客房四
-周的板壁都要被刀风掌力震坍一般。西首也是厢房，不时有人探头出来
-观望。北面是客店大门。
+這裏客店後院。一陣陣打鬥之聲從東面的廂房 (room) 中傳來，其
+中夾雜着一個女子的聲音。房門的板壁(wall)不住的震動，似乎客房四
+周的板壁都要被刀風掌力震坍一般。西首也是廂房，不時有人探頭出來
+觀望。北面是客店大門。
 LONG );
         set("no_sleep_room",1);
 	set("exits", ([
@@ -16,12 +16,12 @@ LONG );
 		"north" : __DIR__"kedian1",
 	]));
 	set("item_desc", ([
-		"wall" : "\n这是一堵木墙，板壁不过一寸来厚，被震得摇摇晃晃。\n",
+		"wall" : "\n這是一堵木牆，板壁不過一寸來厚，被震得搖搖晃晃。\n",
 	        "room" :
-"\n你往房中望去，只见六个喇嘛手持戒刀，围着一白衣女尼拼命砍杀，\n"+
-"只是给白衣女尼的袖力掌风逼住了，欺不近身。但那白衣女子头顶已冒\n"+
-"出丝丝白气，显然已尽了全力。她只一条臂膀，再支持下去恐怕难以抵敌。\n"+
-"地上斑斑点点都是血迹。\n",
+"\n你往房中望去，只見六個喇嘛手持戒刀，圍着一白衣女尼拼命砍殺，\n"+
+"只是給白衣女尼的袖力掌風逼住了，欺不近身。但那白衣女子頭頂已冒\n"+
+"出絲絲白氣，顯然已盡了全力。她只一條臂膀，再支持下去恐怕難以抵敵。\n"+
+"地上斑斑點點都是血跡。\n",
 	]));
 	set("no_clean_up", 0);
 	set("coor/x", -220);
@@ -40,8 +40,8 @@ int valid_leave(object me, string dir)
 	i = (int)me->query_skill("dodge", 1) + random(1000);
 	if(i>600) 
         return notify_fail(
-	"\n你一步踏进客房，突觉一股力道奇大的劲风激扑出来，将你一撞，\n"+
-	"你登时立足不稳，腾腾腾到退三步，一交坐倒。\n");
+	"\n你一步踏進客房，突覺一股力道奇大的勁風激撲出來，將你一撞，\n"+
+	"你登時立足不穩，騰騰騰到退三步，一交坐倒。\n");
         me -> receive_damage ("qi",50) ;
         me -> receive_wound  ("qi",50) ;
 	}
@@ -58,7 +58,7 @@ add_action("do_thrust","stab");
 int do_thrust(string arg)
 {
  object room, man, lma;
-	if( !arg || arg!="wall" ) return notify_fail("你要刺什么？\n");
+	if( !arg || arg!="wall" ) return notify_fail("你要刺什麼？\n");
 
 	if(!present("blade" , this_player())
 	 &&!present("bishou" , this_player())
@@ -66,12 +66,12 @@ int do_thrust(string arg)
 	 &&!present("gangjian" , this_player())
 	 &&!present("changjian" , this_player())
 	 &&!present("duanjian" , this_player()))
-	return notify_fail("不用刀剑恐怕不行吧！\n");
+	return notify_fail("不用刀劍恐怕不行吧！\n");
 
 	if(this_player()->query_temp("hastrystab")<6)
-	message_vision( "\n$N走到墙边，抽出兵刃，对准木板狠狠地一戳。\n",this_player());
+	message_vision( "\n$N走到牆邊，抽出兵刃，對準木板狠狠地一戳。\n",this_player());
 	if(!present("bishou" , this_player()))
-	message_vision( "结果$N笃的一声，兵刃插入寸许，再也刺不进半分。\n",this_player());
+	message_vision( "結果$N篤的一聲，兵刃插入寸許，再也刺不進半分。\n",this_player());
         else
 	{
 	if(this_player()->query_temp("hastrystab")<6)
@@ -84,28 +84,28 @@ int do_thrust(string arg)
             {
 		if(!lma)
 		{
-		message_vision( "只听噗的一声，匕首轻轻穿过木板，但隔壁没什么动静。\n",this_player());
-	        message("vision", "忽然一柄匕首从墙外戳了进来。\n",room );
+		message_vision( "只聽噗的一聲，匕首輕輕穿過木板，但隔壁沒什麼動靜。\n",this_player());
+	        message("vision", "忽然一柄匕首從牆外戳了進來。\n",room );
 		}
 		else                   
 	        {
 	         if(lma->query("ownmake")==1)
 		 {
-		 message_vision( "只听噗的一声，匕首轻轻穿过木板，但隔壁没什么动静。\n",this_player());
-	         message("vision", "忽然一柄匕首从墙外戳了进来。\n",room );	        	
+		 message_vision( "只聽噗的一聲，匕首輕輕穿過木板，但隔壁沒什麼動靜。\n",this_player());
+	         message("vision", "忽然一柄匕首從牆外戳了進來。\n",room );	        	
 	         }	
 	         else
 	         {	
-	     	 message_vision( "只听噗的一声，匕首轻轻穿过木板，房中立时传来一声惨叫。\n",this_player());
+	     	 message_vision( "只聽噗的一聲，匕首輕輕穿過木板，房中立時傳來一聲慘叫。\n",this_player());
  		 this_player()->add_temp("hastrystab",1);
-		 message("vision", "忽然一个喇嘛惨叫一声倒了下去。\n",room );
+		 message("vision", "忽然一個喇嘛慘叫一聲倒了下去。\n",room );
 		 if(objectp(man=present("lama",room))) man->die();		
 		 }
 		}
 	}
 	return 1;
 	}
-	else return notify_fail("你已经杀了六个喇嘛,不用再杀了。\n");
+	else return notify_fail("你已經殺了六個喇嘛,不用再殺了。\n");
     }
 return 1;
 }

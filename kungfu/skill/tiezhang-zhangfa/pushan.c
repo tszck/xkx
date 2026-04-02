@@ -1,10 +1,10 @@
-// pushan.c 铁掌掌法 「铁蒲扇掌」
+// pushan.c 鐵掌掌法 「鐵蒲扇掌」
 
 #include <ansi.h>
 
 inherit F_SSERVER;
 #include "/kungfu/skill/eff_msg.h";
-#define PNAME "「铁蒲扇掌」"
+#define PNAME "「鐵蒲扇掌」"
 int perform(object me, object target)
 {
 	int damage, p;
@@ -19,23 +19,23 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if( me->query_temp("weapon") )
-		return notify_fail("你必须空手才能使用铁蒲扇掌！\n");
+		return notify_fail("你必須空手才能使用鐵蒲扇掌！\n");
 
 	if( (int)me->query("max_neili") < 1500 )
-		return notify_fail("你现在内力修为不足，使不出铁蒲扇掌招！\n");
+		return notify_fail("你現在內力修爲不足，使不出鐵蒲扇掌招！\n");
 
 	if( (int)me->query("neili") < 1200 )
-		return notify_fail("你现在内力不足，使不出铁蒲扇掌绝招！\n");
+		return notify_fail("你現在內力不足，使不出鐵蒲扇掌絕招！\n");
 
 	fskill = "guiyuan-tunafa";
 	bskill = "strike";
@@ -49,18 +49,18 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够熟练，不能使"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠熟練，不能使"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够熟练，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠熟練，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(bskill)+"不够娴熟，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 
 	if( me->query_temp("tiezhang_pushan") )
-		return notify_fail("你刚使完铁蒲扇掌绝招，目前气血翻涌，无法再次运用！\n");
+		return notify_fail("你剛使完鐵蒲扇掌絕招，目前氣血翻湧，無法再次運用！\n");
 
-	msg = RED"\n$N身子半侧，左掌直推而出，使的正是$N铁掌掌法中刚猛无俦的铁蒲扇掌，掌风夹杂一股热浪直扑$n而去！\n"NOR;	
+	msg = RED"\n$N身子半側，左掌直推而出，使的正是$N鐵掌掌法中剛猛無儔的鐵蒲扇掌，掌風夾雜一股熱浪直撲$n而去！\n"NOR;	
 	me->set_temp("tiezhang_pushan", 1);
 	if (random(me->query_skill("force")) > target->query_skill("force") /4 )
 	{
@@ -75,7 +75,7 @@ int perform(object me, object target)
 		target->receive_damage("qi", damage,me);
 		target->receive_wound("qi", damage/2,me);
 		p = (int)target->query("qi")*100/(int)target->query("max_qi");
-		msg += damage_msg(damage, "内伤");
+		msg += damage_msg(damage, "內傷");
 		msg += "( $n"+eff_status_msg(p)+" )\n";
 		call_out("perform2", 2, me, target, p);
 	} 
@@ -84,7 +84,7 @@ int perform(object me, object target)
 		me->start_busy(2);
 		target->start_busy(1);
 		me->add("neili", -300);
-		tell_object(target, HIY"你但觉一股热风扑面而来，风势强劲已急，中人窒息，大觉不妙，连忙跃开数尺。\n" NOR);
+		tell_object(target, HIY"你但覺一股熱風撲面而來，風勢強勁已急，中人窒息，大覺不妙，連忙躍開數尺。\n" NOR);
 		dodge_skill = target->query_skill_mapped("dodge");
 		if( !dodge_skill ) dodge_skill = "dodge";
 		msg += SKILL_D(dodge_skill)->query_dodge_msg(target, 1);
@@ -108,18 +108,18 @@ int perform2(object me, object target, int p)
 	}
 	if( !living(target) || target->query_temp("noliving") )
 	{
-		message_combatd("$N已经不能再战斗了！\n", target);
+		message_combatd("$N已經不能再戰鬥了！\n", target);
 		call_out("remove_effect", me->query_con()/6, me);
 		return 1;
 	}
 	if( me->query("neili") < 400 )
 	{
-		message_combatd("$N待要发出第二掌，却发现内力不够了！\n", me);
+		message_combatd("$N待要發出第二掌，卻發現內力不夠了！\n", me);
 		call_out("remove_effect", me->query_con()/6, me);
 		return 1;
 	}
 	
-	msg = RED"\n$N左掌劲力未消，右掌也跟着劈出，劲力相叠，铁蒲扇掌狂飙般涌向$n！\n"NOR;	
+	msg = RED"\n$N左掌勁力未消，右掌也跟着劈出，勁力相疊，鐵蒲扇掌狂飆般湧向$n！\n"NOR;	
 	if(random(me->query_skill("force")) > target->query_skill("force")/4 &&
 		me->query_skill("strike", 1) > 199 )
 	{
@@ -134,7 +134,7 @@ int perform2(object me, object target, int p)
 		target->receive_damage("qi", damage,me);
 		target->receive_wound("qi", damage/2,me);
 		p = (int)target->query("qi")*100/(int)target->query("max_qi");
-		msg += damage_msg(damage, "内伤");
+		msg += damage_msg(damage, "內傷");
 		msg += "( $n"+eff_status_msg(p)+" )\n";		
 		call_out("perform3", 2, me, target, p);
 	} 
@@ -142,7 +142,7 @@ int perform2(object me, object target, int p)
 	{
 		me->start_busy(2);
 		me->add("neili", -200);
-		tell_object(target, HIY"你喘息未定，又觉一股劲风扑面而来，脚尖疾点，跃开数尺避开。\n" NOR);
+		tell_object(target, HIY"你喘息未定，又覺一股勁風撲面而來，腳尖疾點，躍開數尺避開。\n" NOR);
 		dodge_skill = target->query_skill_mapped("dodge");
 		if( !dodge_skill ) dodge_skill = "dodge";
 		msg += SKILL_D(dodge_skill)->query_dodge_msg(target, 1);
@@ -166,17 +166,17 @@ int perform3(object me, object target, int p)
 	}
 	if( !living(target) || target->query_temp("noliving") )
 	{
-		message_combatd("$N已经不能再战斗了！\n", target);
+		message_combatd("$N已經不能再戰鬥了！\n", target);
 		call_out("remove_effect", me->query_con()/4, me);
 		return 1;
 	}
 	if( me->query("neili") < 700 )
 	{
-		message_combatd("$N待要发出第三掌，却发现内力不够了！\n", me);
+		message_combatd("$N待要發出第三掌，卻發現內力不夠了！\n", me);
 		call_out("remove_effect", me->query_con()/4, me);
 		return 1;
 	}
-	msg = RED"\n$N双腿一蹬，双掌相并向前和身扑出，$n连同身前身后的方圆数丈全在铁蒲扇掌劲力笼罩之下！\n"NOR;
+	msg = RED"\n$N雙腿一蹬，雙掌相併向前和身撲出，$n連同身前身後的方圓數丈全在鐵蒲扇掌勁力籠罩之下！\n"NOR;
 	if(random(me->query_skill("force")) > target->query_skill("force")/4 &&
 		me->query_skill("strike", 1) > 249 )
 	{
@@ -191,7 +191,7 @@ int perform3(object me, object target, int p)
 		target->receive_damage("qi", damage,me);
 		target->receive_wound("qi", damage/2,me);
 		p = (int)target->query("qi")*100/(int)target->query("max_qi");
-		msg += damage_msg(damage, "瘀伤");
+		msg += damage_msg(damage, "瘀傷");
 		msg += "( $n"+eff_status_msg(p)+" )\n";
 	}
 	else 
@@ -200,7 +200,7 @@ int perform3(object me, object target, int p)
 		target->start_busy(1);
 		me->add("neili", -300);
 		target->add("jing", -100);
-		tell_object(target, HIY"你用尽全身力量向右一纵一滚，摇摇欲倒地站了起来，但总算躲开了这致命的一击！\n" NOR);
+		tell_object(target, HIY"你用盡全身力量向右一縱一滾，搖搖欲倒地站了起來，但總算躲開了這致命的一擊！\n" NOR);
 		dodge_skill = target->query_skill_mapped("dodge");
 		if( !dodge_skill ) dodge_skill = "dodge";
 		msg += SKILL_D(dodge_skill)->query_dodge_msg(target, 1);
@@ -214,22 +214,22 @@ void remove_effect(object me)
 {
 	if (!me) return;
 	me->delete_temp("tiezhang_pushan");
-	tell_object(me, HIC"\n你经过一段时间调气养息，又可以使用铁蒲扇掌绝招了。\n"NOR); 
+	tell_object(me, HIC"\n你經過一段時間調氣養息，又可以使用鐵蒲扇掌絕招了。\n"NOR); 
 }
 
 int help(object me)
 {
-	write(WHT"\n铁掌掌法之铁蒲扇掌："NOR"\n");
+	write(WHT"\n鐵掌掌法之鐵蒲扇掌："NOR"\n");
 	write(@HELP
 
 	使用功效：
-		连续出手三掌，本式由内力推动，刚猛无俦
+		連續出手三掌，本式由內力推動，剛猛無儔
 
 	出手要求：
-		归元吐纳法150级
-		铁掌掌法150级
-		内力修为1500
-		内力1200
+		歸元吐納法150級
+		鐵掌掌法150級
+		內力修爲1500
+		內力1200
 HELP
 	);
 	return 1;

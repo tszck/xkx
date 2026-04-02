@@ -1,10 +1,10 @@
-// jingmo.c 一指禅 「惊魔一指」
+// jingmo.c 一指禪 「驚魔一指」
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME "惊魔一指"
+#define PNAME "驚魔一指"
 int perform(object me, object target)
 {
 	string msg;
@@ -18,19 +18,19 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	//兵器空手均可
 	
 	if((int)me->query_str() < 30)
-		return notify_fail("你膂力不够，不能使用这一绝技！\n");
+		return notify_fail("你膂力不夠，不能使用這一絕技！\n");
 
 	fskill = "hunyuan-yiqi";
 	bskill = "finger";
@@ -47,33 +47,33 @@ int perform(object me, object target)
 		return notify_fail("你的"+to_chinese(fskill)+"的火候不能出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(sskill)+"火候不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"火候不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(bskill)+"修为不够，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"修爲不夠，使不出"+PNAME+"。\n");
 
 	if((int)me->query("neili") < 800)
-		return notify_fail("你内力现在不够, 不能使用惊魔一指! \n");
+		return notify_fail("你內力現在不夠, 不能使用驚魔一指! \n");
 
 	if( target->is_busy() )
-		return notify_fail(target->name()+ "目前正自顾不暇，放胆攻击吧ⅵ\n");
+		return notify_fail(target->name()+ "目前正自顧不暇，放膽攻擊吧ⅵ\n");
 
-	msg = HIY"$N"HIY"使出一指禅绝技「惊魔一指」，罩住了$n的全身要穴, 使$n动弹不得。\n";
+	msg = HIY"$N"HIY"使出一指禪絕技「驚魔一指」，罩住了$n的全身要穴, 使$n動彈不得。\n";
 
 	if(random(me->query("combat_exp")) > (int)target->query("combat_exp")/3)
 	{
 		if (target->query_temp("hmg_dzjm"))
 		{
-			msg += HIY "$P一指正中$p的大穴，$p微微一笑，行动竟丝毫不受阻碍，$P一惊之下，呆在当场。\n"NOR;
+			msg += HIY "$P一指正中$p的大穴，$p微微一笑，行動竟絲毫不受阻礙，$P一驚之下，呆在當場。\n"NOR;
 			me->start_busy(4);
 			me->add("neili", -150);
 		} else {
-			msg += "结果$p被$P攻了个措手不及！\n" NOR;
+			msg += "結果$p被$P攻了個措手不及！\n" NOR;
 			target->start_busy((int)me->query_skill(bskill,1)/20+2);
 			me->add("neili", -300);
 		       }
 	} else {
-		msg += HIG "可是$p看破了$P的企图，并没有上当。\n" NOR;
+		msg += HIG "可是$p看破了$P的企圖，並沒有上當。\n" NOR;
 		me->start_busy(4);
 		me->add("neili", -300);
 	}
@@ -89,14 +89,14 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		迟滞对方出手
+		遲滯對方出手
 
 	出手要求：
-		混元一气功100级
-		基本指法150级
-		一指禅150级
-		内力800
-		后天膂力30
+		混元一氣功100級
+		基本指法150級
+		一指禪150級
+		內力800
+		後天膂力30
 HELP
 	);
 	return 1;

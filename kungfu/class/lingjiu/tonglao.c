@@ -9,14 +9,14 @@ void create()
 {
 	set_name("天山童姥", ({ "tong lao", "tong", "lao" }));
 	set("long",
-		"她就是「灵鹫宫」的开山祖师。
-乍一看似乎是个十七八岁的女子，可神情却是老气横秋。
-双目如电，炯炯有神，向你瞧来时，自有一股凌人的威严。\n");
-	set("title", "天山灵鹫宫主人");
+		"她就是「靈鷲宮」的開山祖師。
+乍一看似乎是個十七八歲的女子，可神情卻是老氣橫秋。
+雙目如電，炯炯有神，向你瞧來時，自有一股凌人的威嚴。\n");
+	set("title", "天山靈鷲宮主人");
 	set("class", "dancer");
 	set("gender", "女性");
 	set("age", 96);
-	set("nickname", HIR "唯我独尊" NOR);
+	set("nickname", HIR "唯我獨尊" NOR);
 	set("shen_type",0);
 	set("attitude", "peaceful");
 
@@ -58,7 +58,7 @@ void create()
 	prepare_skill("hand","zhemei-shou");
 	prepare_skill("strike","liuyang-zhang");
 	set("no_teach", ([
-		"beiming-shengong" : "我这北冥神功乃是不传之学。",
+		"beiming-shengong" : "我這北冥神功乃是不傳之學。",
 	]));
 	set("env/wimpy", 60);
 	set("chat_chance_combat", 60);
@@ -70,7 +70,7 @@ void create()
 		(: exert_function, "reserve" :),
 		(: exert_function, "recover" :),
 	}) );
-	create_family("逍遥派",1, "开山祖师");
+	create_family("逍遙派",1, "開山祖師");
 	setup();
 	carry_object("/d/lingjiu/obj/qingyi")->wear();
 	carry_object("/d/lingjiu/obj/doupeng")->wear();
@@ -88,12 +88,12 @@ void attempt_apprentice(object ob)
 	}
 	if ((int)ob->query_skill("bahuang-gong", 1) < 130) 
 	{
-		command("say " + RANK_D->query_respect(ob) + "是否还应该多练练八荒六合唯我独尊功？");
+		command("say " + RANK_D->query_respect(ob) + "是否還應該多練練八荒六合唯我獨尊功？");
 		return;
 	}
 	if (ob->query_con() < 30) 
 	{
-		command("say 本门功法极为难练，你的根骨似乎不够。");
+		command("say 本門功法極爲難練，你的根骨似乎不夠。");
 		return;
 	}
 	command("recruit " + ob->query("id"));
@@ -105,6 +105,6 @@ int recruit_apprentice(object ob)
         {
 		if((string)ob->query("class") != "dancer")
 			ob->set("class", "dancer");
-		ob->set("title","灵鹫宫第二代弟子");
+		ob->set("title","靈鷲宮第二代弟子");
 	}
 }

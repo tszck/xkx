@@ -9,10 +9,10 @@ string ask_yao2();
 object ob = this_object();
 void create()
 {
-	set_name("陆冠英", ({"lu guanying", "lu", "guanying"}) );
-	set("long", "他身穿熟罗长袍，背厚膀宽，躯体壮健。\n");
+	set_name("陸冠英", ({"lu guanying", "lu", "guanying"}) );
+	set("long", "他身穿熟羅長袍，背厚膀寬，軀體壯健。\n");
 	set("gender", "男性" );
-	set("nickname", "归云庄少庄主" );
+	set("nickname", "歸雲莊少莊主" );
 	set("age", 27);
 	set("attitude", "peaceful");
 //	set("apprentice",1);
@@ -50,28 +50,28 @@ void create()
 	map_skill("sword", "yuxiao-jian");
 	prepare_skill("strike", "luoying-zhang");
 
-	set("rank_info/respect", "少庄主");
+	set("rank_info/respect", "少莊主");
 	set("shen_type", 1);
 	set("shen", 200);
-	create_family("桃花岛", 3, "弟子");
+	create_family("桃花島", 3, "弟子");
 	set("class", "fighter");
 	set("yao", 10);   
 
 	set("inquiry", ([
-		"name": "在下陆冠英，是这里的少庄主。",
-		"rumors": "听说蒙古兵又要南侵了，唉！",
-		"here": "这里是归云庄，你随便转转吧，累了请到客房休息。",
-		"东邪": "那是师祖呀，，蒙他老人家恩准，我才能跟父亲学艺。",
-		"黄药师": "那是师祖呀，，蒙他老人家恩准，我才能跟父亲学艺。",
-		"桃花岛": "听说是师祖住的地方，可惜没有去看过。",
-		"陆乘风": "是我的父亲，找他老人家有什么事吗？",
-		"陆冠英": "不敢，就是在下。",
-		"归云庄": "这里是花了我父亲无数心血才建起来的，与别的庄院相比如何？",
-		"太湖": "就在庄前不远，是一个烟波浩淼的大湖。",
-		"药" : "爹爹让我保管灵药，桃花岛弟子可以到我这里领取。",
+		"name": "在下陸冠英，是這裏的少莊主。",
+		"rumors": "聽說蒙古兵又要南侵了，唉！",
+		"here": "這裏是歸雲莊，你隨便轉轉吧，累了請到客房休息。",
+		"東邪": "那是師祖呀，，蒙他老人家恩准，我才能跟父親學藝。",
+		"黃藥師": "那是師祖呀，，蒙他老人家恩准，我才能跟父親學藝。",
+		"桃花島": "聽說是師祖住的地方，可惜沒有去看過。",
+		"陸乘風": "是我的父親，找他老人家有什麼事嗎？",
+		"陸冠英": "不敢，就是在下。",
+		"歸雲莊": "這裏是花了我父親無數心血才建起來的，與別的莊院相比如何？",
+		"太湖": "就在莊前不遠，是一個煙波浩淼的大湖。",
+		"藥" : "爹爹讓我保管靈藥，桃花島弟子可以到我這裏領取。",
 //		"三才聚精丹": (: ask_yao1 :),
-		"六壬集气丸": (: ask_yao2 :),
-		"九花玉露丸": 	"九花玉露丸炼制奇难无比，我这里可没有! ",
+		"六壬集氣丸": (: ask_yao2 :),
+		"九花玉露丸": 	"九花玉露丸煉製奇難無比，我這裏可沒有! ",
 	]) );
 
 	setup();
@@ -83,54 +83,54 @@ string ask_yao1()
 {
 	object ob = this_player();
 
-	if (ob->query("family/family_name") != "桃花岛")
-		return RANK_D->query_respect(ob) + "与本派素无来往，不知此话从何谈起？";
+	if (ob->query("family/family_name") != "桃花島")
+		return RANK_D->query_respect(ob) + "與本派素無來往，不知此話從何談起？";
 
 	if (ob->query_condition("jingli_drug") > 0 )
-		return RANK_D->query_respect(ob) + "你不是刚吃过药吗，怎么又来要了？灵药多吃有害无宜，过段时间再来吧。";
+		return RANK_D->query_respect(ob) + "你不是剛喫過藥嗎，怎麼又來要了？靈藥多喫有害無宜，過段時間再來吧。";
 
 	if (ob->query("max_jingli" ) < 200)
-		return RANK_D->query_respect(ob) + "功力不够，灵药多吃有害无宜，过段时间再来吧。";
+		return RANK_D->query_respect(ob) + "功力不夠，靈藥多喫有害無宜，過段時間再來吧。";
 
 	if (present("sancai dan", ob))
-		return RANK_D->query_respect(ob) + "你现在身上不是有颗药丸吗，怎么又来要了？真是贪得无厌！";
+		return RANK_D->query_respect(ob) + "你現在身上不是有顆藥丸嗎，怎麼又來要了？真是貪得無厭！";
 
-	if (query("yao") < 1) return "对不起，药已经发完了，新的还未炼出。";
+	if (query("yao") < 1) return "對不起，藥已經發完了，新的還未煉出。";
    
 	new("/d/taohua/obj/sancai-dan")->move(ob);
 
 	add("yao", -1);
 
-	message_vision("$N获得一颗三才聚精丹。\n", ob);
-	return "好吧，此药练之不易，对练武之人大有好处，你要小心收藏好了。";
+	message_vision("$N獲得一顆三才聚精丹。\n", ob);
+	return "好吧，此藥練之不易，對練武之人大有好處，你要小心收藏好了。";
 }
 
 string ask_yao2()
 {
 	object ob = this_player();
 
-	if (ob->query("family/family_name") != "桃花岛")
-		return RANK_D->query_respect(ob) + "与本派素无来往，不知此话从何谈起？";
+	if (ob->query("family/family_name") != "桃花島")
+		return RANK_D->query_respect(ob) + "與本派素無來往，不知此話從何談起？";
 
 	if (ob->query_condition("medicine") > 0 )
-		return RANK_D->query_respect(ob) + "你不是刚吃过药吗，怎么又来要了？灵药多吃有害无宜，过段时间再来吧。";
+		return RANK_D->query_respect(ob) + "你不是剛喫過藥嗎，怎麼又來要了？靈藥多喫有害無宜，過段時間再來吧。";
 
 	if (this_player()->query("max_neili") < 400)
-		return RANK_D->query_respect(ob) + "功力不够，灵药多吃有害无宜，过段时间再来吧。";
+		return RANK_D->query_respect(ob) + "功力不夠，靈藥多喫有害無宜，過段時間再來吧。";
 
 	if (present("liuren wan", ob))
-		return RANK_D->query_respect(ob) + "你现在身上不是有颗药丸吗，怎么又来要了？真是贪得无厌！";
+		return RANK_D->query_respect(ob) + "你現在身上不是有顆藥丸嗎，怎麼又來要了？真是貪得無厭！";
 
-	if (query("yao") < 1) return "对不起，药已经发完了，新的还未炼出。";
+	if (query("yao") < 1) return "對不起，藥已經發完了，新的還未煉出。";
 
          if(ob->query("max_neili")>= (ob->query_skill("force")*8+ob->query("combat_exp",1)/1000))
-                     return RANK_D->query_respect(ob) + "此药已经难以在帮助你提高内力修为了！";
+                     return RANK_D->query_respect(ob) + "此藥已經難以在幫助你提高內力修爲了！";
 	new("/clone/medicine/liuren-wan")->move(ob);
 
 	add("yao", -1);
 
-	message_vision("$N获得一颗六壬集气丸。\n", ob);
-	return "好吧，此药练之不易，对练武之人大有好处，你要小心收藏好了。";
+	message_vision("$N獲得一顆六壬集氣丸。\n", ob);
+	return "好吧，此藥練之不易，對練武之人大有好處，你要小心收藏好了。";
 }
 
 

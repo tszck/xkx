@@ -54,7 +54,7 @@ void init()
 
 void killing(object ob)
 {	
-	message_vision("$N对著$n喝道：「"+RANK_D->query_rude(ob)+"！今天不是你死就是我亡！」\n",this_object(),ob);
+	message_vision("$N對著$n喝道：「"+RANK_D->query_rude(ob)+"！今天不是你死就是我亡！」\n",this_object(),ob);
 	this_object()->kill_ob(ob);	
         return;
 }
@@ -112,10 +112,10 @@ void die()
          me->add("potential",pot);
          me->add("score",score);
          me->add_temp("bwdh_nknum",1);
-        message_vision("$N对着你恨恨的说：“明年此时再来领教阁下高招！”\n",ob);
-        tell_object(me,HIW"你在论剑中战胜对手，得到如下奖励：\n");
-        tell_object(me,chinese_number(exp) +"点实战经验\n" +
-        chinese_number(pot) + "点潜能。\n"NOR);
+        message_vision("$N對着你恨恨的說：“明年此時再來領教閣下高招！”\n",ob);
+        tell_object(me,HIW"你在論劍中戰勝對手，得到如下獎勵：\n");
+        tell_object(me,chinese_number(exp) +"點實戰經驗\n" +
+        chinese_number(pot) + "點潛能。\n"NOR);
        } 
        destruct ( ob );
 //        ::die();    

@@ -1,4 +1,4 @@
-// zhouyi.c 周绮
+// zhouyi.c 周綺
 #include <ansi.h>
 
 inherit NPC;
@@ -6,13 +6,13 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("周绮", ({ "zhou yi", "zhou","yi" }));
-	set("title", HIC "铁胆庄"HIM"大小姐" NOR);
+	set_name("周綺", ({ "zhou yi", "zhou","yi" }));
+	set("title", HIC "鐵膽莊"HIM"大小姐" NOR);
 	set("nickname", HIB "俏李逵" NOR);
 	set("long", 
-"这是铁胆庄的大小姐，周仲英的宝贝女儿。她性格豪迈，颇
-有乃父之风，爱管闲事，好打不平，西北武林中人送了她个
-外号，叫做“俏李逵”。\n");
+"這是鐵膽莊的大小姐，周仲英的寶貝女兒。她性格豪邁，頗
+有乃父之風，愛管閒事，好打不平，西北武林中人送了她個
+外號，叫做“俏李逵”。\n");
 	set("gender", "女性");
 	set("class", "fighter");
 	set("age", 17);

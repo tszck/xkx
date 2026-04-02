@@ -6,8 +6,8 @@ void create()
 {
 	set("short","司空堂");
 	set("long",@LONG
-这里是大理国司空堂。堂内无余物，四壁却堆满了书籍。想来主
-人爱书如命，即便工余亦手不释卷。
+這裏是大理國司空堂。堂內無餘物，四壁卻堆滿了書籍。想來主
+人愛書如命，即便工餘亦手不釋卷。
 LONG);
 	set("objects", ([
 	    CLASS_D("dali")+"/batianshi" : 1,

@@ -5,11 +5,11 @@ inherit ROOM;
 string look_gaoshi();
 void create()
 {
-	set("short", "西城门");
+	set("short", "西城門");
 	set("long", @LONG
-你来到了西城门外，只见高大的城墙厚实凝重，卫兵仔细地盘查着
-过往行人，一切都显得井井有条。城墙上贴着几张告示(gaoshi)。西面
-远远可以看到城外的清溪碧水。东边是城里。
+你來到了西城門外，只見高大的城牆厚實凝重，衛兵仔細地盤查着
+過往行人，一切都顯得井井有條。城牆上貼着幾張告示(gaoshi)。西面
+遠遠可以看到城外的清溪碧水。東邊是城裏。
 LONG );
         set("outdoors", "chengdu");
 	set("item_desc", ([
@@ -31,5 +31,5 @@ LONG );
 
 string look_gaoshi()
 {
-	return FINGER_D->get_killer() + "\n成都提督\n吴天德\n";
+	return FINGER_D->get_killer() + "\n成都提督\n吳天德\n";
 }

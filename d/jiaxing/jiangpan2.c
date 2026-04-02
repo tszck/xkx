@@ -7,7 +7,7 @@ void create()
 {
 	set("short", "江畔");
 	set("long", @LONG
-一条大江横亘在面前，江水浩浩，日日夜夜无穷无休地奔向大海。
+一條大江橫亙在面前，江水浩浩，日日夜夜無窮無休地奔向大海。
 LONG
 	);
 	set("no_clean_up", 0);

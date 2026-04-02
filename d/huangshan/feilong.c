@@ -4,12 +4,12 @@
 inherit ROOM;
 void create()
 {
-	set("short", "飞龙峰");
+	set("short", "飛龍峯");
 	set("long", @LONG
-这里很少有游人前来，因此山势险恶，且无什么绝妙的景色，但是
-武林人士倒喜欢来此探幽，更曾有高人隐居于此，所以后来者更是络绎
-不绝，期待能够得到那传说中的秘宝。可是山顶怪石林立，杂草丛生，
-丝毫不见有人的迹象，但是谁也不肯放弃希望，都要搜一搜。
+這裏很少有遊人前來，因此山勢險惡，且無什麼絕妙的景色，但是
+武林人士倒喜歡來此探幽，更曾有高人隱居於此，所以後來者更是絡繹
+不絕，期待能夠得到那傳說中的祕寶。可是山頂怪石林立，雜草叢生，
+絲毫不見有人的跡象，但是誰也不肯放棄希望，都要搜一搜。
 LONG
 	);
 	set("exits", ([ 
@@ -26,15 +26,15 @@ void init()
 }
 int do_search()
 {
-	string *names = ({"脏脏的","划破的","撕成条的","沾满污泥的"});
+	string *names = ({"髒髒的","劃破的","撕成條的","沾滿污泥的"});
 	object clo, me = this_player();
 
 	clo = new("/clone/cloth/cloth");
 	clo->set("name",names[random(sizeof(names))]+"布衣");
-	message_vision("$N在这怪石林立，杂草丛生的山顶不停地搜寻着．．\n",me);
+	message_vision("$N在這怪石林立，雜草叢生的山頂不停地搜尋着．．\n",me);
 	if(!me->is_busy())
 	{
-		tell_object(me,"你发现了一件"+clo->name()+"。\n");
+		tell_object(me,"你發現了一件"+clo->name()+"。\n");
 		clo->move(me);
 	}
 	me->start_busy(4);

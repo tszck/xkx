@@ -4,12 +4,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("族头人", ({ "zu touren", "touren" }));
+	set_name("族頭人", ({ "zu touren", "touren" }));
 	set("age", 42);
 	set("gender", "男性");
-	set("long", "这位是哈尼的族头人，哈尼是大理国的第三大族，大多聚在大都
-附近。此人貌甚精明，身穿对襟衣，亦是白布包头。他坐在大土司的
-右下首，对来人细细打量着。\n");
+	set("long", "這位是哈尼的族頭人，哈尼是大理國的第三大族，大多聚在大都
+附近。此人貌甚精明，身穿對襟衣，亦是白布包頭。他坐在大土司的
+右下首，對來人細細打量着。\n");
 	set("attitude", "peaceful");
 
 	set("str", 30);

@@ -7,7 +7,7 @@ void create()
         set_name("香客", ({"xiang ke","ke"}) );
         set("gender", "男性" );
         set("age", random(20)+10);
-        set("long", "这是一位到山上进香的香客。\n");
+        set("long", "這是一位到山上進香的香客。\n");
 
         set_temp("apply/attack", 35);
         set_temp("apply/defense", 25);

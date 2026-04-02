@@ -8,18 +8,18 @@ int do_knock(string arg);
 
 void create()
 {
-	set("short", "刘府大门");
+	set("short", "劉府大門");
 	set("long", @LONG
-这里是刘府大门。刘府的主人，就是衡山派中的仅次于掌门人莫大
-先生的第二号人物刘正风刘老爷子。今天兴许刘府有事吧，大门(gate)
-紧闭，管家家丁也异样紧张。只有檐下的写着 "刘府" 二字的大红灯笼
-中的烛火忽闪晃动才显出点活人气。
+這裏是劉府大門。劉府的主人，就是衡山派中的僅次於掌門人莫大
+先生的第二號人物劉正風劉老爺子。今天興許劉府有事吧，大門(gate)
+緊閉，管家家丁也異樣緊張。只有檐下的寫着 "劉府" 二字的大紅燈籠
+中的燭火忽閃晃動才顯出點活人氣。
 LONG);
 	set("exits", ([
 	    "south"  : __DIR__"hengyang1",
 	]));
 	set("item_desc", ([
-	   "gate" : "朱红的大门紧闭着，敲敲(knock)看吧。\n"
+	   "gate" : "硃紅的大門緊閉着，敲敲(knock)看吧。\n"
 	]));
 	set("objects", ([
 	        CLASS_D("henshan")+"/mi":1,
@@ -43,7 +43,7 @@ int do_knock(string arg)
 	object me;
 
 	me = this_player();
-message_vision("$N“咚，咚，咚，。。。”地敲着门，可里面却一点动静都没有。\n", me);
+message_vision("$N“咚，咚，咚，。。。”地敲着門，可裏面卻一點動靜都沒有。\n", me);
 	me->set_temp("marks/liufu",1);
 	return 1;
 }
@@ -53,9 +53,9 @@ int do_push(string arg)
     object me=this_player();
     
 
-    if (!me->query_temp("marks")) return notify_fail("门关得牢牢的，急切打不开！\n");
-    if ( !arg || arg!="gate" ) return notify_fail("这是干嘛？\n");
-    message_vision(HIY "$N走到门前，把门随便一推，居然就推开了大门！\n"NOR,me);
+    if (!me->query_temp("marks")) return notify_fail("門關得牢牢的，急切打不開！\n");
+    if ( !arg || arg!="gate" ) return notify_fail("這是幹嘛？\n");
+    message_vision(HIY "$N走到門前，把門隨便一推，居然就推開了大門！\n"NOR,me);
     set("exits/enter",__DIR__"liufudayuan");
     remove_call_out("close");
     call_out("close", 5, this_object());
@@ -68,6 +68,6 @@ void close_out()
 
 void close(object room)
 {
-    message("vision","一阵咿咿呀呀门响，里面有人把大门给关上了。\n", room);
+    message("vision","一陣咿咿呀呀門響，裏面有人把大門給關上了。\n", room);
     room->delete("exits/enter");
 }

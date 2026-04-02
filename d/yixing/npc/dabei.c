@@ -7,8 +7,8 @@ inherit NPC;
 void create()
 {
 	set_name("大悲老人", ({"dabei laoren", "dabei" }));
-	set("long", "他是个红面老者，白发拂胸，甚是雄伟。\n");
-	set("title", "白鲸岛主");
+	set("long", "他是個紅面老者，白髮拂胸，甚是雄偉。\n");
+	set("title", "白鯨島主");
 	set("gender", "男性");
 	set("attitude", "friendly");
 

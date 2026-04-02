@@ -8,12 +8,12 @@ void setup()
 
 void create()
 {
-               set_name("穿心莲", ({"chuanxin lian","lian" }));
+               set_name("穿心蓮", ({"chuanxin lian","lian" }));
 
                 set("unit", "朵");
-                set("long", "这是一朵粉红色的莲花。\n");
+                set("long", "這是一朵粉紅色的蓮花。\n");
                 set("value", 500);
-//            set("no_drop", "这样东西不能离开你。\n");
+//            set("no_drop", "這樣東西不能離開你。\n");
               set_weight(50);
 
 

@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("曲非烟",({ "qu feiyan", "qu" }) );
+	set_name("曲非煙",({ "qu feiyan", "qu" }) );
         set("gender", "女性" );
         set("age", 12);
         set("long", 
-"她是曲长老的宝贝孙女儿，有十二、三岁了吧。\n");
+"她是曲長老的寶貝孫女兒，有十二、三歲了吧。\n");
         set_temp("apply/defense", 5);
 	set("combat_exp", 70);
 //        set("shen", 100);

@@ -1,14 +1,14 @@
 // Last Modified by Sir on May. 22 2001
-// liangong.c 练功房
+// liangong.c 練功房
 
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-	set("short", "练功房");
+	set("short", "練功房");
 	set("long", @LONG
-这里是恒山派弟子练功的房间。房间中央立着几个练功用的木人。
+這裏是恆山派弟子練功的房間。房間中央立着幾個練功用的木人。
 LONG );
 
 	set("exits", ([

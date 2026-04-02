@@ -10,29 +10,29 @@ string skill_level(string, int);
 string skill_enables(object sk);
 int sort_skill(string file);
 mapping valid_type = ([
-        "array":        "阵法",
+        "array":        "陣法",
         "axe":          "斧法",
         "blade":        "刀法",
         "claw":         "爪法",
         "club" :        "棍法",
         "cuff":         "拳法",
         "dagger":       "短兵",
-        "dodge":        "轻功",
+        "dodge":        "輕功",
         "finger":       "指法",
-        "force":        "内功",
-        "hammer":       "锤法",
+        "force":        "內功",
+        "hammer":       "錘法",
         "hand":         "手法",
-        "hook":         "钩法",
+        "hook":         "鉤法",
         "leg":          "腿法",
-        "magic":        "法术",
+        "magic":        "法術",
         "parry":        "招架",
-        "spear":        "枪法",
+        "spear":        "槍法",
         "staff":        "杖法",
         "stick":        "棒法",
         "strike":       "掌法",
-        "sword":        "剑法",
+        "sword":        "劍法",
         "throwing":     "暗器",
-        "unarmed":      "拳脚",
+        "unarmed":      "拳腳",
         "whip":         "鞭法",
 ]);
 
@@ -45,31 +45,31 @@ int main(object me, string arg)
 	mapping lrn;
 	mixed *cmds;
 
-// 不带参数，则显示帮助主菜单
+// 不帶參數，則顯示幫助主菜單
 	if( !arg )
 	{
 //		cat(HELP_DIR + "help/topics");
 		me->start_more(read_file(HELP_DIR + "help/topics"));
 		return 1;
 	}
-// 参数为here，显示本地所在地址的帮助
+// 參數爲here，顯示本地所在地址的幫助
 	if( arg == "here")
 	{
 		file = file_name(environment(me));
 		if( sscanf(file, "/d/%s/%s", here, here1) != 2)
-			return notify_fail("这个地方没有帮助说明。\n");
+			return notify_fail("這個地方沒有幫助說明。\n");
 		else
 		{
-// 扬州目录为city，特别列出
+// 揚州目錄爲city，特別列出
 			if( here == "city") arg = "yangzhou";
 			else arg = here;
 		}
 	}
-// 命令帮助，则取 /cmds/目录下的命令文件的自带帮助
+// 命令幫助，則取 /cmds/目錄下的命令文件的自帶幫助
 	if( arg == "cmds")
 	{
 		cmds = get_dir("/cmds/usr/");
-		write(HIC"〖用户系统命令〗\n"NOR);
+		write(HIC"〖用戶系統命令〗\n"NOR);
 		w = 0;
 		for ( i = 0; i < sizeof(cmds); i++)
 		{
@@ -90,7 +90,7 @@ int main(object me, string arg)
 		}
 		write("\n");
 		cmds = get_dir("/cmds/std/");
-		write(HIC"〖交流探险命令〗\n"NOR);
+		write(HIC"〖交流探險命令〗\n"NOR);
 		w = 0;
 		for ( i = 0; i < sizeof(cmds); i++)
 		{
@@ -131,18 +131,18 @@ int main(object me, string arg)
 			}
 		}
 		write("\n");
-		write(HIY"请用help <命令名> 查看详细说明。\n"NOR);
+		write(HIY"請用help <命令名> 查看詳細說明。\n"NOR);
 		return 1;
 	}
 // Else, try if a command name is specified.
 	seteuid(getuid());
 	if( stringp(file = me->find_command(arg)) )
 	{
-		notify_fail("有这个指令存在，但是并没有详细的说明文件。\n");
+		notify_fail("有這個指令存在，但是並沒有詳細的說明文件。\n");
 		return file->help(me);
 	}
 
-// 查找帮助文件的路径
+// 查找幫助文件的路徑
 	if( pointerp(search = me->query("help_search_path")) )
 	{
 		i = sizeof(search);
@@ -167,32 +167,32 @@ int main(object me, string arg)
 			return 1;
 		}
 	}
-// 武功帮助文件
+// 武功幫助文件
 	sscanf(arg, "%s.%s", arg, str);
 	if(file_size(SKILL_D(arg)+".c") < 1)
-		return notify_fail("没有针对这项主题的说明文件。\n");
+		return notify_fail("沒有針對這項主題的說明文件。\n");
 
-// 武功绝招帮助文件
+// 武功絕招幫助文件
 	if( stringp(str) )
 	{
 		if( stringp(exert = SKILL_D(arg)->exert_function_file("")) &&
 			file_size(exert + str +".c") > 0)
 		{
-			notify_fail("对不起，"+to_chinese(arg)+"内功方面的「"+str+"」功能没有详细的说明。\n");
+			notify_fail("對不起，"+to_chinese(arg)+"內功方面的「"+str+"」功能沒有詳細的說明。\n");
 			return (exert + str)->help(me);
 		}
 		else
 		if( stringp(exert = SKILL_D(arg)->perform_action_file("")) &&
 			file_size(exert + str +".c") > 0)
 		{
-			notify_fail("对不起，"+to_chinese(arg)+"外功方面的「"+str+"」功能没有详细的说明。\n");
+			notify_fail("對不起，"+to_chinese(arg)+"外功方面的「"+str+"」功能沒有詳細的說明。\n");
 			return (exert + str)->help(me);
 		}
-		return notify_fail("对不起，"+to_chinese(arg)+"没有「"+str+"」这项功能。\n");
+		return notify_fail("對不起，"+to_chinese(arg)+"沒有「"+str+"」這項功能。\n");
 	}
 	if(!SKILL_D(arg)->help(me))
 	{
-		write(HIY"\n指定武技没有详细帮助说明。\n"NOR);
+		write(HIY"\n指定武技沒有詳細幫助說明。\n"NOR);
 	}
 
 	lrn = me->query_learned();
@@ -208,8 +208,8 @@ int main(object me, string arg)
 	str += sprintf("┐\n");
 
 	str = replace_string(str, "  ", "--");
-//	str += sprintf("│"HIY"目前等级"NOR"：     %3d/%6d              "HIY "武功类别"NOR"：  %-4s%9s\n", me->query_skill(arg, 1), (int)lrn[arg], SKILL_D(arg)->type()=="knowledge" ? "知识":"武技", "│");
-	str += sprintf("│"HIY"目前等级"NOR"：     %3d/%6d              "HIY "武功类别"NOR"：  %-4s%9s\n", me->query_skill(arg, 1), (int)lrn[arg], SKILL_D(arg)->type()=="knowledge" ? "知识" : SKILL_D(arg)->martialtype()=="skill" ? "武技" : SKILL_D(arg)->martialtype()=="dodge" ? "轻功" : "内功" , "│");
+//	str += sprintf("│"HIY"目前等級"NOR"：     %3d/%6d              "HIY "武功類別"NOR"：  %-4s%9s\n", me->query_skill(arg, 1), (int)lrn[arg], SKILL_D(arg)->type()=="knowledge" ? "知識":"武技", "│");
+	str += sprintf("│"HIY"目前等級"NOR"：     %3d/%6d              "HIY "武功類別"NOR"：  %-4s%9s\n", me->query_skill(arg, 1), (int)lrn[arg], SKILL_D(arg)->type()=="knowledge" ? "知識" : SKILL_D(arg)->martialtype()=="skill" ? "武技" : SKILL_D(arg)->martialtype()=="dodge" ? "輕功" : "內功" , "│");
 
 	if(SKILL_D(arg)->type() != "martial" ||
 		member_array(arg, keys(valid_type))!=-1)
@@ -237,7 +237,7 @@ int main(object me, string arg)
 	if(j && j > 0)
 	{
 		if( i ) str = str +"├--------------------------------------------------------------┤\n";
-		str += "│"HIM"内功方面"NOR"：                                                    │\n";
+		str += "│"HIM"內功方面"NOR"：                                                    │\n";
 		str += "│"HIC"(exert + )";
 		for(i=0; i < j; i++){
 			if (i % 4 == 0)
@@ -347,13 +347,13 @@ int help(object me)
 {
 	write(@HELP
 
-指令格式：help <主题>              例如：> help cmds
+指令格式：help <主題>              例如：> help cmds
           help <武功名>            例如：> help force
-          help <函数名称>()        例如：> help call_out()
-          help here                显示所在地域的介绍
+          help <函數名稱>()        例如：> help call_out()
+          help here                顯示所在地域的介紹
 
-    这个指令提供你针对某一主题的详细说明文件，若是不指定主题，
-则提供你有关主题的文件。
+    這個指令提供你針對某一主題的詳細說明文件，若是不指定主題，
+則提供你有關主題的文件。
 
 HELP
 	);

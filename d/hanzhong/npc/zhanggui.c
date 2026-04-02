@@ -4,8 +4,8 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("掌柜", ({ "zhanggui", "gui" }));
-	set("long", "这是位和和气气的生意人。\n");
+	set_name("掌櫃", ({ "zhanggui", "gui" }));
+	set("long", "這是位和和氣氣的生意人。\n");
 	set("gender", "男性");
 	set("age", 45);
 

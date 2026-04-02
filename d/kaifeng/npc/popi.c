@@ -2,8 +2,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("泼皮",({"po pi", "po", "pi"}));
-	set("long", "大相国寺附近的泼皮,平时专到菜园中偷菜.\n" );
+	set_name("潑皮",({"po pi", "po", "pi"}));
+	set("long", "大相國寺附近的潑皮,平時專到菜園中偷菜.\n" );
         set("gender", "男性");
 	set("age",25);
         set("combat_exp", 7000);

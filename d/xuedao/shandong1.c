@@ -6,7 +6,7 @@ void create()
 {
         set("short","山洞");
         set("long",@LONG
-空空荡荡一个山洞，倒也还算干净，尽头摆了一张石床。
+空空蕩蕩一個山洞，倒也還算乾淨，盡頭擺了一張石牀。
 LONG );
         set("exits",([
                 "out" : __DIR__"sroad8",

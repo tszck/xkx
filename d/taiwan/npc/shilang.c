@@ -9,9 +9,9 @@ void create()
 {
 	set_name("施琅", ({"shi lang", "shi", "lang"}));
 	set("long",
-        "他是一位身材魁梧的豪爽汉子。\n");
+        "他是一位身材魁梧的豪爽漢子。\n");
                                                           
-	set("title", HIB "靖海侯"HIY "征台大将军" NOR);
+	set("title", HIB "靖海侯"HIY "徵臺大將軍" NOR);
 	set("gender", "男性");
 	set("attitude", "peaceful");
 

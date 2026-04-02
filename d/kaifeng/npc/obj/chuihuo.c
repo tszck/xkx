@@ -10,9 +10,9 @@ void create()
         else {
                 set("unit", "根");
                 set("value", 10);
-                set("long","在一端吹气,使灶火旺盛的竹管.\n");
+                set("long","在一端吹氣,使竈火旺盛的竹管.\n");
                 set("material", "wood");
-                set("wield_msg", "$N「呼」地一声抽出一把$n握在手中。\n");
+                set("wield_msg", "$N「呼」地一聲抽出一把$n握在手中。\n");
         }
         init_staff(5);
         setup();

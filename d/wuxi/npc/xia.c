@@ -8,13 +8,13 @@ int ask_stop();
 void create()
 {
 	set_name("晨宜", ({ "cheng yi", "cheng" , "yi"}) );
-	set("title", "无锡知府" );
+	set("title", "無錫知府" );
 	set("gender", "女性" );
 	set("age", 25);
 	set("per", 24);
 	set("str", 20);
 	set("dex", 20);
-	set("long", "这个知府祖居苏杭，长得眉清目秀。你仔细一看，原来是个女的耶！\n");
+	set("long", "這個知府祖居蘇杭，長得眉清目秀。你仔細一看，原來是個女的耶！\n");
 	set("combat_exp", 300000);
 	set("shen_type", 0);
 	set("attitude", "heroism");

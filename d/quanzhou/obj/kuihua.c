@@ -1,4 +1,4 @@
-// kuihua.c 葵花宝典
+// kuihua.c 葵花寶典
 // Jay 4/5/96
 
 inherit ITEM;
@@ -14,17 +14,17 @@ void init()
 
 void create()
 {
-        set_name("葵花宝典", ({ "kuihua baodian", "baodian", "book"}));
+        set_name("葵花寶典", ({ "kuihua baodian", "baodian", "book"}));
         set_weight(600);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
                 set("unit", "本");
-                set("long", "这就是武林第一秘籍《葵花宝典》，相传是一位宫中太监所作。\n");
+                set("long", "這就是武林第一祕籍《葵花寶典》，相傳是一位宮中太監所作。\n");
                 set("value", 50000);
                 set("material", "paper");
-                set("no_drop", "这样东西不能离开你。\n");
-                set("no_get", "这样东西不能离开那儿。\n");
+                set("no_drop", "這樣東西不能離開你。\n");
+                set("no_get", "這樣東西不能離開那兒。\n");
 
         }
 }
@@ -42,54 +42,54 @@ int do_du(string arg)
 	return 0;
 
         if (where->query("pigging")){
-                write("你还是专心拱猪吧！\n");
+                write("你還是專心拱豬吧！\n");
                 return 1;
         }
         if (me->is_busy()) {
-                write("你现在正忙着呢。\n");
+                write("你現在正忙着呢。\n");
                 return 1;
         }
 
         if( me->is_fighting() ) {
-                write("你无法在战斗中专心下来研读新知！\n");
+                write("你無法在戰鬥中專心下來研讀新知！\n");
                 return 1;
         }
 
 /*        if(!arg || !objectp(ob = present(arg, me)) ){
-                write("你要读什么？\n");
+                write("你要讀什麼？\n");
                 return 1;
         }
 */
         if (!id(arg)) {	
-                write("你要读什么？\n");
+                write("你要讀什麼？\n");
                 return 1;
         }
         if ((string)me->query("gender") == "女性" ){
-                write("自古没有女人可以读《葵花宝典》的。\n");
+                write("自古沒有女人可以讀《葵花寶典》的。\n");
                 return 1;
         }
         if ((string)me->query("gender") == "男性" ) {
-               write("《葵花宝典》的第一页写着：欲练神功，必先自宫。\n");
+               write("《葵花寶典》的第一頁寫着：欲練神功，必先自宮。\n");
                return 1;
         }
         if( !me->query_skill("literate", 1) ){
-                write("你是个文盲，先学点文化(literate)吧。\n");
+                write("你是個文盲，先學點文化(literate)吧。\n");
                 return 1;
         }
 
         switch(random(3)) {
           case 0:
-        message("vision", me->name() + "偷偷摸摸翻出一本书在读。\n", environment(me), me);
+        message("vision", me->name() + "偷偷摸摸翻出一本書在讀。\n", environment(me), me);
               break;
           case 1:
-        message("vision", me->name() + "边读书边骚首弄姿，好象在模仿女人。\n", environment(me), me);
+        message("vision", me->name() + "邊讀書邊騷首弄姿，好象在模仿女人。\n", environment(me), me);
               break;
           case 2:
-        message("vision", me->name() + "边读书边把腰身扭来扭去。\n", environment(me), me);
+        message("vision", me->name() + "邊讀書邊把腰身扭來扭去。\n", environment(me), me);
               break;
         }
         if( (int)me->query("jing") < 15 ) {
-                write("你现在过于疲倦，无法专心下来研读新知。\n");
+                write("你現在過於疲倦，無法專心下來研讀新知。\n");
                 return 1;
         }
 
@@ -100,59 +100,59 @@ int do_du(string arg)
 
 
         if( (int)me->query("neili") < neili_lost) {
-		write("你内力不够，无法钻研这么高深的武功。\n");
+		write("你內力不夠，無法鑽研這麼高深的武功。\n");
                 return 1;
         }
 
         pxlevel = me->query_skill("bixie-jian", 1);
         if( (int)me->query("combat_exp") < (int)pxlevel*pxlevel*pxlevel/10 ) {
-                write("你的实战经验不足，再怎么读也没用。\n");
+                write("你的實戰經驗不足，再怎麼讀也沒用。\n");
                 return 1;
         }
 
         if( me->query_skill("bixie-jian", 1) > 9)
             if ((!objectp(ob = present("golden ring", me)) ) ||
                (!ob->query("equipped") )) {
-                write("你没戴戒指，感到很难理解阴柔的指法。\n");
+                write("你沒戴戒指，感到很難理解陰柔的指法。\n");
                 return 1;
         }
         if( me->query_skill("bixie-jian", 1) > 19)
             if ((!objectp(ob = present("flower shoes", me)) ) ||
                (!ob->query("equipped") )) {
-                write("你没穿绣花鞋，感到很难理解阴柔的步法。\n");
+                write("你沒穿繡花鞋，感到很難理解陰柔的步法。\n");
                 return 1;
         }
         if( me->query_skill("bixie-jian", 1) > 29)
             if ((!objectp(ob = present("xiuhua zhen", me)) ) ||
                (!ob->query("equipped") )) {
-                write("你没用绣花针，感到无法理解这种阴柔灵活的武功。\n");
+                write("你沒用繡花針，感到無法理解這種陰柔靈活的武功。\n");
                 return 1;
         }
         if( me->query_skill("bixie-jian", 1) > 39)
             if ((!objectp(ob = present("pink cloth", me)) ) ||
                (!ob->query("equipped") )) {
-                write("你没穿女人的衣衫，感到很难理解阴柔的身法。\n");
+                write("你沒穿女人的衣衫，感到很難理解陰柔的身法。\n");
                 return 1;
         }
         if( me->query_skill("bixie-jian", 1) > 49)
             if ((!objectp(ob = present("golden necklace", me)) ) ||
                (!ob->query("equipped") )) {
-                write("你没戴项链，觉得练这种阴柔的功夫缺乏自信。\n");
+                write("你沒戴項鍊，覺得練這種陰柔的功夫缺乏自信。\n");
                 return 1;
         }
 
         if( me->query_skill("bixie-jian", 1) > 59)
             if( me->query("rank_info/respect") != "公公") {
-		write("你现在需要正式加入(join)东厂才能继续深造辟邪剑法。\n");
-		write("键入join你便成为东厂的一位太监。这将不影响你的师承，\n");
-		write("而且大家都将尊称你为公公。\n");
+		write("你現在需要正式加入(join)東廠才能繼續深造辟邪劍法。\n");
+		write("鍵入join你便成爲東廠的一位太監。這將不影響你的師承，\n");
+		write("而且大家都將尊稱你爲公公。\n");
 		me->set_temp("pending/join",1);
                 return 1;
         }
 
 
         if( me->query_skill("bixie-jian", 1) > 199){
-                write("你研读了一会儿，但是发现上面所说的对你而言都太浅了，没有学到任何东西。\n");
+                write("你研讀了一會兒，但是發現上面所說的對你而言都太淺了，沒有學到任何東西。\n");
                 return 1;
         }
 
@@ -160,22 +160,22 @@ int do_du(string arg)
 	me->set("neili",(int)me->query("neili")-neili_lost);
         if( !me->query_skill("bixie-jian", 1) ) {
                 me->set_skill("bixie-jian", 0);
-write("                   《葵花宝典》阅读指南\n"
-"\n    恭喜你开始研习武林第一功夫－－－－辟邪剑法！\n"
-"注意事项：\n"
-"一．研习辟邪剑法必先自宫，如你不想让别人发现这个天大的秘密，你必须\n"
-"    找一无人所在之处阅读，且当有别的玩家在场时不要使用辟邪剑法战斗，\n"
-"    因为当你阅读或使用辟邪剑法时会出现一些阴柔的举动，使别人产生怀\n"
-"    疑。切记不可收徒或拜别的玩家为师，以免被人检查你的技能。\n\n"
-"二．辟邪剑法功力极强，既可作剑法，又可作腾挪之法。\n\n"
-"三．《葵花宝典》不可送人，出售，丢弃，捡拾，唯一的获取方法是你使用\n"
-"    你得到的密码去密室寻找。\n\n"
-"四．辟邪剑法不可通过拜师或自己锻炼来长进，只能通过研习《葵花宝典》\n"
-"    来提高。\n\n"
-"         祝你早日成为武林第一高手，称霸天下！\n");
+write("                   《葵花寶典》閱讀指南\n"
+"\n    恭喜你開始研習武林第一功夫－－－－辟邪劍法！\n"
+"注意事項：\n"
+"一．研習辟邪劍法必先自宮，如你不想讓別人發現這個天大的祕密，你必須\n"
+"    找一無人所在之處閱讀，且當有別的玩家在場時不要使用辟邪劍法戰鬥，\n"
+"    因爲當你閱讀或使用辟邪劍法時會出現一些陰柔的舉動，使別人產生懷\n"
+"    疑。切記不可收徒或拜別的玩家爲師，以免被人檢查你的技能。\n\n"
+"二．辟邪劍法功力極強，既可作劍法，又可作騰挪之法。\n\n"
+"三．《葵花寶典》不可送人，出售，丟棄，撿拾，唯一的獲取方法是你使用\n"
+"    你得到的密碼去密室尋找。\n\n"
+"四．辟邪劍法不可通過拜師或自己鍛鍊來長進，只能通過研習《葵花寶典》\n"
+"    來提高。\n\n"
+"         祝你早日成爲武林第一高手，稱霸天下！\n");
         }
         me->improve_skill("bixie-jian", (int)me->query_skill("literate", 1)/3+1);
-        write("你研读《葵花宝典》，颇有心得。\n");
+        write("你研讀《葵花寶典》，頗有心得。\n");
         return 1;
 }
 
@@ -183,7 +183,7 @@ write("                   《葵花宝典》阅读指南\n"
 int do_join()
 {
         if( this_player()->query("rank_info/respect") == "公公") {
-     		write("你已经加入东厂了，不需要重新加入。\n");
+     		write("你已經加入東廠了，不需要重新加入。\n");
 		return 1;
 	}
 
@@ -191,8 +191,8 @@ int do_join()
 	return 0;
 
 	this_player()->set("rank_info/respect", "公公");
-	this_player()->set("rank_info/rude","阉贼");
-        write("恭喜你成为朝廷最重要的机关东厂的一员！\n");
+	this_player()->set("rank_info/rude","閹賊");
+        write("恭喜你成爲朝廷最重要的機關東廠的一員！\n");
 	this_player()->delete_temp("pending/join");
 	return 1;
 }

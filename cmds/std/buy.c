@@ -19,7 +19,7 @@ int main(object me, string arg)
 	
         
         if(me->is_busy())
-                return notify_fail("什么事都得等你忙完再说吧！\n");
+                return notify_fail("什麼事都得等你忙完再說吧！\n");
         if (! arg)
                 return notify_fail("指令格式：buy <物品> [from <玩家>]\n");
 				env = environment(me);
@@ -35,53 +35,53 @@ int main(object me, string arg)
          }
 
         if (! (obj = find_player(my_id)) || ! (present(obj->query("id"), env)))
-                return notify_fail("这里没有这个商人。\n");
+                return notify_fail("這裏沒有這個商人。\n");
 
         if (obj == me)
-                return notify_fail("问自己买东西？吃饱了撑的？\n");
+                return notify_fail("問自己買東西？喫飽了撐的？\n");
 
         if (! obj->query("is_vendor"))
-                return notify_fail(obj->name(1) + "并不是商人。\n");
+                return notify_fail(obj->name(1) + "並不是商人。\n");
 
         if (! obj->query_temp("on_baitan"))
-                return notify_fail(obj->name(1) + "并没有摆摊。\n");
+                return notify_fail(obj->name(1) + "並沒有擺攤。\n");
 
 				SHOP_D->reset_goods(obj);
 				
         if (! (goods = obj->query("vendor_goods")))
-                return notify_fail(obj->name(1) + "并没有兜售任何货物。\n");
+                return notify_fail(obj->name(1) + "並沒有兜售任何貨物。\n");
 
         ob = i_have(obj, arg);
 
 				if (! ob || ! objectp(ob))
-                return notify_fail(obj->name(1) + "并没有兜售这样货物。\n");
+                return notify_fail(obj->name(1) + "並沒有兜售這樣貨物。\n");
 
         if (! goods[file_name(ob)])
-                return notify_fail(obj->name(1) + "并没有兜售这样货物。\n");
+                return notify_fail(obj->name(1) + "並沒有兜售這樣貨物。\n");
 
         value = goods[file_name(ob)];
 
         if (ob->query_amount()) 
-        	return notify_fail("这样东西不值钱，买了也没用。\n");
+        	return notify_fail("這樣東西不值錢，買了也沒用。\n");
 
         switch (MONEY_D->player_pay(me,value))
         {
         case 0:
-                write(CYN + obj->name(1) + CYN "冷笑一声，骂道：穷"
-                      "光蛋，一边呆着去。\n" NOR);
+                write(CYN + obj->name(1) + CYN "冷笑一聲，罵道：窮"
+                      "光蛋，一邊待著去。\n" NOR);
                 return 1;
         case 2:
-                write(CYN + obj->name(1) + CYN "皱眉道：您还有没有"
-                      "零钱啊？银票我可找不开。\n" NOR);
+                write(CYN + obj->name(1) + CYN "皺眉道：您還有沒有"
+                      "零錢啊？銀票我可找不開。\n" NOR);
                 return 1;
         default:
                 if (ob->query_amount())
                 {
-                        message_vision("$N从$n那里买下了" + ob->short() + "。\n",
+                        message_vision("$N從$n那裏買下了" + ob->short() + "。\n",
                                         me, obj);
                 } else
                 {
-                        message_vision("$N从$n那里买下了一" + ob->query("unit") + 
+                        message_vision("$N從$n那裏買下了一" + ob->query("unit") + 
                 	               ob->query("name") + "。\n",
 			               me, obj);
                 }
@@ -151,9 +151,9 @@ int help (object me)
         write(@HELP
 指令格式: buy <物品> [from <玩家>]
 
-向一个商人购买商品。
+向一個商人購買商品。
 
-相关指令：list
+相關指令：list
 
 HELP);
 	return 1;

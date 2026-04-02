@@ -7,13 +7,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "松树林");
+	set("short", "松樹林");
 	set("long", @LONG
-你眼前骤然一黑，朦胧中，只见左右前后，到处都是铺天盖
-地的松树林。几十丈高的大松树簇在一块，密实的枝叶象一蓬蓬
-巨伞般伸向天空，把阳光遮得丝毫也无。尺把厚的松针积在地上，
-一脚踩下去，半天拔不出来。你似乎迷失了方向，象没头苍蝇般
-到处乱闯。
+你眼前驟然一黑，朦朧中，只見左右前後，到處都是鋪天蓋
+地的松樹林。幾十丈高的大松樹簇在一塊，密實的枝葉象一蓬蓬
+巨傘般伸向天空，把陽光遮得絲毫也無。尺把厚的松針積在地上，
+一腳踩下去，半天拔不出來。你似乎迷失了方向，象沒頭蒼蠅般
+到處亂闖。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"shulin"+(random(8)+6),
@@ -52,10 +52,10 @@ void init()
 
 	ob->set("startroom", "/d/shaolin/jlyuan");
 
-	message_vision(HIR "\n$N一不小心，走进了僧兵们设下的陷阱！
-$N只觉得脚下一阵巨痛，原来是踩上了埋在地下的竹签。\n\n" NOR, ob);
+	message_vision(HIR "\n$N一不小心，走進了僧兵們設下的陷阱！
+$N只覺得腳下一陣巨痛，原來是踩上了埋在地下的竹籤。\n\n" NOR, ob);
 
-	message_vision(HIR "\n$N痛得几乎失去了知觉......\n\n" NOR, ob);
+	message_vision(HIR "\n$N痛得幾乎失去了知覺......\n\n" NOR, ob);
 
 	call_out("trapping", 20, ob, room);
 
@@ -65,7 +65,7 @@ void trapping(object ob, object room)
 {
 	if ( !living(ob) ) return;
 
-	message_vision(HIY "\n僧兵们把$N从陷井里起了出来，送进了戒律院！\n\n\n" NOR, ob);
+	message_vision(HIY "\n僧兵們把$N從陷井裏起了出來，送進了戒律院！\n\n\n" NOR, ob);
      	ob->move(__DIR__"jlyuan"); 
 
 	room->set("exits/south", __DIR__"shulin"+(random(8)+6));

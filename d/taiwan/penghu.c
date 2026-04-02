@@ -6,16 +6,16 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "澎湖岛");
+	set("short", "澎湖島");
 	set("long", @LONG
-澎湖为台湾属岛，海峡中砥，台岛屏障。马公港内多为本地渔民，
-早晚劳作，与世无争。
-    港内有舟(zhou)船(chuan) 往返大陆台岛，冲波激浪中，自有渔家
+澎湖爲臺灣屬島，海峽中砥，臺島屏障。馬公港內多爲本地漁民，
+早晚勞作，與世無爭。
+    港內有舟(zhou)船(chuan) 往返大陸臺島，衝波激浪中，自有漁家
 滋味。
 LONG );
 	set("item_desc", ([
-                "chuan" : "一条大海船。出远海没这样的船可不行。\n",
-                "zhou"  : "一条水军战舟，前往台湾，还得靠它。\n",
+                "chuan" : "一條大海船。出遠海沒這樣的船可不行。\n",
+                "zhou"  : "一條水軍戰舟，前往臺灣，還得靠它。\n",
 	]));
 	set("objects", ([
 		__DIR__"npc/lanli": 1,
@@ -38,19 +38,19 @@ int do_enter ( string arg )
  
 	if( !arg || (arg !="chuan" && arg !="zhou"))
 	{
-		tell_object(this_player() , "你要 enter 哪儿？\n" ) ;
+		tell_object(this_player() , "你要 enter 哪兒？\n" ) ;
 		return 1 ;
 	}
 	if (arg == "chuan")
 	{
-		message_vision("船夫一见有人上船，忙叫了一声：开船喽！\n", ob);
-		message_vision("船夫升起帆，船就向西方顺风航行。\n", ob);
+		message_vision("船伕一見有人上船，忙叫了一聲：開船嘍！\n", ob);
+		message_vision("船伕升起帆，船就向西方順風航行。\n", ob);
 		call_out("tdalu", 10 , ob );
 	}
 	else
 	{
-		message_vision("水兵一见有人上船，忙叫了一声：开船喽！\n", ob);
-		message_vision("水兵升起帆，船就向东方逆风航行。\n", ob);
+		message_vision("水兵一見有人上船，忙叫了一聲：開船嘍！\n", ob);
+		message_vision("水兵升起帆，船就向東方逆風航行。\n", ob);
 		call_out("ttaiwan", 10 , ob );
 	}
 	ob->move(__DIR__"dahai") ;
@@ -59,11 +59,11 @@ int do_enter ( string arg )
 }
 void tdalu( object ob )
 {
-	tell_object(ob , "大船终于抵达了福建的一个繁华海港。你走下船来。\n" ) ;
+	tell_object(ob , "大船終於抵達了福建的一個繁華海港。你走下船來。\n" ) ;
 	ob->move("/d/quanzhou/houzhu") ;
 }
 void ttaiwan( object ob )
 {
-	tell_object(ob , "战舟终于抵达了台湾的一个港口城市。你走下船来。\n" ) ;
+	tell_object(ob , "戰舟終於抵達了臺灣的一個港口城市。你走下船來。\n" ) ;
 	ob->move(__DIR__"lugang") ;
 }

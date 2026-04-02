@@ -10,12 +10,12 @@ string look_bridge();
 int do_open(string arg);
 void create()
 {
-	set("short", "凌霄内门");
+	set("short", "凌霄內門");
 	set("long", 
-"这里是大雪山凌霄城的城门。本来凌霄城少有外敌入侵，但由于地
-处西域，隆冬之际常有饿狼前来侵袭，故修筑此大城以做抵挡。向城内
-望去，只见人头攘攘，很是繁华，想不到在这西域雪山绝顶，却有着一
-个如此去处。\n"
+"這裏是大雪山凌霄城的城門。本來凌霄城少有外敵入侵，但由於地
+處西域，隆冬之際常有餓狼前來侵襲，故修築此大城以做抵擋。向城內
+望去，只見人頭攘攘，很是繁華，想不到在這西域雪山絕頂，卻有着一
+個如此去處。\n"
 );
 	set("outdoors", "lingxiao");
 	set("exits", ([
@@ -46,18 +46,18 @@ void close_bridge()
 	if(objectp(room))
 	{
 		delete("exits/south");
-		message("vision","凌霄弟子把吊桥关了起来。\n", this_object());
+		message("vision","凌霄弟子把吊橋關了起來。\n", this_object());
 		room->delete("exits/north");
-		message("vision","只听“嘎嘎”几声，吊桥又被关了起来。\n",room);
+		message("vision","只聽“嘎嘎”幾聲，吊橋又被關了起來。\n",room);
 	}
 }
 int do_close(string arg)
 {
 	if (!query("exits/south"))
-		return notify_fail("吊桥已经是关着的了。\n");
+		return notify_fail("吊橋已經是關着的了。\n");
 	if (!arg || (arg != "bridge" && arg != "south"))
-		return notify_fail("你要关什么？\n");
-	message_vision("$N朝凌霄弟子招了一下手，他们点了点头，把吊桥吊了上去。\n", this_player());
+		return notify_fail("你要關什麼？\n");
+	message_vision("$N朝凌霄弟子招了一下手，他們點了點頭，把吊橋吊了上去。\n", this_player());
 	remove_call_out("close_bridge");
 	call_out("close_bridge", 2);
 	return 1;
@@ -67,17 +67,17 @@ int do_open(string arg)
 	object room;
 
 	if (query("exits/south"))
-		return notify_fail("吊桥已经放下来了。\n");
+		return notify_fail("吊橋已經放下來了。\n");
 	if (!arg || (arg != "bridge" && arg != "south"))
-		return notify_fail("你要开什么？\n");
+		return notify_fail("你要開什麼？\n");
 	if(!( room = find_object(__DIR__"shanya")) )
 		room = load_object(__DIR__"shanya");
 	if(objectp(room))
 	{
 		set("exits/south", __DIR__"shanya");
-		message_vision("$N让凌霄弟子把吊桥放了下来。\n", this_player());
+		message_vision("$N讓凌霄弟子把吊橋放了下來。\n", this_player());
 		room->set("exits/north", __FILE__);
-		message("vision", "“嘎嘎”几声，吊桥放了下来。\n", room);
+		message("vision", "“嘎嘎”幾聲，吊橋放了下來。\n", room);
 		remove_call_out("close_bridge");
 		call_out("close_bridge", 10);
 	}
@@ -85,7 +85,7 @@ int do_open(string arg)
 }
 string look_bridge()
 {
-	return "一张极大的吊桥，是凌霄城的一道防线。\n";
+	return "一張極大的吊橋，是凌霄城的一道防線。\n";
 }
 int valid_leave(object me, string dir)
 {
@@ -98,7 +98,7 @@ int valid_leave(object me, string dir)
 		present("wen wanfu", environment(me)) &&
 		living(present("wen wanfu", environment(me))))
 	{
-		return notify_fail("闻万夫拔剑拦道：何方高人驾凌敝城，里面乃本派重地。这位" + RANK_D->query_respect(me) + "请止步。\n");
+		return notify_fail("聞萬夫拔劍攔道：何方高人駕凌敝城，裏面乃本派重地。這位" + RANK_D->query_respect(me) + "請止步。\n");
 	}
 	else return ::valid_leave(me, dir);
 }

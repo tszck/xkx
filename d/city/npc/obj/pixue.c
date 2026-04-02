@@ -12,8 +12,8 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("material", "leather");
-		set("unit", "双");
-		set("long", "这是一双用上好牛皮作的皮靴，据说由上海进口。用以保护足部。\n");
+		set("unit", "雙");
+		set("long", "這是一雙用上好牛皮作的皮靴，據說由上海進口。用以保護足部。\n");
 		set("value", 1000);
 		set("armor_prop/dodge", 8);
 	}

@@ -4,10 +4,10 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short", "松树顶");
+	set("short", "松樹頂");
 	set("long", @LONG
-你终于爬上了松树的顶端，在这里你可以看见一片密密厚厚的树林，
-你踩在这里，如同踩在一块草地上一样，远处可以看见隐隐约约的一座
+你終於爬上了松樹的頂端，在這裏你可以看見一片密密厚厚的樹林，
+你踩在這裏，如同踩在一塊草地上一樣，遠處可以看見隱隱約約的一座
 巍峨的高山。
 LONG
 	);
@@ -16,8 +16,8 @@ LONG
 		"down" : __DIR__"senlin1",
 	]));
 	set("item_desc", ([ /* sizeof() == 1 */
-		"song zhen" : "这块地方的松针看起来和其他地方的不太一样。",
-		"松树"      : "这块地方的松针看起来和其他地方的不太一样。",
+		"song zhen" : "這塊地方的松針看起來和其他地方的不太一樣。",
+		"松樹"      : "這塊地方的松針看起來和其他地方的不太一樣。",
 	]));
 	set("outdoors", "meizhuang");
 	set("no_clean_up", 0);
@@ -43,12 +43,12 @@ int do_pull(string arg)
 		add("book_count", -1);
 		ob=new(BOOK_DIR"qinpu");
 		ob->move(__DIR__"shuding1");
-		message_vision("$N轻轻的掀开厚厚的松针，哇，下面居然有一本书。\n", me);
+		message_vision("$N輕輕的掀開厚厚的松針，哇，下面居然有一本書。\n", me);
 		return 1;
 	}
 	else {
 		me->receive_damage("qi", 20);
-		message_vision("$N的手已经被松针扎得鲜血淋淋，不要再掀了。\n", me);
+		message_vision("$N的手已經被松針扎得鮮血淋淋，不要再掀了。\n", me);
 		return 1;
 	}
 }

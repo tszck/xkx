@@ -4,9 +4,9 @@ inherit F_MASTER;
 #include <ansi.h>
 void create()
 {
-        set_name("刘夫人", ({ "liu furen", "furen" }) );
+        set_name("劉夫人", ({ "liu furen", "furen" }) );
         set("gender", "女性");
-        set("long", "她是刘正风的夫人。");
+        set("long", "她是劉正風的夫人。");
         set("age", 42);
         set("attitude", "peaceful");
         set("per", 23);

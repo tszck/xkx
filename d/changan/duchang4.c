@@ -9,9 +9,9 @@ object  bl_gui  =  0;
 int  *res  =  allocate(3);
 
 mapping  guis  =  ([  
-    "cs"    :  "长寿龟",
-    "qn"    :  "千年龟",
-    "bl"    :  "不老龟",
+    "cs"    :  "長壽龜",
+    "qn"    :  "千年龜",
+    "bl"    :  "不老龜",
   ]);  
 
 int  random2  (int  i)
@@ -21,17 +21,17 @@ int  random2  (int  i)
 
 void  create()
 {
-    set  ("short",  "赛龟房");
+    set  ("short",  "賽龜房");
     set  ("long",  @LONG
-一排紫色的镂空檀香靠背椅沿着屋子四周放了一圈，坐着聚精会神
-的客人。中间是一雕花石座，上面放着一个长长的紫檀龟台。一位扎着
-青鬏的龟童正围着龟台转来转去。龟房南面的墙上挂着牌子(paizi)。 
+一排紫色的鏤空檀香靠背椅沿着屋子四周放了一圈，坐着聚精會神
+的客人。中間是一雕花石座，上面放着一個長長的紫檀龜臺。一位扎着
+青鬏的龜童正圍着龜臺轉來轉去。龜房南面的牆上掛着牌子(paizi)。 
 LONG);
 
     set("item_desc",([
-        "paizi"  :  "押长寿龟：  sai cs <amount> <money>\n"+  
-                    "押千年龟：  sai qn <amount> <money>\n"+  
-                    "押不老龟：  sai bl <amount> <money>\n",  
+        "paizi"  :  "押長壽龜：  sai cs <amount> <money>\n"+  
+                    "押千年龜：  sai qn <amount> <money>\n"+  
+                    "押不老龜：  sai bl <amount> <money>\n",  
     ]));  
     set("objects",  ([  /*  sizeof()  ==  1  */
         __DIR__"npc/guitong"  :  1,
@@ -80,33 +80,33 @@ int  do_sai  (string  arg)
 
     if  (!  arg  ||
             sscanf  (arg,"%s %d %s",what,amount,money)  !=  3)
-        return  notify_fail("请使用：  sai <押龟种类> <数目> <货币>\n");
+        return  notify_fail("請使用：  sai <押龜種類> <數目> <貨幣>\n");
 
     if  (what  !=  "cs"  &&
             what  !=  "qn"  &&
             what  !=  "bl")
-        return  notify_fail("你要押什么样的龟？\n");
+        return  notify_fail("你要押什麼樣的龜？\n");
 
     ob  =  present  (money+"_money",  me);
     if  (!  ob)
-        return  notify_fail("你身上没有这种货币。\n");
+        return  notify_fail("你身上沒有這種貨幣。\n");
     if  (amount  <  1)
-        return  notify_fail("请多押一些钱。\n");
+        return  notify_fail("請多押一些錢。\n");
     if  (amount  >  ob->query_amount())
-        return  notify_fail("你身上的钱不够押。\n");
+        return  notify_fail("你身上的錢不夠押。\n");
     if  (amount * (ob->query("base_value")) > 10000 )
-        return  notify_fail("你想豪赌啊，拜托！官兵就上来了。\n");
+        return  notify_fail("你想豪賭啊，拜託！官兵就上來了。\n");
 
     if  (me->query_temp  ("gamble_gui/amount")  >  0)
-        return  notify_fail("你已经押过了。\n");
+        return  notify_fail("你已經押過了。\n");
 
     if  (room_status  >  1)
-        return  notify_fail("现在正在赛龟呢，稍等片刻。\n");
+        return  notify_fail("現在正在賽龜呢，稍等片刻。\n");
 
     me->set_temp("gamble_gui/kind",what);
     me->set_temp("gamble_gui/amount",amount);
     me->set_temp("gamble_gui/money",money);
-    message_vision  (sprintf("$N拿出%s%s%s放在紫檀龟台上，押%s。\n",
+    message_vision  (sprintf("$N拿出%s%s%s放在紫檀龜臺上，押%s。\n",
                                                     chinese_number(amount),
                                                     ob->query("base_unit"),
                                                     ob->query("name"),
@@ -125,7 +125,7 @@ int  valid_leave(object  me,  string  dir)
     if  (dir  ==  "north")
     {
         if  (me->query_temp  ("gamble_gui/amount")  >  0)  
-            message_vision  ("$N扔下押龟的钱不要了。\n",me);
+            message_vision  ("$N扔下押龜的錢不要了。\n",me);
         me->delete_temp("gamble_gui");
     }
     return  ::valid_leave(me,dir);
@@ -134,26 +134,26 @@ int  valid_leave(object  me,  string  dir)
 void  gamble_prepare  ()
 {
     object  room  =  this_object();
-    tell_room  (room,"青鬏龟童将三只龟放在紫檀龟台边。\n");
+    tell_room  (room,"青鬏龜童將三隻龜放在紫檀龜臺邊。\n");
     if  (!  cs_gui)
     {
         cs_gui  =  new(__DIR__+"npc/saigui");
-        cs_gui->set("name","长寿龟");
+        cs_gui->set("name","長壽龜");
         cs_gui->move(room);
     }
     if  (!  qn_gui)
     {
         qn_gui  =  new(__DIR__+"npc/saigui");
-        qn_gui->set("name","千年龟");
+        qn_gui->set("name","千年龜");
         qn_gui->move(room);
     }
     if  (!  bl_gui)
     {
         bl_gui  =  new(__DIR__+"npc/saigui");
-        bl_gui->set("name","不老龟");
+        bl_gui->set("name","不老龜");
         bl_gui->move(room);
     }
-    tell_room  (room,"青鬏龟童说：请各位大人赏押，一赢三。\n");
+    tell_room  (room,"青鬏龜童說：請各位大人賞押，一贏三。\n");
     room_status  =  1;
     call_out  ("gamble_start",20);
 }
@@ -161,8 +161,8 @@ void  gamble_prepare  ()
 void  gamble_start  ()
 {
     object  room  =  this_object();
-    tell_room  (room,"青鬏龟童说：各位大人停押。\n");
-    tell_room  (room,"然后用兔毛掸将三只赛龟推入龟台内。\n");
+    tell_room  (room,"青鬏龜童說：各位大人停押。\n");
+    tell_room  (room,"然後用兔毛撣將三隻賽龜推入龜臺內。\n");
     room_status  =  2;
     res[0]  =  0;
     res[1]  =  0;
@@ -173,7 +173,7 @@ void  gamble_start  ()
 void  display_gui  (int  i,  string  name,  object  room)
 {
     string  gui1  =  "＼－－－／    ";
-    string  gui2  =  "（某某龟）＞";
+    string  gui2  =  "（某某龜）＞";
     string  gui3  =  "／－－－＼    ";
     string  line1  =  "｜";
     string  line2  =  "｜";
@@ -234,9 +234,9 @@ void  gamble_perform  ()
     
 
     tell_room  (room,"\n\n");
-    display_gui  (0,"长寿龟",room);
-    display_gui  (1,"千年龟",room);
-    display_gui  (2,"不老龟",room);
+    display_gui  (0,"長壽龜",room);
+    display_gui  (1,"千年龜",room);
+    display_gui  (2,"不老龜",room);
 
     if  (res[0]<30  &&  res[1]<30  &&  res[2]<30)
     {
@@ -259,7 +259,7 @@ void  player_wins  (object  who,  int  total)
     int  amount  =  who->query_temp("gamble_gui/amount");
     total  =  total  *  amount;
     money->set_amount(total);
-    message_vision  (sprintf("$N赢了%s%s%s！\n",
+    message_vision  (sprintf("$N贏了%s%s%s！\n",
                                                     chinese_number(total),
                                                     money->query("base_unit"),
                                                     money->query("name")),
@@ -271,7 +271,7 @@ void  player_loses  (object  who,  int  total)
 {
     object  money  =  new  ("/clone/money/"+who->query_temp("gamble_gui/money"));
     total  =  who->query_temp("gamble_gui/amount");
-    message_vision  (sprintf("青鬏龟童将$N放在龟台上的%s%s%s收走。\n",
+    message_vision  (sprintf("青鬏龜童將$N放在龜臺上的%s%s%s收走。\n",
                                                     chinese_number(total),
                                                     money->query("base_unit"),
                                                     money->query("name")),
@@ -289,7 +289,7 @@ void  gamble_finish  ()
     {
         total  =  0;
         win  =  "none  of  them";
-        tell_room  (room,"青鬏龟童叹道：三龟同胜无赢家！\n");
+        tell_room  (room,"青鬏龜童嘆道：三龜同勝無贏家！\n");
     }
     else  if  ((res[0]==30  &&  res[1]==30)  ||
                       (res[1]==30  &&  res[2]==30)  ||
@@ -297,25 +297,25 @@ void  gamble_finish  ()
     {
         total  =  0;
         win  =  "none  of  them";
-        tell_room  (room,"青鬏龟童叹道：二龟同胜无赢家！\n");
+        tell_room  (room,"青鬏龜童嘆道：二龜同勝無贏家！\n");
     }
     else  if  (res[0]==30)
     {
         total  =  3;
         win  =  "cs";
-        tell_room  (room,"青鬏龟童喜道："+guis[win]+"获胜！\n");
+        tell_room  (room,"青鬏龜童喜道："+guis[win]+"獲勝！\n");
     }
     else  if  (res[1]==30)
     {
         total  =  3;
         win  =  "qn";
-        tell_room  (room,"青鬏龟童喜道："+guis[win]+"获胜！\n");
+        tell_room  (room,"青鬏龜童喜道："+guis[win]+"獲勝！\n");
     }
     else  //if  (res[2]==30)
     {
         total  =  3;
         win  =  "bl";
-        tell_room  (room,"青鬏龟童喜道："+guis[win]+"获胜！\n");
+        tell_room  (room,"青鬏龜童喜道："+guis[win]+"獲勝！\n");
     }
     i  =  sizeof(list);
     while  (i--)
@@ -344,8 +344,8 @@ int  do_bian  (string  arg)
     ob  =  present(arg,room);
     if  (ob  ==  cs_gui  ||  ob  ==  qn_gui  ||  ob  ==  bl_gui)
     {
-        message_vision  ("$N挤到龟中间想把自己变成龟。\n",who);
-        message_vision  ("青鬏龟童对$N说道：大人，俗话说好汉不和龟赛。\n",who);
+        message_vision  ("$N擠到龜中間想把自己變成龜。\n",who);
+        message_vision  ("青鬏龜童對$N說道：大人，俗話說好漢不和龜賽。\n",who);
         return  1;
     }
     return  0;
@@ -363,8 +363,8 @@ int  do_fight  (string  arg)
     ob  =  present(arg,room);
     if  (ob  ==  cs_gui  ||  ob  ==  qn_gui  ||  ob  ==  bl_gui)
     {
-        message_vision  ("$N要与龟比武。\n",who);
-        message_vision  ("青鬏龟童对$N说道：大人，俗话说好汉不和龟斗。\n",who);
+        message_vision  ("$N要與龜比武。\n",who);
+        message_vision  ("青鬏龜童對$N說道：大人，俗話說好漢不和龜鬥。\n",who);
         return  1;
     }
     return  0;
@@ -375,8 +375,8 @@ int  do_steal  (string  arg)
     object  who  =  this_player();
     
 
-    message_vision  ("$N想偷龟。\n",who);
-    message_vision  ("青鬏龟童对$N说道：大人窃龟也不羞脸。\n",who);
+    message_vision  ("$N想偷龜。\n",who);
+    message_vision  ("青鬏龜童對$N說道：大人竊龜也不羞臉。\n",who);
     return  1;
 }
 
@@ -392,8 +392,8 @@ int  do_kill  (string  arg)
     ob  =  present(arg,room);
     if  (ob  ==  cs_gui  ||  ob  ==  qn_gui  ||  ob  ==  bl_gui)
     {
-        message_vision  ("$N想杀死龟。\n",who);
-        message_vision  ("青鬏龟童对$N说道：大人切莫杀生。\n",who);
+        message_vision  ("$N想殺死龜。\n",who);
+        message_vision  ("青鬏龜童對$N說道：大人切莫殺生。\n",who);
         return  1;
     }
     return  0;
@@ -404,8 +404,8 @@ int  do_cast  (string  arg)
     object  who  =  this_player();
     
 
-    message_vision  ("$N龟模龟样地念了几句咒语。\n",who);
-    message_vision  ("青鬏龟童对$N说道：大人，莫念莫念，切莫伤您龟寿。\n",who);
+    message_vision  ("$N龜模龜樣地念了幾句咒語。\n",who);
+    message_vision  ("青鬏龜童對$N說道：大人，莫念莫念，切莫傷您龜壽。\n",who);
     return  1;
 }
 
@@ -414,8 +414,8 @@ int  do_exert  (string  arg)
     object  who  =  this_player();
     
 
-    message_vision  ("$N想借龟施功。\n",who);
-    message_vision  ("青鬏龟童对$N说道：大人在这里练功会损了您的龟寿。\n",who);
+    message_vision  ("$N想借龜施功。\n",who);
+    message_vision  ("青鬏龜童對$N說道：大人在這裏練功會損了您的龜壽。\n",who);
     return  1;
 }
 
@@ -424,7 +424,7 @@ int  do_perform  (string  arg)
     object  who  =  this_player();
     
 
-    message_vision  ("$N想借龟施功。\n",who);
-    message_vision  ("青鬏龟童对$N说道：大人在这里练功会损了您的龟寿。\n",who);
+    message_vision  ("$N想借龜施功。\n",who);
+    message_vision  ("青鬏龜童對$N說道：大人在這裏練功會損了您的龜壽。\n",who);
     return  1;
 }

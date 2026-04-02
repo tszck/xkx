@@ -114,7 +114,7 @@ varargs mixed do_emote(object me, string verb, string arg, int channel_emote, in
 		}
 
 		if( !target->is_character())
-			return notify_fail("你要对谁做这个动作？\n");
+			return notify_fail("你要對誰做這個動作？\n");
 
 		target_gender = target->query("gender");
 		if( target==me ) {

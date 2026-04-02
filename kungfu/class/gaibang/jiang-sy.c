@@ -10,7 +10,7 @@ void create()
 	set("gender", "男性");
 	set("age", 19);
 	set("long",
-		"这是位丐帮五袋弟子，看来是个英雄人物。\n");
+		"這是位丐幫五袋弟子，看來是個英雄人物。\n");
 	set("attitude", "peaceful");
 	set("class", "beggar");
  	set("beggarlvl", 5);
@@ -43,10 +43,10 @@ void create()
 	map_skill("parry", "suohou-hand");
 	map_skill("dodge", "xiaoyaoyou");
 
-	set("party/party_name", HIC"丐帮"NOR);
+	set("party/party_name", HIC"丐幫"NOR);
 	set("party/rank", YEL"五袋弟子"NOR);
 	set("party/level", 5);
-	create_family("丐帮", 20, "弟子");
+	create_family("丐幫", 20, "弟子");
 	setup();
 
 	carry_object(__DIR__"obj/cloth")->wear();
@@ -55,7 +55,7 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if( ob->query("gender") != "男性") return;
-	command("say 好吧，希望你能好好学习本门武功，将来为丐帮争一口气！。");
+	command("say 好吧，希望你能好好學習本門武功，將來爲丐幫爭一口氣！。");
 	command("recruit " + ob->query("id"));
 }
 #include "/kungfu/class/gaibang/gaibang.h"

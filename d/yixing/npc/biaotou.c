@@ -17,11 +17,11 @@ void create()
 	biaojus = keys(info_biaoju);
 	biaoju = biaojus[random(sizeof(biaojus))];
 
-	set_name("镖头", ({ "biao tou" }));
-	set("nickname", biaoju + "镖局");
+	set_name("鏢頭", ({ "biao tou" }));
+	set("nickname", biaoju + "鏢局");
 	set("gender", "男性");
 	set("age", 35);
-	set("long", "一名身材高大的壮汉。\n");
+	set("long", "一名身材高大的壯漢。\n");
 	set("attitude", "peaceful");
 	set("shen_type", 1);
 

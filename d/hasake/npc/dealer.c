@@ -5,7 +5,7 @@ void create()
         set_name("波斯生意人", ({ "shengyi ren", "dealer", "ren" }));
         set("gender", "男性");
         set("age", 40 + random(10));
-        set("long", "一个精明的波斯生意人。高鼻蓝眼的, 看着你脸上露出狡诈的笑容。\n");
+        set("long", "一個精明的波斯生意人。高鼻藍眼的, 看着你臉上露出狡詐的笑容。\n");
         set("attitude", "friendly");
         set("combat_exp", 3000);
         set_skill("unarmed", 30);
@@ -31,7 +31,7 @@ void create()
         setup();
         set("chat_chance", 5);
         set("chat_msg", ({
-"波斯生意人对你狡诈地挤了一下眼睛。\n",
+"波斯生意人對你狡詐地擠了一下眼睛。\n",
         }));
         carry_object(__DIR__"obj/wandao")->wield();
         carry_object(CLOTH_DIR"changpao")->wear();

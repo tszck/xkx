@@ -10,7 +10,7 @@ int update_condition(object me, int duration)
 
         if (duration < 1) {
                 me->clear_condition("guanfu_task");
-		tell_object(me, HIY"远处传来三声响箭，目标似乎将要离开中原一带，你任务失败。\n" NOR);
+		tell_object(me, HIY"遠處傳來三聲響箭，目標似乎將要離開中原一帶，你任務失敗。\n" NOR);
                 me->delete_temp("guanfu_target");
                 me->delete_temp("guanfu_time");
 	        me->delete_temp("guanfu_target");
@@ -24,7 +24,7 @@ int update_condition(object me, int duration)
 		if(objectp(wenshu = present("wenshu", me)))
 		{
 			destruct(wenshu);
-			tell_object(me, HIY"你手一抖，一张海捕文书飘到地上，被风带走了。\n" NOR);
+			tell_object(me, HIY"你手一抖，一張海捕文書飄到地上，被風帶走了。\n" NOR);
 		}
                 return 0;
 	}

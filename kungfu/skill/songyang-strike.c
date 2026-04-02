@@ -1,4 +1,4 @@
-// songyang-strike.c 大嵩阳掌
+// songyang-strike.c 大嵩陽掌
 // Last Modified by sir 10.22.2001
 
 #include <ansi.h>
@@ -7,37 +7,37 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N身躯微欠，中宫一掌缓缓拍出，光明正大，是此套掌法的起首式"HIR"「大嵩阳」"NOR"",
+([	"action" : "$N身軀微欠，中宮一掌緩緩拍出，光明正大，是此套掌法的起首式"HIR"「大嵩陽」"NOR"",
 	"lvl" : 0,
-	"skill_name" : "大嵩阳"
+	"skill_name" : "大嵩陽"
 ]),
-([	"action" : "$N忽拳忽掌，忽指忽抓，一式取自嵩山飞瀑的"HIC"「天河水」"NOR"，拍向$n的片刻间已变了十来种招数",
+([	"action" : "$N忽拳忽掌，忽指忽抓，一式取自嵩山飛瀑的"HIC"「天河水」"NOR"，拍向$n的片刻間已變了十來種招數",
 	"lvl" : 10,
 	"skill_name" : "天河水"
 ]),
-([	"action" : "$N大喝一声，使出一路大嵩阳掌法中的"BLU"「铁梁道」"NOR"，双掌上下翻飞、大开大阖，连续击向$n",
+([	"action" : "$N大喝一聲，使出一路大嵩陽掌法中的"BLU"「鐵梁道」"NOR"，雙掌上下翻飛、大開大闔，連續擊向$n",
 	"lvl" : 30,
-	"skill_name" : "铁梁道"
+	"skill_name" : "鐵梁道"
 ]),
-([	"action" : "$N运劲于臂，大吼一声"HIB"「万仞壑」"NOR"，左掌拍出，右手成抓，同时袭到，两股巨力排山倒海般向$n压了过来",
+([	"action" : "$N運勁於臂，大吼一聲"HIB"「萬仞壑」"NOR"，左掌拍出，右手成抓，同時襲到，兩股巨力排山倒海般向$n壓了過來",
 	"lvl" : 50,
-	"skill_name" : "万仞壑",
+	"skill_name" : "萬仞壑",
 ]),
-([	"action" : "$N运起丹田之气猛喝一声，一式"GRN"「观胜峰」"NOR"，右掌挟带着狂风，向前斜推，掌势如劈山排云搬压向$n",
+([	"action" : "$N運起丹田之氣猛喝一聲，一式"GRN"「觀勝峯」"NOR"，右掌挾帶着狂風，向前斜推，掌勢如劈山排雲搬壓向$n",
 	"lvl" : 70,
-	"skill_name" : "观胜峰"
+	"skill_name" : "觀勝峯"
 ]),
-([	"action" : "$N双手忽而抓，忽而戳，忽而拳，忽而掌，连变数种，使一套"MAG"「小铁梁」"NOR"手法，左手一晃，右掌向$n的$l按去",
+([	"action" : "$N雙手忽而抓，忽而戳，忽而拳，忽而掌，連變數種，使一套"MAG"「小鐵梁」"NOR"手法，左手一晃，右掌向$n的$l按去",
 	"lvl" : 90,
-	"skill_name" : "小铁梁"
+	"skill_name" : "小鐵梁"
 ]),
-([	"action" : "$N气沉丹田，猛然怒喝一声，向前一个弓步，双掌合成"HIM"「朝天闸」"NOR"，带着风雷之声奋力击向$n",
+([	"action" : "$N氣沉丹田，猛然怒喝一聲，向前一個弓步，雙掌合成"HIM"「朝天閘」"NOR"，帶着風雷之聲奮力擊向$n",
 	"lvl" : 110,
-	"skill_name" : "朝天闸"
+	"skill_name" : "朝天閘"
 ]),
-([	"action" : "$N右腿向前弓步，一招"CYN"「千丈渊」"NOR"，左手化拳为掌，劲气十足，闪电般地由上向下劈$n",
+([	"action" : "$N右腿向前弓步，一招"CYN"「千丈淵」"NOR"，左手化拳爲掌，勁氣十足，閃電般地由上向下劈$n",
 	"lvl" : 130,
-	"skill_name" : "千丈渊"
+	"skill_name" : "千丈淵"
 ]),
 });
 
@@ -47,11 +47,11 @@ int valid_combine(string combo) { return combo=="poyun-hand"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练大嵩阳掌必须空手。\n");
+		return notify_fail("練大嵩陽掌必須空手。\n");
 	if ((int)me->query_skill("hanbing-zhenqi", 1) < 10)
-		return notify_fail("你的寒冰真气火候不够，无法学大嵩阳掌。\n");
+		return notify_fail("你的寒冰真氣火候不夠，無法學大嵩陽掌。\n");
 	if ((int)me->query("max_neili") < 10)
-		return notify_fail("你的内力太弱，无法练大嵩阳掌。\n");
+		return notify_fail("你的內力太弱，無法練大嵩陽掌。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -59,7 +59,7 @@ int practice_skill(object me)
 	if ((int)me->query("qi") < 50)
 		return notify_fail("你的精力太低了。\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够练大嵩阳掌。\n");
+		return notify_fail("你的內力不夠練大嵩陽掌。\n");
 	me->receive_damage("qi", 35);
 	me->add("neili", -20);
 	return 1;
@@ -86,16 +86,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 20; }
@@ -110,14 +110,14 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\n大嵩阳掌："NOR"\n");
+	write(HIC"\n大嵩陽掌："NOR"\n");
 	write(@HELP
 
-    大嵩阳掌为嵩山派守山掌法。可与破云手互备。
+    大嵩陽掌爲嵩山派守山掌法。可與破雲手互備。
 
-	学习要求：
-		寒冰真气10级
-		内力10
+	學習要求：
+		寒冰真氣10級
+		內力10
 HELP
 	);
 	return 1;

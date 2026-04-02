@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set ("short", "绿洲");
+	set ("short", "綠洲");
 	set ("long", @LONG
-一块沙漠中的绿洲，虽然只有很小的一块，但对于沙漠中的旅行者
-而言却已足够。你终于可以停下来歇歇脚了。
+一塊沙漠中的綠洲，雖然只有很小的一塊，但對於沙漠中的旅行者
+而言卻已足夠。你終於可以停下來歇歇腳了。
 LONG);
 	set("outdoors","mobei");
 	set("no_clean_up", 0);

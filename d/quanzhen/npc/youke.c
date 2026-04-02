@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("游客", ({"you ke","ke"}) );
+        set_name("遊客", ({"you ke","ke"}) );
         set("gender", "男性" );
         set("age", random(20)+10);
-        set("long", "这是一个游山玩水的游人。\n");
+        set("long", "這是一個遊山玩水的遊人。\n");
 
         set_temp("apply/attack", 30);
         set_temp("apply/defense", 20);

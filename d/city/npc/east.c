@@ -1,4 +1,4 @@
-// east.c 东家西施
+// east.c 東家西施
 
 inherit NPC;
 
@@ -7,8 +7,8 @@ void create()
 	set_name("西施", ({ "xishi"}));
 	set("age", 15);
 	set("gender", "女性");
-	set("title", "东家");
-	set("long", "她就是西施，虽然她倾城倾国的，可是垒的城墙可一点也不倾。\n");
+	set("title", "東家");
+	set("long", "她就是西施，雖然她傾城傾國的，可是壘的城牆可一點也不傾。\n");
 	set("attitude", "peaceful");
 	set("str", 24);
 	set("dex", 16);

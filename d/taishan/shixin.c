@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "试心石");
+	set("short", "試心石");
 	set("long", @LONG
-这里便是莲花峰的峰顶，由两块巨石勾连在一起，据说若果你心存
-诚意，登上试心石时石块便不会动摇，反之则摇动不止。
+這裏便是蓮花峯的峯頂，由兩塊巨石勾連在一起，據說若果你心存
+誠意，登上試心石時石塊便不會動搖，反之則搖動不止。
 LONG );
 	set("exits", ([
 		"southdown" : __DIR__"lianhua",

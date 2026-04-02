@@ -19,17 +19,17 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("你必须先放下手中的兵器！\n");
+		return notify_fail("你必須先放下手中的兵器！\n");
 
 	fskill = "yunv-xinfa";
 	bskill = "unarmed";
@@ -43,15 +43,15 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 40 )
-		return notify_fail("你的"+to_chinese(fskill)+"还未娴熟，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"還未嫺熟，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(sskill)+"级别不够，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"級別不夠，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili", 1) < 150 )
-		return notify_fail("你现在内力太弱，不能使用古墓幽居。\n");
+		return notify_fail("你現在內力太弱，不能使用古墓幽居。\n");
 
-	msg = HIW"$N"HIW"右手支颐，左袖轻轻挥出，长叹一声，使出「古墓幽居」，脸现寂寥之意。\n"NOR;
+	msg = HIW"$N"HIW"右手支頤，左袖輕輕揮出，長嘆一聲，使出「古墓幽居」，臉現寂寥之意。\n"NOR;
 
 	if (random(me->query_skill(bskill)) > target->query_skill("force")/3 )
 	{
@@ -66,18 +66,18 @@ int perform(object me, object target)
 		me->add("neili", -100);
 
 		if( damage < 30 )
-			msg += HIY"结果$n"HIY"被$N"HIY"袍袖一拂，闷哼一声。\n"NOR;
+			msg += HIY"結果$n"HIY"被$N"HIY"袍袖一拂，悶哼一聲。\n"NOR;
 		else if( damage < 55 )
-			msg += HIY"结果$n"HIY"被$N"HIY"以袍袖一拂，「腾腾」地退出几步。\n"NOR;
+			msg += HIY"結果$n"HIY"被$N"HIY"以袍袖一拂，「騰騰」地退出幾步。\n"NOR;
 		else if( damage < 80 )
-			msg +=RED"结果$n"HIY"被$N"HIY"以袍袖一拂，胸口有如受到一记重锤，气血为之一窒！\n"NOR;
+			msg +=RED"結果$n"HIY"被$N"HIY"以袍袖一拂，胸口有如受到一記重錘，氣血爲之一窒！\n"NOR;
 		else
-			msg +=HIR"结果$n"HIY"被$N"HIY"的袍袖一拂，眼前一黑，浑身气血翻腾，竟如身入洪炉一般！\n"NOR;
+			msg +=HIR"結果$n"HIY"被$N"HIY"的袍袖一拂，眼前一黑，渾身氣血翻騰，竟如身入洪爐一般！\n"NOR;
 	}
 	else
 	{
 		me->start_busy(3);
-		msg += CYN"可是$p看破了$P的企图，依然稳如泰山，抬手一架格开。\n"NOR;
+		msg += CYN"可是$p看破了$P的企圖，依然穩如泰山，抬手一架格開。\n"NOR;
 	}
 	message_combatd(msg, me, target);
 	return 1;
@@ -90,13 +90,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
-		迟滞对方出手
+		損傷對方氣血
+		遲滯對方出手
 
 	出手要求：
-		玉女心法40级
-		美女拳50级
-		内力150
+		玉女心法40級
+		美女拳50級
+		內力150
 HELP
 	);
 	return 1;

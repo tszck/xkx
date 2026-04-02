@@ -2,10 +2,10 @@
 inherit NPC;
 void create()
 {
-	set_name("农夫", ({ "nong fu","nong","fu"}) );
+	set_name("農夫", ({ "nong fu","nong","fu"}) );
 	set("gender", "男性" );
 	set("age", 24+random(10));
-	set("long", "这是一个山间农夫，十分粗俗。\n");
+	set("long", "這是一個山間農夫，十分粗俗。\n");
 	set("shen_type", 1);
 	set("combat_exp", 4000);
 	set("str", 18);
@@ -14,8 +14,8 @@ void create()
 	set("int", 19);
 	set("attitude", "friendly");
         set("chat_msg", ({
-        "农夫呸了一口，说道：温家没个好东西！活该女儿被糟蹋。\n",
-        "农夫咬牙切齿地说道：温家横行霸道，不会有好报！\n"
+        "農夫呸了一口，說道：溫家沒個好東西！活該女兒被糟蹋。\n",
+        "農夫咬牙切齒地說道：溫家橫行霸道，不會有好報！\n"
         }));
 	setup();
 	carry_object("/clone/misc/cloth")->wear();

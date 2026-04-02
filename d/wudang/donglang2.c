@@ -1,14 +1,14 @@
-// Room: donglang2.c 东厢走廊
+// Room: donglang2.c 東廂走廊
 inherit RESTROOM_OUT;
 
 void create()
 {
-    set("short", "东厢走廊");
+    set("short", "東廂走廊");
     set("long", @LONG
-你走在一条走廊上，隐约可以听到东边传来呼吸声，似乎有人正在
-那里练功，北边有一扇门 (men)，好象是虚掩着。南边是间竹子扎就的
-屋子，十分的素雅，里面飘出一阵阵的茶香，有人轻声细语地不知说那
-些什么，引得女孩子“吃吃”笑出声来。
+你走在一條走廊上，隱約可以聽到東邊傳來呼吸聲，似乎有人正在
+那裏練功，北邊有一扇門 (men)，好象是虛掩着。南邊是間竹子扎就的
+屋子，十分的素雅，裏面飄出一陣陣的茶香，有人輕聲細語地不知說那
+些什麼，引得女孩子“喫喫”笑出聲來。
 LONG );
 
     set("exits", ([
@@ -20,12 +20,12 @@ LONG );
 	set("coor/x", -2030);
 	set("coor/y", -920);
 	set("coor/z", 90);
-	set("door_name","门");
+	set("door_name","門");
 	set("door_dir","north");
 	set("restroom",__DIR__"xiuxishi");
-	set("open_door_msg","门上挂了个牌子：南柯梦处。\n");
-	set("inside_msg",   "门上挂了个牌子：请毋打扰\n");
-	set("no_one_msg",   "门上挂了个牌子：休息室。\n");
+	set("open_door_msg","門上掛了個牌子：南柯夢處。\n");
+	set("inside_msg",   "門上掛了個牌子：請毋打擾\n");
+	set("no_one_msg",   "門上掛了個牌子：休息室。\n");
 	set("item_desc/door",(: look_men : ));
 	set("item_desc/men", (: look_men : ));
 	setup();

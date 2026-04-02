@@ -8,7 +8,7 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(HIR"红布衣"NOR, ({ "red cloth", "cloth" }) );
+	set_name(HIR"紅布衣"NOR, ({ "red cloth", "cloth" }) );
 	set_weight(3000);
 	if( clonep() )
 		set_default_object(__FILE__);

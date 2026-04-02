@@ -1,4 +1,4 @@
-// cookery.c 烹饪手艺
+// cookery.c 烹飪手藝
 // Last Modified by winder on Jun. 10 2000
 
 #include <ansi.h>
@@ -18,17 +18,17 @@ int valid_learn(object me)
 }
 int practice_skill(object me)
 {
-	return notify_fail("烹饪手艺只能靠学习来提高。\n");
+	return notify_fail("烹飪手藝只能靠學習來提高。\n");
 }
 int help(object me)
 {
-	write(HIC"\n烹饪手艺："NOR"\n");
+	write(HIC"\n烹飪手藝："NOR"\n");
 	write(@HELP
 
-    烹饪手艺是你宴请玩家的本钱。请help cookery。
+    烹飪手藝是你宴請玩家的本錢。請help cookery。
 
-	学习要求：
-		无。但天赋才气限制了对更高深境界的努力
+	學習要求：
+		無。但天賦才氣限制了對更高深境界的努力
 HELP
 	);
 	return 1;

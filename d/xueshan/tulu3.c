@@ -6,8 +6,8 @@ void create()
 {
         set("short","土路");
         set("long",@LONG
-这是一条不起眼的土路。尘埃泛起的远方，北边波光潋滟的一大片
-幽蓝水光处，就是著名的圣湖。
+這是一條不起眼的土路。塵埃泛起的遠方，北邊波光瀲灩的一大片
+幽藍水光處，就是著名的聖湖。
 LONG );
         set("outdoors","xueshan");
         set("exits",([

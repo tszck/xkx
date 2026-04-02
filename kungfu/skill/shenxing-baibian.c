@@ -1,4 +1,4 @@
-// shenxing-baibian.c 神行百变
+// shenxing-baibian.c 神行百變
 // Last Modified by sir on 10.18.2001
 
 #include <ansi.h>
@@ -7,16 +7,16 @@ string type() { return "martial"; }
 string martialtype() { return "dodge"; }
 
 string *dodge_msg = ({
-"$n一式"HIC"「行云流水」"NOR"，身不倾，脚不移，身体如行云流水般直滑出丈余。\n",
-"$n一式"BLU"「潜音夜行」"NOR"，忽然一弯腰，全身贴地而行，顿时闪过了$N的凌厉攻势。\n",
-"$n一式"HIW"「移步换形」"NOR"，足不动，手不抬，一转眼间便绕到了$N的身后。\n",
-"$n一式"MAG"「分身化影」"NOR"，一转身间，四面八方飘动着无数个$n的身影，令$N手足无措。\n",
-"$n一式"HIB"「凌波微步」"NOR"，左踏巽，右转乾，身行一晃，便到几丈远的地方。\n",
-"$n一式"HIM"「更上层楼」"NOR"，身在空中，左脚在右足上一点，从$N头顶腾空而过。\n",
-"$n一式"HIW"「仙子出水」"NOR"，长袖一拂，全身化为一道白影，幽幽地从$N头顶飘落。\n",
-"$n一式"HIG"「峰回路转」"NOR"，身体如陀螺般急转，登时一股气流涌出，令$N难以动弹。\n",
-"$n一式"GRN"「临行秋波」"NOR"，身行倏的从$N的眼前直绕到身后，$N瞪大了两眼，不明所以。\n",
-"$n一式"HIY"「浪子回头」"NOR"，身行倏的从$N的眼前飘过，长发一甩，潇洒之极。\n",
+"$n一式"HIC"「行雲流水」"NOR"，身不傾，腳不移，身體如行雲流水般直滑出丈餘。\n",
+"$n一式"BLU"「潛音夜行」"NOR"，忽然一彎腰，全身貼地而行，頓時閃過了$N的凌厲攻勢。\n",
+"$n一式"HIW"「移步換形」"NOR"，足不動，手不抬，一轉眼間便繞到了$N的身後。\n",
+"$n一式"MAG"「分身化影」"NOR"，一轉身間，四面八方飄動着無數個$n的身影，令$N手足無措。\n",
+"$n一式"HIB"「凌波微步」"NOR"，左踏巽，右轉乾，身行一晃，便到幾丈遠的地方。\n",
+"$n一式"HIM"「更上層樓」"NOR"，身在空中，左腳在右足上一點，從$N頭頂騰空而過。\n",
+"$n一式"HIW"「仙子出水」"NOR"，長袖一拂，全身化爲一道白影，幽幽地從$N頭頂飄落。\n",
+"$n一式"HIG"「峯迴路轉」"NOR"，身體如陀螺般急轉，登時一股氣流湧出，令$N難以動彈。\n",
+"$n一式"GRN"「臨行秋波」"NOR"，身行倏的從$N的眼前直繞到身後，$N瞪大了兩眼，不明所以。\n",
+"$n一式"HIY"「浪子回頭」"NOR"，身行倏的從$N的眼前飄過，長髮一甩，瀟灑之極。\n",
 });
 
 int valid_enable(string usage) { return (usage=="dodge") || (usage=="move"); }
@@ -24,13 +24,13 @@ int valid_learn(object me)
 {      	
 	if( (int)me->query("kar", 1) < 25 || (int)me->query("sta", 1) < 25 
              ||(int)me->query("int",1)<29 )
-		return notify_fail("看来你无缘领悟神行百变。\n");
+		return notify_fail("看來你無緣領悟神行百變。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if( (int)me->query("qi") < 40|| (int)me->query("neili") < 8 )
-		return notify_fail("你的体力太差了，不能练神行百变。\n");
+		return notify_fail("你的體力太差了，不能練神行百變。\n");
 	me->receive_damage("qi", 40);
 	me->add("neili", -8);	
 	return 1;
@@ -48,13 +48,13 @@ int power_point(object me) {
 
 int help(object me)
 {
-	write(HIC"\n神行百变："NOR"\n");
+	write(HIC"\n神行百變："NOR"\n");
 	write(@HELP
 
-    神行百变是铁剑门木桑道长所传下来的轻功绝技，是逃命的高招。
+    神行百變是鐵劍門木桑道長所傳下來的輕功絕技，是逃命的高招。
 
-	学习要求：
-	   一定的机缘向独臂神尼学习 
+	學習要求：
+	   一定的機緣向獨臂神尼學習 
 HELP
 	);
 	return 1;

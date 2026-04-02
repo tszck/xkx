@@ -7,15 +7,15 @@ int accept_object(object ob, object obj)
  
 	mapping ob_fam = ob->query("family");
 
-	if (!ob_fam || (ob_fam["family_name"] != "丐帮"))
+	if (!ob_fam || (ob_fam["family_name"] != "丐幫"))
 	{
-		command("say 你哪里来的青竹令？\n");
+		command("say 你哪裏來的青竹令？\n");
 		return 0;
 	}
 
 	if ( ob->query_temp("have_cloth") || present("po bu", ob) )
 	{
-		command("say 你不是已经有破布么?");
+		command("say 你不是已經有破布麼?");
 		return 0;
 	}
 
@@ -36,7 +36,7 @@ int accept_object(object ob, object obj)
 		((ob->query("beggarlvl") >= 7) &&
 		(ob->query("combat_exp") <= 30000)))
 	{
-		command("say 就你那点脓水？我看就算了吧。\n");
+		command("say 就你那點膿水？我看就算了吧。\n");
 		return 1;
 	}
 	if (((ob->query("beggarlvl") == 0) &&
@@ -61,15 +61,15 @@ int accept_object(object ob, object obj)
 		if((obj->query("id")=="qingzhu ling") && !ob->query_temp("have_cloth"))
 		{
 			ob->set_temp("fight_ok", me->query("beggarlvl"));
-			command("say 好，既然已有青竹令，那就看你的运气了。\n");
+			command("say 好，既然已有青竹令，那就看你的運氣了。\n");
 			remove_call_out("destroying");
 			call_out("destroying", 1, me, obj);
 			return 1;
 		}
 	}
 	command("smile");
-	command("say 升袋当然只升不降。跳升也是不行的。\n");
-	command("say 这东西给你还是自己留着吧。\n");
+	command("say 升袋當然只升不降。跳升也是不行的。\n");
+	command("say 這東西給你還是自己留着吧。\n");
 	command("give " + obj->query("id") + " to " + me->query("id"));
 	return 0;
 }
@@ -83,10 +83,10 @@ void destroying(object me, object obj)
 int accept_fight(object ob)
 {
 	object me = this_object();
-	if ( ob->query("family/family_name") != "丐帮") return 0;
+	if ( ob->query("family/family_name") != "丐幫") return 0;
 	if ( ob->query_temp("fight_ok") != me->query("beggarlvl") )
 	{
-		command("say 你是本帮"+chinese_number(ob->query("beggarlvlk"))+"，不能向我挑战！\n");
+		command("say 你是本幫"+chinese_number(ob->query("beggarlvlk"))+"，不能向我挑戰！\n");
 		return 0;
 	}
 
@@ -114,8 +114,8 @@ int checking(object me, object ob)
 
 	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 )
 	{
-		command("say 大爷今天心情好，算你运气。拿这块破布找简长老去！\n");
-		message_vision("$N交给$n一块破布。\n", me, ob);
+		command("say 大爺今天心情好，算你運氣。拿這塊破布找簡長老去！\n");
+		message_vision("$N交給$n一塊破布。\n", me, ob);
 		ob->set_temp("have_cloth",1);
 		obj=new(__DIR__"obj/po-bu");
 		obj->move(ob);
@@ -124,7 +124,7 @@ int checking(object me, object ob)
 
 	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 )
 	{
-		command("say 看来" + RANK_D->query_respect(ob) + "想升袋？也不掂量掂量自家的斤两！\n");
+		command("say 看來" + RANK_D->query_respect(ob) + "想升袋？也不掂量掂量自家的斤兩！\n");
 		return 1;
 	}
 	return 1;

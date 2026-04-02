@@ -1,16 +1,16 @@
-// pi.c 裨将
+// pi.c 裨將
 
 inherit NPC;
 //inherit F_SKILL;
 
 void create()
 {
-	set_name("裨将", ({ "pi jiang", "pi", "jiang" }));
+	set_name("裨將", ({ "pi jiang", "pi", "jiang" }));
 	set("gender", "男性");
 	set("age", random(10) + 30);
 	set("str", 25);
 	set("dex", 16);
-	set("long", "这是一个大宋年轻将领，满脸征尘。\n");
+	set("long", "這是一個大宋年輕將領，滿臉徵塵。\n");
 	set("combat_exp", 45000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");

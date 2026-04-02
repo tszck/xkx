@@ -4,9 +4,9 @@
 inherit NPC;
 void create()
 {
-	set_name("空禅石人", ({ "kongchan shiren", "kongchan", "shiren" }));
-	set("long", "年代久远已无法看清他当年之相貌，\n"
-		"他身材魁梧高大挺拔，让人觉的精力四射。\n");
+	set_name("空禪石人", ({ "kongchan shiren", "kongchan", "shiren" }));
+	set("long", "年代久遠已無法看清他當年之相貌，\n"
+		"他身材魁梧高大挺拔，讓人覺的精力四射。\n");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");

@@ -6,9 +6,9 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIG"溪山行旅图"NOR,({"painting","xi shan xing lv tu","tu"}) );
+	set_name(HIG"溪山行旅圖"NOR,({"painting","xi shan xing lv tu","tu"}) );
 	set("taskobj", 1);
-	set("long","这是据说已经失传了的范宽真迹，对于爱画之人，算是无价之宝了。\n");
+	set("long","這是據說已經失傳了的範寬真跡，對於愛畫之人，算是無價之寶了。\n");
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {

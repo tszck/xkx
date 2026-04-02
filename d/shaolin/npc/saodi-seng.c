@@ -8,13 +8,13 @@ void my_move();
 
 void create()
 {
-	set_name("扫地僧", ({
+	set_name("掃地僧", ({
 		"saodi seng",
 		"saodi",
 		"seng",
 	}));
 	set("long",
-		"这是一位专职负责塔楼清埽工作的寺内杂役僧人。\n"
+		"這是一位專職負責塔樓清埽工作的寺內雜役僧人。\n"
 	);
 
 
@@ -25,7 +25,7 @@ void create()
 	set("chat_msg",({
 
 	(: this_object(), "my_move" :),
-	"扫地僧喃喃自语：这几天也真怪，干干净净的，不知道打哪冒出许多老鼠来！\n",
+	"掃地僧喃喃自語：這幾天也真怪，乾乾淨淨的，不知道打哪冒出許多老鼠來！\n",
 
 	}));
 
@@ -62,13 +62,13 @@ void my_move()
 	
 	if (value > 6)
 	{
-		command("say 还一大堆活没干完呢，我得赶紧了。\n");
+		command("say 還一大堆活沒幹完呢，我得趕緊了。\n");
 		command("sigh");
 		command("up");
 	}
 	else if (value < 4)
 	{
-		command("say 还一大堆活没干完呢，我得赶紧了。\n");
+		command("say 還一大堆活沒幹完呢，我得趕緊了。\n");
 		command("sigh");
 		command("down");
 	}

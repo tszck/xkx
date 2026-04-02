@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name("薄绢", ({ "silk", "shu", "book" }));
+	set_name("薄絹", ({ "silk", "shu", "book" }));
 	set_weight(50);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "束");
-		set("long", "这是一册易筋经修行篇。\n由一束薄绢钉成，里面密密麻麻的画了不少打坐吐呐的姿势。\n");
+		set("long", "這是一冊易筋經修行篇。\n由一束薄絹釘成，裏面密密麻麻的畫了不少打坐吐吶的姿勢。\n");
 		set("value", 500);
 		set("material", "silk");
 		set("skill", ([

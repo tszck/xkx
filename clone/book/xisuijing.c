@@ -1,4 +1,4 @@
-// xisuijing.c 洗髓经
+// xisuijing.c 洗髓經
 
 inherit ITEM;
 #include <ansi.h>
@@ -13,14 +13,14 @@ string* skill = ({
 });
 void create()
 {
-	set_name(YEL"洗髓经"NOR, ({ "xisuijing" }));
+	set_name(YEL"洗髓經"NOR, ({ "xisuijing" }));
 	set_weight(100);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else
 	{
 		set("unit", "卷");
-		set("long","这本破纸筒就是少林最高武学典籍，是达摩老祖面壁九年与易筋经一起\n参悟出来的绝世典籍。\n");
+		set("long","這本破紙筒就是少林最高武學典籍，是達摩老祖面壁九年與易筋經一起\n參悟出來的絕世典籍。\n");
 		set("value", 5000);
 		set("material", "paper");
 	}
@@ -41,37 +41,37 @@ int do_study(string arg)
 	cost=50;
 	where = environment(me);
 	if (!arg || !objectp(ob = present(arg, me)))
-		return notify_fail("你要参悟什么？\n");
+		return notify_fail("你要參悟什麼？\n");
 	if( (int)me->query("jing") < 25 )
 	{
-		write("你现在过于疲倦，无法专心下来研读新知。\n");
+		write("你現在過於疲倦，無法專心下來研讀新知。\n");
 		return 1;
 	}
-	if ((string)where->query("short")!="达摩院二楼")
-		return notify_fail("洗髓经只能在达摩院里参悟！\n");
+	if ((string)where->query("short")!="達摩院二樓")
+		return notify_fail("洗髓經只能在達摩院裏參悟！\n");
 	if (!me->query_skill("literate",1)||me->query_skill("literate",1)<100)
 	{
-		write("你把纸筒翻来翻去，就是什么都读不懂。\n");		
+		write("你把紙筒翻來翻去，就是什麼都讀不懂。\n");		
 		return 1;
 	}
 	if (!me->query_skill("yijinjing",1)||me->query_skill("yijinjing",1)<100)
 	{
-		write("也许是没有融会贯通易筋经，你觉得这洗髓经莫名其妙。\n");
+		write("也許是沒有融會貫通易筋經，你覺得這洗髓經莫名其妙。\n");
 		return 1;
 	}
 	if ((int)me->query("kar")<25)
 	{
-		write("你把纸筒翻来翻去，看来你与这绝世典籍无缘。\n");		
+		write("你把紙筒翻來翻去，看來你與這絕世典籍無緣。\n");		
 		return 1;
 	}  
 	if (me->is_busy())
-		return notify_fail("你现在正忙着呢。\n");
+		return notify_fail("你現在正忙着呢。\n");
 	if (me->is_fighting() )
-		return notify_fail("你无法在战斗中专心下来研读新知！\n");
+		return notify_fail("你無法在戰鬥中專心下來研讀新知！\n");
 	exp = (int)me->query("combat_exp");
 	if (exp < 300000)
 	{
-		write("你的实战经验不足，不能参悟洗髓经。\n");
+		write("你的實戰經驗不足，不能參悟洗髓經。\n");
 		return 1;
 	}
 	if ((int)me->query("jing")>cost)
@@ -84,13 +84,13 @@ int do_study(string arg)
 me->improve_skill(skill[i-1],(int)(me->query_skill("literate",1)+me->query("int"))/2);
 			}
 		}
-		printf("你参悟洗髓经上的经文，似乎有点心得。\n");
+		printf("你參悟洗髓經上的經文，似乎有點心得。\n");
 		me->receive_damage("jing", cost );
 	}
 	else
 	{
 		cost=me->query("jing");
-		write("你现在过于疲倦，无法专心下来参悟洗髓经。\n");
+		write("你現在過於疲倦，無法專心下來參悟洗髓經。\n");
 	}
 	return 1;
 }

@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("摆夷女子",({ "girl" }) );
+	set_name("擺夷女子",({ "girl" }) );
         set("gender", "女性" );
         set("age", 22);
-        set("long", "她是一个身着白衣的摆夷女子，长发飘飘，身态娥娜。\n");
+        set("long", "她是一個身着白衣的擺夷女子，長髮飄飄，身態娥娜。\n");
  	set_temp("apply/defense", 5);
 	set("combat_exp", 7000);
 //        set("shen", 100);

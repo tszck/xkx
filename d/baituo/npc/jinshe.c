@@ -7,10 +7,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("金环蛇", ({ "jin she", "she" }) );
+	set_name("金環蛇", ({ "jin she", "she" }) );
 	set("race", "爬蛇");
 	set("age", 2);
-	set("long", "一只让人看了起毛骨悚然的金环蛇。\n");
+	set("long", "一隻讓人看了起毛骨悚然的金環蛇。\n");
 	set("attitude", "peaceful");
 	set("str", 20);
 	set("cor", 20);
@@ -52,6 +52,6 @@ int hit_ob(object me, object ob, int damage)
 		&& (int)ob->query_condition("snake_poison") < 10 )
 	{
 		ob->apply_condition("snake_poison", 20);
-		tell_object(ob, HIG "你觉得被咬中的地方一阵麻木！\n" NOR );
+		tell_object(ob, HIG "你覺得被咬中的地方一陣麻木！\n" NOR );
 	}
 }

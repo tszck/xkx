@@ -3,21 +3,21 @@
 
 #include <ansi.h>
 // #define TIME_TICK ((time()-1270000000)*60)
-//#define TIME_TICK ((time()-1111000000)*365)//现实一秒mud365秒
-					   //现实一天mud365天(一年)
-#define TIME_TICK ((time()%(60*24*3600))*365)//mud中60年一轮=现实中60天
+//#define TIME_TICK ((time()-1111000000)*365)//現實一秒mud365秒
+					   //現實一天mud365天(一年)
+#define TIME_TICK ((time()%(60*24*3600))*365)//mud中60年一輪=現實中60天
 nosave int current_day_phase;
 mapping *day_phase;
 
-//飞贼任务与隐士任务的标识
+//飛賊任務與隱士任務的標識
 int thief_yinshi = 3;
 
 string *weather_msg = ({
-	"天空中万里无云",
-	"几朵淡淡的云彩妆点著清朗的天空",
-	"白云在天空中飘来飘去",
-	"厚厚的云层堆积在天边",
-	"天空中乌云密布",
+	"天空中萬裏無雲",
+	"幾朵淡淡的雲彩妝點著清朗的天空",
+	"白雲在天空中飄來飄去",
+	"厚厚的雲層堆積在天邊",
+	"天空中烏雲密佈",
 });
 
 mapping *read_table(string file);
@@ -47,8 +47,8 @@ void init_day_phase()
 
 	current_day_phase = (i==0? sizeof(day_phase)-1: i - 1);
 	current_day_phase = (i==0? sizeof(day_phase)-1: i - 1);
-	// MUD 运行时间久了，时间会有偏差，这里是调整程序，每小时执行一次
-	message("channel:sys", HIR"【系统】泥巴时间对齐系统时间，一小时一次。\n"NOR, users());
+	// MUD 運行時間久了，時間會有偏差，這裏是調整程序，每小時執行一次
+	message("channel:sys", HIR"【系統】泥巴時間對齊系統時間，一小時一次。\n"NOR, users());
 	remove_call_out("init_day_phase");
 	call_out("init_day_phase", 3600);
 
@@ -160,7 +160,7 @@ object create_thief( )
 		obj->set("gender", "男性");
 	}
         if (thief_yinshi==1) obj->set("fname", name["name"]);
-/* skilllvl && exp for 飞贼 */    
+/* skilllvl && exp for 飛賊 */    
      if (thief_yinshi==0)
         {
        	   i=random(5);
@@ -190,7 +190,7 @@ object create_thief( )
                  obj->set("str_lvl",5);
                 }                        
          }
-/* skilllvl && exp for 隐士*/
+/* skilllvl && exp for 隱士*/
       if (thief_yinshi==1)
           { 
             skilllvl=250;
@@ -218,7 +218,7 @@ void event_morning()
 
         thief_yinshi=1;
         yinshi=create_thief();
-//选择地点
+//選擇地點
 	dir = get_dir("/d/");
 	i = random(sizeof(dir));
 	file = get_dir("/d/"+dir[i]+"/");
@@ -245,8 +245,8 @@ void event_morning()
 	}
 	yinshi->move(room);
 	CHANNEL_D->do_channel(yinshi, "sys",yinshi->query("name")+"在"+room->query("short")+"(/d/"+dir[i]+"/"+file[j]+")。\n");	        				
-        message("channel:snow", HIY"【江湖传闻】"HIC + "听说在"+ to_chinese(dir[i]) + "一带隐居着一位武林前辈，江湖人士纷纷前往寻访！\n"NOR,users() );
-//还原标识
+        message("channel:snow", HIY"【江湖傳聞】"HIC + "聽說在"+ to_chinese(dir[i]) + "一帶隱居着一位武林前輩，江湖人士紛紛前往尋訪！\n"NOR,users() );
+//還原標識
 	thief_yinshi=3;              
 }
 
@@ -258,7 +258,7 @@ void event_afternoon()
                 for(i=0; i<sizeof(ob_list); i++) 
 		if(environment(ob_list[i]))
 		{
-			message_vision("$N笑道：天要黑了，我也该走啦！\n",ob_list[i]);
+			message_vision("$N笑道：天要黑了，我也該走啦！\n",ob_list[i]);
 			destruct(ob_list[i]);
                 }
 }
@@ -275,107 +275,107 @@ void event_night()
 		if(objectp(room=load_object("/d/city/shilijie4")))
 		 badguy= create_thief();
 		 badguy->move(room);
-		message("channel:snow", HIM"【官府通告】"HIR + "扬州城中今夜有飞贼横行，良民百姓请闭门不出，切莫自误！\n"NOR,users() );
+		message("channel:snow", HIM"【官府通告】"HIR + "揚州城中今夜有飛賊橫行，良民百姓請閉門不出，切莫自誤！\n"NOR,users() );
 	}
         else if ( num == 1)
         {
 		if(objectp(room=load_object("/d/beijing/tian_anm")))
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"【官府通告】"HIR + "北京城中今夜有飞贼横行，良民百姓请闭门不出，切莫自误！\n"NOR,users() );
+		message("channel:snow", HIM"【官府通告】"HIR + "北京城中今夜有飛賊橫行，良民百姓請閉門不出，切莫自誤！\n"NOR,users() );
 	}
         else if ( num == 2)
         {
 		if(objectp(room=load_object("/d/changan/center")))
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"【官府通告】"HIR + "长安城中今夜有飞贼横行，良民百姓请闭门不出，切莫自误！\n"NOR,users() );
+		message("channel:snow", HIM"【官府通告】"HIR + "長安城中今夜有飛賊橫行，良民百姓請閉門不出，切莫自誤！\n"NOR,users() );
 	}
          else if ( num == 3)
         {
 		if(objectp(room=load_object("/d/fuzhou/dongjiekou")))
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"【官府通告】"HIR + "福州城中今夜有飞贼横行，良民百姓请闭门不出，切莫自误！\n"NOR,users() );
+		message("channel:snow", HIM"【官府通告】"HIR + "福州城中今夜有飛賊橫行，良民百姓請閉門不出，切莫自誤！\n"NOR,users() );
 	}
          else if ( num == 4)
         {
 		if(objectp(room=load_object("/d/quanzhou/guangchang")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"【官府通告】"HIR + "泉州城中今夜有飞贼横行，良民百姓请闭门不出，切莫自误！\n"NOR,users() );
+		message("channel:snow", HIM"【官府通告】"HIR + "泉州城中今夜有飛賊橫行，良民百姓請閉門不出，切莫自誤！\n"NOR,users() );
 	}
          else if ( num == 5)
         {
 		if(objectp(room=load_object("/d/suzhou/baodaiqiao")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"【官府通告】"HIR + "苏州城中今夜有飞贼横行，良民百姓请闭门不出，切莫自误！\n"NOR,users() );
+		message("channel:snow", HIM"【官府通告】"HIR + "蘇州城中今夜有飛賊橫行，良民百姓請閉門不出，切莫自誤！\n"NOR,users() );
 	}
          else if ( num == 6)
         {
 		if(objectp(room=load_object("/d/hangzhou/jujingyuan")) )
 		badguy= create_thief();
 		badguy->move(room);		
-		message("channel:snow", HIM"【官府通告】"HIR + "杭州城中今夜有飞贼横行，良民百姓请闭门不出，切莫自误！\n"NOR,users() );
+		message("channel:snow", HIM"【官府通告】"HIR + "杭州城中今夜有飛賊橫行，良民百姓請閉門不出，切莫自誤！\n"NOR,users() );
 	}
          else if ( num == 7)
         {
 		if(objectp(room=load_object("/d/wuxi/guangchang")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"【官府通告】"HIR + "无锡城中今夜有飞贼横行，良民百姓请闭门不出，切莫自误！\n"NOR,users() );
+		message("channel:snow", HIM"【官府通告】"HIR + "無錫城中今夜有飛賊橫行，良民百姓請閉門不出，切莫自誤！\n"NOR,users() );
 	}
         else if ( num == 8)
         {
 		if(objectp(room=load_object("/d/xiangyang/guangchang")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"【官府通告】"HIR + "襄阳城中今夜有飞贼横行，良民百姓请闭门不出，切莫自误！\n"NOR,users() );
+		message("channel:snow", HIM"【官府通告】"HIR + "襄陽城中今夜有飛賊橫行，良民百姓請閉門不出，切莫自誤！\n"NOR,users() );
 	}
          else if ( num == 9)
         {
 		if(objectp(room=load_object("/d/yueyang/zhongxin")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"【官府通告】"HIR + "岳阳城中今夜有飞贼横行，良民百姓请闭门不出，切莫自误！\n"NOR,users() );
+		message("channel:snow", HIM"【官府通告】"HIR + "嶽陽城中今夜有飛賊橫行，良民百姓請閉門不出，切莫自誤！\n"NOR,users() );
 	}
          else if ( num == 10)
         {
 		if(objectp(room=load_object("/d/chengdu/guangchang")))
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"【官府通告】"HIR + "成都城中今夜有飞贼横行，良民百姓请闭门不出，切莫自误！\n"NOR,users() );
+		message("channel:snow", HIM"【官府通告】"HIR + "成都城中今夜有飛賊橫行，良民百姓請閉門不出，切莫自誤！\n"NOR,users() );
 	}
          else if ( num == 11)
         {
 		if(objectp(room=load_object("/d/dali/center")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"【官府通告】"HIR + "大理城中今夜有飞贼横行，良民百姓请闭门不出，切莫自误！\n"NOR,users() );
+		message("channel:snow", HIM"【官府通告】"HIR + "大理城中今夜有飛賊橫行，良民百姓請閉門不出，切莫自誤！\n"NOR,users() );
         }
         else if ( num == 12)
         {
 		if(objectp(room=load_object("/d/lingzhou/center")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"【官府通告】"HIR + "灵州城中今夜有飞贼横行，良民百姓请闭门不出，切莫自误！\n"NOR,users() );
+		message("channel:snow", HIM"【官府通告】"HIR + "靈州城中今夜有飛賊橫行，良民百姓請閉門不出，切莫自誤！\n"NOR,users() );
 	}
        else if ( num == 13)
         {
 		if(objectp(room=load_object("/d/foshan/street3")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"【官府通告】"HIR + "佛山镇中今夜有飞贼横行，良民百姓请闭门不出，切莫自误！\n"NOR,users() );
+		message("channel:snow", HIM"【官府通告】"HIR + "佛山鎮中今夜有飛賊橫行，良民百姓請閉門不出，切莫自誤！\n"NOR,users() );
         }
        else 
         {
 		if(objectp(room=load_object("/d/jiangling/xijie2")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"【官府通告】"HIR + "江陵城中今夜有飞贼横行，良民百姓请闭门不出，切莫自误！\n"NOR,users() );
+		message("channel:snow", HIM"【官府通告】"HIR + "江陵城中今夜有飛賊橫行，良民百姓請閉門不出，切莫自誤！\n"NOR,users() );
          }
-//还原标识
+//還原標識
        thief_yinshi=3;
 }
 
@@ -387,7 +387,7 @@ void event_dawn()
                 for(i=0; i<sizeof(ob_list); i++) 
 		if(environment(ob_list[i]))
 		{
-			message_vision("$N笑道：天亮了，东西也到手了，我闪！\n",ob_list[i]);
+			message_vision("$N笑道：天亮了，東西也到手了，我閃！\n",ob_list[i]);
 			destruct(ob_list[i]);
                 }
 }
@@ -406,31 +406,31 @@ void event_noon()
 		case "四":
 		case "五":
 			ill = "ill_kesou";
-			msg = HIG"忽然喉头一阵痕痒，你感觉似乎要咳嗽了。\n"NOR;
+			msg = HIG"忽然喉頭一陣痕癢，你感覺似乎要咳嗽了。\n"NOR;
 			break;
 		case "六":
 		case "七":
 		case "八":
 			ill = "ill_zhongshu";
-			msg = HIG"突然你胸臆之间一阵翻腾，你中暑了。\n"NOR;
+			msg = HIG"突然你胸臆之間一陣翻騰，你中暑了。\n"NOR;
 			break;
 		case "九":
 		case "十":
 		case "十一":
 			ill = "ill_shanghan";
-			msg = HIG"陡的你打了个冷战，头昏沉沉的，你得伤寒病了。\n"NOR;
+			msg = HIG"陡的你打了個冷戰，頭昏沉沉的，你得傷寒病了。\n"NOR;
 			break;
 		case "十二":
 		case "一":
 		case "二":
 			ill = "ill_dongshang";
-			msg = HIG"你肢体末端一阵僵直，看来你被冻伤了。\n"NOR;
+			msg = HIG"你肢體末端一陣僵直，看來你被凍傷了。\n"NOR;
 			break;
 	}
 	if(random(2))
 	{
 		ill = "ill_fashao";
-		msg = HIG"你偶感风寒，竟而发起烧来。\n"NOR;
+		msg = HIG"你偶感風寒，竟而發起燒來。\n"NOR;
 	}
 	ob = users();
 	for(i=0; i<sizeof(ob); i++)
@@ -440,11 +440,11 @@ void event_noon()
 		if( ob[i]->query("age")==14 ) continue;
 		con1 = ob[i]->query("qi");
 		con2 = ob[i]->query("max_qi");
-		(int)con = con1/con2*50;//形成第一个生病判断条件
+		(int)con = con1/con2*50;//形成第一個生病判斷條件
 		con3 = ob[i]->query("neili");
 		con2 = ob[i]->query("max_neili");
 		if( con2 == 0) con2 = 1;
-		(int)con1 = con3/con2*50;//形成第二个生病判断条件
+		(int)con1 = con3/con2*50;//形成第二個生病判斷條件
 		if(random(con)+random(50)+random(con1)<25)
 		{
 			ob[i]->apply_condition(ill, 10+random(40));

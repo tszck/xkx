@@ -11,8 +11,8 @@ void create()
 	set_name("童百熊", ({ "tong baixiong","tong"}) );
 	set("gender", "男性" );
 	set("age", 75);
-	set("long", "他白发披散, 银髯戟张, 脸上的肌肉牵动, \n"
-                    "圆睁双眼, 身上的鲜血已然凝结, 神情甚是可怖。\n");
+	set("long", "他白髮披散, 銀髯戟張, 臉上的肌肉牽動, \n"
+                    "圓睜雙眼, 身上的鮮血已然凝結, 神情甚是可怖。\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 	set("env/wimpy", 40);
@@ -52,13 +52,13 @@ void create()
 	]));
 
 	set("party/party_name", HIB"日月神教"NOR);
-	set("party/rank", HIC"风雷堂长老"NOR);
+	set("party/rank", HIC"風雷堂長老"NOR);
 	create_family("黑木崖", 9, "弟子");
 
 	set("chat_chance", 3);
 	set("chat_msg", ({
-		 "童百熊怒瞪双眼道: “我没错, 我没有叛教! 东方兄弟你不能冤枉我呀! ”\n",
-	         "童百熊叹了一口气说：“我和东方兄弟出生入死, 共历患难的时候, 你们还没生下来哪!”\n"
+		 "童百熊怒瞪雙眼道: “我沒錯, 我沒有叛教! 東方兄弟你不能冤枉我呀! ”\n",
+	         "童百熊嘆了一口氣說：“我和東方兄弟出生入死, 共歷患難的時候, 你們還沒生下來哪!”\n"
         }) );
 	setup();
         carry_object("/d/heimuya/npc/obj/zijinchui")->wield();
@@ -69,7 +69,7 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-     command("say 我是患难之身, 怎么能收徒呢。壮士还是请回吧！\n");
+     command("say 我是患難之身, 怎麼能收徒呢。壯士還是請回吧！\n");
 }
 
 void init()
@@ -90,7 +90,7 @@ void init()
 
 string ask_me()
 {
-	return "你想加入我日月神教(join riyuejiao)吗？";
+	return "你想加入我日月神教(join riyuejiao)嗎？";
 }
 
 #include "riyuejiao.h"

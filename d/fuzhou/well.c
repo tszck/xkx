@@ -9,7 +9,7 @@ void create()
 {
         set("short", "井中");
         set("long", @LONG
-这是在一口枯井中。光线极暗，什么也看不清。
+這是在一口枯井中。光線極暗，什麼也看不清。
 LONG );
         set("exits", ([
                 "up" : __DIR__"houyuan",
@@ -37,9 +37,9 @@ int do_use(string arg)
         if (!present("fire", me))  return 0;
         if( arg=="fire" ) {
              write(
-             "你点燃了火折，发现井壁上有一道裂缝，似乎可以钻(zuan)出去。\n"
+             "你點燃了火折，發現井壁上有一道裂縫，似乎可以鑽(zuan)出去。\n"
              );
-             this_player()->set_temp("marks/钻1", 1);
+             this_player()->set_temp("marks/鑽1", 1);
              return 1;
        }
 }
@@ -49,18 +49,18 @@ int do_zuan(string arg)
         object me;
         me = this_player();
 
-        if (me->query_temp("marks/钻1") ) {
-            message("vision", me->name() + "滋溜一下不见了。\n",
+        if (me->query_temp("marks/鑽1") ) {
+            message("vision", me->name() + "滋溜一下不見了。\n",
                     environment(me), ({me}) );
             me->move(__DIR__"midao");
-            message("vision", me->name() + "从井里钻了出来。\n",
+            message("vision", me->name() + "從井裏鑽了出來。\n",
                     environment(me), ({me}) );
-            this_player()->delete_temp("marks/钻1");
+            this_player()->delete_temp("marks/鑽1");
 
             return 1;
         }
         else {
-            write("你想往哪儿钻?!\n");
+            write("你想往哪兒鑽?!\n");
             return 1;
         }
 }

@@ -15,23 +15,23 @@ int main(object me, string arg)
 	seteuid(getuid());
 
         if (me->is_busy())
-                return notify_fail("你现在正忙着呢。\n");
+                return notify_fail("你現在正忙着呢。\n");
 
         if (environment(me)->query("no_fight"))
-                return notify_fail("你在这里演练也不怕吵到别人？\n");
+                return notify_fail("你在這裏演練也不怕吵到別人？\n");
 
         if (! arg)
-                return notify_fail("你想演练什么？\n");
+                return notify_fail("你想演練什麼？\n");
 
         if (file_size(SKILL_D(arg) + ".c") <= 0)
-                return notify_fail("没听说过有这种武功。\n");
+                return notify_fail("沒聽說過有這種武功。\n");
 
         if (! mapp(SKILL_D(arg)->query_sub_skills()))
-                return notify_fail("这种武功无需演练，还是勤加练习吧。\n");
+                return notify_fail("這種武功無需演練，還是勤加練習吧。\n");
 
         if ((int) me->query_skill(arg, 1) > 0)
-                return notify_fail("你已经会" + to_chinese(arg) +
-                                   "了，不必再演练了，还是多练习吧。\n");
+                return notify_fail("你已經會" + to_chinese(arg) +
+                                   "了，不必再演練了，還是多練習吧。\n");
 
         if (! SKILL_D(arg)->get_ready(me))
                 return 1;
@@ -40,7 +40,7 @@ int main(object me, string arg)
         me->set_temp("pending/practicing_skill", arg);
 	me->start_busy((: practicing :), (: halt_practice :));
 
-        write("你开始演练" + to_chinese(arg) + "。\n");
+        write("你開始演練" + to_chinese(arg) + "。\n");
         return 1;
 }
 
@@ -72,39 +72,39 @@ int practicing(object me)
                 sub_skill = skill_names[step - 1];
                 if (! me->query_skill(sub_skill, 1))
                 {
-                        write("你正欲继续演练，突然一楞，这才发现自己不会运用" +
+                        write("你正欲繼續演練，突然一楞，這才發現自己不會運用" +
                               to_chinese(sub_skill) + "。\n");
                         return 0;
                 }
                 if (file_size(SKILL_D(sub_skill) + ".c") <= 0)
                 {
-                        write("嗯、怎么回事？怎么" + to_chinese(sub_skill) +
-                              "这种武功好像失传了？\n");
+                        write("嗯、怎麼回事？怎麼" + to_chinese(sub_skill) +
+                              "這種武功好像失傳了？\n");
                         return 0;
                 }
                 action = SKILL_D(sub_skill)->query_action(me, me->query_temp("weapon"));
                 action_msg = action["action"];
-                action_msg = replace_string(action_msg, "$n", "虚空");
-                action_msg = replace_string(action_msg, "$l", "无尽处");
+                action_msg = replace_string(action_msg, "$n", "虛空");
+                action_msg = replace_string(action_msg, "$l", "無盡處");
                 action_msg = replace_string(action_msg, "$w", "兵刃");
                 cost = action["force"] * 8 / sizeof(sub_skills);
                 if (me->query("neili") < cost)
                 {
-                        write("你刚欲出招，忽然间丹田真气不继，难以施为。\n");
+                        write("你剛欲出招，忽然間丹田真氣不繼，難以施爲。\n");
                         return 0;
                 }
                 me->add("neili", -cost);
                 cost = action["force"] / 10;
                 if (me->query("qi") < cost)
                 {
-                        write("你觉得气力不加，疲惫不堪，无法再出招。\n");
+                        write("你覺得氣力不加，疲憊不堪，無法再出招。\n");
                         return 0;
                 }
                 me->add("qi", -cost);
                 cost = action["force"] * 8 / me->query("int") / sizeof(sub_skills);
                 if (me->query("jing") < cost)
                 {
-                        write("一阵烦恶涌上心头，你几欲呕吐。\n");
+                        write("一陣煩惡湧上心頭，你幾欲嘔吐。\n");
                         return 0;
                 }
                 me->add("jing", -cost);
@@ -114,17 +114,17 @@ int practicing(object me)
                 if (me->query_skill(sub_skill, 1) <
                     (int) sub_skills[sub_skill])
                 {
-                        write("你演练完" + to_chinese(sub_skill) + "这一招，"
-                              "觉得有些迷茫，一时无法继续演练下去。\n");
+                        write("你演練完" + to_chinese(sub_skill) + "這一招，"
+                              "覺得有些迷茫，一時無法繼續演練下去。\n");
                         return 0;
                 }
         } else
         {
-                message_vision("$N缓缓的收住步伐，似有所思。\n", me);
+                message_vision("$N緩緩的收住步伐，似有所思。\n", me);
                 me->set_temp("pending/practice", 0);
                 if (SKILL_D(skill)->get_finish(me))
                 {
-                        write(HIC "\n恭喜你练成了「" + to_chinese(skill) + "」。\n\n" NOR);
+                        write(HIC "\n恭喜你練成了「" + to_chinese(skill) + "」。\n\n" NOR);
                         lvl = 0;
                         for (i = 0; i < sizeof(sub_skills); i++)
                         {
@@ -144,7 +144,7 @@ int practicing(object me)
 
 int halt_practice(object me)
 {
-        write("你收住意念，不再继续演练。\n");
+        write("你收住意念，不再繼續演練。\n");
         me->set_temp("pending/practice", 0);
         me->set_temp("pending/practicing_skill", 0);
         return 1;
@@ -155,10 +155,10 @@ int help(object me)
         write(@HELP
 指令格式 : yanlian <技能>
 
-这个指令可以让你将某些武功合而为一，成为一种强大得多的新技能。比如降龙
-十八掌。当你把十八掌一一学全后，你就可以演练降龙十八掌(xianglong-zhang)，
-一旦成功，你将领悟到一种全新的技能。演练将耗费精、气、内力。如果因为这
-些因素不能满足，演练将失败。
+這個指令可以讓你將某些武功合而爲一，成爲一種強大得多的新技能。比如降龍
+十八掌。當你把十八掌一一學全後，你就可以演練降龍十八掌(xianglong-zhang)，
+一旦成功，你將領悟到一種全新的技能。演練將耗費精、氣、內力。如果因爲這
+些因素不能滿足，演練將失敗。
 HELP
         );
         return 1;

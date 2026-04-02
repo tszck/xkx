@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("小烂眼", ({ "xiao lanyan", "xiao" }));
+	set_name("小爛眼", ({ "xiao lanyan", "xiao" }));
 	set("gender", "男性");
 	set("age", 19);
-	set("long", "这是个流里流气的小烂眼，满口四川土话。\n");
+	set("long", "這是個流裏流氣的小爛眼，滿口四川土話。\n");
 	
 	set("combat_exp", 1000);
 	set("shen_type", -1);

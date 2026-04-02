@@ -4,9 +4,9 @@
 inherit NPC;
 void create()
 {
-	set_name("术赤",({"shu chi","shu","chi"}));
+	set_name("朮赤",({"shu chi","shu","chi"}));
 	set("gender","男性");
-	set("long","铁木真的大儿子，他脸形瘦削，生性险诈。\n");
+	set("long","鐵木真的大兒子，他臉形瘦削，生性險詐。\n");
 	set("combat_exp",150000);
 	set("age",39);
 	set("qi",1200);
@@ -22,8 +22,8 @@ void create()
 	set_skill("spear", 60);
 	set("chat_chance",5);
 	set("chat_msg",({
-		"术赤嘿嘿冷笑两声：察合台是个笨蛋，这[汗]的位置迟早是我的。\n",
-		"术赤举起桌上的金樽，把血色的葡萄酒一饮而尽。\n",
+		"朮赤嘿嘿冷笑兩聲：察合臺是個笨蛋，這[汗]的位置遲早是我的。\n",
+		"朮赤舉起桌上的金樽，把血色的葡萄酒一飲而盡。\n",
 	}));
 	setup();
 	add_money("silver",30);

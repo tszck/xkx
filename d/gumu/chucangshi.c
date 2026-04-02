@@ -7,10 +7,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIC"储藏室"NOR);
+	set("short", HIC"儲藏室"NOR);
 	set("long", @LONG
-古墓生活甚是清苦，储藏室堆着些日常用品，都整整齐齐堆放在墙
-角，看来经常有古墓弟子前来打扫，其余别无他物。
+古墓生活甚是清苦，儲藏室堆着些日常用品，都整整齊齊堆放在牆
+角，看來經常有古墓弟子前來打掃，其餘別無他物。
 LONG	);
 
 	set("exits", ([
@@ -33,20 +33,20 @@ int do_search(string arg)
 {
 	object ob, me = this_player();
 
-	if ( arg == "qiangjiao" || arg == "墙角")
+	if ( arg == "qiangjiao" || arg == "牆角")
 	{
 		if ( me->query_temp("fire") < 3 )
 		{
 			if(objectp(ob = present("fire", me)))
-				return notify_fail("你已经拿了火折了，怎么这么贪心？\n");
+				return notify_fail("你已經拿了火折了，怎麼這麼貪心？\n");
 			me->add_temp("fire", 1);
-			message_vision(YEL "$N在墙脚的物品堆里翻来翻去什么也没找着。\n"NOR, me);
+			message_vision(YEL "$N在牆腳的物品堆裏翻來翻去什麼也沒找着。\n"NOR, me);
 			return 1;
 		}
-		message_vision("$N在墙脚的物品堆里翻来翻去找出一把火折。\n",me);
+		message_vision("$N在牆腳的物品堆裏翻來翻去找出一把火折。\n",me);
 		me->delete_temp("fire");
 		new("/clone/misc/fire")->move(me);
 		return 1;
 	}
-	return notify_fail("你要找什么？\n");	 
+	return notify_fail("你要找什麼？\n");	 
 }

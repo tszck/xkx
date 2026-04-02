@@ -12,12 +12,12 @@ int do_open(string arg);
 
 void create()
 {
-	set("short", "钟楼一层");
+	set("short", "鐘樓一層");
 	set("long", @LONG
-这里是塔楼的底层，一缕缕阳光从墙上的花砖缝隙里透射
-进来，在青砖地上投下别致的光影，如同一格格棋盘相似。往
-上看，长长的木楼梯盘绕而上，似乎永无尽头。墙角，梯级都
-相当洁净，看来经常有僧人打扫。
+這裏是塔樓的底層，一縷縷陽光從牆上的花磚縫隙裏透射
+進來，在青磚地上投下別緻的光影，如同一格格棋盤相似。往
+上看，長長的木樓梯盤繞而上，似乎永無盡頭。牆角，梯級都
+相當潔淨，看來經常有僧人打掃。
 LONG );
 	set("exits", ([
 		"up" : __DIR__"zhonglou2",
@@ -56,15 +56,15 @@ int do_open(string arg)
 	if( arg=="brick" && !query("exits/down") )
 	{
 		message_vision( 
-		"$N走到楼梯下，趴在地上，试着用戒刀伸进青砖缝里，慢慢的撬着……\n"
-		"等到青砖一块块地起了出来，地上露出一个大洞，几排石阶往下伸去，\n"
-		"从这里分明通向一个暗道。\n", this_player());
+		"$N走到樓梯下，趴在地上，試着用戒刀伸進青磚縫裏，慢慢的撬着……\n"
+		"等到青磚一塊塊地起了出來，地上露出一個大洞，幾排石階往下伸去，\n"
+		"從這裏分明通向一個暗道。\n", this_player());
 
 		set("exits/down", __DIR__"andao3");
 		if( room = find_object(__DIR__"andao3") ) 
 		{
 			room->set("exits/up", __FILE__);
-			message("vision", "天花板忽然发出轧轧的声音，露出一个向上的阶梯。\n",
+			message("vision", "天花板忽然發出軋軋的聲音，露出一個向上的階梯。\n",
 				room );
 		}
 		remove_call_out("close_passage");
@@ -83,9 +83,9 @@ void close_passage()
 		return;
 
 	message("vision", 
-	"只听乒地一声响，钟楼小门被推了开来，一群僧兵一涌而入。\n"
-	"他们有的砌砖，有的拌浆，七手八脚地用砖块把洞口封了起来，\n"
-	"再在砖缝间浇入烧红的铁汁。\n", this_object() );
+	"只聽乒地一聲響，鐘樓小門被推了開來，一羣僧兵一湧而入。\n"
+	"他們有的砌磚，有的拌漿，七手八腳地用磚塊把洞口封了起來，\n"
+	"再在磚縫間澆入燒紅的鐵汁。\n", this_object() );
   if (query("bing_count"))
   {
   	add("bing_count",-1);
@@ -109,13 +109,13 @@ void close_passage()
 	}
 	}
 	else
-		message("vision","紧接着，僧兵们又一哄而散。\n",this_object());
+		message("vision","緊接着，僧兵們又一鬨而散。\n",this_object());
 
 	if( room = find_object(__DIR__"andao3") ) {
 //		room->delete("exits/up");
 		message("vision", 
-	"只听乒，乓几声巨响，接着几滴滚烫的铁水滴了下来。\n"
-	"向上的洞口被人用砖块严严实实地封了起来。\n", room );
+	"只聽乒，乓幾聲巨響，接着幾滴滾燙的鐵水滴了下來。\n"
+	"向上的洞口被人用磚塊嚴嚴實實地封了起來。\n", room );
 	}
 	delete("exits/down");
 }
@@ -123,5 +123,5 @@ void close_passage()
 string look_floor()
 {
 	return
-	"一片结实平整的青砖地面，只在楼梯下的一角处略显凹凸不平。\n";
+	"一片結實平整的青磚地面，只在樓梯下的一角處略顯凹凸不平。\n";
 }

@@ -1,4 +1,4 @@
-// su.c 苏荃
+// su.c 蘇荃
 
 #include <ansi.h>
 inherit NPC;
@@ -8,8 +8,8 @@ inherit F_MASTER;
 int ask_tuijiao();
 void create()
 {
-	set_name("苏荃", ({ "su quan", "su" }));
-	set("long","美貌少妇，看模样不过二十三四岁年纪，微微一笑，媚态横生，艳丽无比。\n");
+	set_name("蘇荃", ({ "su quan", "su" }));
+	set("long","美貌少婦，看模樣不過二十三四歲年紀，微微一笑，媚態橫生，豔麗無比。\n");
 	set("gender", "女性");
 	set("age", 23);
 	set("attitude", "friendly");
@@ -48,30 +48,30 @@ void create()
 	map_skill("sword", "meiren-sanzhao");
 	prepare_skill("strike", "huagu-mianzhang");
 	prepare_skill("leg", "jueming-leg");
-	set("party/party_name", HIY"神龙教"NOR);
+	set("party/party_name", HIY"神龍教"NOR);
 	set("party/rank", HIR"教主夫人"NOR );
 	set("party/level", 3);
-	create_family("神龙教", 2, "弟子");
+	create_family("神龍教", 2, "弟子");
 
 	set("inquiry", ([
-		"洪安通" : "这三个字是你说的吗？",
-		"洪教主" : "洪教主仙福永享，寿与天齐，洪教主神目如电，烛照四方。",
-		"苏荃"   : "没规没矩的。",
-		"神龙岛" : "神龙岛在汝州的东北方向，从塘沽口出海便到。",
-		"神龙教" : "一般人是入不了我神龙教的(join shenlongjiao)。\n",
-		"教主"   : "教主脾气不好，要讨他欢心才好。\n",
-		"口号"   : "万年不老！永享仙福！寿与天齐！文武仁圣！\n",
-		"入教"   : "一般人是入不了我神龙教的(join shenlongjiao)。\n",
+		"洪安通" : "這三個字是你說的嗎？",
+		"洪教主" : "洪教主仙福永享，壽與天齊，洪教主神目如電，燭照四方。",
+		"蘇荃"   : "沒規沒矩的。",
+		"神龍島" : "神龍島在汝州的東北方向，從塘沽口出海便到。",
+		"神龍教" : "一般人是入不了我神龍教的(join shenlongjiao)。\n",
+		"教主"   : "教主脾氣不好，要討他歡心纔好。\n",
+		"口號"   : "萬年不老！永享仙福！壽與天齊！文武仁聖！\n",
+		"入教"   : "一般人是入不了我神龍教的(join shenlongjiao)。\n",
 		"退教"   : (: ask_tuijiao :),
-		"rujiao" : "一般人是入不了我神龙教的(join shenlongjiao)。\n",
+		"rujiao" : "一般人是入不了我神龍教的(join shenlongjiao)。\n",
 		"tuijiao": (: ask_tuijiao :),
 	]));
 	set("chat_chance_combat", 50);  
 	set("chat_msg_combat", ({
 		(: command("smile") :),
 		(: command("haha") :),
-		(: command("chat 凭你这点能耐，也敢在老娘头上动土？\n") :),
-		(: command("say 你活得不耐烦了找死啊？\n") :),		
+		(: command("chat 憑你這點能耐，也敢在老孃頭上動土？\n") :),
+		(: command("say 你活得不耐煩了找死啊？\n") :),		
 		(: perform_action, "strike.hua" :),
 		(: perform_action, "strike.baigu" :),
 		(: perform_action, "sword.fengzi" :),
@@ -115,16 +115,16 @@ void greeting(object ob)
 
 void attempt_apprentice(object ob)
 {
-	if (ob->query("party/party_name") != HIY "神龙教" NOR ) {
-		command("say 你不是本教教众，想来找死啊！");
+	if (ob->query("party/party_name") != HIY "神龍教" NOR ) {
+		command("say 你不是本教教衆，想來找死啊！");
 		return;
 	}
 	if ((int)ob->query_skill("dulong-dafa",1) < 60 ) {
-		command("say 你的本门内功心法太低了，还是努努力先提高一下吧！");
+		command("say 你的本門內功心法太低了，還是努努力先提高一下吧！");
 		return;
 	}
 	if ((int)ob->query("shen") > -10000  ) {
-	command("say 我神龙教与世隔绝，向来不与您这种白道人物打交道，您请回吧！");
+	command("say 我神龍教與世隔絕，向來不與您這種白道人物打交道，您請回吧！");
 		return;
 	}
 	command("say 很好，很好。");
@@ -136,20 +136,20 @@ int ask_tuijiao()
 	object ob;
 	ob=this_player();
 
-	if(ob->query("party/party_name") != HIY "神龙教" NOR )
+	if(ob->query("party/party_name") != HIY "神龍教" NOR )
 	{
-	message_vision("苏荃莞尔一笑，对$N说道：你还没加入我神龙教呢，就想退教？\n",ob);
+	message_vision("蘇荃莞爾一笑，對$N說道：你還沒加入我神龍教呢，就想退教？\n",ob);
 		return 1;
 	}
-	if(ob->query("family/family_name") == "神龙教" )
+	if(ob->query("family/family_name") == "神龍教" )
 	{
-		message_vision("苏荃板起俏脸对$N说道：你已经是我神龙弟子，如何能退教？\n", ob);
+		message_vision("蘇荃板起俏臉對$N說道：你已經是我神龍弟子，如何能退教？\n", ob);
 		return 1;
 	}
 	command("look "+ob->query("id"));
 	command("sigh ");
 	command("nod ");
-	command("say 异日你不要撞在我手上！");
+	command("say 異日你不要撞在我手上！");
 	ob->delete("party");
 	ob->delete("rank");
 	ob->delete("level");

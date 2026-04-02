@@ -1,4 +1,4 @@
-// huashan-ken.c 华山拳法
+// huashan-ken.c 華山拳法
 // Last Modified by sir 10.21.2001
 
 #include <ansi.h>
@@ -7,19 +7,19 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action":  "$N使一招"HIW"「云里乾坤」"NOR"左拳击出，不等招式使老，右拳已从左拳之底穿出，对准$n的$l「呼」地一拳",
-	"skill_name": "云里乾坤",
+([	"action":  "$N使一招"HIW"「雲裏乾坤」"NOR"左拳擊出，不等招式使老，右拳已從左拳之底穿出，對準$n的$l「呼」地一拳",
+	"skill_name": "雲裏乾坤",
 	"lvl": 0,
 ]),
-([	"action":  "$N左拳突然张开，拳开变掌，直击化为横扫，一招"HIC"「雾里看花」"NOR"便往$n的$l招呼过去",
-	"skill_name": "雾里看花",
+([	"action":  "$N左拳突然張開，拳開變掌，直擊化爲橫掃，一招"HIC"「霧裏看花」"NOR"便往$n的$l招呼過去",
+	"skill_name": "霧裏看花",
 	"lvl": 10,
 ]),
-([	"action":  "$N两手虎口相对，往内一圈，一招"HIY"「金鼓齐鸣」"NOR"往$n的$l击出",
-	"skill_name": "金鼓齐鸣",
+([	"action":  "$N兩手虎口相對，往內一圈，一招"HIY"「金鼓齊鳴」"NOR"往$n的$l擊出",
+	"skill_name": "金鼓齊鳴",
 	"lvl": 20,
 ]),
-([	"action":  "$N步履一沉，左拳虚晃一招，右拳使出"MAG"「梅花弄影」"NOR"击向$n$l",
+([	"action":  "$N步履一沉，左拳虛晃一招，右拳使出"MAG"「梅花弄影」"NOR"擊向$n$l",
 	"skill_name": "梅花弄影",
 	"lvl": 30,
 ]),
@@ -30,17 +30,17 @@ int valid_enable(string usage) { return usage=="unarmed" || usage=="parry"; }
 int valid_learn(object me)
 {
 	if( me->query_temp("weapon") || me->query_temp("secondary_weapon") )
-		return notify_fail("练华山拳法必须空手。\n");
+		return notify_fail("練華山拳法必須空手。\n");
 	if ((int)me->query_skill("zixia-shengong", 1) < 10)
-		return notify_fail("你的紫霞神功不熟练，无法练华山拳法。\n");	
+		return notify_fail("你的紫霞神功不熟練，無法練華山拳法。\n");	
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if( (int)me->query("qi") < 30 || (int)me->query("neili") < 30 )
-		return notify_fail("你的体力不够了，休息一下再练吧。\n");
+		return notify_fail("你的體力不夠了，休息一下再練吧。\n");
 	me->receive_damage("qi", 20);
 	me->add("neili", -20);
 	return 1;
@@ -60,16 +60,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,		
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 
@@ -80,13 +80,13 @@ int power_point(object me) { return 1.0; }
 
 int help(object me)
 {
-	write(HIC"\n华山拳法："NOR"\n");
+	write(HIC"\n華山拳法："NOR"\n");
 	write(@HELP
 
-    华山拳法为华山气宗拳法。
+    華山拳法爲華山氣宗拳法。
 
-	学习要求：
-	   紫霞10级
+	學習要求：
+	   紫霞10級
 HELP
 	);
 	return 1;

@@ -9,15 +9,15 @@ int do_unlock(string arg);
 
 void create()
 {
-	set("short", "鳌拜书房");
+	set("short", "鰲拜書房");
 	set("long", @LONG
-这里是鳌拜书房，却没有一本书。各种古玩琳琅满目，商周青铜、汉瓦
-当、唐三彩，珍珠宝石，应有尽有，只要拥有一件，就够你吃一辈子了。北
-面墙上有一副画。书桌上有一本书。
+這裏是鰲拜書房，卻沒有一本書。各種古玩琳琅滿目，商周青銅、漢瓦
+當、唐三彩，珍珠寶石，應有盡有，只要擁有一件，就夠你喫一輩子了。北
+面牆上有一副畫。書桌上有一本書。
 LONG );
 	set("item_desc", ([
-		"picture" : "\n这张画很一般，不知为什么挂在这儿。\n",
-		"book" : "\n这就是那本害得庄允城家破人亡的《明史辑略》。\n",
+		"picture" : "\n這張畫很一般，不知爲什麼掛在這兒。\n",
+		"book" : "\n這就是那本害得莊允城家破人亡的《明史輯略》。\n",
 	]));
 	set("exits", ([
 		"south" : __DIR__"aobai4",
@@ -47,13 +47,13 @@ int close_gate()
     if(objectp(room))
     {
         delete("exits/north");
-        message("vision","只听乒地一声，暗门自动关上了。\n",
+        message("vision","只聽乒地一聲，暗門自動關上了。\n",
             this_object());
-        message("vision","你脑海中闪过一个念头：哎哟！又进不去了！\n" ,
+        message("vision","你腦海中閃過一個念頭：哎喲！又進不去了！\n" ,
 			this_object());
         room->delete("exits/south");
-        message("vision","只听乒地一声，暗门自动关了起来。\n", room);
-        message("vision","你脑海中闪过一个念头：坏了！出不去了！\n" ,
+        message("vision","只聽乒地一聲，暗門自動關了起來。\n", room);
+        message("vision","你腦海中閃過一個念頭：壞了！出不去了！\n" ,
 			room );
      }
 }
@@ -63,13 +63,13 @@ int do_unlock(string arg)
 {
 	object ob,room;
 	if (query("exits/north"))
-		return notify_fail("暗门已经是打开的。\n");
+		return notify_fail("暗門已經是打開的。\n");
 	if (!arg || (arg != "door"))
-		return notify_fail("你要打开什么？\n");
+		return notify_fail("你要打開什麼？\n");
 	if (!(ob = present("anmenkey", this_player())))
-		return notify_fail("你不会撬锁。\n");
+		return notify_fail("你不會撬鎖。\n");
 	message_vision(
-	"$N用一把钥匙打开了秘门，可是钥匙却断了.\n", this_player());
+	"$N用一把鑰匙打開了祕門，可是鑰匙卻斷了.\n", this_player());
 	destruct(ob);
 	if (this_player()->query_temp("doorisok"))        
         {
@@ -79,9 +79,9 @@ int do_unlock(string arg)
 	if(objectp(room))
     	{
         set("exits/north", __DIR__"aobai9");
-        message_vision("$N轻轻地推门，只听吱地一声，门开了。\n",this_player());
+        message_vision("$N輕輕地推門，只聽吱地一聲，門開了。\n",this_player());
         room->set("exits/south", __FILE__);
-        message("vision","只听吱地一声，暗门从外面打开了。\n", room);
+        message("vision","只聽吱地一聲，暗門從外面打開了。\n", room);
 		remove_call_out("close_gate");
 		call_out("close_gate", 10);
     	}

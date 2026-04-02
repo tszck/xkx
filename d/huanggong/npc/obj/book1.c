@@ -10,15 +10,15 @@ void init()
 
 void create()
 {
-	set_name("帛书", ({"book"}));
+	set_name("帛書", ({"book"}));
 	set_weight(500);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "\n一封精装的<<论语>>\n");
+		set("long", "\n一封精裝的<<論語>>\n");
 		set("unit", "幅");
 		set("material", "paper");
-		set("no_get", "\n住手,你岂可在此胡闹!下去!\n");
+		set("no_get", "\n住手,你豈可在此胡鬧!下去!\n");
 	}
 	setup();
 }
@@ -35,12 +35,12 @@ int do_move(string arg)
 		{
 			me->set_temp("doorisok", 1);
 			message_vision(
-"\n$N试著移动画卷，发现它可以左右推动...\n", this_player());
+"\n$N試著移動畫卷，發現它可以左右推動...\n", this_player());
 		}
 		if(!objectp(present("door", environment(me))))
 		{
 			message_vision(
-"$N轻轻地挪动画页，突然一扇暗门出现在$N眼前。\n", this_player());
+"$N輕輕地挪動畫頁，突然一扇暗門出現在$N眼前。\n", this_player());
 			door = new("/d/beijing/obj/door");
 			door->move("/d/huanggong/shufang");
 		}
@@ -50,7 +50,7 @@ int do_move(string arg)
 		if( dir=="left" )
 		{
 			message_vision(
-"$N将画卷往左移，只听轧轧几声，画卷又移回原位。\n", this_player());
+"$N將畫卷往左移，只聽軋軋幾聲，畫卷又移回原位。\n", this_player());
 			if(!me->query_temp("pushdoor"))
 				me->set_temp("pushdoor", 1);
 			else
@@ -60,7 +60,7 @@ int do_move(string arg)
 		if( dir=="right" )
 		{
 			message_vision(
-"$N将画卷往右移，只听轧轧几声，画卷又移回原位。\n", this_player());
+"$N將畫卷往右移，只聽軋軋幾聲，畫卷又移回原位。\n", this_player());
 			if (me->query_temp("pushdoor") )
 			{
 				me->set_temp("doorisok", 1);
@@ -69,7 +69,7 @@ int do_move(string arg)
 		return 1;
 		}
 		else {
-			write("你要将画卷移向那个方向？\n");
+			write("你要將畫卷移向那個方向？\n");
 			return 1;
 		}
 	}

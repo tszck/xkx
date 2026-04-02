@@ -3,10 +3,10 @@
 
 inherit NPC;
 void create()
-{       set_name("懒虫", ({ "wrong"}));
+{       set_name("懶蟲", ({ "wrong"}));
 	set("gender", "女性");
 	set("class", "swordman");
-	set("title", GRN"状元"HIG"明教地字门教众"NOR"华山派第十三代弟子");	
+	set("title", GRN"狀元"HIG"明教地字門教衆"NOR"華山派第十三代弟子");	
 	set("age", 34);
 	set("attitude", "friendly");
 
@@ -17,7 +17,7 @@ void create()
 	set("con", 20);
 	set("str", 20);
 	set("weiwang", 80);
-	create_family("华山派" ,13, "弟子");	
+	create_family("華山派" ,13, "弟子");	
 	setup();
 	carry_object(CLOTH_DIR"female-cloth")->wear();
         carry_object(CLOTH_DIR"female-shoe")->wear();

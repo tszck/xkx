@@ -6,10 +6,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("蒋涛", ({ "jiang tao", "jiang"}));
+	set_name("蔣濤", ({ "jiang tao", "jiang"}));
 	set("long",
-		"他穿青色长袍，背上斜插长剑，二十八九岁年纪。\n"
-		"脸罩寒霜，一副要惹事生非的模样。\n");
+		"他穿青色長袍，背上斜插長劍，二十八九歲年紀。\n"
+		"臉罩寒霜，一副要惹事生非的模樣。\n");
 	set("gender", "男性");
 	set("age", 20);
 	set("class", "taoist");
@@ -44,7 +44,7 @@ void create()
 	map_skill("sword", "xunlei-sword");
 	map_skill("cuff", "zhentian-cuff");
 	prepare_skill("cuff", "zhentian-cuff");
-	create_family("昆仑派", 5, "弟子");
+	create_family("崑崙派", 5, "弟子");
 	set("env/wimpy", 60);
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();
@@ -57,13 +57,13 @@ void attempt_apprentice(object ob)
 	{
 		command("fear");
 		command("say "+RANK_D->query_respect(ob)+
-			"，师母不准我收女弟子，你去找我师姊去吧。");
+			"，師母不准我收女弟子，你去找我師姊去吧。");
 		return;
 	}
 
 	if(ob->query("appren_hezudao", 1) == 1)
 	{
-		command("say 师祖怎敢开如此玩笑，晚辈却是万万不敢的！");
+		command("say 師祖怎敢開如此玩笑，晚輩卻是萬萬不敢的！");
 		return;
 	}
 

@@ -7,7 +7,7 @@ void create()
         set_name("毒蛇", ({ "snake", "she" }) );
 	set("race", "爬蛇");
         set("age", 4);
-        set("long", "一只有着三角形脑袋的蛇，尾巴沙沙做响。\n");
+        set("long", "一隻有着三角形腦袋的蛇，尾巴沙沙做響。\n");
         set("attitude", "peaceful");
 
         set("str", 26);
@@ -33,7 +33,7 @@ void init()
 void die()
 {
         object ob;
-        message_vision("$N啪的一声断成两截！$N死了。\n", this_object());
+        message_vision("$N啪的一聲斷成兩截！$N死了。\n", this_object());
         ob = new(__DIR__"obj/shedan");
         ob->move(environment(this_object()));
         destruct(this_object());

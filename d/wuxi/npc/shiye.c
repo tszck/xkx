@@ -6,8 +6,8 @@ int ask_me();
 
 void create()
 {
-	set_name("老绍兴", ( { "lao saoxing", "lao" }) );
-	set("title", "知府师爷");
+	set_name("老紹興", ( { "lao saoxing", "lao" }) );
+	set("title", "知府師爺");
 	set("gender", "男性" );
 	set("age", 57);
 

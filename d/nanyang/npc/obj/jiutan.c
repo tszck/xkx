@@ -6,13 +6,13 @@ inherit ITEM;
 inherit F_LIQUID;
 void create()
 {
-	set_name(YEL "黄酒坛子" NOR, ({"jiu tanzi", "tanzi", "pot"}));
+	set_name(YEL "黃酒罈子" NOR, ({"jiu tanzi", "tanzi", "pot"}));
 	set_weight(8000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一个用来装黄酒的大泥坛子，封口上贴着红纸。\n");
-		set("unit", "个");
+		set("long", "一個用來裝黃酒的大泥罈子，封口上貼着紅紙。\n");
+		set("unit", "個");
 		set("value", 800);
 		set("max_liquid", 120);
 	}
@@ -20,7 +20,7 @@ void create()
 	// we set it to contain wine at the beginning
 	set("liquid", ([
 		"type": "alcohol",
-		"name": "黄酒",
+		"name": "黃酒",
 		"remaining": 30,
 		"drunk_apply": 10,
 	]));

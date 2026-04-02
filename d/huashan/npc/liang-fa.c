@@ -5,12 +5,12 @@ inherit NPC;
 
 void create()
 {
-        set_name("梁发", ({ "liang fa", "liang", "fa" }) );
-        set("nickname", "闭嘴佛");
+        set_name("梁發", ({ "liang fa", "liang", "fa" }) );
+        set("nickname", "閉嘴佛");
         set("gender", "男性");
         set("age", 30);
         set("long",
-                "梁发是岳不群的第三弟子。\n");
+                "梁發是嶽不羣的第三弟子。\n");
         set("attitude", "peaceful");
 
         set("str", 26);
@@ -50,7 +50,7 @@ void create()
         map_skill("unarmed", "huashan-ken");
         map_skill("dodge", "feiyan-huixiang");
 
-        create_family("华山派", 14, "弟子");
+        create_family("華山派", 14, "弟子");
         setup();
 
         carry_object("/clone/weapon/changjian")->wield();

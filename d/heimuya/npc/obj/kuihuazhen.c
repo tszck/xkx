@@ -6,11 +6,11 @@ inherit THROWING;
 
 void create()
 {
-        set_name("葵花针", ({ "kuihuazhen" }) );
+        set_name("葵花針", ({ "kuihuazhen" }) );
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long",     "葵花针是一种专门打制的暗器，外形极薄，杀伤力强.\n");
+                set("long",     "葵花針是一種專門打製的暗器，外形極薄，殺傷力強.\n");
                 set("unit", "把");
                 set("base_unit", "支");
                 set("base_weight", 1);

@@ -1,5 +1,5 @@
 // Last Modified by Sir on May. 22 2001
-//Room: zhaitang.c 斋堂
+//Room: zhaitang.c 齋堂
 
 inherit ROOM;
 string* names = ({
@@ -11,10 +11,10 @@ string* names = ({
 
 void create()
 {
-	set("short","斋堂");
+	set("short","齋堂");
 	set("long",@LONG
-这里便是恒山白云庵的斋堂。斋堂里摆满了长长的餐桌和长凳，几
-位小师太正来回忙碌着布置素斋。南边通向白云庵西廊。
+這裏便是恆山白雲庵的齋堂。齋堂裏擺滿了長長的餐桌和長凳，幾
+位小師太正來回忙碌着佈置素齋。南邊通向白雲庵西廊。
 LONG);
 	set("exits",([ /* sizeof() == 1 */
 		"south" : __DIR__"byawest",

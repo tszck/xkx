@@ -1,4 +1,4 @@
-// cimu.c  辟邪剑法「刺目」
+// cimu.c  辟邪劍法「刺目」
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -21,14 +21,14 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 		// 兵器空手均可
 		
@@ -42,21 +42,21 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(sskill, 1) < 80 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 
 	if ((int)me->query("max_neili") < 400)
-		return notify_fail(RED"你内力修为不足，无法运足内力。\n"NOR);
+		return notify_fail(RED"你內力修爲不足，無法運足內力。\n"NOR);
 
 	if ((int)me->query("neili") < 200)
-		return notify_fail("你现在内力不够，没能将"PNAME"使完！\n");
+		return notify_fail("你現在內力不夠，沒能將"PNAME"使完！\n");
 
 	if (target->query_temp("bixie/cimu"))
-		return notify_fail(HIR"对方已经身中"PNAME"了！\n"NOR);
+		return notify_fail(HIR"對方已經身中"PNAME"了！\n"NOR);
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		msg = HIC"$N"HIC"左手两指并拢，手臂暴长，迅捷异常分刺$n"HIC"双目，\n"NOR;
-	else msg = HIC"$N"HIC"手中长剑一振，剑尖一点暴长，分刺$n"HIC"左右双目，\n"NOR;
+		msg = HIC"$N"HIC"左手兩指併攏，手臂暴長，迅捷異常分刺$n"HIC"雙目，\n"NOR;
+	else msg = HIC"$N"HIC"手中長劍一振，劍尖一點暴長，分刺$n"HIC"左右雙目，\n"NOR;
 
 
 	if ((int)me->query("dex")>35 && 
@@ -70,7 +70,7 @@ int perform(object me, object target)
 		damage = damage*2 + random(damage);
 		target->receive_damage("qi", damage*2,me);
 		target->receive_wound("qi", damage,me);
-		msg += HIC "$n只看到寒尖一点，双目一阵剧痛，眼前一黑，顿时长声痛极而呼，再也看不到东西了！\n"NOR;
+		msg += HIC "$n只看到寒尖一點，雙目一陣劇痛，眼前一黑，頓時長聲痛極而呼，再也看不到東西了！\n"NOR;
 		message_combatd(msg, me, target);
 	  me->add("neili", -200);
 		target->set_temp("bixie/cimu", 1);
@@ -86,7 +86,7 @@ int perform(object me, object target)
 		damage = damage/2 + random(damage);
 		target->receive_damage("qi", damage,me);
 		target->receive_wound("qi", damage/2,me);
-		msg += HIC "$n只看到寒尖一点，双目一阵剧痛，眼前一黑，就什么也看不见了，顿时长声痛极而呼！\n"NOR;
+		msg += HIC "$n只看到寒尖一點，雙目一陣劇痛，眼前一黑，就什麼也看不見了，頓時長聲痛極而呼！\n"NOR;
 		message_combatd(msg, me, target);
 		me->add("neili", -200);
 		target->set_temp("bixie/cimu", 1);
@@ -97,7 +97,7 @@ int perform(object me, object target)
 	{
 		me->start_busy(2);
 		me->add("neili", -100);
-		msg += HIY"$p情急智生，抬手也$P右眼刺去，迫得$P回剑跃开。\n"NOR;
+		msg += HIY"$p情急智生，抬手也$P右眼刺去，迫得$P回劍躍開。\n"NOR;
 		message_combatd(msg, me, target);
 	}
 	
@@ -107,9 +107,9 @@ int perform(object me, object target)
 
 void cimu_end(object target)
 {
-	message_combatd(HIY"$N"HIY"抹了抹流着"HIR"鲜血"HIY"，终于能看见了。\n"NOR, target);
+	message_combatd(HIY"$N"HIY"抹了抹流着"HIR"鮮血"HIY"，終於能看見了。\n"NOR, target);
 	target->set_temp("block_msg/all", 0);
-	tell_object(target,HIR"你终于抹掉了眼前的鲜血，能看见了。\n"NOR);
+	tell_object(target,HIR"你終於抹掉了眼前的鮮血，能看見了。\n"NOR);
 	target->delete_temp("bixie/cimu");
 
 	return;
@@ -122,13 +122,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		施招刺对方的眼目，使对方受伤并暂时致盲
-		损伤对方气血
+		施招刺對方的眼目，使對方受傷並暫時致盲
+		損傷對方氣血
 
 	出手要求：
-		辟邪剑法80级
-		最大内力400
-		内力200
+		辟邪劍法80級
+		最大內力400
+		內力200
 HELP
 	);
 	return 1;

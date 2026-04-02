@@ -13,7 +13,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "尊");
-		set("long", "一尊面目慈祥的如来佛像。好象是用黄金铸就的。\n");
+		set("long", "一尊面目慈祥的如來佛像。好象是用黃金鑄就的。\n");
 		set("value", 1000);
 		set("material", "gold");
 		set("no_get",1);
@@ -36,7 +36,7 @@ void init()
 		ob->set_amount(10);
 		ob->move(this_object());
 		this_object()->add("amount", -10);
-		tell_object(me, "\n你忽然看到功德箱里有什麽东西在闪闪发光！\n\n");
+		tell_object(me, "\n你忽然看到功德箱裏有什麼東西在閃閃發光！\n\n");
 		me->add("combat_exp", 1);
 	}
 	add_action("do_put", "put");
@@ -50,19 +50,19 @@ int do_put(string arg)
 
 	me = this_player();
 
-	if(!arg) return notify_fail("你要将什么东西放进哪里？\n");
+	if(!arg) return notify_fail("你要將什麼東西放進哪裏？\n");
 
 	if( sscanf(arg, "%s in %s", item, target)!=2 
 	||  sscanf(item, "%d %s", amount, item)!=2
 	||  !objectp(obj = present(item, me)) )
 
-	return notify_fail("你要给谁什么东西？\n");
+	return notify_fail("你要給誰什麼東西？\n");
 
 	if( obj->query("money_id") == "silver" 
 	&&  obj->query_amount() >= 5 && amount >= 5 ) 
 	{
 		if( me->query("begger") > 0) {
-			message_vision( sprintf(HIY "$N将一%s%s放进%s。\n" NOR,
+			message_vision( sprintf(HIY "$N將一%s%s放進%s。\n" NOR,
 				obj->query("unit"), obj->name(), 
 				this_object()->name()),me );
 			obj->set_amount(obj->query_amount() - amount);;

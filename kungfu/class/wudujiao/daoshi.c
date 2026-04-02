@@ -7,12 +7,12 @@ int ask_me();
 
 void create()
 {
-	set_name("游方道人", ({ "dao ren", "dao", "daoren" }) );
+	set_name("遊方道人", ({ "dao ren", "dao", "daoren" }) );
 	set("gender", "男性" );
 	set("age", 34);
 	set("class", "taoist");
 	set("long",
-		"一个白净矮胖的道士，见谁都笑眯眯的，正悠闲的品着一杯香茶。\n");
+		"一個白淨矮胖的道士，見誰都笑眯眯的，正悠閒的品着一杯香茶。\n");
 	set("max_qi", 2000);
 	set("per", 18);
 	set("max_jing", 2000);
@@ -44,7 +44,7 @@ void create()
 	set("vendor_goods", ({
 	       "/d/wudujiao/npc/obj/jiedudan",
 	}));
-	create_family("五毒教", 13, "护法弟子");
+	create_family("五毒教", 13, "護法弟子");
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
 	add_money("silver",30);
@@ -68,29 +68,29 @@ void greeting(object ob)
 	if( !ob || environment(ob) != environment() ) return;
 	switch( random(3) ) {
 		case 0:
-			say( "游方道人嘿嘿一阵奸笑道：这位" + RANK_D->query_respect(ob) + "，也是来住店的吗？\n");
+			say( "遊方道人嘿嘿一陣奸笑道：這位" + RANK_D->query_respect(ob) + "，也是來住店的嗎？\n");
 			break;
 		case 1:
-			say( "游方道人点了点手道：这位" + RANK_D->query_respect(ob) + "请过这里坐，这是要去那啊？\n");
+			say( "遊方道人點了點手道：這位" + RANK_D->query_respect(ob) + "請過這裏坐，這是要去那啊？\n");
 			break;
 		case 2:
-			say( "游方道人面现惊讶之色道：这位" + RANK_D->query_respect(ob) + "眉现黑气，近日会有大难。\n贫道有一些随身丹丸可以卖给你，或许可救你一命。\n");
+			say( "遊方道人面現驚訝之色道：這位" + RANK_D->query_respect(ob) + "眉現黑氣，近日會有大難。\n貧道有一些隨身丹丸可以賣給你，或許可救你一命。\n");
 			break;
 	}
 }
 void attempt_apprentice(object ob)
 {
 
-	if ((string)ob->query("gender") == "无性") {
-		command("say 这位公公不要开玩笑了。");
-		command("say 这位" + RANK_D->query_respect(ob) +
-			"还是快去伺候皇上吧！");
+	if ((string)ob->query("gender") == "無性") {
+		command("say 這位公公不要開玩笑了。");
+		command("say 這位" + RANK_D->query_respect(ob) +
+			"還是快去伺候皇上吧！");
 		return;
 	}
 
 	if ((int)ob->query("shen") > 1000) {
-		command("say 做我五毒教弟子必须心狠手辣。");
-		command("say 我教弟子贵在随心所欲，不收伪君子");
+		command("say 做我五毒教弟子必須心狠手辣。");
+		command("say 我教弟子貴在隨心所欲，不收僞君子");
 		return;
 	}
 
@@ -102,14 +102,14 @@ int ask_me()
 	object ob,me;
 	me = this_player();
 	if ((string)me->query("family/family_name") != "五毒教")
-	      return notify_fail("对不起，无可奉告！\n");
-	command("say 这位"+ RANK_D->query_respect(me)
-	       + "来的正好，这里正有马车要回山办事，就让他们送你一程吧。\n");
-	 message_vision(HIC"游方道人一招手，一辆马车驶过来停在门前。\n$N急忙钻进车中，只听一阵清脆的鞭响，马车绝尘而去。\n\n"NOR,me);
+	      return notify_fail("對不起，無可奉告！\n");
+	command("say 這位"+ RANK_D->query_respect(me)
+	       + "來的正好，這裏正有馬車要回山辦事，就讓他們送你一程吧。\n");
+	 message_vision(HIC"遊方道人一招手，一輛馬車駛過來停在門前。\n$N急忙鑽進車中，只聽一陣清脆的鞭響，馬車絕塵而去。\n\n"NOR,me);
 	ob = load_object("/d/wudujiao/damen");
 	ob = find_object("/d/wudujiao/damen");
-	message("vision", "远处一辆马车急驶而来，车门一开"+me->query("name")+"从里面钻了出来。\n", ob);
-	 tell_object(me, "只听车把势说道：这位"+ RANK_D->query_respect(me) + "已经到了，请下车吧。\n"NOR );
+	message("vision", "遠處一輛馬車急駛而來，車門一開"+me->query("name")+"從裏面鑽了出來。\n", ob);
+	 tell_object(me, "只聽車把勢說道：這位"+ RANK_D->query_respect(me) + "已經到了，請下車吧。\n"NOR );
 	me->move("/d/wudujiao/damen");
 	return 1;
 }

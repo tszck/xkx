@@ -6,13 +6,13 @@ inherit ROOM;
 string look_gaoshi();
 void create()
 {
-	set("short", "梁溪门");
+	set("short", "梁溪門");
 	set("long", @LONG
-城门的来由是和门外的梁溪河有关，因此梁溪也常常成为无锡的别
-称，但老百姓还是习惯叫这西门。城墙上贴着几张通缉告示(gaoshi)。
-这里是无锡通向北方的必经之地，官兵们戒备森严，动不动就截住行人
-盘问。西边是跨越梁溪河跨溪桥，骑马的、坐轿的、走路的，行色匆匆。
-东边是热热闹闹的城里。
+城門的來由是和門外的梁溪河有關，因此梁溪也常常成爲無錫的別
+稱，但老百姓還是習慣叫這西門。城牆上貼着幾張通緝告示(gaoshi)。
+這裏是無錫通向北方的必經之地，官兵們戒備森嚴，動不動就截住行人
+盤問。西邊是跨越梁溪河跨溪橋，騎馬的、坐轎的、走路的，行色匆匆。
+東邊是熱熱鬧鬧的城裏。
 LONG );
 	set("outdoors", "wuxi");
 	set("no_clean_up", 0);
@@ -35,5 +35,5 @@ LONG );
 
 string look_gaoshi()
 {
-	return FINGER_D->get_killer() + "\n无锡知府\n晨宜\n";
+	return FINGER_D->get_killer() + "\n無錫知府\n晨宜\n";
 }

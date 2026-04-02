@@ -11,7 +11,7 @@ void create()
 	set("gender", "男性");
 	set("age", 54);
 	set("long",
-		"李可秀一身军功而成封疆大吏，一身武功自然不容轻视。\n");
+		"李可秀一身軍功而成封疆大吏，一身武功自然不容輕視。\n");
 	set("combat_exp", 150000);
         set("shen_type", -1);
 	set("attitude", "heroism");

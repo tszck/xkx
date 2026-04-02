@@ -8,9 +8,9 @@ inherit F_MASTER;
 void create()
 {
 	set_name("孟健雄", ({ "meng jianxiong", "meng","jianxiong" }));
-	set("nickname", HIC "神弹子" NOR);
+	set("nickname", HIC "神彈子" NOR);
 	set("long", 
-"他是铁胆周仲英的大弟子，对师父忠心耿耿。\n");
+"他是鐵膽周仲英的大弟子，對師父忠心耿耿。\n");
 	set("gender", "男性");
 	set("class", "fighter");
 	set("age", 31);

@@ -5,10 +5,10 @@ string ask_me();
 
 void create()
 {
-	set_name("厨娘", ({ "chu niang", "chu" }));
-	set("title", "知府衙门");
+	set_name("廚娘", ({ "chu niang", "chu" }));
+	set("title", "知府衙門");
 	set("long",
-		"知府衙门的厨娘，笑眯眯地看着你，看来很和善的样子。\n");
+		"知府衙門的廚娘，笑眯眯地看着你，看來很和善的樣子。\n");
 	set("gender", "女性");
 	set("age", 34);
 	set("attitude", "peaceful");
@@ -33,7 +33,7 @@ void create()
 	set_skill("parry", 10);
 
 	set("inquiry", ([
-		"吃饭" : (: ask_me :),
+		"喫飯" : (: ask_me :),
 	]));
 	setup();
 }
@@ -48,5 +48,5 @@ string ask_me()
 	object me=this_player();
 	me->set("food", (int)me->max_food_capacity());
 	me->set("water", (int)me->max_water_capacity());
-	return "慢慢吃！别噎住了。";
+	return "慢慢喫！別噎住了。";
 }

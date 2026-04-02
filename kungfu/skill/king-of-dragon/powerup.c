@@ -11,14 +11,14 @@ int exert(object me, object target)
 {
 	int skill;
 
-	if( target != me ) return notify_fail("你只能提升自己的战斗力。\n");
-	if( (int)me->query("neili")<100) return notify_fail("你的内力不够。\n");
+	if( target != me ) return notify_fail("你只能提升自己的戰鬥力。\n");
+	if( (int)me->query("neili")<100) return notify_fail("你的內力不夠。\n");
 	if((int)me->query_temp("powerup"))
-		return notify_fail("你已经在运功中了。\n");
+		return notify_fail("你已經在運功中了。\n");
 
 	skill = me->query_skill("force");
 
-	message_combatd(HIR"$N舌尖一咬，喷出一口鲜血，运起君临天下神功已将全身潜力尽数提起！\n" NOR, me);
+	message_combatd(HIR"$N舌尖一咬，噴出一口鮮血，運起君臨天下神功已將全身潛力盡數提起！\n" NOR, me);
 
 	me->add_temp("apply/attack", skill);
 //	me->add_temp("apply/dodge", skill);
@@ -36,6 +36,6 @@ void remove_effect(object me, int amount)
 		me->add_temp("apply/attack", - amount);
 //		me->add_temp("apply/dodge", - amount);
 		me->delete_temp("powerup");
-		tell_object(me, "你的君临天下神功运行完毕，将内力收回丹田。\n");
+		tell_object(me, "你的君臨天下神功運行完畢，將內力收回丹田。\n");
 	}
 }

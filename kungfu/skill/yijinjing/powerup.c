@@ -1,4 +1,4 @@
-// powerup.c 易筋经加力
+// powerup.c 易筋經加力
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -14,21 +14,21 @@ int exert(object me, object target)
   !me->query("perform/powerup") &&
   !me->query("can_perform/yijinjing/powerup") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("你所使用的内功中没有这种功能。");
+   return notify_fail("你所使用的內功中沒有這種功能。");
 	if( target != me )
-		return notify_fail("你只能提升自己的战斗力。\n");
+		return notify_fail("你只能提升自己的戰鬥力。\n");
 	if( (int)me->query("neili")<200)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if( (int)me->query_temp("powerup"))
-		return notify_fail("你已经在运功中了。\n");
+		return notify_fail("你已經在運功中了。\n");
 	if( (int)me->query_temp("jingang") ) 
-		return notify_fail(HIG"你的全部功力都运在大金刚拳上了。\n"NOR);
+		return notify_fail(HIG"你的全部功力都運在大金剛拳上了。\n"NOR);
 	if( (int)me->query_temp("zuida") ) 
-		return notify_fail(HIG "你内息翻滚在八仙醉打中，一时提不起易筋经神功。\n"NOR);
+		return notify_fail(HIG "你內息翻滾在八仙醉打中，一時提不起易筋經神功。\n"NOR);
 
 	skill = me->query_skill("force");
 
-	message_combatd(HIR"$N舌尖一咬，喷出一口鲜血，运起易筋经神功已将全身潜力尽数提起！\n"NOR, me);
+	message_combatd(HIR"$N舌尖一咬，噴出一口鮮血，運起易筋經神功已將全身潛力盡數提起！\n"NOR, me);
 
 	if (me->query("sex/number")) 
 		skill=0;
@@ -49,18 +49,18 @@ void remove_effect(object me, int amount)
 	me->add_temp("apply/attack", - amount);
 	me->add_temp("apply/dodge", - amount);
 	me->delete_temp("powerup");
-	tell_object(me, "你的易筋经神功运行完毕，将内力收回丹田。\n");
+	tell_object(me, "你的易筋經神功運行完畢，將內力收回丹田。\n");
 }
 int help(object me)
 {
-	write(WHT"\n易筋经神功之加力："NOR"\n");
+	write(WHT"\n易筋經神功之加力："NOR"\n");
 	write(@HELP
 
 	使用功效：
-		提升自己的攻击防御能力
+		提升自己的攻擊防禦能力
 
 	出手要求：
-	        内力200
+	        內力200
 HELP
 	);
 	return 1;

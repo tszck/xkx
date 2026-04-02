@@ -8,7 +8,7 @@ void create()
         set("age", 8);
         set("gender", "男性");
         set("long",
-"这是一个桃花岛试剑亭的侍童。\n");
+"這是一個桃花島試劍亭的侍童。\n");
         set("attitude", "peaceful");
         set("str", 24);
         set("dex", 16);

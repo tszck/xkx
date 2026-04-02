@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("段延庆", ({ "duan yanqing", "duan", "yanqing" }));
+	set_name("段延慶", ({ "duan yanqing", "duan", "yanqing" }));
 	set_weight(10000000);
-	set("nickname", "恶贯满盈");
+	set("nickname", "惡貫滿盈");
 	set("long", 
-"此人身形修长，其胸凸出，由如一鼓。长髯垂胸，根根漆黑。但是瘸了双腿，拄着根钢制拐杖。\n");
+"此人身形修長，其胸凸出，由如一鼓。長髯垂胸，根根漆黑。但是瘸了雙腿，拄着根鋼製柺杖。\n");
 	set("gender", "男性");
 	set("age", 55);
 	set("attitude", "aggressive");

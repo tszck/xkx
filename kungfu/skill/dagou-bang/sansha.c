@@ -1,8 +1,8 @@
-// sansha.c 三记杀招
+// sansha.c 三記殺招
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
-#define PNAME "「三记杀招」"
+#define PNAME "「三記殺招」"
 inherit F_SSERVER;
 int perform(object me, object target)
 {
@@ -20,18 +20,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "stick")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 		
 	fskill = "huntian-qigong";
 	bskill = "stick";
@@ -44,14 +44,14 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 200 )
-		return notify_fail("你的"+to_chinese(fskill)+"功力不足，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"功力不足，無法使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 200 )
-		return notify_fail("你的"+to_chinese(sskill)+"还不到家，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"還不到家，無法使用"+PNAME+"。\n");
 	if( (int)me->query("max_neili") < 800 )
-		return notify_fail("你的内力修为不够！\n");
+		return notify_fail("你的內力修爲不夠！\n");
 	if( (int)me->query("neili") < 600 )
-		return notify_fail("你的真气不够！\n");
-	msg = HIY "$N"HIY"一声低吼，连续使出打狗棒法「三记杀招」！\n" NOR;
+		return notify_fail("你的真氣不夠！\n");
+	msg = HIY "$N"HIY"一聲低吼，連續使出打狗棒法「三記殺招」！\n" NOR;
 	message_combatd(msg, me);
 
 	count = (int)(me->query_skill(bskill,1)/10);
@@ -82,13 +82,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		连续出手三招
+		連續出手三招
 
 	出手要求：
-		混天气功200级
-		打狗棒法200级
-		内力修为800
-		内力600
+		混天氣功200級
+		打狗棒法200級
+		內力修爲800
+		內力600
 HELP
 	);
 	return 1;

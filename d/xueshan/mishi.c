@@ -6,7 +6,7 @@ void create()
 {
         set("short","密室");
         set("long",@LONG
-这是一条小房间。什么东西都没有。
+這是一條小房間。什麼東西都沒有。
 LONG );
         set("exits",([
                 "south" : __DIR__"midao",

@@ -10,11 +10,11 @@ int ask_zhu();
 int ask_me();
 
 mixed names = ({
-({ "史青山", "林震南", "宋青书", "采花贼","独脚大盗","史松", }),
-({ "狮吼子","飞天子","黯然子","温南扬","侯通海","沙通天", }),
-({ "温方悟","温方施","史叔刚","武修文","钱青健","温方达","温方义","温方山","齐云敖","天狼子","包不同","风波恶","邓百川", }),
-({ "殷天正","韦一笑","杨逍","范遥","慕容复","黛绮丝","潇湘子","李莫愁", }),
-({ "张昭重","成昆","丁春秋","归辛树","归二娘","胡逸之","西华子", }),
+({ "史青山", "林震南", "宋青書", "採花賊","獨腳大盜","史松", }),
+({ "獅吼子","飛天子","黯然子","溫南揚","侯通海","沙通天", }),
+({ "溫方悟","溫方施","史叔剛","武修文","錢青健","溫方達","溫方義","溫方山","齊雲敖","天狼子","包不同","風波惡","鄧百川", }),
+({ "殷天正","韋一笑","楊逍","範遙","慕容復","黛綺絲","瀟湘子","李莫愁", }),
+({ "張昭重","成昆","丁春秋","歸辛樹","歸二孃","胡逸之","西華子", }),
 });
 
 void create()
@@ -24,9 +24,9 @@ void create()
 	set("age", 45);
 	set("str", 25);
 	set("dex", 20);
-	set("long", "这是一个高高瘦瘦的老者，满脸凄苦的神色，颔下一\n"
-		"把稀稀拉拉的胡子，饱经沧桑的样子。身上的\n"
-		"衣服又脏又破，脸上满是皱纹，看上去饱经风霜。\n");
+	set("long", "這是一個高高瘦瘦的老者，滿臉悽苦的神色，頷下一\n"
+		"把稀稀拉拉的鬍子，飽經滄桑的樣子。身上的\n"
+		"衣服又髒又破，臉上滿是皺紋，看上去飽經風霜。\n");
 	set("combat_exp", 35000);
 	set("score", 5000);
 	set("shen_type", 1);
@@ -62,29 +62,29 @@ void create()
 	set("jiali", 10);
 	set("chat_chance", 2);
 	set("chat_msg", ({
-		"李力世说：呆会儿我还得把猪送到宫里去。\n",
-		"李力世突然吆喝道: 花雕芙苓猪啊，只卖黄金一两，谁买谁买啊？\n",
-		"李力世突然吆喝道: 燕窝人参猪啊，只卖黄金一两，谁买谁买啊？\n",
-		"李力世搔了搔头，说道：这么好的猪肉怎么没人要啊。\n",
-		"李力世突然说：初进洪门结义兄，对天明誓表真心。\n",
+		"李力世說：呆會兒我還得把豬送到宮裏去。\n",
+		"李力世突然吆喝道: 花雕芙苓豬啊，只賣黃金一兩，誰買誰買啊？\n",
+		"李力世突然吆喝道: 燕窩人蔘豬啊，只賣黃金一兩，誰買誰買啊？\n",
+		"李力世搔了搔頭，說道：這麼好的豬肉怎麼沒人要啊。\n",
+		"李力世突然說：初進洪門結義兄，對天明誓表真心。\n",
 	}));
 	set("inquiry", ([
-		"陈近南" : "想见总舵主可不容易啊。\n",
-		"天地会" : "只要是英雄好汉，都可以入我天地会(join tiandihui)。\n",
-		"入会" : "只要入了我天地会，可以向会中各位好手学武艺。\n",
-		"反清复明" : "去棺材店和回春堂仔细瞧瞧吧！\n",
-		"暗号" : "敲三下！\n",
+		"陳近南" : "想見總舵主可不容易啊。\n",
+		"天地會" : "只要是英雄好漢，都可以入我天地會(join tiandihui)。\n",
+		"入會" : "只要入了我天地會，可以向會中各位好手學武藝。\n",
+		"反清復明" : "去棺材店和回春堂仔細瞧瞧吧！\n",
+		"暗號" : "敲三下！\n",
 		"切口" : "敲三下！\n",
-//		"反清复明" : (: ask_me :),
-		"进宫" : (: ask_zhu :),
-		"花雕芙苓猪" : (: ask_zhu :),
-		"燕窝人参猪" : (: ask_zhu :),
+//		"反清復明" : (: ask_me :),
+		"進宮" : (: ask_zhu :),
+		"花雕芙苓豬" : (: ask_zhu :),
+		"燕窩人蔘豬" : (: ask_zhu :),
 		"威望" : (: ask_weiwang :),
 		"江湖威望" : (: ask_weiwang :),
 	]) );
-	set("party/party_name", HIR"天地会"NOR);
-	set("party/rank", HIG"青木堂"NOR"会众");
-	create_family("云龙门", 2, "弟子");
+	set("party/party_name", HIR"天地會"NOR);
+	set("party/rank", HIG"青木堂"NOR"會衆");
+	create_family("雲龍門", 2, "弟子");
 	setup();
 	carry_object(CLOTH_DIR"male-cloth")->wear();
 	carry_object(CLOTH_DIR"male-shoe")->wear();
@@ -94,9 +94,9 @@ void create()
 
 int ask_weiwang()
 {
-	command("tell "+this_player()->query("id")+" 你现在的江湖威望是 " +(string)(this_player()->query("weiwang")));
-	say( "\n李力世说道：如果你威望值很高，有些人见了你不但不会杀你，还会教你武功，送你宝贝。\n而且你还可以加入帮会，率领会众去攻打目标，就连去钱庄取钱也会有利息 。。。。。\n");
-	say("李力世说：杀某些坏人或救某些好人可以提高江湖威望。\n");
+	command("tell "+this_player()->query("id")+" 你現在的江湖威望是 " +(string)(this_player()->query("weiwang")));
+	say( "\n李力世說道：如果你威望值很高，有些人見了你不但不會殺你，還會教你武功，送你寶貝。\n而且你還可以加入幫會，率領會衆去攻打目標，就連去錢莊取錢也會有利息 。。。。。\n");
+	say("李力世說：殺某些壞人或救某些好人可以提高江湖威望。\n");
 	return 1;
 }
 
@@ -106,10 +106,10 @@ int ask_zhu()
 	{
 		this_player()->delete_temp("money_paid");
 		this_player()->set("huanggong\\canenter",1);
-		say("李力世说：您老现在可以走啦！\n");
+		say("李力世說：您老現在可以走啦！\n");
 		return 1;
 	}
-	say("李力世说：干什么也得先交钱啊。\n");
+	say("李力世說：幹什麼也得先交錢啊。\n");
 	return 1;
 } 
 
@@ -123,8 +123,8 @@ int recognize_apprentice(object ob)
 {
 	if (ob->query("weiwang")<50)
 	{
-		message_vision("$N摇了摇头。\n",this_object());
-		command("tell "+ob->query("id")+" 不是天地会弟子我不教。\n"); 
+		message_vision("$N搖了搖頭。\n",this_object());
+		command("tell "+ob->query("id")+" 不是天地會弟子我不教。\n"); 
 		return 0;
 	}
 	return 1;
@@ -137,20 +137,20 @@ int do_skills(string arg)
 	if( !arg || arg!="li" )
 		return 0;
 	if(wizardp(ob)) return 0;
-	if (ob->query("party/party_name") != HIR "天地会" NOR )
+	if (ob->query("party/party_name") != HIR "天地會" NOR )
 	{
-		message_vision("$N摇了摇头。\n",this_object());
-		command("tell "+ob->query("id")+" 不是天地会弟子不能察看。\n"); 
+		message_vision("$N搖了搖頭。\n",this_object());
+		command("tell "+ob->query("id")+" 不是天地會弟子不能察看。\n"); 
 		return 1;
 	}
 	command("tell "+ob->query("id")+" 我所有的武功如下：\n"+
-"  基本刀法 (blade)			 - 一代宗师  90/    \n"+
-"  基本轻功 (dodge)			 - 神乎其技  60/    \n"+
-"  基本内功 (force)			 - 神乎其技  60/    \n"+
-"  基本招架 (parry)			 - 出类拔萃  50/    \n"+
-"  基本拳脚 (unarmed)		       - 出类拔萃  50/    \n"+
-"□云龙身法 (yunlong-shenfa)		- 神乎其技  60/    \n"+ 
-"□五虎断门刀 (wuhu-duanmendao)	     - 一代宗师  90/    \n");
+"  基本刀法 (blade)			 - 一代宗師  90/    \n"+
+"  基本輕功 (dodge)			 - 神乎其技  60/    \n"+
+"  基本內功 (force)			 - 神乎其技  60/    \n"+
+"  基本招架 (parry)			 - 出類拔萃  50/    \n"+
+"  基本拳腳 (unarmed)		       - 出類拔萃  50/    \n"+
+"□雲龍身法 (yunlong-shenfa)		- 神乎其技  60/    \n"+ 
+"□五虎斷門刀 (wuhu-duanmendao)	     - 一代宗師  90/    \n");
 	return 1;
 }
 */
@@ -169,23 +169,23 @@ int ask_me()
 		me->query_condition("xx_task2") ||
 		me->query_condition("dali_songxin"))
 	{
-		command("say 你现在和江湖其他帮会纠葛不清，我不能交给你任务。");
+		command("say 你現在和江湖其他幫會糾葛不清，我不能交給你任務。");
 		return 1;
 	}
 	if(me->query_condition("thd_task2") || me->query_condition("thd_task3"))
 	{
-		command("say 你正在执行天地会青木堂的任务！");
+		command("say 你正在執行天地會青木堂的任務！");
 		return 1;
 	}
 /*	if (!me->query_temp("tdh_li") &&
 		(me->query_condition("tdh_task_wait")<0))
 	{
-		command( "say 没有香主的命令，我不能交给你任务，天地会一向纪律严明。");
+		command( "say 沒有香主的命令，我不能交給你任務，天地會一向紀律嚴明。");
 		return 1;
 	}
 	if (!me->query_temp("tdh_li"))
 	{
-		command( "say 没有香主的命令，我不能交给你任务，天地会一向纪律严明。");
+		command( "say 沒有香主的命令，我不能交給你任務，天地會一向紀律嚴明。");
 		return 1;
 	}
 */
@@ -198,11 +198,11 @@ int ask_me()
 	me->set_temp("tdh_target", target);
 	me->apply_condition("tdh_task1",30); 
 	me->clear_condition("tdh_task_wait");
-	command( "say "+target+"最近投靠清廷，杀我会中兄弟，你去把此贼的人头提来，以祭亡灵！");
+	command( "say "+target+"最近投靠清廷，殺我會中兄弟，你去把此賊的人頭提來，以祭亡靈！");
 	if(!present("qingmu ling", me))
 	{
 		new(__DIR__"qml")->move(me);
-		message_vision("李力世把一枚青木令交给了$N。\n", me);
+		message_vision("李力世把一枚青木令交給了$N。\n", me);
 		return 1;
 	}
 	return 1;
@@ -216,19 +216,19 @@ int accept_object(object who, object ob,object me)
 */
 	if (ob->query("money_id") && ob->value() >= 10000) 
 	{
-		message_vision("\n李力世对$N一揖作礼，说道：这位客官，要什么尽管说。\n",this_player());
+		message_vision("\n李力世對$N一揖作禮，說道：這位客官，要什麼儘管說。\n",this_player());
 		who->set_temp("money_paid",1);
 		return 1;
 	}
 	if (who->query_temp("tdh_target") && 
 		(who->query_condition("tdh_task1")<0))
 	{
-		command("say 你来晚了，已经有人为会中兄弟报仇了。");
+		command("say 你來晚了，已經有人爲會中兄弟報仇了。");
 		return 0;
 	}
-	if ( ob->query("victim_name") != who->query_temp("tdh_target")+"的首级")
+	if ( ob->query("victim_name") != who->query_temp("tdh_target")+"的首級")
 	{
-		command( "say 天地会恩怨分明，怎能乱杀无辜呢？下次你要在违反会规我绝不客气！");
+		command( "say 天地會恩怨分明，怎能亂殺無辜呢？下次你要在違反會規我絕不客氣！");
 		return 0;
 	}
 	if ( ob->query("victim_user") )
@@ -238,10 +238,10 @@ int accept_object(object who, object ob,object me)
 	}
 	if ( ob->query("kill_by") != who)
 	{
-		command( "say 天地会全是顶天立地的豪杰，你怎麽冒领其他人的功劳呢？");
+		command( "say 天地會全是頂天立地的豪傑，你怎麼冒領其他人的功勞呢？");
 		return 0;
 	}
-	command("say 你能手刃恶贼，使会中兄弟大仇得报，好样的！");
+	command("say 你能手刃惡賊，使會中兄弟大仇得報，好樣的！");
 	who->add("tdh_job",2);
 	who->clear_condition("tdh_task1");
 	who->delete_temp("tdh_target");

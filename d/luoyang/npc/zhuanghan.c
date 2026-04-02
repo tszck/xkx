@@ -4,9 +4,9 @@ inherit NPC;
 
 void create()
 {
-        set_name("壮汉", ({ "zhuang han", "han" }));
+        set_name("壯漢", ({ "zhuang han", "han" }));
         set("long",
-                "他是一个守门壮汉。\n");
+                "他是一個守門壯漢。\n");
         set("gender", "男性");
         set("age", 30);
         set("attitude", "friendly");

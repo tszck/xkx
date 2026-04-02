@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name( "岳家枪法", ({ "paper" , "shu", "book" }));
+	set_name( "岳家槍法", ({ "paper" , "shu", "book" }));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long","这是一本岳家枪法残本，是岳武穆送给上官帮主的。可惜年深月久，书以有些残破了。\n");
+		set("long","這是一本岳家槍法殘本，是嶽武穆送給上官幫主的。可惜年深月久，書以有些殘破了。\n");
 		set("value", 100);
 		set("material", "paper");
 		set("skill", ([

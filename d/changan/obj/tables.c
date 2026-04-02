@@ -11,7 +11,7 @@ string  *prefixs  =  ({
     "小",
     "黑",
     "方",
-    "圆",
+    "圓",
     "白漆",
     "青漆",
     "紫漆",
@@ -20,8 +20,8 @@ string  *prefixs  =  ({
 string  *names  =  ({
     "木",
     "仙",
-    "镶玉",
-    "兽脚",
+    "鑲玉",
+    "獸腳",
 });
 
 string  *suffixs  =  ({
@@ -34,11 +34,11 @@ void  create()
     set_name(prefixs[random(sizeof(prefixs))]+names[random(sizeof(names))]+
                       suffixs[random(sizeof(suffixs))],  ({  "table"  }));
     set_weight(30000);
-    set("long",  "这是一张桌子。\n"  );
+    set("long",  "這是一張桌子。\n"  );
     if(  clonep()  )
         set_default_object(__FILE__);
     else  {
-        set("unit",  "张");
+        set("unit",  "張");
         set("material",  "stone");
         set("value",  2000);
         set("no_sell",  1);

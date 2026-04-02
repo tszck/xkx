@@ -5,13 +5,13 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("冯锡范", ({ "feng xifan", "feng" }) );
-        set("nickname", HIR"一剑无血"NOR);
+        set_name("馮錫範", ({ "feng xifan", "feng" }) );
+        set("nickname", HIR"一劍無血"NOR);
         set("gender", "男性");
         set("class", "swordsman");
         set("age", 45);
         set("long",
-                "冯锡范是延平王府卫队长，武夷派第一高手，一张白湛湛的面皮。\n");
+                "馮錫範是延平王府衛隊長，武夷派第一高手，一張白湛湛的麪皮。\n");
         set("attitude", "peaceful");
         set("str", 26);
         set("con", 30);

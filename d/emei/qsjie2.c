@@ -1,14 +1,14 @@
-//Room: qsjie2.c 青石阶
+//Room: qsjie2.c 青石階
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 
 void create()
 {
-      set("short","青石阶");
+      set("short","青石階");
       set("long",@LONG
-已经是峨嵋山脚下了。南面一条通往峨嵋的青石阶，两旁绿树荫蔽，空气
-十分清新。西南方通向南诏的大理国。西边好象有人搭了个小草棚。
+已經是峨嵋山腳下了。南面一條通往峨嵋的青石階，兩旁綠樹廕庇，空氣
+十分清新。西南方通向南詔的大理國。西邊好象有人搭了個小草棚。
 LONG);
       set("outdoors", "emei");
       set("exits",([ /* sizeof() == 1 */

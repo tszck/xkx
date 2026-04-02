@@ -4,7 +4,7 @@ inherit NPC;
 void create()
 {
 	set_name("老秀才", ({ "lao xiucai", "lao" }));
-	set("long", "一个穷困潦倒的落第秀才，在这里开堂授课为生。\n");
+	set("long", "一個窮困潦倒的落第秀才，在這裏開堂授課爲生。\n");
 	set("gender", "男性");
 	set("age", 65);
 
@@ -38,7 +38,7 @@ int accept_object(object who, object ob)
 	if (!(int)who->query_temp("mark/朱"))
 		who->set_temp("mark/朱", 0);
 	if (ob->query("money_id") && ob->value() >= 5000) {
-		message_vision("老秀才同意指点$N一些问题。\n", who);
+		message_vision("老秀才同意指點$N一些問題。\n", who);
 		who->add_temp("mark/朱", ob->value() / 250);
 		return 1;
 	}

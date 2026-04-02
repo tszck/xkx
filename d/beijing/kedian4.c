@@ -4,7 +4,7 @@ void create()
 {
 	set("short", "西客房");
 	set("long", @LONG
-这里是西客房，一个掌柜和两个伙计躲在角落里瑟瑟发抖。
+這裏是西客房，一個掌櫃和兩個夥計躲在角落裏瑟瑟發抖。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"kedian2",

@@ -21,18 +21,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "blade")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	fskill = "honghua-shengong";
 	bskill = "blade";
@@ -46,16 +46,16 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够娴熟，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠嫺熟，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query("max_neili") < 800 )
-		return notify_fail("你的内力修为不够，不能使用绝招。\n");
+		return notify_fail("你的內力修爲不夠，不能使用絕招。\n");
 
 	if( (int)me->query("neili") < 500 )
-		return notify_fail("你的内力不够，不能使用绝招。\n");
+		return notify_fail("你的內力不夠，不能使用絕招。\n");
 
 	if(pointerp(obs=me->query_team()) )
 	{
@@ -90,12 +90,12 @@ int perform(object me, object target)
 		if(obs[0]==me) you=obs[1]; else you=obs[0];
 		if(!userp(target))
 		if (!target->accept_hit(me) || !target->accept_hit(you))
-			return notify_fail("本门任务怎可假别人之手完成。\n");
+			return notify_fail("本門任務怎可假別人之手完成。\n");
 		skl_you=(int)you->query_skill("sword");
 		extra_you=(int)you->query_temp("apply/damage")+(int)you->query_str()*(int)you->query_str();
 
-		msg = HIR"$N暴喝一声，"HIG"“小苑莺歌歇”"HIR"－－手中"+weapon->name()+HIR"圈转，啸音反强，刀光啸音浑然一体，滚向$n！\n"NOR;
-		msg +=HIY"“长门蝶舞多”"HIR"－－"+you->name()+HIR"手中"+ob->name()+HIR"化做流云，飘向$n！\n"NOR;
+		msg = HIR"$N暴喝一聲，"HIG"“小苑鶯歌歇”"HIR"－－手中"+weapon->name()+HIR"圈轉，嘯音反強，刀光嘯音渾然一體，滾向$n！\n"NOR;
+		msg +=HIY"“長門蝶舞多”"HIR"－－"+you->name()+HIR"手中"+ob->name()+HIR"化做流雲，飄向$n！\n"NOR;
 		message_combatd(msg, me, target);
 		me->add_temp("apply/attack",(skl_you+skl_me)/5);
 		me->add_temp("apply/damage",(extra_you+extra_me));
@@ -103,8 +103,8 @@ int perform(object me, object target)
 		you->add_temp("apply/damage",(extra_you+extra_me));
 		COMBAT_D->do_attack(me,target, me->query_temp("weapon"), TYPE_REGULAR,msg);
 
-		msg = HIY"“眼看春又去”"HIR"－－$N纤腰摆动，手中"+weapon->name()+HIR"似流水般袭向$n！\n"NOR,
-		msg +=HIG"“翠辇不曾过”"HIR"－－"+you->name()+HIR"手中"+ob->name()+HIR"似重逾千斤，磕向$n！\n"NOR,
+		msg = HIY"“眼看春又去”"HIR"－－$N纖腰擺動，手中"+weapon->name()+HIR"似流水般襲向$n！\n"NOR,
+		msg +=HIG"“翠輦不曾過”"HIR"－－"+you->name()+HIR"手中"+ob->name()+HIR"似重逾千斤，磕向$n！\n"NOR,
 		message_combatd(msg, me, target);
 		COMBAT_D->do_attack(you,target, you->query_temp("weapon"), TYPE_REGULAR,msg);
 		you->add_temp("apply/attack",-(skl_you+skl_me)/5);
@@ -116,7 +116,7 @@ int perform(object me, object target)
                 me->add("neili",-400);
                 you->add("neili",-400);
 	}
-	else return notify_fail("你想使落花秋歌，可是没人很好配合，没使出来。\n");
+	else return notify_fail("你想使落花秋歌，可是沒人很好配合，沒使出來。\n");
 	return 1;
 }
 int help(object me)
@@ -125,19 +125,19 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		大增己方攻击力和防御力，共同出手两招
+		大增己方攻擊力和防禦力，共同出手兩招
 
 	出手要求：
-		红花神功100级
-		秋歌七刀100级
-		内力修为800
-		内力500
-		必须有伙伴组队配合
-	伙伴要求：
-		红花神功100级
-		落花十三剑100级
-		内力修为800
-		内力500
+		紅花神功100級
+		秋歌七刀100級
+		內力修爲800
+		內力500
+		必須有夥伴組隊配合
+	夥伴要求：
+		紅花神功100級
+		落花十三劍100級
+		內力修爲800
+		內力500
 HELP
 	);
 	return 1;

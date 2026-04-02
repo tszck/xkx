@@ -7,18 +7,18 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("玄悲大师", ({
+	set_name("玄悲大師", ({
 		"xuanbei dashi",
 		"xuanbei",
 		"dashi",
 	}));
 	set("long",
-		"他是一位白须白眉的老僧，身穿一袭银丝棕黄袈裟。他身材甚高，\n"
-		"但骨瘦如柴，顶门高耸，双目湛然有神。\n"
+		"他是一位白鬚白眉的老僧，身穿一襲銀絲棕黃袈裟。他身材甚高，\n"
+		"但骨瘦如柴，頂門高聳，雙目湛然有神。\n"
 	);
 
 
-	set("nickname", "达摩院主持");
+	set("nickname", "達摩院主持");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -91,30 +91,30 @@ void attempt_apprentice(object ob)
 
 	if (!(ob_fam = ob->query("family")) || ob_fam["family_name"] != "少林派")
 	{
-		command("say " + RANK_D->query_respect(ob) + "与本派素无来往，不知此话从何谈起？");
+		command("say " + RANK_D->query_respect(ob) + "與本派素無來往，不知此話從何談起？");
 		return;
 	}
 
 	if ( (string)ob->query("class")!="bonze" && ob_fam["family_name"] == "少林派")
 	{
-		command("say " + RANK_D->query_respect(ob) + "是俗家弟子，不能在寺内学艺。");
+		command("say " + RANK_D->query_respect(ob) + "是俗家弟子，不能在寺內學藝。");
 		return;
 	}
 
 	if ( ob_fam["generation"] <= my_fam["generation"] )
 	{
-		command("say " + RANK_D->query_respect(ob) + "，贫僧哪里敢当 !");
+		command("say " + RANK_D->query_respect(ob) + "，貧僧哪裏敢當 !");
 		return;
 	}
 
 	if ( ob_fam["generation"] == (my_fam["generation"] + 1) && name[0..0] == "澄")
 	{
-		command("say " + ob_fam["master_name"] + "的徒弟怎麽跑到我这儿来了，哈哈哈 !");
+		command("say " + ob_fam["master_name"] + "的徒弟怎麼跑到我這兒來了，哈哈哈 !");
 		command("recruit " + ob->query("id"));
 	}
 	else
 	{
-		command("say " + RANK_D->query_respect(ob) + "，你辈份不合，不能越级拜师。");
+		command("say " + RANK_D->query_respect(ob) + "，你輩份不合，不能越級拜師。");
 		return;
 	}
 

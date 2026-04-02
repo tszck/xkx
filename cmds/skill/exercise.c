@@ -18,36 +18,36 @@ int main(object me, string arg)
 	where = environment(me);
 	
 	if (where->query("pigging"))
-		return notify_fail("你还是专心拱猪吧！\n");
+		return notify_fail("你還是專心拱豬吧！\n");
 		
 	if (where->is_chat_room() && where->query("no_fight"))
-	  return notify_fail("这里禁止打坐。\n");
+	  return notify_fail("這裏禁止打坐。\n");
 
 	if (me->is_busy() || me->query_temp("pending/exercising"))
-		return notify_fail("你现在正忙着呢。\n");
+		return notify_fail("你現在正忙着呢。\n");
 
 	if( me->is_fighting() )
-		return notify_fail("战斗中不能练内功，会走火入魔。\n");
+		return notify_fail("戰鬥中不能練內功，會走火入魔。\n");
 
 	if( !stringp(me->query_skill_mapped("force")) )
-		return notify_fail("你必须先用 enable 选择你要用的内功心法。\n");
+		return notify_fail("你必須先用 enable 選擇你要用的內功心法。\n");
 
 	if( !arg || !sscanf(arg, "%d", exercise_cost))
-		return notify_fail("你要花多少气练功？\n");
+		return notify_fail("你要花多少氣練功？\n");
 	if (exercise_cost < 10)
-		return notify_fail("你的内功还没有达到那个境界！\n");
+		return notify_fail("你的內功還沒有達到那個境界！\n");
 
 	if( (int)me->query("qi") < exercise_cost )
-		return notify_fail("你现在的气太少了，无法产生内息运行全身经脉。\n");
+		return notify_fail("你現在的氣太少了，無法產生內息運行全身經脈。\n");
 
 	if( (int)me->query("jing") * 100 / (int)me->query("max_jing") < 70 )
-		return notify_fail("你现在精不够，无法控制内息的流动！\n");
+		return notify_fail("你現在精不夠，無法控制內息的流動！\n");
 
-	write("你坐下来运气用功，一股内息开始在体内流动。\n");
+	write("你坐下來運氣用功，一股內息開始在體內流動。\n");
 
 	me->set_temp("pending/exercise", 1);
 	me->set_temp("exercise_cost", exercise_cost);
-	message_vision("$N盘膝坐下，开始修炼内力。\n", me);
+	message_vision("$N盤膝坐下，開始修煉內力。\n", me);
 	me->start_busy((: exercising :), (:halt_exercise:));
 
 	return 1;
@@ -65,7 +65,7 @@ int exercising(object me)
 		return 0;
 	me->add("neili", neili_gain);
 	me->set_temp("exercise_cost", exercise_cost -= neili_gain);
-// 灵鹫玄冰室
+// 靈鷲玄冰室
 	if(where->query("xuanbing"))
 		me->add("qi", (int)neili_gain/3);
 // 太玄功
@@ -75,7 +75,7 @@ int exercising(object me)
 		if(taixuan > 10)
 			me->add("qi", (int)neili_gain * taixuan / 400);
 	}
-// 神照经
+// 神照經
 	if ((int)me->query_skill("shenzhao-jing",1))
 	{
 		taixuan = (int)me->query_skill("shenzhao-jing",1);
@@ -90,12 +90,12 @@ int exercising(object me)
 		return 1;
 
 	me->set_temp("pending/exercise", 0);
-	message_vision("$N运功完毕，深深吸了口气，站了起来。\n", me);
+	message_vision("$N運功完畢，深深吸了口氣，站了起來。\n", me);
 	if ((int)me->query("neili") < (int)me->query("max_neili") * 2)
 		return 0;
 	else {
 		if ((int)me->query("max_neili") > (int)me->query_skill("force") * 10) {
-			write("你的内力修为似乎已经达到了瓶颈。\n");
+			write("你的內力修爲似乎已經達到了瓶頸。\n");
 			me->set("neili", (int)me->query("max_neili"));
 			return 0;
 		}
@@ -103,7 +103,7 @@ int exercising(object me)
 			if (max_neili_gain>2) max_neili_gain=2;
 			me->add("max_neili", 1+max_neili_gain);
 			me->set("neili", (int)me->query("max_neili"));
-			write("你的内力增加了！！\n");
+			write("你的內力增加了！！\n");
 			return 0;
 		}
 	}
@@ -120,11 +120,11 @@ int halt_exercise(object me)
 int help(object me)
 {
         write(@HELP
-指令格式 : exercise | dazuo <耗费「气」的量>
+指令格式 : exercise | dazuo <耗費「氣」的量>
 
-    运气练功，控制体内的气在各经脉间流动，藉以训练人体肌肉骨
-骼的耐力、爆发力，并且用内力的形式将能量储备下来。
-    耗费气的量必须不小于１０。
+    運氣練功，控制體內的氣在各經脈間流動，藉以訓練人體肌肉骨
+骼的耐力、爆發力，並且用內力的形式將能量儲備下來。
+    耗費氣的量必須不小於１０。
 
 HELP
         );

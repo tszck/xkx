@@ -5,8 +5,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("红花会弟子", ({ "di zi", "dizi" }));
-	set("long", "一名普普通通的红花会弟子\n他好像二十岁了！\n");
+	set_name("紅花會弟子", ({ "di zi", "dizi" }));
+	set("long", "一名普普通通的紅花會弟子\n他好像二十歲了！\n");
 	set("gender", "男性");
 	set("age", 20);
 	set("attitude", "peaceful");
@@ -26,7 +26,7 @@ void create()
 	set_skill("parry",50);
 	set_skill("sword",50);
 
-	create_family("红花会",3, "弟子");
+	create_family("紅花會",3, "弟子");
 
 	setup();
 	carry_object(CLOTH_DIR"cloth")->wear();

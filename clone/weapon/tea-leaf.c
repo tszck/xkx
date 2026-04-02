@@ -6,11 +6,11 @@ inherit THROWING;
  
 void create()
 {
-        set_name("茶叶", ({ "tea_leaf", "tea" }) );
+        set_name("茶葉", ({ "tea_leaf", "tea" }) );
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "才采的新茶，发出一股淡淡的香气。\n");
+                set("long", "才採的新茶，發出一股淡淡的香氣。\n");
                 set("unit", "把");
                 set("value", 0);
                 set("base_unit", "片");

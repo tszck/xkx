@@ -1,4 +1,4 @@
-// fanliangyi-dao.c 反两仪刀法
+// fanliangyi-dao.c 反兩儀刀法
 // Last Modified by sega on Mar. 10 2000
 
 #include <ansi.h>
@@ -11,29 +11,29 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N手中$w斜指，一招"HIY"「混沌一破」"NOR"，反身一顿，一刀向$n的$l撩去",
+([	"action" : "$N手中$w斜指，一招"HIY"「混沌一破」"NOR"，反身一頓，一刀向$n的$l撩去",
 	"lvl"    : 0,
 	"skill_name" : "混沌一破",
 ]),
-([	"action" : "$N一招"HIC"「太乙生萌」"NOR"，左右腿虚点，$w一提一收，平刃挥向$n的颈部",
+([	"action" : "$N一招"HIC"「太乙生萌」"NOR"，左右腿虛點，$w一提一收，平刃揮向$n的頸部",
 	"lvl"    : 20,
 	"skill_name" : "太乙生萌",
 ]),
-([	"action" : "$N展身虚步，提腰跃落，一招"BLU"「两仪合德」"NOR"，刀锋化作两股斩向$n",
+([	"action" : "$N展身虛步，提腰躍落，一招"BLU"「兩儀合德」"NOR"，刀鋒化作兩股斬向$n",
 	"lvl"    : 40,
-	"skill_name" : "两仪合德",
+	"skill_name" : "兩儀合德",
 ]),
-([	"action" : "$N一招"HIW"「日月晦明」"NOR"，$w大开大阖，自上而下划出一个大弧，笔直劈向$n",
+([	"action" : "$N一招"HIW"「日月晦明」"NOR"，$w大開大闔，自上而下劃出一個大弧，筆直劈向$n",
 	"lvl"    : 60,
 	"skill_name" : "日月晦明",
 ]),
-([	"action" : "$N手中$w一沉，一招"HIR"「无色无相」"NOR"，双手持刃拦腰反切，砍向$n的胸口",
+([	"action" : "$N手中$w一沉，一招"HIR"「無色無相」"NOR"，雙手持刃攔腰反切，砍向$n的胸口",
 	"lvl"    : 80,
-	"skill_name" : "无色无相",
+	"skill_name" : "無色無相",
 ]),
-([	"action" : "$N挥舞$w，使出一招"HIB"「万劫不复」"NOR"，上劈下撩，左挡右开，齐齐罩向$n",
+([	"action" : "$N揮舞$w，使出一招"HIB"「萬劫不復」"NOR"，上劈下撩，左擋右開，齊齊罩向$n",
 	"lvl"    : 100,
-	"skill_name" : "万劫不复",
+	"skill_name" : "萬劫不復",
 ])
 });
 
@@ -42,9 +42,9 @@ int valid_enable(string usage) { return usage == "blade" || usage == "parry"; }
 int valid_learn(object me)
 {
 	if ((int)me->query("max_neili") < 300)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if ((int)me->query_skill("zixia-shengong", 1) < 50)
-		return notify_fail("你的「紫霞神功」火候太浅。\n");
+		return notify_fail("你的「紫霞神功」火候太淺。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -52,12 +52,12 @@ int practice_skill(object me)
 	object weapon;
 
 	if( !me->query_skill("zixia-shengong",1))
-		return notify_fail("练「反两仪刀法」必须要以「紫霞神功」为基础。\n");
+		return notify_fail("練「反兩儀刀法」必須要以「紫霞神功」爲基礎。\n");
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "blade")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if ((int)me->query("qi") < 50)
-		return notify_fail("你的体力不够练「反两仪刀法」。\n");
+		return notify_fail("你的體力不夠練「反兩儀刀法」。\n");
 	me->receive_damage("qi", 25);
 	return 1;
 }
@@ -85,17 +85,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : "割伤",
+		"damage_type" : "割傷",
 	]);
 }
 int learn_bonus() { return 20; }
@@ -116,7 +116,7 @@ int form_array(object leader)
 
 	member = leader->query_team();
 	if( sizeof(member) != 2 )
-		return notify_fail("反两仪刀共需两人，少一个多一个都不行。\n");
+		return notify_fail("反兩儀刀共需兩人，少一個多一個都不行。\n");
 
 	j=sizeof (member);
 	for (i=0;i<j;i++)
@@ -125,40 +125,40 @@ int form_array(object leader)
 		if (!ob || !living(ob) || ob->query_temp("noliving") ||
 			!ob->is_character())
 		{
-			return notify_fail("你想和谁同使反两仪刀？\n");
+			return notify_fail("你想和誰同使反兩儀刀？\n");
 		}
 		if (ob->query_temp("array/name"))
 		{
-			return notify_fail("已经组成刀阵了。\n");
+			return notify_fail("已經組成刀陣了。\n");
 		}
 		if (environment(leader)!=environment(ob))
 		{
-			return notify_fail("人数不够两人。\n");
+			return notify_fail("人數不夠兩人。\n");
 		}
 		if (!ob->query_skill("fanliangyi-dao",1))
 		{
-			return notify_fail(ob->name()+"还不会反两仪刀法。\n");
+			return notify_fail(ob->name()+"還不會反兩儀刀法。\n");
 		}
 		if (ob->is_ghost())
 		{
-			return notify_fail("只有阳间的人才能组刀阵。\n");
+			return notify_fail("只有陽間的人才能組刀陣。\n");
 		}
 
 		if( (int)ob->query("max_neili") < 50 )
-			return notify_fail(ob->query("name")+"的内力不够。\n");
+			return notify_fail(ob->query("name")+"的內力不夠。\n");
 
 		if( (string)ob->query_skill_mapped("force")!= "zixia-shengong")
-			return notify_fail(ob->query("name")+"没有使用华山派内功。\n");
+			return notify_fail(ob->query("name")+"沒有使用華山派內功。\n");
 
 		if( !(weapon = ob->query_temp("weapon"))
 			|| (string)weapon->query("skill_type") != "blade" )
-			return notify_fail(ob->query("name")+"必须拿把刀做武器。\n");
+			return notify_fail(ob->query("name")+"必須拿把刀做武器。\n");
 
 		if( (int)ob->query_skill("fanliangyi-dao",1)<30)
-			return notify_fail(ob->query("name")+"的反两仪刀法还不够熟练。\n");
+			return notify_fail(ob->query("name")+"的反兩儀刀法還不夠熟練。\n");
 
 		if( (string)ob->query_skill_mapped("blade")!="fanliangyi-dao")
-			return notify_fail(ob->query("name")+"必须使用反两仪刀法。\n");
+			return notify_fail(ob->query("name")+"必須使用反兩儀刀法。\n");
 
 	}
 
@@ -200,7 +200,7 @@ int form_array(object leader)
 		ob->add_temp("apply/damage",n);
 		ob->add_temp("apply/armor", n);
 	}
-	message_combatd(HIG"$N率领$N站定两仪方位，顿时两人之间显得浑然天成、毫无破绽。\n" NOR, leader);
+	message_combatd(HIG"$N率領$N站定兩儀方位，頓時兩人之間顯得渾然天成、毫無破綻。\n" NOR, leader);
 	return 1;
 }
 int dismiss_array(object person)
@@ -219,7 +219,7 @@ int dismiss_array(object person)
 		ob->add_temp("apply/damage",-n);
 		ob->add_temp("apply/defense",-n);
 		ob->add_temp("apply/armor", -n);
-		tell_object(ob,"刀阵解散了\n");
+		tell_object(ob,"刀陣解散了\n");
 	}
 }
 
@@ -243,23 +243,23 @@ int effective_level() { return 10;}
 */
 int help(object me)
 {
-	write(HIC"\n反两仪刀法："NOR"\n");
+	write(HIC"\n反兩儀刀法："NOR"\n");
 	write(@HELP
 
-    反两仪刀法是华山派功夫，两仪化四象，四象化八卦，正变八
-八六十四招，奇变八八六十四招，正奇相合，六十四再以六十四倍
-之，共有四千零九十六种变化。天下武功变化之繁，可说无出其右
-了。招数虽多，终究不脱于太极化为阴阳两仪的道理。阳分太阳、
-少阴，阴分少阳、太阴，是为四象。太阳为乾兑，少阴为离震，少
-阳为巽坎，太阴为艮坤。乾南、坤北、离东、坎西、震东北、兑东
-南、巽西南、艮西北。自震至乾为顺，自巽至坤为逆。天地定位，
-山泽通气，雷风相薄，水火不相射，八卦相错。数往者顺，知来者
-逆。正两仪剑法，是自震位至乾位的顺；华山派反两仪刀法，则是
+    反兩儀刀法是華山派功夫，兩儀化四象，四象化八卦，正變八
+八六十四招，奇變八八六十四招，正奇相合，六十四再以六十四倍
+之，共有四千零九十六種變化。天下武功變化之繁，可說無出其右
+了。招數雖多，終究不脫於太極化爲陰陽兩儀的道理。陽分太陽、
+少陰，陰分少陽、太陰，是爲四象。太陽爲乾兌，少陰爲離震，少
+陽爲巽坎，太陰爲艮坤。乾南、坤北、離東、坎西、震東北、兌東
+南、巽西南、艮西北。自震至乾爲順，自巽至坤爲逆。天地定位，
+山澤通氣，雷風相薄，水火不相射，八卦相錯。數往者順，知來者
+逆。正兩儀劍法，是自震位至乾位的順；華山派反兩儀刀法，則是
 自巽位至坤位的逆。
 
-	学习要求：
-		紫霞神功50级
-		内力300
+	學習要求：
+		紫霞神功50級
+		內力300
 HELP
 	);
 	return 1;

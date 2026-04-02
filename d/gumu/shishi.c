@@ -7,15 +7,15 @@ void create()
 {
 	set("short", "石室");
 	set("long", @LONG
-这是一间石室，室中点著灯火。石室奇小，两人站著，转身就很不
-容易，室顶又矮，伸长手臂，几可碰到。在石室角落里有一只不大的布
-袋(budai) ，绳索绑着袋口，蠕蠕而动，不知道是什么东西。
+這是一間石室，室中點著燈火。石室奇小，兩人站著，轉身就很不
+容易，室頂又矮，伸長手臂，幾可碰到。在石室角落裏有一隻不大的布
+袋(budai) ，繩索綁着袋口，蠕蠕而動，不知道是什麼東西。
 LONG );
 	set("exits", ([
 		"north" : __DIR__"mudao16",
 	]));
 	set("item_desc", ([
-		"budai": "一只旧布袋，里面还蠕蠕而动着。\n"
+		"budai": "一隻舊布袋，裏面還蠕蠕而動着。\n"
 	]));
 	set("no_clean_up", 0);
 	set("coor/x", -3200);
@@ -37,11 +37,11 @@ int do_open(string arg)
 	object obj, me=this_player();
 	if( !arg || arg != "budai" )
 	{
-		return notify_fail("你要打开什么？\n");
+		return notify_fail("你要打開什麼？\n");
 	}
 	if (this_object()->query("opened"))
-		return notify_fail("布袋已被打开了。里面啥也没有了。\n");
-	message_vision("$N俯身在石室角落里提起一只布袋，解开缚在袋口的绳索，倒转袋子一抖，飞出来三只麻雀。\n",me) ;
+		return notify_fail("布袋已被打開了。裏面啥也沒有了。\n");
+	message_vision("$N俯身在石室角落裏提起一隻布袋，解開縛在袋口的繩索，倒轉袋子一抖，飛出來三隻麻雀。\n",me) ;
 	this_object()->set("opened", 1);
 	obj=new(__DIR__"npc/maque");
 	obj->move(this_object());
@@ -59,27 +59,27 @@ int do_zhua(string arg)
 
 	c_exp=me->query("combat_exp");
 	c_skill=(int)me->query_skill("yunv-shenfa", 1);
-	if( !arg || arg != "ma que" ) return notify_fail("你要抓什么？\n");
+	if( !arg || arg != "ma que" ) return notify_fail("你要抓什麼？\n");
 	if( !objectp(present("ma que", environment(me))))
-		return notify_fail("这里没有麻雀吧？\n");
+		return notify_fail("這裏沒有麻雀吧？\n");
 	if( me->query("qi") < 30 )
-		return notify_fail("你觉得太累了，不如歇会吧？\n");
+		return notify_fail("你覺得太累了，不如歇會吧？\n");
 	if( me->query_skill("yunv-xinfa", 1) < 10)
 	{
-		message_vision("$N的玉女心法不够娴熟，抓麻雀也没用。\n", me) ;
+		message_vision("$N的玉女心法不夠嫺熟，抓麻雀也沒用。\n", me) ;
 		return 1;
 	}
 	me->receive_damage("qi", random(30));
 	if( random((int)c_skill/10) + 1 < 2)
 	{
-		message_vision("$N扑过去就抓。可是麻雀灵便异常，东飞西扑，$N气喘吁吁，累得满头大汗，别说捉到，连羽毛也碰不到一根。\n", me);
+		message_vision("$N撲過去就抓。可是麻雀靈便異常，東飛西撲，$N氣喘吁吁，累得滿頭大汗，別說捉到，連羽毛也碰不到一根。\n", me);
 		return 1;
 	}
-	message_vision("$N轻轻纵起，伸手处，正好逮住一只麻雀。\n", me);
+	message_vision("$N輕輕縱起，伸手處，正好逮住一隻麻雀。\n", me);
 	if ((random(10)>3) && c_skill*c_skill*c_skill/10<c_exp && c_skill<101)
 	{
 		me->improve_skill("yunv-shenfa", random(me->query("dex")));
-		tell_object(me,"你的玉女身法进步了！\n");
+		tell_object(me,"你的玉女身法進步了！\n");
 	}
 	return 1;
 }

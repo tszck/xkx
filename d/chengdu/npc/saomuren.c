@@ -5,8 +5,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("扫墓人", ({ "saomu ren", "ren" }));
-	set("long","这是个眼带忧郁的扫墓人，他不停地在那里唉声叹气，不知道搞什么鬼。\n");
+	set_name("掃墓人", ({ "saomu ren", "ren" }));
+	set("long","這是個眼帶憂鬱的掃墓人，他不停地在那裏唉聲嘆氣，不知道搞什麼鬼。\n");
 	set("gender", "男性");
 	set("attitude", "peaceful");
 	set("class", "bonze");

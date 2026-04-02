@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("英白罗", ({ "ying bailuo", "ying", "bailuo" }) );
+        set_name("英白羅", ({ "ying bailuo", "ying", "bailuo" }) );
         set("gender", "男性");
         set("age", 17);
         set("long",
-                "英白罗是岳不群的第八位弟子。\n");
+                "英白羅是嶽不羣的第八位弟子。\n");
         set("attitude", "peaceful");
         set("str", 26);
         set("con", 30);
@@ -50,7 +50,7 @@ void create()
         map_skill("unarmed", "huashan-ken");
         map_skill("dodge", "feiyan-huixiang");
 
-        create_family("华山派", 14, "弟子");
+        create_family("華山派", 14, "弟子");
 
         setup();
 

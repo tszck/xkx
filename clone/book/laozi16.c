@@ -6,7 +6,7 @@ inherit ITEM;
 
 void create()
 {
-	set_name( "道德经「第十六章」", ({ "jing", "daode jing" }));
+	set_name( "道德經「第十六章」", ({ "jing", "daode jing" }));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
@@ -15,11 +15,11 @@ void create()
 		set("long",
 			CYN "\n"
 			"\n\t\t\t第十六\n\n"
-			"\t致虚极，守静笃。\n"
-			"\t万物并作，吾以观复。\n"
-			"\t夫物芸芸，各复归其根。归根曰静，静曰复命。复命曰常，知常\n"
-			"曰明。不知常，妄作凶。\n"
-			"\t知常容，容乃公，公乃全，全乃天，天乃道，道乃久，没身不殆。\n"
+			"\t致虛極，守靜篤。\n"
+			"\t萬物並作，吾以觀復。\n"
+			"\t夫物芸芸，各復歸其根。歸根曰靜，靜曰覆命。覆命曰常，知常\n"
+			"曰明。不知常，妄作兇。\n"
+			"\t知常容，容乃公，公乃全，全乃天，天乃道，道乃久，沒身不殆。\n"
 			"\n"NOR
 		);
 		set("value", 500);

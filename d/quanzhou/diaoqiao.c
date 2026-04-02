@@ -6,11 +6,11 @@ string look_gaoshi();
 
 void create()
 {
-	set("short", "新门吊桥");
+	set("short", "新門吊橋");
 	set("long", @LONG
-这是泉州西面的一座吊桥，从傍着晋河而建的城楼大门上以两个滑
-轮维系。日出放下吊桥，日落绞起。城楼墙上有张官府告示(gaoshi)。
-西出城门便是乱石岗，经常有土匪出没，没事还是别出城的好。
+這是泉州西面的一座吊橋，從傍着晉河而建的城樓大門上以兩個滑
+輪維繫。日出放下吊橋，日落絞起。城樓牆上有張官府告示(gaoshi)。
+西出城門便是亂石崗，經常有土匪出沒，沒事還是別出城的好。
 LONG );
 	set("outdoors", "quanzhou");
 	set("no_clean_up", 0);
@@ -29,5 +29,5 @@ LONG );
 
 string look_gaoshi()
 {
-	return FINGER_D->get_killer() + "\n靖海将军\n施琅\n";
+	return FINGER_D->get_killer() + "\n靖海將軍\n施琅\n";
 }

@@ -5,12 +5,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("仆人", ({"pu ren", "pu"}) );
+	set_name("僕人", ({"pu ren", "pu"}) );
 	set("gender", "男性" );
 	set("age", 50);
 	set("long",
-	"这是个老实巴交的老仆人，虽然衣服上打了很多补丁，却是十分的整洁。\n"
-	"因为长期待在厨房里，眼睛被烟熏成了一条缝。\n");
+	"這是個老實巴交的老僕人，雖然衣服上打了很多補丁，卻是十分的整潔。\n"
+	"因爲長期待在廚房裏，眼睛被煙燻成了一條縫。\n");
 	set("attitude", "friendly");
 	set("shen_type", 1);
 
@@ -34,7 +34,7 @@ void create()
 	set_temp("apply/attack", 10);
 	set_temp("apply/defense", 15);
 	set_temp("apply/damage", 4);
-//	create_family("昆仑派", 24, "弟子");
+//	create_family("崑崙派", 24, "弟子");
 	setup();
 	carry_object("/d/kunlun/obj/cloth")->wear();
 }
@@ -55,8 +55,8 @@ void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
 
-	say("仆人笑吟吟地说道：这位" + RANK_D->query_respect(ob)
-		+ "请先入座，" + "我这就给您上茶。\n");
+	say("僕人笑吟吟地說道：這位" + RANK_D->query_respect(ob)
+		+ "請先入座，" + "我這就給您上茶。\n");
 }
 
 void serve_tea(object who)
@@ -74,20 +74,20 @@ void serve_tea(object who)
 	{
 		obn = new("/d/kunlun/obj/dawancha");
 		obn->move(room);
-		message_vision("仆人搬出个大茶壶来，将桌上的大碗茶倒满．\n",
+		message_vision("僕人搬出個大茶壺來，將桌上的大碗茶倒滿．\n",
 			who);
 	} else
 	{
 		who->add_temp("tea_cup", -1);
 		obn = new("/d/kunlun/obj/xiangcha");
 		obn->move(room);
-		message_vision("仆人拿出个绍兴小茶壶，沏了杯香茶，放在桌上．\n",
+		message_vision("僕人拿出個紹興小茶壺，沏了杯香茶，放在桌上．\n",
 			who);
 	}
 
 	obn = new("/d/kunlun/obj/rice");
 	obn->move(room);
-	message_vision("仆人盛了一碗刚蒸好的大米饭，放在桌上。\n", who);
+	message_vision("僕人盛了一碗剛蒸好的大米飯，放在桌上。\n", who);
 
 	return;
 }

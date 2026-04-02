@@ -5,8 +5,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("吴镖头", ({ "wu biaotou", "wu" }));
-	set("title", HIR"福"HIC"威"YEL"镖局"HIY"镖头"NOR);
+	set_name("吳鏢頭", ({ "wu biaotou", "wu" }));
+	set("title", HIR"福"HIC"威"YEL"鏢局"HIY"鏢頭"NOR);
 	set("gender", "男性");
 	set("age", 45);
 

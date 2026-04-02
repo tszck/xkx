@@ -29,7 +29,7 @@ mapping BigWay=([
 
 void create()
 {
-	string *surname=({"慕容","西门","公孙","上官","南宫","欧阳","司徒",});
+	string *surname=({"慕容","西門","公孫","上官","南宮","歐陽","司徒",});
 	set_name(surname[random(sizeof(surname))]+"巡捕",({"xun bu","police"}));
 	set("gender", "男性" );
 	set("age", 25);
@@ -40,7 +40,7 @@ void create()
 	set("per", 20);
 	set("kar", 15);
 	set("long",@LONG
-巡捕个个身手矫健，强盗、山贼无不闻风丧胆。
+巡捕個個身手矯健，強盜、山賊無不聞風喪膽。
 LONG );
 	set("status","patrol");
 	set("CatchWho",0);
@@ -48,15 +48,15 @@ LONG );
 	set("attitude", "heroism");
 	set("chat_chance", 3);
 	set("chat_msg", ({
-		"巡捕说道：你想干什么？还不跟我去府衙受审！？\n",
-		"巡捕说道：大胆！居然敢当街拒捕！想造反？\n",
-		"巡捕说道：别胡闹了，还是乖乖的跟我走吧。\n"
+		"巡捕說道：你想幹什麼？還不跟我去府衙受審！？\n",
+		"巡捕說道：大膽！居然敢當街拒捕！想造反？\n",
+		"巡捕說道：別胡鬧了，還是乖乖的跟我走吧。\n"
 	}) );
 	set ("inquiry",([
 		"bribery":
-			"说哪里话来，府太爷清贫廉正，我们作手下的岂能辱没他的名声？\n收起你的钱吧！\n",
-		"salary": "哎，老爷俸银微薄，我们的年饷自然更少了......\n",
-		"money": "说实在的，我也想要钱。但要是让老爷知道了我收受贿赂(bribery)，\n不死也得扒层皮\n",
+			"說哪裏話來，府太爺清貧廉正，我們作手下的豈能辱沒他的名聲？\n收起你的錢吧！\n",
+		"salary": "哎，老爺俸銀微薄，我們的年餉自然更少了......\n",
+		"money": "說實在的，我也想要錢。但要是讓老爺知道了我收受賄賂(bribery)，\n不死也得扒層皮\n",
 	]));
 	 set("pursuer",1);
 	 set_skill("blade", 100);
@@ -75,7 +75,7 @@ void init()
 	::init();
 	if (interactive(ob = this_player()) && 
 		(int)ob->query_condition("killer")) {
-	message_vision( "巡捕对着$N大喝一声：“大胆刁民，竟敢杀人放火，想置我们与何地？！！” \n", ob );
+	message_vision( "巡捕對着$N大喝一聲：“大膽刁民，竟敢殺人放火，想置我們與何地？！！” \n", ob );
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, ob);
 	}

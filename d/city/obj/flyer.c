@@ -1,17 +1,17 @@
-// fxq.c 飞行棋
+// fxq.c 飛行棋
 
 #include <ansi.h>
 inherit ITEM;
 
 int has_start;
-mixed wake_point;			// 出机点数
-int cur_player;				// 当前的玩家ID
-int cur_se;					// 当前色子数目
-mixed *cur_qi;				// 当前移动的棋子
-mixed shadow_qi;			// 当前移动的棋子的影子
-int has_jump;				// 曾经跳跃过
+mixed wake_point;			// 出機點數
+int cur_player;				// 當前的玩家ID
+int cur_se;					// 當前色子數目
+mixed *cur_qi;				// 當前移動的棋子
+mixed shadow_qi;			// 當前移動的棋子的影子
+int has_jump;				// 曾經跳躍過
 
-mixed player;				// 2 or 4个玩家 [{ id,id,id,id }]
+mixed player;				// 2 or 4個玩家 [{ id,id,id,id }]
 
 #define QI_SLEEP	0
 #define QI_WAIT		1
@@ -27,29 +27,29 @@ mixed player;				// 2 or 4个玩家 [{ id,id,id,id }]
 #define QI_ID		4
 #define QI_MAX		5
 mixed qizi;					// 棋子
-							// ({棋子状态，棋子位置X，棋子位置Y,player,qi_id})
+							// ({棋子狀態，棋子位置X，棋子位置Y,player,qi_id})
 
-mixed player_start =		// 玩家的起点
+mixed player_start =		// 玩家的起點
 ({
 	({14,10}),({4,14}),({0,4}),({10,0})
 });
-mixed player_ready =		// 玩家的出机位置
+mixed player_ready =		// 玩家的出機位置
 ({
 	({ ({14,12}),({13,12}),({12,12}),({11,12}) }),
 	({ ({2,14}),({2,13}),({2,12}),({2,11}) }),
 	({ ({0,2}),({1,2}),({2,2}),({3,2}) }),
 	({ ({12,0}),({12,1}),({12,2}),({12,3}) }),
 });
-mixed super_hit =			// 超级跳跃的攻击点
+mixed super_hit =			// 超級跳躍的攻擊點
 ({
 	({3,7}),({7,3}),({11,7}),({7,11})
 });
 
 
-mixed qi_view =					// 玩家的棋子的外观
+mixed qi_view =					// 玩家的棋子的外觀
 ({
 	({"１","２","３","４"}),	// 其他人看的棋子
-	({"Ａ","Ｂ","Ｃ","Ｄ"}),	// 当前活动的棋子
+	({"Ａ","Ｂ","Ｃ","Ｄ"}),	// 當前活動的棋子
 });
 
 mixed clr =
@@ -61,18 +61,18 @@ mixed bkclr =
 	"",HBRED,HBMAG,HBBLU,HBGRN
 });
 
-#define P_LEFT	1			// 路径
+#define P_LEFT	1			// 路徑
 #define P_RIGHT	2
 #define P_UP	4
 #define P_DOWN	8
 
 #define B_NORMAL	0
-#define B_GATE		1		// 完成的道门
+#define B_GATE		1		// 完成的道門
 #define B_ROAD		2		// 完成的道
-#define B_SJUMP		3		// 超级跳跃
-#define B_END		4		// 结束
-#define B_STOP		5		// 停机场
-#define B_READY		6		// 出机场
+#define B_SJUMP		3		// 超級跳躍
+#define B_END		4		// 結束
+#define B_STOP		5		// 停機場
+#define B_READY		6		// 出機場
 
 #define BD_COLOR	0
 #define BD_PATH		1
@@ -80,7 +80,7 @@ mixed bkclr =
 #define BD_PLAYER	3
 #define BD_QI		4
 
-mixed board =				// ({属性，路径，标志，玩家号，棋子号})
+mixed board =				// ({屬性，路徑，標誌，玩家號，棋子號})
 ({
 ({ ({3,0,5,0,0 }),({3,0,5,0,0 }),      0       ,      0       ,({1,2,0,0,0 }),({2,2,0,0,0 }),({3,2,0,0,0 }),({4,2,1,0,0 }),({1,2,0,0,0 }),({2,2,0,0,0 }),({3,8,0,0,0 }),      0       ,({4,0,6,0,0 }),({4,0,5,0,0 }),({4,0,5,0,0 }),}),
 ({ ({3,0,5,0,0 }),({3,0,5,0,0 }),      0       ,      0       ,({4,4,0,0,0 }),      0       ,      0       ,({4,8,2,0,0 }),      0       ,      0       ,({4,8,0,0,0 }),      0       ,({4,0,6,0,0 }),({4,0,5,0,0 }),({4,0,5,0,0 }),}),
@@ -99,7 +99,7 @@ mixed board =				// ({属性，路径，标志，玩家号，棋子号})
 ({ ({2,0,5,0,0 }),({2,0,5,0,0 }),({2,0,6,0,0 }),      0       ,({1,4,0,0,0 }),({4,1,0,0,0 }),({3,1,0,0,0 }),({2,1,1,0,0 }),({1,1,0,0,0 }),({4,1,0,0,0 }),({3,1,0,0,0 }),      0       ,      0       ,({1,0,5,0,0 }),({1,0,5,0,0 }),}),
 });
 
-mixed board_view =				// 棋盘视图 红黄蓝绿
+mixed board_view =				// 棋盤視圖 紅黃藍綠
 ({
 	({ HBWHT HIB "●" NOR,HBWHT HIB "●" NOR,"　","　"    ,HIR "●" NOR,HIY "●" NOR,HIB "●" NOR,HIG "◆" NOR,HIR "●" NOR,HIY "●" NOR,HIB "●" NOR,    "←","　",HBWHT HIG "●" NOR,HBWHT HIG "●" NOR, }),
 	({ HBWHT HIB "●" NOR,HBWHT HIB "●" NOR,"　","　"    ,HIG "●" NOR,    "　"    ,    "　"    ,HIG "●" NOR,    "　"    ,    "　"    ,HIG "●" NOR,    "　","　",HBWHT HIG "●" NOR,HBWHT HIG "●" NOR, }),
@@ -196,9 +196,9 @@ int reset_game(int all)
 	qizi = allocate(4);					// 4副棋子
 	for(i=0;i<4;i++)
 	{
-		qizi[i] = allocate(4);			// 4个棋子/1副
+		qizi[i] = allocate(4);			// 4個棋子/1副
 		for(j=0;j<4;j++)
-			qizi[i][j] = ({0,0,0,i+1,j+1});	// 5个状态/1个棋子
+			qizi[i][j] = ({0,0,0,i+1,j+1});	// 5個狀態/1個棋子
 	}
 
 	for(i=0;i<15;i++)
@@ -331,17 +331,17 @@ void shadow_it(mixed* qi)
 		shadow_qi[i] = qi[i];
 }
 
-// 开始构造物体
+// 開始構造物體
 void create()
 {
-	set_name("飞行棋", ({ "flywar board","board","fly"}) );
+	set_name("飛行棋", ({ "flywar board","board","fly"}) );
 	set_weight(1);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else
 	{
 		set("unit", "副");
-		set("long", "这是一副飞行棋盘，上面摆放着不少小小战机。\n");
+		set("long", "這是一副飛行棋盤，上面擺放着不少小小戰機。\n");
 		set("value", 1);
 		set("no_get", 1);
 		set("material", "paper");
@@ -440,15 +440,15 @@ string build_qi(object who)
 
 void init()
 {
-//	add_action("do_help","helpqi");			// 帮助
+//	add_action("do_help","helpqi");			// 幫助
 
-	add_action("do_reset","reset");			// 重置游戏
-	add_action("do_start","start");			// 重新开始
-	add_action("do_join","join");			// 加入游戏
+	add_action("do_reset","reset");			// 重置遊戲
+	add_action("do_start","start");			// 重新開始
+	add_action("do_join","join");			// 加入遊戲
 
-	add_action("do_toss","toss");			// 摇色子
-	add_action("do_view","view");			// 查看情况
-	add_action("do_move","move");			// 移动
+	add_action("do_toss","toss");			// 搖色子
+	add_action("do_view","view");			// 查看情況
+	add_action("do_move","move");			// 移動
 
 	add_action("do_next","next");			// 催促
 }
@@ -470,7 +470,7 @@ int do_next(string arg)
 			return notify_fail("你都不玩啊！\n");
 
 		if(!has_start)
-			return notify_fail("还没有开始了。\n");
+			return notify_fail("還沒有開始了。\n");
 		if(!cur_player)
 			return notify_fail("？？？？\n");
 
@@ -478,14 +478,14 @@ int do_next(string arg)
 
 		if(ob==0)
 		{
-			msg(0,0,"有玩家缺场了，请重新开始游戏(reset qi)。\n");
+			msg(0,0,"有玩家缺場了，請重新開始遊戲(reset qi)。\n");
 			return 1;
 		}
 
 		if(me!=ob)
-			msg(me,ob,"$N对$n说道：到你了。\n");
+			msg(me,ob,"$N對$n說道：到你了。\n");
 		else
-			msg(me,0,"$N对自己说道：到我啦！\n");
+			msg(me,0,"$N對自己說道：到我啦！\n");
 	}
 	else
 	{
@@ -518,7 +518,7 @@ void next_one()
 			if(qizi[cp-1][i][QI_FLAG] != QI_END)
 			{
 				if(cp == cur_player)
-					msg(get_cur_player(),0,"$N投到六点，奖励一次。\n");
+					msg(get_cur_player(),0,"$N投到六點，獎勵一次。\n");
 				else
 				{
 					cur_player = cp;
@@ -552,7 +552,7 @@ int toss(object who,int se)
 				if(cmd1)
 					cmd1 = sprintf("%s|%c",cmd1,'a'+i);
 				else
-					cmd1 = sprintf("出机 move %c",'a'+i);
+					cmd1 = sprintf("出機 move %c",'a'+i);
 				c = 1;
 			}
 			break;
@@ -562,18 +562,18 @@ int toss(object who,int se)
 			if(cmd2)
 				cmd2 = sprintf("%s|%c",cmd2,'a'+i);
 			else
-				cmd2 = sprintf("移动 move %c",'a'+i);
+				cmd2 = sprintf("移動 move %c",'a'+i);
 			c = 1;
 			break;
 		case QI_END:
 			break;
 		default:
-			msg(0,0,"\n错误飞机状态！！！\n");
+			msg(0,0,"\n錯誤飛機狀態！！！\n");
 			break;
 		}
 	}
 
-	cmd = sprintf("%d点\n",se);
+	cmd = sprintf("%d點\n",se);
 	if(cmd1)cmd = sprintf("%s%s\n",cmd,cmd1);
 	if(cmd2)cmd = sprintf("%s%s\n",cmd,cmd2);
 
@@ -597,13 +597,13 @@ int do_toss(string arg)
 	if(!(pid = is_playing(me)))
 		return notify_fail("你都不玩啊！\n");
 	if(!has_start)
-		return notify_fail("游戏还没有开始了。\n");
+		return notify_fail("遊戲還沒有開始了。\n");
 	if(cur_se)
-		return notify_fail("不是投色子的时候。\n");
+		return notify_fail("不是投色子的時候。\n");
 	if(!cur_player||me->query("id")!=player[cur_player-1])
-		return notify_fail("还没有开始到你了。\n");
+		return notify_fail("還沒有開始到你了。\n");
 
-	msg(me,0,"$N拿起色子在手中摇了两摇。\n");
+	msg(me,0,"$N拿起色子在手中搖了兩搖。\n");
 	se = random(6)+1;
 	show_se(se);
 
@@ -642,7 +642,7 @@ int do_reset(string arg)
 		}
 	}
 	reset_game(1);
-	msg(this_player(),0,"$N重置了游戏。\n");
+	msg(this_player(),0,"$N重置了遊戲。\n");
 	return 1;
 }
 
@@ -665,7 +665,7 @@ int do_start(string arg)
 	case 4:
 		break;
 	default:
-		return notify_fail("游戏人数只能是2人 或者 4人。\n");
+		return notify_fail("遊戲人數只能是2人 或者 4人。\n");
 		break;
 	}
 
@@ -673,7 +673,7 @@ int do_start(string arg)
 	has_start = 1;
 	cur_player = 1;
 
-	msg(this_player(),0,"$N开始游戏了\n");
+	msg(this_player(),0,"$N開始遊戲了\n");
 	msg(get_cur_player(),0,"$N首先投色。\n");
 
 	return 1;
@@ -692,22 +692,22 @@ int do_join(string arg)
 
 	me = this_player();
 	if(has_start)
-		return notify_fail("游戏已经开始，不能加入了，请使用(reset)命令重置。\n");
+		return notify_fail("遊戲已經開始，不能加入了，請使用(reset)命令重置。\n");
 	if(is_playing(me))
-		return notify_fail("你已经参加了。\n");
+		return notify_fail("你已經參加了。\n");
 
 	for(i=0;i<sizeof(player);i++)
 	{
 		if(!player[i])
 		{
 			player[i] = me->query("id");
-			msg(me,0,"$N加入游戏了。\n");
+			msg(me,0,"$N加入遊戲了。\n");
 			if(i==3)
-				msg(0,0,"请使用(start)命令开始游戏。\n");
+				msg(0,0,"請使用(start)命令開始遊戲。\n");
 			return 1;
 		}
 	}
-	return notify_fail("人数已满\n");
+	return notify_fail("人數已滿\n");
 }
 
 void show_qi()
@@ -760,8 +760,8 @@ int reach(mixed* qi)
 		// 有其他棋子?
 		if(ge[BD_PLAYER] == qi[QI_PLAYER])
 		{
-			// 自己，奖励一步
-			msg(get_cur_player(),0,"$N和自己的飞机相遇，前进一步。\n");
+			// 自己，獎勵一步
+			msg(get_cur_player(),0,"$N和自己的飛機相遇，前進一步。\n");
 			call_out("jump_to",0,qi,1);
 			return 1;
 		}
@@ -769,7 +769,7 @@ int reach(mixed* qi)
 		{
 			// hit it
 			qi2 = ge2qi(ge);
-			msg(get_cur_player(),qi2player(qi2),BLINK HIR "\n$N击毁了$n的飞机！！！\n\n" NOR);
+			msg(get_cur_player(),qi2player(qi2),BLINK HIR "\n$N擊毀了$n的飛機！！！\n\n" NOR);
 			return_base(qi2[QI_PLAYER],qi2[QI_ID]);
 		}
 	}
@@ -780,28 +780,28 @@ int reach(mixed* qi)
 		case B_NORMAL:
 			if(qi[QI_PLAYER] == ge[BD_COLOR] && !has_jump)
 			{
-				msg(get_cur_player(),0,"$N的飞机进行跳跃...\n");
+				msg(get_cur_player(),0,"$N的飛機進行跳躍...\n");
 				call_out("jump_to",0,qi,4);
 				return 1;
 			}
 			break;
-		case B_SJUMP:		// 超级跳跃
+		case B_SJUMP:		// 超級跳躍
 			if(qi[QI_PLAYER] == ge[BD_COLOR] && !has_jump)
 			{
-				msg(get_cur_player(),0,HIY "\n$N的飞机进行超级跳跃！\n");
+				msg(get_cur_player(),0,HIY "\n$N的飛機進行超級跳躍！\n");
 
 				qi2 = ge2qi(ge);
 				if(qi2)
 				{
-					msg(get_cur_player(),qi2player(qi2),BLINK HIR "\n$N击毁了$n的飞机！！！\n\n" NOR);
+					msg(get_cur_player(),qi2player(qi2),BLINK HIR "\n$N擊毀了$n的飛機！！！\n\n" NOR);
 					return_base(qi2[QI_PLAYER],qi2[QI_ID]);
 				}
 				call_out("jump_to",0,qi,12);
 				return 1;
 			}
 			break;
-		case B_END:			// 结束
-			msg(get_cur_player(),0,"$N的一架飞机到终点了。\n");
+		case B_END:			// 結束
+			msg(get_cur_player(),0,"$N的一架飛機到終點了。\n");
 			return_base(qi[QI_PLAYER],qi[QI_ID]);
 			qi[QI_FLAG] = QI_END;
 			if(check_finish())
@@ -855,7 +855,7 @@ int move_qi(mixed* qi,int pt)
 	{
 	case QI_SLEEP:
 		if(member_array(pt,wake_point)==-1)
-			return notify_fail("不能移动该棋子。\n");
+			return notify_fail("不能移動該棋子。\n");
 		qi[QI_FLAG] = QI_WAIT;
 		pick_out(qi);
 		q = qi[QI_PLAYER];
@@ -872,7 +872,7 @@ int move_qi(mixed* qi,int pt)
 		}
 		put_down(qi);
 
-		msg(get_cur_player(),0,"$N准备出动一架飞机。\n");
+		msg(get_cur_player(),0,"$N準備出動一架飛機。\n");
 		next_one();
 		return 1;
 	case QI_WAIT:
@@ -977,9 +977,9 @@ int move_qi(mixed* qi,int pt)
 		}
 		break;
 	case QI_END:
-		return notify_fail("不能移动该棋子。\n");
+		return notify_fail("不能移動該棋子。\n");
 	default:
-		msg(0,0,"\n错误飞机状态！！！\n");
+		msg(0,0,"\n錯誤飛機狀態！！！\n");
 		break;
 	}
 	return 1;
@@ -997,14 +997,14 @@ int do_move(string arg)
 	if(!(pid = is_playing(me)))
 		return notify_fail("你都不玩啊！\n");
 	if(!has_start)
-		return notify_fail("游戏还没有开始了。\n");
+		return notify_fail("遊戲還沒有開始了。\n");
 	if(!cur_se)
-		return notify_fail("是投色子的时候。\n");
+		return notify_fail("是投色子的時候。\n");
 	if(!cur_player||me->query("id")!=player[cur_player-1])
-		return notify_fail("还没有开始到你了。\n");
+		return notify_fail("還沒有開始到你了。\n");
 
 	if(!arg)
-		return notify_fail("你要移动哪个棋子啊(a|b|c|d)？\n");
+		return notify_fail("你要移動哪個棋子啊(a|b|c|d)？\n");
 
 	w = 0;
 	if(arg=="a")
@@ -1017,7 +1017,7 @@ int do_move(string arg)
 		w = 4;
 
 	if(!w)
-		return notify_fail("你要移动哪个棋子啊(a|b|c|d)\n");
+		return notify_fail("你要移動哪個棋子啊(a|b|c|d)\n");
 
 	qi = qizi[cur_player-1][w-1];
 	cur_qi = qi;
@@ -1035,21 +1035,21 @@ mixed t(int x,int y)
 int do_help(string arg)
 {
 	this_player()->start_more( @HELP
-飞行棋使用方法:
-——[开始游戏]———————————————
-帮助命令：helpqi
-加入游戏：join　　　　　
-开始游戏：start
-重置游戏：reset qi
+飛行棋使用方法:
+——[開始遊戲]———————————————
+幫助命令：helpqi
+加入遊戲：join　　　　　
+開始遊戲：start
+重置遊戲：reset qi
 
-——[游戏命令]———————————————
-　摇色子：toss
-查看情况：view
-移动棋子：move a|b|c|d
+——[遊戲命令]———————————————
+　搖色子：toss
+查看情況：view
+移動棋子：move a|b|c|d
 催促玩家：next
 
-——[游戏规则]———————————————
-普通的飞行棋。
+——[遊戲規則]———————————————
+普通的飛行棋。
 
 ——————————————————————
 HELP

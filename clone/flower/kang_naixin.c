@@ -11,7 +11,7 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "这是一朵素净端立的康乃馨，代表温馨，真挚的情感。\n");
+		set("long", "這是一朵素淨端立的康乃馨，代表溫馨，真摯的情感。\n");
 		set("unit", "束");
 		set("value", 35);
 		set("base_unit", "朵");

@@ -7,9 +7,9 @@ void create()
 {
       set("short","雷洞坪");
       set("long",@LONG
-雷洞坪一带，道路艰险骇人，路左是蔽日遮天的冷杉林，路右是深不见底
-的绝壁峡谷。这里长年云遮雾罩，空蒙黑暗。岩上建有雷神殿，旁边竖一铁碑。
-由此往上是「八十四盘」至接引殿，北下到洗象池。
+雷洞坪一帶，道路艱險駭人，路左是蔽日遮天的冷杉林，路右是深不見底
+的絕壁峽谷。這裏長年雲遮霧罩，空濛黑暗。巖上建有雷神殿，旁邊豎一鐵碑。
+由此往上是「八十四盤」至接引殿，北下到洗象池。
 LONG);
       set("outdoors", "emei");
       set("exits",([ /* sizeof() == 1 */
@@ -39,15 +39,15 @@ int do_say()
 
       if (me->query("qi")>qi_cost) 
       {
-message_vision(CYN"$N刚说出一个字，刹那间惊雷迅电，霹雳而作，风雨暴来。\n"NOR, me);
+message_vision(CYN"$N剛說出一個字，剎那間驚雷迅電，霹靂而作，風雨暴來。\n"NOR, me);
          if (((c_skill*c_skill*c_skill/10)< c_exp) && (c_skill<101))
               me->improve_skill("force", (int)me->query_skill("force", 1));
            me->receive_damage("qi", qi_cost );
       }
       else
       {
-       message_vision(CYN"$N刚说出一个字，刹那间惊雷迅电，霹雳而作，风雨暴来。
-$N一下子被打中，全身发麻。\n"NOR, me);
+       message_vision(CYN"$N剛說出一個字，剎那間驚雷迅電，霹靂而作，風雨暴來。
+$N一下子被打中，全身發麻。\n"NOR, me);
       }
       return 1;
 }
@@ -67,7 +67,7 @@ int valid_leave(object me, string dir)
 			if (((c_skill*c_skill*c_skill/10)< c_exp) &&
 				(c_skill < 101))
 				me->improve_skill("dodge", (int)me->query_skill("dodge", 1));
-			tell_object(me,"你爬上八十四盘，有些累了。\n");
+			tell_object(me,"你爬上八十四盤，有些累了。\n");
 		}
 	}
 	return 1;

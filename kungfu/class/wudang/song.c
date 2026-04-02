@@ -1,4 +1,4 @@
-// song.c 宋远桥
+// song.c 宋遠橋
 // Last Modified by winder on Aug. 18 2002
 
 inherit NPC;
@@ -8,9 +8,9 @@ string ask_me();
 
 void create()
 {
-	set_name("宋远桥", ({ "song yuanqiao", "song" }));
-	set("nickname", "武当首侠");
-	set("long","他就是张三丰的大弟子、武当七侠之首的宋远桥。\n身穿一件干干净净的灰色道袍。\n他已年过六十，身材瘦长，满脸红光。恬淡冲和，沉默寡言。\n");
+	set_name("宋遠橋", ({ "song yuanqiao", "song" }));
+	set("nickname", "武當首俠");
+	set("long","他就是張三豐的大弟子、武當七俠之首的宋遠橋。\n身穿一件乾乾淨淨的灰色道袍。\n他已年過六十，身材瘦長，滿臉紅光。恬淡沖和，沉默寡言。\n");
 	set("gender", "男性");
 	set("age", 61);
 	set("attitude", "peaceful");
@@ -60,10 +60,10 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("武当派", 2, "弟子");
+	create_family("武當派", 2, "弟子");
 
 	set("inquiry", ([
-		"秘籍" : (: ask_me :),
+		"祕籍" : (: ask_me :),
 	]));
 
 	set("book_count", 1);
@@ -77,26 +77,26 @@ void attempt_apprentice(object ob)
 {
 	mapping fam;
 
-	if( mapp(fam = ob->query("family")) && fam["family_name"] != "武当派" )
+	if( mapp(fam = ob->query("family")) && fam["family_name"] != "武當派" )
 	{
-		command ("say " + RANK_D->query_respect(this_player()) + "并非我门中人，习武还是先从各位道长起吧！");
+		command ("say " + RANK_D->query_respect(this_player()) + "並非我門中人，習武還是先從各位道長起吧！");
 		return;
 	}
 	if ((int)ob->query_skill("taiji-shengong", 1) < 60)
 	{
-		command("say 我武当派乃内家武功，最重视内功心法。");
+		command("say 我武當派乃內家武功，最重視內功心法。");
 		command("say " + RANK_D->query_respect(ob) +
-			"是否还应该在太极神功上多下点功夫？");
+			"是否還應該在太極神功上多下點功夫？");
 		return;
 	}
 	if ((int)ob->query("shen") < 35000)
 	{
-		command("say 我武当乃是堂堂名门正派，对弟子要求极严。");
+		command("say 我武當乃是堂堂名門正派，對弟子要求極嚴。");
 		command("say 在德行方面，" + RANK_D->query_respect(ob) +
-			"是否还做得不够？");
+			"是否還做得不夠？");
 		return;
 	}
-	command("say 好吧，贫道就收下你了。");
+	command("say 好吧，貧道就收下你了。");
 	command("recruit " + ob->query("id"));
 }
 
@@ -106,14 +106,14 @@ string ask_me()
 	object ob;
 	
 	if (!(fam = this_player()->query("family")) ||
-		fam["family_name"] != "武当派")
+		fam["family_name"] != "武當派")
 		return RANK_D->query_respect(this_player()) + 
-		"与本派素无来往，不知此话从何谈起？";
+		"與本派素無來往，不知此話從何談起？";
 	if (query("book_count") < 1)
-		return "你来晚了，本派的内功心法不在此处。";
+		return "你來晚了，本派的內功心法不在此處。";
 	add("book_count", -1);
 	ob = new("/clone/book/force_book");
 	ob->move(this_player());
-	command("rumor "+this_player()->query("name")+"拿到太极十三式啦。\n");
-	return "好吧，这本「太极十三式」你拿回去好好钻研。";
+	command("rumor "+this_player()->query("name")+"拿到太極十三式啦。\n");
+	return "好吧，這本「太極十三式」你拿回去好好鑽研。";
 }

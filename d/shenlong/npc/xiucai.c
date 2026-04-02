@@ -9,7 +9,7 @@ int do_forge();
 void create()
 {
 	set_name(HIY"落第秀才"NOR, ({ "xiucai" }));
-	set("long","他年青时颇有抱负，后来自暴自弃。\n只凭一点墨才经常干些偷梁换柱的勾当度日。\n"); 
+	set("long","他年青時頗有抱負，後來自暴自棄。\n只憑一點墨才經常幹些偷樑換柱的勾當度日。\n"); 
 	set("gender", "男性");
 	set("age", 35);
 
@@ -23,7 +23,7 @@ void create()
 	set("shen_type", -1);
 
 	set("inquiry", ([
-		"伪造" : (: do_forge :),
+		"僞造" : (: do_forge :),
 		"weizao" : (: do_forge :),
 		"forge" : (: do_forge :),
 	]) );
@@ -37,7 +37,7 @@ int do_forge()
 	if( !me->query_temp("cbs_落第/a") ) return 0;
 	me->delete_temp("cbs_落第/a");
 	command("hehe");
-	command("whisper " + me->query("id") + " " + "一两黄金，不二价。\n");
+	command("whisper " + me->query("id") + " " + "一兩黃金，不二價。\n");
 	me->set_temp("cbs_落第/b", 1);
 	return 1;
 }
@@ -55,11 +55,11 @@ int accept_object(object who, object ob)
 	if( ob->value() >= 10000 && who->query_temp("cbs_落第/b") )
 	{
 		who->delete_temp("cbs_落第");
-		say("落第秀才笑嘻嘻说道：这幅颂词保证错不了。\n");
+		say("落第秀才笑嘻嘻說道：這幅頌詞保證錯不了。\n");
 
 		obj = new("/d/shenlong/obj/songci");
 		obj->move(who);
-		message_vision("$N将一" + obj->query("unit") + obj->query("name") + "交给$n。\n", this_object(), who);
+		message_vision("$N將一" + obj->query("unit") + obj->query("name") + "交給$n。\n", this_object(), who);
 		return 1;
 	}
 

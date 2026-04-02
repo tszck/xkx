@@ -5,7 +5,7 @@ void create()
 {
 	set("short", "草地");
 	set("long",@LONG
-你走在一片草地。草地东边有一片墓地。
+你走在一片草地。草地東邊有一片墓地。
 LONG );
 	set("exits", ([
 		"east"    : __DIR__"mudi",

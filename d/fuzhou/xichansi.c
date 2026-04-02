@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "西禅寺");
+	set("short", "西禪寺");
 	set("long", @LONG
-西禅寺始建于梁朝，寺中玉佛楼玉佛为整玉雕就，宝相庄严，从来
-香火不绝。香客往来，但有所求，多得灵验。
+西禪寺始建於梁朝，寺中玉佛樓玉佛爲整玉雕就，寶相莊嚴，從來
+香火不絕。香客往來，但有所求，多得靈驗。
 LONG );
 	set("exits", ([
 		"north" : __DIR__"xixiaojie",

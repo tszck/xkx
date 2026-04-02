@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
 
 // File     : /adm/daemons/network/dns_master.c
@@ -294,7 +294,7 @@ void send_shutdown()
      SHUTDOWN->send_shutdown(muds[mud_names[i]]["HOSTADDRESS"],
         muds[mud_names[i]]["PORTUDP"]);
    socket_close(socket_id);
-   CHANNEL_D->do_channel(this_object(), "sys", "送出网路关闭讯息。\n");
+   CHANNEL_D->do_channel(this_object(), "sys", "送出網路關閉訊息。\n");
 }
 
 string start_message()
@@ -447,7 +447,7 @@ void set_mud_info(string name, mapping junk)
       //if this is a new mud or has lost connection.
           CHANNEL_D->do_channel(this_object(), "sys",
             junk["MUDNAME"]+"("+junk["NAME"]+")   "+
-            junk["HOSTADDRESS"]+" "+junk["PORT"]+" 加入连通");
+            junk["HOSTADDRESS"]+" "+junk["PORT"]+" 加入連通");
 
    // determines whether or not we send the service queries out
    // to the new mud
@@ -905,7 +905,7 @@ void create()
 
    restore_euid();
 
-   set("channel_id", "网路精灵");
+   set("channel_id", "網路精靈");
 
         //added by mon 10/23/97
    list=values(LISTNODES);

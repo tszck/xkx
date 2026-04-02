@@ -9,21 +9,21 @@ inherit ITEM;
 
 int has_start;
 int has_guess;
-int se_num;				// 每人的骰子数量
-int se_total;				// 每人的骰子数量2
-int cur_point;				// 当前的点数
-int cur_amount;				// 当前的数量
-int has_guess_one;			// 是否猜过１
-string cur_player;			// 当前的玩家ID
-string last_player;			// 上一个玩家
-string who_lost;			// 输方
-mapping player;				// 两个玩家 [id:({骰，骰...})]
+int se_num;				// 每人的骰子數量
+int se_total;				// 每人的骰子數量2
+int cur_point;				// 當前的點數
+int cur_amount;				// 當前的數量
+int has_guess_one;			// 是否猜過１
+string cur_player;			// 當前的玩家ID
+string last_player;			// 上一個玩家
+string who_lost;			// 輸方
+mapping player;				// 兩個玩家 [id:({骰，骰...})]
 mapping player_deal;			// 完成的玩家
-mapping player_toss;			// 玩家toss次数
-mapping player_follow;			// 玩家顺序
-mapping visitor;			// 观战的人 [id:({id,...})]
-mapping counter = ([]);			// 计数器
-mixed	history;			// 历史 string
+mapping player_toss;			// 玩家toss次數
+mapping player_follow;			// 玩家順序
+mapping visitor;			// 觀戰的人 [id:({id,...})]
+mapping counter = ([]);			// 計數器
+mixed	history;			// 歷史 string
 int reset_game(int all);
 
 mixed se_text = ({
@@ -110,14 +110,14 @@ mixed get_se(int num)
 
 void create()
 {
-	set_name("大话骰台", ({ "dahua desk", "desk"}) );
+	set_name("大話骰臺", ({ "dahua desk", "desk"}) );
 	set_weight(1);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "张");
-		set("long", "这是一张大话骰台，玩家可以在上面玩大话骰子。\n");
+		set("unit", "張");
+		set("long", "這是一張大話骰臺，玩家可以在上面玩大話骰子。\n");
 		set("value", 1);
 		set("material", "wood");
 	}
@@ -138,9 +138,9 @@ string for_other_msg(object who)
 		ob = get_player(last_player);
 		if(ob)
 		{
-			m = sprintf("%s\n%s(%s)猜骰子数为：%d个%d\n",m,ob->query("name"),ob->query("id"),cur_amount,cur_point);
+			m = sprintf("%s\n%s(%s)猜骰子數爲：%d個%d\n",m,ob->query("name"),ob->query("id"),cur_amount,cur_point);
 			if(ob!=who)
-				m = m + "如果你不相信，可以拆穿大话("HIY"dahua "+ob->query("id")+NOR")\n";
+				m = m + "如果你不相信，可以拆穿大話("HIY"dahua "+ob->query("id")+NOR")\n";
 		}
 	}
 	return m;
@@ -152,10 +152,10 @@ string for_guess_msg()
 
 	m = "";
 	if( has_guess&&last_player )
-		m=m+for_other_msg(0)+"否则";
-	m = m+"你的猜测是("HIY"guess 骰子数目 骰子点数"NOR")？\n";
+		m=m+for_other_msg(0)+"否則";
+	m = m+"你的猜測是("HIY"guess 骰子數目 骰子點數"NOR")？\n";
 	if(has_guess&&last_player)
-		m = m+"注意：" HIC "骰子数目或者骰子点数必须比前一位玩家大。\n"NOR;
+		m = m+"注意：" HIC "骰子數目或者骰子點數必須比前一位玩家大。\n"NOR;
 	return m;
 }
 
@@ -320,31 +320,31 @@ void start_game(int num)
 		se_total = num;
 	reset_game(0);
 	has_start = 1;
-	msg(0,0,"开始游戏了。\n");
+	msg(0,0,"開始遊戲了。\n");
 }
 
 void init()
 {
 
-//	add_action("do_help","helpse");			// 帮助
+//	add_action("do_help","helpse");			// 幫助
 
-	add_action("do_reset","reset");			// 重置游戏
-	add_action("do_start","start");			// 重新开始
-	add_action("do_join","join");			// 加入游戏
+	add_action("do_reset","reset");			// 重置遊戲
+	add_action("do_start","start");			// 重新開始
+	add_action("do_join","join");			// 加入遊戲
 
-	add_action("do_toss","toss");			// 摇骰子
-	add_action("do_view","view");			// 查看情况
+	add_action("do_toss","toss");			// 搖骰子
+	add_action("do_view","view");			// 查看情況
 	add_action("do_finish","finish");		// 完成
 	add_action("do_finish","deal");			// 完成
 
-	add_action("do_dahua","dahua");			// 发现大话
-	add_action("do_guess","guess");			// 猜测
-	add_action("do_guess","g");				// 猜测
+	add_action("do_dahua","dahua");			// 發現大話
+	add_action("do_guess","guess");			// 猜測
+	add_action("do_guess","g");				// 猜測
 
 	add_action("do_next","next");			// 催促
-	add_action("do_showc","showc");			// 显示计数器
-	add_action("do_visitor","visit");		// 增加旁观者
-	add_action("do_history","history");		// 查看猜测历史
+	add_action("do_showc","showc");			// 顯示計數器
+	add_action("do_visitor","visit");		// 增加旁觀者
+	add_action("do_history","history");		// 查看猜測歷史
 }
 
 int do_toss(string arg)
@@ -358,15 +358,15 @@ int do_toss(string arg)
 	if(!is_playing(me))
 		return notify_fail("你都不玩啊！\n");
 	if(!has_start)
-		return notify_fail("游戏还没有开始了。\n");
+		return notify_fail("遊戲還沒有開始了。\n");
 	if(has_guess)
-		return notify_fail("已经开始猜骰子了。\n");
+		return notify_fail("已經開始猜骰子了。\n");
 	if(player_toss[me->query("id")]>=MAX_TOSS)
-		return notify_fail(sprintf("你已经摇过%d次了。\n",MAX_TOSS));
+		return notify_fail(sprintf("你已經搖過%d次了。\n",MAX_TOSS));
 
 	toss(me);
 	player_toss[me->query("id")]++;
-	msg(me,0,"$N拿起骰子在手中摇了两摇。\n");
+	msg(me,0,"$N拿起骰子在手中搖了兩搖。\n");
 	view_se(me,0);
 
 	if(idx = visitor[me->query("id")])
@@ -400,7 +400,7 @@ int do_reset(string arg)
 	}
 
 	reset_game(1);
-	msg(this_player(),0,"$N重置了游戏。\n");
+	msg(this_player(),0,"$N重置了遊戲。\n");
 	return 1;
 }
 
@@ -412,14 +412,14 @@ int do_start(string arg)
 		return notify_fail("你都不玩啊！\n");
 
 	if(sizeof(player)<2)
-		return notify_fail("至少要两个人才能玩。\n");
+		return notify_fail("至少要兩個人才能玩。\n");
 
 	if(!arg||sscanf(arg,"%d",i)!=1)
 		i = 0;
 	else
 	{
 		if(i<1||i>MAX_SE)
-			return notify_fail(sprintf("start [骰子数目]  *注意* 骰子数目必须>1并且<=%d\n",MAX_SE));
+			return notify_fail(sprintf("start [骰子數目]  *注意* 骰子數目必須>1並且<=%d\n",MAX_SE));
 	}
 	start_game(i);
 	return 1;
@@ -454,13 +454,13 @@ int do_join(string arg)
 
 	me = this_player();
 	if(has_start)
-		return notify_fail("游戏已经开始，不能加入了，请使用(reset)命令重置。\n");
+		return notify_fail("遊戲已經開始，不能加入了，請使用(reset)命令重置。\n");
 	if(is_playing(me))
-		return notify_fail("你已经参加了。\n");
+		return notify_fail("你已經參加了。\n");
 
 	player[me->query("id")]=allocate(se_num);
 	toss(me);
-	msg(me,0,"$N加入游戏了。\n");
+	msg(me,0,"$N加入遊戲了。\n");
 	return 1;
 }
 
@@ -474,22 +474,22 @@ int do_next(string arg)
 		return notify_fail("你都不玩啊！\n");
 
 	if(!has_guess)
-		return notify_fail("还没有开始猜骰子了。\n");
+		return notify_fail("還沒有開始猜骰子了。\n");
 	if(!cur_player)
-		return notify_fail("现在是谁猜啊？\n");
+		return notify_fail("現在是誰猜啊？\n");
 
 	ob = get_cur_player();
 
 	if(ob==0)
 	{
-		msg(0,0,"有玩家缺场了，请重新开始游戏(start)。\n");
+		msg(0,0,"有玩家缺場了，請重新開始遊戲(start)。\n");
 		return 1;
 	}
 
 	if(me!=ob)
-		msg(me,ob,"$N对$n说道：到你了。\n");
+		msg(me,ob,"$N對$n說道：到你了。\n");
 	else
-		msg(me,0,"对自己说道：到我啦！\n");
+		msg(me,0,"對自己說道：到我啦！\n");
 	tell_object(ob,for_guess_msg());
 	return 1;
 }
@@ -506,16 +506,16 @@ int do_guess(string arg)
 		return notify_fail("你都不玩啊！\n");
 
 	if(!has_guess)
-		return notify_fail("还没有开始猜骰子了。\n");
+		return notify_fail("還沒有開始猜骰子了。\n");
 	ob = get_cur_player();
 	if(ob!=me)
-		return notify_fail("还没有到你猜了。\n");
+		return notify_fail("還沒有到你猜了。\n");
 
 	if(!arg||sscanf(arg,"%d %d",n,p)!=2)
-		return notify_fail("guess 骰子数目 骰子点数\n");
+		return notify_fail("guess 骰子數目 骰子點數\n");
 
 	if(n<sizeof(player)||p>6||p<=0)
-		return notify_fail(sprintf("骰子数目必须>=%d，骰子点数必须>0并且<=6\n",sizeof(player)));
+		return notify_fail(sprintf("骰子數目必須>=%d，骰子點數必須>0並且<=6\n",sizeof(player)));
 
 	ok = 1;
 	if(last_player)
@@ -536,7 +536,7 @@ int do_guess(string arg)
 		}
 	}
 	if(!ok)
-		return notify_fail("骰子数目或者骰子点数必须比前一位玩家大。\n");
+		return notify_fail("骰子數目或者骰子點數必須比前一位玩家大。\n");
 
 	last_player = me->query("id");
 	cur_amount = n;
@@ -545,11 +545,11 @@ int do_guess(string arg)
 
 	cur_player = player_follow[last_player];
 
-	msg(me,0,sprintf("$N(%s)说道：%d个%d\n",me->query("id"),n,p));
+	msg(me,0,sprintf("$N(%s)說道：%d個%d\n",me->query("id"),n,p));
 	if(history)
-		history = history + ({ sprintf("%-20s：%d个%d",me->query("name")+"("+me->query("id")+")",n,p) });
+		history = history + ({ sprintf("%-20s：%d個%d",me->query("name")+"("+me->query("id")+")",n,p) });
 	else
-		history = ({ sprintf("%-20s：%d个%d",me->query("name")+"("+me->query("id")+")",n,p) });
+		history = ({ sprintf("%-20s：%d個%d",me->query("name")+"("+me->query("id")+")",n,p) });
 
 	do_next("");
 	return 1;
@@ -601,14 +601,14 @@ int show_all_se(object who)
 			}
 			if(sc==se_num)
 			{
-				o = o + " 围骰+1";
+				o = o + " 圍骰+1";
 				c++;
 			}
 			m = m + "||"+o+"\n";
 		}
 	}
-	m = sprintf("%s%s猜有"HIC"%d"NOR"个%d，",m,ob->query("name"),cur_amount,cur_point);
-	m = sprintf("%s现在有"HIC"%d"NOR"个%d\n\n",m,c,cur_point);
+	m = sprintf("%s%s猜有"HIC"%d"NOR"個%d，",m,ob->query("name"),cur_amount,cur_point);
+	m = sprintf("%s現在有"HIC"%d"NOR"個%d\n\n",m,c,cur_point);
 	msg(0,0,m);
 
 	if(who->query("id")==cur_player)
@@ -620,14 +620,14 @@ int show_all_se(object who)
 	{
 		add_counter(who->query("id"), pt);
 		add_counter(ob->query("id"), -pt);
-		msg(ob,who,BLINK HIY "$N被$n拆穿了大话！！！\n\n" NOR);
+		msg(ob,who,BLINK HIY "$N被$n拆穿了大話！！！\n\n" NOR);
 		who_lost = last_player;
 	}
 	else
 	{
 		add_counter(who->query("id"), -pt);
 		add_counter(ob->query("id"), pt);
-		msg(who,0,BLINK HIY "$N判断错误了！！！\n\n" NOR);
+		msg(who,0,BLINK HIY "$N判斷錯誤了！！！\n\n" NOR);
 		who_lost = who->query("id");
 	}
 	start_game(0);
@@ -642,7 +642,7 @@ int do_dahua(string arg)
 
 	if(!arg)
 	{
-		msg(me,0,"$N一扁嘴嘟囔道：“大话精，大话精...”\n");
+		msg(me,0,"$N一扁嘴嘟囔道：“大話精，大話精...”\n");
 		return 1;
 	}
 
@@ -650,16 +650,16 @@ int do_dahua(string arg)
 		return notify_fail("你都不玩啊！\n");
 
 	if(!has_guess||!last_player)
-		return notify_fail("还没有开始猜骰子了。\n");
+		return notify_fail("還沒有開始猜骰子了。\n");
 
 	ob = get_player(last_player);
 	if(ob==me)
 		return notify_fail("自己不相信自己。\n");
 
 	if(last_player!=arg)
-		return notify_fail("不是他最后猜骰子了。\n");
+		return notify_fail("不是他最後猜骰子了。\n");
 
-	msg(me,ob,HIC "\n$N对$n说道：我不相信！！！\n" NOR);
+	msg(me,ob,HIC "\n$N對$n說道：我不相信！！！\n" NOR);
 	show_all_se(me);
 	return 1;
 }
@@ -672,27 +672,27 @@ int do_finish(string arg)
 	if(!is_playing(me))
 		return notify_fail("你都不玩啊！\n");
 	if(!has_start)
-		return notify_fail("游戏还没有开始了。\n");
+		return notify_fail("遊戲還沒有開始了。\n");
 	if(has_guess)
-		return notify_fail("已经开始猜骰子了。\n");
+		return notify_fail("已經開始猜骰子了。\n");
 
 	player_deal[me->query("id")] = 1;
-	msg(me,0,"$N准备好了。\n");
+	msg(me,0,"$N準備好了。\n");
 	if(sizeof(player_deal)==sizeof(player))
 	{
 		// all is finish
 		has_guess = 1;
-		msg(0,0,"\n猜骰子开始\n");
+		msg(0,0,"\n猜骰子開始\n");
 		if(who_lost)cur_player = who_lost;
 		who_lost = 0;
 		if(!cur_player)cur_player = me->query("id");
 		if(ob = get_cur_player())
 		{
-			msg(ob,0,"$N说道：由我先猜！！！\n");
+			msg(ob,0,"$N說道：由我先猜！！！\n");
 			tell_object(ob,for_guess_msg());
 		}
 		else
-			msg(0,0,"缺少了"+cur_player+"，不能进行游戏，请重新开始(start)\n");
+			msg(0,0,"缺少了"+cur_player+"，不能進行遊戲，請重新開始(start)\n");
 	}
 
 	return 1;
@@ -701,7 +701,7 @@ int do_finish(string arg)
 int do_history(string arg)
 {
 	if(!history)
-		tell_object(this_player(),"没有历史资料。\n");
+		tell_object(this_player(),"沒有歷史資料。\n");
 	else
 		tell_object(this_player(),implode(history,"\n")+"\n");
 	return 1;
@@ -717,7 +717,7 @@ int do_showc(string arg)
 
 	idx = keys(player);
 
-	r = "计数表(Scoreboard)\n－－－－－－－－－－－－－－－－－\nID　　　　　　　　分数\n－－－－－－－－－－－－－－－－－\n";
+	r = "計數表(Scoreboard)\n－－－－－－－－－－－－－－－－－\nID　　　　　　　　分數\n－－－－－－－－－－－－－－－－－\n";
 	for(i=0;i<sizeof(idx);i++)
 	{
 		if(get_player(idx[i]))
@@ -751,22 +751,22 @@ int do_visitor(string arg)
 	{
 		ob = present(key,environment(this_object()));
 		if(!ob)
-			return notify_fail("这里没有这个玩家啊？\n");
+			return notify_fail("這裏沒有這個玩家啊？\n");
 
 		if(del)
 		{
 			if(!is_visitor(ob,me->query("id")))
-				return notify_fail("不是你的观战者。\n");
+				return notify_fail("不是你的觀戰者。\n");
 
-			msg(me,ob,"$N不再允许$n观看$N的战况。\n");
+			msg(me,ob,"$N不再允許$n觀看$N的戰況。\n");
 			visitor[me->query("id")] = visitor[me->query("id")] - ({ob->query("id")});
 		}
 		else
 		{
 			if(is_visitor(ob,me->query("id")))
-				return notify_fail("已经是你的观战者了。\n");
+				return notify_fail("已經是你的觀戰者了。\n");
 
-			msg(me,ob,"$N让$n观看$N的战况。\n");
+			msg(me,ob,"$N讓$n觀看$N的戰況。\n");
 			if(!visitor[me->query("id")])
 				visitor[me->query("id")] = ({ ob->query("id") });
 			else
@@ -780,8 +780,8 @@ int do_visitor(string arg)
 
 		ob = get_player(key);
 		if(!ob)
-			return notify_fail("没有这个玩家在玩啊？\n");
-		msg(me,ob,"$N希望成为$n的观战者。\n");
+			return notify_fail("沒有這個玩家在玩啊？\n");
+		msg(me,ob,"$N希望成爲$n的觀戰者。\n");
 		tell_object(ob,"接受使用[visit "+me->query("id")+"]。\n");
 	}
 	return 1;
@@ -790,38 +790,38 @@ int do_visitor(string arg)
 int do_help(string arg)
 {
 	this_player()->start_more( @HELP
-大话骰使用方法:
-——[开始游戏]———————————————
-帮助命令：helpse
-加入命令：join　　　　　加入游戏
-开始命令：start 　　　　开始游戏
-重置命令：reset se		结束游戏
+大話骰使用方法:
+——[開始遊戲]———————————————
+幫助命令：helpse
+加入命令：join　　　　　加入遊戲
+開始命令：start 　　　　開始遊戲
+重置命令：reset se		結束遊戲
 
-——[游戏前命令]———————————————
-　摇骰子：toss
+——[遊戲前命令]———————————————
+　搖骰子：toss
 查看骰子：view [玩家ID]
-准备结束：finish 或者 deal
+準備結束：finish 或者 deal
 
-——[游戏命令]———————————————
-拆穿大话：dahua 玩家ID
-猜测骰子：guess 骰子数量 骰子点数
-　　　　　或者 g 骰子数量 骰子点数
+——[遊戲命令]———————————————
+拆穿大話：dahua 玩家ID
+猜測骰子：guess 骰子數量 骰子點數
+　　　　　或者 g 骰子數量 骰子點數
 催促玩家：next
 
 ——[其它命令]———————————————
-　计数器：showc
-猜测日志：history
+　計數器：showc
+猜測日誌：history
 
-——[旁观命令]———————————————
-观战命令：visit [-d] 玩家ID
-		邀请其它玩家观看你的游戏。
-		加参数 -d 表示删除该玩家的观看资格。
+——[旁觀命令]———————————————
+觀戰命令：visit [-d] 玩家ID
+		邀請其它玩家觀看你的遊戲。
+		加參數 -d 表示刪除該玩家的觀看資格。
 
-——[游戏规则]———————————————
-建设中...
+——[遊戲規則]———————————————
+建設中...
 
 ——————————————————————
-			make by 猫部猫(Catyboy) v1.0
+			make by 貓部貓(Catyboy) v1.0
 HELP
 	);
 	return 1;

@@ -4,11 +4,11 @@
 inherit ROOM;
 void create()
 {
-	set("short","王府大门");
+	set("short","王府大門");
 	set("long",@LONG
-你正站在一座豪华的府门前，门前有两只极大的石狮子，门上高
-悬一块横匾，上书「镇南王府」四个金字。门口站着两排侍卫，身着
-锦衣，手执钢刀，气宇轩昂。
+你正站在一座豪華的府門前，門前有兩隻極大的石獅子，門上高
+懸一塊橫匾，上書「鎮南王府」四個金字。門口站着兩排侍衛，身着
+錦衣，手執鋼刀，氣宇軒昂。
 LONG);
 	set("objects", ([
 	   CLASS_D("dali")+"/zhuwanli": 1,
@@ -36,7 +36,7 @@ int valid_leave(object me, string dir)
 
         if ((!myfam || myfam["family_name"] != "大理段家") && dir == "enter" &&
                 objectp(present("zhu wanli", environment(me))))
-           return notify_fail("褚万里拦住你说：闲杂人等，别到处乱窜。\n");
+           return notify_fail("褚萬裏攔住你說：閒雜人等，別到處亂竄。\n");
 
         return ::valid_leave(me, dir);
 }

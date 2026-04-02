@@ -6,11 +6,11 @@
 inherit ROOM;
 void create()
 {
-	set("short", "将军府大院");
+	set("short", "將軍府大院");
 	set("long", @LONG
-这里是将军府的大院，当面一堵宽阔的白玉照壁，上书“忠心报国”
-四个大字，落款是当今西夏皇帝李元昊。一色的青砖铺地，有几个仆役
-正在院中洒扫，南面是内宅，西面是帐房，东面是个小院。
+這裏是將軍府的大院，當面一堵寬闊的白玉照壁，上書“忠心報國”
+四個大字，落款是當今西夏皇帝李元昊。一色的青磚鋪地，有幾個僕役
+正在院中灑掃，南面是內宅，西面是帳房，東面是個小院。
 LONG );
 	set("exits", ([
 //		"east"  : __DIR__"xiaoyuan",
@@ -26,15 +26,15 @@ LONG );
 	set("coor/y", 32050);
 	set("coor/z", 0);
 	setup();
-	create_door("north" , "油木大门", "south" , DOOR_CLOSED);
-//	create_door("south" , "卷帘门", "north" , DOOR_CLOSED);
+	create_door("north" , "油木大門", "south" , DOOR_CLOSED);
+//	create_door("south" , "捲簾門", "north" , DOOR_CLOSED);
 }
 
 int valid_leave(object me, string dir)
 {
         if (dir == "south" && 
             objectp(present("xiao wei", environment(me))))
-           return notify_fail("校尉挡住了你的去路：大将军不在府上！\n");
+           return notify_fail("校尉擋住了你的去路：大將軍不在府上！\n");
 
         return ::valid_leave(me, dir);
 }

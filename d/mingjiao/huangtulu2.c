@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "黄土小路");
+	set("short", "黃土小路");
 	set("long", @LONG
-这里是茂密松林中的一条黄土小路。松林极密，四面都是蓝幽幽的
-感觉，白白的冰雪反光耀眼。你来到一个山腰的危崖之边，前边有一个
+這裏是茂密松林中的一條黃土小路。松林極密，四面都是藍幽幽的
+感覺，白白的冰雪反光耀眼。你來到一個山腰的危崖之邊，前邊有一個
 小洞。
 LONG );
 	set("exits", ([
@@ -29,7 +29,7 @@ int valid_leave(object me, string dir)
 	if ((dir == "enter") &&
 		!wizardp(me) && !objectp(present("xiao zhao", environment(me))))
 	{
-		return notify_fail("那是明教圣地，擅入杀无赦。\n");
+		return notify_fail("那是明教聖地，擅入殺無赦。\n");
 	}
 	return ::valid_leave(me, dir);
 }

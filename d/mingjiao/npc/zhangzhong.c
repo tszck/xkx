@@ -6,13 +6,13 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("张中", ({ "zhang zhong", "zhang", "zhong", }));
+	set_name("張中", ({ "zhang zhong", "zhang", "zhong", }));
 	set("long",
-	"他是一位高高瘦瘦的道人，身穿一件白布长袍。\n"
+	"他是一位高高瘦瘦的道人，身穿一件白布長袍。\n"
 	"\n"
 	);
 
-	set("nickname", "铁冠道人");
+	set("nickname", "鐵冠道人");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "taoist");

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "东厢房");
+	set("short", "東廂房");
 	set("long", @long
-东厢房原是杜庄主款待宾客的所在，床帐、屏风、几桌、一应起居
-之具齐备，陈设得甚是考究。	
+東廂房原是杜莊主款待賓客的所在，牀帳、屏風、幾桌、一應起居
+之具齊備，陳設得甚是考究。	
 long );
 	set("exits", ([
 		"west" : __DIR__"zoulang6",

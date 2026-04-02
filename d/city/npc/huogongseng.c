@@ -5,10 +5,10 @@ void greeting(object ob);
 void create()
 {
 	set_name("火工僧", ({ "huogong seng", "seng" })); 
-	set("long", "一个寺庙中专做杂事的火工僧，身体十分地强壮。\n");
+	set("long", "一個寺廟中專做雜事的火工僧，身體十分地強壯。\n");
 	set("gender", "男性");
 	set("class", "bonze");
-	set("title", "禅智寺和尚");
+	set("title", "禪智寺和尚");
 	set("age", 35);
 	set("attitude", "friendly");
 	set("shen_type", 1);

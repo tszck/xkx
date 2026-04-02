@@ -8,7 +8,7 @@ void create()
 	set_name("星宿派弟子", ({ "xingxiu dizi", "dizi"}));
 	set("gender", "男性" );
 	set("age", 26);
-	set("long","他是星宿派的恶徒, 烧杀抢奸赌, 无恶不作。\n");
+	set("long","他是星宿派的惡徒, 燒殺搶奸賭, 無惡不作。\n");
 
 	set_temp("apply/attack", 15);
 	set_temp("apply/defense", 15);
@@ -37,9 +37,9 @@ void create()
 	add_money("silver", 5);
 	set("chat_chance", 5);
 	set("chat_msg", ({
-		"星宿派弟子一会儿吹奏丝竹箫管, 一会儿高声颂道，“星～宿～老～仙，古～今～无～比”。\n",
-		"星宿派弟子一会儿吹奏丝竹箫管, 一会儿高声颂道，“星～宿～老～仙，威～震～寰～宇”。\n",
-		"星宿派弟子一会儿吹奏丝竹箫管, 一会儿高声颂道，“星～宿～老～仙，德～配～天～地”。\n",
+		"星宿派弟子一會兒吹奏絲竹簫管, 一會兒高聲頌道，“星～宿～老～仙，古～今～無～比”。\n",
+		"星宿派弟子一會兒吹奏絲竹簫管, 一會兒高聲頌道，“星～宿～老～仙，威～震～寰～宇”。\n",
+		"星宿派弟子一會兒吹奏絲竹簫管, 一會兒高聲頌道，“星～宿～老～仙，德～配～天～地”。\n",
 	}) );
 }
 
@@ -54,7 +54,7 @@ void init()
 		( (fam = ob->query("family")) &&
 		fam["family_name"] != "星宿派" ) )
 	{
-		command("say 大胆狂徒，竟敢闯到天山脚下来撒野！！！\n");
+		command("say 大膽狂徒，竟敢闖到天山腳下來撒野！！！\n");
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 2, ob);
 	}

@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "大榕树下");
+	set("short", "大榕樹下");
 	set("long", @LONG
-这是福州大榕树下的小洞。里面破破烂烂的，丢满了各种杂物，还
-有丐帮弟子收集的破铜烂铁等。从这里通往丐帮的秘密通道。
+這是福州大榕樹下的小洞。裏面破破爛爛的，丟滿了各種雜物，還
+有丐幫弟子收集的破銅爛鐵等。從這裏通往丐幫的祕密通道。
 LONG );
 	set("exits", ([
 		"out"       : "/d/fuzhou/nanmendou",

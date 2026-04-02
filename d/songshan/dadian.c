@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "中岳大殿");
+	set("short", "中嶽大殿");
 	set("long", @LONG
-大殿面阔九间，进深五间，重檐庑殿式屋顶，座落在七尺高的台基
-上，气势雄伟。大殿中供奉岳神天中王。
+大殿面闊九間，進深五間，重檐廡殿式屋頂，座落在七尺高的臺基
+上，氣勢雄偉。大殿中供奉嶽神天中王。
 LONG );
 	set("exits", ([
 		"northup" : __DIR__"shandao1",

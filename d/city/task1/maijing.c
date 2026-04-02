@@ -1,13 +1,13 @@
-// maijing.c 麦鲸 
+// maijing.c 麥鯨 
  
 inherit NPC;
  
 void create()
 {
-	set_name("麦鲸", ({ "mai  jing"}));
-	set("nickname", "巨鲸帮帮主");
+	set_name("麥鯨", ({ "mai  jing"}));
+	set("nickname", "巨鯨幫幫主");
 	set("long", 
-	"巨鲸帮的帮主，据说水上的功夫出神入化。\n");
+	"巨鯨幫的幫主，據說水上的功夫出神入化。\n");
 	set("gender", "男性");
 	set("age", 38);
 	set("attitude", "peaceful");

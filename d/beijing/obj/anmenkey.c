@@ -3,12 +3,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name("暗门钥匙", ({"anmenkey"}));
+	set_name("暗門鑰匙", ({"anmenkey"}));
 	set("long",
-		"这是一把金钥匙。\n");
+		"這是一把金鑰匙。\n");
 	set("unit", "把");
 	set("weight", 10);
 	set("value", 10000);
-        set("no_drop", "这样东西不能离开你。\n");
+        set("no_drop", "這樣東西不能離開你。\n");
 }
 

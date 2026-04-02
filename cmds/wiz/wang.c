@@ -8,9 +8,9 @@ inherit F_CLEAN_UP;
 string *dd= ({
 /* 城市 */
 	"/mobei/", "/guanwai/", "/huijiang/", "/city/", "/beijing/", "/chengdu/", "/changan/", "/wuxi/", "/suzhou/", "/hangzhou/", "/fuzhou/", "/quanzhou/", "/lingzhou/", "/lanzhou/", "/luoyang/", "/xiangyang/", "/jiangling/", "/foshan/", "/jiaxing/", "/dali/", "/gaochang/", "/yixing/", "/hanzhong/", "/kaifeng/", "/nanyang/", "/yueyang/", "/yanping/", "/taiwan/",
-/* 风景 */
+/* 風景 */
 	"/hasake/", "/shaolin/", "/nanshaolin/", "/wudang/", "/emei/", "/kunlun/", "/qingcheng/", "/huangshan/", "/taishan/", "/huashan/", "/henshan/", "/hengshan/", "/songshan/", "/qilian/", "/wuyi/", "/wuliang/", "/huanghe/", "/changcheng/", "/huanggong/", "/shouxihu/", "/beihai/",
-/* 门派 */
+/* 門派 */
 	"/gaibang/", "/quanzhen/", "/gumu/", "/yanziwu/", "/tianlongsi/", "/xueshan/", "/xuedao/", "/baihuagu/", "/jueqinggu/", "/wanjiegu/", "/meizhuang/", "/guiyun/", "/village/", "/taohuacun/", "/taohua/", "/xiakedao/", "/binghuo/", "/shenlong/", "/xiaoyao/", "/lingjiu/", "/tiezhang/", "/heimuya/", "/mingjiao/", "/xingxiu/", "/baituo/", "/wudujiao/", "/heizhao/", "/jianzhong/", "/jinshe/", "lingxiao", "/shiliang/", "/yubifeng/",
 	"/death/","/wuguan/","/wizard/",
 });
@@ -27,7 +27,7 @@ int main(object me, string file)
 
 	if(!file)
 	{
-		str = HIM"                            玩家地域分布表\n                            ==============\n\n";
+		str = HIM"                            玩家地域分佈表\n                            ==============\n\n";
 		user = users();
 		u2 = sizeof(user);
 		d2 = sizeof(dd);
@@ -62,11 +62,11 @@ int main(object me, string file)
 		env=find_object(file);
 		if(!env) env=find_player(file);
 		if(!env) env=find_living(file);
-		if(!env) return notify_fail("没有这个地方或玩家！\n");
+		if(!env) return notify_fail("沒有這個地方或玩家！\n");
 //		if( !me->visible(env) )
-//			return notify_fail("没有这个地方或玩家！\n");
+//			return notify_fail("沒有這個地方或玩家！\n");
 		if (living(env)) env=environment(env);
-		if(!env) return notify_fail("这个环境不存在！\n");
+		if(!env) return notify_fail("這個環境不存在！\n");
 	}
 	else
 	{
@@ -82,11 +82,11 @@ int main(object me, string file)
 				dirs[i] = 0;
 		dirs -= ({ 0 });
 		if( sizeof(dirs)==0 )
-			str += "    这里没有任何明显的出路。\n";
+			str += "    這裏沒有任何明顯的出路。\n";
 		else if( sizeof(dirs)==1 )
-				str +="    这里唯一的出口是 " + BOLD HIY + dirs[0] + NOR + "。\n";
+				str +="    這裏唯一的出口是 " + BOLD HIY + dirs[0] + NOR + "。\n";
 			else
-				str += sprintf("    这里明显的出口是 " + BOLD HIY+ "%s" + NOR + " 和 " + BOLD HIY+ "%s" + NOR + "。\n", implode(dirs[0..sizeof(dirs)-2], "、"), dirs[sizeof(dirs)-1]);
+				str += sprintf("    這裏明顯的出口是 " + BOLD HIY+ "%s" + NOR + " 和 " + BOLD HIY+ "%s" + NOR + "。\n", implode(dirs[0..sizeof(dirs)-2], "、"), dirs[sizeof(dirs)-1]);
 	}
 	inv = all_inventory(env);
 	for(i=0; i<sizeof(inv); i++)
@@ -105,7 +105,7 @@ int help (object me)
 	write(@HELP
 指令格式: wang [place or sb.]
  
-这个指令让你查看远处景物。
+這個指令讓你查看遠處景物。
  
 HELP
 );

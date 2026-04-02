@@ -2,11 +2,11 @@
 inherit ROOM;
 void create()
 {
-        set("short","大厅");
+        set("short","大廳");
         set("long",@LONG
-这就是摩天崖了。上面光秃秃的，连一棵小树也没有，峰顶到
-也十分开阔，但身周云雾缭绕，当真是置身云端之中，使人心惊肉
-跳。东面有一个小木屋，门边立着一块青白色石碑(bei)。
+這就是摩天崖了。上面光禿禿的，連一棵小樹也沒有，峯頂到
+也十分開闊，但身周雲霧繚繞，當真是置身雲端之中，使人心驚肉
+跳。東面有一個小木屋，門邊立着一塊青白色石碑(bei)。
 LONG );
         set("outdoors", "motianya");
         set("exits",([
@@ -14,7 +14,7 @@ LONG );
                 "down" : __DIR__"mtyadi",
         ]));
         set("item_desc",([
-                "bei" : "   『摩天崖』  \n无「玄铁令」者禁入！\n",
+                "bei" : "   『摩天崖』  \n無「玄鐵令」者禁入！\n",
         ]));
         set("objects",([
                 __DIR__"npc/xieyan" : 1,
@@ -31,6 +31,6 @@ int valid_leave(object me, string dir)
                 && (!present("xuan tie",me))
                 && objectp(present("xie yanke", environment(me))) )
         return notify_fail
-                ("谢烟客把手一拦：你没有「玄铁令」，不能进去！\n");
+                ("謝煙客把手一攔：你沒有「玄鐵令」，不能進去！\n");
         return ::valid_leave(me, dir);
 }

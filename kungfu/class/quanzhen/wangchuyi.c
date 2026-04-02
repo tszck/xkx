@@ -1,4 +1,4 @@
-// wangchuyi.c 王处一
+// wangchuyi.c 王處一
 
 #include <ansi.h>
 inherit NPC;
@@ -7,14 +7,14 @@ string ask_me();
 
 void create()
 {
-        set_name("王处一", ({"wang chuyi", "wang"}));
+        set_name("王處一", ({"wang chuyi", "wang"}));
         set("gender", "男性");
         set("age", 35);
         set("class", "quanzhen");
-        set("nickname",RED"玉阳子"NOR);
+        set("nickname",RED"玉陽子"NOR);
         set("long",
-                "他就是全真七子之五王处一王真人。他身材修长，服饰整洁，\n"
-                "三绺黑须飘在胸前，神态潇洒。\n");
+                "他就是全真七子之五王處一王真人。他身材修長，服飾整潔，\n"
+                "三綹黑鬚飄在胸前，神態瀟灑。\n");
         set("attitude", "peaceful");
         set("shen_type",1);
         set("str", 32);
@@ -35,8 +35,8 @@ void create()
 
  /*       set("chat_chance", 8);
         set("chat_msg", ({
-                "王处一长叹一声，唉，可恨那杨康把我的药全都藏起来了。\n",
-                "王处一道：谁能帮我找回药来，我一定重重酬谢他。\n",
+                "王處一長嘆一聲，唉，可恨那楊康把我的藥全都藏起來了。\n",
+                "王處一道：誰能幫我找回藥來，我一定重重酬謝他。\n",
         }));
 */
         set("qi", 4000);
@@ -52,9 +52,9 @@ void create()
 
         set_skill("array", 100);
         set_skill("force", 150);
-        set_skill("xiantian-qigong", 150);    //先天气功
+        set_skill("xiantian-qigong", 150);    //先天氣功
         set_skill("sword", 150);
-        set_skill("quanzhen-jian", 210);  //全真剑
+        set_skill("quanzhen-jian", 210);  //全真劍
         set_skill("dodge", 120);
         set_skill("jinyan-gong", 180);   //金雁功
         set_skill("parry", 140);
@@ -62,7 +62,7 @@ void create()
         set_skill("strike", 140);
         set_skill("haotian-zhang", 200);    //昊天掌
         set_skill("cuff", 140);
-        set_skill("chunyang-quan", 200);    //纯阳拳
+        set_skill("chunyang-quan", 200);    //純陽拳
         set_skill("literate", 100);
         set_skill("taoism", 100);
 
@@ -79,9 +79,9 @@ void create()
 
         set("book_count",1);
         set("inquiry", ([
-                "全真教" :  "我全真教是天下道家玄门正宗。\n",
+                "全真教" :  "我全真教是天下道家玄門正宗。\n",
                 "南帝" : (: ask_me :),
-                "段皇爷" : (: ask_me :),
+                "段皇爺" : (: ask_me :),
         ]) );
 
         setup();
@@ -97,18 +97,18 @@ int accept_object(object who, object ob)
 
         if( !who || environment(who) != environment() ) return 0;
         if ( !objectp(ob) ) return 0;
-        if ( !present(ob, who) ) return notify_fail("你没有这件东西。\n");
+        if ( !present(ob, who) ) return notify_fail("你沒有這件東西。\n");
 
-        if (  (string)ob->query("name") != HIR"熊胆"NOR
+        if (  (string)ob->query("name") != HIR"熊膽"NOR
                 && ob->query("name") != HIY"田七"NOR
-                && ob->query("name") != HIW"没药"NOR
+                && ob->query("name") != HIW"沒藥"NOR
                 && ob->query("name") != RED"血竭"NOR )
                     return 0;
 
         remove_call_out("destroying");
         call_out("destroying", 1, me, ob);
-        message_vision("王处一看了看$N送去的药，点了点头道：难为你了，\n"
-                       "我可以教你点功夫。\n", who);
+        message_vision("王處一看了看$N送去的藥，點了點頭道：難爲你了，\n"
+                       "我可以教你點功夫。\n", who);
 
         who->add_temp("tmark/王", 60);
         return 1;
@@ -126,12 +126,12 @@ string ask_me()
 
         if(me->query_temp("tmark/指")==1) {
                 me->add_temp("tmark/指",1);
-                return("去年师傅去过段皇爷那里，据说段皇爷把他最厉害的一阳指功夫
-传授给我师傅了。\n");
+                return("去年師傅去過段皇爺那裏，據說段皇爺把他最厲害的一陽指功夫
+傳授給我師傅了。\n");
         }
         else {
                 me->set_temp("tmark/指",0);
-                return("段皇爷遇上了一件大伤心事，现在出家做了和尚了，唉！");
+                return("段皇爺遇上了一件大傷心事，現在出家做了和尚了，唉！");
         }
 }
 
@@ -139,19 +139,19 @@ int recognize_apprentice(object ob)
 {
         mapping fam;
         if (!(fam = this_player()->query("family")))
-                return notify_fail("王处一道：你可还没拜过师啊，要学功夫还是先拜
-个师父再说吧。\n");
+                return notify_fail("王處一道：你可還沒拜過師啊，要學功夫還是先拜
+個師父再說吧。\n");
         if (!(int)ob->query_temp("tmark/王"))
                 return 0;
         if ( fam["family_name"] == "全真教") return 1 ;
         if ((int)ob->query_temp("tmark/王") == 1 )
-        message_vision("王处一看看$N，说道：我能教你的东西到此为止，\n"
-                          "你也不要再找我学功夫了。\n", ob);
+        message_vision("王處一看看$N，說道：我能教你的東西到此爲止，\n"
+                          "你也不要再找我學功夫了。\n", ob);
         ob->add_temp("tmark/王", -1);
         return 1;
 }
 
 void attempt_apprentice(object ob)
 {
-        command("say 我不收弟子，你去找别的道长吧。");
+        command("say 我不收弟子，你去找別的道長吧。");
 }

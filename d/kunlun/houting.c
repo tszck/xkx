@@ -7,10 +7,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "后厅");
+	set("short", "後廳");
 	set("long", @LONG
-这里是后客厅，里面简单，只有几张软榻，供疲惫的客人歇息，屋
-子里烤着火，暖烘烘的。
+這裏是後客廳，裏面簡單，只有幾張軟榻，供疲憊的客人歇息，屋
+子裏烤着火，暖烘烘的。
 LONG );
 	set("exits",([
 		"north" : __DIR__"huayuan",

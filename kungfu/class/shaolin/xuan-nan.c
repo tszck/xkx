@@ -8,14 +8,14 @@ string ask_me();
 
 void create()
 {
-	set_name("玄难大师", ({
+	set_name("玄難大師", ({
 		"xuannan dashi",
 		"xuannan",
 		"dashi",
 	}));
 	set("long",
-		"他是一位白须白眉的老僧，身穿一袭银丝棕黄袈裟。他身材极瘦，\n"
-		"两手更象鸡爪一样。他双目微闭，一副没精打采的模样。\n"
+		"他是一位白鬚白眉的老僧，身穿一襲銀絲棕黃袈裟。他身材極瘦，\n"
+		"兩手更象雞爪一樣。他雙目微閉，一副沒精打採的模樣。\n"
 	);
 
 
@@ -76,8 +76,8 @@ void create()
 	create_family("少林派", 36, "弟子");
 
 	set("inquiry", ([
-		"十八罗汉阵"       : (: ask_me :),
-		"罗汉大阵"	   : (: ask_me :)
+		"十八羅漢陣"       : (: ask_me :),
+		"羅漢大陣"	   : (: ask_me :)
 	]));
 
 	setup();

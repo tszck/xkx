@@ -6,13 +6,13 @@ inherit NPC;
 
 void create()
 {
-	set_name("褚圆", ({ "chu yuan", "chu", "yuan"}) );
-	set("title", "御前侍卫");
+	set_name("褚圓", ({ "chu yuan", "chu", "yuan"}) );
+	set("title", "御前侍衛");
 	set("gender", "男性");
 	set("age", 34);
 	set("long",
-		"褚圆原是和尚，法名智圆，后来犯了清规，被追缴度牒，逐
-出庙门，他索性还了俗，做了大内侍卫。\n");
+		"褚圓原是和尚，法名智圓，後來犯了清規，被追繳度牒，逐
+出廟門，他索性還了俗，做了大內侍衛。\n");
 	set("combat_exp", 350000);
         set("shen_type", -1);
 	set("attitude", "heroism");

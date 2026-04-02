@@ -5,7 +5,7 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-        set_name("迟百城", ({ "chi baicheng", "baicheng", "chi" }) );
+        set_name("遲百城", ({ "chi baicheng", "baicheng", "chi" }) );
         set("gender", "男性");
         set("class", "swordsman");
         set("age", 25);

@@ -5,10 +5,10 @@ inherit RESTROOM_IN;
 
 void create()
 {
-	set("short", "华山小筑");
+	set("short", "華山小築");
 	set("long", @LONG
-这是间整洁的厢房，因门窗常闭着，光线很昏暗。房里别无他物，
-只有中间放着一张收拾得舒舒服服的大床，看着就让人想睡觉。
+這是間整潔的廂房，因門窗常閉着，光線很昏暗。房裏別無他物，
+只有中間放着一張收拾得舒舒服服的大牀，看着就讓人想睡覺。
 LONG );
 
 	set("sleep_room", 1);
@@ -18,9 +18,9 @@ LONG );
 	set("coor/x", -830);
 	set("coor/y", 210);
 	set("coor/z", 120);
-  set("door_name","竹门");
+  set("door_name","竹門");
 	set("door_dir","west");
-	set("force_name","陆大有");
+	set("force_name","陸大有");
   set("outroom",__DIR__"xiaolu2");
 	setup();
 }

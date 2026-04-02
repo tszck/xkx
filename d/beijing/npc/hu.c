@@ -4,15 +4,15 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("胡掌柜", ({ "hu zhanggui", "hu" }));
-	set("title", "杂货铺老板");
+	set_name("胡掌櫃", ({ "hu zhanggui", "hu" }));
+	set("title", "雜貨鋪老闆");
 	set("shen_type", 1);
 
 	set("gender", "男性");
 	set("age", 45);
 	set("long",
-		"别看胡掌柜整天懒洋洋的，他心里可盘算得精着呢。\n"+
-		"在这北京城能混出个样儿来，再怎么也得有几分本事。\n");
+		"別看胡掌櫃整天懶洋洋的，他心裏可盤算得精着呢。\n"+
+		"在這北京城能混出個樣兒來，再怎麼也得有幾分本事。\n");
 	set_skill("unarmed", 60);
 	set_skill("parry", 60);
 	set_skill("dodge", 60);

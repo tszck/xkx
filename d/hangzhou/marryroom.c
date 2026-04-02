@@ -4,12 +4,12 @@ inherit ROOM;
 string look_zhaopai(object me);
 void create()
 {
-        set("short", "红娘庄");
+        set("short", "紅娘莊");
         set("long", @LONG
-你现在正站在风光秀丽的西子湖畔的红娘庄里，临水凭窗，隔着
-碧绿的湖面，就是断桥了。红娘庄并不大，但这里却主天下之悲欢离
+你現在正站在風光秀麗的西子湖畔的紅娘莊裏，臨水憑窗，隔着
+碧綠的湖面，就是斷橋了。紅娘莊並不大，但這裏卻主天下之悲歡離
 合，成就所有天下有情人。
-    靠近门口的地方有一块乌木雕成的招牌(zhaopai)。
+    靠近門口的地方有一塊烏木雕成的招牌(zhaopai)。
 LONG);
         set("exits", ([
             "east" : __DIR__"road10",
@@ -31,5 +31,5 @@ LONG);
 
 string look_zhaopai(object me)
 {
-        return "缔结(marry)或解除(unmarry)婚约。\n";
+        return "締結(marry)或解除(unmarry)婚約。\n";
 }

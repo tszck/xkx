@@ -9,8 +9,8 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "个");
-		set("long", "这是一个油布包裹。\n");
+		set("unit", "個");
+		set("long", "這是一個油布包裹。\n");
 		set("value", 500);
 		set("material", "cloth");
 	}
@@ -33,5 +33,5 @@ int do_open(string arg)
  
 
 	if ( !id(arg) ) return 0;
-	return notify_fail("油布包里面什么也没有了。\n");
+	return notify_fail("油布包裏面什麼也沒有了。\n");
 }

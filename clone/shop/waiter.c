@@ -5,8 +5,8 @@ inherit WAITER;
 void reset_title();
 void create()
 {
-	set_name("店铺伙计", ({ "huo ji", "huo", "ji" }));
-	set("long", "他就是这家店铺的伙计。\n");
+	set_name("店鋪夥計", ({ "huo ji", "huo", "ji" }));
+	set("long", "他就是這家店鋪的夥計。\n");
 	set("gender", "男性");
 	set("shop", "yangzhou");
 	set("age", random(10) + 20);

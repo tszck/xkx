@@ -16,10 +16,10 @@ void create()
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-               set("long", "这是一张楠木供桌，桌上有一盏油灯。\n");
-               set("unit", "张");
+               set("long", "這是一張楠木供桌，桌上有一盞油燈。\n");
+               set("unit", "張");
                set("material", "wood");
-               set("no_get", "\n你拿不动.\n");
+               set("no_get", "\n你拿不動.\n");
         }
         setup();
 }
@@ -29,9 +29,9 @@ int do_climb(string arg)
         object me = this_player();
         int i;
 	if (!id(arg)||arg!="table")
-                return notify_fail("你要往哪儿爬？\n");
+                return notify_fail("你要往哪兒爬？\n");
         if (this_player()->query_temp("marks/爬") ) {
-                       write("你怎么爬个没完没了？\n");
+                       write("你怎麼爬個沒完沒了？\n");
                         return 1;
         }
         else {
@@ -43,8 +43,8 @@ int do_climb(string arg)
 		}
 		else
 		{
-		message_vision("\n$N苯手苯脚地爬上供桌，一不小心把油灯弄倒了！。\n", this_player());
-		message_vision("供桌立刻着了火，$N身上带着火就慌慌张张跳了下来。\n", this_player());
+		message_vision("\n$N苯手苯腳地爬上供桌，一不小心把油燈弄倒了！。\n", this_player());
+		message_vision("供桌立刻着了火，$N身上帶着火就慌慌張張跳了下來。\n", this_player());
 		i = (int)me->query_skill("dodge", 1) + random(50);
 		if(i<50) { me->die(); return 1;}
 		if(i<75) { me->unconcious(); return 1;}
@@ -60,15 +60,15 @@ int do_move(string arg)
         object ob,me = this_player();
         
 	if (!id(arg)||arg!="table")
-                return notify_fail("你要移什么？\n");
+                return notify_fail("你要移什麼？\n");
 	if (!(ob = present("jin", this_player())))
-	return notify_fail("你没事儿乱移什么？\n");
+	return notify_fail("你沒事兒亂移什麼？\n");
 	if (this_player()->query_temp("marks/移") ) {
         message_vision("$N又把供桌移了回去。\n",me);
 	this_player()->delete_temp("marks/移");
         }
         else {
-        message_vision("$N把供桌移开。\n",me);
+        message_vision("$N把供桌移開。\n",me);
        this_player()->set_temp("marks/移",1);
 	     }
 return 1;

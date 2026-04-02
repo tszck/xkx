@@ -8,8 +8,8 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", YEL"这木盒古朴典雅，沉甸甸的，里面也许有什么宝贵的物事。\n"NOR);
-		set("unit", "个");
+		set("long", YEL"這木盒古樸典雅，沉甸甸的，裏面也許有什麼寶貴的物事。\n"NOR);
+		set("unit", "個");
 		set("open_count", 0);
 		set("weight", 20000);
 	}
@@ -22,5 +22,5 @@ void init()
 
 int do_open()
 {
-	return notify_fail("木盒已经被别人打开过了。\n");
+	return notify_fail("木盒已經被別人打開過了。\n");
 }

@@ -7,8 +7,8 @@ object hg_ji = 0;
 object lw_ji = 0;
 
 mapping jis = ([ 
-	"hg" : "红冠鸡",
-	"lw" : "绿尾鸡",
+	"hg" : "紅冠雞",
+	"lw" : "綠尾雞",
 ]); 
 
 int random2 (int i)
@@ -18,16 +18,16 @@ int random2 (int i)
 
 void create()
 {
-	set("short", "斗鸡房");
+	set("short", "鬥雞房");
 	set("long", @LONG 
-斗鸡房里一左一右放着两个青竹鸡笼，一个鸡笼里关着一群红冠鸡，
-另一个鸡笼里关着一群绿尾鸡。屋子正中是七尺见方的斗鸡场，由一圈
-低低的青玉栏杆围成。一位白髯鸡仙正在张罗着斗鸡。在他的后面墙上
-有一个牌子(paizi)。
+鬥雞房裏一左一右放着兩個青竹雞籠，一個雞籠裏關着一羣紅冠雞，
+另一個雞籠裏關着一羣綠尾雞。屋子正中是七尺見方的鬥雞場，由一圈
+低低的青玉欄杆圍成。一位白髯雞仙正在張羅着鬥雞。在他的後面牆上
+有一個牌子(paizi)。
 LONG);
 
 	set("item_desc",([
-		"paizi" : "押红冠鸡： dou hg <amount> <money>\n押绿尾鸡： dou lw <amount> <money>\n", 
+		"paizi" : "押紅冠雞： dou hg <amount> <money>\n押綠尾雞： dou lw <amount> <money>\n", 
 	])); 
 	set("objects", ([ /* sizeof() == 1 */
 		__DIR__"npc/jixian" : 1,
@@ -72,26 +72,26 @@ int do_dou (string arg)
 	int amount;
 
 	if (! arg || sscanf (arg,"%s %d %s",what,amount,money) != 3)
-		return notify_fail("请使用： dou <押鸡种类> <数目> <货币>\n");
+		return notify_fail("請使用： dou <押雞種類> <數目> <貨幣>\n");
 	if (what != "hg" && what != "lw")
-		return notify_fail("你要押什么样的鸡？\n");
+		return notify_fail("你要押什麼樣的雞？\n");
 
 	ob = present(money+"_money", me);
-	if (! ob) return notify_fail("你身上没有这种货币。\n");
-	if (amount < 1) return notify_fail("请多押一些钱。\n");
+	if (! ob) return notify_fail("你身上沒有這種貨幣。\n");
+	if (amount < 1) return notify_fail("請多押一些錢。\n");
 	if (amount > ob->query_amount())
-		return notify_fail("你身上的钱不够押。\n");
+		return notify_fail("你身上的錢不夠押。\n");
 	if (amount * (ob->query("base_value")) > 10000 )
-		return notify_fail("你想豪赌啊，拜托！官兵就上来了。\n");
+		return notify_fail("你想豪賭啊，拜託！官兵就上來了。\n");
 	if (me->query_temp ("gamble_ji/amount") > 0)
-		return notify_fail("你已经押过了。\n");
+		return notify_fail("你已經押過了。\n");
 	if (room_status > 1)
-		return notify_fail("现在正在斗鸡呢，稍等片刻。\n");
+		return notify_fail("現在正在鬥雞呢，稍等片刻。\n");
 
 	me->set_temp("gamble_ji/kind",what);
 	me->set_temp("gamble_ji/amount",amount);
 	me->set_temp("gamble_ji/money",money);
-	message_vision (sprintf("$N拿出%s%s%s往青玉栏杆上一放，押在%s上。\n",
+	message_vision (sprintf("$N拿出%s%s%s往青玉欄杆上一放，押在%s上。\n",
 		chinese_number(amount), ob->query("base_unit"),
 		ob->query("name"), jis[what]), me);
 	if (amount == ob->query_amount()) destruct (ob);
@@ -105,7 +105,7 @@ int valid_leave(object me, string dir)
 	if (dir == "south")
 	{
 		if (me->query_temp ("gamble_ji/amount") > 0) 
-			message_vision ("$N扔下押鸡的钱不要了。\n",me);
+			message_vision ("$N扔下押雞的錢不要了。\n",me);
 		me->delete_temp("gamble_ji");
 	}
 	return ::valid_leave(me,dir);
@@ -133,14 +133,14 @@ void gamble_prepare ()
 		room_status = 0;
 		return ;
 	}
-	tell_room (room,"白髯鸡仙从左右鸡笼里各拿出一只红冠鸡和一只绿尾鸡。\n");
+	tell_room (room,"白髯雞仙從左右雞籠裏各拿出一隻紅冠雞和一隻綠尾雞。\n");
 	hg_ji = new(__DIR__+"npc/douji");
-	hg_ji->set("name","红冠鸡");
+	hg_ji->set("name","紅冠雞");
 	hg_ji->move(room);
 	lw_ji = new(__DIR__+"npc/douji");
-	lw_ji->set("name","绿尾鸡");
+	lw_ji->set("name","綠尾雞");
 	lw_ji->move(room);
-	tell_room (room,"白髯鸡仙说：好，可以押钱了，一赢二。\n");
+	tell_room (room,"白髯雞仙說：好，可以押錢了，一贏二。\n");
 	room_status = 1;
 	call_out ("gamble_start",20);
 }
@@ -148,8 +148,8 @@ void gamble_prepare ()
 void gamble_start ()
 {
 	object room = this_object();
-	tell_room (room,"白髯鸡仙说声：停押，斗鸡。\n");
-	tell_room (room,"然后将两只鸡抱起，拿出铁啄熟练地安上，把鸡放进栏内。\n");
+	tell_room (room,"白髯雞仙說聲：停押，鬥雞。\n");
+	tell_room (room,"然後將兩隻雞抱起，拿出鐵啄熟練地安上，把雞放進欄內。\n");
 	room_status = 2;
 	hg_ji->kill_ob(lw_ji);
 	lw_ji->kill_ob(hg_ji);
@@ -178,9 +178,9 @@ void gamble_perform ()
 	if (! living(lw_ji)) lw_ji->die();
 
 	ji = present_ji (room);
-	// 这样判断对两只鸡不公平
-	// 鸡甲只需要打鸡乙到15气以下就能赢
-	// 鸡乙必须把鸡甲打死才行
+	// 這樣判斷對兩隻雞不公平
+	// 雞甲只需要打雞乙到15氣以下就能贏
+	// 雞乙必須把雞甲打死纔行
 	if (ji && ji->is_fighting())
 	{
 		remove_call_out ("gamble_perform");
@@ -205,7 +205,7 @@ void player_wins (object who, int total)
 
 	total = total * amount;
 	money->set_amount(total);
-	message_vision (sprintf("$N赢了%s%s%s！\n",
+	message_vision (sprintf("$N贏了%s%s%s！\n",
 		chinese_number(total), money->query("base_unit"),
 		money->query("name")), who);
 	money->move(who);
@@ -216,7 +216,7 @@ void player_loses (object who, int total)
 	object money = new("/clone/money/"+who->query_temp("gamble_ji/money"));
 
 	total = who->query_temp("gamble_ji/amount");
-	message_vision (sprintf("白髯鸡仙将$N留在玉栏上的%s%s%s收走。\n",
+	message_vision (sprintf("白髯雞仙將$N留在玉欄上的%s%s%s收走。\n",
 		chinese_number(total), money->query("base_unit"),
 		money->query("name")), who);
 	destruct (money);
@@ -232,13 +232,13 @@ void clean_ji ()
 		ji = present_ji (room);
 		if (ji)
 		{
-			tell_room (room,"白髯鸡仙将"+ji->query("name")+"递到屋内。\n");
+			tell_room (room,"白髯雞仙將"+ji->query("name")+"遞到屋內。\n");
 			destruct (ji);
 		}
 		ji = present("corpse",room);
 		if (ji)
 		{
-			tell_room(room,"白髯鸡仙拎起"+ji->query("name")+"回头一扔。\n");
+			tell_room(room,"白髯雞仙拎起"+ji->query("name")+"回頭一扔。\n");
 			destruct (ji);
 		}
 	}
@@ -255,12 +255,12 @@ void gamble_finish ()
 		total = 0;
 		win = "none of them";
 	}
-	else if (ji->query("name")=="红冠鸡")
+	else if (ji->query("name")=="紅冠雞")
 		{
 			total = 2;
 			win = "hg";
 		}
-		else if (ji->query("name")=="绿尾鸡")
+		else if (ji->query("name")=="綠尾雞")
 		{
 			total = 2;
 			win = "lw";
@@ -270,8 +270,8 @@ void gamble_finish ()
 		total = 0;
 		win = "none of them";
 	}
-	if (total > 0) tell_room (room,"白髯鸡仙说道："+jis[win]+"获胜！\n");
-	else tell_room (room,"白髯鸡仙叹息道：双败陪本！\n");
+	if (total > 0) tell_room (room,"白髯雞仙說道："+jis[win]+"獲勝！\n");
+	else tell_room (room,"白髯雞仙嘆息道：雙敗陪本！\n");
 	i = sizeof(list);
 	while (i--)
 	{
@@ -296,8 +296,8 @@ int do_bian (string arg)
 	ob = present(arg,room);
 	if (ob == hg_ji || ob == lw_ji)
 	{
-		message_vision ("$N头往鸡肚下一钻，想变成鸡。\n",who);
-		message_vision ("白髯鸡仙对$N说道：是看鸡呢还是看你？\n",who);
+		message_vision ("$N頭往雞肚下一鑽，想變成雞。\n",who);
+		message_vision ("白髯雞仙對$N說道：是看雞呢還是看你？\n",who);
 		return 1;
 	}
 	return 0;
@@ -311,8 +311,8 @@ int do_fight (string arg)
 	ob = present(arg,room);
 	if (ob == hg_ji || ob == lw_ji)
 	{
-		message_vision ("$N向鸡提出挑战。\n",who);
-		message_vision ("白髯鸡仙对$N说道：是看鸡斗鸡呢还是人斗鸡？\n",who);
+		message_vision ("$N向雞提出挑戰。\n",who);
+		message_vision ("白髯雞仙對$N說道：是看雞鬥雞呢還是人鬥雞？\n",who);
 		return 1;
 	}
 	return 0;
@@ -323,7 +323,7 @@ int do_steal (string arg)
  object who = this_player();
 
 	message_vision ("$N偷偷摸摸地伸出手。\n",who);
-	message_vision ("白髯鸡仙对$N说道：你真的要偷鸡摸狗不成？\n",who);
+	message_vision ("白髯雞仙對$N說道：你真的要偷雞摸狗不成？\n",who);
 	return 1;
 }
 
@@ -336,8 +336,8 @@ int do_kill (string arg)
 	ob = present(arg,room);
 	if (ob == hg_ji || ob == lw_ji)
 	{
-		message_vision ("$N恶狠狠地想杀鸡。\n",who);
-		message_vision ("白髯鸡仙对$N说道：想吃鸡自个上馆子去。\n",who);
+		message_vision ("$N惡狠狠地想殺雞。\n",who);
+		message_vision ("白髯雞仙對$N說道：想喫雞自個上館子去。\n",who);
 		return 1;
 	}
 	return 0;
@@ -347,8 +347,8 @@ int do_ji (string arg)
 {
  object who = this_player();
 
-	message_vision("$N鸡头鸡脑地想要祭什么。\n",who);
-	message_vision("白髯鸡仙对$N说道：鸡又不是祖宗，对鸡祭什么祭。\n",who);
+	message_vision("$N雞頭雞腦地想要祭什麼。\n",who);
+	message_vision("白髯雞仙對$N說道：雞又不是祖宗，對雞祭什麼祭。\n",who);
 	return 1;
 }
 
@@ -356,8 +356,8 @@ int do_exert (string arg)
 {
  object who = this_player();
 
-	message_vision ("$N想施内功。\n",who);
-	message_vision ("白髯鸡仙对$N说道：别在这里练功，练出鸡胸怎办？\n",who);
+	message_vision ("$N想施內功。\n",who);
+	message_vision ("白髯雞仙對$N說道：別在這裏練功，練出雞胸怎辦？\n",who);
 	return 1;
 }
 
@@ -366,6 +366,6 @@ int do_perform (string arg)
  object who = this_player();
 
 	message_vision ("$N想施外功。\n",who);
-	message_vision ("白髯鸡仙对$N说道：别在这里练功，练出鸡胸怎办？\n",who);
+	message_vision ("白髯雞仙對$N說道：別在這裏練功，練出雞胸怎辦？\n",who);
 	return 1;
 }

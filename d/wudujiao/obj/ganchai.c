@@ -14,12 +14,12 @@ void init()
 
 void create()
 {
-               set_name("干柴", ({"ganchai" ,"chai"}));
+               set_name("乾柴", ({"ganchai" ,"chai"}));
 
                 set("unit", "捆");
-                set("long", "这是一小捆烧火用的干柴。\n");
+                set("long", "這是一小捆燒火用的乾柴。\n");
                 set("value", 0);
-//            set("no_drop", "这样东西不能离开你。\n");
+//            set("no_drop", "這樣東西不能離開你。\n");
               set_weight(500);
 
 
@@ -34,7 +34,7 @@ int do_make(string arg)
     return 0;
     if (arg != "火把"& arg !="huoba")
     return 0;
-    message_vision ("$N拿起一捆干柴，三下两下就扎成了一支火把。\n\n",me);
+    message_vision ("$N拿起一捆乾柴，三下兩下就紮成了一支火把。\n\n",me);
     this_object()->recreate();
     return 1;
 }
@@ -43,9 +43,9 @@ void recreate ()
                set_name("火把", ({"huo ba","ba"}));
 
                 set("unit", "支");
-                set("long", "这是一支照明用的火把。\n");
+                set("long", "這是一支照明用的火把。\n");
                 set("value", 0);
-//            set("no_drop", "这样东西不能离开你。\n");
+//            set("no_drop", "這樣東西不能離開你。\n");
               set_weight(300);
         setup();
 }

@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("凤一鸣", ({ "feng yiming", "feng", "yiming" }));
+	set_name("鳳一鳴", ({ "feng yiming", "feng", "yiming" }));
 	set("gender", "男性");
 	set("age", 25);
 	set("long", 
-"他是佛山镇上大财主凤天南之子。只见他步履轻捷，脸上英气勃勃，显是武功不弱。\n");
+"他是佛山鎮上大財主鳳天南之子。只見他步履輕捷，臉上英氣勃勃，顯是武功不弱。\n");
 	set("combat_exp", 40000);
 
 	set_skill("unarmed", 50);

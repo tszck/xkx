@@ -12,7 +12,7 @@ void create()
 	set_name("蒙面人", ({ "mengmian  ren" }));
 	set("age",30+random(10));
 	set("long", 
-"此人一身黑衣，手握利刃，一身修为甚是了得。\n");
+"此人一身黑衣，手握利刃，一身修爲甚是了得。\n");
 	set("no_steal", 1);
 	set("quest_no_guard",1);
 	set( "chat_chance_combat", 80);         
@@ -33,7 +33,7 @@ void init()
 
 int accept_hit(object me)
 {
-	notify_fail(HIW"不是你要抓的人，凑什么热闹！\n"NOR);
+	notify_fail(HIW"不是你要抓的人，湊什麼熱鬧！\n"NOR);
 	if( this_object()->query("owner") == me->query("id")) 
 		return 1;
 }
@@ -50,7 +50,7 @@ int do_halt()
         
         if ( me->is_fighting(ob))
         {
-                message_vision(HIW"$N喝道：“你既然识破我的身份，就休想活着离开！”\n"NOR, ob, me);
+                message_vision(HIW"$N喝道：“你既然識破我的身份，就休想活着離開！”\n"NOR, ob, me);
                 return 1;
         }
         return 0;

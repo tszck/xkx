@@ -1,12 +1,12 @@
-// zheng.c 郑七灭
+// zheng.c 鄭七滅
  
 inherit NPC;
  
 void create()
 {
-	set_name("郑七灭", ({ "zheng  qimie" }));
+	set_name("鄭七滅", ({ "zheng  qimie" }));
 	set("nickname", "神箭八雄");
-	set("long","原是武林中的巨寇，后来为躲避官府和仇家，随便起了个假名字。\n");
+	set("long","原是武林中的巨寇，後來爲躲避官府和仇家，隨便起了個假名字。\n");
 	set("gender", "男性");
 	set("age", 36);
 	set("attitude", "peaceful");

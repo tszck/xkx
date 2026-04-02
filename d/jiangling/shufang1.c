@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create ()
 {
-	set ("short", "书房");
+	set ("short", "書房");
 	set ("long", @LONG
-这是万老爷子的书房。摆设简单整洁。左首一堵白墙特别惹眼。
+這是萬老爺子的書房。擺設簡單整潔。左首一堵白牆特別惹眼。
 LONG);
 	set("exits", ([
 		"west" : __DIR__"beilou",

@@ -3,7 +3,7 @@ inherit __DIR__"changer.c";
 
 void  create()
 {
-	set_name("猎户", ({ "lie hu" }));
+	set_name("獵戶", ({ "lie hu" }));
 	set("gender", "男性");
 	set("age", 25);
 	set("per", 15);

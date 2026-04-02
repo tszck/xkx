@@ -28,15 +28,15 @@ string long_desc()
 {
 	string desc;
 
-	desc = "这是一艘很普通的渔船，几名渔夫摆弄着帆篷，篙桨，绳索，和船尾木舵。\n";
-	desc += "以下指令有助于你的航行：(1)start, (2)stop, (3)go, (4)lookout, (5)locate。\n\n";
+	desc = "這是一艘很普通的漁船，幾名漁夫擺弄着帆篷，篙槳，繩索，和船尾木舵。\n";
+	desc += "以下指令有助於你的航行：(1)start, (2)stop, (3)go, (4)lookout, (5)locate。\n\n";
 
 	if( !query("exits/out") )
 		switch((int)query_temp("navigate/weather"))
 		{
-			case 1: desc += BLU"天空中彤云密布，只有几只海鸥还在奋力展翅，海船左右摇晃不已，你感到有\n点立足不稳。\n"NOR; break;
-			case 2: desc += BLU"海面汹涌澎湃，几丈高的巨浪排山倒海似得压来，随时都有可能将船掀翻，你\n时而不得不紧紧抱住船杆，以免落海。\n"NOR; break;
-			default: desc += BLU"四周是辽阔的海面，海风在你耳边轻轻吹过，海浪一个接一个向船泼打过来。\n"NOR;  break;
+			case 1: desc += BLU"天空中彤雲密佈，只有幾隻海鷗還在奮力展翅，海船左右搖晃不已，你感到有\n點立足不穩。\n"NOR; break;
+			case 2: desc += BLU"海面洶湧澎湃，幾丈高的巨浪排山倒海似得壓來，隨時都有可能將船掀翻，你\n時而不得不緊緊抱住船杆，以免落海。\n"NOR; break;
+			default: desc += BLU"四周是遼闊的海面，海風在你耳邊輕輕吹過，海浪一個接一個向船潑打過來。\n"NOR;  break;
 		}
 	return desc;
 }
@@ -56,14 +56,14 @@ int do_fast(string arg)
 	object me = this_player();
 	
 	if( !wizardp(me) )
-		return notify_fail("你鼓起腮帮子，拼命向船帆上吹气！\n");
+		return notify_fail("你鼓起腮幫子，拼命向船帆上吹氣！\n");
 	
-	if( !arg ) return notify_fail("指令错误！\n");
+	if( !arg ) return notify_fail("指令錯誤！\n");
 
-	message_vision(HIW"$N仰天长啸：ＷＩＮＤ　ＥＬＥＭＥＮＴ！！！\n"NOR,me);
+	message_vision(HIW"$N仰天長嘯：ＷＩＮＤ　ＥＬＥＭＥＮＴ！！！\n"NOR,me);
 	tell_room(this_object(), HIG
-	"只见天空中乌云密布，一个巨神的身影在天际出现，化做一股龙卷风！\n"+
-	"龙卷风带起数百丈高的海浪向船袭来，你吓得动也不敢动！！！\n"NOR);
+	"只見天空中烏雲密佈，一個巨神的身影在天際出現，化做一股龍捲風！\n"+
+	"龍捲風帶起數百丈高的海浪向船襲來，你嚇得動也不敢動！！！\n"NOR);
 
 	switch(arg) {
 		case "east":
@@ -91,10 +91,10 @@ int do_start()
 
 	inv = filter_array(all_inventory(this_object()), "is_owner", this_object(), me);
 	if( sizeof(inv) > 0 )
-		return notify_fail("长这么大连一点江湖规矩都不懂？\n");
+		return notify_fail("長這麼大連一點江湖規矩都不懂？\n");
 
 	if( !query("exits/out") )
-		return notify_fail("船已经出海了。\n");
+		return notify_fail("船已經出海了。\n");
 
 	if( !(shipside = find_object(query("exits/out"))) )
 		shipside = load_object(query("exits/out"));
@@ -109,17 +109,17 @@ int do_start()
 			set_temp("navigate/locy", 20);
 			break;
 
-		case "冰火岛":
+		case "冰火島":
 			set_temp("navigate/locx", 90);
 			set_temp("navigate/locy", 590);
 			break;
 
 	}
 
-	message("vision", "渔船离了岸，驶向茫茫的大海。\n", shipside);
+	message("vision", "漁船離了岸，駛向茫茫的大海。\n", shipside);
 	shipside->delete("exits/enter");
 
-	message_vision("$N大喝一声“开船”，于是船便离了岸。\n", me);
+	message_vision("$N大喝一聲“開船”，於是船便離了岸。\n", me);
 	delete("exits/out");
 
 	call_out("shipweather", 1);
@@ -137,7 +137,7 @@ int navigate()
 
 	if( !random(100) && !query("exist/out")
 	&&  query_temp("navigate/weather") == 2 ) {
-		tell_room(this_object(), HIR"\n突然间狂风大作，不一会儿船就翻了！\n\n"NOR);
+		tell_room(this_object(), HIR"\n突然間狂風大作，不一會兒船就翻了！\n\n"NOR);
 		do_drop();
 		return 1;
 	}
@@ -146,40 +146,40 @@ int navigate()
 		switch(random(10)) {
 		case 0 : /* monster 海怪*/
 			break;
-		case 1 : /* treasure 财宝*/
+		case 1 : /* treasure 財寶*/
 			break;
-		case 2 : /* corsair 海盗*/
+		case 2 : /* corsair 海盜*/
 			break;
 		case 3 :
 			tell_room(this_object(), HIC
-			"你看见桅杆上闪着青白色的光，哇！神迹！！！\n"NOR);
+			"你看見桅杆上閃着青白色的光，哇！神蹟！！！\n"NOR);
 			break;
 		case 4 :
 			tell_room(this_object(), HIW
-			"大雾迷漫，一艘破旧的大船开了过来，一会儿又消失了，船上传来隐隐的叹息声，\n"+
-			"你依稀记得船上有几个怪字＂Titanic＂！！！\n"NOR);
+			"大霧迷漫，一艘破舊的大船開了過來，一會兒又消失了，船上傳來隱隱的嘆息聲，\n"+
+			"你依稀記得船上有幾個怪字＂Titanic＂！！！\n"NOR);
 			break;
 		case 5 :
 			tell_room(this_object(), HIR
-			"你看见一只燃烧着的大鸟向船冲过来，糟糕，要撞上了！！！\n"NOR);
+			"你看見一隻燃燒着的大鳥向船衝過來，糟糕，要撞上了！！！\n"NOR);
 			break;
 		case 6 :
 			tell_room(this_object(), HIM
-			"海面上传来一阵美妙的歌声，你顿时有一种按捺不住跳下海的冲动！！！\n"NOR);
+			"海面上傳來一陣美妙的歌聲，你頓時有一種按捺不住跳下海的衝動！！！\n"NOR);
 			break;
 		case 7 :
 			tell_room(this_object(), HIG
-			"你突然发现海中有一只青色大眼睛正瞪着你，过一会儿就不见了，你吓得魂不附体！！！\n"NOR);
+			"你突然發現海中有一隻青色大眼睛正瞪着你，過一會兒就不見了，你嚇得魂不附體！！！\n"NOR);
 			break;
 		case 8 :
 			tell_room(this_object(), HIY
-			"你看见远处一个人身鱼尾的美丽少女跃出海面，哇噻！美人鱼咧！！！\n"NOR);
+			"你看見遠處一個人身魚尾的美麗少女躍出海面，哇噻！美人魚咧！！！\n"NOR);
 			break;
 		case 9 :
 			tell_room(this_object(), HIG
-			"你眼前一亮，北方映出一片奇异莫可名状的光彩，"+HIM"无数奇丽绝伦的光色，在黑暗中\n"+
-			"忽伸忽缩，"+YEL"大片橙黄之中"+MAG"夹着丝丝淡紫，忽而紫色愈深愈长，紫色之中，迸射出一\n"+
-			"条条"+HIY"金光、"+HIB"蓝光、"+HIG"绿光、"+HIR"红光。\n"NOR);
+			"你眼前一亮，北方映出一片奇異莫可名狀的光彩，"+HIM"無數奇麗絕倫的光色，在黑暗中\n"+
+			"忽伸忽縮，"+YEL"大片橙黃之中"+MAG"夾着絲絲淡紫，忽而紫色愈深愈長，紫色之中，迸射出一\n"+
+			"條條"+HIY"金光、"+HIB"藍光、"+HIG"綠光、"+HIR"紅光。\n"NOR);
 			break;
 		}
 	}
@@ -188,18 +188,18 @@ int navigate()
 		if( !random(100) ) {
 			add_temp("navigate/wait", 1);
 			if( query_temp("navigate/wait") > 5 ) {
-				tell_room(this_object(), "船夫们把大家都扔进了海里。\n");
+				tell_room(this_object(), "船伕們把大家都扔進了海里。\n");
 				do_drop();
 				return 1;
 			}
-			tell_room(this_object(), "船夫们不耐烦地说：你到底走不走啊？\n");
+			tell_room(this_object(), "船伕們不耐煩地說：你到底走不走啊？\n");
 		}			
 		call_out("navigate", 1);
 		return 1;
 	}       
 
 	switch(dir) {
-		case "东":
+		case "東":
 			add_temp("navigate/locx", 1);
 			break;
 		case "南":
@@ -218,7 +218,7 @@ int navigate()
 
 	locx = query_temp("navigate/locx");
 	if( locx < 0 ) {
-		tell_room(this_object(), "船夫说：“大陆到啦，上岸吧”。\n");
+		tell_room(this_object(), "船伕說：“大陸到啦，上岸吧”。\n");
 		set("exits/out", "/d/beijing/haigang");
 
 		delete_temp("navigate");
@@ -226,13 +226,13 @@ int navigate()
 
 		dest = find_object("/d/beijing/haigang");
 		dest->set("exits/enter", "/d/shenlong/ship");
-		message("vision", "一条渔船驶了过来。\n", dest);
+		message("vision", "一條漁船駛了過來。\n", dest);
 		return 1;
 	}
 
 	locy = query_temp("navigate/locy");
 	if( locx == 20 &&  locy == 20 ) {
-		tell_room(this_object(), "船夫说：“神龙岛到啦，上岸吧”。\n");
+		tell_room(this_object(), "船伕說：“神龍島到啦，上岸吧”。\n");
 		set("exits/out", "/d/shenlong/beach");
 
 		delete_temp("navigate");
@@ -240,13 +240,13 @@ int navigate()
 
 		dest = find_object("/d/shenlong/beach");
 		dest->set("exits/enter", "/d/shenlong/ship");
-		message("vision", "一条渔船驶了过来。\n", dest);
+		message("vision", "一條漁船駛了過來。\n", dest);
 		return 1;
 	}
 
 	if( locx <= 110 &&  locy <= 610 
 	&& locx >= 95 && locy >= 590 ) {
-		tell_room(this_object(),"船夫说：“到了一个怪岛，要上去看看吗？”。\n");
+		tell_room(this_object(),"船伕說：“到了一個怪島，要上去看看嗎？”。\n");
 		set("exits/out", "/d/changbai/icefire1");
 
 		delete_temp("navigate");
@@ -254,12 +254,12 @@ int navigate()
 
 		dest = find_object("/d/changbai/icefire1");
 		dest->set("exits/enter", "/d/shenlong/ship");
-		message("vision", "一条渔船驶了过来。\n", dest);
+		message("vision", "一條漁船駛了過來。\n", dest);
 		return 1;
 	}
 
 	if( !random(3) )
-		tell_room(this_object(), "船正往" + dir + "方向前进。\n");
+		tell_room(this_object(), "船正往" + dir + "方向前進。\n");
 	call_out("navigate", 1);
 
 	return 1;
@@ -272,7 +272,7 @@ int do_go(string arg)
 	mixed inv;
 
 	if( query("exits/out") )
-		return notify_fail("船还没开呢。\n");
+		return notify_fail("船還沒開呢。\n");
 
 	if( !query_temp("navigate/control") ) {
 		call_out("shipweather", 1);
@@ -282,12 +282,12 @@ int do_go(string arg)
 
 	inv = filter_array(all_inventory(this_object()), "is_owner", this_object(), me);
 	if( sizeof(inv) > 0 )
-		return notify_fail("长这么大连一点江湖规矩都不懂？\n");
+		return notify_fail("長這麼大連一點江湖規矩都不懂？\n");
 
 	switch(arg) {
 		case "e":
 		case "east": 
-			dir = "东";
+			dir = "東";
 			break;
 		case "s": 
 		case "south": 
@@ -302,11 +302,11 @@ int do_go(string arg)
 			dir = "北";
 			break;
 		default:
-			return notify_fail("你要船往哪个方向开？\n");
+			return notify_fail("你要船往哪個方向開？\n");
 	}
 
 	set_temp("navigate/dir", dir);
-	message_vision("$N对船夫说：船老大，请朝" + dir + "开。\n", me);
+	message_vision("$N對船伕說：船老大，請朝" + dir + "開。\n", me);
 	return 1;
 }
 
@@ -317,12 +317,12 @@ int do_stop()
 
 	inv = filter_array(all_inventory(this_object()), "is_owner", this_object(), me);
 	if( sizeof(inv) > 0 )
-		return notify_fail("长这么大连一点江湖规矩都不懂？\n");
+		return notify_fail("長這麼大連一點江湖規矩都不懂？\n");
 
 	if( !query_temp("navigate/dir") )
-		return notify_fail("船已经停了。\n");
+		return notify_fail("船已經停了。\n");
 
-	message_vision("$N叫船夫们把船停一停。\n", me);
+	message_vision("$N叫船伕們把船停一停。\n", me);
 	delete_temp("navigate/dir");
 
 	return 1;
@@ -334,51 +334,51 @@ int do_lookout()
 	int locx, locy;
 
 	if( query("exits/out") ) {
-		tell_object(this_player(), "船还没开呢。\n");
+		tell_object(this_player(), "船還沒開呢。\n");
 		return 1;
 	}
 
 	locx = (int)query_temp("navigate/locx");
 
 	if( locx < 0 ) {
-		tell_object(this_player(), "你已经在大陆岸边了。\n");
+		tell_object(this_player(), "你已經在大陸岸邊了。\n");
 		return 1;
 	}
 
 	if( locx < 6 ) {
-		tell_object(this_player(), "你极目远眺，发现西面不远处就是大陆。\n");
+		tell_object(this_player(), "你極目遠眺，發現西面不遠處就是大陸。\n");
 		return 1;
 	}
 
 	locy = (int)query_temp("navigate/locy");
 
 	if( locx == 20 &&  locy == 20 ) {
-		tell_object(this_player(), "你已经在神龙岛岸边了。\n");
+		tell_object(this_player(), "你已經在神龍島岸邊了。\n");
 		return 1;
 	}
 
 	if( (locy > 16 && locy < 20) && (locx > 16 && locx < 20) )
-		dir = "东北";
+		dir = "東北";
 	else if( (locy > 16 && locy < 20) && locx == 20 )
 		dir = "北";
 	else if( (locy > 16 && locy < 20) && (locx > 20 && locx < 24) )
 		dir = "西北";
 	else if( locy == 20 && (locx > 16 && locx < 20) )
-		dir = "东";
+		dir = "東";
 	else if( locy == 20 && (locx > 20 && locx < 24) )
 		dir = "西";
 	else if( (locy > 20 && locy < 24) && (locx > 16 && locx < 20) )
-		dir = "东南";
+		dir = "東南";
 	else if( (locy > 20 && locy < 24) && locx == 20 )
 		dir = "南";
 	else if( (locy > 20 && locy < 24) && (locx > 20 && locx < 24) )
 		dir = "西南";
 
 	if( dir )
-		tell_object(this_player(), "你极目远眺，发现神龙岛就在" + dir + "方向。\n");
+		tell_object(this_player(), "你極目遠眺，發現神龍島就在" + dir + "方向。\n");
 	else if( (locy > 350 && locy < 400) && (locx > 90 && locx < 110) )
-		tell_object(this_player(),"你极目远眺，发现北边似乎有一条烟柱！\n");
-	else tell_object(this_player(), "你极目远眺，只觉大海茫茫。\n");
+		tell_object(this_player(),"你極目遠眺，發現北邊似乎有一條煙柱！\n");
+	else tell_object(this_player(), "你極目遠眺，只覺大海茫茫。\n");
 
 	return 1;
 }
@@ -389,21 +389,21 @@ int do_locate()
 	int locx, locy;
 
 	if( query("exits/out") ) {
-		tell_object(this_player(), "船还没开呢。\n");
+		tell_object(this_player(), "船還沒開呢。\n");
 		return 1;
 	}
 
 	locx = (int)query_temp("navigate/locx");
 
 	if( locx < 0 ) {
-		tell_object(this_player(), "你已经在大陆岸边了。\n");
+		tell_object(this_player(), "你已經在大陸岸邊了。\n");
 		return 1;
 	}
 
 	locy = (int)query_temp("navigate/locy");
 
 	if( locx == 20 &&  locy == 20 ) {
-		tell_object(this_player(), "你已经在神龙岛岸边了。\n");
+		tell_object(this_player(), "你已經在神龍島岸邊了。\n");
 		return 1;
 	}
 	
@@ -413,12 +413,12 @@ int do_locate()
 	}
 
 	if( locy > 0 ) 
-		dir = "东" + chinese_number(locx) + "海哩" + "北约" + chinese_number(locy) + "海哩";
+		dir = "東" + chinese_number(locx) + "海哩" + "北約" + chinese_number(locy) + "海哩";
 	else if( locy < 0 )
-		dir = "东约" + chinese_number(locx) + "海哩" + "南约" + chinese_number(-locy) + "海哩";
-	else    dir = "正东约" + chinese_number(locx) + "海哩";
+		dir = "東約" + chinese_number(locx) + "海哩" + "南約" + chinese_number(-locy) + "海哩";
+	else    dir = "正東約" + chinese_number(locx) + "海哩";
 
-	tell_object(this_player(), "你现在在塘沽口" + dir + "处。\n");
+	tell_object(this_player(), "你現在在塘沽口" + dir + "處。\n");
 
 	return 1;
 }
@@ -484,7 +484,7 @@ void do_drop()
 				inv[i]->move("/d/changbai/icefire1");
 			else	inv[i]->move("/d/beijing/haigang");
 			message("vision",
-			"你发现一个浑身水淋淋的家伙被海水冲上岸来，不由得走近一看，原来是" + inv[i]->query("name") +"。\n", environment(inv[i]), ({inv[i]}));
+			"你發現一個渾身水淋淋的傢伙被海水衝上岸來，不由得走近一看，原來是" + inv[i]->query("name") +"。\n", environment(inv[i]), ({inv[i]}));
 		} else  destruct(inv[i]);
 	}
 
@@ -511,18 +511,18 @@ void do_ready()
 			set_temp("navigate/locx", 20);
 			set_temp("navigate/locy", 20);
 			break;
-		case "冰火岛":
+		case "冰火島":
 			set_temp("navigate/locx", 90);
 			set_temp("navigate/locy", 590);
 			break;
 	}
 
-	message("vision", "渔船离了岸，驶向茫茫的大海。\n", shipside);
+	message("vision", "漁船離了岸，駛向茫茫的大海。\n", shipside);
 	shipside->delete("exits/enter");
 
 	delete_temp("trigger");
 	delete("exits/out");
-	message("vision", "船夫们大喝一声“开船”，于是船便离了岸。\n", this_object());
+	message("vision", "船伕們大喝一聲“開船”，於是船便離了岸。\n", this_object());
 }
 
 void reset()

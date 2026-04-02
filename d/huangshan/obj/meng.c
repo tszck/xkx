@@ -3,7 +3,7 @@
 inherit ITEM;
 void create()
 {
-	set_name("梦笔生花", ({ "stone" }) );
+	set_name("夢筆生花", ({ "stone" }) );
 	set_weight(500);
 	set_max_encumbrance(80000);
 	set("no_get", 1);
@@ -12,8 +12,8 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "根");
-		set("long", "一根独特的石柱，下部直如笔杆，上端酷似笔
-尖，笔杆和笔尖之间夹一石缝，更显得象一只自然毛笔。\n");
+		set("long", "一根獨特的石柱，下部直如筆桿，上端酷似筆
+尖，筆桿和筆尖之間夾一石縫，更顯得象一隻自然毛筆。\n");
 		set("value", 1);
 		set("skill", ([
 			"name"         : "literate",

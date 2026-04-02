@@ -5,10 +5,10 @@
 inherit ROOM;
 void create()
 {
-        set("short", "奎星阁");
+        set("short", "奎星閣");
         set("long", @LONG
-奎星阁是南岳大庙的第二进。阁为一个大舞台，阁左为鼓亭，右是
-钟亭。乡俗年节唱戏，这里总是热闹非凡。
+奎星閣是南嶽大廟的第二進。閣爲一個大舞臺，閣左爲鼓亭，右是
+鍾亭。鄉俗年節唱戲，這裏總是熱鬧非凡。
 LONG);
         set("exits", ([ /* sizeof() == 4 */
            "south"  : __DIR__"lingxingmen",

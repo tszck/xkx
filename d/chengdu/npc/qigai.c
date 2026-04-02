@@ -8,7 +8,7 @@ void create()
 	set_name("乞丐", ({ "qigai", "qi" }));
 	set("gender", "男性");
 	set("age", 21);
-	set("long", "他是一个成天东游西逛的乞丐，好象是丐帮的人。\n");
+	set("long", "他是一個成天東遊西逛的乞丐，好象是丐幫的人。\n");
 	
 	set("combat_exp", 2000);
 	set("shen_type", -1);

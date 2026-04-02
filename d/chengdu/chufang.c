@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "厨房");
+	set("short", "廚房");
 	set("long", @LONG
-一张长长的灶台上放了五六口铁锅，每口锅面前都有一位大师傅，
-他们正在汗流浃背地炒着菜。
+一張長長的竈臺上放了五六口鐵鍋，每口鍋面前都有一位大師傅，
+他們正在汗流浹背地炒着菜。
 LONG	);
 	set("exits", ([
 		"west" : __DIR__"chenmapo",		

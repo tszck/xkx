@@ -9,12 +9,12 @@ int get=1;
 void hit();
 void create()
 {
-	set("short", "红花会总舵");
+	set("short", "紅花會總舵");
 	set("long", @LONG
-这里是红花会的总舵，大堂上站满了红花会的弟子。他们的脸上表
-情肃穆，每个人的右手都紧握着自己的兵刃，中间的椅子空着，看来总
-舵主陈家洛不在，两旁的香炉(xiang lu)散发出缭缭的青烟，更是衬托
-出一股神圣的氛围。
+這裏是紅花會的總舵，大堂上站滿了紅花會的弟子。他們的臉上表
+情肅穆，每個人的右手都緊握着自己的兵刃，中間的椅子空着，看來總
+舵主陳家洛不在，兩旁的香爐(xiang lu)散發出繚繚的青煙，更是襯託
+出一股神聖的氛圍。
 LONG );
 	set("valid_startroom", 1);	
 	set("exits", ([
@@ -22,7 +22,7 @@ LONG );
 		"west"      : __DIR__"goldroom",
 	]));
 	set("item_desc", ([
-		"xiang lu" : "一个古色古香的青铜香炉，一股淡淡的香气从里面不时的冒出来。\n",
+		"xiang lu" : "一個古色古香的青銅香爐，一股淡淡的香氣從裏面不時的冒出來。\n",
 	]));
 	set("objects", ([
 		CLASS_D("honghua")+"/wu-chen" : 1,
@@ -47,18 +47,18 @@ int do_tui(string arg)
 	object me=this_player();
 
 	if(!arg || arg!="xiang lu")
-		return notify_fail("你要推什么？\n");
+		return notify_fail("你要推什麼？\n");
 	if( me->query("combat_exp") < 200000 )
-		return notify_fail("你的功夫太差。无法推动香炉。\n");
+		return notify_fail("你的功夫太差。無法推動香爐。\n");
 	else if ( flag==0 )
 		{
 			flag=1;
-			message_vision("只听“咔嚓”一响，香炉上现出一个小洞。\n", me);
+			message_vision("只聽“咔嚓”一響，香爐上現出一個小洞。\n", me);
 			set("item_desc", ([
-				"xiang lu" : "一个古色古香的青铜香炉，一股淡淡的香气从里面不时的冒出来，上面有一个小洞，好像可以插入什么东西！\n",
+				"xiang lu" : "一個古色古香的青銅香爐，一股淡淡的香氣從裏面不時的冒出來，上面有一個小洞，好像可以插入什麼東西！\n",
 	    		]));
 		}
-		else message_vision("香炉已经推不动了！\n", me);
+		else message_vision("香爐已經推不動了！\n", me);
 
 	return 1;
 }
@@ -68,26 +68,26 @@ int do_wedge(string arg)
  	object me=this_player();
 
 	if( !arg || arg!="honghua ling" )
-		return notify_fail("你要把什么东西插入香炉？\n");
+		return notify_fail("你要把什麼東西插入香爐？\n");
 
 	if( me->is_busy() ) return notify_fail("你正忙着呢。\n");
 	else if ( get==1 && flag==1 && present("honghua ling", me) &&
 			!(present("honghua ling", me))->query("zizhi") )
 		{
-			message_vision("$N试着把红花令插入了香炉。\n",me);
-			message_vision( HIR"只听香炉里面咔嚓乱响，好像是触动了什么机关。\n"NOR,me);
+			message_vision("$N試着把紅花令插入了香爐。\n",me);
+			message_vision( HIR"只聽香爐裏面咔嚓亂響，好像是觸動了什麼機關。\n"NOR,me);
 			me->start_busy(2);
 			hit();
 		}
 		else 
 		{
 			if ( flag==0 )
-				return notify_fail("香炉上连洞都没有，什么东西也插不进去！\n");
+				return notify_fail("香爐上連洞都沒有，什麼東西也插不進去！\n");
 			if ( !present("honghua ling", me) ||
 				(present("honghua ling", me))->query("zizhi") )
-				return notify_fail("你不能插这种东西进去！\n");
+				return notify_fail("你不能插這種東西進去！\n");
 			if ( get==0 )
-				return notify_fail("雪中莲已经被人拿走了！\n");
+				return notify_fail("雪中蓮已經被人拿走了！\n");
 		}
 	return 1;
 }
@@ -96,17 +96,17 @@ void hit()
 {
 	object ob, me = this_player();
 
-	message_vision("突然只听“嗖”的一声，从香炉中射出三支出铁箭！\n", me);
+	message_vision("突然只聽“嗖”的一聲，從香爐中射出三支出鐵箭！\n", me);
 	if ( random( (int)me->query("kar") ) < 20 )
 	{
-		message_vision( HIR"$N眼前一花，来不及躲闪，三箭齐齐的钉在$N的胸口。\n"NOR, me);
+		message_vision( HIR"$N眼前一花，來不及躲閃，三箭齊齊的釘在$N的胸口。\n"NOR, me);
 		me->unconcious();
 	}
 	else {
-		message_vision( HIG"$N连忙一个侧身，险险的避开了。\n"NOR,me );
-		message_vision( HIG"香炉慢慢转动，露出一朵"NOR,me);
-		message_vision( HIW"雪中莲"NOR,me);
-		message_vision( HIG"，$N赶忙一把抢在手中。\n"NOR,me);
+		message_vision( HIG"$N連忙一個側身，險險的避開了。\n"NOR,me );
+		message_vision( HIG"香爐慢慢轉動，露出一朵"NOR,me);
+		message_vision( HIW"雪中蓮"NOR,me);
+		message_vision( HIG"，$N趕忙一把搶在手中。\n"NOR,me);
 		ob = new(NOSTRUM_DIR"xuezhonglian" );
 		me->start_busy(2);
  		ob->move(me);

@@ -9,7 +9,7 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "这是一只白布小囊，好象可以打开的。\n");
+		set("long", "這是一隻白布小囊，好象可以打開的。\n");
 		set("unit", "只");
 		set("value", 1);
 	}
@@ -24,10 +24,10 @@ int do_dakai(string arg)
  
  
 
-	if(!id(arg)) return notify_fail("你要拆什么？\n");
+	if(!id(arg)) return notify_fail("你要拆什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要拆什么？\n");
-	message_vision("$N拆开白布小囊，摊开发现是张白布！\n", me);
+		return notify_fail("你要拆什麼？\n");
+	message_vision("$N拆開白布小囊，攤開發現是張白布！\n", me);
 	bu = new(__DIR__"whitecloth");
 	bu->move(me);
 	destruct(this_object());

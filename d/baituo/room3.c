@@ -5,16 +5,16 @@ inherit ROOM;
 int do_da(string arg);
 void create()
 {
-	set("short","练功室");
+	set("short","練功室");
 	set("long", @LONG
-这里是白驼山弟子的练功室。这个练功室空无一人，只有几个大大
-的木桩(zhuang)立在屋子当中。
+這裏是白駝山弟子的練功室。這個練功室空無一人，只有幾個大大
+的木樁(zhuang)立在屋子當中。
 LONG	);
 	set("exits",([
 		"out" : __DIR__"liangong",
 	]));
 	set("item_desc", ([
-		"zhuang":"一个木桩，做成木人的样子固定在地上，供人击打(da)练功。\n",
+		"zhuang":"一個木樁，做成木人的樣子固定在地上，供人擊打(da)練功。\n",
 	]));     
 	set_temp("full",0);
 	set("no_clean_up", 0);
@@ -29,7 +29,7 @@ void init()
 	object ob=this_player();
 	if((int)query_temp("full")==2)
 	{
-		message_vision("$N一见房间里已经有人了，只好退了出去。\n",ob);
+		message_vision("$N一見房間裏已經有人了，只好退了出去。\n",ob);
 		ob->move(__DIR__"liangong");
 		return;
 	}
@@ -51,25 +51,25 @@ int do_da(string arg)
 
 	exp = me->query("combat_exp");
 	lvl = me->query_skill("staff",1);
-	if (me->is_busy()) return notify_fail("你现在正忙着呢！\n");
+	if (me->is_busy()) return notify_fail("你現在正忙着呢！\n");
 	if (me->is_fighting())
-		return notify_fail("你正在战斗中，无法专心练功！\n");
-	if (!living(me)) return notify_fail("你发疯了？\n");
+		return notify_fail("你正在戰鬥中，無法專心練功！\n");
+	if (!living(me)) return notify_fail("你發瘋了？\n");
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "staff")
-		return notify_fail("空手是练不了杖法的。\n");
-	if (!arg || arg!="zhuang") return notify_fail("你要打什么？打人吗？\n");
+		return notify_fail("空手是練不了杖法的。\n");
+	if (!arg || arg!="zhuang") return notify_fail("你要打什麼？打人嗎？\n");
 	jing1 = random((int)me->query("con"))+1;
 	qi1 = random((int)me->query("str"))+1;
 	if ((int)me->query("jing") < jing1 || (int)me->query("qi") < qi1)
 	{
-		message_vision("$N马步一松，一不小心脑袋撞在了木桩上！\n",me);
+		message_vision("$N馬步一鬆，一不小心腦袋撞在了木樁上！\n",me);
 		me->unconcious();
 		return 1;
 	}
 	me->receive_damage("jing", jing1);
 	me->receive_damage("qi", qi1);       
-	message_vision("$N站好马步，提起钢杖，开始和木桩对打起来。\n", me);
+	message_vision("$N站好馬步，提起鋼杖，開始和木樁對打起來。\n", me);
 	if ( lvl < 30 && lvl*lvl*lvl/10 < exp && random(10) > 4 )
 	{
 		me->improve_skill("staff", (int)(me->query("int") / 5));

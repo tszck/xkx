@@ -6,15 +6,15 @@ inherit SWORD;
 
 void create()
 {
-	set_name("桂树枝", ({ "guishuzhi","gui","zhi","jian", "sword" }) );
+	set_name("桂樹枝", ({ "guishuzhi","gui","zhi","jian", "sword" }) );
 	set_weight(400);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "根");
 		set("material", "wood");
-		set("long", "这是一根细长的桂树枝。\n");
-		set("wield_msg", "$N抽出一根细长的桂树枝，握在手中。\n");
+		set("long", "這是一根細長的桂樹枝。\n");
+		set("wield_msg", "$N抽出一根細長的桂樹枝，握在手中。\n");
 		set("unequip_msg", "$N放下手中的$n。\n");
 		set("weapon_prop/courage", -4);
 	}

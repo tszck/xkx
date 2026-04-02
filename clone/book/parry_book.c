@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name( "招架入门",({ "parry book","book"}));
+	set_name( "招架入門",({ "parry book","book"}));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-                set("long","这是一本走江湖武师写的关于趋避招架的书籍。\n");
+                set("long","這是一本走江湖武師寫的關於趨避招架的書籍。\n");
 		set("value", 1500);
 		set("material", "paper");
 		set("skill", ([

@@ -1,5 +1,5 @@
 // Last Modified by Winder on May. 29 2001
-// mohe-finger.c 摩诃指 和散花掌互备 截至佛经中“以慈度心，摩诃无量”一句。
+// mohe-finger.c 摩訶指 和散花掌互備 截至佛經中“以慈度心，摩訶無量”一句。
 
 #include <ansi.h>
 inherit SKILL;
@@ -7,35 +7,35 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N左掌一摆，护在胸前，接着右手食指画出一个"HIB"「以」"NOR"字，轻轻点向$n$l",
+([	"action" : "$N左掌一擺，護在胸前，接着右手食指畫出一個"HIB"「以」"NOR"字，輕輕點向$n$l",
 	"lvl"   : 0,
 	"skill_name" : "以"
 ]),
-([	"action" : "$N左手食指缓缓画了个"HIM"「慈」"NOR"字，跟着手指微曲，以字为中心，对着$n一弹",
+([	"action" : "$N左手食指緩緩畫了個"HIM"「慈」"NOR"字，跟着手指微曲，以字爲中心，對着$n一彈",
 	"lvl"   : 20,
 	"skill_name" : "慈"
 ]),
-([	"action" : "$N双掌合十，身体微欠，双指画一"HIG"「度」"NOR"字，那撇捺两画有如两条柳枝般，抚向$n$l",
+([	"action" : "$N雙掌合十，身體微欠，雙指畫一"HIG"「度」"NOR"字，那撇捺兩畫有如兩條柳枝般，撫向$n$l",
 	"lvl"   : 30,
 	"skill_name" : "度"
 ]),
-([	"action" : "$N双手小指向$n挥动，连点三点，接着双指并拢，一招斜划，拼成了一个"HIR"「心」"NOR"字",
+([	"action" : "$N雙手小指向$n揮動，連點三點，接着雙指併攏，一招斜劃，拼成了一個"HIR"「心」"NOR"字",
 	"lvl"   : 50,
 	"skill_name" : "心"
 ]),
-([	"action" : "$N连连出招，幻出漫天指影，仿佛间竟然形成了一个"HIC"「摩」"NOR"字，照着$n激射而去，越来越快",
+([	"action" : "$N連連出招，幻出漫天指影，彷彿間竟然形成了一個"HIC"「摩」"NOR"字，照着$n激射而去，越來越快",
 	"lvl"   : 60,
 	"skill_name" : "摩"
 ]),
-([	"action" : "$N右手食指伸出，在空中写出个"HIW"「诃」"NOR"字来，形如狂草，向着$n最后一提时竟飞射出一道青气",
+([	"action" : "$N右手食指伸出，在空中寫出個"HIW"「訶」"NOR"字來，形如狂草，向着$n最後一提時竟飛射出一道青氣",
 	"lvl"   : 70,
-	"skill_name" : "诃"
+	"skill_name" : "訶"
 ]),
-([	"action" : "只见$N手指横竖连划，将指力在空中凝结不散，形成一个"CYN"「无」"NOR"字，对着$n当胸压下",
+([	"action" : "只見$N手指橫豎連劃，將指力在空中凝結不散，形成一個"CYN"「無」"NOR"字，對着$n當胸壓下",
 	"lvl"   : 80,
-	"skill_name" : "无"
+	"skill_name" : "無"
 ]),
-([	"action" : "$N双拳并拢，夹出一个"HIY"「量」"NOR"字来，合力击向$n，突然下半招一变，右手一指破空击出",
+([	"action" : "$N雙拳併攏，夾出一個"HIY"「量」"NOR"字來，合力擊向$n，突然下半招一變，右手一指破空擊出",
 	"lvl"   : 100,
 	"skill_name" : "量"
 ]),
@@ -47,13 +47,13 @@ int valid_combine(string combo){ return combo=="sanhua-strike"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练摩诃指必须空手。\n");
+		return notify_fail("練摩訶指必須空手。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 30)
-		return notify_fail("你的站桩功火候不够，无法学摩诃指。\n");
+		return notify_fail("你的站樁功火候不夠，無法學摩訶指。\n");
 	if ((int)me->query("max_neili") < 200)
-		return notify_fail("你的内力太弱，无法练摩诃指。\n");
+		return notify_fail("你的內力太弱，無法練摩訶指。\n");
 	if (me->query_skill("weituo-strike", 1) < 30)
-		return notify_fail("你的韦陀掌火候不够，无法学摩诃指。\n");
+		return notify_fail("你的韋陀掌火候不夠，無法學摩訶指。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -61,7 +61,7 @@ int practice_skill(object me)
 	if ((int)me->query("qi") < 40)
 		return notify_fail("你的精力太低了。\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够练摩诃指。\n");
+		return notify_fail("你的內力不夠練摩訶指。\n");
 	me->receive_damage("qi", 20);
 	me->add("neili", -10);
 	return 1;
@@ -88,16 +88,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 30; }
@@ -112,15 +112,15 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\n摩诃指："NOR"\n");
+	write(HIC"\n摩訶指："NOR"\n");
 	write(@HELP
 
-    摩诃指是南少林入门指法，和散花掌互备。出自佛经中“以慈度心，摩诃无量”。
+    摩訶指是南少林入門指法，和散花掌互備。出自佛經中“以慈度心，摩訶無量”。
 
-	学习要求：
-		站桩功30级
-		韦陀掌30级
-		内力修为200
+	學習要求：
+		站樁功30級
+		韋陀掌30級
+		內力修爲200
 HELP
 	);
 	return 1;

@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name("鞭法总诀", ({"shu", "book" }));
+	set_name("鞭法總訣", ({"shu", "book" }));
 	set_weight(100);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "册");
-		set("long","这是一册修习鞭法的武经\n里面记载着全真派掌教丹阳子多年的练功心得，画册中人物姿势如玉龙盘柱、如金凤飞舞。\n");
+		set("unit", "冊");
+		set("long","這是一冊修習鞭法的武經\n裏面記載着全真派掌教丹陽子多年的練功心得，畫冊中人物姿勢如玉龍盤柱、如金鳳飛舞。\n");
 		set("value", 500);
 		set("material", "book");
 		set("skill", ([

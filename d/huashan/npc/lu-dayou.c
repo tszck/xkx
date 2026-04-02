@@ -4,13 +4,13 @@ inherit NPC;
 
 void create()
 {
-        set_name("陆大有", ({ "lu dayou", "lu", "dayou" }) );
+        set_name("陸大有", ({ "lu dayou", "lu", "dayou" }) );
 
-        set("nickname", "六猴儿");
+        set("nickname", "六猴兒");
         set("gender", "男性");
         set("age", 21);
         set("long",
-                "陆大有是岳不群的第六位弟子，和令狐冲最是交好。\n");
+                "陸大有是嶽不羣的第六位弟子，和令狐沖最是交好。\n");
         set("attitude", "peaceful");
 
         set("str", 26);
@@ -50,7 +50,7 @@ void create()
         map_skill("dodge", "feiyan-huixiang");
 
 
-        create_family("华山派", 14, "弟子");
+        create_family("華山派", 14, "弟子");
 
         setup();
 

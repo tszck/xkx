@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "潮声洞");
+	set("short", "潮聲洞");
 	set("long", @LONG
-洞里伸手不见五指。隐隐听到湖浪冲击巨岩，延绵不绝。你在洞里
-摸索前行，听着潮声引导，试图找到出洞的方向。
+洞裏伸手不見五指。隱隱聽到湖浪衝擊巨巖，延綿不絕。你在洞裏
+摸索前行，聽着潮聲引導，試圖找到出洞的方向。
 LONG );
 	set("exits", ([
 		"out"    : __DIR__"chaosheng",

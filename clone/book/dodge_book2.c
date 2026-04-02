@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name("「提纵术」", ({ "tizong shu", "book", "shu" }));
+	set_name("「提縱術」", ({ "tizong shu", "book", "shu" }));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一本普普通通的介绍轻功提纵之术的书。\n");
+		set("long", "這是一本普普通通的介紹輕功提縱之術的書。\n");
 		set("value", 500);
 		set("material", "paper");
 		set("skill", ([

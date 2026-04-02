@@ -2,7 +2,7 @@
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME "「"+HIW"万梅飘零"NOR+"」"
+#define PNAME "「"+HIW"萬梅飄零"NOR+"」"
 int perform(object me,object target)
 {
 	string msg;
@@ -18,18 +18,18 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	fskill = "bingxue-xinfa";
 	bskill = "sword";
@@ -43,18 +43,18 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 80 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 80 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为不够, 不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠, 不能使用"+PNAME+"。\n");
 
 	if( me->query("max_neili") < 400 )
-		return notify_fail("你的内力修为不够，无法运用「"+HIW"万梅飘零"NOR+"」！\n");
+		return notify_fail("你的內力修爲不夠，無法運用「"+HIW"萬梅飄零"NOR+"」！\n");
 
 	if( me->query("neili") < 300 )
-		return notify_fail("你的内力不够，无法运用「"+HIW"万梅飘零"NOR+"」！\n");
+		return notify_fail("你的內力不夠，無法運用「"+HIW"萬梅飄零"NOR+"」！\n");
 
-	msg = HIW"$N长啸一声，使出「万梅飘零」，手中兵器疾卷，掀起万朵雪花向前铺天盖地地撒去。\n在白茫茫的一片中，忽然出现万朵梅花形剑花，穿透雪幕，朝四面八方狂射而出。\n" NOR;
+	msg = HIW"$N長嘯一聲，使出「萬梅飄零」，手中兵器疾卷，掀起萬朵雪花向前鋪天蓋地地撒去。\n在白茫茫的一片中，忽然出現萬朵梅花形劍花，穿透雪幕，朝四面八方狂射而出。\n" NOR;
 	message_combatd(msg, me, target);
 
 	if( random(me->query_skill("force"))>target->query_skill("force")/2 || 
@@ -69,14 +69,14 @@ int perform(object me,object target)
 		target->receive_damage("jing", qi_wound,me);
 		target->receive_wound("jing", qi_wound/2,me);
 		if(userp(me)) me->add("neili",-300); 
-		msg = HIC"无数梅花光华，幻出道道剑气，将$n全身上下罩得严严实实。$n身在其中，\n只觉剑光束束，在自己身上丝丝划过，一时全身剧痛，鲜血飞溅得到处都是。\n如同凌迟之刑，惨不堪言。\n" NOR; 
+		msg = HIC"無數梅花光華，幻出道道劍氣，將$n全身上下罩得嚴嚴實實。$n身在其中，\n只覺劍光束束，在自己身上絲絲劃過，一時全身劇痛，鮮血飛濺得到處都是。\n如同凌遲之刑，慘不堪言。\n" NOR; 
   	message_combatd(msg, me, target);
 		COMBAT_D->report_status(target);
 	}
 	else
 	{
 		if(userp(me)) me->add("neili",-100);
-		msg = "可是$n轻捷地往旁边一闪，避过了这一剑。\n"NOR;
+		msg = "可是$n輕捷地往旁邊一閃，避過了這一劍。\n"NOR;
   	message_combatd(msg, me, target);
 		me->start_busy(2);
 	}
@@ -90,13 +90,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		伤害对方精气和气血
+		傷害對方精氣和氣血
 
 	出手要求：
-		冰雪心法80级
-		雪山剑法80级
-		内力修为400
-		内力300
+		冰雪心法80級
+		雪山劍法80級
+		內力修爲400
+		內力300
 HELP
         );
         return 1;

@@ -9,8 +9,8 @@ string ask_book();
 string ask_book1();
 void create()
 {
-	set_name("左冷禅", ({ "zuo lengchan", "zuo" }) );
-	set("title", HIR"五岳剑派盟主"HIY"嵩山派第十三掌门"NOR);
+	set_name("左冷禪", ({ "zuo lengchan", "zuo" }) );
+	set("title", HIR"五嶽劍派盟主"HIY"嵩山派第十三掌門"NOR);
 	set("gender", "男性");
 	set("class", "swordsman");
 	set("age", 55);
@@ -66,14 +66,14 @@ void create()
 		(: exert_function, "powerup" :),
 	}) );
 	set("inquiry",([
-		"秘籍"	     : (: ask_book :),
-		"掌谱"	     : (: ask_book :),
-		"大嵩阳掌谱" : (: ask_book :),
-		"剑谱"	     : (: ask_book1 :),
-		"嵩山剑谱"   : (: ask_book1 :),
+		"祕籍"	     : (: ask_book :),
+		"掌譜"	     : (: ask_book :),
+		"大嵩陽掌譜" : (: ask_book :),
+		"劍譜"	     : (: ask_book1 :),
+		"嵩山劍譜"   : (: ask_book1 :),
 	]));
 
-	create_family("嵩山派", 13, "掌门");
+	create_family("嵩山派", 13, "掌門");
 	setup();
 
 	carry_object(WEAPON_DIR+"kuojian")->wield();
@@ -85,7 +85,7 @@ void init()
 }
 void attempt_apprentice(object ob)
 {
-	command("say 我派为五岳盟主！入我门来，定须光大我嵩山一派。");
+	command("say 我派爲五嶽盟主！入我門來，定須光大我嵩山一派。");
 	command("recruit " + ob->query("id"));
 }
 
@@ -95,13 +95,13 @@ string ask_book()
 	
 	if (this_player()->query("family/family_name")!="嵩山派")
 		return RANK_D->query_respect(this_player()) +
-		"与本派毫无瓜葛，我派的武功典籍可不能交给你。";
-	if (query("book_count") < 1) return "你来晚了，本派的秘籍不在此处。";
+		"與本派毫無瓜葛，我派的武功典籍可不能交給你。";
+	if (query("book_count") < 1) return "你來晚了，本派的祕籍不在此處。";
 	add("book_count", -1);
 	ob = new("/clone/book/songyang-zhangpu");
 	ob->move(this_player());
-	command("rumor "+this_player()->query("name")+"拿到大嵩阳掌谱啦。\n");
-	return "好吧，这本「大嵩阳掌谱」你拿回去好好钻研。";
+	command("rumor "+this_player()->query("name")+"拿到大嵩陽掌譜啦。\n");
+	return "好吧，這本「大嵩陽掌譜」你拿回去好好鑽研。";
 }
 
 string ask_book1()
@@ -110,11 +110,11 @@ string ask_book1()
 	
 	if (this_player()->query("family/family_name")!="嵩山派")
 		return RANK_D->query_respect(this_player()) +
-		"与本派毫无瓜葛，我派的武功典籍可不能交给你。";
-	if (query("book_count1") < 1) return "你来晚了，本派的秘籍不在此处。";
+		"與本派毫無瓜葛，我派的武功典籍可不能交給你。";
+	if (query("book_count1") < 1) return "你來晚了，本派的祕籍不在此處。";
 	add("book_count1", -1);
 	ob = new("/clone/book/sword_book4");
 	ob->move(this_player());
-	command("rumor "+this_player()->query("name")+"拿到嵩山剑谱啦。\n");
-	return "好吧，这本「嵩山剑谱」你拿回去好好钻研。";
+	command("rumor "+this_player()->query("name")+"拿到嵩山劍譜啦。\n");
+	return "好吧，這本「嵩山劍譜」你拿回去好好鑽研。";
 }

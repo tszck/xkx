@@ -1,10 +1,10 @@
-// wenfang.c 文方小师太
+// wenfang.c 文方小師太
 
 inherit NPC;
 inherit F_MASTER;
 void create()
 {
-	set_name("文方小师太", ({ "wenfang","wenfang xiaoshitai","xiaoshitai"}));
+	set_name("文方小師太", ({ "wenfang","wenfang xiaoshitai","xiaoshitai"}));
 	set("long", "她是峨嵋派的第五代弟子。\n");
 	set("gender", "女性");
 	set("age", 15);

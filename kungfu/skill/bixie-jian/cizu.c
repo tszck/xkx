@@ -19,18 +19,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail(HIY "没剑你拿什么东西去刺人家？\n" NOR);
+		return notify_fail(HIY "沒劍你拿什麼東西去刺人家？\n" NOR);
 
 	fskill = "kuihua-xinfa";
 	bskill = "sword";
@@ -43,20 +43,20 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"火候不够，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"火候不夠，使不出"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够熟练，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠熟練，不會使用"+PNAME+"。\n");
 	if((int)me->query("max_neili") < 500)
-		return notify_fail(HIY "你的内力修为还不够火候。\n" HIY);
+		return notify_fail(HIY "你的內力修爲還不夠火候。\n" HIY);
 	if((int)me->query("neili") < 300)
-		return notify_fail(HIY "你现在真气不足。\n" HIY);
+		return notify_fail(HIY "你現在真氣不足。\n" HIY);
 	if (target->query_temp("bixie/cizu"))
-		return notify_fail(HIR"对方已经身中"PNAME"了！\n"NOR);
+		return notify_fail(HIR"對方已經身中"PNAME"了！\n"NOR);
 
-	msg = HIC "$N"HIC"突然前身一探，"+weapon->name()+HIC"如流星追月，迅捷异常地扎向$n"HIC"脚踝，\n"NOR;
+	msg = HIC "$N"HIC"突然前身一探，"+weapon->name()+HIC"如流星追月，迅捷異常地扎向$n"HIC"腳踝，\n"NOR;
 	if (random(me->query_dex()) > target->query_dex()/2)
 	{
-		msg += HIC"$n"HIC"只觉得脚踝一痛，一趔怯，跌在地下！\n"NOR;
+		msg += HIC"$n"HIC"只覺得腳踝一痛，一趔怯，跌在地下！\n"NOR;
 		message_combatd(msg, me, target);
 		me->add("neili", -250);
 		target->set_temp("bixie/cizu", 1);
@@ -65,7 +65,7 @@ int perform(object me, object target)
 	{
 		me->add("neili", -100);
 		me->start_busy(2);
-		msg += HIY"$n"HIY"疾忙一抬腿，恰恰避过了$N"HIY"的出手一击。\n"NOR;
+		msg += HIY"$n"HIY"疾忙一抬腿，恰恰避過了$N"HIY"的出手一擊。\n"NOR;
 		message_combatd(msg, me, target);
 	}
 	if(!target->is_fighting(me)) target->fight_ob(me);
@@ -74,7 +74,7 @@ int perform(object me, object target)
 
 void cizu_end(object me, object target)
 {
-	message_combatd(HIR"$N强忍脚上剧痛，终于颤颤巍巍地站了起来。\n"NOR, target);
+	message_combatd(HIR"$N強忍腳上劇痛，終於顫顫巍巍地站了起來。\n"NOR, target);
 	target->delete_temp("bixie/cizu");
 	return;
 }
@@ -86,15 +86,15 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		施招刺对方的双足要穴
-		暂时性使对方失去躲闪能力
-		暂时性使对手不能移动
+		施招刺對方的雙足要穴
+		暫時性使對方失去躲閃能力
+		暫時性使對手不能移動
 
 	出手要求：
-		辟邪剑法100级
-		葵花心法100级
-		最大内力500
-		内力300
+		辟邪劍法100級
+		葵花心法100級
+		最大內力500
+		內力300
 HELP
 	);
 	return 1;

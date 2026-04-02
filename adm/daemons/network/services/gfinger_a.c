@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 /*
@@ -43,7 +43,7 @@ void incoming_request(mapping info)
        message("finger", "\n"+
          ((!mudinfo || undefinedp(mudinfo["MUDNAME"]))?
            info["NAME"]:mudinfo["MUDNAME"])+
-           "告诉你：\n"+info["MSG"],ob);
+           "告訴你：\n"+info["MSG"],ob);
      }      
    }
 }

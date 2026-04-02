@@ -6,7 +6,7 @@ void create()
 {
         set("short","大雪山山谷");
         set("long",@LONG
-一个宽大山谷, 群山环绕, 山顶上全是白闪闪的积雪, 山谷南方有两个山洞。
+一個寬大山谷, 羣山環繞, 山頂上全是白閃閃的積雪, 山谷南方有兩個山洞。
 LONG );
         set("exits",([
                 "enter"  : __DIR__"shandong1",

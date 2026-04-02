@@ -4,7 +4,7 @@
 inherit NPC;
 void create()
 {
-	set_name("回族战士",({"zhan shi"}));
+	set_name("回族戰士",({"zhan shi"}));
 	set("gender","男性");
 	set("combat_exp",4000+random(500000));
    

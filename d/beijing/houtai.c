@@ -2,9 +2,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "戏院后台");
+	set("short", "戲院後臺");
 	set("long", @LONG
-这里是戏院后台，几个戏子正在化妆。从北边可以上台。
+這裏是戲院後臺，幾個戲子正在化妝。從北邊可以上臺。
 LONG );
 	set("exits", ([
   		"west"    : __DIR__"xiyuan",

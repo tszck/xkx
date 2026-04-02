@@ -4,12 +4,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("摆夷老叟",({ "oldman" }) );
+	set_name("擺夷老叟",({ "oldman" }) );
         set("gender", "男性" );
         set("age", 72);
         set("long", 
-"一个摆夷老叟大大咧咧地坐在竹篱板舍门口，甩着三四个巴掌大的棕吕树叶，瞧着道
-上来来往往的人们，倒也快活自在。\n");
+"一個擺夷老叟大大咧咧地坐在竹籬板舍門口，甩着三四個巴掌大的棕呂樹葉，瞧着道
+上來來往往的人們，倒也快活自在。\n");
         set_temp("apply/defense", 5);
 	set("combat_exp", 700);
 	set("shen_type", 1);

@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("黄眉大师", ({ "huangmei dashi", "dashi", "huangmei" }));
+	set_name("黃眉大師", ({ "huangmei dashi", "dashi", "huangmei" }));
 	set("age", 69);
 	set("gender", "男性");
-	set("long", "这是一个满脸皱纹、身形高大的老僧。这老僧两道焦黄长眉，
+	set("long", "這是一個滿臉皺紋、身形高大的老僧。這老僧兩道焦黃長眉，
 眉尾下垂，是拈花寺主持。\n");
 	set("attitude", "peaceful");
 	set("class", "bonze");

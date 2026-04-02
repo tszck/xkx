@@ -7,19 +7,19 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N两掌一合，然后左掌拍出，身形跟进，一式"CYN"「幻形变影」"NOR"，左掌收回，右掌变幻吞吐，猛地推向$n的$l",
+([	"action" : "$N兩掌一合，然後左掌拍出，身形跟進，一式"CYN"「幻形變影」"NOR"，左掌收回，右掌變幻吞吐，猛地推向$n的$l",
 	"lvl" : 0,
-	"skill_name" : "幻形变影"
+	"skill_name" : "幻形變影"
 ]),
-([	"action" : "$N伸出双手，十指箕张，一式"RED"「星星点点」"NOR"，手指左右飘忽，十只指尖疾点$n的$l",
+([	"action" : "$N伸出雙手，十指箕張，一式"RED"「星星點點」"NOR"，手指左右飄忽，十隻指尖疾點$n的$l",
 	"lvl" : 20,
-	"skill_name" : "星星点点"
+	"skill_name" : "星星點點"
 ]),
-([	"action" : "$N使一式"HIC"「漫天星斗」"NOR"，一个飞身跃起，左掌虚立，右掌乍伸乍合，风驰电掣般向$n的$l拍了下来",
+([	"action" : "$N使一式"HIC"「漫天星斗」"NOR"，一個飛身躍起，左掌虛立，右掌乍伸乍合，風馳電掣般向$n的$l拍了下來",
 	"lvl" : 40,
 	"skill_name" : "漫天星斗"
 ]),
-([	"action" : "$N一声长啸，一式"HIW"「北斗七星」"NOR"，双掌幻成漫天星斗，铺天盖地般向$n击去",
+([	"action" : "$N一聲長嘯，一式"HIW"「北斗七星」"NOR"，雙掌幻成漫天星斗，鋪天蓋地般向$n擊去",
 	"lvl" : 60,
 	"skill_name" : "北斗七星"
 ])
@@ -31,22 +31,22 @@ int valid_combine(string combo) { return combo=="canhe-finger"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练星移掌必须空手。\n");
+		return notify_fail("練星移掌必須空手。\n");
 	if ((int)me->query_skill("shenyuan-gong", 1) < 15)
-		return notify_fail("你的神元功火候不够，无法学星移掌。\n");
+		return notify_fail("你的神元功火候不夠，無法學星移掌。\n");
 	if ((int)me->query("max_neili") < 50)
-		return notify_fail("你的内力太弱，无法练星移掌。\n");
+		return notify_fail("你的內力太弱，無法練星移掌。\n");
 	return 1;
 }
 
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 40)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 40)
-		return notify_fail("你的内力不够练星移掌。\n");
+		return notify_fail("你的內力不夠練星移掌。\n");
 	me->receive_damage("qi", 35);
 	me->add("neili", -20);
 	return 1;
@@ -73,16 +73,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 15; }
@@ -95,13 +95,13 @@ int help(object me)
 	write(HIC"\n星移掌："NOR"\n");
 	write(@HELP
 
-    姑苏慕容家最拿手的绝技，乃是一门借力打力之技，叫做“斗
-转星移”。星移掌便是依此演化的慕容家传掌法。
-    可与参合指互备。
+    姑蘇慕容家最拿手的絕技，乃是一門借力打力之技，叫做“鬥
+轉星移”。星移掌便是依此演化的慕容家傳掌法。
+    可與參合指互備。
 
-	学习要求：
-		神元功15级
-		内力50
+	學習要求：
+		神元功15級
+		內力50
 HELP
 	);
 	return 1;

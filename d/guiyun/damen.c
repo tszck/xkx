@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "大门");
+	set("short", "大門");
 	set("long", @LONG
-面前是一座庄院，门楼不甚高大，青砖绿瓦，灰色底的匾上写着『
-归云庄』三个大黑字。牌匾较为陈旧，边角处的漆皮已剥落，露出暗黄
-色的木质。看来挂在那已不下二十个春秋了。
+面前是一座莊院，門樓不甚高大，青磚綠瓦，灰色底的匾上寫着『
+歸雲莊』三個大黑字。牌匾較爲陳舊，邊角處的漆皮已剝落，露出暗黃
+色的木質。看來掛在那已不下二十個春秋了。
 LONG );
 	set("outdoors", "guiyun");
 	set("exits", ([
@@ -27,10 +27,10 @@ int valid_leave(object me, string dir)
 	mapping myfam;
 	myfam = (mapping)me->query("family");
 
-	if ((!myfam || myfam["family_name"] != "桃花岛") &&
+	if ((!myfam || myfam["family_name"] != "桃花島") &&
 		!me->query_temp("marks/guiyun") && dir == "enter" &&
 		objectp(present("jia ding", environment(me))))
-		return notify_fail("家丁做了个揖，说道：尊驾与敝庄素无往来，庄主不见外客，还是请回吧。\n");
+		return notify_fail("家丁做了個揖，說道：尊駕與敝莊素無往來，莊主不見外客，還是請回吧。\n");
 
 	return ::valid_leave(me, dir);
 }

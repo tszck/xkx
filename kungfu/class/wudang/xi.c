@@ -1,12 +1,12 @@
-// xi.c 张松溪
+// xi.c 張松溪
 
 inherit NPC;
 
 void create()
 {
-	set_name("张松溪", ({ "zhang songxi", "zhang" }));
-	set("nickname", "武当四侠");
-	set("long","他就是张三丰的四弟子张松溪。\n他今年四十岁，精明能干，以足智多谋著称。\n");
+	set_name("張松溪", ({ "zhang songxi", "zhang" }));
+	set("nickname", "武當四俠");
+	set("long","他就是張三豐的四弟子張松溪。\n他今年四十歲，精明能幹，以足智多謀著稱。\n");
 	set("gender", "男性");
 	set("age", 40);
 	set("attitude", "peaceful");
@@ -58,7 +58,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("武当派", 2, "弟子");
+	create_family("武當派", 2, "弟子");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();

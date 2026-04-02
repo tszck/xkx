@@ -10,17 +10,17 @@ void create()
 {
 	set("short", "小酒店");
 	set("long", @LONG
-这是一家已经废弃了的小酒店，柜台上积满了灰，一个角落里堆着
-一大堆干草，旁边斜躺着一个大铁叉；柜台后的橱架上凌乱地放着几摞
-破旧的青花瓷碗(wan)。在门前坐着一个梳着朝天辫的小姑娘。
+這是一家已經廢棄了的小酒店，櫃檯上積滿了灰，一個角落裏堆着
+一大堆乾草，旁邊斜躺着一個大鐵叉；櫃檯後的櫥架上凌亂地放着幾摞
+破舊的青花瓷碗(wan)。在門前坐着一個梳着朝天辮的小姑娘。
 LONG
 	);
 
 	set("item_desc", ([
-		"wan"      : "一堆很凌乱地散放着的碗。\n",
-		"bowl"     : "一堆很凌乱地散放着的碗。\n",
-		"tiewan"   : "一只奇怪的碗，好象是固定在了架子上。\n",
-		"ironbowl" : "一只奇怪的碗，好象是固定在了架子上。\n",
+		"wan"      : "一堆很凌亂地散放着的碗。\n",
+		"bowl"     : "一堆很凌亂地散放着的碗。\n",
+		"tiewan"   : "一隻奇怪的碗，好象是固定在了架子上。\n",
+		"ironbowl" : "一隻奇怪的碗，好象是固定在了架子上。\n",
 	]) );
 
 	set("exits", ([
@@ -53,11 +53,11 @@ int do_move(string arg)
 		return notify_fail("你正忙着呢！\n");
 	if (arg == "wan" || arg == "bowl")
 	{
-		write( "你将架子上的碗使劲地摔到地上去，却发现有一只碗竟然拿不起来。仔细一看，才发现这是一只铁碗(tiewan)！\n");
+		write( "你將架子上的碗使勁地摔到地上去，卻發現有一隻碗竟然拿不起來。仔細一看，才發現這是一隻鐵碗(tiewan)！\n");
 		me->set_temp("mishi_temp",1);
 		return 1;
 	}
-	return notify_fail("你要搬动什么？\n");
+	return notify_fail("你要搬動什麼？\n");
 }
 
 int do_turn(string arg)
@@ -73,7 +73,7 @@ int do_turn(string arg)
 		if (!temp) return 0;
 		if (temp < 4) temp++;
 		else temp = 1;
-		write("你将铁碗用劲地向左扳动，发出了“咯吱”的声音。\n");
+		write("你將鐵碗用勁地向左扳動，發出了“咯吱”的聲音。\n");
 		me->set_temp("mishi_temp",temp);
 		return 1;
 	}
@@ -83,17 +83,17 @@ int do_turn(string arg)
 		if (!temp) return 0;
 		if (temp > 3) temp++;
 		else temp = 1;
-		write("你将铁碗用劲地向右扳动，发出了“咯吱”的声音。\n");
+		write("你將鐵碗用勁地向右扳動，發出了“咯吱”的聲音。\n");
 		if (temp == 7)
 		{
-			write( "只听“喀啦”一声巨响，你的眼前出现了一道门。你毫不犹豫的走了进去。\n");
-			message("vision","橱架后面忽然现出一道暗门，" + me->name() + "举步走了进去，橱架吱呀呀地又关上了。\n", this_object(), me);
+			write( "只聽“喀啦”一聲巨響，你的眼前出現了一道門。你毫不猶豫的走了進去。\n");
+			message("vision","櫥架後面忽然現出一道暗門，" + me->name() + "舉步走了進去，櫥架吱呀呀地又關上了。\n", this_object(), me);
 			me->delete_temp("mishi_temp");
 			me->move(__DIR__"mishi");
-			message("vision", me->name() + "打开暗门，走了进来。\n", environment(me), me);
+			message("vision", me->name() + "打開暗門，走了進來。\n", environment(me), me);
 		}
 		else me->set_temp("mishi_temp",temp);
 		return 1;
 	}
-	return notify_fail("你要做什么？\n");
+	return notify_fail("你要做什麼？\n");
 }

@@ -1,6 +1,6 @@
 // Last Modified by winder on May. 29 2001
-// wuxiang-finger.c 无相劫指 不能互备
-// 取自佛法十二字“广大，智慧，真如，性海，颖悟，圆觉”。
+// wuxiang-finger.c 無相劫指 不能互備
+// 取自佛法十二字“廣大，智慧，真如，性海，穎悟，圓覺”。
 
 #include <ansi.h>
 inherit SKILL;
@@ -8,29 +8,29 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N将双手拢在衣袖之中，一招"HIW"「广大无相劫」"NOR"，暗劲自袖中悄悄涌出，刺向$n",
+([	"action" : "$N將雙手攏在衣袖之中，一招"HIW"「廣大無相劫」"NOR"，暗勁自袖中悄悄湧出，刺向$n",
 	"lvl"   : 0,
-	"skill_name" : "广大无相劫" 
+	"skill_name" : "廣大無相劫" 
 ]),
-([	"action" : "$N微微一笑，一招"HIW"「智慧无相劫」"NOR"，衣袖连摆，指劲随机弹出，叫人琢磨不透，无法躲避",
+([	"action" : "$N微微一笑，一招"HIW"「智慧無相劫」"NOR"，衣袖連擺，指勁隨機彈出，叫人琢磨不透，無法躲避",
 	"lvl"   : 10,
-	"skill_name" : "智慧无相劫" 
+	"skill_name" : "智慧無相劫" 
 ]),
-([	"action" : "$N垂手站立，丝毫不动，但闻$n身前哧的一声，闻声不见物，是那招"HIW"「真如无相劫」"NOR"",
+([	"action" : "$N垂手站立，絲毫不動，但聞$n身前哧的一聲，聞聲不見物，是那招"HIW"「真如無相劫」"NOR"",
 	"lvl"   : 30,
-	"skill_name" : "真如无相劫" 
+	"skill_name" : "真如無相劫" 
 ]),
-([	"action" : "$N抬头往天，一指"HIW"「性海无相劫」"NOR"暗袭$n$l，本人却见丝毫不动，仿若无事发生一样",
+([	"action" : "$N抬頭往天，一指"HIW"「性海無相劫」"NOR"暗襲$n$l，本人卻見絲毫不動，仿若無事發生一樣",
 	"lvl"   : 60,
-	"skill_name" : "性海无相劫" 
+	"skill_name" : "性海無相劫" 
 ]),
-([	"action" : "$N一招"HIW"「颖悟无相劫」"NOR"向$n点出，闻得一破空之声，却见$P微笑点头，却再无任何动静",
+([	"action" : "$N一招"HIW"「穎悟無相劫」"NOR"向$n點出，聞得一破空之聲，卻見$P微笑點頭，卻再無任何動靜",
 	"lvl"   : 100,
-	"skill_name" : "颖悟无相劫" 
+	"skill_name" : "穎悟無相劫" 
 ]),
-([	"action" : "但闻哧哧两声，$n脸色突变，$N却悠闲自在，并无动过手的迹象，这好象是那招"HIW"「圆觉无相劫」"NOR"",
+([	"action" : "但聞哧哧兩聲，$n臉色突變，$N卻悠閒自在，並無動過手的跡象，這好象是那招"HIW"「圓覺無相劫」"NOR"",
 	"lvl"   : 150,
-	"skill_name" : "圆觉无相劫" 
+	"skill_name" : "圓覺無相劫" 
 ]),
 });
 
@@ -38,21 +38,21 @@ int valid_enable(string usage) { return usage=="finger" || usage=="parry"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练无相劫指必须空手。\n");
+		return notify_fail("練無相劫指必須空手。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 170)
-		return notify_fail("你的站桩功火候不够，无法学无相劫指。\n");
+		return notify_fail("你的站樁功火候不夠，無法學無相劫指。\n");
 	if ((int)me->query("max_neili") < 2500)
-		return notify_fail("你的内力太弱，无法练无相劫指。\n");
+		return notify_fail("你的內力太弱，無法練無相劫指。\n");
 	if (me->query_skill("one-finger", 1) < 50)
-		return notify_fail("你的一指禅火候不够，无法学无相劫指。\n");
+		return notify_fail("你的一指禪火候不夠，無法學無相劫指。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if ((int)me->query("qi") < 55)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 30)
-		return notify_fail("你的内力不够练无相劫指。\n");
+		return notify_fail("你的內力不夠練無相劫指。\n");
 	me->receive_damage("qi", 50);
 	me->add("neili", -20);
 	return 1;
@@ -79,16 +79,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "刺伤" : "瘀伤",
+		"damage_type" : random(2) ? "刺傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 0; }
@@ -103,16 +103,16 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\n无相劫指："NOR"\n");
+	write(HIC"\n無相劫指："NOR"\n");
 	write(@HELP
 
-    无相劫指是南少林高级指法，不能互备，取自佛法十二字“广大，智慧，
-真如，性海，颖悟，圆觉”。
+    無相劫指是南少林高級指法，不能互備，取自佛法十二字“廣大，智慧，
+真如，性海，穎悟，圓覺”。
 
-	学习要求：
-		站桩功170级
-		一指禅50级
-		内力修为2500
+	學習要求：
+		站樁功170級
+		一指禪50級
+		內力修爲2500
 HELP
 	);
 	return 1;

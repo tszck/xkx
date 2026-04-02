@@ -3,10 +3,10 @@ int do_out(string arg);
 
 void create()
 {
-        set("short", "筒子桥");
+        set("short", "筒子橋");
         set("long", @LONG
-这是一座破旧的石桥，桥下是护城河缓缓的流水。水看上去很清，
-这里是进皇宫后门的必经之路。
+這是一座破舊的石橋，橋下是護城河緩緩的流水。水看上去很清，
+這裏是進皇宮後門的必經之路。
 LONG);
         set("outdoors", "beijing");
         set("exits", ([

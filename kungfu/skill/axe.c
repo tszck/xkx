@@ -16,10 +16,10 @@ int help(object me)
 	write(HIC"\n基本斧法："NOR"\n");
 	write(@HELP
 
-    斧类武技的基本功。
+    斧類武技的基本功。
 
-	学习要求：
-		无
+	學習要求：
+		無
 HELP
 	);
 	return 1;

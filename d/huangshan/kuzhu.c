@@ -6,9 +6,9 @@ void create()
 {
 	set("short", "苦竹溪");
 	set("long", @LONG
-沿途盛产苦竹，所以溪水也有淡淡的涩味，但是良药苦口，苦竹更
-是入药的上品，所以来往之人依然爱饮此泉，对于解乏提神极有帮助。
-更有人特地来此取竹根入药。于是便有山民在此伐竹贩卖。
+沿途盛產苦竹，所以溪水也有淡淡的澀味，但是良藥苦口，苦竹更
+是入藥的上品，所以來往之人依然愛飲此泉，對於解乏提神極有幫助。
+更有人特地來此取竹根入藥。於是便有山民在此伐竹販賣。
 LONG
 	);
 	set("exits", ([ 
@@ -18,8 +18,8 @@ LONG
 		__DIR__"npc/snake" : 2,
 	]) );
 	set("item_desc", ([
-		"苦竹溪": "你可以试着从溪（xi）中喝（drink）一口。\n",
-		"kuzhuxi": "你可以试着从溪（xi）中喝（drink）一口。\n"
+		"苦竹溪": "你可以試着從溪（xi）中喝（drink）一口。\n",
+		"kuzhuxi": "你可以試着從溪（xi）中喝（drink）一口。\n"
 	]) );
 	set("outdoors", "huangshan");
 	setup();
@@ -35,8 +35,8 @@ int do_drink(string arg)
 
 	if(!arg || arg != "xi") return 0;
 	if(me->query("water") >= me->max_water_capacity())
-		return notify_fail("你似乎并不渴。\n");
-	message_vision("$N弯下腰，在苦竹溪中喝了一大口苦水！\n",me);
+		return notify_fail("你似乎並不渴。\n");
+	message_vision("$N彎下腰，在苦竹溪中喝了一大口苦水！\n",me);
 	me->add("water",50);
 	return 1;
 }
@@ -48,7 +48,7 @@ int do_climb(string arg)
 
 	if(!arg || arg != "up")
 	{
-		write("你要往哪里爬？\n");
+		write("你要往哪裏爬？\n");
 		return 1;
 	}
 	me = this_player();
@@ -64,7 +64,7 @@ int fliping(object me)
 	if( !me->is_ghost())
 	{
 		me->move(__DIR__"huangshan");
-		message_vision("$N顺着崖壁爬了上来。\n", me);
+		message_vision("$N順着崖壁爬了上來。\n", me);
 	}
 	return 1;
 }

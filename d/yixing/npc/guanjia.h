@@ -32,14 +32,14 @@ string ask_job()
         myfam = (string)query("party/party_name");
 //        if( (string)me->query_temp("bangs/fam") != myfam )
         if( (string)me->query("party/party_name") != myfam )
-                return RANK_D->query_rude(me) + "莫非是想打听我帮的秘密吧。";
+                return RANK_D->query_rude(me) + "莫非是想打聽我幫的祕密吧。";
 
         if( time() < (int)me->query("bangs/asktime") + 60 )
-                return RANK_D->query_rude(me) + "不是刚问过我吗？";
+                return RANK_D->query_rude(me) + "不是剛問過我嗎？";
 
         if( objectp(leader = me->query_leader()) ) {
                 if( leader != this_object() )
-                         return RANK_D->query_rude(me) + "！入了帮还三心二意跟别人？！";
+                         return RANK_D->query_rude(me) + "！入了幫還三心二意跟別人？！";
         }
 
         me->set("bangs/asktime", time());
@@ -50,7 +50,7 @@ string ask_job()
                 ling->set("fam", myfam);
                 ling->set("combat_exp", query("combat_exp"));
                 ling->move(me);
-                message_vision("$N把一" + ling->query("unit") + ling->name() + "扔给$n。\n", this_object(), me);
+                message_vision("$N把一" + ling->query("unit") + ling->name() + "扔給$n。\n", this_object(), me);
         }
 
         myexp = (int)me->query("combat_exp");
@@ -61,7 +61,7 @@ string ask_job()
                 if( myexp < atoi(levels[i]) ) break;
 
         if( i >= temp )
-                return "最近没有适合你的帮务。";
+                return "最近沒有適合你的幫務。";
 
         job = (BANGJOB + levels[i])->query_job();
 
@@ -73,28 +73,28 @@ string ask_job()
                 destruct(ob);
 
         switch(job["type"]) {
-        case "寻":
+        case "尋":
                 command("nod");
                 ling->set("job/max", atoi(levels[i]));
-                return "你去把" + job["name"] + "找来。";
+                return "你去把" + job["name"] + "找來。";
                 break;
 
-        case "杀":
+        case "殺":
                 command("nod");
                 ling->set("job/max", atoi(levels[i]));
-                return "你去把" + job["area"] + "的" + job["name"] + "杀了。";
+                return "你去把" + job["area"] + "的" + job["name"] + "殺了。";
                 break;
 
-        case "摊费":
+        case "攤費":
                 command("nod");
                 job = info_store[random(sizeof(info_store))];
                 ling->set("job/name", job["name"]);
                 ling->set("job/boss", job["boss"]);
                 ling->set("job/place", job["place"]);
-                return  job["name"] + "这个月还没有交摊费，快去要来！";
+                return  job["name"] + "這個月還沒有交攤費，快去要來！";
                 break;
 
-        case "截镖":
+        case "截鏢":
                 obj = filter_array(children(BIAOTOU), (: clonep :));
                 if( sizeof(obj) < 10 ) {
                         ob = new(BIAOTOU);
@@ -102,13 +102,13 @@ string ask_job()
                         ob->move(file);
                         dest = environment(ob);
                         message("vision",
-                        ob->name() + "押着镖车走了过来。\n",
+                        ob->name() + "押着鏢車走了過來。\n",
                         dest, ({ob}));
                         region = explode(file, "/")[1];
                         ling->set("job/name", ob->query("nickname"));
-                        return "去踩盘的弟兄们回来讲，" +
+                        return "去踩盤的弟兄們回來講，" +
                         ob->query("nickname") +
-                        "的镖车将经过" +
+                        "的鏢車將經過" +
                         //region_names[region] +
                         to_chinese("region") +
                         dest->query("short") + "。";
@@ -120,7 +120,7 @@ string ask_job()
                         if( !dest || !biaoju ) {
                                 destruct(ob);
                                 command("shake");
-                                return "你歇着吧，最近没有要紧的帮务。";
+                                return "你歇着吧，最近沒有要緊的幫務。";
                         }
 
                         file = base_name(dest);
@@ -128,14 +128,14 @@ string ask_job()
                         || !mapp(dest->query("exits")) ) {
                                 destruct(ob);
                                 command("shake");
-                                return "你歇着吧，最近没有要紧的帮务。";
+                                return "你歇着吧，最近沒有要緊的幫務。";
                         }
 
                         command("nod");
                         region = explode(file, "/")[1];
                         ling->set("job/name", biaoju);
-                        return "去踩盘的弟兄们回来讲，" + biaoju +
-                        "的镖车将经过" +
+                        return "去踩盤的弟兄們回來講，" + biaoju +
+                        "的鏢車將經過" +
                         //region_names[region] +
                         to_chinese("region") +
                         dest->query("short") + "。";
@@ -152,12 +152,12 @@ string ask_job()
                         ob_bang = (string)ob->query("title");
                         me->set_temp("bangs/victim", ob_bang);
                         ling->set("job/name", ob_bang);
-                        return "最近" + ob_bang + "经常跟我们过不去，你去杀一个示示威！";
+                        return "最近" + ob_bang + "經常跟我們過不去，你去殺一個示示威！";
                 }
                 }
                 break;
 
-        case "送礼":
+        case "送禮":
                 command("nod");
 
                 job = info_guest[random(sizeof(info_guest))];
@@ -169,38 +169,38 @@ string ask_job()
                 ling->set("job/title", job["title"]);
                 ling->set("job/area", job["area"]);
                 ob->set("long",
-"这是一份" + myfam + "帮主送给" + "「" + job["title"] + "」" + "的彩礼。\n");
+"這是一份" + myfam + "幫主送給" + "「" + job["title"] + "」" + "的彩禮。\n");
                 ob->move(me);
-                message_vision("$N将一" + ob->query("unit") + ob->name() + "交给$n。\n", this_object(), me);
-                return "你把这份彩礼送给" + job["area"] + "的" + "「" + job["title"] + "」" + "。";
+                message_vision("$N將一" + ob->query("unit") + ob->name() + "交給$n。\n", this_object(), me);
+                return "你把這份彩禮送給" + job["area"] + "的" + "「" + job["title"] + "」" + "。";
                 break;
 
-        case "买卖":
+        case "買賣":
                 command("nod");
                 files = get_dir(BANGGOOD);
                 if( !sizeof(files) ) {
                          command("shake");
-                         return "你歇着吧，最近没有要紧的帮务。";
+                         return "你歇着吧，最近沒有要緊的幫務。";
                 }
                 file = BANGGOOD + files[random(sizeof(files))];
                 ob = new(file);
                 ob->move(me);
-                message_vision("$N将一" + ob->query("unit") + ob->name() + "交给$n。\n", this_object(), me);
+                message_vision("$N將一" + ob->query("unit") + ob->name() + "交給$n。\n", this_object(), me);
                 ling->set("job/name", ob->name());
                 ling->set("job/good", ob->query("id"));
                 ling->set("job/prices", info_business[ob->name()]);
-                return "你把这" + ob->query("unit") + ob->name() + "拿去卖个好价钱。";
+                return "你把這" + ob->query("unit") + ob->name() + "拿去賣個好價錢。";
                 break;
 
-        case "伙计":
+        case "夥計":
                 command("nod");
-                ling->set("job/name", "伙计");
-                return "你去天宝阁当差吧。";
+                ling->set("job/name", "夥計");
+                return "你去天寶閣當差吧。";
                 break;
         }
 
         command("shake");
-        return "你歇着吧，最近没有要紧的帮务。";
+        return "你歇着吧，最近沒有要緊的幫務。";
 }
 
 void do_start(object me, object ob)
@@ -217,33 +217,33 @@ int accept_object(object who, object ob)
         mapping job;
 
         if( who->query("party/party_name") != query("party/party_name") )
-                return notify_fail(name() + "大怒道：大胆！想谋害本总管！！！\n");
+                return notify_fail(name() + "大怒道：大膽！想謀害本總管！！！\n");
 
         if( !(obj = present("bang ling", who)) )
-                return notify_fail(name() + "大怒道：没有用的东西，连帮令都会搞丢？！\n");
+                return notify_fail(name() + "大怒道：沒有用的東西，連幫令都會搞丟？！\n");
 
         if( !mapp(job = obj->query("job")) )
-                return notify_fail(name() + "大怒道：没有用的东西，连自己的帮务都记不住？！\n");
+                return notify_fail(name() + "大怒道：沒有用的東西，連自己的幫務都記不住？！\n");
 
         switch(job["type"]) {
-        case "寻":
+        case "尋":
                 name = ob->name();
                 for(int i = 0; i < strwidth(name); i++)
                         if(name[i] > 160 && name[i] < 255)
                                 chname += name[i..i];
                 if( chname != job["name"] )
-                        return notify_fail(name() + "大怒道：没有用的东西，连自己的帮务都记不住？！\n");
+                        return notify_fail(name() + "大怒道：沒有用的東西，連自己的幫務都記不住？！\n");
                 bonus = job["bonus"] * job["max"] / ((int)who->query("combat_exp") + 1000);
                 record = bonus / 2 + random(bonus);
-                log_file("test/BangJob", sprintf("%s于%s时找到%s得%s经验点\n", who->query("name"), ctime(time()), chname, chinese_number(record)));
+                log_file("test/BangJob", sprintf("%s於%s時找到%s得%s經驗點\n", who->query("name"), ctime(time()), chname, chinese_number(record)));
                 bonus = job["score"];
                 break;
 
-        case "截镖":
+        case "截鏢":
                 if( base_name(ob) != BIAOHUO )
-                        return notify_fail(name() + "大怒道：没有用的东西，连一枝镖都搞不定！\n");
+                        return notify_fail(name() + "大怒道：沒有用的東西，連一枝鏢都搞不定！\n");
                 if( ob->query("my_killer") != who->query("id") )
-                        return notify_fail(name() + "大怒道：江湖中最讲究的就是信用，再欺世盗名就宰了你！\n");
+                        return notify_fail(name() + "大怒道：江湖中最講究的就是信用，再欺世盜名就宰了你！\n");
                 break;
         }
 

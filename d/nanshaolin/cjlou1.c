@@ -5,13 +5,13 @@
 inherit ROOM;
 void create()
 {
-	set("short", "藏经阁二楼");
+	set("short", "藏經閣二樓");
 	set("long", @LONG
-千余年来少林寺执中原武林之牛耳，自达摩老祖以下，历代人材辈
-出。其中有不少高僧遗著留存，汇集至今，终成名震天下的少林七十二
-绝艺。福建下院转抄本院典籍，是故，少林精华，尽集于此。二楼四面
-开窗，确保通风。中间排列着五排大书架。四周则陈列矮几，以供阅读。
-几位老僧手执经卷，正在闭目凝思。
+千餘年來少林寺執中原武林之牛耳，自達摩老祖以下，歷代人材輩
+出。其中有不少高僧遺著留存，彙集至今，終成名震天下的少林七十二
+絕藝。福建下院轉抄本院典籍，是故，少林精華，盡集於此。二樓四面
+開窗，確保通風。中間排列着五排大書架。四周則陳列矮几，以供閱讀。
+幾位老僧手執經卷，正在閉目凝思。
 LONG );
 	set("exits", ([
 		"down" : __DIR__"cjlou",
@@ -39,7 +39,7 @@ int valid_leave(object me, string dir)
 		i = sizeof(ob);
 		while (i--)
 			if (ob[i]->id("shaolin wuji"))
-				return notify_fail("方戈说道: 武功秘籍只许在藏经阁内研习，不得携带外出！\n");
+				return notify_fail("方戈說道: 武功祕籍只許在藏經閣內研習，不得攜帶外出！\n");
 	}
 	return ::valid_leave(me, dir);
 }
@@ -54,24 +54,24 @@ int do_jump(string arg)
 	me = this_player(); 
 	if (arg != "chuang" ) return 0;
 	if ( !arg ) return 0;
-	if (!me->query_temp("marks/推")) return notify_fail("你要做什么？\n");
+	if (!me->query_temp("marks/推")) return notify_fail("你要做什麼？\n");
 
 	if( (int)me->query_skill("dodge",1) < 120 )
 	{
-		message_vision( HIR"$N推开窗户，纵身跃起直奔窗外，无奈轻功不够，没有跳过窗台，就摔了下来！\n"NOR, me);
+		message_vision( HIR"$N推開窗戶，縱身躍起直奔窗外，無奈輕功不夠，沒有跳過窗臺，就摔了下來！\n"NOR, me);
 		me->unconcious();
 		return 1;     
 	}  
-	message_vision("$N推开窗户,纵身跃出窗户，一眨眼就不见了 。\n", me);
+	message_vision("$N推開窗戶,縱身躍出窗戶，一眨眼就不見了 。\n", me);
 	me->move(__DIR__"xiaoxi");
-	tell_room(environment(me), me->name() + "从藏经阁飞身跃了过来。\n", ({ me }));
+	tell_room(environment(me), me->name() + "從藏經閣飛身躍了過來。\n", ({ me }));
 	me->delete_temp("marks/推");
      	return 1;
 }
 int do_tui(string arg)
 {
 	if( !arg || arg == "" || arg !=  "chuang") return 0;
-	write("你轻轻的将藏经阁的窗户推开。\n");
+	write("你輕輕的將藏經閣的窗戶推開。\n");
 	this_player()->set_temp("marks/推", 1);
 	return 1;
 }

@@ -1,4 +1,4 @@
-// jiuyang-shengong.c 九阳神功
+// jiuyang-shengong.c 九陽神功
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -19,14 +19,14 @@ int valid_learn(object me)
 	int lvl = (int)me->query_skill("jiuyang-shengong", 1);
 
 	if ((int)me->query_skill("force", 1) < 10)
-		return notify_fail("你的基本内功火候还不够，还不能学习九阳神功。\n");
+		return notify_fail("你的基本內功火候還不夠，還不能學習九陽神功。\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("九阳神功只能用学(learn)的来增加熟练度。\n");
+	return notify_fail("九陽神功只能用學(learn)的來增加熟練度。\n");
 }
 
 string exert_function_file(string func)
@@ -36,20 +36,20 @@ string exert_function_file(string func)
 
 int help(object me)
 {
-	write(HIC"\n九阳神功："NOR"\n");
+	write(HIC"\n九陽神功："NOR"\n");
 	write(@HELP
 
-    九阳神功来自《九阳真经》。
-    在少林寺中的一部《楞伽经》中的夹缝之中，达摩祖师亲手书
-写的一部经书，称为《九阳真经》。《九阳真经》中记着许多强身
-健体、易筋洗髓的法门，觉远大师依此练习。后潇湘子和尹克西盗
-得此书，为逃避追缴，置入猿腹。直到百年之后，方被张无忌在昆
-仑仙境的白猿腹中偶然取得，九阳神功才重见天日。
+    九陽神功來自《九陽真經》。
+    在少林寺中的一部《楞伽經》中的夾縫之中，達摩祖師親手書
+寫的一部經書，稱爲《九陽真經》。《九陽真經》中記着許多強身
+健體、易筋洗髓的法門，覺遠大師依此練習。後瀟湘子和尹克西盜
+得此書，爲逃避追繳，置入猿腹。直到百年之後，方被張無忌在昆
+侖仙境的白猿腹中偶然取得，九陽神功才重見天日。
 
     〖特殊功效〗
 
-	学习要求：
-		基本内功10级
+	學習要求：
+		基本內功10級
 HELP
 	);
 	return 1;

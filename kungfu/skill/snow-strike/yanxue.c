@@ -1,9 +1,9 @@
 // Last Modified by winder on Jul. 9 2001
-// yanxue.c  「烟雪春梅」
+// yanxue.c  「煙雪春梅」
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME "「"HIW"烟雪春梅"NOR"」"
+#define PNAME "「"HIW"煙雪春梅"NOR"」"
 int perform(object me, object target)
 {
 	int damage;
@@ -18,14 +18,14 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 		//兵器空手均可
 		
@@ -41,18 +41,18 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"火候不够，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"火候不夠，使不出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够熟练，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠熟練，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query("max_neili") < 500 )
-		return notify_fail("你的内力修为还不够高。\n");
+		return notify_fail("你的內力修爲還不夠高。\n");
 
 	if( (int)me->query("neili") < 400 )
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 
-	msg = HIW"$N"HIW"冰雪心法运转一周天，全身只觉一股寒气蒸腾欲出，清啸一声，\n飞身而上,施展出「"+HIW"烟雪春梅」，双手一搓一放,一股凝人气血的\n狂飙向$n"HIW"铺天盖地席卷而去。\n"NOR;
+	msg = HIW"$N"HIW"冰雪心法運轉一周天，全身只覺一股寒氣蒸騰欲出，清嘯一聲，\n飛身而上,施展出「"+HIW"煙雪春梅」，雙手一搓一放,一股凝人氣血的\n狂飆向$n"HIW"鋪天蓋地席捲而去。\n"NOR;
 	if(random(me->query_skill(bskill, 1)) > target->query_skill("parry",1)/3)
 	{ 
 		me->start_busy(1+random(1));
@@ -62,11 +62,11 @@ int perform(object me, object target)
 		target->receive_damage("qi", damage,me);
 		target->receive_wound("qi", damage/2,me);
 		me->add("neili", -300);
-		msg +=HIC"$n只见漫天青气席卷而来，躲无可躲，卒一接触，便被震得七窍流血，如断线风筝向后飘去。\n"NOR;
+		msg +=HIC"$n只見漫天青氣席捲而來，躲無可躲，卒一接觸，便被震得七竅流血，如斷線風箏向後飄去。\n"NOR;
 	} else
 	{
 		me->start_busy(2+random(1));
-		msg += HIC"可是$p看破了$P的企图，轻轻地闪在了一边。\n"NOR;
+		msg += HIC"可是$p看破了$P的企圖，輕輕地閃在了一邊。\n"NOR;
 	}
 	message_combatd(msg, me, target);
 
@@ -81,13 +81,13 @@ int help(object me)
         write(@HELP
 
         使用功效：
-                伤敌气血
+                傷敵氣血
 
         出手要求：
-                冰雪心法50级
-                飞雪映梅掌50级
-                内力修为500
-                内力400
+                冰雪心法50級
+                飛雪映梅掌50級
+                內力修爲500
+                內力400
 HELP
         );
         return 1;

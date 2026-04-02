@@ -7,7 +7,7 @@ void create()
        set("gender", "男性" );
        set("age", 26);
        set("long",
-               "他是一个日月神教的弟子。\n");
+               "他是一個日月神教的弟子。\n");
        set("combat_exp", 12500);
        set("attitude", "friendly");
  
@@ -31,14 +31,14 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "日月神教弟子说道：这位" + RANK_D->query_respect(ob)
-            + "想加入日月神教吗，可以看"BRED"(help riyuejiao)"NOR"。\n");
+			say( "日月神教弟子說道：這位" + RANK_D->query_respect(ob)
+            + "想加入日月神教嗎，可以看"BRED"(help riyuejiao)"NOR"。\n");
 			break;
 		case 1:
-			say( "日月神教弟子得意地说道：东方教主的武功天下间无人能及。\n");
+			say( "日月神教弟子得意地說道：東方教主的武功天下間無人能及。\n");
 			break;
 		case 2:
-			say( "日月神教弟子高喊道：东方教主，千秋万载，一统江湖。\n");
+			say( "日月神教弟子高喊道：東方教主，千秋萬載，一統江湖。\n");
 			break;
 	}
 

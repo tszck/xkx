@@ -1,5 +1,5 @@
 // quanzhen_drug.c
-// 用以控制全真炼丹和吃药。
+// 用以控制全真煉丹和喫藥。
 
 #include <login.h>
 

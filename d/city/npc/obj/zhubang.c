@@ -11,11 +11,11 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "根");
-                set("long", "这是一根发黄的竹棒，入手沉甸甸的，似乎相当结实。\n");
+                set("long", "這是一根發黃的竹棒，入手沉甸甸的，似乎相當結實。\n");
                 set("value", 200);
                 set("material", "bamboo");
                 set("wield_msg", "$N抽出一根$n握在手中。\n");
-                set("unwield_msg", "$N将手中的$n插回腰间。\n");
+                set("unwield_msg", "$N將手中的$n插回腰間。\n");
         }
         init_stick(25);
         setup();

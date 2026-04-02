@@ -12,11 +12,11 @@ int set_perform();
 
 void create()
 {
-	set_name("飞贼",({ "fei zei","fei","zei" }) );
-	set("title",HIY"飞天遁地"NOR);
+	set_name("飛賊",({ "fei zei","fei","zei" }) );
+	set("title",HIY"飛天遁地"NOR);
         set("age", 30+random(20));
         set("long", 
-"这是无恶不做的飞贼，背上有一个小小包裹，看样子是才偷了什么东西在手。\n");
+"這是無惡不做的飛賊，背上有一個小小包裹，看樣子是才偷了什麼東西在手。\n");
 	set("int", 30);
 	set("str", 20+random(10));
 	set("con", 30);
@@ -64,18 +64,18 @@ void init()
 			if(money = present("gold_money", ob))
 			{
 				//destruct(money);
-				tell_object(ob, HIR "你突然发现身上的"+money->query("name")+HIR+"不见了！\n"NOR);
+				tell_object(ob, HIR "你突然發現身上的"+money->query("name")+HIR+"不見了！\n"NOR);
 				if (!money->move(this_object())) destruct(money);
 			}
 			else if(money = present("silver_money", ob))
 			{
 				//destruct(money);
-				tell_object(ob, HIR "你突然发现身上的"+money->query("name")+HIR+"不见了！\n"NOR);
+				tell_object(ob, HIR "你突然發現身上的"+money->query("name")+HIR+"不見了！\n"NOR);
 				if (!money->move(this_object())) destruct(money);
 			}
 //			else if(money = present("budai",ob))
 //			{
-//				tell_object(ob, HIR "你突然发现身上的"+money->query("name")+HIR+"不见了！\n"NOR);				
+//				tell_object(ob, HIR "你突然發現身上的"+money->query("name")+HIR+"不見了！\n"NOR);				
 //				if (!money->move(this_object())) destruct(money);
 //			}
 			else 
@@ -85,14 +85,14 @@ void init()
 				{
 					if ((inv[i]->is_container())|| (inv[i]->is_unique() && !inv[i]->query("equipped")))
 					{
-						tell_object(ob, HIR "你突然发现身上的"+inv[i]->query("name")+HIR+"不见了！\n"NOR);
+						tell_object(ob, HIR "你突然發現身上的"+inv[i]->query("name")+HIR+"不見了！\n"NOR);
 						if (!inv[i]->move(this_object())) destruct(inv[i]);
 				    		break;
 				  	}
 				}
 				if ( i==sizeof(inv) )
 				{
-				  command("say 你这个穷光蛋，连点油水都没有，给我滚！");
+				  command("say 你這個窮光蛋，連點油水都沒有，給我滾！");
 					if (!ob->is_busy()) ob->start_busy(1);
 				}
 			}
@@ -139,7 +139,7 @@ int do_halt()
 
         if ( me->is_fighting(ob))
         {
-                message_vision(HIW"$N喝道：“既然被你看出身份，就休想活着离开！”\n"NOR, ob, me);
+                message_vision(HIW"$N喝道：“既然被你看出身份，就休想活着離開！”\n"NOR, ob, me);
                 return 1;
         }
         return 0;
@@ -171,7 +171,7 @@ void die()
 	        	}
         	}
         	if (flag==1) return ::die();
-//        	else return; //如果环境中还有玩家敌人 那么将不会被npc打死
+//        	else return; //如果環境中還有玩家敵人 那麼將不會被npc打死
         }
         else
         {
@@ -183,11 +183,11 @@ void die()
 		me->add("combat_exp",exp);
 		me->add("potential",pot);
 		me->add("score",score);
-		message_vision("$N咬牙切齿地对着天空大叫：“贼老天！”\n",ob);
-		tell_object(me,HIW"你杀敌有功，得到如下奖励：\n");
-		tell_object(me,chinese_number(exp) +"点实战经验\n" +
-		chinese_number(pot) + "点潜能\n" +
-		chinese_number(score)+"点江湖阅历\n"NOR);
+		message_vision("$N咬牙切齒地對着天空大叫：“賊老天！”\n",ob);
+		tell_object(me,HIW"你殺敵有功，得到如下獎勵：\n");
+		tell_object(me,chinese_number(exp) +"點實戰經驗\n" +
+		chinese_number(pot) + "點潛能\n" +
+		chinese_number(score)+"點江湖閱歷\n"NOR);
 		return ::die(); 
 	}
 }

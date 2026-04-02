@@ -1,6 +1,6 @@
 // /clone/npc/meng-zhu.c 武林盟主
 // colored the title of 武林盟主(player) ,   ReyGod, 1/15/1997
-// Modified by Zeratul Jan 11 2001 第一次当武林盟主将有资格上侠客岛。盟主会随机perform了。
+// Modified by Zeratul Jan 11 2001 第一次當武林盟主將有資格上俠客島。盟主會隨機perform了。
 
 #include <ansi.h>
 
@@ -33,13 +33,13 @@ void create()
 	seteuid(getuid());
 
 	if (!restore()) {
-	set_name("东方日", ({ "shangshan shizhe", "shangshan", "shizhe" }) );
-	set_name("魏无双", ({ "wulin mengzhu", "mengzhu", "zhu" }) );
+	set_name("東方日", ({ "shangshan shizhe", "shangshan", "shizhe" }) );
+	set_name("魏無雙", ({ "wulin mengzhu", "mengzhu", "zhu" }) );
 	set("title", "武林盟主" );
 	set("gender", "男性" );
 	set("age", 40);
 	set("no_get", "1");
-	set("long","他就是雄踞武林，号召天下，威风赫赫的当今武林盟主。\n");
+	set("long","他就是雄踞武林，號召天下，威風赫赫的當今武林盟主。\n");
 	set("attitude", "heroism");
 	set("generation",0);
 	set("winner","none");
@@ -69,7 +69,7 @@ void create()
 	set_skill("parry",  100);
 
 	set("inquiry", ([
-		"大宗师" : (: ask_me :),
+		"大宗師" : (: ask_me :),
 	]));
 	set("weapon", "/d/shaolin/obj/changjian");
 	set("armor", "/d/city/obj/cloth");
@@ -83,7 +83,7 @@ void create()
 		set("id", "meng zhu");
 		set_name(query("name"), ({ query("id") }));
 		set("inquiry", ([
-			"大宗师" : (: ask_me :),
+			"大宗師" : (: ask_me :),
 		]));
 
 		if ( mapp(map_status = this_object()->query_skill_map()) ) {
@@ -148,10 +148,10 @@ int do_kill()
 
 	if (!present(this_player(), environment(this_object()))) return 0;
 
-	command("say 你想谋害本盟主，当真是吃了熊心豹子胆了！！");
+	command("say 你想謀害本盟主，當真是喫了熊心豹子膽了！！");
 	command("say 座下白衣武士何在！");
 	
-	message_vision("四周的白衣武士群起对$N发动攻击！\n", this_player());
+	message_vision("四周的白衣武士羣起對$N發動攻擊！\n", this_player());
 
 	for(i=0; i<4; i++) {
 		if( objectp( ob = present("wei shi " + (i+1), environment(this_object())) ) )
@@ -168,18 +168,18 @@ int accept_fight(object ob)
 	
         
         if ( ob->query("score") <30000 )		
-//	 return notify_fail("哼，想挑战武林盟主，回去再历练几年吧！\n");
-	 return notify_fail("等你的江湖阅历凑够了三万，再来找我吧。\n");
+//	 return notify_fail("哼，想挑戰武林盟主，回去再歷練幾年吧！\n");
+	 return notify_fail("等你的江湖閱歷湊夠了三萬，再來找我吧。\n");
 	if ( me->query("winner") == ob->query("id") ) 
 	{
-		return notify_fail("你跟你自己打什么架？！\n");
+		return notify_fail("你跟你自己打什麼架？！\n");
 	}
 
 //	if (wizardp(this_player()))
-//		return notify_fail("巫师不能抢盟主之位！\n");
+//		return notify_fail("巫師不能搶盟主之位！\n");
 
 	if ( me->is_fighting() ) 
-		return notify_fail("已经有人正在挑战武林盟主！\n");
+		return notify_fail("已經有人正在挑戰武林盟主！\n");
 
 	me->set("eff_qi", me->query("max_qi"));
 	me->set("qi",     me->query("max_qi"));
@@ -212,9 +212,9 @@ int checking(object me, object ob)
 	if ( !present(ob, environment()) ) return 1; 
 
 	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 ) {
-		command("say 果然厉害，恭喜你成为当今武林盟主！\n");
-		command("chat 哈哈哈，到底是长江後浪推前浪，一代新人换旧人！\n");
-		command("chat 恭喜" + ob->query("name") + "被推举为当今武林盟主！\n");
+		command("say 果然厲害，恭喜你成爲當今武林盟主！\n");
+		command("chat 哈哈哈，到底是長江後浪推前浪，一代新人換舊人！\n");
+		command("chat 恭喜" + ob->query("name") + "被推舉爲當今武林盟主！\n");
 		if ( !ob->query("xkd/ling") )
 		{
 			ling = new( "/d/xiakedao/obj/tongpai1" );
@@ -223,7 +223,7 @@ int checking(object me, object ob)
 			ling = new( "/d/xiakedao/obj/tongpai2" );
 			ling->set( "own", ob->query("id") );
 			ling->move( ob );
-			tell_object( ob, HIY"你只觉得眼前一花，手中已多了两件物事。\n"NOR );
+			tell_object( ob, HIY"你只覺得眼前一花，手中已多了兩件物事。\n"NOR );
 			ob->set( "xkd/ling", 1 );
 			ob->set( "xkd/time", time() + 86400 );
 		}
@@ -233,8 +233,8 @@ int checking(object me, object ob)
 	}
 
 	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 ) {
-		command("say 看来" + RANK_D->query_respect(ob) + 
-			"还得多加练习，方能在当今武林中出人头地 !\n");
+		command("say 看來" + RANK_D->query_respect(ob) + 
+			"還得多加練習，方能在當今武林中出人頭地 !\n");
 		return 1;
 	}
 
@@ -298,7 +298,7 @@ int do_recopy(object me, object ob)
 	if (!present(this_player(), environment(this_object()))) return 0;
 
 	if ( me->query("winner") != ob->query("id") ) 
-		return notify_fail("你不是现任武林盟主！\n");;
+		return notify_fail("你不是現任武林盟主！\n");;
 
 	me->set("name",  ob->query("name") );
 	me->set("title", "第" + chinese_number(me->query("generation")) + "代武林盟主");
@@ -442,7 +442,7 @@ int do_clone(object me, object ob)
 		me->set("combat_exp",hp_status["combat_exp"]);
 	save();
 
-	tell_object(ob, "状态储存完毕。\n");
+	tell_object(ob, "狀態儲存完畢。\n");
 
 	newobj = new("/clone/npc/meng-zhu");
 	newobj->move("/d/taishan/fengchan");
@@ -464,7 +464,7 @@ int do_recover()
 	ob = this_player();
 
 	if ( me->query("winner") != ob->query("id") ) 
-		return notify_fail("你不是现任武林盟主！\n");;
+		return notify_fail("你不是現任武林盟主！\n");;
 
 /* delete and copy skills */
 
@@ -525,7 +525,7 @@ int do_recover()
 
 	ob->set("combat_exp", me->query("combat_exp"));
 
-	write("状态复元完毕。\n");
+	write("狀態復元完畢。\n");
 
 	return 1;
 }
@@ -542,17 +542,17 @@ string ask_me()
 	for (i = 0; i < sizeof(ob); i ++)
 		if( userp(ob[i]) )
 		{
-			return "“大宗师那里已经有客人了，一会再来吧。”\n";
+			return "“大宗師那裏已經有客人了，一會再來吧。”\n";
 		}
 	ob = all_inventory(me);
 	for (i = 0; i < sizeof(ob); i ++)
 		if( userp(ob[i]) )
 		{
-			return "“你身上背了个谁？这样是不能去见大宗师的。”\n";
+			return "“你身上背了個誰？這樣是不能去見大宗師的。”\n";
 		}
 	if ( me->query("score") <30000 )		
-	return ("哼，就这点江湖阅历，大宗师是不会见你的！\n");
+	return ("哼，就這點江湖閱歷，大宗師是不會見你的！\n");
 	me->move("/d/taishan/duzunju");
-	tell_object(me, HIC"\n"+obj->query("name")+"告诉你说：好吧，我就送你过去。"+obj->query("name")+"回手拉开身后的小门，把你一把推了进去。\n"NOR);
-	return "好吧，我就送你过去。"+obj->query("name")+"回手拉开身后的小门，把"+me->query("name")+"一把推了进去。\n";
+	tell_object(me, HIC"\n"+obj->query("name")+"告訴你說：好吧，我就送你過去。"+obj->query("name")+"回手拉開身後的小門，把你一把推了進去。\n"NOR);
+	return "好吧，我就送你過去。"+obj->query("name")+"回手拉開身後的小門，把"+me->query("name")+"一把推了進去。\n";
 }

@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("宫女",({ "gong nu", "girl" }) );
+	set_name("宮女",({ "gong nu", "girl" }) );
         set("gender", "女性" );
         set("age", 17);
-        set("long", "一位大理皇宫乌夷族宫女，以酥泽发，盘成两环，一身宫装，目无表情。\n");
+        set("long", "一位大理皇宮烏夷族宮女，以酥澤發，盤成兩環，一身宮裝，目無表情。\n");
  	set_temp("apply/defense", 5);
 	set("combat_exp", 7000);
 	set("shen_type", 1);

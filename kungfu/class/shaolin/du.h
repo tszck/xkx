@@ -10,25 +10,25 @@ void attempt_apprentice(object ob)
 
 	if (!(ob_fam = ob->query("family")) || ob_fam["family_name"] != "少林派")
 	{
-		command("say " + RANK_D->query_respect(ob) + "与本派素无来往，不知此话从何谈起？");
+		command("say " + RANK_D->query_respect(ob) + "與本派素無來往，不知此話從何談起？");
 		return;
 	}
 
 	if ((string)ob->query("class") != "bonze" && ob_fam["family_name"] == "少林派")
 	{
-		command("say " + RANK_D->query_respect(ob) + "是俗家弟子，不能在寺内学艺。");
+		command("say " + RANK_D->query_respect(ob) + "是俗家弟子，不能在寺內學藝。");
 		return;
 	}
 
 	if (ob_fam["generation"] <= my_fam["generation"])
 	{
-		command("say " + RANK_D->query_respect(ob) + "，贫僧哪里敢当 !");
+		command("say " + RANK_D->query_respect(ob) + "，貧僧哪裏敢當 !");
 		return;
 	}
 
 	if (ob_fam["generation"] == (my_fam["generation"] + 1))
 	{
-		command("say " + ob_fam["master_name"] + "的徒弟怎麽跑到我这儿来了，哈哈哈 !");
+		command("say " + ob_fam["master_name"] + "的徒弟怎麼跑到我這兒來了，哈哈哈 !");
 		command("recruit " + ob->query("id"));
 	}
 
@@ -43,22 +43,22 @@ void attempt_apprentice(object ob)
 				ob->query_skill("parry", 1) >= 120 &&
 				ob->query_skill("buddhism", 1) >= 120)
 			{
-				command("say 你能过金刚伏魔圈，哈哈哈 !");
-				command("say 贫僧又得一可塑之才，真是可喜可贺 !");
+				command("say 你能過金剛伏魔圈，哈哈哈 !");
+				command("say 貧僧又得一可塑之才，真是可喜可賀 !");
 
 				name = ob->query("name");
 				new_name = "玄" + name[1..1];
 				ob->set("name", new_name);
 
-				command("say 从今以后你的法名叫做" + new_name + "，恭喜你荣升为少林派玄字辈弟子 !");
+				command("say 從今以後你的法名叫做" + new_name + "，恭喜你榮升爲少林派玄字輩弟子 !");
 				command("recruit " + ob->query("id"));
 			}
 			else
-				command("say 贫僧要收的是有用之才，你还是回去向你师父学习吧!");
+				command("say 貧僧要收的是有用之才，你還是回去向你師父學習吧!");
 		}
 		else
 		{
-			command("say " + RANK_D->query_respect(ob) + "，没能过金刚伏魔圈，我不想收你。");
+			command("say " + RANK_D->query_respect(ob) + "，沒能過金剛伏魔圈，我不想收你。");
 			return;
 		}
 	}

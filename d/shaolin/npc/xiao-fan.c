@@ -5,11 +5,11 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("小贩", ({ "xiao fan", "seller", "fan" }) );
+	set_name("小販", ({ "xiao fan", "seller", "fan" }) );
 	set("gender", "男性" );
 	set("age", 32);
 	set("long",
-		"这是个小贩，别看他长的老老实实，可你别想从他那儿掏便宜。\n");
+		"這是個小販，別看他長的老老實實，可你別想從他那兒掏便宜。\n");
 	set("shen_type", 1);
 	set("combat_exp", 300);
         set("str", 17);

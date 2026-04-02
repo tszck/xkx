@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "长廊");
+	set("short", "長廊");
 	set("long", @LONG
-这是条长长的走廊。四处黑沉沉的。
+這是條長長的走廊。四處黑沉沉的。
 LONG );
 	set("exits", ([
 		"north" : __DIR__"zhuang9",

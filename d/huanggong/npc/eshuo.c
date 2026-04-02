@@ -6,8 +6,8 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIY "鄂硕克哈" NOR, ({"eshuo keha", "eshuo", "keha"}));
-	set("title", HIB"镶蓝旗旗主"NOR);
+	set_name(HIY "鄂碩克哈" NOR, ({"eshuo keha", "eshuo", "keha"}));
+	set("title", HIB"鑲藍旗旗主"NOR);
 	set("gender", "男性");
 	set("age", 36);
 	set("str", 25);

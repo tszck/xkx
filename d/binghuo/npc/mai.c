@@ -5,10 +5,10 @@ inherit F_MASTER;
 #include <ansi.h>
 void create()
 {
-	set_name("麦鲸", ({ "mai jing", "mai", "jing" }));
-	set("title", HIC"巨鲸帮帮主"NOR);
+	set_name("麥鯨", ({ "mai jing", "mai", "jing" }));
+	set("title", HIC"巨鯨幫幫主"NOR);
 	set("long", 
-"他从七八岁起，便常钻到海底摸鱼捉蟹，水性极高，便一炷香不
+"他從七八歲起，便常鑽到海底摸魚捉蟹，水性極高，便一炷香不
 出水面，也淹他不死。\n");
 
 	set("gender", "男性");

@@ -9,10 +9,10 @@ int do_go(string arg);
 
 void create()
 {
-	set("short", "湖滨小路");
+	set("short", "湖濱小路");
 	set("long", @LONG
-一条湖滨的小路，往南面看远处似乎有一家小酒馆。往北面看远处
-似乎有一座庄园。
+一條湖濱的小路，往南面看遠處似乎有一家小酒館。往北面看遠處
+似乎有一座莊園。
 LONG );
 	set("no_clean_up", 0);
 	set("outdoors", "guiyun");

@@ -3,7 +3,7 @@
 inherit NPC;
 void create()
 {
-        set_name("陆虞候",({"lu yuhou", "lu"}));
+        set_name("陸虞候",({"lu yuhou", "lu"}));
         set("gender", "男性");
         set("age", 53);
         set("str", 20);

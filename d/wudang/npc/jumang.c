@@ -8,7 +8,7 @@ void create()
 	set_name(RED"赤冠巨蟒"NOR, ({ "ju man", "snake" }) );
 	set("race", "爬蛇");
 	set("age", 20);
-	set("long", "一只庞然大物，它眼中喷火，朱冠厉齿，忠心守卫这个果园，
+	set("long", "一隻龐然大物，它眼中噴火，朱冠厲齒，忠心守衛這個果園，
 好象要一口把你吞下。\n");
 	set("attitude", "aggressive");
 	set("qi", 5000);
@@ -32,6 +32,6 @@ int hit_ob(object me, object ob, int damage)
 		(int)ob->query_condition("snake_poison") < 10 )
 	{
 		ob->apply_condition("snake_poison", 40);
-		tell_object(ob, HIG "你觉得被咬中的地方一阵麻木！\n" NOR );
+		tell_object(ob, HIG "你覺得被咬中的地方一陣麻木！\n" NOR );
 	}
 }

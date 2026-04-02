@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "花桥亭");
+	set("short", "花橋亭");
 	set("long", @LONG
-这是一个建在大路中央的小亭子，三三两两的行人在此休息。南去
-便是顺济桥，可通往港口。
+這是一個建在大路中央的小亭子，三三兩兩的行人在此休息。南去
+便是順濟橋，可通往港口。
 LONG );
 	set("outdoors", "quanzhou");
 	set("no_clean_up", 0);

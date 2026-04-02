@@ -11,7 +11,7 @@ void create()
 	else
 	{
 		set("unit", "面");
-		set("long","这一块五毒令，凭此牌弟子可要毒虫。\n");
+		set("long","這一塊五毒令，憑此牌弟子可要毒蟲。\n");
 		set("value", 0);
 		set("material", "steel");
 	}

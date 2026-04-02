@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("哑妇",({ "yafu" }) );
+	set_name("啞婦",({ "yafu" }) );
 	set("gender", "女性" );
 	set("age", 37);
-	set("long", "这是个终年不开口的哑妇\n");
+	set("long", "這是個終年不開口的啞婦\n");
 	set("combat_exp", 50000);
 	set("shen_type", 0);
 	set("str", 21);

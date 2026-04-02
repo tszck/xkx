@@ -3,7 +3,7 @@
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "唱仙法之哼字决"
+#define PNAME "唱仙法之哼字決"
 int perform(object me, object target)
 {
 	int skill;
@@ -18,14 +18,14 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 /*	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 */	
 	fskill = "dulong-dafa";
 	bskill = "staff";
@@ -39,20 +39,20 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 70 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 80 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	if((int)me->query_temp("apply/attack") <= 0 ||
 		(int)me->query_temp("apply/dodge") <= 0 ||
 		(int)me->query_temp("apply/defense") <= 0)
-		return notify_fail("你目前战斗力太低，不能再恢复内力了。\n");
+		return notify_fail("你目前戰鬥力太低，不能再恢復內力了。\n");
 
 	if( (int)me->query_temp("chang") <=-30 )
-		return notify_fail("你已经唱得太久了，不能再唱了。\n");
+		return notify_fail("你已經唱得太久了，不能再唱了。\n");
 
-	message_combatd(HIR "只听$N"HIR"口中哼哼唧唧，顷刻之间内力大涨！\n" NOR, me);
+	message_combatd(HIR "只聽$N"HIR"口中哼哼唧唧，頃刻之間內力大漲！\n" NOR, me);
 	me->add_temp("apply/attack", -1);
 	me->add_temp("apply/dodge", -1);
 	me->add_temp("apply/defense", -1);
@@ -69,12 +69,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		降低自己的攻击力、防御力
-		增补自己的内力
+		降低自己的攻擊力、防禦力
+		增補自己的內力
 
 	出手要求：
-		毒龙大法70级
-		神龙杖法80级
+		毒龍大法70級
+		神龍杖法80級
 HELP
 	);
 	return 1;

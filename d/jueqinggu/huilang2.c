@@ -6,9 +6,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "回廊");
+	set("short", "迴廊");
 	set("long", @LONG
-一条典雅的回廊，上面画满当代名人的书画。
+一條典雅的迴廊，上面畫滿當代名人的書畫。
 LONG
 	);
 
@@ -31,6 +31,6 @@ int valid_leave(object me, string dir)
 	  if (!me->query("jqg_pass")&&
 	  present("pu ren", environment(me)) &&
 	  (dir=="north"))
-	  return notify_fail("仆人拦住你说道，丹房没经谷主同意，不能随便进入。\n");
+	  return notify_fail("僕人攔住你說道，丹房沒經谷主同意，不能隨便進入。\n");
 	  return ::valid_leave(me, dir);
 }

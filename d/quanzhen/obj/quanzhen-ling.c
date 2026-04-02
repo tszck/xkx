@@ -10,8 +10,8 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "面");
-                set("long","这是一面银光闪闪的令牌，由丹阳真人签发，凭此可弟子自由向师尊挑战。\n");
-//		set("no_drop", "这样东西不能离开你。\n");
+                set("long","這是一面銀光閃閃的令牌，由丹陽真人簽發，憑此可弟子自由向師尊挑戰。\n");
+//		set("no_drop", "這樣東西不能離開你。\n");
                 set("material", "steel");
         }
 }

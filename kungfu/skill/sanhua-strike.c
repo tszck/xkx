@@ -1,5 +1,5 @@
 // Last Modified by Winder on May. 29 2001
-// sanhua-strike.c 散花掌 和摩诃指互备。四季诗句截至前人。
+// sanhua-strike.c 散花掌 和摩訶指互備。四季詩句截至前人。
 
 #include <ansi.h>
 inherit SKILL;
@@ -7,21 +7,21 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N合掌抱球而开，一式「"HIG"春深芳草尽"NOR"」，掌力变幻吞吐，宛若春风抚体，缓缓飘向$n",
+([	"action" : "$N合掌抱球而開，一式「"HIG"春深芳草盡"NOR"」，掌力變幻吞吐，宛若春風撫體，緩緩飄向$n",
 	"lvl"   : 0,
-	"skill_name" : "春深芳草尽"
+	"skill_name" : "春深芳草盡"
 ]),
-([	"action" : "$N五指绽开，一式「"GRN"夏闲独兰馨"NOR"」，左右双掌穿插翻飞，活力四溅，劲风向$n疾飞而去",
+([	"action" : "$N五指綻開，一式「"GRN"夏閒獨蘭馨"NOR"」，左右雙掌穿插翻飛，活力四濺，勁風向$n疾飛而去",
 	"lvl"   : 30,
-	"skill_name" : "夏闲独兰馨"
+	"skill_name" : "夏閒獨蘭馨"
 ]),
-([	"action" : "$N一式「"HIY"秋酣菊霜清"NOR"」，左掌虚托，右掌乍伸乍合，如在风中摇摆，轻轻抚向$n$l",
+([	"action" : "$N一式「"HIY"秋酣菊霜清"NOR"」，左掌虛託，右掌乍伸乍合，如在風中搖擺，輕輕撫向$n$l",
 	"lvl"   : 60,
 	"skill_name" : "秋酣菊霜清"
 ]),
-([	"action" : "$N双掌雪白，一式「"HIW"冬卧听梅吟"NOR"」，翻飞中掌尖幻成漫天梅花朵朵，雨点般向$n飘去",
+([	"action" : "$N雙掌雪白，一式「"HIW"冬臥聽梅吟"NOR"」，翻飛中掌尖幻成漫天梅花朵朵，雨點般向$n飄去",
 	"lvl"   : 100,
-	"skill_name" : "冬卧听梅吟"
+	"skill_name" : "冬臥聽梅吟"
 ])
 });
 
@@ -31,21 +31,21 @@ int valid_combine(string combo){ return combo=="mohe-finger"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练散花掌必须空手。\n");
+		return notify_fail("練散花掌必須空手。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 30)
-		return notify_fail("你的站桩功火候不够，无法学散花掌。\n");
+		return notify_fail("你的站樁功火候不夠，無法學散花掌。\n");
 	if ((int)me->query("max_neili") < 200)
-		return notify_fail("你的内力太弱，无法练散花掌。\n");
+		return notify_fail("你的內力太弱，無法練散花掌。\n");
 	if (me->query_skill("weituo-strike", 1) < 30)
-		return notify_fail("你的韦陀掌火候不够，无法学散花掌。\n");
+		return notify_fail("你的韋陀掌火候不夠，無法學散花掌。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if ((int)me->query("qi") < 40)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够练散花掌。\n");
+		return notify_fail("你的內力不夠練散花掌。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -15);
 	return 1;
@@ -72,16 +72,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 25; }
@@ -99,12 +99,12 @@ int help(object me)
 	write(HIC"\n散花掌："NOR"\n");
 	write(@HELP
 
-    散花掌是南少林掌法。和摩诃指互备。
+    散花掌是南少林掌法。和摩訶指互備。
 
-	学习要求：
-		站桩功30级
-		韦陀掌30级
-		内力修为200
+	學習要求：
+		站樁功30級
+		韋陀掌30級
+		內力修爲200
 HELP
 	);
 	return 1;

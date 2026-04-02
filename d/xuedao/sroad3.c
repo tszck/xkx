@@ -6,8 +6,8 @@ void create()
 {
 	set("short","山路");
 	set("long",@LONG
-这里是靠近川西的崇山峻岭，怪石嶙峋。再往东去就是川西边缘了。
-往西有一座雪山高耸入云。路边上有一个大雪坑(hollow)。
+這裏是靠近川西的崇山峻嶺，怪石嶙峋。再往東去就是川西邊緣了。
+往西有一座雪山高聳入雲。路邊上有一個大雪坑(hollow)。
 LONG );
 	set("exits",([
 		"northwest" : "/d/lingxiao/boot",
@@ -19,7 +19,7 @@ LONG );
 		__DIR__"npc/liuchengfeng" : 1,
 	]));
 	set("item_desc",([
-		"hollow"  : "一个雪坑，似乎可以跳(jump)下去。\n"
+		"hollow"  : "一個雪坑，似乎可以跳(jump)下去。\n"
 	]));
 	set("outdoors", "xueshan");
 	set("no_clean_up", 0);
@@ -39,12 +39,12 @@ int do_jump(string arg)
 	object me = this_player();
 	if( arg=="hollow")
 	{
-		message_vision("$N刚想往下跳，脚在雪地上一滑，卞叽一下摔到坑底。\n",me);
+		message_vision("$N剛想往下跳，腳在雪地上一滑，卞嘰一下摔到坑底。\n",me);
 		me->move(__DIR__"hollow");
 	}
 	else
 	{
-		message_vision("$N跳了起来，脚在雪地上一滑就趴在地上了。\n",me);
+		message_vision("$N跳了起來，腳在雪地上一滑就趴在地上了。\n",me);
 	}
 	return 1;
 }

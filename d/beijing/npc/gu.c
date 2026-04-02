@@ -3,8 +3,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("顾炎武", ({ "gu yanwu", "gu" }));
-	set("long", "顾先生被称为当世第一大文学家，肚子里的墨水比海还要深。\n");
+	set_name("顧炎武", ({ "gu yanwu", "gu" }));
+	set("long", "顧先生被稱爲當世第一大文學家，肚子裏的墨水比海還要深。\n");
 	set("gender", "男性");
 	set("age", 65);
 
@@ -23,10 +23,10 @@ void create()
 
 	set("chat_chance", 3);
 	set("chat_msg", ({
-		"顾炎武说道：普天之下，莫非王土；率土之滨，莫非王臣。\n",
-		"顾炎武说道：出家人，小过损益焉；无妄大过，未济咸困之。\n",
-		"顾炎武说道：大学之道，在明明德。在亲民，在止于至善。 \n",
-		"顾炎武说道：格物致知，诚意正心，修身齐家，治国平天下。\n",
+		"顧炎武說道：普天之下，莫非王土；率土之濱，莫非王臣。\n",
+		"顧炎武說道：出家人，小過損益焉；無妄大過，未濟鹹困之。\n",
+		"顧炎武說道：大學之道，在明明德。在親民，在止於至善。 \n",
+		"顧炎武說道：格物致知，誠意正心，修身齊家，治國平天下。\n",
 	}) );
 	carry_object(CLOTH_DIR"cloth")->wear();
 }
@@ -44,7 +44,7 @@ int accept_object(object who, object ob)
 	if (!(int)who->query_temp("mark/朱"))
 		who->set_temp("mark/朱", 0);
 	if (ob->query("money_id") && ob->value() >= 5000) {
-		message_vision("顾炎武同意指点$N一些问题。\n", who);
+		message_vision("顧炎武同意指點$N一些問題。\n", who);
 		who->add_temp("mark/朱", ob->value() / 250);
 		return 1;
 	}

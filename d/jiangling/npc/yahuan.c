@@ -8,7 +8,7 @@ void create()
 	set("gender", "女性" );
 	set("age", 15);
 	set("long", 
-"她是知府千金凌小姐的贴身丫鬟，大约十四、五岁，清丽绝俗，一脸温柔的颜色。\n");
+"她是知府千金淩小姐的貼身丫鬟，大約十四、五歲，清麗絕俗，一臉溫柔的顏色。\n");
 	set_temp("apply/defense", 5);
 	set("combat_exp", 70);
 	set("shen_type", 1);
@@ -20,7 +20,7 @@ void create()
 	set("attitude", "friendly");
 	set("chat_chance", 5);
 	set("chat_msg", ({
-		"丫鬟抿嘴吃吃一笑：我们家里的“春水碧波”、“绿玉如意”，平常人哪里轻易见得。\n",
+		"丫鬟抿嘴喫喫一笑：我們家裏的“春水碧波”、“綠玉如意”，平常人哪裏輕易見得。\n",
 	}) );
 
 	setup();

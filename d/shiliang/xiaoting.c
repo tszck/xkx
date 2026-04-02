@@ -3,10 +3,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "小厅");
+	set("short", "小廳");
 	set("long",@LONG
-这是一个小小的客厅，墙上挂着一些字画，其中最显眼的是王
-羲之的一幅《兰亭集序》，有个女仆人正在打扫着卫生。
+這是一個小小的客廳，牆上掛着一些字畫，其中最顯眼的是王
+羲之的一幅《蘭亭集序》，有個女僕人正在打掃着衛生。
 LONG
 	);
 	set("exits", ([
@@ -17,7 +17,7 @@ LONG
                  __DIR__"npc/afeng" : 1,
 	]));
 	set("item_desc", ([
-		"《兰亭集序》" : "这大概是王老先生的真迹，笔法遒劲，浑然一派大家风范。\n" ,
+		"《蘭亭集序》" : "這大概是王老先生的真跡，筆法遒勁，渾然一派大家風範。\n" ,
 	]));
 	set("coor/x", 1620);
 	set("coor/y", -1770);
@@ -36,27 +36,27 @@ int do_kneel(string arg)
 	string dir;
         me = this_player();
         if (!arg||arg=="") return 0;
-	if( arg=="《兰亭集序》" ) {
-		message_vision("$N虔诚地跪在《兰亭集序》下，磕起头来，“咚咚”地板好象是空的。\n", this_player());
+	if( arg=="《蘭亭集序》" ) {
+		message_vision("$N虔誠地跪在《蘭亭集序》下，磕起頭來，“咚咚”地板好象是空的。\n", this_player());
 	}
-	if( sscanf(arg, "《兰亭集序》 %s", dir)==1 ) 
+	if( sscanf(arg, "《蘭亭集序》 %s", dir)==1 ) 
 	{
 		if( dir=="9" || dir=="nine")
 		{
 			if(!objectp(present("hole", environment(me))))
 			{
-message_vision("$N一口气磕了九个响头，突然间，地板松动了，露出一个大洞。\n",me);
+message_vision("$N一口氣磕了九個響頭，突然間，地板鬆動了，露出一個大洞。\n",me);
 				hole = new("/d/shiliang/obj/hole");
 				hole->move("/d/shiliang/xiaoting");
 			}
 	        }   
-		else return notify_fail("你胡乱磕了几个头，结果啥也没发生。\n");
+		else return notify_fail("你胡亂磕了幾個頭，結果啥也沒發生。\n");
 	}		
 	return 1;
 }
 int do_enter(string arg)
 {
 	if( !arg || arg!="floor" ) return 0;
-		return notify_fail(" 想穿地板啊？你不会奇门遁甲。\n");
+		return notify_fail(" 想穿地板啊？你不會奇門遁甲。\n");
 	return 1;
 }

@@ -7,7 +7,7 @@ void create()
 	set_name("侍女", ({ "shi nv" }) );
 	set("gender", "女性" );
 	set("age", 20);
-	set("long", "美目四盼,矫揉造作,让你恨不得在她脸蛋儿掐上一把。\n");
+	set("long", "美目四盼,矯揉造作,讓你恨不得在她臉蛋兒掐上一把。\n");
 	set("shen_type", -1);
 	set("combat_exp", 10000);
 	set("str", 20);

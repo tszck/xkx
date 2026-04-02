@@ -1,4 +1,4 @@
-// lanhua-shou.c -兰花拂穴手
+// lanhua-shou.c -蘭花拂穴手
 // Last Modified by sir 10.23.2001
 
 #include <ansi.h>
@@ -7,37 +7,37 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N右手五指分开，微微一拨，再并拢向外一拂，一式" MAG"「花疏云淡」"NOR"，拂向$n的膻中要穴",
+([	"action" : "$N右手五指分開，微微一撥，再併攏向外一拂，一式" MAG"「花疏雲淡」"NOR"，拂向$n的膻中要穴",
 	"lvl" : 0,
-	"skill_name" : "花疏云淡"
+	"skill_name" : "花疏雲淡"
 ]),
-([	"action" : "$N侧身掠向$n，一式"CYN"「轻云蔽月」"NOR"，左手五指暗暗运气拨向$n的胸前大穴",
+([	"action" : "$N側身掠向$n，一式"CYN"「輕雲蔽月」"NOR"，左手五指暗暗運氣撥向$n的胸前大穴",
 	"lvl" : 10,
-	"skill_name" : "轻云蔽月"
+	"skill_name" : "輕雲蔽月"
 ]),
-([	"action" : "$N使一式"HIW"「云破月来」"NOR"，左掌虚攻，右手并指斜前翻出，拍向$n的肩井穴",
+([	"action" : "$N使一式"HIW"「雲破月來」"NOR"，左掌虛攻，右手並指斜前翻出，拍向$n的肩井穴",
 	"lvl" : 20,
-	"skill_name" : "云破月来"
+	"skill_name" : "雲破月來"
 ]),
-([	"action" : "$N左掌护胸，微微侧身，右掌勾上，一式"BLU"「幽兰弄影」"NOR"，缓缓拂向$n的天突穴",
+([	"action" : "$N左掌護胸，微微側身，右掌勾上，一式"BLU"「幽蘭弄影」"NOR"，緩緩拂向$n的天突穴",
 	"lvl" : 30,
-	"skill_name" : "幽兰弄影"
+	"skill_name" : "幽蘭弄影"
 ]),
-([	"action" : "$N使一式"GRN"「芳兰竟体」"NOR"，身影不定地掠至$n身后，猛地拍向$n的大椎穴",
+([	"action" : "$N使一式"GRN"「芳蘭竟體」"NOR"，身影不定地掠至$n身後，猛地拍向$n的大椎穴",
 	"lvl" : 42,
-	"skill_name" : "芳兰竟体"
+	"skill_name" : "芳蘭竟體"
 ]),
-([	"action" : "$N两臂左手下右手上地于胸前成兰花指形翻上，微吸一口气，一式"HIG"「兰桂齐芳」"NOR"，双手向外快速一拨，激出数道劲气逼向$n的华盖、璇玑、紫宫几处大穴",
+([	"action" : "$N兩臂左手下右手上地於胸前成蘭花指形翻上，微吸一口氣，一式"HIG"「蘭桂齊芳」"NOR"，雙手向外快速一撥，激出數道勁氣逼向$n的華蓋、璇璣、紫宮幾處大穴",
 	"lvl" : 54,
-	"skill_name" : "兰桂齐芳"
+	"skill_name" : "蘭桂齊芳"
 ]),
-([	"action" : "$N衣袂飘飘，向上跃起，一式"RED"「月影花香」"NOR"，居高临下，拂出一道劲力罩向$n的百会大穴",
+([	"action" : "$N衣袂飄飄，向上躍起，一式"RED"「月影花香」"NOR"，居高臨下，拂出一道勁力罩向$n的百會大穴",
 	"lvl" : 66,
 	"skill_name" : "月影花香"
 ]),
-([	"action" : "$N凝神施展出"HIR"「花好月圆」"NOR"，双手疾拂，一环环的劲气逼向$n的上中下各大要穴",
+([	"action" : "$N凝神施展出"HIR"「花好月圓」"NOR"，雙手疾拂，一環環的勁氣逼向$n的上中下各大要穴",
 	"lvl" : 80,
-	"skill_name" : "花好月圆"
+	"skill_name" : "花好月圓"
 ])
 });
 
@@ -47,21 +47,21 @@ int valid_combine(string combo) { return combo=="tanzhi-shentong"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail(HIC"练兰花拂穴手必须空手。\n"NOR);
+		return notify_fail(HIC"練蘭花拂穴手必須空手。\n"NOR);
 	if ((int)me->query_skill("bibo-shengong", 1) < 20)
-		return notify_fail("你的碧波神功火候不够，无法学兰花拂穴手。\n");
+		return notify_fail("你的碧波神功火候不夠，無法學蘭花拂穴手。\n");
 	if ((int)me->query("max_neili") < 200)
-		return notify_fail("你的内力太弱，无法练兰花拂穴手。\n");
+		return notify_fail("你的內力太弱，無法練蘭花拂穴手。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 40)
-		return notify_fail("你的体力太低了，无法练兰花拂穴手。\n");
+		return notify_fail("你的體力太低了，無法練蘭花拂穴手。\n");
 	if ((int)me->query("neili") < 40)
-		return notify_fail("你的内力不够练兰花拂穴手。\n");
+		return notify_fail("你的內力不夠練蘭花拂穴手。\n");
 	me->receive_damage("qi", 35);
 	me->add("neili", -25);
 	return 1;
@@ -88,16 +88,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 5; }
@@ -112,15 +112,15 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\n兰花拂穴手："NOR"\n");
+	write(HIC"\n蘭花拂穴手："NOR"\n");
 	write(@HELP
 
-    兰花拂穴手是东海桃花岛武功。出手五指状如兰花。
-    可与弹指神通互备。
+    蘭花拂穴手是東海桃花島武功。出手五指狀如蘭花。
+    可與彈指神通互備。
 
-	学习要求：
-		碧波神功20级
-		内力200
+	學習要求：
+		碧波神功20級
+		內力200
 HELP
 	);
 	return 1;

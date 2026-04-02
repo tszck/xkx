@@ -9,7 +9,7 @@ string ask_me();
 
 void create()
 {
-	set_name("慕容复", ({ "murong fu", "murong","fu" }));
+	set_name("慕容復", ({ "murong fu", "murong","fu" }));
 	set("nickname", HIG"南慕容"NOR);
 	set("gender", "男性");
 	set("class", "scholar");
@@ -54,14 +54,14 @@ void create()
 	prepare_skill("finger", "canhe-finger");
 	prepare_skill("strike", "xingyi-strike");
 	set("inquiry",([
-		"王语嫣"    : "语嫣是我表妹，我一直把她当小妹妹看待。\n",
-		"南慕容"    : "“南慕容北乔峰”，那是江湖上的朋友抬爱了！\n",
-		"慕容复"    : "那是贱名。请教尊驾是？\n",
-		"邓百川"    : "你问邓大哥啊？他在他青风庄上呢。\n",
-		"公冶乾"    : "公冶二哥把信鸽传书一编码，就没几个人读得懂了。\n",
-		"包不同"    : "包三哥最爱抬杠了，你见了他还是闭嘴的好。\n",
-		"风波恶"    : "风四哥最是豪爽了，他从不与人计较什么。\n",
-		"风波恶"    : "风四哥最是豪爽了，他从不与人计较什么。\n",
+		"王語嫣"    : "語嫣是我表妹，我一直把她當小妹妹看待。\n",
+		"南慕容"    : "“南慕容北喬峯”，那是江湖上的朋友抬愛了！\n",
+		"慕容復"    : "那是賤名。請教尊駕是？\n",
+		"鄧百川"    : "你問鄧大哥啊？他在他青風莊上呢。\n",
+		"公冶乾"    : "公冶二哥把信鴿傳書一編碼，就沒幾個人讀得懂了。\n",
+		"包不同"    : "包三哥最愛擡槓了，你見了他還是閉嘴的好。\n",
+		"風波惡"    : "風四哥最是豪爽了，他從不與人計較什麼。\n",
+		"風波惡"    : "風四哥最是豪爽了，他從不與人計較什麼。\n",
 		"玉露清新散": (: ask_me :),
 	]) );
 	set("no_get",1);
@@ -74,7 +74,7 @@ void create()
 		(: exert_function, "reserve" :),
 		(: exert_function, "recover" :),
 	}) );
-	create_family("姑苏慕容",33, "弟子");
+	create_family("姑蘇慕容",33, "弟子");
  	setup();
 	carry_object("/clone/weapon/changjian")->wield();
 	carry_object("/clone/misc/cloth")->wear();
@@ -88,17 +88,17 @@ void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("betrayer") > 0)
 	{
-		command("say 这位" + RANK_D->query_respect(ob) +
-			"，我慕容家复国乃至为要事，你心志不坚，无缘我门。");
+		command("say 這位" + RANK_D->query_respect(ob) +
+			"，我慕容家復國乃至爲要事，你心志不堅，無緣我門。");
 		return;
 	}
 	if ((int)ob->query_skill("shenyuan-gong", 1) < 100)
 	{
-		command("say 姑苏慕容家武功，以内功为根基。");
-		command("say "+RANK_D->query_respect(ob)+"还应该多加努力！");
+		command("say 姑蘇慕容家武功，以內功爲根基。");
+		command("say "+RANK_D->query_respect(ob)+"還應該多加努力！");
 		return;
 	}
-	command("say 好吧我就收你为徒吧。");
+	command("say 好吧我就收你爲徒吧。");
 	command("recruit " + ob->query("id"));
 }
 
@@ -107,13 +107,13 @@ string ask_me()
 	mapping fam; 
 	object ob;
 	
-	if (!(fam = this_player()->query("family")) || fam["family_name"] != "姑苏慕容")
+	if (!(fam = this_player()->query("family")) || fam["family_name"] != "姑蘇慕容")
 		return RANK_D->query_respect(this_player()) + 
-		"与本派素无来往，不知此话从何谈起？";
+		"與本派素無來往，不知此話從何談起？";
 	if (query("san_count") < 1)
-		return "你来晚了，本派的玉露清新散不在此处。";
+		return "你來晚了，本派的玉露清新散不在此處。";
 	add("san_count", -1);
 	ob = new("/clone/medicine/nostrum/yulusan");
 	ob->move(this_player());
-	return "好吧，这玉露清新散你拿去吧。";
+	return "好吧，這玉露清新散你拿去吧。";
 }

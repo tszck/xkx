@@ -13,11 +13,11 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "根");
-		set("long", "这是一根长索，通体黝黑无光，舞动之时瞧不见半点影子。\n");
+		set("long", "這是一根長索，通體黝黑無光，舞動之時瞧不見半點影子。\n");
 		set("value", 0);
 		set("material", "leather");
-		set("wield_msg", "$N「唰」的一声抖出一条$n握在手中。\n");
-		set("unwield_msg", "$N将手中的$n卷回腰间。\n");
+		set("wield_msg", "$N「唰」的一聲抖出一條$n握在手中。\n");
+		set("unwield_msg", "$N將手中的$n捲回腰間。\n");
 	}
 	setup();
 }

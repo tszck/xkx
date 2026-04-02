@@ -45,16 +45,16 @@ void create()
                 fam = names[random(sizeof(names))];
                 name = info_bang[fam];
         } else {
-                fam = "无名帮";
-                name = "草上飞";
+                fam = "無名幫";
+                name = "草上飛";
         }
 
         set_name(name, ({ "bangzhu" }));
-        set("title", fam + "帮主");
+        set("title", fam + "幫主");
         set("party/party_name", fam);
         set("gender", "男性");
         set("age", 30 + random(20));
-        set("long", "一个魁梧之极的大汉，脸庞极尽苍桑，精神却甚矍铄。\n");
+        set("long", "一個魁梧之極的大漢，臉龐極盡蒼桑，精神卻甚矍鑠。\n");
         set("attitude", "friendly");
         set("shen_type", -1);
 
@@ -124,9 +124,9 @@ void create()
         }) );
 */
         set("inquiry", ([
-                "入帮" : (: ask_join :),
+                "入幫" : (: ask_join :),
                 "join" : (: ask_join :),
-                "帮务" : (: ask_job :),
+                "幫務" : (: ask_job :),
                 "job" : (: ask_job :),
 		            "武功" : (: ask_skills :),
                 "skills" : (: ask_skills :),
@@ -168,14 +168,14 @@ void checking(object ob)
         if( !living(me) || is_fighting() ) return;
         if( environment() != environment(ob) ) return;
         if( !random(2) )
-                message_vision("$N双手抱拳，牛里牛气地说道：见到本帮主，难道没有任何表示吗？\n", me);
-        else    message_vision("$N说道：还不赶快加入" + query("party/party_name") + "！！！\n", me);
+                message_vision("$N雙手抱拳，牛裏牛氣地說道：見到本幫主，難道沒有任何表示嗎？\n", me);
+        else    message_vision("$N說道：還不趕快加入" + query("party/party_name") + "！！！\n", me);
 }
 
 int ask_me(string arg)
 {
-        message_vision("$N「哈哈哈」大笑几声。\n", this_object());
-        message_vision("$N说道：" + arg + "威震江湖，指日可待！哈！哈！哈！\n", this_object());
+        message_vision("$N「哈哈哈」大笑幾聲。\n", this_object());
+        message_vision("$N說道：" + arg + "威震江湖，指日可待！哈！哈！哈！\n", this_object());
         return 1;
 }
 
@@ -202,7 +202,7 @@ int accept_kill(object me)
         object *follower, *obj = ({}), room;
         int i, temp;
 
-        say(name() + "说道：你想谋害本帮主，当真是吃了熊心豹子胆了！！\n");
+        say(name() + "說道：你想謀害本幫主，當真是喫了熊心豹子膽了！！\n");
 
         follower = query("follower");
         room = environment();
@@ -215,10 +215,10 @@ int accept_kill(object me)
 
         if( !(temp = sizeof(obj)) ) return 1;
 
-        say(name() + "说道：各位帮众何在！\n");
+        say(name() + "說道：各位幫衆何在！\n");
 
         for(i = 0; i < temp; i++) {
-                say(obj[i]->name() + "说道：在！\n");
+                say(obj[i]->name() + "說道：在！\n");
                 obj[i]->kill_ob(me);
         }
 
@@ -255,8 +255,8 @@ int check_bang()
         if( !userp(ob) ) return 1;
         for(i = 0; i < temp; i++) {
                 if( obj[i]->is_fighting(ob) ) continue;
-                message_vision("$N对着$n吼道：还楞着干吗？\n", this_object(), obj[i]);
-                message_vision("$N诚惶诚恐地说道：望帮主恕罪！\n", obj[i]);
+                message_vision("$N對着$n吼道：還楞着幹嗎？\n", this_object(), obj[i]);
+                message_vision("$N誠惶誠恐地說道：望幫主恕罪！\n", obj[i]);
                 obj[i]->kill_ob(ob);
         }
         return 1;
@@ -279,7 +279,7 @@ void die()
                 ob = new(BANGYIN);
                 ob->set("long", query("title") + ob->query("name") + "。\n");
                 ob->move(environment());
-                message_vision(HIR"\n突然从$N衣袋中掉下一" + ob->query("unit") + ob->name() + "。\n"NOR, this_object());
+                message_vision(HIR"\n突然從$N衣袋中掉下一" + ob->query("unit") + ob->name() + "。\n"NOR, this_object());
                 set_temp("my_killer", killer->query("id"));
                 ob->set("my_killer",  killer->query("id"));
                 ob->set("combat_exp", query("combat_exp"));

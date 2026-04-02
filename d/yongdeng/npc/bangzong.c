@@ -5,14 +5,14 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-	set_name("大汉", ({ "da han", "han" }));
+	set_name("大漢", ({ "da han", "han" }));
 	set("gender", "男性");
-	set("title", HIY"黄河帮帮众"NOR);
+	set("title", HIY"黃河幫幫衆"NOR);
 	set("age", 22);
 	set("str", 25);
 	set("per", 15);
 	set("dex", 16);
-	set("long", "一名身材高大的壮汉，满脸杀气，一付凶神恶煞的模样。\n");
+	set("long", "一名身材高大的壯漢，滿臉殺氣，一付凶神惡煞的模樣。\n");
 	set("combat_exp", 2000);
 	set("shen_type", -1);
 	set("attitude", "peaceful");

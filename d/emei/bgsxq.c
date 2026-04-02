@@ -1,14 +1,14 @@
-//Room: bgsxq.c 报国寺西墙
+//Room: bgsxq.c 報國寺西牆
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 
 void create()
 {
-      set("short","西墙");
+      set("short","西牆");
       set("long",@LONG
-这里是峨眉山报国寺的西墙。寺院里的钟声从墙那边飘来，在空气中回
-响。一条山溪从西面山上的解脱桥下流经这里，向山下淌去。
+這裏是峨眉山報國寺的西牆。寺院裏的鐘聲從牆那邊飄來，在空氣中回
+響。一條山溪從西面山上的解脫橋下流經這裏，向山下淌去。
 LONG);
       set("outdoors", "emei");
       set("exits",([ /* sizeof() == 1 */

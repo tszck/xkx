@@ -6,17 +6,17 @@ inherit DAGGER;
 
 void create()
 {
-        set_name("镔铁判官笔", ({ "panguan bi", "bi", "dagger" }));
+        set_name("鑌鐵判官筆", ({ "panguan bi", "bi", "dagger" }));
         set_weight(12000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "对");
-                set("long", "这是一对用镔铁打造的判官笔。\n");
+                set("unit", "對");
+                set("long", "這是一對用鑌鐵打造的判官筆。\n");
                 set("value", 2000);
                 set("material", "steel");
-                set("wield_msg", "$N「唰」的一声从怀中掏出一对$n握在手中。\n");
-                set("unwield_msg", "$N将手中的$n揣回怀里。\n");
+                set("wield_msg", "$N「唰」的一聲從懷中掏出一對$n握在手中。\n");
+                set("unwield_msg", "$N將手中的$n揣回懷裏。\n");
         }
         init_dagger(25);
         setup();

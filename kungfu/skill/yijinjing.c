@@ -1,4 +1,4 @@
-// yijinjing.c 少林 易筋经神功
+// yijinjing.c 少林 易筋經神功
 // Last Modified by sega on Mar. 10 2000
 // Feb.21 1998 by Java
 
@@ -29,29 +29,29 @@ int valid_learn(object me)
 	ns = (int)me->query("guilty");
 
 	if ( oh + oh1 < 100 )
-		return notify_fail("你的少林内功太低，无法学习易筋经神功！\n");
+		return notify_fail("你的少林內功太低，無法學習易筋經神功！\n");
 	if ( me->query("couple/have_couple") )
-		return notify_fail("你尘缘未了，无法再学习易筋经神功！\n");
+		return notify_fail("你塵緣未了，無法再學習易筋經神功！\n");
 	if ( me->query("sex/number") )
-		return notify_fail("你已经破了色戒，无法再学习易筋经神功！\n");
+		return notify_fail("你已經破了色戒，無法再學習易筋經神功！\n");
 	if ( me->query("gender") != "男性" )
-		return notify_fail("你非童男之体，不能练习易筋经神功。\n");
+		return notify_fail("你非童男之體，不能練習易筋經神功。\n");
 
 	if ( nb < 100 && nb <= nh )
-		return notify_fail("你的禅宗心法修为不够，无法领会更高深的易筋经神功。\n");
+		return notify_fail("你的禪宗心法修爲不夠，無法領會更高深的易筋經神功。\n");
 
 	if ( nf < 10)
-		return notify_fail("你的基本内功火候还不够，无法领会易筋经神功。\n");
+		return notify_fail("你的基本內功火候還不夠，無法領會易筋經神功。\n");
 
 	if ( ns > 0 ) 
-		return notify_fail("你屡犯僧家数戒，无法领会更高深的易筋经神功。\n");
+		return notify_fail("你屢犯僧家數戒，無法領會更高深的易筋經神功。\n");
 
 	return valid_public(me,({"zhanzhuang-gong","hunyuan-yiqi"}));
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("易筋经神功只能用学(learn)的来增加熟练度。\n");
+	return notify_fail("易筋經神功只能用學(learn)的來增加熟練度。\n");
 }
 
 string exert_function_file(string func)
@@ -65,23 +65,23 @@ mixed be_hit_ob(object me,object victim,int damage_bonus,int factor)
 //factor= 加力 damage_bonus=臂力 .
 {
 	int ap,dp;
-//内功相差太多(至少2倍以上),内力伤害全部抵消,基本上不出现
+//內功相差太多(至少2倍以上),內力傷害全部抵消,基本上不出現
 	ap=me->query_skill("force");
 	dp=victim->query_skill("force");
 	if ((int)random(ap/2)>dp && me->query("neili")>2000)
 	{
 
-		if (random(10)==1) tell_object(victim, "你只觉得如同击在金属上，头脑里闪过一个念头：金属罩！\n");
-		else tell_object(victim,HIY"你只觉得劲力如同击在金属罩，根本无法伤他分毫！\n"NOR);
-		tell_object(me, HIY"你只觉得劲力袭体，急忙运起金钟罩神功，一股真气弥漫全身！\n"NOR);
+		if (random(10)==1) tell_object(victim, "你只覺得如同擊在金屬上，頭腦裏閃過一個念頭：金屬罩！\n");
+		else tell_object(victim,HIY"你只覺得勁力如同擊在金屬罩，根本無法傷他分毫！\n"NOR);
+		tell_object(me, HIY"你只覺得勁力襲體，急忙運起金鐘罩神功，一股真氣瀰漫全身！\n"NOR);
 		me->add("neili",-2*damage_bonus);
 		return -damage_bonus;
 	}
 	else if ((random(ap*2)>dp) && me->query("neili")>1500)
 	{
-		if (random(10)==1) tell_object(victim,HIY"你只觉得如同击在金属上，头脑里闪过一个念头：“金属罩”！\n"NOR);
-		else tell_object(victim,HIY"你只觉得劲力如同击在金属上，虎口隐隐作痛！\n"NOR);
-		tell_object(me, HIY"你只觉得劲力袭体，勉力运起金钟罩，一股真气弥漫全身！\n"NOR);
+		if (random(10)==1) tell_object(victim,HIY"你只覺得如同擊在金屬上，頭腦裏閃過一個念頭：“金屬罩”！\n"NOR);
+		else tell_object(victim,HIY"你只覺得勁力如同擊在金屬上，虎口隱隱作痛！\n"NOR);
+		tell_object(me, HIY"你只覺得勁力襲體，勉力運起金鐘罩，一股真氣瀰漫全身！\n"NOR);
 		me->add("neili",-damage_bonus);
 		return -random(damage_bonus);
 	}
@@ -90,21 +90,21 @@ mixed be_hit_ob(object me,object victim,int damage_bonus,int factor)
 
 int help(object me)
 {
-	write(HIC"\n易筋经神功："NOR"\n");
+	write(HIC"\n易筋經神功："NOR"\n");
 	write(@HELP
 
-    《易筋》，《洗髓》二经向为少林镇寺之宝，相传为达摩祖师
-所创，载有不少天竺高僧的瑜伽秘术，但由于其习练艰难，须得勘
-破“我相，人相”，心中不存修习武功之念，故历代弟子罕有练成
+    《易筋》，《洗髓》二經向爲少林鎮寺之寶，相傳爲達摩祖師
+所創，載有不少天竺高僧的瑜伽祕術，但由於其習練艱難，須得勘
+破“我相，人相”，心中不存修習武功之念，故歷代弟子罕有練成
 者。
-    《洗髓》记载天下所有武功的精要，《易筋》则是一门极其高
-深的内功心法书籍。
+    《洗髓》記載天下所有武功的精要，《易筋》則是一門極其高
+深的內功心法書籍。
 
-	学习要求：
+	學習要求：
 		未破色戒的童男之身
 		未犯戒
-		混元一气功100级
-		相应级别的禅宗心法
+		混元一氣功100級
+		相應級別的禪宗心法
 HELP
 	);
 	return 1;

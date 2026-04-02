@@ -22,17 +22,17 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (objectp(weapon = me->query_temp("weapon")))
-		return notify_fail("你必须空手运功。\n");
+		return notify_fail("你必須空手運功。\n");
 
 	fskill = "longxiang";
 	bskill = "strike";
@@ -46,16 +46,16 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(fskill)+"等级不够, 不能使出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"等級不夠, 不能使出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(sskill)+"等级不够, 不能使出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"等級不夠, 不能使出"+PNAME+"。\n");
 
 	if( me->query("neili") < 600 )
-		return notify_fail("你的内力不够，无法运功！\n");
+		return notify_fail("你的內力不夠，無法運功！\n");
  
 	skill = me->query_skill(bskill, 1);
-	msg = HIC "$N聚气于掌，使出一招「焚心以火」，向$n"HIC"的胸口击去。\n"NOR;
+	msg = HIC "$N聚氣於掌，使出一招「焚心以火」，向$n"HIC"的胸口擊去。\n"NOR;
 
 	ap = me->query("combat_exp") + skill * 400;
 	dp = target->query("combat_exp") / 2;
@@ -83,17 +83,17 @@ int perform(object me,object target)
 		me->start_busy(1+random(3));
 
  		inv = all_inventory(target);
-    msg += HIR"$n"HIR"只觉得眼前一黑，一阵热焰扑面而来，“哇”的一声喷出一口鲜血！\n"NOR;
+    msg += HIR"$n"HIR"只覺得眼前一黑，一陣熱焰撲面而來，“哇”的一聲噴出一口鮮血！\n"NOR;
 		for(equip=0; equip<sizeof(inv); equip++)
 		{
 			if( inv[equip]->query("equipped") &&
 				!inv[equip]->query("weapon_prop") )
 			{
-msg += HIR "$n"HIR"闻到一股焦味，发现身上的"+inv[equip]->query("name")+HIR"已被烧得残破不堪，掉在了地上！\n"NOR;
+msg += HIR "$n"HIR"聞到一股焦味，發現身上的"+inv[equip]->query("name")+HIR"已被燒得殘破不堪，掉在了地上！\n"NOR;
 			inv[equip]->unequip();
       	seteuid(getuid());
       	piece = new("/clone/misc/piece");
-      	piece->set("long", "一堆破碎物事，好象是布片铁片什么的。\n");
+      	piece->set("long", "一堆破碎物事，好象是布片鐵片什麼的。\n");
       	piece->set_name( inv[equip]->query("name") + "的碎片", ({inv[equip]->query("id"),"piece"}) );
       	piece->move(environment(target));
      		destruct(inv[equip]);
@@ -103,7 +103,7 @@ msg += HIR "$n"HIR"闻到一股焦味，发现身上的"+inv[equip]->query("name
 	}
 	else
 	{
-msg += HIG "只见$n"HIG"不慌不忙，轻轻一闪，躲过了$N"HIG"的必杀一击！\n"NOR;
+msg += HIG "只見$n"HIG"不慌不忙，輕輕一閃，躲過了$N"HIG"的必殺一擊！\n"NOR;
 		if(userp(me)) me->add("neili",-600);
 		me->start_busy(4);
 	}
@@ -121,13 +121,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血和内力
-		焚毁对方的装备披挂
+		損傷對方氣血和內力
+		焚燬對方的裝備披掛
 
 	出手要求：
-		小无相功60级
-		火焰刀120级
-		内力600
+		小無相功60級
+		火焰刀120級
+		內力600
 HELP
 	);
 	return 1;

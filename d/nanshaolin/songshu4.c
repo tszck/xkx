@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "松树林");
+	set("short", "松樹林");
 	set("long", @LONG
-这是一片松树林。高高的大松树簇在一块，密实的枝叶象一蓬蓬巨
-伞般伸向天空，把阳光遮得丝毫也无。一条洁净的青石小径蜿蜒林中。
-东面的院落就是戒律院。院外站着两名僧人严密的守护着。
+這是一片松樹林。高高的大松樹簇在一塊，密實的枝葉象一蓬蓬巨
+傘般伸向天空，把陽光遮得絲毫也無。一條潔淨的青石小徑蜿蜒林中。
+東面的院落就是戒律院。院外站着兩名僧人嚴密的守護着。
 LONG
 	);
 	set("outdoor","nanshaolin");
@@ -40,7 +40,7 @@ int valid_leave(object me, string dir)
 		if( me->query("guilty") == 0 || !userp(me) &&
 			me->query("id") != "seng bing" )
 		{
-			return notify_fail("只听院内传来一个浑厚的声音说道：你未经许可，不能进入戒律院。\n");
+			return notify_fail("只聽院內傳來一個渾厚的聲音說道：你未經許可，不能進入戒律院。\n");
 		}
 	}
 	return ::valid_leave(me, dir);

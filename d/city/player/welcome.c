@@ -7,7 +7,7 @@ void create()
 	set("gender", "男性");
 	set("class", "quanzhen");
 	set("title", "全真教第二代弟子");
-	set("nickname", HIR"侠客行笑笑生"NOR);
+	set("nickname", HIR"俠客行笑笑生"NOR);
 	set("age", 50);
 	set("attitude", "friendly");
 

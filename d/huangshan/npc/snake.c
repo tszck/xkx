@@ -5,10 +5,10 @@ void use_poison();
 
 void create()
 {
-        set_name("竹叶蛇", ({ "big snake" }) );
+        set_name("竹葉蛇", ({ "big snake" }) );
 	set("race", "爬蛇");
         set("age", 4);
-        set("long", "一条剧毒的全身象竹子的蛇\n");
+        set("long", "一條劇毒的全身象竹子的蛇\n");
 
         set("attitude", "aggressive");
         set_skill("dodge", 200);
@@ -28,7 +28,7 @@ void use_poison()
         enemy = query_enemy();
         if( sizeof(enemy) ) ob = enemy[random(sizeof(enemy))];
 
-        tell_object(ob, "你觉得腿上剧痛，伸手一摸发现两个毒牙印痕。\n");
+        tell_object(ob, "你覺得腿上劇痛，伸手一摸發現兩個毒牙印痕。\n");
 	ob->receive_wound("qi",40);
 	ob->apply_condition("snake_poison", (int)this_player()->query_condition("snake_poison") + random(3)+3);
 }

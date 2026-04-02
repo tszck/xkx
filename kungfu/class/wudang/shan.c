@@ -1,4 +1,4 @@
-// shan.c 张翠山
+// shan.c 張翠山
 
 #include <ansi.h>
 
@@ -7,9 +7,9 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("张翠山", ({ "zhang cuishan", "zhang" }));
-	set("nickname", "武当五侠");
-	set("long","他就是张三丰的最聪明的弟子、武当七侠之五的张翠山。\n身穿一件干干净净的青布长衫。\n他不过二十出头年纪，潇洒英俊。\n");
+	set_name("張翠山", ({ "zhang cuishan", "zhang" }));
+	set("nickname", "武當五俠");
+	set("long","他就是張三豐的最聰明的弟子、武當七俠之五的張翠山。\n身穿一件乾乾淨淨的青布長衫。\n他不過二十出頭年紀，瀟灑英俊。\n");
 	set("gender", "男性");
 	set("age", 25);
 	set("attitude", "peaceful");
@@ -59,7 +59,7 @@ void create()
 	map_skill("parry", "liangyi-jian");
 	map_skill("sword", "liangyi-jian");
 
-	create_family("武当派", 2, "弟子");
+	create_family("武當派", 2, "弟子");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();
@@ -81,7 +81,7 @@ void greeting(object ob)
 	if (((int)ob->query("shen") < 0) &&
 		(file_name(environment())=="/d/wudang/jiejianyan"))
 	{
-		message_vision("张翠山脸现怒容：“邪魔外道，吃了豹子胆了，敢强闯武当！”\n张翠山居高临下，起手一掌，$N只得硬接，身子晃了一下。张翠山右手长剑随即递出，$N无法招架，退了一步。\n\n\n"NOR,ob);
+		message_vision("張翠山臉現怒容：“邪魔外道，喫了豹子膽了，敢強闖武當！”\n張翠山居高臨下，起手一掌，$N只得硬接，身子晃了一下。張翠山右手長劍隨即遞出，$N無法招架，退了一步。\n\n\n"NOR,ob);
 		ob->move("/d/wudang/slxl2");
 	}
 }

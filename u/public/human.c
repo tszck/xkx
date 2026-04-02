@@ -9,20 +9,20 @@ inherit F_DBASE;
 inherit F_SKILL;
 
 mapping *combat_action = ({
-	([	"action":		"$N挥拳攻击$n的$l",
-		"damage_type":	"瘀伤",
+	([	"action":		"$N揮拳攻擊$n的$l",
+		"damage_type":	"瘀傷",
 	]),
 	([	"action":		"$N往$n的$l一抓",
-		"damage_type":	"抓伤",
+		"damage_type":	"抓傷",
 	]),
-	([	"action":		"$N往$n的$l狠狠地踢了一脚",
-		"damage_type":	"瘀伤",
+	([	"action":		"$N往$n的$l狠狠地踢了一腳",
+		"damage_type":	"瘀傷",
 	]),
-	([	"action":		"$N提起拳头往$n的$l捶去",
-		"damage_type":	"瘀伤",
+	([	"action":		"$N提起拳頭往$n的$l捶去",
+		"damage_type":	"瘀傷",
 	]),
-	([	"action":		"$N对准$n的$l用力挥出一拳",
-		"damage_type":	"瘀伤",
+	([	"action":		"$N對準$n的$l用力揮出一拳",
+		"damage_type":	"瘀傷",
 	]),
 });
 
@@ -34,9 +34,9 @@ void create()
 	set("can_speak", 1);
 	set("attitude", "peaceful");
 	set("limbs", ({
-		"头部",	"颈部",	"胸口",	"后心",	"左肩",	"右肩",	"左臂",
-		"右臂",	"左手",	"右手",	"腰间",	"小腹",	"左腿",	"右腿",
-		"左脚",	"右脚"
+		"頭部",	"頸部",	"胸口",	"後心",	"左肩",	"右肩",	"左臂",
+		"右臂",	"左手",	"右手",	"腰間",	"小腹",	"左腿",	"右腿",
+		"左腳",	"右腳"
 	}) );
 }
 
@@ -70,7 +70,7 @@ void setup_human(object ob)
 			my["max_jing"] += (my["age"] - 60) * 5;
 		}
 
-		// 佛家养精：３０岁前补精，３０岁后长精
+		// 佛家養精：３０歲前補精，３０歲後長精
 		if((xism_age=(int)ob->query_skill("buddhism", 1)) > 39);
 		{
 			xism_age = xism_age/2;
@@ -89,13 +89,13 @@ void setup_human(object ob)
 		else if( my["age"] > 60 ) my["max_qi"] -= (my["age"] - 60) * 5;
 		else my["max_qi"] = my["con"] * 16 + 100;
 		
-		// 佛家保气：
+		// 佛家保氣：
 		if(my["age"] > 60 && (int)ob->query_skill("buddhism", 1) >= 120)
 		{
 			my["max_qi"] += (my["age"] - 60) * 5;
 		}
 
-		// 道家练气：３０岁前补气，３０岁后长气
+		// 道家練氣：３０歲前補氣，３０歲後長氣
 		if((xism_age=(int)ob->query_skill("taoism", 1)) > 39);
 		{
 			xism_age = xism_age/2;

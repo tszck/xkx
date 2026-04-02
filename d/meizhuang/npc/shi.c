@@ -5,7 +5,7 @@ inherit NPC;
 void create()
 {
 	set_name("施令威", ({ "shi lingwei", "shi" }));
-	set("long", "他就是隐居江湖数年的五路神施令威，现在在梅庄当管家。\n");
+	set("long", "他就是隱居江湖數年的五路神施令威，現在在梅莊當管家。\n");
 	set("gender", "男性");
 	set("nickname", HIR"五路神"NOR);
 	set("attitude", "friendly");
@@ -30,12 +30,12 @@ void create()
 	set_skill("parry", 100);
 
 	set("party/party_name", HIB"日月神教"NOR);
-	set("party/rank", HIW"教众"NOR);
+	set("party/rank", HIW"教衆"NOR);
 	create_family("黑木崖", 10, "弟子");
 	setup();
 	set("chat_chance", 10);
 	set("chat_msg", ({
-	"施令威神情慌张的朝桌子后面瞧了一眼。\n",
+	"施令威神情慌張的朝桌子後面瞧了一眼。\n",
 	}) );
 	carry_object(CLOTH_DIR"male-cloth")->wear();
 	carry_object(WEAPON_DIR"changjian")->wield();

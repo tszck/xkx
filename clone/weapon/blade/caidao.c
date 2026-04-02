@@ -14,9 +14,9 @@ void create()
 		 set("unit", "柄");
 		 set("value", 100);
 		 set("material", "iron");
-		 set("long", "这是一寻常的菜刀，份量大约六、七斤重。\n");
+		 set("long", "這是一尋常的菜刀，份量大約六、七斤重。\n");
 		 set("wield_msg", "$N抽出一把血淋淋的$n握在手中。\n");
-		 set("unequip_msg", "$N放下将手中的$n。\n");
+		 set("unequip_msg", "$N放下將手中的$n。\n");
 	 }
 	 init_blade(10);
 	 setup();

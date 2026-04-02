@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("采桑女",({ "caisang nu", "girl" }) );
+	set_name("採桑女",({ "caisang nu", "girl" }) );
         set("gender", "女性" );
         set("age", 17);
-        set("long", "一个年轻的摆夷采桑姑娘。\n");
+        set("long", "一個年輕的擺夷採桑姑娘。\n");
  	set_temp("apply/defense", 5);
 	set("combat_exp", 7000);
 //        set("shen", 100);

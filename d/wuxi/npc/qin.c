@@ -4,8 +4,8 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-        set_name("秦教头", ({ "qin jiaotou", "qin", "jiaotou" }));
-        set("long","一个四十多岁的汉子，一看就是个会家子，浑身透着一股英气。\n");
+        set_name("秦教頭", ({ "qin jiaotou", "qin", "jiaotou" }));
+        set("long","一個四十多歲的漢子，一看就是個會家子，渾身透着一股英氣。\n");
         set("gender", "男性");
         set("age", 45);
         set_skill("dodge", 80);
@@ -35,19 +35,19 @@ int accept_object(object who, object ob)
 {
     if (who->query("combat_exp")>= 3500)
     {
-        message_vision("秦教头望着$N说：你的武功应该历练江湖才能再长进，不能埋没
-在这里了。\n", who);
+        message_vision("秦教頭望着$N說：你的武功應該歷練江湖才能再長進，不能埋沒
+在這裏了。\n", who);
         return 0;
     }
     if (ob->query("money_id") && ob->value() >= 500)
     {
         who->set_temp("marks/qin_paied",1);
-        message_vision("秦教头对$N说：好！这位" + RANK_D->query_respect(who) 
-+ "想学什么呢？\n" , who);
+        message_vision("秦教頭對$N說：好！這位" + RANK_D->query_respect(who) 
++ "想學什麼呢？\n" , who);
         return 1;
     }
     else
-        message_vision("秦教头皱眉对$N说：钱我不在乎。可你也给的也太少了点儿吧？\n", who);
+        message_vision("秦教頭皺眉對$N說：錢我不在乎。可你也給的也太少了點兒吧？\n", who);
         return 0;
 }
 

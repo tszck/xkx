@@ -4,8 +4,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("游方道人", ({"youfang daoren","daoren"}));
-	set("long", "他是一位未通世故的青年道人，脸上挂着孩儿般的微笑。\n");
+	set_name("遊方道人", ({"youfang daoren","daoren"}));
+	set("long", "他是一位未通世故的青年道人，臉上掛着孩兒般的微笑。\n");
 
 	set("gender", "男性");
 	set("attitude", "heroism");
@@ -28,7 +28,7 @@ void create()
 	set("chat_chance", 30);
 
 	set("chat_msg", ({
-		"游方道人说道: 请这位施主化几两银子给贫道，随喜随喜，造福众生。\n",
+		"遊方道人說道: 請這位施主化幾兩銀子給貧道，隨喜隨喜，造福衆生。\n",
 		(: random_move :)
 	}) );
 
@@ -57,18 +57,18 @@ int accept_object(object me, object ob)
 	object ling;
 	
 	command("smile");
-	command("say 无量寿佛，多谢这位" + RANK_D->query_respect(me) + " ！");
+	command("say 無量壽佛，多謝這位" + RANK_D->query_respect(me) + " ！");
 
 	if( ob->query("money_id") && ob->value() >= 10000 && me->query("class") != "bonze" ) 
 	{
 		command("say " + RANK_D->query_respect(me) + 
-		"如此乐善好施，兼又身怀绝艺，全真祖师正欲一晤天下豪杰，不知可愿赴重阳宫内一游？");
+		"如此樂善好施，兼又身懷絕藝，全真祖師正欲一晤天下豪傑，不知可願赴重陽宮內一遊？");
 
 		ling=new("/d/quanzhen/npc/obj/tie-ling");
 		ling->move(me);
-		message_vision("游方道人给$N一块铁铸令牌。\n", me);
+		message_vision("遊方道人給$N一塊鐵鑄令牌。\n", me);
 
-		command("say 此牌限时一日，逾时失效，请于限时前离宫，否则多有不便，切记切记！"); 
+		command("say 此牌限時一日，逾時失效，請於限時前離宮，否則多有不便，切記切記！"); 
 		return 1;
 	}
 

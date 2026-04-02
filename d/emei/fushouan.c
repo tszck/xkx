@@ -1,15 +1,15 @@
-//Room: fushouan.c 福寿庵
+//Room: fushouan.c 福壽庵
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 
 void create()
 {
-      set("short","福寿庵");
+      set("short","福壽庵");
       set("long",@LONG
-福寿庵在神水庵南，是一个名叫天性的僧人建造的。庵前有九曲渠、流杯
-池，古人曾据在此饮酒流杯，观景赋诗，歌咏兴叹，不知夕日。庵旁有株大海
-棠树，数百苍龄，高达十余丈。
+福壽庵在神水庵南，是一個名叫天性的僧人建造的。庵前有九曲渠、流杯
+池，古人曾據在此飲酒流杯，觀景賦詩，歌詠興嘆，不知夕日。庵旁有株大海
+棠樹，數百蒼齡，高達十餘丈。
 LONG);
       set("objects", ([
            CLASS_D("emei") + "/zhen" : 1,

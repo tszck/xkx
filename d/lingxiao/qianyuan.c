@@ -9,9 +9,9 @@ void create()
 {
 	set("short","前院");
 	set("long",@LONG 
-这里是凌霄城的前院，凌霄弟子大都居住于此后。这里种了一棵三
-人合围粗的墨梅，花瓣漆黑，气味芬芳。深邃的大院里，高山阳光透过
-墨梅的花瓣射下，在雪地上映出一块块亮斑。一只雪鹤在树下翩翩起舞，
+這裏是凌霄城的前院，凌霄弟子大都居住於此後。這裏種了一棵三
+人合圍粗的墨梅，花瓣漆黑，氣味芬芳。深邃的大院裏，高山陽光透過
+墨梅的花瓣射下，在雪地上映出一塊塊亮斑。一隻雪鶴在樹下翩翩起舞，
 黑白相映，互有情趣。 
 LONG);
 	set("outdoors", "lingxiao");
@@ -39,10 +39,10 @@ int do_pick(string arg)
 	object ob, me = this_player();
 
 	if (!arg || arg!="hua" && arg!="flower")
-		return notify_fail("你要摘什么？\n");
+		return notify_fail("你要摘什麼？\n");
 	ob=new(__DIR__"obj/mei");
 	ob->move(me);
-	message_vision("$N从路旁的树上摘了一朵"+ob->query("name")+"。\n"NOR,me);
+	message_vision("$N從路旁的樹上摘了一朵"+ob->query("name")+"。\n"NOR,me);
 	return 1;
 }
 

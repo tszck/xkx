@@ -3,10 +3,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("丫环", ({ "ya huan","ya","huan" }) );
+        set_name("丫環", ({ "ya huan","ya","huan" }) );
         set("gender", "女性" );
         set("age", 16);
-        set("long", "这是一个容貌清秀的天真无邪的丫环，正在打闹的开心。\n");
+        set("long", "這是一個容貌清秀的天真無邪的丫環，正在打鬧的開心。\n");
         set("shen_type", 1);
         set("combat_exp", 1000);
         set("str", 20);
@@ -46,7 +46,7 @@ void init()
 void greeting(object ob)
 {
         if( !ob || environment(ob) != environment() ) return;
-             say("丫环笑着说道：这位" + RANK_D->query_respect(ob)
-             + "，欢迎光临狮子林。\n");
+             say("丫環笑着說道：這位" + RANK_D->query_respect(ob)
+             + "，歡迎光臨獅子林。\n");
         return;
 }

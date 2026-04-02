@@ -8,8 +8,8 @@ void create()
 {
 	set("short","大沙漠");
 	set("long", @LONG
-这是一片一望无际的大沙漠。你一进来就迷失了方向。看来要走出
-这块沙漠并非易事。
+這是一片一望無際的大沙漠。你一進來就迷失了方向。看來要走出
+這塊沙漠並非易事。
 LONG );
 	set("outdoors", "xiyu");
 	set("no_clean_up", 0);
@@ -47,13 +47,13 @@ int valid_leave(object me, string dir)
 	{
 		me->move("/d/baituo/gebi");
 		me->delete_temp("mark/steps");
-		return notify_fail("你累得半死，终於走出了沙漠。\n");
+		return notify_fail("你累得半死，終於走出了沙漠。\n");
 	}
 	if (me->query_temp("mark/steps") == -10)
 	{
 		me->move("/d/xingxiu/silk5");
 		me->delete_temp("mark/steps");
-		return notify_fail("你累得半死，终於走出了沙漠。\n");
+		return notify_fail("你累得半死，終於走出了沙漠。\n");
 	}
 
 	return ::valid_leave(me, dir);

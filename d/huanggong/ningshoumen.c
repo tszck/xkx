@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "宁寿门");
+	set("short", "寧壽門");
 	set("long", @LONG
-这里是宁寿宫的大门. 往北进去就是太上皇休憩的宁寿宫了.
+這裏是寧壽宮的大門. 往北進去就是太上皇休憩的寧壽宮了.
 LONG
 	);
 	set("exits", ([ /* sizeof() == 1 */

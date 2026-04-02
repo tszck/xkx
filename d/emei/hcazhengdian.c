@@ -1,16 +1,16 @@
-//Room: hcazhengdian.c 华藏庵正殿
+//Room: hcazhengdian.c 華藏庵正殿
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 
 void create()
 {
-      set("short","华藏庵正殿");
+      set("short","華藏庵正殿");
       set("long",@LONG
-这里是峨嵋山金顶华藏庵的正殿。华藏庵规模宏大，殿内青砖铺地，中间
-有普贤菩萨像，两旁列有万佛。正前方放一红木供桌，陈列香烛，以供叩拜。
-自此左右各有一间侧殿，是接待香客的地方。南面是通往一个大广场，只有峨
-嵋弟子才能过去。
+這裏是峨嵋山金頂華藏庵的正殿。華藏庵規模宏大，殿內青磚鋪地，中間
+有普賢菩薩像，兩旁列有萬佛。正前方放一紅木供桌，陳列香燭，以供叩拜。
+自此左右各有一間側殿，是接待香客的地方。南面是通往一個大廣場，只有峨
+嵋弟子才能過去。
 LONG);
       set("objects", ([
            CLASS_D("emei") + "/xin" : 1,
@@ -37,7 +37,7 @@ int valid_leave(object me, string dir)
 				if(present("jingxin shitai", environment(me)) && living(present("jingxin shitai", environment(me))))
 				{
 					return notify_fail(
-"静心师太喝道：后面是本派重地，这位" + RANK_D->query_respect(me) + "请止步。\n");
+"靜心師太喝道：後面是本派重地，這位" + RANK_D->query_respect(me) + "請止步。\n");
 				}
 				else
 					return ::valid_leave(me, dir);

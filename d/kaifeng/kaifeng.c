@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "开封府");
+	set("short", "開封府");
 	set("long", @LONG
-开封府统管开封这片区域。现任的开封府尹包拯包大人铁面无私、
-明断秋毫，深得民众信任，被称为包青天。大门一边一个高大的鼓架告
-状鸣冤的可以在此敲鼓。
+開封府統管開封這片區域。現任的開封府尹包拯包大人鐵面無私、
+明斷秋毫，深得民衆信任，被稱爲包青天。大門一邊一個高大的鼓架告
+狀鳴冤的可以在此敲鼓。
 LONG);
 	set("objects", ([
 		__DIR__"npc/zhaohu" : 1,
@@ -34,11 +34,11 @@ int valid_leave(object me, string dir)
 	{
 		if (objectp(ob = present("zhang long", this_object())) &&
 			living(ob))
-			return notify_fail(CYN "张龙一把拦住你，喝道：衙门重地，怎由闲杂人等随便进出。\n" NOR);
+			return notify_fail(CYN "張龍一把攔住你，喝道：衙門重地，怎由閒雜人等隨便進出。\n" NOR);
 
 		if (objectp(ob = present("zhao hu", this_object())) &&
 			living(ob))
-			return notify_fail(CYN "赵虎一把拦住你，喝道：衙门重地，怎由闲杂人等随便进出。\n" NOR);
+			return notify_fail(CYN "趙虎一把攔住你，喝道：衙門重地，怎由閒雜人等隨便進出。\n" NOR);
 	}
 	return ::valid_leave(me, dir);
 }

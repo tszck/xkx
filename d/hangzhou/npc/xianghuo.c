@@ -8,7 +8,7 @@ void create()
         set("age", 32);
         set("gender", "男性");
         set("long",
-"武当派四方香火的弟子。\n");
+"武當派四方香火的弟子。\n");
         set("attitude", "peaceful");
         set("str", 24);
         set("dex", 16);
@@ -25,10 +25,10 @@ void create()
         set_temp("apply/armor", 30);
         set("chat_chance", 5);
         set("chat_msg", ({
-                "香火道人把手举到你面前：给点香火钱吧，无量寿佛！\n",
+                "香火道人把手舉到你面前：給點香火錢吧，無量壽佛！\n",
                 (: random_move :)
         }) );
-        create_family("武当派", 4, "弟子");
+        create_family("武當派", 4, "弟子");
         setup();
         carry_object("/clone/weapon/changjian");
         carry_object("/d/wudang/obj/whiterobe")->wear();

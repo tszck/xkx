@@ -5,10 +5,10 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("小贩", ({ "seller" }) );
+	set_name("小販", ({ "seller" }) );
 	set("gender", "男性" );
 	set("age", 32);
-	set("long", "这位小贩子正笑咪咪地来回忙著，还不时招呼过往的客人进来。\n");
+	set("long", "這位小販子正笑咪咪地來回忙著，還不時招呼過往的客人進來。\n");
 	set("combat_exp", 300);
 	set("str", 17);
 	set("dex", 20);
@@ -40,7 +40,7 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	say("小贩子笑呵呵说道：这位" + RANK_D->query_respect(ob) + "，您想要点什么？\n");
+	say("小販子笑呵呵說道：這位" + RANK_D->query_respect(ob) + "，您想要點什麼？\n");
 	return;
 }
 

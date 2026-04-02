@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "凤凰林");
+	set("short", "鳳凰林");
 	set("long", @LONG
-这里就是传说中的凤凰林。
+這裏就是傳說中的鳳凰林。
 LONG);
 	set("exits", ([
 		"eastdown" : __DIR__"fanshudi",

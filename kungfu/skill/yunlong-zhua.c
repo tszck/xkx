@@ -1,4 +1,4 @@
-// yunlong-zhua.c -云龙爪
+// yunlong-zhua.c -雲龍爪
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,45 +7,45 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N全身拔地而起，半空中一个筋斗，一式"HIM"「凶鹰袭兔」"NOR"，迅猛地抓向$n的$l",
+([	"action" : "$N全身拔地而起，半空中一個筋斗，一式"HIM"「兇鷹襲兔」"NOR"，迅猛地抓向$n的$l",
 	"lvl"    : 0,
-	"skills_name" : "凶鹰袭兔",
+	"skills_name" : "兇鷹襲兔",
 ]),
-([	"action" : "$N单腿直立，双臂平伸，一式"GRN"「雄鹰展翅」"NOR"，双爪一前一后拢向$n的$l",
+([	"action" : "$N單腿直立，雙臂平伸，一式"GRN"「雄鷹展翅」"NOR"，雙爪一前一後攏向$n的$l",
 	"lvl"    : 10,
-	"skills_name" : "雄鹰展翅",
+	"skills_name" : "雄鷹展翅",
 ]),
-([	"action" : "$N一式"HIG"「拔翅鹰飞」"NOR"，全身向斜里平飞，右腿一绷，双爪搭向$n的肩头",
+([	"action" : "$N一式"HIG"「拔翅鷹飛」"NOR"，全身向斜裏平飛，右腿一繃，雙爪搭向$n的肩頭",
 	"lvl"    : 20,
-	"skills_name" : "拔翅鹰飞",
+	"skills_name" : "拔翅鷹飛",
 ]),
-([	"action" : "$N双爪交错上举，使一式"HIC"「迎风振翼」"NOR"，一拔身，分别袭向$n左右腋空门",
+([	"action" : "$N雙爪交錯上舉，使一式"HIC"「迎風振翼」"NOR"，一拔身，分別襲向$n左右腋空門",
 	"lvl"    : 30,
-	"skills_name" : "迎风振翼",
+	"skills_name" : "迎風振翼",
 ]),
-([	"action" : "$N全身滚动上前，一式"HIW"「飞龙献爪」"NOR"，右爪突出，鬼魅般抓向$n的胸口",
+([	"action" : "$N全身滾動上前，一式"HIW"「飛龍獻爪」"NOR"，右爪突出，鬼魅般抓向$n的胸口",
 	"lvl"    : 40,
-	"skills_name" : "飞龙献爪",
+	"skills_name" : "飛龍獻爪",
 ]),
-([	"action" : "$N伏地滑行，一式"HIY"「顶天立地」"NOR"，上手袭向膻中大穴，下手反抓$n的裆部",
+([	"action" : "$N伏地滑行，一式"HIY"「頂天立地」"NOR"，上手襲向膻中大穴，下手反抓$n的襠部",
 	"lvl"    : 50,
-	"skills_name" : "顶天立地",
+	"skills_name" : "頂天立地",
 ]),
-([	"action" : "$N左右手掌爪互逆，一式"HIW"「搏击长空」"NOR"，无数道劲气破空而出，迅疾无比地击向$n",
+([	"action" : "$N左右手掌爪互逆，一式"HIW"「搏擊長空」"NOR"，無數道勁氣破空而出，迅疾無比地擊向$n",
 	"lvl"    : 60,
-	"skills_name" : "搏击长空",
+	"skills_name" : "搏擊長空",
 ]),
-([	"action" : "$N腾空高飞三丈，一式"YEL"「鹰扬万里」"NOR"，天空中顿时显出一个巨灵爪影，缓缓罩向$n",
+([	"action" : "$N騰空高飛三丈，一式"YEL"「鷹揚萬裏」"NOR"，天空中頓時顯出一個巨靈爪影，緩緩罩向$n",
 	"lvl"    : 60,
-	"skills_name" : "鹰扬万里",
+	"skills_name" : "鷹揚萬裏",
 ]),
-([	"action" : "$N忽的拨地而起，使一式"BLU"「苍龙出水」"NOR"，身形化作一道闪电射向$n",
+([	"action" : "$N忽的撥地而起，使一式"BLU"「蒼龍出水」"NOR"，身形化作一道閃電射向$n",
 	"lvl"    : 70,
-	"skills_name" : "苍龙出水",
+	"skills_name" : "蒼龍出水",
 ]),
-([	"action" : "$N微微一笑，使一式"HIY"「万佛朝宗」"NOR"，双手幻出万道金光,直射向$n的$l",
+([	"action" : "$N微微一笑，使一式"HIY"「萬佛朝宗」"NOR"，雙手幻出萬道金光,直射向$n的$l",
 	"lvl"    : 80,
-	"skills_name" : "万佛朝宗",
+	"skills_name" : "萬佛朝宗",
 ])
 });
 
@@ -55,29 +55,29 @@ int valid_combine(string combo) { return combo=="yunlong-shou"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练云龙爪必须空手。\n");
+		return notify_fail("練雲龍爪必須空手。\n");
 	if ((int)me->query_skill("yunlong-shengong", 1) < 50)
-		return notify_fail("你的云龙神功火候不够，无法学云龙爪。\n");
+		return notify_fail("你的雲龍神功火候不夠，無法學雲龍爪。\n");
 	if ((int)me->query_skill("force", 1) < 50)
-		return notify_fail("你的基本内功火候不够，无法学云龙爪。\n");
+		return notify_fail("你的基本內功火候不夠，無法學雲龍爪。\n");
 	if ((int)me->query("max_neili") < 350)
-		return notify_fail("你的内力太弱，无法练云龙爪。\n");
+		return notify_fail("你的內力太弱，無法練雲龍爪。\n");
 	if ((int)me->query_skill("claw",1) <40)
-		return notify_fail("你的基本爪法火候不够，无法学云龙爪。\n");
+		return notify_fail("你的基本爪法火候不夠，無法學雲龍爪。\n");
   if ((int)me->query_skill("yunlong-xinfa")<100 &&
      2*(int)me->query_skill("yunlong-xinfa",1) <
 		  (int)me->query_skill("yunlong-zhua",1))
-		return notify_fail("你云龙心法火候不够，无法继续学云龙爪。\n"); 
+		return notify_fail("你雲龍心法火候不夠，無法繼續學雲龍爪。\n"); 
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 30)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够练云龙爪。\n");
+		return notify_fail("你的內力不夠練雲龍爪。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -10);
 	return 1;
@@ -104,16 +104,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "抓伤",
+		"damage_type" : random(2) ? "內傷" : "抓傷",
 	]);
 }
 int learn_bonus() { return 15; }
@@ -145,19 +145,19 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIC"\n云龙爪："NOR"\n");
+	write(HIC"\n雲龍爪："NOR"\n");
 	write(@HELP
 
-    天地会云龙门武功，陈近南成名绝技，凝血神抓威震江湖，宵
-小之辈望风披靡。
-    可与云龙手互备。
+    天地會雲龍門武功，陳近南成名絕技，凝血神抓威震江湖，宵
+小之輩望風披靡。
+    可與雲龍手互備。
 
-	学习要求：
-		基本爪法40级
-		基本内功50级
-		云龙神功50级
-		内力350
-		相应的云龙心法
+	學習要求：
+		基本爪法40級
+		基本內功50級
+		雲龍神功50級
+		內力350
+		相應的雲龍心法
 HELP
 	);
 	return 1;

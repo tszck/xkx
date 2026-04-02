@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "龙口");
+	set("short", "龍口");
 	set("long", @LONG
-龙口位于君山南端，两边钳形山嘴，岩壁拱护，为龙的上、下腭，
-张口向南，含住一弯洞庭湖水，形如长龙吞水，故名龙口。
+龍口位於君山南端，兩邊鉗形山嘴，巖壁拱護，爲龍的上、下齶，
+張口向南，含住一彎洞庭湖水，形如長龍吞水，故名龍口。
 LONG );
 	set("outdoors", "dongting");
 	set("no_clean_up", 0);

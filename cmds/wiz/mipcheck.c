@@ -9,7 +9,7 @@ int main(object me, string arg)
 {
 	int i, j, count = 0;
 	object *lob, obj, *obs;
-	string ip, tmp, str = HIR"\n  …… 检查多重登录 …… "NOR;
+	string ip, tmp, str = HIR"\n  …… 檢查多重登錄 …… "NOR;
 	mixed groups;
      	int ip1,ip2,ip3,ip4,n,myip,yourip;
     	string arg1;
@@ -25,7 +25,7 @@ int main(object me, string arg)
 		{
 			groups = unique_array(obs, (: query_ip_number($1) :));
 			if ( !sizeof(groups) )
-				return notify_fail(HIR"\n …… 完毕 ……\n"NOR);
+				return notify_fail(HIR"\n …… 完畢 ……\n"NOR);
 			for(i = 0; i < sizeof(groups); i++)
 			{
 				if( sizeof( groups[i]) < 1) continue;
@@ -41,8 +41,8 @@ int main(object me, string arg)
 				str += tmp;
 			}
 
-			str += HIR"\n  …… 完毕 …… "NOR;
-			str += HIR"总共有"+chinese_number(sizeof(groups))+"个地址连接本泥巴"NOR;
+			str += HIR"\n  …… 完畢 …… "NOR;
+			str += HIR"總共有"+chinese_number(sizeof(groups))+"個地址連接本泥巴"NOR;
 			me->start_more(str);
 			return 1;
 		}
@@ -51,9 +51,9 @@ int main(object me, string arg)
 		{
 			arg = query_ip_number(obj);
 			tmp = "\n"+ obj->name(1)+"("+ obj->query("id") +")\nIP："+ arg + "\n";
-			tmp += "目前和此人从相同IP连入的玩家有：\n\t";
+			tmp += "目前和此人從相同IP連入的玩家有：\n\t";
 		}
-		else tmp = "\n目前通过 " + arg + " 连入的玩家有：\n\t";
+		else tmp = "\n目前通過 " + arg + " 連入的玩家有：\n\t";
  		n=sscanf(arg,"%d.%d.%d.%d",ip1,ip2,ip3,ip4);
 		myip = (ip1<<24)+(ip2<<16)+(ip3<<8)+ip4;
 		while(i--)
@@ -79,7 +79,7 @@ int main(object me, string arg)
 	}
 	
 	groups = unique_array(obs, (: query_ip_number($1) :));
-	if ( !sizeof(groups) ) return notify_fail(HIR"\n …… 完毕 …… \n"NOR);
+	if ( !sizeof(groups) ) return notify_fail(HIR"\n …… 完畢 …… \n"NOR);
 	
 	for(i = 0; i < sizeof(groups); i++)
 	{
@@ -132,7 +132,7 @@ int main(object me, string arg)
 		if( arg != "" ) str += HIC"\n\t\t    Email相同的有："+arg+NOR;
 	}
 
-	str += HIR"\n  …… 完毕 …… \n"NOR;
+	str += HIR"\n  …… 完畢 …… \n"NOR;
 	me->start_more(str);
 	return 1;
 }
@@ -143,11 +143,11 @@ int help(object me)
 指令格式：mipcheck [ip|某人]
 
 例：
-	mipcheck 210.34.4.1 列出从此ip连入的玩家。
-	mipcheck 210.34.    列出从此ip范围内连入的玩家。
+	mipcheck 210.34.4.1 列出從此ip連入的玩家。
+	mipcheck 210.34.    列出從此ip範圍內連入的玩家。
 	mipcheck xxxxxxx    列出和此玩家相同ip的其它玩家。
-	mipcheck all        列出所有登录玩家列表，按ip分列。
-	mipcheck            列出所有相同ip的列表，附带相同email，passwd列表。
+	mipcheck all        列出所有登錄玩家列表，按ip分列。
+	mipcheck            列出所有相同ip的列表，附帶相同email，passwd列表。
 	
 HELP
 	);

@@ -11,8 +11,8 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("material", "cloth");
-		set("unit", "个");
-		set("long", "这是一个大珍珠，很值钱。\n");
+		set("unit", "個");
+		set("long", "這是一個大珍珠，很值錢。\n");
 		set("value", 30000);
 		set("armor_prop/dodge", 5);
 	}

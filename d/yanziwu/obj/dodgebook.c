@@ -4,15 +4,15 @@ inherit ITEM;
 
 void create()
 {
-	set_name("轻功篇", ({ "dodgebook", "shu", "book" }));
+	set_name("輕功篇", ({ "dodgebook", "shu", "book" }));
 	set_weight(100);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
 		set("long",
-			"轻功篇\n"
-			"这是一本还施水阁的轻功藏本，书色泛黄，有不少的批注。\n"
+			"輕功篇\n"
+			"這是一本還施水閣的輕功藏本，書色泛黃，有不少的批註。\n"
 );
 		set("value", 500);
 		set("material", "paper");

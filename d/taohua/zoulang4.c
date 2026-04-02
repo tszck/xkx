@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "回廊");
+	set("short", "迴廊");
 	set("long", @LONG
-一条连接大厅和书房的回廊。走廊外花木扶疏，桃花满地，远处碧
-蓝色的大海和翠绿的岛屿映衬着点点白帆，历历如画。
+一條連接大廳和書房的迴廊。走廊外花木扶疏，桃花滿地，遠處碧
+藍色的大海和翠綠的島嶼映襯着點點白帆，歷歷如畫。
 LONG
 	);
 	set("no_clean_up", 0);
@@ -32,8 +32,8 @@ int valid_leave(object me, string dir)
 	mapping myfam;
 	myfam = (mapping)me->query("family");
 
-	if ((!myfam || myfam["family_name"] != "桃花岛") && dir != "west")
-		return notify_fail("一位哑仆拦住了你，用手势比划着表示那边不能去。\n");
+	if ((!myfam || myfam["family_name"] != "桃花島") && dir != "west")
+		return notify_fail("一位啞僕攔住了你，用手勢比劃着表示那邊不能去。\n");
 
 	return ::valid_leave(me, dir);
 }

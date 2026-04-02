@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-        set("short", "大雄宝殿");
+        set("short", "大雄寶殿");
         set("long", @LONG
-天王殿後是另一座高达三十几米的大殿。匾上写着“大雄宝殿”。
-殿前有两座八角九层石塔。往南又进了天王殿。
+天王殿後是另一座高達三十幾米的大殿。匾上寫着“大雄寶殿”。
+殿前有兩座八角九層石塔。往南又進了天王殿。
 LONG);
         set("exits", ([
                 "south"     : __DIR__"tianwangdian",

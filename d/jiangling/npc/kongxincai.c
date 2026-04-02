@@ -8,7 +8,7 @@ void create()
 	set("gender", "女性" );
 	set("age", 5);
 	set("long", 
-"一个天真可爱的小女孩，她是万家公子万圭的女儿。\n");
+"一個天真可愛的小女孩，她是萬家公子萬圭的女兒。\n");
 	set("combat_exp", 20);
 	set("shen_type", 1);
 	set("str", 14);

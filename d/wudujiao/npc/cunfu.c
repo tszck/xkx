@@ -1,7 +1,7 @@
 // cunfu.c
 inherit NPC;
-string *first_name = ({"张", "赵", "钱", "孙","李"});
-string *name_words = ({"寡妇","大妈","大姐","二嫂","三姐"});
+string *first_name = ({"張", "趙", "錢", "孫","李"});
+string *name_words = ({"寡婦","大媽","大姐","二嫂","三姐"});
 
 void create()
 {
@@ -12,7 +12,7 @@ void create()
         set_name(name,({"cun fu"}));
         set("gender", "女性" );
         set("age", 32);
-        set("long", "这是个普普通通的农家妇女，脸上擦着厚厚的白粉。\n");
+        set("long", "這是個普普通通的農家婦女，臉上擦着厚厚的白粉。\n");
 
         set("max_qi", 200);
         set("shen_type", 1);

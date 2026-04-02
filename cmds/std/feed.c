@@ -14,59 +14,59 @@ int main(object me, string arg)
 	seteuid(getuid());
 
 	if(!arg || sscanf(arg, "%s to %s", food, ob) !=2)
-		return notify_fail("你要喂什么东西给谁？\n");
+		return notify_fail("你要喂什麼東西給誰？\n");
 	if(!objectp(obj = present(food, me)) ) 
-		return notify_fail("你身上没有这样东西啊。\n");
+		return notify_fail("你身上沒有這樣東西啊。\n");
 	if(!objectp(pet = present(ob, environment(me))) || !living(pet))
-		return notify_fail("这里没有这样的动物。\n");
-	if(pet->query("race") == "人类" )
-		return notify_fail(pet->name()+"是宠物么？瞪大眼睛看看！\n");
+		return notify_fail("這裏沒有這樣的動物。\n");
+	if(pet->query("race") == "人類" )
+		return notify_fail(pet->name()+"是寵物麼？瞪大眼睛看看！\n");
 	if(pet->is_busy() )
-		return notify_fail(pet->name()+"正忙着呢，哪吃得下什么！\n");
+		return notify_fail(pet->name()+"正忙着呢，哪喫得下什麼！\n");
 	if(pet->is_busy() )
-		return notify_fail(pet->name()+"正忙着呢，哪吃得下什么！\n");
+		return notify_fail(pet->name()+"正忙着呢，哪喫得下什麼！\n");
 	if(me->is_busy() )
-		return notify_fail("你正忙着呢，什么也做不了！\n");
+		return notify_fail("你正忙着呢，什麼也做不了！\n");
 	if(pet->is_fighting() )
-		return notify_fail("它正在打架呢，你难道没看见？！\n");
+		return notify_fail("它正在打架呢，你難道沒看見？！\n");
 	if(me->is_fighting() )
-		return notify_fail("一边打架一边喂食？你真是活腻了！\n");
+		return notify_fail("一邊打架一邊餵食？你真是活膩了！\n");
 	if(!wizardp(me) && pet->query_temp("feeded"))
-		return notify_fail("人一次不能多吃东西，吃多了会拉肚子，"+pet->query("name")+"也一样。\n");
+		return notify_fail("人一次不能多喫東西，喫多了會拉肚子，"+pet->query("name")+"也一樣。\n");
 	if((string)me->query("id")!=(string)pet->query_temp("owner"))
-		return notify_fail("你看到"+pet->query("name")+"上前闻了两下，结果一脚踢开了。\n");
+		return notify_fail("你看到"+pet->query("name")+"上前聞了兩下，結果一腳踢開了。\n");
 	if(!obj->query("siliao_supply") )
-		return notify_fail("似乎"+pet->query("name")+"对这样东西兴趣不大。\n");
+		return notify_fail("似乎"+pet->query("name")+"對這樣東西興趣不大。\n");
 	if(!obj->query("siliao_remaining") )
-		return notify_fail( obj->name() + "已经没什么好吃的了。\n");
+		return notify_fail( obj->name() + "已經沒什麼好喫的了。\n");
 	if(pet->query("food") >= pet->max_food_capacity() )
-		return notify_fail(pet->name()+"已经吃太饱了，再也塞不下任何东西了。\n");
+		return notify_fail(pet->name()+"已經喫太飽了，再也塞不下任何東西了。\n");
 	obj->set("value", 0);
 	obj->add("siliao_remaining", -1);
 	me->start_busy(1);
-// 宠物食物状态改变。
+// 寵物食物狀態改變。
 	pet->add("food", obj->query("siliao_supply"));
-// 延时进食，不能连续吃。刚吃完也不能让宠物退出。连续机器人喂76天达到100级。
-// 9天可以达到50级。
+// 延時進食，不能連續喫。剛喫完也不能讓寵物退出。連續機器人喂76天達到100級。
+// 9天可以達到50級。
 	pet->set_temp("feeded","1");
 	call_out("del", 20, pet);
-// 宠物升级，与驯兽无关。
+// 寵物升級，與馴獸無關。
 	if(pet->query("owner") == me->query("id")) 
 	{
-// 食物作用改变，累计以便升级。
+// 食物作用改變，累計以便升級。
 		if(obj->query("siliao_effect"))
 			pet->add("feed", obj->query("siliao_effect"));
-// 喂养长经验。
+// 餵養長經驗。
 		pet->add("combat_exp", 5+random(10));
 		i = pet->query("feed");
 		j = pet->query("level");
 		if(i>=2+j*j)
 		{
-			tell_object(me, HIY"你喂了这一次食物后，发觉"+pet->query("name")+"似乎显得更强健、也更听话了！\n"NOR);
-// 喂养长级别。
+			tell_object(me, HIY"你餵了這一次食物後，發覺"+pet->query("name")+"似乎顯得更強健、也更聽話了！\n"NOR);
+// 餵養長級別。
 			pet->add("level",1);
 			pet->set("feed",0);
-// 喂养长驯服度。
+// 餵養長馴服度。
 			pet->add("obe", 1);
 			lvl=pet->query("level");
 		}
@@ -80,7 +80,7 @@ int main(object me, string arg)
 			message_vision(obj->query("finish_msg"), pet, obj);
 		else
 		{
-			message_vision( "$N拿出一"+obj->query("unit")+obj->query("name")+"来，向$n招了招手。\n$n很驯顺的走了过去，一把叼起了"+obj->query("name")+"，吃了个干干净净。\n", me, pet);
+			message_vision( "$N拿出一"+obj->query("unit")+obj->query("name")+"來，向$n招了招手。\n$n很馴順的走了過去，一把叼起了"+obj->query("name")+"，喫了個乾乾淨淨。\n", me, pet);
 		}
 		if( !obj->finish_eat() ) destruct(obj);
 	} 
@@ -89,7 +89,7 @@ int main(object me, string arg)
 		if((string)obj->query("eat_msg"))
 			message_vision(obj->query("eat_msg"), pet, obj);
 		else 
-			message_vision( "$N拿出一"+obj->query("unit")+obj->query("name")+"来，向$n招了招手。\n$n很驯顺的走了过去，一把叼起了"+obj->query("name")+"，狠狠就是一口。\n", me, pet);
+			message_vision( "$N拿出一"+obj->query("unit")+obj->query("name")+"來，向$n招了招手。\n$n很馴順的走了過去，一把叼起了"+obj->query("name")+"，狠狠就是一口。\n", me, pet);
 	}
 	if( !obj ) return 1;
 	
@@ -104,24 +104,24 @@ void del(object pet)
 int help(object me)
 {
 	write(@HELP
-指令格式 : feed <饲料> to <动物名>
+指令格式 : feed <飼料> to <動物名>
 
-    此指令可用于喂养你所驯服的动物。
+    此指令可用於餵養你所馴服的動物。
 
-    对于已经驯服的动物，可以进行下述指令：
+    對於已經馴服的動物，可以進行下述指令：
 
 基本指令：
-        come <动物名>:                  让动物跟随主人行动。
-        stay:                           停止动物的跟随状态。
-        attack <某物>:                  让动物攻击敌人。
-        stop <动物名>:                  让动物停止对人的攻击。
-        release:                        结束主奴状态，将动物放离。
+        come <動物名>:                  讓動物跟隨主人行動。
+        stay:                           停止動物的跟隨狀態。
+        attack <某物>:                  讓動物攻擊敵人。
+        stop <動物名>:                  讓動物停止對人的攻擊。
+        release:                        結束主奴狀態，將動物放離。
 
-特殊指令：（只对某些动物适用）
-        ride <动物名>:                  骑，如骑马，虎，雕，鲨等。
-        unride <动物名>:                下，离开坐骑。
-        feed <饲料> to <动物名>:        替动物喂食。
-        imbibe <动物名>:                给动物饮水。
+特殊指令：（只對某些動物適用）
+        ride <動物名>:                  騎，如騎馬，虎，雕，鯊等。
+        unride <動物名>:                下，離開坐騎。
+        feed <飼料> to <動物名>:        替動物餵食。
+        imbibe <動物名>:                給動物飲水。
 
 HELP
 	);

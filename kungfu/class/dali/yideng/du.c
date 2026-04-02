@@ -1,4 +1,4 @@
-// du.c 书生
+// du.c 書生
 
 #include <ansi.h>
 inherit NPC;
@@ -10,11 +10,11 @@ string ask_reply3();
 void create()
 {
 	set_name("朱子柳", ({ "zhu ziliu", "zhu", "ziliu" }));
-	set("title",  "大理国大宰相" );
+	set("title",  "大理國大宰相" );
 	set("long", 
-"他就是大理国的原大宰相，一灯大师的四大弟子之一。
-只见他四十来岁年纪，头戴逍遥巾，手挥折叠扇，颏下
-一丛漆黑的长须，确是个饱学宿儒模样。\n");
+"他就是大理國的原大宰相，一燈大師的四大弟子之一。
+只見他四十來歲年紀，頭戴逍遙巾，手揮摺疊扇，頦下
+一叢漆黑的長鬚，確是個飽學宿儒模樣。\n");
 	set("gender", "男性");
 	set("age", 45);
 	set("class", "officer");
@@ -70,26 +70,26 @@ void create()
 	}) );
 
         set("inquiry", ([
-                "一灯大师"   : "师父他老人家在里面。你答对了就可以见他了。\n",
-                "段智兴"     : "那是我师父俗世的名讳。\n",
-                "刘瑛姑"     : "她是我师父俗世的妃子。\n",
-                "辛未状元"   : (: ask_reply1 :),
-                "霜凋荷叶，独脚鬼戴逍遥巾"   : (: ask_reply2 :),
-                "魑魅魍魉，四小鬼各自肚肠"   : (: ask_reply3 :),
+                "一燈大師"   : "師父他老人家在裏面。你答對了就可以見他了。\n",
+                "段智興"     : "那是我師父俗世的名諱。\n",
+                "劉瑛姑"     : "她是我師父俗世的妃子。\n",
+                "辛未狀元"   : (: ask_reply1 :),
+                "霜凋荷葉，獨腳鬼戴逍遙巾"   : (: ask_reply2 :),
+                "魑魅魍魎，四小鬼各自肚腸"   : (: ask_reply3 :),
         ]) );
 
         set("chat_chance", 3);
         set("chat_msg", ({
-"朱子柳读道：“暮春者，春服既成，冠者五六人，童子六七人，浴
-乎沂，风乎舞雩，咏而归。”读得兴高采烈，一诵三叹，确似在春
-风中载歌载舞，喜乐无已。\n",
-"朱子柳捻须吟道：
-    “六经蕴籍胸中久，一剑十年磨在手。
-      杏花头上一枝横，恐泄天机莫露口。
-      一点累累大如斗，却掩半床无所有。
-      完名直待挂冠归，本来面目君知否？”\n",
-"朱子柳挥扇指着一排棕榈道：“风摆棕榈，千手佛摇折叠扇。”\n",
-"朱子柳道：“我有一联，请你对个下联：‘琴瑟琵琶，八大王一般头面’。”\n",
+"朱子柳讀道：“暮春者，春服既成，冠者五六人，童子六七人，浴
+乎沂，風乎舞雩，詠而歸。”讀得興高采烈，一誦三嘆，確似在春
+風中載歌載舞，喜樂無已。\n",
+"朱子柳捻鬚吟道：
+    “六經蘊籍胸中久，一劍十年磨在手。
+      杏花頭上一枝橫，恐泄天機莫露口。
+      一點累累大如鬥，卻掩半牀無所有。
+      完名直待掛冠歸，本來面目君知否？”\n",
+"朱子柳揮扇指着一排棕櫚道：“風擺棕櫚，千手佛搖摺疊扇。”\n",
+"朱子柳道：“我有一聯，請你對個下聯：‘琴瑟琵琶，八大王一般頭面’。”\n",
         }) );
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
@@ -107,7 +107,7 @@ void greeting(object ob)
 
         myfam = (mapping)ob->query("family");
         if( myfam["master_name"] == "yideng dashi")
-              say ("朱子柳冲着你点了点头，说：你回来了。\n");
+              say ("朱子柳衝着你點了點頭，說：你回來了。\n");
 	ob->set_temp("du_allow", 1);
         return;
 }
@@ -118,12 +118,12 @@ string ask_reply1()
 	me->set_temp("yideng_du1", 1);
 	if (me->query_temp("yideng_du2") && me->query_temp("yideng_du3"))
 	{
-message_vision("\n朱子柳大惊，站起身来，长袖一挥，向$N一揖到地，说道：“在下拜服。”\n\n", me);
+message_vision("\n朱子柳大驚，站起身來，長袖一揮，向$N一揖到地，說道：“在下拜服。”\n\n", me);
 		me->set_temp("du_allow", 1);
-		return RANK_D->query_respect(me) + "请。";
+		return RANK_D->query_respect(me) + "請。";
 	}
 	else
-		return RANK_D->query_respect(me) + "果然文武全才。不过还有呢？";
+		return RANK_D->query_respect(me) + "果然文武全才。不過還有呢？";
 }
 string ask_reply2()
 {
@@ -131,12 +131,12 @@ string ask_reply2()
 	me->set_temp("yideng_du2", 1);
 	if (me->query_temp("yideng_du1") && me->query_temp("yideng_du3"))
 	{
-message_vision("\n朱子柳大惊，站起身来，长袖一挥，向$N一揖到地，说道：“在下拜服。”\n\n", me);
+message_vision("\n朱子柳大驚，站起身來，長袖一揮，向$N一揖到地，說道：“在下拜服。”\n\n", me);
 		me->set_temp("du_allow", 1);
-		return RANK_D->query_respect(me) + "请。";
+		return RANK_D->query_respect(me) + "請。";
 	}
 	else
-		return RANK_D->query_respect(me) + "果然文武全才。不过还有呢？";
+		return RANK_D->query_respect(me) + "果然文武全才。不過還有呢？";
 }
 string ask_reply3()
 {
@@ -144,10 +144,10 @@ string ask_reply3()
 	me->set_temp("yideng_du3", 1);
 	if (me->query_temp("yideng_du1") && me->query_temp("yideng_du2"))
 	{
-message_vision("\n朱子柳大惊，站起身来，长袖一挥，向$N一揖到地，说道：“在下拜服。”\n\n", me);
+message_vision("\n朱子柳大驚，站起身來，長袖一揮，向$N一揖到地，說道：“在下拜服。”\n\n", me);
 		me->set_temp("du_allow", 1);
-		return RANK_D->query_respect(me) + "请。";
+		return RANK_D->query_respect(me) + "請。";
 	}
 	else
-		return RANK_D->query_respect(me) + "果然文武全才。不过还有呢？";
+		return RANK_D->query_respect(me) + "果然文武全才。不過還有呢？";
 }

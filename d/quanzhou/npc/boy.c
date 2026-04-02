@@ -8,7 +8,7 @@ void create()
         set("gender", "男性" );
         set("age", 13);
         set("long", 
-"这是个城里的少年。\n");
+"這是個城裏的少年。\n");
 
         set("str", 17);
         set("dex", 16);

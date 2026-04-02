@@ -10,12 +10,12 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "条");
-		set("long", "一条蛇形长杖，是欧阳克的兵器。\n");
+		set("unit", "條");
+		set("long", "一條蛇形長杖，是歐陽克的兵器。\n");
 		set("value", 5000);
 		set("material", "steel");
-		set("wield_msg", "“嗖”的一声，$N手中已多了一根$n。\n");
-		set("unwield_msg", "你眼前一花，$N手中的$n已不见了。\n");
+		set("wield_msg", "“嗖”的一聲，$N手中已多了一根$n。\n");
+		set("unwield_msg", "你眼前一花，$N手中的$n已不見了。\n");
 	}
 	init_staff(30);
 	setup();

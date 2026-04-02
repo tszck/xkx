@@ -1,12 +1,12 @@
-// dadao.c 江洋大盗
+// dadao.c 江洋大盜
  
 inherit NPC;
  
 void create()
 {
-	set_name("江洋大盗", ({ "jiangyang  dadao"}));
+	set_name("江洋大盜", ({ "jiangyang  dadao"}));
 	set("long", 
-	"一个无恶不做的江洋大盗，四处打家劫舍，作恶多端。\n");
+	"一個無惡不做的江洋大盜，四處打家劫舍，作惡多端。\n");
 	set("gender", "男性");
 	set("age", random(20) + 25);
 	set("attitude", "peaceful");

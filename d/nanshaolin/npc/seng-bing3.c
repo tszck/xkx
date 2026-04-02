@@ -9,8 +9,8 @@ void create()
 {
 	set_name("守寺僧兵", ({ "seng bing", "seng", "bing"}));
 	set("long",
-		"他是一位身材高大的壮年僧人，两臂粗壮，膀阔腰圆。他手持兵\n"
-		"刃，身穿一袭灰布镶边袈裟，似乎有一身武艺。\n"
+		"他是一位身材高大的壯年僧人，兩臂粗壯，膀闊腰圓。他手持兵\n"
+		"刃，身穿一襲灰布鑲邊袈裟，似乎有一身武藝。\n"
 	);
 
 	set("gender", "男性");
@@ -81,13 +81,13 @@ void init()
 	{
 		if( !ob->query_temp("warned") )
 		{
-			command("say 你是谁？  怎么闯到南少林寺里来了？！");
-			command("say 快给我速速离开，下次看到决不轻饶！");
+			command("say 你是誰？  怎麼闖到南少林寺裏來了？！");
+			command("say 快給我速速離開，下次看到決不輕饒！");
 			ob->set_temp("warned", 1);
 		}
 		else if( ob->query_temp("stay") < 10 ) ob->add_temp("stay", 1);
 		else {
-			command("say 大胆狂徒，竟敢闯到南少林寺里来撒野！！\n");
+			command("say 大膽狂徒，竟敢闖到南少林寺裏來撒野！！\n");
 			me->set_leader(ob);
 			remove_call_out("kill_ob");
 			call_out("kill_ob", 1, ob); 

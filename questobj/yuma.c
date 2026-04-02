@@ -1,11 +1,11 @@
-// yuma.c 玉马
+// yuma.c 玉馬
 
 inherit ITEM;
 #include <ansi.h>
 
 void create()
 {
-	set_name(GRN"翡翠玉马"NOR, ({ "stone horse", "yu ma", "ma" }));
+	set_name(GRN"翡翠玉馬"NOR, ({ "stone horse", "yu ma", "ma" }));
 	set("weight", 5000);
 	set("taskobj", 1);
 	if (clonep())
@@ -13,7 +13,7 @@ void create()
 	else {
 		set("unit", "座");
 		set("value", 0);
-		set("long", "一座翡翠雕成的玉马。\n");
+		set("long", "一座翡翠雕成的玉馬。\n");
 		set("material", "stone");
 	}
 	setup();

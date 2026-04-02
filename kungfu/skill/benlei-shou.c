@@ -7,49 +7,49 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N一式"CYN"「行云流水」"NOR"，双掌一翻，一股劲力缓缓推向$n的$l",
+([	"action" : "$N一式"CYN"「行雲流水」"NOR"，雙掌一翻，一股勁力緩緩推向$n的$l",
 	"lvl"   : 0,
-	"skill_name" : "行云流水"
+	"skill_name" : "行雲流水"
 ]),
-([	"action" : "$N一式"BLU"「披云戴月」"NOR"，两掌一并，疾向$n的$l戳去",
+([	"action" : "$N一式"BLU"「披雲戴月」"NOR"，兩掌一併，疾向$n的$l戳去",
 	"lvl"   : 10,
-	"skill_name" : "披云戴月"
+	"skill_name" : "披雲戴月"
 ]),
-([	"action" : "$N使一式"MAG"「翻云赴雨」"NOR"，左掌微拂，右掌乍伸乍合，猛地插往$n的$l",
+([	"action" : "$N使一式"MAG"「翻雲赴雨」"NOR"，左掌微拂，右掌乍伸乍合，猛地插往$n的$l",
 	"lvl"   : 20,
-	"skill_name" : "翻云覆雨"
+	"skill_name" : "翻雲覆雨"
 ]),
-([	"action" : "$N掌心隐隐发红，一式"YEL"「排山倒海」"NOR"，掌力如海水般向$n击去",
+([	"action" : "$N掌心隱隱發紅，一式"YEL"「排山倒海」"NOR"，掌力如海水般向$n擊去",
 	"lvl"   : 30,
 	"skill_name" : "排山倒海"
 ]),
-([	"action" : "$N身形往上一纵，使出一式"HIB"「乌云敝日」"NOR"，双掌一摊，笔直地向$n的$l拍去",
+([	"action" : "$N身形往上一縱，使出一式"HIB"「烏雲敝日」"NOR"，雙掌一攤，筆直地向$n的$l拍去",
 	"lvl"   : 40,
-	"skill_name" : "乌云敝日"
+	"skill_name" : "烏雲敝日"
 ]),
-([	"action" : "$N身形一变，使一式"HIB"「重云深锁」"NOR"，双掌带着萧刹的劲气，猛地击往$n的$l",
+([	"action" : "$N身形一變，使一式"HIB"「重雲深鎖」"NOR"，雙掌帶着蕭剎的勁氣，猛地擊往$n的$l",
 	"lvl"   : 50,
-	"skill_name" : "重云深锁"
+	"skill_name" : "重雲深鎖"
 ]),
-([	"action" : "$N使一式"HIW"「撕天排云」"NOR"，左掌凝重，右掌轻盈，同时向$n的$l击去",
+([	"action" : "$N使一式"HIW"「撕天排雲」"NOR"，左掌凝重，右掌輕盈，同時向$n的$l擊去",
 	"lvl"   : 60,
-	"skill_name" : "撕天排云"
+	"skill_name" : "撕天排雲"
 ]),
-([	"action" : "$N突地一招"HIM"「云海波涛」"NOR"，双掌挟着一阵风雷之势，猛地劈往$n的$l",
+([	"action" : "$N突地一招"HIM"「雲海波濤」"NOR"，雙掌挾着一陣風雷之勢，猛地劈往$n的$l",
 	"lvl"   : 70,
-	"skill_name" : "云海波涛"
+	"skill_name" : "雲海波濤"
 ]),
-([	"action" : "$N一式"HIY"「变云无定」"NOR"，双掌缦妙地一阵挥舞，不觉已击到$n的$l上",
+([	"action" : "$N一式"HIY"「變雲無定」"NOR"，雙掌縵妙地一陣揮舞，不覺已擊到$n的$l上",
 	"lvl"   : 80,
-	"skill_name" : "变云无定"
+	"skill_name" : "變雲無定"
 ]),
-([	"action" : "$N一式"HIR"「殃云天降」"NOR"，身形向上窜起丈余，双掌一高一低，看似简单，却令$n无法躲闪",
+([	"action" : "$N一式"HIR"「殃雲天降」"NOR"，身形向上竄起丈餘，雙掌一高一低，看似簡單，卻令$n無法躲閃",
 	"lvl"   : 90,
-	"skill_name" : "殃云天降"
+	"skill_name" : "殃雲天降"
 ]),
-([	"action" : "$N一式"HIW"「云莱仙境」"NOR"，身形凝立不动，两掌间绽出万道霞光，将$n紧紧罩住",
+([	"action" : "$N一式"HIW"「雲萊仙境」"NOR"，身形凝立不動，兩掌間綻出萬道霞光，將$n緊緊罩住",
 	"lvl"   : 100,
-	"skill_name" : "云莱仙境"
+	"skill_name" : "雲萊仙境"
 ])
 });
 int valid_enable(string usage) { return usage=="hand" || usage=="parry" ; }
@@ -58,20 +58,20 @@ int valid_combine(string combo) { return combo=="baihua-cuoquan"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练奔雷手必须空手。\n");
+		return notify_fail("練奔雷手必須空手。\n");
 	if ((int)me->query_skill("honghua-shengong", 1) < 20)
-		return notify_fail("你的红花神功火候不够，无法学奔雷手。\n");
+		return notify_fail("你的紅花神功火候不夠，無法學奔雷手。\n");
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail("你的内力太弱，无法练奔雷手。\n");
+		return notify_fail("你的內力太弱，無法練奔雷手。\n");
 	return 1;
 }
 
 int practice_skill(object me)
 {
 	if ((int)me->query("qi") < 40)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 40)
-		return notify_fail("你的内力不够练奔雷手。\n");
+		return notify_fail("你的內力不夠練奔雷手。\n");
 	me->receive_damage("qi", 35);
 	me->add("neili", -25);
 	return 1;
@@ -98,16 +98,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 5; }
@@ -124,11 +124,11 @@ int help(object me)
 	write(HIM"\n奔雷手："NOR"\n");
 	write(@HELP
 
-    红花会四当家文泰来的看门武功。
+    紅花會四當家文泰來的看門武功。
 
-	学习要求：
-		红花神功20级
-		内力修为100
+	學習要求：
+		紅花神功20級
+		內力修爲100
 HELP
 	);
 	return 1;

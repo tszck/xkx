@@ -14,7 +14,7 @@ void create()
 		set("unit", "把");
 		set("value", 400);
 		set("material", "wood");
-		set("wield_msg", "$N「呼」地一声抽出一把$n握在手中。\n");
+		set("wield_msg", "$N「呼」地一聲抽出一把$n握在手中。\n");
 	}
 	init_stick(20);
 	setup();

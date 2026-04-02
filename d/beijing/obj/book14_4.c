@@ -9,12 +9,12 @@ void init()
 
 void create()
 {
-	set_name(HIB"四十二章经四"NOR, ({"book4"}));
+	set_name(HIB"四十二章經四"NOR, ({"book4"}));
 	set_weight(1000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "\n一本正蓝旗的经书，封皮(binding)很精致。\n");
+		set("long", "\n一本正藍旗的經書，封皮(binding)很精緻。\n");
 		set("unit", "本");
 		set("material", "paper");
 	}
@@ -30,11 +30,11 @@ int do_tear(string arg)
 
 	if( !arg || arg=="" ) return 0;
 	if(!present(this_object(), me))
-		return notify_fail("你要撕什么？\n");
+		return notify_fail("你要撕什麼？\n");
 
 	if(arg=="book4")
 	{
-		message_vision("$N一下把经书撕得粉碎。\n", me);
+		message_vision("$N一下把經書撕得粉碎。\n", me);
 		destruct(this_object());
 		return 1;
 	}
@@ -44,18 +44,18 @@ int do_tear(string arg)
 		if( dir=="binding" )
 		{
 			if(this_object()->query("hasgot"))
-				message_vision("$N将封皮撕开，发现羊皮已经被取走了。\n", me);
+				message_vision("$N將封皮撕開，發現羊皮已經被取走了。\n", me);
 			else
 			{
-				message_vision("$N将封皮撕开，几块羊皮掉了下来。\n", me);
-				message_vision("$N先将羊皮上的地图记了下来，然后把它们烧掉了。\n", me);
+				message_vision("$N將封皮撕開，幾塊羊皮掉了下來。\n", me);
+				message_vision("$N先將羊皮上的地圖記了下來，然後把它們燒掉了。\n", me);
 				me->set("huanggong/haspi4", 1);
 				this_object()->set("hasgot",1);
 			}
 		}
 		else
 		{
-			message_vision("$N一下把经书撕得粉碎。\n", me);
+			message_vision("$N一下把經書撕得粉碎。\n", me);
 			destruct(this_object());
 		}
 		return 1;

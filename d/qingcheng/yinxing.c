@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "古银杏树");
+	set("short", "古銀杏樹");
 	set("long", @LONG
-观前古银杏树相传为张天师手植，高可十余丈，腰围七、八人
-合抱，枝叶扶疏，苍盖如云。
+觀前古銀杏樹相傳爲張天師手植，高可十餘丈，腰圍七、八人
+合抱，枝葉扶疏，蒼蓋如雲。
 LONG );
         set("outdoors","qingcheng");
 	set("exits", ([

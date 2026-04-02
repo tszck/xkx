@@ -1,4 +1,4 @@
-// duoming-jinhua.c 夺命金花
+// duoming-jinhua.c 奪命金花
 // Last Modified by sega on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,31 +7,31 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action":"$N使一招「金花乍绽」，手中$w疾风般四散飞射$n的$l",
+([	"action":"$N使一招「金花乍綻」，手中$w疾風般四散飛射$n的$l",
 	"lvl" : 0,
-	"skill_name" : "金花乍绽",
+	"skill_name" : "金花乍綻",
 ]),
-([	"action":"$N使出「隔日黄花」，双手猛抖，$w纷飞坠叶般直袭$n的$l",
+([	"action":"$N使出「隔日黃花」，雙手猛抖，$w紛飛墜葉般直襲$n的$l",
 	"lvl" : 20,
-	"skill_name": "隔日黄花",
+	"skill_name": "隔日黃花",
 ]),
-([	"action":"$N一招「飞雪黄花」，长袖一挥，手中$w风卷残雪般漫天激
+([	"action":"$N一招「飛雪黃花」，長袖一揮，手中$w風捲殘雪般漫天激
 射$n的$l",
 	"lvl" : 40,
-	"skill_name": "飞雪黄花",
+	"skill_name": "飛雪黃花",
 ]),
 ([	"action":"$N手中$w一式「金花耀日」，$w幻作一道白光直奔$n的$l",
 	"lvl" : 80,
 	"skill_name": "金花耀日",
 ]),
-([	"action":"$N纵身一跃，手中$w一招「遍地黄花」从上向下射向$n全身",
+([	"action":"$N縱身一躍，手中$w一招「遍地黃花」從上向下射向$n全身",
 	"lvl" : 100,
-	"skill_name":"遍地黄花",
+	"skill_name":"遍地黃花",
 ]),
-([	"action":"$N手扣$w，身形一晃，凭空一指，一招「金花夺目」洒
+([	"action":"$N手扣$w，身形一晃，憑空一指，一招「金花奪目」灑
 向$n的$l",
 	"lvl" : 120,
-	"skill_name": "金花夺目",
+	"skill_name": "金花奪目",
 ]),
 });
 
@@ -40,12 +40,12 @@ int valid_learn(object me)
 	object ob;
 
 	if( (int)me->query("max_neili") < 100 )
-		return notify_fail("你的内力不够，没有办法练夺命金花。\n");
+		return notify_fail("你的內力不夠，沒有辦法練奪命金花。\n");
 	if( me->query_skill("jiuyang-shengong") < 40 )
-		return notify_fail("你九阳神功还不到火候，没法学夺命金花。\n");
+		return notify_fail("你九陽神功還不到火候，沒法學奪命金花。\n");
 	if( !(ob = me->query_temp("weapon")) ||
 		(string)ob->query("skill_type") != "throwing" )
-		return notify_fail("你必须先找一些飞镖之类的东西才能练暗器。\n");
+		return notify_fail("你必須先找一些飛鏢之類的東西才能練暗器。\n");
 	return 1;
 }
 
@@ -64,12 +64,12 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "throwing")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if( (int)me->query("qi") < 30 ||(int)me->query("neili") < 3 )
-		return notify_fail("你的内力或气不够，没有办法练习夺命金花。\n");
+		return notify_fail("你的內力或氣不夠，沒有辦法練習奪命金花。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -3);
-//	write("你按著所学练了一遍夺命金花。\n");
+//	write("你按著所學練了一遍奪命金花。\n");
 	return 1;
 }
 mapping query_action(object me, object weapon)
@@ -89,10 +89,10 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
@@ -100,7 +100,7 @@ mapping query_action(object me, object weapon)
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
   	"post_action": (: call_other, WEAPON_D, "throw_weapon" :),
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 10; }
@@ -115,15 +115,15 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\n夺命金花："NOR"\n");
+	write(HIC"\n奪命金花："NOR"\n");
 	write(@HELP
 
-    夺命金花为明教紫衫龙王金花婆婆黛绮丝的绝技。以其狠、毒
-而闻名。金花一出，其美无比。
+    奪命金花爲明教紫衫龍王金花婆婆黛綺絲的絕技。以其狠、毒
+而聞名。金花一出，其美無比。
 
-	学习要求：
-		九阳神功40级
-		内力100
+	學習要求：
+		九陽神功40級
+		內力100
 HELP
 	);
 	return 1;

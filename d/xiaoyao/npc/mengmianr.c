@@ -7,7 +7,7 @@ void create()
 {
 	set_name("蒙面人", ({ "mengmian ren", "ren" }));
 	set("long", 
-		"一个蒙着面部，身穿黑色夜行衣服的神秘人。\n");
+		"一個蒙着面部，身穿黑色夜行衣服的神祕人。\n");
 	set("gender", "男性");
 	set("age", 25);
 	set("attitude", "peaceful");
@@ -37,7 +37,7 @@ void create()
 	map_skill("dodge", "lingboweibu");
 	map_skill("force", "beiming-shengong");
 
-	create_family("逍遥派", 5, "弟子");
+	create_family("逍遙派", 5, "弟子");
 	setup();
 	
 	carry_object(__DIR__"obj/blade")->wield();

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "山顶小店");
+	set("short", "山頂小店");
 	set("long", @LONG
-这里是华山山顶的一间小店，卖些简单的饮食，专门赚那些游客的
-钱。
+這裏是華山山頂的一間小店，賣些簡單的飲食，專門賺那些遊客的
+錢。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"square",

@@ -1,4 +1,4 @@
-// jinding-zhang.c 金顶绵掌
+// jinding-zhang.c 金頂綿掌
 // Oct. 9 1997 by That
 
 #include <ansi.h>
@@ -7,36 +7,36 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"skill_name" : "三阳开泰" ,
-	"action" : "$N身形微晃，一招"RED"「三阳开泰」"NOR"，掌起风生，$n只觉得一股暖气袭向$l",
+([	"skill_name" : "三陽開泰" ,
+	"action" : "$N身形微晃，一招"RED"「三陽開泰」"NOR"，掌起風生，$n只覺得一股暖氣襲向$l",
 	"lvl"   : 0
 ]),
-([	"skill_name" : "五气呈祥" ,
-	"action" : "$N双手变幻，五指轻弹，一招"HIR"「五气呈祥」"NOR"，力分五路，招罩十方，抓向$n的$l",
+([	"skill_name" : "五氣呈祥" ,
+	"action" : "$N雙手變幻，五指輕彈，一招"HIR"「五氣呈祥」"NOR"，力分五路，招罩十方，抓向$n的$l",
 	"lvl"   : 11
 ]),
-([	"skill_name" : "罡风推云" ,
-	"action" : "$N左手前引，右手倏出，抢在头里，一招"CYN"「罡风推云」"NOR"，疾抓向$n的$l",
+([	"skill_name" : "罡風推雲" ,
+	"action" : "$N左手前引，右手倏出，搶在頭裏，一招"CYN"「罡風推雲」"NOR"，疾抓向$n的$l",
 	"lvl"   : 22
 ]),
 ([	"skill_name" : "逆流捧沙" ,
-	"action" : "$N左手圈转，轻拂$n的左手，反向推出，右手连续磕击，一招"BLU"「逆流捧沙」"NOR"，猛地击向$n的下巴",
+	"action" : "$N左手圈轉，輕拂$n的左手，反向推出，右手連續磕擊，一招"BLU"「逆流捧沙」"NOR"，猛地擊向$n的下巴",
 	"lvl"   : 33
 ]),
-([	"skill_name" : "雷洞霹雳" ,
-	"action" : "$N舌绽春雷，一声娇喝，在$n一愣间，右手一招"HIB"「雷洞霹雳」"NOR"，直捣$n的$l",
+([	"skill_name" : "雷洞霹靂" ,
+	"action" : "$N舌綻春雷，一聲嬌喝，在$n一愣間，右手一招"HIB"「雷洞霹靂」"NOR"，直搗$n的$l",
 	"lvl"   : 44
 ]),
-([	"skill_name" : "金顶佛光" ,
-	"action" : "$N双手平举握拳，脸露微笑，$n恍惚间看到$N分身为二，便见$N四掌齐出，一招"HIY"「金顶佛光」"NOR"不知哪两掌是实？掌风已经袭面",
+([	"skill_name" : "金頂佛光" ,
+	"action" : "$N雙手平舉握拳，臉露微笑，$n恍惚間看到$N分身爲二，便見$N四掌齊出，一招"HIY"「金頂佛光」"NOR"不知哪兩掌是實？掌風已經襲面",
 	"lvl"   : 55
 ]),
 ([	"skill_name" : "梵心降魔" ,
-	"action" : "$N一幅宝像庄严，使出"YEL"「梵心降魔」"NOR"，掌势如虹，绕着$n漂移不定",
+	"action" : "$N一幅寶像莊嚴，使出"YEL"「梵心降魔」"NOR"，掌勢如虹，繞着$n漂移不定",
 	"lvl"   : 66
 ]),
 ([	"skill_name" : "法尊八荒" ,
-	"action" : "$N全场游走，双臂疾舞，化为点点掌影，一招"HIC"「法尊八荒」"NOR"铺天盖地袭向$n全身各处大穴",
+	"action" : "$N全場遊走，雙臂疾舞，化爲點點掌影，一招"HIC"「法尊八荒」"NOR"鋪天蓋地襲向$n全身各處大穴",
 	"lvl"   : 77
 ]),
 });
@@ -47,21 +47,21 @@ int valid_combine(string combo) { return combo=="tiangang-zhi"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练金顶绵掌必须空手。\n");
+		return notify_fail("練金頂綿掌必須空手。\n");
 	if ((int)me->query_skill("linji-zhuang", 1) < 10)
-		return notify_fail("你的临济庄心法火候不够，不能练金顶绵掌。\n");
+		return notify_fail("你的臨濟莊心法火候不夠，不能練金頂綿掌。\n");
 	if ((int)me->query("max_neili") < 30)
-		return notify_fail("你的内力太弱，无法练金顶绵掌。\n");
+		return notify_fail("你的內力太弱，無法練金頂綿掌。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 45)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 40)
-		return notify_fail("你的内力不够练金顶绵掌。\n");
+		return notify_fail("你的內力不夠練金頂綿掌。\n");
 	me->receive_damage("qi", 40);
 	me->add("neili", -25);
 	return 1;
@@ -88,16 +88,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 15; }
@@ -111,15 +111,15 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIC"\n金顶绵掌："NOR"\n");
+	write(HIC"\n金頂綿掌："NOR"\n");
 	write(@HELP
 
-    金顶绵掌为峨嵋派掌法。
-    可与天罡指穴法互备。
+    金頂綿掌爲峨嵋派掌法。
+    可與天罡指穴法互備。
 
-	学习要求：
-		临济十二庄20级
-		内力30
+	學習要求：
+		臨濟十二莊20級
+		內力30
 HELP
 	);
 	return 1;

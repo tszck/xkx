@@ -1,14 +1,14 @@
-//Room: bashisipan2.c 八十四盘
+//Room: bashisipan2.c 八十四盤
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 
 void create()
 {
-      set("short","八十四盘");
+      set("short","八十四盤");
       set("long",@LONG
-八十四盘，道路艰险陡峭，迂回盘折，令人不能喘息。路左是蔽日遮天的
-冷杉林，路右是深不见底的绝壁峡谷。由此往上至接引殿，北下到洗象池。
+八十四盤，道路艱險陡峭，迂迴盤折，令人不能喘息。路左是蔽日遮天的
+冷杉林，路右是深不見底的絕壁峽谷。由此往上至接引殿，北下到洗象池。
 LONG);
       set("outdoors", "emei");
       set("exits",([ /* sizeof() == 1 */
@@ -36,7 +36,7 @@ int valid_leave(object me, string dir)
                 me->add("qi",-10);
                 if (((c_skill*c_skill*c_skill/10)< c_exp) && (c_skill< 101))
                 me->improve_skill("dodge", (int)me->query_skill("dodge", 1));
-                tell_object(me,"你爬上八十四盘，有些累了。\n");
+                tell_object(me,"你爬上八十四盤，有些累了。\n");
           }
       }
       return 1;

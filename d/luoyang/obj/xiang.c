@@ -8,7 +8,7 @@ object creat_weapon();
 
 void create()
 {
-	set_name("关帝像", ({ "guandi xiang", "xiang" }) );
+	set_name("關帝像", ({ "guandi xiang", "xiang" }) );
 	set("gender", "男性" );
 	set("unit", "尊");
 	set("value", 1);
@@ -17,9 +17,9 @@ void create()
 	set("no_put", 1);
 	set("no_get_from", 1);
         set("long",
-"这是一尊三人像。前坐者"HIG"绿衫"HIR"赤面"NOR"，右手捋髯，左手正执竹简，正是
-关帝夜读春秋像。后立者，左手一位"HIW"银甲白面"NOR"，手捧令旗，正是关平。
-右手一将，"BLK"黑面皂袍"NOR"，手握"HIC"青龙偃月刀"NOR"的，便是周仓了。\n");
+"這是一尊三人像。前坐者"HIG"綠衫"HIR"赤面"NOR"，右手捋髯，左手正執竹簡，正是
+關帝夜讀春秋像。後立者，左手一位"HIW"銀甲白麪"NOR"，手捧令旗，正是關平。
+右手一將，"BLK"黑麪皁袍"NOR"，手握"HIC"青龍偃月刀"NOR"的，便是周倉了。\n");
 }
 
 void init()
@@ -34,43 +34,43 @@ int do_chuangli(string arg)
 	int i, j;
 	object ob, me = this_player();
 
-	if (!arg) return notify_fail("你要创立什么帮、教、会？\n");
+	if (!arg) return notify_fail("你要創立什麼幫、教、會？\n");
 
 	file = read_file("/log/PARTY");
 	line = explode(file, "\n");
 	for(j = 0; j < sizeof(line); j ++)
 	{
 		if (line[j] == arg)
-			return notify_fail(arg+"已经存在，不用你费心创立。\n");
+			return notify_fail(arg+"已經存在，不用你費心創立。\n");
 	}
 	if (me->query("age") < 50 && !wizardp(me))
-		return notify_fail("你还嫩着呢！还想创立帮会？\n");
+		return notify_fail("你還嫩着呢！還想創立幫會？\n");
 	if (me->query("combat_exp") < 5000000)
-		return notify_fail("凭你这么点能耐，还想创立帮会？\n");
+		return notify_fail("憑你這麼點能耐，還想創立幫會？\n");
 	if (me->query("party") )
-		return notify_fail("你现在还是"+me->query("party/party_name")+"中人。不退出来，不能创立帮会。\n");
+		return notify_fail("你現在還是"+me->query("party/party_name")+"中人。不退出來，不能創立幫會。\n");
 	i = strwidth(arg);
 
 	if( (strwidth(arg) < 4) || (strwidth(arg) > 8 ) )
 	{
-		write("对不起，帮派的中文名字必须是 2 到 4 个中文字。\n");
+		write("對不起，幫派的中文名字必須是 2 到 4 箇中文字。\n");
 		return 0;
 	}
 	while(i--)
 	{
 		if( arg[i]<=' ' )
 		{
-			write("帮派名字不能用控制字元。\n");
+			write("幫派名字不能用控制字元。\n");
 			return 0;
 		}
 		if( i%2==0 && !is_chinese(arg[i..<0]) )
 		{
-			write("帮派名字必须是「中文」。\n");
+			write("幫派名字必須是「中文」。\n");
 			return 0;
 		}
 	}
 	i = strwidth(arg);
-	if ((arg[i-2..i]=="教") || (arg[i-2..i]=="帮") || (arg[i-2..i]=="门"))
+	if ((arg[i-2..i]=="教") || (arg[i-2..i]=="幫") || (arg[i-2..i]=="門"))
 	{
 		if(me->query("kar")-this_object()->query("kar")<11)
 		{
@@ -82,16 +82,16 @@ int do_chuangli(string arg)
 			seteuid(getuid());
 			ob=new("/d/luoyang/obj/yaopai");
 			ob->move(me);
-message_vision("$N点起三柱香，冲着关帝像拜了下去：弟子创立"+arg+"，志在
-匡扶正义，除恶扬善。蒙关帝护佑，今日终于开坛。此后当得
-约束帮众，同践此誓。若有不肖匪类，坏我帮规，天厌之！天
-厌之！！\n", me);
-			message_vision("$N获得一块腰牌！\n",me);
-			message("channel:chat", HIY"【通告】"HIR+me->query("name")+"于"+NATURE_D->game_time()+"创立"+arg+"！\n"NOR,users());
+message_vision("$N點起三柱香，衝着關帝像拜了下去：弟子創立"+arg+"，志在
+匡扶正義，除惡揚善。蒙關帝護佑，今日終於開壇。此後當得
+約束幫衆，同踐此誓。若有不肖匪類，壞我幫規，天厭之！天
+厭之！！\n", me);
+			message_vision("$N獲得一塊腰牌！\n",me);
+			message("channel:chat", HIY"【通告】"HIR+me->query("name")+"於"+NATURE_D->game_time()+"創立"+arg+"！\n"NOR,users());
 			log_file("PARTY", arg+"\n");
 		}
-		else return notify_fail("关林里一阵阵阴风吹过，看来今天不是开帮会的黄道吉日。改天再来吧。\n");
+		else return notify_fail("關林裏一陣陣陰風吹過，看來今天不是開幫會的黃道吉日。改天再來吧。\n");
 	}
-	else return notify_fail("帮会名称只能以教、帮、门结尾。\n");
+	else return notify_fail("幫會名稱只能以教、幫、門結尾。\n");
 	return 1;
 }

@@ -6,7 +6,7 @@ void create()
         set_name("婢女", ({ "bi nu","nu" }) );
         set("gender", "女性" );
         set("age", 16);
-        set("long", "这是一个容貌清秀的天真无邪的婢女。\n");
+        set("long", "這是一個容貌清秀的天真無邪的婢女。\n");
         set("shen_type", 1);
         set("combat_exp", 2000);
         set("str", 20);

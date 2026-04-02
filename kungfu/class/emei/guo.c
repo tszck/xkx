@@ -12,13 +12,13 @@ void create()
 {
 	set_name("郭襄", ({ "guo xiang","guo","xiang"}));
 	set("long",
-"她十八九岁年纪，身穿淡黄衣衫，骑着一头青驴，正缓缓而行。
-她腰悬短剑，脸上颇有风尘之色，显是远游已久；韶华如花，正
-当喜乐无忧之年，可是容色间却隐隐有懊闷意，似是愁思袭人，
-眉间心上，无计回避。她姓郭，单名一个襄字，乃大侠郭靖和女
-侠黄蓉的次女，现下她一驴一剑，只身漫游，排遣心中愁闷。\n");
+"她十八九歲年紀，身穿淡黃衣衫，騎着一頭青驢，正緩緩而行。
+她腰懸短劍，臉上頗有風塵之色，顯是遠遊已久；韶華如花，正
+當喜樂無憂之年，可是容色間卻隱隱有懊悶意，似是愁思襲人，
+眉間心上，無計迴避。她姓郭，單名一個襄字，乃大俠郭靖和女
+俠黃蓉的次女，現下她一驢一劍，隻身漫遊，排遣心中愁悶。\n");
 	set("gender", "女性");
-	set("nickname", "小东邪");
+	set("nickname", "小東邪");
 	set("age", 18);
 	set("attitude", "peaceful");
 	set("shen_type", 1);
@@ -38,19 +38,19 @@ void create()
 	set("max_neili", 4000);
 	set("jingli", 1500);
 	set("max_jingli", 1500);
-	set_temp("is_riding", HIC"青驴"NOR);
+	set_temp("is_riding", HIC"青驢"NOR);
 	set("combat_exp", 3000000);
 	set("score", 1000);
 	set("chat_chance", 10);
 	set("chat_msg", ({
-		"郭襄低声吟道：「问世间，情是何物，直教生死相许？」\n",
-		"郭襄低声吟道：「天南地北双飞客，老翅几回寒暑？」\n",
-		"郭襄低声吟道：「欢乐趣，离别苦，就中更有痴儿女。」\n",
-		"郭襄低声吟道：「君应有语，渺万里层云，千山暮雪，只影向谁去？」\n",
-		"郭襄低声吟道：「横汾路，寂寞当年箫鼓。荒烟依旧平楚。」\n",
-		"郭襄低声吟道：「招魂些何嗟及，山鬼自啼风雨。」\n",
-		"郭襄低声吟道：「天也妒，未信与，莺儿燕子俱黄土。」\n",
-		"郭襄低声吟道：「千秋万古，为留待骚人，狂歌痛饮，来访雁丘处。」\n",
+		"郭襄低聲吟道：「問世間，情是何物，直教生死相許？」\n",
+		"郭襄低聲吟道：「天南地北雙飛客，老翅幾回寒暑？」\n",
+		"郭襄低聲吟道：「歡樂趣，離別苦，就中更有癡兒女。」\n",
+		"郭襄低聲吟道：「君應有語，渺萬裏層雲，千山暮雪，隻影向誰去？」\n",
+		"郭襄低聲吟道：「橫汾路，寂寞當年簫鼓。荒煙依舊平楚。」\n",
+		"郭襄低聲吟道：「招魂些何嗟及，山鬼自啼風雨。」\n",
+		"郭襄低聲吟道：「天也妒，未信與，鶯兒燕子俱黃土。」\n",
+		"郭襄低聲吟道：「千秋萬古，爲留待騷人，狂歌痛飲，來訪雁丘處。」\n",
 		(: random_move :)
 	}) );
 
@@ -91,7 +91,7 @@ void create()
 		(: exert_function, "recover" :),
 		(: exert_function, "regenerate" :),
 	}) );
-	create_family("峨嵋派", 1, "掌门人");
+	create_family("峨嵋派", 1, "掌門人");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();
@@ -109,7 +109,7 @@ void attempt_apprentice(object ob)
 
 	if (!(ob_fam = ob->query("family")) || ob_fam["family_name"] != "峨嵋派")
 	{
-		command("say "+RANK_D->query_respect(ob)+"与本派素无来往，不知此话从何谈起？");
+		command("say "+RANK_D->query_respect(ob)+"與本派素無來往，不知此話從何談起？");
 		return;
 	}
 	if ((string)ob->query("class")!="bonze" )
@@ -120,20 +120,20 @@ void attempt_apprentice(object ob)
 	if ((int)ob->query_skill("mahayana",1)<150||
 		(int)ob->query_skill("linji-zhuang",1)<150)
 	{
-		command("say 你本门的功夫修为还太低。");
+		command("say 你本門的功夫修爲還太低。");
 		return;
 	}
 	if ((int)ob->query("shen") < 500000)
 	{
-		command("say "+RANK_D->query_respect(ob)+"你行侠仗义之事还做的不够。");
+		command("say "+RANK_D->query_respect(ob)+"你行俠仗義之事還做的不夠。");
 		return;
 	}
 	if ((string)ob->query("class")=="bonze" )
 	{
 		name = ob->query("name");
-		new_name = "风" + name[1..1];
+		new_name = "風" + name[1..1];
 		ob->set("name", new_name);
-		command("say 从今以后你的法名叫做" + new_name + "，恭喜你成为峨嵋第三代弟子!");
+		command("say 從今以後你的法名叫做" + new_name + "，恭喜你成爲峨嵋第三代弟子!");
 	}
 	command("recruit " + ob->query("id"));
 }

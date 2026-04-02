@@ -7,9 +7,9 @@ void create()
 {
     set("short","深潭");
     set("long",@LONG
-你命大，正好跌在舍身崖下深潭中。昏迷中醒来，四周黑蒙蒙，什么都看
-不清。潭水发着恶臭，偶尔还触及一两根不知是人是兽的枯骨，让你全身直起
-鸡皮疙瘩。你漂浮在水中，无助至极。情急之下，四处张望(wang)。
+你命大，正好跌在捨身崖下深潭中。昏迷中醒來，四周黑濛濛，什麼都看
+不清。潭水發着惡臭，偶爾還觸及一兩根不知是人是獸的枯骨，讓你全身直起
+雞皮疙瘩。你漂浮在水中，無助至極。情急之下，四處張望(wang)。
 LONG);
     set("no_fight",1);
     set("no_sleep_room",1);
@@ -30,7 +30,7 @@ int do_wang()
 {
     object ob;
     ob = this_player();
-    message_vision(HIC"$N极目四望，还是发现有出路的，于是求生试探之心大动。\n"NOR, ob);
+    message_vision(HIC"$N極目四望，還是發現有出路的，於是求生試探之心大動。\n"NOR, ob);
     switch (random(4))
     {
        case 0 : set("exits/east", __DIR__"st1");break;
@@ -68,7 +68,7 @@ void close_out()
 {
 //  object ob;
 //  ob = this_player();
-//  message_vision(HIY"瘴气飘动，$N眼前一片模糊，出路在哪里？\n"NOR, ob);
+//  message_vision(HIY"瘴氣飄動，$N眼前一片模糊，出路在哪裏？\n"NOR, ob);
     if (query("exits/east"))  delete("exits/east");
     if (query("exits/west"))  delete("exits/west");
     if (query("exits/south")) delete("exits/south");

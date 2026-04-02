@@ -84,7 +84,7 @@ void greeting(object ob)
 void attempt_apprentice(object ob)
 {
 	if((int)ob->query("mingwang")<0)
-		command("say 我泰山派弟子都是行侠仗义之辈，"+RANK_D->query_respect(ob)+"还做的不够啊。");
+		command("say 我泰山派弟子都是行俠仗義之輩，"+RANK_D->query_respect(ob)+"還做的不夠啊。");
 	else
 	{
 		command("say 好啊，那我就收下你吧。");

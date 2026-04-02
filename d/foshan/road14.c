@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","林间道");
+	set("short","林間道");
 	set("long",@LONG
-这里是一条林间小道，在树丛中蜿蜒。东面就是泉州城的西门
-吊桥，向西南可达岭南广东。
+這裏是一條林間小道，在樹叢中蜿蜒。東面就是泉州城的西門
+吊橋，向西南可達嶺南廣東。
 LONG);
 	set("objects", ([
 	   __DIR__"obj/hua3": 1,

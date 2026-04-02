@@ -14,7 +14,7 @@ void create()
         else {
                 set("unit", "件");
                 set("material", "steel");
-		        set("long","这是一件杀手最喜欢穿的黑色长袍");
+		        set("long","這是一件殺手最喜歡穿的黑色長袍");
 				set("value", 0);
                 set("armor_prop/armor", 50);
         }

@@ -6,14 +6,14 @@ int ask_for_gongzi();
 
 void create()
 {
-        set_name("帐房先生", ({"zhangfang", "xiansheng"}));
+        set_name("帳房先生", ({"zhangfang", "xiansheng"}));
         set("long",
-"他一身邋遢，整天迷迷糊糊的睡不醒模样。\n");
+"他一身邋遢，整天迷迷糊糊的睡不醒模樣。\n");
         set("gender", "男性");
         set("attitude", "heroism");
 
         set("inquiry",([
-                "工资"    : (: ask_for_gongzi :),
+                "工資"    : (: ask_for_gongzi :),
                 "薪水"    : (: ask_for_gongzi :),
                 "salary"  : (: ask_for_gongzi :),
                 "payment" : (: ask_for_gongzi :),
@@ -61,16 +61,16 @@ int ask_for_gongzi()
 		payment=new("/clone/money/gold");
 		if (paytimes ==0)
 		{
-			tell_object(me, "帐房先生道：你的饷银已经领过了吧。\n");
+			tell_object(me, "帳房先生道：你的餉銀已經領過了吧。\n");
 		}
 		else
 		{
 			payment->set_amount(paytimes);
 			payment->move(me);
-			tell_object(me, "帐房先生道：这是你的饷银，收好吧。\n");
+			tell_object(me, "帳房先生道：這是你的餉銀，收好吧。\n");
 		}
 	}
-	else tell_object(me,"帐房先生道：欺负我老糊涂？你根本不是一品堂的人！\n");
+	else tell_object(me,"帳房先生道：欺負我老糊塗？你根本不是一品堂的人！\n");
         return 1;
 }
 

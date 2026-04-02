@@ -9,7 +9,7 @@ void create()
 	set("gender", "女性");
 	set("age", 19);
 	set("per", 30);
-	set("long", "张宝林的小弟子，长的如西施再世。\n");
+	set("long", "張寶林的小弟子，長的如西施再世。\n");
 	set("combat_exp", 1500);
 	set("shen_type", -1);
 

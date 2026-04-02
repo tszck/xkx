@@ -1,15 +1,15 @@
-// fu-houyuan.c 后院
+// fu-houyuan.c 後院
 // Winder Oct.10 1998
 
 inherit ROOM;
 
 void create()
 {
-        set("short", "后院");
+        set("short", "後院");
         set("long", @LONG
-这里是后院。走到这里，花香味更加浓烈了。你仔细一看，
-东南边有一道圆形门，似乎花香是从那里传出来的。从这里再往
-南走，就是侯员外的卧室了。
+這裏是後院。走到這裏，花香味更加濃烈了。你仔細一看，
+東南邊有一道圓形門，似乎花香是從那裏傳出來的。從這裏再往
+南走，就是侯員外的臥室了。
 LONG
         );
         set("outdoors", "hanzhong");

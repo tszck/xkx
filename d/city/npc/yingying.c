@@ -1,12 +1,12 @@
-// yingying.c 崔莺莺
+// yingying.c 崔鶯鶯
 
 inherit NPC;
 
 void create()
 {
-	set_name("崔莺莺", ({ "cui yingying", "cui", "ying" }));
-	set("long", "她长得极美，尤其是那对眼睛，媚得直可以勾人魂魄。\n");
-	set("title", "财主女儿");
+	set_name("崔鶯鶯", ({ "cui yingying", "cui", "ying" }));
+	set("long", "她長得極美，尤其是那對眼睛，媚得直可以勾人魂魄。\n");
+	set("title", "財主女兒");
 	set("gender", "女性");
 	set("age", 17);
 

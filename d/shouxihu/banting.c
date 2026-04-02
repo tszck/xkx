@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "寒竹风松");
+	set("short", "寒竹風松");
 	set("long", @LONG
-小南海西面的二角半亭，板瓦顶，置美人靠。亭上悬挂孙龙父所书
-“寒竹风松”匾，外柱悬挂田原所书楹联(lian)。
+小南海西面的二角半亭，板瓦頂，置美人靠。亭上懸掛孫龍父所書
+“寒竹風松”匾，外柱懸掛田原所書楹聯(lian)。
 LONG );
 	set("outdoors", "shouxihu");
 	set("item_desc", ([

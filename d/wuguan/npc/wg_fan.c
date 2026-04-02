@@ -1,8 +1,8 @@
 inherit NPC;
 void create()
 {
-	set_name("范先生", ({"fan xiansheng", "fan", "xiansheng"}));
-	set("title", "帐房先生");
+	set_name("範先生", ({"fan xiansheng", "fan", "xiansheng"}));
+	set("title", "帳房先生");
 	set("gender", "男性");
 	set("age", 34);
 	set("str", 22);

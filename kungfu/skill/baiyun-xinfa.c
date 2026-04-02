@@ -1,4 +1,4 @@
-// baiyun-xinfa.c 白云心法
+// baiyun-xinfa.c 白雲心法
 // Last Modify by sir 5/17/2001
 
 #include <ansi.h>
@@ -22,27 +22,27 @@ int valid_learn(object me)
 	ns = (int)me->query("guilty");
 
 	if ( me->query("couple/have_couple") )
-		return notify_fail("你尘缘未了，无法再学习白云心法！\n");	
+		return notify_fail("你塵緣未了，無法再學習白雲心法！\n");	
 	if ( me->query("gender") != "女性" )
-		return notify_fail("白云心法只适合女性修练。\n");
+		return notify_fail("白雲心法只適合女性修練。\n");
 	if ( me->query("sex/number") )
-		return notify_fail("你非处女之身，无法修习白云心法！\n");	
+		return notify_fail("你非處女之身，無法修習白雲心法！\n");	
 	if (((string)me->query("class") != "bonze") && i > 29)
-		return notify_fail("你不是尼姑，学不了高深的白云心法。\n");
+		return notify_fail("你不是尼姑，學不了高深的白雲心法。\n");
 	if ((int)me->query_skill("force", 1) < 10)
-		return notify_fail("你的基本内功火候还不够。\n");
+		return notify_fail("你的基本內功火候還不夠。\n");
 
 	if ( nb < 100 && nb <= ny )
-		return notify_fail("你的禅宗心法修为不够，无法领会更高深的白云心法。\n");
+		return notify_fail("你的禪宗心法修爲不夠，無法領會更高深的白雲心法。\n");
 	if ( ns > 0 ) 
-		return notify_fail("你屡犯僧家数戒，无法领会更高深的白云心法。\n");
+		return notify_fail("你屢犯僧家數戒，無法領會更高深的白雲心法。\n");
 	return valid_public(me);
 	
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("白云心法只能用学(learn)的来增加熟练度。\n");
+	return notify_fail("白雲心法只能用學(learn)的來增加熟練度。\n");
 }
 string exert_function_file(string func)
 {
@@ -51,14 +51,14 @@ string exert_function_file(string func)
 
 int help(object me)
 {
-	write(HIC"\n白云心法："NOR"\n");
+	write(HIC"\n白雲心法："NOR"\n");
 	write(@HELP
 
-  恒山派内功
+  恆山派內功
 
-	学习要求：
-		基本内功10级
-		处女纯阴之体		
+	學習要求：
+		基本內功10級
+		處女純陰之體		
 HELP
 	);
         return 1;

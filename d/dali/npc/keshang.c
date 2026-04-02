@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("盛皮罗客商", ({ "ke shang", "shang" }) );
+	set_name("盛皮羅客商", ({ "ke shang", "shang" }) );
 	set("gender", "男性" );
 	set("age", 32);
-	set("long","这是一位从印度来的客商，皮肤黝黑，白布包头，大理把印度人叫作盛皮罗。\n");
+	set("long","這是一位從印度來的客商，皮膚黝黑，白布包頭，大理把印度人叫作盛皮羅。\n");
 	set("combat_exp", 7000);
 	set("str", 17);
 	set("dex", 25);

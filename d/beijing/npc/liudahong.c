@@ -4,9 +4,9 @@ inherit F_MASTER;
 void create()
 {
 	set_name("柳大洪", ({ "liu dahong", "liu" }));
-	set("nickname", HIY"铁背苍龙"NOR);
-	set("title", "沐王府家将");
-	set("long","一个头发苍白的老者，红润脸色，身材魁梧。\n他便是江湖上人称铁背苍龙的柳大洪，也是云\n南沐王少主沐剑声的师父。\n");
+	set("nickname", HIY"鐵背蒼龍"NOR);
+	set("title", "沐王府家將");
+	set("long","一個頭發蒼白的老者，紅潤臉色，身材魁梧。\n他便是江湖上人稱鐵背蒼龍的柳大洪，也是雲\n南沐王少主沐劍聲的師父。\n");
 	set("gender", "男性");
 	set("age", 62);
 	set("attitude", "peaceful");

@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("梁自进",({"liang zijin","liang"}));
+	set_name("梁自進",({"liang zijin","liang"}));
 	set("gender", "男性");
 	set("age", 40);
-	set("long", "梁自进是雪山派掌门人威德先生白自在的师弟。\n");
+	set("long", "梁自進是雪山派掌門人威德先生白自在的師弟。\n");
 	set("attitude", "peaceful");
 
 	set("str", 30);

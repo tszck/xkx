@@ -1,13 +1,13 @@
-//      houmen.c 后门
+//      houmen.c 後門
 
 inherit ROOM;
 
 void create()
 {
-        set("short","后门");
+        set("short","後門");
         set("long",@LONG
-这是雪山寺的后门。一片破落而萧索模样。喇嘛们香火也足，花用
-也大。这是后门，虽然未免寒酸，可也总可以掖着。
+這是雪山寺的後門。一片破落而蕭索模樣。喇嘛們香火也足，花用
+也大。這是後門，雖然未免寒酸，可也總可以掖着。
 LONG );
 	set("outdoors", "xueshansi");
         set("exits",([

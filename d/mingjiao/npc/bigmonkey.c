@@ -6,9 +6,9 @@ void create()
 {
 	set_name("大白猿", ({ "yuan", "dabai yuan", "big monkey" }) );
 	set("gender", "雄性");
-	set("race", "走兽");
+	set("race", "走獸");
 	set("age", 65);
-	set("long","这是一只大白猿，奇怪的是从它身上闻得到一阵腐臭之气，原来白猿肚上脓血\n模糊，生著一个大疮。\n");
+	set("long","這是一隻大白猿，奇怪的是從它身上聞得到一陣腐臭之氣，原來白猿肚上膿血\n模糊，生著一個大瘡。\n");
 	set("combat_exp", 50000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");
@@ -35,29 +35,29 @@ int do_lifeheal(string arg)
 	object weapon, bag, me = this_player();
 	if (query("bag_count")<1)
 	{
-		write("白猿一把跳开，不想让你医治！\n");
+		write("白猿一把跳開，不想讓你醫治！\n");
 		return 1;
 	}
 	if( !arg || arg != "yuan")
 	{
-		write("你想干什么呀?\n");
+		write("你想幹什麼呀?\n");
 		return 1;
 	}
 	if (!present("fish bone", me))
 	{
-		write("怎麽，管开刀不管缝肚皮啊！\n");
+		write("怎麼，管開刀不管縫肚皮啊！\n");
 		return 1;
 	}
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		((string)weapon->query("skill_type") != "sword" &&
 		 (string)weapon->query("skill_type") != "blade"))
-		 return notify_fail("你没有工具怎麽给它做手术！\n");
+		 return notify_fail("你沒有工具怎麼給它做手術！\n");
 
 	message_vision(
-"$N割开右边及上端的缝线，再斜角切开早已联结的腹皮，只见它肚子
-里藏著一个油布包裹。$N将油布包放在一边，以鱼骨做针，在它腹皮
-上刺下一个个小孔，再将树皮撕成细丝，穿过小孔打结，勉强将白猿
-的腹肌缝好，在创口敷上草药。\n", me);
+"$N割開右邊及上端的縫線，再斜角切開早已聯結的腹皮，只見它肚子
+裏藏著一個油布包裹。$N將油布包放在一邊，以魚骨做針，在它腹皮
+上刺下一個個小孔，再將樹皮撕成細絲，穿過小孔打結，勉強將白猿
+的腹肌縫好，在創口敷上草藥。\n", me);
 		bag = new("/d/mingjiao/obj/bag");
 		bag -> move (environment(me));
 		add("bag_count",-1);

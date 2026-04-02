@@ -7,14 +7,14 @@ void create()
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", WHT "这是一颗耐力丹，据说吃了可以增强耐力。\n" NOR);
-                set("unit", "颗");
+                set("long", WHT "這是一顆耐力丹，據說喫了可以增強耐力。\n" NOR);
+                set("unit", "顆");
                 set("value", 10000);
                 set("weight", 50);
                 set("gift_type", "sta");
                 set("gift_name", "先天耐力");
                 set("gift_point", 75);
-                set("gift_msg", HIM "你觉得身上发生了奇异的变化，但随即又平和了下来。\n" NOR);
+                set("gift_msg", HIM "你覺得身上發生了奇異的變化，但隨即又平和了下來。\n" NOR);
         }
         setup();
 }

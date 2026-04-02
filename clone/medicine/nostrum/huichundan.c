@@ -17,7 +17,7 @@ void create()
 	set("vegetable", 0);
 	set("nostrum", 0);
 	set("level", 300);
-	set("long", "这是一粒清绿剔透的回春丹。\n");
+	set("long", "這是一粒清綠剔透的回春丹。\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -27,14 +27,14 @@ int do_eat(string arg)
 	object me=this_player();
 
 	if (!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
-	if (!id(arg)) return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
+	if (!id(arg)) return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢喝，小心别呛着了。\n");
+		return notify_fail("別急，慢慢喝，小心別嗆着了。\n");
 
 	if ( me->query("age") <= 39)
 	{
-		message_vision("$N没必要吃回春丹。\n",me);
+		message_vision("$N沒必要喫回春丹。\n",me);
 	}
 	else
 	{
@@ -42,7 +42,7 @@ int do_eat(string arg)
 		me->add("vegetable/huichun",1);
 		me->delete("last_slp");
 		me->delete("jingzuo_time");
-		message_vision("$N吃下一粒回春丹，伸了个懒腰，觉得身子骨灵便了许多。\n",me);
+		message_vision("$N喫下一粒回春丹，伸了個懶腰，覺得身子骨靈便了許多。\n",me);
 		destruct(this_object());
 	}
 	return 1;

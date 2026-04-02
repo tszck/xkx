@@ -6,38 +6,38 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "宠物铺");
+	set("short", "寵物鋪");
 	set("long", @LONG
-这时一间宠物铺。高高的柜台后坐着一个老头。老头的身后是一排
-排的笼子，五花八门的养了不少东东，柜台上摆着的牌子 (paizi)列出
-了宠物种类，你想要就购买(goumai)一只吧。老头还兼卖各种宠物的饲
-料宠物，随便买都成。宠物玩腻了不想玩，想换个种，也可以把旧的宠
-物返还(return)给老头，然后再买一只新的。
+這時一間寵物鋪。高高的櫃檯後坐着一個老頭。老頭的身後是一排
+排的籠子，五花八門的養了不少東東，櫃檯上擺着的牌子 (paizi)列出
+了寵物種類，你想要就購買(goumai)一隻吧。老頭還兼賣各種寵物的飼
+料寵物，隨便買都成。寵物玩膩了不想玩，想換個種，也可以把舊的寵
+物返還(return)給老頭，然後再買一隻新的。
 LONG );
 	set("no_fight", 1);
 	set("no_steal", 1);
 	set("no_beg",1);
 	set("item_desc", ([
 		"paizi" : HIR"
-                                 扬州宠物店"HIC"
+                                 揚州寵物店"HIC"
 
-   ┏--"HIM"宠物"HIC"--"HIM"名称"HIC"--------"HIM"价目"HIC"--------┳--"HIM"宠物"HIC"--"HIM"名称"HIC"--------"HIM"价目"HIC"--------┓"HIC"
-   ┃  "HIG"龙   dragon     "HIY"九十九两黄金"HIC"  ┃  "HIG"凤凰 phenix     "HIY"九十九两黄金"HIC"  ┃
-   ┃  "HIG"麒麟 kylin      "HIY"九十九两黄金"HIC"  ┃  "HIG"象   elephant   "HIY"四十九两黄金"HIC"  ┃
-   ┃  "HIG"狮   lion       "HIY"四十九两黄金"HIC"  ┃  "HIG"虎   tiger      "HIY"四十九两黄金"HIC"  ┃
-   ┃  "HIG"豹   panther    "HIY"四十九两黄金"HIC"  ┃  "HIG"雕   vulture    "HIY"四十九两黄金"HIC"  ┃
-   ┃  "HIG"熊   bear       "HIY"三十九两黄金"HIC"  ┃  "HIG"狐   fox        "HIY"三十九两黄金"HIC"  ┃
-   ┃  "HIG"狼   wolf       "HIY"三十九两黄金"HIC"  ┃  "HIG"狗   dog        "HIY"三十九两黄金"HIC"  ┃
-   ┃  "HIG"猪   pig        "HIY"三十九两黄金"HIC"  ┃  "HIG"鳄   crocodile  "HIY"三十九两黄金"HIC"  ┃
-   ┃  "HIG"马   horse      "HIY"三十九两黄金"HIC"  ┃  "HIG"驴   donkey     "HIY"二十九两黄金"HIC"  ┃
-   ┃  "HIG"牛   cattle     "HIY"二十九两黄金"HIC"  ┃  "HIG"猴   monkey     "HIY"二十九两黄金"HIC"  ┃
-   ┃  "HIG"鹰   eagle      "HIY"二十九两黄金"HIC"  ┃  "HIG"鹿   deer       "HIY"二十九两黄金"HIC"  ┃
-   ┃  "HIG"蛇   snake      "HIY"十九两黄金"HIC"    ┃  "HIG"貂   marten     "HIY"十九两黄金"HIC"    ┃
-   ┃  "HIG"猫   cat        "HIY"九两黄金"HIC"      ┃  "HIG"鼠   mouse      "HIY"九两黄金"HIC"      ┃
-   ┃  "HIG"兔   rabbit     "HIY"九两黄金"HIC"      ┃  "HIG"龟   tortise    "HIY"九两黄金"HIC"      ┃
-   ┃  "HIG"鸡   chicken    "HIY"九两黄金"HIC"      ┃  "HIG"鸭   duck       "HIY"九两黄金"HIC"      ┃
+   ┏--"HIM"寵物"HIC"--"HIM"名稱"HIC"--------"HIM"價目"HIC"--------┳--"HIM"寵物"HIC"--"HIM"名稱"HIC"--------"HIM"價目"HIC"--------┓"HIC"
+   ┃  "HIG"龍   dragon     "HIY"九十九兩黃金"HIC"  ┃  "HIG"鳳凰 phenix     "HIY"九十九兩黃金"HIC"  ┃
+   ┃  "HIG"麒麟 kylin      "HIY"九十九兩黃金"HIC"  ┃  "HIG"象   elephant   "HIY"四十九兩黃金"HIC"  ┃
+   ┃  "HIG"獅   lion       "HIY"四十九兩黃金"HIC"  ┃  "HIG"虎   tiger      "HIY"四十九兩黃金"HIC"  ┃
+   ┃  "HIG"豹   panther    "HIY"四十九兩黃金"HIC"  ┃  "HIG"雕   vulture    "HIY"四十九兩黃金"HIC"  ┃
+   ┃  "HIG"熊   bear       "HIY"三十九兩黃金"HIC"  ┃  "HIG"狐   fox        "HIY"三十九兩黃金"HIC"  ┃
+   ┃  "HIG"狼   wolf       "HIY"三十九兩黃金"HIC"  ┃  "HIG"狗   dog        "HIY"三十九兩黃金"HIC"  ┃
+   ┃  "HIG"豬   pig        "HIY"三十九兩黃金"HIC"  ┃  "HIG"鱷   crocodile  "HIY"三十九兩黃金"HIC"  ┃
+   ┃  "HIG"馬   horse      "HIY"三十九兩黃金"HIC"  ┃  "HIG"驢   donkey     "HIY"二十九兩黃金"HIC"  ┃
+   ┃  "HIG"牛   cattle     "HIY"二十九兩黃金"HIC"  ┃  "HIG"猴   monkey     "HIY"二十九兩黃金"HIC"  ┃
+   ┃  "HIG"鷹   eagle      "HIY"二十九兩黃金"HIC"  ┃  "HIG"鹿   deer       "HIY"二十九兩黃金"HIC"  ┃
+   ┃  "HIG"蛇   snake      "HIY"十九兩黃金"HIC"    ┃  "HIG"貂   marten     "HIY"十九兩黃金"HIC"    ┃
+   ┃  "HIG"貓   cat        "HIY"九兩黃金"HIC"      ┃  "HIG"鼠   mouse      "HIY"九兩黃金"HIC"      ┃
+   ┃  "HIG"兔   rabbit     "HIY"九兩黃金"HIC"      ┃  "HIG"龜   tortise    "HIY"九兩黃金"HIC"      ┃
+   ┃  "HIG"雞   chicken    "HIY"九兩黃金"HIC"      ┃  "HIG"鴨   duck       "HIY"九兩黃金"HIC"      ┃
    ┗--------------------------------┻--------------------------------┛"HIB"
-        goumai：购买    return：返还    zancun：暂存    lingqu：领取
+        goumai：購買    return：返還    zancun：暫存    lingqu：領取
 \n"NOR,
 	]));
 	set("exits", ([

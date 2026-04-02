@@ -11,16 +11,16 @@ void create()
         else {
                 set("unit", "朵");
                 set("long", 
-"这金色的花朵，便是奇毒无比的金波旬花。“波旬”两字是
-梵语，是“恶魔”的意思。这毒花是从天竺传来的，原来天
-竺人叫它为“恶魔花”，\n");
+"這金色的花朵，便是奇毒無比的金波旬花。“波旬”兩字是
+梵語，是“惡魔”的意思。這毒花是從天竺傳來的，原來天
+竺人叫它爲“惡魔花”，\n");
                 set("value", 90);
                 set("material", "plant");
                 set_weight(10);
                 set("armor_prop/armor", 0);
                 set("armor_prop/personality", 3);
-                set("wear_msg", "$N轻轻地把一朵$n戴在头上。\n");
-                set("unequip_msg", "$N轻轻地把$n从头上摘了下来。\n");
+                set("wear_msg", "$N輕輕地把一朵$n戴在頭上。\n");
+                set("unequip_msg", "$N輕輕地把$n從頭上摘了下來。\n");
         }
         setup();
 }

@@ -4,9 +4,9 @@ inherit  ROOM;
 
 void  create  ()
 {
-	set  ("short",  "小铺子");
+	set  ("short",  "小鋪子");
 	set  ("long",  @LONG
-这是一家小铺子。
+這是一家小鋪子。
 LONG);
 	set("exits",  ([  //sizeof()  ==  1
 		"north"  :  __DIR__"wroad1",

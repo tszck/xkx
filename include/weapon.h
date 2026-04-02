@@ -18,17 +18,17 @@
 #define CLUB            "/inherit/weapon/club"          // 棍
 #define DAGGER          "/inherit/weapon/dagger"        // 矛
 #define FORK            "/inherit/weapon/fork"          // 叉
-#define HAMMER          "/inherit/weapon/hammer"        // 锤
-#define HOOK            "/inherit/weapon/hook"          // 钩
+#define HAMMER          "/inherit/weapon/hammer"        // 錘
+#define HOOK            "/inherit/weapon/hook"          // 鉤
 #define MACE            "/inherit/weapon/mace"          // 鞭
 #define RAKE            "/inherit/weapon/rake"          // 耙
-#define SWORD           "/inherit/weapon/sword"         // 剑
+#define SWORD           "/inherit/weapon/sword"         // 劍
 #define STICK           "/inherit/weapon/stick"         // 棒
 #define STAFF           "/inherit/weapon/staff"         // 杖
-#define SPEAR           "/inherit/weapon/spear"         // 枪
+#define SPEAR           "/inherit/weapon/spear"         // 槍
 #define THROWING        "/inherit/weapon/throwing"      // 暗器
-#define WHIP            "/inherit/weapon/whip"          // 软鞭
-#define M_WEAPON        "/inherit/weapon/weapon"        // 制造兵器
+#define WHIP            "/inherit/weapon/whip"          // 軟鞭
+#define M_WEAPON        "/inherit/weapon/weapon"        // 製造兵器
 
 #define F_AXE           "/inherit/weapon/_axe"
 #define F_BLADE         "/inherit/weapon/_blade"

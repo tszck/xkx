@@ -6,7 +6,7 @@ void create()
 {
 	set("short", "端凝殿");
 	set("long", @LONG
-这是皇上贮存冠袍带履和轿舆的端凝殿.
+這是皇上貯存冠袍帶履和轎輿的端凝殿.
 LONG
 	);
 	set("exits", ([

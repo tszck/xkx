@@ -1,4 +1,4 @@
-// pingpu_kagl.c 平埔族的凯达格兰人
+// pingpu_kagl.c 平埔族的凱達格蘭人
 // Last Modifyed by Ahda on Jan. 4 2002
 
 inherit NPC;
@@ -8,7 +8,7 @@ void create()
 	int age;
 	age = 20 + random(40);
 	
-	set_name("平埔族凯达格兰人", ({ "kaidagelan man", "pingpu", "kaida", "gelan", }));
+	set_name("平埔族凱達格蘭人", ({ "kaidagelan man", "pingpu", "kaida", "gelan", }));
 	set("gender", "男性");
 	set("age", age);
 

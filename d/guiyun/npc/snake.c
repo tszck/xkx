@@ -8,7 +8,7 @@ void create()
 	set_name("毒蛇", ({ "snake", "she" }) );
 	set("race", "爬蛇");
 	set("age", 4);
-	set("long", "一只有着三角形脑袋的蛇，尾巴沙沙做响。\n");
+	set("long", "一隻有着三角形腦袋的蛇，尾巴沙沙做響。\n");
 	set("attitude", "peaceful");
 
 	set("str", 26);
@@ -37,7 +37,7 @@ void die()
 {
 	object me = this_object();;
 
-	message_vision("$N啪的一声断成两截！$N死了。\n", me);
+	message_vision("$N啪的一聲斷成兩截！$N死了。\n", me);
 	new("/d/guiyun/obj/shedan")->move(environment(me));
 	destruct(me);
 }

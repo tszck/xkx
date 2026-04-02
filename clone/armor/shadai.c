@@ -14,13 +14,13 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "副");
-		set("long", "这是一副沙袋，里面装满了铁砂，用以练习轻功。\n");
+		set("long", "這是一副沙袋，裏面裝滿了鐵砂，用以練習輕功。\n");
 		set("value", 6000);
 		set("material", "wrists");
 		set("armor_prop/armor", 5);
 		set("shaolin",1);
-		set("wear_msg",YEL"$N拿出一副沙袋绑在腿上。\n"NOR);
-		set("remove_msg",YEL"$N把沙袋从腿上取了下来。\n"NOR);
+		set("wear_msg",YEL"$N拿出一副沙袋綁在腿上。\n"NOR);
+		set("remove_msg",YEL"$N把沙袋從腿上取了下來。\n"NOR);
 	}
 	setup();
 }

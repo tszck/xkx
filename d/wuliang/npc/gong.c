@@ -4,7 +4,7 @@
 inherit NPC;
 void create()
 {
-	set_name("龚光杰", ({ "gong guangjie", "gong", "guangjie"}));
+	set_name("龔光傑", ({ "gong guangjie", "gong", "guangjie"}));
 	set("gender", "男性");
 	set("attitude", "friendly");
 
@@ -36,10 +36,10 @@ void create()
 	map_skill("parry", "damo-jian");
 
 	set("inquiry", ([
-		"无量玉壁"  : "那是本派禁地，任何外人不得擅入。干犯禁忌，可叫你死葬身之地。",
+		"無量玉壁"  : "那是本派禁地，任何外人不得擅入。干犯禁忌，可叫你死葬身之地。",
 	]));
 
-	create_family("无量剑东宗", 5, "弟子");
+	create_family("無量劍東宗", 5, "弟子");
 	setup();
 
         carry_object("/clone/cloth/cloth")->wear();

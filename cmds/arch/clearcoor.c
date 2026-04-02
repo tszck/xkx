@@ -28,10 +28,10 @@ int main(object me, string arg, int recur_flag)
 		if (!sscanf(arg, "%*s.c"))
 			arg += ".c";
 		if (file_size(arg) > 0) {
-			notify_fail("处理完毕。\n");
+			notify_fail("處理完畢。\n");
 			return clearfile(me ,arg);
 		} else
-			return notify_fail("没有这个文件。\n");
+			return notify_fail("沒有這個文件。\n");
 	}
 
 	dir = resolve_path(me->query("cwd"), arg);
@@ -43,9 +43,9 @@ int main(object me, string arg, int recur_flag)
 
 	if (!sizeof(file)) {
 		if (file_size(dir) == -2)
-			return notify_fail("目录是空的。\n");
+			return notify_fail("目錄是空的。\n");
 		else
-			return notify_fail("没有这个目录。\n");
+			return notify_fail("沒有這個目錄。\n");
 	}
 
 	i = sizeof(file);
@@ -54,7 +54,7 @@ int main(object me, string arg, int recur_flag)
 			file[i][0] += "/";
 	}
 
-	write("正在处理目录：" + dir + "\n");
+	write("正在處理目錄：" + dir + "\n");
 
 	if (sizeof(file)) {
 		for(i = 0,j = sizeof(file); i < j; i ++) {
@@ -112,18 +112,18 @@ int clearfile(object me, string file)
 
 	write_file(file, out_text, 1);
 
-	write("完毕。\n");
+	write("完畢。\n");
 	return 1;
 }
 
 int help(object me)
 {
 write(@HELP
-指令格式: clearcoor [-d | -s] [<路径名> | <文件名>]
+指令格式: clearcoor [-d | -s] [<路徑名> | <文件名>]
 
-清除指定目录下所有的文件的多余坐标，如果不指定
-目录, 则使用当前目录。如果带参数-d，则连带处理
-子目录。如果指定参数-s，则只处理该文件。
+清除指定目錄下所有的文件的多餘座標，如果不指定
+目錄, 則使用當前目錄。如果帶參數-d，則連帶處理
+子目錄。如果指定參數-s，則只處理該文件。
 
 HELP
 );

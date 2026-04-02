@@ -7,11 +7,11 @@ inherit ROOM;
 string look_gaoshi();
 void create()
 {
-	set("short", "天安门");
+	set("short", "天安門");
 	set("long", @LONG
-天安门便是皇宫正门。巍峨雄伟的城墙上，飞檐敌楼对每个华夏子
-民都是十分熟悉的形状，气势十分辉煌，不愧一个泱泱中央大国的气派。
-一张镶金边的告示(gaoshi)贴在墙上，许多官兵立在两旁。
+天安門便是皇宮正門。巍峨雄偉的城牆上，飛檐敵樓對每個華夏子
+民都是十分熟悉的形狀，氣勢十分輝煌，不愧一個泱泱中央大國的氣派。
+一張鑲金邊的告示(gaoshi)貼在牆上，許多官兵立在兩旁。
 LONG );
 	set("item_desc", ([
 		"gaoshi" : (:look_gaoshi:),
@@ -35,8 +35,8 @@ LONG );
 
 string look_gaoshi()
 {
-	return "\n辑拿天地会一众反贼！\n举报一人，赏金十两。\n"
-		"捉拿一人，赏金百两。\n知情不报者，立斩！\n鳌拜发\n";
+	return "\n輯拿天地會一衆反賊！\n舉報一人，賞金十兩。\n"
+		"捉拿一人，賞金百兩。\n知情不報者，立斬！\n鰲拜發\n";
 }
 
 int valid_leave(object me, string dir)
@@ -52,9 +52,9 @@ int valid_leave(object me, string dir)
 				if(inv[i]->query("weapon_prop") &&
 					(inv[i]->query("equipped")))
 						if(objectp(present("wu jiang", environment(me)))&&living(present("wu", environment(me))))
-							return notify_fail("武将上前挡住你，朗声说道：这位"+RANK_D->query_respect(me)+"请放下兵刃。\n不得持兵刃入宫。\n");
+							return notify_fail("武將上前擋住你，朗聲說道：這位"+RANK_D->query_respect(me)+"請放下兵刃。\n不得持兵刃入宮。\n");
 						else if(objectp(present("guan bing", environment(me))) && living(present("bing", environment(me))))
-							return notify_fail("官兵上前挡住你，朗声说道：这位" + RANK_D->query_respect(me) + "请放下兵刃。\n不得持兵刃入宫。\n");
+							return notify_fail("官兵上前擋住你，朗聲說道：這位" + RANK_D->query_respect(me) + "請放下兵刃。\n不得持兵刃入宮。\n");
 			return ::valid_leave(me, dir);
 		}
 		else
@@ -62,23 +62,23 @@ int valid_leave(object me, string dir)
 			if (me->query("gender") == "女性")
 			{
 				if(objectp(present("wu jiang",environment(me))) && living(present("wu", environment(me))))
-					return notify_fail("武将上前挡住你，朗声说道：皇宫重地，岂容寻常烟花女子自由出入，\n"+RANK_D->query_respect(me)+"请回，免得自取其辱。\n");
+					return notify_fail("武將上前擋住你，朗聲說道：皇宮重地，豈容尋常煙花女子自由出入，\n"+RANK_D->query_respect(me)+"請回，免得自取其辱。\n");
 				else if(objectp(present("guan bing", environment(me))) && living(present("bing", environment(me))))
-					return notify_fail("官兵上前拦住你，朗声说道：皇宫重地，岂容寻常烟花女子自由出入，\n" + RANK_D->query_respect(me) +"请回，免得自取其辱。\n");
+					return notify_fail("官兵上前攔住你，朗聲說道：皇宮重地，豈容尋常煙花女子自由出入，\n" + RANK_D->query_respect(me) +"請回，免得自取其辱。\n");
 			}
-			if (me->query("gender") == "无性")
+			if (me->query("gender") == "無性")
 			{
 				if(objectp(present("wu jiang",environment(me))) && living(present("wu", environment(me))))
-					say("武将笑吟吟地说道：这位公公您辛苦了，快请进吧。\n");
+					say("武將笑吟吟地說道：這位公公您辛苦了，快請進吧。\n");
 				else if(objectp(present("guan bing", environment(me))) && living(present("bing", environment(me))))
-					say("官兵笑吟吟地说道：这位公公您辛苦了，快请进吧。\n");
+					say("官兵笑吟吟地說道：這位公公您辛苦了，快請進吧。\n");
 			}
 			if (me->query("gender") == "男性")
 			{
 				if(objectp(present("wu jiang",environment(me))) && living(present("wu", environment(me))))
-					return notify_fail("武将伸手拦住你朗声说道：皇宫重地，岂容寻常乡村野夫自由出入，\n"+RANK_D->query_respect(me)+"请回，免得自取其辱。\n");
+					return notify_fail("武將伸手攔住你朗聲說道：皇宮重地，豈容尋常鄉村野夫自由出入，\n"+RANK_D->query_respect(me)+"請回，免得自取其辱。\n");
 				else if(objectp(present("guan bing", environment(me))) && living(present("bing", environment(me))))
-					return notify_fail("官兵伸手拦住你朗声说道：皇宫重地，岂容寻常乡村野夫自由出入\n" + RANK_D->query_respect(me) +"请回，免得自取其辱。\n");
+					return notify_fail("官兵伸手攔住你朗聲說道：皇宮重地，豈容尋常鄉村野夫自由出入\n" + RANK_D->query_respect(me) +"請回，免得自取其辱。\n");
 			}
 		}
 	}

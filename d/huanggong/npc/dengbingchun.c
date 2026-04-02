@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("邓炳春", ({"deng bingchun", "deng", "bingchun"}));
-	set("title",HIY"神龙教"HIG"青龙使"NOR"座下弟子");
-	set("nickname",HIY"假宫女"NOR);
-	set("long","一个三十岁左右的的秃头汉子。\n");
+	set_name("鄧炳春", ({"deng bingchun", "deng", "bingchun"}));
+	set("title",HIY"神龍教"HIG"青龍使"NOR"座下弟子");
+	set("nickname",HIY"假宮女"NOR);
+	set("long","一個三十歲左右的的禿頭漢子。\n");
 
 	set("gender", "男性");
 	set("attitude", "peaceful"); 

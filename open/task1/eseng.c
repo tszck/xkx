@@ -1,12 +1,12 @@
-// eseng.c 恶僧
+// eseng.c 惡僧
  
 inherit NPC;
  
 void create()
 {
-	set_name("恶僧", ({ "e  seng", "seng" }));
+	set_name("惡僧", ({ "e  seng", "seng" }));
 	set("long", 
-	"少林的叛僧，干了不少坏事，据说时常出没在烟花柳巷。\n");
+	"少林的叛僧，幹了不少壞事，據說時常出沒在煙花柳巷。\n");
 	set("gender", "男性");
 	set("age", 37);
 	set("attitude", "peaceful");

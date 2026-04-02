@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "蓼风轩");
+	set("short", "蓼風軒");
 	set("long",@LONG
-这是『灵鹫宫』弟子的兵器库，你环顾四周，发现墙上嵌满了各式
-兵器，仔细一看，原来满墙满壁竟随依各般兵器之形抠出槽子，兵刃就
-悬于槽内。你不由暗赞：“好精致的想头！”
+這是『靈鷲宮』弟子的兵器庫，你環顧四周，發現牆上嵌滿了各式
+兵器，仔細一看，原來滿牆滿壁竟隨依各般兵器之形摳出槽子，兵刃就
+懸於槽內。你不由暗贊：“好精緻的想頭！”
 LONG );
 	set("exits", ([
 		"east" : __DIR__"changl5",
@@ -32,6 +32,6 @@ int valid_leave(object me, string dir)
 		if (inv[i]->query("id") == "zhujian") j++;
 	}
 	if (j > 1)
-		return notify_fail("这位" + RANK_D->query_respect(me) + "别那麽贪心，带走一把竹剑就够啦。\n");
+		return notify_fail("這位" + RANK_D->query_respect(me) + "別那麼貪心，帶走一把竹劍就夠啦。\n");
 		return ::valid_leave(me, dir);
 }

@@ -1,5 +1,5 @@
 // Room: /d/xiangyang/wall.c
-// Create by Zeratul Jan 15 2001,襄阳城墙的石阶都继承此文件
+// Create by Zeratul Jan 15 2001,襄陽城牆的石階都繼承此文件
 
 inherit ROOM;
 

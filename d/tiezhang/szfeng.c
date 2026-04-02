@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "食指峰");
+	set("short", "食指峯");
 	set("long", @LONG
-你终于爬上了峰顶，已经累得气喘吁吁了。这里只有丈许方圆的地
-方，寸草不生，到处都是光秃秃的岩石，滑不留脚。一阵狂风呼啸而过，
-吹得你一个趔趄，差点摔倒，看来还是赶快离开这里的好。
+你終於爬上了峯頂，已經累得氣喘吁吁了。這裏只有丈許方圓的地
+方，寸草不生，到處都是光禿禿的岩石，滑不留腳。一陣狂風呼嘯而過，
+吹得你一個趔趄，差點摔倒，看來還是趕快離開這裏的好。
 LONG );
 	set("no_clean_up", 0);
 	set("outdoors", "tiezhang");
@@ -32,13 +32,13 @@ int do_climb(string arg)
 
 	if (arg =="down") 
 	{
-		write("你攀缘着石壁，缓缓向下爬去。\n");
+		write("你攀緣着石壁，緩緩向下爬去。\n");
 		message("vision",me->name() + "向下爬去。\n", environment(me), ({me}) );
 		me->move(__DIR__"juebi5");
-		message("vision",me->name() + "爬了下来。\n", environment(me), ({me}) );
+		message("vision",me->name() + "爬了下來。\n", environment(me), ({me}) );
 	}
 	else
-		return notify_fail("你要往哪里爬？\n");
+		return notify_fail("你要往哪裏爬？\n");
 	return 1;
 }
 

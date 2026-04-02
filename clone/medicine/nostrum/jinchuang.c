@@ -1,4 +1,4 @@
-// jinchuang.c 金创药
+// jinchuang.c 金創藥
 
 inherit ITEM;
 #include <ansi.h>
@@ -14,14 +14,14 @@ void init()
 
 void create()
 {
-	set_name(HIY"金创药"NOR, ({"jinchuang yao", "jinchuang", "yao"}));
+	set_name(HIY"金創藥"NOR, ({"jinchuang yao", "jinchuang", "yao"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
 		set("unit", "包");
 		set("vegetable", 49);
 		set("nostrum", 70);
-		set("long", "这是一包武林人士必备的金创药。\n");
+		set("long", "這是一包武林人士必備的金創藥。\n");
 		set("value", 5000);
 	}
 	set("pour_type", "1");
@@ -32,17 +32,17 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
 	if ((int)me->query("eff_qi") == (int)me->query("max_qi"))
-		return notify_fail("你现在不需要用金创药。\n");
+		return notify_fail("你現在不需要用金創藥。\n");
 	else {
 		me->receive_curing("qi", 50);
-		message_vision("$N吃下一包金创药，气色看起来好多了。\n", me);
+		message_vision("$N喫下一包金創藥，氣色看起來好多了。\n", me);
 		me->start_busy(2);
 		destruct(this_object());
 		return 1;

@@ -7,11 +7,11 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("欧阳锋", ({ "ouyang-feng", "ouyang", "feng" }));
-	set("long", "他是白驼山庄主，号称“西毒”的欧阳锋。\n"
-		   +"由于习练「九阴真经」走火入魔，已变得精\n"
-		   +"神错乱，整日披头散发。\n");
-	set("title", "白驼山庄主");
+	set_name("歐陽鋒", ({ "ouyang-feng", "ouyang", "feng" }));
+	set("long", "他是白駝山莊主，號稱“西毒”的歐陽鋒。\n"
+		   +"由於習練「九陰真經」走火入魔，已變得精\n"
+		   +"神錯亂，整日披頭散髮。\n");
+	set("title", "白駝山莊主");
 	set("gender", "男性");
 	set("age", 53);
 	set("nickname", HIR "西毒" NOR);
@@ -53,7 +53,7 @@ void create()
 	map_skill("parry", "lingshe-zhangfa");
 	map_skill("staff", "lingshe-zhangfa");
 
-	create_family("白驼山派",1, "开山祖师");
+	create_family("白駝山派",1, "開山祖師");
 	setup();
 	carry_object("/clone/weapon/gangzhang")->wield();
 	carry_object("/clone/misc/cloth")->wear();
@@ -78,7 +78,7 @@ void greeting(object ob)
 	int i;
 
 	obj = all_inventory(environment(me));
-        command("say 十步一人，百步十人，人力有限，如何杀呢。");
+        command("say 十步一人，百步十人，人力有限，如何殺呢。");
         command("consider");
 	for(i=0; i<sizeof(obj); i++)
 	{

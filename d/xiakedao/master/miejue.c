@@ -1,4 +1,4 @@
-// miejue.c 灭绝师太
+// miejue.c 滅絕師太
 // Modified by That Oct.1997
 #include <command.h>
 #include <ansi.h>
@@ -10,9 +10,9 @@ mixed out_master(mixed arg);
 
 void create()
 {
-        set_name("灭绝师太", ({ "miejue-shitai","miejue","shitai"}));
+        set_name("滅絕師太", ({ "miejue-shitai","miejue","shitai"}));
         set("long",
-                "她是峨嵋派的第三代弟子，现任峨嵋派掌门人。\n");
+                "她是峨嵋派的第三代弟子，現任峨嵋派掌門人。\n");
         set("gender", "女性");
         set("age", 62);
         set("attitude", "peaceful");
@@ -64,7 +64,7 @@ void create()
         map_skill("sword","huifeng-jian");
         map_skill("blade","yanxing-dao");
         map_skill("parry","huifeng-jian");
-        create_family("峨嵋派", 3, "掌门人");
+        create_family("峨嵋派", 3, "掌門人");
 
         setup();
         carry_object("/clone/weapon/changjian")->wield();
@@ -89,7 +89,7 @@ void greeting(object ob)
 	int i;
 
 	obj = all_inventory(environment(me));
-        command("say 芷若，纵死侠骨香，除魔卫道定要此精神。");
+        command("say 芷若，縱死俠骨香，除魔衛道定要此精神。");
 	for(i=0; i<sizeof(obj); i++)
 	{
 		if( obj[i]->query("id")=="zhou-zhiruo")

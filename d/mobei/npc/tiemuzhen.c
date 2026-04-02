@@ -4,9 +4,9 @@
 inherit NPC;
 void create()
 {
-	set_name("铁木真",({"tie muzhen","tie","muzhen"}));
+	set_name("鐵木真",({"tie muzhen","tie","muzhen"}));
 	set("gender","男性");
-	set("long","铁木真是草原上的英雄。\n");
+	set("long","鐵木真是草原上的英雄。\n");
 	set("combat_exp", 300000);
 	set("nickle","成吉思汗");
 	set("age", 35);

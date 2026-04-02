@@ -1,5 +1,5 @@
 // /quest/shan.c
-//last modified by sega 4/13/2000,取消钱的功用
+//last modified by sega 4/13/2000,取消錢的功用
 // Modified by Zeratul Jan 5 2001
 
 
@@ -11,16 +11,16 @@ inherit NPC;
 int time_period(int timep,object me);
 void create()
 {
-	set_name("单正", ({ "shan zheng", "shan", "zheng" }));
-	set("nickname", HIB"铁面判官"NOR);
+	set_name("單正", ({ "shan zheng", "shan", "zheng" }));
+	set("nickname", HIB"鐵面判官"NOR);
 	set("age", 63);
 	set("str", 25);
 	set("dex", 16);
 	set("per", 22);
 	set("long", 
-"他生平嫉恶如仇，只要知道江湖上有什么不公道之事，定然伸手
-要管。他满脸红光，当得起“童颜鹤发”四字，神情却甚谦和，
-不似江湖上传说的出手无情。\n");
+"他生平嫉惡如仇，只要知道江湖上有什麼不公道之事，定然伸手
+要管。他滿臉紅光，當得起“童顏鶴髮”四字，神情卻甚謙和，
+不似江湖上傳說的出手無情。\n");
 	set("combat_exp", 300000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");
@@ -53,22 +53,22 @@ int cancel_quest()
 	object me = this_player();
 	
 	if ( !me->query( "quest/shan" ) || me->query( "quest/shan/finished" ) )
-		return notify_fail( "什么？\n" );
+		return notify_fail( "什麼？\n" );
 	if ( me->query( "quest/shan/lock" ) )
-		return notify_fail( "你已经取消任务了！\n" );
+		return notify_fail( "你已經取消任務了！\n" );
 	switch ( random(3) )
 	{
 		case 0 :
 			lock_quest( me, "shan", "wei" ); 
-			tell_object( me, "单正说道：也好，你就先去服侍韦爵爷吧。\n" );
+			tell_object( me, "單正說道：也好，你就先去服侍韋爵爺吧。\n" );
 			break;
 		case 1 :
 			lock_quest( me, "shan", "book" );
-			tell_object( me, "单正说道：既然你不愿为老夫效力，就回去帮贵派掌门寻找秘籍吧。\n" );
+			tell_object( me, "單正說道：既然你不願爲老夫效力，就回去幫貴派掌門尋找祕籍吧。\n" );
 			break;
 		case 2 :
 			lock_quest( me, "shan", "betrayer" );		
-			tell_object( me, "单正说道：贵派掌门捎来口信，要你速回本门清除叛徒，老夫亦不敢留你了。\n" );
+			tell_object( me, "單正說道：貴派掌門捎來口信，要你速回本門清除叛徒，老夫亦不敢留你了。\n" );
 			break;
 	}
 	return 1;
@@ -162,12 +162,12 @@ int give_quest()
 	//Modified by zeratul 2000-12-24
 	if( combatexp<10000 )
 	{
-		tell_object(me,"单正对你哼了一声道：“这种小角色还想除暴安良？”\n");
+		tell_object(me,"單正對你哼了一聲道：“這種小角色還想除暴安良？”\n");
 		return 1;
 	}
 /*	if(combatexp>10000000)
 	{
-		tell_object(me,"单正躬身道：“这种小事怎敢劳烦您。”\n");
+		tell_object(me,"單正躬身道：“這種小事怎敢勞煩您。”\n");
 		return 1;
 	} */
 /*
@@ -179,27 +179,27 @@ int give_quest()
 		if( ((int) me->query("quest/shan/time")) > time() )
 //		if( ((int) me->query("last_quest_time")+30) > time() )
 		{
-//			tell_object(me,"单正对你冷冷一笑道：让你办的事如何了？\n");
-			tell_object(me,"单正瞟了你一眼说道：你要是没本事，就拿点儿费用出来我让别的人去申张正义。\n");
+//			tell_object(me,"單正對你冷冷一笑道：讓你辦的事如何了？\n");
+			tell_object(me,"單正瞟了你一眼說道：你要是沒本事，就拿點兒費用出來我讓別的人去申張正義。\n");
 			return 1;
 		}
 		else
 		{
-			tell_object(me,"单正对着你叹了一口气：哎，我就再给你一次机会吧。\n");
+			tell_object(me,"單正對着你嘆了一口氣：哎，我就再給你一次機會吧。\n");
 			quest_failed( me, "shan" );
 /*			switch ( random(3) )
 			{
 				case 0 :
 					lock_quest( me, "shan", "wei" ); 
-					tell_object( me, "单正说道：我这里人手已够，你去韦爵爷那里看看吧。\n" );
+					tell_object( me, "單正說道：我這裏人手已夠，你去韋爵爺那裏看看吧。\n" );
 					break;
 				case 1 :
 					lock_quest( me, "shan", "book" );
-					tell_object( me, "单正说道：你还是先找秘籍熟悉一下地形再说吧。\n" );
+					tell_object( me, "單正說道：你還是先找祕籍熟悉一下地形再說吧。\n" );
 					break;
 				case 2 :
 					lock_quest( me, "shan", "betrayer" );		
-					tell_object( me, "单正说道：铲除叛徒的活儿比老夫这里更适合你。\n" );
+					tell_object( me, "單正說道：剷除叛徒的活兒比老夫這裏更適合你。\n" );
 					break;
 			}*/
 
@@ -216,7 +216,7 @@ int give_quest()
 	while (1 == 1)
 	{
 		quest = __DIR__"qslist"->query_quest();
-		quest["quest_type"] = "杀";
+		quest["quest_type"] = "殺";
 		quest["exp_bonus"] = expright[j];
 		quest["pot_bonus"] = potright[j];
 		quest["score"] =  100 + random(50);
@@ -229,7 +229,7 @@ int give_quest()
 	timep = random(60) * 10 + 600;
 
 	time_period(timep, me);
-	tell_object(me,"先替我把『"+quest["quest"]+"』给我杀了，以张武林正义。\n" NOR);
+	tell_object(me,"先替我把『"+quest["quest"]+"』給我殺了，以張武林正義。\n" NOR);
 
 	me->set("quest/shan/time", (int)time()+timep);
 	me->set("quest/shan/factor",factor);
@@ -257,11 +257,11 @@ int time_period(int timep, object me)
 	if(d) time = chinese_number(d) + "天";
 	else time = "";
 
-	if(h) time += chinese_number(h) + "小时";
+	if(h) time += chinese_number(h) + "小時";
 	if(m) time += chinese_number(m) + "分";
 	time += chinese_number(s) + "秒";
 
-	tell_object(me,HIW "单正吩咐道：给你在" + time + "内");
+	tell_object(me,HIW "單正吩咐道：給你在" + time + "內");
 	return 1;
 }
 
@@ -274,7 +274,7 @@ int accept_object(object who, object ob)
 	if ( !ob->query("money_id") ) return 0;
 	if ( !who->query("quest/shan") ||
                 who->query("quest/shan/finished") || ob->value() < 10000 )
-		tell_object(who,"单正笑道：那我可就不客气了。\n");
+		tell_object(who,"單正笑道：那我可就不客氣了。\n");
         else
 	{
 		require = who->query("quests/require");
@@ -292,22 +292,22 @@ int accept_object(object who, object ob)
 		who->set("quests/num",num);
 		if(num==2 && ob->value() < 1000000)
 		{
-			tell_object(who, "单正一双尖针般的眼睛直盯着你：我实在不想给你任务！十项完成不了一项。如果你不想完成这次的任务，拿一百两违约金来！\n");
+			tell_object(who, "單正一雙尖針般的眼睛直盯着你：我實在不想給你任務！十項完成不了一項。如果你不想完成這次的任務，拿一百兩違約金來！\n");
 			return 1;
 		}
 		if(num==1 && ob->value() < 100000)
 		{
-			tell_object(who, "单正一双尖针般的眼睛直盯着你：你的任务资信太差，要新任务，先拿十两黄金来！\n");
+			tell_object(who, "單正一雙尖針般的眼睛直盯着你：你的任務資信太差，要新任務，先拿十兩黃金來！\n");
 			return 1;
 		}
 		if( ob->value() < 10000)
 		{
-			tell_object(who, "单正一双尖针般的眼睛直盯着你：这点钱可不够我们的开销！\n");
+			tell_object(who, "單正一雙尖針般的眼睛直盯着你：這點錢可不夠我們的開銷！\n");
 			return 1;
 		}
 		else
 		{
-			tell_object(who, "单正笑道：那好，咱们买卖不成仁义在。想讨差使再找我吧！\n");
+			tell_object(who, "單正笑道：那好，咱們買賣不成仁義在。想討差使再找我吧！\n");
 			who->set( "quest/shan/finished", 1 );
                         who->delete( "quest/shan/last_time" );
                         who->add("quests/abandon", 1);
@@ -317,26 +317,26 @@ int accept_object(object who, object ob)
 /*
 	if(!(quest = who->query("quest/shan")))
 	{
-		tell_object(who,"单正说道：这不是我想要的。\n");
+		tell_object(who,"單正說道：這不是我想要的。\n");
 		return 0;
 	}
 
 	write( ob->query("name") );
 	if( ob->query("name") != quest["quest"])
 	{
-		tell_object(who, "单正说道：这是什么东西？我叫你办的差使你就这样糊弄？！\n");
+		tell_object(who, "單正說道：這是什麼東西？我叫你辦的差使你就這樣糊弄？！\n");
 		return 0;
 	}
 
 	if ((int) who->query("quest/shan/time") < time() )
 	{
-		tell_object(who, "单正说道：真是废物！你没有在指定的时间内回来！\n");
+		tell_object(who, "單正說道：真是廢物！你沒有在指定的時間內回來！\n");
 		destruct(ob);
 		return 0;
 	}
 	else
 	{
-		tell_object(who,"单正赞许地点头说道：不错！差使办得还不错！\n");
+		tell_object(who,"單正讚許地點頭說道：不錯！差使辦得還不錯！\n");
 		exp = quest["exp_bonus"]/2 + random(quest["exp_bonus"]/2);
 		pot = quest["pot_bonus"]/2 + random(quest["pot_bonus"]/2);
 		score = quest["score"]/2 + random(quest["score"]/2);
@@ -361,11 +361,11 @@ int accept_object(object who, object ob)
 		bonus = (int) who->query("score");
 		bonus += score;
 		who->set("score", bonus);
-		tell_object(who,HIW"你被奖励了：" + chinese_number(exp)
-			+ "点实战经验，"+ chinese_number(pot) + "点潜能，"
-			+ chinese_number(score)+"点江湖阅历。\n"NOR);
+		tell_object(who,HIW"你被獎勵了：" + chinese_number(exp)
+			+ "點實戰經驗，"+ chinese_number(pot) + "點潛能，"
+			+ chinese_number(score)+"點江湖閱歷。\n"NOR);
 		who->set("quest/shan", 0 );
-		tell_object(who,HIW"恭喜你完成一个差使！\n"NOR);
+		tell_object(who,HIW"恭喜你完成一個差使！\n"NOR);
 		return 0;
 	}
 */

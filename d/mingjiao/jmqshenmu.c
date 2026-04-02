@@ -7,8 +7,8 @@ void create()
 {
 	set("short", "巨木旗神木");
 	set("long", @LONG
-你眼前只见一棵大树，高有百丈，十人也环抱不住。巨树倚绝壁而
-生，枝叶繁茂，藤萝环绕，竟然无法一览全貌。树身有一处光滑无比，
+你眼前只見一棵大樹，高有百丈，十人也環抱不住。巨樹倚絕壁而
+生，枝葉繁茂，藤蘿環繞，竟然無法一覽全貌。樹身有一處光滑無比，
 是常有人摩挲而成。
 LONG );
 	set("exits", ([
@@ -32,10 +32,10 @@ int do_climb()
 	me->receive_damage("qi",15);
 	me->receive_wound("qi",15);
 	if(!mypar || mypar["party_name"] != HIG "明教" NOR) 
-		return notify_fail("你努力想爬上去, 可是树身实在太光滑..\n"); 
+		return notify_fail("你努力想爬上去, 可是樹身實在太光滑..\n"); 
         
-	message_vision(HIC"$N三下两下就顺树身爬了上去...\n"NOR, me);
+	message_vision(HIC"$N三下兩下就順樹身爬了上去...\n"NOR, me);
 	me->move(__DIR__"jmqdating");
-	tell_object(me, HIC"你爬到了巨木旗大厅。\n"NOR);
-	message("vision", HIC"只见"+me->query("name")+"顺树身爬了上来，靠在墙边直喘气！\n"NOR, environment(me), me);
+	tell_object(me, HIC"你爬到了巨木旗大廳。\n"NOR);
+	message("vision", HIC"只見"+me->query("name")+"順樹身爬了上來，靠在牆邊直喘氣！\n"NOR, environment(me), me);
 }

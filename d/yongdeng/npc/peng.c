@@ -5,15 +5,15 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-	set_name("彭连虎", ({ "peng lianhu", "peng", "lianhu" }));
+	set_name("彭連虎", ({ "peng lianhu", "peng", "lianhu" }));
 	set("gender", "男性");
 	set("nickname", HIR"千手人屠"NOR);
 	set("age", 43);
 	set("str", 25);
 	set("dex", 16);
 	set("per", 20);
-	set("long", "彭连虎五短身材，满眼红丝，目光如电，上唇短须翘起。他生性
-残暴，和沙通天有深厚的交情。\n");
+	set("long", "彭連虎五短身材，滿眼紅絲，目光如電，上脣短鬚翹起。他生性
+殘暴，和沙通天有深厚的交情。\n");
 	set("combat_exp", 200000);
 	set("shen_type", -1);
 	set("attitude", "peaceful");

@@ -1,18 +1,18 @@
-// he.c 鹤笔翁
+// he.c 鶴筆翁
 
 inherit NPC;
 inherit F_SKILL;
 #include <ansi.h>
 void create()
 {
-	set_name("鹤笔翁", ({ "he  biweng", "he" }));
+	set_name("鶴筆翁", ({ "he  biweng", "he" }));
 	set("gender", "男性");
 	set("nickname", HIC"玄冥二老"NOR);
 	set("age", 54);
 	set("str", 25);
 	set("dex", 16);
 	set("per", 21);
-	set("long", "他一身长须垂胸，性子狠辣，性好酒。\n");
+	set("long", "他一身長鬚垂胸，性子狠辣，性好酒。\n");
 	set("combat_exp", 3000000+ random(1000000));
 	set("attitude", "peaceful");
 	set("neili", 2000); 

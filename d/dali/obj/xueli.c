@@ -10,7 +10,7 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一碟新鲜的大理雪梨。\n");
+		set("long", "一碟新鮮的大理雪梨。\n");
 		set("unit", "碟");
 		set("value", 80);
 		set("food_remaining", 4);

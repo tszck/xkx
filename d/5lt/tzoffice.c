@@ -4,10 +4,10 @@ inherit  ROOM;
 
 void  create  ()
 {
-	set  ("short",  "台长办公室");
+	set  ("short",  "臺長辦公室");
 	set  ("long",  @LONG
-这里就是台长办公室，屋内布置虽然极为简单，但是一进门你的视
-线就被牢牢吸引住了。
+這裏就是臺長辦公室，屋內佈置雖然極爲簡單，但是一進門你的視
+線就被牢牢吸引住了。
 LONG);
 	set("exits",  ([  //sizeof()  ==  1
 		"west"  :  __DIR__"mishuchu",

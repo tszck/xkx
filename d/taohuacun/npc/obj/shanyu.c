@@ -4,12 +4,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name("鳝鱼",({"shanyu"}));
+	set_name("鱔魚",({"shanyu"}));
 	set_weight(80);
 	if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "一条活蹦乱跳的鳝鱼。\n");
-                set("unit", "条");
+                set("long", "一條活蹦亂跳的鱔魚。\n");
+                set("unit", "條");
         }
 }

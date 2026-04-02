@@ -12,8 +12,8 @@ void goto_wpsd2(object me);
 void create()
 {
 	set_name("殷素素", ({ "yin susu", "yin", "susu", }));
-	set("long","她是白眉鹰王的独生女。手白胜雪，玉颊微瘦，眉弯鼻挺，一笑时
-左颊上浅浅一个梨涡。\n"
+	set("long","她是白眉鷹王的獨生女。手白勝雪，玉頰微瘦，眉彎鼻挺，一笑時
+左頰上淺淺一個梨渦。\n"
 	);
 
 	set("gender", "女性");
@@ -51,11 +51,11 @@ void create()
 	map_skill("parry", "jingang-quan");
 
 	set("inquiry", ([
-		"谢逊"      : (: ask_me :),
-		"冰火岛"    : (: ask_me :),
-		"屠龙刀"    : (: ask_me :),
-		"金毛狮王"  : (: ask_me :),
-		"白眉鹰王"  : "那是我爹。",
+		"謝遜"      : (: ask_me :),
+		"冰火島"    : (: ask_me :),
+		"屠龍刀"    : (: ask_me :),
+		"金毛獅王"  : (: ask_me :),
+		"白眉鷹王"  : "那是我爹。",
 	]));
 	prepare_skill("cuff", "jingang-quan");
 
@@ -77,7 +77,7 @@ int ask_me()
 	object me;
 	me = this_player ( ) ;
 	message_vision(
-"殷素素上上下下打量了$N一下，道：这位"+RANK_D->query_respect(me)+"，你不过是想屠龙刀吧。\n这小船也经不起海浪，我正要去王盘山岛，你看看快点决定(decide)要不要去。\n",me);
+"殷素素上上下下打量了$N一下，道：這位"+RANK_D->query_respect(me)+"，你不過是想屠龍刀吧。\n這小船也經不起海浪，我正要去王盤山島，你看看快點決定(decide)要不要去。\n",me);
 
 	me->set_temp ("yinsusu", 1 );
 	return 1;
@@ -88,10 +88,10 @@ int do_decide()
 	object me;
 	me = this_player ( ) ;
 	if (me->query_temp("yinsusu") != 1 )
-		return notify_fail("殷素素问：你决定什么呀？\n");
+		return notify_fail("殷素素問：你決定什麼呀？\n");
 
-	message_vision("殷素素对$N说道：“好，你可别后悔，坐稳了。”\n\n", me);
-	message_vision("殷素素升起帆，小舟轻轻漂向江口。\n\n", me);
+	message_vision("殷素素對$N說道：“好，你可別後悔，坐穩了。”\n\n", me);
+	message_vision("殷素素升起帆，小舟輕輕漂向江口。\n\n", me);
 	me->move ("/d/binghuo/jiangmian1");
 	call_out("goto_wpsd1",10,me) ;
        	return 1;
@@ -99,14 +99,14 @@ int do_decide()
 
 void goto_wpsd1(object me)
 {
-	message_vision("风帆带风，小舟在剧颠中漂出江口。\n\n", me);
+	message_vision("風帆帶風，小舟在劇顛中漂出江口。\n\n", me);
 	me->move ("/d/binghuo/jiangmian2");
 	call_out("goto_wpsd2",10,me) ;
 }
 
 void goto_wpsd2(object me)
 {
-	tell_object(me , "片刻间坐船靠岸，白龟寿亲自铺上跳板。你走下舟来。\n" ) ;
+	tell_object(me , "片刻間坐船靠岸，白龜壽親自鋪上跳板。你走下舟來。\n" ) ;
 	me->move ("/d/binghuo/wangpanshan") ;
 }
 

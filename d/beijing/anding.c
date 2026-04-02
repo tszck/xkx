@@ -6,10 +6,10 @@ string look_gaoshi();
 
 void create()
 {
-	set("short", "安定门");
+	set("short", "安定門");
 	set("long", @LONG
-这里是永定门，城门正上方刻着“安定门”三个大字，城墙上贴着
-几张官府告示 (gaoshi)。几个官兵守在两旁。
+這裏是永定門，城門正上方刻着“安定門”三個大字，城牆上貼着
+幾張官府告示 (gaoshi)。幾個官兵守在兩旁。
 LONG );
         set("outdoors", "beijing");
 	set("item_desc", ([
@@ -31,5 +31,5 @@ LONG );
 
 string look_gaoshi()
 {
-	return "辑拿天地会一众反贼! \n举报一人，赏金十两;\n捉拿一人，赏金百两。\n知情不报者，立斩!\n鳌拜发\n";
+	return "輯拿天地會一衆反賊! \n舉報一人，賞金十兩;\n捉拿一人，賞金百兩。\n知情不報者，立斬!\n鰲拜發\n";
 }

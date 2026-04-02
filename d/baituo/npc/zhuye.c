@@ -5,10 +5,10 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-	set_name(HIG"竹叶青"NOR, ({ "zhuye qing", "zhuye", "snake", "she" }) );
+	set_name(HIG"竹葉青"NOR, ({ "zhuye qing", "zhuye", "snake", "she" }) );
 	set("race", "爬蛇");
 	set("age", 4);
-	set("long", "一条碧绿的蛇，不仔细，会将它和周边碧绿的树叶混为一体。\n");
+	set("long", "一條碧綠的蛇，不仔細，會將它和周邊碧綠的樹葉混爲一體。\n");
 	set("attitude", "peaceful");
 	set("str", 26);
 	set("con", 30);

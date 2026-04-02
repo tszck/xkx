@@ -15,20 +15,20 @@ int update_condition(object me, int duration)
 	}
 	else if( !living(me) || me->query_temp("noliving") )
 	{
-		message("vision", me->name() + "打了个嗝，不过依然烂醉如泥。\n",
+		message("vision", me->name() + "打了個嗝，不過依然爛醉如泥。\n",
 			environment(me), me);
 	} else
 		if( duration > limit/2 )
 		{
-			tell_object(me,"你觉得脑中昏昏沉沉，身子轻飘飘地，大概是醉了。\n");
-			message("vision", me->name() + "摇头晃脑地站都站不稳，显然是喝醉了。\n", environment(me), me);
+			tell_object(me,"你覺得腦中昏昏沉沉，身子輕飄飄地，大概是醉了。\n");
+			message("vision", me->name() + "搖頭晃腦地站都站不穩，顯然是喝醉了。\n", environment(me), me);
 			me->receive_damage("jing", 10,"醉酒而死");
 		}
 		else
 			if( duration > limit/4 )
 			{
-				tell_object(me,"你觉得一阵酒意上冲，眼皮有些沉重了。\n");
-				message("vision", me->name() + "脸上已经略显酒意了。\n", environment(me), me);
+				tell_object(me,"你覺得一陣酒意上衝，眼皮有些沉重了。\n");
+				message("vision", me->name() + "臉上已經略顯酒意了。\n", environment(me), me);
 				me->receive_healing("jing", 10);
 				me->receive_healing("qi", 15);
 			}

@@ -4,8 +4,8 @@ void create()
 {
         set("short", "山洞口");
 	set("long", @LONG
-你来到一个大山洞的面前，里面黑乎乎的，怪吓人的，还
-是不要进去的好。
+你來到一個大山洞的面前，裏面黑乎乎的，怪嚇人的，還
+是不要進去的好。
 LONG
 	);
         set("outdoors", "shiliang");

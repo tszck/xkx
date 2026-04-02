@@ -5,9 +5,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("公孙止", ({ "gongsun zhi", "gongsun", "zhi" }));
+	set_name("公孫止", ({ "gongsun zhi", "gongsun", "zhi" }));
 	set("long",
-		"面目英俊，透出轩轩高举之概，只是面色蜡黄，容颜枯槁。\n");
+		"面目英俊，透出軒軒高舉之概，只是面色蠟黃，容顏枯槁。\n");
 	set("gender", "男性");
 	set("age", 48);
 	set("attitude", "friendly");
@@ -37,8 +37,8 @@ void create()
 	map_skill("dodge", "kunlun-shenfa");
 	map_skill("sword", "liangyi-jian");
 	set("inquiry", ([
-		"绝情丹": "丹药无多，而且也很难炼制，非万不得已。。。",
-//		"情花": "有些外表美丽的，往往是有毒的。",
+		"絕情丹": "丹藥無多，而且也很難煉製，非萬不得已。。。",
+//		"情花": "有些外表美麗的，往往是有毒的。",
 	]) );
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();

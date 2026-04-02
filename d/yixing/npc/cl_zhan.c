@@ -1,4 +1,4 @@
-// /d/yixing/npc/zhan.c 展飞
+// /d/yixing/npc/zhan.c 展飛
 // Last Modified by winder on Jul. 12 2002
 
 #include <ansi.h>
@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("展飞", ({ "zhan fei", "zhan" }));
-	set("party/party_name", HIC"长乐帮"NOR);
+	set_name("展飛", ({ "zhan fei", "zhan" }));
+	set("party/party_name", HIC"長樂幫"NOR);
 	set("party/rank", "豹捷堂香主");
-	set("long", "他是一个身披斑衣的汉子。\n");
+	set("long", "他是一個身披斑衣的漢子。\n");
 	set("gender", "男性");
 	set("age", 35);
 	set("attitude", "friendly");
@@ -44,12 +44,12 @@ void create()
 	prepare_skill("strike", "cuixin-zhang");
 */
 	set("inquiry", ([
-		"长乐帮" : "我为长乐帮赴汤蹈火十几年竟落得这个下场。",
-		"司徒横" : "这贼帮主凶淫毒辣，不知要想什么新镣古怪的花样来折磨我？",
-		"帮主"   : "这贼帮主凶淫毒辣，不知要想什么新镣古怪的花样来折磨我？",
-		"豹捷堂" : "没有我的管辖，豹捷堂眼看要垮了。",
-		"贝海石" : "贝大夫在弊帮劳苦功高，颇得帮主信任。",
-		"香主"   : "各位香主的任命由帮主老人家说了算。",
+		"長樂幫" : "我爲長樂幫赴湯蹈火十幾年竟落得這個下場。",
+		"司徒橫" : "這賊幫主兇淫毒辣，不知要想什麼新鐐古怪的花樣來折磨我？",
+		"幫主"   : "這賊幫主兇淫毒辣，不知要想什麼新鐐古怪的花樣來折磨我？",
+		"豹捷堂" : "沒有我的管轄，豹捷堂眼看要垮了。",
+		"貝海石" : "貝大夫在弊幫勞苦功高，頗得幫主信任。",
+		"香主"   : "各位香主的任命由幫主老人家說了算。",
 	]));
 
 	setup();

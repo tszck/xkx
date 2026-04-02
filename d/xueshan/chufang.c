@@ -1,4 +1,4 @@
-//      chufang.c 厨房
+//      chufang.c 廚房
 
 inherit ROOM;
 
@@ -7,13 +7,13 @@ int work();
 
 void create()
 {
-        set("short","厨房");
+        set("short","廚房");
         set("long",@LONG
-这里是雪山寺的厨房，新来的僧人可以在此打杂。房中醒目的位置
-有一块牌子（paizi）。
+這裏是雪山寺的廚房，新來的僧人可以在此打雜。房中醒目的位置
+有一塊牌子（paizi）。
 LONG );
         set("item_desc",([
-                "paizi" : "本厨房招收杂工。工作(work)一次付银十两。\n",
+                "paizi" : "本廚房招收雜工。工作(work)一次付銀十兩。\n",
         ]));
         set("no_fight",1);
         set("no_steal",1);
@@ -39,11 +39,11 @@ int do_work()
         object ob;
 
         if (query_temp("times")==0)
-                return notify_fail("今天的活干完了，明天再来吧！\n");
+                return notify_fail("今天的活幹完了，明天再來吧！\n");
         if(me->query("qi")<20)
-		return notify_fail("你的气太虚弱，不能工作！\n");
+		return notify_fail("你的氣太虛弱，不能工作！\n");
 	me->add("qi",-20);
-	message_vision("$N干了一些杂活，累得够呛。\n" , me);
+	message_vision("$N幹了一些雜活，累得夠嗆。\n" , me);
 	add_temp("times",-1);
 
         ob=new("/clone/money/silver");

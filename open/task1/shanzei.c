@@ -1,13 +1,13 @@
-// shanzei.c 山贼
+// shanzei.c 山賊
 inherit NPC;
  
 void create()
 {
-	set_name("山贼", ({ "shan  zei", "zei" }));
+	set_name("山賊", ({ "shan  zei", "zei" }));
 //	set("nickname", "");
 	set("long", 
-	"一个专门打家劫舍的山贼。\n"
-	"一幅贼眉鼠眼的样子。\n");
+	"一個專門打家劫舍的山賊。\n"
+	"一幅賊眉鼠眼的樣子。\n");
 	set("gender", "男性");
 	set("age", random(10) + 25);
 	set("attitude", "peaceful");

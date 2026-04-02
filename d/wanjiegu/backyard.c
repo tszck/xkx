@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "后院");
+        set("short", "後院");
         set("long", @LONG
-后院是一大片开阔的草地，绿草如荫，几朵野花点缀其间，草
-地中间放着一块大石刻成的棋盘，一个黄眉老僧和一个青袍客正在
-下棋。北边有一间石屋，门口被一块大石头挡住了。
+後院是一大片開闊的草地，綠草如蔭，幾朵野花點綴其間，草
+地中間放着一塊大石刻成的棋盤，一個黃眉老僧和一個青袍客正在
+下棋。北邊有一間石屋，門口被一塊大石頭擋住了。
 LONG
         );
         set("outdoors", "wanjiegu");
@@ -22,8 +22,8 @@ LONG
         ]));
         set("no_clean_up", 0);
         set("item_desc", ([ /* sizeof() == 2 */
-            "大石头" : "一块很大的石头，挡住了石屋的入口。\n",
-            "rock" : "一块很大的石头，挡住了石屋的入口。\n",
+            "大石頭" : "一塊很大的石頭，擋住了石屋的入口。\n",
+            "rock" : "一塊很大的石頭，擋住了石屋的入口。\n",
         ]));
 
 	set("coor/x", -51100);
@@ -43,7 +43,7 @@ void check_trigger()
         if( (int)query("trigger")==9
         &&      !query("exits/north") ) {
                 message("vision",
-HIW "大石终于被推开了，露出通向石屋的通道。\n" NOR,
+HIW "大石終於被推開了，露出通向石屋的通道。\n" NOR,
                         this_object() );
                 set("exits/north", __DIR__"stone_room");
 
@@ -57,23 +57,23 @@ int do_push(string arg)
         object me = this_player();
 
         if( me->is_busy() ) {
-             tell_object(me, "你的上一个动作还没有完成！\n");
+             tell_object(me, "你的上一個動作還沒有完成！\n");
              return 1;
         }
 
         if( !arg || arg=="" )
         {
-             write("你要干什么？\n");
+             write("你要幹什麼？\n");
              return 1;
         }
 
-        if( arg=="rock" || arg == "大石头" ) {
+        if( arg=="rock" || arg == "大石頭" ) {
              if ( me->query("str") + me->query("neili_factor") < 15 ) {
-                tell_object(me,"你的力气太小了，用点内力试试看！\n");
+                tell_object(me,"你的力氣太小了，用點內力試試看！\n");
                 return 1;
              }
              me->start_busy(2);
-             message_vision(HIW "$N气运丹田，发内力推动大石头。\n" NOR,me);
+             message_vision(HIW "$N氣運丹田，發內力推動大石頭。\n" NOR,me);
              call_out("pushstone",2,me);
              me->stop_busy();
              check_trigger();
@@ -84,12 +84,12 @@ int do_push(string arg)
 int pushstone(object me)
 {
         if(me->query("neili") >= me->query("neili_factor") ) {
-                message_vision(HIW "大石头动了一下。\n" NOR,me);
+                message_vision(HIW "大石頭動了一下。\n" NOR,me);
                 me->add("neili",- me->query("neili_factor") );
                 add("trigger", 1);
                 return 1;
         } else {
-                tell_object(me, "你的内力不够了，休息一会再推吧！\n");
+                tell_object(me, "你的內力不夠了，休息一會再推吧！\n");
                 return 1;
         }
 }

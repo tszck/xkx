@@ -1,9 +1,9 @@
 inherit NPC;
 void create()
 {
-	set_name("踏青妇人",({"woman"}));
+	set_name("踏青婦人",({"woman"}));
         set("gender", "女性");
-	set("long", "春天出来游览的妇人。\n");
+	set("long", "春天出來遊覽的婦人。\n");
    	set("combat_exp", 5000);
    
 	set("age",34);

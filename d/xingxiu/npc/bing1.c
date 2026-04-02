@@ -5,10 +5,10 @@
 inherit NPC;
 void create()
 {
-	set_name("边防官兵", ({ "guan bing", "bing" }));
+	set_name("邊防官兵", ({ "guan bing", "bing" }));
 	set("age", 32);
 	set("gender", "男性");
-	set("long", "他是个长年驻守这里的边防兵。\n");
+	set("long", "他是個長年駐守這裏的邊防兵。\n");
 	set("attitude", "peaceful");
 	set("str", 33);
 	set("int", 16);
@@ -32,7 +32,7 @@ void create()
 
 int accept_fight(object me)
 {
-	command("say 大爷我守边关累得要死，没空和"+RANK_D->query_respect(me)+"过招玩。\n");
+	command("say 大爺我守邊關累得要死，沒空和"+RANK_D->query_respect(me)+"過招玩。\n");
 	return 0;
 }
 
@@ -53,28 +53,28 @@ void init()
 	else if(random(50)<=1)
 		{
 			me=this_object();	 
-			command("say 这个"+RANK_D->query_rude(ob)+"给我站住，例行检查！");
+			command("say 這個"+RANK_D->query_rude(ob)+"給我站住，例行檢查！");
 			if(ob->query("guanbing"))
 			{
 				ob->add("guanbing", -1);
-				message_vision(HIY"$n对着$N看了半天，最后招了招手让$N快走。\n"NOR, ob, me);
+				message_vision(HIY"$n對着$N看了半天，最後招了招手讓$N快走。\n"NOR, ob, me);
 				return;
 			}
-			message_vision(HIY"$n将$N拦住，在$N身上摸索了半天。\n"NOR, ob, me);
+			message_vision(HIY"$n將$N攔住，在$N身上摸索了半天。\n"NOR, ob, me);
 			ob->start_busy(5);
 			if(money = present("gold_money", ob))
 			{
 				money->move(me);
 				ob->add("guanbing", 2);
-				tell_object(ob, HIR "结果你发现边防官兵将你身上的黄金拿走了！\n"NOR);
+				tell_object(ob, HIR "結果你發現邊防官兵將你身上的黃金拿走了！\n"NOR);
 			}
 			else if(money = present("silver_money", ob))
 				{
 					money->move(me);
 					ob->add("guanbing", 1);
-					tell_object(ob, HIR "结果你发现边防官兵将你身上的白银拿走了！\n"NOR);
+					tell_object(ob, HIR "結果你發現邊防官兵將你身上的白銀拿走了！\n"NOR);
 				}
-			else command("say 你这个穷光蛋，连点油水都没有，给我滚！");
+			else command("say 你這個窮光蛋，連點油水都沒有，給我滾！");
 			command("kick "+ ob->query("id"));		
 		}
 }

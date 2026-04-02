@@ -14,7 +14,7 @@ void init()
 	if( interactive(ob) && objectp(present("xionghuang", ob)) &&
 		!query_temp("xionghuang") )
 	{
-		message_vision("$N激烈地扭动了几下\n", this_object());
+		message_vision("$N激烈地扭動了幾下\n", this_object());
 		add_temp("apply/attack", -10);
 		add_temp("apply/damage", -10);
 		set_temp("xionghuang", 1);
@@ -25,7 +25,7 @@ void init()
 		!query_temp("xionghuang") && !is_busy() &&
 		!is_fighting() && living(this_object()) )
 	{
-		message_vision(HIR "" + query("name") + "将身子一卷随即便向$N袭击！！！\n" NOR, ob);
+		message_vision(HIR "" + query("name") + "將身子一卷隨即便向$N襲擊！！！\n" NOR, ob);
 		add_temp("apply/attack", 20);
 		add_temp("apply/damage", 20);
 		for(int i = 0; i < snake_attspeed(ob); i++ )
@@ -48,7 +48,7 @@ void recover()
 void die()
 {
 	object ob;
-	message_vision("$N啪的一声断成两截！$N死了。\n", this_object());
+	message_vision("$N啪的一聲斷成兩截！$N死了。\n", this_object());
 	ob = new(NOSTRUM_DIR"shedan1");
 	ob->move(environment(this_object()));
 	destruct(this_object());

@@ -11,12 +11,12 @@ int do_open(string arg);
 
 void create()
 {
-	set("short", "广场");
+	set("short", "廣場");
 	set("long", @LONG
-穿过山门，面前三道平行的青石台阶通向前方的一个广场。台阶上
-精工镂刻着麒麟，玄龟，松鹤等瑞兽，形态逼真动人。广场正中放着个
-二人高的青铜大香炉，前面摆着个香台，几位香客正在虔诚谟拜。再往
-前就是天王殿。南边就是南少林的山门(gate)了。
+穿過山門，面前三道平行的青石臺階通向前方的一個廣場。臺階上
+精工鏤刻着麒麟，玄龜，松鶴等瑞獸，形態逼真動人。廣場正中放着個
+二人高的青銅大香爐，前面擺着個香臺，幾位香客正在虔誠謨拜。再往
+前就是天王殿。南邊就是南少林的山門(gate)了。
 LONG);
 	set("item_desc",([
 		"gate" : (: look_gate :),
@@ -52,21 +52,21 @@ void close_gate()
 	if(objectp(room))
 	{
 		delete("exits/south");
-			message("vision", "僧兵上前把大门关了起来。\n", this_object());
+			message("vision", "僧兵上前把大門關了起來。\n", this_object());
 		room->delete("exits/north");
-		message("vision", "乒地一声，里面有人把大门关上了。\n", room);
+		message("vision", "乒地一聲，裏面有人把大門關上了。\n", room);
 	}
 }
 
 int do_close(string arg)
 {
 	if (!query("exits/south"))
-		return notify_fail("大门已经是关着的了。\n");
+		return notify_fail("大門已經是關着的了。\n");
 
 	if (!arg || (arg != "gate" && arg != "south"))
-		return notify_fail("你要关什么？\n");
+		return notify_fail("你要關什麼？\n");
 
-	message_vision("$N朝僧兵点了点头。\n", this_player());
+	message_vision("$N朝僧兵點了點頭。\n", this_player());
 
 	remove_call_out("close_gate");
 	call_out("close_gate", 2);
@@ -78,17 +78,17 @@ int do_open(string arg)
 	object room;
 
 	if (query("exits/south"))
-		return notify_fail("大门已经是开着了。\n");
+		return notify_fail("大門已經是開着了。\n");
 	if (!arg || (arg != "gate" && arg != "south"))
-		return notify_fail("你要开什么？\n");
+		return notify_fail("你要開什麼？\n");
 	if(!( room = find_object(__DIR__"shanmen")) )
 		room = load_object(__DIR__"shanmen");
 	if(objectp(room))
 	{
 		set("exits/south", __DIR__"shanmen");
-		message_vision("$N使劲把大门打了开来。\n", this_player());
+		message_vision("$N使勁把大門打了開來。\n", this_player());
 		room->set("exits/north", __FILE__);
-		message("vision", "吱地一声，里面有人把大门打开了。\n", room);
+		message("vision", "吱地一聲，裏面有人把大門打開了。\n", room);
 		remove_call_out("close_gate");
 		call_out("close_gate", 10);
 	}
@@ -98,7 +98,7 @@ int do_open(string arg)
 
 string look_gate()
 {
-	return "一道三丈来高的朱红杉木包铜大门。\n";
+	return "一道三丈來高的硃紅杉木包銅大門。\n";
 }
 
 int valid_leave(object me, string dir)

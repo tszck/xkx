@@ -7,57 +7,57 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N使一招"RED"「红玉击鼓」 "NOR"，双臂交互快击",
+([	"action" : "$N使一招"RED"「紅玉擊鼓」 "NOR"，雙臂交互快擊",
 	"lvl" : 0,
-	"skill_name" : "红玉击鼓"
+	"skill_name" : "紅玉擊鼓"
 ]),
-([	"action" : "$N突然变为"RED"「红拂夜奔」"NOR"，出其不意的叩关直入，令$n大吃一惊",
+([	"action" : "$N突然變爲"RED"「紅拂夜奔」"NOR"，出其不意的叩關直入，令$n大喫一驚",
 	"lvl" : 10,
-	"skill_name" : "红拂夜奔"
+	"skill_name" : "紅拂夜奔"
 ]),
-([	"action" : "$N招式一变成"GRN"「绿珠坠楼」"NOR"，扑地攻敌下盘，委实难测",
+([	"action" : "$N招式一變成"GRN"「綠珠墜樓」"NOR"，撲地攻敵下盤，委實難測",
 	"lvl" : 20,
-	"skill_name" : "绿珠坠楼"
+	"skill_name" : "綠珠墜樓"
 ]),
-([	"action" : "$N双掌连拍数下，接著连绵不断拍出，原来是"HIW"「文姬归汉」"NOR"，共胡笳十八拍",
+([	"action" : "$N雙掌連拍數下，接著連綿不斷拍出，原來是"HIW"「文姬歸漢」"NOR"，共胡笳十八拍",
 	"lvl" : 30,
-	"skill_name" : "文姬归汉"
+	"skill_name" : "文姬歸漢"
 ]),
-([	"action" : "$N使出"RED"「红线盗盒」"NOR"，以空手入白刃之技向$n手中兵刃夺去",
+([	"action" : "$N使出"RED"「紅線盜盒」"NOR"，以空手入白刃之技向$n手中兵刃奪去",
 	"lvl" : 40,
-	"skill_name" : "红线盗盒"
+	"skill_name" : "紅線盜盒"
 ]),
-([	"action" : "$N一式"HIB"「木兰弯弓」"NOR"，左手如抱满月，右手疾挥而过，令$n目瞪口呆",
+([	"action" : "$N一式"HIB"「木蘭彎弓」"NOR"，左手如抱滿月，右手疾揮而過，令$n目瞪口呆",
 	"lvl" : 60,
-	"skill_name" : "木兰弯弓"
+	"skill_name" : "木蘭彎弓"
 ]),
-([	"action" : "$N忽然昂首如吟明月，双掌从不可思议的角度攻了过来，原来是一招
-"HIC"「班姬赋诗」"NOR"。",
+([	"action" : "$N忽然昂首如吟明月，雙掌從不可思議的角度攻了過來，原來是一招
+"HIC"「班姬賦詩」"NOR"。",
 	"lvl" : 70,
-	"skill_name" : "班姬赋诗"
+	"skill_name" : "班姬賦詩"
 ]),
-([	"action" : "$N使招"HIC"「蛮腰纤纤」"NOR"，腰肢轻摆避开，紧跟着挥掌攻击$n的前胸",
+([	"action" : "$N使招"HIC"「蠻腰纖纖」"NOR"，腰肢輕擺避開，緊跟着揮掌攻擊$n的前胸",
 	"lvl" : 80,
-	"skill_name" : "蛮腰纤纤"
+	"skill_name" : "蠻腰纖纖"
 ]),
-([	"action" : "$N五指在自己头发上一梳，跟著软软的挥了出去，脸上微微一笑，却
-是一招"HIW"「丽华梳装」"NOR"。",
+([	"action" : "$N五指在自己頭髮上一梳，跟著軟軟的揮了出去，臉上微微一笑，卻
+是一招"HIW"「麗華梳裝」"NOR"。",
 	"lvl" : 90,
-	"skill_name" : "丽华梳装"
+	"skill_name" : "麗華梳裝"
 ]),
-([	"action" : "$N见$n呆住，伸指戳出，却是一招"HIM"「萍姬针神」"NOR"。",
+([	"action" : "$N見$n呆住，伸指戳出，卻是一招"HIM"「萍姬針神」"NOR"。",
 	"lvl" : 110,
-	"skill_name" : "萍姬针神"
+	"skill_name" : "萍姬針神"
 ]),
-([	"action" : "$N突然间蹙起眉头，宛如"MAG"「西子捧心」"NOR"，双掌自自己胸口攻出",
+([	"action" : "$N突然間蹙起眉頭，宛如"MAG"「西子捧心」"NOR"，雙掌自自己胸口攻出",
 	"lvl" : 130,
 	"skill_name" : "西子捧心"
 ]),
-([	"action" : "$N脚下翩若惊鸦、矫若游龙，犹如在水上漂行一般，却是一招"HIW "「洛神微步」"NOR"。",
+([	"action" : "$N腳下翩若驚鴉、矯若遊龍，猶如在水上漂行一般，卻是一招"HIW "「洛神微步」"NOR"。",
 	"lvl" : 150,
 	"skill_name" : "洛神微步"
 ]),
-([	"action" : "$N使招"HIM"「曹令割鼻」"NOR"，挥手在自己脸上斜削一掌，左掌削过，右掌又削，连绵不断",
+([	"action" : "$N使招"HIM"「曹令割鼻」"NOR"，揮手在自己臉上斜削一掌，左掌削過，右掌又削，連綿不斷",
 	"lvl" : 180,
 	"skill_name" : "曹令割鼻"
 ])
@@ -67,19 +67,19 @@ int valid_enable(string usage) { return usage=="unarmed" || usage=="parry"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练美女拳必须空手。\n");
+		return notify_fail("練美女拳必須空手。\n");
 	if ((int)me->query_skill("yunv-xinfa", 1) < 10)
-		return notify_fail("你的玉女心法火候不够，无法学美女拳。\n");
+		return notify_fail("你的玉女心法火候不夠，無法學美女拳。\n");
 	if ((int)me->query("max_neili") < 30)
-		return notify_fail("你的内力太弱，无法学习美女拳。\n");
+		return notify_fail("你的內力太弱，無法學習美女拳。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if( (int)me->query("qi") < 70 || (int)me->query("neili") < 70 )
-		return notify_fail("你的体力太差了，不能练习美女拳。\n");
+		return notify_fail("你的體力太差了，不能練習美女拳。\n");
 	me->receive_damage("qi", 40);
 	me->add("neili", -30);
 	return 1;
@@ -106,16 +106,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,		
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 
@@ -133,16 +133,16 @@ int help(object me)
 	write(HIC"\n美女拳："NOR"\n");
 	write(@HELP
 
-    古墓独门武功，奇妙又花巧，拳法的每一招都是模拟一位古代
-美女，将千百年来美女变幻莫测的心情神态尽数融入武术之中，婀
-娜妩媚、端丽缥缈尽皆有之，人所难测。
-    古墓派自林朝英开派，从来传女不传男。这套「美女拳法」，
-使出来时娇媚婀娜，却也均是凌厉狠辣的杀手。
+    古墓獨門武功，奇妙又花巧，拳法的每一招都是模擬一位古代
+美女，將千百年來美女變幻莫測的心情神態盡數融入武術之中，婀
+娜嫵媚、端麗縹緲盡皆有之，人所難測。
+    古墓派自林朝英開派，從來傳女不傳男。這套「美女拳法」，
+使出來時嬌媚婀娜，卻也均是凌厲狠辣的殺手。
 
 
-	学习要求：
-		玉女心法10级
-		内力30
+	學習要求：
+		玉女心法10級
+		內力30
 HELP
 	);
 	return 1;

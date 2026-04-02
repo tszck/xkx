@@ -5,12 +5,12 @@
 inherit NPC;
 
 int do_work();
-string *fjob = ({"毒蛇", "蟒蛇", "腹蛇", "金环蛇", "水蛇", "银环蛇", "竹叶青"});
+string *fjob = ({"毒蛇", "蟒蛇", "腹蛇", "金環蛇", "水蛇", "銀環蛇", "竹葉青"});
 
 void create()
 {
 	set_name("方怡", ({ "fang yi","fang" }));
-	set("long", "一张瓜子脸，容貌甚美。\n");
+	set("long", "一張瓜子臉，容貌甚美。\n");
 	set("gender", "女性");
 	set("age", 18);
 	set("attitude", "peaceful");
@@ -45,14 +45,14 @@ void create()
 	map_skill("parry", "jueming-leg");
 	prepare_skill("leg", "jueming-leg");
 
-	set("party/party_name", HIY"神龙教"NOR);
-	set("party/rank", HIR"赤龙门"NOR"教众");
+	set("party/party_name", HIY"神龍教"NOR);
+	set("party/rank", HIR"赤龍門"NOR"教衆");
 	set("party/level", 1);
-	create_family("神龙教", 3, "弟子");
+	create_family("神龍教", 3, "弟子");
 
 	set("inquiry", ([
 		"教主" : (: do_work :),
-		"神龙教" : (: do_work :),
+		"神龍教" : (: do_work :),
 		"jiao" : (: do_work :),
 	]));
 	setup();
@@ -73,18 +73,18 @@ int do_work()
 
 	if( !me->query("sg/spy") && !wizardp(me) )
 	{
-		say("方怡哼了一声说：假仁假义的东西，还不给我滚！\n");
+		say("方怡哼了一聲說：假仁假義的東西，還不給我滾！\n");
 		return 1;
 	}
 	if( me->query_temp("marks/方a") )
 	{
-		say("方怡不耐烦地说道：有完没完了？\n");
+		say("方怡不耐煩地說道：有完沒完了？\n");
 		return 1;
 	}
 	if( time() < me->query("marks/方c") + 180 )
 	{
 		command("slap " + me->query("id"));
-		say("方怡大怒道：蠢猪，这么快就忘了！\n");
+		say("方怡大怒道：蠢豬，這麼快就忘了！\n");
 		return 1;
 	}
 
@@ -92,7 +92,7 @@ int do_work()
 	me->set("marks/方c", time());
 
 	fwant = fjob[random(sizeof(fjob))];
-	fword = sprintf("方怡叹了口气，说道：奉教主之命，捉%s来配药。\n",fwant);
+	fword = sprintf("方怡嘆了口氣，說道：奉教主之命，捉%s來配藥。\n",fwant);
 	say(fword);
 	me->set_temp("marks/毒蛇", fwant);
 	return 1;
@@ -106,11 +106,11 @@ int do_comfort(string arg)
 	message_vision("$N笑嘻嘻地安慰着方怡。\n", me);
 	if( !me->query_temp("marks/方a") )
 	{
-		say("方怡冷笑道：别假惺惺了。\n");
+		say("方怡冷笑道：別假惺惺了。\n");
 		return 1;
 	}
 	me->delete_temp("marks/方a");
-	message_vision("$N道：方姑娘，请放心！我这就给你去抓。\n", me);
+	message_vision("$N道：方姑娘，請放心！我這就給你去抓。\n", me);
 	command("thank " + me->query("id"));
 	me->set_temp("marks/方b", 1);
 
@@ -137,7 +137,7 @@ int accept_object(object who, object ob)
 	command("jump " + who->query("id"));
 	command("secret " + who->query("id"));
 
-	message_vision("方怡在$N耳边悄悄的说了几句话。\n", who);
+	message_vision("方怡在$N耳邊悄悄的說了幾句話。\n", who);
 	if( who->query_skill("medicine", 1) < 30 )
 		who->improve_skill("medicine", random(2 * who->query("int")));
 

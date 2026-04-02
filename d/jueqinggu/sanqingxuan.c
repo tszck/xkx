@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "三清轩");
+	set("short", "三清軒");
 	set("long", @LONG
-这里是绝情谷谷主会客的地方，轩内墙壁上挂了许多书法图画，门
-窗皆浮雕纹饰，四周是回廊。
+這裏是絕情谷谷主會客的地方，軒內牆壁上掛了許多書法圖畫，門
+窗皆浮雕紋飾，四周是迴廊。
 LONG
 	);
 
@@ -33,6 +33,6 @@ int valid_leave(object me, string dir)
 	if (!me->query("jqg_pass") &&
 		present("gongsun zhi", environment(me)) &&
 		(dir =="south" || dir =="north" || dir=="southeast"))
-		return notify_fail("公孙止怒斥到，你以为你是小龙女啊，在我绝情谷里乱跑？！\n");
+		return notify_fail("公孫止怒斥到，你以爲你是小龍女啊，在我絕情谷裏亂跑？！\n");
 	return ::valid_leave(me, dir);
 }

@@ -3,11 +3,11 @@
 inherit ROOM;
 void create()
 {
-	set("short", "狮子峰");
+	set("short", "獅子峯");
 	set("long", @LONG
-远像是一头卧狮，头西尾东横卧于前。上面胜景无数，狮子林，麒
-麟，宝塔等奇松，蒲团，凤凰等古柏都是罕见的美景，所以向有“没到
-狮子峰，不见黄山踪”的盛誉。尤以北方的清凉台更为出名，向来是游
+遠像是一頭臥獅，頭西尾東橫臥於前。上面勝景無數，獅子林，麒
+麟，寶塔等奇松，蒲團，鳳凰等古柏都是罕見的美景，所以向有“沒到
+獅子峯，不見黃山蹤”的盛譽。尤以北方的清涼臺更爲出名，向來是遊
 人必去之所。
 LONG
 	);
@@ -27,7 +27,7 @@ int valid_leave(object me, string dir)
 		(ob=present("bai hong", this_object()) ||
 		ob=present("bai huan", this_object())) &&
 		me->query("bellicosity")>50)
-		return notify_fail(ob->name()+"说道：请留步！\n");
+		return notify_fail(ob->name()+"說道：請留步！\n");
 	return 1;
 }
 void reset()

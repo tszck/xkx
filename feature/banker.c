@@ -1,7 +1,7 @@
-// /feature/banker.c 银行家
+// /feature/banker.c 銀行家
 // This is a inheritable object.
 // Each dealer should support buy, sell, list, value 4 commands
-// Modified by Zeratul Jan 5 2001 增加了存款判断
+// Modified by Zeratul Jan 5 2001 增加了存款判斷
 
 #include <dbase.h>
 #include <ansi.h>
@@ -25,9 +25,9 @@ int do_check()
         if (!total || total < 0)
         {
                 this_player()->set("balance", 0);
-                return notify_fail("您在敝商号没有存钱。\n");
+                return notify_fail("您在敝商號沒有存錢。\n");
         }
-        write(this_object()->query("name")+"悄悄告诉你：您在敝商号共存有" + 
+        write(this_object()->query("name")+"悄悄告訴你：您在敝商號共存有" + 
                 MONEY_D->money_str(total) + "。\n");
         return 1;                                                               
 }
@@ -40,15 +40,15 @@ int do_convert(string arg)
         object me;
 
         if (query_temp("busy"))
-           return notify_fail("哟，抱歉啊，我这儿正忙着呢……您请稍候。\n");
+           return notify_fail("喲，抱歉啊，我這兒正忙着呢……您請稍候。\n");
 
         me = this_player();                                                     
 	if( me->is_busy() )
-		return notify_fail("哟，抱歉，我这儿正忙着呢……您请稍候。\n");
+		return notify_fail("喲，抱歉，我這兒正忙着呢……您請稍候。\n");
 
         if (!arg || sscanf(arg, "%d %s to %s", amount, from, to) != 3)
         {
-           return notify_fail("命令格式：convert|duihuan <数量> <货币单位> to <新货币单位>\n");
+           return notify_fail("命令格式：convert|duihuan <數量> <貨幣單位> to <新貨幣單位>\n");
         }
            
         if((strsrch(to, "thousand") >= 0) ||
@@ -59,37 +59,37 @@ int do_convert(string arg)
            (strsrch(to, "1000") >= 0) ||
            (strsrch(to, "100") >= 0) ||
            (strsrch(to, "10") >= 0))
-           return notify_fail("不能换成这种货币！\n");  
+           return notify_fail("不能換成這種貨幣！\n");  
 
         from_ob = present(from + "_money", me);
         to_ob = present(to + "_money", me);
 
         if (!to_ob && file_size("/clone/money/" + to + ".c") < 0)
         {
-           return notify_fail("你想兑换成什么？\n");
+           return notify_fail("你想兌換成什麼？\n");
         }
         if (!from_ob)
         {
-           return notify_fail("你身上没有带这种钱。\n");
+           return notify_fail("你身上沒有帶這種錢。\n");
         }
         if (amount < 1)
         {
-           return notify_fail("你想白赚啊？\n");
+           return notify_fail("你想白賺啊？\n");
         }
         if ((int)from_ob->query_amount() < amount)
         {
-           return notify_fail("你带的" + from_ob->query("name") + "不够。\n");
+           return notify_fail("你帶的" + from_ob->query("name") + "不夠。\n");
         }
         bv1 = from_ob->query("base_value");
         if (!bv1)
         {
-           return notify_fail("这样东西不值钱。\n");
+           return notify_fail("這樣東西不值錢。\n");
         }
         bv2 = to_ob ? to_ob->query("base_value") : call_other("/clone/money/" + to, "query", "base_value" );
         if (bv1 < bv2)  amount -= amount % (bv2 / bv1);
         if (amount == 0)
         {
-           return notify_fail("这些" + from_ob->query("name") + "不够换。\n ");
+           return notify_fail("這些" + from_ob->query("name") + "不夠換。\n ");
         }
 
         // allowed to convert now
@@ -107,7 +107,7 @@ int do_convert(string arg)
         else
                 to_ob->add_amount(amount * bv1 / bv2);
 
-        message_vision(sprintf("$N从身上取出%s%s%s，换成了%s%s%s。\n",
+        message_vision(sprintf("$N從身上取出%s%s%s，換成了%s%s%s。\n",
         chinese_number(amount), call_other("/clone/money/" + from, "query", "base_unit"), call_other("/clone/money/" + from, "query", "name"),
         chinese_number(amount * bv1 / bv2), call_other("/clone/money/" + to, "query", "base_unit"),
         call_other("/clone/money/" + to, "query", "name")), me);
@@ -129,20 +129,20 @@ int do_deposit(string arg)
         object what_ob, me;
 
         if (query_temp("busy"))
-                return notify_fail("哟，抱歉啊，我这儿正忙着呢……您请稍候。\n");
+                return notify_fail("喲，抱歉啊，我這兒正忙着呢……您請稍候。\n");
         me = this_player();
 	if( me->is_busy() )
-		return notify_fail("哟，抱歉，我这儿正忙着呢……您请稍候。\n");
+		return notify_fail("喲，抱歉，我這兒正忙着呢……您請稍候。\n");
 
         if (!arg || sscanf(arg, "%d %s", amount, what) != 2)
         {
-                return notify_fail("命令格式：deposit:cun <数量> <货币单位>\n");
+                return notify_fail("命令格式：deposit:cun <數量> <貨幣單位>\n");
         }
 
         what_ob = present(what + "_money", me);
         if (!what_ob)
         {
-                return notify_fail("你身上没有带这种钱。\n");
+                return notify_fail("你身上沒有帶這種錢。\n");
         }
         if (amount < 1)
         {
@@ -150,7 +150,7 @@ int do_deposit(string arg)
         }                                                                       
         if ((int)what_ob->query_amount() < amount)
         {
-                return notify_fail("你带的" + what_ob->query("name") + "不够。\n");
+                return notify_fail("你帶的" + what_ob->query("name") + "不夠。\n");
         }
 
         // deposit it
@@ -165,10 +165,10 @@ int do_deposit(string arg)
 
 	if (me->query("balance") + what_ob->query("base_value") * amount > money_limit)
 	{
-                return notify_fail("你的存款额度已经用满了。\n");
+                return notify_fail("你的存款額度已經用滿了。\n");
 	}
 */
-        message_vision(sprintf("$N拿出%s%s%s，存进了银号。\n",
+        message_vision(sprintf("$N拿出%s%s%s，存進了銀號。\n",
                 chinese_number(amount), what_ob->query("base_unit"),
                 what_ob->query("name")), me);
         what_ob->add_amount(-amount);
@@ -177,7 +177,7 @@ int do_deposit(string arg)
         // Added by zeratul 2001-1-1
         if ( me->query( "balance" ) > me->query( "max_balance" ) )
         {
-        	tell_object( me, "你的存款额度已经用满了。\n");
+        	tell_object( me, "你的存款額度已經用滿了。\n");
         	me->set( "balance", me->query( "max_balance" ) );
         }
 
@@ -194,26 +194,26 @@ int do_withdraw(string arg)
         object me;
 
         if (query_temp("busy"))
-                return notify_fail("哟，抱歉啊，我这儿正忙着呢……您请稍候。\n");
+                return notify_fail("喲，抱歉啊，我這兒正忙着呢……您請稍候。\n");
         me = this_player();
 	if( me->is_busy() )
-		return notify_fail("哟，抱歉，我这儿正忙着呢……您请稍候。\n");
+		return notify_fail("喲，抱歉，我這兒正忙着呢……您請稍候。\n");
 
         if (!arg || sscanf(arg, "%d %s", amount, what) != 2)
         {
-                return notify_fail("命令格式：withdraw|qu <数量> <货币单位>\n");
+                return notify_fail("命令格式：withdraw|qu <數量> <貨幣單位>\n");
         }
         if (amount < 1)
         {
-                return notify_fail("你想取出多少钱？\n");
+                return notify_fail("你想取出多少錢？\n");
         }
         if(amount >= 100)
         {
-                return notify_fail("这么大的数目。本店没这么多零散现金。\n");
+                return notify_fail("這麼大的數目。本店沒這麼多零散現金。\n");
         }
         if (file_size("/clone/money/" + what + ".c") < 0)
         {
-                return notify_fail("你想取出什么钱？\n");
+                return notify_fail("你想取出什麼錢？\n");
         }
         what = "/clone/money/" + what;
         
@@ -223,12 +223,12 @@ int do_withdraw(string arg)
         
         if ((v = amount * what->query("base_value")) > me->query("balance"))
         {
-               return notify_fail("你存的钱不够取。\n");
+               return notify_fail("你存的錢不夠取。\n");
         }
 
         set_temp("busy", 1);
 
-        message_vision(sprintf("$N从银号里取出%s。\n", MONEY_D->money_str(v)), me);
+        message_vision(sprintf("$N從銀號裏取出%s。\n", MONEY_D->money_str(v)), me);
         me->add("balance",  -v);
 //        MONEY_D->pay_player(me, v = v * 9 / 10);
 	//Modified by zeratul 2001-1-4

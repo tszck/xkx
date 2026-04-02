@@ -7,13 +7,13 @@ int do_go(string);
 inherit ROOM;
 
 mapping *sign=({
-	([	"name" : "苏州",
+	([	"name" : "蘇州",
 		"id"   : "sz",
 		"file" : "/d/suzhou/szyunhe",
 		"value": 100,
 		"time" : 10
 	]),
-	([	"name" : "扬州",
+	([	"name" : "揚州",
 		"id"   : "yz",
 		"file" : "/d/city/matou",
 		"value": 200,
@@ -29,13 +29,13 @@ mapping *sign=({
 
 void create()
 {
-	set("short", "临安码头");
+	set("short", "臨安碼頭");
 	set("long", @long
-这里是古老的运河的终点，运河自燕山脚下的帝都南下，横穿中国
-的华北大平原，连绵海河、黄河、淮河、长江和钱塘江五大水系，止于
-号称天堂和鱼米之乡的杭州城。运河中满是来来往往的樯影，江南的丰
-厚的产出经此国家命脉，源源北上。
-    你走进码头，就看见一位老船夫站在船边，手上高举着一个写满字
+這裏是古老的運河的終點，運河自燕山腳下的帝都南下，橫穿中國
+的華北大平原，連綿海河、黃河、淮河、長江和錢塘江五大水系，止於
+號稱天堂和魚米之鄉的杭州城。運河中滿是來來往往的檣影，江南的豐
+厚的產出經此國家命脈，源源北上。
+    你走進碼頭，就看見一位老船伕站在船邊，手上高舉着一個寫滿字
 的木牌(sign)。
 long);
 	set("exits",([
@@ -59,7 +59,7 @@ void init()
 
 string look_sign()
 {
-	string str="由此去(qu)到下列码头：\n";
+	string str="由此去(qu)到下列碼頭：\n";
 	int i=sizeof(sign);
 
 	while (i--)
@@ -77,9 +77,9 @@ void do_move(object ob, int i)
 //	ob->enable_player();
 	ob->delete_temp("noliving");
 	ob->delete_temp("block_msg/all");
-	tell_object(ob, "终点站到了。\n");
+	tell_object(ob, "終點站到了。\n");
 	ob->move(sign[i]["file"]);
-	tell_room(environment(ob), ob->name() + "从船上走了下来。\n", ({ob}));
+	tell_room(environment(ob), ob->name() + "從船上走了下來。\n", ({ob}));
 }
 
 int do_go(string arg)
@@ -97,9 +97,9 @@ int do_go(string arg)
 			switch (MONEY_D->player_pay(ob, sign[i]["value"]))
 			{
 				case 0:
-					return notify_fail("穷光蛋，一边呆着去！\n");
+					return notify_fail("窮光蛋，一邊待著去！\n");
 				case 2:
-					return notify_fail("有零钱吗？\n");
+					return notify_fail("有零錢嗎？\n");
 			}
 			message_vision("$N登上了去" + sign[i]["name"] + "的船。\n", ob);
 //			ob->disable_player("<旅途中>");
@@ -110,6 +110,6 @@ int do_go(string arg)
 			return 1;
 		}
 	}
-	return notify_fail("你要去哪里？\n");
+	return notify_fail("你要去哪裏？\n");
 }
 

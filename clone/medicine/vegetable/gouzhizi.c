@@ -17,7 +17,7 @@ void create()
 	set("value", 30);
 	set("nostrum", 32);
 	set("unit", "粒");
-	set("long", "这是一粒陈年的枸枳子，看来可以入药。\n");
+	set("long", "這是一粒陳年的枸枳子，看來可以入藥。\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -26,12 +26,12 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
-	write("枸枳子入药才能吃。\n");
+	write("枸枳子入藥才能喫。\n");
 	return 1;
 }

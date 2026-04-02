@@ -7,7 +7,7 @@ void create()
 {
 	set_name("殷吉", ({ "yin ji", "ji", "yin" }) );
 	set("gender", "男性");
-	set("title", "辽东天龙门南宗第六代掌门人");
+	set("title", "遼東天龍門南宗第六代掌門人");
 	set("nickname", "威震天南");
 	set("age", 43);
 	set("attitude", "friendly");

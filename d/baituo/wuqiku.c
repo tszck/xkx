@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "武器库");
+	set("short", "武器庫");
 	set("long", @LONG
-这里是白驼山弟子的武器库，白驼山弟子可以到此拿取练功用的各
-种武器。不过别派弟子是不允许进来的。
+這裏是白駝山弟子的武器庫，白駝山弟子可以到此拿取練功用的各
+種武器。不過別派弟子是不允許進來的。
 LONG	);
 	set("exits", ([
 		"east" : __DIR__"kongdi",
@@ -34,6 +34,6 @@ int valid_leave(object me, string dir)
 		if (inv[i]->query("id") == "gangzhang") j++;
 	}
 	if (j > 1)
-		return notify_fail("这位" + RANK_D->query_respect(me) +"别那麽贪心，带走一条钢杖就够啦。\n");
+		return notify_fail("這位" + RANK_D->query_respect(me) +"別那麼貪心，帶走一條鋼杖就夠啦。\n");
 	return ::valid_leave(me, dir);
 }

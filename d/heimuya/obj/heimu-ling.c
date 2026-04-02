@@ -10,9 +10,9 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "面");
-                set("long","这是一块是块枯焦的黑色木头，长约半尺，上
-面雕刻有花纹文字，看来十分诡异。\n");
-//		set("no_drop", "这样东西不能离开你。\n");
+                set("long","這是一塊是塊枯焦的黑色木頭，長約半尺，上
+面雕刻有花紋文字，看來十分詭異。\n");
+//		set("no_drop", "這樣東西不能離開你。\n");
                 set("material", "wood");
         }
 }

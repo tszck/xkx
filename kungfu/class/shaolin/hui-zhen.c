@@ -13,8 +13,8 @@ void create()
 		"zunzhe",
 	}));
 	set("long",
-		"他是一位两鬓斑白的老僧，身穿一袭青布镶边袈裟。他身材略高，\n"
-		"太阳穴微凸，双目炯炯有神。\n"
+		"他是一位兩鬢斑白的老僧，身穿一襲青布鑲邊袈裟。他身材略高，\n"
+		"太陽穴微凸，雙目炯炯有神。\n"
 	);
 
 
@@ -85,7 +85,7 @@ void init()
 	if( (mapp(mine = me->query("family")) && mine["family_name"] != "少林派")
 	|| ((!present("daoyi chanshi", room)) && (!present("letter", me)))      )
 	{
-		  command("say 大胆狂徒，竟敢杀人闯入藏经阁，看招!\n");
+		  command("say 大膽狂徒，竟敢殺人闖入藏經閣，看招!\n");
 		  call_out("kill_ob", 0, this_player()); 
 
 	 	  COMBAT_D->do_attack(this_object(), this_player(), query_temp("weapon"));		  

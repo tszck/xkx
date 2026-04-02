@@ -10,10 +10,10 @@ int do_save();
 
 void create()
 {
-	set("short", "阴");
+	set("short", "陰");
 	set("long", @LONG
-这里是两仪层的阴。阴是太极的一端，古人以黑暗为阴，以死亡为
-阴，又以地理而认为北方属阴，山之北水之南为阴。
+這裏是兩儀層的陰。陰是太極的一端，古人以黑暗爲陰，以死亡爲
+陰，又以地理而認爲北方屬陰，山之北水之南爲陰。
 LONG
 	);
 	set("exits", ([ 
@@ -45,12 +45,12 @@ void init()
 
 int do_save()
 {
-	write("这里不准存盘！\n");
+	write("這裏不準存盤！\n");
 	return 1;
 }
 
 int do_quit()
 {
-	write("这里不准退出！\n");
+	write("這裏不準退出！\n");
 	return 1;
 }

@@ -1,4 +1,4 @@
-// ren.c  两仪剑法「天地同仁」
+// ren.c  兩儀劍法「天地同仁」
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -20,18 +20,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail("你没装备剑就想使"PNAME"？\n"NOR);
+		return notify_fail("你沒裝備劍就想使"PNAME"？\n"NOR);
 
 	fskill = "taiji-shengong";
 	bskill = "sword";
@@ -45,19 +45,19 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 90 )
-		return notify_fail("你的"+to_chinese(fskill)+"的火候不够，无法使"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"的火候不夠，無法使"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(sskill)+"未娴熟，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"未嫺熟，使不出"+PNAME+"。\n");
 
 if ((int)me->query("max_neili")<400)
-		return notify_fail(RED"你内力修为不足，无法运足内力。\n"NOR);
+		return notify_fail(RED"你內力修爲不足，無法運足內力。\n"NOR);
 
 	if ((int)me->query("neili")<200)
-		return notify_fail("你内力不足，没能将"PNAME"使完！\n");
+		return notify_fail("你內力不足，沒能將"PNAME"使完！\n");
 
-	msg = HIC"$N手中"+weapon->query("name")+HIC"剑芒跃动，剑光暴长，剑尖颤动似乎分左右刺向$n，
-$n看到剑光偏左，疾侧身右转，但只这一刹，剑光刹时袭向右首！\n"NOR;
+	msg = HIC"$N手中"+weapon->query("name")+HIC"劍芒躍動，劍光暴長，劍尖顫動似乎分左右刺向$n，
+$n看到劍光偏左，疾側身右轉，但只這一剎，劍光剎時襲向右首！\n"NOR;
 
 	if (random(me->query_skill("force")) > target->query_skill("force")/2|| 
 	random(me->query("combat_exp")) > (int)target->query("combat_exp")/3 )
@@ -69,13 +69,13 @@ $n看到剑光偏左，疾侧身右转，但只这一刹，剑光刹时袭向右
 		damage = damage/2 + random(damage);
 		target->receive_damage("qi", damage/2,me);
 		target->receive_wound("qi", damage/3,me);
-		msg +=HIC"$n疾忙左转，却发现$N的"+weapon->query("name")+HIC"根本没有右偏，「天地同仁」！
-在$n左胸留下一个"HIR"血洞"HIC"！$n一低头，便看到胸口鲜血涌泉喷出！\n"NOR;
+		msg +=HIC"$n疾忙左轉，卻發現$N的"+weapon->query("name")+HIC"根本沒有右偏，「天地同仁」！
+在$n左胸留下一個"HIR"血洞"HIC"！$n一低頭，便看到胸口鮮血湧泉噴出！\n"NOR;
 		me->add("neili", -damage/5);
 	} else
 	{
 		me->start_busy(2);
-		msg +=HIY"可是$p轻轻一笑，侧身右转，果然$P的剑式突然左展，在$p身前\n划过，仅差半寸。一根毫毛都没伤到。\n"NOR;
+		msg +=HIY"可是$p輕輕一笑，側身右轉，果然$P的劍式突然左展，在$p身前\n劃過，僅差半寸。一根毫毛都沒傷到。\n"NOR;
 	}
 	message_combatd(msg, me, target);
 	if(!target->is_fighting(me)) target->fight_ob(me);
@@ -89,13 +89,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
-		迟滞对方出手
+		損傷對方氣血
+		遲滯對方出手
 
 	出手要求：
-		太极神功90级
-		两仪剑法60级
-		内力400
+		太極神功90級
+		兩儀劍法60級
+		內力400
 HELP
 	);
 	return 1;

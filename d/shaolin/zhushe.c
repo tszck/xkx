@@ -8,20 +8,20 @@ int do_remove();
 void fainting(object me, object ob);
 string look_stone();
 
-/* (move stone) 猪舍石块下埋着奄奄一息的乔三槐。告诉你
-金刚伏魔圈前半段的走法(western)，说完头一歪，死了。如玩家
-学过内功，可用所学内功中(life heal)之法延续乔三槐一口气，
-令其说出后半段走法(news)，并且告知出迷宫走法藏在厨房莫处，
-未及说完何处就死了。玩家自己找出何处（灶头里，可以钻进去，
-里面有一块砖，上刻出迷宫走法）。*/
+/* (move stone) 豬舍石塊下埋着奄奄一息的喬三槐。告訴你
+金剛伏魔圈前半段的走法(western)，說完頭一歪，死了。如玩家
+學過內功，可用所學內功中(life heal)之法延續喬三槐一口氣，
+令其說出後半段走法(news)，並且告知出迷宮走法藏在廚房莫處，
+未及說完何處就死了。玩家自己找出何處（竈頭裏，可以鑽進去，
+裏面有一塊磚，上刻出迷宮走法）。*/
 
 void create()
 {
-	set("short", "猪舍");
+	set("short", "豬舍");
 	set("long", @LONG
-这是间破烂的农家猪舍。圈里养着几头瘦猪，泔槽已经干涸了，
-草料也开始发霉腐烂。由于好多天没人清理牲口的粪便，满屋子弥
-漫着一股恶臭。屋角堆了一大堆石块(stone)，足有半人高。
+這是間破爛的農家豬舍。圈裏養着幾頭瘦豬，泔槽已經乾涸了，
+草料也開始發黴腐爛。由於好多天沒人清理牲口的糞便，滿屋子彌
+漫着一股惡臭。屋角堆了一大堆石塊(stone)，足有半人高。
 LONG );
 	set("exits", ([
 		"southeast" : __DIR__"houshan",
@@ -50,7 +50,7 @@ int do_move(string arg)
 	if( !arg || arg=="" || !query_temp("available") ) return 0;
 
 	if( arg=="stone" && query_temp("available")) {
-		write("你试著把石块一块块地搬开，突然发现下面埋着个奄奄一息的老人 !\n\n");
+		write("你試著把石塊一塊塊地搬開，突然發現下面埋着個奄奄一息的老人 !\n\n");
 	        delete_temp("available");
 	}
 
@@ -60,10 +60,10 @@ int do_move(string arg)
 
 	ob = this_player();	
 
-	message_vision("老人断断续续地说道: 我是乔三槐，快...，快往北山上走...，
-进了松林...，往南...，往东...，往西...，往东...，再往北......\n\n", ob);
+	message_vision("老人斷斷續續地說道: 我是喬三槐，快...，快往北山上走...，
+進了松林...，往南...，往東...，往西...，往東...，再往北......\n\n", ob);
 
-	message_vision("乔三槐嘴唇动了动，似乎还想说些什麽，却因伤重难支，昏死了过去。\n", ob);
+	message_vision("喬三槐嘴脣動了動，似乎還想說些什麼，卻因傷重難支，昏死了過去。\n", ob);
 
 	me->unconcious();
 
@@ -78,13 +78,13 @@ void fainting(object me, object ob)
 
 	if ( (int)me->query("qi") <= 50 ) 
 	{
-		message_vision("乔三槐缓缓苏醒了过来，说道: 谢...谢......。\n",ob);
+		message_vision("喬三槐緩緩甦醒了過來，說道: 謝...謝......。\n",ob);
 		me->die();
 	}
 	else
 	{
-		message_vision("\n乔三槐醒了过来，说道: 再往北，往东，往西，南......出路在砖......\n\n",ob);
-		message_vision("说罢脑袋便软软地垂了下去......",ob);
+		message_vision("\n喬三槐醒了過來，說道: 再往北，往東，往西，南......出路在磚......\n\n",ob);
+		message_vision("說罷腦袋便軟軟地垂了下去......",ob);
 		me->die();
 	}
 
@@ -93,5 +93,5 @@ void fainting(object me, object ob)
 
 string look_stone()
 {
-	return "这是一大堆石块，堆在墙脚边，不知是派什麽用场。\n";
+	return "這是一大堆石塊，堆在牆腳邊，不知是派什麼用場。\n";
 }

@@ -13,7 +13,7 @@ string zm_apply()
 	object ob = this_player();
 	if (ob->query("class") != "taoist")
 	{
-		return "本门修真之士，方能执掌门户！";
+		return "本門修真之士，方能執掌門戶！";
 	}	
 	return ::zm_apply();
 }

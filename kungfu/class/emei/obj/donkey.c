@@ -6,7 +6,7 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIC "青驴" NOR, ({ "donkey"}));
+	set_name(HIC "青驢" NOR, ({ "donkey"}));
 	set("race", "走畜");
 	set("gender", "雄性");
 	set("age", 2+random(3));
@@ -20,7 +20,7 @@ void create()
 	set("combat_exp",50000);
 	set("attitude", "peaceful");
 
-	set("limbs", ({ "头部", "腹部", "尾巴","后腿","前腿" }) );
+	set("limbs", ({ "頭部", "腹部", "尾巴","後腿","前腿" }) );
 	set("verbs", ({ "bite","hoof" }) );
 	set_temp("apply/attack", 50);
 	set_temp("apply/armor", 15);

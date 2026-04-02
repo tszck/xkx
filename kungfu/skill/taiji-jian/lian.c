@@ -1,6 +1,6 @@
-// lian.c 太极剑法「连」字诀
+// lian.c 太極劍法「連」字訣
 // Last Modified by sega on 4.10 2000
-//减弱到10剑,不然太可怕了点.
+//減弱到10劍,不然太可怕了點.
 
 #include <ansi.h>
 #include <skill.h>
@@ -8,7 +8,7 @@
 #include <combat.h>
 
 inherit F_SSERVER;
-#define PNAME "「连」字诀"
+#define PNAME "「連」字訣"
 int perform(object me, object target)
 {
 	object weapon;
@@ -24,18 +24,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	fskill = "taiji-shengong";
 	bskill = "sword";
@@ -49,15 +49,15 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 70 )
-		return notify_fail("你的"+to_chinese(fskill)+"火候不够，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"火候不夠，使不出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(sskill)+"没有娴熟到能使"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"沒有嫺熟到能使"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 300 )
-		return notify_fail("你的内力不够了，不能使用「连」字诀。\n");
+		return notify_fail("你的內力不夠了，不能使用「連」字訣。\n");
 
-	msg = HIY "$N使出太极剑法「连」字诀，招式陡然变快。\n";
+	msg = HIY "$N使出太極劍法「連」字訣，招式陡然變快。\n";
 
 	if(random(me->query("combat_exp"))>(int)target->query("combat_exp")/20)
 	{
@@ -69,7 +69,7 @@ int perform(object me, object target)
 		{ attack_time = attack_time - 4;
 		  attack_time = 5 + random(attack_time);
 		 } 
-		msg += CYN " 结果$p被$P攻了个措手不及，连连后退不暇！\n" NOR;
+		msg += CYN " 結果$p被$P攻了個措手不及，連連後退不暇！\n" NOR;
 		message_combatd(msg, me, target);
 		for(i = 0; i < attack_time; i++)
 		{
@@ -88,7 +88,7 @@ int perform(object me, object target)
 	}
 	else
 	{
-		msg += "可是$p看破了$P的企图，抢先下手制住了$P的连续后招。\n" NOR;
+		msg += "可是$p看破了$P的企圖，搶先下手製住了$P的連續後招。\n" NOR;
 		message_combatd(msg, me, target);
 		me->start_busy(2);
 		me->add("neili", -150);
@@ -106,12 +106,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		连续出剑攻击对方
+		連續出劍攻擊對方
 
 	出手要求：
-		太极神功70级
-		太极剑法50级
-		内力150
+		太極神功70級
+		太極劍法50級
+		內力150
 HELP
 	);
 	return 1;

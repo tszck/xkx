@@ -11,10 +11,10 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一块发出强烈膻味的羊肉.\n");
-		set("unit", "块");
+		set("long", "一塊發出強烈羶味的羊肉.\n");
+		set("unit", "塊");
 		set("value", 1000);
-		set("eat_msg","$N咬了一口$n，突然见许多苍蝇聚拢到嘴边来。\n");
+		set("eat_msg","$N咬了一口$n，突然見許多蒼蠅聚攏到嘴邊來。\n");
 		set("food_remaining",8);
 		set("food_supply", 60);
 	}

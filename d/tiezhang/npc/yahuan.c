@@ -6,7 +6,7 @@ inherit NPC;
 void create()
 {
 	set_name("丫鬟", ({ "ya huan", "ya" }));
-	set("long", "她是一个长得很好看的小姑娘。\n");
+	set("long", "她是一個長得很好看的小姑娘。\n");
 	set("gender", "女性");
 	set("age", 16);
 

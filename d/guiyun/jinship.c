@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "金国战船");
+	set("short", "金國戰船");
 	set("long", @LONG
-这里是大金国钦使的战船，船中旗杆上分明扯着旗号，飞扬跋
-扈已极。船舱内汉奸们一脸媚笑，金兵一个个都趾高气扬。
+這裏是大金國欽使的戰船，船中旗杆上分明扯着旗號，飛揚跋
+扈已極。船艙內漢奸們一臉媚笑，金兵一個個都趾高氣揚。
 LONG );
 	set("outdoors", "guiyun");
 	set("exits", ([

@@ -6,7 +6,7 @@ void create()
 {
 	set("short", "番薯地");
 	set("long", @LONG
-这是一块番薯地，满目翠绿，长势十分旺盛。
+這是一塊番薯地，滿目翠綠，長勢十分旺盛。
 LONG );
 	set("exits", ([
 		"westup"    : __DIR__"fenghuanglin",

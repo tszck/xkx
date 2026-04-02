@@ -10,11 +10,11 @@ int  random2  (int  i)
 int is_douji() {return 1;}
 void  create()
 {
-	set_name("斗鸡",  ({  "dou  ji",  "ji"  })  );
-	set("race", "飞禽");
+	set_name("鬥雞",  ({  "dou  ji",  "ji"  })  );
+	set("race", "飛禽");
 	set("gender",  "雄性");
 	set("age",  2);
-	set("long",  "一只雄赳赳的斗鸡。\n");
+	set("long",  "一隻雄赳赳的鬥雞。\n");
 	set("attitude",  "friendly");
 	set("max_qi",200+random2(2));
 	set("max_jing",200+random2(2));

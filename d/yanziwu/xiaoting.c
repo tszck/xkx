@@ -10,11 +10,11 @@ void delete_served(object);
 
 void create()
 {
-	set("short", "晓寒厅");
+	set("short", "曉寒廳");
 	set("long", @LONG
-这是一间小厅，厅虽不大，布置倒也别致。满厅的芳香，沁人心脾。
-只见墙上挂着几幅条幅，笔致颇为潇洒，但掩不住几分柔弱之气。厅内
-四周精巧地摆着些桌子(table)和椅子(chair)。
+這是一間小廳，廳雖不大，佈置倒也別緻。滿廳的芳香，沁人心脾。
+只見牆上掛着幾幅條幅，筆致頗爲瀟灑，但掩不住幾分柔弱之氣。廳內
+四周精巧地擺着些桌子(table)和椅子(chair)。
 LONG );
 	set("exits", ([
 		"west" : __DIR__"qinyun",
@@ -23,8 +23,8 @@ LONG );
 		"south" : __DIR__"chufang",
 	])); 
 	set("item_desc", ([
-		"table" : "一张典雅的桃木小桌，上面放着水果盘和饮茶器具。\n",
-		"chair" : "一只青竹打制的靠椅，躺上去摇摇晃晃，好舒服耶！\n",
+		"table" : "一張典雅的桃木小桌，上面放着水果盤和飲茶器具。\n",
+		"chair" : "一隻青竹打製的靠椅，躺上去搖搖晃晃，好舒服耶！\n",
 	])); 
 	set("objects",([
 		__DIR__"npc/susu" : 1,
@@ -53,24 +53,24 @@ int do_tap(string arg)
 
 	if (!arg || (arg != "desk" && arg != "table"))
 	{
-		return notify_fail("你要敲什么？\n");
+		return notify_fail("你要敲什麼？\n");
 	}
 
 	me = this_player();
 	if( !objectp(susu = present("susu", environment(me))) )
-		return notify_fail("你敲了敲桌子，却还是没人理你。你突然感觉自己很无聊。\n");
+		return notify_fail("你敲了敲桌子，卻還是沒人理你。你突然感覺自己很無聊。\n");
 
 	if( !me->query_temp("marks/sit") )
-		return notify_fail("你敲了敲桌子，却没想到段誉和王语嫣从桌底下钻出来，满\n脸通红生气地看着你，你突然感觉自己很愚蠢。\n");
+		return notify_fail("你敲了敲桌子，卻沒想到段譽和王語嫣從桌底下鑽出來，滿\n臉通紅生氣地看着你，你突然感覺自己很愚蠢。\n");
 
 	if( me->query_temp("marks/served") )
 	{
-		message_vision("素素不耐烦地对$N说道：刚给你上过茶你接着就要，"+
-			"你是个Ｒｏｂｏｔ我可不是啊！\n", me);
+		message_vision("素素不耐煩地對$N說道：剛給你上過茶你接着就要，"+
+			"你是個Ｒｏｂｏｔ我可不是啊！\n", me);
 		return notify_fail("");
 	}
 
-	message_vision("$N端坐在桌前，轻轻扣了下桌面，素素一笑，过来招呼。\n", me);
+	message_vision("$N端坐在桌前，輕輕釦了下桌面，素素一笑，過來招呼。\n", me);
 	susu->serve_tea(me) ; 
 	me->set_temp("marks/served", 1);
 	call_out("delete_served", 10, me);
@@ -89,13 +89,13 @@ int do_sit(string arg)
 {
 
 	if ( !arg || (arg != "chair") )
-		return notify_fail("你要坐什么上面？\n");
+		return notify_fail("你要坐什麼上面？\n");
 
 	if (this_player()->query_temp("marks/sit"))
-		return notify_fail("你已经有了个座位了。\n");
+		return notify_fail("你已經有了個座位了。\n");
 
 	this_player()->set_temp("marks/sit", 1);
-	return notify_fail("你找了个空位座下，等着上茶。\n");
+	return notify_fail("你找了個空位座下，等着上茶。\n");
 }
 
 

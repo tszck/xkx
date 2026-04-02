@@ -5,12 +5,12 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("铁匠", ({ "tiejiang", "smith" }));
+	set_name("鐵匠", ({ "tiejiang", "smith" }));
 	set("shen_type", 1);
 
 	set("gender", "男性" );
 	set("age", 33);
-	set("long", "铁匠正用铁钳夹住一块红热的铁块放进炉中。\n");
+	set("long", "鐵匠正用鐵鉗夾住一塊紅熱的鐵塊放進爐中。\n");
 
 	set("combat_exp", 400);
 	set("attitude", "friendly");
@@ -40,5 +40,5 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	say("铁匠说道：欢迎这位"+RANK_D->query_respect(ob)+"光临，请随便参观。\n");
+	say("鐵匠說道：歡迎這位"+RANK_D->query_respect(ob)+"光臨，請隨便參觀。\n");
 }

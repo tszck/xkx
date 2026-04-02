@@ -20,13 +20,13 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "个");
-		set("long", "这是个神龙教特有的黑布头套，能把整个脑袋套起来，只露出两个眼睛。\n你每次为神龙教办案后，务必在尸体上写下(sign)“逆神龙教者杀！”。\n");
+		set("unit", "個");
+		set("long", "這是個神龍教特有的黑布頭套，能把整個腦袋套起來，只露出兩個眼睛。\n你每次爲神龍教辦案後，務必在屍體上寫下(sign)“逆神龍教者殺！”。\n");
 		set("material", "cloth");
 		set("armor_prop/armor", 1);
 		set("value", 10);
-		set("no_get", "这样东西不能离开那儿。\n");
-		set("no_drop", "这样东西不能离开你。\n");
+		set("no_get", "這樣東西不能離開那兒。\n");
+		set("no_drop", "這樣東西不能離開你。\n");
 	}
 	setup();
 }
@@ -49,7 +49,7 @@ int do_wear(string arg)
 
 	this_player()->set_temp("apply/name",  ({"蒙面人"}));
 	this_player()->set_temp("apply/short", ({"蒙面人(Mengmian ren)"}));
-	this_player()->set_temp("apply/long",  ({"一个黑布蒙面，神秘兮兮的家伙。\n"}));
+	this_player()->set_temp("apply/long",  ({"一個黑布蒙面，神祕兮兮的傢伙。\n"}));
 
 	return 0;
 }
@@ -105,11 +105,11 @@ int do_sign(string arg)
 	}
 
 	obj->set("signed", 1);
-	log_file("test/ShenlongPker", sprintf("%s于%s时杀了%s(%s).\n", me->query("name"), ctime(time()), v_name, v_id));
+	log_file("test/ShenlongPker", sprintf("%s於%s時殺了%s(%s).\n", me->query("name"), ctime(time()), v_name, v_id));
 
 	me->set("sg_victim/" + time(), v_id);
-	tell_room(environment(me), "蒙面人在尸体旁写下“逆神龙教者杀！”几个大字。", ({me}));
-	tell_object(me, "你在尸体旁写下“逆神龙教者杀！”几个大字。\n");
+	tell_room(environment(me), "蒙面人在屍體旁寫下“逆神龍教者殺！”幾個大字。", ({me}));
+	tell_object(me, "你在屍體旁寫下“逆神龍教者殺！”幾個大字。\n");
 	return 1;
 }
 
@@ -120,37 +120,37 @@ int do_forcejoin(string arg)
 	mixed busy;
 
 	if( !me->query("sg/spy") )
-		return notify_fail("你不是神龙教的人，来什么劲？\n");
+		return notify_fail("你不是神龍教的人，來什麼勁？\n");
 	if( me->query("sg_ok/forcejoin") )
-		return notify_fail("你先回去复命吧。\n");
+		return notify_fail("你先回去覆命吧。\n");
 	if( environment(me)->query("no_fight") )
-		return notify_fail("这里不是强迫的地方。\n");
+		return notify_fail("這裏不是強迫的地方。\n");
 	if ( busy = me->query_busy() )
 	{
 		if (intp(busy)) me->start_busy(busy+1);
-			return notify_fail("你现在正忙着！\n");
+			return notify_fail("你現在正忙着！\n");
 	}
 	if( !arg || !(target = present(arg, environment(me))) )
-		return notify_fail("你要逼谁入神龙教？\n");
+		return notify_fail("你要逼誰入神龍教？\n");
 
 	if( me->query("sgjob/forcejoin") != target->query("id") )
-		return notify_fail("你找错人了。\n");
+		return notify_fail("你找錯人了。\n");
 
 	if( target->query("sg/spy") ||
-		target->query("family/family_name") == "神龙教" )
-		return notify_fail(target->name()+ "已经加入神龙了，不用再费心了。\n");
+		target->query("family/family_name") == "神龍教" )
+		return notify_fail(target->name()+ "已經加入神龍了，不用再費心了。\n");
 	if( !living(target) )
-		return notify_fail("你现在再逼"+target->name()+"也没有用。\n");
+		return notify_fail("你現在再逼"+target->name()+"也沒有用。\n");
 	if( me->query_temp("forcejoining") )
-		return notify_fail("你已经在逼迫人了。\n");
+		return notify_fail("你已經在逼迫人了。\n");
 	if( (int)me->query("jing") * 100 / (int)me->query("max_jing") < 40 ||
 		(int)me->query("jingli")*100/(int)me->query("max_jingli") < 40)
-		return notify_fail("你太累了，休息一会儿再劝吧。\n");
+		return notify_fail("你太累了，休息一會兒再勸吧。\n");
 
 	me->receive_damage("jing", 60);
 	me->receive_damage("qi", 60);
 
-	message_vision("\n$N对$n大声喝道：" + RANK_D->query_rude(target) + "快加入神龙教，否则格杀无论！！！\n", me, target);
+	message_vision("\n$N對$n大聲喝道：" + RANK_D->query_rude(target) + "快加入神龍教，否則格殺無論！！！\n", me, target);
 
 	inv = all_inventory(environment(target));
 	for(int i = 0; i < sizeof(inv); i++)
@@ -192,7 +192,7 @@ private void complete_forcejoin(object me, object target, int fp, int dp)
 
 	if( !living(target) )
 	{
-		tell_object(me, "你现在再逼也没有用。\n");
+		tell_object(me, "你現在再逼也沒有用。\n");
 		return;
 	}
 	t_shen = (int)target->query("shen");
@@ -214,7 +214,7 @@ private void complete_forcejoin(object me, object target, int fp, int dp)
 	if( dp < 1 ) dp = 1;
 	if( random(fp+dp)  > dp )
 	{
-		message_vision("$N别无它法，只得答应$n加入神龙教。\n", target, me);
+		message_vision("$N別無它法，只得答應$n加入神龍教。\n", target, me);
 		if( member_array(target->query("id"), masters) != -1 )
 			bonus += 100;
 		bonus += (int)me->query("sg/exp") * 2000 / (int)me->query("combat_exp");
@@ -226,7 +226,7 @@ private void complete_forcejoin(object me, object target, int fp, int dp)
 		me->add("sg/exp", 1);
 		me->add("shen", -(int)target->query("combat_exp")/100);
 
-		log_file("test/ForceJoin", sprintf("%s于%s时逼%s入神龙教获得%s经验点\n", me->query("name"), ctime(time()), target->query("name"), chinese_number(record)));
+		log_file("test/ForceJoin", sprintf("%s於%s時逼%s入神龍教獲得%s經驗點\n", me->query("name"), ctime(time()), target->query("name"), chinese_number(record)));
 
 		bonus /= 4;
 		me->add("potential", bonus/3 + random(bonus/3));
@@ -243,7 +243,7 @@ private void complete_forcejoin(object me, object target, int fp, int dp)
 				inv[i]->query("armor_prop/armor") > 100 )
 			{
 				inv[i]->move(me);
-				message_vision("$N将" + inv[i]->name() + "双手奉上递给$n。\n", target, me);
+				message_vision("$N將" + inv[i]->name() + "雙手奉上遞給$n。\n", target, me);
 			}
 		target->set("sg/spy", 1);
 		target->delete_temp("forcetimes");
@@ -267,7 +267,7 @@ private void complete_forcejoin(object me, object target, int fp, int dp)
 		else
 		{
 			target->kill_ob(me);
-			message_vision("\n$N不屑地撇撇嘴：" + RANK_D->query_rude(me) + "，我先杀了你这狂徒！！！\n", target);
+			message_vision("\n$N不屑地撇撇嘴：" + RANK_D->query_rude(me) + "，我先殺了你這狂徒！！！\n", target);
 		}
 		me->start_busy(1+random(3));
 	}
@@ -277,33 +277,33 @@ int eff_fam(object ob)
 {
 	switch((string)ob->query("family/family_name"))
 	{
-		case "武当派"   :
+		case "武當派"   :
 		case "全真教"   :
 		case "少林派"   :
 		case "南少林派" :
-		case "云龙门"   :
-		case "红花会"   :
+		case "雲龍門"   :
+		case "紅花會"   :
 		case "大理段家" :  return 10; break;
 		case "峨眉派"   :
-		case "昆仑派"   :
+		case "崑崙派"   :
 		case "古墓派"   :
 		case "嵩山派"   :  return  9; break;
 		case "泰山派"   :
-		case "华山派"   :
+		case "華山派"   :
 		case "衡山派"   :
-		case "恒山派"   :  return  8; break;
+		case "恆山派"   :  return  8; break;
 		case "青城派"   :
-		case "姑苏慕容" :
-		case "桃花岛"   :  return  7; break;
-		case "逍遥派"   :
+		case "姑蘇慕容" :
+		case "桃花島"   :  return  7; break;
+		case "逍遙派"   :
 		case "凌霄城"   :  return  6; break;
 		case "明教"     :
-		case "丐帮"     :  return  5; break;
+		case "丐幫"     :  return  5; break;
 		case "雪山寺"   :
 		case "黑木崖"   :  return  4; break;
 		case "五毒教"   :
 		case "白陀山派" :  return  3; break;
-		case "铁掌帮"   :
+		case "鐵掌幫"   :
 		case "星宿派"   :  return  2; break;
 		default:
 			if( ob->query("attitude") == "aggressive" ||
@@ -317,40 +317,40 @@ int eff_fam(object ob)
 
 void do_flee(object ob)
 {
-	message("vision", ob->name() + "一转眼便消失了。\n", environment(ob), ({ob}));
+	message("vision", ob->name() + "一轉眼便消失了。\n", environment(ob), ({ob}));
 
 	if( mapp(ob->query("family")) &&
 		member_array((string)ob->query("id"), masters) == -1 )
 	{
 		switch((string)ob->query("family/family_name"))
 		{
-		case "武当派"   : ob->move("/d/wudang/sanqingdian"); break;
+		case "武當派"   : ob->move("/d/wudang/sanqingdian"); break;
 		case "全真教"   : ob->move("/d/quanzhen/datang1"); break;
 		case "少林派"   : ob->move("/d/shaolin/dxbdian"); break;
 		case "南少林派" : ob->move("/d/nanshaolin/pingtai"); break;
-		case "云龙门"   : ob->move("/d/beijing/dating"); break;
-		case "红花会"   : ob->move("/d/huijiang/zongduo"); break;
+		case "雲龍門"   : ob->move("/d/beijing/dating"); break;
+		case "紅花會"   : ob->move("/d/huijiang/zongduo"); break;
 		case "大理段家" : ob->move("/d/dali/wangfugate"); break;
 		case "峨眉派"   : ob->move("/d/emei/hcaguangchang"); break;
-		case "昆仑派"   : ob->move("/d/kunlun/qianting"); break;
+		case "崑崙派"   : ob->move("/d/kunlun/qianting"); break;
 		case "古墓派"   : ob->move("/d/gumu/zhongting"); break;
 		case "嵩山派"   : ob->move("/d/songshan/chanyuan"); break;
 		case "泰山派"   : ob->move("/d/taishan/riguan"); break;
-		case "华山派"   : ob->move("/d/huashan/buwei3"); break;
+		case "華山派"   : ob->move("/d/huashan/buwei3"); break;
 		case "衡山派"   : ob->move("/d/henshan/zhurongdian"); break;
-		case "恒山派"   : ob->move("/d/hengshan/baiyunan"); break;
+		case "恆山派"   : ob->move("/d/hengshan/baiyunan"); break;
 		case "青城派"   : ob->move("/d/qingcheng/songfengguan"); break;
-		case "姑苏慕容" : ob->move("/d/yanziwu/lanyue"); break;
-		case "桃花岛"   : ob->move("/d/taohua/dating"); break;
-		case "逍遥派"   : ob->move("/d/xiaoyao/qingcaop"); break;
+		case "姑蘇慕容" : ob->move("/d/yanziwu/lanyue"); break;
+		case "桃花島"   : ob->move("/d/taohua/dating"); break;
+		case "逍遙派"   : ob->move("/d/xiaoyao/qingcaop"); break;
 		case "凌霄城"   : ob->move("/d/lingxiao/dadian"); break;
 		case "明教"     : ob->move("/d/mingjiao/square"); break;
-		case "丐帮"     : ob->move("/d/yueyang/gaibangtang"); break;
+		case "丐幫"     : ob->move("/d/yueyang/gaibangtang"); break;
 		case "雪山寺"   : ob->move("/d/xueshan/dadian"); break;
 		case "黑木崖"   : ob->move("/d/heimuya/chengdedian"); break;
 		case "五毒教"   : ob->move("/d/wudujiao/dating"); break;
 		case "白陀山派" : ob->move("/d/baituo/dating"); break;
-		case "铁掌帮"   : ob->move("/d/tiezhang/guangchang"); break;
+		case "鐵掌幫"   : ob->move("/d/tiezhang/guangchang"); break;
 		case "星宿派"   : ob->move("/d/xingxiu/riyuedong1"); break;
 		default  :
 			ob->move(safeplaces[random(sizeof(safeplaces))]); break;
@@ -358,7 +358,7 @@ void do_flee(object ob)
 	}
 	else ob->move(safeplaces[random(sizeof(safeplaces))]);
 
-	message("vision", ob->name() + "走了过来。\n", environment(ob), ({ob}));
+	message("vision", ob->name() + "走了過來。\n", environment(ob), ({ob}));
 }
 
 private int is_spy(object ob)
@@ -373,12 +373,12 @@ int do_search(string arg)
 	object *list;
 	int i, j, ppl_cnt, total;
 
-	if( !arg || !(arg == "shenlong" || arg == "神龙教") ||
+	if( !arg || !(arg == "shenlong" || arg == "神龍教") ||
 		this_player()->query("sg/exp") < 1000 )
 		return 0;
 
 	if( !wizardp(this_player()) && (int)this_player()->query("jing") < 30 )
-		return notify_fail("你的精神太差了，没有办法得知本教组织的详细资料。\n");
+		return notify_fail("你的精神太差了，沒有辦法得知本教組織的詳細資料。\n");
 
 	this_player()->receive_damage("jing", 30);
 	seteuid(getuid());
@@ -400,7 +400,7 @@ int do_search(string arg)
 	}
 
 	str += "--------------------------------------------------------------------------\n";
-	str = sprintf("%s共有 %d 位神龙教成员连线中。\n", str, total);
+	str = sprintf("%s共有 %d 位神龍教成員連線中。\n", str, total);
 
 	this_player()->start_more(str);
 	return 1;
@@ -418,41 +418,41 @@ int do_job()
 	if( this_player()->query("sg_ok/pk") ||
 		this_player()->query("sg_ok/join") )
 	{
-		write("你最近完成了一件追杀任务。\n");
+		write("你最近完成了一件追殺任務。\n");
 		return 1;
 	}
 	if( this_player()->query("sg_ok/stuff") )
 	{
-		write("你最近完成了一件找东西的任务。\n");
+		write("你最近完成了一件找東西的任務。\n");
 		return 1;
 	}
 	if( this_player()->query("sg_ok/forcejoin") )
 	{
-		write("你最近完成了一件逼迫入教的的任务。\n");
+		write("你最近完成了一件逼迫入教的的任務。\n");
 		return 1;
 	}
 	if( !mapp(this_player()->query("sgjob")) &&
 		!mapp(this_player()->query("sgjob_join")) )
 	{
-		write("你现在没有教务缠身。\n");
+		write("你現在沒有教務纏身。\n");
 		return 1;
 	}
 	if( (job = this_player()->query("sgjob/forcejoin")) )
 	{
-		write("你当前的任务是逼迫" + job + "入教。\n");
+		write("你當前的任務是逼迫" + job + "入教。\n");
 		return 1;
 	}
 	if( (job = this_player()->query("sgjob/victim_name")) )
 	{
-		write("你当前的任务是追杀" + job + "(" + this_player()->query("sgjob/victim_id") + ")。\n");
+		write("你當前的任務是追殺" + job + "(" + this_player()->query("sgjob/victim_id") + ")。\n");
 		return 1;
 	}
 	if( (job = this_player()->query("sgjob/sgjob")) )
 	{
-		write("你当前的任务是找" + job + "。\n");
+		write("你當前的任務是找" + job + "。\n");
 		return 1;
 	}
-	write("你现在没有教务缠身。\n");
+	write("你現在沒有教務纏身。\n");
 	return 1;
 }
 
@@ -461,18 +461,18 @@ int do_jobtime()
 	int start_time, time, s, m;
 
 	if( mapp(this_player()->query("sg_ok")) )
-		return notify_fail("你已经完成任务了，无需在乎时间。\n");
+		return notify_fail("你已經完成任務了，無需在乎時間。\n");
 	if( !(start_time = this_player()->query("sgjob/assigntime")) )
 	if( !(start_time = this_player()->query("sgjob_join/assigntime")) )
-		return notify_fail("你现在没有教务缠身。\n");
+		return notify_fail("你現在沒有教務纏身。\n");
 	time = time() - start_time;
 	if( time > 1800 )
 	{
-		write("已经过了半小时，可以去问新任务了。\n");
+		write("已經過了半小時，可以去問新任務了。\n");
 		return 1;
 	}
 	s = time % 60;
 	m = time / 60;
-	write("加油！加油！加油！已经过了" + chinese_number(m) + "分" + chinese_number(s) + "秒\n");
+	write("加油！加油！加油！已經過了" + chinese_number(m) + "分" + chinese_number(s) + "秒\n");
 	return 1;
 }

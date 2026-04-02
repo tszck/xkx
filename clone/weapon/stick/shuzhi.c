@@ -6,7 +6,7 @@ inherit STICK;
 
 void create()
 {
-	set_name("树枝", ({"shuzhi"}));
+	set_name("樹枝", ({"shuzhi"}));
 	set_weight(7000);
 	if( clonep() )
 		set_default_object(__FILE__);

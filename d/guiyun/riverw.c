@@ -9,16 +9,16 @@ void create()
 {
 	set("short", "小河西岸");
 	set("long", @LONG
-这里是一条小河之滨，四下都是乱坟。往周围看去，并无桥梁可以
-过河(he)。
+這裏是一條小河之濱，四下都是亂墳。往周圍看去，並無橋樑可以
+過河(he)。
 LONG
 	);
 	set("exits", ([
 		"west" : __DIR__"road2",
 	]));
 	set("item_desc", ([
-		"river" : "小河很宽，河水下面隐隐约约有什么东西。你看不清。\n",
-		"he"    : "小河很宽，河水下面隐隐约约有什么东西。你看不清。\n",
+		"river" : "小河很寬，河水下面隱隱約約有什麼東西。你看不清。\n",
+		"he"    : "小河很寬，河水下面隱隱約約有什麼東西。你看不清。\n",
 	]) );
 	set("outdoors", "guiyun");
 	setup();
@@ -40,16 +40,16 @@ int do_jump(string arg)
 	{
 		if (me->query_temp("guiyun_river") )
 		{
-			message("vision", me->name() + "飞身跃在水面，身形稳凝，河水只及小腿，一步步走过了河。\n", environment(me), ({me}) );
-			write("你踩着水底的暗桩，慢慢的走过了小河。\n");
+			message("vision", me->name() + "飛身躍在水面，身形穩凝，河水只及小腿，一步步走過了河。\n", environment(me), ({me}) );
+			write("你踩着水底的暗樁，慢慢的走過了小河。\n");
 			me->move(__DIR__"rivere");
-			message("vision", "只见河面上人影闪动，" + me->name() +  "如飘在水面一般，直走过来。\n", environment(me), ({me}) );
-			write("你踩着暗桩慢慢地走过了小河。\n");
+			message("vision", "只見河面上人影閃動，" + me->name() +  "如飄在水面一般，直走過來。\n", environment(me), ({me}) );
+			write("你踩着暗樁慢慢地走過了小河。\n");
 			me->delete_temp("guiyun_river");
 			return 1;
 		}
 		else {
-			write("你试了试，发觉河面很宽，你绝对跳不过去。\n");
+			write("你試了試，發覺河面很寬，你絕對跳不過去。\n");
 			return 1;
 		}
 	}

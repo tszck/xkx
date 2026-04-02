@@ -1,5 +1,5 @@
 // Last Modified by winder on Sep. 12 2001
-// wuying-feidao.c 无影飞刀
+// wuying-feidao.c 無影飛刀
 
 #include <ansi.h>
 inherit SKILL;
@@ -7,32 +7,32 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([      "action": "$N双手一晃，手中的$w如一条银蛇般飞向$n的$l",
+([      "action": "$N雙手一晃，手中的$w如一條銀蛇般飛向$n的$l",
         "force" : 20,
         "dodge" : -20,
         "damage": 90,
-        "damage_type": "刺伤",
+        "damage_type": "刺傷",
         "post_action": (: call_other, WEAPON_D, "throw_weapon" :),
 ]),
-([      "action": "$N右手一抖，$w发出刺耳的破空声直射$n的$l",
+([      "action": "$N右手一抖，$w發出刺耳的破空聲直射$n的$l",
         "force" : 120,
         "dodge" : -30,
         "damage": 190,
-        "damage_type": "刺伤",
+        "damage_type": "刺傷",
         "post_action": (: call_other, WEAPON_D, "throw_weapon" :),
 ]),
-([      "action": "$N手指微动，$w斜斜的飞向$n的$l",
+([      "action": "$N手指微動，$w斜斜的飛向$n的$l",
         "force" : 220,
         "dodge" : -20,
         "damage": 290,
-        "damage_type": "刺伤",
+        "damage_type": "刺傷",
         "post_action": (: call_other, WEAPON_D, "throw_weapon" :),
 ]),
-([      "action": "$N力发肩肘，右手一甩，手中的$w化作一道弧光射向$n的$l",
+([      "action": "$N力發肩肘，右手一甩，手中的$w化作一道弧光射向$n的$l",
         "force" : 320,
         "dodge" : -40,
         "damage": 390,
-        "damage_type": "刺伤",
+        "damage_type": "刺傷",
         "post_action": (: call_other, WEAPON_D, "throw_weapon" :),
 ]),
 });
@@ -43,22 +43,22 @@ int valid_learn(object me)
         object ob;
 
         if( (int)me->query("max_neili") < 500 )
-                return notify_fail("你的内力不够，没有办法练无影飞刀。\n");
+                return notify_fail("你的內力不夠，沒有辦法練無影飛刀。\n");
         if( !(ob = me->query_temp("weapon")) || 
 		(string)ob->query("skill_type") != "throwing" )
-                return notify_fail("你必须先找一些暗器才能练无影飞刀。\n");
+                return notify_fail("你必須先找一些暗器才能練無影飛刀。\n");
 	if ((int)me->query_skill("honghua-shengong", 1) < 50)
-		return notify_fail("你的红花神功火候不够，无法学无影飞刀。\n");
+		return notify_fail("你的紅花神功火候不夠，無法學無影飛刀。\n");
 
         return 1;
 }
 int practice_skill(object me)
 {
         if( (int)me->query("qi") < 30 || (int)me->query("neili") < 50 )
-                return notify_fail("你的内力或气不够，没办法练习无影飞刀。\n");
+                return notify_fail("你的內力或氣不夠，沒辦法練習無影飛刀。\n");
         me->receive_damage("qi", 30);
         me->add("neili", -30);
-  //      write("你按著所学练了一遍无影飞刀。\n");
+  //      write("你按著所學練了一遍無影飛刀。\n");
         return 1;
 }
 mapping query_action(object me, object weapon)
@@ -77,15 +77,15 @@ string perform_action_file(string action)
  
 int help(object me)
 {
-	write(HIM"\n无影飞刀："NOR"\n");
+	write(HIM"\n無影飛刀："NOR"\n");
 	write(@HELP
 
-    无影飞刀为神刀骆元通的家传功夫。骆元通之女骆冰便是
-红花会的文四奶奶。
+    無影飛刀爲神刀駱元通的家傳功夫。駱元通之女駱冰便是
+紅花會的文四奶奶。
 
-	学习要求：
-		红花神功50级
-		内力修为500
+	學習要求：
+		紅花神功50級
+		內力修爲500
 HELP
 	);
 	return 1;

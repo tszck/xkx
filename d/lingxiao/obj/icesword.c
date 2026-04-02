@@ -8,14 +8,14 @@ inherit SWORD;
 
 void create()
 {
-	set_name(HIW "冰剑" NOR, ({"ice sword", "sword", "jian"}));
+	set_name(HIW "冰劍" NOR, ({"ice sword", "sword", "jian"}));
 	set_weight(5000);
 	set("unit", "把");
-	set("long", "一把散发着森森寒气的冰剑,令人望之生寒。\n");
+	set("long", "一把散發着森森寒氣的冰劍,令人望之生寒。\n");
 	set("value", 8);
 	set("material", "ice");
-	set("wield_msg", "$N「唰」地一声抽出一把$n握在手中，只觉一股寒气扑面而来！\n");
-	set("unwield_msg", "$N将手中的$n插入腰间，觉得暖和多了。\n");
+	set("wield_msg", "$N「唰」地一聲抽出一把$n握在手中，只覺一股寒氣撲面而來！\n");
+	set("unwield_msg", "$N將手中的$n插入腰間，覺得暖和多了。\n");
 	init_sword(50);
 	if( clonep(this_object()) )
 	{
@@ -48,7 +48,7 @@ void melt()
 		if( (int)env->query_skill("bingxue-xinfa", 1) < 20 )
 		{
 			if(environment(env))
-			message_vision("$N觉得身上凉凉的，湿湿的，原来是冰剑化了。\n", env);
+			message_vision("$N覺得身上涼涼的，溼溼的，原來是冰劍化了。\n", env);
 			destruct(this_object());
 			return;
 		}
@@ -58,7 +58,7 @@ void melt()
 //a room.
 		if( (string)env->query("outdoors") != "lingxiao" )
 		{
-			tell_object(env,"冰剑终于化成了一滩水，流得到处都是。\n");
+			tell_object(env,"冰劍終於化成了一灘水，流得到處都是。\n");
 			destruct(this_object());
 			return;
 		}

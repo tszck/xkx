@@ -9,22 +9,22 @@ int ask_for_gongzi();
 void create()
 {
         set_name("海公公", ({"hai gonggong", "hai", "gonggong"}));
-        set("title", "东厂千户");
+        set("title", "東廠千戶");
         set("long",
-"他是东厂大太监海大富，乔装改扮成商人模样出京寻欢作乐，长得既像
-老头又像老太太。\n"
+"他是東廠大太監海大富，喬裝改扮成商人模樣出京尋歡作樂，長得既像
+老頭又像老太太。\n"
         );
 
-        set("gender", "无性");
+        set("gender", "無性");
         set("rank_info/respect", "公公");
 
         set("attitude", "heroism");
         set("class", "eunach");
 
         set("inquiry",([
-                "自宫"    : (: ask_for_zigong :),
+                "自宮"    : (: ask_for_zigong :),
                 "zigong"  : (: ask_for_zigong :),
-                "工资"    : (: ask_for_gongzi :),
+                "工資"    : (: ask_for_gongzi :),
                 "薪水"    : (: ask_for_gongzi :),
                 "salary"  : (: ask_for_gongzi :),
                 "payment" : (: ask_for_gongzi :),
@@ -79,20 +79,20 @@ string ask_for_zigong()
 
         me = this_player();
 
-        if( (string)me->query("gender")=="无性" )
-                return "你我同是阉人，何必开如此无聊的玩笑？\n";
+        if( (string)me->query("gender")=="無性" )
+                return "你我同是閹人，何必開如此無聊的玩笑？\n";
 
         if( (string)me->query("gender") == "女性" )
-                return "我虽已废，但一样可以给你这个小美人带来快乐，要不要试试？\n";
+                return "我雖已廢，但一樣可以給你這個小美人帶來快樂，要不要試試？\n";
         if ((int)me->query_str() > 28 )
-                return "这位好汉过于粗壮，自宫有碍观瞻，不妥，不妥。\n";
+                return "這位好漢過於粗壯，自宮有礙觀瞻，不妥，不妥。\n";
 
         if ((int)me->query("mud_age") < 600)
-                return "这位小兄弟才出娘胎，就要自宫，好可怜见的。\n";
+                return "這位小兄弟纔出孃胎，就要自宮，好可憐見的。\n";
 
         me->set_temp("pending/zigong", 1);
-        return "自宫？这位公子相貌堂堂，何必... 我真希望能有你的那个。自宫之后，
-不可后悔，你若决心已定(decide)，告诉我。\n";
+        return "自宮？這位公子相貌堂堂，何必... 我真希望能有你的那個。自宮之後，
+不可後悔，你若決心已定(decide)，告訴我。\n";
 }
 
 int do_decide()
@@ -101,14 +101,14 @@ int do_decide()
                 return 0;
 
         message_vision(
-                "$N一咬牙，褪下中衣。（女玩家闭眼！）\n\n"
-                "$n伸出长剑插到$N两腿之间，飞速一剜，……\n\n"
-                "$N顿时惨叫一声昏了过去……\n\n",
+                "$N一咬牙，褪下中衣。（女玩家閉眼！）\n\n"
+                "$n伸出長劍插到$N兩腿之間，飛速一剜，……\n\n"
+                "$N頓時慘叫一聲昏了過去……\n\n",
                 this_player(), this_object() );
         command("chat 嗨……");
         command("hehe");
         this_player()->delete_temp("pending/zigong");
-        this_player()->set("gender","无性");
+        this_player()->set("gender","無性");
         this_player()->set("class", "eunach");
         this_player()->set("combat_exp",this_player()->query("combat_exp")+1000);
         this_player()->unconcious();
@@ -121,10 +121,10 @@ int ask_for_gongzi()
         int paytimes;
 
         me = this_player();
-        if( (string)me->query("gender")!="无性" ) return 0;
+        if( (string)me->query("gender")!="無性" ) return 0;
         if ( me->query_skill("bixie-jian",1) < 60)
         {
-                tell_object(me,"海公公道：下等使役太监哪有工资？进东厂再说！\n");
+                tell_object(me,"海公公道：下等使役太監哪有工資？進東廠再說！\n");
                	return 1;
         }
         paytimes = (int)(me->query("mud_age")/7200);
@@ -133,9 +133,9 @@ int ask_for_gongzi()
             payment=new("/clone/money/gold");
             payment->move(me);
             me->add("paytimes",1);
-            tell_object(me,"海公公道：这是你本月的份额，收好吧。\n");
+            tell_object(me,"海公公道：這是你本月的份額，收好吧。\n");
         }
-        else tell_object(me,"海公公道：欺负我老糊涂？你本月工资已经领取过了！\n");
+        else tell_object(me,"海公公道：欺負我老糊塗？你本月工資已經領取過了！\n");
         return 1;
 }
 

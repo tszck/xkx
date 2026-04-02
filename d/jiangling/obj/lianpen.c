@@ -5,10 +5,10 @@ inherit ITEM;
 
 void create()
 {
-	set_name("脸盆", ({"lian pen", "pen"}));
+	set_name("臉盆", ({"lian pen", "pen"}));
 	set("unit", "只");
 	set("no_get", 1);
 
-	set("long", "这是一只普通之极的脸盘，盆中装满了水。\n");
+	set("long", "這是一隻普通之極的臉盤，盆中裝滿了水。\n");
 	setup();
 }

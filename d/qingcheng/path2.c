@@ -6,8 +6,8 @@ void create()
 {
 	set("short", "青城山路");
 	set("long", @LONG
-你走在青城山路上。山木蔽日，幽静宜人。西上就是天师洞，
-东边是天然图画。
+你走在青城山路上。山木蔽日，幽靜宜人。西上就是天師洞，
+東邊是天然圖畫。
 LONG );
         set("outdoors","qingcheng");
 	set("exits", ([

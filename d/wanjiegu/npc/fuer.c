@@ -4,7 +4,7 @@ inherit NPC;
 
 void create()
 {
-        set_name("来福儿", ({ "lai fuer","lai" }) );
+        set_name("來福兒", ({ "lai fuer","lai" }) );
         set("gender", "男性" );
         set("age", 45);
         set("str", 16);
@@ -12,7 +12,7 @@ void create()
         set("dex", 21);
         set("per", 17);
         set("int", 14);
-        set("long", "来福儿是万劫谷的下人。\n");
+        set("long", "來福兒是萬劫谷的下人。\n");
         set("attitude", "friendly");
 
         set("max_force", 200);

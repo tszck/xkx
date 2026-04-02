@@ -5,13 +5,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "藏经阁二楼");
+	set("short", "藏經閣二樓");
 	set("long", @LONG
-千余年来少林寺执中原武林之牛耳，自达摩老祖以下，历代
-人材辈出。其中有不少高僧遗著留存，汇集至今，终成名震天下
-的少林七十二绝艺。少林精华，尽集于此。二楼四面开窗，确保
-通风。中间排列着五排大书架。四周则陈列矮几，以供阅读。几
-位老僧手执经卷，正在闭目凝思。
+千餘年來少林寺執中原武林之牛耳，自達摩老祖以下，歷代
+人材輩出。其中有不少高僧遺著留存，彙集至今，終成名震天下
+的少林七十二絕藝。少林精華，盡集於此。二樓四面開窗，確保
+通風。中間排列着五排大書架。四周則陳列矮几，以供閱讀。幾
+位老僧手執經卷，正在閉目凝思。
 LONG );
 	set("exits", ([
 		"down" : __DIR__"cjlou",
@@ -35,14 +35,14 @@ int valid_leave(object me, string dir)
 	object ob;
 
 	if (!present("yijinjing",this_object()) )
-		return notify_fail("镇寺之宝易筋经不见了, 你怎能就走呢！\n");
+		return notify_fail("鎮寺之寶易筋經不見了, 你怎能就走呢！\n");
 	if ( present("huizhen zunzhe", environment(me)) )
 	if ( present("shaolin wuji", me)
 	||   objectp(ob = present("corpse", me)) && present("shaolin wuji", ob) )
 	{
 		if (dir == "down" )
 		{
-			return notify_fail("慧真说道: 武功秘籍只许在藏经阁内研习，不得携带外出 !\n");
+			return notify_fail("慧真說道: 武功祕籍只許在藏經閣內研習，不得攜帶外出 !\n");
 		}
 	}
 	return ::valid_leave(me, dir);

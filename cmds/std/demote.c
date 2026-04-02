@@ -28,7 +28,7 @@ int main(object me, string arg)
 		str = replace_string(str, "$n", "某人");
 		str = replace_string(str, "$N", "你");
 		str = replace_string(str, "$p", "他");
-		str = replace_string(str, "$s", "壮士");
+		str = replace_string(str, "$s", "壯士");
 		str = replace_string(str, "$r", "小王八蛋");
 		if( strwidth(e[i]) > 6 )
 			msg += e[i]+"\t : ";
@@ -49,7 +49,7 @@ int help(object me)
 
 指令格式 : demote
 
-    这个指令可以列出目前所能使用的emote的具体内容。
+    這個指令可以列出目前所能使用的emote的具體內容。
 
 HELP
 	);

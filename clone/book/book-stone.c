@@ -19,8 +19,8 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "块");
-		set("long", "易筋经拳法篇。\n这是一块圆圆的石板，似乎用手指刻划了数个指印。\n");
+		set("unit", "塊");
+		set("long", "易筋經拳法篇。\n這是一塊圓圓的石板，似乎用手指刻劃了數個指印。\n");
 		set("value", 500);
 		set("material", "stone");
 		set("skill", ([

@@ -1,9 +1,9 @@
-// fumo.c 大金刚拳 perform 金刚伏魔
+// fumo.c 大金剛拳 perform 金剛伏魔
 
 #include <ansi.h>
 #include <combat.h>
 inherit F_SSERVER;
-#define PNAME "「金刚伏魔」"
+#define PNAME "「金剛伏魔」"
 int perform(object me, string arg)
 {
 	object target;
@@ -19,17 +19,17 @@ int perform(object me, string arg)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("你必须空手使用"PNAME"！\n");
+		return notify_fail("你必須空手使用"PNAME"！\n");
 
 	fskill = "yijinjing";
 	bskill = "cuff";
@@ -43,28 +43,28 @@ int perform(object me, string arg)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"等级不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"等級不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	if(me->query_skill_mapped("force") != fskill)
-			return notify_fail("你没有运用"+to_chinese(fskill)+"内功，无法使用"PNAME"进行攻击。\n"); 
+			return notify_fail("你沒有運用"+to_chinese(fskill)+"內功，無法使用"PNAME"進行攻擊。\n"); 
 
 	if(me->query_temp("fenxin"))
-		return notify_fail("你现在正在使用焚心绝技，不能用"PNAME"。\n"); 
+		return notify_fail("你現在正在使用焚心絕技，不能用"PNAME"。\n"); 
 	if( (int)me->query_str() < 28 )
-		return notify_fail("你的臂力不够强，不能使用"PNAME"！\n");
+		return notify_fail("你的臂力不夠強，不能使用"PNAME"！\n");
 	if( (int)me->query("max_neili") < 1000 )
-		return notify_fail("你的内力太弱，不能使用"PNAME"！\n");
+		return notify_fail("你的內力太弱，不能使用"PNAME"！\n");
 	if( (int)me->query("neili") < 700 )
-		return notify_fail("你的内力太少，无法使用出"PNAME"！\n");
+		return notify_fail("你的內力太少，無法使用出"PNAME"！\n");
 	if( me->query_temp("fumo")   )
-		return notify_fail("你正在使用大金刚拳的"PNAME"！\n");
+		return notify_fail("你正在使用大金剛拳的"PNAME"！\n");
 
 	i = (int)me->query_str() * 2;
 	z = (int)me->query_skill("force", 1)/5+(int)me->query_skill(bskill,1)/4;
-	msg = HIR"$N突然全身骨骼作响，口中默念「金刚伏魔」，运起易筋经神功，脸上一阵红色，全身好象有使不完的力量一样！\n" NOR;
+	msg = HIR"$N突然全身骨骼作響，口中默唸「金剛伏魔」，運起易筋經神功，臉上一陣紅色，全身好象有使不完的力量一樣！\n" NOR;
 	message_combatd(msg, me, target); 
 	me->add_temp("apply/strength", i);
 	me->set_temp("fumo", 1);
@@ -81,7 +81,7 @@ void remove_effect(object me, int i)
 //		me->delete_temp("apply/strength");
 		me->add_temp("apply/strength",-i);
 		me->delete_temp("fumo");
-		tell_object(me,HIR"你的「金刚伏魔」运功完毕，脸色也好看多了。\n"NOR);
+		tell_object(me,HIR"你的「金剛伏魔」運功完畢，臉色也好看多了。\n"NOR);
 	}
 }
 void check_fight(object me, int i, int z)
@@ -108,13 +108,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		可使臂力增强六倍，一招毙敌于掌下
+		可使臂力增強六倍，一招斃敵於掌下
 
 	出手要求：
-		后天臂力28
-		易筋经100
-		大金刚拳120
-		内力1000
+		後天臂力28
+		易筋經100
+		大金剛拳120
+		內力1000
 HELP
 	);
 	return 1;

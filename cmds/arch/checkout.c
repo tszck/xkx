@@ -10,29 +10,29 @@ inherit F_CLEAN_UP;
 
 
 mapping valid_types = ([
-        "array":        "阵法",
+        "array":        "陣法",
         "axe":          "斧法",
         "blade":        "刀法",
         "claw":         "爪法",
         "club" :        "棍法",
         "cuff":         "拳法",
         "dagger":       "短兵",
-        "dodge":        "轻功",
+        "dodge":        "輕功",
         "finger":       "指法",
-        "force":        "内功",
-        "hammer":       "锤法",
+        "force":        "內功",
+        "hammer":       "錘法",
         "hand":         "手法",
-        "hook":         "钩法",
+        "hook":         "鉤法",
         "leg":          "腿法",
-        "magic":        "法术",
+        "magic":        "法術",
         "parry":        "招架",
-        "spear":        "枪法",
+        "spear":        "槍法",
         "staff":        "杖法",
         "stick":        "棒法",
         "strike":       "掌法",
-        "sword":        "剑法",
+        "sword":        "劍法",
         "throwing":     "暗器",
-        "unarmed":      "拳脚",
+        "unarmed":      "拳腳",
         "whip":         "鞭法",
 ]);
 
@@ -51,10 +51,10 @@ int main(object me, string arg)
 		if ( !player )
 			player = find_living( arg );
 		if ( !player )
-			return notify_fail( "你想查看谁的状态? \n" );	
+			return notify_fail( "你想查看誰的狀態? \n" );	
 		map = player->query_skill_map();
                 if( !mapp(map) || sizeof(map)==0 )
-                        return notify_fail("他现在没有使用任何特殊技能。\n");
+                        return notify_fail("他現在沒有使用任何特殊技能。\n");
 
                 skill = keys(valid_types);
                 write("以下是他目前使用中的特殊技能。\n");
@@ -65,9 +65,9 @@ int main(object me, string arg)
                         }
                         if( !player->query_skill(skill[i]) ) continue;
                         modify = player->query_temp("apply/" + skill[i]);
-                        printf("  %-20s： %-20s  有效等级：%s%3d\n" NOR, 
+                        printf("  %-20s： %-20s  有效等級：%s%3d\n" NOR, 
                                 valid_types[skill[i]] + " (" + skill[i] + ")",
-                                undefinedp(map[skill[i]]) ? "无" : 
+                                undefinedp(map[skill[i]]) ? "無" : 
 to_chinese(map[skill[i]]),
                                 (modify==0 ? "" : (modify>0 ? HIC : HIR)),
                                 player->query_skill(skill[i]));
@@ -76,6 +76,6 @@ to_chinese(map[skill[i]]),
         }
 	else
 	{
-        	return notify_fail( "你想看谁的状态啊? \n" );
+        	return notify_fail( "你想看誰的狀態啊? \n" );
 	}
 }

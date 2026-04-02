@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("野猪", ({ "pig", "yezhu" }) );
+        set_name("野豬", ({ "pig", "yezhu" }) );
 	set("race", "走畜");
         set("age", 4);
         set("long", 
-"这是一只凶猛的野猪，长得极为粗壮，嘴里还不断发出可怕的哄声。\n");
+"這是一隻兇猛的野豬，長得極爲粗壯，嘴裏還不斷髮出可怕的哄聲。\n");
         set("attitude", "peaceful");
 
         set("str", 26);
@@ -17,8 +17,8 @@ void create()
         set("shen_type", -1);
         set("chat_msg_combat", ({
                 (: this_object(), "random_move" :),
-                "野猪大口大口地喘着气：呼哧！呼哧！呼哧！呼哧！\n",
-                "野猪突然跳了起来，眼睛恶狠狠地盯着你，看样子想要扑过来。\n"
+                "野豬大口大口地喘着氣：呼哧！呼哧！呼哧！呼哧！\n",
+                "野豬突然跳了起來，眼睛惡狠狠地盯着你，看樣子想要撲過來。\n"
         }) );
 
         set_temp("apply/attack", 15);
@@ -41,7 +41,7 @@ void init()
 void die()
 {
         object ob;
-        message_vision("$N哇呀地惨嚎一声，死了！\n", this_object());
+        message_vision("$N哇呀地慘嚎一聲，死了！\n", this_object());
         ob = new("/d/xiakedao/obj/pigdie");
         ob->move(environment(this_object()));
         destruct(this_object());

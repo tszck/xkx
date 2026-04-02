@@ -23,11 +23,11 @@ void init()
 
 void create()
 {
-	set_name("野兽", ({"ye shou", "shou"}));
-	set("race", "野兽");
+	set_name("野獸", ({"ye shou", "shou"}));
+	set("race", "野獸");
 	set("age", 100);
 	set_weight(150000);
-	set("long", "一只面目不清的野兽。\n");
+	set("long", "一隻面目不清的野獸。\n");
 	set("combat_exp", 1000);
 	set("wildness", 5);
 	set("loyalty", 5);
@@ -62,14 +62,14 @@ int train_it(object ob, object me, int pts)
 		if(me->is_fighting()) me->remove_all_enemy();
 		me->set_lord(ob);
 		if(!(msg_trained = me->query("msg_trained")))
-			msg_trained = "$N驯服了$n";
+			msg_trained = "$N馴服了$n";
  		
 		message_vision(msg_trained + "。\n", ob, me);
 
 		if(me->query("auto_follow"))
 		{
 			me->set_leader(ob);
-			message_vision("$n朝$N走了过来。\n", ob, me);
+			message_vision("$n朝$N走了過來。\n", ob, me);
 		}
 	}
 	return 1;
@@ -79,21 +79,21 @@ int do_gen(string arg)
 {
 	object /*vc,*/ me, ob = this_player();
 
-	if (!arg ) return notify_fail("你想让谁跟着你走？\n");
+	if (!arg ) return notify_fail("你想讓誰跟着你走？\n");
 	if(!objectp(me = present(arg, environment(ob))))
-		return notify_fail("这里没有这个生物。\n");
+		return notify_fail("這裏沒有這個生物。\n");
 	if( !me->is_character() || me->is_corpse() )
-		return notify_fail("看清楚一点，那并不是活物。\n");
-	if(ob==me) return notify_fail("这个好办。\n");
+		return notify_fail("看清楚一點，那並不是活物。\n");
+	if(ob==me) return notify_fail("這個好辦。\n");
 	message_vision("$N向$n招了招手。\n", ob, me);
 	if(me->query_lord() == ob)
 	{
 		me->set_leader(ob);
-		message_vision("$n朝$N走了过来。\n", ob, me);
+		message_vision("$n朝$N走了過來。\n", ob, me);
 	}
 	else
 	{
-		message_vision("$n对$N睬也不睬。\n", ob, me);
+		message_vision("$n對$N睬也不睬。\n", ob, me);
 	}
 	return 1;
 }
@@ -102,20 +102,20 @@ int do_stop(string arg)
 {
 	object /*vc,*/ me, ob = this_player();
 
-	if (!arg ) return notify_fail("你想让谁停下来？\n");
+	if (!arg ) return notify_fail("你想讓誰停下來？\n");
 	if(!objectp(me = present(arg, environment(ob))))
-		return notify_fail("这里没有这个生物。\n");
+		return notify_fail("這裏沒有這個生物。\n");
 	if( !me->is_character() || me->is_corpse() )
-		return notify_fail("看清楚一点，那并不是活物。\n");
+		return notify_fail("看清楚一點，那並不是活物。\n");
 	if(ob==me) return notify_fail("用halt命令。\n");
 
-	message_vision("$N拍一拍$n的头。\n", ob, me);
+	message_vision("$N拍一拍$n的頭。\n", ob, me);
 	if(me->query_lord() == ob)
 	{
 		if (me->is_fighting())
 		{
 			me->remove_all_enemy();
-			message_vision("$N缩在$n的脚边不咬人了。\n",me,ob);
+			message_vision("$N縮在$n的腳邊不咬人了。\n",me,ob);
 			return 1;
 		}
 		else
@@ -126,7 +126,7 @@ int do_stop(string arg)
 	}
 	else
 	{
-		 message_vision("$n对$N睬也不睬。\n", ob, me);
+		 message_vision("$n對$N睬也不睬。\n", ob, me);
 	}
 	return 1;
 }
@@ -138,18 +138,18 @@ int do_yao(string victim)
 
 	if(! victim)
 	{
-		message_vision("咬谁？\n", ob, me);
+		message_vision("咬誰？\n", ob, me);
 		return 1;
 	}
 	if(!(vc = present(victim,environment(me))))
 	{
-		message_vision("$N拍拍$n的头。\n", ob, me);
-		write(me->name()+"找不到这个人。\n");
+		message_vision("$N拍拍$n的頭。\n", ob, me);
+		write(me->name()+"找不到這個人。\n");
 		return 1;
 	}
 	if (vc == ob)
 	{
-		message_vision("$N拍拍$n的头，又指了指自己。\n", ob, me);
+		message_vision("$N拍拍$n的頭，又指了指自己。\n", ob, me);
 		if(me->query_lord()==ob)
 		{
 			message_vision("$n疑惑地看着$N。\n", ob, me);
@@ -161,12 +161,12 @@ int do_yao(string victim)
 	}
 	if (vc == me)
 	{
-		message_vision("$N拍拍$n的头，指了指它的尾巴。\n", ob, me);
-		message_vision("$n咬着自己的尾巴转了一个圈。\n", ob, me);
+		message_vision("$N拍拍$n的頭，指了指它的尾巴。\n", ob, me);
+		message_vision("$n咬着自己的尾巴轉了一個圈。\n", ob, me);
 		return 1;
 	}
 
-	message_vision("$N拍拍$n的头，又指了指" + vc->query("name") +
+	message_vision("$N拍拍$n的頭，又指了指" + vc->query("name") +
 		"。\n", ob, me);
 	if(me->query_lord() != ob)
 	{
@@ -175,7 +175,7 @@ int do_yao(string victim)
 //		atk = random(10);
 //		message_vision("$n疑惑地看了看$N，", vc, me);
 //		message_vision("又看了看$N。\n", ob, me);
-		message_vision("$n对$N睬也不睬。\n", ob, me);
+		message_vision("$n對$N睬也不睬。\n", ob, me);
 		return 1;
 //		if(atk > 6)  vc = ob;
 	}
@@ -185,7 +185,7 @@ int do_yao(string victim)
 //		if(me->query_lord() == vc) vc = ob;
 		remove_call_out("biting");
 		call_out("biting",1,me,vc);
-		message_vision("$n向$N扑了过去。\n", vc, me);
+		message_vision("$n向$N撲了過去。\n", vc, me);
 	}
 	return 1;
 }
@@ -197,7 +197,7 @@ int do_ting()
 	if(me->query_lord()==ob && !me->query("rider"))
 	{
 		me->set_leader(0);
-		message_vision("$N对$n挥了挥手，$n垂首走开了。\n", ob, me);
+		message_vision("$N對$n揮了揮手，$n垂首走開了。\n", ob, me);
 		return 1;
 	}
 	return 0;
@@ -214,7 +214,7 @@ int do_fang()
 		me->set_leader(0);
 		if (me->query("rider") == ob) me->delete("rider");
 		if (ob->query("rided") == me) ob->delete("rided");
-		message_vision("$N在$n耳边轻声说了几句，$n垂首走开了。\n", ob, me);
+		message_vision("$N在$n耳邊輕聲說了幾句，$n垂首走開了。\n", ob, me);
 		me->set_temp("prelord",ob->query("id"));
 		return 1;
 	}

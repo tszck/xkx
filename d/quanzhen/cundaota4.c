@@ -1,4 +1,4 @@
-// cundaota4.c 存道塔顶
+// cundaota4.c 存道塔頂
 // Winder Oct.10 1998
 
 #include <ansi.h>
@@ -8,11 +8,11 @@ int do_dian(string arg);
 
 void create()
 {
-        set("short", "存道塔顶");
+        set("short", "存道塔頂");
         set("long", @LONG
-这里是存道塔的塔顶，塔梯到这里就到了尽头。墙壁上开着几
-个窗户(window)，一个中年道人正捧着一本书苦苦研读。天色昏暗，
-桌上摆放着一支蜡烛(candle)，却没有点着。
+這裏是存道塔的塔頂，塔梯到這裏就到了盡頭。牆壁上開着幾
+個窗戶(window)，一箇中年道人正捧着一本書苦苦研讀。天色昏暗，
+桌上擺放着一支蠟燭(candle)，卻沒有點着。
 LONG
         );
         set("exits", ([
@@ -23,8 +23,8 @@ LONG
         ]));
 
         set("item_desc", ([
-        "window": "窗外白云飘过，似乎你一伸手就可以抓住一片。\n",
-        "candle": "一支普通的蜡烛，已经点的只剩一小半了。\n"
+        "window": "窗外白雲飄過，似乎你一伸手就可以抓住一片。\n",
+        "candle": "一支普通的蠟燭，已經點的只剩一小半了。\n"
         ]) );
 
         set("count",1);
@@ -46,22 +46,22 @@ int do_dian(string arg)
         object me=this_player();
 
         if (!arg || arg != "candle")
-                return notify_fail("你要点燃什么？\n");
+                return notify_fail("你要點燃什麼？\n");
 
         if ( query("count")>0 &&
         present("zhangjing", environment(me)) &&
         living(present("zhangjing", environment(me))) ) {
-                message_vision(HIG"$N走上前去，打着火把蜡烛点燃，屋里顿时亮堂了许多。\n"NOR,this_player());
-                message_vision("掌经道长抬起头，好象刚从沉思中恢复过来似的，道：天\n",this_player());
-                message_vision("色已晚了吗，唉，我读这本道德经竟然连天色也忘记了。\n",this_player());
-                message_vision("好，多谢这位"+RANK_D->query_respect(me)+"了，我身上这东西是掌药师弟送给我\n",this_player());
-                message_vision("的，也不知道有什么用，现在送给你啦。\n",this_player());
+                message_vision(HIG"$N走上前去，打着火把蠟燭點燃，屋裏頓時亮堂了許多。\n"NOR,this_player());
+                message_vision("掌經道長抬起頭，好象剛從沉思中恢復過來似的，道：天\n",this_player());
+                message_vision("色已晚了嗎，唉，我讀這本道德經竟然連天色也忘記了。\n",this_player());
+                message_vision("好，多謝這位"+RANK_D->query_respect(me)+"了，我身上這東西是掌藥師弟送給我\n",this_player());
+                message_vision("的，也不知道有什麼用，現在送給你啦。\n",this_player());
                 add("count",-1);
                 ob=new("/clone/medicine/vegetable/moyao");
                 ob->move(me);
         }
         else {
-                message_vision("$N走上前去，打着火把蜡烛点燃，屋里顿时亮堂了许多。\n",this_player());
+                message_vision("$N走上前去，打着火把蠟燭點燃，屋裏頓時亮堂了許多。\n",this_player());
         }
         return 1;
 }

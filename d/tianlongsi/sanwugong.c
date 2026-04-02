@@ -2,10 +2,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "三无宫");
+        set("short", "三無宮");
         set("long",@LONG
-这里可以买香到后面参拜西方大士。几个进香客正围着一个老年僧
-人讨价还价。
+這裏可以買香到後面參拜西方大士。幾個進香客正圍着一個老年僧
+人討價還價。
 LONG );
         set("exits", ([
                 "southeast" : __DIR__"doushuai",

@@ -2,7 +2,7 @@
 inherit F_CLEAN_UP;
 
 #include <ansi.h>
-#define SYNTAX	"指令格式：purge [<未上线天数>] | <使用者姓名> because <原因>\n"
+#define SYNTAX	"指令格式：purge [<未上線天數>] | <使用者姓名> because <原因>\n"
 
 
 
@@ -17,7 +17,7 @@ int main(object me, string arg)
 	status = wizhood(me);
 	if( me!=this_player(1)
 	|| wiz_level(me) < wiz_level(status) )
-		return notify_fail("你没有权力使用这个指令。\n");
+		return notify_fail("你沒有權力使用這個指令。\n");
 
 	if( !arg ) return notify_fail(SYNTAX);
 
@@ -28,12 +28,12 @@ int main(object me, string arg)
 
 	seteuid(getuid());
 	if( file_size(DATA_DIR + "login/" + name[0..0] + "/" + name + __SAVE_EXTENSION__)<0 )
-		return notify_fail("没有这位使用者。\n");
+		return notify_fail("沒有這位使用者。\n");
 
 	rm(DATA_DIR + "login/" + name[0..0] + "/" + name + __SAVE_EXTENSION__);
 	rm(DATA_DIR + "user/" + name[0..0] + "/" + name + __SAVE_EXTENSION__);
 	rm(DATA_DIR + "mail/" + name[0..0] + "/" + name + __SAVE_EXTENSION__);
-	write( "使用者 " + capitalize(name) + " 删除掉了。\n");
+	write( "使用者 " + capitalize(name) + " 刪除掉了。\n");
 	log_file("static/PURGE", sprintf("[%s] %s purged %s because %s.\n",
 		ctime(time())[0..15], geteuid(this_player(1)), name, reason));
 
@@ -47,8 +47,8 @@ private int do_purge_players(int day)
 	mixed info;
 
 	seteuid(getuid());
-	message("system", "\n*** 整理玩家储存档中，请稍候.... ***\n", users());
-	write("处理中：");
+	message("system", "\n*** 整理玩家儲存檔中，請稍候.... ***\n", users());
+	write("處理中：");
 	count = 0;
 	ppl_cnt = 0;
 	dir = get_dir(DATA_DIR + "login/");
@@ -70,9 +70,9 @@ private int do_purge_players(int day)
 			}
 		}
 	}
-	write("\n\n原来总共有 " + ppl_cnt + " 位使用者。\n");
-	write( count + " 个超过 " + day + " 天未上线的使用者被清除掉了。\n");
-	write("现在总共有 " + (ppl_cnt - count) + " 位使用者。\n");
+	write("\n\n原來總共有 " + ppl_cnt + " 位使用者。\n");
+	write( count + " 個超過 " + day + " 天未上線的使用者被清除掉了。\n");
+	write("現在總共有 " + (ppl_cnt - count) + " 位使用者。\n");
 	log_file("static/PURGE", sprintf("[%s] %s cleaned up %d characters who didn't login for more than %d days\n"
 		"\t\tResulting statistics: %d characters remaining.\n",
 		ctime(time())[0..15], geteuid(this_player(1)), count, day, ppl_cnt - count));
@@ -84,9 +84,9 @@ private int do_purge_players(int day)
 int help(object me)
 {
 write(@HELP
-指令格式：purge [<未上线天数>] | <使用者姓名> because <原因>
+指令格式：purge [<未上線天數>] | <使用者姓名> because <原因>
 
-清除一个使用者或清除超过一定天数不曾上线地使用者。
+清除一個使用者或清除超過一定天數不曾上線地使用者。
 HELP
 	);
     return 1;

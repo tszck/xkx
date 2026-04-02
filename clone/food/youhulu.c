@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 // hulu.c 
@@ -8,13 +8,13 @@ inherit F_LIQUID;
 
 void create()
 {
-  set_name("油葫芦", ({"you hulu", "youhulu", "hulu", "hu"}));
+  set_name("油葫蘆", ({"you hulu", "youhulu", "hulu", "hu"}));
   set_weight(700);
   if (clonep())
     set_default_object(__FILE__);
   else {
-    set("long", "一个装满菜油的葫芦。\n");
-    set("unit", "个");
+    set("long", "一個裝滿菜油的葫蘆。\n");
+    set("unit", "個");
     set("value", 100);
     set("max_liquid", 20);
     set("liquid", ([
@@ -39,7 +39,7 @@ int do_drink (string arg)
   if (me == present(arg,who) &&
       me->query("liquid/name")=="菜油")
   {
-    message_vision ("$N拿起$n往嘴里就灌。\n",who,me);
+    message_vision ("$N拿起$n往嘴裏就灌。\n",who,me);
     call_out ("reacting",1,who,me);
     return 1;
   }
@@ -49,5 +49,5 @@ int do_drink (string arg)
 void reacting (object who, object me)
 {
   if (who)
-    message_vision ("$N一阵恶心，差点吐出来。\n",who,me);
+    message_vision ("$N一陣噁心，差點吐出來。\n",who,me);
 }

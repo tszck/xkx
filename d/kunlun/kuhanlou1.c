@@ -7,16 +7,16 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "苦寒楼一层");
+	set("short", "苦寒樓一層");
 	set("long", @LONG
-这里是苦寒楼的底层。苦寒楼结构简单，四周为浓密的云杉包围。
-取名自“梅花香自苦寒来”之意，乃是昆仑派前辈为了激励后进昆仑派
-弟子而建的，往上看，长长的木楼梯盘绕而上，似乎永无尽头。青砖地
-相当洁净，看来经常有人打扫。四面墙上的壁画(bihua) 都是前辈们留
-下武功图谱。
+這裏是苦寒樓的底層。苦寒樓結構簡單，四周爲濃密的雲杉包圍。
+取名自“梅花香自苦寒來”之意，乃是崑崙派前輩爲了激勵後進崑崙派
+弟子而建的，往上看，長長的木樓梯盤繞而上，似乎永無盡頭。青磚地
+相當潔淨，看來經常有人打掃。四面牆上的壁畫(bihua) 都是前輩們留
+下武功圖譜。
 LONG );
 	set("item_desc",([
-		"bihua" : "壁画上人物的招式全是守御招法，绵绵不绝，妙不可言，引得你凝神揣摩(chuaimo)。\n",
+		"bihua" : "壁畫上人物的招式全是守禦招法，綿綿不絕，妙不可言，引得你凝神揣摩(chuaimo)。\n",
 	]));
 	set("exits", ([
 		"up"  : __DIR__"kuhanlou2",
@@ -46,24 +46,24 @@ int do_chuaimo(string arg)
 {
 	object me = this_player();
 	if ( !living(this_player()) || arg != "parry" )
-		return notify_fail("你要揣摩什么武功？\n");
+		return notify_fail("你要揣摩什麼武功？\n");
 	if ((int)me->query_skill("parry", 1) > 40)
-		return notify_fail("壁画上所刻的武功你已全部领会了，不必再浪费时间了。\n");
+		return notify_fail("壁畫上所刻的武功你已全部領會了，不必再浪費時間了。\n");
 	if ( me->query_skill("xuantian-wuji", 1)<30)
 	{
 		me->receive_damage("jing", 10);
-		write("你本门内功实在太差，还是先休息一会吧！\n");
+		write("你本門內功實在太差，還是先休息一會吧！\n");
 		return 1;
 	}
 	if ( (int)me->query("jing")<30)
 	{
 		me->receive_damage("jing", 10);
-		write("你的琢磨的脑袋都大了，还是先休息一会吧！\n");
+		write("你的琢磨的腦袋都大了，還是先休息一會吧！\n");
 		return 1;
 	}
 	me->receive_damage("jing", random(25));
-	message_vision("$N正在揣摩壁画上的武功。\n", me);
-	write("你专心致志的揣摩壁画上的招式，感觉基本招架又进了一步。\n");
+	message_vision("$N正在揣摩壁畫上的武功。\n", me);
+	write("你專心致志的揣摩壁畫上的招式，感覺基本招架又進了一步。\n");
 	me->improve_skill("parry", me->query_int());
 	return 1;
 } 

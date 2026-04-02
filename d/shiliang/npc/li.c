@@ -8,7 +8,7 @@ void create()
 	set("gender", "男性");
 	set("age", 20);
 	set("long",
-		"这是一个十分凶恶的崆峒派道人。\n");
+		"這是一個十分兇惡的崆峒派道人。\n");
 	set("combat_exp", 120000);
         set("shen_type", -1);
 	set("attitude", "aggressive");

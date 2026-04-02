@@ -4,9 +4,9 @@
 inherit NPC;
 void create()
 {
-	set_name("察合台",({"cha hetai","cha","hetai"}));
+	set_name("察合臺",({"cha hetai","cha","hetai"}));
 	set("gender","男性");
-	set("long","铁木真的二儿子，生性粗鲁，两颗獠牙露在嘴唇外！\n");
+	set("long","鐵木真的二兒子，生性粗魯，兩顆獠牙露在嘴脣外！\n");
 	set("mingwang",-15000);
 	set("combat_exp", 200000);
 	set("age",34);
@@ -18,8 +18,8 @@ void create()
 	set("max_neili",800);
 	set("chat_chance",5);
 	set("chat_msg",({
-		"我总看不顺眼拖雷这小子，老跟我作对。\n",
-		"郭靖这傻小子居然还有人喜欢，老子早晚要把他杀了。\n",
+		"我總看不順眼拖雷這小子，老跟我作對。\n",
+		"郭靖這傻小子居然還有人喜歡，老子早晚要把他殺了。\n",
 	}));
 	set_skill("dodge", 60);
 	set_skill("force", 60);

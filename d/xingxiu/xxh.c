@@ -7,11 +7,11 @@ void create()
 {
 	set("short", "星宿海");
 	set("long", @LONG
-这里是天山脚下的星宿海海边。因方圆几百里都是一望无际的湖泊
-和沼泽，地形十分险恶。当地牧羊人称之为“海”。一旦有几只离群的
-羊走迷在“海”里，便再也找不着了。臭名昭著的星宿派总坛便设在海
+這裏是天山腳下的星宿海海邊。因方圓幾百裏都是一望無際的湖泊
+和沼澤，地形十分險惡。當地牧羊人稱之爲“海”。一旦有幾隻離羣的
+羊走迷在“海”裏，便再也找不着了。臭名昭著的星宿派總壇便設在海
 中央。
-    南面有一条捷径可通往白驼山。
+    南面有一條捷徑可通往白駝山。
 LONG );
 	set("exits", ([
 		"north"   : __DIR__"xxh1",
@@ -44,7 +44,7 @@ int valid_leave(object me, string dir)
 			living(present("zhaixing zi", environment(me))))
 		{
 			if ((me->query("shen") > 100))
-				return notify_fail("摘星子喝道：这位"+RANK_D->query_respect(me)+"休走！\n");
+				return notify_fail("摘星子喝道：這位"+RANK_D->query_respect(me)+"休走！\n");
 		}
 		return ::valid_leave(me, dir);
 	}

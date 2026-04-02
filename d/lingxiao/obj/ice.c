@@ -16,11 +16,11 @@ void create()
 		set_default_object(__FILE__); 
 	else { 
 		set("unit", "柄"); 
-		set("long","这是一片长长的冰柱，看起来晶莹剔透，锋锐无比，不知道能不能吃。\n");
+		set("long","這是一片長長的冰柱，看起來晶瑩剔透，鋒銳無比，不知道能不能喫。\n");
 		set("unit", "片" ); 
 		set("value", 8); 
-		set("wield_msg", "$N「唰」的一声抽出一柄$n握在手中。\n"); 
-		set("unwield_msg", "$N小心将手中的$n放回怀中。\n");
+		set("wield_msg", "$N「唰」的一聲抽出一柄$n握在手中。\n"); 
+		set("unwield_msg", "$N小心將手中的$n放回懷中。\n");
 		set("material", "ice");
 	} 
 	init_sword(25);
@@ -41,7 +41,7 @@ void melt()
 //a player or a NPC.
 		if( (int)env->query_skill("bingxue-xinfa", 1) < 20 )
 		{
-			message_vision("$N觉得身上凉凉的，湿湿的，原来是冰柱化了。\n", env);
+			message_vision("$N覺得身上涼涼的，溼溼的，原來是冰柱化了。\n", env);
 			destruct(this_object());
 			return;
 		}
@@ -51,7 +51,7 @@ void melt()
 //a room.
 		if( (string)env->query("outdoors") != "lingxiao" )
 		{
-			tell_object(env,"冰柱终于化成了一滩水，流得到处都是。\n");
+			tell_object(env,"冰柱終於化成了一灘水，流得到處都是。\n");
 			destruct(this_object());
 			return;
 		}
@@ -74,21 +74,21 @@ int do_make(string arg)
 	object ob, me = this_player();
 
 	if( !arg || (arg != "sword" && arg != "jian" ) )
-		return notify_fail("你要做什么？\n");
+		return notify_fail("你要做什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要做什么？\n");
+		return notify_fail("你要做什麼？\n");
 
 	if( (int)me->query("neili") < 200 ||
 		(int)me->query_skill("bingxue-xinfa", 1) < 20 )
 	{
-		message_vision("$N拿起冰柱捏来捏去，结果冰柱很快就化掉了。\n", me);
+		message_vision("$N拿起冰柱捏來捏去，結果冰柱很快就化掉了。\n", me);
 		destruct(this_object());
 		return 1;
 	}   
 	ob=new("/d/lingxiao/obj/icesword");
 	ob->move(me);
 	me->add("neili", -100);
-	message_vision( HIW"$N拿起冰柱，暗运冰雪心法，只见冰柱透出一股清气，居然变成了一把剑！\n"NOR, me);
+	message_vision( HIW"$N拿起冰柱，暗運冰雪心法，只見冰柱透出一股清氣，居然變成了一把劍！\n"NOR, me);
 	destruct(this_object());
 	return 1;
 }
@@ -97,9 +97,9 @@ int do_chi(string arg)
 {   
 	if( !this_object()->id(arg) ) return 0;
 	if( this_player()->is_busy() )
-		return notify_fail("你上一个动作还没有完成。\n");
-	if(!arg) return notify_fail("你要吃什么？\n");
-	message_vision( "$N拿起冰柱使劲一咬，只听嘎哒！一声，牙甭了。\n" , this_player());
+		return notify_fail("你上一個動作還沒有完成。\n");
+	if(!arg) return notify_fail("你要喫什麼？\n");
+	message_vision( "$N拿起冰柱使勁一咬，只聽嘎噠！一聲，牙甭了。\n" , this_player());
 	if( (int)this_player()->query("qi") > 20 )
 		this_player()->add("qi", -20);
 	else this_player()->unconcious();

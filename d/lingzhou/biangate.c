@@ -6,10 +6,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "边门");
+	set("short", "邊門");
 	set("long", @LONG
-这里是皇宫的边门，供侍卫和内侍们出入之用，宫里所需的东西一
-般都由此运入，因为比较偏僻，守卫的卫士也不多。
+這裏是皇宮的邊門，供侍衛和內侍們出入之用，宮裏所需的東西一
+般都由此運入，因爲比較偏僻，守衛的衛士也不多。
 LONG );
 	set("exits", ([
 		"west" : __DIR__"chaifang",
@@ -23,13 +23,13 @@ LONG );
 	set("coor/y", 32110);
 	set("coor/z", 0);
 	setup();
-	create_door("west" , "木门", "east" , DOOR_CLOSED);
+	create_door("west" , "木門", "east" , DOOR_CLOSED);
 }
 
 int valid_leave(object me, string dir)
 {
 	if (dir == "west" && objectp(present("wei shi", environment(me))))
-		return notify_fail("卫士对你大吼一声：放肆！那不是你能进去的地方。\n");
+		return notify_fail("衛士對你大吼一聲：放肆！那不是你能進去的地方。\n");
 
 	return ::valid_leave(me, dir);
 }

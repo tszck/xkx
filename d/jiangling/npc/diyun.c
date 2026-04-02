@@ -6,8 +6,8 @@ string ask_me();
 void create ()
 {
 	object weapon;
-	set_name("狄云", ({"di yun","di"}));
-	set("long", "他长脸黝黑，颧骨微高，粗手大脚，象是湘西乡下常见的庄稼汉子。\n");
+	set_name("狄雲", ({"di yun","di"}));
+	set("long", "他長臉黝黑，顴骨微高，粗手大腳，象是湘西鄉下常見的莊稼漢子。\n");
 	set("gender", "男性");
 	set("age", 24);
 	set("combat_exp", 1500000);
@@ -58,14 +58,14 @@ string ask_me()
 
 	add("wucan_count", -1);
 	this_player()->set_temp("marks/wucan", 1);
-	return "水笙姑娘？她在雪域等着我？她有什么东西捎给我么？";
+	return "水笙姑娘？她在雪域等着我？她有什麼東西捎給我麼？";
 }
 int accept_object(object who, object ob)
 {
 	object obj;
 	if (ob->query("id") != "da chang")
-		return notify_fail("给我这东西有什么用？");
-	message_vision("狄云笑着说道：“谢谢你！这位" + RANK_D->query_respect(ob) +"，辛苦你了。”\n", who);
+		return notify_fail("給我這東西有什麼用？");
+	message_vision("狄雲笑着說道：“謝謝你！這位" + RANK_D->query_respect(ob) +"，辛苦你了。”\n", who);
 	if (!who->query_temp("marks/wucan"))
 	{
 		return 1;
@@ -77,7 +77,7 @@ int accept_object(object who, object ob)
 		destruct( obj );
 		return 1;
 	}
-	message_vision("狄云对$N说道：“这件乌蚕衣也不算是什么宝贝，聊表心意吧！”狄云从怀里掏出一团不起眼的东西，递到$N的手上。\n", who);
+	message_vision("狄雲對$N說道：“這件烏蠶衣也不算是什麼寶貝，聊表心意吧！”狄雲從懷裏掏出一團不起眼的東西，遞到$N的手上。\n", who);
 	obj->move(this_player());
 	return 1;
 }

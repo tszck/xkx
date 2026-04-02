@@ -11,8 +11,8 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一块碧绿如缎的玉。\n");
-		set("unit", "块");
+		set("long", "一塊碧綠如緞的玉。\n");
+		set("unit", "塊");
 		set("value", 80000 );
 	}
 

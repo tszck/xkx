@@ -57,7 +57,7 @@ int check(object me,object obj)
 			ob=new(flower_path+"qingren_cao");
 			ob->set_amount(flowers[0]["amount"]);
 		}
-		//红玫瑰
+		//紅玫瑰
 		if(flowers[0]["flower_id"]=="hong meigui")
 		{
 			ob=new(flower_path+"red_rose");
@@ -81,7 +81,7 @@ int check(object me,object obj)
 			ob=new(flower_path+"mu_dan");
 			ob->set_amount(flowers[0]["amount"]);
 		}
-		//郁金香
+		//鬱金香
 		if(flowers[0]["flower_id"]=="yu jinxiang")
 		{
 			ob=new(flower_path+"yu_jinxiang");
@@ -99,19 +99,19 @@ int check(object me,object obj)
 			ob=new(flower_path+"kang_naixin");
 			ob->set_amount(flowers[0]["amount"]);
 		}
-		//金鱼草
+		//金魚草
 		if(flowers[0]["flower_id"]=="jinyu cao")
 		{
 			ob=new(flower_path+"jin_yucao");
 			ob->set_amount(flowers[0]["amount"]);
 		}
-		//火鹤
+		//火鶴
 		if(flowers[0]["flower_id"]=="huo he")
 		{
 			ob=new(flower_path+"huo_he");
 			ob->set_amount(flowers[0]["amount"]);
 		}
-		//蝴蝶兰
+		//蝴蝶蘭
 		if(flowers[0]["flower_id"]=="hudie lan")
 		{
 			ob=new(flower_path+"hu_dielan");
@@ -123,24 +123,24 @@ int check(object me,object obj)
 			ob=new(flower_path+"qiu_haitang");
 			ob->set_amount(flowers[0]["amount"]);
 		}
-		//石斛兰
+		//石斛蘭
 		if(flowers[0]["flower_id"]=="shihu lan")
 		{
 			ob=new(flower_path+"shi_hulan");
 			ob->set_amount(flowers[0]["amount"]);
 		}
-		//马蹄莲
+		//馬蹄蓮
 		if(flowers[0]["flower_id"]=="mati lian")
 		{
 			ob=new(flower_path+"ma_tilian");
 			ob->set_amount(flowers[0]["amount"]);
 		}
 
-		tell_object(me,"\n一个卖花的小姑娘脚步蹒跚的走了过来。\n");
-		tell_object(me,"卖花姑娘走到你跟前欠身说道：“这里有您的花，是"+flowers[0]["from"]+"送给您的。”\n");
-		tell_object(me,"卖花姑娘从花篮中拿出一束"+flowers[0]["flowername"]+"交到你手里。\n");
-		tell_object(me,"卖花姑娘对你微微一笑道：“花已经送到，小女子告退。”\n");
-		tell_object(me,"卖花姑娘走了出去。\n");
+		tell_object(me,"\n一個賣花的小姑娘腳步蹣跚的走了過來。\n");
+		tell_object(me,"賣花姑娘走到你跟前欠身說道：“這裏有您的花，是"+flowers[0]["from"]+"送給您的。”\n");
+		tell_object(me,"賣花姑娘從花籃中拿出一束"+flowers[0]["flowername"]+"交到你手裏。\n");
+		tell_object(me,"賣花姑娘對你微微一笑道：“花已經送到，小女子告退。”\n");
+		tell_object(me,"賣花姑娘走了出去。\n");
 		if(!ob) ob=new(flower_path+"qingren_cao");
 		ob->move(me);
 		modify_flower(flowers[0]);

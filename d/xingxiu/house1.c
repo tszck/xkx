@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "巴依家客厅");
+	set("short", "巴依家客廳");
 	set("long", @LONG
-这是巴依家的客厅。地上铺着波斯地毯，木架上摆着中原的瓷器。
-看得出这家的主人一定很有钱。
+這是巴依家的客廳。地上鋪着波斯地毯，木架上擺着中原的瓷器。
+看得出這家的主人一定很有錢。
 LONG );
 	set("exits", ([ 
 	    "west" : __DIR__"house",

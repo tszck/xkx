@@ -10,8 +10,8 @@ int redeem(string arg);
 void create()
 {
 	set_name("燕六", ({ "yan liu", "yan" }));
-	set("nickname", "有钱能使鬼推磨");
-	set("long", "这是个爱财如命的家伙。\n");
+	set("nickname", "有錢能使鬼推磨");
+	set("long", "這是個愛財如命的傢伙。\n");
 	set("shen_type", 0);
 
 	set("gender", "男性");

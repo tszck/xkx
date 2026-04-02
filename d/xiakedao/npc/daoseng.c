@@ -6,7 +6,7 @@ void create()
         set_name("刀僧", ({"daoseng","walker",}));
         set("title", "少林刀僧");
         set("long",
-                "他是一位云游四方的行者，风霜满面，行色匆匆，似乎正在办一件急事。\n"
+                "他是一位雲遊四方的行者，風霜滿面，行色匆匆，似乎正在辦一件急事。\n"
         );
 
         set("gender", "男性");
@@ -63,7 +63,7 @@ void init()
         && !environment(ob)->query("no_fight") && ob->query("gender")=="男性"
         && ( (fam = ob->query("family")) && fam["family_name"] != "少林派" && ob->query("class") == "bonze") )
         {
-                command("say 你这个无耻少林叛徒，纳命来吧！！！\n");
+                command("say 你這個無恥少林叛徒，納命來吧！！！\n");
                 me->set_leader(ob);
                 me->kill_ob(ob);
                 ob->fight_ob(me);

@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("征东将军", ({ "dog"}) );
-	set("race", "走兽");
+	set_name("徵東將軍", ({ "dog"}) );
+	set("race", "走獸");
 	set("age", 4);
-	set("long", "一只昂首挺胸，吐着长舌头的大恶狗。\n");
+	set("long", "一隻昂首挺胸，吐着長舌頭的大惡狗。\n");
 	set("attitude", "peaceful");
 	
 	set("str", 26);
@@ -37,7 +37,7 @@ void init()
 void die()
 {
 	object ob;
-	message_vision("$N惨嚎一声，死了！\n", this_object());
+	message_vision("$N慘嚎一聲，死了！\n", this_object());
 	ob = new(__DIR__"obj/goupi");
 	ob->move(environment(this_object()));
 	destruct(this_object());

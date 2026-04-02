@@ -1,4 +1,4 @@
-// literate.c 读书写字
+// literate.c 讀書寫字
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -16,19 +16,19 @@ void skill_improved(object me)
 int valid_learn(object me)
 {
 //	if ( me->query("class") != "bonze" )
-//		return notify_fail("你现在不能学习读书写字。\n");
+//		return notify_fail("你現在不能學習讀書寫字。\n");
 	return 1;
 }
 
 int help(object me)
 {
-	write(HIC"\n读书写字："NOR"\n");
+	write(HIC"\n讀書寫字："NOR"\n");
 	write(@HELP
 
-    读书写字是自学武籍的基础，并能改善你后天的悟性。
+    讀書寫字是自學武籍的基礎，並能改善你後天的悟性。
 
-	学习要求：
-		无
+	學習要求：
+		無
 HELP
 	);
 	return 1;

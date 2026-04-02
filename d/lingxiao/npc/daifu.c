@@ -10,7 +10,7 @@ void create()
 	set("str", 60);
 	set("gender", "男性");
 	set("age", 18);
-	set("long", "他是凌霄城的名医,在城中救人无数,深得尊敬。\n");
+	set("long", "他是凌霄城的名醫,在城中救人無數,深得尊敬。\n");
 	set("combat_exp", 1000);
 	set("attitude", "friendly");
 	set("vendor_goods", ({

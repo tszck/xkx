@@ -6,11 +6,11 @@ inherit F_FOOD;
 
 void create()
 {
-	set_name(WHT"菱白虾仁"NOR, ({ "lingbai xiaren", "xiaren" }) );
+	set_name(WHT"菱白蝦仁"NOR, ({ "lingbai xiaren", "xiaren" }) );
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一盆香喷喷热气腾腾的菱白虾仁。\n");
+		set("long", "一盆香噴噴熱氣騰騰的菱白蝦仁。\n");
 		set("unit", "盆");
 		set("value", 180);
 		set("food_remaining", 8);

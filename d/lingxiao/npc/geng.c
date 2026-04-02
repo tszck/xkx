@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("耿万钟",({"geng wanzhong","geng"}));
+	set_name("耿萬鍾",({"geng wanzhong","geng"}));
 	set("gender", "男性");
 	set("age", 20);
-	set("long", "他是凌霄城第六代弟子耿万钟。\n");
+	set("long", "他是凌霄城第六代弟子耿萬鍾。\n");
 	set("attitude", "peaceful");
 	set("str", 25);
 	set("con", 30);
@@ -61,12 +61,12 @@ void attempt_apprentice(object ob)
 {
 	if (ob->query_int() < 20)
 	{
-		command("say 你这种资质，不宜学剑！");
+		command("say 你這種資質，不宜學劍！");
 		return;
 	}
 	if( (string)ob->query("gender") != "男性" )
 	{
-		 command("say 这位"+RANK_D->query_respect(ob)+ "我不收女徒的，你还是去找我花师妹吧。");
+		 command("say 這位"+RANK_D->query_respect(ob)+ "我不收女徒的，你還是去找我花師妹吧。");
 		return;
 	}
 	command("say 很好，很好。");

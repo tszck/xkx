@@ -12,8 +12,8 @@ void create()
 {
 	set_name("高山王", ({ "gao shanwang", "gao", "shanwang", }));
 	set("long",
-        "他是一位身宽体胖的老者，身穿一件白布长袍。\n"
-        "他正笑嘻嘻地看着你，好象对你颇有好感。\n"
+        "他是一位身寬體胖的老者，身穿一件白布長袍。\n"
+        "他正笑嘻嘻地看着你，好象對你頗有好感。\n"
 	);
 
 	set("gender", "男性");
@@ -56,7 +56,7 @@ void create()
 	]));
 
 	set("party/party_name",HIG"明教"NOR);
-	set("party/rank",HIW"白虎坛" NOR "坛主");
+	set("party/rank",HIW"白虎壇" NOR "壇主");
 	create_family("明教", 35, "弟子");
 
 	setup();
@@ -83,7 +83,7 @@ void init()
 
 string ask_me()
 {
-	return "你想加入我明教(join mingjiao)吗？";
+	return "你想加入我明教(join mingjiao)嗎？";
 }
 
 #include "tanzhu.h"

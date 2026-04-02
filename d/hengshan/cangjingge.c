@@ -1,13 +1,13 @@
 // Last Modified by Sir on May. 22 2001
-//Room: cangjingge.c 藏经阁
+//Room: cangjingge.c 藏經閣
 
 inherit ROOM;
 void create()
 {
-	set("short","藏经阁");
+	set("short","藏經閣");
 	set("long",@LONG
-这里便是恒山派的藏经阁了。四周都是密密麻麻，高及顶棚的书架。
-窗口下有一张大桌子，桌上放了几本佛经。几位小师太正在那专心研读。
+這裏便是恆山派的藏經閣了。四周都是密密麻麻，高及頂棚的書架。
+窗口下有一張大桌子，桌上放了幾本佛經。幾位小師太正在那專心研讀。
 LONG);
 	set("objects", ([	     
 		__DIR__"obj/fojing1"+random(2) : 1,	     

@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "客栈");
+	set("short", "客棧");
 	set("long", @LONG
-这里是伊犁城的客栈，门口放有一个大茶桶(tong)，有免费的茶水
-供应，客站里的小姑娘正在买烤熟的羊肉。你如果累了可以到楼上睡一
-觉。
+這裏是伊犁城的客棧，門口放有一個大茶桶(tong)，有免費的茶水
+供應，客站裏的小姑娘正在買烤熟的羊肉。你如果累了可以到樓上睡一
+覺。
 LONG);
 	set("resource/water", 1);
 	set("exits", ([ 
@@ -18,7 +18,7 @@ LONG);
 		"east"  : __DIR__"majiu",
 	]));
 	set("item_desc", ([
-	      "tong" : "一只装满茶水的大茶桶，你可以舀(drink)起来喝。\n"
+	      "tong" : "一隻裝滿茶水的大茶桶，你可以舀(drink)起來喝。\n"
 	]) );
 	set("objects", ([
 //		__DIR__"npc/caiyaoren1" : 1    
@@ -47,8 +47,8 @@ int do_drink(string arg)
 	if (current_water<max_water)
 	{
 		me->set("water", current_water+30);
-		message("vision", me->name()+"用茶勺从茶桶中舀了一口茶水来喝。\n", environment(me), ({me}) );
-		write("你舀了一口桶中的茶水来喝。\n");
+		message("vision", me->name()+"用茶勺從茶桶中舀了一口茶水來喝。\n", environment(me), ({me}) );
+		write("你舀了一口桶中的茶水來喝。\n");
 	}
 	else write("你再也喝不下了。\n");
 	return 1;

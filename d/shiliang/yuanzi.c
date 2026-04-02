@@ -9,9 +9,9 @@ void create()
 {
 	set("short", "大院");
 	set("long", @LONG
-这里就是温宅进门的一个大庭院，地上铺着一块块平整的
-大理石，光可鉴人。院子的面积很大，看得出来这家主人家资
-丰厚。南面的大门(gate)紧锁着。
+這裏就是溫宅進門的一個大庭院，地上鋪着一塊塊平整的
+大理石，光可鑑人。院子的面積很大，看得出來這家主人家資
+豐厚。南面的大門(gate)緊鎖着。
 LONG
 	);
 	set("no_clean_up", 0);
@@ -42,18 +42,18 @@ void close_gate()
 	if(objectp(room))
 	{
 		delete("exits/south");
-			message("vision", "有人走上前来把门关上了。\n", this_object());
+			message("vision", "有人走上前來把門關上了。\n", this_object());
 		room->delete("exits/north");
-		message("vision", "乒地一声，里面有人把大门关上了。\n", room);
+		message("vision", "乒地一聲，裏面有人把大門關上了。\n", room);
 	}
 }
 int do_close(string arg)
 {
 	if (!query("exits/south"))
-		return notify_fail("大门已经是关着的了。\n");
+		return notify_fail("大門已經是關着的了。\n");
 	if (!arg || (arg != "gate" && arg != "south"))
-		return notify_fail("你要关什么？\n");
-	message_vision("$N点了点头。\n", this_player());
+		return notify_fail("你要關什麼？\n");
+	message_vision("$N點了點頭。\n", this_player());
 	remove_call_out("close_gate");
 	call_out("close_gate", 2);
 	return 1;
@@ -62,17 +62,17 @@ int do_open(string arg)
 {
 	object room;
 	if (query("exits/south"))
-		return notify_fail("大门已经是开着了。\n");
+		return notify_fail("大門已經是開着了。\n");
 	if (!arg || (arg != "gate" && arg != "south"))
-		return notify_fail("你要开什么？\n");
+		return notify_fail("你要開什麼？\n");
 	if(!( room = find_object(__DIR__"gate")) )
 		room = load_object(__DIR__"gate");
 	if(objectp(room))
 	{
 		set("exits/south", __DIR__"gate");
-		message_vision("$N用力把大门打了开来。\n", this_player());
+		message_vision("$N用力把大門打了開來。\n", this_player());
 		room->set("exits/north", __FILE__);
-		message("vision", "吱地一声，里面有人把大门打开了。\n", room);
+		message("vision", "吱地一聲，裏面有人把大門打開了。\n", room);
 		remove_call_out("close_gate");
 		call_out("close_gate", 10);
 	}
@@ -80,7 +80,7 @@ int do_open(string arg)
 }
 string look_gate()
 {
-	return "一道三丈来高的朱红杉木包铜大门。\n";
+	return "一道三丈來高的硃紅杉木包銅大門。\n";
 }
 int valid_leave(object me, string dir)
 {

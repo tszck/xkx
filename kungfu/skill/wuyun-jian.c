@@ -1,4 +1,4 @@
-// wuyun-jian.c 五韵七弦剑
+// wuyun-jian.c 五韻七絃劍
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,25 +7,25 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N左小指轻弹，一招"HIM"「宫韵」"NOR"悄然划向$n的后心",
+([	"action" : "$N左小指輕彈，一招"HIM"「宮韻」"NOR"悄然划向$n的後心",
 	"lvl" : 0,
-	"skill_name" : "宫韵"
+	"skill_name" : "宮韻"
 ]),
-([	"action" : "$N右手无名指若有若无的一划，将琴弦并做一处，"HIR"[商韵]"NOR"已将$n笼罩",
+([	"action" : "$N右手無名指若有若無的一劃，將琴絃並做一處，"HIR"[商韻]"NOR"已將$n籠罩",
 	"lvl" : 10,
-	"skill_name" : "商韵"
+	"skill_name" : "商韻"
 ]),
-([	"action" : "$N五指疾挥，一式"HIB"[角韵]"NOR"无形的刺向$n的左肋",
+([	"action" : "$N五指疾揮，一式"HIB"[角韻]"NOR"無形的刺向$n的左肋",
 	"lvl" : 20,
-	"skill_name" : "角韵"
+	"skill_name" : "角韻"
 ]),
-([	"action" : "$N将手中剑横扫，同时左右手如琵琶似的疾弹，正是一招"HIG"[支韵]"NOR"",
+([	"action" : "$N將手中劍橫掃，同時左右手如琵琶似的疾彈，正是一招"HIG"[支韻]"NOR"",
 	"lvl" : 30,
-	"skill_name" : "支韵"
+	"skill_name" : "支韻"
 ]),
-([	"action" : "$N使出"HIW"「羽韵」"NOR"，将剑提至唇边，如同清音出箫，剑掌齐出，划向$n的$l",
+([	"action" : "$N使出"HIW"「羽韻」"NOR"，將劍提至脣邊，如同清音出簫，劍掌齊出，划向$n的$l",
 	"lvl" : 40,
-	"skill_name" : "羽韵"
+	"skill_name" : "羽韻"
 ]),
 });
 
@@ -33,7 +33,7 @@ int valid_enable(string usage) { return usage == "sword" || usage == "parry"; }
 int valid_learn(object me)
 {
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if ((int)me->query_skill("kuihua-xinfa", 1) < 20)
 		return notify_fail("你的葵花心法火候不到。\n");
 	return 1;
@@ -44,9 +44,9 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if( (int)me->query("jing") < 35 || (int)me->query("neili") < 15 )
-		return notify_fail("你的精或内力不够练五韵七弦剑。\n");
+		return notify_fail("你的精或內力不夠練五韻七絃劍。\n");
 	me->receive_damage("jing", 20);
 	me->add("neili", -15);
 	return 1;
@@ -75,17 +75,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "割伤" : "刺伤",
+		"damage_type" : random(2) ? "割傷" : "刺傷",
 	]);
 }
 int learn_bonus() { return 25; }
@@ -100,15 +100,15 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\n五韵七弦剑："NOR"\n");
+	write(HIC"\n五韻七絃劍："NOR"\n");
 	write(@HELP
 
-    日月神教黑木崖武功，梅庄大庄主黄钟公的独门剑法，将琴乐
-融入剑法之中，以乐音扰敌心神，从而控制对方内息的变化。
+    日月神教黑木崖武功，梅莊大莊主黃鐘公的獨門劍法，將琴樂
+融入劍法之中，以樂音擾敵心神，從而控制對方內息的變化。
 
-	学习要求：
-		葵花心法20级
-		内力100
+	學習要求：
+		葵花心法20級
+		內力100
 HELP
 	);
 	return 1;

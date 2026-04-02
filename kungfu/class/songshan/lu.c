@@ -5,9 +5,9 @@ inherit F_MASTER;
 #include <ansi.h>
 void create()
 {
-	set_name("陆柏", ({ "lu bai", "bai", "lu" }) );
-	set("long", "嵩山派掌门人的三师弟陆柏长得极高极瘦。\n");
-	set("nickname", HIM"仙鹤手"NOR);
+	set_name("陸柏", ({ "lu bai", "bai", "lu" }) );
+	set("long", "嵩山派掌門人的三師弟陸柏長得極高極瘦。\n");
+	set("nickname", HIM"仙鶴手"NOR);
 	set("gender", "男性");
 	set("class", "swordsman");
 	set("age", 45);

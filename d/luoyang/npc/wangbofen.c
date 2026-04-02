@@ -5,8 +5,8 @@
 inherit NPC;
 void create()
 {
-	set_name("王伯奋", ({ "wang bofen", "wang", "bofen" }) );
-	set("title", HIY"金刀门"NOR"第四代弟子");
+	set_name("王伯奮", ({ "wang bofen", "wang", "bofen" }) );
+	set("title", HIY"金刀門"NOR"第四代弟子");
 	set("gender", "男性" );
 	set("shen_type", 1);
 	set("age", 45);
@@ -16,8 +16,8 @@ void create()
 	set("dex", 25);
 	set("int", 25);
 	set("long",
-"他是金刀无敌王元霸的长子，武功尽得乃父真传。看起来身材甚高，太阳穴
-高高鼓起，手上筋骨突出，显然内外功造诣都甚了得。\n" );
+"他是金刀無敵王元霸的長子，武功盡得乃父真傳。看起來身材甚高，太陽穴
+高高鼓起，手上筋骨突出，顯然內外功造詣都甚了得。\n" );
 	set("combat_exp", 300000);
 	set("attitude", "friendly");
 	set_skill("blade", 100);

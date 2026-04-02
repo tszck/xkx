@@ -1,8 +1,8 @@
-// chan.c 打狗棒法「缠」字诀
+// chan.c 打狗棒法「纏」字訣
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
-#define PNAME "「缠」字诀"
+#define PNAME "「纏」字訣"
 inherit F_SSERVER;
 int perform(object me, object target)
 {
@@ -18,21 +18,21 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "stick")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	if( target->is_busy() )
-		return notify_fail(target->name()+"目前正自顾不暇，放胆攻击吧。\n");
+		return notify_fail(target->name()+"目前正自顧不暇，放膽攻擊吧。\n");
 
 	fskill = "huntian-qigong";
 	bskill = "stick";
@@ -45,23 +45,23 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够深厚，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠深厚，不會使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 	if(me->query("max_neili") < 400)
-		return notify_fail("你的内力修为不够，不会使用"PNAME"。\n");
+		return notify_fail("你的內力修爲不夠，不會使用"PNAME"。\n");
 	if(me->query("neili") < 300)
-		return notify_fail("你的内力修为不够，不会使用"PNAME"。\n");
-	msg = HIG"$N"HIG"使出打狗棒法「缠」字诀，棒头在地下连点，连绵不绝地挑向$n"HIG"的小腿和脚踝。\n";
+		return notify_fail("你的內力修爲不夠，不會使用"PNAME"。\n");
+	msg = HIG"$N"HIG"使出打狗棒法「纏」字訣，棒頭在地下連點，連綿不絕地挑向$n"HIG"的小腿和腳踝。\n";
 
 	me->start_busy(1);
 	me->add("neili", -200);
 	if( random(me->query("combat_exp"))>(int)target->query("combat_exp")/2 )
 	{
-		msg += HIR " 结果$p被$P攻的蹦跳不停，手忙脚乱！\n" NOR;
+		msg += HIR " 結果$p被$P攻的蹦跳不停，手忙腳亂！\n" NOR;
 		target->start_busy( (int)me->query_skill(bskill, 1) / 20 );
 	} else {
-		msg += "可是$p看破了$P的企图，镇定解招，一丝不乱。\n" NOR;
+		msg += "可是$p看破了$P的企圖，鎮定解招，一絲不亂。\n" NOR;
 	}
 	message_combatd(msg, me, target);
 
@@ -76,13 +76,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		迟滞对方出手
+		遲滯對方出手
 
 	出手要求：
-		混天气功100级
-		打狗棒法100级
-		内力修为400
-		内力300
+		混天氣功100級
+		打狗棒法100級
+		內力修爲400
+		內力300
 HELP
 	);
 	return 1;

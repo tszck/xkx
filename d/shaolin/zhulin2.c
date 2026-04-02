@@ -8,10 +8,10 @@ void create()
 {
 	set("short", "竹林小道");
 	set("long", @LONG
-这是一条卵石铺成的小道，曲曲折折地通向前方。两边是密
-密的竹林。这里人迹罕至，惟闻足底叩击路面，有僧敲木鱼声；
-微风吹拂竹叶，又如簌簌禅唱。令人尘心为之一涤，真是绝佳
-的禅修所在。
+這是一條卵石鋪成的小道，曲曲折折地通向前方。兩邊是密
+密的竹林。這裏人跡罕至，惟聞足底叩擊路面，有僧敲木魚聲；
+微風吹拂竹葉，又如簌簌禪唱。令人塵心爲之一滌，真是絕佳
+的禪修所在。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"wuqiku",
@@ -21,7 +21,7 @@ LONG );
 	]));
 	set("no_clean_up", 0);
 	set("outdoors", "shaolin");
-	create_door("east","木门","west",DOOR_CLOSED);
+	create_door("east","木門","west",DOOR_CLOSED);
 	set("coor/x", 20);
 	set("coor/y", 900);
 	set("coor/z", 120);

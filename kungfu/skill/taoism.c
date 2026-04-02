@@ -1,4 +1,4 @@
-// taoism.c 道学心法
+// taoism.c 道學心法
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -19,41 +19,41 @@ int valid_learn(object me)
 	lvl = (int)me->query_skill("taoism", 1);
 
 	if( (int)me->query("shen") < 0 )
-		return notify_fail("你的戾气太重，无法修炼道学心法。\n");
-	if(me->query("gender") == "无性" && lvl > 39)
-		return notify_fail("你刚听一会儿，便觉心智迷糊，原来你没有阳刚之
-气，无法领会里面的阴阳变化之道。\n");
+		return notify_fail("你的戾氣太重，無法修煉道學心法。\n");
+	if(me->query("gender") == "無性" && lvl > 39)
+		return notify_fail("你剛聽一會兒，便覺心智迷糊，原來你沒有陽剛之
+氣，無法領會裏面的陰陽變化之道。\n");
 	if ((me->query_skill("buddhism",1) > 1) ||
 		(me->query_skill("mahayana",1) > 1))
-		return notify_fail( "哈哈！"+RANK_D->query_respect(me)+"既入佛门，怎么却来学道学心法？\n");
+		return notify_fail( "哈哈！"+RANK_D->query_respect(me)+"既入佛門，怎麼卻來學道學心法？\n");
 	if ((int)(me->query_skill("lamaism",1) > 1))
-		return notify_fail( "哈哈！"+RANK_D->query_respect(me)+"已经学了密宗心法，怎么却来学道学心法？\n");
+		return notify_fail( "哈哈！"+RANK_D->query_respect(me)+"已經學了密宗心法，怎麼卻來學道學心法？\n");
 	if ((me->query_skill("ziyunyin",1) > 1) ||
 		(me->query_skill("zhengqijue",1) > 1))
-		return notify_fail( "哈哈！"+RANK_D->query_respect(me)+"已经学了华山派的心法，怎么却来学道学心法？\n");
+		return notify_fail( "哈哈！"+RANK_D->query_respect(me)+"已經學了華山派的心法，怎麼卻來學道學心法？\n");
 	if ((int)(me->query_skill("poison",1) > 1))
-		return notify_fail( "哈哈！"+RANK_D->query_respect(me)+"已经学了邪魔外道的毒技，怎么却来学道学心法？\n");
+		return notify_fail( "哈哈！"+RANK_D->query_respect(me)+"已經學了邪魔外道的毒技，怎麼卻來學道學心法？\n");
 	if (me->query_skill("taoism", 1) >= 150)
-		return notify_fail("限于资质，你对道学心法的理解也就到此为止了。\n");
+		return notify_fail("限於資質，你對道學心法的理解也就到此爲止了。\n");
 
 	return 1;
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("道学心法只能靠学习来提高。\n");
+	return notify_fail("道學心法只能靠學習來提高。\n");
 }
 
 int help(object me)
 {
-        write(HIC"\n道学心法："NOR"\n");
+        write(HIC"\n道學心法："NOR"\n");
         write(@HELP
 
-    太上道祖传下的道德真言五千字中蕴涵的博大精深的心法。
-    可寻找道德经阅读。
+    太上道祖傳下的道德真言五千字中蘊涵的博大精深的心法。
+    可尋找道德經閱讀。
 
-        学习要求：
-                与禅宗心法、密宗心法、紫氲吟、正气诀和基本毒技不能兼学
+        學習要求：
+                與禪宗心法、密宗心法、紫氳吟、正氣訣和基本毒技不能兼學
 HELP
         );
         return 1;

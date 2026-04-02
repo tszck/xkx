@@ -6,9 +6,9 @@ inherit NPC;
 void create()
 {
 	set_name("麻雀", ({ "ma que", "que", "bird" }) );
-	set("race", "飞禽");
+	set("race", "飛禽");
 	set("age", 3);
-	set("long", "一只叽叽喳喳，飞来飞去的小麻雀。\n");
+	set("long", "一隻嘰嘰喳喳，飛來飛去的小麻雀。\n");
 	set("attitude", "peaceful");
 	
 	set("combat_exp", 100);
@@ -16,13 +16,13 @@ void create()
 	set("chat_chance", 10);
 	set("chat_msg", ({
 		(: this_object(), "random_move" :),
-		"小麻雀叽叽喳喳的欢叫着，在你头顶上飞来飞去。\n",
-		"小麻雀忽而停在墙头，忽而飞上树梢，忙碌着找食吃。\n",
+		"小麻雀嘰嘰喳喳的歡叫着，在你頭頂上飛來飛去。\n",
+		"小麻雀忽而停在牆頭，忽而飛上樹梢，忙碌着找食喫。\n",
 	}) );
 	
 	set("chat_msg_combat", ({
 		(: this_object(), "random_move" :),
-		"小麻雀叽叽叽地怒叫着，全身的羽毛都抖竖起来！\n",
+		"小麻雀嘰嘰嘰地怒叫着，全身的羽毛都抖豎起來！\n",
 	}) );
 		
 	setup();

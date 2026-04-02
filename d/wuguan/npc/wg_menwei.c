@@ -4,7 +4,7 @@ inherit NPC;
 void create()
 {
 	int age = 20 + random(20);
-	set_name("武馆门卫", ({ "men wei", "menwei", "wei" }));
+	set_name("武館門衛", ({ "men wei", "menwei", "wei" }));
 	set("gender", "男性");
 	set("age", age);
 	set_skill("unarmed", 80);
@@ -36,14 +36,14 @@ void greeting(object ob)
                  
        if ( ob->query("combat_exp") < 1000)  
 
-           command("say 这位" + RANK_D->query_respect(ob)+"，武功这么差，怎么闯江湖呢？\n");
+           command("say 這位" + RANK_D->query_respect(ob)+"，武功這麼差，怎麼闖江湖呢？\n");
        
        if ( ob->query("combat_exp") > 1000  && ob->query("combat_exp") < 50000 )
           
-           command("say 你武功已有根基，正好来武馆历练，这位" + RANK_D->query_respect(ob)+"你我也算是有缘一场。\n");
+           command("say 你武功已有根基，正好來武館歷練，這位" + RANK_D->query_respect(ob)+"你我也算是有緣一場。\n");
           
        if ( ob->query("combat_exp") > 50000)  
          
-          command("say 这里只收留江湖新手，武功高强就不要再回来了！");
+          command("say 這裏只收留江湖新手，武功高強就不要再回來了！");
 }
 

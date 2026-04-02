@@ -62,6 +62,6 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say 入我门来，定须光大我衡山一派。");
+	command("say 入我門來，定須光大我衡山一派。");
 	command("recruit " + ob->query("id"));
 }

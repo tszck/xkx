@@ -5,8 +5,8 @@
 inherit NPC;
 void create()
 {
-	set_name("王仲强", ({ "wang zhongqiang", "wang", "zhongqiang" }) );
-	set("title", HIY"金刀门"NOR"第四代弟子");
+	set_name("王仲強", ({ "wang zhongqiang", "wang", "zhongqiang" }) );
+	set("title", HIY"金刀門"NOR"第四代弟子");
 	set("gender", "男性" );
 	set("shen_type", 1);
 	set("age", 45);
@@ -16,9 +16,9 @@ void create()
 	set("dex", 25);
 	set("int", 25);
 	set("long",
-"他是金刀无敌王元霸的次子。一口单刀使得沉稳之极，与乃兄在豫鄂武
-林中名头甚是响亮，身材甚高，甚是肥胖，太阳穴高高鼓起，手上筋骨
-突出，显然内外功造诣都甚了得。\n" );
+"他是金刀無敵王元霸的次子。一口單刀使得沉穩之極，與乃兄在豫鄂武
+林中名頭甚是響亮，身材甚高，甚是肥胖，太陽穴高高鼓起，手上筋骨
+突出，顯然內外功造詣都甚了得。\n" );
 	set("combat_exp", 300000);
 	set("attitude", "friendly");
 	set_skill("blade", 100);

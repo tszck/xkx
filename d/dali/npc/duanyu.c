@@ -1,4 +1,4 @@
-// duanyu.c 段誉
+// duanyu.c 段譽
 
 #include <ansi.h>
 
@@ -6,12 +6,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("段誉", ({"duan yu", "duan", "yu"}));
+	set_name("段譽", ({"duan yu", "duan", "yu"}));
 	set("nickname", GRN"大理王子"NOR);
 	set("gender", "男性");
 	set("age", 20);
 	set("long", 
-		"他是一个身穿青衫的年轻男子。脸孔略尖，自有一股书生的呆气。\n");
+		"他是一個身穿青衫的年輕男子。臉孔略尖，自有一股書生的呆氣。\n");
 	set("attitude", "peaceful");
 	
 	set("str", 12);
@@ -21,14 +21,14 @@ void create()
 
 	set("chat_chance", 1);
 	set("chat_msg", ({
-		"段誉叹了口气道：“唉……何时能再见到语嫣啊……”\n",
+		"段譽嘆了口氣道：“唉……何時能再見到語嫣啊……”\n",
 		(: random_move :),
 	}));
 
 	set("inquiry", ([
-		"大理" : "大理是个好地方，山清水秀，风景宜人。\n",
-		"王语嫣" : "唉，她心里只有她表哥，从来就没把我放在眼里。\n",
-		"拜师" : "嗯....，我的师傅是老子、孔子和庄子，他们的学问我还没学全呢。\n",
+		"大理" : "大理是個好地方，山清水秀，風景宜人。\n",
+		"王語嫣" : "唉，她心裏只有她表哥，從來就沒把我放在眼裏。\n",
+		"拜師" : "嗯....，我的師傅是老子、孔子和莊子，他們的學問我還沒學全呢。\n",
 	]));
 
 	set("jing", 2000);
@@ -44,11 +44,11 @@ void create()
 	set("combat_exp", 500000);
 	set("score", 20000);
 	 
-	set_skill("force", 180);		// 基本内功
+	set_skill("force", 180);		// 基本內功
 	set_skill("beiming-shengong", 180);	// 北冥神功
 	set_skill("finger", 120);		// 基本指法
-	set_skill("six-finger", 120);		// 六脉神剑
-	set_skill("dodge", 150);		// 基本躲闪
+	set_skill("six-finger", 120);		// 六脈神劍
+	set_skill("dodge", 150);		// 基本躲閃
 	set_skill("lingboweibu", 150);		// 凌波微步
 	set_skill("parry", 80);			// 基本招架
 	

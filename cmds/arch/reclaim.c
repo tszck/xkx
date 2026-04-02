@@ -4,7 +4,7 @@ int main(object me, string arg)
 {
  
 
-	write("整理结果，共清除 " + reclaim_objects() + " 个变数。\n");
+	write("整理結果，共清除 " + reclaim_objects() + " 個變數。\n");
 	return 1;
 }
 
@@ -13,7 +13,7 @@ int help(object me)
 write(@HELP
 指令格式 : reclaim
 
-用处 : 将存在於记忆体里无用的变数清除掉, 以减少记忆体的使用。
+用處 : 將存在於記憶體裏無用的變數清除掉, 以減少記憶體的使用。
 HELP
      );
      return 1;

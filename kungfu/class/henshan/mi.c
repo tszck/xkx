@@ -1,11 +1,11 @@
-// mi.c 米为义
+// mi.c 米爲義
 // Last Modified by ahda on Sep.1 2001
 inherit NPC;
 inherit F_MASTER;
 #include <ansi.h>
 void create()
 {
-	set_name("米为义", ({ "mi weiyi", "mi", "weiyi" }) );
+	set_name("米爲義", ({ "mi weiyi", "mi", "weiyi" }) );
 	set("gender", "男性");
 	set("class", "swordsman");
 	set("age", 25);
@@ -63,6 +63,6 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say 入我门来，定须光大我衡山一派。");
+	command("say 入我門來，定須光大我衡山一派。");
 	command("recruit " + ob->query("id"));
 }

@@ -5,9 +5,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "东大街");
+	set("short", "東大街");
 	set("long", @LONG
-街道两侧，榕木参天。福州盛夏苦热，广植榕树以纳凉爽，别名“
+街道兩側，榕木參天。福州盛夏苦熱，廣植榕樹以納涼爽，別名“
 榕城”。北面是客店，南面通往山上。
 LONG );
 	set("exits", ([

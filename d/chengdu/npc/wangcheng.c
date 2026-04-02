@@ -1,14 +1,14 @@
-// Room: /d/chengdu/npc/wangcheng.c 王诚c
+// Room: /d/chengdu/npc/wangcheng.c 王誠c
 // Last Modifyed by Winder on Jan. 4 2002
 
 inherit NPC;
 
 void create()
 {
-	set_name("王诚", ({ "wang cheng", "wang", "cheng" }));
+	set_name("王誠", ({ "wang cheng", "wang", "cheng" }));
 	set("gender", "男性");
 	set("age", 21);
-	set("long", "张宝林的大弟子，为人老实诚恳，被视为青年的楷模。\n");
+	set("long", "張寶林的大弟子，爲人老實誠懇，被視爲青年的楷模。\n");
 	set("combat_exp", 2000);
 	set("shen_type", -1);
 

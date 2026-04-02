@@ -5,7 +5,7 @@ inherit NPC;
 void create()
 {
 	set_name("阿三", ({"a  san"}));
-	set("long", "金刚门的高手，一身外功出神入化，出手极其狠毒。\n");
+	set("long", "金剛門的高手，一身外功出神入化，出手極其狠毒。\n");
 	set("gender", "男性");
 	set("age", 46);
 	set("attitude", "peaceful");

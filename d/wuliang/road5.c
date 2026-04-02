@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "后山小路");
+	set("short", "後山小路");
 	set("long", @LONG
-这是条通往后山的羊肠小路，就是无量弟子也绝少来此。这里山
-林茂密，人迹罕见，小鸟鸣响不绝于耳。
+這是條通往後山的羊腸小路，就是無量弟子也絕少來此。這裏山
+林茂密，人跡罕見，小鳥鳴響不絕於耳。
 LONG );
         set("outdoors", "wuliang");
 	set("no_clean_up", 0);

@@ -4,12 +4,12 @@
 inherit ROOM;
 void create()
 {
-	set("short", "采石峰");
+	set("short", "採石峯");
 	set("long", @LONG
-相传是女娲采石补天所取天下山石中精英所在，山色与别山迥异，
-竟似有五色，山上树木也分外茂密，山藤蔓绕，由于游人到松谷庵后多
-半力竭，加之这里山藤环绕，甚是难走，所以以无游人到此。远远看见
-轩辕峰，却已无力过去。
+相傳是女媧採石補天所取天下山石中精英所在，山色與別山迥異，
+竟似有五色，山上樹木也分外茂密，山藤蔓繞，由於遊人到松谷庵後多
+半力竭，加之這裏山藤環繞，甚是難走，所以以無遊人到此。遠遠看見
+軒轅峯，卻已無力過去。
 LONG
 	);
 	set("exits", ([ 
@@ -30,14 +30,14 @@ int do_chop(string arg)
 
 	if(!arg || arg=="")
 	{
-		write("你要砍开什么？\n");
+		write("你要砍開什麼？\n");
 		return 1;
 	}
 	if( arg == "vine" || arg == "山藤")
 	{
 		if( !objectp(obj = me->query_temp("weapon"))) 
 		{
-			write("你空着手，砍什么砍？\n");
+			write("你空着手，砍什麼砍？\n");
 			return 1;
 		}
 		if( (string)obj->query("skill_type") == "sword" ||
@@ -47,16 +47,16 @@ int do_chop(string arg)
 			if( !query("exits/east") )
 			{
 				set("exits/east", __DIR__"xuanyuan");
-				message_vision(sprintf("$N用手中的%s砍出一条向北的路。\n", obj->name()), me);
+				message_vision(sprintf("$N用手中的%s砍出一條向北的路。\n", obj->name()), me);
 				me->start_busy(1);
 			}
 			else
-				message_vision(sprintf("$N用手中的%s砍向环绕的山藤。\n",obj->name()), me);
+				message_vision(sprintf("$N用手中的%s砍向環繞的山藤。\n",obj->name()), me);
 		}
 		else
-			message_vision(sprintf("$N用手中的%s向蔓绕的山藤一顿乱砍。\n",obj->name()), me);
+			message_vision(sprintf("$N用手中的%s向蔓繞的山藤一頓亂砍。\n",obj->name()), me);
 	}
-	else write("你要砍开什么？\n");
+	else write("你要砍開什麼？\n");
 	return 1;
 }
 

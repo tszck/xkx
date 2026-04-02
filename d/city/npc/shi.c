@@ -6,12 +6,12 @@ inherit NPC;
 void create()
 {
 	set_name("史青山", ({ "shi qingshan", "shi" }));
-	set("title", "扬州守将");
+	set("title", "揚州守將");
 	set("gender", "男性");
 	set("age", 33);
 	set("str", 25);
 	set("dex", 16);
-	set("long", "史青山曾经是武当山的俗家弟子，不知为何吃上了朝廷饭。\n");
+	set("long", "史青山曾經是武當山的俗家弟子，不知爲何喫上了朝廷飯。\n");
 	set("combat_exp", 200000);
 	set("shen_type", 1);
 	set("attitude", "heroism");
@@ -41,6 +41,6 @@ void create()
 
 int accept_fight(object me)
 {
-	command("say 老夫久未和江湖人动手过招了，今日也不想破例。");
+	command("say 老夫久未和江湖人動手過招了，今日也不想破例。");
 	return 0;
 }

@@ -4,14 +4,14 @@ inherit NPC;
 
 void create()
 {
-        set_name("完颜康", ({"wanyan kang", "kang", "wanyan"}));
+        set_name("完顏康", ({"wanyan kang", "kang", "wanyan"}));
         set("gender", "男性");
-        set("title", "大金国小王爷");
+        set("title", "大金國小王爺");
         set("age", 24);
         set("class", "fighter");
         set("long",
-                "他本名杨康。随母包惜弱嫁完颜洪烈后，成了小王子，
-贪图富贵，至死不改。\n");
+                "他本名楊康。隨母包惜弱嫁完顏洪烈後，成了小王子，
+貪圖富貴，至死不改。\n");
         set("attitude", "friendly");
         set("shen_type",1);
         set("str", 26);
@@ -39,9 +39,9 @@ void create()
         set("score", 100000);
 
         set_skill("force", 40);
-        set_skill("xiantian-qigong", 40);    //先天气功
+        set_skill("xiantian-qigong", 40);    //先天氣功
         set_skill("sword", 40);
-        set_skill("quanzhen-jian",40);  //全真剑
+        set_skill("quanzhen-jian",40);  //全真劍
         set_skill("dodge", 40);
         set_skill("jinyan-gong", 40);   //金雁功
         set_skill("parry", 40);
@@ -64,7 +64,7 @@ void create()
         create_family("全真教", 3, "弟子");
 
         set("inquiry", ([
-                "全真教" :  "我全真教是天下道家玄门正宗。\n",
+                "全真教" :  "我全真教是天下道家玄門正宗。\n",
         ]) );
 
         setup();

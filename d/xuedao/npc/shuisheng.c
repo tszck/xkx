@@ -7,10 +7,10 @@ void create()
 {
 	set_name("水笙", ({ "shui sheng", "shui" }));
 	set("long", 
-	"她是个生得十分秀美清丽动人的江南佳丽。\n"
-	"她和她的表哥汪啸风号称“铃剑双侠”，名动东南。\n");
+	"她是個生得十分秀美清麗動人的江南佳麗。\n"
+	"她和她的表哥汪嘯風號稱“鈴劍雙俠”，名動東南。\n");
 	set("gender", "女性");
-	set("nickname", HIM"铃剑女侠"NOR);
+	set("nickname", HIM"鈴劍女俠"NOR);
 	set("age", 16);
 	set("attitude", "peaceful");
 	set("shen_type", 0);
@@ -45,7 +45,7 @@ void create()
 	map_skill("parry", "huashan-jianfa");
 	map_skill("sword", "huashan-jianfa");
 	set("inquiry", ([
-		"狄云" : (: ask_me :),
+		"狄雲" : (: ask_me :),
 	]));
 	set("chang_count", 1);
 
@@ -59,9 +59,9 @@ string ask_me()
 	object ob;
 	
 	if (query("chang_count") < 1)
-		return "狄大哥还好吗？我在这里等了他这么久！我知道他终于会回来的。";
+		return "狄大哥還好嗎？我在這裏等了他這麼久！我知道他終於會回來的。";
 	add("chang_count", -1);
 	ob = new("/d/xuedao/obj/dachang");
 	ob->move(this_player());
-	return "狄大哥还好吗？我在这一直等着他。麻烦你，把这领大氅交给他吧。\n说着，递给你一领鸟羽大氅。";
+	return "狄大哥還好嗎？我在這一直等着他。麻煩你，把這領大氅交給他吧。\n說着，遞給你一領鳥羽大氅。";
 }

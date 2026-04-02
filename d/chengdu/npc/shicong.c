@@ -5,12 +5,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("侍从", ({ "shi cong", "shi", "cong" }));
+	set_name("侍從", ({ "shi cong", "shi", "cong" }));
 	set("gender", "男性");
 	set("age", random(20) + 30);
 	set("str", 25);
 	set("dex", 16);
-	set("long", "一个文职大扮的侍从，他手持钢刀，寸步不离提督大人。\n");
+	set("long", "一個文職大扮的侍從，他手持鋼刀，寸步不離提督大人。\n");
 	set("combat_exp", 75000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");

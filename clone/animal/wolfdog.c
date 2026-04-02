@@ -6,9 +6,9 @@ inherit NPC;
 void create()
 {
 	set_name("大狼狗", ({ "wolf dog", "dog" }) );
-	set("race", "走兽");
+	set("race", "走獸");
 	set("age", 4);
-	set("long", "一只昂首挺胸，吐着长舌头的大狼狗。像是财主家里养的宠物。\n");
+	set("long", "一隻昂首挺胸，吐着長舌頭的大狼狗。像是財主家裏養的寵物。\n");
 	set("attitude", "peaceful");
 	
 	set("str", 26);
@@ -18,8 +18,8 @@ void create()
 
 	set("chat_msg_combat", ({
 		(: this_object(), "random_move" :),
-		"大狼狗大声吠叫：汪！汪！汪！汪！汪！汪！\n",
-		"大狼狗突然跳了起来，口中乱咬，却不知道是在咬谁。\n"
+		"大狼狗大聲吠叫：汪！汪！汪！汪！汪！汪！\n",
+		"大狼狗突然跳了起來，口中亂咬，卻不知道是在咬誰。\n"
 	}) );
 		
 	set_temp("apply/attack", 15);

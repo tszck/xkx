@@ -8,8 +8,8 @@ inherit F_MASTER;
 void create()
 {
 	set_name("石清露", ({ "shi qinglu", "shi" }));
-	set("long","她是函谷八友的七师妹，精于莳花，天下的奇花异卉，一经她的培植，无不欣欣向荣。\n");
-	set("nickname","“函谷八友”花痴");
+	set("long","她是函谷八友的七師妹，精於蒔花，天下的奇花異卉，一經她的培植，無不欣欣向榮。\n");
+	set("nickname","“函谷八友”花癡");
 	set("gender", "女性");
 	set("age", 34);
 	set("attitude", "friendly");
@@ -47,7 +47,7 @@ void create()
 	set("book_count", 1);
 	set("env/wimpy", 60);
 
-	create_family("逍遥派", 3, "弟子");
+	create_family("逍遙派", 3, "弟子");
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
 	carry_object("/clone/weapon/gangdao")->wield();
@@ -55,6 +55,6 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say 好吧，我就收下你了，以后要多为逍遥派出力啊。");
+	command("say 好吧，我就收下你了，以後要多爲逍遙派出力啊。");
 	command("recruit " + ob->query("id"));
 }

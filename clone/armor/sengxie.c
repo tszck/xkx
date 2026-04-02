@@ -13,8 +13,8 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "双");
-		set("long", "一双青布僧鞋");
+		set("unit", "雙");
+		set("long", "一雙青布僧鞋");
 		set("value", 6000);
 		set("material", "boots");
 		set("armor_prop/dodge", 5);

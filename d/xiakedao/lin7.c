@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "树林");
+        set("short", "樹林");
         set("long", @LONG
-这是一片茂密的树林，好象被人设计了一种阵,一走进来，你仿佛迷失了方向。
+這是一片茂密的樹林，好象被人設計了一種陣,一走進來，你彷彿迷失了方向。
 LONG );
         set("outdoors", "xiakedao");
         set("exits", ([

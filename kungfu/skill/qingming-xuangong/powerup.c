@@ -11,14 +11,14 @@ int exert(object me, object target)
   !me->query("perform/powerup") &&
   !me->query("can_perform/qingming-xuangong/powerup") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("你所使用的内功中没有这种功能。");
+   return notify_fail("你所使用的內功中沒有這種功能。");
 
 	if( target != me )
-		return notify_fail("你只能用青冥玄功提升自己的战斗力。\n");
+		return notify_fail("你只能用青冥玄功提升自己的戰鬥力。\n");
 	if( (int)me->query("neili") < 100 )
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if( (int)me->query_temp("powerup") )
-		return notify_fail("你已经在运功中了。\n");
+		return notify_fail("你已經在運功中了。\n");
 
 	skill = me->query_skill("force");
 
@@ -26,7 +26,7 @@ int exert(object me, object target)
 	me->add("neili", -100);
 	me->receive_damage("qi",0);
 
-	message_combatd(HIB"$N微一凝神，运起青冥玄功，脸上忽地冒出一股青气，顺脖颈向下游走，只刹那间走遍全身，衣袖裤管顿时如充气般鼓胀起来！\n" NOR, me);
+	message_combatd(HIB"$N微一凝神，運起青冥玄功，臉上忽地冒出一股青氣，順脖頸向下遊走，只剎那間走遍全身，衣袖褲管頓時如充氣般鼓脹起來！\n" NOR, me);
 
 	me->add_temp("apply/attack", skill/3);
 	me->add_temp("apply/dodge", skill/3);
@@ -41,7 +41,7 @@ void remove_effect(object me, int amount)
 	me->add_temp("apply/attack", - amount);
 	me->add_temp("apply/dodge", - amount);
 	me->delete_temp("powerup");
-	tell_object(me, "你的青冥玄功运行完毕，将内力收回丹田。\n");
+	tell_object(me, "你的青冥玄功運行完畢，將內力收回丹田。\n");
 }
 
 int help(object me)
@@ -50,10 +50,10 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		提升自己的攻击防御能力
+		提升自己的攻擊防禦能力
 
 	出手要求：
-	        内力100
+	        內力100
 HELP
 	);
 	return 1;

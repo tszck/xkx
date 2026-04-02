@@ -1,5 +1,5 @@
 // panxiuda.c
-// 潘秀达
+// 潘秀達
 #include <ansi.h>
 
 inherit NPC;
@@ -7,14 +7,14 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("潘秀达", ({ "pan xiuda", "pan" }));
-	set("nickname", HIG "笑面阎罗" NOR);
+	set_name("潘秀達", ({ "pan xiuda", "pan" }));
+	set("nickname", HIG "笑面閻羅" NOR);
 	set("long",@LONG
-他就是五毒教的左护法，人称笑面阎罗的潘秀达。别看他一脸笑眯眯的
-，但是常常杀人于弹指之间，一手五毒钩法也已达到登峰造极的境界。
+他就是五毒教的左護法，人稱笑面閻羅的潘秀達。別看他一臉笑眯眯的
+，但是常常殺人於彈指之間，一手五毒鉤法也已達到登峯造極的境界。
 LONG
 	);
-	set("title","五毒教护法");
+	set("title","五毒教護法");
 	set("gender", "男性");
 	set("class", "shaman");
 	set("age", 38);
@@ -66,7 +66,7 @@ LONG
 		(: exert_function, "regenerate" :),
 		(: exert_function, "recover" :),
 	}) );
-	create_family("五毒教", 12, "护法");
+	create_family("五毒教", 12, "護法");
 	setup();
 
 	carry_object("/d/wudujiao/npc/obj/ganggou")->wield();
@@ -78,40 +78,40 @@ LONG
 
 void attempt_apprentice(object ob)
 {
-	if ((string)ob->query("gender") == "无性")
+	if ((string)ob->query("gender") == "無性")
 	{
-		command("say 这位公公不要开玩笑了。");
-		command("say 这位" + RANK_D->query_respect(ob) + "还是快去伺候皇上吧！");
+		command("say 這位公公不要開玩笑了。");
+		command("say 這位" + RANK_D->query_respect(ob) + "還是快去伺候皇上吧！");
 		return;
 	}
 
 	if ((int)ob->query("shen") > -5000)
 	{
-		command("say 做我五毒教弟子必须心狠手辣。");
-		command("say 这位" + RANK_D->query_respect(ob) + "心慈手软，可惜与我教没有缘分啊！");
+		command("say 做我五毒教弟子必須心狠手辣。");
+		command("say 這位" + RANK_D->query_respect(ob) + "心慈手軟，可惜與我教沒有緣分啊！");
 		return;
 	}
 
 	if ((string)ob->query("family/family_name") != "五毒教")
 	{
-		command("say 这位" + RANK_D->query_respect(ob) + "不是本教弟子，还是请回吧！");
+		command("say 這位" + RANK_D->query_respect(ob) + "不是本教弟子，還是請回吧！");
 		return;
 	}
 
 	if ((int)ob->query_skill("five-poison", 1) < 60)
 	{
-		command("say 我五毒教弟子以毒杀人，修习毒技是首要的。");
-		command("say 这位" + RANK_D->query_respect(ob) + "是否还应该多多钻研本门的绝学？");
+		command("say 我五毒教弟子以毒殺人，修習毒技是首要的。");
+		command("say 這位" + RANK_D->query_respect(ob) + "是否還應該多多鑽研本門的絕學？");
 		return;
 	}
 	if ((int)ob->query_skill("wudu-shengong", 1) < 60)
 	{
-		command("say 你的五毒神功还学的不够啊。");
+		command("say 你的五毒神功還學的不夠啊。");
 		return;
 	}
 
 //	command("chat 嘿嘿嘿嘿！！！！！");
-//	command("chat 该当我五毒教发扬光大，称霸武林指日可待了。");
+//	command("chat 該當我五毒教發揚光大，稱霸武林指日可待了。");
 //	command("chat 嘿嘿嘿嘿！！！！！");
 	command("recruit " + ob->query("id"));
 	ob->set("title",HIY"五毒教弟子"NOR);

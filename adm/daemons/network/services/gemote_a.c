@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 // by mon@xyj 10/2/97
@@ -36,7 +36,7 @@ void incoming_request(mapping info)
      svcs=(mapping)DNS_MASTER->query_svc();
 
      msg=info["MSG"];
-     set("channel_id", "网路动作精灵");
+     set("channel_id", "網路動作精靈");
                 CHANNEL_D->do_channel(this_object(), lower_case(info["CHANNEL"]),
                   replace_string(msg, "$N", info["CNAME"]), 1);
 

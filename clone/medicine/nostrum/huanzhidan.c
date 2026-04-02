@@ -1,4 +1,4 @@
-// huanzhidan.c 还质丹
+// huanzhidan.c 還質丹
 
 inherit ITEM;
 #include <ansi.h>
@@ -14,12 +14,12 @@ void init()
 
 void create()
 {
-	set_name(HIY"三清换质丹"NOR, ({"huanzhi dan", "dan"}));
+	set_name(HIY"三清換質丹"NOR, ({"huanzhi dan", "dan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "颗");
-		set("long", "一颗深黄色的丹药。\n");
+		set("unit", "顆");
+		set("long", "一顆深黃色的丹藥。\n");
 		set("value", 10000);
 		set("no_sell", 1);
 		set("no_drop", 1);
@@ -34,17 +34,17 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if (!id(arg)) return notify_fail("你要吃什么药？\n");
+	if (!id(arg)) return notify_fail("你要喫什麼藥？\n");
 	if (!present(this_object(), this_player()))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if (me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
 	me->add("neili", 100);
 	me->add("jingli",50);
 	if(me->query("jingli")>me->query("max_jingli"))
 		me->set("jingli",me->query("max_jingli"));
-	message_vision("$N吃下一颗三清换质丹，全身无比的舒坦。\n", me);
+	message_vision("$N喫下一顆三清換質丹，全身無比的舒坦。\n", me);
 	me->start_busy(2);
 	destruct(this_object());
 	return 1;

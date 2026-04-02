@@ -8,7 +8,7 @@ void create()
 	set_name("白衣少女", ({ "white lady","lady","white" }) );
 	set("gender", "女性" );
 	set("age", 18);
-	set("long", "一个聪明伶俐的白衣少女。\n");
+	set("long", "一個聰明伶俐的白衣少女。\n");
 	set("shen_type", -1);
 	set("combat_exp", 1000);
 	set("str", 20);
@@ -30,7 +30,7 @@ void create()
 	set_temp("apply/defense", 12);
 	set_temp("apply/damage", 11);
 	set_temp("apply/armor", 7);
-	create_family("白驼山派", 3, "弟子");
+	create_family("白駝山派", 3, "弟子");
 	setup();
 	carry_object("/d/baituo/obj/baipao")->wear();
 }
@@ -49,6 +49,6 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	     say("白衣少女招招手说道：这位" + RANK_D->query_respect(ob)+ "，过来和我们一起玩捉迷藏吧。\n");
+	     say("白衣少女招招手說道：這位" + RANK_D->query_respect(ob)+ "，過來和我們一起玩捉迷藏吧。\n");
 	return;
 }

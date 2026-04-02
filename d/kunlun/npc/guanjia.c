@@ -6,7 +6,7 @@ inherit NPC;
 
 void create()
 {
-	set_name("乔福", ({ "qiao fu", "qiao","fu" }));
+	set_name("喬福", ({ "qiao fu", "qiao","fu" }));
 	set("title",HIY"管家"NOR);
 	set("gender", "男性");
 	set("age", 65);

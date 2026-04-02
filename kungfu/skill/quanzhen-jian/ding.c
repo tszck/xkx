@@ -1,10 +1,10 @@
-// ding.c 全真剑-定阳针
+// ding.c 全真劍-定陽針
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME "定阳针"
+#define PNAME "定陽針"
 int perform(object me, object target)
 {
 	object weapon;
@@ -20,18 +20,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 		
 	fskill = "yunv-xinfa";
 	bskill = "sword";
@@ -47,17 +47,17 @@ int perform(object me, object target)
 	if( (int)me->query_skill(fskill, 1) < 40 &&
 		  (int)me->query_skill("xiantian-qigong", 1) < 40 &&
 			(int)me->query_skill("yunv-xinfa", 1) < 40 )
-		return notify_fail("你的内功不够娴熟，不能使用"+PNAME+"。\n");
+		return notify_fail("你的內功不夠嫺熟，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 40 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili", 1) < 150 )
-		return notify_fail("你现在内力太弱，不能使用定阳针。\n");
+		return notify_fail("你現在內力太弱，不能使用定陽針。\n");
 
-	msg = HIC "$N左手捏着剑诀，右足踏开一招“定阳针”向上斜刺，"
-	     +weapon->name()+HIC"锵然跃出，倏的化作几点星光，射向$n！\n"NOR;
-// "$N脚下左弓右箭，神气完足如雷霆五岳，一式「定阳针」斜斜刺出。\n"NOR;
+	msg = HIC "$N左手捏着劍訣，右足踏開一招“定陽針”向上斜刺，"
+	     +weapon->name()+HIC"鏘然躍出，倏的化作幾點星光，射向$n！\n"NOR;
+// "$N腳下左弓右箭，神氣完足如雷霆五嶽，一式「定陽針」斜斜刺出。\n"NOR;
 
 	if (random(me->query_skill("force")) > target->query_skill("force")/2 )
 	{
@@ -69,13 +69,13 @@ int perform(object me, object target)
 		target->start_busy(4);
 		me->add("neili", -100);
 
-		msg += HIR"$n看到$N这气拔千钧的一击，竟不知如何招架！\n"NOR;
+		msg += HIR"$n看到$N這氣拔千鈞的一擊，竟不知如何招架！\n"NOR;
 
 	}
 	else
 	{
 		me->start_busy(3);
-		msg += CYN"可是$p看破了$P的企图，斜跃避开。\n"NOR;
+		msg += CYN"可是$p看破了$P的企圖，斜躍避開。\n"NOR;
 	}
 	message_combatd(msg, me, target);
 
@@ -89,13 +89,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
-		迟滞对方出手
+		損傷對方氣血
+		遲滯對方出手
 
 	出手要求：
-		先天气功或玉女心法40级
-		全真剑法40级
-		内力150
+		先天氣功或玉女心法40級
+		全真劍法40級
+		內力150
 HELP
 	);
 	return 1;

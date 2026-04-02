@@ -11,12 +11,12 @@ string *leixing = ({"int", "string", "object", "mapping", "mixed", "float", "buf
 int check(int s);
 int check1();
 int clean();
-int isdata(string s); //对这一行简单分析,判断是否是数据定义行
-int peidui(string s); //对这一行简单分析,判断([{}])是否残缺
+int isdata(string s); //對這一行簡單分析,判斷是否是數據定義行
+int peidui(string s); //對這一行簡單分析,判斷([{}])是否殘缺
 
 int main(object me, string arg)
 {
-    string *founded; //已经出现过的错误
+    string *founded; //已經出現過的錯誤
 
     unusedvar = "";
     new_f_line = "";
@@ -29,20 +29,20 @@ int main(object me, string arg)
     }
     if (!file = read_file(arg) || sizeof(file) == 0)
     {
-        write("无法读取该文件：" + arg + "\n");
+        write("無法讀取該文件：" + arg + "\n");
         return 0;
     }
 
     f_line = explode(file, "\n");
     write_file(arg, "", 1);
     founded = ({});
-    lastw = "";             //上一个错误文件名
+    lastw = "";             //上一個錯誤文件名
     foreach (chk in f_line) //chk log file each line
     {
         if (sscanf(chk, "%s line %d: Warning: Unused local variable '%s'", filename, line_n, argv_name) == 3)
         {
             //  unusedvar+=chk+"\n";
-            if (file_size(filename) == -1) //特别的update引起的检查，一般不需要
+            if (file_size(filename) == -1) //特別的update引起的檢查，一般不需要
             {
                 write(filename + "文件不存在。\n");
                 continue;
@@ -51,7 +51,7 @@ int main(object me, string arg)
             if (member_array(chk, founded) != -1)
                 continue; //this mistake have be treated
             founded += ({chk});
-            if (lastw != filename) //新文件有错
+            if (lastw != filename) //新文件有錯
             {
                 if (lastw != "")
                 {
@@ -60,14 +60,14 @@ int main(object me, string arg)
                 }
                 lastw = filename;
                 unusedvar += chk + "\n";          ////
-                if (!wfile = read_file(filename)) //再读新文件
+                if (!wfile = read_file(filename)) //再讀新文件
                 {
-                    write("无法读取该文件：" + filename + "，可能是临时文件\n");
+                    write("無法讀取該文件：" + filename + "，可能是臨時文件\n");
                     continue;
                 }
                 wf_line = explode(wfile, "\n"); //wrong file lines
 
-            } //否则接着修改刚才的文件，以免重复打开修改存盘同一文件
+            } //否則接着修改剛纔的文件，以免重複打開修改存盤同一文件
             unusedvar += "┏" + filename + " @line=" + line_n + ", Unused variable=" + argv_name + "\n";
 
             while (line_n > 0)
@@ -78,7 +78,7 @@ int main(object me, string arg)
                 if (isdata(wf_line[line_n]))
                 { //write("line_n number=="+(line_n+1)+"    argv_name is "+argv_name +"\n");
                     start = 0;
-                    if (check(start)) //找到并修改成功
+                    if (check(start)) //找到並修改成功
                         break;
                 }
             }
@@ -88,7 +88,7 @@ int main(object me, string arg)
             if (member_array(chk, founded) != -1)
                 continue; //this mistake have be treated
             founded += ({chk});
-            if (lastw != filename) //新文件有错
+            if (lastw != filename) //新文件有錯
             {
                 if (lastw != "")
                 {
@@ -97,14 +97,14 @@ int main(object me, string arg)
                 }
                 lastw = filename;
                 unusedvar += chk + "\n";
-                if (!wfile = read_file(filename)) //再读新文件
+                if (!wfile = read_file(filename)) //再讀新文件
                 {
-                    write("无法读取该文件：" + filename + "\n");
+                    write("無法讀取該文件：" + filename + "\n");
                     return 0;
                 }
                 wf_line = explode(wfile, "\n"); //wrong file lines
 
-            } //否则接着修改刚才的文件，以免重复打开修改存盘同一文件
+            } //否則接着修改剛纔的文件，以免重複打開修改存盤同一文件
             unusedvar += "┏" + filename + " @line=" + line_n + ", Cannot #include=" + argv_name + "\n";
 
             while (line_n > 0)
@@ -113,7 +113,7 @@ int main(object me, string arg)
                 if (strsrch(wf_line[line_n], "<" + argv_name + ">") != -1)
                 { //write("line_n number=="+(line_n+1)+"    argv_name is "+argv_name +"\n");
                     //start=0;
-                    check1(); //找到并寻找文件尝试修改
+                    check1(); //找到並尋找文件嘗試修改
                     break;
                 }
             }
@@ -128,45 +128,45 @@ int main(object me, string arg)
     else
         unusedvar += "\n-----------no file found Unused local variable or cannot be included file. end.....\n";
     write_file(unusedvar_log_file, unusedvar, 1);
-    write_file(arg, new_f_line); //不认识的写回原log文件
+    write_file(arg, new_f_line); //不認識的寫回原log文件
     write("ok.check " + unusedvar_log_file + " for examination。\n");
     return 1;
 }
 
-int isdata(string s) //对这一行简单分析,判断是否是数据定义行
+int isdata(string s) //對這一行簡單分析,判斷是否是數據定義行
 {
     int n;
     foreach (chk in leixing)
     {
         if ((n = strsrch(s, chk)) != -1)
         {
-            if (n != 0 && s[n - 1] != ' ' && s[n - 1] != '\t' && s[n - 1] != ';') // 类型名称前面总得是空白吧
+            if (n != 0 && s[n - 1] != ' ' && s[n - 1] != '\t' && s[n - 1] != ';') // 類型名稱前面總得是空白吧
                 return 0;
             n += sizeof(chk);
-            if (s[n] == ' ' || s[n] == '*' || s[n] == '/' || s[n] == '\t') //有些定义数组是在类型后面加*，或某些变量已经注释引起无法确定类型名称
+            if (s[n] == ' ' || s[n] == '*' || s[n] == '/' || s[n] == '\t') //有些定義數組是在類型後面加*，或某些變量已經註釋引起無法確定類型名稱
                 return 1;
         }
     }
     return 0;
 }
 
-int check(int s) //对这一行详细分析, 是否有未使用变量并修改
+int check(int s) //對這一行詳細分析, 是否有未使用變量並修改
 {
-    int temp; //记录变量字符串位置，符号配对性，防止有人开始定义变量时进行函数调用复杂的多变量初始化
+    int temp; //記錄變量字符串位置，符號配對性，防止有人開始定義變量時進行函數調用複雜的多變量初始化
     start = s;
     reset_eval_cost();
-    if ((temp = strsrch(wf_line[line_n][s..], argv_name)) != -1) //检查前后字符，看是否有这个变量
+    if ((temp = strsrch(wf_line[line_n][s..], argv_name)) != -1) //檢查前後字符，看是否有這個變量
     {
-        start += temp; //开始位置
+        start += temp; //開始位置
         c1 = wf_line[line_n][start - 1..start - 1];
         //write("111argv_name is "+argv_name +" c1 is "+c1+"\n");
         if (member_array(c1, ({" ", ",", "*", "/", "\t"})) == -1)
-            return check(start + sizeof(argv_name)); //前面不是空格或逗号或星号，应该不是变量，检查后面可能有这个变量
+            return check(start + sizeof(argv_name)); //前面不是空格或逗號或星號，應該不是變量，檢查後面可能有這個變量
         //write("111\n");
         c2 = wf_line[line_n][start + sizeof(argv_name)..start + sizeof(argv_name)];
-        if (member_array(c2, ({" ", ",", ";", "=", "/", "\t"})) == -1) //后面不是空格或逗号或分号，应该不是变量，检查后面可能有这个变量
+        if (member_array(c2, ({" ", ",", ";", "=", "/", "\t"})) == -1) //後面不是空格或逗號或分號，應該不是變量，檢查後面可能有這個變量
             return check(start + sizeof(argv_name));
-        while (member_array(c1, ({" ", ",", "*", "/", "\t"})) != -1) //把左边没有用的这些当成变量的一部分，呆会一起注释掉
+        while (member_array(c1, ({" ", ",", "*", "/", "\t"})) != -1) //把左邊沒有用的這些當成變量的一部分，呆會一起註釋掉
         {                                                            //write("left argv_name is "+argv_name +" c1 is "+c1+"\n");
             if (c1 == "/")
                 break;
@@ -178,9 +178,9 @@ int check(int s) //对这一行详细分析, 是否有未使用变量并修改
         {
             if (peidui(argv_name) == 1)
             {                                            //write("right argv_name is "+argv_name +" c2 is "+c2+"\n");
-                if (c2 == ";" || c2 == "/" || c2 == ",") //一定要结束
+                if (c2 == ";" || c2 == "/" || c2 == ",") //一定要結束
                 {
-                    if (strsrch(argv_name, ",") == -1) //变量左边没有逗号，说明是第一个变量，需要消除后面的，
+                    if (strsrch(argv_name, ",") == -1) //變量左邊沒有逗號，說明是第一個變量，需要消除後面的，
                         if (c2 == ",")
                             argv_name = argv_name + c2;
                     break;
@@ -190,12 +190,12 @@ int check(int s) //对这一行详细分析, 是否有未使用变量并修改
             c2 = wf_line[line_n][start + sizeof(argv_name)..start + sizeof(argv_name)];
         }
         if (argv_name[0..1] == "* " || argv_name[0..1] == "*\t")
-            argv_name = argv_name[1..]; //防止有人把*写在类型后面的习惯
+            argv_name = argv_name[1..]; //防止有人把*寫在類型後面的習慣
         if (argv_name[0..0] == " " || argv_name[0..0] == "\t")
-            argv_name = argv_name[1..]; //防止已有的注释把/*写在类型后面,导致无法识别类型
+            argv_name = argv_name[1..]; //防止已有的註釋把/*寫在類型後面,導致無法識別類型
         unusedvar += "┣the wrong is " + "@line" + (line_n + 1) + "【" + wf_line[line_n] + "】\n";
-        //wf_line[line_n]=wf_line[line_n][0..start-1]+replace_string(wf_line[line_n][start..],argv_name,"/*"+argv_name+"*/",1);//注释掉变量
-        wf_line[line_n] = wf_line[line_n][0..start - 1] + replace_string(wf_line[line_n][start..], argv_name, "", 1); //注释掉变量
+        //wf_line[line_n]=wf_line[line_n][0..start-1]+replace_string(wf_line[line_n][start..],argv_name,"/*"+argv_name+"*/",1);//註釋掉變量
+        wf_line[line_n] = wf_line[line_n][0..start - 1] + replace_string(wf_line[line_n][start..], argv_name, "", 1); //註釋掉變量
 
         clean();
         return 1;
@@ -204,27 +204,27 @@ int check(int s) //对这一行详细分析, 是否有未使用变量并修改
     return 0;
 }
 
-int check1() //检查同目录下、include/net/下是否有这个include文件
+int check1() //檢查同目錄下、include/net/下是否有這個include文件
 {
     string dir;
     dir = filename[0..strsrch(filename, "/", -1)];
     reset_eval_cost();
-    if (member_array(argv_name, get_dir(dir)) == -1) //当前目录下没有这个文件
+    if (member_array(argv_name, get_dir(dir)) == -1) //當前目錄下沒有這個文件
         unusedvar += "┣the wrong is " + "@line" + (line_n + 1) + "『" + wf_line[line_n] + "』,cannot find the " + argv_name + " in the same dir.\n";
-    else //当前目录下有这个文件
+    else //當前目錄下有這個文件
     {
         unusedvar += "┣the wrong is " + "@line" + (line_n + 1) + "【" + wf_line[line_n] + "】\n";
-        wf_line[line_n] = replace_string(wf_line[line_n], "<" + argv_name + ">", "\"" + argv_name + "\"", 1); //改为include 本目录下文件
+        wf_line[line_n] = replace_string(wf_line[line_n], "<" + argv_name + ">", "\"" + argv_name + "\"", 1); //改爲include 本目錄下文件
         unusedvar += "┗the corrected line" + (line_n + 1) + "〖" + wf_line[line_n] + "〗\n";
         return 1;
     }
 
-    if (member_array(argv_name, get_dir("include/net/")) == -1) //include/net目录下没有这个文件
+    if (member_array(argv_name, get_dir("include/net/")) == -1) //include/net目錄下沒有這個文件
         unusedvar += "┣the wrong is " + "@line" + (line_n + 1) + "『" + wf_line[line_n] + "』,cannot find the " + argv_name + " in the include/net\n";
-    else //include/net目录下有这个文件
+    else //include/net目錄下有這個文件
     {
         unusedvar += "┣the wrong is " + "@line" + (line_n + 1) + "【" + wf_line[line_n] + "】\n";
-        wf_line[line_n] = replace_string(wf_line[line_n], argv_name, "net/" + argv_name, 1); //改为include/net 目录下文件
+        wf_line[line_n] = replace_string(wf_line[line_n], argv_name, "net/" + argv_name, 1); //改爲include/net 目錄下文件
         unusedvar += "┗the corrected line" + (line_n + 1) + "〖" + wf_line[line_n] + "〗\n";
     }
     return 1;
@@ -235,8 +235,8 @@ int clean() //clean class name alone
     string class_lonely;
     wf_line[line_n] = replace_string(wf_line[line_n], "\t", " ");
 
-    //可能有多个不同定义在一行里 int a; string b ; object c; //xxxxx
-    //可能已经注释了a 、b、c，需要清理掉类型名
+    //可能有多個不同定義在一行裏 int a; string b ; object c; //xxxxx
+    //可能已經註釋了a 、b、c，需要清理掉類型名
     while (strsrch(wf_line[line_n], " ;") > 0)
         wf_line[line_n] = replace_string(wf_line[line_n], " ;", ";");
     foreach (class_lonely in leixing)
@@ -248,7 +248,7 @@ int clean() //clean class name alone
     unusedvar += "┗the corrected line" + (line_n + 1) + "〖" + wf_line[line_n] + "〗\n";
 }
 
-int peidui(string arg) //from nt7,对这一行简单分析,判断([{}])是否残缺
+int peidui(string arg) //from nt7,對這一行簡單分析,判斷([{}])是否殘缺
 {
     int idx, chr, mark, marked;
     int s_symbol, m_symbol, b_symbol, d_quote, s_quote;
@@ -306,18 +306,18 @@ int peidui(string arg) //from nt7,对这一行简单分析,判断([{}])是否残
 int help(object me)
 {
     write(@HELP
-    自动注释掉源文件中所有mudos或fluffos发现的未使用的变量，
-修改 #include <本目录下文件>  为  #include "本目录下文件";
-以节约内存，注释后的文件记录会从log文件中删除，以减小log文
-件，其它不认识的错误会写回原log文件.以方便巫师查错。
-    已经注释的文件另给一个记录，默认文件名为/log/log.var
-前面是log文件本身，后面是修改情况正常情况开始会形成三行封闭
-的制表符，以方便判断是否注释正确。
-    若代码不能正确处理，请在各个wiz群联系胖得爬不上树的精灵
-虽然我可能也忘了代码。
+    自動註釋掉源文件中所有mudos或fluffos發現的未使用的變量，
+修改 #include <本目錄下文件>  爲  #include "本目錄下文件";
+以節約內存，註釋後的文件記錄會從log文件中刪除，以減小log文
+件，其它不認識的錯誤會寫回原log文件.以方便巫師查錯。
+    已經註釋的文件另給一個記錄，默認文件名爲/log/log.var
+前面是log文件本身，後面是修改情況正常情況開始會形成三行封閉
+的製表符，以方便判斷是否註釋正確。
+    若代碼不能正確處理，請在各個wiz羣聯繫胖得爬不上樹的精靈
+雖然我可能也忘了代碼。
 
 指令格式：chklog [logfile]
-没有 logfile，则logfile默认为 log/log
+沒有 logfile，則logfile默認爲 log/log
 HELP
     );
     return 1;

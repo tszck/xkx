@@ -1,15 +1,15 @@
-//Room: chunyangdian.c 纯阳殿
+//Room: chunyangdian.c 純陽殿
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 
 void create()
 {
-      set("short","纯阳殿");
+      set("short","純陽殿");
       set("long",@LONG
-纯阳殿海拔一千余米，四面古木苍翠，幽静宜人。殿前有一石，叫普贤石，
-据说普贤菩萨登山时曾坐在这里休息过。在此可纵观峨嵋诸峰，仰望金顶，悬
-崖峭壁，离天咫尺。这里西上至神水庵，东下是归云阁。
+純陽殿海拔一千餘米，四面古木蒼翠，幽靜宜人。殿前有一石，叫普賢石，
+據說普賢菩薩登山時曾坐在這裏休息過。在此可縱觀峨嵋諸峯，仰望金頂，懸
+崖峭壁，離天咫尺。這裏西上至神水庵，東下是歸雲閣。
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "eastdown"  : __DIR__"guiyunge",

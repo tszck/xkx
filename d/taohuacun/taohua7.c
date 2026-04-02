@@ -5,12 +5,12 @@ inherit ROOM;
 
 void create ()
 {
-	set ("short", "鸳鸯溪");
+	set ("short", "鴛鴦溪");
 	set ("long", @LONG
-这里是桃花溪的支流水流碧透，风光旖旎，气息清新，正是
-住家的绝好所在。只有结婚了的玩家，向桃花童申请(apply)了
-这里的房子(house)，才能在这里筑自己的爱巢。
-    现在已经有几间小别墅了每栋别墅前挂着牌子(paizi)，写
+這裏是桃花溪的支流水流碧透，風光旖旎，氣息清新，正是
+住家的絕好所在。只有結婚了的玩家，向桃花童申請(apply)了
+這裏的房子(house)，才能在這裏築自己的愛巢。
+    現在已經有幾間小別墅了每棟別墅前掛着牌子(paizi)，寫
 着些人家的名字。
 LONG);
 
@@ -50,7 +50,7 @@ int show_name(string arg)
 		       ++j;
 	       }
 	}
-	result="\n			连理别墅 \n";
+	result="\n			連理別墅 \n";
 	if (j>0)
 	{
 	       --j;
@@ -81,7 +81,7 @@ int show_name(string arg)
 	       }
 	}
 
-	result="\n"+result+"\n\n\n"+"注：请键入各家的第一个名字来进入。\n";
+	result="\n"+result+"\n\n\n"+"注：請鍵入各家的第一個名字來進入。\n";
 	this_player()->start_more(result);
 
 	return 1;
@@ -126,7 +126,7 @@ int enter_home(string arg)
 	    room->set("no_magic",1);
 	    room->move(env);
 	}
-	message_vision("$N轻轻打开一扇门，走了进去。\n",me);
+	message_vision("$N輕輕打開一扇門，走了進去。\n",me);
 	me->move(room);
 	return 1;
 }

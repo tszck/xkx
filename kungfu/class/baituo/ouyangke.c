@@ -9,9 +9,9 @@ void do_back();
 void create()
 {
 	seteuid(getuid());
-	set_name("欧阳克", ({ "ouyang ke", "ouyang", "ke" }));
-	set("long", "他一身飘逸的白色长衫，手摇折扇，风流儒雅。\n");
-	set("title", "白驼山少庄主");
+	set_name("歐陽克", ({ "ouyang ke", "ouyang", "ke" }));
+	set("long", "他一身飄逸的白色長衫，手搖摺扇，風流儒雅。\n");
+	set("title", "白駝山少莊主");
 	set("nickname", HIM "玉面蛇心" NOR);
 	set("gender", "男性");
 	set("age", 27);
@@ -72,12 +72,12 @@ void create()
 		(: exert_function, "reserve" :),
 		(: exert_function, "recover" :),
 	}) );
-	create_family("白驼山派",2,"弟子");
+	create_family("白駝山派",2,"弟子");
 	set("chat_chance", 10);
 	set("chat_msg", ({
-		"欧阳克唱道: 漂亮姑娘你请留步￣￣让我多看你一眼￣￣\n",
-		"欧阳克色迷迷地看着街边的小姑娘。\n",
-		"欧阳克把纸扇一展，转过身去，深情地吟道：红颜知己最难得￣\n",
+		"歐陽克唱道: 漂亮姑娘你請留步￣￣讓我多看你一眼￣￣\n",
+		"歐陽克色迷迷地看着街邊的小姑娘。\n",
+		"歐陽克把紙扇一展，轉過身去，深情地吟道：紅顏知己最難得￣\n",
 		(: random_move :)
 	}) );
 
@@ -103,7 +103,7 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-   if (ob->query("family/family_name")=="白驼山派")
+   if (ob->query("family/family_name")=="白駝山派")
      {
                 command("nod " + ob->query("id"));
                 return;
@@ -113,10 +113,10 @@ void greeting(object ob)
 		if (ob->query("per") < 20)
                         return;
 
-    if (ob->query("sex/欧阳克"))
+    if (ob->query("sex/歐陽克"))
         {
            command("kiss " + ob->query("id"));
-           command("say 怎么样，要不要再来几次？");
+           command("say 怎麼樣，要不要再來幾次？");
         } else
 		switch(random(3))
 		{
@@ -125,29 +125,29 @@ void greeting(object ob)
 			case 2:command("love "+(string)ob->query("id"));break;
 		}
 	}
-	else say("欧阳克叹了一口气说：这位"+RANK_D->query_respect(ob)+",你要是能给我弄一个女人来就好了。\n");
+	else say("歐陽克嘆了一口氣說：這位"+RANK_D->query_respect(ob)+",你要是能給我弄一個女人來就好了。\n");
 	return;
 }
 
 void attempt_apprentice(object ob)
 {
-	if ((string)ob->query("family/family_name") == "白驼山派")
+	if ((string)ob->query("family/family_name") == "白駝山派")
 	{
 		if((int)ob->query("combat_exp")<10000)
-			command("say 你的经验太低，我还不能收你。继续努力吧。\n");
+			command("say 你的經驗太低，我還不能收你。繼續努力吧。\n");
 		else
 		{
-			command("say 你跟着我要好好学。\n");		
+			command("say 你跟着我要好好學。\n");		
 			command("recruit "+ob->query("id"));
 		}
 		return;
 	}
 	if ((string)ob->query("gender") == "女性")
-		message_vision("欧阳克动情地说道：这位" + RANK_D->query_respect(ob) + "真乃我的红颜知己，\n我现在还不能收你，只能送你上白驼山。\n",ob);
+		message_vision("歐陽克動情地說道：這位" + RANK_D->query_respect(ob) + "真乃我的紅顏知己，\n我現在還不能收你，只能送你上白駝山。\n",ob);
 	else
-		message_vision("欧阳克笑笑说：这位"+RANK_D->query_respect(ob) + "，我现在还不能收你，只能送你上白驼山。\n",ob);
-	write(HIY "只见欧阳克把纸扇往你眼前一晃，\n
-	你觉得眼前一闪，身体轻飘飘地飞了出去￣￣\n" NOR);
+		message_vision("歐陽克笑笑說：這位"+RANK_D->query_respect(ob) + "，我現在還不能收你，只能送你上白駝山。\n",ob);
+	write(HIY "只見歐陽克把紙扇往你眼前一晃，\n
+	你覺得眼前一閃，身體輕飄飄地飛了出去￣￣\n" NOR);
 	ob->move("/d/baituo/liangong");
 }
 
@@ -155,15 +155,15 @@ int accept_fight(object ob)
 {
 	if ((string)ob->query("gender") == "女性")
 	{
-		message_vision("欧阳克摆摆手说道：这位"+RANK_D->query_respect(ob)+ "，我怎能欺负女孩子呢！\n", ob);
+		message_vision("歐陽克擺擺手說道：這位"+RANK_D->query_respect(ob)+ "，我怎能欺負女孩子呢！\n", ob);
 		return 0;
 	}
-	if ((string)ob->query("family/family_name") == "白驼山派")
+	if ((string)ob->query("family/family_name") == "白駝山派")
 	{
 		if((int)ob->query("combat_exp")<100000)
-			return notify_fail("欧阳克笑道：你的经验太低了，再练几年吧。！\n");
+			return notify_fail("歐陽克笑道：你的經驗太低了，再練幾年吧。！\n");
 	}
-	message_vision("欧阳克一拱手说道：这位"+RANK_D->query_respect(ob)+ "，在下领教了。\n", ob);
+	message_vision("歐陽克一拱手說道：這位"+RANK_D->query_respect(ob)+ "，在下領教了。\n", ob);
 	return 1;
 }
  
@@ -183,45 +183,45 @@ int do_give(string arg)
 	ob=present(item,this_player());
 	if ( !ob || !objectp(ob) || !ob->is_character()) return 0;
 	if ( query_ip_name(this_player()) == query_ip_name(ob) )
-	  return notify_fail("卖自己？真是生财有道了。\n");
+	  return notify_fail("賣自己？真是生財有道了。\n");
 	if (  (string)ob->query("gender") != "女性")
 	{
-		say("欧阳克不需要这件东西。\n");
+		say("歐陽克不需要這件東西。\n");
 		return 1;
 	}
 	if (ob->is_corpse())
 	{
 		command("slap " + who->query("id"));
-		command("say 好嘛你，居然拿具尸体来糊弄我，找晦气啊？");
+		command("say 好嘛你，居然拿具屍體來糊弄我，找晦氣啊？");
 		return 1;
 	}
-	 if ((string)ob->query("family/family_name") == "白驼山派")
+	 if ((string)ob->query("family/family_name") == "白駝山派")
    {
      command("kick " + who->query("id"));
      command("slap " + who->query("id"));
-     command("say 我靠！你胆子可真不小，连我的胞妹你也敢欺负？");
+     command("say 我靠！你膽子可真不小，連我的胞妹你也敢欺負？");
                 return 1;
     }
 
-	if( environment(this_object())->query("short") == "丽春院" )
+	if( environment(this_object())->query("short") == "麗春院" )
 	{
-		say("欧阳克笑道：本大爷刚快活完，这种烂货你自己留着吧。\n");
+		say("歐陽克笑道：本大爺剛快活完，這種爛貨你自己留着吧。\n");
 		return 1;
 	}
 	if ( (int)ob->query("age") <18 )
 	{
-		say("欧阳克大惊失色道：未成年少女我怎敢要！\n");
+		say("歐陽克大驚失色道：未成年少女我怎敢要！\n");
 		return 1;
 	}
 	if ( (int)ob->query("age") >40 )
 	{
-		say("欧阳克轻蔑地一笑道：这种老古董还是留给你自己吧！\n");
+		say("歐陽克輕蔑地一笑道：這種老古董還是留給你自己吧！\n");
 		return 1;
 	}
-	if (ob->query("sex/欧阳克") >= 3)
+	if (ob->query("sex/歐陽克") >= 3)
     {
                 command("shake");
-                command("say 这婆娘我已经玩腻了，你自个留着吧。");
+                command("say 這婆娘我已經玩膩了，你自個留着吧。");
                 return 1;
     }       
   amount=0;
@@ -229,54 +229,54 @@ int do_give(string arg)
     {
       if (sizeof(ob->query("sex")) > 2 + 2 ) 
         {
-           command("say 靠！这种女人人尽可夫，我欧阳克可不想要。");
+           command("say 靠！這種女人人盡可夫，我歐陽克可不想要。");
            return 1;
         }
 
         if (ob->query("per") < 25)
         {
            command("shrug");
-           command("say 这……这种货色也未免差了点，你"
-				"也找个漂亮些的啊。");
+           command("say 這……這種貨色也未免差了點，你"
+				"也找個漂亮些的啊。");
                         return 1;
          }
          amount += ob->query("per");
           if (!ob->query("sex"))
                 {
-                        command("say 哇，这还是个处女，怎么也得多给"
-			        "你点辛苦费！");
+                        command("say 哇，這還是個處女，怎麼也得多給"
+			        "你點辛苦費！");
                         amount += 30;
                 }
-        command("rumor "+ob->query("name")+"被人送给欧阳克了，足足赚了"+chinese_number(amount+30)+"两白花花的银子。");
+        command("rumor "+ob->query("name")+"被人送給歐陽克了，足足賺了"+chinese_number(amount+30)+"兩白花花的銀子。");
      }
      else
      {
         ob->set("chat_chance", 15);
         ob->set("chat_msg", ({CYN + ob->name() + CYN "不住的抽泣。\n" NOR,
-                   CYN + ob->name() + CYN "呜咽道：" + this_object()->name() +
-                   CYN "，他…他…他这个坏东西。\n" NOR,
-                   CYN + ob->name() + CYN "哭了起来：我不想活了！\n" NOR,
+                   CYN + ob->name() + CYN "嗚咽道：" + this_object()->name() +
+                   CYN "，他…他…他這個壞東西。\n" NOR,
+                   CYN + ob->name() + CYN "哭了起來：我不想活了！\n" NOR,
                 }) );
 
      	}
   obn=new("/clone/money/silver");
 	obn->set_amount(30+amount);
 	obn->move(who);
-	message_vision("欧阳克一把把"+ob->query("name")+ "揽在怀里，对$N说这点银子是你的辛苦费，咱回头见。\n说完，就携着"+ob->query("name")+"往丽春院奔去...\n",who);
+	message_vision("歐陽克一把把"+ob->query("name")+ "攬在懷裏，對$N說這點銀子是你的辛苦費，咱回頭見。\n說完，就攜着"+ob->query("name")+"往麗春院奔去...\n",who);
 	move("/d/city/lichunyuan",1);
   ob->move("/d/city/lichunyuan",1);
-  message_vision("$N抱着昏迷不醒的$n走了进来。\n", this_object(), ob);
+  message_vision("$N抱着昏迷不醒的$n走了進來。\n", this_object(), ob);
 
-  ob->add("sex/欧阳克", 1);
+  ob->add("sex/歐陽克", 1);
   ob->add("sex/times",  1);
   if (ob->query("sex/times") == 1)
-        ob->set("sex/first", "欧阳克");
+        ob->set("sex/first", "歐陽克");
   ob->remove_call_out("revive");
   ob->revive();
-  tell_object(ob, HIY "你刚刚挣开眼睛，却发现一个人"
-		        "正抱着你，你大叫一声，几乎晕了过去。\n\n" NOR);
+  tell_object(ob, HIY "你剛剛掙開眼睛，卻發現一個人"
+		        "正抱着你，你大叫一聲，幾乎暈了過去。\n\n" NOR);
         command("kiss " + ob->query("id"));
-        command("say 嘻嘻，你慌什么么嘛，可是" + who->name() + "把你送过来的啊。");
+        command("say 嘻嘻，你慌什麼麼嘛，可是" + who->name() + "把你送過來的啊。");
         remove_call_out("do_back");
         call_out("do_back", 30 + random(10));
 
@@ -295,7 +295,7 @@ void do_back()
                 return;
         }
 
-        message_vision(HIW "$N" HIW "轻摇羽扇，飘然而去。\n" NOR, this_object());
+        message_vision(HIW "$N" HIW "輕搖羽扇，飄然而去。\n" NOR, this_object());
         move(query("startroom"));
-        message_vision(HIW "$N" HIW "轻摇羽扇，施施然的走了过来。\n" NOR, this_object());
+        message_vision(HIW "$N" HIW "輕搖羽扇，施施然的走了過來。\n" NOR, this_object());
 }

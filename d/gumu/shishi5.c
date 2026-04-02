@@ -8,9 +8,9 @@ void create()
 { 
 	set("short",HIB"石室"NOR);
 	set("long", @LONG
-你突然觉得眼前一亮，前方石室透过来一丝微弱的光，给了你一丝
-希望。但还是只听见远远传来你脚步的回音，空荡荡的感觉使你心中只
-有恐惧，甚至忘记孤独。四周如此寂然无声。只能靠摸索前行。
+你突然覺得眼前一亮，前方石室透過來一絲微弱的光，給了你一絲
+希望。但還是隻聽見遠遠傳來你腳步的迴音，空蕩蕩的感覺使你心中只
+有恐懼，甚至忘記孤獨。四周如此寂然無聲。只能靠摸索前行。
 LONG	);
 	set("exits", ([
 		"west"  : __DIR__"shishi4",
@@ -34,9 +34,9 @@ int valid_leave(object me,string dir)
 	object *inv = deep_inventory(me);
 	object *obj;
 	if((int)me->query_skill("yunv-xinfa",1) < 101 && dir == "enter")
-		return notify_fail(HIR"\t古墓重地，一般弟子不得入内。\n"NOR);
+		return notify_fail(HIR"\t古墓重地，一般弟子不得入內。\n"NOR);
 	obj = filter_array(inv,(:get_object:));
 	if( sizeof(obj) && dir =="enter")
-		return notify_fail(HIR"\t古墓重地，不得随意带他人进入！\n"NOR);
+		return notify_fail(HIR"\t古墓重地，不得隨意帶他人進入！\n"NOR);
 	return ::valid_leave(me, dir);
 }

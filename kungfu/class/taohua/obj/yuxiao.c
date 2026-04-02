@@ -7,18 +7,18 @@ inherit SWORD;
 
 void create()
 {
-    set_name("玉萧", ({"yuxiao"}));
+    set_name("玉蕭", ({"yuxiao"}));
     set_weight(500);
 
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
         set("unit", "支");
-        set("long", "一支白玉做成的长萧，看上去晶莹温润。武林中人经常以萧代剑。\n");
+        set("long", "一支白玉做成的長蕭，看上去晶瑩溫潤。武林中人經常以蕭代劍。\n");
 		set("value", 10000);
 		set("material", "bamboo");
-        set("wield_msg", "$N大袖一挥，手中已多了一支晶莹温润的玉萧。\n");
-        set("unwield_msg", "$N手中玉萧一转，眨眼间玉萧已然不见影踪。\n");
+        set("wield_msg", "$N大袖一揮，手中已多了一支晶瑩溫潤的玉蕭。\n");
+        set("unwield_msg", "$N手中玉蕭一轉，眨眼間玉蕭已然不見影蹤。\n");
 	}
     init_sword(50);
 	setup();

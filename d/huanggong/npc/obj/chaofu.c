@@ -11,7 +11,7 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long","这是一件补服，是大臣上朝时穿的。\n");
+		set("long","這是一件補服，是大臣上朝時穿的。\n");
 		set("unit", "件");
 		set("value", 60);
 		set("material", "cloth");

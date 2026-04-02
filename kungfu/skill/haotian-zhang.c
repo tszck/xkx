@@ -9,93 +9,93 @@ string martialtype() { return "skill"; }
 string *order = ({""HIY"", ""HIG"", ""RED"", ""MAG"", ""YEL"", ""HIC"", ""HIW"", ""HIR"",""HIB"", ""CYN"",""WHT"",""HIM"",""BLU""});
 
 mapping *action = ({
-([	"action" : "$N使一招"+(order[random(13)])+"「春江潮水」"NOR"，双手划了个半圈，按向$n的$l",
+([	"action" : "$N使一招"+(order[random(13)])+"「春江潮水」"NOR"，雙手劃了個半圈，按向$n的$l",
 	"skill_name" : "春江潮水",
 	"lvl" : 0
 ]),
-([	"action" : "$N使一招"+(order[random(13)])+"「海上明月」"NOR"，左手轻轻一挥，劈向$n的$l",
+([	"action" : "$N使一招"+(order[random(13)])+"「海上明月」"NOR"，左手輕輕一揮，劈向$n的$l",
 	"skill_name" : "海上明月",
 	"lvl" : 5
 ]),
-([	"action" : "$N右手掌心向外，由右向左，使一招"+(order[random(13)])+"「滟滟随波」"NOR"，向$n的$l打去",
-	"skill_name" : "滟滟随波",
+([	"action" : "$N右手掌心向外，由右向左，使一招"+(order[random(13)])+"「灩灩隨波」"NOR"，向$n的$l打去",
+	"skill_name" : "灩灩隨波",
 	"lvl" : 10
 ]),
-([	"action" : "$N使一招"+(order[random(13)])+"「江流宛转」"NOR"，分击$n的胸口和$l",
-	"skill_name" : "江流宛转",
+([	"action" : "$N使一招"+(order[random(13)])+"「江流宛轉」"NOR"，分擊$n的胸口和$l",
+	"skill_name" : "江流宛轉",
 	"lvl" : 15
 ]),
-([	"action" : "$N使一招"+(order[random(13)])+"「月照花林」"NOR"，左右掌同时击出，在空中突然左右掌方向互
-变",
+([	"action" : "$N使一招"+(order[random(13)])+"「月照花林」"NOR"，左右掌同時擊出，在空中突然左右掌方向互
+變",
 	"skill_name" : "月照花林",
 	"lvl" : 20
 ]),
-([	"action" : "$N左手不住晃动，右掌一招"+(order[random(13)])+"「空中流霜」"NOR"，向$n的$l打去",
+([	"action" : "$N左手不住晃動，右掌一招"+(order[random(13)])+"「空中流霜」"NOR"，向$n的$l打去",
 	"skill_name" : "空中流霜",
 	"lvl" : 25
 ]),
-([	"action" : "$N左手变掌为啄，右掌立掌如刀，一招"+(order[random(13)])+"「汀上白沙」"NOR"，劈向$n的$l",
+([	"action" : "$N左手變掌爲啄，右掌立掌如刀，一招"+(order[random(13)])+"「汀上白沙」"NOR"，劈向$n的$l",
 	"skill_name" : "汀上白沙",
 	"lvl" : 30
 ]),
-([	"action" : "$N左脚退后半步，右掌使一招"+(order[random(13)])+"「江天一色」"NOR"，横挥向$n",
+([	"action" : "$N左腳退後半步，右掌使一招"+(order[random(13)])+"「江天一色」"NOR"，橫揮向$n",
 	"skill_name" : "江天一色",
 	"lvl" : 35
 ]),
-([	"action" : "$N一招"+(order[random(13)])+"「皎皎孤月」"NOR"，左掌先发而后至，右掌后发而先至",
+([	"action" : "$N一招"+(order[random(13)])+"「皎皎孤月」"NOR"，左掌先發而後至，右掌後發而先至",
 	"skill_name" : "皎皎孤月",
 	"lvl" : 40
 ]),
-([	"action" : "$N双掌缩入袖中，双袖飞起扫向$n的$l，却是一招"+(order[random(13)])+"「长江流水」"NOR"，仪
-态潇洒",
-	"skill_name" : "长江流水",
+([	"action" : "$N雙掌縮入袖中，雙袖飛起掃向$n的$l，卻是一招"+(order[random(13)])+"「長江流水」"NOR"，儀
+態瀟灑",
+	"skill_name" : "長江流水",
 	"lvl" : 45
 ]),
-([	"action" : "$N左手虚按，右手划道弧线使一招"+(order[random(13)])+"「白云悠悠」"NOR"，向$n的$l插去",
-	"skill_name" : "白云悠悠",
+([	"action" : "$N左手虛按，右手劃道弧線使一招"+(order[random(13)])+"「白雲悠悠」"NOR"，向$n的$l插去",
+	"skill_name" : "白雲悠悠",
 	"lvl" : 50
 ]),
-([	"action" : "$N双手变掌做拳，向前向后划弧，一招"+(order[random(13)])+"「青枫浦上」"NOR"击向$n的$l",
-	"skill_name" : "青枫浦上",
+([	"action" : "$N雙手變掌做拳，向前向後劃弧，一招"+(order[random(13)])+"「青楓浦上」"NOR"擊向$n的$l",
+	"skill_name" : "青楓浦上",
 	"lvl" : 55
 ]),
-([	"action" : "$N左手虚划，右手变掌为钩一记"+(order[random(13)])+"「楼月蜚回」"NOR"击向$n的$l",
-	"skill_name" : "楼月蜚回",
+([	"action" : "$N左手虛劃，右手變掌爲鉤一記"+(order[random(13)])+"「樓月蜚回」"NOR"擊向$n的$l",
+	"skill_name" : "樓月蜚回",
 	"lvl" : 60
 ]),
-([	"action" : "$N施出"+(order[random(13)])+"「玉户帘中」"NOR"，右掌向外挥出，左掌同时攻向$n",
-	"skill_name" : "玉户帘中",
+([	"action" : "$N施出"+(order[random(13)])+"「玉戶簾中」"NOR"，右掌向外揮出，左掌同時攻向$n",
+	"skill_name" : "玉戶簾中",
 	"lvl" : 65
 ]),
-([	"action" : "$N由臂带手，在面前缓缓划过，使一招"+(order[random(13)])+"「鸿雁长飞」"NOR"，挥向$n的$l",
-	"skill_name" : "鸿雁长飞",
+([	"action" : "$N由臂帶手，在面前緩緩劃過，使一招"+(order[random(13)])+"「鴻雁長飛」"NOR"，揮向$n的$l",
+	"skill_name" : "鴻雁長飛",
 	"lvl" : 70
 ]),
-([	"action" : "$N负身就地，右掌使一招"+(order[random(13)])+"「鱼龙潜跃」"NOR"，自下而上向$n的$l击去",
-	"skill_name" : "鱼龙潜跃",
+([	"action" : "$N負身就地，右掌使一招"+(order[random(13)])+"「魚龍潛躍」"NOR"，自下而上向$n的$l擊去",
+	"skill_name" : "魚龍潛躍",
 	"lvl" : 75
 ]),
-([	"action" : "$N右手由钩变掌，双手掌心向上，右掌向前推出一招"+(order[random(13)])+"「月华流照」"NOR"",
-	"skill_name" : "月华流照",
+([	"action" : "$N右手由鉤變掌，雙手掌心向上，右掌向前推出一招"+(order[random(13)])+"「月華流照」"NOR"",
+	"skill_name" : "月華流照",
 	"lvl" : 80
 ]),
-([	"action" : "$N右掌不住向外扫出，是一式"+(order[random(13)])+"「闲潭落花」"NOR"，左掌旋转着向$n攻去",
-	"skill_name" : "闲潭落花",
+([	"action" : "$N右掌不住向外掃出，是一式"+(order[random(13)])+"「閒潭落花」"NOR"，左掌旋轉着向$n攻去",
+	"skill_name" : "閒潭落花",
 	"lvl" : 85
 ]),
-([	"action" : "$N右手经腹前经左肋向前撇出，使一招"+(order[random(13)])+"「江水流春」"NOR"，向$n的$l锤去
+([	"action" : "$N右手經腹前經左肋向前撇出，使一招"+(order[random(13)])+"「江水流春」"NOR"，向$n的$l錘去
 ",
 	"skill_name" : "江水流春",
 	"lvl" : 90
 ]),
-([	"action" : "$N使一招"+(order[random(13)])+"「斜月沉沉」"NOR"，左掌连划三个大圈，右掌从圈中穿出击向$n
+([	"action" : "$N使一招"+(order[random(13)])+"「斜月沉沉」"NOR"，左掌連劃三個大圈，右掌從圈中穿出擊向$n
 ",
 	"skill_name" : "斜月沉沉",
 	"lvl" : 95
 ]),
-([	"action" : "$N左手向上划弧拦出，右手使一招"+(order[random(13)])+"「碣石潇湘」"NOR"，手掌不住晃动，不
-离$n头顶方寸之间",
-	"skill_name" : "碣石潇湘",
+([	"action" : "$N左手向上劃弧攔出，右手使一招"+(order[random(13)])+"「碣石瀟湘」"NOR"，手掌不住晃動，不
+離$n頭頂方寸之間",
+	"skill_name" : "碣石瀟湘",
 	"lvl" : 100
 ])
 });
@@ -106,19 +106,19 @@ int valid_combine(string combo) { return combo=="chunyang-quan"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练昊天掌必须空手。\n");
+		return notify_fail("練昊天掌必須空手。\n");
 	if ((int)me->query_skill("xiantian-qigong", 1) < 20)
-		return notify_fail("你的先天气功火候不够，无法学昊天掌。\n");
+		return notify_fail("你的先天氣功火候不夠，無法學昊天掌。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 45)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 40)
-		return notify_fail("你的内力不够练昊天掌。\n");
+		return notify_fail("你的內力不夠練昊天掌。\n");
 	me->receive_damage("qi", 40);
 	me->add("neili", -25);
 	return 1;
@@ -145,16 +145,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 15; }
@@ -171,11 +171,11 @@ int help(object me)
 	write(HIC"\n昊天掌："NOR"\n");
 	write(@HELP
 
-    昊天掌为全真派武功。
-    可与纯阳拳互备。
+    昊天掌爲全真派武功。
+    可與純陽拳互備。
 
-	学习要求：
-		先天气功20级
+	學習要求：
+		先天氣功20級
 HELP
 	);
 	return 1;

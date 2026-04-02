@@ -4,7 +4,7 @@ inherit NPC;
 
 void create()
 {
-	set_name("武馆学徒",({ "xue tu","tu" }) );
+	set_name("武館學徒",({ "xue tu","tu" }) );
 	set("gender", "男性" );
 	set("age", 22);
 	set("combat_exp", 7000);

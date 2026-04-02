@@ -4,10 +4,10 @@
 inherit NPC;
 void create()
 {
-	set_name("木华黎",({"mu huali","mu","huali"}));
+	set_name("木華黎",({"mu huali","mu","huali"}));
 	set("gender","男性");
-	set("nickname","蒙古四杰");
-	set("long","铁木真手下四杰之一，草原上的智者，大汗的军师。\n");
+	set("nickname","蒙古四傑");
+	set("long","鐵木真手下四傑之一，草原上的智者，大汗的軍師。\n");
 	set("combat_exp", 200000);
 	set("age",45);
 	set("qi",2000);

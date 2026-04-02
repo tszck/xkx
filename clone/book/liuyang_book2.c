@@ -2,13 +2,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name( "天山六阳掌法图下册", ({ "zhangfa tu2", "tu2" }));
+	set_name( "天山六陽掌法圖下冊", ({ "zhangfa tu2", "tu2" }));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是六阳掌法下册，上面画着一些纷繁复杂的招式及修练法门。\n");
+		set("long", "這是六陽掌法下冊，上面畫着一些紛繁複雜的招式及修練法門。\n");
 		set("value", 500);
 		set("no_put", 1);
 		set("material", "paper");

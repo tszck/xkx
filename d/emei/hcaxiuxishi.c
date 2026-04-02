@@ -1,14 +1,14 @@
-//Room: hcaxiuxishi.c 华藏庵休息室
+//Room: hcaxiuxishi.c 華藏庵休息室
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 void create()
 {
-      set("short","华藏庵休息室");
+      set("short","華藏庵休息室");
       set("long",@LONG
-这里是峨嵋华藏庵的休息室。窗帘拉下来，房里整整齐齐放了很多木床。
-有几个夜晚守庵的小师太正在睡觉。
-　　休息室外就是禅房。
+這裏是峨嵋華藏庵的休息室。窗簾拉下來，房裏整整齊齊放了很多木牀。
+有幾個夜晚守庵的小師太正在睡覺。
+　　休息室外就是禪房。
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "north" : __DIR__"hcachanfang", 

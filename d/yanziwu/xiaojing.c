@@ -3,10 +3,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short","小径");
+	set("short","小徑");
 	set("long",@LONG
-这是个一条湖边的小径，西面就是一座小桥。周围湖光影天，你不
-禁深吸了一口醉人的空气，陶醉于山水中。
+這是個一條湖邊的小徑，西面就是一座小橋。周圍湖光影天，你不
+禁深吸了一口醉人的空氣，陶醉於山水中。
 LONG );
 	set("outdoors", "yanziwu");
 	set("exits",([

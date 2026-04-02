@@ -1,4 +1,4 @@
-// lamb.c 野黄羊
+// lamb.c 野黃羊
 
 #include <command.h>
 #include <dbase.h>
@@ -9,8 +9,8 @@ inherit NPC;
 
 void create()
 {
-        set_name(HIY"野黄羊"NOR, ({ "lamb" }));
-        set("long","一只野黄羊，正低头认真地吃着草。\n");
+        set_name(HIY"野黃羊"NOR, ({ "lamb" }));
+        set("long","一隻野黃羊，正低頭認真地喫着草。\n");
 	set("race", "走畜");
         set("age", 5);
         set("int", 30);

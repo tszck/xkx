@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("土匪头", ({ "tufei tou","bandit leader","tou" }) );
+	set_name("土匪頭", ({ "tufei tou","bandit leader","tou" }) );
 	set("gender", "男性");
 	set("age", 45);
 	set("long",
-		"这家伙满脸杀气，一付凶神恶煞的模样，令人望而生畏。\n");
+		"這傢伙滿臉殺氣，一付凶神惡煞的模樣，令人望而生畏。\n");
 	set("combat_exp", 20000);
         set("shen_type", -1);
 	set("attitude", "aggressive");
@@ -18,7 +18,7 @@ void create()
 
 	set("chat_chance", 5);
 	set("chat_msg", ({
-		"土匪头嘿嘿地冷笑着: 今天你就别想从这里活着出去了!\n",
+		"土匪頭嘿嘿地冷笑着: 今天你就別想從這裏活着出去了!\n",
 	}) );
 
 	set_skill("sword", 30);

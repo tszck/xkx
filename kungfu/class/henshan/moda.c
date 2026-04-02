@@ -1,4 +1,4 @@
-// moda.c 衡山派掌门 莫大
+// moda.c 衡山派掌門 莫大
 // Last Modified by ahda on Sep.1 2001
 inherit NPC;
 inherit F_MASTER;
@@ -10,7 +10,7 @@ void create()
 {
 	object ob;
 	set_name("莫大", ({ "mo da", "mo" }) );
-	set("nickname", "潇湘夜雨");
+	set("nickname", "瀟湘夜雨");
 	set("gender", "男性");
 	set("class", "swordsman");
 	set("age", 55);
@@ -53,9 +53,9 @@ void create()
 	prepare_skill("hand", "luoyan-hand");
 	prepare_skill("strike", "biluo-zhang");
   set("inquiry", ([
-			"镇岳尚方" : (: ask_jian :),
-			"宝剑" : (: ask_jian :),
-			"祝融剑法" : "本门剑法之一的祝融剑法，自师尊华山一役后便失传了。",
+			"鎮嶽尚方" : (: ask_jian :),
+			"寶劍" : (: ask_jian :),
+			"祝融劍法" : "本門劍法之一的祝融劍法，自師尊華山一役後便失傳了。",
 			]));	 
 	set("env/wimpy", 60);
 	set("chat_chance_combat", 70);
@@ -69,7 +69,7 @@ void create()
 		(: exert_function, "recover" :),
 		(: exert_function, "powerup" :),
 	}) );
-	create_family("衡山派", 13, "掌门");
+	create_family("衡山派", 13, "掌門");
 	setup();
 	set("count",1);
   if (clonep())
@@ -97,38 +97,38 @@ void attempt_apprentice(object ob)
 {
 	if((int)ob->query("int")<20)
 	{
-		command("say 你的悟性太低了，不适合学习我的功夫。");
+		command("say 你的悟性太低了，不適合學習我的功夫。");
 		return;
 	}
 	if((int)ob->query_skill("literate",1) < 150)
 	{
-		command("say 你的读书写字太低了，还是先多加修习吧。");
+		command("say 你的讀書寫字太低了，還是先多加修習吧。");
 		return;
 	}
 /*
 	if((int)ob->query("kar")<25)
 	{
-		command("say 你与衡山绝学无缘，请回吧。");
+		command("say 你與衡山絕學無緣，請回吧。");
 		return;
 	}
 */
 	if ((int)ob->query_skill("huiyan-xinfa",1) < 180 ) 
 	{
-		command("say 你的本门内功心法火候不足,难以领略更高深的武功。");
+		command("say 你的本門內功心法火候不足,難以領略更高深的武功。");
 		return;
 	}
-	if((string)ob->query("gender")=="无性")
+	if((string)ob->query("gender")=="無性")
 	{
-		command("say 你秉性阴阳不定，习我功夫恐将走火如魔。");
+		command("say 你秉性陰陽不定，習我功夫恐將走火如魔。");
 		return;
 	}
 	if((int)ob->query("shen") <= 50000)
 	{
-		command("say 你应当多作些行侠仗义的事，以修身心。");
+		command("say 你應當多作些行俠仗義的事，以修身心。");
 		return;
 	}
 
-	command("say 入我门来，定须光大我衡山一派。");
+	command("say 入我門來，定須光大我衡山一派。");
 	command("recruit " + ob->query("id"));
 }
 
@@ -145,26 +145,26 @@ mixed ask_jian()
         if (me->query("shen")<0)
         {
                 if (me->query("family/family_name") == "衡山派")
-                        message_vision(CYN "$N" CYN "大怒，对$n" CYN "道：“你身为衡山弟子，"
-                                       "反而误入魔道，还不快快醒转？”\n" NOR,
+                        message_vision(CYN "$N" CYN "大怒，對$n" CYN "道：“你身爲衡山弟子，"
+                                       "反而誤入魔道，還不快快醒轉？”\n" NOR,
                                        this_object(), me);
                 else
-                        message_vision(CYN "$N" CYN "大怒，对$n" CYN "喝道：“好一个邪魔外"
-                                       "道，居然敢窥我镇岳尚方？”\n" NOR,
+                        message_vision(CYN "$N" CYN "大怒，對$n" CYN "喝道：“好一個邪魔外"
+                                       "道，居然敢窺我鎮嶽尚方？”\n" NOR,
                                        this_object(), me);
                 return 1;
         }
 
         if (me->query("family/family_name") != "衡山派")
-                return "镇岳尚方是我护身之宝，你打听它干什么？";
+                return "鎮嶽尚方是我護身之寶，你打聽它幹什麼？";
 
         if (me->query("family/master_id") != query("id"))
-                return "只有我的弟子才能用镇岳尚方，你还是请回吧。";
+                return "只有我的弟子才能用鎮嶽尚方，你還是請回吧。";
 
         if (me->query("shen") < 60000)
-                return "你行侠仗义的事情做得不够，我不能把镇岳尚方交给你。";
+                return "你行俠仗義的事情做得不夠，我不能把鎮嶽尚方交給你。";
 				if (present("zhenyue shangfang",me))
-								return "镇岳尚方不是在你的手中么，怎么反而来找我呢？";
+								return "鎮嶽尚方不是在你的手中麼，怎麼反而來找我呢？";
 
         ob=new(ZHENYUE);
         if ( temp=ob->violate_unique())
@@ -173,21 +173,21 @@ mixed ask_jian()
          ob=temp;
 				 owner = environment(ob);
   			 if (owner == me)
-	         	return "镇岳尚方不是在你的手中么，怎么反而来找我呢？";
+	         	return "鎮嶽尚方不是在你的手中麼，怎麼反而來找我呢？";
         if ( owner->is_character() && owner!= this_object())
            {
                 if (owner->query("family/family_name") == query("family/family_name"))
-                        return "镇岳尚方现在在" + owner->query("name") +
+                        return "鎮嶽尚方現在在" + owner->query("name") +
                                "手中，你要想用就去找他吧。";
                 else
-                        return "本派至宝镇岳尚方现在落在" + owner->query("name") +
-                               "手中，你快去杀了他把剑拿回来。";
+                        return "本派至寶鎮嶽尚方現在落在" + owner->query("name") +
+                               "手中，你快去殺了他把劍拿回來。";
         	 }
          }
         	
 				ob->move(this_object());
-        message_vision(CYN "$N" CYN "点点头道：“好，你用这镇岳尚方要多作一些行"
-		       "侠仗义的事情！”\n" NOR, this_object(), me);
+        message_vision(CYN "$N" CYN "點點頭道：“好，你用這鎮嶽尚方要多作一些行"
+		       "俠仗義的事情！”\n" NOR, this_object(), me);
         command("give zhenyue shangfang to " + me->query("id"));
         add("count",-1);
         return 1;

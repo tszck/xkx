@@ -1,4 +1,4 @@
-// digging.c 掘地之术
+// digging.c 掘地之術
 // Last Modified by winder on Jun. 10 2000
 
 #include <ansi.h>
@@ -19,23 +19,23 @@ int valid_learn(object me)
 	lvl = (int)me->query_skill("construction", 1);
 
 	if (lvl > 29 && me->query("kar") != 27) 
-		return notify_fail("限于天资，你只能修习这个程度了。\n");
+		return notify_fail("限於天資，你只能修習這個程度了。\n");
 	else return 1;
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("掘地之术只能靠学习来提高。\n");
+	return notify_fail("掘地之術只能靠學習來提高。\n");
 }
 int help(object me)
 {
-	write(HIC"\n掘地之术："NOR"\n");
+	write(HIC"\n掘地之術："NOR"\n");
 	write(@HELP
 
-    掘地之术是神龙岛独门绝技。
+    掘地之術是神龍島獨門絕技。
 
-	学习要求：
-		无。
+	學習要求：
+		無。
 HELP
 	);
 	return 1;

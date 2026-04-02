@@ -4,7 +4,7 @@ void create()
 {
         set_name("青衣",({"qing yi"}));
         set("gender", "女性");
-        set("long", "戏剧中的一个脚色!\n");
+        set("long", "戲劇中的一個腳色!\n");
         set("age", 25);
         set("combat_exp", 7000);
         set("shen_type", 1);

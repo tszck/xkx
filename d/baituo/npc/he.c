@@ -5,11 +5,11 @@
 inherit NPC;
 void create()
 {
-	set_name(HIW"丹顶鹤"NOR, ({ "danding he", "he", "danding" }) );
-	set("race", "飞禽");
+	set_name(HIW"丹頂鶴"NOR, ({ "danding he", "he", "danding" }) );
+	set("race", "飛禽");
 	set("age", 170);
-	set("long", "一只罕见的丹顶鹤，通身雪白，头上的赤顶却是红光闪闪。
-却见它左脚被一条铁链拴住，铁链的另一头梆在一块大石上。\n");
+	set("long", "一隻罕見的丹頂鶴，通身雪白，頭上的赤頂卻是紅光閃閃。
+卻見它左腳被一條鐵鏈拴住，鐵鏈的另一頭梆在一塊大石上。\n");
 	set("attitude", "peaceful");
 	set("str", 30);
 	set("dex", 80);
@@ -26,7 +26,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$N凄惨地鸣叫了几声，扑动了几下就不动了。\n", this_object());
+	message_vision("$N悽慘地鳴叫了幾聲，撲動了幾下就不動了。\n", this_object());
 	ob = new("/d/baituo/obj/hdh");
 	ob->move(environment(this_object()));
 	destruct(this_object());

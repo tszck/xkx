@@ -10,7 +10,7 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "座");
-                set("long", "玉帝手持玉版，端坐微笑不语。\n");
+                set("long", "玉帝手持玉版，端坐微笑不語。\n");
                 set("value", 50);
         }
 }

@@ -18,7 +18,7 @@ int main(object me, string arg)
 		file = me->query("cwf");
 	else if (sscanf(arg, "%s %d", file, count) != 2)
 		if (sscanf(arg, "%s", file) != 1)
-			return notify_fail("你要复制什么？\n");
+			return notify_fail("你要複製什麼？\n");
 
 	if (sscanf(file, "%*s.c") != 1)
 		file += ".c";
@@ -27,27 +27,27 @@ int main(object me, string arg)
 	me->set("cwf", file);
 
 	if( file_size(file) < 0 )
-		return notify_fail("没有这个档案(" + file + ")。\n");
+		return notify_fail("沒有這個檔案(" + file + ")。\n");
 
 	if( !find_object(file) ) {
 		err = catch(call_other(file, "???"));
 		if (err) {
-			write("载入失败：" + err + "\n");
+			write("載入失敗：" + err + "\n");
 			return 1;
 		}
 	}
 
 	err = catch(obj = new(file));
 	if (err) {
-		write("复制失败：" + err + "\n");
+		write("複製失敗：" + err + "\n");
 		return 1;
 	}
 
 	if( !stringp(msg = me->query("env/msg_clone")) )
-		msg = sprintf("只见$N伸手凌空一指，变出了%s$n。\n", obj->query("money_id")?"一些":chinese_number(count) + obj->query("unit"));
+		msg = sprintf("只見$N伸手凌空一指，變出了%s$n。\n", obj->query("money_id")?"一些":chinese_number(count) + obj->query("unit"));
 
 	if ( !obj->is_character() && obj->move(me)) {
-		write(obj->query("name") + "复制成功，放在你的物品栏。\n");
+		write(obj->query("name") + "複製成功，放在你的物品欄。\n");
         	message_vision(msg + "\n", me, obj);
         	for (i = 0; i < count -1; i ++) {
 			obj = new(file);
@@ -57,7 +57,7 @@ int main(object me, string arg)
         }
 
 	if( obj->move(environment(me)) && i == 0 ) {
-		write(obj->query("name") + "复制成功，放在这个房间。\n");
+		write(obj->query("name") + "複製成功，放在這個房間。\n");
         	message_vision(msg + "\n", me, obj);
         	for (i = 0; i < count - 1; i ++) {
 			obj = new(file);
@@ -67,15 +67,15 @@ int main(object me, string arg)
         }
 
 	destruct(obj);
-	return notify_fail("无法复制不能移动的物件(" + file + ")。\n");
+	return notify_fail("無法複製不能移動的物件(" + file + ")。\n");
 }
 
 int help(object me)
 {
   write(@HELP
-指令格式 : spclone <文件名> [数量]
+指令格式 : spclone <文件名> [數量]
 
-利用此指令可复制任何能移动之对象(含NPC)，如果不指定数量，则等同于clone指令。
+利用此指令可複製任何能移動之對象(含NPC)，如果不指定數量，則等同於clone指令。
 HELP
     );
     return 1;

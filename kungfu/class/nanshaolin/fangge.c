@@ -8,8 +8,8 @@ string ask_me(string name);
 void create()
 {
 	set_name("方戈", ({ "fang ge", "fang", "ge"}));
-	set("long", "他是一位身穿黄布袈裟的青年僧人。脸上稚气未脱，身手却已相\n"
-		"当矫捷，看来似乎学过一点武功。\n");
+	set("long", "他是一位身穿黃布袈裟的青年僧人。臉上稚氣未脫，身手卻已相\n"
+		"當矯捷，看來似乎學過一點武功。\n");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -82,7 +82,7 @@ void confirm(object me)
 		mine["family_name"] != "南少林派") ||
 		((!present("fang ge", room)) && (!present("shou yu", me))))
 	{
-		command("say 大胆狂徒，竟敢闯入藏经阁，看招!");
+		command("say 大膽狂徒，竟敢闖入藏經閣，看招!");
 		command("kill " + me->query("id")); 
 		set("chat_chance_combat", 50);
 		set("chat_msg_combat", ({

@@ -17,7 +17,7 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一架长梯，靠在书架的旁边。\n");
+		set("long", "一架長梯，靠在書架的旁邊。\n");
 		set("unit", "架");
 		set("material", "wood");
 	}
@@ -28,10 +28,10 @@ int do_climb(string arg)
 {
 	object me = this_player();
 	if (!id(arg))
-		return notify_fail("你要往哪儿爬？\n");
+		return notify_fail("你要往哪兒爬？\n");
 	if (this_player()->query_temp("marks/跳1") )
 	{
-		write("你怎么爬个没完没了？\n");
+		write("你怎麼爬個沒完沒了？\n");
 		return 1;
 	}
 	else

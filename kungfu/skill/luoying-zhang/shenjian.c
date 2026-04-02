@@ -1,9 +1,9 @@
-// shenjian.c 桃花影里飞神剑
+// shenjian.c 桃花影裏飛神劍
 
 #include <ansi.h>
 inherit F_SSERVER;
 #include "/kungfu/skill/eff_msg.h"
-#define PNAME "桃花影里飞神剑"
+#define PNAME "桃花影裏飛神劍"
 int perform(object me, object target)
 {
 	string msg;
@@ -19,17 +19,17 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("你必须空手使用桃花影里飞神剑！\n");
+		return notify_fail("你必須空手使用桃花影裏飛神劍！\n");
 
 	fskill = "bibo-shengong";
 	bskill = "strike";
@@ -43,22 +43,22 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 80 )
-		return notify_fail("你的"+to_chinese(fskill)+"火候不够，无法施展"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"火候不夠，無法施展"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 80 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，無法使用"+PNAME+"。\n");
 
 	if ( (int)me->query("neili") < 120)
-		return notify_fail("你的内力不够，无法使用桃花影里飞神剑。\n");
+		return notify_fail("你的內力不夠，無法使用桃花影裏飛神劍。\n");
 
 	if (!me->query_temp("murong/xingyi"))
 	{
 		if (me->query_skill_prepared("strike") != "luoying-zhang" ||
 			me->query_skill_mapped("strike") != "luoying-zhang")
-			return notify_fail("你现在无法使用桃花影里飞神剑进行攻击！\n");
+			return notify_fail("你現在無法使用桃花影裏飛神劍進行攻擊！\n");
 	}
 	
-	msg = CYN "\n$N双掌竖起，默运碧海潮生功，掌缘便似剑锋一样发出丝丝的"GRN"剑气"CYN"，分别从左右两边斩向$n！\n"NOR;
+	msg = CYN "\n$N雙掌豎起，默運碧海潮生功，掌緣便似劍鋒一樣發出絲絲的"GRN"劍氣"CYN"，分別從左右兩邊斬向$n！\n"NOR;
 	rand = random(me->query("combat_exp"));
 	if( rand > (int)target->query("combat_exp")/4 )
 	{
@@ -71,14 +71,14 @@ int perform(object me, object target)
 		target->receive_damage("qi", damage,me);
 		target->receive_wound("qi", damage/3,me);
 		p = (int)target->query("qi")*100/(int)target->query("max_qi");
-		msg += damage_msg(damage, "劈伤");
+		msg += damage_msg(damage, "劈傷");
 		msg += "( $n" + eff_status_msg(p) + " )\n";
 	}
 	else
 	{
 		me->add("neili", -50);
 		me->start_busy(3);
-		msg += HIY"$n大吃一惊，退步抽身，万分惊险中堪堪躲过了这招，早已吓出了一身冷汗！\n" NOR;
+		msg += HIY"$n大喫一驚，退步抽身，萬分驚險中堪堪躲過了這招，早已嚇出了一身冷汗！\n" NOR;
 	}
 	message_combatd(msg, me, target);
 	return 1;
@@ -92,12 +92,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对手气血
+		損傷對手氣血
 
 	出手要求：
-		落英神剑掌80级
-		碧波神功80级
-		内力120
+		落英神劍掌80級
+		碧波神功80級
+		內力120
 HELP
 	);
 	return 1;

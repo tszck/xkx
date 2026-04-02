@@ -4,11 +4,11 @@
 inherit NPC;
 void create()
 {
-	set_name("柯镇恶",({"ke zhene","ke","zhene"}));
+	set_name("柯鎮惡",({"ke zhene","ke","zhene"}));
 	set("gender","男性");
-	set("long","江南七怪之首，可惜七年前被黑风双煞废了招子！\n");
+	set("long","江南七怪之首，可惜七年前被黑風雙煞廢了招子！\n");
 	set("combat_exp", 800000);
-	set("nickname","飞天蝙蝠");
+	set("nickname","飛天蝙蝠");
 	set("age",54);
 	set("qi",1800);
 	set("max_qi",1800);

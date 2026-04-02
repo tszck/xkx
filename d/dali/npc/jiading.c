@@ -9,8 +9,8 @@ int ask_me();
 void create()
 {
 	set_name("家丁", ({ "jia ding", "ding" }));
-	set("title", "大理镇南王府");
-	set("long", "他是大理国镇南王府的家丁。\n");
+	set("title", "大理鎮南王府");
+	set("long", "他是大理國鎮南王府的家丁。\n");
 	set("gender", "男性");
 	set("age", 40);
 	set("attitude", "friendly");
@@ -46,7 +46,7 @@ void create()
 	map_skill("parry", "jinyu-quan");
 
 	set("inquiry", ([
-		"指点武功" : (: ask_me :),
+		"指點武功" : (: ask_me :),
 	]));
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
@@ -61,11 +61,11 @@ int ask_me()
 	ob = this_player();
 	if ((int)ob->query_skill("kurong-changong",1) < 30)
 	{
-		command("say 你想当家臣，再练几年功夫去。\n");
+		command("say 你想當家臣，再練幾年功夫去。\n");
 		return 1;
 	}
-	if( ob->query("guard") == "镇南王府家丁" ||
-		ob->query("guard") == "镇南王府婢女")
+	if( ob->query("guard") == "鎮南王府家丁" ||
+		ob->query("guard") == "鎮南王府婢女")
 	{
 		ob->set_temp("fight_ok",1);
 		command("say 好，既然如此想切磋，那就看你的本事如何了。\n");
@@ -73,7 +73,7 @@ int ask_me()
 	}
 	else
 	{
-		command("say 只有镇南王府家丁或婢女才能升家臣。\n");
+		command("say 只有鎮南王府家丁或婢女才能升家臣。\n");
 		return 1;
 	}
 }
@@ -107,15 +107,15 @@ int checking(object me, object ob)
 
 	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 ) 
 	{
-		command("say 青出於蓝胜於蓝，不愧是大理段家的好弟子 ! 恭喜你了 !\n");
-		command("say 你的已经可以胜任大理家臣 !\n");
-		upgrade_title(ob, "镇南王府家臣");
+		command("say 青出於藍勝於藍，不愧是大理段家的好弟子 ! 恭喜你了 !\n");
+		command("say 你的已經可以勝任大理家臣 !\n");
+		upgrade_title(ob, "鎮南王府家臣");
 		return 1;
 	}
 	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 ) 
 	{
-		command("say 看来" + RANK_D->query_respect(ob) + 
-			"还得多加练习，方能在大理段家诸多弟子中出人头地 !\n");
+		command("say 看來" + RANK_D->query_respect(ob) + 
+			"還得多加練習，方能在大理段家諸多弟子中出人頭地 !\n");
 		return 1;
 	}
 	return 1;  
@@ -129,11 +129,11 @@ void upgrade_title(object ob,string arg)
 /*
 string clear_title(string arg)
 {
-	if( (strsrch(arg, "镇南王府家丁") >= 0) ||
-	    (strsrch(arg, "镇南王府婢女") >= 0))
+	if( (strsrch(arg, "鎮南王府家丁") >= 0) ||
+	    (strsrch(arg, "鎮南王府婢女") >= 0))
 	{
-		arg = replace_string(arg, "大理镇南王府婢女","");
-		arg = replace_string(arg, "大理镇南王府家丁","");
+		arg = replace_string(arg, "大理鎮南王府婢女","");
+		arg = replace_string(arg, "大理鎮南王府家丁","");
 	}
 	return arg;
 }

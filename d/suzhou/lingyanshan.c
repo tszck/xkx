@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "灵岩山");
+        set("short", "靈巖山");
         set("long",@long
-这里因山上有状如灵芝的巨石，故名灵岩山。这里山势挺拔秀丽，
-奇石嶙峋，有甚多的吴宫遗迹，享有“吴中第一峰”的美誉。
+這裏因山上有狀如靈芝的巨石，故名靈巖山。這裏山勢挺拔秀麗，
+奇石嶙峋，有甚多的吳宮遺蹟，享有“吳中第一峯”的美譽。
 long);
 	set("outdoors", "suzhou");
 	set("objects",([

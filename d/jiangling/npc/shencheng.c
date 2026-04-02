@@ -5,7 +5,7 @@ inherit NPC;
 void create ()
 {
 	set_name("沈城", ({"shen cheng","shen"}));
-	set("title","万门八弟子");
+	set("title","萬門八弟子");
 	set("long", "\n");
 	set("gender", "男性");
 	set("age", 16);

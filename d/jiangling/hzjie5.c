@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create ()
 {
-	set ("short", "汉正街");
+	set ("short", "漢正街");
 	set ("long", @LONG
-这是武汉最繁华的街道。从大江南北来的各色人等，熙熙攘攘，摩
-肩接踵。西边是一家杂货店，东边是一座寺院。
+這是武漢最繁華的街道。從大江南北來的各色人等，熙熙攘攘，摩
+肩接踵。西邊是一家雜貨店，東邊是一座寺院。
 LONG);
 	set("outdoors", "jiangling");
 	set("exits", ([

@@ -6,12 +6,12 @@ inherit ROOM;
 
 void create()
 {
-        set("short","忆香亭");
+        set("short","憶香亭");
 	set("long",@LONG
-这是一个精巧别致的小亭，上书“忆香亭”三个字，清秀挺拔宛然
-便是陈家洛的手笔。旁边几行小字写的是：“碧亦有时灭，血亦有时灭，
-一缕香魂无断绝！是耶非耶？化为蝴蝶。”陈家洛心中想念香香公主的
-时候，常一个人来此独坐。
+這是一個精巧別緻的小亭，上書“憶香亭”三個字，清秀挺拔宛然
+便是陳家洛的手筆。旁邊幾行小字寫的是：“碧亦有時滅，血亦有時滅，
+一縷香魂無斷絕！是耶非耶？化爲蝴蝶。”陳家洛心中想念香香公主的
+時候，常一個人來此獨坐。
 LONG );
 	set("outdoors", "huijiang");
 	set("exits", ([
@@ -35,7 +35,7 @@ void init()
 	tell_object(me,	YEL"┌------┐\n"NOR);
 	tell_object(me,	"                         ");
 	tell_object(me, YEL"│"NOR);
-	tell_object(me, HIG"忆香亭"NOR);
+	tell_object(me, HIG"憶香亭"NOR);
 	tell_object(me, YEL"│\n"NOR);
 	tell_object(me,	"                         ");
 	tell_object(me,	YEL"└------┘\n"NOR);

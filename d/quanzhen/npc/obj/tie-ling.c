@@ -3,13 +3,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name( "重阳令", ({ "chongyang ling", "ling", "iron" }) );
+	set_name( "重陽令", ({ "chongyang ling", "ling", "iron" }) );
 	set_weight(100);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "块");
-		set("long", "这是一块用于通行重阳宫的铁铸令牌。 由丹阳真人签发，邀各路英雄入宫观礼。\n");
+		set("unit", "塊");
+		set("long", "這是一塊用於通行重陽宮的鐵鑄令牌。 由丹陽真人簽發，邀各路英雄入宮觀禮。\n");
 		set("value", 100);
 		set("material", "iron");
 	}

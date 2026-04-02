@@ -1,10 +1,10 @@
-// sanjue.c  达摩剑 [达摩三绝剑]
+// sanjue.c  達摩劍 [達摩三絕劍]
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME "「达摩三绝剑」"
+#define PNAME "「達摩三絕劍」"
 int perform(object me, object target)
 {
 	object weapon, ob;
@@ -20,21 +20,21 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "sword")
-			return notify_fail("你使用的武器不对。\n");
+			return notify_fail("你使用的武器不對。\n");
 
 	if((int)me->query_dex() < 30)
-		return notify_fail("你的身法不够, 目前还不能使用这项绝技! \n");
+		return notify_fail("你的身法不夠, 目前還不能使用這項絕技! \n");
 	fskill = "hunyuan-yiqi";
 	bskill = "dodge";
 	if (SCBORN_D->valid_perform(me,sskill,pfname))
@@ -46,15 +46,15 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(fskill)+"的修为不够, 不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"的修爲不夠, 不能使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 135 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为不够，目前不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，目前不能使用"+PNAME+"。\n");
 	if( (int)me->query_skill(bskill, 1) < 135 )
-		return notify_fail("你的"+to_chinese(bskill)+"修为不够, 不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"修爲不夠, 不能使用"+PNAME+"。\n");
 	if( (int)me->query("neili") < 500 )
-		return notify_fail("你的真气不够！\n");
+		return notify_fail("你的真氣不夠！\n");
 
-	msg = HIG "$N使出达摩剑的绝技「达摩三绝剑」，身法陡然加快！\n" NOR;
+	msg = HIG "$N使出達摩劍的絕技「達摩三絕劍」，身法陡然加快！\n" NOR;
 	 message_combatd(msg, me);
 
 	for (count=0;count<3;count++)
@@ -77,14 +77,14 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		连续出手三剑
+		連續出手三劍
 
 	出手要求：
-		混元一气功60级
-		达摩剑135级
-		基本轻功135级
-		后天身法30
-		内力500
+		混元一氣功60級
+		達摩劍135級
+		基本輕功135級
+		後天身法30
+		內力500
 HELP
 	);
 	return 1;

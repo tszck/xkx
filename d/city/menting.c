@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "门庭");
+	set("short", "門庭");
 	set("long", @LONG
-门庭北向，是一座高大的磨砖门楼，门楣上方嵌有「小玲珑山馆」
-四字砖额。门内与穿廊相接，游廊逶迤北去，廊尽而门。
+門庭北向，是一座高大的磨磚門樓，門楣上方嵌有「小玲瓏山館」
+四字磚額。門內與穿廊相接，遊廊逶迤北去，廊盡而門。
 LONG );
 	set("outdoors", "yangzhouw");
 	set("no_fight", 1);
@@ -32,8 +32,8 @@ int valid_leave(object me, string dir)
 		&& objectp( ob = present ( "jia ding", environment( me )  ) )
 		&& living(ob) )
 	{
-		message_vision("家丁对$N说道：未经老爷邀请，你不能进去。\n",me);
-		return notify_fail("你被家丁拦住了去路。\n");
+		message_vision("家丁對$N說道：未經老爺邀請，你不能進去。\n",me);
+		return notify_fail("你被家丁攔住了去路。\n");
 	}
 	return ::valid_leave(me, dir);
 }

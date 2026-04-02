@@ -30,10 +30,10 @@ varargs void message_vision(string msg, object me, object you)
 
 varargs void message_combatd(string msg, object me, object you)
 {
-// 比武现场转播 start
+// 比武現場轉播 start
 	int userno;
 	object *player;
-// 比武现场转播 end
+// 比武現場轉播 end
 	string my_gender, your_gender, my_name, your_name;
 	string str1, str2, str3;
 
@@ -61,15 +61,15 @@ varargs void message_combatd(string msg, object me, object you)
 	}
 	message("vision", str1, me);
 	message("vision", str3,  environment(me), ({ me, you}) );
-// 比武现场转播 start
-	if ((string)environment(me)->query("short") == "擂台")
+// 比武現場轉播 start
+	if ((string)environment(me)->query("short") == "擂臺")
 	for (userno=0; userno<sizeof(player); userno++)
 	    if ((player[userno])->query_temp("view_leitai") &&
-             (string)environment(player[userno])->query("short") == "武道场" &&
+             (string)environment(player[userno])->query("short") == "武道場" &&
 	        (player[userno]) != me &&
 	        (player[userno]) != you) 
 	       tell_object(player[userno], str3);
-// 比武现场转播 end
+// 比武現場轉播 end
 }
 void tell_object(object ob, string str)
 {

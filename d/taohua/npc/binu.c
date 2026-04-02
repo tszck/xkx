@@ -8,7 +8,7 @@ void create()
         set("gender", "女性" );
         set("age", 16);
         set("long",
-"桃花岛主的独生女的婢奴清丽可人。\n");
+"桃花島主的獨生女的婢奴清麗可人。\n");
         set_temp("apply/defense", 5);
         set("combat_exp", 1000);
         set("shen", 500);

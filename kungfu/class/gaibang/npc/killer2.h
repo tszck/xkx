@@ -39,7 +39,7 @@ void init()
 		if (!me->query_temp("zuji_target")) me->set_temp("zuji_target",t_name);
 		if (!me->query_temp("skill_set"))
 		{
-			command("say 师兄，点子硬的很，我来帮你！！！\n");
+			command("say 師兄，點子硬的很，我來幫你！！！\n");
 			remove_call_out("dest");
 			call_out("dest",300);
 			remove_call_out("do_clone");
@@ -47,7 +47,7 @@ void init()
 		}
 		else
 		{
-			command("say 想跑，还不给我交出来！！！\n");
+			command("say 想跑，還不給我交出來！！！\n");
 			me->set_leader(ob);
 			remove_call_out("dest");
 			call_out("dest",300);
@@ -146,8 +146,8 @@ void dest()
 	ob = this_player();
 	me = this_object();
 
-	write(me->query("name")+"道：这次算你命大！\n",me);  
-	write(me->query("name")+"匆匆离开。\n",me);  
+	write(me->query("name")+"道：這次算你命大！\n",me);  
+	write(me->query("name")+"匆匆離開。\n",me);  
       
 	destruct(this_object());
 }
@@ -157,8 +157,8 @@ void dest2()
 	ob = this_player();
 	me = this_object();
 
-	write(me->query("name")+"道：你躲得过初一躲不过十五，我们还会来的！\n",me); 
-	write(me->query("name")+"匆匆离开。\n",me);  
+	write(me->query("name")+"道：你躲得過初一躲不過十五，我們還會來的！\n",me); 
+	write(me->query("name")+"匆匆離開。\n",me);  
 	ob->delete_temp("songxin_zuji");
 
 	destruct(this_object());

@@ -10,7 +10,7 @@ string* clothname = ({
 	HIB"青色道袍"NOR,
 	HIC"灰色道袍"NOR,
 	HIW"白色道袍"NOR,
-	HIY"黄色道袍"NOR,
+	HIY"黃色道袍"NOR,
 });
 string* clothid = ({
 	"dao pao",
@@ -19,10 +19,10 @@ string* clothid = ({
 	"dao pao",
 });
 string* clothlong = ({
-	"这是一件普普通通的青布道袍。\n",
-	"这是一件略有皱摺的灰色布道袍。\n",
-	"这是一件洗得很干净的白布道袍。\n",
-	"这是一件洗得很褪色的黄布道袍。\n",
+	"這是一件普普通通的青佈道袍。\n",
+	"這是一件略有皺摺的灰色佈道袍。\n",
+	"這是一件洗得很乾淨的白布道袍。\n",
+	"這是一件洗得很褪色的黃佈道袍。\n",
 });
 
 void create()

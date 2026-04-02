@@ -6,13 +6,13 @@ inherit F_FOOD;
 
 void create()
 {
-	set_name("馅饼", ({"xian bing", "bing"}));
+	set_name("餡餅", ({"xian bing", "bing"}));
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一块煎得焦黄焦黄的馅饼。\n");
-		set("unit", "块");
+		set("long", "一塊煎得焦黃焦黃的餡餅。\n");
+		set("unit", "塊");
 		set("value", 50);
 		set("food_remaining", 2);
 		set("food_supply", 40);

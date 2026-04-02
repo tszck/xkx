@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "宜兴");
+	set("short", "宜興");
 	set("long", @LONG
-这儿便是天下闻名的陶都，青山绿水之间掩映着一堆堆紫砂陶坯，
-另有一番景色。向东行，不远处就是太湖边。南方便是湖州府了。
+這兒便是天下聞名的陶都，青山綠水之間掩映着一堆堆紫砂陶坯，
+另有一番景色。向東行，不遠處就是太湖邊。南方便是湖州府了。
 LONG );
 	set("outdoors", "yixing");
 	set("no_clean_up", 0);

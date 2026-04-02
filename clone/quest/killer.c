@@ -12,7 +12,7 @@ void create()
 	set("quest_no_guard",1);
 	set("no_steal",1);
 	set("no_ansuan",1);
-//	set("long", "一个穿着黑色夜行衣的人。\n");
+//	set("long", "一個穿着黑色夜行衣的人。\n");
 	set("chat_chance", 10);
 	set("chat_msg", ({
 				 (: random_move :)
@@ -27,7 +27,7 @@ void create()
 	add_money("silver",10+random(30));
 	carry_object("/d/city/obj/tiejia")->wear();
 	if (clonep())
-	call_out("do_back", 943 , this_object()); //四天内4*(86400/365)-1
+	call_out("do_back", 943 , this_object()); //四天內4*(86400/365)-1
 }
 
 int do_back(object me)
@@ -39,7 +39,7 @@ int do_back(object me)
 	}
 	if (objectp(environment(me)))
 	{
-		tell_room(environment(me), me->query("name")+"匆匆忙忙的离开了。\n", ({me}));	
+		tell_room(environment(me), me->query("name")+"匆匆忙忙的離開了。\n", ({me}));	
 		destruct(me); 
 	}
   return 1;
@@ -62,7 +62,7 @@ void die()
 
 	me = find_player(ob->query("owner"));
 	if (!objectp(me)) return ::die();
-	q = me->query("quest/kill"); //任务相关
+	q = me->query("quest/kill"); //任務相關
 	q["notice"] = "die";
 	lvl = NPC_D->check_level(me);
 	exp = 10 + random(5) + lvl;
@@ -72,28 +72,28 @@ void die()
 	quest_count = me->query("quest_num/kill") + 1;
                 if (quest_count >= 500)
                 {
-                        // 连续完成了超过500次的任务
+                        // 連續完成了超過500次的任務
                         exp += 80 + random(quest_count / 20 + 1);
                         pot += 45 + random(quest_count / 25 + 1);
                         score += 4 + random(15);
                 } else
                 if (quest_count >= 200)
                 {
-                        // 连续完成了超过200次的任务
+                        // 連續完成了超過200次的任務
                         exp += 70 + random(quest_count / 20 + 1);
                         pot += 40 + random(quest_count / 25 + 1);
                         score += 3 + random(10);
                 } else
                 if (quest_count >= 100)
                 {
-                        // 连续完成了超过100次的任务
+                        // 連續完成了超過100次的任務
                         exp += 50 + random(quest_count / 20 + 1);
                         pot += 30 + random(quest_count / 25 + 1);
                         score += 2 + random(10);
                 } else
                 if (quest_count >= 10)
                 {
-                        // 连续完成了超过10次的任务
+                        // 連續完成了超過10次的任務
                         exp += 45 + random(quest_count / 20 + 1);
                         pot += 25 + random(quest_count / 25 + 1);
                         score += 1 + random(5);
@@ -131,15 +131,15 @@ void die()
         }
         added += (int)me->query_temp("quest/escape_times") * 2;
         me->delete_temp("quest/escape_times");
-        // 根据NPC的帮手和逃走的次数调整经验
+        // 根據NPC的幫手和逃走的次數調整經驗
         if (added)
         {
                 exp += exp * added / 2;
                 pot += pot * added / 2;
         }
 //        me->delete("quest/kill");
-	// 这里调整一些 以上比例是2:1左右
-	// 每个下来是200多exp 100多pot
+	// 這裏調整一些 以上比例是2:1左右
+	// 每個下來是200多exp 100多pot
 	exp *= 3;
 	pot *= 2;
 	score *= 2;
@@ -164,13 +164,13 @@ void die()
 			exp = per_exp;
 			pot = per_pot;
 			score = per_score;
-			if (obs[i]==fme)  //打晕的双份
+			if (obs[i]==fme)  //打暈的雙份
 			{
 					exp += per_exp;
 					pot += per_pot;
 					score += per_score;
 			}
-			if (obs[i]==me) // 领任务的双份
+			if (obs[i]==me) // 領任務的雙份
 			{
 					exp += per_exp;
 					pot += per_pot;
@@ -184,15 +184,15 @@ void die()
 				obs[i]->add("combat_exp",exp);
 				obs[i]->add("potential",pot);
 				obs[i]->add("score",score);
-//			obs[i]->set_temp("prize_reason","追杀");
+//			obs[i]->set_temp("prize_reason","追殺");
 //			obs[i]->set_temp("can_give_prize",1);
 //			obs[i]->set_temp("prize_exp",exp);
 //			obs[i]->set_temp("prize_pot",pot);
 
-				tell_object(obs[i],HIW"经过这番历练，你被奖励了：");
-				tell_object(obs[i],chinese_number(exp) +"点实战经验、" +
-				chinese_number(pot) + "点潜能、"+
-				chinese_number(score)+"点江湖阅历。\n"NOR);
+				tell_object(obs[i],HIW"經過這番歷練，你被獎勵了：");
+				tell_object(obs[i],chinese_number(exp) +"點實戰經驗、" +
+				chinese_number(pot) + "點潛能、"+
+				chinese_number(score)+"點江湖閱歷。\n"NOR);
 			}
 		}
 	}
@@ -208,7 +208,7 @@ int accept_fight(object ob)
 	if (!arrayp(killer)) killer = ({});
 	if (member_array(ob,killer)<0) killer += ({ob});
 	this_object()->set_temp("killer",killer);
-  command("say 好！咱们就比划比划！");
+  command("say 好！咱們就比劃比劃！");
 	kill_ob(ob);
 	return 1;
 }
@@ -238,7 +238,7 @@ int accept_kill(object ob)
 	command("say 哼！找死！");
 	return 1;
 }
-int accept_ansuan(object who) {return notify_fail("此人警惕性太高，没法暗算。\n");}
+int accept_ansuan(object who) {return notify_fail("此人警惕性太高，沒法暗算。\n");}
 int accept_touxi(object who)	{return accept_kill(who);}
 void random_move()
 {

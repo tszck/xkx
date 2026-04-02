@@ -4,10 +4,10 @@ inherit NPC;
 void create()
 {
 	set_name("多隆", ({ "duo long", "duo", "long" }));
-	set("title", HIY "御前侍卫总管" NOR);
+	set("title", HIY "御前侍衛總管" NOR);
 	set("age", 32);
 	set("gender", "男性");
-	set("long", "多隆乃御前侍卫的总管，身才高大魁梧，一身外家功夫很是了得。\n");
+	set("long", "多隆乃御前侍衛的總管，身才高大魁梧，一身外家功夫很是了得。\n");
 	set("attitude", "peaceful");
 
 	set("str", 30);
@@ -27,7 +27,7 @@ void create()
 
 	set("chat_chance_combat", 10);
 	set("chat_msg_combat", ({
-		"多隆喝道：他奶奶的，你连我都敢惹？\n",
+		"多隆喝道：他奶奶的，你連我都敢惹？\n",
 	}));
 	setup();
 	carry_object(WEAPON_DIR"sword")->wield();
@@ -47,7 +47,7 @@ void init()
 
 int accept_fight(object me)
 {
-	command("say 这可是你活腻了自找的，休得怪我无情。\n");
+	command("say 這可是你活膩了自找的，休得怪我無情。\n");
 	me->apply_condition("killer", 500);
 	kill_ob(me);
 	return 1;

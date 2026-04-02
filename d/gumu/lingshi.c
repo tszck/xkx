@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIC"灵室"NOR);
+	set("short", HIC"靈室"NOR);
 	set("long", @LONG
-只见空空旷旷的一座大厅上并列放著五具石棺。凝神细看，见两具
-石棺棺盖已密密盖着，原来是古墓派祖师林朝英和小龙女师傅的安身之
-处。另外二具的棺盖(guangai)却只推上一半，也不知其中有无尸体。
+只見空空曠曠的一座大廳上並列放著五具石棺。凝神細看，見兩具
+石棺棺蓋已密密蓋着，原來是古墓派祖師林朝英和小龍女師傅的安身之
+處。另外二具的棺蓋(guangai)卻只推上一半，也不知其中有無屍體。
 LONG	);
 
 	set("exits", ([ 
@@ -37,11 +37,11 @@ int do_tui(string arg)
 		return notify_fail("你正忙着哪！\n");
 	if ( arg =="guangai")
 	{
-		message_vision(YEL"$N使劲推开了棺盖。\n"NOR,me);
+		message_vision(YEL"$N使勁推開了棺蓋。\n"NOR,me);
 		me->set_temp("marks/石棺", 1);
 		return 1;
 	}
-	return notify_fail("你要推什么？\n");
+	return notify_fail("你要推什麼？\n");
 }
 
 int do_tang(string arg)
@@ -55,8 +55,8 @@ int do_tang(string arg)
 	{
 		me->delete_temp("marks/石棺");
 		me->move(__DIR__"shiguan");
-		message_vision(HIY"$N躺进了石棺，棺内已无转侧馀地。\n"NOR,me);
+		message_vision(HIY"$N躺進了石棺，棺內已無轉側餘地。\n"NOR,me);
 		return 1;
 	}
-	return notify_fail("你想躺在哪里？\n");
+	return notify_fail("你想躺在哪裏？\n");
 }

@@ -13,7 +13,7 @@ int perform(object me)
 
 
 	if(me->query("family/master_id") != "feng qingyang")
-	   return notify_fail("你不是风清扬的弟子，不能使用绝招！\n");
+	   return notify_fail("你不是風清揚的弟子，不能使用絕招！\n");
 
 	me->clean_up_enemy();
 	target = me->select_opponent();
@@ -21,23 +21,23 @@ int perform(object me)
 	skill = me->query_skill("lonely-sword",1);
 
 	if( !(me->is_fighting() ))
-	    return notify_fail("「破刀式」只能对战斗中的对手使用。\n");
+	    return notify_fail("「破刀式」只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "sword")
-	    return notify_fail("你使用的武器不对。\n");
+	    return notify_fail("你使用的武器不對。\n");
 
 	if (!objectp(weapon2 = target->query_temp("weapon"))
 	|| (string)weapon2->query("skill_type") != "blade")
-	    return notify_fail("对方没有使刀，你用不了「破刀式」。\n");
+	    return notify_fail("對方沒有使刀，你用不了「破刀式」。\n");
 
 	if( skill < 50)
-	    return notify_fail("你的独孤九剑等级不够, 不能使用「破刀式」！\n");
+	    return notify_fail("你的獨孤九劍等級不夠, 不能使用「破刀式」！\n");
 
 	if( me->query("neili") < 50 )
-	    return notify_fail("你的内力不够，无法运用「破刀式」！\n");
+	    return notify_fail("你的內力不夠，無法運用「破刀式」！\n");
 
-	msg = HIC "$N巧使独孤九剑「破刀式」逼近$n，提剑幻出重重剑影，如柔丝
+	msg = HIC "$N巧使獨孤九劍「破刀式」逼近$n，提劍幻出重重劍影，如柔絲
 般向$n裹去。\n";
 	message_combatd(msg, me, target);
 
@@ -51,9 +51,9 @@ int perform(object me)
 	{
 	    if(userp(me))
 		 me->add("neili",-50);
-	    msg = "$n顿时觉得压力骤增，手腕一麻，手中";
+	    msg = "$n頓時覺得壓力驟增，手腕一麻，手中";
 	    msg += weapon2->name();
-	    msg += "脱手而出！\n" NOR;
+	    msg += "脫手而出！\n" NOR;
 	    me->start_busy(random(2));
 	    target->receive_damage("qi", damage);
 	    target->start_busy(2);
@@ -62,7 +62,7 @@ int perform(object me)
 	    if (weapon2->query("ownmake")==1)
 	    {
 		weapon2->move(target);
-		msg += "那可是$n的随身家伙！$n手一伸将它捡回来。\n" NOR;
+		msg += "那可是$n的隨身傢伙！$n手一伸將它撿回來。\n" NOR;
 	    }
 */
 	}
@@ -70,7 +70,7 @@ int perform(object me)
 	{
 	    if(userp(me))
 		 me->add("neili",-30);
-	    msg = "可是$n看破了$N的剑路，立刻采取守势，使$N的破刀式没有起到作用。\n"NOR;
+	    msg = "可是$n看破了$N的劍路，立刻採取守勢，使$N的破刀式沒有起到作用。\n"NOR;
 	    me->start_busy(4);
 	}
 	message_combatd(msg, me, target);
@@ -79,16 +79,16 @@ int perform(object me)
 }
 int help(object me)
 {
-	write(WHT"\n独孤九剑之破刀式："NOR"\n");
+	write(WHT"\n獨孤九劍之破刀式："NOR"\n");
 	write(@HELP
 
 	使用功效：
-		破解且可击落手持刀类兵器的敌手之兵器，并伤敌气血
+		破解且可擊落手持刀類兵器的敵手之兵器，並傷敵氣血
 
 	出手要求：
-		身为风清扬嫡传弟子
-		独孤九剑50级
-		内力50
+		身爲風清揚嫡傳弟子
+		獨孤九劍50級
+		內力50
 HELP
 	);
 	return 1;

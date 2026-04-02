@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("采笋人",({ "caisun ren", "ren" }) );
+	set_name("採筍人",({ "caisun ren", "ren" }) );
         set("gender", "女性" );
         set("age", 22);
-        set("long", "一个卢鹿部的青年台夷妇女，背后背了个竹筐，手拿一把砍柴刀，来采竹笋。\n");
+        set("long", "一個盧鹿部的青年臺夷婦女，背後背了個竹筐，手拿一把砍柴刀，來採竹筍。\n");
         set_temp("apply/defense", 15);
 	set("combat_exp", 170);
 	set("shen_type", 1);

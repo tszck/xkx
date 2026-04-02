@@ -7,9 +7,9 @@ void create()
 {
 	set("short", "山石");
 	set("long", @LONG
-这里是星宿海海边一处山石。东面是方圆几百里都是一望无际的湖
-泊和沼泽。因为阴冷潮湿，此处毒虫繁殖甚富。星宿派弟子常来此捕捉
-毒虫，以备练毒之用。南边有个黑黢黢的山洞(cave)。
+這裏是星宿海海邊一處山石。東面是方圓幾百裏都是一望無際的湖
+泊和沼澤。因爲陰冷潮溼，此處毒蟲繁殖甚富。星宿派弟子常來此捕捉
+毒蟲，以備練毒之用。南邊有個黑黢黢的山洞(cave)。
 LONG
 	);
 	set("objects", ([
@@ -20,7 +20,7 @@ LONG
 		"eastdown" : __DIR__"xxhb4",
 	]));
 	set("item_desc", ([
-	      "cave" : "山洞里飘出一股股腥臭味，你还是快点离开吧。\n"
+	      "cave" : "山洞裏飄出一股股腥臭味，你還是快點離開吧。\n"
 	]) );
 	set("coor/x", -50300);
 	set("coor/y", 20400);
@@ -40,7 +40,7 @@ void init()
 		objectp(present("shenmu wangding", me))) &&
 		objectp(ob = present("shihou zi", environment(me))))
 	{
-		message_vision("$N对着$n大吼一声：大胆"+RANK_D->query_rude(me)+"，竟敢偷拿本派宝物！\n", ob, me);   
+		message_vision("$N對着$n大吼一聲：大膽"+RANK_D->query_rude(me)+"，竟敢偷拿本派寶物！\n", ob, me);   
 		ob->kill_ob(me);
 	}
 	add_action("do_enter", "enter");
@@ -59,11 +59,11 @@ int do_enter(string arg)
 	{
 		if ((!myfam || myfam["family_name"] != "星宿派") &&
 			objectp(present("shihou zi", environment(me))))
-			return notify_fail("狮吼子闪身拦在你面前，喝道：不想挨揍的就快滚开！\n");
-		message_vision("$N小心翼翼地往山洞里探了探。\n", me); 
-		message("vision",me->name() + "一弯腰往山洞里钻了进去。\n", environment(me), ({me}) );
+			return notify_fail("獅吼子閃身攔在你面前，喝道：不想捱揍的就快滾開！\n");
+		message_vision("$N小心翼翼地往山洞裏探了探。\n", me); 
+		message("vision",me->name() + "一彎腰往山洞裏鑽了進去。\n", environment(me), ({me}) );
 		me->move(__DIR__"cave");
-		message("vision",me->name() + "从外面钻了进来。\n", environment(me), ({me}) );
+		message("vision",me->name() + "從外面鑽了進來。\n", environment(me), ({me}) );
 			return 1;
 	}     
 }
@@ -74,7 +74,7 @@ int valid_leave(object me, string dir)
 		objectp(present("shenmu wangding", me))) &&
 		objectp(present("shihou zi", environment(me))) &&
 		dir == "east")
-		return notify_fail("狮吼子闪身拦在你面前，喝道：想溜？没那么容易！\n");
+		return notify_fail("獅吼子閃身攔在你面前，喝道：想溜？沒那麼容易！\n");
 	
 	return ::valid_leave(me, dir);
 }

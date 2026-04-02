@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "灵岩塔");
+	set("short", "靈巖塔");
 	set("long",@long
-灵岩塔，又名永多宝佛塔，始建于梁代。高约三十多米，为七级八
-面塔。塔身上刻写着“灵岩塔”三个大字。
+靈巖塔，又名永多寶佛塔，始建於梁代。高約三十多米，爲七級八
+面塔。塔身上刻寫着“靈巖塔”三個大字。
 long);
 	set("outdoors", "suzhou");
 	set("exits",([

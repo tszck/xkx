@@ -8,10 +8,10 @@ inherit F_MASTER;
 void create()
 {
 	set_name("周仲英", ({ "zhou zhongying", "zhou","zhongying" }));
-	set("title", HIC "铁胆庄庄主" NOR);
-	set("nickname", HIW "铁胆" NOR);
+	set("title", HIC "鐵膽莊莊主" NOR);
+	set("nickname", HIW "鐵膽" NOR);
 	set("long", 
-"他白发飘动，精神矍铄，乃是西北武林的领袖人物铁胆周仲英。\n");
+"他白髮飄動，精神矍鑠，乃是西北武林的領袖人物鐵膽周仲英。\n");
 	set("gender", "男性");
 	set("class", "fighter");
 	set("age", 61);

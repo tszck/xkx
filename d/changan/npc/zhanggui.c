@@ -5,13 +5,13 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("南北行掌柜", ({ "zhanggui" }));
+	set_name("南北行掌櫃", ({ "zhanggui" }));
 	set("shen_type", 1);
 
 	set("gender", "男性");
 	set("age", 45);
 	set("long",
-	"他做了几十年的小买卖，真名反而没人知道，大家都叫他掌柜。\n");
+	"他做了幾十年的小買賣，真名反而沒人知道，大家都叫他掌櫃。\n");
 	set_skill("unarmed", 50);
 	set_skill("dodge", 50);
 	set_temp("apply/damage", 15);

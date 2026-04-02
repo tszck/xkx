@@ -8,9 +8,9 @@ void create()
 {
 	set("short", "走廊");
 	set("long", @LONG
-这里是殿堂走廊。房顶一侧支在南面的高墙上，另一侧则与北边殿
-堂的屋顶相连。彩梁画栋，抬眼望去，连顶棚也用彩漆绘满了各种
-飞天的图形，每幅画似乎都在诉说一个娓娓动人的故事。
+這裏是殿堂走廊。房頂一側支在南面的高牆上，另一側則與北邊殿
+堂的屋頂相連。彩梁畫棟，抬眼望去，連頂棚也用彩漆繪滿了各種
+飛天的圖形，每幅畫似乎都在訴說一個娓娓動人的故事。
 LONG
 	);
 
@@ -31,9 +31,9 @@ LONG
 int valid_leave(object me, string dir)
 {
 	if (dir == "north" && (me->query_cor()<25) && !wizardp(me))
-		return notify_fail("\n突然之间，前面一个阴森森的声音喝道：
-「我在这里已安安静静的住了一千年，谁也不敢来打扰我。那一个大胆过来，立刻就死！」
-你只觉得心头一寒，脚下直哆嗦，再也往前走不了一步。\n ");
+		return notify_fail("\n突然之間，前面一個陰森森的聲音喝道：
+「我在這裏已安安靜靜的住了一千年，誰也不敢來打擾我。那一個大膽過來，立刻就死！」
+你只覺得心頭一寒，腳下直哆嗦，再也往前走不了一步。\n ");
 	return 1;
 }
 
@@ -69,36 +69,36 @@ int do_study(string arg)
 	int cost=10;
 
 	if ( !arg && ( arg != "qiang" ) && ( arg != "qiangbi" ) )
-		return notify_fail("什么？\n");
+		return notify_fail("什麼？\n");
 
 	if ( (int)me->query_skill("literate", 1) < 1)
-		return notify_fail("你是个文盲，先学点文化(literate)吧。\n");
+		return notify_fail("你是個文盲，先學點文化(literate)吧。\n");
 
 	if((int)me->query("jing") < 30)
-		return notify_fail("你现在精神无法集中！\n");
+		return notify_fail("你現在精神無法集中！\n");
 
 	me->receive_damage("jing", 10);
 
-	message_vision("$N正专心研读墙壁上的古怪图形。\n", me);
+	message_vision("$N正專心研讀牆壁上的古怪圖形。\n", me);
 
 	if ( (int)me->query_skill("literate", 1) < 100)
 	{
 	     if ((int)me->query("jing")>cost)
 	      {
 	      	me->improve_skill("literate", (int)(me->query("int")/4));
-		write("你对着墙壁琢磨了一回儿，似乎对读书识字有点心得。\n");
+		write("你對着牆壁琢磨了一回兒，似乎對讀書識字有點心得。\n");
 		me->set_temp("stone_learned",1);
 	       }
 	     else
 	       {
 		cost=me->query("jing");
-		write("你现在过于疲倦，无法专心下来研读读书识字。\n");
+		write("你現在過於疲倦，無法專心下來研讀讀書識字。\n");
 	       }
 	}
 
 	if ( !me->query_temp("stone_learned") )
 	{
-		write("你对着墙壁琢磨了一回儿，发现上面所说的太过浅显，对你来说已毫无意义了。\n");
+		write("你對着牆壁琢磨了一回兒，發現上面所說的太過淺顯，對你來說已毫無意義了。\n");
 	}
 	return 1;
 }

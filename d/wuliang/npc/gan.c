@@ -5,7 +5,7 @@ inherit NPC;
 string ask_me();
 void create()
 {
-	set_name("干光豪", ({ "gan guanghao", "gan", "guanghao"}));
+	set_name("幹光豪", ({ "gan guanghao", "gan", "guanghao"}));
 	set("gender", "男性");
 	set("attitude", "friendly");
 
@@ -38,12 +38,12 @@ void create()
 	set("inquiry", ([
 		"葛光佩"    : (: ask_me :),
 		"狗男女"    : (: ask_me :),
-		"奸夫淫妇"  : (: ask_me :),
+		"姦夫淫婦"  : (: ask_me :),
 		"忘八"      : (: ask_me :),
-		"无量玉壁"  : "那是本派禁地，任何外人不得擅入。干犯禁忌，可叫你死葬身之地。",
+		"無量玉壁"  : "那是本派禁地，任何外人不得擅入。干犯禁忌，可叫你死葬身之地。",
 	]));
 
-	create_family("无量剑东宗", 5, "弟子");
+	create_family("無量劍東宗", 5, "弟子");
 	setup();
 
         carry_object("/clone/cloth/cloth")->wear();
@@ -53,7 +53,7 @@ void create()
 string ask_me()
 {
 	this_player()->set_temp("marks/wuliang", 1);
-	return "既然被你撞破了我们的好事，也不用我们动手，自己到悬崖了断吧。";
+	return "既然被你撞破了我們的好事，也不用我們動手，自己到懸崖了斷吧。";
 }
 
 void init()
@@ -71,7 +71,7 @@ void greeting(object ob)
 {
         if( !ob || environment(ob) != environment() ) return;
         tell_object(ob,
-"\n干光豪道：“你依了我，若是我日后负心，就掉在这水里，变个大忘八。”
-葛光佩格格娇笑，腻声道：“你做忘八，可不是骂我不规矩吗？”\n");
+"\n幹光豪道：“你依了我，若是我日後負心，就掉在這水裏，變個大忘八。”
+葛光佩格格嬌笑，膩聲道：“你做忘八，可不是罵我不規矩嗎？”\n");
 }
 

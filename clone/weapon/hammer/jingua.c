@@ -12,10 +12,10 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "把");
-		set("long", "这是一把沉重的金瓜，是皇城卫士的专用武器。\n");
+		set("long", "這是一把沉重的金瓜，是皇城衛士的專用武器。\n");
 		set("value", 1200);
 		set("material", "iron");
-		set("wield_msg", "$N拿出一把$n，试了试重量，然后握在手中。\n");
+		set("wield_msg", "$N拿出一把$n，試了試重量，然後握在手中。\n");
 		set("unwield_msg", "$N放下手中的$n。\n");
 	}
 	init_hammer(25);

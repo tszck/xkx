@@ -1,16 +1,16 @@
-//Room: /d/yangzhou/majiu1.c 马厩
+//Room: /d/yangzhou/majiu1.c 馬廄
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 
 void create()
 {
-	set("short","马厩");
+	set("short","馬廄");
 	set("long",@LONG
-这是客寓后的马厩，常年供应新鲜草料。扬州民风淳朴，马夫们会
-把马牵到马厩好生照看，将它们喂饱饮足，再洗刷得干乾净净，一直伺
-候到客人上路。马厩雨檐下的烂木柱上钉着一块破木牌(paizi)。
-    马厩中堆放著几堆草料，正中有一口泔槽。
+這是客寓後的馬廄，常年供應新鮮草料。揚州民風淳樸，馬伕們會
+把馬牽到馬廄好生照看，將它們餵飽飲足，再洗刷得幹乾淨淨，一直伺
+候到客人上路。馬廄雨檐下的爛木柱上釘着一塊破木牌(paizi)。
+    馬廄中堆放著幾堆草料，正中有一口泔槽。
 LONG);
 	set("outdoors", "yangzhouw");
 	set("no_fight", "1");
@@ -24,21 +24,21 @@ LONG);
 	]));
 	set("item_desc", ([
 		"paizi": @TEXT
-客人们只要给马夫一两白银的租金就可以雇到一匹马了。
+客人們只要給馬伕一兩白銀的租金就可以僱到一匹馬了。
 
 前往      北京城:  ridebj
-          苏州城:  ridesz
+          蘇州城:  ridesz
           杭州城:  ridehz
           福州城:  ridefz
-          无锡城:  ridewx
+          無錫城:  ridewx
           成都城:  ridecd
-          长安城:  rideca
-          襄阳城:  ridexy
-          开封城:  ridekf
+          長安城:  rideca
+          襄陽城:  ridexy
+          開封城:  ridekf
           延平城:  rideyp
           永登城:  rideyd
-          武昌镇:  ridewc
-          佛山镇:  ridefs
+          武昌鎮:  ridewc
+          佛山鎮:  ridefs
           峨嵋山:  rideem
 
 TEXT]));

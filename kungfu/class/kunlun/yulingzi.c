@@ -6,9 +6,9 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("玉灵子", ({ "yuling zi","yuling", "zi" }));
+	set_name("玉靈子", ({ "yuling zi","yuling", "zi" }));
 	set("long",
-		"她昆仑派第五代弟子，容颜俏丽，身材丰满，举手投足间带着点挑逗之意。\n");
+		"她崑崙派第五代弟子，容顏俏麗，身材豐滿，舉手投足間帶着點挑逗之意。\n");
 	set("gender", "女");
 	set("age", 28);
 	set("attitude", "peaceful");
@@ -47,7 +47,7 @@ void create()
 	map_skill("sword", "xunlei-jian");
 	prepare_skill("leg", "chuanyun-leg");
 
-	create_family("昆仑派", 5, "弟子");
+	create_family("崑崙派", 5, "弟子");
 	set("env/wimpy", 60);
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();
@@ -60,7 +60,7 @@ void attempt_apprentice(object ob)
 	{
 		command("fear");
 		command("say "+RANK_D->query_respect(ob)+
-			"，师母不准我收男弟子，你去找我师兄去吧。");
+			"，師母不准我收男弟子，你去找我師兄去吧。");
 		return;
 	}
 
@@ -68,17 +68,17 @@ void attempt_apprentice(object ob)
 	{
 		command("hmm");
 		command("say "+RANK_D->query_respect(ob)+
-			"你的玄天无极功太差，我可不想收你。");
+			"你的玄天無極功太差，我可不想收你。");
 		return;
 	}
 
 	if(ob->query("appren_hezudao", 1) == 1)
 	{
-		command("say 前辈怎敢开这等玩笑，真是折杀做晚辈的了。");
+		command("say 前輩怎敢開這等玩笑，真是折殺做晚輩的了。");
 		return;
 	}
 	command("say 既然"+RANK_D->query_respect(ob)+
-		"这么努力，我就收下你吧。");
+		"這麼努力，我就收下你吧。");
 	command("recruit " + ob->query("id"));
 }
 

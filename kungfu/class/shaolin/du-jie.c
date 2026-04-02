@@ -8,11 +8,11 @@ string ask_me();
 void create()
 {
 	set_name("渡劫", ({ "du jie", "jie" }) );
-	set("title", "少林长老");
+	set("title", "少林長老");
 	set("gender", "男性");
 	set("age", 90);
 	set("long",
-		"这是一个面颊深陷，瘦骨零丁的老僧，他脸色惨白，象一张纸一样。\n");
+		"這是一個面頰深陷，瘦骨零丁的老僧，他臉色慘白，象一張紙一樣。\n");
 
 	set("attitude", "peaceful");
 	set("class", "bonze");
@@ -88,7 +88,7 @@ void create()
 	map_skill("sword", "fumo-jian");
 
 	set("inquiry", ([
-		"金刚罩"     : (: ask_me :),
+		"金剛罩"     : (: ask_me :),
 	]));
 		
 	set("chat_chance_combat", 60);
@@ -156,25 +156,25 @@ string ask_me()
 	if ( !this_player()->query_temp("fighter") 
 	||    this_player()->query("combat_exp") < 5000 )
 	{
-		command("say 大胆鼠辈，乳臭未干，竟敢偷入金刚伏魔圈，且让老衲来超度与你！");
+		command("say 大膽鼠輩，乳臭未乾，竟敢偷入金剛伏魔圈，且讓老衲來超度與你！");
 		this_object()->kill_ob(this_player());
 		this_player()->kill_ob(this_object());
 	}
 
 	if ( present("jingang zhao", this_player()) )
 		return RANK_D->query_respect(this_player()) + 
-		"宝罩只有一件，而且就在你身上，真是贪得无餍！";
+		"寶罩只有一件，而且就在你身上，真是貪得無饜！";
 
 	if ( present("jingang zhao", environment()) )
 		return RANK_D->query_respect(this_player()) + 
-		"宝罩只有一件，而且就在这里任你取走，真是贪得无餍！";
+		"寶罩只有一件，而且就在這裏任你取走，真是貪得無饜！";
 
 	if ( present("fumo dao", this_player()) || present("fumo dao", environment()) )
 		return RANK_D->query_respect(this_player()) + 
-		"取了伏魔刀，就不能再拿金刚罩，莫要贪得无餍！";
+		"取了伏魔刀，就不能再拿金剛罩，莫要貪得無饜！";
 
 	if (query("count") < 1)
-		return "抱歉，你来晚了，金刚罩已经给人取走了。";
+		return "抱歉，你來晚了，金剛罩已經給人取走了。";
 
 //	ob = new("/d/shaolin/obj/jingang-zhao");
 	ob = new(ARMOR_DIR"treasure/jingang-zhao");
@@ -182,14 +182,14 @@ string ask_me()
 	if ( ob->violate_unique() )
 	{
 		destruct( ob );
-		return "抱歉，你来晚了，金刚罩已经给人取走了。";
+		return "抱歉，你來晚了，金剛罩已經給人取走了。";
 	}
 
 	ob->move(this_player());
 
 
-	message_vision("\n渡劫一声不吭地瞧了$N半饷，扭过身，从树洞里取出金刚罩递给$N。\n\n", this_player());
+	message_vision("\n渡劫一聲不吭地瞧了$N半餉，扭過身，從樹洞裏取出金剛罩遞給$N。\n\n", this_player());
 
-	return "你能挨我们三个老不死的三招日月神鞭不死，确实是命大，这件金刚罩就是你的了！";
+	return "你能挨我們三個老不死的三招日月神鞭不死，確實是命大，這件金剛罩就是你的了！";
 }
 #include "/kungfu/class/shaolin/du.h"

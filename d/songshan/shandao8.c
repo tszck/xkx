@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "极顶山道");
+	set("short", "極頂山道");
 	set("long", @LONG
-你走在嵩山极顶山道，青松翠柏，山风岚雾，时来飘荡。远望山下
-犬吠鸡啼，顿起仙凡之感。西上就是封禅台了。
+你走在嵩山極頂山道，青松翠柏，山風嵐霧，時來飄蕩。遠望山下
+犬吠雞啼，頓起仙凡之感。西上就是封禪臺了。
 LONG );
 	set("exits", ([
 		"eastdown" : __DIR__"shandao7",

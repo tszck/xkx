@@ -7,9 +7,9 @@ void create()
 {
 	set("short","冰洞");
 	set("long",@LONG
-蛇！一条足有水桶粗的白蛇，正横卧在冰洞正中，望见有人进来，
-呼地一声直立起来，吐出血红的信子，径直扑了过来。带过来一股腥臭
-的味道。旁边一面冰壁很薄，隐约可见里面有什么东西。
+蛇！一條足有水桶粗的白蛇，正橫臥在冰洞正中，望見有人進來，
+呼地一聲直立起來，吐出血紅的信子，徑直撲了過來。帶過來一股腥臭
+的味道。旁邊一面冰壁很薄，隱約可見裏面有什麼東西。
 LONG);
 	set("exits",([ /* sizeof() == 1 */
 		"out" : __DIR__"wave2", 
@@ -31,15 +31,15 @@ int do_break(string arg)
 {
 	object me = this_player();
 
-	message_vision(HIC"$N走到冰壁前，运劲向冰壁轰去！\n"NOR,me);
+	message_vision(HIC"$N走到冰壁前，運勁向冰壁轟去！\n"NOR,me);
 	if (me->query("neili") < 500)
 	{
-		message_vision( HIC"结果只听一声闷哼，$N被冰壁的寒气回侵经脉，眼前一黑....\n"NOR,me);
+		message_vision( HIC"結果只聽一聲悶哼，$N被冰壁的寒氣回侵經脈，眼前一黑....\n"NOR,me);
 		me->set("neili",0);
 		me->unconcious();
 		return 1;
 	}
-	message_vision(CYN"$N只听一声轰响，冰壁被轰穿了，露出一个小洞来！\n"NOR,me);
+	message_vision(CYN"$N只聽一聲轟響，冰壁被轟穿了，露出一個小洞來！\n"NOR,me);
 	set("exits/enter",__DIR__"yudong");
 	me->add("neili",-100);
 	remove_call_out("close");
@@ -53,7 +53,7 @@ void close_out()
 
 void close(object room)
 {
-	message("vision",HIC"一股寒气自洞中冒出，将洞口又冻了个严严实实。\n"NOR, room);
+	message("vision",HIC"一股寒氣自洞中冒出，將洞口又凍了個嚴嚴實實。\n"NOR, room);
 	room->delete("exits/enter");
 }
 

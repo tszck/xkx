@@ -14,9 +14,9 @@ void create()
 		set("unit", "把");
 		set("value", 0);
 		set("material", "iron");
-		set("long", "这是一柄半新不旧的柴刀。\n");
+		set("long", "這是一柄半新不舊的柴刀。\n");
 		set("wield_msg", "$N抽出一把$n握在手中。\n");
-		set("unequip_msg", "$N将手中的$n插回腰间。\n");
+		set("unequip_msg", "$N將手中的$n插回腰間。\n");
 	}
 	init_blade(5);
 	setup();

@@ -1,4 +1,4 @@
-// luohan-quan.c 罗汉拳
+// luohan-quan.c 羅漢拳
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,42 +7,42 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N连续上步，一式"HIY"「黄莺落架」"NOR"，左右手分靠，变拳为掌，击向$n的
+([	"action" : "$N連續上步，一式"HIY"「黃鶯落架」"NOR"，左右手分靠，變拳爲掌，擊向$n的
 $l",
 	"lvl" : 0,
-	"skill_name" : "黄莺落架"
+	"skill_name" : "黃鶯落架"
 ]),
-([	"action" : "$N左脚虚踏，全身右转，一招"HIM"「丹凤朝阳」"NOR"，右掌猛地插向$n的$l",
+([	"action" : "$N左腳虛踏，全身右轉，一招"HIM"「丹鳳朝陽」"NOR"，右掌猛地插向$n的$l",
 	"lvl" : 8,
-	"skill_name" : "丹凤朝阳"
+	"skill_name" : "丹鳳朝陽"
 ]),
-([	"action" : "$N双手大开大阖，宽打高举，使一招"HIB"「洛钟东应」"NOR"，双拳向$n的$l打
+([	"action" : "$N雙手大開大闔，寬打高舉，使一招"HIB"「洛鐘東應」"NOR"，雙拳向$n的$l打
 去",
 	"lvl" : 15,
-	"skill_name" : "洛钟东应"
+	"skill_name" : "洛鐘東應"
 ]),
-([	"action" : "$N左掌圈花扬起，屈肘当胸，虎口朝上，一招"HIC"「偏花七星」"NOR"打向$n的
+([	"action" : "$N左掌圈花揚起，屈肘當胸，虎口朝上，一招"HIC"「偏花七星」"NOR"打向$n的
 $l",
 	"lvl" : 24,
 	"skill_name" : "偏花七星"
 ]),
-([	"action" : "$N使一招"HIM"「苦海回头」"NOR"，上身前探，双手划了个半圈，击向$n的$l",
+([	"action" : "$N使一招"HIM"「苦海回頭」"NOR"，上身前探，雙手劃了個半圈，擊向$n的$l",
 	"lvl" : 33,
-	"skill_name" : "苦海回头"
+	"skill_name" : "苦海回頭"
 ]),
-([	"action" : "$N双掌划弧，一记"HIY"「挟山超海」"NOR"，掌出如电，一下子切到$n的手上",
+([	"action" : "$N雙掌劃弧，一記"HIY"「挾山超海」"NOR"，掌出如電，一下子切到$n的手上",
 	"lvl" : 42,
-	"skill_name" : "挟山超海"
+	"skill_name" : "挾山超海"
 ]),
-([	"action" : "$N施出"HIG"「慑服外道」"NOR"，双拳拳出如风，同时打向$n头，胸，腹三处要
+([	"action" : "$N施出"HIG"「懾服外道」"NOR"，雙拳拳出如風，同時打向$n頭，胸，腹三處要
 害",
 	"lvl" : 50,
-	"skill_name" : "慑服外道"
+	"skill_name" : "懾服外道"
 ]),
-([	"action" : "$N左脚内扣，右腿曲坐，一式"BLU"「三入地狱」"NOR"，双手齐齐按向$n的胸口
+([	"action" : "$N左腳內扣，右腿曲坐，一式"BLU"「三入地獄」"NOR"，雙手齊齊按向$n的胸口
 ",
 	"lvl" : 58,
-	"skill_name" : "三入地狱"
+	"skill_name" : "三入地獄"
 ]),
 });
 
@@ -50,21 +50,21 @@ int valid_enable(string usage) { return usage=="cuff" || usage=="parry"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练罗汉拳必须空手。\n");
+		return notify_fail("練羅漢拳必須空手。\n");
 	if ((int)me->query_skill("hunyuan-yiqi", 1) < 10)
-		return notify_fail("你的混元一气功火候不够，无法学罗汉拳。\n");
+		return notify_fail("你的混元一氣功火候不夠，無法學羅漢拳。\n");
 	if ((int)me->query("max_neili") < 50)
-		return notify_fail("你的内力太弱，无法练罗汉拳。\n");
+		return notify_fail("你的內力太弱，無法練羅漢拳。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 30)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够练罗汉拳。\n");
+		return notify_fail("你的內力不夠練羅漢拳。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -15);
 	return 1;
@@ -91,16 +91,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : "瘀伤",
+		"damage_type" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 20; }
@@ -110,15 +110,15 @@ int power_point(object me) { return 1.0; }
 
 int help(object me)
 {
-	write(HIC"\n罗汉拳："NOR"\n");
+	write(HIC"\n羅漢拳："NOR"\n");
 	write(@HELP
 
-    罗汉拳为少林七十二绝技之一。
-    可与互备。
+    羅漢拳爲少林七十二絕技之一。
+    可與互備。
 
-	学习要求：
-		混元一气功10级
-		内力50
+	學習要求：
+		混元一氣功10級
+		內力50
 HELP
 	);
 	return 1;

@@ -7,9 +7,9 @@ string ask_for_join();
 
 void create()
 {
-	set_name("方穷", ({ "fang qiong", "fang", "qiong"}));
-	set("long", "他是一位身穿黄布袈裟的青年僧人。脸上稚气未脱，身手却已相\n"
-		"当矫捷，看来似乎学过一点武功。\n");
+	set_name("方窮", ({ "fang qiong", "fang", "qiong"}));
+	set("long", "他是一位身穿黃布袈裟的青年僧人。臉上稚氣未脫，身手卻已相\n"
+		"當矯捷，看來似乎學過一點武功。\n");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -73,11 +73,11 @@ string ask_for_join()
 	object me = this_player();
 
 	if( (string)me->query("class")=="bonze" )
-		return "阿弥陀佛！你我同是出家人，何故跟贫僧开这等玩笑？\n";
+		return "阿彌陀佛！你我同是出家人，何故跟貧僧開這等玩笑？\n";
 	if( (string)me->query("gender") != "男性" )
-		return "阿弥陀佛！善哉！善哉！女施主若真心仰慕南少林，可以做本院俗家弟子。\n";
+		return "阿彌陀佛！善哉！善哉！女施主若真心仰慕南少林，可以做本院俗家弟子。\n";
 	me->set_temp("pending/join_bonze", 1);
-	return "阿弥陀佛！施主若真心皈依我佛，请跪下(kneel)受戒。\n";
+	return "阿彌陀佛！施主若真心皈依我佛，請跪下(kneel)受戒。\n";
 }
 int do_kneel()
 {
@@ -87,13 +87,13 @@ int do_kneel()
 	int gen;
 
 	if( !me->query_temp("pending/join_bonze") ) return 0;
-	message_vision("$N双手合十，恭恭敬敬地跪了下来。\n\n$n伸出手掌，在$N头顶轻轻地摩挲了几下，将$N的头发尽数剃去。\n\n", me, this_object() );
+	message_vision("$N雙手合十，恭恭敬敬地跪了下來。\n\n$n伸出手掌，在$N頭頂輕輕地摩挲了幾下，將$N的頭髮盡數剃去。\n\n", me, this_object() );
 	name = me->query("name");
 	if (me->query("family/family_name") == "南少林派")
 		gen = me->query("family/generation");
 	else gen = 22;
 	new_name = prename[22-gen] + name[0..0];
-	command("say 从今以后你的法名叫做" + new_name + "。");
+	command("say 從今以後你的法名叫做" + new_name + "。");
 	command("smile");
 	me->delete_temp("pending/join_bonze");
 	me->set("name", new_name);

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "乱云亭");
+	set("short", "亂雲亭");
 	set("long", @LONG
-乱云亭建在蔓陀山峰顶上。在这里俯瞰五湖风光，但见舟船如织，
-蔓陀山庄镶嵌在万顷波涛中，恰若水晶盆中一枚青螺。
+亂雲亭建在蔓陀山峯頂上。在這裏俯瞰五湖風光，但見舟船如織，
+蔓陀山莊鑲嵌在萬頃波濤中，恰若水晶盆中一枚青螺。
 LONG );
 	set("outdoors", "mantuo");
 	set("no_clean_up", 0);

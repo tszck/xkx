@@ -1,12 +1,12 @@
-// xian.c 鲜于通
+// xian.c 鮮於通
  
 inherit NPC;
  
 void create()
 {
-	set_name("鲜于通", ({ "xianyu  tong", "xian" }));
-	set("nickname", "华山叛徒");
-	set("long", "长的眉目清秀，俊雅潇洒，但是实际上是个阴狠歹毒的人。\n");
+	set_name("鮮於通", ({ "xianyu  tong", "xian" }));
+	set("nickname", "華山叛徒");
+	set("long", "長的眉目清秀，俊雅瀟灑，但是實際上是個陰狠歹毒的人。\n");
 	set("gender", "男性");
 	set("age", 45);
 	set("attitude", "peaceful");

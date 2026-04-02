@@ -1,14 +1,14 @@
-// houshan.c 后山
+// houshan.c 後山
 // Winder Oct.10 1998
 
 inherit ROOM;
 
 void create()
 {
-        set("short", "后山");
+        set("short", "後山");
         set("long", @LONG
-这里已经出了重阳宫，到了终南山的后山。这里鸟语花香，
-空气清新，山势也平缓得多了。
+這裏已經出了重陽宮，到了終南山的後山。這裏鳥語花香，
+空氣清新，山勢也平緩得多了。
 LONG
         );
         set("outdoors", "chongyang");

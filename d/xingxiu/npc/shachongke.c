@@ -12,9 +12,9 @@ void init()
 
 void create()
 {
-        set_name("沙虫壳", ({"shachong ke", "ke"}));
+        set_name("沙蟲殼", ({"shachong ke", "ke"}));
         set("unit", "只");
-        set("long", "这是一只沙虫的干壳，是制备毒药的原料。\n");
+        set("long", "這是一隻沙蟲的幹殼，是製備毒藥的原料。\n");
         set("value", 300);
 //        setup();
 }
@@ -22,7 +22,7 @@ void create()
 int do_eat(string arg)
 {
         if (!id(arg))
-                return notify_fail("你要吃什么？\n");
+                return notify_fail("你要喫什麼？\n");
         return notify_fail("你找死啊。\n");
 }
 

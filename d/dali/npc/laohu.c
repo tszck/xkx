@@ -6,9 +6,9 @@ inherit NPC;
 void create()
 {
         set_name("孟加拉虎", ({ "mengjiala hu", "tiger","hu" }) );
-	set("race", "走兽");
+	set("race", "走獸");
         set("age", 20);
-        set("long", "一只斑斓孟加拉虎，雄伟极了。\n");
+        set("long", "一隻斑斕孟加拉虎，雄偉極了。\n");
         set("attitude", "aggressive");
         set("shen_type", -1);
 
@@ -26,15 +26,15 @@ void create()
 
         set("chat_chance", 10);
         set("chat_msg", ({
-                "孟加拉在浚巡，吓得你大气都不敢出。\n",
-                "孟加拉仰天长啸，声震山谷，黄叶纷坠。\n",
+                "孟加拉在浚巡，嚇得你大氣都不敢出。\n",
+                "孟加拉仰天長嘯，聲震山谷，黃葉紛墜。\n",
         }) );
 }
 
 void die()
 {
 	object ob, corpse;
-	message_vision("$N发出震天动地的一声长啸，轰地倒在地上，死了！\n", this_object());
+	message_vision("$N發出震天動地的一聲長嘯，轟地倒在地上，死了！\n", this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 	ob = new("/clone/medicine/vegetable/hugu");
 	ob->move(corpse);

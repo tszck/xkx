@@ -8,7 +8,7 @@ void create()
 	set_name("趟子手", ({ "tangzi shou","shou" }) );
 	set("gender", "男性");
 	set("age", 30);
-	set("long", "这是个镖局趟子手，长得虎背熊腰，一身横练功夫。\n");
+	set("long", "這是個鏢局趟子手，長得虎背熊腰，一身橫練功夫。\n");
 	set("combat_exp", 10000);
         set("shen_type", -1);
 	set("attitude", "peaceful");
@@ -18,7 +18,7 @@ void create()
 
 	set("chat_chance", 5);
 	set("chat_msg", ({
-		"趟子手一声大喊: 我～～武～～维～～扬～～！\n",
+		"趟子手一聲大喊: 我～～武～～維～～揚～～！\n",
 		(: random_move :)
 	}) );
 

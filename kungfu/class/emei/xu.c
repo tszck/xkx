@@ -1,4 +1,4 @@
-// xu.c 静虚师太
+// xu.c 靜虛師太
 // Modified by That Oct.1997
 #include <command.h>
 #include <ansi.h>
@@ -10,9 +10,9 @@ int peiyao();
 int liandan();
 void create()
 {
-	set_name("静虚师太", ({ "jingxu shitai","jingxu","shitai"}));
-	set("long", "她是峨嵋派二师姐，峨嵋门下多年，一套峨嵋掌法名动江湖。据说
-对配药和炼制霹雳弹颇有造诣。\n");
+	set_name("靜虛師太", ({ "jingxu shitai","jingxu","shitai"}));
+	set("long", "她是峨嵋派二師姐，峨嵋門下多年，一套峨嵋掌法名動江湖。據說
+對配藥和煉製霹靂彈頗有造詣。\n");
 	set("gender", "女性");
 	set("age", 43);
 	set("attitude", "peaceful");
@@ -22,9 +22,9 @@ void create()
 	set("inquiry",([
 		"剃度"  : (: ask_for_join :),
 		"出家"  : (: ask_for_join :),
-		"配药"  : ( : peiyao :),
-		"霹雳弹": ( : liandan : ),
-		"还俗"  : "峨嵋弟子，不能还俗。你找掌门师太吧。",
+		"配藥"  : ( : peiyao :),
+		"霹靂彈": ( : liandan : ),
+		"還俗"  : "峨嵋弟子，不能還俗。你找掌門師太吧。",
 	]));
 
 	set("str", 30);
@@ -92,28 +92,28 @@ void attempt_apprentice(object ob)
 {
 	if( (string)ob->query("class")!="bonze" )
 	{
-		command ("say 阿弥陀佛！贫尼不收弟子。\n");
-		command ("say 你若想继续学峨嵋派的功夫，还是去找我俗家师妹吧。\n");
+		command ("say 阿彌陀佛！貧尼不收弟子。\n");
+		command ("say 你若想繼續學峨嵋派的功夫，還是去找我俗家師妹吧。\n");
 		return;
 	}
 
 	if( (string)ob->query("gender") != "女性" )
 	{
-		command ("say 阿弥陀佛！贫尼不收男弟子。施主若想学艺可去找我俗家师妹。");
+		command ("say 阿彌陀佛！貧尼不收男弟子。施主若想學藝可去找我俗家師妹。");
 		return;
 	}
 	if ((int)ob->query("shen") < 100)
 	{
-		command("say " + RANK_D->query_respect(ob) + "你行侠仗义之事还做的不够。");
+		command("say " + RANK_D->query_respect(ob) + "你行俠仗義之事還做的不夠。");
 		return;
 	}
 	if ((int)ob->query_skill("mahayana",1) <50)
 	{
-		command("say 你大乘佛法的修为还要提高些。");
+		command("say 你大乘佛法的修爲還要提高些。");
 		return;
 	}
-	command("say 阿弥陀佛，善哉！善哉！好吧，我就收下你了。");
-	command("say 希望你能以慈悲之心，以智慧之力，努力行善，济度众生。");
+	command("say 阿彌陀佛，善哉！善哉！好吧，我就收下你了。");
+	command("say 希望你能以慈悲之心，以智慧之力，努力行善，濟度衆生。");
 	command("recruit " + ob->query("id"));
 }
 
@@ -126,7 +126,7 @@ int peiyao()
 
 	if(!objectp(present("caoyao 3",me)))
 	{
-		command("say 你的身上没有那么多草药。");
+		command("say 你的身上沒有那麼多草藥。");
 		return 1;
 	}
 	for(i=0;i<3;i++)
@@ -135,10 +135,10 @@ int peiyao()
 		destruct(obj);
 	}
 	command("smile");
-	command("say 好吧，我就给你配药了。");
+	command("say 好吧，我就給你配藥了。");
 	obj=new("/d/emei/obj/zhongyao");
 	obj->move(me);
-	message_vision("静慈师太给$N一包中药。\n",me);
+	message_vision("靜慈師太給$N一包中藥。\n",me);
 	return 1;
 }
 int liandan()
@@ -149,16 +149,16 @@ int liandan()
  
 	if(!objectp(present("liuhuang",me)))
 	{
-		command("say 你的身上没有炼制霹雳弹用的硫磺。");
+		command("say 你的身上沒有煉製霹靂彈用的硫磺。");
 		return 1;
 	}
 	obj=present("liuhuang",me);
 	destruct(obj);
 	command("smile");
-	command("say 好吧，我就给你炼制一粒霹雳弹。");
+	command("say 好吧，我就給你煉製一粒霹靂彈。");
 	obj=new("/d/emei/obj/pilidan");
 	obj->move(me);
-	message_vision("静慈师太给$N一粒霹雳弹。\n",me);
+	message_vision("靜慈師太給$N一粒霹靂彈。\n",me);
 	return 1;
 }
 #include "emei.h"

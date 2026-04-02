@@ -7,13 +7,13 @@ string ask_blade();
 string ask_sword();
 void create()
 {
-	set_name("铁匠", ({ "tiejiang", "smith" }));
-	set("title", "铁匠铺老板");
+	set_name("鐵匠", ({ "tiejiang", "smith" }));
+	set("title", "鐵匠鋪老闆");
 	set("shen_type", 1);
 
 	set("gender", "男性" );
 	set("age", 33);
-	set("long", "铁匠正用铁钳夹住一块红热的铁块放进炉中。\n");
+	set("long", "鐵匠正用鐵鉗夾住一塊紅熱的鐵塊放進爐中。\n");
 
 	set("combat_exp", 400);
 	set("attitude", "friendly");
@@ -29,8 +29,8 @@ void create()
 	}));
 	
 	set("inquiry", ([
-	    "宝剑": (: ask_sword :),
-            "宝刀": (: ask_blade :),
+	    "寶劍": (: ask_sword :),
+            "寶刀": (: ask_blade :),
 	]) );
 	setup();
 
@@ -64,7 +64,7 @@ int accept_object(object who, object ob)
 		me->delete_temp("sword_temp");
 		}
 		else return 1;
-		message_vision(HIY"铁匠掏出一把金光闪闪的兵器给你\n"NOR,who);
+		message_vision(HIY"鐵匠掏出一把金光閃閃的兵器給你\n"NOR,who);
 		
 	
 	}	
@@ -78,7 +78,7 @@ string ask_blade()
 {
 	object me=this_player();
 	me->set_temp("blade_temp",1);
-	return "宝刀是有，就看你出得起价钱么......\n";
+	return "寶刀是有，就看你出得起價錢麼......\n";
 	
 }
 
@@ -87,7 +87,7 @@ string ask_sword()
 {
 	object me=this_player();
 	me->set_temp("sword_temp",1);
-	return "宝剑是有，就看你出得起价钱么......\n";
+	return "寶劍是有，就看你出得起價錢麼......\n";
 }
 
 /*
@@ -106,8 +106,8 @@ void compelete_trade(object who, string what)
 	if( what=="changjian" ) ob = new(__DIR__"changjian");
 	ob->move(who);
 	if( what=="hammer" )
-message_vision("$N交给$n一把沈甸甸的打铁用铁锤。\n", this_object(), who);
+message_vision("$N交給$n一把沈甸甸的打鐵用鐵錘。\n", this_object(), who);
 	if( what=="changjian" )
-message_vision("$N交给$n一把青光闪闪的长剑。\n", this_object(), who);
+message_vision("$N交給$n一把青光閃閃的長劍。\n", this_object(), who);
 }
 */

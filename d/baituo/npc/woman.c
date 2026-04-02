@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("农家妇女", ({ "woman" }) );
+	set_name("農家婦女", ({ "woman" }) );
 	set("gender", "女性" );
 	set("age", 32);
-	set("long", "一个很精明能干的农家妇女。\n");
+	set("long", "一個很精明能幹的農家婦女。\n");
 	set("shen_type", 1);
 	set("combat_exp", 1200);
 	set("str", 15);

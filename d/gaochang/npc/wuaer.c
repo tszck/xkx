@@ -1,4 +1,4 @@
-// wuaer.c 瓦耳拉齐
+// wuaer.c 瓦耳拉齊
 
 #include <ansi.h>
 
@@ -9,10 +9,10 @@ int ask_wuaer();
 
 void create()
 {
-	set_name("瓦耳拉齐", ({ "wuaer laqi", "wuaer"}));
+	set_name("瓦耳拉齊", ({ "wuaer laqi", "wuaer"}));
 	set("gender", "男性");
 	set("age", 45);
-	set("long", "他就是装神弄鬼的瓦耳拉齐。他面容枯槁，由于长期不见阳光，皮肤惨白。\n");
+	set("long", "他就是裝神弄鬼的瓦耳拉齊。他面容枯槁，由於長期不見陽光，皮膚慘白。\n");
 
 	set("combat_exp", 150000);
 	set("shen_type", 1);
@@ -28,10 +28,10 @@ void create()
 	set_skill("parry", 50);
 
 	set("inquiry", ([
-		"宝藏" : (: ask_baozang :),
+		"寶藏" : (: ask_baozang :),
 		"回去" : (: ask_back :),
-		"瓦耳拉齐" : (: ask_wuaer :),
-		"李文秀" : "瓦耳拉齐说道：这是一个好姑娘。何时能再见到她。\n",
+		"瓦耳拉齊" : (: ask_wuaer :),
+		"李文秀" : "瓦耳拉齊說道：這是一個好姑娘。何時能再見到她。\n",
 	]) );
 
 
@@ -50,13 +50,13 @@ int ask_back()
 	object me=this_player();
 	if ( present("map", me))
 	{
-		say("瓦耳拉齐说道：好吧，这次我送你回去，高昌迷宫你以后再也不要来了。下次来我就要杀了你。\n");
+		say("瓦耳拉齊說道：好吧，這次我送你回去，高昌迷宮你以後再也不要來了。下次來我就要殺了你。\n");
 		me->move("/d/gaochang/entrance");
 		return 1;
 	}
 	else
 	{
-		say("瓦耳拉齐哼道：你是自作自受，在这陪我一辈子吧!\n");
+		say("瓦耳拉齊哼道：你是自作自受，在這陪我一輩子吧!\n");
 		return 1;
 	}
 	return 1;
@@ -64,12 +64,12 @@ int ask_back()
 
 int ask_baozang()
 {
-	say("瓦耳拉齐说道：高昌迷宫一无所有，这一个房间是我住的。说完闪身让出一条路。\n");
+	say("瓦耳拉齊說道：高昌迷宮一無所有，這一個房間是我住的。說完閃身讓出一條路。\n");
 	return 1;
 }    
 int ask_wuaer()
 {
-	message("vision", HIY "瓦耳拉齐勃然大怒，喝道：你也佩直呼我的名字？！我要杀了你！\n" NOR, environment(), this_object() );
+	message("vision", HIY "瓦耳拉齊勃然大怒，喝道：你也佩直呼我的名字？！我要殺了你！\n" NOR, environment(), this_object() );
 	this_object()->kill_ob(this_player());
 	return 1;
 }

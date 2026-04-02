@@ -5,7 +5,7 @@ inherit RESTROOM_IN;
 
 void create()
 {
-	set("short", "东灵后殿");
+	set("short", "東靈後殿");
 	set("long", @LONG
 LONG );
 
@@ -16,9 +16,9 @@ LONG );
 	set("coor/x", 390);
 	set("coor/y", 780);
 	set("coor/z", 190);
-  set("door_name","殿门");
+  set("door_name","殿門");
 	set("door_dir","south");
-	set("force_name","迟百城");
+	set("force_name","遲百城");
   set("outroom",__DIR__"dongling");
 	setup();
 }

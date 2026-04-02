@@ -10,15 +10,15 @@ void create()
 { 
 	set("short","密室");
 	set("long", @LONG
-这是一间黑黢黢的小房间，墙上的砖头(zhuan) 已经掉渣子了，房
-梁(liang) 也已经朽烂不堪。墙脚处有一个铁箱子，上面积满了尘土。
+這是一間黑黢黢的小房間，牆上的磚頭(zhuan) 已經掉渣子了，房
+梁(liang) 也已經朽爛不堪。牆腳處有一個鐵箱子，上面積滿了塵土。
 LONG );
 	set("exits", ([
 		"out" : __DIR__"midao",
 	]));       
 	set("item_desc", ([
-		"zhuan": "砖头烂得一塌糊涂。\n",
-		"liang": "房梁是上好的楠木做的，可惜年代太久，已经腐烂得不成样子了。\n",
+		"zhuan": "磚頭爛得一塌糊塗。\n",
+		"liang": "房梁是上好的楠木做的，可惜年代太久，已經腐爛得不成樣子了。\n",
 	]) );
 	set("objects", ([
 		__DIR__"obj/tiexiang" : 1,
@@ -46,15 +46,15 @@ int do_jump(string arg)
         {
             if (me->query_temp("marks/跳1") ) {
                 if (me->query_dex()<20) 
-                    write("你试图跳上房梁，无奈身法不够敏捷，只好做罢。\n");
+                    write("你試圖跳上房梁，無奈身法不夠敏捷，只好做罷。\n");
                 else {
-                    write("你纵身跃上了房梁。\n");
+                    write("你縱身躍上了房梁。\n");
                     message("vision",
-                             me->name() + "一纵身跃上了房梁。\n",
+                             me->name() + "一縱身躍上了房梁。\n",
                              environment(me), ({me}) );
                     me->move(__DIR__"liang");
                     message("vision",
-                             me->name() + "从下面跃了上来。\n",
+                             me->name() + "從下面躍了上來。\n",
                              environment(me), ({me}) );
                 }
                 return 1;

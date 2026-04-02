@@ -1,9 +1,9 @@
 // Last Modified by winder on Aug. 25 2001
-// zhouyu.c 暴风骤雨
+// zhouyu.c 暴風驟雨
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "「暴风骤雨」"
+#define PNAME "「暴風驟雨」"
 int perform(object me, object target)
 {
 	string msg;
@@ -18,17 +18,17 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if( me->query_temp("weapon") )
-		return notify_fail("只有空手才能施展「暴风骤雨」。\n");
+		return notify_fail("只有空手才能施展「暴風驟雨」。\n");
 
 	fskill = "panshi-shengong";
 	bskill = "strike";
@@ -42,27 +42,27 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query("max_neili")< 300 )
-		return notify_fail("你的内力修为不够。\n"); 
+		return notify_fail("你的內力修爲不夠。\n"); 
 
 	if( (int)me->query("neili")< 200 )
-		return notify_fail("你的内力不够。\n"); 
+		return notify_fail("你的內力不夠。\n"); 
 
 	me->add("neili", -100);
 
 	if( random(me->query("max_neili")) < 50 )
 	{
-		write("糟糕，没成功！\n");
+		write("糟糕，沒成功！\n");
 		return 1;
 	}
 	
 	skill = me->query_skill(bskill, 1);
-		msg = HIC"\n$N"HIC"一反平常快活逍逸的神情，口中大喝了一声，施展出「暴风骤雨」，双掌上下翻飞，\n$n只觉得四周都是$N"HIC"双掌的影子，根本不知如何招架，更不用说躲闪了！\n\n" NOR;
+		msg = HIC"\n$N"HIC"一反平常快活逍逸的神情，口中大喝了一聲，施展出「暴風驟雨」，雙掌上下翻飛，\n$n只覺得四周都是$N"HIC"雙掌的影子，根本不知如何招架，更不用說躲閃了！\n\n" NOR;
 
 	ap = skill;
 	ap = ( ap * ap * ap / (4 * 400) ) + (int)me->query("qi");
@@ -76,7 +76,7 @@ int perform(object me, object target)
 		damage -= (int)target->query("max_neili") / 10 + random((int)target->query("eff_qi") / 50);
 		if( damage > 0 )
 		{
-			msg += HIC "结果一掌结结实实全部拍中了$n"HIC"，几乎把$n"HIC"的骨头都震散了！\n" NOR;
+			msg += HIC "結果一掌結結實實全部拍中了$n"HIC"，幾乎把$n"HIC"的骨頭都震散了！\n" NOR;
 			damage +=random((damage*(int)me->query_skill("strike"))/50);
 			target->receive_damage("jing", damage, me);
 			target->receive_wound("jing", damage/4, me);
@@ -85,14 +85,14 @@ int perform(object me, object target)
 		}
 		else
 		{
-			msg += HIC "结果被$n"HIC"以内力反激，$N"HIC"反而自受其苦，双手受伤不轻！\n" NOR;
+			msg += HIC "結果被$n"HIC"以內力反激，$N"HIC"反而自受其苦，雙手受傷不輕！\n" NOR;
 			damage -=random((-damage*(int)target->query_skill("strike"))/80);
 			me->receive_damage("jing", -damage, target);
 			me->receive_damage("qi", -damage, target);
 			me->improve_skill("kuaihuo-strike", 1, 1);
 		}
 	}
-	else msg += "但是被$n躲开了。\n";
+	else msg += "但是被$n躲開了。\n";
 
 	message_combatd(msg, me, target);
 	if( damage > 0 ) COMBAT_D->report_status(target);
@@ -112,13 +112,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损害敌手精气和气血，但也可能被对手反震受创
+		損害敵手精氣和氣血，但也可能被對手反震受創
 
 	出手要求：
-		磐石神功50级
-		快活十三掌50级
-		内力修为300
-		内力200
+		磐石神功50級
+		快活十三掌50級
+		內力修爲300
+		內力200
 HELP
 	);
 	return 1;

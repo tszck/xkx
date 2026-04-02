@@ -11,8 +11,8 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "颗");
-		set("long", "这是一颗紫黑色的猴肝。\n");
+		set("unit", "顆");
+		set("long", "這是一顆紫黑色的猴肝。\n");
 		set("value", 1000);
 		set("medicine", 1);
 	}

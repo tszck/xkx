@@ -9,7 +9,7 @@ int do_turn();
 int yesorno();
 string cstr(int i);
 
-//全程变量
+//全程變量
 int sumi,summ;
 int thecash;
 int m1,m2,m3,i1,i2,i3,j1,j2,j3,k1,k2,k3;
@@ -19,15 +19,15 @@ void create()
 	set_name("牌童", ({ "pai tong", "paitong", "kid" }));
 	set("gender", "男性");
 	set("long",
-		"这是一个牌场小厮。\n"
+		"這是一個牌場小廝。\n"
 	);
 	set("age", 32);
 	set("no_get", 1);
 	set("immortal",1);
 
 	set("inquiry", ([
-		"赌"   : "要赌就赌，和我罗嗦？没空没空。\n",
-		"押牌" : "快押快押，先给钱再押。别磨蹭。\n",
+		"賭"   : "要賭就賭，和我羅嗦？沒空沒空。\n",
+		"押牌" : "快押快押，先給錢再押。別磨蹭。\n",
 	]) );
 	set("book_count",1);
 	setup();
@@ -47,7 +47,7 @@ int accept_object(object who, object ob)
 	object me=this_player();
 
 	if (me->is_busy())
-		return notify_fail("你还在忙着呢，等一会吧。");
+		return notify_fail("你還在忙着呢，等一會吧。");
 	me->start_busy(5);
 	if (query("book_count"))
 	{
@@ -55,17 +55,17 @@ int accept_object(object who, object ob)
 		{
 			if (ob->query_temp("tmark/押"))
 			{
-				message_vision( HIG"牌童诧异地对$N说：你已经下过注了呀！\n"NOR,who);
+				message_vision( HIG"牌童詫異地對$N說：你已經下過注了呀！\n"NOR,who);
 				return 0;
 			}
 			if (ob->value()<100)
 			{
-				message_vision( HIR"牌童不屑一顾地看着$N，说道：要下注至少一两银子！\n"NOR,who);
+				message_vision( HIR"牌童不屑一顧地看着$N，說道：要下注至少一兩銀子！\n"NOR,who);
 				return 0;
 			}
 			if (ob->value()>20000)
 			{
-				message_vision( HIR"牌童摇了摇头，对$N说道：这里不欢迎孤注一掷，最多下二两黄金。\n"NOR,who);
+				message_vision( HIR"牌童搖了搖頭，對$N說道：這裏不歡迎孤注一擲，最多下二兩黃金。\n"NOR,who);
 				return 0;
 			}
 			add("book_count",-1);
@@ -73,10 +73,10 @@ int accept_object(object who, object ob)
 			who->set_temp("tmark/押",1);
 			sumi=summ=0;
 			i1=i2=i3=m1=m2=m3=j1=j2=j3=k1=k1=k3=0;
-			message_vision( HIY"牌童吆喝道：$N下注完成，发牌了。\n"NOR,who);
+			message_vision( HIY"牌童吆喝道：$N下注完成，發牌了。\n"NOR,who);
 			i1 = 1+random(13);
 			i2 = 1+random(13);
-			message_vision( WHT"庄家的牌是:    ？   和   "HIG+cstr(i1)+"\n"NOR,who);
+			message_vision( WHT"莊家的牌是:    ？   和   "HIG+cstr(i1)+"\n"NOR,who);
 			if (i1>10) j1=10; else j1=i1;
 			if (i2>10) j2=10; else j2=i2;
 			sumi = j1 + j2;
@@ -89,7 +89,7 @@ int accept_object(object who, object ob)
 			summ = k1+k2;
 			if ((summ == 21) || ((summ==11) && (m1==1 || m2==1)) )
 			{
-				message_vision(HIG"啊！BLACKJACK，你真厉害，还得赔你双倍！我呸！\n"NOR,who);
+				message_vision(HIG"啊！BLACKJACK，你真厲害，還得賠你雙倍！我呸！\n"NOR,who);
 				remove_call_out("destroying");
 				call_out("destroying", 0, me, ob);
 				pieshuang(who);
@@ -97,7 +97,7 @@ int accept_object(object who, object ob)
 			}
 			else
 			{
-				message("vision", HIW"如果还要牌，请键入 deal,否则请键入 turn。\n"NOR,who);
+				message("vision", HIW"如果還要牌，請鍵入 deal,否則請鍵入 turn。\n"NOR,who);
 			}
 
 			remove_call_out("destroying");
@@ -107,7 +107,7 @@ int accept_object(object who, object ob)
 	}
 	else
 	{
-		message_vision("已经有人在牌童对赌了，看来$N得等下一拨了。\n",who);
+		message_vision("已經有人在牌童對賭了，看來$N得等下一撥了。\n",who);
 		return 0;
 	}
 }
@@ -119,11 +119,11 @@ int do_deal()
 
 	if (!me->query_temp("tmark/押"))
 	{
-		message_vision( MAG"牌童不耐烦地推了$N一把：去去去，注还没下呢，押什么牌啊！\n"NOR,me);
+		message_vision( MAG"牌童不耐煩地推了$N一把：去去去，注還沒下呢，押什麼牌啊！\n"NOR,me);
 		return 1;
 	}
 	m3 = 1+random(13);
-	message("vision", HIM"你还要一张啊，好吧，给你这张牌:   "HIR+cstr(m3)+"\n"NOR,me);
+	message("vision", HIM"你還要一張啊，好吧，給你這張牌:   "HIR+cstr(m3)+"\n"NOR,me);
 	if (m3>10) k3=10; else k3=m3;
 	summ = summ+k3;
 	if(m1==1 || m2==1 || m3==1)
@@ -131,13 +131,13 @@ int do_deal()
 
 	if (summ>21)
 	{
-		message_vision( WHT"牌童笑嘻嘻地说：不好意思，你的牌涨爆了，我又赢了。\n"NOR,me);
+		message_vision( WHT"牌童笑嘻嘻地說：不好意思，你的牌漲爆了，我又贏了。\n"NOR,me);
 	}
 	else
 	{
 		if (summ==21)
 		{
-			message_vision( HIW"牌童面如土色：又是２１点？你奶奶的，害老子赔双倍！\n"NOR,me);
+			message_vision( HIW"牌童面如土色：又是２１點？你奶奶的，害老子賠雙倍！\n"NOR,me);
 			pieshuang(me);
 		}
 		else
@@ -152,21 +152,21 @@ int do_deal()
 			if (sumi>21 || sumi<summ)
 			{
 				if (sumi>21)
-					message_vision( HIY"牌童丧气地说：我的"HIG+cstr(i1)+cstr(i2)+cstr(i3)+HIY"涨爆了，天灾人祸，赔你！\n"NOR,me);
+					message_vision( HIY"牌童喪氣地說：我的"HIG+cstr(i1)+cstr(i2)+cstr(i3)+HIY"漲爆了，天災人禍，賠你！\n"NOR,me);
 				else
-					message_vision( HIY"牌童气得一把把牌扔在桌上：我"HIG+cstr(i1)+cstr(i2)+cstr(i3)+HIY"，你点大，给你钱！撑死你！\n"NOR,me);
+					message_vision( HIY"牌童氣得一把把牌扔在桌上：我"HIG+cstr(i1)+cstr(i2)+cstr(i3)+HIY"，你點大，給你錢！撐死你！\n"NOR,me);
 				pieqian(me);
 			}
 			else
 			{
 				if (sumi == summ)
 				{
-					message("vision", HIG"牌童贼兮兮的道：不好意思，我是"HIR+cstr(i1)+cstr(i2)+cstr(i3)+HIG"，同点庄家吃了。\n"NOR,me);
+					message("vision", HIG"牌童賊兮兮的道：不好意思，我是"HIR+cstr(i1)+cstr(i2)+cstr(i3)+HIG"，同點莊家喫了。\n"NOR,me);
 				}
 				else
 				{
-					message_vision( HIG"牌童笑嘻嘻地说：我的牌是"HIR+cstr(i1)+cstr(i2)+cstr(i3)+"\n"NOR,me);
-					message_vision( HIG"牌童满脸遗憾的表情：大家这么熟的朋友了，怎么能老赢你的钱呢？怪不好意思！\n"NOR,me);
+					message_vision( HIG"牌童笑嘻嘻地說：我的牌是"HIR+cstr(i1)+cstr(i2)+cstr(i3)+"\n"NOR,me);
+					message_vision( HIG"牌童滿臉遺憾的表情：大家這麼熟的朋友了，怎麼能老贏你的錢呢？怪不好意思！\n"NOR,me);
 				}
 			}
 		}
@@ -182,7 +182,7 @@ int do_turn()
 	object me = this_player();
 	if (!me->query_temp("tmark/押"))
 	{
-		message_vision( HIY"牌童不耐烦地推了$N一把：去去去，注还没下呢，押什么牌啊！\n"NOR,me);
+		message_vision( HIY"牌童不耐煩地推了$N一把：去去去，注還沒下呢，押什麼牌啊！\n"NOR,me);
 		return 1;
 	}
 
@@ -200,21 +200,21 @@ int do_turn()
 	if (sumi>21 || sumi<summ)
 	{
 		if (sumi>21)
-			message_vision( HIY"牌童丧气地说：我的牌"HIG+cstr(i1)+cstr(i2)+cstr(i3)+HIY"涨爆了，亏大了人家我，赔你！\n"NOR,me);
+			message_vision( HIY"牌童喪氣地說：我的牌"HIG+cstr(i1)+cstr(i2)+cstr(i3)+HIY"漲爆了，虧大了人家我，賠你！\n"NOR,me);
 		else
-			message_vision( HIY"牌童气得一把把牌扔在桌上：我是"HIG+cstr(i1)+cstr(i2)+cstr(i3)+HIY"，算你走运！\n"NOR,me);
+			message_vision( HIY"牌童氣得一把把牌扔在桌上：我是"HIG+cstr(i1)+cstr(i2)+cstr(i3)+HIY"，算你走運！\n"NOR,me);
 		pieqian(me);
 	}
 	else
 	{
 		if (sumi == summ)
 		{
-			message_vision( HIG"牌童贼兮兮的道：不好意思，我是"HIR+cstr(i1)+cstr(i2)+cstr(i3)+HIG"，同点庄家吃了。嘿嘿嘿...\n"NOR,me);
+			message_vision( HIG"牌童賊兮兮的道：不好意思，我是"HIR+cstr(i1)+cstr(i2)+cstr(i3)+HIG"，同點莊家喫了。嘿嘿嘿...\n"NOR,me);
 		}
 		else
 		{
-			message_vision( HIG"牌童笑嘻嘻地说：我的牌是"HIR+cstr(i1)+cstr(i2)+cstr(i3)+"\n"NOR,me);
-			message_vision( HIG"牌童满脸遗憾的表情：大家这么熟的朋友了，赢你的钱别不开心了！\n"NOR,me);
+			message_vision( HIG"牌童笑嘻嘻地說：我的牌是"HIR+cstr(i1)+cstr(i2)+cstr(i3)+"\n"NOR,me);
+			message_vision( HIG"牌童滿臉遺憾的表情：大家這麼熟的朋友了，贏你的錢別不開心了！\n"NOR,me);
 		}
 	}
 
@@ -285,34 +285,34 @@ int yesorno()
 	if (sumi>17) return sumi;
 	else
 	{
-/* 似乎这个概率不太对 by xmmy
+/* 似乎這個概率不太對 by xmmy
 
-是关于押牌房(就是赌21点)的一个大bug。
-在赌21点的时候，系统是设置让牌童在拿到的牌在小于15点的时候就继续要牌，
-大于等于15点的话：
-                如果玩家两张牌的点数大于牌童的点数，还是继续要牌，
-                如果玩家的点数比牌童的点数小，牌童就直接摊牌。
-这个算法其实并不是最优策略。
-通过计算可以发现（具体计算太复杂，因为要考虑A既可以算1点，也可以算11点
-的情况，我是先不考虑A可以算11点的情况，算出有问题，再通过实践来验证的），
-在大于等于16点的时候才摊牌是最佳的选择。呵呵，具体的计算过程我就不发过来了，
+是關於押牌房(就是賭21點)的一個大bug。
+在賭21點的時候，系統是設置讓牌童在拿到的牌在小於15點的時候就繼續要牌，
+大於等於15點的話：
+                如果玩家兩張牌的點數大於牌童的點數，還是繼續要牌，
+                如果玩家的點數比牌童的點數小，牌童就直接攤牌。
+這個算法其實並不是最優策略。
+通過計算可以發現（具體計算太複雜，因爲要考慮A既可以算1點，也可以算11點
+的情況，我是先不考慮A可以算11點的情況，算出有問題，再通過實踐來驗證的），
+在大於等於16點的時候才攤牌是最佳的選擇。呵呵，具體的計算過程我就不發過來了，
 
-如果你要的话，我再打给你（因为我是在纸上算的）。
-附上我实践的一些数据：
-   我的机器人是设置成如果我的牌小于16点就继续要牌，大于等于16点就摊派。
-   长安、扬州两处押牌房一起挂，从晚上12点到早上7点，一般可以赚七万到八万gold。
-   我挂机纪录的数据：win=39655,lost=37310,
-   win就是赢的次数(如果刚好21点赢双份的话我是算赢两次的)， lost就是输的次数。
-建议吧押牌的程序改成牌童在大于等于16点的时候才摊牌，这样子就不会再有bug了。
-btw:呵呵，我的bug没有让别人知道的，所以不用担心会出现旧站的时候cash满天飞的情
-况。
-    我的钱现在有二三十万吧（因为我只用过几次，赚太多了也没意思），我会注意控
-制我的钱的，
-     不会引起mud系统的金钱混乱。
-     xixi,那为什么我要把bug交出来呢？是因为上次做bug的时候被其他玩家看见了，
-为了避免出现旧站的混乱，我就忍痛来报告了。当然啦，还是那句话，我是不要奖励的。
-        作为xkx100的一个老玩家，能为xkx100做点贡献我认为很欣慰，总算没白跳进
-泥潭一场!
+如果你要的話，我再打給你（因爲我是在紙上算的）。
+附上我實踐的一些數據：
+   我的機器人是設置成如果我的牌小於16點就繼續要牌，大於等於16點就攤派。
+   長安、揚州兩處押牌房一起掛，從晚上12點到早上7點，一般可以賺七萬到八萬gold。
+   我掛機紀錄的數據：win=39655,lost=37310,
+   win就是贏的次數(如果剛好21點贏雙份的話我是算贏兩次的)， lost就是輸的次數。
+建議吧押牌的程序改成牌童在大於等於16點的時候才攤牌，這樣子就不會再有bug了。
+btw:呵呵，我的bug沒有讓別人知道的，所以不用擔心會出現舊站的時候cash滿天飛的情
+況。
+    我的錢現在有二三十萬吧（因爲我只用過幾次，賺太多了也沒意思），我會注意控
+制我的錢的，
+     不會引起mud系統的金錢混亂。
+     xixi,那爲什麼我要把bug交出來呢？是因爲上次做bug的時候被其他玩家看見了，
+爲了避免出現舊站的混亂，我就忍痛來報告了。當然啦，還是那句話，我是不要獎勵的。
+        作爲xkx100的一個老玩家，能爲xkx100做點貢獻我認爲很欣慰，總算沒白跳進
+泥潭一場!
 		if (sumi<14)
 
 */

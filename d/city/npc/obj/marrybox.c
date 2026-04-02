@@ -1,4 +1,4 @@
-//box.c 楠木雕花礼盒
+//box.c 楠木雕花禮盒
 inherit ITEM;
 #include <ansi.h>
 
@@ -9,12 +9,12 @@ void init()
 
 void create()
 {
-	set_name(MAG"楠木雕花礼盒" NOR, ({"li he", "box"}));
-	set("unit", "个");
+	set_name(MAG"楠木雕花禮盒" NOR, ({"li he", "box"}));
+	set("unit", "個");
 	set("value", 50000);
 	set("long", 
-"这是「侠客行一百」飞雪堂专为新婚夫妇定做的礼盒，
-楠木制的盒身，雕着精致的花纹，古色古香。\n");
+"這是「俠客行一百」飛雪堂專爲新婚夫婦定做的禮盒，
+楠木製的盒身，雕着精緻的花紋，古色古香。\n");
 	set("gift", 1);
 
 	setup();
@@ -30,13 +30,13 @@ int do_open(string arg)
 	{
 		if(query("gift") == 1)
 		{
-			message_vision(HIY "$N轻轻打开礼盒，眼前一亮：哇，好多喜糖，好好吃哦！\n" NOR, me);
+			message_vision(HIY "$N輕輕打開禮盒，眼前一亮：哇，好多喜糖，好好喫哦！\n" NOR, me);
 			gift1 = new("/d/city/npc/obj/xitang");
 			gift1->move(me);
 			set("gift", 0);
 			me->start_busy(1);
 		}
-		else message("vision",HIC"礼盒已经被人打开过了，里面空空的什么也没有。\n" NOR,me);
+		else message("vision",HIC"禮盒已經被人打開過了，裏面空空的什麼也沒有。\n" NOR,me);
 		return 1;
 	}
 }

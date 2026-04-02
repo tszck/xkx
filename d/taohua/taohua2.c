@@ -19,11 +19,11 @@ void create()
 		thd3 = random(4) + 1;
 		thd4 = random(4) + 1;
 	}
-	set("short", "桃花阵");
+	set("short", "桃花陣");
 	set("long", @LONG
-这里是一片桃花的海洋。四周一望无际，全是盛开的桃花。微风拂
-过，落英缤纷。周围静悄悄的。远处偶尔传来一声鸟叫。你心中不禁慌
-乱起来：还是早点出去的好。
+這裏是一片桃花的海洋。四周一望無際，全是盛開的桃花。微風拂
+過，落英繽紛。周圍靜悄悄的。遠處偶爾傳來一聲鳥叫。你心中不禁慌
+亂起來：還是早點出去的好。
 LONG
 	);
 
@@ -46,11 +46,11 @@ void init()
 
 	if (ob->query_temp("step_count") > 99) {
 		ob->delete_temp("step_count");
-		write("你在阵中累得精疲力尽，终因体力不支而昏了过去！\n");
-		write("迷迷胡胡中似乎有人把你抬出了阵，仿佛有个威严的声音喝道：“扔到海里去”。\n");
+		write("你在陣中累得精疲力盡，終因體力不支而昏了過去！\n");
+		write("迷迷胡胡中似乎有人把你擡出了陣，彷彿有個威嚴的聲音喝道：“扔到海里去”。\n");
 		ob->unconcious();
 		ob->move(__DIR__"shore", 1);
-		message("vision", "忽然一个大潮涌了过来，将一个被水泡得半死的家伙冲到了岸边。\n", environment(ob), ob);
+		message("vision", "忽然一個大潮湧了過來，將一個被水泡得半死的傢伙衝到了岸邊。\n", environment(ob), ob);
 		return;
 	}
 	ob->add_temp("step_count", 1);
@@ -63,11 +63,11 @@ int do_look(string arg)
  
 	if (arg == "east" || arg == "west" || arg == "south" || arg == "north")
 	{
-		write(HIC"桃花阵"NOR" -
-    这里是一片桃花的海洋。四周一望无际，全是盛开的桃花。微风拂
-过，落英缤纷。周围静悄悄的。远处偶尔传来一声鸟叫。你心中不禁慌
-乱起来：还是早点出去的好。
-    这里明显的出口是 east、north、south 和 west。\n");
+		write(HIC"桃花陣"NOR" -
+    這裏是一片桃花的海洋。四周一望無際，全是盛開的桃花。微風拂
+過，落英繽紛。周圍靜悄悄的。遠處偶爾傳來一聲鳥叫。你心中不禁慌
+亂起來：還是早點出去的好。
+    這裏明顯的出口是 east、north、south 和 west。\n");
 		return 1;
 	}
 	return 0;

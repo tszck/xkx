@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIR"潜流"NOR);
+	set("short", HIR"潛流"NOR);
 	set("long", @LONG
-你没在水中，只觉水势甚急，冲得你无法立足。你气闷异常，只得屏气摸
-索潜行，当真是进退维谷。
+你沒在水中，只覺水勢甚急，衝得你無法立足。你氣悶異常，只得屏氣摸
+索潛行，當真是進退維谷。
 LONG	);
 
 	set("exits", ([
@@ -29,10 +29,10 @@ void init()
 
 	me->receive_damage("qi", 50 );
 	me->receive_damage("jing", 50 ); 
-	message_vision(HIB"$N的真气正在流失，呼吸十分困难。\n"NOR, me);
+	message_vision(HIB"$N的真氣正在流失，呼吸十分困難。\n"NOR, me);
 	if ((int)me->query("qi") < 10 || (int)me->query("jing") < 10)
 	{
-		me->set_temp("last_damage_from","在潜流中被淹");
+		me->set_temp("last_damage_from","在潛流中被淹");
 		me->unconcious();
 		me->die();
 		return;

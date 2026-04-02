@@ -9,10 +9,10 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "册");
-		set("long", "这是一册修行斧法的武经。\n"
-        	        "里面记载着武学名家大理段氏的独门绝学段云斧的根基武功，\n"
-        	        "画册中的小人一把开山大斧使得虎虎有声、威风八面。\n");
+		set("unit", "冊");
+		set("long", "這是一冊修行斧法的武經。\n"
+        	        "裏面記載着武學名家大理段氏的獨門絕學段雲斧的根基武功，\n"
+        	        "畫冊中的小人一把開山大斧使得虎虎有聲、威風八面。\n");
 		set("value", 500);
 		set("material", "book");
 		set("skill", ([

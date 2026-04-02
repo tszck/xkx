@@ -7,8 +7,8 @@ void create()
 {
 	set("short", HIY"周伯通居"NOR);
 	set("long", 
-"这是间很简陋的屋子，陈设简单，由此可见老顽童极于玩而不
-极于物。\n");
+"這是間很簡陋的屋子，陳設簡單，由此可見老頑童極於玩而不
+極於物。\n");
 	set("exits", ([
 		"west"  : __DIR__"house1",
 		"north" : __DIR__"shanpo1",

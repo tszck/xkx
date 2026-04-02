@@ -9,8 +9,8 @@ void create ()
 {
 	set_name("丁典", ({"ding dian","ding","dian"}));
 	set("long", "
-这人满脸虬髯，头发长长的直垂至颈，衣衫破烂不堪，简直如同荒山中
-的野人。手上手铐，足上足镣，琵琶骨中穿着两条铁链。他脸上、臂上、
+這人滿臉虯髯，頭髮長長的直垂至頸，衣衫破爛不堪，簡直如同荒山中
+的野人。手上手銬，足上足鐐，琵琶骨中穿着兩條鐵鏈。他臉上、臂上、
 腿上，都是酷遭鞭打的血痕。\n");
 	set("gender", "男性");
 	set("age", 30);
@@ -32,15 +32,15 @@ void create ()
 	map_skill("dodge", "yanfly");
 	set("chat_chance", 10);
 	set("chat_msg", ({
-"丁典轻轻叹了一口气。那叹息中，竟有忧伤、温柔之意。\n",
-"丁典嘴角挂着一丝微笑，痴望远处高楼纱窗上那一盆鲜花。\n",
-"丁典大声道：怎么会忘记？决不会的！难道……难道是生了病？\n",
-"丁典喃喃道：就算是生了病，也会叫人来换花啊！\n",
+"丁典輕輕嘆了一口氣。那嘆息中，竟有憂傷、溫柔之意。\n",
+"丁典嘴角掛着一絲微笑，癡望遠處高樓紗窗上那一盆鮮花。\n",
+"丁典大聲道：怎麼會忘記？決不會的！難道……難道是生了病？\n",
+"丁典喃喃道：就算是生了病，也會叫人來換花啊！\n",
 }) );
 	set("inquiry", ([
-		"凌霜华" : "“唉……”，然后指了指牢外那座小楼的窗口，啥也不说了。\n",
-		"唤醒"   : (: ask_skill1 :),
-		"疗精"   : (: ask_skill2 :),
+		"凌霜華" : "“唉……”，然後指了指牢外那座小樓的窗口，啥也不說了。\n",
+		"喚醒"   : (: ask_skill1 :),
+		"療精"   : (: ask_skill2 :),
 	]));
 
 	setup();
@@ -62,7 +62,7 @@ int accept_object(object who, object ob)
 		who->set_temp("mark/丁", 0);
 	if (ob->query("id") == "green flower")
 	{
-		message_vision("看来$N有望得到丁典指点一些武功的问题。\n",who);
+		message_vision("看來$N有望得到丁典指點一些武功的問題。\n",who);
 		who->add_temp("mark/丁", 1000);
 		return 1;
 	}
@@ -78,13 +78,13 @@ int ask_skill1()
 	if (who->query("can_perform/shenzhao-jing/wakeup")) return 0;
 	if (who->query_skill("shenzhao-jing",1) < 100)
 	{
-		command("say 你的神照经功力还不够高，多学学吧。");
+		command("say 你的神照經功力還不夠高，多學學吧。");
 		return 1;
 	}
 	command("sign");
-	command("say 不知你学得神照经是福是祸了。也罢，随你去吧。");
-	tell_object(who,HIC"丁典在你耳边悄悄说了几句运功的口诀，你急忙用心一一记下。\n"NOR);
-	tell_object(who,HIC "你学会了「唤醒」。\n" NOR);
+	command("say 不知你學得神照經是福是禍了。也罷，隨你去吧。");
+	tell_object(who,HIC"丁典在你耳邊悄悄說了幾句運功的口訣，你急忙用心一一記下。\n"NOR);
+	tell_object(who,HIC "你學會了「喚醒」。\n" NOR);
 	who->set("can_perform/shenzhao-jing/wakeup",1);
 	return 1;
 }
@@ -98,13 +98,13 @@ int ask_skill2()
 	if (who->query("can_perform/shenzhao-jing/jingheal")) return 0;
 	if (who->query_skill("shenzhao-jing",1) < 50)
 	{
-		command("say 你的神照经功力还不够高，多学学吧。");
+		command("say 你的神照經功力還不夠高，多學學吧。");
 		return 1;
 	}
 	command("sign");
-	command("say 不知你学得神照经是福是祸了。也罢，随你去吧。");
-	tell_object(who,HIC"丁典在你耳边悄悄说了几句运功的口诀，你急忙用心一一记下。\n"NOR);
-	tell_object(who,HIC "你学会了「疗精」。\n" NOR);
+	command("say 不知你學得神照經是福是禍了。也罷，隨你去吧。");
+	tell_object(who,HIC"丁典在你耳邊悄悄說了幾句運功的口訣，你急忙用心一一記下。\n"NOR);
+	tell_object(who,HIC "你學會了「療精」。\n" NOR);
 	who->set("can_perform/shenzhao-jing/jingheal",1);
 	return 1;
 }

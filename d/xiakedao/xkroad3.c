@@ -6,8 +6,8 @@ void create()
 {
 	set("short", "平原小路");
 	set("long", @LONG
-你走在珠江三角洲的平原小路上。此处向称鱼米之乡，有花果之
-都美誉，物产丰饶，民风淳朴。
+你走在珠江三角洲的平原小路上。此處向稱魚米之鄉，有花果之
+都美譽，物產豐饒，民風淳樸。
 LONG );
         set("outdoors", "xiakedao");
 	set("exits", ([

@@ -4,11 +4,11 @@ int do_use(string arg);
 int do_zuan(string arg);
 void create()
 {
-        set("short", "山洞尽头");
+        set("short", "山洞盡頭");
 	set("long", @LONG
-你继续往里面走去，这里越发地黑起来，伸手不见五指，许
-多蝙蝠在你耳边不停地怪笑，真令人毛骨悚然，你茫然不知道如
-何是好。这里已经山洞尽头了，无路可走。
+你繼續往裏面走去，這裏越發地黑起來，伸手不見五指，許
+多蝙蝠在你耳邊不停地怪笑，真令人毛骨悚然，你茫然不知道如
+何是好。這裏已經山洞盡頭了，無路可走。
 LONG
 	);
 	set("exits", ([
@@ -32,9 +32,9 @@ int do_use(string arg)
         if (!present("fire", me))  return 0;
         if( arg=="fire" ) {
              write(
-             "你点燃了火折，发现山洞右边有一道裂缝，似乎可以钻(zuan)出去。\n"
+             "你點燃了火折，發現山洞右邊有一道裂縫，似乎可以鑽(zuan)出去。\n"
              );
-             this_player()->set_temp("marks/钻1", 1);
+             this_player()->set_temp("marks/鑽1", 1);
              return 1;
        }
 }
@@ -42,18 +42,18 @@ int do_zuan(string arg)
 {
         object me;
         me = this_player();
-        if (me->query_temp("marks/钻1") ) {
-            message("vision", me->name() + "突然一脚踩空，身体直往下坠！\n",
+        if (me->query_temp("marks/鑽1") ) {
+            message("vision", me->name() + "突然一腳踩空，身體直往下墜！\n",
                     environment(me), ({me}) );
             me->move(__DIR__"midao");
             me->unconcious();
-            message("vision", me->name() + "从山洞里掉了下来。\n",
+            message("vision", me->name() + "從山洞裏掉了下來。\n",
                     environment(me), ({me}) );
-            this_player()->delete_temp("marks/钻1");
+            this_player()->delete_temp("marks/鑽1");
             return 1;
         }
         else {
-            write("你想往哪儿钻?!\n");
+            write("你想往哪兒鑽?!\n");
             return 1;
         }
 }

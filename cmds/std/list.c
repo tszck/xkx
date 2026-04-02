@@ -25,21 +25,21 @@ int main(object me, string arg)
                 inv = all_inventory(env);
 
                 if (! inv)
-                        return notify_fail("请到bug留言室留言说明。\n");
+                        return notify_fail("請到bug留言室留言說明。\n");
 
-                msg = HIC "现在这里的临时小贩有："
+                msg = HIC "現在這裏的臨時小販有："
                       HIY "\n----------------------------\n" NOR;
                 for (i = 0; i < sizeof(inv); i++)
                 {
                         if (userp(inv[i]) && inv[i]->query_temp("on_baitan"))
                         {
                                 have_vendor = 1;
-                                msg += WHT + inv[i]->name(1) + "的杂货摊(" +
+                                msg += WHT + inv[i]->name(1) + "的雜貨攤(" +
                                        inv[i]->query("id") + ")\n";
                         }
                 }
                 if (! have_vendor)
-                        return notify_fail(WHT "目前这里并没有任何摆摊的商人。\n" NOR);
+                        return notify_fail(WHT "目前這裏並沒有任何擺攤的商人。\n" NOR);
                 else
                         msg += HIY "----------------------------\n" NOR;
                 write(msg);
@@ -47,20 +47,20 @@ int main(object me, string arg)
         }
 
         if (! (obj = present(arg, env)) || ! userp(obj))
-                return notify_fail("这里并没有这个商人。\n");
+                return notify_fail("這裏並沒有這個商人。\n");
 
         if (! obj->query("is_vendor"))
-                return notify_fail(obj->name(1) + "并不是商人。\n");
+                return notify_fail(obj->name(1) + "並不是商人。\n");
 
         if (! obj->query_temp("on_baitan"))
-                return notify_fail(obj->name(1) + "目前并没有在摆摊。\n");
+                return notify_fail(obj->name(1) + "目前並沒有在擺攤。\n");
 
         SHOP_D->reset_goods(obj);
 
         goods = obj->query("vendor_goods");
 
         if (! sizeof(goods))
-                return notify_fail(obj->name(1) + "目前并没有兜售任何货物。\n");
+                return notify_fail(obj->name(1) + "目前並沒有兜售任何貨物。\n");
 
 
         unit = ([]);
@@ -124,7 +124,7 @@ int help (object me)
         write(@HELP
 指令格式: list [<玩家ID>]
 
-列出一个商人正在出售的商品。
+列出一個商人正在出售的商品。
 
 HELP);
         return 1;

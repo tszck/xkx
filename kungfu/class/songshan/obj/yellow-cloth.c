@@ -1,6 +1,6 @@
 
 // yellow-cloth.c
-// 嵩山赫黄袍
+// 嵩山赫黃袍
 
 #include <ansi.h>
 #include <armor.h>
@@ -8,7 +8,7 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(YEL"赫黄袍"NOR, ({ "yellow cloth", "cloth" }) );
+	set_name(YEL"赫黃袍"NOR, ({ "yellow cloth", "cloth" }) );
 	set_weight(3000);
 	if( clonep() )
 		set_default_object(__FILE__);

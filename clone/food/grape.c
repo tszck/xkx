@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 
@@ -12,7 +12,7 @@ void create()
    if (clonep())
      set_default_object(__FILE__);
    else {
-                set("long", "水灵灵的葡萄象一颗颗紫色的水晶球。\n");
+                set("long", "水靈靈的葡萄象一顆顆紫色的水晶球。\n");
                 set("unit", "把");
      set("value", 80);
      set("food_remaining", 4);

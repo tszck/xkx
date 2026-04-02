@@ -1,6 +1,6 @@
 // xiaoxiazi.c
-// 未调试完。 需要have_married这个标记
-// 还是等结婚做好吧。
+// 未調試完。 需要have_married這個標記
+// 還是等結婚做好吧。
 
 inherit ITEM;
 inherit F_UNIQUE;
@@ -17,11 +17,11 @@ void create()
     else
     {
         set( "long", @LONG
-这个匣子虽小，却入手很沉，不知道是什么材料制成的。匣子表面上刻着一些神
-秘的花纹，隐隐泛着柔和的红光，看上去有些奇异。
+這個匣子雖小，卻入手很沉，不知道是什麼材料製成的。匣子表面上刻着一些神
+祕的花紋，隱隱泛着柔和的紅光，看上去有些奇異。
 LONG
         );
-        set( "unit", "个" );
+        set( "unit", "個" );
         set( "value", 40 );
     }
     setup();
@@ -36,17 +36,17 @@ int do_open_box( string arg )
 {
     object me = this_player();
 
-    // 计划 : 如果是结婚的一对合作打开这个匣子，能得到护花铃。
-    // 没有结婚根本打不开。
+    // 計劃 : 如果是結婚的一對合作打開這個匣子，能得到護花鈴。
+    // 沒有結婚根本打不開。
 
     if ( !arg ) return 0;
     if ( !me->can_act() ) return 0;
     if ( !this_object()->id( arg ) ) return 0;
 
-    if ( query ( "opened" ) ) return notify_fail( "这个匣子已经打开了。" );
+    if ( query ( "opened" ) ) return notify_fail( "這個匣子已經打開了。" );
 
     if ( !me->query( "have_married" ) )
-        return notify_fail( "你试图打开这个匣子，当你的手一触到匣子，感觉到一股奇异的力量将你的手推开。\n" );
+        return notify_fail( "你試圖打開這個匣子，當你的手一觸到匣子，感覺到一股奇異的力量將你的手推開。\n" );
     else
     {
         me->set_temp( "open_box_mark", 51 );
@@ -71,15 +71,15 @@ int opening()
     if ( mark > 50 )
     {
         message_vision( "$N伸手按在匣子上。\n", me );
-        write ( "你突然感到匣子里有一种奇异的力量吸引着你的手掌。\n" );
+        write ( "你突然感到匣子裏有一種奇異的力量吸引着你的手掌。\n" );
         me->add_temp( "open_box_mark", -10 );
         return 1;
     }
 
     if ( mark < 10 ) 
     {
-        // 很遗憾了，时间过了。
-        message_vision( "时间过了", me );
+        // 很遺憾了，時間過了。
+        message_vision( "時間過了", me );
         me->delete_temp( "open_box_mark" );
         remove_call_out( "del_temp" );
         call_out( "del_temp" , 1 );
@@ -89,16 +89,16 @@ int opening()
     me->add_temp( "open_box_mark", -10 );
     if ( !query_temp( "both_open" ) )
     {
-        // 接着按着这个匣子吧。
-        message_vision( "还按着", me );
+        // 接着按着這個匣子吧。
+        message_vision( "還按着", me );
         return 1;
     }
-    // 该合作打开这个匣子了。
+    // 該合作打開這個匣子了。
     else if ( query_temp( "open_box" ) != me->query( "have_married" ) 
         && query_temp( "open_box" ) != me)
     {
-        // 不是一对夫妻，却妄图打开这个匣子，该怎么处理呢？
-        // 一定要给惩罚！grin
+        // 不是一對夫妻，卻妄圖打開這個匣子，該怎麼處理呢？
+        // 一定要給懲罰！grin
         message_vision( "", me );
         me->delete_temp( "open_box_mark" );
         remove_call_out( "del_temp" );
@@ -107,9 +107,9 @@ int opening()
     }
     else
     {
-        // 哈哈，终于是一对夫妻在开这个匣子了。:-)
+        // 哈哈，終於是一對夫妻在開這個匣子了。:-)
         message_vision( "", me );
-        // new一双护花铃，夫妻俩一人一个。
+        // new一雙護花鈴，夫妻倆一人一個。
         ob = new( __DIR__"huhua_ling" );
         ob->move(me);
         me->delete_temp( "open_box_mark" );
@@ -123,7 +123,7 @@ int opening()
 int halt_opening()
 {
     object me = this_player();
-    write( "你放弃开启这个匣子的企图了。\n" );
+    write( "你放棄開啓這個匣子的企圖了。\n" );
     me->delete_temp( "open_box_mark" );
     remove_call_out( "del_temp" );
     call_out( "del_temp" , 1 );

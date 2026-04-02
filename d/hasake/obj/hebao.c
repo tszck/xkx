@@ -11,7 +11,7 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "只");
-                set("long", "这是一只小小的荷包，里面可以装一些小东西。\n");
+                set("long", "這是一隻小小的荷包，裏面可以裝一些小東西。\n");
                 set("material", "silk");
                 set("no_get",1);
                 set("armor_prop/parry", 1);

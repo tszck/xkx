@@ -6,11 +6,11 @@ inherit F_FOOD;
 
 void create()
 {
-	set_name(HIR"高粱米饭"NOR, ({ "rice", "mi fan" }) );
+	set_name(HIR"高粱米飯"NOR, ({ "rice", "mi fan" }) );
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一碗香喷喷的高粱米饭。\n");
+		set("long", "一碗香噴噴的高粱米飯。\n");
 		set("unit", "碗");
 		set("value", 80);
 		set("food_remaining", 4);

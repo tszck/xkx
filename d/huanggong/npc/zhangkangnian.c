@@ -6,8 +6,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("张康年", ({"zhang kangnian", "zhang", "kangnian", }));
-	set("title",HIY "乾清宫带刀侍卫" NOR);
+	set_name("張康年", ({"zhang kangnian", "zhang", "kangnian", }));
+	set("title",HIY "乾清宮帶刀侍衛" NOR);
 	set("gender", "男性");
 	set("attitude", "peaceful");
 

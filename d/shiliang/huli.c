@@ -5,10 +5,10 @@ inherit ROOM;
 int do_swim(string arg);
 void create()
 {
-	set("short", "湖里");
+	set("short", "湖裏");
 	set("long", @LONG
-水很深，你耳边全是水声，岸上大家惊讶的看着你…
-你觉得自己干了件傻事，太瓜了。
+水很深，你耳邊全是水聲，岸上大家驚訝的看着你…
+你覺得自己幹了件傻事，太瓜了。
 LONG
 	);
 	set("objects", ([
@@ -28,13 +28,13 @@ void check_trigger()
         object me;
         me = this_player();
         if ((int)query("trigger") == 13) {
-                message_vision("$N终于游上了岸, 你爬上岸一看, 你的衣服已经被大家拿走了...\n", me);
+                message_vision("$N終於游上了岸, 你爬上岸一看, 你的衣服已經被大家拿走了...\n", me);
                 me->move(__DIR__"zoulang4");
                 delete("trigger");
                 return;
         }
         if ((int)query("trigger") < 0) {
-                message_vision("$N又游回原来的岸边,$N爬上岸一看, 你的衣服已经被大家拿走了...\n",me);
+                message_vision("$N又游回原來的岸邊,$N爬上岸一看, 你的衣服已經被大家拿走了...\n",me);
                 me->move(__DIR__"zoulang4");
                 delete("trigger");
                 return;
@@ -44,12 +44,12 @@ int do_swim(string arg)
 {
         int i;
         if (!arg || arg == "") {
-                write("你往北游还是往南游？\n");
+                write("你往北遊還是往南遊？\n");
                 return 1;
         }
         if (arg == "north" || arg == "n") {
                 add("trigger", 1);
-                write("你奋力向北岸游去……\n");
+                write("你奮力向北岸游去……\n");
                 check_trigger();
                 return 1;
         }
@@ -57,7 +57,7 @@ int do_swim(string arg)
                 i = (int)query("trigger")-1;
                 delete("trigger");
                 add("trigger", i);
-                write("你奋力向南岸游去……\n");
+                write("你奮力向南岸游去……\n");
                 check_trigger();
                 return 1;
         }

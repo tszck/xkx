@@ -1,4 +1,4 @@
-//guojx_mis.c  郭奸细任务
+//guojx_mis.c  郭奸細任務
 
 #include <ansi.h>
 #include <login.h>
@@ -14,7 +14,7 @@ int update_condition(object me, int duration)
 	{	
 		if(environment(ob_list[i]))
 		{
-			message_vision("$N哈哈大笑道：襄阳守军的城防图总算到手了，撤呼！\n",ob_list[i]);	
+			message_vision("$N哈哈大笑道：襄陽守軍的城防圖總算到手了，撤呼！\n",ob_list[i]);	
 			destruct(ob_list[i]);
         }
 	}
@@ -23,13 +23,13 @@ int update_condition(object me, int duration)
 	{	
 		if(environment(ob_list[i]))
 		{
-			message_vision("$N哈哈大笑道：襄阳守军的城防图总算送出去了，大功告成！\n",ob_list[i]);
+			message_vision("$N哈哈大笑道：襄陽守軍的城防圖總算送出去了，大功告成！\n",ob_list[i]);
 			destruct(ob_list[i]);
         }
 	}
 //	if (duration < 1)
 //	{
-		tell_object(me, HIY "你的动作太慢，任务被取消了。\n" NOR);
+		tell_object(me, HIY "你的動作太慢，任務被取消了。\n" NOR);
 		me->delete_temp("guojx_mis_where");
 		me->delete_temp("guojx_mis_tcount");
 		me->delete_temp("guojx_mis_flag");

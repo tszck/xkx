@@ -1,4 +1,4 @@
-// majiajun.c 马家骏
+// majiajun.c 馬家駿
 
 #include <ansi.h>
 
@@ -6,13 +6,13 @@ inherit NPC;
 
 void create()
 {
-	set_name("马家骏", ({ "ma jiajun", "ma", "jiajun"}));
+	set_name("馬家駿", ({ "ma jiajun", "ma", "jiajun"}));
 	set("gender", "男性");
 	set("age", 35);
 	set("long", 
-"他一张脸胡子剃得精光，面目颇为英俊，在时明时暗的
-火把光芒下，看来一片惨白，全无血色。他就是暗算师
-父瓦耳拉齐后避仇哈萨克部，装扮成计爷爷的马家俊。\n");
+"他一張臉鬍子剃得精光，面目頗爲英俊，在時明時暗的
+火把光芒下，看來一片慘白，全無血色。他就是暗算師
+父瓦耳拉齊後避仇哈薩克部，裝扮成計爺爺的馬家俊。\n");
 	set("combat_exp", 50000);
 	set("shen_type", 1);
 
@@ -27,7 +27,7 @@ void create()
 	set_skill("parry", 50);
 
 	set("inquiry", ([
-		"李文秀" : "你问的是阿秀吧。\n",
+		"李文秀" : "你問的是阿秀吧。\n",
 	]) );
 
 	set_temp("apply/attack", 50);

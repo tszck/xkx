@@ -1,71 +1,71 @@
 // /d/city/zhonglieci.c  忠烈祠
 //modified by sega 1/10/99
-//修改a_time为120,并添加newjob的一些信息,以防一些人一直flood
-//修改a_time为300，一些老玩家建议我们延长这个时间。
-//修改了2次保镖间隔为5分钟
+//修改a_time爲120,並添加newjob的一些信息,以防一些人一直flood
+//修改a_time爲300，一些老玩家建議我們延長這個時間。
+//修改了2次保鏢間隔爲5分鐘
 #include <ansi.h>
 #define A_TIME 300 
 inherit ROOM;
-// 下列地址所在房间必须有outdoors 
+// 下列地址所在房間必須有outdoors 
 string * add_msg = ({
-	"/d/city/siqiaoyanyu",		// 四桥烟雨
+	"/d/city/siqiaoyanyu",		// 四橋煙雨
 	"/d/beijing/wangfu1",		// 王府井大街
-	"/d/chengdu/wangjianglou1",	// 望江楼
-	"/d/suzhou/canlangting",	// 沧浪亭
-	"/d/hangzhou/liulangqiao",	// 柳浪桥
-	"/d/fuzhou/yongquan",		// 涌泉寺
-	"/d/jiaxing/yanyu",		// 烟雨楼
+	"/d/chengdu/wangjianglou1",	// 望江樓
+	"/d/suzhou/canlangting",	// 滄浪亭
+	"/d/hangzhou/liulangqiao",	// 柳浪橋
+	"/d/fuzhou/yongquan",		// 湧泉寺
+	"/d/jiaxing/yanyu",		// 煙雨樓
 	"/d/xiangyang/juyilang",	// 水上走廊
 	"/d/lingzhou/luorilin1",	// 落日林
-	"/d/dali/feilihu",		// 妃丽湖畔
+	"/d/dali/feilihu",		// 妃麗湖畔
 	"/d/mobei/hill",		// 小土山
 	"/d/village/wexit",		// 西村口
-	"/d/jiangling/chenglingji",	// 城陵矶
-//	"/d/shaolin/qyping",		// 青云坪
-	"/d/wudang/haohanpo",		// 好汉坡
-	"/d/emei/duguangtai",		// 睹光台
-	"/d/qingcheng/huyingting",	// 呼应亭
-	"/d/kunlun/pingfeng",		// 石屏风
+	"/d/jiangling/chenglingji",	// 城陵磯
+//	"/d/shaolin/qyping",		// 青雲坪
+	"/d/wudang/haohanpo",		// 好漢坡
+	"/d/emei/duguangtai",		// 睹光臺
+	"/d/qingcheng/huyingting",	// 呼應亭
+	"/d/kunlun/pingfeng",		// 石屏風
 	"/d/qilian/zibaipo",		// 紫柏坡
-	"/d/songshan/tieliang",		// 铁梁峡
+	"/d/songshan/tieliang",		// 鐵梁峽
 	"/d/taishan/tanhai",		// 探海石
-	"/d/huashan/ziqitai",		// 紫气台
-	"/d/henshan/liuyunping",	// 流云坪
+	"/d/huashan/ziqitai",		// 紫氣臺
+	"/d/henshan/liuyunping",	// 流雲坪
 	"/d/hengshan/tongyuangu",	// 通元谷
-	"/d/mingjiao/shanlu3",		// 悬天崖
-	"/d/heimuya/xingxingtan",	// 猩猩滩
-	"/d/xuedao/wangyougu",		// 忘忧谷
+	"/d/mingjiao/shanlu3",		// 懸天崖
+	"/d/heimuya/xingxingtan",	// 猩猩灘
+	"/d/xuedao/wangyougu",		// 忘憂谷
 	"/d/gumu/taiyi1",		// 太乙池
-	"/d/jueqinggu/duanchangya",	// 断肠崖
-//	"/d/taohua/xiuxishi",		// 桃花轩
-//	"/d/baituo/zhuyuan",		// 竹园
+	"/d/jueqinggu/duanchangya",	// 斷腸崖
+//	"/d/taohua/xiuxishi",		// 桃花軒
+//	"/d/baituo/zhuyuan",		// 竹園
 //	"/d/shenlong/caoping",		// 草坪
 	"/d/xiaoyao/qingcaop",		// 青草坪
 	"/d/xiaoyao/pubu",		// 玉壁瀑布
-	"/d/lingxiao/sroad4",		// 天风川
-//	"/d/lingjiu/daban",		// 缀锦阁
-//	"/d/xingxiu/yueerquan",		// 月儿泉
-	"/d/xueshan/shenghu",		// 圣湖
+	"/d/lingxiao/sroad4",		// 天風川
+//	"/d/lingjiu/daban",		// 綴錦閣
+//	"/d/xingxiu/yueerquan",		// 月兒泉
+	"/d/xueshan/shenghu",		// 聖湖
 	"/d/wudujiao/taohua",		// 桃花峪
-	"/d/wuliang/jianhugate",	// 剑湖宫门
-	"/d/tianlongsi/yaotai",		// 清都瑶台
-	"/d/yanziwu/tingxiang",		// 听香水榭
-	"/d/guanwai/chuanchang",	// 船厂
+	"/d/wuliang/jianhugate",	// 劍湖宮門
+	"/d/tianlongsi/yaotai",		// 清都瑤臺
+	"/d/yanziwu/tingxiang",		// 聽香水榭
+	"/d/guanwai/chuanchang",	// 船廠
 	"/d/meizhuang/xiaoyuan",	// 琴音小院
 	"/d/shiliang/tingzi",		// 玫瑰小亭
-	"/d/tiezhang/mzfeng",		// 拇指峰
+	"/d/tiezhang/mzfeng",		// 拇指峯
 });
 
 void create()
 {
 	set("short", "忠烈祠");
 	set("long", @LONG
-这里扬州忠烈祠，是大清鹿鼎公韦小宝奉清圣祖康熙圣谕所筑，供
-奉的却是大明尽忠报国、忠君爱民的扬州督师史阁部史可法。堂上牌匾
-是康熙御笔“敕建扬州忠烈祠”。匾下史公神像历久年深，像上的颜色
-已经斑驳脱离了。四周的地上积了一些尘土，看来象是已经有些时候没
-有人来过的痕迹。像前摆放着一张红木高脚供桌，桌上高处，放着一个
-神龛(kan)。
+這裏揚州忠烈祠，是大清鹿鼎公韋小寶奉清聖祖康熙聖諭所築，供
+奉的卻是大明盡忠報國、忠君愛民的揚州督師史閣部史可法。堂上牌匾
+是康熙御筆“敕建揚州忠烈祠”。匾下史公神像歷久年深，像上的顏色
+已經斑駁脫離了。四周的地上積了一些塵土，看來象是已經有些時候沒
+有人來過的痕跡。像前擺放着一張紅木高腳供桌，桌上高處，放着一個
+神龕(kan)。
 LONG    );
 	set("no_fight",1);
 	set("no_clean_up",1);
@@ -76,7 +76,7 @@ LONG    );
 	set("count",1);
 	set("item_desc", ([
 		"kan" :  HIG"
-与周遭一比较，你发现这个神龛一尘不染，干净得奇怪，好象常有人打开似的。\n
+與周遭一比較，你發現這個神龕一塵不染，乾淨得奇怪，好象常有人打開似的。\n
 "NOR
 	]));
 	set("coor/x", -30);
@@ -110,10 +110,10 @@ int do_open(string arg)
 		return 0;
 
 	if (me->query_skill("dodge", 1) < 80)
-		return notify_fail("神龛太高了，你的轻功够不着。\n");
+		return notify_fail("神龕太高了，你的輕功夠不着。\n");
 
 	if ( !wizardp(me) && time() - me->query("baobiaotime") < 300)
-		return notify_fail("你的上个任务完成了？辛苦辛苦。歇会吧。\n");
+		return notify_fail("你的上個任務完成了？辛苦辛苦。歇會吧。\n");
 
 	if (query("count") > 0) {
 		if (!present("mi ling",me) ) {
@@ -121,12 +121,12 @@ int do_open(string arg)
 				room = load_object(src_add);
 			rz = new(__DIR__"task2/renzhi");
 			rz -> set("leader_name", me->query("id") );
-			rz -> set("title",me->query("name")+"所保护的人质");
+			rz -> set("title",me->query("name")+"所保護的人質");
 			rz -> set("dest_add",dest_add);
 			rz -> move(room);
 			if (! room2 = find_object(dest_add) )
 				room2 = load_object(dest_add);
-			des = "护送" + to_chinese(room->query("outdoors"))+room->query("short") + "那里的" + rz->query("name") + "到达" + to_chinese(room2->query("outdoors")) + room2->query("short") ;
+			des = "護送" + to_chinese(room->query("outdoors"))+room->query("short") + "那裏的" + rz->query("name") + "到達" + to_chinese(room2->query("outdoors")) + room2->query("short") ;
 			ob = new(__DIR__"task2/miling");
 			ob -> set("describe",des);
 			ob -> set("src_add",room->query("short") );
@@ -136,17 +136,17 @@ int do_open(string arg)
 			ob -> move(me);
 			me -> set("baobiaotime", time());
 			add("count",-1);
-message_vision(HIY"$N小心翼翼地打开神龛，发现了一卷纸垫夹在龛门后木缝里，便顺手取出来揣进怀中。\n"NOR,me);
+message_vision(HIY"$N小心翼翼地打開神龕，發現了一卷紙墊夾在龕門後木縫裏，便順手取出來揣進懷中。\n"NOR,me);
 			return 1;
 		}
 		else
 		{
-message_vision(YEL"$N试着要打开神龛，一不小心，结果‘轰’的一下供桌给碰倒了。\n"NOR,me);
+message_vision(YEL"$N試着要打開神龕，一不小心，結果‘轟’的一下供桌給碰倒了。\n"NOR,me);
 			return 1;
 		}
 	}
 	else {
-message_vision(HIG"$N小心翼翼地打开神龛，发现了里面啥都没有。还有谁会来这呢？明天再来吧。\n"NOR,me);
+message_vision(HIG"$N小心翼翼地打開神龕，發現了裏面啥都沒有。還有誰會來這呢？明天再來吧。\n"NOR,me);
 		return 1;
 	}
 }
@@ -156,7 +156,7 @@ void newjob()
 	object room;
 	if (query("count") <= 0) {
 		if( room = find_object(__DIR__"zhonglieci") )
-		message("vision",YEL"只见一个行迹可疑的灰衣人闪了进来，在神龛那里捣鼓了几下，慌里慌张的走了。\n"NOR,room);
+		message("vision",YEL"只見一個行跡可疑的灰衣人閃了進來，在神龕那裏搗鼓了幾下，慌裏慌張的走了。\n"NOR,room);
 		add("count",1);
 	}
 	remove_call_out("newjob");

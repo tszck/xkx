@@ -1,12 +1,12 @@
-//      kufang.c 库房
+//      kufang.c 庫房
 
 inherit ROOM;
 void create()
 {
-	set("short","库房");
+	set("short","庫房");
 	set("long",@LONG
-这里是练武场旁边的小库房，房里密不通风，只有一丝光线从屋檐
-小缝中投射进来。房中有些备用的武器，都是雪山弟子日常练功需要用
+這裏是練武場旁邊的小庫房，房裏密不通風，只有一絲光線從屋檐
+小縫中投射進來。房中有些備用的武器，都是雪山弟子日常練功需要用
 到的兵器。
 LONG );
 	set("exits",([
@@ -38,6 +38,6 @@ int valid_leave(object me, string dir)
 		if (inv[i]->query("id") == "blade") y++;
 	}
 	if (w>1 || x>1 || y>1 || z>1)
-                return notify_fail("这位" + RANK_D->query_respect(me) + "别那麽贪心，每样带走一把就够啦。\n");
+                return notify_fail("這位" + RANK_D->query_respect(me) + "別那麼貪心，每樣帶走一把就夠啦。\n");
         return ::valid_leave(me, dir);
 }

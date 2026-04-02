@@ -8,9 +8,9 @@ void create()
 {
 	set("short", "西庭");
 	set("long", @LONG
-这里是一个小小庭院，院子里常有嵩山弟子结伴往来。庭院四周矮
-墙下长着的小灌木里，偶尔冒出几星白色小花。鹅卵细石铺就的小路在
-灌木丛和长草间穿过。
+這裏是一個小小庭院，院子裏常有嵩山弟子結伴往來。庭院四周矮
+牆下長着的小灌木裏，偶爾冒出幾星白色小花。鵝卵細石鋪就的小路在
+灌木叢和長草間穿過。
 LONG );
 	set("outdoors", "songshan");
 	set("exits", ([
@@ -26,6 +26,6 @@ LONG );
 	set("coor/y", 900);
 	set("coor/z", 90);
 	setup();
-	create_door("south" , "木门", "north" , DOOR_CLOSED);
+	create_door("south" , "木門", "north" , DOOR_CLOSED);
 	replace_program(ROOM);
 }

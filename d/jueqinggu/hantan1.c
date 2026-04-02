@@ -8,8 +8,8 @@ void create()
 {
 	set("short", "寒潭");
 	set("long", @LONG
-四周蓝森森的都是玄冰，冰冷的潭水，让人感到透骨的寒冷。远处
-有一丝的亮光。
+四周藍森森的都是玄冰，冰冷的潭水，讓人感到透骨的寒冷。遠處
+有一絲的亮光。
 LONG
 	);
 	set("no_clean_up", 0);
@@ -29,9 +29,9 @@ int do_fu(string arg)
 
 	if( !arg || arg == "" || arg !=  "up") return 0;
   
-	message_vision("$N一个狗刨，浮了上去。\n", me);
+	message_vision("$N一個狗刨，浮了上去。\n", me);
 	me->move(__DIR__"gudi1");
-	tell_room(environment(me),me->name()+"湿淋淋地从潭中钻了出来。\n",({me}));
+	tell_room(environment(me),me->name()+"溼淋淋地從潭中鑽了出來。\n",({me}));
 	return 1;
 	
 }
@@ -42,8 +42,8 @@ int do_qian(string arg)
 	if (arg != "liang guang" && arg != "亮光") return 0;
 	if ( !arg ) return 0;
 	if (!living(me)) return 0;
-	message_vision("$N向着亮光游了过去，越潜越深，过不多时，“波”的一响，冲出了水面。\n", me);
+	message_vision("$N向着亮光遊了過去，越潛越深，過不多時，“波”的一響，衝出了水面。\n", me);
 	me->move(__DIR__"gudi2");
-	tell_room(environment(me), me->name()+"从潭水中冒了出来。\n", ({ me }));
+	tell_room(environment(me), me->name()+"從潭水中冒了出來。\n", ({ me }));
 	return 1;
 }

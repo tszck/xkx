@@ -6,8 +6,8 @@ inherit F_DEALER;
 int do_send(string arg);
 void create()
 {
-	set_name( WHT"润玉"NOR , ({ "run yu", "yu" }) );
-	set("title", MAG"卖花姑娘"NOR );
+	set_name( WHT"潤玉"NOR , ({ "run yu", "yu" }) );
+	set("title", MAG"賣花姑娘"NOR );
 	set("gender", "女性" );
 	set("age",16);
 	set("per",23);
@@ -51,7 +51,7 @@ void greeting(object ob)
 	{
 		if ( ob->query("age") < 30 )
 		{
-			message_vision("卖花姑娘冲$P甜甜一笑：姑娘不买朵郁金香吗？\n",ob);
+			message_vision("賣花姑娘衝$P甜甜一笑：姑娘不買朵鬱金香嗎？\n",ob);
 			return;
 		}
 	}
@@ -59,12 +59,12 @@ void greeting(object ob)
 	{
 		if ( ob->query("couple" ) )
 		{
-			message_vision("卖花姑娘冲着$P笑着：不给您的妻子买束花吗？\n",ob);
+			message_vision("賣花姑娘衝着$P笑着：不給您的妻子買束花嗎？\n",ob);
 			return;
 		}
 		else
 		{
-			message_vision("卖花姑娘冲着$P笑着：不给心上人买束红玫瑰吗？\n",ob);
+			message_vision("賣花姑娘衝着$P笑着：不給心上人買束紅玫瑰嗎？\n",ob);
 			return;
 		}
 	}

@@ -4,12 +4,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("清明禅师", ({ "shiqing chanshi", "chanshi", "shiqing" }) );
+	set_name("清明禪師", ({ "shiqing chanshi", "chanshi", "shiqing" }) );
         set("title", "十方寺方丈");
 	set("gender", "男性");
 	set("age", 20);
 	set("long",
-		"这是一个满脸横肉的和尚。\n");
+		"這是一個滿臉橫肉的和尚。\n");
 	set("combat_exp", 120000);
         set("shen_type", -1);
 	set("attitude", "aggressive");

@@ -9,12 +9,12 @@ inherit CLOTH;
 string* clothname = ({
 	"粗布衣",
 	HIB"青衫"NOR,
-	BBLK"黑色劲装"NOR,
-	HIC"短打劲装"NOR,
+	BBLK"黑色勁裝"NOR,
+	HIC"短打勁裝"NOR,
 	HIM"紫蟒袍"NOR,
-	BLU"蓝马褂"NOR,
-	HIY"明黄锦袍"NOR,
-	HIB"天蓝长袍"NOR,
+	BLU"藍馬褂"NOR,
+	HIY"明黃錦袍"NOR,
+	HIB"天藍長袍"NOR,
 });
 string* clothid = ({
 	"rough cloth",
@@ -27,14 +27,14 @@ string* clothid = ({
 	"celeste cloth",
 });
 string* clothlong = ({
-	"这是一件很普通的粗布衣。\n",
-	"这是一件很普通的粗布青衫。\n",
-	"这是一件很笔挺的黑色劲装。\n",
-	"这是一件很利索的短打劲装。\n",
-	"这是一件很重的紫蟒袍。\n",
-	"这是一件很重的蓝马褂。\n",
-	"这是一件明黄锦袍。\n",
-	"这是一件天蓝长袍。\n",
+	"這是一件很普通的粗布衣。\n",
+	"這是一件很普通的粗布青衫。\n",
+	"這是一件很筆挺的黑色勁裝。\n",
+	"這是一件很利索的短打勁裝。\n",
+	"這是一件很重的紫蟒袍。\n",
+	"這是一件很重的藍馬褂。\n",
+	"這是一件明黃錦袍。\n",
+	"這是一件天藍長袍。\n",
 });
 
 void create()

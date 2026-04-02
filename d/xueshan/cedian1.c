@@ -1,13 +1,13 @@
-//      cedian1.c 侧殿
+//      cedian1.c 側殿
 #include <room.h>
 inherit ROOM;
 
 void create()
 {
-        set("short","侧殿");
+        set("short","側殿");
         set("long",@LONG
-这里是雪山寺的东侧殿。殿内有神态各异的十八罗汉塑像，金旒玉
-镶，很是庄严。
+這裏是雪山寺的東側殿。殿內有神態各異的十八羅漢塑像，金旒玉
+鑲，很是莊嚴。
 LONG );
         set("exits",([
                 "up"   : __DIR__"zoulang1",
@@ -28,6 +28,6 @@ int valid_leave(object me, string dir)
         myfam=(mapping)me->query("family");
         if( (!myfam || myfam["family_name"] !="雪山寺") && dir=="up"
         && objectp(present ("jiamu huofo", environment(me))))
-                return notify_fail("嘉木活佛说道: 你非雪山寺弟子, 不能入内。\n");
+                return notify_fail("嘉木活佛說道: 你非雪山寺弟子, 不能入內。\n");
         return ::valid_leave(me,dir);
 }

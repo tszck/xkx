@@ -7,9 +7,9 @@ void create()
 {
 	set("short", "甬道");
 	set("long", @LONG
-长长的甬道通向一个石室，旁边壁上每隔不远便有一盏油灯，头上
-是高高的拱顶，显得有些阴森可怖。几名帮众在这里把守，闲杂人等不
-能随意前进。
+長長的甬道通向一個石室，旁邊壁上每隔不遠便有一盞油燈，頭上
+是高高的拱頂，顯得有些陰森可怖。幾名幫衆在這裏把守，閒雜人等不
+能隨意前進。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"clshishi",
@@ -29,6 +29,6 @@ int valid_leave(object me, string dir)
 	if( !(ob = present("changle bangzhong", environment(me))) )
 		 return ::valid_leave(me, dir);
 	if( !living(ob) ) return ::valid_leave(me, dir);
-	return notify_fail(sprintf("%s拦在你面前，说道：里面是关押本帮叛徒的地方，你请回吧。\n", ob->name()));
+	return notify_fail(sprintf("%s攔在你面前，說道：裏面是關押本幫叛徒的地方，你請回吧。\n", ob->name()));
 }
 

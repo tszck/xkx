@@ -9,14 +9,14 @@ int exert(object me, object target)
 	int n, j;
 
 	if (me != target)
-		return notify_fail("你只能用内功调匀自己的精气。\n");
+		return notify_fail("你只能用內功調勻自己的精氣。\n");
 
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 
 	j = (int)me->query("eff_jing") - (int)me->query("jing");
 	if (j < 10)
-		return notify_fail("你现在气力充沛。\n");
+		return notify_fail("你現在氣力充沛。\n");
 	n = 100 * j / me->query_skill("force");
 	if (n < 20)
 		n = 20;
@@ -28,7 +28,7 @@ int exert(object me, object target)
 	me->add("neili", -n);
 	me->receive_heal("jing", j);
 	
-        message_combatd("$N深深吸了几口气，精神看起来好多了。\n", me);
+        message_combatd("$N深深吸了幾口氣，精神看起來好多了。\n", me);
 
         if( me->is_fighting() ) me->start_busy(1);
 	
@@ -36,15 +36,15 @@ int exert(object me, object target)
 }
 int help(object me)
 {
-	write(WHT"\n基本内功之提振精神："NOR"\n");
+	write(WHT"\n基本內功之提振精神："NOR"\n");
 	write(@HELP
 
 	使用功效：
-		培植自己耗用的精气
+		培植自己耗用的精氣
 
 	出手要求：
-		基本内功
-		内力20
+		基本內功
+		內力20
 HELP
 	);
 	return 1;

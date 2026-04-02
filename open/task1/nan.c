@@ -1,19 +1,19 @@
-// nan.c 南海鳄神
+// nan.c 南海鱷神
 
 inherit NPC;
 inherit F_SKILL;
 #include <ansi.h>
 void create()
 {
-	set_name("南海鳄神", ({ "nanhai  eshen", "eshen" }));
+	set_name("南海鱷神", ({ "nanhai  eshen", "eshen" }));
 	set("gender", "男性");
-	set("nickname", HIG"凶神恶煞"NOR);
+	set("nickname", HIG"凶神惡煞"NOR);
 	set("age", 34);
 	set("str", 25);
 	set("dex", 16);
 	set("per", 21);
-	set("long", "此人的一个脑袋大得异乎寻常，一张阔嘴中露出白森森的利齿，
-一对眼睛却是又圆又小。\n");
+	set("long", "此人的一個腦袋大得異乎尋常，一張闊嘴中露出白森森的利齒，
+一對眼睛卻是又圓又小。\n");
 	set("combat_exp", 3000000);
 	set("attitude", "peaceful");
 	set("neili", 2000); 

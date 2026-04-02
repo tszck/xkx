@@ -9,16 +9,16 @@ void create()
 {
         set("short", "谷底");
         set("long", @LONG
-这就是悬崖谷底了，三面是高耸的山峰，一面是大海，四周没有
-出口，谷底的烟雾很大，走着走着，你隐隐约约见到前面盘膝坐着一
+這就是懸崖谷底了，三面是高聳的山峯，一面是大海，四周沒有
+出口，谷底的煙霧很大，走着走着，你隱隱約約見到前面盤膝坐着一
 位老者(Oldman)。
 LONG );
         set("outdoors", "xiakedao");
         set("item_desc",([
-                "feng"     : "看什么呀? 这么高的山你是爬不上去的。\n",
-                "shanfeng" : "看什么呀? 这么高的山你是爬不上去的。\n",
-                "oldman"   : "你仔细一看，这位老者已经仙去很多年了，留下的只是他的遗骨(gu)，好可怜呀!\n",
-                "sea"      : "看什么呀? 你难道想游泳吗? \n",
+                "feng"     : "看什麼呀? 這麼高的山你是爬不上去的。\n",
+                "shanfeng" : "看什麼呀? 這麼高的山你是爬不上去的。\n",
+                "oldman"   : "你仔細一看，這位老者已經仙去很多年了，留下的只是他的遺骨(gu)，好可憐呀!\n",
+                "sea"      : "看什麼呀? 你難道想游泳嗎? \n",
         ]));
         set("no_clean_up", 0);
         set("coor/x", -4000);
@@ -41,14 +41,14 @@ int do_mai(string arg)
         n = this_player()->query("neili");
         if( !arg || arg != "gu")
         {
-                write("什么? \n");
+                write("什麼? \n");
                 return 1;
         }
-        message_vision("$N找了一块松软的地面，用力挖了起来。\n", this_player());
+        message_vision("$N找了一塊鬆軟的地面，用力挖了起來。\n", this_player());
         if (n > 100)
         {
-                message_vision("大约过了半个时辰，$N恭恭敬敬的把老者的遗骨放了进去，埋了起来。突然东面
-出现了一个石门。\n", this_player());
+                message_vision("大約過了半個時辰，$N恭恭敬敬的把老者的遺骨放了進去，埋了起來。突然東面
+出現了一個石門。\n", this_player());
                 set("exits/east",__DIR__"midao6");
                 this_player()->add("neili", -100);
                 remove_call_out("close");
@@ -56,7 +56,7 @@ int do_mai(string arg)
         }
         else
         {
-                message_vision("$N的气力不足，挖了几下就干不动了。\n", this_player());
+                message_vision("$N的氣力不足，挖了幾下就幹不動了。\n", this_player());
                 this_player()->set("neili",0);
         }
         return 1;
@@ -64,7 +64,7 @@ int do_mai(string arg)
 
 void close(object room)
 {
-        message("vision","石门自动的合上了。\n", room);
+        message("vision","石門自動的合上了。\n", room);
         room->delete("exits/east");
 }
 
@@ -74,22 +74,22 @@ int do_swim(string arg)
         me = this_player();
         if( !arg || arg!="sea")
         {
-                write("你想干什么呀?\n");
+                write("你想幹什麼呀?\n");
                 return 1;
         }
-        message_vision("$N深吸了一口气，跳进海里，奋力的游了起来。\n", me);
+        message_vision("$N深吸了一口氣，跳進海里，奮力的遊了起來。\n", me);
         if (random((int)me->query("kar")) > 9)
         {
-                message_vision("海上的风浪太大，$N逐渐的失去了知觉。\n", me);
+                message_vision("海上的風浪太大，$N逐漸的失去了知覺。\n", me);
                 me->receive_damage("qi", 50);
                 me->receive_wound("qi", 50);
                 me->move(__DIR__"haitan");
-                tell_object(me,HIR"你醒来发现你浑身疼痛，还受了几处伤。\n" NOR);
-                message("vision", HIR"只见" + me->query("name") + "被海浪冲到海滩上。\n" NOR, environment(me),me);
+                tell_object(me,HIR"你醒來發現你渾身疼痛，還受了幾處傷。\n" NOR);
+                message("vision", HIR"只見" + me->query("name") + "被海浪衝到海灘上。\n" NOR, environment(me),me);
         }
         else
         {
-                message_vision("海上的风浪太大，$N不得不退了回来。\n", me);
+                message_vision("海上的風浪太大，$N不得不退了回來。\n", me);
                 me->receive_damage("qi",10);
                 me->receive_wound("qi",10);
         }
@@ -102,18 +102,18 @@ int do_climb(string arg)
         n = this_player()->query_skill("dodge",1);
         if ( !arg || arg!="shan")
         {
-                write("你要爬什么呀? \n");
+                write("你要爬什麼呀? \n");
                 return 1;
         }
-        message_vision("$N深吸了一口气，慢慢的向上爬。\n", this_player());
+        message_vision("$N深吸了一口氣，慢慢的向上爬。\n", this_player());
         if(n >40)
         {
-                message_vision("$N爬了半天，突然发现了一个洞口，$N不顾一切钻了进去。\n", this_player());
+                message_vision("$N爬了半天，突然發現了一個洞口，$N不顧一切鑽了進去。\n", this_player());
                 this_player()->move(__DIR__"midao8");
         }
         else
         {
-                message_vision("$N爬了一会，太累了，不小心滑了下来。\n", this_player());
+                message_vision("$N爬了一會，太累了，不小心滑了下來。\n", this_player());
                 this_player()->receive_damage("qi",10);
                 this_player()->receive_wound("qi",10);
         }

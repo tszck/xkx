@@ -9,14 +9,14 @@ void create()
 {
 	set_name("玉真子", ({ "yuzhen zi", "yuzhen" }));
 	set("gender", "男性");
-	set("title", "铁剑门掌门人");
-	set("nickname", HIC"护国真人"NOR);
+	set("title", "鐵劍門掌門人");
+	set("nickname", HIC"護國真人"NOR);
 	set("age", 44);
 	set("str", 25);
 	set("dex", 20);
-	set("long", "这是一位颇有仙风道骨的潇洒全真，手握长剑，目视前方。\n"+
-	"他就是木桑道人的师弟，在西藏寻得本门铁剑，成为本门掌门，尽管如此，\n"+
-	"他的行止确十分不端。\n");
+	set("long", "這是一位頗有仙風道骨的瀟灑全真，手握長劍，目視前方。\n"+
+	"他就是木桑道人的師弟，在西藏尋得本門鐵劍，成爲本門掌門，儘管如此，\n"+
+	"他的行止確十分不端。\n");
 	set("combat_exp", 900000);
 	set("score", 10000);
 	set("shen_type", -1);

@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","花厅");
+	set("short","花廳");
 	set("long",@LONG
-这里是镇南王府的内厅。整个大厅十分宽阔。虽说是王府，但摆
-设很简单，正中间有两张太师椅，边上摆满了各种各样的山茶花。
+這裏是鎮南王府的內廳。整個大廳十分寬闊。雖說是王府，但擺
+設很簡單，正中間有兩張太師椅，邊上擺滿了各種各樣的山茶花。
 LONG);
 	set("objects",([
 	    CLASS_D("dali")+"/guducheng": 1,

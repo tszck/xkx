@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "仓库");
+	set("short", "倉庫");
 	set("long", @LONG
-这是一个仓库，四周密不透风。你一进门便闻到一股霉味，满屋的
-灰尘，成堆成堆的物品快堆满了整间房间。
+這是一個倉庫，四周密不透風。你一進門便聞到一股黴味，滿屋的
+灰塵，成堆成堆的物品快堆滿了整間房間。
 LONG );
 	set("exits" , ([
 		"north" : __DIR__"westting",
@@ -30,7 +30,7 @@ LONG );
 	set("coor/y", 890);
 	set("coor/z", 90);
 	setup();
-	create_door("north" , "木门", "south" , DOOR_CLOSED);
+	create_door("north" , "木門", "south" , DOOR_CLOSED);
 	replace_program(ROOM);
 }
 

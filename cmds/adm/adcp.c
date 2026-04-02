@@ -37,7 +37,7 @@ int main(object me, string arg)
 		copy_dir = 0;
 	} else
 	{
-		write("格式错误！\n");
+		write("格式錯誤！\n");
 		help(me);
 		return 1;
 	}
@@ -48,12 +48,12 @@ int main(object me, string arg)
 	switch (file_size(src))
 	{
 	case -1:
-		write("没有这个(" + src + ")文件或目录，无法复制。\n");
+		write("沒有這個(" + src + ")文件或目錄，無法複製。\n");
 		return 1;
 
 	case -2:
 		if (copy_dir) break;
-		write("没有指定 -R 参数，不能复制目录(" + src + ")。\n");
+		write("沒有指定 -R 參數，不能複製目錄(" + src + ")。\n");
 		return 1;
 	default:
 		// copy file, not directory.
@@ -74,13 +74,13 @@ int main(object me, string arg)
 		if (cp(src, dst))
 			write("Ok.\n");
 		else
-			write("你没有足够的读写权利。\n");
+			write("你沒有足夠的讀寫權利。\n");
 		return 1;
 	}
 
 	if (dst[0..strwidth(src) - 1] == src)
 	{
-		write("你不能将一个路径复制到自身或者是子路径中。\n");
+		write("你不能將一個路徑複製到自身或者是子路徑中。\n");
 		return 1;
 	}
 
@@ -98,14 +98,14 @@ int main(object me, string arg)
 
 	default:
 		// destition is a file, error
-		write("目录不能复制到文件内，请修正你的目的路径。\n");
+		write("目錄不能複製到文件內，請修正你的目的路徑。\n");
 		return 1;
 	}
 
-		write( "复制目录中，请稍候...\n" );
+		write( "複製目錄中，請稍候...\n" );
 	count = copy_dir(src, dst, DIR_MAY_NOT_EXISTED);
 	if (count)
-		write(HIY "总共有" + count + "个文件被成功复制。\n" NOR);
+		write(HIY "總共有" + count + "個文件被成功複製。\n" NOR);
 	return 1;
 }
 
@@ -129,14 +129,14 @@ int copy_dir(string src, string dst, int dir_existed)
 	if (! sizeof(file))
 		return count;
 
-	write (HIC "复制目录(" + src + ") -- > (" + dst + ")。\n" NOR);
+	write (HIC "複製目錄(" + src + ") -- > (" + dst + ")。\n" NOR);
 	i = sizeof(file);
 	while (i--) {
 		reset_eval_cost();
 		if (file[i][1] != -2) {
 		       if ( file_size(dst) == -1 ) {
 			       mkdir(dst);
-			       write("创建目录" + dst + "成功。\n");
+			       write("創建目錄" + dst + "成功。\n");
 			       }
 		       if (cp(src + file[i][0], dst + file[i][0])) {
 				write(src + file[i][0] + "  -->  ");
@@ -163,10 +163,10 @@ int copy_dir(string src, string dst, int dir_existed)
 int help(object me)
 {
   write(@HELP
-指令格式 : cp [-R] <文件|路径名> <目的文件|目的路径名>
+指令格式 : cp [-R] <文件|路徑名> <目的文件|目的路徑名>
 
-这个指令可以复制源文件成目的文件或复制到目的路径。如果使用了参数-R则
-可以复制一个目录，没有这个参数则不能复制路径。
+這個指令可以複製源文件成目的文件或複製到目的路徑。如果使用了參數-R則
+可以複製一個目錄，沒有這個參數則不能複製路徑。
 HELP
     );
     return 1;

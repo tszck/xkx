@@ -6,9 +6,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("朱长龄", ({ "zhu changling", "zhu" }));
-	set("title",HIR"红梅山庄庄主"NOR);
-	set("nickname",HIY"惊天一笔"NOR);
+	set_name("朱長齡", ({ "zhu changling", "zhu" }));
+	set("title",HIR"紅梅山莊莊主"NOR);
+	set("nickname",HIY"驚天一筆"NOR);
 	set("gender", "男性");
 	set("age", 45);
 

@@ -6,21 +6,21 @@ look_gaoshi();
 
 void create()
 {
-	set("short","中央广场");
+	set("short","中央廣場");
 	set("long",@LONG
-这里是城市的正中心，一个很宽阔的广场，铺着青石地面，十里长
-街穿场而过。一些游手好闲的人在这里溜溜达达，经常有艺人在这里表
-演。中央有一棵大榕树，盘根错节，据传已有千年的树龄，是这座城市
-的历史见证。树干底部有一个很大的树洞(dong)。你可以看到北边有来
-自各地的行人来来往往，南面人声鼎沸，一派繁华景象。东边连着甘泉
-街。街西是通泗桥，桥头立着一块告示牌(gaoshi)，过桥就是通向扬州
+這裏是城市的正中心，一個很寬闊的廣場，鋪着青石地面，十里長
+街穿場而過。一些遊手好閒的人在這裏溜溜達達，經常有藝人在這裏表
+演。中央有一棵大榕樹，盤根錯節，據傳已有千年的樹齡，是這座城市
+的歷史見證。樹幹底部有一個很大的樹洞(dong)。你可以看到北邊有來
+自各地的行人來來往往，南面人聲鼎沸，一派繁華景象。東邊連着甘泉
+街。街西是通泗橋，橋頭立着一塊告示牌(gaoshi)，過橋就是通向揚州
 官衙的道路。
 LONG );
 	set("outdoors", "yangzhouw");
 	set("no_sleep_room",1);
 	set("visitor", 0);
 	set("item_desc", ([
-		"dong"  : "这是一个黑不溜湫的大洞，里面不知道有些什么古怪。\n",
+		"dong"  : "這是一個黑不溜湫的大洞，裏面不知道有些什麼古怪。\n",
 		"gaoshi" : (: look_gaoshi :),
 	]));
 
@@ -68,11 +68,11 @@ int do_enter(string arg)
 	{
 		if (me->is_busy()) return notify_fail("你正忙着呢。\n");
 		message("vision",
-			me->name() + "一弯腰往洞里走了进去。\n",
+			me->name() + "一彎腰往洞裏走了進去。\n",
 			environment(me), ({me}) );
 		me->move("/d/gaibang/inhole");
 		message("vision",
-			me->name() + "从洞外走了进来。\n",
+			me->name() + "從洞外走了進來。\n",
 			environment(me), ({me}) );
 		return 1;
 	}
@@ -86,9 +86,9 @@ string look_gaoshi()
 	returnback="\n\n"+
 	"******************************************************************\n"+
 	"********                                                  ********\n"+
-	"********                    扬州府通告                    ********\n"+
+	"********                    揚州府通告                    ********\n"+
 	"********                                                  ********\n"+
-	"********    即日通过此地共有"+chinese_number(count)+"人。";
+	"********    即日通過此地共有"+chinese_number(count)+"人。";
 	for (sp = 0; sp < 26-strwidth(chinese_number(count)); sp++)
 		returnback += " ";
 

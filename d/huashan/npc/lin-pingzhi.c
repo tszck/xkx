@@ -8,7 +8,7 @@ void create()
         set("gender", "男性");
         set("age", 18);
         set("long",
-                "林平之是岳不群最小的一个弟子，也是他的东床快婿。\n");
+                "林平之是嶽不羣最小的一個弟子，也是他的東牀快婿。\n");
         set("attitude", "peaceful");
 
         set("str", 26);
@@ -51,7 +51,7 @@ void create()
         map_skill("unarmed", "huashan-ken");
         map_skill("dodge", "feiyan-huixiang");
 
-        create_family("华山派", 14, "弟子");
+        create_family("華山派", 14, "弟子");
         setup();
 
         carry_object("/clone/weapon/changjian")->wield();
@@ -81,8 +81,8 @@ void die()
 
         if (userp(killer))
         {
-             message_vision("$N得到一本辟邪剑谱。\n",killer);
-//             command("rumor "+this_player()->query("name")+"抢了辟邪剑谱啦。\n");
+             message_vision("$N得到一本辟邪劍譜。\n",killer);
+//             command("rumor "+this_player()->query("name")+"搶了辟邪劍譜啦。\n");
              book=new("/clone/book/bixie_book");
              book->move(killer);
         }

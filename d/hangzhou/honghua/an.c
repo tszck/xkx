@@ -1,4 +1,4 @@
-// meng.c 安健刚
+// meng.c 安健剛
 
 #include <ansi.h>
 
@@ -7,10 +7,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("安健刚", ({ "an jiangang", "an","jiangang" }));
-	set("nickname", HIY "独角虎" NOR);
+	set_name("安健剛", ({ "an jiangang", "an","jiangang" }));
+	set("nickname", HIY "獨角虎" NOR);
 	set("long", 
-"他是铁胆周仲英的二弟子，对师父始终忠心不二。\n");
+"他是鐵膽周仲英的二弟子，對師父始終忠心不二。\n");
 	set("gender", "男性");
 	set("class", "fighter");
 	set("age", 25);

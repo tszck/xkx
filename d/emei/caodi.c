@@ -6,8 +6,8 @@ void create()
 {
 	set("short", "草地");
 	set("long", @LONG
-这里就是古德林中的一片草地了。这里野草从生，高过人头，偶尔有小兽
-从草中穿过，整个地方阴森恐怖，周围是一整片黑森森的树林。
+這裏就是古德林中的一片草地了。這裏野草從生，高過人頭，偶爾有小獸
+從草中穿過，整個地方陰森恐怖，周圍是一整片黑森森的樹林。
 LONG
 	);
 	set("objects", ([
@@ -30,9 +30,9 @@ int do_search()
 	object me = this_player();
  
 	int jing;
-	if( me->is_busy() ) return notify_fail("你上一个动作还没有完成呢。\n");
-	if(jing<30) return notify_fail("你无法集中精力查看！\n");
-	message_vision("$N开始查看这里的一草一木，希望能找到一棵草药什么的。\n",me);
+	if( me->is_busy() ) return notify_fail("你上一個動作還沒有完成呢。\n");
+	if(jing<30) return notify_fail("你無法集中精力查看！\n");
+	message_vision("$N開始查看這裏的一草一木，希望能找到一棵草藥什麼的。\n",me);
 	me->start_busy(2);
 	me->receive_damage("jing", 10);
 	call_out("end",3,me);
@@ -48,11 +48,11 @@ void end(object me)
 		case 2:
 		case 3:
 		case 4:
-			message_vision("$N累了个半死，结果什么都没有找到。\n",me);
+			message_vision("$N累了個半死，結果什麼都沒有找到。\n",me);
 			break;
 		default: ob=new(__DIR__"obj/caoyao");
 			ob->move(me);
-			message_vision("$N找到了一片草药，放在$N的身上。\n",me);
+			message_vision("$N找到了一片草藥，放在$N的身上。\n",me);
 			break;
 	}
 }

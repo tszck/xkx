@@ -1,4 +1,4 @@
-// sun.c 孙婆婆
+// sun.c 孫婆婆
 // Last Modified by winder on Feb. 28 2001
 
 #include <ansi.h>
@@ -7,11 +7,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("孙婆婆", ({"sun popo", "sun"}));
+	set_name("孫婆婆", ({"sun popo", "sun"}));
 	set("gender", "女性");
 	set("age", 55);
 	set("long",
-		"这是一位慈祥的老婆婆，正看着你微微一笑。\n"
+		"這是一位慈祥的老婆婆，正看着你微微一笑。\n"
 	);
 	set("attitude", "friendly");
 
@@ -29,7 +29,7 @@ void create()
 	set_skill("force", 100);
 	set_skill("yunv-xinfa", 100);    //玉女心法
 	set_skill("sword", 90);
-	set_skill("yunv-jian", 120);     //玉女剑
+	set_skill("yunv-jian", 120);     //玉女劍
 	set_skill("dodge", 70);
 	set_skill("yunv-shenfa", 120);   //玉女身法
 	set_skill("quanzhen-jian", 50);
@@ -47,7 +47,7 @@ void create()
 
 	create_family("古墓派", 3, "弟子");
 	set("inquiry", ([
-		"小龙女" : "龙姑娘是我一手带大的，她从小没了父母，现在又独个儿住在这古墓里，唉..\n",
+		"小龍女" : "龍姑娘是我一手帶大的，她從小沒了父母，現在又獨個兒住在這古墓裏，唉..\n",
 	]) );
 
 	set("env/wimpy", 50);

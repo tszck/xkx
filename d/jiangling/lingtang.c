@@ -4,13 +4,13 @@ inherit ROOM;
 #include <ansi.h>
 void create ()
 {
-	set ("short", "灵堂");
+	set ("short", "靈堂");
 	set ("long", @LONG
-这是一个灵堂，屋子里烛光耀眼。桌子上点燃着两根素烛，安放着
-一块灵牌(Pai)。桌旁悬挂一匹素帏。
+這是一個靈堂，屋子裏燭光耀眼。桌子上點燃着兩根素燭，安放着
+一塊靈牌(Pai)。桌旁懸掛一匹素幃。
 LONG);
 	set("item_desc", ([
-		"pai" : HIW"爱女凌霜华之灵位\n"NOR,
+		"pai" : HIW"愛女凌霜華之靈位\n"NOR,
 	]));
 	set("exits", ([ 
 		"south" : __DIR__"feiyuan",

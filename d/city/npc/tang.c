@@ -1,4 +1,4 @@
-// tang.c 唐老板 
+// tang.c 唐老闆 
 
 #include <ansi.h>
 
@@ -9,7 +9,7 @@ int do_redeem(string arg);
 void create()
 {
 	set_name("唐楠", ({ "tang nan", "tang" }));
-	set("title", "当铺老板");
+	set("title", "當鋪老闆");
 	set("shen_type", 0);
 
 	set("gender", "男性");
@@ -21,10 +21,10 @@ void create()
 	set("max_qi", 1000);
 	set("max_jing", 1000);
 	set("max_qi", 1000);
-	set("long", "据说唐楠是四川唐家的后代。\n");
+	set("long", "據說唐楠是四川唐家的後代。\n");
 	set("no_get_from", 1);
 
-//以下为防止玩家运用特殊方法将当铺老板搬走。
+//以下爲防止玩家運用特殊方法將當鋪老闆搬走。
 	set("no_get", "1");
 
 	set_skill("unarmed", 60);
@@ -61,7 +61,7 @@ int do_redeem(string target)
 
 	all = users();
 
-	if (!target) return notify_fail("你想赎谁？ 1\n");
+	if (!target) return notify_fail("你想贖誰？ 1\n");
 
 	for(i=0; i<sizeof(all); i++) 
 	{
@@ -71,12 +71,12 @@ int do_redeem(string target)
 			dest = all[i];
 	}
 	if( !dest || !this_player()->visible(dest))
-		return notify_fail("唐楠说道：你说的人现在不在游戏中，你过会再来吧。\n");
+		return notify_fail("唐楠說道：你說的人現在不在遊戲中，你過會再來吧。\n");
 	else if( !dest->query_temp("selled"))
-		return notify_fail("唐楠急道：你可别诬陷好人，我怎么会非法扣押玩家呢！\n");
+		return notify_fail("唐楠急道：你可別誣陷好人，我怎麼會非法扣押玩家呢！\n");
 
 	if (query_temp("busy"))
-		return notify_fail("哟，抱歉啊，我这儿正忙着呢……您请稍候。\n");
+		return notify_fail("喲，抱歉啊，我這兒正忙着呢……您請稍候。\n");
 // value = dest->query("per")* 700;
   value = 10000;
 
@@ -84,29 +84,29 @@ int do_redeem(string target)
   {
   	per = dest->query("per");
     if ( per >= 0 && per <= 10 )
-    value += per*100;          //0-10容貌 每点值一两白银
+    value += per*100;          //0-10容貌 每點值一兩白銀
     if ( per >10 && per <= 20)
-    value += (per-10)*10000; // 10-20 每点值一两黄金
+    value += (per-10)*10000; // 10-20 每點值一兩黃金
     if ( per > 20 && per <= 30)
-    value += (per -20)* 100000;// 20-30 每点值十两黄金
+    value += (per -20)* 100000;// 20-30 每點值十兩黃金
     if ( per > 30 )
-    value += (per -30)* 10000000; //30-40 每点值 一千两黄金 grin
+    value += (per -30)* 10000000; //30-40 每點值 一千兩黃金 grin
                                  
   }
 	switch (MONEY_D->player_pay(this_player(), value))
 	{
 		case 0:
-			return notify_fail("赎金要"+MONEY_D->price_str(value)+"，没钱就一边呆着去！\n");
+			return notify_fail("贖金要"+MONEY_D->price_str(value)+"，沒錢就一邊待著去！\n");
 		case 2:
-			return notify_fail("您的零钱不够了，银票又没人找得开。\n");
+			return notify_fail("您的零錢不夠了，銀票又沒人找得開。\n");
 		default:
 			set_temp("busy", 1);
-			message_vision("$N从$n那里赎回了一" + dest->query("unit") + dest->query("name") + "。\n", this_player(), this_object());
+			message_vision("$N從$n那裏贖回了一" + dest->query("unit") + dest->query("name") + "。\n", this_player(), this_object());
 			dest->move(environment(this_player()));
 			dest->set("startroom","/d/city/kedian");
 			dest->delete_temp("selled");
-			message("vision", HIY"只听见嗖的一声，一个遍体鳞伤的家伙从天花板上掉了下来！\n" NOR, environment(dest), dest);
-			tell_object(dest, "你被" + this_player()->query("name") + "赎了出来。\n");
+			message("vision", HIY"只聽見嗖的一聲，一個遍體鱗傷的傢伙從天花板上掉了下來！\n" NOR, environment(dest), dest);
+			tell_object(dest, "你被" + this_player()->query("name") + "贖了出來。\n");
 	}
 	remove_call_out("enough_rest");
 	call_out("enough_rest", 1);

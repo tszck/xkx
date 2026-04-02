@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "打谷场");
+        set("short", "打穀場");
         set("long", @LONG
-这里是村子的中心，一个平坦的广场，每年秋收打谷就在这。广场东
-角有棵大槐树，平日茶余饭後，村里的男女老少都爱聚在这里谈天说地。
-角上有几个大谷堆(gudui)。
+這裏是村子的中心，一個平坦的廣場，每年秋收打穀就在這。廣場東
+角有棵大槐樹，平日茶餘飯後，村裏的男女老少都愛聚在這裏談天說地。
+角上有幾個大谷堆(gudui)。
 LONG );
         set("exits", ([ /* sizeof() == 3 */
 		"northwest" : __DIR__"nwroad2",
@@ -45,18 +45,18 @@ int do_enter(string arg)
 
 	if( arg=="gudui" )
 	{
-		if( (fam = me->query("family")) && fam["family_name"] == "丐帮" ) 
+		if( (fam = me->query("family")) && fam["family_name"] == "丐幫" ) 
 		{
 			message("vision",
-				me->name() + "运起丐帮缩骨功，一弯腰往谷堆里钻了进去。\n",
+				me->name() + "運起丐幫縮骨功，一彎腰往谷堆裏鑽了進去。\n",
 				environment(me), ({me}) );
 			me->move("/d/gaibang/underxc");
                 	message("vision",
-				me->name() + "从谷堆里走了进来。\n",
+				me->name() + "從谷堆裏走了進來。\n",
                 		environment(me), ({me}) );
 			return 1;
 		}
 		else 
-			return notify_fail("这么小的洞，你钻得进去吗？\n");
+			return notify_fail("這麼小的洞，你鑽得進去嗎？\n");
 	}
 }	

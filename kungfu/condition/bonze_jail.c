@@ -1,4 +1,4 @@
-// bonze_jail.c 少林监狱
+// bonze_jail.c 少林監獄
 
 #include <ansi.h>
 #include <login.h>
@@ -7,8 +7,8 @@ int update_condition(object me, int duration)
 {
 	if (duration < 1) {
 		me->move("/d/shaolin/guangchang1");
-		message("vision", HIY"只听乒地一声，你吓了一跳，定睛一看，\n原来是一个昏昏沉沉的家伙从大门里被扔了出来！\n" NOR, environment(me), me);
-		tell_object(me, HIY"只觉一阵腾云驾雾般，你昏昏沉沉地被扔出了少林寺！\n" NOR);
+		message("vision", HIY"只聽乒地一聲，你嚇了一跳，定睛一看，\n原來是一個昏昏沉沉的傢伙從大門裏被扔了出來！\n" NOR, environment(me), me);
+		tell_object(me, HIY"只覺一陣騰雲駕霧般，你昏昏沉沉地被扔出了少林寺！\n" NOR);
 		me->set("startroom", START_ROOM);
 		return 0;
 	}

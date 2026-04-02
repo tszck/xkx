@@ -6,12 +6,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("燕万鹏",({"yan wanpeng","yan"}));
+	set_name("燕萬鵬",({"yan wanpeng","yan"}));
 	set("gender", "男性");
 	set("age", 20);
 	set("long", 
-		"他是凌霄城第六代弟子燕万鹏，第六代弟子中，为人数他最\n"
-		"为梗直，素有铁面之称，所以在此镇狱。\n");
+		"他是凌霄城第六代弟子燕萬鵬，第六代弟子中，爲人數他最\n"
+		"爲梗直，素有鐵面之稱，所以在此鎮獄。\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);
@@ -67,12 +67,12 @@ int accept_object(object me, object ob)
 
 	if ((string)ob->query("name")!=HIW"寒玉牌"NOR)
 	{
-		command("say 你给我这个干什么！你想贿赂我吗？");
+		command("say 你給我這個幹什麼！你想賄賂我嗎？");
 		return 1;
 	}
 	else
 	{
-		command("say 师弟请下去吧，老爷子在下面。\n");
+		command("say 師弟請下去吧，老爺子在下面。\n");
 		me->move("/d/lingxiao/laolang");
 		return 1;
 	}

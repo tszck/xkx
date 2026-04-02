@@ -1,14 +1,14 @@
-// puren.c 仆人
+// puren.c 僕人
 
 inherit NPC;
 
 void create()
 {
-        set_name("仆人", ({ "pu ren" }));
+        set_name("僕人", ({ "pu ren" }));
         set("age", 18);
         set("gender", "男性");
         set("long",
-"这是一个桃花岛的仆人。\n");
+"這是一個桃花島的僕人。\n");
         set("attitude", "peaceful");
         set("str", 24);
         set("dex", 16);

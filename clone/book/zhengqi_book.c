@@ -1,17 +1,17 @@
-// zhengqi_book.c  正气吟
+// zhengqi_book.c  正氣吟
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-	set_name(HIR"正气吟"NOR, ({ "zhengqi_book", "book" }));
+	set_name(HIR"正氣吟"NOR, ({ "zhengqi_book", "book" }));
 	set_weight(600);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
 		set("long",
-			"这是一本薄薄的册页。\n");
+			"這是一本薄薄的冊頁。\n");
 		set("value", 1000);
 		set("material", "paper");
 		set("skill", ([

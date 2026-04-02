@@ -1,17 +1,17 @@
-// ziyun_book1.c  紫氲正谱
+// ziyun_book1.c  紫氳正譜
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-	set_name(HIM"紫氲正谱"NOR, ({ "ziyun_book", "book" }));
+	set_name(HIM"紫氳正譜"NOR, ({ "ziyun_book", "book" }));
 	set_weight(600);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
 		set("long",
-			"这是一本薄薄的册页。\n");
+			"這是一本薄薄的冊頁。\n");
 		set("value", 1000);
 		set("material", "paper");
 		set("skill", ([

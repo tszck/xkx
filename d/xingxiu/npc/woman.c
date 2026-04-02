@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("维吾尔族妇女", ({ "woman" }) );
+        set_name("維吾爾族婦女", ({ "woman" }) );
         set("gender", "女性" );
         set("age", 40);
-        set("long", "一个很胖的维吾尔族中年妇女。\n");
+        set("long", "一個很胖的維吾爾族中年婦女。\n");
         set("shen", 1000);
         set("combat_exp", 150);
         set("env/wimpy", 60);
@@ -21,9 +21,9 @@ void create()
         setup();
         set("chat_chance", 10);
         set("chat_msg", ({
-                "维吾尔族妇女看着你笑了起来\n",
-                "维吾尔族妇女说道：小波郎子呀克西。\n",
-                "维吾尔族妇女向你努了努嘴，又指了指北边。\n",
+                "維吾爾族婦女看着你笑了起來\n",
+                "維吾爾族婦女說道：小波郎子呀克西。\n",
+                "維吾爾族婦女向你努了努嘴，又指了指北邊。\n",
         }) );
         carry_object(__DIR__"obj/wcloth")->wear();
         add_money("coin", 100);

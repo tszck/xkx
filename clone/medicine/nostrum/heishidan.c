@@ -16,7 +16,7 @@ void create()
 	set("nostrum", 80);
 	set("level", 100);
 	set("value", 100000);
-	set("long", "这是一粒能解百毒的黑石玉洞丹。\n");
+	set("long", "這是一粒能解百毒的黑石玉洞丹。\n");
 	set("pour_type", "1");
 	set("no_sell", 1);
 	set("no_drop", 1);
@@ -29,13 +29,13 @@ int do_eat(string arg)
 {
 	object me=this_player();
 
-	if (!id(arg)) return notify_fail("你要吃什么？\n");
+	if (!id(arg)) return notify_fail("你要喫什麼？\n");
 	if (!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if (me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
-	message_vision(HIG"$N吃下一粒黑石玉洞丹，只觉一股苦涩的滋味直透心臆。\n" NOR, me);
+	message_vision(HIG"$N喫下一粒黑石玉洞丹，只覺一股苦澀的滋味直透心臆。\n" NOR, me);
 	if (me->query_condition("chanchu_poison"))
 		me->apply_condition("chanchu_poison",0);
 	if (me->query_condition("scorpion_poison"))

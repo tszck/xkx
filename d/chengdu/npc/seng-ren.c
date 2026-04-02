@@ -5,8 +5,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("游方和尚", ({"seng ren","seng"}));
-	set("long", "他是一位中年游方和尚，骨瘦如柴，身上的袈裟打满了补丁。\n");
+	set_name("遊方和尚", ({"seng ren","seng"}));
+	set("long", "他是一位中年遊方和尚，骨瘦如柴，身上的袈裟打滿了補丁。\n");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -39,11 +39,11 @@ void create()
 
 int accept_object(object me, object obj)
 {
-	if( obj->query("name") == "金刚经" )
+	if( obj->query("name") == "金剛經" )
 	{
 		command("smile");
-		command("say 阿弭陀佛，多谢这位" + RANK_D->query_respect(me) + "了 ！");
-		command("say 贫僧正需这本金刚经来叁照石坪上的原文啊 ！");
+		command("say 阿弭陀佛，多謝這位" + RANK_D->query_respect(me) + "了 ！");
+		command("say 貧僧正需這本金剛經來叄照石坪上的原文啊 ！");
 	}
 	return 1;
 }

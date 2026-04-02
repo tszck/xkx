@@ -12,8 +12,8 @@ string ask_cancle();
 void create()
 {
 	set_name("朱丹臣", ({ "zhu danchen", "zhu" }));
-	set("title",  "大理护卫" );
-	set("long", "他是大理国四大护卫之一。一副书生酸溜溜的打扮行头。\n");
+	set("title",  "大理護衛" );
+	set("long", "他是大理國四大護衛之一。一副書生酸溜溜的打扮行頭。\n");
 	set("gender", "男性");
 	set("age", 40);
 	set("class", "officer");
@@ -61,7 +61,7 @@ void create()
 	}) );
 
 	set("inquiry", ([
-		"指点武功" : (: ask_me :),
+		"指點武功" : (: ask_me :),
 		"巡城" : (: ask_job :),
 		"取消" : (: ask_cancle :),
 	]));
@@ -70,7 +70,7 @@ void create()
 	carry_object("/clone/weapon/changjian")->wield();
 	add_money("silver", 10);
 
-	create_family("大理段家",19,"护卫");
+	create_family("大理段家",19,"護衛");
 }
 void init()
 {
@@ -220,12 +220,12 @@ string ask_job()
         int i,j,skilllvl,num_thief,t;
         
 	if (ob->query_temp("xuncheng"))
-		return ("你不是已经领了巡城的任务吗？还不快去做。\n");
+		return ("你不是已經領了巡城的任務嗎？還不快去做。\n");
 	if (ob->query("combat_exp")<100000 && !wizardp(ob))
-		return ("你武功太低，无法胜任。\n");
+		return ("你武功太低，無法勝任。\n");
 	if (me->query("xuncheng_star")==1)
-		return ("现在已经有人前去巡城，你等等再来吧！\n");
-//同时出现5－10个npc 
+		return ("現在已經有人前去巡城，你等等再來吧！\n");
+//同時出現5－10個npc 
 	num_thief=5+random(6);
 	for( t=0;t<num_thief;t++)
 	{
@@ -270,7 +270,7 @@ string ask_job()
 	call_out("new_give_job",420,me);
 	if (!wizardp(ob)) ob->delete_temp("dali_xc");
 	ob->apply_condition("dali_xuncheng",random(6)+15);
-	return "好吧，最近大理城内治安混乱，你就在代我四处查看一下，巡城时应当留心体察民情，为民除害！";
+	return "好吧，最近大理城內治安混亂，你就在代我四處查看一下，巡城時應當留心體察民情，爲民除害！";
 }
 
 string ask_cancle()
@@ -279,13 +279,13 @@ string ask_cancle()
 	object ob=this_player();
 	
 	if (!ob->query_temp("xuncheng"))
-		return ("你并没有领任务！取消什么？\n");
+		return ("你並沒有領任務！取消什麼？\n");
 	if (ob->query_condition("dali_xuncheng"))
-	        return ("你任务时间还没过！取消什么？\n");
+	        return ("你任務時間還沒過！取消什麼？\n");
 	ob->delete_temp("xuncheng");
 	ob->delete_temp("dali_xc");
 	ob->delete_temp("xuncheng_kill_num");
-	return "好吧，看来你不能胜任这项任务，我再找他人吧！";
+	return "好吧，看來你不能勝任這項任務，我再找他人吧！";
 }
 
 int do_task(string arg)
@@ -298,11 +298,11 @@ int do_task(string arg)
 	me=this_object();
 	if(!(arg||arg=="ok")) return 0;
 	if(!ob->query_temp("xuncheng")) 
-		return notify_fail("你没巡城跑来领什么功？\n");
+		return notify_fail("你沒巡城跑來領什麼功？\n");
 	if (interactive(ob) && (int)ob->query_condition("dali_xuncheng"))
 	{
 		command("angry "+ob->query("id"));
-		return notify_fail(RED "你这么快回来了，是不是有些地方只是马马虎虎看看？\n"NOR);
+		return notify_fail(RED "你這麼快回來了，是不是有些地方只是馬馬虎虎看看？\n"NOR);
 	}
 	if (!wizardp(ob))
 	{
@@ -311,7 +311,7 @@ int do_task(string arg)
 		ob->query_temp("dali_xc/sl") &&
 		ob->query_temp("dali_xc/lg2") &&
 		ob->query_temp("dali_xc/lg4")))
-		return notify_fail("你是不是偷懒，城东漏了些地方没巡？\n");
+		return notify_fail("你是不是偷懶，城東漏了些地方沒巡？\n");
 
 	if(!(ob->query_temp("dali_xc/ddh") &&
 		ob->query_temp("dali_xc/wymj1") &&
@@ -320,7 +320,7 @@ int do_task(string arg)
 		ob->query_temp("dali_xc/sl1") &&
 		ob->query_temp("dali_xc/sl2") &&
 		ob->query_temp("dali_xc/zyd")))
-		return notify_fail("你是不是偷懒，城北漏了些地方没巡？ \n");
+		return notify_fail("你是不是偷懶，城北漏了些地方沒巡？ \n");
 
 	if(!(ob->query_temp("dali_xc/qzl") &&
 		ob->query_temp("dali_xc/nt1") &&
@@ -331,7 +331,7 @@ int do_task(string arg)
 		ob->query_temp("dali_xc/lk") &&
 		ob->query_temp("dali_xc/flh") &&
 		ob->query_temp("dali_xc/yj")))
-		return notify_fail("你是不是偷懒，城南漏了些地方没巡？ \n");
+		return notify_fail("你是不是偷懶，城南漏了些地方沒巡？ \n");
 
 	if(!(ob->query_temp("dali_xc/nh1") &&
 		ob->query_temp("dali_xc/bls") &&
@@ -340,12 +340,12 @@ int do_task(string arg)
 		ob->query_temp("dali_xc/tt") &&
 		ob->query_temp("dali_xc/mnd") &&
 		ob->query_temp("dali_xc/jsdw")))
-		return notify_fail("你是不是偷懒，城西漏了些地方没巡？ \n");
+		return notify_fail("你是不是偷懶，城西漏了些地方沒巡？ \n");
 	}
 	if(arg=="ok")
 	{
 		command("pat "+ob->query("id"));
-		command("say 哈哈，真难为你了，"+RANK_D->query_respect(ob)+"，你做得好！");
+		command("say 哈哈，真難爲你了，"+RANK_D->query_respect(ob)+"，你做得好！");
 
                 num=(int)ob->query("perform/number")+1;
                 if (num<4) times=num;
@@ -362,7 +362,7 @@ int do_task(string arg)
 		ob->add("potential",pot);
 		ob->add("score",score);
 		ob->add("combat_exp",exp);
-  	ob->set_temp("prize_reason","巡城"); //活人奖励四个标识
+  	ob->set_temp("prize_reason","巡城"); //活人獎勵四個標識
   	ob->set_temp("can_give_prize",1);
   	ob->set_temp("prize_exp",exp);
   	ob->set_temp("prize_pot",pot);
@@ -372,14 +372,14 @@ int do_task(string arg)
 		ob->delete_temp("xuncheng");
 		ob->delete_temp("dali_xc");
 		ob->delete_temp("xuncheng_kill_num");
-		t = HIW" 你被奖励了：\n" + 
-			chinese_number(exp) + "点实战经验\n" +
-			chinese_number(pot) + "点潜能\n"+
-			chinese_number(score)+"点江湖阅历\n";
+		t = HIW" 你被獎勵了：\n" + 
+			chinese_number(exp) + "點實戰經驗\n" +
+			chinese_number(pot) + "點潛能\n"+
+			chinese_number(score)+"點江湖閱歷\n";
 		if (ob->query("family/family_name")==this_object()->query("family/family_name"))
-		t += chinese_number(s_bonus)+"点忠诚度\n";
-		t += chinese_number(sil)+"两白银\n"+
-			"你为镇南王府做了"+ob->query("dali_job")+"次工作。\n"NOR;
+		t += chinese_number(s_bonus)+"點忠誠度\n";
+		t += chinese_number(sil)+"兩白銀\n"+
+			"你爲鎮南王府做了"+ob->query("dali_job")+"次工作。\n"NOR;
 		tell_object(ob,t);
 		return 1;
 	}
@@ -394,7 +394,7 @@ int new_give_job()
                 for(i=0; i<sizeof(ob_list); i++) 
 		if(environment(ob_list[i]))
 		{
-			message_vision("$N说道：大爷还有事要忙，没空陪你啦！\n",ob_list[i]);
+			message_vision("$N說道：大爺還有事要忙，沒空陪你啦！\n",ob_list[i]);
 			destruct(ob_list[i]);
                 }
    	this_object()->delete("xuncheng_star", 1);

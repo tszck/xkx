@@ -7,11 +7,11 @@ void create()
 {
 	set_name("霍青桐", ({ "huo qingtong", "huo","qingtong" }));
 	set("long", 
-"这女郎秀美中透着一股英气，光采照人，当真是丽若春梅绽雪，神如
-秋蕙披霜，两颊融融，霞映澄塘，双目晶晶，月射寒江。腰插匕首，
-长辨垂肩，一身鹅黄衫子，头戴金丝绣的小帽，帽边插了一根长长的
-翠绿羽毛，革履青马，旖旎如画。\n");
-	set("nickname", HIG"翠羽"HIY"黄衫"NOR);
+"這女郎秀美中透着一股英氣，光采照人，當真是麗若春梅綻雪，神如
+秋蕙披霜，兩頰融融，霞映澄塘，雙目晶晶，月射寒江。腰插匕首，
+長辨垂肩，一身鵝黃衫子，頭戴金絲繡的小帽，帽邊插了一根長長的
+翠綠羽毛，革履青馬，旖旎如畫。\n");
+	set("nickname", HIG"翠羽"HIY"黃衫"NOR);
 	set("gender", "女性");
 	set("class", "swordsman");
 	set("age", 18);
@@ -54,7 +54,7 @@ void create()
 	prepare_skill("hand","yunlong-shou");
 	prepare_skill("claw","yunlong-zhua");
 	set("env/wimpy", 60);
-	set_temp("is_riding", HIC"青骢马"NOR);
+	set_temp("is_riding", HIC"青驄馬"NOR);
 	set("env/wimpy", 40);
 
  	setup();

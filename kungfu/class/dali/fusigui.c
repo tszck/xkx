@@ -1,4 +1,4 @@
-// fusigui.c 傅思归
+// fusigui.c 傅思歸
 
 #include <ansi.h>
 inherit NPC;
@@ -10,9 +10,9 @@ string ask_join();
 int ask_me();
 void create()
 {
-	set_name("傅思归", ({ "fu sigui", "fu" }));
-	set("title",  "大理护卫" );
-	set("long", "他是大理国四大护卫之一。\n");
+	set_name("傅思歸", ({ "fu sigui", "fu" }));
+	set("title",  "大理護衛" );
+	set("long", "他是大理國四大護衛之一。\n");
 	set("gender", "男性");
 	set("age", 40);
 	set("class", "officer");
@@ -60,7 +60,7 @@ void create()
 	}) );
 
 	set("inquiry", ([
-		"指点武功" : (: ask_me :),
+		"指點武功" : (: ask_me :),
 		"入官府" : (: ask_join :),
 		"join" : (: ask_join :),
 	]));
@@ -69,7 +69,7 @@ void create()
 	carry_object("/clone/weapon/changjian")->wield();
 	add_money("silver", 10);
 
-	create_family("大理段家",19,"护卫");
+	create_family("大理段家",19,"護衛");
 }
 string ask_join()
 {
@@ -77,17 +77,17 @@ string ask_join()
 	string *applied_id;
 
 	if (ob->query("combat_exp")<10000)
-		return ("你的武功太差，什么也做不了的。\n");
+		return ("你的武功太差，什麼也做不了的。\n");
 
 	if (ob->query_temp("dali_join"))
 		return RANK_D->query_respect(ob) + 
-		"，你已经是本王府随从了，何故还要开这种玩笑？";
+		"，你已經是本王府隨從了，何故還要開這種玩笑？";
 	ob->set_temp("dali_join",1);
 	if( pointerp(applied_id=ob->query_temp("apply/id")) && sizeof(applied_id) )
-		ob->set_temp("apply/short", ({HIY"大理国镇南王府随从"NOR+" "+ob->name()+"("+applied_id[0]+")"}));
+		ob->set_temp("apply/short", ({HIY"大理國鎮南王府隨從"NOR+" "+ob->name()+"("+applied_id[0]+")"}));
 	else
-	       ob->set_temp("apply/short", ({HIY"大理国镇南王府随从"NOR+" "+ob->name()+"("+ob->query("id")+")"}));       
+	       ob->set_temp("apply/short", ({HIY"大理國鎮南王府隨從"NOR+" "+ob->name()+"("+ob->query("id")+")"}));       
 	command("look "+ob->query("id"));
-	return "好，不错，这位兄弟可以为本王府工作了。";
+	return "好，不錯，這位兄弟可以爲本王府工作了。";
 }
 #include "/kungfu/class/dali/weishi.h"; 

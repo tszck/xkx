@@ -7,7 +7,7 @@ void create()
 {
 	set_name("葛光佩", ({ "ge guangpei", "ge", "guangpei"}));
 
-	set("long" ,"她长着一张鹅蛋脸，左颊上有几粒白麻子，倒也颇有几分姿色。\n");
+	set("long" ,"她長着一張鵝蛋臉，左頰上有幾粒白麻子，倒也頗有幾分姿色。\n");
 	set("gender", "女性");
 	set("attitude", "friendly");
 
@@ -38,14 +38,14 @@ void create()
 	map_skill("sword", "damo-jian");
 	map_skill("parry", "damo-jian");
 	set("inquiry", ([
-		"干光豪"    : (: ask_me :),
+		"幹光豪"    : (: ask_me :),
 		"狗男女"    : (: ask_me :),
-		"奸夫淫妇"  : (: ask_me :),
+		"姦夫淫婦"  : (: ask_me :),
 		"忘八"      : (: ask_me :),
-		"无量玉壁"  : "那是本派禁地，任何外人不得擅入。干犯禁忌，可叫你死葬身之地。",
+		"無量玉壁"  : "那是本派禁地，任何外人不得擅入。干犯禁忌，可叫你死葬身之地。",
 	]));
 
-	create_family("无量剑西宗", 5, "弟子");
+	create_family("無量劍西宗", 5, "弟子");
 	setup();
 
         carry_object("/clone/cloth/cloth")->wear();
@@ -55,6 +55,6 @@ void create()
 string ask_me()
 {
 	this_player()->set_temp("marks/wuliang", 1);
-	return "既然被你撞破了我们的好事，也不用我们动手，自己到悬崖了断吧。";
+	return "既然被你撞破了我們的好事，也不用我們動手，自己到懸崖了斷吧。";
 }
 

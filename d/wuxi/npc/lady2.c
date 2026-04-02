@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("风雨少女",({ "girl" }) );
+	set_name("風雨少女",({ "girl" }) );
 	set("gender", "女性" );
 	set("age", 16);
 	set("long", 
-"这是个十六、七岁风华正茂的少女，山样清丽，水样温柔。\n");
+"這是個十六、七歲風華正茂的少女，山樣清麗，水樣溫柔。\n");
 	set_temp("apply/defense", 5);
 	set("combat_exp", 400);
 //	set("shen", 100);

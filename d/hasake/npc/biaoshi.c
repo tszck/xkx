@@ -2,8 +2,8 @@
 inherit NPC;
 void create()
 {
-       set_name("神秘镖师", ({ "shenmi biaoshi", "biaoshi" }) );
-       set("title", "中原镖师");
+       set_name("神祕鏢師", ({ "shenmi biaoshi", "biaoshi" }) );
+       set("title", "中原鏢師");
        set("gender", "男性" );
        set("age", 45);
        set("str", 20);
@@ -11,13 +11,13 @@ void create()
        set("int", 20);
        set("dex", 20);
        set("env/wimpy", 60);
-       set("long", "他是个来自中原的镖师，但他十年来从没回去过，好象是在找什么东西。\n" );
+       set("long", "他是個來自中原的鏢師，但他十年來從沒回去過，好象是在找什麼東西。\n" );
        set("combat_exp", 25000 + random(3000));
        set("shen", -300); 
        set("attitude", "heroism");
        set("chat_chance", 30);
        set("chat_msg", ({
-            "神秘镖师好象在自言自语：在哪呢？在哪呢？ \n",
+            "神祕鏢師好象在自言自語：在哪呢？在哪呢？ \n",
            (: random_move :)
        }) );          
        set("max_qi", 400);

@@ -7,8 +7,8 @@ void create()
 {
 	set("short", "兵器室");
 	set("long", @LONG
-这是一间存放兵器的屋子。刀、枪、剑、戟等各种兵器都按类放在
-各自的兵器架上。整个屋子落满灰尘，显然已经好久没人来过。
+這是一間存放兵器的屋子。刀、槍、劍、戟等各種兵器都按類放在
+各自的兵器架上。整個屋子落滿灰塵，顯然已經好久沒人來過。
 LONG );
 	set("exits", ([
 		"north" : __DIR__"zoulang3",
@@ -37,6 +37,6 @@ int valid_leave(object me, string dir)
 		if (inv[i]->query("id") == "taomu jian") j++;
 	}
 	if (j > 1)
-                return notify_fail("这位" + RANK_D->query_respect(me) + "别那麽贪心，带走一把桃木剑就够啦。\n");
+                return notify_fail("這位" + RANK_D->query_respect(me) + "別那麼貪心，帶走一把桃木劍就夠啦。\n");
         return ::valid_leave(me, dir);
 }

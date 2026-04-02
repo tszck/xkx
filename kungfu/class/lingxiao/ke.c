@@ -7,10 +7,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("柯万钧",({"ke wanjun","ke"}));
+	set_name("柯萬鈞",({"ke wanjun","ke"}));
 	set("gender", "男性");
 	set("age", 20);
-	set("long", "他是凌霄城第六代弟子柯万钧。\n");
+	set("long", "他是凌霄城第六代弟子柯萬鈞。\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);
@@ -66,12 +66,12 @@ void attempt_apprentice(object ob)
 {
 	if (ob->query_int() < 20)
 	{
-		command("say 你这种资质,不宜学剑！");
+		command("say 你這種資質,不宜學劍！");
 		return;
 	}
 	if( (string)ob->query("gender") != "男性" )
 	{
-		command("say 这位"+RANK_D->query_respect(ob)+"我不收女徒的，你还是去找我花师妹吧.");
+		command("say 這位"+RANK_D->query_respect(ob)+"我不收女徒的，你還是去找我花師妹吧.");
 		return;
 	}
 	command("say 很好，很好。");

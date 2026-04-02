@@ -11,8 +11,8 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "这就是成都出名的小吃麻婆豆腐，北方的客官可得小心了。\n");
-		set("unit", "块");
+		set("long", "這就是成都出名的小喫麻婆豆腐，北方的客官可得小心了。\n");
+		set("unit", "塊");
 		set("value", 40);
 		set("food_remaining", 1);
 		set("food_supply", 50);

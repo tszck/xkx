@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("闻万夫",({"wen wanfu","wen"}));
+	set_name("聞萬夫",({"wen wanfu","wen"}));
 	set("gender", "男性");
 	set("age", 20);
-	set("long", "他是凌霄城第六代弟子闻万夫。\n");
+	set("long", "他是凌霄城第六代弟子聞萬夫。\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);

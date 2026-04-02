@@ -1,4 +1,4 @@
-// shiye.c 知府师爷
+// shiye.c 知府師爺
 
 inherit NPC;
 
@@ -6,8 +6,8 @@ string ask_me();
 
 void create()
 {
-	set_name("甄有庆", ({ "zhen youqing", "zhen" }));
-	set("title", "知府师爷");
+	set_name("甄有慶", ({ "zhen youqing", "zhen" }));
+	set("title", "知府師爺");
 	set("gender", "男性");
 	set("age", 57);
 

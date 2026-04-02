@@ -1,4 +1,4 @@
-// suo.c 金钩锁魂
+// suo.c 金鉤鎖魂
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,7 +7,7 @@
 #include <combat.h>
 
 inherit F_SSERVER;
-#define PNAME "金钩锁魂"
+#define PNAME "金鉤鎖魂"
 int perform(object me, object target)
 {
 	object ob,weapon,myweapon;
@@ -23,21 +23,21 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "hook")
-		return notify_fail(PNAME"开始时必须拿着一把钩！\n");
+		return notify_fail(PNAME"開始時必須拿着一把鉤！\n");
 
 	if (!objectp(weapon = target->query_temp("weapon")))
-		return notify_fail("对方手中并没有兵器！\n");
+		return notify_fail("對方手中並沒有兵器！\n");
 
 	fskill = "wudu-shengong";
 	bskill = "hook";
@@ -51,33 +51,33 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"还不到家，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"還不到家，使不出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(sskill)+"还不到家，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"還不到家，使不出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(bskill)+"还不到家，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"還不到家，使不出"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 500 )
-		return notify_fail("你的真气不够！\n");
+		return notify_fail("你的真氣不夠！\n");
 
 	weapon=target->query_temp("weapon");
 	myweapon=me->query_temp("weapon");
-	message_combatd(HIR"\n$N虚晃一招，手中"+myweapon->query("name")+HIR"忽的一声，钩尖已搭在$n的"+weapon->query("name")+HIR"上！\n" NOR,me,target);
+	message_combatd(HIR"\n$N虛晃一招，手中"+myweapon->query("name")+HIR"忽的一聲，鉤尖已搭在$n的"+weapon->query("name")+HIR"上！\n" NOR,me,target);
 	skill = target->query_skill("parry", 1);
 	myskill = me->query_skill(bskill, 1);
 	if(random(myskill) < random(skill)||me->query("max_neili") <random(target->query("max_neili")))
 	{
-		msg = HIY "可是$n"HIY"早有准备，急忙收招跳开！\n" NOR;
+		msg = HIY "可是$n"HIY"早有準備，急忙收招跳開！\n" NOR;
 		message_combatd(msg, me,target);
 		me->start_busy(2);
 		me->add("neili",-100);
 		return 1;
 	}
 
-	msg = HIR"只见$N顺势一绞，低喝一声：“撒手！”$n只觉得虎口一阵巨痛，\n手中"+weapon->query("name")+HIR"当啷一声掉在地上！\n" NOR;
-	msg += "$N哈哈一笑，得理不饶人，招招进逼！\n" NOR;
+	msg = HIR"只見$N順勢一絞，低喝一聲：“撒手！”$n只覺得虎口一陣巨痛，\n手中"+weapon->query("name")+HIR"噹啷一聲掉在地上！\n" NOR;
+	msg += "$N哈哈一笑，得理不饒人，招招進逼！\n" NOR;
 	message_combatd(msg, me,target);
 	weapon->move(environment(me));
 
@@ -98,15 +98,15 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		连续出手五钩
-		击落对方兵刃
+		連續出手五鉤
+		擊落對方兵刃
 
 	出手要求：
-		五毒神功50级
-		基本钩法50级
-		五毒钩法50级
-		内力500
-		使用五毒教的钩
+		五毒神功50級
+		基本鉤法50級
+		五毒鉤法50級
+		內力500
+		使用五毒教的鉤
 HELP
 	);
 	return 1;

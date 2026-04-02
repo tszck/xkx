@@ -4,18 +4,18 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "钱庄");
+	set("short", "錢莊");
 	set("long", @LONG
-这是一家老字号的钱庄，已有几百年的历史，在全国各地都有分店。
-它发行的银票信誉非常好，通行全国。不管你走到哪里，在任何一个本
-庄分店都可以任意存取。墙上挂着一个牌子(paizi)。
+這是一家老字號的錢莊，已有幾百年的歷史，在全國各地都有分店。
+它發行的銀票信譽非常好，通行全國。不管你走到哪裏，在任何一個本
+莊分店都可以任意存取。牆上掛着一個牌子(paizi)。
 LONG );
 	set("item_desc", ([
-        "paizi" : "\n本庄有利息，至少百分之一。\n
-      存钱        deposit或者cun\n
-      取钱        withdraw或者qu\n
-      钱币兑换    convert或者duihuan\n
-      查帐        check或者chazhang\n",
+        "paizi" : "\n本莊有利息，至少百分之一。\n
+      存錢        deposit或者cun\n
+      取錢        withdraw或者qu\n
+      錢幣兌換    convert或者duihuan\n
+      查帳        check或者chazhang\n",
 	]));
 	set("exits", ([
 		"west" : __DIR__"wangfu1",

@@ -7,16 +7,16 @@ void create()
 {
         set("short", "太乙池");
         set("long", @LONG
-你眼前出现一个山间湖泊，这就是著名的太乙池 (chi)，传为唐
-天宝年间地震造成，四周高峰环列，池面碧波荡漾，山光水影，风景
-十分优美。
+你眼前出現一個山間湖泊，這就是著名的太乙池 (chi)，傳爲唐
+天寶年間地震造成，四周高峯環列，池面碧波盪漾，山光水影，風景
+十分優美。
 LONG
         );
         set("outdoors", "zhongnan");
         set("item_desc", ([
                 "chi" : 
-HIG"\n\n这是一个很大的山间湖，碧波荡漾，湖水清澈见底，让人忍不住想跳(jump)下去
-畅游一番。\n\n"NOR
+HIG"\n\n這是一個很大的山間湖，碧波盪漾，湖水清澈見底，讓人忍不住想跳(jump)下去
+暢遊一番。\n\n"NOR
         ]));
         set("exits", ([
                 "southup"   : __DIR__"shandao3",
@@ -39,7 +39,7 @@ int do_jump(string arg)
         c_exp = me->query("combat_exp");
         if( !arg || arg != "chi")
         {
-                write("你往哪里跳呀? \n");
+                write("你往哪裏跳呀? \n");
                 return 1;
         }
 	inv = all_inventory(me);
@@ -47,11 +47,11 @@ int do_jump(string arg)
         {
           if (inv[i]->is_character())
              {
-              return notify_fail("你要跳？自己一个人跳吧，带着别人干吗？\n");
+              return notify_fail("你要跳？自己一個人跳吧，帶着別人幹嗎？\n");
              }
         }  
         message_vision("$N往太乙池中跳去。\n", me);
         me->move("/d/quanzhen/taiyi2");
-        message_vision("$N跳进了太乙池中来。\n", me);
+        message_vision("$N跳進了太乙池中來。\n", me);
         return 1;
 }

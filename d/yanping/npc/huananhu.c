@@ -5,11 +5,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("华南虎", ({ "huanan hu", "tiger","hu" }) );
-	set("race", "走兽");
+	set_name("華南虎", ({ "huanan hu", "tiger","hu" }) );
+	set("race", "走獸");
 	set("age", 20);
 	set("long", @LONG
-一只矫健轻快的猛虎，雄伟极了。
+一隻矯健輕快的猛虎，雄偉極了。
 
 
     ("`-''-/").___..--''"`-.
@@ -34,8 +34,8 @@ LONG);
 	setup();
 	set("chat_chance", 10);
 	set("chat_msg", ({
-		"老虎在浚巡，吓得你大气都不敢出。\n",
-		"老虎仰天长啸，声震山谷，黄叶纷坠。\n",
+		"老虎在浚巡，嚇得你大氣都不敢出。\n",
+		"老虎仰天長嘯，聲震山谷，黃葉紛墜。\n",
 	}) );
 }
 
@@ -57,10 +57,10 @@ void greeting(object ob)
 	if( !ob || environment(ob) != environment() ) return;
 	if (ob->query_dex()<20 && !this_object()->query_temp("owner"))
 	{
-		message_vision( "只见发起一阵狂风。
-只听得乱树背後扑地一声响，跳出一只吊睛白额大虫来。
-那大虫又饿，又渴，把两只爪在地上略按一按，和身望你一扑，从半空里撺将下来。\n",ob);
-		message_vision("$N这一下没有躲开，为虎所伤晕了过去。\n\n",ob);
+		message_vision( "只見發起一陣狂風。
+只聽得亂樹背後撲地一聲響，跳出一隻吊睛白額大蟲來。
+那大蟲又餓，又渴，把兩隻爪在地上略按一按，和身望你一撲，從半空裏攛將下來。\n",ob);
+		message_vision("$N這一下沒有躲開，爲虎所傷暈了過去。\n\n",ob);
 		ob->receive_wound("qi",20);
 		ob->start_busy(2);
 		this_object()->kill_ob(ob);
@@ -70,7 +70,7 @@ void greeting(object ob)
 void die()
 {
 	object ob, corpse;
-	message_vision("$N发出震天动地的一声长啸，轰地倒在地上，死了！\n", this_object());
+	message_vision("$N發出震天動地的一聲長嘯，轟地倒在地上，死了！\n", this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 	ob = new("/clone/medicine/vegetable/hugu");
 	ob->move(corpse);

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "闽赣古道");
+	set("short", "閩贛古道");
 	set("long", @LONG
-福建境内数不尽的山坎相连。密林幽谷相继，终日不见天光。山中
-毒虫猛兽出没无常，行路艰辛。
+福建境內數不盡的山坎相連。密林幽谷相繼，終日不見天光。山中
+毒蟲猛獸出沒無常，行路艱辛。
 LONG );
 	set("exits", ([
 		"westdown" : __DIR__"gudao1",

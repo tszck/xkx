@@ -4,10 +4,10 @@ inherit NPC;
 
 void create ()
 {
-	set_name("万震山", ({"wan zhenshan","wan"}));
-	set("nickname", HIR"五云手"NOR);
+	set_name("萬震山", ({"wan zhenshan","wan"}));
+	set("nickname", HIR"五雲手"NOR);
 	set("long", "
-一位身形魁梧的老者，精神矍铄，步履沉稳，丝毫不见苍老之态。\n");
+一位身形魁梧的老者，精神矍鑠，步履沉穩，絲毫不見蒼老之態。\n");
 	set("gender", "男性");
 	set("age", 50);
 	set("combat_exp", 1000000);

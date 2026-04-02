@@ -7,9 +7,9 @@ inherit NPC;
 void create()
 {
 	set_name("方成", ({ "fang cheng", "fang", "cheng"}));
-	set("long", "他是一位身穿黄布袈裟的青年僧人。脸上稚气未脱，身手却已相\n"
-		"当矫捷，看来似乎学过一点武功。\n");
-	set("nickname", "狱头");
+	set("long", "他是一位身穿黃布袈裟的青年僧人。臉上稚氣未脫，身手卻已相\n"
+		"當矯捷，看來似乎學過一點武功。\n");
+	set("nickname", "獄頭");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -80,13 +80,13 @@ void speaking(object ob)
 		switch( random(3) )
 		{
 			case 0:
-				command( "say 百年前的一场大火，整个少林寺就除这监牢和北边\n的钟楼没遭灾。唉。。。\n");
+				command( "say 百年前的一場大火，整個少林寺就除這監牢和北邊\n的鐘樓沒遭災。唉。。。\n");
 				break;
 			case 1:
-				command( "say 这里四周全用钢汁浇缝的花岗岩给封了起来，你们\n就是变成苍蝇也飞不出去！\n");
+				command( "say 這裏四周全用鋼汁澆縫的花崗巖給封了起來，你們\n就是變成蒼蠅也飛不出去！\n");
 				break;
 			case 2:
-				command( "say 好好呆着别动，等会儿自然会放你们出去，不过你\n们自己要打架我可不管！\n");
+				command( "say 好好待著別動，等會兒自然會放你們出去，不過你\n們自己要打架我可不管！\n");
 				break;
 		}
 	}

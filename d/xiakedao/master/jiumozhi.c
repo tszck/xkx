@@ -1,4 +1,4 @@
-// /kungfu/class/xueshan/jiumozhi.c 鸠摩智
+// /kungfu/class/xueshan/jiumozhi.c 鳩摩智
 // by secret
 
 #include <ansi.h>
@@ -8,14 +8,14 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("鸠摩智", ({ "jiumo-zhi", "zhi" ,"ming wang"}));
-        set("nickname", HIG "大轮明王" NOR);
+        set_name("鳩摩智", ({ "jiumo-zhi", "zhi" ,"ming wang"}));
+        set("nickname", HIG "大輪明王" NOR);
         set("long",@LONG
-他就是雪山寺的掌门，人称大轮明王的鸠摩智。他对佛法有精深的研究。
-身穿一件大红袈裟，头带僧帽。
+他就是雪山寺的掌門，人稱大輪明王的鳩摩智。他對佛法有精深的研究。
+身穿一件大紅袈裟，頭帶僧帽。
 LONG
         );
-        set("title","雪山寺掌门");
+        set("title","雪山寺掌門");
         set("gender", "男性");
         set("age", 60);
         set("attitude", "friendly");
@@ -58,7 +58,7 @@ LONG
 
         prepare_skill("strike","huoyan-dao");
 
-        create_family("雪山寺", 1, "掌门");
+        create_family("雪山寺", 1, "掌門");
         set("class", "bonze");
 
         setup();
@@ -84,7 +84,7 @@ void greeting(object ob)
 	int i;
 
 	obj = all_inventory(environment(me));
-        command("say 赵客缦胡缨，胡缨的样子应该是这样的，这是否暗指行掌之势？\n");
+        command("say 趙客縵胡纓，胡纓的樣子應該是這樣的，這是否暗指行掌之勢？\n");
         command("consider");
 	for(i=0; i<sizeof(obj); i++)
 	{

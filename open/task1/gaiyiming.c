@@ -1,12 +1,12 @@
-// gaiyiming.c 盖一鸣
+// gaiyiming.c 蓋一鳴
 inherit NPC;
  
 void create()
 {
-	set_name("盖一鸣", ({ "gai  yiming", "gai" }));
-	set("nickname", "八步赶蟾、赛专诸、踏雪无痕、独脚水上飞、双刺盖七省");
+	set_name("蓋一鳴", ({ "gai  yiming", "gai" }));
+	set("nickname", "八步趕蟾、賽專諸、踏雪無痕、獨腳水上飛、雙刺蓋七省");
 	set("long", 
-	"一张蜡黄的脸，短小精悍，下巴尖削，手中拿著一对峨眉钢刺。\n");
+	"一張蠟黃的臉，短小精悍，下巴尖削，手中拿著一對峨眉鋼刺。\n");
 	set("gender", "男性");
 	set("age", 25);
 	set("attitude", "peaceful");

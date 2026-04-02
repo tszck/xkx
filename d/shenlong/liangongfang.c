@@ -1,15 +1,15 @@
-// liangongfang.c 练功房
+// liangongfang.c 練功房
 // Last Modified by winder on Jul. 12 2002
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "练功房");
+	set("short", "練功房");
 	set("long", @LONG
-这里是神龙教秘密的练功房，地下整整齐齐放着几个蒲团，几位神
-龙教长老正盘膝坐在上面练功。四壁列着一些柜子，抽屉中放满了各类
-药酒。柜子上放着几本神龙教从各处猎获的内功心法册子。
+這裏是神龍教祕密的練功房，地下整整齊齊放着幾個蒲團，幾位神
+龍教長老正盤膝坐在上面練功。四壁列着一些櫃子，抽屜中放滿了各類
+藥酒。櫃子上放着幾本神龍教從各處獵獲的內功心法冊子。
 LONG
 	);
 	set("exits", ([
@@ -35,10 +35,10 @@ int do_practice(string arg)
 	if( (int)me->query("sg/exp") < 5000 )
 	{
 		message("vision", 
-			"只见一位神龙教长老把"+me->name() + "一脚踢了出去。\n",
+			"只見一位神龍教長老把"+me->name() + "一腳踢了出去。\n",
 			environment(me), ({me}));
 		me->move(__DIR__"zhulin1");
-		message_vision("$N被神龙教长老踢了出来。\n", me);
+		message_vision("$N被神龍教長老踢了出來。\n", me);
 		return 1;
 	}
 
@@ -47,7 +47,7 @@ int do_practice(string arg)
 	if(arg == "strike" && me->query_skill_mapped(arg) == "huagu-mianzhang" )
 		return 0;
 
-	write("这里是修习化骨绵掌的场所。\n");
+	write("這裏是修習化骨綿掌的場所。\n");
 	return 1;
 }
 

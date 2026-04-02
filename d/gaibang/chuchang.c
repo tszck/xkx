@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "储藏室");
+	set("short", "儲藏室");
 	set("long", @LONG
-这里是丐帮的储藏室，你现在只能看见一个个锁着的箱子。
+這裏是丐幫的儲藏室，你現在只能看見一個個鎖着的箱子。
 LONG );
 	set("exits", ([
 		"west" : __DIR__"mishi",

@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "石门");
+	set("short", "石門");
 	set("long", @LONG
-这是在一条昏暗潮湿的地道里的一扇石门。墙壁上点着一盏油灯，
-发出淡黄色光芒。
+這是在一條昏暗潮溼的地道里的一扇石門。牆壁上點着一盞油燈，
+發出淡黃色光芒。
 LONG
 	);
 	set("weapon_count",1);
@@ -28,18 +28,18 @@ int do_unlock(string arg)
 	object ob, midao2;
 
 	if (query("exits/southdown"))
-		return notify_fail("这扇石门已经是打开的。\n");
+		return notify_fail("這扇石門已經是打開的。\n");
 	if (!arg || (arg != "men" && arg != "door"))
-		return notify_fail("你要打开什么？\n");
+		return notify_fail("你要打開什麼？\n");
 	if (!(ob = present("gang yaoshi", this_player())))
-		return notify_fail("你不会撬锁。\n");
+		return notify_fail("你不會撬鎖。\n");
 	if(!( midao2 = find_object(__DIR__"midao2")) )
                 midao2 = load_object(__DIR__"midao2");
 	if(objectp(midao2))
 	{
 		set("exits/southdown", __DIR__"midao2");
-		message_vision("$N把钢芯钥匙插入了一个匙孔，转了几转，向内推动。\n只听得轧轧声响，一扇石门缓缓开了。\n", this_player());
-		message("vision","只听一阵钥匙想，石门那边好象有人开门了。\n",
+		message_vision("$N把鋼芯鑰匙插入了一個匙孔，轉了幾轉，向內推動。\n只聽得軋軋聲響，一扇石門緩緩開了。\n", this_player());
+		message("vision","只聽一陣鑰匙想，石門那邊好象有人開門了。\n",
  midao2);
         }
 	return 1;

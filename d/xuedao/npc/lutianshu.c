@@ -4,13 +4,13 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-       set_name("陆天抒", ({ "Lu tianshu", "lu" }));
+       set_name("陸天抒", ({ "Lu tianshu", "lu" }));
        set("long", 
        "他就是南四奇“落花流水”中的老大。\n"
-       "南四奇横行江南，行侠仗义，陆天抒更是仗义疏财，大有侠名。\n");
+       "南四奇橫行江南，行俠仗義，陸天抒更是仗義疏財，大有俠名。\n");
        set("gender", "男性");
        set("title", "南四奇");
-       set("nickname", HIG"仁义陆大刀"NOR);
+       set("nickname", HIG"仁義陸大刀"NOR);
        set("age", 51);
        set("attitude", "peaceful");
        set("shen_type", 0);
@@ -45,7 +45,7 @@ void create()
        map_skill("blade", "wuhu-duanmendao");
        set("chat_chance", 20);
        set("chat_msg", ({
-              "陆天抒提起中气，纵声长啸：“落～～花流水……”啸声雄浑，远远群山回应不绝。\n",
+              "陸天抒提起中氣，縱聲長嘯：“落～～花流水……”嘯聲雄渾，遠遠羣山回應不絕。\n",
 	}));
 
        setup();

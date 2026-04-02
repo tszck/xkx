@@ -1,4 +1,4 @@
-// liuma.c 骝马
+// liuma.c 騮馬
 
 #include <command.h>
 #include <dbase.h>
@@ -8,8 +8,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("骝马", ({ "liu ma" }));
-	set("long","一匹骏马。\n");
+	set_name("騮馬", ({ "liu ma" }));
+	set("long","一匹駿馬。\n");
 	set("race", "走畜");
 	set("age", 5);
 	set("attitude","heroism");

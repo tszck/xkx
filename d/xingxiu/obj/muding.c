@@ -9,7 +9,7 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "只");
-                set("long", "一只雕琢而成的暗黄色小木鼎, 木理之间隐隐泛出红丝。鼎侧有五个铜钱大的圆孔，木鼎齐颈出有一道细缝，似乎上下分为两截。\n");
+                set("long", "一隻雕琢而成的暗黃色小木鼎, 木理之間隱隱泛出紅絲。鼎側有五個銅錢大的圓孔，木鼎齊頸出有一道細縫，似乎上下分爲兩截。\n");
                 set("value", 5);
                 set("muding/remaining", 0);                
         }
@@ -25,17 +25,17 @@ int do_suck(string arg)
         object me = this_player();
 
         if ( arg != "blood" || !living(this_player()))
-        return notify_fail("你要吸什么？\n");
+        return notify_fail("你要吸什麼？\n");
 
         if( this_player()->is_busy() )
-                return notify_fail("你上一个动作还没有完成, 不能运功练毒。\n");
+                return notify_fail("你上一個動作還沒有完成, 不能運功練毒。\n");
         if ( me->is_fighting())
-        return notify_fail("你在战斗中不能运功练毒。\n");
+        return notify_fail("你在戰鬥中不能運功練毒。\n");
 
         if(query("muding/remaining") < 1)
-                return notify_fail("木鼎中没有血水了。\n");
+                return notify_fail("木鼎中沒有血水了。\n");
 
-        message_vision("$N伸掌将血液接住，盘膝运功，将血液吸入掌内。\n", me);
+        message_vision("$N伸掌將血液接住，盤膝運功，將血液吸入掌內。\n", me);
            me->receive_damage("jing", 10);
            me->receive_damage("jingli", 10);
            me->receive_damage("qi", 15);
@@ -52,15 +52,15 @@ int do_suck(string arg)
           switch(random(3)) {
             case 0:
                   me->improve_skill("poison", (int)(me->query("int") / 2));
-                  write (RED"你只觉掌中微微一凉，一股阴气顺着脉络侵入脑髓。\n"NOR"你对基本毒技的领会又加深了一些！\n");
+                  write (RED"你只覺掌中微微一涼，一股陰氣順着脈絡侵入腦髓。\n"NOR"你對基本毒技的領會又加深了一些！\n");
                   break;
             case 1:
                   me->improve_skill("chousui-zhang", (int)(me->query("int") / 2));
-                  write (RED"你只觉掌中微微一痒，一股毒气自掌沿手臂上升。\n"NOR "你对抽髓掌的领会又加深了一些！\n");
+                  write (RED"你只覺掌中微微一癢，一股毒氣自掌沿手臂上升。\n"NOR "你對抽髓掌的領會又加深了一些！\n");
                   break;
             case 2:
                   me->improve_skill("huagong-dafa", (int)(me->query("int") / 2));
-                  write (RED"你只觉掌中微微一痒，一股阴毒之气自掌沿手臂上升，直达丹田。\n"NOR "你对化功大法的领会又加深了一些！\n");
+                  write (RED"你只覺掌中微微一癢，一股陰毒之氣自掌沿手臂上升，直達丹田。\n"NOR "你對化功大法的領會又加深了一些！\n");
                   break;
                   }
             }

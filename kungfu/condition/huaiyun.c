@@ -12,57 +12,57 @@ inherit F_CLEAN_UP;
 
 
 int update_condition(object me, int duration)
-{// 320个heart_beat一个月  
+{// 320個heart_beat一個月  
 	if ( me->is_fighting() && duration < 2230 && duration > 0 ){
-		tell_object(me, HIR "你突然觉得有些体力不支，打起架来特别费力。\n" NOR );
+		tell_object(me, HIR "你突然覺得有些體力不支，打起架來特別費力。\n" NOR );
     if (me->query("neili")>200) 
      me->add("neili",-200);
     else
      me->set("neili",0);
 	}
 	else if ( duration == 2720 || duration == 2700){
-		tell_object(me, HIB "你突然感到一阵的恶心，忍不住到路边吐了一会儿，总算是好些了。\n" NOR );
+		tell_object(me, HIB "你突然感到一陣的噁心，忍不住到路邊吐了一會兒，總算是好些了。\n" NOR );
 	}
 	else if (duration ==2560 || duration == 2565 ){
-			tell_object(me, HIB "你突然感到一阵的恶心，连忙捂住嘴，差点又忍不住吐了出来。\n难道上次他。。。。。\n" NOR );
+			tell_object(me, HIB "你突然感到一陣的噁心，連忙捂住嘴，差點又忍不住吐了出來。\n難道上次他。。。。。\n" NOR );
 	}
 	else if (duration >=2230 &&  duration <2560 ){
 		if (duration%10==1)
-			tell_object(me, HIB "你觉得身体有点不舒服，常常有种恶心的感觉。\n" NOR );
+			tell_object(me, HIB "你覺得身體有點不舒服，常常有種噁心的感覺。\n" NOR );
 	}
 	else if (duration >=1300 && duration <2230 ){
 		if (random(20)==1)
 	  {
 	  	if (me->query("food")>5) me->add("food",-5);
 	  	if (me->query("water")>5) me->add("water",-5);
-				tell_object(me, HIY "你觉得肚子很饿，想吃点什么东西。\n" NOR );
+				tell_object(me, HIY "你覺得肚子很餓，想喫點什麼東西。\n" NOR );
 		}else if(random(20)==1)
 		{
 			if (me->query("jing")>10) me->add("jing",-10);
 			if (me->query("qi")>10) me->add("qi",-10);
-		  tell_object(me, HIY "你感到有些疲惫，腰酸背痛，没什么力气。\n" NOR );
+		  tell_object(me, HIY "你感到有些疲憊，腰痠背痛，沒什麼力氣。\n" NOR );
 			}
 	}
 	else if (duration > 80 && duration < 1300 ){ if (random(50)==1)
-			tell_object(me, HIB "肚子里的小家伙不安分地踢了你一脚。\n" NOR );
+			tell_object(me, HIB "肚子裏的小傢伙不安分地踢了你一腳。\n" NOR );
 	}
 	else if (duration <= 80 && duration >0){
 			if (!environment(me)->query("if_bed"))
-			tell_object(me, HIR "你感到肚子翻江倒海般地疼了起来。好像是快要生了，快把孩子的父亲叫来，回家躺着吧。\n" NOR );
+			tell_object(me, HIR "你感到肚子翻江倒海般地疼了起來。好像是快要生了，快把孩子的父親叫來，回家躺着吧。\n" NOR );
 			else 	if (!present(me->query("baby/father"),environment(me)))
-			tell_object(me, HIY "你躺在床上感觉好多了，赶快把孩子的父亲叫过来吧。\n" NOR );
+			tell_object(me, HIY "你躺在牀上感覺好多了，趕快把孩子的父親叫過來吧。\n" NOR );
       else if (random(5)==1)
       call_out("shengle",5,me);
 			else 
-			tell_object(me, HIY "你躺在床上感觉好多了，回家了就什么也别想了，静静地等待孩子出世吧。\n" NOR );
+			tell_object(me, HIY "你躺在牀上感覺好多了，回家了就什麼也別想了，靜靜地等待孩子出世吧。\n" NOR );
 	}
 	else if (duration == 0 ){
-			tell_object(me, RED "你只觉腹肚疼痛难忍，浑身大汗淋漓。好难受啊，让我死了吧。。。\n" NOR );
+			tell_object(me, RED "你只覺腹肚疼痛難忍，渾身大汗淋漓。好難受啊，讓我死了吧。。。\n" NOR );
 		  call_out("shengle",5,me);
   }
 	if (duration<2230)
 	if (!me->query_temp("apply/attack") || me->query_temp("apply/attack")>=0)
-		me->add_temp("apply/attack",-100000);//降低攻击
+		me->add_temp("apply/attack",-100000);//降低攻擊
 	me->apply_condition("huaiyun", duration - 1);
 	return 1;
 }
@@ -70,10 +70,10 @@ int shengle(object me)
 {
 	object obj= find_player(me->query("baby/father"));
 	if (me->query_temp("apply/attack")<-95000)
-	me->add_temp("apply/attack",100000);//恢复攻击力
+	me->add_temp("apply/attack",100000);//恢復攻擊力
 	if( !environment(me)->query("if_bed") )
 	{
-		message_vision(HIY "\n$N似乎觉得腹中一阵巨痛，大叫一声，由于这里的环境实在是太恶劣了，\n$N的孩子流产了，好可怜啊！\n"NOR, me);
+		message_vision(HIY "\n$N似乎覺得腹中一陣巨痛，大叫一聲，由於這裏的環境實在是太惡劣了，\n$N的孩子流產了，好可憐啊！\n"NOR, me);
 		me->set("qi",1);
 		me->set("jing",1);
 		me->set("neili", me->query("neili")/2);
@@ -81,7 +81,7 @@ int shengle(object me)
 	 } 
 	 else if (!obj || !userp(obj) || !present(obj, environment(me)) )
 	 {		
-		message_vision(HIY "\n$N似乎觉得腹中一阵巨痛，大叫一声，由于关键时刻孩子的父亲没有守侯在你身边，\n$N的孩子流产了，好可怜啊！\n"NOR, me);
+		message_vision(HIY "\n$N似乎覺得腹中一陣巨痛，大叫一聲，由於關鍵時刻孩子的父親沒有守侯在你身邊，\n$N的孩子流產了，好可憐啊！\n"NOR, me);
 		me->set("qi",1);
 		me->set("jing",1);
 		me->set("neili", me->query("neili")/2);
@@ -92,7 +92,7 @@ int shengle(object me)
 		me->set_temp("is_bearing",1);
 		me->start(100);
 		obj->start(100);
-		message_vision(HIY "\n$N忽觉腹中一阵颤动，赶紧拉住$n的手，柔声说道：要生了! \n" NOR, me,obj);
+		message_vision(HIY "\n$N忽覺腹中一陣顫動，趕緊拉住$n的手，柔聲說道：要生了! \n" NOR, me,obj);
 		call_out("birth1",15,me,obj);
 	 }
    me->clear_condition("huaiyun");
@@ -101,8 +101,8 @@ int shengle(object me)
 
 int birth1(object me,object obj)
 {  
-	 message_vision(HIY "\n$N已是大汗淋漓，一直都在呼天抢地，双手紧紧扣住$n的手不放。\n"+
-		 "\n婴儿已经探出了头．．．\n"NOR,me,obj);
+	 message_vision(HIY "\n$N已是大汗淋漓，一直都在呼天搶地，雙手緊緊扣住$n的手不放。\n"+
+		 "\n嬰兒已經探出了頭．．．\n"NOR,me,obj);
 	 call_out("birth2",15,me,obj);
 	 return 1;
 }
@@ -123,12 +123,12 @@ void birth2(object me,object obj)
 	me->set("baby/gender",random(2)+1);
 	if (!baby1=create_baby(me,obj)) 
 		return;
- 	tell_object(me,"恭喜恭喜。两位的运气真好，竟然是一对双胞胎。\n");
-	tell_object(obj,"恭喜恭喜。两位的运气真好，竟然是一对双胞胎。\n");
+ 	tell_object(me,"恭喜恭喜。兩位的運氣真好，竟然是一對雙胞胎。\n");
+	tell_object(obj,"恭喜恭喜。兩位的運氣真好，竟然是一對雙胞胎。\n");
 	twins=1;
 }	
-	message_vision(HIY "\n「哇」．．．，婴儿出世了！\n"+
-		"\n$N面色苍白，斜倚在床头，看看孩子满意地露出一丝微笑。\n"NOR, me);
+	message_vision(HIY "\n「哇」．．．，嬰兒出世了！\n"+
+		"\n$N面色蒼白，斜倚在牀頭，看看孩子滿意地露出一絲微笑。\n"NOR, me);
 	me->delete_temp("is_bearing");
 	me->delete("baby/father");
 	me->delete("baby/gender");
@@ -150,10 +150,10 @@ object create_baby(object me,object obj)
 	seteuid(getuid());
 	if (!baby = new("/d/taohuacun/npc/baby"))
 		{
-			tell_object(me,"系统出错，请通知巫师解决。\n");
+			tell_object(me,"系統出錯，請通知巫師解決。\n");
 			return 0;
 		}
-	baby->set("long", baby->query("long")+"这是"+obj->query("name")+"和"+me->query("name")+"的孩子。\n");
+	baby->set("long", baby->query("long")+"這是"+obj->query("name")+"和"+me->query("name")+"的孩子。\n");
 	me->add("child",1);
 	obj->add("child",1);
 //	if (random(100)<50)
@@ -173,7 +173,7 @@ object create_baby(object me,object obj)
 	}
 	else //wrong data
 	{
-	message_vision(HIR "$N终因体力不支流产了，$N惨叫一声晕了过去。\n"NOR, me);
+	message_vision(HIR "$N終因體力不支流產了，$N慘叫一聲暈了過去。\n"NOR, me);
 	me->unconcious();
 	return 0;
 		}

@@ -13,8 +13,8 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "块");
-		set("long", "参差不齐的怪石。\n");
+		set("unit", "塊");
+		set("long", "參差不齊的怪石。\n");
 		set("value", 1);
 	}
 }

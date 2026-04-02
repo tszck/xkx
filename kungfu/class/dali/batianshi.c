@@ -8,7 +8,7 @@ void create()
 {
 	set_name("巴天石", ({ "ba tianshi", "ba" }));
 	set("title",  "大理司空" );
-	set("long", "他是大理国三公之一。一个又瘦又黑的汉子，但他的擅长轻功。\n");
+	set("long", "他是大理國三公之一。一個又瘦又黑的漢子，但他的擅長輕功。\n");
 	set("gender", "男性");
 	set("age", 40);
 	set("class", "officer");
@@ -59,6 +59,6 @@ void create()
 	carry_object("/clone/weapon/changjian")->wield();
 	add_money("silver", 20);
 
-	create_family("大理段家",19,"武将");
+	create_family("大理段家",19,"武將");
 }
 

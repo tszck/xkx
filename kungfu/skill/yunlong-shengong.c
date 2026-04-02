@@ -1,4 +1,4 @@
-// yunlong-shengong.c 云龙神功
+// yunlong-shengong.c 雲龍神功
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -21,21 +21,21 @@ int valid_learn(object me)
 	nf = (int)me->query_skill("force", 1);
 	nh = (int)me->query_skill("yunlong-shengong", 1);
 
-	if ( me->query("gender") == "无性" && nh > 49)
-		return notify_fail("你无根无性，阴阳不调，难以领会高深的云龙神功。\n");
+	if ( me->query("gender") == "無性" && nh > 49)
+		return notify_fail("你無根無性，陰陽不調，難以領會高深的雲龍神功。\n");
 
   if ( nb < 100 && nb <= nh )
-		return notify_fail("你的云龙心法修为不够，无法领会更高深的云龙神功。\n");
+		return notify_fail("你的雲龍心法修爲不夠，無法領會更高深的雲龍神功。\n");
 
 	if ( nf < 10)
-		return notify_fail("你的基本内功火候还不够，无法领会云龙神功。\n");
+		return notify_fail("你的基本內功火候還不夠，無法領會雲龍神功。\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("云龙内功只能用学(learn)的来增加熟练度。\n");
+	return notify_fail("雲龍內功只能用學(learn)的來增加熟練度。\n");
 }
 
 string exert_function_file(string func)
@@ -44,16 +44,16 @@ string exert_function_file(string func)
 }
 int help(object me)
 {
-	write(HIC"\n云龙神功："NOR"\n");
+	write(HIC"\n雲龍神功："NOR"\n");
 	write(@HELP
 
-    天地会本门内功，具有自疗及运功之特殊用途。
+    天地會本門內功，具有自療及運功之特殊用途。
 
 
-	学习要求：
-		相应的云龙心法
-		基本内功10级
-		太监无法学到高等级的云龙神功
+	學習要求：
+		相應的雲龍心法
+		基本內功10級
+		太監無法學到高等級的雲龍神功
 HELP
 	);
 	return 1;

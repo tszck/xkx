@@ -10,7 +10,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long","这是一本星宿派武功密籍。\n");
+		set("long","這是一本星宿派武功密籍。\n");
 		set("value", 500);
 		set("material", "paper");
 		set("skill", ([

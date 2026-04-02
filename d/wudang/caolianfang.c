@@ -1,4 +1,4 @@
-// caolianfang.c 操练房
+// caolianfang.c 操練房
 // Modified by Marz 03/27/96
 
 #include <room.h>
@@ -6,9 +6,9 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "操练房");
+        set("short", "操練房");
         set("long", @LONG
-这是二楼操练房上，四面八方都是打斗声，武当弟子来去匆匆。
+這是二樓操練房上，四面八方都是打鬥聲，武當弟子來去匆匆。
 LONG );
         set("exits", ([
                 "south"     : __DIR__"caolian1",

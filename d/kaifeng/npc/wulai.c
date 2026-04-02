@@ -2,8 +2,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("无赖", ({"wu lai", "wu", "lai"}));
-	set("long", "大相国寺附近的无赖，平时专到菜园中偷菜。\n" );
+	set_name("無賴", ({"wu lai", "wu", "lai"}));
+	set("long", "大相國寺附近的無賴，平時專到菜園中偷菜。\n" );
         set("gender", "男性");
         set("age",25);
         set("combat_exp", 7000);

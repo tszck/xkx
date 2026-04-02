@@ -15,12 +15,12 @@ void create()
 {
 	set("short", "西碑林");
 	set("long", @LONG
-这里是一大片碑林。虽说是碑林，主要是少林历代高僧的
-佛塔灵藏(tower)。一座座佛塔约有二三人高，有汉白玉的，
-花冈石的，精工雕凿，薄薄的浮雕面上飞禽走兽，佛谒禅诗，
-诸佛众生，可谓无所不包。底座有须弥座的，也有莲花座的，
-各态纷呈。佛塔间疏疏落落的立着几块碑(stone)，有的题着
-几句诗。
+這裏是一大片碑林。雖說是碑林，主要是少林歷代高僧的
+佛塔靈藏(tower)。一座座佛塔約有二三人高，有漢白玉的，
+花岡石的，精工雕鑿，薄薄的浮雕面上飛禽走獸，佛謁禪詩，
+諸佛衆生，可謂無所不包。底座有須彌座的，也有蓮花座的，
+各態紛呈。佛塔間疏疏落落的立着幾塊碑(stone)，有的題着
+幾句詩。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"taijie",
@@ -51,15 +51,15 @@ void check_trigger()
 	if( (int)query("up_trigger")==4
 	&&	(int)query("down_trigger")==3
 	&&	!query("exits/down") ) {
-		message("vision", "佛塔忽然发出轧轧的声音，向一侧缓缓移开，"
-			"向下露出一个黑洞洞的入口。\n", this_object() );
+		message("vision", "佛塔忽然發出軋軋的聲音，向一側緩緩移開，"
+			"向下露出一個黑洞洞的入口。\n", this_object() );
 		set("exits/down", __DIR__"beilin3");
 		if( !room = find_object(__DIR__"beilin3") )
         room = load_object(__DIR__"beilin3");
     room->set("exits/up", __FILE__);
     message("vision",
-"头顶上的石板忽然发出轧轧的声音，露出一个光亮亮的洞口。"
-"一块块踏脚石从墙壁中凸了出来，形成一个向上的阶梯。\n",room );
+"頭頂上的石板忽然發出軋軋的聲音，露出一個光亮亮的洞口。"
+"一塊塊踏腳石從牆壁中凸了出來，形成一個向上的階梯。\n",room );
 		delete("poem_said");
 		delete("up_trigger");
 		delete("down_trigger");
@@ -73,13 +73,13 @@ void close_passage()
 	object room;
 
 	if( !query("exits/down") ) return;
-	message("vision", "佛塔忽然发出轧轧的声音，缓缓地移回原处，"
-		"将向下的洞口盖住了。\n", this_object() );
+	message("vision", "佛塔忽然發出軋軋的聲音，緩緩地移回原處，"
+		"將向下的洞口蓋住了。\n", this_object() );
 	if( !room = find_object(__DIR__"beilin3") )
   	room = load_object(__DIR__"beilin3");
 	room->delete("exits/up");
-	message("vision", "头顶上的石板忽然发出轧轧的声音，"
-		"墙上的石块又缓缓地收了回去，阶梯消失了。\n", room );
+	message("vision", "頭頂上的石板忽然發出軋軋的聲音，"
+		"牆上的石塊又緩緩地收了回去，階梯消失了。\n", room );
 	delete("exits/down");
 }
 
@@ -91,18 +91,18 @@ int do_pull(string arg)
 	if( !arg || arg=="" ) return 0;
 
 	if( arg=="stone" && (int)query("poem_said")==1 ) {
-		write("你试着扳动这块石碑，发现可以往上抬......\n");
+		write("你試着扳動這塊石碑，發現可以往上抬......\n");
 		return 1;
 	}
 	if( sscanf(arg, "stone %s", dir)==1 && (int)query("poem_said")==1 ) {
 		if( dir=="up" ) {
-			message_vision("$N将石碑往上抬...，忽然「喀」一声石碑又移回原位。\n",
+			message_vision("$N將石碑往上抬...，忽然「喀」一聲石碑又移回原位。\n",
 				this_player());
 			add("up_trigger", 1);
 			check_trigger();
 			return 1;
 		} else {
-			write("你要将石碑推向那个方向？\n");
+			write("你要將石碑推向那個方向？\n");
 			return 1;
 		}
 	}
@@ -115,18 +115,18 @@ int do_push(string arg)
 	if( !arg || arg=="" ) return 0;
 
 	if( arg=="stone" && (int)query("poem_said")==1 ) {
-		write("你试着扳动这块石碑，发现可以往下压......\n");
+		write("你試着扳動這塊石碑，發現可以往下壓......\n");
 		return 1;
 	}
 	if( sscanf(arg, "stone %s", dir)==1 && (int)query("poem_said")==1 ) {
 		if( dir=="down" ) {
-			message_vision("$N将石碑往下压...，忽然「喀」一声石碑又移回原位。\n",
+			message_vision("$N將石碑往下壓...，忽然「喀」一聲石碑又移回原位。\n",
 				this_player());
 			add("down_trigger", 1);
 			check_trigger();
 			return 1;
 		} else {
-			write("你要将石碑推向那个方向？\n");
+			write("你要將石碑推向那個方向？\n");
 			return 1;
 		}
 	}
@@ -139,12 +139,12 @@ int do_say(string arg)
 	if( !arg || arg=="" ) return 0;
 
 	if( arg=="清晨入古寺，初日照高林" ) {
-		write("你可真有诗兴 !\n");
+		write("你可真有詩興 !\n");
 		return 1;
 	}
 
-	if( arg=="上报四重恩，下济三途苦" ) {
-		write("只听四周的佛塔，石碑发出隆隆隆的响声，地面猛烈震动起来。\n");
+	if( arg=="上報四重恩，下濟三途苦" ) {
+		write("只聽四周的佛塔，石碑發出隆隆隆的響聲，地面猛烈震動起來。\n");
 		delete("down_trigger");
 		delete("up_trigger");
 		set("poem_said", 1);
@@ -166,13 +166,13 @@ string look_tower()
 	"\n"
 	"    ********************************************\n"
 	"    ********　　　　　　　　　　　　　　********\n"
-	"    ********　一切世界佛，悉发菩提心，　********\n"
+	"    ********　一切世界佛，悉發菩提心，　********\n"
 	"    ********　　　　　　　　　　　　　　********\n"
-	"    ********　上报四重恩，下济三途苦，　********\n"
+	"    ********　上報四重恩，下濟三途苦，　********\n"
 	"    ********　　　　　　　　　　　　　　********\n"
-	"    ********　无边大法力，渡劫升极乐，　********\n"
+	"    ********　無邊大法力，渡劫升極樂，　********\n"
 	"    ********　　　　　　　　　　　　　　********\n"
-	"    ********　愿以此功德，庄严佛净土。　********\n"
+	"    ********　願以此功德，莊嚴佛淨土。　********\n"
 	"    ********　　　　　　　　　　　　　　********\n"
 	"    ********************************************\n";
 }
@@ -186,11 +186,11 @@ string look_stone()
 	"    ********　　　　　　　　　　　　　　********\n"
 	"    ********　清晨入古寺，初日照高林。　********\n"
 	"    ********　　　　　　　　　　　　　　********\n"
-	"    ********　曲径通幽处，禅房花木深。　********\n"
+	"    ********　曲徑通幽處，禪房花木深。　********\n"
 	"    ********　　　　　　　　　　　　　　********\n"
-	"    ********　山光悦鸟性，潭影空人心。　********\n"
+	"    ********　山光悅鳥性，潭影空人心。　********\n"
 	"    ********　　　　　　　　　　　　　　********\n"
-	"    ********　万籁此俱寂，惟闻钟磐音。　********\n"
+	"    ********　萬籟此俱寂，惟聞鍾磐音。　********\n"
 	"    ********　　　　　　　　　　　　　　********\n"
 	"    ********************************************\n"
 	"    ********************************************\n";

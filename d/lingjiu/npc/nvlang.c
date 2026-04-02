@@ -8,9 +8,9 @@ void create()
 {
 	set_name("蒙面女郎", ({ "nv lang", "nv"}));
 	set("long",
-		"这是个身材娇好的女郎, 轻纱遮面,\n"
-		"一双秀目中透出一丝杀气。\n");
-	set("title", "逍遥派灵鹫宫第三代弟子");
+		"這是個身材嬌好的女郎, 輕紗遮面,\n"
+		"一雙秀目中透出一絲殺氣。\n");
+	set("title", "逍遙派靈鷲宮第三代弟子");
 	set("gender", "女性");
 	set("class", "dancer");
 	set("age", 20);
@@ -53,7 +53,7 @@ void create()
 	prepare_skill("strike","liuyang-zhang");
 	prepare_skill("hand", "zhemei-shou");
 
-	create_family("逍遥派",3,"弟子");
+	create_family("逍遙派",3,"弟子");
 	setup();
 	carry_object("/d/lingjiu/obj/qingyi")->wear();
 	carry_object("/d/lingjiu/obj/doupeng")->wear();

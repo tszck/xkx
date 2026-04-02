@@ -8,18 +8,18 @@ string ask_me();
 
 void create()
 {
-	set_name("玄苦大师", ({
+	set_name("玄苦大師", ({
 		"xuanku dashi",
 		"xuanku",
 		"dashi",
 	}));
 	set("long",
-		"他是一位白须白眉的老僧，身穿一袭银丝棕黄袈裟。他身材瘦高，\n"
-		"脸上满布皱纹，手臂处青筋绽露，似乎久经风霜。\n"
+		"他是一位白鬚白眉的老僧，身穿一襲銀絲棕黃袈裟。他身材瘦高，\n"
+		"臉上滿布皺紋，手臂處青筋綻露，似乎久經風霜。\n"
 	);
 
 
-	set("nickname", "罗汉堂首座");
+	set("nickname", "羅漢堂首座");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -74,8 +74,8 @@ void create()
 	}) );
 
 	set("inquiry", ([
-		"十八罗汉阵"       : (: ask_me :),
-		"罗汉大阵"	   : (: ask_me :)
+		"十八羅漢陣"       : (: ask_me :),
+		"羅漢大陣"	   : (: ask_me :)
 	]));
 
 	setup();

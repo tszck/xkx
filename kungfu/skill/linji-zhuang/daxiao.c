@@ -12,35 +12,35 @@ int exert(object me)
   !me->query("perform/daxiao") &&
   !me->query("can_perform/linji-zhuang/daxiao") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("你所使用的内功中没有这种功能。");
+   return notify_fail("你所使用的內功中沒有這種功能。");
 
 	if (me->query_condition("linji_daxiao") || me->query("linji/jing")>0)
-		return notify_fail("你已经在运大小庄了！\n");
+		return notify_fail("你已經在運大小莊了！\n");
 
 	if (me->query("gender") != "女性" || me->query("sex/number") )
-		return notify_fail("你不是处女纯阴之体，不能运大小庄！\n");
+		return notify_fail("你不是處女純陰之體，不能運大小莊！\n");
 
 	if( me->is_fighting() )
-		return notify_fail("战斗中无法运大小庄！\n");
+		return notify_fail("戰鬥中無法運大小莊！\n");
 
 	if( (int)me->query("neili") < 500)
-		return notify_fail("你的真气不够。\n");
+		return notify_fail("你的真氣不夠。\n");
 
 	if( (int)me->query("jing") < skill + 100)
-		return notify_fail("你的精不够运大小庄。\n");
+		return notify_fail("你的精不夠運大小莊。\n");
 
 	if( (int)me->query_skill("linji-zhuang",1) < 150)
-		return notify_fail("你的临济庄级别不够。\n");
+		return notify_fail("你的臨濟莊級別不夠。\n");
 
 	if( (int)me->query("eff_qi") < (int)me->query("max_qi") / 2 )
-		return notify_fail( "你已经受伤过重，无法运功！\n");
+		return notify_fail( "你已經受傷過重，無法運功！\n");
 
 	if( (int)me->query("qi") < skill ||
 		(int)me->query("max_qi") < skill ||
 		(int)me->query("eff_qi") < skill)
-		return notify_fail("你的身体状况现在不适宜运转此功法。\n");
+		return notify_fail("你的身體狀況現在不適宜運轉此功法。\n");
 
-	message_vision("$N坐了下来运起大小庄，呼吸吐纳，真气直透九重。脸上神色一会变"HIR"红"NOR"，一\n会变"HIC"青"NOR"，一会又变成"HIY"黄"NOR"色，最后终于回复原来的脸色。\n"NOR,me);
+	message_vision("$N坐了下來運起大小莊，呼吸吐納，真氣直透九重。臉上神色一會變"HIR"紅"NOR"，一\n會變"HIC"青"NOR"，一會又變成"HIY"黃"NOR"色，最後終於回覆原來的臉色。\n"NOR,me);
 	me->apply_condition("linji_daxiao", (int)skill/20);
 	me->add("neili",  -500);
 	me->add("max_jing", 0 - skill);
@@ -56,16 +56,16 @@ int exert(object me)
 
 int help(object me)
 {
-	write(WHT"\n临济十二庄之大小庄："NOR"\n");
+	write(WHT"\n臨濟十二莊之大小莊："NOR"\n");
 	write(@HELP
 
 	使用功效：
-		以气化精
+		以氣化精
 
 	出手要求：
-		临济十二庄150级
-		内力500
-		处女纯阴之体
+		臨濟十二莊150級
+		內力500
+		處女純陰之體
 HELP
 	);
 	return 1;

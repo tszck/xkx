@@ -8,15 +8,15 @@ inherit F_MANAGER;
 
 void create()
 {
-	set_name("虚竹", ({ "xu zhu", "xu", "zhu" }));
+	set_name("虛竹", ({ "xu zhu", "xu", "zhu" }));
 	set("long",
-		"这是一个二十五六岁的年轻人，浓眉大眼，大大的鼻子扁平下塌，容貌
-颇为丑陋。身穿一件华贵雅致的长袍，倒使他更显几分精神。
+		"這是一個二十五六歲的年輕人，濃眉大眼，大大的鼻子扁平下塌，容貌
+頗爲醜陋。身穿一件華貴雅緻的長袍，倒使他更顯幾分精神。
 他就是天山童姥的救命恩人。\n");
-	set("title", "灵鹫宫第二代掌门人");
+	set("title", "靈鷲宮第二代掌門人");
 	set("gender", "男性");
 	set("age", 26);
-	set("nickname", HIR "梦郎" NOR);
+	set("nickname", HIR "夢郎" NOR);
 	set("shen_type",1);
 	set("attitude", "peaceful");
 
@@ -69,11 +69,11 @@ void create()
 		(: exert_function, "recover" :),
 	}) );	
 	set("no_teach", ([
-		"beiming-shengong" : "唉……这是师尊注如我体内的，教我怎么教给你？",
-                "hunyuan-yiqi"     : "…这…这东西我都没学好。",
-                "shaolin-shenfa"   : "…这个…嗯…我还是教你本门的轻功好了。",
+		"beiming-shengong" : "唉……這是師尊注如我體內的，教我怎麼教給你？",
+                "hunyuan-yiqi"     : "…這…這東西我都沒學好。",
+                "shaolin-shenfa"   : "…這個…嗯…我還是教你本門的輕功好了。",
 	]));
-	create_family("逍遥派",2,"掌门");
+	create_family("逍遙派",2,"掌門");
 	setup();
 	carry_object("/d/lingjiu/obj/changpao")->wear();
 	carry_object("/clone/weapon/sword")->wield();
@@ -90,20 +90,20 @@ void attempt_apprentice(object ob)
 {
 	if ((int)ob->query_skill("bahuang-gong", 1) < 50) 
 	{
-		command("say " + RANK_D->query_respect(ob) + "是否还应该多练练八荒六合唯我独尊功？");
+		command("say " + RANK_D->query_respect(ob) + "是否還應該多練練八荒六合唯我獨尊功？");
 		return;
 	}  
 	if ((string)ob->query("gender")=="女性")
 	{
   	      command("nod");
-  	      command("say 今日小僧…在下就收下你，以后你要多做好事。");
-  	      command("say 另外，以后若遇到了少林寺的大师，可千万不能和他们为难。");
+  	      command("say 今日小僧…在下就收下你，以後你要多做好事。");
+  	      command("say 另外，以後若遇到了少林寺的大師，可千萬不能和他們爲難。");
 		command("recruit " + ob->query("id"));
 		return;
 	}
 	else
 	{
-		message_vision("虚竹瞪着你看了半天,说道：“阁下不会是想来抢我的生意吧?”\n",ob);
+		message_vision("虛竹瞪着你看了半天,說道：“閣下不會是想來搶我的生意吧?”\n",ob);
 		return;
 	}
 }
@@ -113,6 +113,6 @@ int recruit_apprentice(object ob)
         {
 		if((string)ob->query("class") != "dancer")
 			ob->set("class", "dancer");
-		ob->set("title","灵鹫宫第三代弟子");
+		ob->set("title","靈鷲宮第三代弟子");
 	}
 }

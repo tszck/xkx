@@ -1,9 +1,9 @@
-// feng.c 打狗棒法「封」字诀
+// feng.c 打狗棒法「封」字訣
 // Last Modified by winder on Nov. 16 2000
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "「封字诀」"
+#define PNAME "「封字訣」"
 int perform(object me, object target)
 {
 	string msg;
@@ -19,20 +19,20 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "stick")
-		return notify_fail(HIY "你需要合适的兵器才封得住。\n" NOR);
+		return notify_fail(HIY "你需要合適的兵器才封得住。\n" NOR);
 	if (target->query_temp("dagou/feng"))
-		return notify_fail(HIR"你已经使出“封”字诀了！\n"NOR);
+		return notify_fail(HIR"你已經使出“封”字訣了！\n"NOR);
 	fskill = "huntian-qigong";
 	bskill = "stick";
 	if (SCBORN_D->valid_perform(me,sskill,pfname))
@@ -44,22 +44,22 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 180 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 180 )
-		return notify_fail("你的"+to_chinese(sskill)+"还不够娴熟，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"還不夠嫺熟，無法使用"+PNAME+"。\n");
 
 	if((int)me->query("max_neili") < 500)
-		return notify_fail(HIY "你的内力修为还不够火候。\n" NOR);
+		return notify_fail(HIY "你的內力修爲還不夠火候。\n" NOR);
 	if((int)me->query("neili") < 500)
-		return notify_fail(HIY "你现在真气不足。\n" NOR);
+		return notify_fail(HIY "你現在真氣不足。\n" NOR);
 	skill = me->query_skill(bskill,1);
 	skill = (int)(skill/4)+ random((int)(skill/4));
 
-	msg = HIC "$N"HIC"心神稍定，一咬牙，提起手中"+weapon->name()+HIC"，紧紧守住门户，\n"NOR;
+	msg = HIC "$N"HIC"心神稍定，一咬牙，提起手中"+weapon->name()+HIC"，緊緊守住門戶，\n"NOR;
 
 	if (random(me->query_dex()) > target->query_dex()/2)
 	{
-		msg += HIC"使个“封”字诀，棒影飘飘，登时将$n"HIC"身前数尺之地尽数封住了。\n"NOR;
+		msg += HIC"使個“封”字訣，棒影飄飄，登時將$n"HIC"身前數尺之地盡數封住了。\n"NOR;
 		message_combatd(msg, me, target);
 		me->add("neili", -400);
 		me->add_temp("apply/defense", skill);
@@ -69,7 +69,7 @@ int perform(object me, object target)
 	{
 		me->start_busy(2);
 		me->add("neili", -300);
-		msg += HIY"$n猛然一出手，恰恰堵住了$N"HIY"的封字诀。\n"NOR;
+		msg += HIY"$n猛然一出手，恰恰堵住了$N"HIY"的封字訣。\n"NOR;
 		message_combatd(msg, me, target);
 	}
 	if(!target->is_fighting(me)) target->fight_ob(me);
@@ -79,7 +79,7 @@ int perform(object me, object target)
 void feng_end(object me, object target, int skill)
 {
 	if (objectp(me) && objectp(target))
-	message_combatd(HIR"$n乘$N稍一松懈，从$N的封字诀中突围而出。\n"NOR, me, target);
+	message_combatd(HIR"$n乘$N稍一鬆懈，從$N的封字訣中突圍而出。\n"NOR, me, target);
 	if (objectp(me))
 	me->add_temp("apply/defense", -skill);
 	if (objectp(target))
@@ -94,14 +94,14 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		暂时性使提升自己招架能力
-		暂时性使对手不能运用外功
+		暫時性使提升自己招架能力
+		暫時性使對手不能運用外功
 
 	出手要求：
-		混天气功180级
-		打狗棒法180级
-		内力修为500
-		内力500
+		混天氣功180級
+		打狗棒法180級
+		內力修爲500
+		內力500
 HELP
 	);
 	return 1;

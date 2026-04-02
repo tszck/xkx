@@ -8,10 +8,10 @@ int ask_yue();
 
 void create()
 {
-	set_name("陆乘风", ({"lu chengfeng", "lu", "chengfeng"}) );
-	set("nickname", "归云庄主");
+	set_name("陸乘風", ({"lu chengfeng", "lu", "chengfeng"}) );
+	set("nickname", "歸雲莊主");
 	set("long",
-		"他脸色枯瘦，身材甚高，坐在榻上一动不动，似乎双腿有残疾。\n");
+		"他臉色枯瘦，身材甚高，坐在榻上一動不動，似乎雙腿有殘疾。\n");
 	set("gender", "男性" );
 	set("age", 42);
 	set("attitude", "friendly");
@@ -52,50 +52,50 @@ void create()
 	prepare_skill("strike", "luoying-zhang");
 	prepare_skill("leg", "xuanfeng-leg");
 
-	set("rank_info/respect", "庄主");
+	set("rank_info/respect", "莊主");
 	set("shen_type", 1);
 	set("shen", 100);
-	set("vendetta_mark", "桃花岛");
-	create_family("桃花岛", 2, "弟子");
+	set("vendetta_mark", "桃花島");
+	create_family("桃花島", 2, "弟子");
 	set("class", "fighter");
 
 	set("inquiry", ([
-		"name": "老夫陆乘风，是这里的庄主。",
-		"rumors": "很久没有曲师兄的消息了，不知他是否出了意外？",
-		"here": "这里是归云庄，你随便转转吧，累了请到客房休息。",
-		"画" : "这幅画上的词是一位大英雄、大豪杰所作。",
-		"词" : (: ask_ci :),
-		"药" : "灵药我交付小儿冠英保管了。",
-		"三才聚精丹": "灵药我交付小儿冠英保管了。",
-		"六壬集气丸": "灵药我交付小儿冠英保管了。",
-		"九花玉露丸": "灵药我交付小儿冠英保管了。",
-		"字" : "这幅字是老朽写的，你看怎么样？",
-		"大英雄": "你先看看词再说，难道你没有读过这首词吗？",
-		"大豪杰": "你先看看词再说，难道你没有读过这首词吗？",
-		"岳飞"  : (: ask_yue :),
-		"岳武穆" : (: ask_yue :),
-		"东邪": "那是恩师呀，虽然他打断我们的双腿，还逐我们出岛，但一日为师，终生为父呀！",
-		"黄药师": "那是恩师呀，虽然他打断我们的双腿，还逐我们出岛，但一日为师，终生为父呀！",
-		"恩师" : "就是桃花岛主黄药师了，他聪明绝顶，文才武学，书画琴棋，算数韬略，医卜星相，奇门五行，无一不精。",
-		"家师" : "就是桃花岛主黄药师了，他聪明绝顶，文才武学，书画琴棋，算数韬略，医卜星相，奇门五行，无一不精。",
-		"黄蓉": "嗯，那是小师妹，是家师的掌上明珠。",
-		"桃花岛": "好怀念原来大家在那里的时光呀，曲师兄临离岛时还画了海图呢。",
-		"陆乘风": "就是老夫我，有什么事吗？",
-		"陆冠英": "那是小犬，以前送在仙都派门下习艺，现在师父恩准在我门下学艺了。",
-		"冠英": "那是小犬，以前送在仙都派门下习艺，现在师父恩准在我门下学艺了。",
-		"归云庄": "这里是花了我无数心血才建起来的，与别的庄院相比如何？",
-		"太湖": "就在庄前不远，是一个烟波浩淼的大湖。",
-		"九宫": "九宫之义，法以灵龟。二四为肩，六八为足；左三右七，戴九履一；五居中间。",
-		"八卦": "乾三连，坤六段；离中虚，坎中满；震仰盂，艮覆碗；兑上缺，巽下断。",
+		"name": "老夫陸乘風，是這裏的莊主。",
+		"rumors": "很久沒有曲師兄的消息了，不知他是否出了意外？",
+		"here": "這裏是歸雲莊，你隨便轉轉吧，累了請到客房休息。",
+		"畫" : "這幅畫上的詞是一位大英雄、大豪傑所作。",
+		"詞" : (: ask_ci :),
+		"藥" : "靈藥我交付小兒冠英保管了。",
+		"三才聚精丹": "靈藥我交付小兒冠英保管了。",
+		"六壬集氣丸": "靈藥我交付小兒冠英保管了。",
+		"九花玉露丸": "靈藥我交付小兒冠英保管了。",
+		"字" : "這幅字是老朽寫的，你看怎麼樣？",
+		"大英雄": "你先看看詞再說，難道你沒有讀過這首詞嗎？",
+		"大豪傑": "你先看看詞再說，難道你沒有讀過這首詞嗎？",
+		"嶽飛"  : (: ask_yue :),
+		"嶽武穆" : (: ask_yue :),
+		"東邪": "那是恩師呀，雖然他打斷我們的雙腿，還逐我們出島，但一日爲師，終生爲父呀！",
+		"黃藥師": "那是恩師呀，雖然他打斷我們的雙腿，還逐我們出島，但一日爲師，終生爲父呀！",
+		"恩師" : "就是桃花島主黃藥師了，他聰明絕頂，文才武學，書畫琴棋，算數韜略，醫卜星相，奇門五行，無一不精。",
+		"家師" : "就是桃花島主黃藥師了，他聰明絕頂，文才武學，書畫琴棋，算數韜略，醫卜星相，奇門五行，無一不精。",
+		"黃蓉": "嗯，那是小師妹，是家師的掌上明珠。",
+		"桃花島": "好懷念原來大家在那裏的時光呀，曲師兄臨離島時還畫了海圖呢。",
+		"陸乘風": "就是老夫我，有什麼事嗎？",
+		"陸冠英": "那是小犬，以前送在仙都派門下習藝，現在師父恩准在我門下學藝了。",
+		"冠英": "那是小犬，以前送在仙都派門下習藝，現在師父恩准在我門下學藝了。",
+		"歸雲莊": "這裏是花了我無數心血才建起來的，與別的莊院相比如何？",
+		"太湖": "就在莊前不遠，是一個煙波浩淼的大湖。",
+		"九宮": "九宮之義，法以靈龜。二四爲肩，六八爲足；左三右七，戴九履一；五居中間。",
+		"八卦": "乾三連，坤六段；離中虛，坎中滿；震仰盂，艮覆碗；兌上缺，巽下斷。",
 		"五行": "金生水，水生木，木生火，火生土，土生金。金克木，木克土，土克水，水克火，火克金。",
-		"易经": "是一本讲解伏羲六十四卦的奇书，一般人难得看懂。",
-		"周易": "是一本讲解伏羲六十四卦的奇书，一般人难得看懂。",
-		"九阴真经": "唉，就是这本书连累了我们大家！",
+		"易經": "是一本講解伏羲六十四卦的奇書，一般人難得看懂。",
+		"周易": "是一本講解伏羲六十四卦的奇書，一般人難得看懂。",
+		"九陰真經": "唉，就是這本書連累了我們大家！",
 	]) );
 
 	set("chat_chance", 5);
 	set("chat_msg",({
-		"陆乘风对着那幅画长叹一声，默然不语，似有满腹心事。\n",
+		"陸乘風對着那幅畫長嘆一聲，默然不語，似有滿腹心事。\n",
 	}));
 	setup();
 
@@ -110,46 +110,46 @@ void attempt_apprentice(object ob)
 
 	if (!ob->query("thd/receive"))
 	{
-		command("say 没有家师的许可，陆某不敢擅自将恩师的武功转授他人！");
+		command("say 沒有家師的許可，陸某不敢擅自將恩師的武功轉授他人！");
 		if (!ob->query("family") && ob->query_int() >= 28)
 		{
-			command("say 不过我看" + RANK_D->query_respect(ob) + "的资质还不错，这样吧，我写一封推荐信，你拿去找家师吧。");
+			command("say 不過我看" + RANK_D->query_respect(ob) + "的資質還不錯，這樣吧，我寫一封推薦信，你拿去找家師吧。");
 			letter = new("/d/guiyun/obj/tuijian_xin");
 			letter->set("owner", ob->query("id"));
-			letter_desc = "这是陆乘风写给黄药师的一封信，上面写着：\n恩师在上：今有" + ob->query("name") + "一名，欲拜入本派，弟子不敢擅专，又念其资质不错，特此推荐与恩师定夺。  乘风叩首\n";
+			letter_desc = "這是陸乘風寫給黃藥師的一封信，上面寫着：\n恩師在上：今有" + ob->query("name") + "一名，欲拜入本派，弟子不敢擅專，又念其資質不錯，特此推薦與恩師定奪。  乘風叩首\n";
 			letter->set("long", letter_desc);
 			letter->move(ob);
-			message_vision("陆乘风掏出一封推荐信，写上$N的名字，交给了$N。\n", ob);
-			command("say 家师是桃花岛主黄药师，你需要从临安附近坐船上岛。至于桃花岛的位置嘛，就在...在...让我想想看...");
+			message_vision("陸乘風掏出一封推薦信，寫上$N的名字，交給了$N。\n", ob);
+			command("say 家師是桃花島主黃藥師，你需要從臨安附近坐船上島。至於桃花島的位置嘛，就在...在...讓我想想看...");
 			command("consider");
 			command("doubt chengfeng");
 			command("sigh");
-			command("say 居然想不起来了！你去问我师兄曲灵风吧，他在临安东南的牛家村开了一间小店。");
+			command("say 居然想不起來了！你去問我師兄曲靈風吧，他在臨安東南的牛家村開了一間小店。");
 		}
 		return;
 	}
 	ob->delete("thd/receive");
 	if (ob->query("gender") != "男性" && ob->query("gender") != "女性") {
-		command("say 你不男不女的算什么东西？快滚！");
+		command("say 你不男不女的算什麼東西？快滾！");
 		return;
 	}
 	if (ob->query("shen") <= -100000) {
-		command("say 家师生平最讨厌两种人，你们这种无恶不作的邪魔外道就是其一，再去求家师吧！");
+		command("say 家師生平最討厭兩種人，你們這種無惡不作的邪魔外道就是其一，再去求家師吧！");
 		return;
 	}
 	if (ob->query("shen") >= 100000) {
-		command("say 家师生平最讨厌两种人，你们这种自命大侠的沽名钓誉之徒就是其一，再去求家师吧！");
+		command("say 家師生平最討厭兩種人，你們這種自命大俠的沽名釣譽之徒就是其一，再去求家師吧！");
 		return;
 	}
 	if (ob->query_int() < 28) {
-		command("say 你的才气还不够，再去求家师吧！");
+		command("say 你的才氣還不夠，再去求家師吧！");
 		return;
 	}
 	if (ob->query("class") == "bonze") {
-		command("say 家师比较讨厌少林和尚，我可不敢擅自收你。再去求家师吧！");
+		command("say 家師比較討厭少林和尚，我可不敢擅自收你。再去求家師吧！");
 		return;
 	}
-	command("say 既然家师有令，我就收你为徒吧。");
+	command("say 既然家師有令，我就收你爲徒吧。");
 	command("recruit " + ob->query("id"));
 	ob->set("class", "fighter");
 }
@@ -162,18 +162,18 @@ void init()
 	add_action("do_answer","huida");
 	add_action("do_kill","kill");
 	::init();
-	if (ob->query("family/family_name") == "桃花岛") {
+	if (ob->query("family/family_name") == "桃花島") {
 		if ((int)ob->query("shen") <= -100000) {
-			message_vision("陆乘风对$N喝道：你做恶多端，有辱家师清名，还敢来见我？！\n", ob);
-			message_vision("陆乘风对$N喝道：从今天起，你再也不是桃花岛的弟子了！\n", ob);
+			message_vision("陸乘風對$N喝道：你做惡多端，有辱家師清名，還敢來見我？！\n", ob);
+			message_vision("陸乘風對$N喝道：從今天起，你再也不是桃花島的弟子了！\n", ob);
 			ob->delete("family");
-			ob->set("title", "桃花岛弃徒");
+			ob->set("title", "桃花島棄徒");
 		}
 		else if ((int)ob->query("shen") >= 100000) {
-			message_vision("陆乘风对$N喝道：你是大侠，我早就说过，家师最恨沽名吊誉的伪君子。\n", ob);
-			message_vision("陆乘风对$N喝道：从今天起，你再也不是桃花岛的弟子了！\n", ob);
+			message_vision("陸乘風對$N喝道：你是大俠，我早就說過，家師最恨沽名吊譽的僞君子。\n", ob);
+			message_vision("陸乘風對$N喝道：從今天起，你再也不是桃花島的弟子了！\n", ob);
 			ob->delete("family");
-			ob->set("title", "桃花岛弃徒");
+			ob->set("title", "桃花島棄徒");
 		}
 	}
 }
@@ -188,16 +188,16 @@ int do_kill(string arg)
 	ob = present(arg, environment(me));
 	if (ob == this_object() || ob == me) return 0;
 	if (!ob || !ob->is_character()) return 0;
-	if (ob->query("family/family_name") == "桃花岛") {
-		if (me->query("family/family_name") == "桃花岛") {
-			message_vision("陆乘风向$N喝道：小奴才，要造反吗？连自己的同门都杀？！\n", me);
+	if (ob->query("family/family_name") == "桃花島") {
+		if (me->query("family/family_name") == "桃花島") {
+			message_vision("陸乘風向$N喝道：小奴才，要造反嗎？連自己的同門都殺？！\n", me);
 		}
 		else {
-			message_vision("陆乘风向$N喝道：大胆狂徒，竟敢来归云庄撒野？！\n", me);
-			message_vision("陆乘风对$N说道：你先让开，让我来收拾这个" + RANK_D->query_rude(me) + "！\n", ob);
+			message_vision("陸乘風向$N喝道：大膽狂徒，竟敢來歸雲莊撒野？！\n", me);
+			message_vision("陸乘風對$N說道：你先讓開，讓我來收拾這個" + RANK_D->query_rude(me) + "！\n", ob);
 			kill_ob(me);
 		}
-		me->set("vendetta/桃花岛", 1);
+		me->set("vendetta/桃花島", 1);
 		return 1;
 	}
 	return 0;
@@ -207,7 +207,7 @@ int ask_ci()
 {
 	object ob = this_player();
 
-	command("say 写这首词的大英雄、大豪杰就是岳武穆。\n");
+	command("say 寫這首詞的大英雄、大豪傑就是嶽武穆。\n");
 	if(!ob->query_temp("guiyun_lutemp"))
 		ob->set_temp("guiyun_lutemp", 1);
 	return 1;
@@ -218,11 +218,11 @@ int ask_yue()
 	object ob = this_player();
 
 	if(ob->query_temp("guiyun_lutemp") >= 1) {
-		command("say 可惜我的字意有一句与岳武穆原意不太相符，不知" + RANK_D->query_respect(ob) + "能否看出来？\n");
+		command("say 可惜我的字意有一句與嶽武穆原意不太相符，不知" + RANK_D->query_respect(ob) + "能否看出來？\n");
 		ob->set_temp("guiyun_lutemp", 2);
 	}
 	else {
-		command("say 岳武穆是我非常敬重的一位大英雄。\n");
+		command("say 嶽武穆是我非常敬重的一位大英雄。\n");
 	}
 	return 1;
 }
@@ -232,25 +232,25 @@ int do_answer(string arg)
 	object ob = this_player();
 
 	if (ob->query_temp("guiyun_lutemp") == 2) {
-		tell_room(environment(ob), ob->name() + "向着陆乘风侃侃而谈。\n", ({ob}));
-		if (arg == "知音少,弦断有谁听?" || arg == "知音少，弦断有谁听？" 
-		|| arg == "知音少,弦断有谁听" || arg == "知音少，弦断有谁听") {
+		tell_room(environment(ob), ob->name() + "向着陸乘風侃侃而談。\n", ({ob}));
+		if (arg == "知音少,絃斷有誰聽?" || arg == "知音少，絃斷有誰聽？" 
+		|| arg == "知音少,絃斷有誰聽" || arg == "知音少，絃斷有誰聽") {
 			if (!present("tuifa tujie", ob) && query_temp("tuifa_give") < 5) {
-				say("陆乘风长嘘一声：我这番心情，今日才被你看破，可谓平生一知已，这本腿法就送给你吧。\n");
+				say("陸乘風長噓一聲：我這番心情，今日才被你看破，可謂平生一知已，這本腿法就送給你吧。\n");
 				new("/d//guiyun/obj/tuifa")->move(ob);
 				ob->delete_temp("guiyun_lutemp");
 				add_temp("tuifa_give",1);
 			}
 			else {
-				say("陆乘风长嘘一声：我这番心情，今日才被你看破，可谓平生一知已，只可惜老夫我没有什么可以相赠的。\n");
+				say("陸乘風長噓一聲：我這番心情，今日才被你看破，可謂平生一知已，只可惜老夫我沒有什麼可以相贈的。\n");
 			}
 		}
 		else {
 			command("? " + ob->query("id"));
-			message_vision("陆乘风疑惑地看着$N：" + RANK_D->query_respect(ob) + "似乎应该多学些书法绘画吧？\n", ob);
+			message_vision("陸乘風疑惑地看着$N：" + RANK_D->query_respect(ob) + "似乎應該多學些書法繪畫吧？\n", ob);
 		}
 		return 1;
 	}
-//		say("陆乘风说：这一句字透纸背，你可能谌透我的心境？\n");
+//		say("陸乘風說：這一句字透紙背，你可能諶透我的心境？\n");
 	return 0;
 }

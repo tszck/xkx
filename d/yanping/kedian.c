@@ -7,14 +7,14 @@ void create()
 {
 	set("short", "山野客店");
 	set("long", @LONG
-山野客店十分简陋。一个小二临台买卖，一片破门扇扑在地上，显
-得相当忙乱。柜台上贴着个牌子(paizi)。
+山野客店十分簡陋。一個小二臨臺買賣，一片破門扇撲在地上，顯
+得相當忙亂。櫃檯上貼着個牌子(paizi)。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"erbapu",
 	]));
 	set("item_desc", ([
-		"paizi" : "即日起只供应吃喝，不留宿。\n",
+		"paizi" : "即日起只供應喫喝，不留宿。\n",
 	]));
 	set("objects", ([
 		__DIR__"npc/xiaoer2" : 1,

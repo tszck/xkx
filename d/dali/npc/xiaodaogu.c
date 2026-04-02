@@ -5,7 +5,7 @@ inherit NPC;
 void create()
 {
 	set_name("小道姑", ({ "xiao daogu", "daogu" }));
-	set("long","玉虚观的小道姑，她是在这接待香客的。\n");
+	set("long","玉虛觀的小道姑，她是在這接待香客的。\n");
 	set("gender", "女性");
 	set("age", 16);
 	set("attitude", "peaceful");

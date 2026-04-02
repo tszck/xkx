@@ -1,13 +1,13 @@
-// youke.c 游客
+// youke.c 遊客
 
 inherit NPC;
 
 void create()
 {
-	set_name("游客", ({ "youke" }));
+	set_name("遊客", ({ "youke" }));
 	set("gender", "男性");
 	set("age", 20 + random(30));
-	set("long", "一个远道来的汉族游客，风尘仆仆，但显然为眼前美景所动，兴高彩烈。\n");
+	set("long", "一個遠道來的漢族遊客，風塵僕僕，但顯然爲眼前美景所動，興高彩烈。\n");
 	set_skill("unarmed", 20);
 	set_skill("dodge", 20);
 	set("apply/attack", 15);

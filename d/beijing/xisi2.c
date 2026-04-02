@@ -4,8 +4,8 @@ void create()
 {
 	set("short", "西四北大街");
 	set("long", @LONG
-这里是西四北大街。南边通往西单。东边通向地安门，北面是一间
-书院。
+這裏是西四北大街。南邊通往西單。東邊通向地安門，北面是一間
+書院。
 LONG );
         set("outdoors", "beijing");
 	set("exits", ([

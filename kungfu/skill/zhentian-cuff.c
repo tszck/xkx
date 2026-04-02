@@ -6,41 +6,41 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N马步一立，身子微曲，暗喝一声，一招"HIW"「望月拜天」"NOR"，一拳直捅$n的$l",
+([	"action" : "$N馬步一立，身子微曲，暗喝一聲，一招"HIW"「望月拜天」"NOR"，一拳直捅$n的$l",
 	"lvl" : 0,
 	"skill_name" : "望月拜天"
 ]),
-([	"action" : "$N“哈哈”一笑，左拳由下至上，右拳平平击出，一招"RED"「跨日向天」"NOR"，交替打向$n",
+([	"action" : "$N“哈哈”一笑，左拳由下至上，右拳平平擊出，一招"RED"「跨日向天」"NOR"，交替打向$n",
 	"lvl" : 15,
 	"skill_name" : "跨日向天"
 ]),
-([	"action" : "$N对$n一声大喝，使一招"HIC"「长虹经天」"NOR"，左拳击出，随即右拳跟上，两重力道打向$n的$l",
+([	"action" : "$N對$n一聲大喝，使一招"HIC"「長虹經天」"NOR"，左拳擊出，隨即右拳跟上，兩重力道打向$n的$l",
 	"lvl" : 30,
-	"skill_name" : "长虹经天"
+	"skill_name" : "長虹經天"
 ]),
-([	"action" : "$N闷喝一声，双拳向上分开，一记"HIR"「举火烧天」"NOR"，拳划弧线，左右同时击向$n的$l",
+([	"action" : "$N悶喝一聲，雙拳向上分開，一記"HIR"「舉火燒天」"NOR"，拳劃弧線，左右同時擊向$n的$l",
 	"lvl" : 45,
-	"skill_name" : "举火烧天"
+	"skill_name" : "舉火燒天"
 ]),
-([	"action" : "$N施出"YEL"「一臂擎天」"NOR"，一声大吼，一拳凌空打出，拳风直逼$n的$l",
+([	"action" : "$N施出"YEL"「一臂擎天」"NOR"，一聲大吼，一拳凌空打出，拳風直逼$n的$l",
 	"lvl" : 60,
 	"skill_name" : "一臂擎天"
 ]),
-([	"action" : "$N一声长啸，双拳交错击出，一招"BLU"「石破天惊」"NOR"，拳风密布$n的前后左右",
+([	"action" : "$N一聲長嘯，雙拳交錯擊出，一招"BLU"「石破天驚」"NOR"，拳風密佈$n的前後左右",
 	"lvl" : 70,
-	"skill_name" : "石破天惊"
+	"skill_name" : "石破天驚"
 ]),
-([	"action" : "$N怒吼一声，凌空飞起，一式"MAG"「天崩地裂」"NOR"，双拳居高临下，齐齐捶向$n",
+([	"action" : "$N怒吼一聲，凌空飛起，一式"MAG"「天崩地裂」"NOR"，雙拳居高臨下，齊齊捶向$n",
 	"lvl" : 80,
 	"skill_name" : "天崩地裂"
 ]),
-([	"action" : "$N仰天大笑，势若疯狂，衣袍飞舞，一招"HIW"「无法无天」"NOR"，拳风凌厉，如雨点般向$n打去",
+([	"action" : "$N仰天大笑，勢若瘋狂，衣袍飛舞，一招"HIW"「無法無天」"NOR"，拳風凌厲，如雨點般向$n打去",
 	"lvl" : 90,
-	"skill_name" : "无法无天"
+	"skill_name" : "無法無天"
 ]),
-([	"action" : "$N手中招式突然加快，一招"MAG"「拳腿双绝」"NOR"，隔空向$n击出一拳，随即双腿连环踢出",
+([	"action" : "$N手中招式突然加快，一招"MAG"「拳腿雙絕」"NOR"，隔空向$n擊出一拳，隨即雙腿連環踢出",
 	"lvl" : 100,
-	"skill_name" : "拳腿双绝"
+	"skill_name" : "拳腿雙絕"
 ])
 });
 
@@ -50,20 +50,20 @@ int valid_combine(string combo) { return combo=="chuanyun-leg"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练「震天拳」必须空手。\n");
+		return notify_fail("練「震天拳」必須空手。\n");
 	if ((int)me->query_skill("xuantian-wuji", 1) < 25)
-		return notify_fail("你的「玄天无极功」火候不够，无法学「震天拳」。\n");
+		return notify_fail("你的「玄天無極功」火候不夠，無法學「震天拳」。\n");
 	if ((int)me->query("max_neili") < 50)
-		return notify_fail("你的内力太弱，无法练「震天拳」。\n");
+		return notify_fail("你的內力太弱，無法練「震天拳」。\n");
 	return 1;
 }
 
 int practice_skill(object me)
 {
 	if ((int)me->query("qi") < 40)
-		return notify_fail("你的力气不够了。\n");
+		return notify_fail("你的力氣不夠了。\n");
 	if ((int)me->query("qi") < 40)
-		return notify_fail("你的内力不够练「震天拳」。\n");
+		return notify_fail("你的內力不夠練「震天拳」。\n");
 	me->receive_damage("qi", 35);
 	me->add("qi", -20);
 	return 1;
@@ -90,16 +90,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : "瘀伤",
+		"damage_type" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 20; }
@@ -117,11 +117,11 @@ int help(object me)
 	write(HIC"\n震天拳法："NOR"\n");
 	write(@HELP
 
-    震天拳法为昆仑派侧重男弟子的武技。
+    震天拳法爲崑崙派側重男弟子的武技。
 
-	学习要求：
-		玄天无极功25级
-		内力50
+	學習要求：
+		玄天無極功25級
+		內力50
 HELP
 	);
 	return 1;

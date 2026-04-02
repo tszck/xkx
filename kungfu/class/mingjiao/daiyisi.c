@@ -8,14 +8,14 @@ inherit F_UNIQUE;
 string ask_fan();
 void create()
 {
-	set_name("黛绮丝", ({"dai yisi", "dai", "yisi", }));
+	set_name("黛綺絲", ({"dai yisi", "dai", "yisi", }));
 	set("long",
-"黛绮丝站在窗前眼望大海，听到你进来却不回头。只见她背影曼
-妙，秀发飘拂，后颊肤若白玉，荣光照人，端丽难言。谢逊说她
-当年乃武林中第一美人，此言当真不虚，遥想光明顶上，碧水潭
-边，紫衣如花，长剑胜雪，不知倾倒了多少英雄豪杰。\n");
+"黛綺絲站在窗前眼望大海，聽到你進來卻不回頭。只見她背影曼
+妙，秀髮飄拂，後頰膚若白玉，榮光照人，端麗難言。謝遜說她
+當年乃武林中第一美人，此言當真不虛，遙想光明頂上，碧水潭
+邊，紫衣如花，長劍勝雪，不知傾倒了多少英雄豪傑。\n");
 
-	set("nickname", HIM "紫衫龙王" NOR);
+	set("nickname", HIM "紫衫龍王" NOR);
 	set("gender", "女性");
 	set("attitude", "peaceful");
 
@@ -62,16 +62,16 @@ void create()
 	prepare_skill("hand", "sanshou");
 
 	set("inquiry", ([
-		"谢逊"   : (: ask_fan :),
-		"屠龙刀" : (: ask_fan :),
-		"冰火岛" : (: ask_fan :),
+		"謝遜"   : (: ask_fan :),
+		"屠龍刀" : (: ask_fan :),
+		"冰火島" : (: ask_fan :),
 	]) );
 	set("chat_chance_combat", 200);
 	set("chat_msg_combat", ({
 		(: command("perform duo") :),
 	}) );
 	set("party/party_name",HIG"明教"NOR);
-	set("party/rank",HIW"护教法王"NOR);
+	set("party/rank",HIW"護教法王"NOR);
 	create_family("明教", 34, "弟子");
 	setup();
 	carry_object("/d/mingjiao/obj/baipao")->wear();
@@ -106,14 +106,14 @@ string ask_fan()
 
 	if (!(fam = me->query("family")) || fam["family_name"] != "明教")
 		return RANK_D->query_respect(me) +
-		"与本派素无来往，不知此话从何谈起？";
+		"與本派素無來往，不知此話從何談起？";
 
 	add("fan",-1);
 	ob = new("/d/binghuo/obj/fan");
 	ob->move(me);
-	message_vision("$N获得一面帆布。\n",me);
+	message_vision("$N獲得一面帆布。\n",me);
 
-	return "好吧，海上艰险，给你一块帆布，你自己去找谢三哥吧。";
+	return "好吧，海上艱險，給你一塊帆布，你自己去找謝三哥吧。";
 
 }
 #include "fawang.h"

@@ -8,7 +8,7 @@ void create()
 {
 	set("short", "山路");
 	set("long", @LONG
-着是一条陡峭的山路，向后山蜿蜒而去。
+着是一條陡峭的山路，向後山蜿蜒而去。
 LONG
 	);
 

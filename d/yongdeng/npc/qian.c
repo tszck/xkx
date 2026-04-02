@@ -5,16 +5,16 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-	set_name("钱青健", ({ "qian qingjian", "qian", "qingjian" }));
+	set_name("錢青健", ({ "qian qingjian", "qian", "qingjian" }));
 	set("gender", "男性");
-	set("title", HIY"黄河四鬼老四"NOR);
-	set("nickname", HIC"丧门斧"NOR);
+	set("title", HIY"黃河四鬼老四"NOR);
+	set("nickname", HIC"喪門斧"NOR);
 	set("age", 32);
 	set("str", 25);
 	set("dex", 16);
 	set("per", 16);
-	set("long", "钱青健是黄河四鬼的老四，是鬼门龙王沙通天的四弟子，擅
-于斧法。\n");
+	set("long", "錢青健是黃河四鬼的老四，是鬼門龍王沙通天的四弟子，擅
+於斧法。\n");
 	set("combat_exp", 20000);
 	set("shen_type", -1);
 	set("attitude", "peaceful");

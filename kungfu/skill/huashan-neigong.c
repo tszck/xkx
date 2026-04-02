@@ -1,4 +1,4 @@
-// huashan-neigong.c 华山内功
+// huashan-neigong.c 華山內功
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -18,13 +18,13 @@ int valid_learn(object me)
 // need more limit here
 {
 	if ((int)me->query_skill("zixia-shengong", 1) < 10)
-		return notify_fail("你的紫霞神功火候还不够。\n");
+		return notify_fail("你的紫霞神功火候還不夠。\n");
 	return valid_public(me,"zixia-shengong");
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("华山气功只能用学(learn)的来增加熟练度。\n");
+	return notify_fail("華山氣功只能用學(learn)的來增加熟練度。\n");
 }
 
 string exert_function_file(string func)
@@ -34,13 +34,13 @@ string exert_function_file(string func)
 
 int help(object me)
 {
-	write(HIC"\n华山内功："NOR"\n");
+	write(HIC"\n華山內功："NOR"\n");
 	write(@HELP
 
-    华山内功为华山剑宗本门内功心法。
+    華山內功爲華山劍宗本門內功心法。
 
-	学习要求：
-		紫霞神功10级
+	學習要求：
+		紫霞神功10級
 HELP
 	);
 	return 1;

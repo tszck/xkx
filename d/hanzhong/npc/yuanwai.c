@@ -3,10 +3,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("侯员外", ({ "hou yuanwai", "hou" }));
+        set_name("侯員外", ({ "hou yuanwai", "hou" }));
         set("long",
-                "侯员外据说是这长安镇上的首富，谁也不知道他到底有多少\n"
-                "家财。他大约五十出头，长的富富态态。\n");
+                "侯員外據說是這長安鎮上的首富，誰也不知道他到底有多少\n"
+                "家財。他大約五十出頭，長的富富態態。\n");
         set("gender", "男性");
         set("age", 52);
 

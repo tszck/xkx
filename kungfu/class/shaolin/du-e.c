@@ -8,11 +8,11 @@ string ask_me();
 void create()
 {
 	set_name("渡厄", ({ "du e", "e" }) );
-	set("title", "少林长老");
+	set("title", "少林長老");
 	set("gender", "男性");
 	set("age", 90);
 	set("long",
-		"这是一个面颊深陷，瘦骨零丁的老僧，他脸色枯黄，如同一段枯木。\n");
+		"這是一個面頰深陷，瘦骨零丁的老僧，他臉色枯黃，如同一段枯木。\n");
 
 	set("attitude", "peaceful");
 	set("class", "bonze");
@@ -143,7 +143,7 @@ void init()
 
 void halt()
 {
-	command("say 好吧，大家住手！ 看这家伙有什么话要说！");
+	command("say 好吧，大家住手！ 看這傢伙有什麼話要說！");
 	command("halt");
 }
 
@@ -155,39 +155,39 @@ string ask_me()
 	if ( !this_player()->query_temp("fighter") ||
 		 this_player()->query("combat_exp") < 5000 )
 	{
-		command("say 大胆鼠辈，乳臭未干，竟敢偷入金刚伏魔圈，且让老衲来超度与你！");
+		command("say 大膽鼠輩，乳臭未乾，竟敢偷入金剛伏魔圈，且讓老衲來超度與你！");
 		this_object()->kill_ob(this_player());
 		this_player()->kill_ob(this_object());
 	}
 
 	if ( present("fumo dao", this_player()) )
 		return RANK_D->query_respect(this_player()) + 
-		"宝刀只有一把，而且就在你身上，真是贪得无餍！";
+		"寶刀只有一把，而且就在你身上，真是貪得無饜！";
 
 	if ( present("fumo dao", environment()) )
 		return RANK_D->query_respect(this_player()) + 
-		"宝刀只有一把，而且就在这里任你取走，真是贪得无餍！";
+		"寶刀只有一把，而且就在這裏任你取走，真是貪得無饜！";
 
 	if ( present("jingang zhao", this_player()) || present("jingang zhao", environment()) )
 		return RANK_D->query_respect(this_player()) + 
-		"取了金刚罩，就不能再拿伏魔刀，莫要贪得无餍！";
+		"取了金剛罩，就不能再拿伏魔刀，莫要貪得無饜！";
 
 	if (query("count") < 1)
-		return "抱歉，你来晚了，伏魔刀已经给人取走了。";
+		return "抱歉，你來晚了，伏魔刀已經給人取走了。";
 
 	ob = new(WEAPON_DIR"treasure/fumo-dao");
 	add("count", -1);
 	if ( ob->violate_unique() )
 	{
 		destruct( ob );
-		return "抱歉，你来晚了，伏魔刀已经给人取走了。";
+		return "抱歉，你來晚了，伏魔刀已經給人取走了。";
 	}
 	ob->move(this_player());
 
 	add("count", -1);
 
-	message_vision("\n渡厄长笑一声，点点头，从身后的树洞里取出伏魔刀交给$N。\n\n", this_player());
+	message_vision("\n渡厄長笑一聲，點點頭，從身後的樹洞裏取出伏魔刀交給$N。\n\n", this_player());
 
-	return "你既然能闯进金刚伏魔圈来，必然是当今武林中的非凡人物，这把刀是适逢其主了！";
+	return "你既然能闖進金剛伏魔圈來，必然是當今武林中的非凡人物，這把刀是適逢其主了！";
 }
 #include "/kungfu/class/shaolin/du.h"

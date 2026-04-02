@@ -3,7 +3,7 @@ inherit NPC;
 
 void create()
 {
-	set_name("小沙弥", ({ "xiao shami","shami"}) );
+	set_name("小沙彌", ({ "xiao shami","shami"}) );
 	set("gender", "男性" );
 	set("class", "bonze");
 	set("age", 15);

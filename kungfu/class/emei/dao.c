@@ -1,4 +1,4 @@
-// dao.c 静道师太
+// dao.c 靜道師太
 #include <command.h>
 #include <ansi.h>
 
@@ -6,8 +6,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("静道师太", ({ "jingdao shitai","jingdao","shitai"}));
-	set("long", "她是一位中年出家道姑，道冠高拢，慈眉善目。\n");
+	set_name("靜道師太", ({ "jingdao shitai","jingdao","shitai"}));
+	set("long", "她是一位中年出家道姑，道冠高攏，慈眉善目。\n");
 	set("gender", "女性");
 	set("age", 42);
 	set("attitude", "peaceful");
@@ -74,8 +74,8 @@ void create()
 }
 void attempt_apprentice(object ob)
 {
-	command ("say 阿弥陀佛！贫尼不收弟子。\n");
-	command ("say 你若想继续学峨嵋派的功夫，还是去找我俗家师妹吧。\n");
+	command ("say 阿彌陀佛！貧尼不收弟子。\n");
+	command ("say 你若想繼續學峨嵋派的功夫，還是去找我俗家師妹吧。\n");
 	return;
 }
 

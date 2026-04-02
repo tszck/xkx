@@ -4,7 +4,7 @@ inherit NPC;
 void create()
 {
 	set_name("僧人", ({"seng ren","seng"}));
-	set("long", "一个精壮僧人。\n" );
+	set("long", "一個精壯僧人。\n" );
 	set("gender", "男性");
 	set("attitude", "peace");
 	set("class", "bonze");

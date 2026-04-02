@@ -6,9 +6,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("黑衣帮众", ({ "heiyi bangzhong", "heiyi", "bangzhong"}));
+	set_name("黑衣幫衆", ({ "heiyi bangzhong", "heiyi", "bangzhong"}));
 	set("long",
-		"他是一个身行健壮的汉子，两臂粗壮，膀阔腰圆。满脸的凶相。\n");
+		"他是一個身行健壯的漢子，兩臂粗壯，膀闊腰圓。滿臉的兇相。\n");
 	set("gender", "男性");
 	set("attitude", "peaceful");
 
@@ -60,20 +60,20 @@ void init()
 	if (interactive(ob) 
 	&& !environment(ob)->query("no_fight")
 	&& !present("tiezhang ling", ob) 
-	&& ( (fam = ob->query("family")) && fam["family_name"] != "铁掌帮")
+	&& ( (fam = ob->query("family")) && fam["family_name"] != "鐵掌幫")
 	&& (int)ob->query("combat_exp", 1) >= 10000 ) 
 	{
 		if( !ob->query_temp("warned") )
 		{
-			command("say 站住！你不是铁掌帮弟子，不能在此久留！！");
-			command("say 识相的就快滚，惹得爷爷火起，打断你的狗腿！！");
+			command("say 站住！你不是鐵掌幫弟子，不能在此久留！！");
+			command("say 識相的就快滾，惹得爺爺火起，打斷你的狗腿！！");
 			command("hehe");
 			ob->set_temp("warned", 1);
 		}
 		else if( ob->query_temp("stay") < 3 ) ob->add_temp("stay", 1);
 			else
 			{
-				command("say 你活得不耐烦了，竟敢到铁掌帮来撒野！！！\n");
+				command("say 你活得不耐煩了，竟敢到鐵掌幫來撒野！！！\n");
 				remove_call_out("hiting_ob");
 				call_out("hiting_ob", 1, ob);
 			}

@@ -7,7 +7,7 @@ void create()
 	set_name("少女",({ "shao nu", "girl" }) );
         set("gender", "女性" );
         set("age", 17);
-        set("long", "一位乌夷族的少女，以酥泽发，盘成两环，上披蓝纱头巾，饰以花边。\n");
+        set("long", "一位烏夷族的少女，以酥澤發，盤成兩環，上披藍紗頭巾，飾以花邊。\n");
  	set_temp("apply/defense", 5);
 	set("combat_exp", 7000);
 //        set("shen", 100);

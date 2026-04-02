@@ -18,15 +18,15 @@ int main(object me, string arg)
 	file = get_dir(dir, -1);
 	if( !sizeof(file) )
 	{
-		if (file_size(dir) == -2) return notify_fail("目录是空的。\n");
-		else return notify_fail("没有这个目录。\n");
+		if (file_size(dir) == -2) return notify_fail("目錄是空的。\n");
+		else return notify_fail("沒有這個目錄。\n");
 	}
 	i = sizeof(file);
 	while(i--)
 	{
 		if (file[i][1]==-2) file[i][0] += "/";
 	}
-	write("目录：" + dir + "\n");
+	write("目錄：" + dir + "\n");
 
 	if (sizeof(file))
 		for(i=0, j = sizeof(file); i<j; i++)
@@ -39,7 +39,7 @@ int main(object me, string arg)
 				if (file[i][1]==-2)
 				call_other(__FILE__,"main", me,dir+file[i][0]);
 		}
-	else write("没有任何档案。\n");
+	else write("沒有任何檔案。\n");
 	write("\n");
 
 	return 1;
@@ -57,7 +57,7 @@ int updatefile(object me,string file)
 		if( obj==environment(me) )
 		{
 			if( file_name(obj)==VOID_OB )
-				return notify_fail("你不能在 VOID_OB 里重新编译 VOID_OB。\n");
+				return notify_fail("你不能在 VOID_OB 裏重新編譯 VOID_OB。\n");
 			inv = all_inventory(obj);
 			i = sizeof(inv);
 			while(i--)
@@ -66,12 +66,12 @@ int updatefile(object me,string file)
 		}
 		destruct(obj);
 	}
-	if (obj) return notify_fail("无法清除旧程式码。\n");
+	if (obj) return notify_fail("無法清除舊程式碼。\n");
 
-	write("重新编译 " + file + "：");
+	write("重新編譯 " + file + "：");
 	err = catch( call_other(file, "???") );
 	if (err)
-		printf( "发生错误：\n%s\n", err );
+		printf( "發生錯誤：\n%s\n", err );
 	else {
 		write("成功！\n");
 	}
@@ -87,13 +87,13 @@ int updatefile(object me,string file)
 int help(object me)
 {
 write(@HELP
-指令格式: updatedir [<路径名>]
+指令格式: updatedir [<路徑名>]
 
-将目录下所有的子目录及档案, 如果没有指定目录, 则使用当前目录。
+將目錄下所有的子目錄及檔案, 如果沒有指定目錄, 則使用當前目錄。
 
 
-范例:
-'updatedir /adm' 会将所有位於根/adm目录下的档案编译更新.
+範例:
+'updatedir /adm' 會將所有位於根/adm目錄下的檔案編譯更新.
 
 HELP
 );

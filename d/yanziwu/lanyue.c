@@ -10,18 +10,18 @@ void close(object);
 
 void create()
 {
-	set("short", "揽月居");
+	set("short", "攬月居");
 	set("long",@LONG
-这是慕容公子的卧室，房中陈设普通，收拾得颇为整洁，屋角一架
-茂兰盆景(penjing)长得很是旺盛。晚上月光从窗户射进来，满室银光，
-是燕子坞的一大美景。
+這是慕容公子的臥室，房中陳設普通，收拾得頗爲整潔，屋角一架
+茂蘭盆景(penjing)長得很是旺盛。晚上月光從窗戶射進來，滿室銀光，
+是燕子塢的一大美景。
 LONG );
 	set("exits", ([
 		"west": __DIR__"shuwu",
 	]));
 
 	set("item_desc", ([
-		"penjing":"这盆景似乎很平常，独有边沿特别光滑。敲一敲试试？\n",
+		"penjing":"這盆景似乎很平常，獨有邊沿特別光滑。敲一敲試試？\n",
 	]));
 	set("objects", ([
 		CLASS_D("murong")+"/murong-fu" : 1,
@@ -45,11 +45,11 @@ int do_knock(string arg)
 	me=this_player();
 
 	if (!arg || (arg!="penjing" ) )
-		return notify_fail("你要敲什么？\n");
+		return notify_fail("你要敲什麼？\n");
 
 	set_temp("marks/pen",1);
-	message_vision("$N突然在盆景上敲了几下，$N干吗呀。\n",me);
-	tell_object(me,"你好象听见东面有说话的声音，可是东面什么都没有啊？！这何从说起呢？\n");
+	message_vision("$N突然在盆景上敲了幾下，$N幹嗎呀。\n",me);
+	tell_object(me,"你好象聽見東面有說話的聲音，可是東面什麼都沒有啊？！這何從說起呢？\n");
 	return 1;
 }
 int do_say(string arg)
@@ -60,10 +60,10 @@ int do_say(string arg)
 	if (!query_temp("marks/pen")) return 0;
 	if( !arg || arg=="" ) return 0;
 
-	if(arg == "光复大燕")
+	if(arg == "光復大燕")
 	{
-		tell_object(me,"你既然知道暗号，看来是公子叫你来的，就进来吧。\n");
-		message("vision", "盆景边上的一堵墙渐渐移开，露出道木门。\n", this_player());
+		tell_object(me,"你既然知道暗號，看來是公子叫你來的，就進來吧。\n");
+		message("vision", "盆景邊上的一堵牆漸漸移開，露出道木門。\n", this_player());
 		set("exits/east", __DIR__"huanshi");
 		remove_call_out("close");
 		call_out("close", 5, this_object());
@@ -73,7 +73,7 @@ int do_say(string arg)
 
 void close(object room)
 {
-	message("vision","忽然一道人影闪过，将木门关上了。\n", room);
+	message("vision","忽然一道人影閃過，將木門關上了。\n", room);
 	room->delete("exits/east");
 }
 void reset()

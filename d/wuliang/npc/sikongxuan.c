@@ -6,11 +6,11 @@ inherit NPC;
 void create()
 {
 	set_name("司空玄", ({ "sikong xuan", "sikong", "xuan" }));
-	set("title", HIY"神农帮帮主"NOR);
+	set("title", HIY"神農幫幫主"NOR);
 	set("age", 52);
 	set("gender", "男性");
-	set("long", "这是一个瘦小的老者，高出旁人，颏下一把山羊胡子，神态
-甚是倨傲，原来他就是区区神农帮的帮主。\n");
+	set("long", "這是一個瘦小的老者，高出旁人，頦下一把山羊鬍子，神態
+甚是倨傲，原來他就是區區神農幫的幫主。\n");
 	set("attitude", "peaceful");
 
 	set("shen_type", -1);

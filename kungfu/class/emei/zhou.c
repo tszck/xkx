@@ -9,9 +9,9 @@ void create()
 {
 	set_name("周芷若", ({ "zhou zhiruo","zhiruo","zhou"}));
 	set("long",
-		"她是峨嵋派的第四代掌门弟子。\n"
-		"一张脸秀丽绝俗。身着一身淡黄衣裳。\n"
-		"略显清减的巧笑中带了些许无奈。\n"
+		"她是峨嵋派的第四代掌門弟子。\n"
+		"一張臉秀麗絕俗。身着一身淡黃衣裳。\n"
+		"略顯清減的巧笑中帶了些許無奈。\n"
 		"她很寂寞。\n");
 	set("gender", "女性");
 	set("age", 20);
@@ -19,14 +19,14 @@ void create()
 	set("shen_type", -1);
 	set("class", "fighter");	
 	set("inquiry",([
-		"剃度"    : "找我剃度？不对吧。",
-		"出家"    : "要出家找我的师姐们去。",
-		"还俗"    : "无聊。还俗也找我！",
-		"张无忌"  : "这个狠心短命的家伙，我再也不要见他！",
-		"赵敏"    : "不要问这个贱婢子！",
-		"倚天剑"  : "师父把她交给纪师姊了。",
-		"屠龙刀"  : "你想武林称雄？别做梦了。",
-		"灭绝师太" : "师父难得收徒。你先巴结我吧。",
+		"剃度"    : "找我剃度？不對吧。",
+		"出家"    : "要出家找我的師姐們去。",
+		"還俗"    : "無聊。還俗也找我！",
+		"張無忌"  : "這個狠心短命的傢伙，我再也不要見他！",
+		"趙敏"    : "不要問這個賤婢子！",
+		"倚天劍"  : "師父把她交給紀師姊了。",
+		"屠龍刀"  : "你想武林稱雄？別做夢了。",
+		"滅絕師太" : "師父難得收徒。你先巴結我吧。",
 	]));
 	set("str", 30);
 	set("int", 30);
@@ -78,7 +78,7 @@ void create()
 		(: exert_function, "recover" :),
 		(: exert_function, "regenerate" :),
 	}) );
-	create_family("峨嵋派", 4, "掌门弟子");
+	create_family("峨嵋派", 4, "掌門弟子");
 
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();
@@ -90,7 +90,7 @@ void attempt_apprentice(object ob)
 	if (ob->query("shen")<100)
 	{
 		command("heng");
-		command("say " + ob->query("name") + "！你是什么东西？偷睹我面容，打扰我清修！");
+		command("say " + ob->query("name") + "！你是什麼東西？偷睹我面容，打擾我清修！");
 		command("!!! " + ob->query("id"));
 		kill_ob(this_player());
 	}
@@ -101,25 +101,25 @@ void attempt_apprentice(object ob)
 				(int)ob->query("betrayer") > (int)ob->query("K_betrayer"))
 			{
 				command("heng");
-				command("say 象你这样不守门规，三心二意。我怎能再收你为徒。");
+				command("say 象你這樣不守門規，三心二意。我怎能再收你爲徒。");
 				return;
 			}
 			if ((int)ob->query("per") < 22 )
 			{
 				command("giggle");
-				command("say 这位"+RANK_D->query_respect(ob)+"容貌太也...，哎！还是请回吧！");
+				command("say 這位"+RANK_D->query_respect(ob)+"容貌太也...，哎！還是請回吧！");
 				return ;
 			}
 			if ((int)ob->query_dex() < 26  && (int)ob->query_int() < 28 )
 			{
-				command("say 这位"+RANK_D->query_respect(ob)+"恐怕资质差了一点。");
-				command("say 不过尚大有潜力，还是先回去磨练磨练。");
+				command("say 這位"+RANK_D->query_respect(ob)+"恐怕資質差了一點。");
+				command("say 不過尚大有潛力，還是先回去磨練磨練。");
 				return ;
 			}
-			command("say" + ob->query("name") + "看你这么可怜，勉为其难收下你吧。\n");
+			command("say" + ob->query("name") + "看你這麼可憐，勉爲其難收下你吧。\n");
 			command("recruit " + ob->query("id"));
 			ob->delete_temp("marks/宋夫人");
 		} 
-	else command("say " + this_player()->query("name") + "你没事就可以走了。\n\n");
+	else command("say " + this_player()->query("name") + "你沒事就可以走了。\n\n");
 	return;
 }

@@ -5,8 +5,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("云素梅", ({"yun sumei", "yun"}));
-	set("long", "这是一个神龙教女弟子，一袭红衣，长得颇为可爱。\n");
+	set_name("雲素梅", ({"yun sumei", "yun"}));
+	set("long", "這是一個神龍教女弟子，一襲紅衣，長得頗爲可愛。\n");
 
 	set("gender", "女性");
 	set("attitude", "peaceful");
@@ -33,10 +33,10 @@ void create()
 	map_skill("hand","shenlong-bashi");
 	map_skill("sword","meiren-sanzhao");
 	prepare_skill("hand","shenlong-bashi");
-	set("party/party_name", HIY"神龙教"NOR);
-	set("party/rank", HIR"赤龙门"NOR"教众");
+	set("party/party_name", HIY"神龍教"NOR);
+	set("party/rank", HIR"赤龍門"NOR"教衆");
 	set("party/level", 1);
-	create_family("神龙教",3,"弟子");
+	create_family("神龍教",3,"弟子");
 
 	setup();
 	carry_object(VEGETABLE_DIR"xionghuang");

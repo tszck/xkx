@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short","草丛");
+	set("short","草叢");
 	set("long", @LONG
-这里是乱草丛。北边是青竹林。其余三面都是齐腰高的蒿草，常
-有蛇出没。
+這裏是亂草叢。北邊是青竹林。其餘三面都是齊腰高的蒿草，常
+有蛇出沒。
 LONG	);
 	set("exits",([
 		"west"  : __FILE__,

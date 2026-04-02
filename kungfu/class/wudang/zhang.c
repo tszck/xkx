@@ -1,4 +1,4 @@
-// zhang.c 张三丰
+// zhang.c 張三豐
 
 inherit NPC;
 inherit F_MASTER;
@@ -9,16 +9,16 @@ string ask_zhenwu();
 void create()
 {
 	object ob;
-	set_name("张三丰", ({ "zhang sanfeng", "zhang" }));
+	set_name("張三豐", ({ "zhang sanfeng", "zhang" }));
 	set("nickname", "邋遢真人");
 	set("long", 
-"他就是武当派开山鼻祖、当今武林的泰山北斗，中华武功承先启
-后、继往开来的大宗师。他以自悟的拳理、道家冲虚圆通之道和
-九阳真经中所载的内功相发明，创出了辉映后世、照耀千古的武
-当一派武功。此后他北游宝鸣，见到三峰挺秀，卓立云海，于武
-学又有所悟，乃自号三丰。
-身穿一件污秽的灰色道袍，不修边幅。身材高大，年满百岁，满
-脸红光，须眉皆白。\n");
+"他就是武當派開山鼻祖、當今武林的泰山北斗，中華武功承先啓
+後、繼往開來的大宗師。他以自悟的拳理、道家沖虛圓通之道和
+九陽真經中所載的內功相發明，創出了輝映後世、照耀千古的武
+當一派武功。此後他北遊寶鳴，見到三峯挺秀，卓立雲海，於武
+學又有所悟，乃自號三豐。
+身穿一件污穢的灰色道袍，不修邊幅。身材高大，年滿百歲，滿
+臉紅光，鬚眉皆白。\n");
 	set("gender", "男性");
 	set("age", 100);
 	set("attitude", "friendly");
@@ -70,11 +70,11 @@ void create()
 	map_skill("sword", "taiji-jian");
 
 	set("inquiry", ([
-		"秘籍" : (: ask_me :),
-		"真武剑" : (: ask_zhenwu : ),
+		"祕籍" : (: ask_me :),
+		"真武劍" : (: ask_zhenwu : ),
 	]));
 	set("book_count", 1);
-	create_family("武当派", 1, "开山祖师");
+	create_family("武當派", 1, "開山祖師");
 	set("class", "taoist");
 
 	setup();
@@ -103,15 +103,15 @@ void init()
 		if (ob->query("family/master_id") == "zhang sanfeng" &&
 			ob->query("shen") < -100 )
 		{
-			command("say "+RANK_D->query_rude(ob)+ "胆敢瞒着我在外胡作非为！\n");
+			command("say "+RANK_D->query_rude(ob)+ "膽敢瞞着我在外胡作非爲！\n");
 			command("expell " + ob->query("id"));
 			add_action("do_qiecuo","qiecuo");
 			return;
 		}
 		myfam = (mapping)ob->query("family");
-		if((myfam["family_name"] == "武当派")&&(!ob->query_skill("taiji-shengong",1))&&(ob->query("combat_exp")>500000))
+		if((myfam["family_name"] == "武當派")&&(!ob->query_skill("taiji-shengong",1))&&(ob->query("combat_exp")>500000))
        		{
-                command("say 你竟敢放弃本门心法！从我这里滚出去吧！");
+                command("say 你竟敢放棄本門心法！從我這裏滾出去吧！");
                 command("expell " + ob->query("id"));
         	}
 	add_action("do_qiecuo","qiecuo");
@@ -125,43 +125,43 @@ string ask_zhenwu()
 	object player = this_player();
 
 	if( !player->query("wudang/zhenwu") )
-		return "「真武剑」是贫道早年时所用的兵刃。";
+		return "「真武劍」是貧道早年時所用的兵刃。";
 }
 void attempt_apprentice(object ob)
 {
 	mapping fam;
 
-	if( mapp(fam = ob->query("family")) && fam["family_name"] != "武当派" )
+	if( mapp(fam = ob->query("family")) && fam["family_name"] != "武當派" )
 	{
-		command ("say " + RANK_D->query_respect(this_player()) + "并非我门中人，习武还是先从各位道长起吧！");
+		command ("say " + RANK_D->query_respect(this_player()) + "並非我門中人，習武還是先從各位道長起吧！");
 		return;
 	}
 	if ((int)ob->query_skill("taiji-shengong", 1) < 100) {
-		command("say 我武当派乃内家武功，最重视内功心法。"); 
-		command("say " + RANK_D->query_respect(ob) + "是否还应该在太极神功上多下点功夫？");
+		command("say 我武當派乃內家武功，最重視內功心法。"); 
+		command("say " + RANK_D->query_respect(ob) + "是否還應該在太極神功上多下點功夫？");
 		return;
 	}
 	if ((int)ob->query_skill("taoism", 1) < 80)
 	{
-		command("say 我武当派乃道家武功，高深的武功离不开道学心法。");
-		command("say " + RANK_D->query_respect(ob) + "是否还应该多读读道德经？");
+		command("say 我武當派乃道家武功，高深的武功離不開道學心法。");
+		command("say " + RANK_D->query_respect(ob) + "是否還應該多讀讀道德經？");
 		return;
 	}
 	if ((int)ob->query("shen") < 200000)
 	{
-		command( "say 学武之人，德义为先，功夫的高低倒还在其次，未练武，要先学做人。");
-		command("say 在德行方面，" + RANK_D->query_respect(ob) + "是否还做得不够？");
+		command( "say 學武之人，德義爲先，功夫的高低倒還在其次，未練武，要先學做人。");
+		command("say 在德行方面，" + RANK_D->query_respect(ob) + "是否還做得不夠？");
 		return;
 	}
 	if (ob->query_int() < 30)
 	{
-		command( "say 我武当派武功全从道藏悟出。");
-		command( "say 要能达到炉火纯青之境，体质什么的倒是无关紧要，悟性却是半点也马虎不得。");
-		command("say " + RANK_D->query_respect(ob) + "的悟性还大有潜力可挖，还是请回吧。");
+		command( "say 我武當派武功全從道藏悟出。");
+		command( "say 要能達到爐火純青之境，體質什麼的倒是無關緊要，悟性卻是半點也馬虎不得。");
+		command("say " + RANK_D->query_respect(ob) + "的悟性還大有潛力可挖，還是請回吧。");
 		return;
 	}
 	command("chat 哈哈哈哈！！！！");
-	command("chat 想不到老道在垂死之年，又觅得" + ob->name() + "这么一个可塑之才，真是可喜可贺。");
+	command("chat 想不到老道在垂死之年，又覓得" + ob->name() + "這麼一個可塑之才，真是可喜可賀。");
 	command("recruit " + ob->query("id"));
 }
 
@@ -171,14 +171,14 @@ string ask_me()
 	object ob;
 	
 	if (!(fam = this_player()->query("family")) ||
-		fam["family_name"] != "武当派")
-		return RANK_D->query_respect(this_player()) +"与本派素无来往，不知此话从何谈起？";
+		fam["family_name"] != "武當派")
+		return RANK_D->query_respect(this_player()) +"與本派素無來往，不知此話從何談起？";
 	if (query("book_count") < 1)
-		return "你来晚了，本派的武功心法不在此处。";
+		return "你來晚了，本派的武功心法不在此處。";
 	add("book_count", -1);
 	ob = new("/clone/book/taiji-book");
 	ob->move(this_player());
-	command("rumor "+this_player()->query("name")+"拿到太极拳经啦。\n");
-	return "好吧，这本「太极拳经」你拿回去好好钻研。";
+	command("rumor "+this_player()->query("name")+"拿到太極拳經啦。\n");
+	return "好吧，這本「太極拳經」你拿回去好好鑽研。";
 }
 

@@ -7,8 +7,8 @@ void create()
 {
       set("short","大雄殿");
       set("long",@LONG
-这里是报国寺大雄殿。报国寺是峨嵋山最大寺院之一。大雄殿内供着金光
-灿灿的佛像，气宇轩昂。
+這裏是報國寺大雄殿。報國寺是峨嵋山最大寺院之一。大雄殿內供着金光
+燦燦的佛像，氣宇軒昂。
 LONG);
       set("objects", ([
                __DIR__+"npc/guest": 2,
@@ -29,6 +29,6 @@ int valid_leave(object me, string dir)
     mapping myfam;
     myfam = (mapping)me->query("family");
     if ((!myfam || (myfam["family_name"] != "峨嵋派")) && (dir == "west"))
-      return notify_fail("保国寺禅房只接待峨嵋弟子，你要是诚心礼佛，在此多进几注香吧。\n");
+      return notify_fail("保國寺禪房只接待峨嵋弟子，你要是誠心禮佛，在此多進幾注香吧。\n");
     else  return 1;
 }

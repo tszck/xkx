@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "米仓巷");
+	set("short", "米倉巷");
 	set("long", @LONG
-这是通往粮仓的小路。由于民间匪盗经常抢劫官府粮仓，都督府震
-怒之下，特开此路以利府中官兵增援粮仓。
+這是通往糧倉的小路。由於民間匪盜經常搶劫官府糧倉，都督府震
+怒之下，特開此路以利府中官兵增援糧倉。
 LONG );
 	set("outdoors", "quanzhou");
 	set("no_clean_up", 0);

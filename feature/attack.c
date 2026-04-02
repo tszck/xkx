@@ -42,7 +42,7 @@ void fight_ob(object ob)
 	if(!ob || ob==this_object()) return;
 	if (environment(ob) != environment(this_object())) return;
 	set_heart_beat(1);
-/*  暂时不下坐骑迎战
+/*  暫時不下坐騎迎戰
 	if (ob->query_temp("is_riding"))
 	{
 		inv = all_inventory(ob);
@@ -57,7 +57,7 @@ void fight_ob(object ob)
 		}
 		if( i < 0 )
 		{
-			message_vision("$N急忙从$n上手忙脚乱地跳下迎战。\n", ob, obj);
+			message_vision("$N急忙從$n上手忙腳亂地跳下迎戰。\n", ob, obj);
 			obj->move( environment(ob) );
 			obj->delele("is_rided_by");
 			ob->delete_temp("is_riding");
@@ -76,14 +76,14 @@ void kill_ob(object ob)
 
 	if( me->query_temp("guardfor") == ob)
 	{
-		tell_object(me, HIR "不能杀你要保护的人！\n" NOR);
+		tell_object(me, HIR "不能殺你要保護的人！\n" NOR);
 		return;
 	}
 	if( environment(me)->query("no_fight")) return;
 	if (environment(me)!=environment(ob)) return;
 
 	if (me->is_killing(ob->query("id")) && me->is_fighting(ob)) return;
-	tell_object(ob, HIR "看起来" + this_object()->name() + "想杀死你！\n" NOR);
+	tell_object(ob, HIR "看起來" + this_object()->name() + "想殺死你！\n" NOR);
 
 	if( member_array(ob->query("id"), killer)==-1 )
 		killer += ({ ob->query("id") });
@@ -97,8 +97,8 @@ void kill_ob(object ob)
 		guards = ob->query_temp("guarded");
 		guards -= ({ this_object() });
 		ob->set_temp("guarded", guards);
-		tell_object(this_object(), HIY "你停止保护" + ob->name() + "。\n" NOR);
-		tell_object(ob, HIY + this_object()->name() + "停止保护你。\n" NOR);
+		tell_object(this_object(), HIY "你停止保護" + ob->name() + "。\n" NOR);
+		tell_object(ob, HIY + this_object()->name() + "停止保護你。\n" NOR);
 	}
 */
 	if ( !this_object()->query("jianxi")&&!this_object()->query("quest_no_guard")&& arrayp(guards = ob->query_temp("guarded")))
@@ -112,7 +112,7 @@ void kill_ob(object ob)
 		if ( sizeof(guards) > 0 )
 		{
 			enemy += guards;
-message("vision", HIR + ob->name() + "受到攻击！你挺身加入战团！\n" NOR, guards);
+message("vision", HIR + ob->name() + "受到攻擊！你挺身加入戰團！\n" NOR, guards);
 			guards->kill_ob(this_object());
 		}
 	}
@@ -320,9 +320,9 @@ int do_ride_none(object me)
 		i++;
 	}
 	if( i >= 0 )
-		return notify_fail("发现错误！\n");
-/*  暂时不下坐骑迎战
-	message_vision("$N急忙从$n上跳下迎战。\n", me, ob);
+		return notify_fail("發現錯誤！\n");
+/*  暫時不下坐騎迎戰
+	message_vision("$N急忙從$n上跳下迎戰。\n", me, ob);
 	ob->move( environment(me) );
 	ob->delele("is_rided_by");
 //	ob->set("xingcheng", me->query_temp_marks("zuoji/xingcheng"));

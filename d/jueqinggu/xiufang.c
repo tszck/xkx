@@ -6,9 +6,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "绣房");
+	set("short", "繡房");
 	set("long", @LONG
-这里是公孙绿萼的绣房，整个房间秀雅整洁，一个少女正坐在窗前
+這裏是公孫綠萼的繡房，整個房間秀雅整潔，一個少女正坐在窗前
 沉思。
 LONG
 	);

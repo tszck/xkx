@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "林间小道");
+	set("short", "林間小道");
 	set("long", @LONG
-这是一条从南到北的林间小道，沿途风景极之清幽，参天古树，拔
-地而起，两旁百花争艳。令人留连忘返。
+這是一條從南到北的林間小道，沿途風景極之清幽，參天古樹，拔
+地而起，兩旁百花爭豔。令人留連忘返。
 LONG );
 	set("exits", ([
 		"south" : __DIR__"qingcaop",

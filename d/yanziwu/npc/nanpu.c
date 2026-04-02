@@ -4,7 +4,7 @@ inherit NPC;
 
 void create()
 {
-	set_name("男仆", ({ "nan pu", "pu" }));
+	set_name("男僕", ({ "nan pu", "pu" }));
 	set("gender", "男性");
 	set("age", 25);
 
@@ -14,7 +14,7 @@ void create()
 	set_temp("apply/attack",  10);
 	set_temp("apply/defense", 10);
 	set("shen_type", -1);
-	create_family("姑苏慕容", 34, "弟子");
+	create_family("姑蘇慕容", 34, "弟子");
 	setup();
 
 	add_money("silver",3);

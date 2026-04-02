@@ -1,5 +1,5 @@
 // Last Modified by sir on 10.18.2001
-// snowstep.c 梅雪飘香步
+// snowstep.c 梅雪飄香步
 
 #include <ansi.h>
 inherit SKILL;
@@ -9,24 +9,24 @@ string martialtype() { return "dodge"; }
 string *order = ({""HIY"", ""HIG"", ""RED"", ""MAG"", ""YEL"", ""HIC"", ""HIW"", ""HIR"",""HIB"", ""CYN"",""WHT"",""HIM"",""BLU""});
 
 string *dodge_msg = ({
-	"但是$n轻笑一声，回身高拨而起，一式"+(order[random(13)])+"「红梅飘雪」"NOR"，轻轻闪过了这招。\n",
-	"$n随意转身，一招"+(order[random(13)]) +"「檀板金樽」"NOR"，如舞乐般飘身而上，避过了这招。\n",
-	"只见$n身形一旋，拨身而起，使出"+(order[random(13)]) +"「梅月黄昏」"NOR"，整个人都失去了踪影，令$N扑了个空。\n",
-	"却见$n伸手往地上遥遥一拍，一式"+(order[random(13)]) +"「梅飘九宵」"NOR"，如柳絮般轻轻飘起，躲过了这招。\n",
-	"$n长笑一声，一式"+(order[random(13)]) +"「寒梅傲雪」"NOR"，长身而起，一时四面八方都是$n的影子，虚虚实实，不知哪个才是真的。\n",
+	"但是$n輕笑一聲，回身高撥而起，一式"+(order[random(13)])+"「紅梅飄雪」"NOR"，輕輕閃過了這招。\n",
+	"$n隨意轉身，一招"+(order[random(13)]) +"「檀板金樽」"NOR"，如舞樂般飄身而上，避過了這招。\n",
+	"只見$n身形一旋，撥身而起，使出"+(order[random(13)]) +"「梅月黃昏」"NOR"，整個人都失去了蹤影，令$N撲了個空。\n",
+	"卻見$n伸手往地上遙遙一拍，一式"+(order[random(13)]) +"「梅飄九宵」"NOR"，如柳絮般輕輕飄起，躲過了這招。\n",
+	"$n長笑一聲，一式"+(order[random(13)]) +"「寒梅傲雪」"NOR"，長身而起，一時四面八方都是$n的影子，虛虛實實，不知哪個纔是真的。\n",
 });
 
 int valid_enable(string usage) { return (usage=="dodge") || (usage=="move"); }
 int valid_learn(object me)
 {      	
 	if( (int)me->query_skill("bingxue-xinfa", 1) < 10 )
-		return notify_fail("你的冰雪心法不够精熟，无法领会梅雪飘香步。\n");
+		return notify_fail("你的冰雪心法不夠精熟，無法領會梅雪飄香步。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if( (int)me->query("qi") < 20|| (int)me->query("neili") < 4 )
-		return notify_fail("你的体力太差了，不能练梅雪飘香步。\n");
+		return notify_fail("你的體力太差了，不能練梅雪飄香步。\n");
 	me->receive_damage("qi", 20);
 	me->add("neili", -4);	
 	return 1;
@@ -43,13 +43,13 @@ int power_point(object me) { return 1.2; }
 
 int help(object me)
 {
-	write(HIC"\n梅雪飘香步："NOR"\n");
+	write(HIC"\n梅雪飄香步："NOR"\n");
 	write(@HELP
 
-    梅雪飘香步是凌霄派本门轻功身法。
+    梅雪飄香步是凌霄派本門輕功身法。
 
-	学习要求：
-          冰雪心法10级
+	學習要求：
+          冰雪心法10級
 HELP
 	);
 	return 1;

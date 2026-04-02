@@ -6,8 +6,8 @@ void create()
 {       set_name("哭三少", ({ "autodami"}));
 	set("gender", "男性");
 	set("class", "beggar");
-	set("title", "丐帮第二十代弟子");
-	set("nickname", HIY"我是武庙3楼的大名人笑三少的跟班"NOR);
+	set("title", "丐幫第二十代弟子");
+	set("nickname", HIY"我是武廟3樓的大名人笑三少的跟班"NOR);
 	set("age", 14);
 	set("attitude", "friendly");
 

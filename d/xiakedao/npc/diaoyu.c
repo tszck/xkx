@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("垂钓者", ({ "fishman","diao" }) );
+        set_name("垂釣者", ({ "fishman","diao" }) );
         set("gender", "男性" );
         set("age", 58);
-        set("long","一个精神矍烁的老者，他正手持钓竿，稳坐于桥上，很有姜太公之风。\n");
+        set("long","一個精神矍爍的老者，他正手持釣竿，穩坐於橋上，很有姜太公之風。\n");
         set("shen_type", 1);
         set("combat_exp", 4000);
         set("str", 15);

@@ -4,9 +4,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("昆仑派女弟子", ({ "dizi"}));
+	set_name("崑崙派女弟子", ({ "dizi"}));
 	set("long",
-		"她看起来身材娇小，似乎练过一点武功。\n");
+		"她看起來身材嬌小，似乎練過一點武功。\n");
 	set("gender", "女性");
 	set("age", 17);
 	set("attitude", "heroism");
@@ -27,7 +27,7 @@ void create()
 	set_skill("dodge", 20);
 	set_skill("cuff", 20);
 
-	create_family("昆仑派", 6, "弟子");
+	create_family("崑崙派", 6, "弟子");
 	setup();
 	carry_object("/d/kunlun/obj/pao1")->wear();
 }

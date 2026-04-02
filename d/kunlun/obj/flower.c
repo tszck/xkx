@@ -7,7 +7,7 @@ inherit HEAD;
 
 void create()
 {
-	set_name(HIG"青陀罗花"NOR,({ "flower", "hua" }) );
+	set_name(HIG"青陀羅花"NOR,({ "flower", "hua" }) );
 	set_weight(500);
 	if( clonep() )
 		set_default_object(__FILE__);
@@ -15,9 +15,9 @@ void create()
 		set("unit", "朵");
 		set("value", 0);
 		set("material", "plant");
-		set("long", "这是一朵青陀罗花。\n"
-			"这花汁原有腥臭之气，本身并无毒性, \n"
-			"但一经和鲜血混和，却生剧毒，同时腥臭转为清香。\n");
+		set("long", "這是一朵青陀羅花。\n"
+			"這花汁原有腥臭之氣，本身並無毒性, \n"
+			"但一經和鮮血混和，卻生劇毒，同時腥臭轉爲清香。\n");
 		set("wear_msg", "");
 		set("unequip_msg", "$N摘下胸前的$n。\n");
 		set("armor_prop/armor", 0);
@@ -34,11 +34,11 @@ int wear()
 	if (ret=::wear())
 	{
 		if (me->query("gender") == "男性")
-			message_vision("好一个风流少年郎！\n", me);
+			message_vision("好一個風流少年郎！\n", me);
 		else if (me->query("gender") == "女性")
-			message_vision("好一个美丽俏佳娃！\n", me);
+			message_vision("好一個美麗俏佳娃！\n", me);
 		else
-			message_vision("好一个不三不四的家伙！\n", me);
+			message_vision("好一個不三不四的傢伙！\n", me);
 	}
 	return ret;
 }

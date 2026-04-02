@@ -6,7 +6,7 @@ inherit CLOTH;
 
 void create()
 {
-	set_name("皂罗袍", ({"zao luopao", "purple cloth", "cloth"}));
+	set_name("皁羅袍", ({"zao luopao", "purple cloth", "cloth"}));
 	set_weight(3000);
 	if( clonep() )
 		set_default_object(__FILE__);

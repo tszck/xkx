@@ -6,8 +6,8 @@ inherit NPC;
 void create()
 {
 	set_name("木人", ({ "mu ren" }) );
-	set("long", "一个木人");
-	set("gender", "机械");
+	set("long", "一個木人");
+	set("gender", "機械");
 	set("age", 20);
 	set("attitude", "friendly");
 
@@ -46,18 +46,18 @@ void init()
 	prepare_skill("leg", "ruying-suixingtui");
 	if (userp(ob))
 	{
-		say("\n一个木人从暗处向你扫来一腿！\n");
+		say("\n一個木人從暗處向你掃來一腿！\n");
 		COMBAT_D->do_attack(this_object(), ob, this_object()->query_temp("weapon"), 1);
        	}
 	if (!present(ob,environment()) || ob->query("qi") < 0 ||
 		ob->query("jing") < 0 || ob->query("jingli") < 0) {
 		ob->move("/d/nanshaolin/daxiong", 1);
 		ob->delete_temp("murenxiang");
-		tell_object(ob,"你被木人击倒了！昏迷中你似乎被人抬回了大雄宝殿。\n");
+		tell_object(ob,"你被木人擊倒了！昏迷中你似乎被人擡回了大雄寶殿。\n");
 	}
 	set("destructing", 1);
 	set_ghost(1);
-	say("\n木人闪身躲回了暗处。\n");
+	say("\n木人閃身躲回了暗處。\n");
 	call_out("destruct_me", 1);
 }
 

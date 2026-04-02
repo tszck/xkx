@@ -13,7 +13,7 @@ void create()
                set_default_object(__FILE__);
        else{
        set("unit", "具");
-       set("long", "这是一具男子的骸骨。\n");
+       set("long", "這是一具男子的骸骨。\n");
        set("value", 0);
        set("material","wood");
        set("no_get",1);

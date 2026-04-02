@@ -8,11 +8,11 @@ void create()
 {
 	set_name("九翼道人", ({ "jiuyi daoren", "jiuyi"}));
 	set("long",
-		"他是西夏一品堂礼聘的高手，身材高瘦，脸上总是阴沉沉的，\n
-他轻功极高，擅使雷公挡，凭一手雷公挡功夫，成为江湖的一流高手。\n");
+		"他是西夏一品堂禮聘的高手，身材高瘦，臉上總是陰沉沉的，\n
+他輕功極高，擅使雷公擋，憑一手雷公擋功夫，成爲江湖的一流高手。\n");
 	set("title", "西夏一品堂高手");
 	set("gender", "男性");
-	set("nickname", HIR "雷动于九天之上" NOR);
+	set("nickname", HIR "雷動於九天之上" NOR);
 	set("age", 40);
 	set("shen_type",-1);
 	set("attitude", "peaceful");

@@ -121,7 +121,7 @@ int main()
         set("weapon_topten",weapon_topten );
         set("gambling_topten",gambling_topten );        
         save();
-        write( "排行榜初始化完毕！\n" );
+        write( "排行榜初始化完畢！\n" );
         return 1;
 }
 
@@ -130,7 +130,7 @@ string query_save_file() { return TOPTEN; }
 int  help(object  me)
 {
     write(  @LONG
-此指令用来清空排行榜所有数据。
+此指令用來清空排行榜所有數據。
 LONG);
   
     return  1;

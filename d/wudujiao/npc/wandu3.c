@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("阴山天蜈",({"wu gong"}));
-	set("race", "昆虫");
-	set("subrace", "爬虫");
-        set("long", "一条三寸多长，长有一双翅膀剧毒蜈蚣。\n");
+        set_name("陰山天蜈",({"wu gong"}));
+	set("race", "昆蟲");
+	set("subrace", "爬蟲");
+        set("long", "一條三寸多長，長有一雙翅膀劇毒蜈蚣。\n");
         set("age", 10000);
         set("attitude", "peaceful");
 
@@ -46,7 +46,7 @@ int hit_ob(object me, object ob, int damage)
         if ((string)ob->query("family/family_name") != "五毒教") {
                 ob->apply_condition("wugong_poison", 20
               +(int)ob->query_condition("wugong_poison") );
-              tell_object(ob, HIG "你觉得被咬中的地方一阵麻木！\n" NOR );
+              tell_object(ob, HIG "你覺得被咬中的地方一陣麻木！\n" NOR );
         }
 }
 

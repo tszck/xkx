@@ -19,16 +19,16 @@ int valid_learn(object me)
 	int lvl = (int)me->query_skill("bingxue-xinfa", 1);
 
 	if ( me->query_skill("force", 1) < 10)
-		return notify_fail("你的基本内功还不到火候。\n");
-	if ( me->query("gender") == "无性" && lvl > 49)
-		return notify_fail("你无根无性，阴阳不调，难以领会高深的冰雪心法。\n");
+		return notify_fail("你的基本內功還不到火候。\n");
+	if ( me->query("gender") == "無性" && lvl > 49)
+		return notify_fail("你無根無性，陰陽不調，難以領會高深的冰雪心法。\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("冰雪心法只能用学的，或是从运用(exert)中增加熟练度。\n");
+	return notify_fail("冰雪心法只能用學的，或是從運用(exert)中增加熟練度。\n");
 }
 
 string exert_function_file(string func)
@@ -40,11 +40,11 @@ int help(object me)
 	write(HIC"\n冰雪心法："NOR"\n");
 	write(@HELP
 
-    冰雪心法是雪山凌霄城的内功心法，是雪山派弟子本门内功。
+    冰雪心法是雪山凌霄城的內功心法，是雪山派弟子本門內功。
 
-	学习要求：
-		基本内功10级
-		太监无法领悟50级以上的冰雪心法
+	學習要求：
+		基本內功10級
+		太監無法領悟50級以上的冰雪心法
 HELP
 	);
 	return 1;

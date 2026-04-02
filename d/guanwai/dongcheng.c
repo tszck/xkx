@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "东城");
+	set("short", "東城");
 	set("long", @LONG
-这里是用黄土铺就的街道，街上的行人不多，看起来很冷清。偶尔
-有几个身着异域服饰的行人走过，看起来是满族，鲜祖的居民。西面传
-来嘈杂的叫卖声。南面是一排黄泥垒成的土房，里面有嬉笑的声音。
+這裏是用黃土鋪就的街道，街上的行人不多，看起來很冷清。偶爾
+有幾個身着異域服飾的行人走過，看起來是滿族，鮮祖的居民。西面傳
+來嘈雜的叫賣聲。南面是一排黃泥壘成的土房，裏面有嬉笑的聲音。
 LONG );
 	set("exits", ([
 		"west"      : __DIR__"jishi",
@@ -31,7 +31,7 @@ int valid_leave(object me, string dir)
 	{
 		me->receive_damage("qi",30);
 		me->receive_wound("qi",30);
-	tell_object(me,"一股刺骨的寒风吹过，你只觉得浑身的血液都快被冻住了！\n");
+	tell_object(me,"一股刺骨的寒風吹過，你只覺得渾身的血液都快被凍住了！\n");
 	}
 	return 1;
 }

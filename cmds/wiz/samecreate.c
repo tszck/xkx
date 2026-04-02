@@ -31,9 +31,9 @@ int main(object me, string arg)
         if (find_call_out("search_dir") != -1)
         {
                 if (run_user && run_user != me)
-                        return notify_fail("当前" + run_user->query("name") +
+                        return notify_fail("當前" + run_user->query("name") +
                                            "(" + run_user->query("id") + ")" +
-                                           "正在使用该指令进行查找，请稍候再使用。\n");
+                                           "正在使用該指令進行查找，請稍候再使用。\n");
                 remove_call_out("search_dir");
         }
 
@@ -45,28 +45,28 @@ int main(object me, string arg)
         {
                 name = arg;
                 if (file_size(DATA_DIR + "login/" + name[0..0] + "/"  + name + __SAVE_EXTENSION__) < 0)
-                        return notify_fail("没有这位使用者。\n");
+                        return notify_fail("沒有這位使用者。\n");
 
                 who = new(LOGIN_OB);
                 who->set("id", name);
                 if (! who->restore())
-                        return notify_fail("没有这位使用者。\n");
+                        return notify_fail("沒有這位使用者。\n");
 
-                write(fname(who) + "上次从 " + who->query("created_from")+" 上线。\n");
+                write(fname(who) + "上次從 " + who->query("created_from")+" 上線。\n");
                 if (! who->query("created_from"))
-                        return notify_fail("无法查知该玩家上次上线地点。\n");
+                        return notify_fail("無法查知該玩家上次上線地點。\n");
                 address = who->query("created_from");
                 destruct(who);
         }
 
-        write("寻找从 " + address + " 注册的使用者：\n");
+        write("尋找從 " + address + " 註冊的使用者：\n");
         count = 0;
         dir = get_dir(DATA_DIR + "login/");
         i = 0;
         result = ({ });
         call_out("search_dir", 0, count, dir, i, address, me, result);
-        write(HIG "现在系统将统计数据，稍后汇报。\n"
-              HIG "进度：" + process_bar(0) + "\n");
+        write(HIG "現在系統將統計數據，稍後彙報。\n"
+              HIG "進度：" + process_bar(0) + "\n");
  //       me->attach_system();
         run_user = me;
         return 1;
@@ -94,7 +94,7 @@ void search_dir(int count, string *dir, int i, string address, object me, string
         if (i == sizeof(dir))
         {
                 info = ESC + "[256D" + ESC + "[K"
-                       HIC "\n查找所有玩家的结果如下：\n" NOR WHT;
+                       HIC "\n查找所有玩家的結果如下：\n" NOR WHT;
                 for (i = 0; i < sizeof(result); i++)
                 {
                         info += result[i];
@@ -104,7 +104,7 @@ void search_dir(int count, string *dir, int i, string address, object me, string
                                 info = "";
                         }
                 }
-                info += HIG "共有 " + to_chinese(count) + " 位使用者从这个地址上线。\n\n" NOR;
+                info += HIG "共有 " + to_chinese(count) + " 位使用者從這個地址上線。\n\n" NOR;
                 message("vision", info, me);
                 run_user = 0;
 //                me->detach_system();
@@ -144,8 +144,8 @@ void search_dir(int count, string *dir, int i, string address, object me, string
                 }
                 i++;
         	message("vision", ESC + "[1A" + ESC + "[256D"
-                                  HIG "进度：" + process_bar(i * 100 / sizeof(dir)) +
-                                  "\n" HIR "执行中" NOR "> ", me);
+                                  HIG "進度：" + process_bar(i * 100 / sizeof(dir)) +
+                                  "\n" HIR "執行中" NOR "> ", me);
          if (!all==1)
            call_out("search_dir", 0, count, dir, i, address, me, result);
          else
@@ -158,7 +158,7 @@ string fname(object ob)
         string s2;
 
         s2 = ob->query("name");
-        if (s2 == "") s2 = "无名";
+        if (s2 == "") s2 = "無名";
         return s2;
 }
 
@@ -167,7 +167,7 @@ int  help(object  me)
 write(@HELP
 指令格式：samecreate <使用者姓名> | <IP 地址>
 
-查找所有与使用者用同一地址注册的使用者。
+查找所有與使用者用同一地址註冊的使用者。
 HELP
     );
         return  1;

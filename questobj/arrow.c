@@ -5,7 +5,7 @@ inherit THROWING;
 
 void create()
 {
-	set_name(HIC"凤尾箭"NOR, ({ "fengwei jian", "arrow" }) );
+	set_name(HIC"鳳尾箭"NOR, ({ "fengwei jian", "arrow" }) );
 	set("taskobj", 1);
 	if( clonep() )
 		set_default_object(__FILE__);
@@ -16,9 +16,9 @@ void create()
 		set("base_weight", 300);
 		set("base_value", 0);
 		set("material", "iron");
-		set("long", "凤尾箭连珠箭发，势道凶猛。\n");
-		set("wield_msg", HIC"$N迅速地从箭袋中抽出一束凤尾箭，拉弦在手，就待发出！\n"NOR);
-		set("unwield_msg",HIC"$N将手里剩下的凤尾箭放回箭袋中。\n"NOR);
+		set("long", "鳳尾箭連珠箭發，勢道兇猛。\n");
+		set("wield_msg", HIC"$N迅速地從箭袋中抽出一束鳳尾箭，拉弦在手，就待發出！\n"NOR);
+		set("unwield_msg",HIC"$N將手裏剩下的鳳尾箭放回箭袋中。\n"NOR);
 	}
 	set_amount(1);
 	setup();

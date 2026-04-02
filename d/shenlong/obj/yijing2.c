@@ -1,4 +1,4 @@
-// yijing.c  『十四经发挥』
+// yijing.c  『十四經發揮』
 // Last Modified by winder on Jul. 12 2002
 
 inherit ITEM;
@@ -7,13 +7,13 @@ void setup()
 
 void create()
 {
-	set_name("十四经发挥", ({ "yijing", "book" }));
+	set_name("十四經發揮", ({ "yijing", "book" }));
 	set_weight(600);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一本线装书，里面有各式图谱和详细说明。\n");
+		set("long", "這是一本線裝書，裏面有各式圖譜和詳細說明。\n");
 		set("value", 300);
 		set("material", "paper");
 	}
@@ -32,42 +32,42 @@ int do_study(string arg)
 
 	if (where->query("pigging"))
 	{
-		write("你还是专心拱猪吧！\n");
+		write("你還是專心拱豬吧！\n");
 		return 1;
 	}
 	if (me->is_busy())
 	{
-		write("你现在正忙着呢。\n");
+		write("你現在正忙着呢。\n");
 		return 1;
 	}
 	if( me->is_fighting() )
 	{
-		write("你无法在战斗中专心下来研读新知！\n");
+		write("你無法在戰鬥中專心下來研讀新知！\n");
 		return 1;
 	}
 	if (!id(arg))
 	{
-		write("你要读什么？\n");
+		write("你要讀什麼？\n");
 		return 1;
 	}
 	if( (int)me->query_skill("literate", 1) < 20 )
 	{
-		write("你识的字不多，读不懂书中的讲解。\n");
+		write("你識的字不多，讀不懂書中的講解。\n");
 		return 1;
 	}
 	if( (int)me->query_skill("medicine", 1) < 30 )
 	{
-		write("你还是先去读一读『黄帝内经』吧。\n");
+		write("你還是先去讀一讀『黃帝內經』吧。\n");
 		return 1;
 	}
 	if( (int)me->query_skill("medicine", 1) > 59 )
 	{
-		write("阁下已熟知人体经脉和各处穴位，不必再读『十四经发挥』。\n");
+		write("閣下已熟知人體經脈和各處穴位，不必再讀『十四經發揮』。\n");
 		return 1;
 	}
 	if ( me->query("jing") < 120 )
 	{
-		write("你的精神欠佳，捧着医经连打呵欠。\n");
+		write("你的精神欠佳，捧着醫經連打呵欠。\n");
 		return 1;
 	}
 	cost = 40 + 800 / (int)me->query("int");
@@ -75,8 +75,8 @@ int do_study(string arg)
 	cost += random(cost / 2);
 
 	me->improve_skill("medicine", random(2 * me->query_int()));
-	me->receive_damage("jing", cost, "心力绞瘁死了");
-	message_vision("$N一会儿翻阅着『十四经发挥』，一会儿苦思冥想。\n", me);
+	me->receive_damage("jing", cost, "心力絞瘁死了");
+	message_vision("$N一會兒翻閱着『十四經發揮』，一會兒苦思冥想。\n", me);
 
 	return 1;
 }

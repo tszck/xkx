@@ -13,18 +13,18 @@ inherit ITEM;
 
 void create()
 {
-	set_name("帮令", ({ "bang ling", "ling" }) );
+	set_name("幫令", ({ "bang ling", "ling" }) );
 	set_weight(10);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "块");
-		set("long", "这是一块帮会中常用的帮令。\n");
+		set("unit", "塊");
+		set("long", "這是一塊幫會中常用的幫令。\n");
 		set("value", 0);
 		set("material", "wood");
-		set("partyname", HIC"长乐帮"NOR);
-		set("no_drop", "这样东西不能离开你。\n");
-		set("no_get", "这样东西不能离开那儿。\n");
+		set("partyname", HIC"長樂幫"NOR);
+		set("no_drop", "這樣東西不能離開你。\n");
+		set("no_get", "這樣東西不能離開那兒。\n");
 	}
 	setup();
 }
@@ -46,17 +46,17 @@ int do_find(string arg)
 
 	if( (string)query("owner") != this_player()->query("id") )
 	{
-	       write("你连自己的帮令都管不好，还是离开帮会吧。\n");
+	       write("你連自己的幫令都管不好，還是離開幫會吧。\n");
 	       return 1;
 	}
 	if( !stringp(fam = this_player()->query("party/party_name")) )
 	{
-	       write("你没有加入帮会。\n");
+	       write("你沒有加入幫會。\n");
 	       return 1;
 	}
 	if( arg == "score" )
 	{
-		write("你挣了" + chinese_number((int)query("changle/score")) + "点功劳点。\n");
+		write("你掙了" + chinese_number((int)query("changle/score")) + "點功勞點。\n");
 		return 1;
 	}
 	if( arg != "job" )
@@ -66,41 +66,41 @@ int do_find(string arg)
 
 	if( !mapp(job = query("changle/job")) )
 	{
-		write("你现在没有被指派帮务。\n");
+		write("你現在沒有被指派幫務。\n");
 		return 1;
 	}
 
-	result = "你当前的帮务是";
+	result = "你當前的幫務是";
 	switch(job["type"]) {
-	case "寻":
+	case "尋":
 		result += "找" + job["name"]; 
 		break;
-	case "杀":
-		result += "杀" + job["area"] + "的" + job["name"]; 
+	case "殺":
+		result += "殺" + job["area"] + "的" + job["name"]; 
 		break;
-	case "摊费":
-		result += "要" + job["name"] + "的摊费";
+	case "攤費":
+		result += "要" + job["name"] + "的攤費";
 		break;
-	case "截镖":
-		result += "截" + job["name"] + "的镖";
+	case "截鏢":
+		result += "截" + job["name"] + "的鏢";
 		break;
 	case "示威":
 		result += "向" + job["name"] + "示威";
 		break;
-	case "送礼":
-		result += "送礼给" + job["area"] + "的" + job["title"];
+	case "送禮":
+		result += "送禮給" + job["area"] + "的" + job["title"];
 		break;
-	case "护驾":
-		result += "护送帮主至" + job["dest"];
+	case "護駕":
+		result += "護送幫主至" + job["dest"];
 		break;
-	case "买卖":
-		result += "将" + job["name"] + "卖个好价钱";
+	case "買賣":
+		result += "將" + job["name"] + "賣個好價錢";
 		break;
-	case "伙计":
-		result += "在天宝阁做伙计";
+	case "夥計":
+		result += "在天寶閣做夥計";
 		break;
 	default:
-		write("你现在没有被指派帮务。\n");
+		write("你現在沒有被指派幫務。\n");
 		return 1;
 	}
 
@@ -116,30 +116,30 @@ int do_collect(string arg)
 	mapping job;
 
 	if( time() < (int)query("collect_time") + random(10) )
-		return notify_fail("你刚向此人要过钱。\n");
+		return notify_fail("你剛向此人要過錢。\n");
 	if( (int)me->query("qi") < 50 || (int)me->query("jing") < 50 )
-		return notify_fail("你太累了，先歇会儿。\n");
+		return notify_fail("你太累了，先歇會兒。\n");
 	if( (string)query("owner") != me->query("id") )
-		return notify_fail("帮令岂能瞎用？\n");
+		return notify_fail("幫令豈能瞎用？\n");
 	if( (string)query("fam") != me->query("party/party_name") )
-		return notify_fail("你已经不是此帮的人了。\n");
+		return notify_fail("你已經不是此幫的人了。\n");
 	if( !mapp(job = query("changle/job")) )
-		return notify_fail("你现在没有帮务缠身。\n");
-	if( job["type"] != "摊费" )
-		return notify_fail("你当前的帮务不是收摊费。\n");
+		return notify_fail("你現在沒有幫務纏身。\n");
+	if( job["type"] != "攤費" )
+		return notify_fail("你當前的幫務不是收攤費。\n");
 	if( base_name(environment(me)) != job["place"] )
-		return notify_fail("你还没到" + job["name"] + "收什么摊费？\n");
-	if( !arg ) return notify_fail("你要向谁收括钱？\n");
+		return notify_fail("你還沒到" + job["name"] + "收什麼攤費？\n");
+	if( !arg ) return notify_fail("你要向誰收括錢？\n");
 	if( !(victim = present(arg, environment(me))) )
-		return notify_fail("这儿没有这个人。\n");
+		return notify_fail("這兒沒有這個人。\n");
 	if( victim->name() != job["boss"] )
-		return notify_fail("你找错人了。\n");
+		return notify_fail("你找錯人了。\n");
 	if( !living(victim) )
-		return notify_fail("你还是等此人醒来后再收括钱吧。\n");
+		return notify_fail("你還是等此人醒來後再收括錢吧。\n");
 	if( victim->is_busy() || victim->is_fighting() )
 		return notify_fail("此人正忙着。\n");
 
-	message_vision(HIR"\n$N向$n大声吆喝道：我是" + (string)query("fam") + "来收摊费的，识时务的赶快给钱！！！\n"NOR, me, victim);
+	message_vision(HIR"\n$N向$n大聲吆喝道：我是" + (string)query("fam") + "來收攤費的，識時務的趕快給錢！！！\n"NOR, me, victim);
 
 	me->receive_damage("qi", 20 + random(10));
 	me->receive_damage("jing", 20 + random(10));
@@ -155,16 +155,16 @@ int do_collect(string arg)
  
 	if( random(ap + dp) < dp )
 	{
-		message_vision("$N大怒道：什么" + (string)query("party/party_name") + "，还不快滚！！！\n", victim);
+		message_vision("$N大怒道：什麼" + (string)query("party/party_name") + "，還不快滾！！！\n", victim);
 		return 1;
 	}
-	message_vision("$N对$n说道：" + RANK_D->query_respect(me) + "辛苦了，这一点摊费是小的该付的。\n", victim, me);
-	message_vision("$N接着说道：" + RANK_D->query_respect(me) + "请放心，我马上派人将钱送到贵帮！！！\n", victim);
+	message_vision("$N對$n說道：" + RANK_D->query_respect(me) + "辛苦了，這一點攤費是小的該付的。\n", victim, me);
+	message_vision("$N接着說道：" + RANK_D->query_respect(me) + "請放心，我馬上派人將錢送到貴幫！！！\n", victim);
 
 	bonus = 1 + yourexp * 2 / (myexp + 10000);
 	record = bonus + random(bonus);
 	me->add("combat_exp", record);
-	log_file("test/BangJob", sprintf("%-10s于%-20s时因收摊费得%-5s经验点\n", me->query("name"), ctime(time()), chinese_number(record)));
+	log_file("test/BangJob", sprintf("%-10s於%-20s時因收攤費得%-5s經驗點\n", me->query("name"), ctime(time()), chinese_number(record)));
 
 	bonus /= 4;
 	me->add("shen", -bonus);
@@ -188,7 +188,7 @@ int do_sign(string arg)
 		return 0;
 	if( !mapp(job = query("job")) )
 	{
-		tell_object(me, "你现在没有帮务。\n");
+		tell_object(me, "你現在沒有幫務。\n");
 		return 1;
 	}
 	if( obj->query("kill_by") != me ||
@@ -200,13 +200,13 @@ int do_sign(string arg)
 	bonus = job["bonus"] * job["max"] / (1000 + me->query("combat_exp"));
 	record = bonus + random(bonus);
 	me->add("combat_exp", record);
-	log_file("test/BangJob", sprintf("%-10s于%-20s时杀%-10s得%-5s经验点\n", me->query("name"), ctime(time()), job["name"], chinese_number(record)));
+	log_file("test/BangJob", sprintf("%-10s於%-20s時殺%-10s得%-5s經驗點\n", me->query("name"), ctime(time()), job["name"], chinese_number(record)));
 
 	bonus = job["score"];
 	me->add("shen", -bonus);
 	add("score", bonus);
 
-	message_vision("$N在尸体旁写下“与" + (string)query("fam") + "为敌者杀！”几个大字。\n", me);
+	message_vision("$N在屍體旁寫下“與" + (string)query("fam") + "爲敵者殺！”幾個大字。\n", me);
 	delete("job");
 	return 1;
 }
@@ -218,46 +218,46 @@ int do_bargain(string arg)
 	int bonus, exp;
 
 	if( (string)query("owner") != me->query("id") )
-		return notify_fail("帮令岂能瞎用？\n");
+		return notify_fail("幫令豈能瞎用？\n");
 	if( (string)query("fam") != me->query("party/partyname") )
-		return notify_fail("你已经不是此帮的人了。\n");
+		return notify_fail("你已經不是此幫的人了。\n");
 	if( !mapp(job = query("changle/job")) )
-		return notify_fail("你现在没有帮务缠身。\n");
-	if( !arg ) return notify_fail("你要和谁讨价还价？\n");
+		return notify_fail("你現在沒有幫務纏身。\n");
+	if( !arg ) return notify_fail("你要和誰討價還價？\n");
 	if( !(target = present(arg, environment(me))) )
-		return notify_fail("这儿没有这个人。\n");
+		return notify_fail("這兒沒有這個人。\n");
 	if( !living(target) )
-		return notify_fail("你还是等此人醒来后再说吧\n");
+		return notify_fail("你還是等此人醒來後再說吧\n");
 	if( userp(target) )
-		return notify_fail("玩家不会出好价钱的。\n");
+		return notify_fail("玩家不會出好價錢的。\n");
 	if( target->is_busy() || target->is_fighting() )
 		return notify_fail(target->name() + "正忙着。\n");
 	if( (exp = (int)target->query("combat_exp")) < 10000 )
 	{
-		message_vision("$N摆了摆手说道：我买不起，你卖给别人吧。\n", target);
+		message_vision("$N擺了擺手說道：我買不起，你賣給別人吧。\n", target);
 		return 1;
 	}
 	if( !(obj = present(job["good"], me)) )
-		return notify_fail("你把" + job["name"] + "弄丢了。\n");
+		return notify_fail("你把" + job["name"] + "弄丟了。\n");
 	if( time() < (int)target->query("trader/time") + 600 ) {
-		message_vision("$N摆了摆手说道：我刚买了一" + obj->query("unit") + obj->name() + "。\n", target);
+		message_vision("$N擺了擺手說道：我剛買了一" + obj->query("unit") + obj->name() + "。\n", target);
 		return 1;
 	}
 	if( (bonus = (int)job["prices"][explode(base_name(environment(target)), "/")[1]]) < 5 ) {
-		message_vision("$N摆了摆手说道：这东西现在在此地一点也不值钱，你自己用吧。\n", target);
+		message_vision("$N擺了擺手說道：這東西現在在此地一點也不值錢，你自己用吧。\n", target);
 		return 1;
 	}
 	target->set("trader/time", time());
 	bonus *= (1 + (int)target->query("combat_exp") / 100000);
-	message_vision("$N想了想说道：好吧，" + chinese_number(bonus) + "两银子，再贵我不买了。\n", target);
-	message_vision("$N点了点头，将" + obj->query("unit") + obj->name() + "交给$n。\n", me, target);
+	message_vision("$N想了想說道：好吧，" + chinese_number(bonus) + "兩銀子，再貴我不買了。\n", target);
+	message_vision("$N點了點頭，將" + obj->query("unit") + obj->name() + "交給$n。\n", me, target);
 	obj->move(CANGKU);
-	message_vision("$N说道：下次贵帮来人时我再付款。\n", target);
-	message_vision("$N说道：没关系，下次还有更好的货。\n", me);
+	message_vision("$N說道：下次貴幫來人時我再付款。\n", target);
+	message_vision("$N說道：沒關係，下次還有更好的貨。\n", me);
 
 	bonus /= 20;
 	me->add("combat_exp", bonus);
-	log_file("test/BangJob", sprintf("%-10s于%-20s时因卖%-10s得%-5s经验点\n", me->query("name"), ctime(time()), obj->name(), chinese_number(bonus)));
+	log_file("test/BangJob", sprintf("%-10s於%-20s時因賣%-10s得%-5s經驗點\n", me->query("name"), ctime(time()), obj->name(), chinese_number(bonus)));
 	add("score", bonus/4);
 	delete("job");
 	return 1;

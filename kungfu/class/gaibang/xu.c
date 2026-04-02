@@ -6,10 +6,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("徐长老", ({"xu zhanglao", "xu", "zhanglao"}));
+	set_name("徐長老", ({"xu zhanglao", "xu", "zhanglao"}));
 	set("gender", "男性");
 	set("age", 85);
-	set("long", "白须飘动，穿着一身补丁累累的鹑衣，是个年纪极高的老丐。\n");
+	set("long", "白鬚飄動，穿着一身補丁累累的鶉衣，是個年紀極高的老丐。\n");
 
 	set("attitude", "peaceful");
 	set("class", "beggar");
@@ -32,18 +32,18 @@ void create()
 	set("combat_exp", 100000);
 	set("score", 20000);
 	
-	set_skill("force", 95);            // 基本内功
-	set_skill("huntian-qigong", 90);   // 混天气功
+	set_skill("force", 95);            // 基本內功
+	set_skill("huntian-qigong", 90);   // 混天氣功
 	set_skill("hand", 90);             // 基本手法
-	set_skill("suohou-hand", 85);      // 锁喉擒拿手
+	set_skill("suohou-hand", 85);      // 鎖喉擒拿手
 	set_skill("staff", 90);            // 基本杖法
-	set_skill("fengmo-staff", 85);     // 疯魔杖法
-	set_skill("dodge", 90);            // 基本躲闪
-	set_skill("xiaoyaoyou", 95);       // 逍遥游
+	set_skill("fengmo-staff", 85);     // 瘋魔杖法
+	set_skill("dodge", 90);            // 基本躲閃
+	set_skill("xiaoyaoyou", 95);       // 逍遙遊
 	set_skill("parry", 85);            // 基本招架
 	set_skill("staff", 90);            // 基本棍杖
 	set_skill("strike",85);  // 基本掌法
-	set_skill("lianhua-zhang",85); // 莲花掌
+	set_skill("lianhua-zhang",85); // 蓮花掌
 	set_skill("xianglong-zhang",85);
 
 	map_skill("strike","lianhua-zhang");
@@ -56,10 +56,10 @@ void create()
 	map_skill("dodge", "xiaoyaoyou");
 	prepare_skill("hand", "suohou-hand");
 
-	set("party/party_name", HIC"丐帮"NOR);
-	set("party/rank", RED"九袋长老"NOR);
+	set("party/party_name", HIC"丐幫"NOR);
+	set("party/rank", RED"九袋長老"NOR);
 	set("party/level", 9);
-	create_family("丐帮", 8, "弟子");
+	create_family("丐幫", 8, "弟子");
 
 	setup();
 

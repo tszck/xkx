@@ -13,8 +13,8 @@ void create()
 	 if( clonep() )
 		 set_default_object(__FILE__);
 	 else {
-		 set("long", "一条薄如蝉翼，幽香沁人的碧色长裙，轻颤颤地不知由什么布料做成。\n");
-		 set("unit", "条");
+		 set("long", "一條薄如蟬翼，幽香沁人的碧色長裙，輕顫顫地不知由什麼布料做成。\n");
+		 set("unit", "條");
 		 set("value", 8000);
 		 set("material", "cloth");
 		 set("armor_prop/armor", 1);

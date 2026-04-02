@@ -2,10 +2,10 @@
 
 inherit ITEM;
 string* titles = ({
-	"无量寿经",
-	"大般涅磐经",
-	"金刚经",
-	"波罗蜜多心经",
+	"無量壽經",
+	"大般涅磐經",
+	"金剛經",
+	"波羅蜜多心經",
 });
 
 void create()
@@ -16,7 +16,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一册佛经。\n");
+		set("long", "這是一冊佛經。\n");
 		set("value", 500);
 		set("material", "paper");
 		set("skill", ([

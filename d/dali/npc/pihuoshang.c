@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("皮货商", ({ "pihuo shang", "shang" }));
+	set_name("皮貨商", ({ "pihuo shang", "shang" }));
 	set("age", 32);
 	set("gender", "男性");
-	set("long", "一位来远道而来的汉族商人，来此采购皮货。\n");
+	set("long", "一位來遠道而來的漢族商人，來此採購皮貨。\n");
 	set("attitude", "peaceful");
 
 	set("str", 24);

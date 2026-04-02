@@ -1,15 +1,15 @@
 // /d/changan/puke-room.c
  
 
-//扑克牌。
+//撲克牌。
 
 inherit  ROOM;
 
 string  *pai_name  =  ({
 "【黑Ａ】",  "【黑２】",  "【黑３】",  "【黑４】",  "【黑５】",  "【黑６】",  "【黑７】",  
 "【黑８】",  "【黑９】",  "【黑十】",  "【黑Ｊ】",  "【黑Ｑ】",  "【黑Ｋ】",  
-"【红Ａ】",  "【红２】"  ,"【红３】",  "【红４】",  "【红５】",  "【红６】",  "【红７】",  
-"【红８】",  "【红９】",  "【红十】",  "【红Ｊ】",  "【红Ｑ】",  "【红Ｋ】",  
+"【紅Ａ】",  "【紅２】"  ,"【紅３】",  "【紅４】",  "【紅５】",  "【紅６】",  "【紅７】",  
+"【紅８】",  "【紅９】",  "【紅十】",  "【紅Ｊ】",  "【紅Ｑ】",  "【紅Ｋ】",  
 "【草Ａ】",  "【草２】",  "【草３】",  "【草４】",  "【草５】",  "【草６】",  "【草７】",  
 "【草８】",  "【草９】",  "【草十】",  "【草Ｊ】",  "【草Ｑ】",  "【草Ｋ】",  
 "【方Ａ】",  "【方２】",  "【方３】",  "【方４】",  "【方５】",  "【方６】",  "【方７】",  
@@ -87,33 +87,33 @@ void  check_finish(int  previous_game_id);
 
 void  create  ()
 {
-	set  ("short",  "拱猪房");
+	set  ("short",  "拱豬房");
 	set  ("long",  @LONG
-屋中间摆着一张看起来相当结实的大方桌 (table)，桌边围着四把
-靠背木椅。东面墙上有一块大牌子 (paizi)，西面墙上有一块小牌子
+屋中間擺着一張看起來相當結實的大方桌 (table)，桌邊圍着四把
+靠背木椅。東面牆上有一塊大牌子 (paizi)，西面牆上有一塊小牌子
 (score)。
 LONG);
 
 	set("item_desc",  (["paizi"  :  "
 
-拱猪规则：
+拱豬規則：
 
 主要指令有：
 一，就坐(sit  <n,  s,  e,  w>)。
-二，开拱(start)。
+二，開拱(start)。
 三，出牌(play  <花色>  <大小>)。
-　　花色有(hei,  hong,  cao,  fang)或用(S/s,  H/h,  C/c,  D/d)来代表。
-　　大小有(1,  ...,  13)或用(A/a,  J/j,  Q/q,  K/k)来代表(1,  11,  12,  13)。
+　　花色有(hei,  hong,  cao,  fang)或用(S/s,  H/h,  C/c,  D/d)來代表。
+　　大小有(1,  ...,  13)或用(A/a,  J/j,  Q/q,  K/k)來代表(1,  11,  12,  13)。
 四，好牌亮相(double  <zhu/z,  yang/y,  hong/h,  bian/b>)。
 五，查自己的牌(my)。
-六，看桌面情况(look  table)。
-七，看积分(look  score)。
-八，退出拱猪(leave)。
+六，看桌面情況(look  table)。
+七，看積分(look  score)。
+八，退出拱豬(leave)。
 
-注意事项：
-一，要端正牌风，系统不揭发舞弊。
-二，每一盘必须在半小时内完成，否则取消重来。
-二，有任何bug请报告巫师。目前是测试阶段，可能还有不少错。
+注意事項：
+一，要端正牌風，系統不揭發舞弊。
+二，每一盤必須在半小時內完成，否則取消重來。
+二，有任何bug請報告巫師。目前是測試階段，可能還有不少錯。
 
 		\n"  ]));
 	//for  look  something.
@@ -217,7 +217,7 @@ int  convert_to_id(string  kind,  int  rank)
 
 string  chinese_dir(string  dir)
 {
-	if(dir  ==  "east"  ||  dir  ==  "e")  return  "东";
+	if(dir  ==  "east"  ||  dir  ==  "e")  return  "東";
 	else  if(dir  ==  "west"  ||  dir  ==  "w")  return  "西";
 	else  if(dir  ==  "south"  ||  dir  ==  "s")  return  "南";
 	else  if(dir  ==  "north"  ||  dir  ==  "n")  return  "北";
@@ -237,20 +237,20 @@ int  do_sit(string  arg)
 	my_id  =  me->query("id");
 
 	if(  my_id  ==  e_id  ||  my_id  ==  w_id  ||  my_id  ==  n_id  ||  my_id  ==  s_id  )
-		return  notify_fail("你已经坐下了？\n");
+		return  notify_fail("你已經坐下了？\n");
 
-	if(!arg)  return  notify_fail("你要坐哪边？\n");
+	if(!arg)  return  notify_fail("你要坐哪邊？\n");
 
 	if  (  arg  ==  "east"  ||  arg  ==  "e"  )
 	{
 		if(  objectp(players=present(e_id,  this_object()))  &&  living(players)  )  
 		{
-			return  notify_fail("东座已经有人了。\n");
+			return  notify_fail("東座已經有人了。\n");
 		}
 		else  
 		{
 			e_id  =  my_id;
-			message_vision("$N坐上了东边的椅子。\n",  me);
+			message_vision("$N坐上了東邊的椅子。\n",  me);
 			return  1;
 		}
 	}
@@ -258,12 +258,12 @@ int  do_sit(string  arg)
 	{
 		if(  objectp(players=present(w_id,  this_object()))  &&  living(players)  )  
 		{
-			return  notify_fail("西座已经有人了。\n");
+			return  notify_fail("西座已經有人了。\n");
 		}
 		else  
 		{
 			w_id  =  my_id;
-			message_vision("$N坐上了西边的椅子。\n",  me);
+			message_vision("$N坐上了西邊的椅子。\n",  me);
 			return  1;
 		}
 	}
@@ -271,12 +271,12 @@ int  do_sit(string  arg)
 	{
 		if(  objectp(players=present(n_id,  this_object()))  &&  living(players)  )  
 		{
-			return  notify_fail("北座已经有人了。\n");
+			return  notify_fail("北座已經有人了。\n");
 		}
 		else  
 		{
 			n_id  =  my_id;
-			message_vision("$N坐上了北边的椅子。\n",  me);
+			message_vision("$N坐上了北邊的椅子。\n",  me);
 			return  1;
 		}
 	}
@@ -284,16 +284,16 @@ int  do_sit(string  arg)
 	{
 		if(  objectp(players=present(s_id,  this_object()))  &&  living(players)  )  
 		{
-			return  notify_fail("南座已经有人了。\n");
+			return  notify_fail("南座已經有人了。\n");
 		}
 		else  
 		{
 			s_id  =  my_id;
-			message_vision("$N坐上了南边的椅子。\n",  me);
+			message_vision("$N坐上了南邊的椅子。\n",  me);
 			return  1;
 		}
 	}
-	else  return  notify_fail("你要坐哪边？\n");
+	else  return  notify_fail("你要坐哪邊？\n");
 }
 
 int  do_play(string  arg)
@@ -310,36 +310,36 @@ int  do_play(string  arg)
 
 	//check  if  I  am  playing...
 	if(  my_id  !=  e_id  &&  my_id  !=  w_id  &&  my_id  !=  n_id  &&  my_id  !=  s_id  )
-		return  notify_fail("观牌不语真君子。\n");
+		return  notify_fail("觀牌不語真君子。\n");
 
 	//everyone  is  here?
 	if(!objectp(players=present(e_id,  this_object()))  )
 	{
 		e_id  =  "no  one";
-		return  notify_fail("东家不在了。找人来替补吧。\n");
+		return  notify_fail("東家不在了。找人來替補吧。\n");
 	}
 	if(!objectp(players=present(w_id,  this_object()))  )
 	{
 		w_id  =  "no  one";
-		return  notify_fail("西家不在了。找人来替补吧。\n");
+		return  notify_fail("西家不在了。找人來替補吧。\n");
 	}
 	if(!objectp(players=present(n_id,  this_object()))  )
 	{
 		n_id  =  "no  one";
-		return  notify_fail("北家不在了。找人来替补吧。\n");
+		return  notify_fail("北家不在了。找人來替補吧。\n");
 	}
 	if(!objectp(players=present(s_id,  this_object()))  )
 	{
 		s_id  =  "no  one";
-		return  notify_fail("南家不在了。找人来替补吧。\n");
+		return  notify_fail("南家不在了。找人來替補吧。\n");
 	}
 
 	//who  to  play?
 	if(my_id  !=  who_to_play  )
-		return  notify_fail("还没到你出牌。\n");
+		return  notify_fail("還沒到你出牌。\n");
 
 	if(  (!  arg)  ||  (sscanf  (arg,"%s  %s",  kind,  rank_str)  !=  2))
-		return  notify_fail("请使用：play  <花色>  <大小>\n");
+		return  notify_fail("請使用：play  <花色>  <大小>\n");
 
 	//convert...
 	if(  kind  ==  "S"  ||  kind  ==  "s"  )  kind  =  "hei";
@@ -347,7 +347,7 @@ int  do_play(string  arg)
 	else  if(  kind  ==  "C"  ||  kind  ==  "c"  )  kind  =  "cao";
 	else  if(  kind  ==  "D"  ||  kind  ==  "d"  )  kind  =  "fang";
 	else  if(  kind  ==  "hei"  ||  kind  ==  "hong"  ||  kind  ==  "cao"  ||  kind  ==  "fang"  )  kind  =  kind;//do  nothing  here.
-	else  return  notify_fail("花色只有(hei,  hong,  cao,  fang)或用(S/s,  H/h,  C/c,  D/d)来代表。\n");
+	else  return  notify_fail("花色只有(hei,  hong,  cao,  fang)或用(S/s,  H/h,  C/c,  D/d)來代表。\n");
 
 	if(  rank_str  ==  "1"  ||  rank_str  ==  "A"  ||  rank_str  ==  "a"  )  rank  =  1;
 	else  if(  rank_str  ==  "2")  rank  =  2;  
@@ -362,31 +362,31 @@ int  do_play(string  arg)
   	else  if(  rank_str  ==  "11"  ||  rank_str  ==  "J"  ||  rank_str  ==  "j"  )  rank  =  11;
 	else  if(  rank_str  ==  "12"  ||  rank_str  ==  "Q"  ||  rank_str  ==  "q"  )  rank  =  12;
 	else  if(  rank_str  ==  "13"  ||  rank_str  ==  "K"  ||  rank_str  ==  "k"  )  rank  =  13;
-	else  return  notify_fail("大小只有(1,  ...,  13)或用(A/a,  J/j,  Q/q,  K/k)来代表(1,  11,  12,  13)。\n");
+	else  return  notify_fail("大小隻有(1,  ...,  13)或用(A/a,  J/j,  Q/q,  K/k)來代表(1,  11,  12,  13)。\n");
 	
 	//if  I  have  this  pai.	
 	pai_id  =  convert_to_id(kind,  rank);
 	if(  pai_id  <  0  ||  pai_id  >=  pai_size)  //note,  here  no  wang.
-		return  notify_fail("没有这张牌。\n");
+		return  notify_fail("沒有這張牌。\n");
 
 	if(  pai_state[pai_id]  ==  "e"  )  pai_owner  =  e_id;
 	else  if(  pai_state[pai_id]  ==  "w"  )  pai_owner  =  w_id;
 	else  if(  pai_state[pai_id]  ==  "n"  )  pai_owner  =  n_id;
 	else  if(  pai_state[pai_id]  ==  "s"  )  pai_owner  =  s_id;
-	else  if(  pai_state[pai_id]  ==  "t"  )  return  notify_fail("这张牌出过了。\n");
-	else  return  notify_fail("奇怪，这张牌丢了。\n");
+	else  if(  pai_state[pai_id]  ==  "t"  )  return  notify_fail("這張牌出過了。\n");
+	else  return  notify_fail("奇怪，這張牌丟了。\n");
 
 	if(  my_id  !=  pai_owner  )
-		return  notify_fail("你没有这张牌。\n");
+		return  notify_fail("你沒有這張牌。\n");
 
 	//I    can  play  out  this  pai.
-	message_vision("$N打出一张"+pai_name[pai_id]+"。\n",  me);
+	message_vision("$N打出一張"+pai_name[pai_id]+"。\n",  me);
 
 	if(  pai_state[pai_id]  ==  "e"  )  e_last  =  pai_id;
 	else  if(  pai_state[pai_id]  ==  "w"  )  w_last  =  pai_id;
 	else  if(  pai_state[pai_id]  ==  "n"  )  n_last  =  pai_id;
 	else  if(  pai_state[pai_id]  ==  "s"  )  s_last  =  pai_id;
-	else  tell_room(this_object(),  "出问题了(set  last  pai)，叫巫师来吧。\n");
+	else  tell_room(this_object(),  "出問題了(set  last  pai)，叫巫師來吧。\n");
 
 	pai_state[pai_id]  =  "t";//mark  it  as  on  table.	
 
@@ -424,7 +424,7 @@ void  game_process()
 	else  if(  who_to_play  ==  s_id  )  
 		current_round_ids[current_round_step]  =  s_last  ;
 	else  
-		tell_room(this_object(),  "出问题了(set  current  ids)，叫巫师来吧。\n");
+		tell_room(this_object(),  "出問題了(set  current  ids)，叫巫師來吧。\n");
 	
 	//set  round  rank
 	if(  current_round_step  ==  1  )
@@ -438,7 +438,7 @@ void  game_process()
 		else  if(  who_to_play  ==  s_id  )  
 			current_round_kind  =  check_kind(  s_last  );
 		else  
-			tell_room(this_object(),  "出问题了(set  current  kind)，叫巫师来吧。\n");
+			tell_room(this_object(),  "出問題了(set  current  kind)，叫巫師來吧。\n");
 	}
   
 
@@ -447,17 +447,17 @@ void  game_process()
 		who_to_play  =  get_next_player();
 	}
 	else
-	{//轮着排。
+	{//輪着排。
 		if(  who_to_play  ==  e_id  )  who_to_play  =  n_id;
 		else  if(  who_to_play  ==  n_id  )  who_to_play  =  w_id;
 		else  if(  who_to_play  ==  w_id  )  who_to_play  =  s_id;
 		else  if(  who_to_play  ==  s_id  )  who_to_play  =  e_id;
-		else  tell_room(this_object(),  "出问题了(shift  player)，叫巫师来吧。\n");
+		else  tell_room(this_object(),  "出問題了(shift  player)，叫巫師來吧。\n");
 	}
 
 	if(  current_round_step  !=  0  )
 	{
-		rd_msg  =  "这一轮所出的牌：";
+		rd_msg  =  "這一輪所出的牌：";
 		for(rd=1;  rd<=current_round_step;  rd++)
 		{
 			if  (  current_round_ids[rd]  <  pai_size  )
@@ -475,7 +475,7 @@ void  game_process()
 
 	if(objectp(next_player=present(who_to_play,  this_object()))  &&  living(next_player)  )
 	{
-		tell_room(this_object(),  "下面该"+next_player->query("name")+"出牌了。\n");
+		tell_room(this_object(),  "下面該"+next_player->query("name")+"出牌了。\n");
 	}
 	else
 	{
@@ -517,7 +517,7 @@ string  get_next_player()
 		dest  =  "s";  
 		next_player  =  s_id;
 	}  
-	else  tell_room(this_object(),  "出问题了(get  next  player)，叫巫师来吧。\n");
+	else  tell_room(this_object(),  "出問題了(get  next  player)，叫巫師來吧。\n");
 
 	if(  check_score(e_last)  !=  0  )  pai_destination[e_last]  =  dest;
 	if(  check_score(w_last)  !=  0  )  pai_destination[w_last]  =  dest;
@@ -527,7 +527,7 @@ string  get_next_player()
 	tell_room(this_object(),  chinese_dir(dest)+"家的"+pai_name[bigger]+"最大。\n");
 	if(pai_name[e_last]=="【黑Ｑ】"  ||  pai_name[w_last]=="【黑Ｑ】"  
 	||    pai_name[n_last]=="【黑Ｑ】"  ||  pai_name[s_last]=="【黑Ｑ】"  )
-		tell_room(this_object(),  "啊哈！猪上"+chinese_dir(dest)+"家去了。\n");
+		tell_room(this_object(),  "啊哈！豬上"+chinese_dir(dest)+"家去了。\n");
 	if(pai_name[e_last]=="【方Ｊ】"  ||  pai_name[w_last]=="【方Ｊ】"  
 	||    pai_name[n_last]=="【方Ｊ】"  ||  pai_name[s_last]=="【方Ｊ】"  )
 		tell_room(this_object(),  chinese_dir(dest)+"家得到了羊。\n");
@@ -551,7 +551,7 @@ int  pai_compare(int  p1,  int  p2)
 
 void  game_finished()
 {
-	tell_room(this_object(),  "这一局结束了。\n");
+	tell_room(this_object(),  "這一局結束了。\n");
 
 	//calculate  score  for  this  round.
 	calculate_score();
@@ -602,7 +602,7 @@ check_finish(int  previous_game_id)
 	if(previous_game_id  !=  game_id)  return;  //it  means  already  finished.
 	if(game_status  ==  0)  return;  //no  game,  no  need  to  cancel.
 
-	tell_room(this_object(),  "这一盘一直完不成，只好取消重来了。\n");
+	tell_room(this_object(),  "這一盤一直完不成，只好取消重來了。\n");
 	game_reset();
 }
 
@@ -655,28 +655,28 @@ void  show_table(int  out)
 
 	if(  out  ==  0  )
 	{
-		msg  =  "东家：";
+		msg  =  "東家：";
 		if(  objectp(players=present(e_id,  this_object()))  &&  living(players)  )
 			msg  +=  players->query("name")+"；";
-		else  msg  +=  "暂缺；";  
+		else  msg  +=  "暫缺；";  
 		msg  +=  "南家：";
 		if(  objectp(players=present(s_id,  this_object()))  &&  living(players)  )
 			msg  +=  players->query("name")+"；";
-		else  msg  +=  "暂缺；";  
+		else  msg  +=  "暫缺；";  
 		msg  +=  "西家：";
 		if(  objectp(players=present(w_id,  this_object()))  &&  living(players)  )
 			msg  +=  players->query("name")+"；";
-		else  msg  +=  "暂缺；";  
+		else  msg  +=  "暫缺；";  
 		msg  +=  "北家：";
 		if(  objectp(players=present(n_id,  this_object()))  &&  living(players)  )
 			msg  +=  players->query("name")+"\n\n";
-		else  msg  +=  "暂缺。\n\n";
+		else  msg  +=  "暫缺。\n\n";
 
 		if(  game_status  ==  1  )
 		{
 			if(  current_round_step  !=  0  )
 			{
-				msg  +=  "这一轮所出的牌：";
+				msg  +=  "這一輪所出的牌：";
 				for(rd=1;  rd<=current_round_step;  rd++)
 				{
 					if  (  current_round_ids[rd]  <  pai_size  )
@@ -685,8 +685,8 @@ void  show_table(int  out)
 				msg  +=  "\n";
 			}
 			if(  objectp(players=present(who_to_play,  this_object()))  &&  living(players)  )
-				msg  +=  "下面该"+players->query("name")+"出牌。\n\n";
-			else  msg  +=  "下面该???出牌。\n\n";
+				msg  +=  "下面該"+players->query("name")+"出牌。\n\n";
+			else  msg  +=  "下面該???出牌。\n\n";
 		}
   
 		write(msg);
@@ -717,7 +717,7 @@ void  show_table(int  out)
 	if(  out  )  tell_room(this_object(),  msg+"\n\n");
 	else  write(msg+"\n\n");
 
-	e_msg  =  "东家所得牌：\n";
+	e_msg  =  "東家所得牌：\n";
 	w_msg  =  "西家所得牌：\n";
 	n_msg  =  "北家所得牌：\n";
 	s_msg  =  "南家所得牌：\n";
@@ -749,18 +749,18 @@ void  show_score()
 {
 	if(  game_id  ==  0  )
 	{  
-		write("拱猪还没开张，没有任何分数。\n");
+		write("拱豬還沒開張，沒有任何分數。\n");
 		return;
 	}
   
 	if(  game_status  ==  1  )  
 	{
-		write("拱猪正在进行，这一局的分数还没出来。\n");
-		write("上一局的结果是：\n");
+		write("拱豬正在進行，這一局的分數還沒出來。\n");
+		write("上一局的結果是：\n");
 	}
-	else    write("最新战况：\n");
+	else    write("最新戰況：\n");
 
-	write("东家："+sprintf("%d",  e_score)+"分。\n");
+	write("東家："+sprintf("%d",  e_score)+"分。\n");
 	write("南家："+sprintf("%d",  s_score)+"分。\n");
 	write("西家："+sprintf("%d",  w_score)+"分。\n");
 	write("北家："+sprintf("%d",  n_score)+"分。\n");
@@ -773,13 +773,13 @@ int  do_leave()
 
 	my_id  =  me->query("id");
 	if(  my_id  !=  e_id  &&  my_id  !=  w_id  &&  my_id  !=  n_id  &&  my_id  !=  s_id  )
-		return  notify_fail("你并没有参加拱猪。\n");
+		return  notify_fail("你並沒有參加拱豬。\n");
 
 	if(  my_id  ==  e_id  )  e_id  =  "no  one";
 	else  if(  my_id  ==  w_id  )  w_id  =  "no  one";
 	else  if(  my_id  ==  n_id  )  n_id  =  "no  one";
 	else  if(  my_id  ==  s_id  )  s_id  =  "no  one";
-	message_vision("$N说道：对不起，你们找人接替吧，我不玩了。\n",  me);
+	message_vision("$N說道：對不起，你們找人接替吧，我不玩了。\n",  me);
 	return  1;
 }
 
@@ -791,9 +791,9 @@ int  do_double(string  arg)
 
 	my_id  =  me->query("id");
 	if(  my_id  !=  e_id  &&  my_id  !=  w_id  &&  my_id  !=  n_id  &&  my_id  !=  s_id  )
-		return  notify_fail("你并没有参加拱猪。\n");
+		return  notify_fail("你並沒有參加拱豬。\n");
 
-	if(game_status  ==  0)  return  notify_fail("拱猪还没开始。\n");
+	if(game_status  ==  0)  return  notify_fail("拱豬還沒開始。\n");
 
 	pai_on_table  =  0;
 	for(i=0;  i<pai_size;  i++)
@@ -806,7 +806,7 @@ int  do_double(string  arg)
 		arg!="yang"&&arg!="y"&&
 		arg!="hong"&&arg!="h"&&
 		arg!="bian"&&arg!="b"))  
-		return  notify_fail("你要亮什么？\n");
+		return  notify_fail("你要亮什麼？\n");
 
 	if(  my_id  ==  e_id  )  dir="e";
 	else  if(  my_id  ==  w_id  )  dir="w";
@@ -818,40 +818,40 @@ int  do_double(string  arg)
 		if(  pai_state[convert_to_id("hei",  12)]  ==  dir  )
 		{
 			pig_double  =  2;
-			message_vision("$N奸笑了几声：嘿嘿，我有猪，你们得小心点。\n",  me);	
+			message_vision("$N奸笑了幾聲：嘿嘿，我有豬，你們得小心點。\n",  me);	
 			return  1;
 		}
-		else  return  notify_fail("你手头并没有猪。\n");
+		else  return  notify_fail("你手頭並沒有豬。\n");
 	}
 	else  if(arg=="yang"||arg=="y")
 	{
 		if(  pai_state[convert_to_id("fang",  11)]  ==  dir  )
 		{
 			yang_double  =  2;
-			message_vision("$N兴奋地叫道：我有羊！\n",  me);	
+			message_vision("$N興奮地叫道：我有羊！\n",  me);	
 			return  1;
 		}
-		else  return  notify_fail("别做梦了。\n");
+		else  return  notify_fail("別做夢了。\n");
 	}
 	else  if(arg=="hong"||arg=="h")
 	{
 		if(  pai_state[convert_to_id("hong",  1)]  ==  dir  )
 		{
 			hong_double  =  2;
-			message_vision("$N大声道：现在我宣布，红心提价！\n",  me);	
+			message_vision("$N大聲道：現在我宣佈，紅心提價！\n",  me);	
 			return  1;
 		}
-		else  return  notify_fail("你没有红心尖。\n");
+		else  return  notify_fail("你沒有紅心尖。\n");
 	}
 	else  if(arg=="bian"||arg=="b")
 	{
 		if(  pai_state[convert_to_id("cao",  10)]  ==  dir  )
 		{
 			cao_double  =  2;
-			message_vision("$N躲在一边偷偷直笑：变压器的油可是加满了！\n",  me);	
+			message_vision("$N躲在一邊偷偷直笑：變壓器的油可是加滿了！\n",  me);	
 			return  1;
 		}
-		else  return  notify_fail("你还是先弄个变压器再说吧。\n");
+		else  return  notify_fail("你還是先弄個變壓器再說吧。\n");
 	}
 
 	return  1;
@@ -868,10 +868,10 @@ int  do_start()
 	me  =  this_player();
 	my_id  =  me->query("id");
 
-	if(game_status  ==  1)  return  notify_fail("拱猪已经开始了。\n");
+	if(game_status  ==  1)  return  notify_fail("拱豬已經開始了。\n");
 
 	if(  my_id  !=  e_id  &&  my_id  !=  w_id  &&  my_id  !=  n_id  &&  my_id  !=  s_id  )
-		return  notify_fail("你还没坐下来呢。\n");
+		return  notify_fail("你還沒坐下來呢。\n");
 
 	if(  !objectp(players=present(e_id,  this_object()))  )  
 		need_players++;
@@ -882,18 +882,18 @@ int  do_start()
 	if(  !objectp(players=present(s_id,  this_object()))  )  
 		need_players++;
 	
-	if(  need_players  >  0  )  return  notify_fail("还得找"+chinese_number(need_players)+"个人才能开拱。\n");
+	if(  need_players  >  0  )  return  notify_fail("還得找"+chinese_number(need_players)+"個人才能開拱。\n");
 
 	//now  start  game.
 	game_status  =  1;
 	game_id  ++;
 	call_out("check_finish",  1800,  game_id);  //30  minutes
 
-	message_vision("$N大声宣布：拱猪正式开始！\n",  me);
+	message_vision("$N大聲宣佈：拱豬正式開始！\n",  me);
 	send_pai();	
 	who_to_play  =  my_id;
-	tell_room(this_object(),  "下面由"+me->query("name")+"开牌。\n");
-	message_vision("$N问道：有亮相的没有？没有我可出牌了！\n",  me);
+	tell_room(this_object(),  "下面由"+me->query("name")+"開牌。\n");
+	message_vision("$N問道：有亮相的沒有？沒有我可出牌了！\n",  me);
 	current_round_step  =  1;  //set  it  to  1  as  the  beginning.
 	return  1;
 }
@@ -963,7 +963,7 @@ int  do_my()
 	me  =  this_player();
 	my_id  =  me->query("id");
 
-	if(game_status  ==  0)  return  notify_fail("拱猪还没开始。\n");
+	if(game_status  ==  0)  return  notify_fail("拱豬還沒開始。\n");
 
 	dir="no  dir";
 
@@ -971,9 +971,9 @@ int  do_my()
   	else  if(  my_id  ==  w_id  )  dir="w";
 	else  if(  my_id  ==  n_id  )  dir="n";
 	else  if(  my_id  ==  s_id  )  dir="s";
-	else  return  notify_fail("你并没有加入拱猪。\n");
+	else  return  notify_fail("你並沒有加入拱豬。\n");
 
-	msg  =  "你手头的牌有：\n";
+	msg  =  "你手頭的牌有：\n";
 
 	j  =  0;
 	for(i=0;  i<pai_size;  i++)

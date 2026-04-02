@@ -6,7 +6,7 @@ void create()
 {
 	set("short", YEL"孔雀工作室"NOR);
 	set("long", @LONG
-这里是孔雀的家。
+這裏是孔雀的家。
 LONG );
 	set("no_fight", 1);
 	set("valid_startroom", 1);

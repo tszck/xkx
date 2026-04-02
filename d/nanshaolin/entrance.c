@@ -10,8 +10,8 @@ void create()
 {
 	set("short", "木人巷入口");
 	set("long", @LONG
-这里是木人巷的入口。一旦走到这里，就已经无法再回头了，虽然
-明知前面将会是步步凶险无比，也只有硬着头皮向前闯了。
+這裏是木人巷的入口。一旦走到這裏，就已經無法再回頭了，雖然
+明知前面將會是步步兇險無比，也只有硬着頭皮向前闖了。
 LONG );
 	set("exits", ([ 
 		"north" : __DIR__"murenxiang",
@@ -33,13 +33,13 @@ void init()
 
 int do_save()
 {
-	write("这里不准存盘！\n");
+	write("這裏不準存盤！\n");
 	return 1;
 }
 
 int do_quit()
 {
-	write("这里不准退出！\n");
+	write("這裏不準退出！\n");
 	return 1;
 }
 
@@ -47,7 +47,7 @@ int valid_leave(object me, string dir)
 {
 	if (dir == "north" && __DIR__"murenxiang"->query("busy"))
 	{
-		return notify_fail("有人正在闯木人巷，你先等会吧！\n");
+		return notify_fail("有人正在闖木人巷，你先等會吧！\n");
 	}
 	return ::valid_leave(me, dir);
 }

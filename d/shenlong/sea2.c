@@ -23,9 +23,9 @@ void create()
 {
 	set("short","大海");
 	set("long", @LONG
-这是辽阔的海面，海风「呼呼」在你耳边吹过，海浪一个接着一个
-向你泼打过来，突然一个巨浪打来几乎把你陷入旋涡中，你还是尽快离
-开这儿吧。
+這是遼闊的海面，海風「呼呼」在你耳邊吹過，海浪一個接着一個
+向你潑打過來，突然一個巨浪打來幾乎把你陷入旋渦中，你還是儘快離
+開這兒吧。
 LONG
 	);
 	set("outdoors", "shenlong");
@@ -50,12 +50,12 @@ int do_practice(string arg)
 
 	if( me->is_busy() )
 	{
-		tell_object(me, "你现在正忙着呢。\n");
+		tell_object(me, "你現在正忙着呢。\n");
 		return 1;
 	}
 	if( me->is_fighting() )
 	{
-		tell_object(me, "你已经在战斗中了，学一点实战经验吧。\n");
+		tell_object(me, "你已經在戰鬥中了，學一點實戰經驗吧。\n");
 		return 1;
 	}
 	if( !arg ) return ("/cmds/skill/enable")->main(me, arg);
@@ -63,24 +63,24 @@ int do_practice(string arg)
 		skillarg = arg;
 	if( (w = member_array(skillarg, practice_types)) == -1 )
 	{
-		tell_object(me, "这项技能不能在这儿练习。\n");
+		tell_object(me, "這項技能不能在這兒練習。\n");
 		return 1;
 	}
 	if( w < 6 )
 	{
 		if( !objectp(weapon = me->query_temp("weapon")) )
 		{
-			tell_object(me, "你没有拿武器怎么练习？\n");
+			tell_object(me, "你沒有拿武器怎麼練習？\n");
 			return 1;
 		} else if( weapon->query("skill_type") != skillarg )
 			{
-				tell_object(me, "你手中的武器不适合练你想练习的技能。\n");
+				tell_object(me, "你手中的武器不適合練你想練習的技能。\n");
 				return 1;
 			}
 	}
 
 	if( (int)me->query_skill(skillarg, 1) < 30 ) {
-		tell_object(me, "你还是先去跟师傅多多学习。\n");
+		tell_object(me, "你還是先去跟師傅多多學習。\n");
 		return 1;
 	}
 
@@ -89,7 +89,7 @@ int do_practice(string arg)
 		times = 1;
 		multiple="";
 	}
-	else    multiple="反复";
+	else    multiple="反覆";
 
 	switch(skillarg) {
 		case "blade" :
@@ -97,19 +97,19 @@ int do_practice(string arg)
 		case "staff" :
 		case "stick" :
 		case "sword" :
-		case "whip"  : str = "挥舞" + weapon->name();  break;
-		case "cuff"  : str = "挥舞双拳"; break;
-		case "strike": str = "挥舞双掌"; break;
-		case "parry" : str = "奋力拚博"; break;
-		case "dodge" : str = "纵闪跳跃"; break;
+		case "whip"  : str = "揮舞" + weapon->name();  break;
+		case "cuff"  : str = "揮舞雙拳"; break;
+		case "strike": str = "揮舞雙掌"; break;
+		case "parry" : str = "奮力拚博"; break;
+		case "dodge" : str = "縱閃跳躍"; break;
 	}
-	message_vision("$N在海浪中" + str + multiple + "练习着" + to_chinese(skillarg) + "。\n", me);
+	message_vision("$N在海浪中" + str + multiple + "練習着" + to_chinese(skillarg) + "。\n", me);
 
 	for(; times > 0; times--) {
 		cost = cost(me, skillarg);
 		if( (int)me->query("jing") < cost[0]
 		||  (int)me->query("qi") < cost[1] ) {
-			tell_object(me, "依你当前的状况来看你不能如此练习。\n");
+			tell_object(me, "依你當前的狀況來看你不能如此練習。\n");
 			return 1;
 		}
 		me->receive_damage("jing", cost[0]);
@@ -122,16 +122,16 @@ int do_practice(string arg)
 
 		total = (int)me->query("jing") + (int)me->query("qi");
 		if( total < 500 && random(total) < 20 ) {
-			message_vision("突然一个巨浪打来，$N陷入旋涡中，立即被海水吞没了。\n", me);
+			message_vision("突然一個巨浪打來，$N陷入旋渦中，立即被海水吞沒了。\n", me);
 			for(int i = 0; i < sizeof(inv); i++) {
 				if( userp(inv[i]) )
-					inv[i]->receive_wound("qi", 50 + inv[i]->query("max_qi"), "掉进海里淹死了");
+					inv[i]->receive_wound("qi", 50 + inv[i]->query("max_qi"), "掉進海里淹死了");
 				else    destruct(inv[i]);
 			}
 
 			me->unconcious();
 			me->move("/d/shenlong/beach");
-			message("vision","你发现一个浑身水淋淋的家伙被海水冲上岸来，不由得走近一看，原来是"+me->name()+"\n", environment(me), ({me}));
+			message("vision","你發現一個渾身水淋淋的傢伙被海水衝上岸來，不由得走近一看，原來是"+me->name()+"\n", environment(me), ({me}));
 			return 1;
 		}
 	}

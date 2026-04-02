@@ -7,7 +7,7 @@ void create()
 	set_name("宋兵", ({ "song bing", "bing" }));
 	set("age", 22);
 	set("gender", "男性");
-	set("long", "大宋官兵的武艺不能和武林人士相比，但襄阳守军之精，天下第一。\n");
+	set("long", "大宋官兵的武藝不能和武林人士相比，但襄陽守軍之精，天下第一。\n");
 	set("attitude", "peaceful");
 //	set("vendetta_mark", "authority");
 //      set("pursuer", 1);
@@ -33,8 +33,8 @@ void create()
 
         set("chat_chance_combat", 10);
 	set("chat_msg_combat", ({
-		"宋兵喝道：大胆刁民，竟敢造反不成？\n",
-		"宋兵喝道：跑得了和尚跑不了庙，你还是快快束手就擒！\n",
+		"宋兵喝道：大膽刁民，竟敢造反不成？\n",
+		"宋兵喝道：跑得了和尚跑不了廟，你還是快快束手就擒！\n",
 	}));
 	setup();
 	carry_object("/clone/weapon/gangdao")->wield();
@@ -54,7 +54,7 @@ void init()
 
 int accept_fight(object me)
 {
-	command("say 大爷我正想找人杀呐，今天算你倒霉。\n");
+	command("say 大爺我正想找人殺吶，今天算你倒黴。\n");
 	me->apply_condition("killer", 500);
 	kill_ob(me);
 	return 1;

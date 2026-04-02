@@ -8,13 +8,13 @@ inherit F_MASTER;
 void create()
 {
 	set_name("常伯志", ({ "chang bozhi", "chang","bozhi" }));
-	set("title", HIR "红花会"HIG"六当家" NOR);
-	set("nickname", HIB "白无常" NOR);
+	set("title", HIR "紅花會"HIG"六當家" NOR);
+	set("nickname", HIB "白無常" NOR);
 	set("long", 
-"他身材又高又瘦，脸色蜡黄，眼睛凹进，眉毛斜斜的倒垂下来，形
-相甚是可怖。他是青城派慧侣道人的徒弟。黑沙掌的功夫，江湖上无
-人能敌。黑白无常两兄弟是川江上著名的侠盗，一向劫富济贫，不过
-心狠手辣，因此得了这难听的外号。\n");
+"他身材又高又瘦，臉色蠟黃，眼睛凹進，眉毛斜斜的倒垂下來，形
+相甚是可怖。他是青城派慧侶道人的徒弟。黑沙掌的功夫，江湖上無
+人能敵。黑白無常兩兄弟是川江上著名的俠盜，一向劫富濟貧，不過
+心狠手辣，因此得了這難聽的外號。\n");
 	set("gender", "男性");
 	set("class", "fighter");
 	set("age", 42);

@@ -11,12 +11,12 @@ void  create()
 	int line;
 	string st,ss,*str;
 
-	set("short","厨房");
+	set("short","廚房");
 	set("long",@LONG
-一间厨房，油盐酱醋样样俱全，摆得满灶头都是。灶底火头正大，
-灶上大铁锅给烧得“嘶嘶”轻响，冒着清烟。墙上贴着一张油腻腻的纸
-片看起来(list)象是菜单。你可以手痒起来，也想在这里照单自己做点
-可口菜肴(cook)。
+一間廚房，油鹽醬醋樣樣俱全，擺得滿竈頭都是。竈底火頭正大，
+竈上大鐵鍋給燒得“嘶嘶”輕響，冒着清煙。牆上貼着一張油膩膩的紙
+片看起來(list)象是菜單。你可以手癢起來，也想在這裏照單自己做點
+可口菜餚(cook)。
 LONG
 );
 	set("no_fight",1);
@@ -60,7 +60,7 @@ int  do_list()
 	object ob;
 	string line = "";
 
-        line = HIC"\n≡" HIY "------------------" HIG "【侠客行一百菜谱】" HIY "------------------" HIC "≡\n" NOR;
+        line = HIC"\n≡" HIY "------------------" HIG "【俠客行一百菜譜】" HIY "------------------" HIC "≡\n" NOR;
 	for ( i = 0; i < sizeof( query( "menus" ) ); i++ ) {
 		ob = new( __DIR__"npc/obj/" + keys( query( "menus" ) )[i] );
 		if ( objectp( ob ) )
@@ -91,10 +91,10 @@ int do_cook( string arg )
 
 	sklvl = me->query_skill("cookery",1);
 	if ( cooker != "" && cooker != me->query("id") )
-		return notify_fail( "大师傅说道：已经有人在做菜了，你得等一会儿。\n" );
+		return notify_fail( "大師傅說道：已經有人在做菜了，你得等一會兒。\n" );
 	if ( cooker == me->query("id") )
-		return notify_fail( "大师傅说道：你已经在做菜了。\n" );
-	if ( !stringp( arg ) ) return notify_fail("大师傅说道：你要煮什么？\n");
+		return notify_fail( "大師傅說道：你已經在做菜了。\n" );
+	if ( !stringp( arg ) ) return notify_fail("大師傅說道：你要煮什麼？\n");
 	for ( i = 0; i < sizeof( query("menus") ); i ++ )
 	{
 		ob = new( __DIR__"npc/obj/" + keys( query( "menus" ) )[i] );
@@ -105,13 +105,13 @@ int do_cook( string arg )
 	if ( i >= sizeof( query( "menus" ) ) )
 	{
 		if ( objectp(ob) ) destruct(ob);
-		return notify_fail( "大师傅摇了摇头，说道：你不会做这道菜。\n");
+		return notify_fail( "大師傅搖了搖頭，說道：你不會做這道菜。\n");
 	}
 	str = values( query( "menus" ) )[i];
 	if ( sizeof( str ) * 20 > sklvl )
 	{
 		destruct(ob);
-		return notify_fail( "大师傅说道：你目前的手艺做不好这道菜。\n");
+		return notify_fail( "大師傅說道：你目前的手藝做不好這道菜。\n");
 	}
 	for ( i = 0; i < sizeof( str ); i++ )
 	{
@@ -121,13 +121,13 @@ int do_cook( string arg )
                		ob_name   = ob->query("name");
                		if ( objectp(ob) ) destruct(ob);
                		destruct(obj);
-		        return notify_fail( "大师傅笑着说道：没有" + base_name + "怎么做" + ob_name + "？\n" );
+		        return notify_fail( "大師傅笑着說道：沒有" + base_name + "怎麼做" + ob_name + "？\n" );
 		}
 		objs += ({obj});
 	}
 	for ( i = 0; i < sizeof( objs ); i++ )
 	  	destruct( objs[i] );
-	message_vision( "$N开始做" + ob->query( "name" ) + "。\n", me );
+	message_vision( "$N開始做" + ob->query( "name" ) + "。\n", me );
 	cooker = me->query( "id" );
 	time = 5 + random( 10 );
 	me->start_busy(time);

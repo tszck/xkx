@@ -16,10 +16,10 @@ int help(object me)
 	write(HIC"\n基本指法："NOR"\n");
 	write(@HELP
 
-    指法类武技的基本功，并能改善你后天的膂力。
+    指法類武技的基本功，並能改善你後天的膂力。
 
-	学习要求：
-		无
+	學習要求：
+		無
 HELP
 	);
 	return 1;

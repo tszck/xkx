@@ -1,4 +1,4 @@
-// qishang-quan.c 七伤拳
+// qishang-quan.c 七傷拳
 // Last Modified by sega on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,37 +7,37 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N气凝如山，一式「金戈铁马」，双拳蓄势而发，击向$n的$l",
+([	"action" : "$N氣凝如山，一式「金戈鐵馬」，雙拳蓄勢而發，擊向$n的$l",
 	"lvl" : 0,
-	"skill_name" : "金戈铁马"
+	"skill_name" : "金戈鐵馬"
 ]),
-([	"action" : "$N身形凝重，劲发腰背，一式「木已成舟」，缓缓向$n推出",
+([	"action" : "$N身形凝重，勁發腰背，一式「木已成舟」，緩緩向$n推出",
 	"lvl" : 10,
 	"skill_name" : "木已成舟"
 ]),
-([	"action" : "$N步伐轻灵，两臂伸舒如鞭，一式「水中捞月」，令$n无可躲闪",
+([	"action" : "$N步伐輕靈，兩臂伸舒如鞭，一式「水中撈月」，令$n無可躲閃",
 	"lvl" : 20,
-	"skill_name" : "水中捞月"
+	"skill_name" : "水中撈月"
 ]),
-([	"action" : "$N身形跃起，一式「火海刀山」，双拳当空击下，势不可挡",
+([	"action" : "$N身形躍起，一式「火海刀山」，雙拳當空擊下，勢不可擋",
 	"lvl" : 30,
 	"skill_name" : "火海刀山"
 ]),
-([	"action" : "$N身形一矮，一式「土载万物」，两拳自下而上，攻向$n",
+([	"action" : "$N身形一矮，一式「土載萬物」，兩拳自下而上，攻向$n",
 	"lvl" : 40,
-	"skill_name" : "土载万物"
+	"skill_name" : "土載萬物"
 ]),
-([	"action" : "$N身形一转，一式「阴风惨惨」，攻向$n的身前身后",
+([	"action" : "$N身形一轉，一式「陰風慘慘」，攻向$n的身前身後",
 	"lvl" : 48,
-	"skill_name" : "阴风惨惨"
+	"skill_name" : "陰風慘慘"
 ]),
-([	"action" : "$N移形换位，步到拳到，一式「阳光普照」，四面八方都是拳影",
+([	"action" : "$N移形換位，步到拳到，一式「陽光普照」，四面八方都是拳影",
 	"lvl" : 54,
-	"skill_name" : "阳光普照"
+	"skill_name" : "陽光普照"
 ]),
-([	"action" : "$N长啸一声，向前踏出一步，双拳中宫直进，一式「七者皆伤」，骤然击向$n的前胸",
+([	"action" : "$N長嘯一聲，向前踏出一步，雙拳中宮直進，一式「七者皆傷」，驟然擊向$n的前胸",
 	"lvl" : 60,
-	"skill_name" : "七者皆伤"
+	"skill_name" : "七者皆傷"
 ])
 });
 
@@ -47,30 +47,30 @@ int valid_learn(object me)
 	mapping myfam;
 	myfam = (mapping)me->query("family");
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练七伤拳必须空手。\n");
+		return notify_fail("練七傷拳必須空手。\n");
 	if ((int)me->query_skill("jiuyang-shengong", 1) < 10)
-		return notify_fail("你的九阳神功火候不够，无法学七伤拳。\n");
+		return notify_fail("你的九陽神功火候不夠，無法學七傷拳。\n");
 	if ((int)me->query("max_neili") < 200)
-		return notify_fail("你的内力太弱，无法练七伤拳。\n");
+		return notify_fail("你的內力太弱，無法練七傷拳。\n");
 	if ((int)me->query_skill("qishang-quan", 1) > 199)
 		return 1;
 	if(!myfam || myfam["family_name"] != "明教" ||
 		myfam["master_id"] != "xie xun")
-		return notify_fail("七伤拳只能向金毛狮王学习。\n");
+		return notify_fail("七傷拳只能向金毛獅王學習。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 30)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够练七伤拳。\n");
+		return notify_fail("你的內力不夠練七傷拳。\n");
 /*
 	if ((int)me->query_skill("qishang-quan",1) % 20 == 0 &&
 		(int)me->query_skill("qishang-quan",1) < 200)
-		return notify_fail("你的七伤拳到了关键火候，怎么练都无法领悟。\n");
+		return notify_fail("你的七傷拳到了關鍵火候，怎麼練都無法領悟。\n");
 */
 	me->receive_damage("qi", 30);
 	me->add("neili", -20);
@@ -98,16 +98,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : "瘀伤",
+		"damage_type" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 10; }
@@ -121,25 +121,25 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIC"\n七伤拳："NOR"\n");
+	write(HIC"\n七傷拳："NOR"\n");
 	write(@HELP
 
-    七伤拳，拳出必伤。是崆峒派的不传之秘，但后来谢逊为报家
-仇，从崆峒派手中盗出《七伤拳谱》，从而练成。名为七伤，实则
-为每出一拳可以有七种不同内劲，使人不知如何与之相抗。
+    七傷拳，拳出必傷。是崆峒派的不傳之祕，但後來謝遜爲報家
+仇，從崆峒派手中盜出《七傷拳譜》，從而練成。名爲七傷，實則
+爲每出一拳可以有七種不同內勁，使人不知如何與之相抗。
 
                     ┌--------------------┐
-                    │    七伤拳总诀      │
-                    │  五行之气调阴阳，  │
-                    │  损心伤肺摧肝肠，  │
-                    │  藏离精失意恍惚，  │
-                    │三焦齐逆兮魂魄飞    │
+                    │    七傷拳總訣      │
+                    │  五行之氣調陰陽，  │
+                    │  損心傷肺摧肝腸，  │
+                    │  藏離精失意恍惚，  │
+                    │三焦齊逆兮魂魄飛    │
                     └--------------------┘
 
-	学习要求：
-		只能向谢逊学习
-		九阳神功20级
-		内力200
+	學習要求：
+		只能向謝遜學習
+		九陽神功20級
+		內力200
 HELP
 	);
 	return 1;

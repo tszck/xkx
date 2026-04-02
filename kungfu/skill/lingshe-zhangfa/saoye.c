@@ -1,23 +1,23 @@
 // Last Modified by winder on May. 15 2001
-// saoye.c 狂风扫落叶
+// saoye.c 狂風掃落葉
 #include <ansi.h>
 #include <skill.h>
 #include <weapon.h>
 #include <combat.h>
 inherit F_SSERVER;
-#define PNAME "「狂风扫落叶」"
+#define PNAME "「狂風掃落葉」"
 int perform(object me, object target)
 {
 	string msg;
 	string *staff_msg = ({
-	YEL"$N身形加快，所到之处，狂风四起！" NOR,
-	YEL"$N突如起来的从狂风中闪出，对着$n胸前就是一杖！" NOR,
-	YEL"$N御杖回身，立于$n身侧，反手一劈！" NOR,
-	YEL"$N借力打力，一个纵身，居高临下，当头又是一杖！" NOR,
-	YEL"人在半空，$N化虚为掌，化实为杖，朝$n点刺过去！" NOR,
-	YEL"$N持杖乱舞，密不透风，使$n渐渐感到透不过气来！" NOR,
-	YEL"$N见有机可乘，一杖接着一杖，招招致命！" NOR,
-	YEL"$N聚起天地之灵气，手中杖卷起千层大浪朝$n挥去！" NOR,
+	YEL"$N身形加快，所到之處，狂風四起！" NOR,
+	YEL"$N突如起來的從狂風中閃出，對着$n胸前就是一杖！" NOR,
+	YEL"$N御杖回身，立於$n身側，反手一劈！" NOR,
+	YEL"$N借力打力，一個縱身，居高臨下，當頭又是一杖！" NOR,
+	YEL"人在半空，$N化虛爲掌，化實爲杖，朝$n點刺過去！" NOR,
+	YEL"$N持杖亂舞，密不透風，使$n漸漸感到透不過氣來！" NOR,
+	YEL"$N見有機可乘，一杖接着一杖，招招致命！" NOR,
+	YEL"$N聚起天地之靈氣，手中杖捲起千層大浪朝$n揮去！" NOR,
 	});
 	int extra,attack_time,i;
 	object weapon,ob;
@@ -31,18 +31,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
  
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "staff")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 		
 	fskill = "hamagong";
 	bskill = "staff";
@@ -56,16 +56,16 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 180 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 170 )
-		return notify_fail("你的"+to_chinese(sskill)+"火候不够，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"火候不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 1200 )
-		return notify_fail("你的真气不够！\n");
+		return notify_fail("你的真氣不夠！\n");
 
 	if( !userp(me))
-		return notify_fail("只有玩家才能扫落叶。\n");
+		return notify_fail("只有玩家才能掃落葉。\n");
 
 	extra = me->query_skill("staff", 1);
 	extra = extra / 3;
@@ -74,7 +74,7 @@ int perform(object me, object target)
 	me->add_temp("apply/damage",extra*2);
 	weapon = me->query_temp("weapon");
 
-	msg = HIY"$N跳出数丈外，突然一声暴喝：“------ 狂 ----- 风 ----- 扫 ----- 落 ----- 叶 ----- ！！！”" NOR;
+	msg = HIY"$N跳出數丈外，突然一聲暴喝：“------ 狂 ----- 風 ----- 掃 ----- 落 ----- 葉 ----- ！！！”" NOR;
 	message_combatd(msg, me, target);		
 	
 	attack_time = 3 + random(6);
@@ -101,12 +101,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		连续出手八杖
+		連續出手八杖
 
 	出手要求：
-		蛤蟆功180级
-		灵蛇杖法170级
-		内力1200
+		蛤蟆功180級
+		靈蛇杖法170級
+		內力1200
 HELP
 	);
 	return 1;

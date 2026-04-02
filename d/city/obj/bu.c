@@ -10,7 +10,7 @@ void create()
         else {
                 set("unit", "匹");
                 set("long", 
-"这是一匹熨好的布，它已经可以直接被送去加工了。\n");
+"這是一匹熨好的布，它已經可以直接被送去加工了。\n");
                 set("value", 1);
         }
         setup();

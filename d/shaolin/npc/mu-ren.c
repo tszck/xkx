@@ -8,7 +8,7 @@ void create()
 	set_name("木人", ({ "mu ren", "mu", "wood man", "wood" }) );
 	set("gender", "男性" );
 	set("age", 30);
-	set("long", "一个练功用的比武木人，制作精巧，如同真人一般。\n");
+	set("long", "一個練功用的比武木人，製作精巧，如同真人一般。\n");
 	set("attitude", "heroism");
 
 	set("str", 25);
@@ -52,15 +52,15 @@ int accept_fight(object ob)
 	if (is_fighting()) return 0;
 
 	if (me->query("damaged"))
-		return notify_fail("这个木人已经被打坏了！\n");	
+		return notify_fail("這個木人已經被打壞了！\n");	
 
 	if (random(me->query("fight_times")) >= 10) {
 		me->set("damaged", 1);
-		return notify_fail("这个木人已经被打坏了！\n");	
+		return notify_fail("這個木人已經被打壞了！\n");	
 	}
 
 	if (me->query("last_fighter") == ob->query("id"))
-		return notify_fail("你刚跟这个木人练过功！\n");		
+		return notify_fail("你剛跟這個木人練過功！\n");		
 
 	me->set("last_fighter", ob->query("id"));
 	me->add("fight_times", 1);

@@ -18,7 +18,7 @@ void cancel_pk()
 
 		if( !find_player(v_id) && (pker=find_player(p_id)) )
 		{
-			tell_object(pker, "\n你要追杀的人已经离开了。\n");
+			tell_object(pker, "\n你要追殺的人已經離開了。\n");
 			pker->delete("sgjob");
 			punish = 3 + random(6);
 			pker->add("sg/failure", punish);

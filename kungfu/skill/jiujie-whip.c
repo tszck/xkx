@@ -1,4 +1,4 @@
-// jiujie-whip 九节鞭法
+// jiujie-whip 九節鞭法
 // Last Modified by sir 10.20.01
 
 #include <ansi.h>
@@ -7,25 +7,25 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action": "$N使一招"HIB"「怪蟒出洞」"NOR"，手中$w向上一扬，猛的对准$n的$l横扫过去",
+([	"action": "$N使一招"HIB"「怪蟒出洞」"NOR"，手中$w向上一揚，猛的對準$n的$l橫掃過去",
 	"lvl" : 0,
 	"skill_name" : "怪蟒出洞",
 ]),
-([	"action": "$N气运双臂，一招"BLU"「秋风飒飒」"NOR"$w幻出满天鞭影，虚虚实实地袭向$n的$l",
+([	"action": "$N氣運雙臂，一招"BLU"「秋風颯颯」"NOR"$w幻出滿天鞭影，虛虛實實地襲向$n的$l",
 	"lvl" : 20,
-	"skill_name" : "秋风飒飒",
+	"skill_name" : "秋風颯颯",
 ]),
-([	"action": "$N不慌不忙抡去$w，一招"MAG"「巨蟒腾空」"NOR"点点鞭影飘浮不定地点向$n的$l",
+([	"action": "$N不慌不忙掄去$w，一招"MAG"「巨蟒騰空」"NOR"點點鞭影飄浮不定地點向$n的$l",
 	"lvl" : 60,
-	"skill_name" : "巨蟒腾空",
+	"skill_name" : "巨蟒騰空",
 ]),
-([	"action": "$N手中$w在空中连连抖动，一招"MAG"「巨蟒翻身」"NOR"忽然狠狠向$n的$l打去！",
+([	"action": "$N手中$w在空中連連抖動，一招"MAG"「巨蟒翻身」"NOR"忽然狠狠向$n的$l打去！",
 	"lvl" : 90,
 	"skill_name" : "巨蟒翻身",
 ]),
-([	"action": "$N将手中$w向下一沉，一招"HIG"「风卷残云」"NOR"从下向上往$n腰部卷去",
+([	"action": "$N將手中$w向下一沉，一招"HIG"「風捲殘雲」"NOR"從下向上往$n腰部捲去",
 	"lvl" : 120,
-	"skill_name" : "风卷残云",
+	"skill_name" : "風捲殘雲",
 ]),
 });
 
@@ -35,12 +35,12 @@ int valid_learn(object me)
 	object weapon;
 
 	if( (int)me->query("max_neili") < 100 )
-		return notify_fail("你的内力修为不足，没有办法练九节鞭法。\n");
+		return notify_fail("你的內力修爲不足，沒有辦法練九節鞭法。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 20)
-		return notify_fail("你的站桩功火候太浅。\n");
+		return notify_fail("你的站樁功火候太淺。\n");
 	if ( !objectp(weapon = me->query_temp("weapon")) ||
 		( string)weapon->query("skill_type") != "whip" )
-		return notify_fail("你必须先找一条鞭子才能练鞭法。\n");
+		return notify_fail("你必須先找一條鞭子才能練鞭法。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -48,11 +48,11 @@ int practice_skill(object me)
 	object weapon;
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "whip")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if ((int)me->query_skill("yijinjing", 1) < 10)
-		return notify_fail("你的易筋经火候太浅。\n");
+		return notify_fail("你的易筋經火候太淺。\n");
 	if ((int)me->query("qi") < 30)
-		return notify_fail("你的体力不够练九节鞭法。\n");
+		return notify_fail("你的體力不夠練九節鞭法。\n");
 	me->receive_damage("qi",25);
  
 	return 1;
@@ -80,17 +80,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "淤伤": "刺伤",
+		"damage_type" : random(2) ? "淤傷": "刺傷",
 	]);
 }
 int learn_bonus() { return 30; }
@@ -100,14 +100,14 @@ int power_point(object me) { return 1.0; }
 
 int help(object me)
 {
-	write(HIC"\n九节鞭："NOR"\n");
+	write(HIC"\n九節鞭："NOR"\n");
 	write(@HELP
 
-    九节鞭是南少林入门鞭法。
+    九節鞭是南少林入門鞭法。
 
-	学习要求：
-		站桩功50级
-		内力修为100
+	學習要求：
+		站樁功50級
+		內力修爲100
 HELP
 	);
 	return 1;

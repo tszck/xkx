@@ -7,7 +7,7 @@ void create()
 	set_name("家丁", ({ "jia ding", "jia", "ding" }));
 	set("gender", "男性");
 	set("age", 35);
-	set("long", "归云庄家丁。\n");
+	set("long", "歸雲莊家丁。\n");
 	set("combat_exp", 40000);
         set_skill("dodge", 50);
         set_skill("unarmed", 50);
@@ -26,7 +26,7 @@ int accept_object(object who, object ob)
 	{
 		command("bow "+this_player()->query("id"));
 		this_player()->set_temp("marks/guiyun", 1);
-		write("家丁说道：" + RANK_D->query_respect(ob) + "原来是少庄主的朋友，快快请进。\n");
+		write("家丁說道：" + RANK_D->query_respect(ob) + "原來是少莊主的朋友，快快請進。\n");
 		return 1;
 	}
 	return 0;

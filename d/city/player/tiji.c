@@ -3,11 +3,11 @@
 inherit NPC;
 void create()
 {
-	set_name("天骄", ({ "tiji"}));
+	set_name("天驕", ({ "tiji"}));
 	set("gender", "男性");
 	set("class", "bonze");
-	set("title", HIR"学士"HIG"明教"HIC"风字门教众"NOR"天下名侠之一代天骄少林派掌门大师兄"NOR);
-	set("nickname", HIY"清灯佛影印菩提"NOR);
+	set("title", HIR"學士"HIG"明教"HIC"風字門教衆"NOR"天下名俠之一代天驕少林派掌門大師兄"NOR);
+	set("nickname", HIY"清燈佛影印菩提"NOR);
 	set("age", 56);
 	set("attitude", "friendly");
 

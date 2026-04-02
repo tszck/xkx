@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 // by snowcat oct 15 1997
@@ -13,7 +13,7 @@ void create()
   if (clonep())
     set_default_object(__FILE__);
   else {
-    set("long", "一包刚刚打好的年糕。\n");
+    set("long", "一包剛剛打好的年糕。\n");
     set("unit", "包");
     set("value", 250);
     set("food_remaining", 5);

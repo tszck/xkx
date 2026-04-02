@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "听香水榭");
+	set("short", "聽香水榭");
 	set("long",@LONG
-绿柳杏花丛中有八九间茅房，四周竹篱掩映，错落有致，这就是慕
+綠柳杏花叢中有八九間茅房，四周竹籬掩映，錯落有致，這就是慕
 容公子的婢女阿朱的住所了。
 LONG );
 	set("exits", ([

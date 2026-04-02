@@ -9,11 +9,11 @@ void create()
 {
 	set("short","梅道");
 	set("long",@LONG 
-这也是一条充满梅花清香的小道。与殿外不同的是，这儿种满了梅
-树，而且全是如鲜血般灿烂的红梅，花瓣片片飘落，落到洁白的雪地上，
-就如一个温婉和顺的美人，在给自己的心上人刺绣时，不小心刺破了手
-指而流出的一滴血，浸到了白绢上一样。一只通体雪白的雪鹤在地上翩
-然起舞，逍遥自得。
+這也是一條充滿梅花清香的小道。與殿外不同的是，這兒種滿了梅
+樹，而且全是如鮮血般燦爛的紅梅，花瓣片片飄落，落到潔白的雪地上，
+就如一個溫婉和順的美人，在給自己的心上人刺繡時，不小心刺破了手
+指而流出的一滴血，浸到了白絹上一樣。一隻通體雪白的雪鶴在地上翩
+然起舞，逍遙自得。
 LONG);
 	set("outdoors", "lingxiao");
 	set("exits",([ /* sizeof() == 1 */
@@ -40,10 +40,10 @@ int do_pick(string arg)
 	object ob, me = this_player();
 
 	if (!arg || arg!="hua" && arg!="flower")
-		return notify_fail("你要摘什么？\n");
+		return notify_fail("你要摘什麼？\n");
 	ob=new(__DIR__"obj/mei");
 	ob->move(me);
-	message_vision("$N从路旁的树上摘了一朵"+ob->query("name")+"。\n"NOR,me);
+	message_vision("$N從路旁的樹上摘了一朵"+ob->query("name")+"。\n"NOR,me);
 	return 1;
 }
 

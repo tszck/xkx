@@ -4,7 +4,7 @@ inherit NPC;
 void create()
 {
         set_name("五毒教徒", ({"jiao tu","tu"}));
-        set("long", "一个五毒的基层教徒，看来刚入教不久。\n");
+        set("long", "一個五毒的基層教徒，看來剛入教不久。\n");
 
         set("gender", "男性");
         set("attitude", "friendly");

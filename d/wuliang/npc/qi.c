@@ -36,10 +36,10 @@ void create()
 	map_skill("sword", "damo-jian");
 	map_skill("parry", "damo-jian");
 	set("inquiry", ([
-		"无量玉壁"  : "那是本派禁地，任何外人不得擅入。干犯禁忌，可叫你死葬身之地。",
+		"無量玉壁"  : "那是本派禁地，任何外人不得擅入。干犯禁忌，可叫你死葬身之地。",
 	]));
 
-	create_family("无量剑西宗", 5, "弟子");
+	create_family("無量劍西宗", 5, "弟子");
 	setup();
 
         carry_object("/clone/cloth/cloth")->wear();

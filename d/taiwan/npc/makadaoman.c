@@ -1,4 +1,4 @@
-// makadaoman.c 马卡道族男人
+// makadaoman.c 馬卡道族男人
 // Last Modifyed by Ahda on Jan. 4 2002
 
 inherit NPC;
@@ -8,7 +8,7 @@ void create()
 	int age;
 	age = 20 + random(40);
 	
-	set_name("马卡道族男子", ({ "makadao man", "makadao", "man", "people", }));
+	set_name("馬卡道族男子", ({ "makadao man", "makadao", "man", "people", }));
 	set("gender", "男性");
 	set("age", age);
 

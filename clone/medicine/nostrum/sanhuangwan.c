@@ -1,4 +1,4 @@
-// sanhuangwan.c 三黄宝蜡丸
+// sanhuangwan.c 三黃寶蠟丸
 
 inherit ITEM;
 #include <ansi.h>
@@ -11,13 +11,13 @@ void init()
 
 void create()
 {
-	set_name(HIY"三黄宝蜡丸"NOR, ({"sanhuang baolawan", "wan"}));
+	set_name(HIY"三黃寶蠟丸"NOR, ({"sanhuang baolawan", "wan"}));
 	set("unit", "粒");
 	set("vegetable", 104);
 	set("nostrum", 51);
 	set("level", 140);
 	set("value", 10000);
-	set("long", "这是一粒三黄宝蜡丸，由麻黄、藤黄、雄黄三味主药配制成。\n");
+	set("long", "這是一粒三黃寶蠟丸，由麻黃、藤黃、雄黃三味主藥配製成。\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -26,22 +26,22 @@ int do_eat(string arg)
 {
 	object me=this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
 	if ( me->query("eff_jing") >= me->query("max_jing") &&
 		me->query("eff_qi") >= me->query("max_qi") )
 	{
-		message_vision("$N没必要吃三黄宝蜡丸。\n",me);
+		message_vision("$N沒必要喫三黃寶蠟丸。\n",me);
 	}
 	else
 	{
 		me->receive_curing("jing", 50);
 		me->receive_curing("qi", 100);
-		message_vision("$N吃下一粒三黄宝蜡丸，感到丹田一股热气蓬勃而起，直冲全身各处经脉。\n",me);
+		message_vision("$N喫下一粒三黃寶蠟丸，感到丹田一股熱氣蓬勃而起，直衝全身各處經脈。\n",me);
 		destruct(this_object());
 	}
 	return 1;

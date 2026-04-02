@@ -9,7 +9,7 @@ int do_join(string arg)
 	ob = this_player () ;
 
 	if( !arg || arg!="mingjiao" )
-		return notify_fail("你要加入什么组织？\n"); 
+		return notify_fail("你要加入什麼組織？\n"); 
    	if( ob->query_temp("have_letter") || present("tuijian xin1", ob ))
    	{
                 command("say 好啊。");
@@ -19,18 +19,18 @@ int do_join(string arg)
 	}
 //	if (ob->query("weiwang")>49)
 //	{
-//		message_vision("$N摇摇头，对$n说道：你已经加入天地会了，不能再入我明教。\n",me,ob);
+//		message_vision("$N搖搖頭，對$n說道：你已經加入天地會了，不能再入我明教。\n",me,ob);
 //		return 1;
 //	}
 //	if(ob->query("shenlongjiao")) 
 //	{
-//		message_vision("$N摇摇头，对$n说道：你已经加入神龙教了，不能再入我明教。\n",me,ob);
+//		message_vision("$N搖搖頭，對$n說道：你已經加入神龍教了，不能再入我明教。\n",me,ob);
 //		return 1;
 //	}
    	if( !mapp(party = ob->query("party")) )
    	{
-		message_vision("$N点点头，对$n说道：好，你到昆仑山总舵去找接引使者，他会让你入教的。\n",me,ob);
-		message_vision("$N交给$n一封推荐信。\n", me, ob);
+		message_vision("$N點點頭，對$n說道：好，你到崑崙山總舵去找接引使者，他會讓你入教的。\n",me,ob);
+		message_vision("$N交給$n一封推薦信。\n", me, ob);
 		ob->set_temp("have_letter",1);
                 obj=new("/d/mingjiao/obj/tuijianxin-1");
 		obj->move(ob);
@@ -38,11 +38,11 @@ int do_join(string arg)
 	}
    	if( party["party_name"] != HIG "明教" NOR )
 	{
-		message_vision("$N摇摇头，对$n说道：你已经加入其他帮会了，不能再入我明教。\n",me,ob);
+		message_vision("$N搖搖頭，對$n說道：你已經加入其他幫會了，不能再入我明教。\n",me,ob);
 		return 1;
 	}
 	else
-		message_vision("$N摇摇头，对$n说道：你已经是我明教的人了。\n",me,ob);
+		message_vision("$N搖搖頭，對$n說道：你已經是我明教的人了。\n",me,ob);
 	return 1;
 }
 

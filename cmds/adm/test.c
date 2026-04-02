@@ -1,4 +1,4 @@
-// 测试专用
+// 測試專用
 int main(object me, string arg)
 {
     /* clean up first */
@@ -13,7 +13,7 @@ int help(object me)
 
     write(@HELP
 
-测试专用，请先实现功能后运行。
+測試專用，請先實現功能後運行。
 
 HELP);
 

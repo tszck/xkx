@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "龙门");
+	set("short", "龍門");
 	set("long", @LONG
-此处山势陡峭，登山的人一个不小心很容易便会跌堕到崖谷之中。
-西岩有清道光年间魏祥摹刻狂草“龙门”大字。坊址东为大龙峪，雨季
-众水归峡，飞泉若泻。
+此處山勢陡峭，登山的人一個不小心很容易便會跌墮到崖谷之中。
+西巖有清道光年間魏祥摹刻狂草“龍門”大字。坊址東爲大龍峪，雨季
+衆水歸峽，飛泉若瀉。
 LONG );
 	set("exits", ([
 		"northup"   : __DIR__"jinman18",
@@ -34,9 +34,9 @@ void init()
 	{
 		me->receive_damage("qi", 50);
 		me->receive_wound("qi",  50);
-		message_vision(HIR"$N一不小心脚下踏了个空... 啊...！\n"NOR, me);
+		message_vision(HIR"$N一不小心腳下踏了個空... 啊...！\n"NOR, me);
 		me->move(__DIR__"daizong");
-		tell_object(me, HIR"你从山上滚了下来，只觉得浑身无处不疼，还受了几处伤。\n"NOR);
-		message("vision",HIR"只见" + me->query("name") + "从山上骨碌碌地滚了下来，躺在地上半天爬不起来！\n"NOR, environment(me), me);
+		tell_object(me, HIR"你從山上滾了下來，只覺得渾身無處不疼，還受了幾處傷。\n"NOR);
+		message("vision",HIR"只見" + me->query("name") + "從山上骨碌碌地滾了下來，躺在地上半天爬不起來！\n"NOR, environment(me), me);
 	}
 }

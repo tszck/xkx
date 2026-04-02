@@ -13,30 +13,30 @@ int save_room_file(string yn, string file, string str);
 
 void create()
 {
-	set_name("房间编辑器" + RMK_VERSION, ({ "roommaker", "maker" }) );
+	set_name("房間編輯器" + RMK_VERSION, ({ "roommaker", "maker" }) );
 	set_weight(100);
-	set("unit", "个" );
+	set("unit", "個" );
 	set("long", @LONG
-这是一个用来「快速」制造房间的工具，帮助时间不多或有严重  lag 的巫师
-利用线上输入制造简单的房间，不过如果你想提高自己区域房间的品质，最好
-不要太依赖这个东西，你可以使用以下几个指令：
+這是一個用來「快速」製造房間的工具，幫助時間不多或有嚴重  lag 的巫師
+利用線上輸入製造簡單的房間，不過如果你想提高自己區域房間的品質，最好
+不要太依賴這個東西，你可以使用以下幾個指令：
 
-mkroom <房间档名>
+mkroom <房間檔名>
 
-    造出一个「空」房间，之後你可以 goto 到这个房间用 rset 设定房间的
-    叙述或属性。
+    造出一個「空」房間，之後你可以 goto 到這個房間用 rset 設定房間的
+    敘述或屬性。
 
-rset <房间属性> <属性内容>
+rset <房間屬性> <屬性內容>
 
-    设定你目前所在房间的属性，如 short，long 等。
+    設定你目前所在房間的屬性，如 short，long 等。
 
-connect <方向> <房间档名>
+connect <方向> <房間檔名>
 
-    将你目前所在的房间连接一个出口到另一个房间。
+    將你目前所在的房間連接一個出口到另一個房間。
 
 saveroom
 
-    将你目前所在的房间存档。
+    將你目前所在的房間存檔。
 LONG
 	);
 }
@@ -58,13 +58,13 @@ int do_mkroom(string arg)
 {
 	string file, dir/*, code*/;
 
-	if( !arg ) return notify_fail("指令格式：mkroom <房间档名> [<方向>]\n");
+	if( !arg ) return notify_fail("指令格式：mkroom <房間檔名> [<方向>]\n");
 	if( sscanf(arg, "%s %s", file, dir)!=2 )
 		file = arg;
 	seteuid(geteuid(this_player()));
 	file = resolve_path(this_player()->query("cwd"), file) + ".c";
 	if( file_size(file)!=-1 )
-		return notify_fail("档案 " + file + " 已经存在了。\n");
+		return notify_fail("檔案 " + file + " 已經存在了。\n");
 	if( !write_file(file, @ROOM_CODE
 // This is a room made by roommaker.
 
@@ -72,14 +72,14 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "空房间");
-	set("long", "这是一间什麽也没有的空房间。\n");
+	set("short", "空房間");
+	set("long", "這是一間什麼也沒有的空房間。\n");
 	setup();
 	replace_program(ROOM);
 }
 ROOM_CODE
-	) ) return notify_fail("你没有写入档案(" + file +")的权利。\n");
-	message_vision("只听到$N的房间编辑器「哔」的一声，你觉得这个世界又变大了一点。\n", this_player());
+	) ) return notify_fail("你沒有寫入檔案(" + file +")的權利。\n");
+	message_vision("只聽到$N的房間編輯器「嗶」的一聲，你覺得這個世界又變大了一點。\n", this_player());
 	return 1;
 }
 
@@ -89,7 +89,7 @@ int do_rset(string arg)
 	mixed data;
 
 	if( !arg || sscanf(arg, "%s %s", prop, str)!=2 )
-		return notify_fail("指令格式：rset <房间属性> <属性内容>\n");
+		return notify_fail("指令格式：rset <房間屬性> <屬性內容>\n");
 
 	if( sscanf(str, "%d", data)!=1 )
 		data = str;
@@ -105,7 +105,7 @@ int do_connect(string arg)
 	string dir, file;
 
 	if( !arg || sscanf(arg, "%s %s", dir, file)!=2 )
-		return notify_fail("指令格式：connect <方向> <房间档名>\n");
+		return notify_fail("指令格式：connect <方向> <房間檔名>\n");
 	file = resolve_path(this_player()->query("cwd"), file);
 	exits = environment(this_player())->query("exits");
 	if( mapp(exits) )
@@ -148,12 +148,12 @@ ROOM_CODE
 	i = strwidth(file)-1;
 	while( (i > 0) && (file[i]!='/')) i--;
 	if( i>0 ) {
-		write("目前目录：" + file[0..i] + " 以 __DIR__ 取代。\n");
+		write("目前目錄：" + file[0..i] + " 以 __DIR__ 取代。\n");
 		str = replace_string(str, "\"" + file[0..i], "__DIR__\"");
 	}
 
 	if( file_size(file)!=-1 ) {
-		write("档案 " + file + " 已存在，要删除旧档吗？[y/n]");
+		write("檔案 " + file + " 已存在，要刪除舊檔嗎？[y/n]");
 		input_to("save_room_file", file, str);
 		return 1;
 	}
@@ -166,12 +166,12 @@ int save_room_file(string yn, string file, string str)
 	if( strwidth(yn)<1 || yn[0]!='y' ) return 1;
 
 	rm(file);
-	write("存档 " + file + "....");
+	write("存檔 " + file + "....");
 	if( write_file(file, str) ) {
 		write("Ok.\n");
 		return 1;
 	} else
-		return notify_fail("你没有写入这个档案(" + file + ")的权利。\n");
+		return notify_fail("你沒有寫入這個檔案(" + file + ")的權利。\n");
 }
 
 void owner_is_killed() { destruct(this_object()); }

@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","长廊");
+	set("short","長廊");
 	set("long",@LONG
-这里是镇南王府的长廊，两边都是大圆柱。边上假山小湖应有尽
-有，显得十分秀丽。北面是一座大建筑，南边是一个小庭院。
+這裏是鎮南王府的長廊，兩邊都是大圓柱。邊上假山小湖應有盡
+有，顯得十分秀麗。北面是一座大建築，南邊是一個小庭院。
 LONG);
 	set("objects",([
 	    __DIR__"npc/duanwuwei" : 1,

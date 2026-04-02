@@ -6,8 +6,8 @@ void create()
 {
         set_name("莽牯朱蛤",({"chan chu"}));
 
-        set("race", "野兽");
-        set("long", "一只拳头大小，叫声洪亮的毒蛤蟆。\n");
+        set("race", "野獸");
+        set("long", "一隻拳頭大小，叫聲洪亮的毒蛤蟆。\n");
         set("age", 1000);
         set("attitude", "peaceful");
 
@@ -17,7 +17,7 @@ void create()
         set("str", 30);
         set("con", 50);
 
-        set("limbs", ({ "头部", "身体", "尾巴" }) );
+        set("limbs", ({ "頭部", "身體", "尾巴" }) );
         set("verbs", ({ "bite" }) );
 
         set_temp("apply/attack", 100);
@@ -51,7 +51,7 @@ int hit_ob(object me, object ob, int damage)
        if ((string)ob->query("family/family_name") != "五毒教") {
                 ob->apply_condition("chanchu_poison", 20
               +(int)ob->query_condition("chanchu_poison") );
-              tell_object(ob, HIG "你觉得被咬中的地方一阵麻木！\n" NOR );
+              tell_object(ob, HIG "你覺得被咬中的地方一陣麻木！\n" NOR );
        }
 }
 

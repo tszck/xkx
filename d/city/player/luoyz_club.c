@@ -14,7 +14,7 @@ void create()
                 set("value", 2000);
                 set("material", "steel");
 		set("wield_msg", "$N往腰中一摸，拿出了一把$n，端在手中。\n");
-		set("unwield_msg", "$N手中$n抖出一个棍花，眨眼间已然不见影踪。\n");
+		set("unwield_msg", "$N手中$n抖出一個棍花，眨眼間已然不見影蹤。\n");
         }
         init_club(30);
         setup();

@@ -9,10 +9,10 @@ int heye = 1;
 
 void create()
 {
-	set_name("卖花姑娘", ({ "flower girl","girl"}) );
+	set_name("賣花姑娘", ({ "flower girl","girl"}) );
 	set("gender", "女性" );
 	set("age", 18);
-	set("long", "一个容貌清丽的小姑娘。\n");
+	set("long", "一個容貌清麗的小姑娘。\n");
 	set("str", 20);
 	set("dex", 18);
 	set("con", 19);
@@ -23,7 +23,7 @@ void create()
 		__DIR__"obj/huaban"
 	}));
 	set("inquiry", ([
-		"荷叶"	: (: ask_for_h :),
+		"荷葉"	: (: ask_for_h :),
 	]));
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
@@ -42,9 +42,9 @@ int ask_for_h()
 	if ( heye == 0 || random(me->query("kar")) < 10 ) 
 		return 0;
 	else {
-		message_vision("卖花姑娘看着$N吃吃的笑了起来。\n", me );
-		command("say 我和姐妹们玩耍时摘的荷叶你也要？" );
-		message_vision("卖花姑娘送给$N几片荷叶。\n", me );
+		message_vision("賣花姑娘看着$N喫喫的笑了起來。\n", me );
+		command("say 我和姐妹們玩耍時摘的荷葉你也要？" );
+		message_vision("賣花姑娘送給$N幾片荷葉。\n", me );
 		ob = new( __DIR__"obj/heye" );
 		ob->move( me );
 		heye = 0;

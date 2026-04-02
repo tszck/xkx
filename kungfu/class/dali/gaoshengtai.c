@@ -10,8 +10,8 @@ int ask_me();
 void create()
 {
 	set_name("高升泰", ({ "gao shengtai", "gao" }));
-	set("title",  "大理善阐侯" );
-	set("long", "大理国侯爷，这是位宽袍大袖的中年男子，三缕长髯，形貌高雅。\n");
+	set("title",  "大理善闡侯" );
+	set("long", "大理國侯爺，這是位寬袍大袖的中年男子，三縷長髯，形貌高雅。\n");
 	set("gender", "男性");
 	set("age", 33);
 	set("class", "officer");
@@ -65,36 +65,36 @@ void create()
 
 
 	set("inquiry", ([
-		"指点武功" : (: ask_me :),
+		"指點武功" : (: ask_me :),
 	]));
 	setup();
 	carry_object(__DIR__"obj/magcloth")->wear();
 	carry_object(__DIR__"obj/tiedi")->wield();
 	add_money("silver", 20);
 
-	create_family("大理段家",19,"武将");
+	create_family("大理段家",19,"武將");
 }
 
 void attempt_apprentice(object ob)
 {
 	if ((int)ob->query_skill("kurong-changong",1) < 30 )
 	{
-		command("say 你的本门内功心法太低了，还是努努力先提高一下吧。");
+		command("say 你的本門內功心法太低了，還是努努力先提高一下吧。");
 		return;
 	}
 	if ((int)ob->query("shen") < 10000  )
 	{
-		command("say 我大理段氏向来行侠仗义，您请回吧！");
+		command("say 我大理段氏向來行俠仗義，您請回吧！");
 		return;
 	}
-	if (strsrch(ob->query("guard"), "镇南王府") >= 0) 
+	if (strsrch(ob->query("guard"), "鎮南王府") >= 0) 
 	{
-		command("say 很好，既然入我门来就得终身为奴供我驱使。");
+		command("say 很好，既然入我門來就得終身爲奴供我驅使。");
 		command("recruit " + ob->query("id"));
 	}
 	else
 	{
-		command("say 你是何人，如此大胆，假冒我府中厮仆！");
+		command("say 你是何人，如此大膽，假冒我府中廝僕！");
 		return;
 	}
 }
@@ -106,10 +106,10 @@ int ask_me()
 	ob = this_player();
 	if ((int)ob->query_skill("kurong-changong",1) < 80)
 	{
-		command("say 你的武功恐怕是不能胜任武将的薪俸，再练几年功夫吧。\n");
+		command("say 你的武功恐怕是不能勝任武將的薪俸，再練幾年功夫吧。\n");
 		return 1;
 	}
-	if (ob->query("guard") == "镇南王府卫士")
+	if (ob->query("guard") == "鎮南王府衛士")
 	{
 		ob->set_temp("fight_ok",1);
 		command("say 好，既然如此想切磋，那就看你的本事如何了。\n");
@@ -117,7 +117,7 @@ int ask_me()
 	}
 	else
 	{
-		command("say 只有卫士才能升武将。\n");
+		command("say 只有衛士才能升武將。\n");
 		return 1;
 	}
 }
@@ -151,15 +151,15 @@ int checking(object me, object ob)
 
 	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 ) 
 	{
-		command("say 青出於蓝胜於蓝，不愧是大理段家的好弟子！恭喜你了！\n");
-		command("say 你的已经可以胜任大理武将！\n");
-		upgrade_title(ob, "镇南王府武将");
+		command("say 青出於藍勝於藍，不愧是大理段家的好弟子！恭喜你了！\n");
+		command("say 你的已經可以勝任大理武將！\n");
+		upgrade_title(ob, "鎮南王府武將");
 		return 1;
 	}
 	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 ) 
 	{
-		command("say 看来" + RANK_D->query_respect(ob) + 
-			"还得多加练习，方能在大理段家诸多弟子中出人头地！\n");
+		command("say 看來" + RANK_D->query_respect(ob) + 
+			"還得多加練習，方能在大理段家諸多弟子中出人頭地！\n");
 		return 1;
 	}
 	return 1;  
@@ -173,9 +173,9 @@ void upgrade_title(object ob,string arg)
 /*
 string clear_title(string arg)
 {
-	if (strsrch(arg, "大理镇南王府卫士") >= 0)
+	if (strsrch(arg, "大理鎮南王府衛士") >= 0)
 	{
-		arg = replace_string(arg, "大理镇南王府卫士","");
+		arg = replace_string(arg, "大理鎮南王府衛士","");
 	}
 	return arg;
 }

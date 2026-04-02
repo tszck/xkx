@@ -5,11 +5,11 @@
 inherit ROOM;
 void create()
 {
-	set("short", "缝隙");
+	set("short", "縫隙");
 	set("long", @LONG
-这里是石块与石块之间的夹缝，光线昏暗。你明显感觉到四周的沙沙
-声是各种毒虫爬行的声音，一股股腥味中也夹杂着一些刺鼻的气息。你发
-现前面有一石块(shikuai) 隐隐发出淡淡的光芒。
+這裏是石塊與石塊之間的夾縫，光線昏暗。你明顯感覺到四周的沙沙
+聲是各種毒蟲爬行的聲音，一股股腥味中也夾雜着一些刺鼻的氣息。你發
+現前面有一石塊(shikuai) 隱隱發出淡淡的光芒。
 LONG);
 	set("objects", ([
 		__DIR__"npc/fushe" : 2
@@ -20,7 +20,7 @@ LONG);
 		"out"   : __DIR__"yuanzi3",
 	]));
 	set("item_desc", ([		    
-		"shikuai":RED"\n这块石头呈红汞色，散发着阵阵热气，石块上凹陷进去的部分是个左手手掌形。\n"NOR,
+		"shikuai":RED"\n這塊石頭呈紅汞色，散發着陣陣熱氣，石塊上凹陷進去的部分是個左手手掌形。\n"NOR,
 	]));
 	set("coor/x", -49900);
 	set("coor/y", 20080);
@@ -41,12 +41,12 @@ int do_push(string arg)
 	if( !arg || arg=="" ) return 0;
 	if( !me->query_temp("baituo_stone") ) return 0;
 	if( (int)me->query_temp("baituo_stone1") ) 
-		return notify_fail("你已经推动过了石块。\n");
+		return notify_fail("你已經推動過了石塊。\n");
 	if (arg == "shikuai" )
 	{
-		message_vision("$N深深吸了口气，伸出左手按住石块上的手印，缓缓向下推去。\n", me);	    
+		message_vision("$N深深吸了口氣，伸出左手按住石塊上的手印，緩緩向下推去。\n", me);	    
 		me->set_temp("baituo_stone1", 1);
-		message_vision("$N将石块按下寸许，隐隐约约听到地下传来一阵轰隆声。\n", me);
+		message_vision("$N將石塊按下寸許，隱隱約約聽到地下傳來一陣轟隆聲。\n", me);
 		me->start_busy(5);      
 		call_out("poisoned", 5, me);
 		return 1;
@@ -59,8 +59,8 @@ int poisoned()
 	if ((int)me->query_skill("poison", 1) < 80 &&
 		!me->query_skill("hamagong", 1))
 	{
-		tell_object(me, RED"你感到石块上的炎热之气顺着手臂慢慢传了上来。\n\n" NOR );
-		message_vision("$N突然身子一颤，好象是中了热毒！\n", me);
+		tell_object(me, RED"你感到石塊上的炎熱之氣順着手臂慢慢傳了上來。\n\n" NOR );
+		message_vision("$N突然身子一顫，好象是中了熱毒！\n", me);
 		me->apply_condition("hot_poison", 50);
 		me->delete_temp("baituo_stone");
 		return 1;
@@ -68,8 +68,8 @@ int poisoned()
 	if (me->query_skill("hamagong", 1) ||
 		me->query_skill("poison", 1) >= 80)
 	{
-		tell_object(me, RED"忽然一股炎热之气顺着手臂从石块上慢慢传了上来。\n\n" NOR );
-		tell_object(me, HIW"你连忙运功调气，将侵入手臂的炎热之气尽数逼了出去。\n" NOR );
+		tell_object(me, RED"忽然一股炎熱之氣順着手臂從石塊上慢慢傳了上來。\n\n" NOR );
+		tell_object(me, HIW"你連忙運功調氣，將侵入手臂的炎熱之氣盡數逼了出去。\n" NOR );
 		me->delete_temp("baituo_stone");
 		return 1;
 	}	       

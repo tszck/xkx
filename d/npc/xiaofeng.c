@@ -1,4 +1,4 @@
-// xiaofeng.c 萧峰(乔峰)
+// xiaofeng.c 蕭峯(喬峯)
 
 #include <ansi.h>
 
@@ -12,16 +12,16 @@ int do_kill(object me, object dest);
 
 void create()
 {
-	set_name("萧峰", ({"xiao feng", "xiao", "feng"}));
+	set_name("蕭峯", ({"xiao feng", "xiao", "feng"}));
 	set("gender", "男性");
-	set("nickname",HIB"铁掌降龙"NOR);
+	set("nickname",HIB"鐵掌降龍"NOR);
 	set("age", 28);
 	set("long", 
-		"他就是丐帮前任帮主，因被发现是契丹人而众叛亲离。\n"
-		"在江湖上与燕子坞的慕荣复并称为「北乔峰，南慕荣」。\n"
-		"他身穿一件普通的粗布褂子，腰间用一条麻绳随便一系。\n"
-		"他身高六尺有余，体格十分魁梧，长有一张线条粗旷、十\n"
-		"分男性化的脸庞，双目如电，炯炯有神。\n");
+		"他就是丐幫前任幫主，因被發現是契丹人而衆叛親離。\n"
+		"在江湖上與燕子塢的慕榮復並稱爲「北喬峯，南慕榮」。\n"
+		"他身穿一件普通的粗布褂子，腰間用一條麻繩隨便一系。\n"
+		"他身高六尺有餘，體格十分魁梧，長有一張線條粗曠、十\n"
+		"分男性化的臉龐，雙目如電，炯炯有神。\n");
 	set("attitude", "peaceful");
 	
 	set("str", 45);
@@ -31,14 +31,14 @@ void create()
 
 	set("chat_chance", 1);
 	set("chat_msg", ({
-		"萧峰叹了口气道：“唉……想不到我萧峰大好男儿，居然被马夫人这样一个女子所骗！\n",
-		"萧峰喃喃道：“我们丐帮的「降龙十八掌」是天下最霸道的掌法。”\n",
+		"蕭峯嘆了口氣道：“唉……想不到我蕭峯大好男兒，居然被馬伕人這樣一個女子所騙！\n",
+		"蕭峯喃喃道：“我們丐幫的「降龍十八掌」是天下最霸道的掌法。”\n",
 		(: random_move :),
 	}));
 	set("inquiry", ([
-		"青竹林" : "东北西北东西北。\n",
-		"丐帮" : "东北西北东西北。\n",
-		"拜师" : "你可以去东城门的我帮总舵拜鲁有脚。\n",
+		"青竹林" : "東北西北東西北。\n",
+		"丐幫" : "東北西北東西北。\n",
+		"拜師" : "你可以去東城門的我幫總舵拜魯有腳。\n",
 	]));
 
 	set("qi", 4000);
@@ -52,15 +52,15 @@ void create()
 	set("combat_exp", 180000);
 	set("score", 20000);
 	 
-	set_skill("force", 120);             // 基本内功
-	set_skill("huntian-qigong", 120);    // 混天气功
-	set_skill("unarmed", 120);           // 基本拳脚
-	set_skill("xianglong-zhang", 120);   // 降龙十八掌
-	set_skill("dodge", 120);      	     // 基本躲闪
-	set_skill("xiaoyaoyou", 120);        // 逍遥游
+	set_skill("force", 120);             // 基本內功
+	set_skill("huntian-qigong", 120);    // 混天氣功
+	set_skill("unarmed", 120);           // 基本拳腳
+	set_skill("xianglong-zhang", 120);   // 降龍十八掌
+	set_skill("dodge", 120);      	     // 基本躲閃
+	set_skill("xiaoyaoyou", 120);        // 逍遙遊
 	set_skill("parry", 120);             // 基本招架
-	set_skill("begging", 50);            // 叫化绝活
-	set_skill("checking", 50);           // 道听途说
+	set_skill("begging", 50);            // 叫化絕活
+	set_skill("checking", 50);           // 道聽途說
 	
 	map_skill("force", "huntian-qigong");
 	map_skill("unarmed", "xianglong-zhang");
@@ -129,8 +129,8 @@ int do_kill(object me, object dest)
 	if( objectp(dest) && present(dest, environment(me))
 		 && !environment(me)->query("no_fight"))
 	{
-		message_vision(HIR "$N对$n说道：老子一见一品堂高手就生气。"
-			+RANK_D->query_rude(dest)+"，纳命来！\n" NOR, me, dest);
+		message_vision(HIR "$N對$n說道：老子一見一品堂高手就生氣。"
+			+RANK_D->query_rude(dest)+"，納命來！\n" NOR, me, dest);
 		me->set_leader(dest);
 		me->kill_ob(dest);
 		dest->fight_ob(me);
@@ -195,7 +195,7 @@ int do_back(object me)
 
 	me->move("/d/city/dongdajie2");
 	me->set("combat_exp", 1000000);
-	message("vision", "萧峰走了过来，拍了拍身上的尘土，微微一笑说道：又除了一个坏蛋。\n", 
+	message("vision", "蕭峯走了過來，拍了拍身上的塵土，微微一笑說道：又除了一個壞蛋。\n", 
 		environment(), me );
 
 	me->set_leader(0);

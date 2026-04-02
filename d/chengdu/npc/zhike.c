@@ -6,7 +6,7 @@ inherit NPC;
 void create()
 {
 	set_name("知客僧", ({ "zhike seng", "zhike", "seng" }));
-	set("long", "这是昭觉寺的知客和尚，年纪虽然不大，但脸上已有岁月的刻痕。\n");
+	set("long", "這是昭覺寺的知客和尚，年紀雖然不大，但臉上已有歲月的刻痕。\n");
 	set("gender", "男性");
 	set("attitude", "peaceful");
 	set("class", "bonze");
@@ -52,10 +52,10 @@ void greeting(object ob)
 	switch( random(2) )
 	{
 		case 0:
-			say( "知客僧双手合什说道：这位施主，你来进香？\n");
+			say( "知客僧雙手合什說道：這位施主，你來進香？\n");
 			break;
 		case 1:
-			say( "知客僧摸了摸自己的光头，说道：这位" + RANK_D->query_respect(ob) + "，请进请进。\n");
+			say( "知客僧摸了摸自己的光頭，說道：這位" + RANK_D->query_respect(ob) + "，請進請進。\n");
 			break;
 	}
 }

@@ -6,12 +6,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("龙骏", ({ "long jun", "long", "jun"}) );
-	set("title", "御前侍卫");
+	set_name("龍駿", ({ "long jun", "long", "jun"}) );
+	set("title", "御前侍衛");
 	set("gender", "男性");
 	set("age", 32);
 	set("long",
-		"龙骏是大内高手，一手喂毒暗器，少有其匹。\n");
+		"龍駿是大內高手，一手喂毒暗器，少有其匹。\n");
 	set("combat_exp", 300000);
         set("shen_type", -1);
 	set("attitude", "heroism");

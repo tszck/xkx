@@ -17,7 +17,7 @@ void create()
 	set("nostrum", 25);
 	set("level", 70);
 	set("pour_type", "1");
-	set("long", "这是一粒百涎丸，看上去白熙熙的，还透着亮光，不知道吃了会...\n");
+	set("long", "這是一粒百涎丸，看上去白熙熙的，還透着亮光，不知道喫了會...\n");
 	setup();
 }
 
@@ -25,13 +25,13 @@ int do_eat(string arg)
 {
 	object me=this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
-	message_vision(HIG"$N吃下一粒百涎丸，只觉得胸内气血翻腾，啊...！吃错药了！！！\n" NOR, me);
+	message_vision(HIG"$N喫下一粒百涎丸，只覺得胸內氣血翻騰，啊...！喫錯藥了！！！\n" NOR, me);
 	me->set("qi", 10);
 	me->set("jing", 10);
 	destruct(this_object());

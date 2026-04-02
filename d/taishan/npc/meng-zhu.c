@@ -20,11 +20,11 @@ void create()
 	seteuid(getuid());
 
 	if (!restore()) {
-	set_name("魏无双", ({ "wulin mengzhu", "mengzhu", "zhu" }) );
+	set_name("魏無雙", ({ "wulin mengzhu", "mengzhu", "zhu" }) );
 	set("title", "武林盟主" );
 	set("gender", "男性" );
 	set("age", 40);
-      set("long","他就是雄踞武林，号召天下，威风赫赫的当今武林盟主。\n");
+      set("long","他就是雄踞武林，號召天下，威風赫赫的當今武林盟主。\n");
 	set("attitude", "heroism");
 	set("generation",0);
 	set("winner","none");
@@ -59,7 +59,7 @@ void create()
 	carry_object("/d/city/obj/cloth")->wear();        
 	}
 	else {
-//		set_name("魏无双", ({ "wulin mengzhu", "mengzhu", "zhu" }));
+//		set_name("魏無雙", ({ "wulin mengzhu", "mengzhu", "zhu" }));
 		set("id", "mengzhu");
 		setup();
 	}
@@ -88,7 +88,7 @@ int accept_fight(object ob)
 	object me  = this_object();
 		
 	if ( me->query("winner") == ob->query("id") ) 
-		return notify_fail("你跟你自己打什麽架？！\n");
+		return notify_fail("你跟你自己打什麼架？！\n");
 
 	me->set("eff_qi", me->query("max_qi"));
 	me->set("qi",     me->query("max_qi"));
@@ -118,17 +118,17 @@ int checking(object me, object ob)
 	if ( !present(ob, environment()) ) return 1; 
 
 	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 ) {
-		command("say 果然厉害，恭喜你成为当今武林盟主！\n");
-//		command("chat 哈哈哈，到底是长江後浪推前浪，一代新人换旧人！\n");
-//		command("chat 恭喜" + ob->query("name") + "被推举为当今武林盟主！\n");
+		command("say 果然厲害，恭喜你成爲當今武林盟主！\n");
+//		command("chat 哈哈哈，到底是長江後浪推前浪，一代新人換舊人！\n");
+//		command("chat 恭喜" + ob->query("name") + "被推舉爲當今武林盟主！\n");
 		remove_call_out("do_copy");
 		call_out("do_copy", 1, me, ob);
 		return 1;
 	}
 
 	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 ) {
-		command("say 看来" + RANK_D->query_respect(ob) + 
-			"还得多加练习，方能在当今武林中出人头地 !\n");
+		command("say 看來" + RANK_D->query_respect(ob) + 
+			"還得多加練習，方能在當今武林中出人頭地 !\n");
 		return 1;
 	}
 
@@ -160,7 +160,7 @@ int do_recopy(object me, object ob)
 	ob = this_player();
 
 	if ( me->query("winner") != ob->query("id") ) 
-		return notify_fail("你不是现任武林盟主！\n");;
+		return notify_fail("你不是現任武林盟主！\n");;
 
 	ob->delete_temp("apply/short");
 	ob->set_temp("apply/short", ({me->short()}));

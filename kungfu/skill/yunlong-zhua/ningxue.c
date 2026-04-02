@@ -21,20 +21,20 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (objectp(weapon = me->query_temp("weapon")))
-		return notify_fail("你必须空手运功。\n");
+		return notify_fail("你必須空手運功。\n");
 
 	if((int)me->query_str() < 30)
-		return notify_fail("你膂力不够，不能使用凝血神爪！\n");
+		return notify_fail("你膂力不夠，不能使用凝血神爪！\n");
 
 	fskill = "yunlong-shengong";
 	bskill = "claw";
@@ -48,18 +48,18 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，目前还不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，目前還不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为不够，目前还不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，目前還不能使用"+PNAME+"。\n");
 
 	if((int)me->query("neili") < 800)
-		return notify_fail("你内力现在不够，不能使用凝血神爪！\n");
+		return notify_fail("你內力現在不夠，不能使用凝血神爪！\n");
 
 	if( target->is_busy() )
-		return notify_fail(target->name()+"目前正自顾不暇，放胆攻击吧！\n");
+		return notify_fail(target->name()+"目前正自顧不暇，放膽攻擊吧！\n");
 
-	msg = HIR "$N使出云龙爪绝技「凝血神爪」，真气灌注双爪抓向$n。\n"NOR;
+	msg = HIR "$N使出雲龍爪絕技「凝血神爪」，真氣灌注雙爪抓向$n。\n"NOR;
 
 	if(random(me->query("combat_exp")) > (int)target->query("combat_exp")/4)
 	{
@@ -67,9 +67,9 @@ int perform(object me, object target)
          limb = limbs[random(sizeof(limbs))];
     else
          limb = "要害";
-		msg+=HIR "$n连忙腾挪躲闪，然而“扑哧”一声，$N"
-         HIR "五指正抓在$n" HIR "的" + limb + "，只听得$n"
-         HIR "一声惨叫，鲜血横飞。\n" NOR;
+		msg+=HIR "$n連忙騰挪躲閃，然而“撲哧”一聲，$N"
+         HIR "五指正抓在$n" HIR "的" + limb + "，只聽得$n"
+         HIR "一聲慘叫，鮮血橫飛。\n" NOR;
  		skill = me->query_skill(bskill, 1) * 2;
 		damage = skill + (int)me->query_skill("force", 1)/2;
 		me->add("neili", -300);
@@ -82,7 +82,7 @@ int perform(object me, object target)
 		target->add("neili", -600);
 	}
 	else {
-		msg += HIG "可是$p看破了$P的企图，腾身避开,并没有中招。\n" NOR;
+		msg += HIG "可是$p看破了$P的企圖，騰身避開,並沒有中招。\n" NOR;
 		me->start_busy(4);
 		me->add("neili", -100);
 	}
@@ -98,13 +98,13 @@ int help(object me)
         write(@HELP
 
         使用功效：
-                伤敌气血和精气
+                傷敵氣血和精氣
 
         出手要求：
-                云龙神功120级
-                云龙爪150级
-                后天膂力30
-                内力800
+                雲龍神功120級
+                雲龍爪150級
+                後天膂力30
+                內力800
 HELP
         );
         return 1;

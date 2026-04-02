@@ -1,15 +1,15 @@
-// npcd.c 各种有记录的npc读取、设定武功、设定pfm等
+// npcd.c 各種有記錄的npc讀取、設定武功、設定pfm等
 #include <dbase.h>
 #include <login.h>
 #include <ansi.h>
-int exert_function(string func);                 //无意义
-int perform_action(string action);               //无意义
-object create_first(string arg);                 //返回restore后门派的掌门弟子
-object create_player(string arg);                //返回restore后的玩家 注意要destruct
-varargs int top_skill(object who,int l);         //最高武功  带参数不包含知识技能
-varargs int up_skill(object who);                //顶经验武功
-int check_level(object ob);                      //按经验确定需要的等级
-void init_npc_skill(object ob, int lvl);         //设定ob的所有武功为lvl级
+int exert_function(string func);                 //無意義
+int perform_action(string action);               //無意義
+object create_first(string arg);                 //返回restore後門派的掌門弟子
+object create_player(string arg);                //返回restore後的玩家 注意要destruct
+varargs int top_skill(object who,int l);         //最高武功  帶參數不包含知識技能
+varargs int up_skill(object who);                //頂經驗武功
+int check_level(object ob);                      //按經驗確定需要的等級
+void init_npc_skill(object ob, int lvl);         //設定ob的所有武功爲lvl級
 varargs void set_from_me(object tob, object fob, object thief_master, int scale);
 int set_perform(object who);
 int check_place(string file,string dir);
@@ -58,7 +58,7 @@ object create_player(string arg)
 varargs int top_skill(object who,int l)
 {
 	// 返回最高武功
-	// 加参数l 则不包含知识技能
+	// 加參數l 則不包含知識技能
 	int i,j;
 	mapping skl;
 	string* skname;
@@ -83,7 +83,7 @@ varargs int top_skill(object who,int l)
 }
 varargs int up_skill(object who)
 {
-//返回顶经验武功
+//返回頂經驗武功
  
 	float exper;
 	int level;
@@ -96,8 +96,8 @@ varargs int up_skill(object who)
 }
 
 mapping levels = ([
-//      combat_exp   skill_level    顶经验武功  顶武功经验   研究武功经验(60纯研究4项武功4:1任务)
-//      保证五十万以前任务容易完成，八十万之前简单完成。                    研究经验武功
+//      combat_exp   skill_level    頂經驗武功  頂武功經驗   研究武功經驗(60純研究4項武功4:1任務)
+//      保證五十萬以前任務容易完成，八十萬之前簡單完成。                    研究經驗武功
 	50000      : 20,		// level 1    80           586          3080          52
 	100000     : 30,		// level 2    100          2701         10116         65
 	200000     : 40,		// level 3    126          6401         23656         83
@@ -116,7 +116,7 @@ mapping levels = ([
 	15000000   : 440,	  // level 16   531          4628828      16658368      348
 	20000000   : 460,	  // level 17   585          6352119      22841384      383
 	30000000   : 500,	  // level 18   670          9051885      32508560      439
-  40000000   : 500    // 此行无效 只是协助设定npc上限exp 3kw skl 500
+  40000000   : 500    // 此行無效 只是協助設定npc上限exp 3kw skl 500
 /* old
 	50000      : 20,		// level 1    80           586          3080          52
 	100000     : 30,		// level 2    100          2701         10116         65
@@ -256,7 +256,7 @@ object get_random_master(object me)
 		err = catch(thief_master = new(CLASS_D(masters[random(sizeof(masters))])));
 		if (stringp(err))
 		{
-			message("channel:wiz",HIR"【调试】系统精灵：NPC_D 新建复制对象失败返回错误"+err+NOR,users());
+			message("channel:wiz",HIR"【調試】系統精靈：NPC_D 新建複製對象失敗返回錯誤"+err+NOR,users());
 			thief_master = new(CLASS_D("xiaoyao/suxinghe"));
 		}
 	return thief_master;
@@ -275,7 +275,7 @@ varargs void copy_skill(object tob,object thief_master)
 		flag = 1;
 		thief_master = get_random_master(tob);
 	}
-// 复制master武功开始
+// 複製master武功開始
 	if ( mapp(skill_status = thief_master->query_skills()) )
 	{
 		sname = keys(skill_status);
@@ -400,7 +400,7 @@ int check_place(string file,string dir)
 	err = catch(room = load_object(fname));
 	if (stringp(err))
 	{
-		message("channel:wiz",HIR"【调试】系统精灵：NPC_D 新建房间对象失败返回错误"+err+NOR,users());
+		message("channel:wiz",HIR"【調試】系統精靈：NPC_D 新建房間對象失敗返回錯誤"+err+NOR,users());
 		return 0;
 	}
 	if (room->query_max_encumbrance() < 10000000 ) return 0;
@@ -427,23 +427,23 @@ void place_npc(object ob, mixed diff)
 		dir -= ({  "npc","xiakedao","binghuo","working",
 		"wizard",	"death","gaochang","gumu","taohua",
 		"heizhao","shenlong","yanziwu","wanjiegu",
-		});//这些是没法做的
+		});//這些是沒法做的
 		if (diff < 3)
 		dir -= ({
 			"baituo","emei","gaibang","huijiang","heimuya","kunlun","lingjiu",
 			"lingxiao","nanshaolin","qingcheng","quanzhen","shaolin","songshan",
 			"tiezhang","wudang","wudujiao","xiaoyao","xingxiu",""
-		});//这些在门派内部 非要大米不可
+		});//這些在門派內部 非要大米不可
 		if (diff < 2)
 		dir -= ({
 		"guanwai","guiyun","jianzhong","jueqinggu","mingjiao","shiliang",
 		"taishan","xuedao","xueshan","yubifeng","jinshe",
-		});//这些地方很难过去
+		});//這些地方很難過去
 		if (diff < 1)
 		dir -= ({
 		"city","dali","beijing","hangzhou","huanggong","kaifeng",
 		"lingzhou","luoyang","yueyang","yanping","shouxihu","suzhou"
-		});//这些地方很大
+		});//這些地方很大
 	}
 	i = random(sizeof(dir));
 	file = get_dir("/d/"+dir[i]+"/");
@@ -468,7 +468,7 @@ void place_npc(object ob, mixed diff)
 	ob->set("place", dir[i]);
 	ob->set("startroom", startroom);
 	ob->set_temp("moved", ({ }));
-	message_vision("$N走了过来。\n", ob);
+	message_vision("$N走了過來。\n", ob);
 
 	return;
 }
@@ -515,7 +515,7 @@ void random_move(object ob)
         string dest;
 
         moved = ob->query_temp("moved");
-//        return; //看一下是不是这里造成lag
+//        return; //看一下是不是這裏造成lag
         if (! moved) moved = ({ });
         if (sizeof(moved) >= MAX_MOVED)
         {
@@ -574,26 +574,26 @@ int c_here(object ob)
 	for (i=0;i<sizeof(file);i++)
 	{
 		if (strsrch(file[i],"no_quest")>=0)
-		return notify_fail("已经设置完毕。\n");
+		return notify_fail("已經設置完畢。\n");
 		j = strsrch(file[i],"setup()");
 		if (j<0) continue;
 		olen = file[i][0..j-1];
 		break;
 	}
 	if (i==sizeof(file))
-	return notify_fail("没有匹配的字符串。\n");
+	return notify_fail("沒有匹配的字符串。\n");
 	line = i-1;
 	newfile = file[0..line];
 	newfile += ({olen+"set(\"no_quest\",1);"});
 	newfile += file[line+1..<1];
 	// tell_object(find_player("qingyun"),"sizeof(file)="+sizeof(file)+"\n");
 	// tell_object(find_player("qingyun"),"sizeof(newfile)="+sizeof(newfile)+"\n");
-	// tell_object(find_player("qingyun"),"开始写入文件"+file_name(room)+".c"+"\n");
+	// tell_object(find_player("qingyun"),"開始寫入文件"+file_name(room)+".c"+"\n");
 	err = catch(write_file(file_name(room)+".c",implode(newfile,"\n"),1));
 	if (write_file(file_name(room)+".c",implode(newfile,"\n"),1))
 	{
-		log_file("qfile","加入任务标识到文件 "+file_name(room)+".c\n");
-		// tell_object(find_player("qingyun"),"写入成功\n");
+		log_file("qfile","加入任務標識到文件 "+file_name(room)+".c\n");
+		// tell_object(find_player("qingyun"),"寫入成功\n");
 	}
 
 	return 1;

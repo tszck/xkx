@@ -7,7 +7,7 @@ void create()
 {
 	set("short", "城隍巷");
 	set("long", @LONG
-一条弯曲狭窄的碎石小路，两旁树木参差，阴暗森冷。
+一條彎曲狹窄的碎石小路，兩旁樹木參差，陰暗森冷。
 LONG );
 	set("outdoors", "quanzhou");
 	set("no_clean_up", 0);

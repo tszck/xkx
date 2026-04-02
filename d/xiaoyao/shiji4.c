@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "石级");
+	set("short", "石級");
 	set("long", @LONG
-这是一段斜引向上的石级，大概有一百来级吧。缺乏光亮，又转了
-三个弯，隐隐听到轰隆轰隆的水声。
+這是一段斜引向上的石級，大概有一百來級吧。缺乏光亮，又轉了
+三個彎，隱隱聽到轟隆轟隆的水聲。
 LONG );
 	set("exits", ([
 		"southdown" : __DIR__"fangjian3",

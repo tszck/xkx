@@ -9,9 +9,9 @@ void create()
 {
         set_name("拓跋", ({ "tuoba", }));
 	set("long",
-        "他是一位带发修行的头陀，身穿一件白布长袍。\n"
-        "他个子不高，但很结实，看上去颇为纯朴。可是脸上经常浮现出奇怪的笑容，让\n"
-        "人有些摸不着头脑。\n"
+        "他是一位帶髮修行的頭陀，身穿一件白布長袍。\n"
+        "他個子不高，但很結實，看上去頗爲純樸。可是臉上經常浮現出奇怪的笑容，讓\n"
+        "人有些摸不着頭腦。\n"
 	);
 
 	set("level",5);
@@ -54,7 +54,7 @@ void create()
 
 	prepare_skill("finger", "nianhua-zhi");
 	set("party/party_name",HIG"明教"NOR);
-	set("party/rank",HIC"风字门门主"NOR);
+	set("party/rank",HIC"風字門門主"NOR);
 	create_family("明教", 35, "弟子");
 	setup();
 

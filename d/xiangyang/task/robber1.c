@@ -6,7 +6,7 @@ inherit NPC;
 void create()
 { 
 	set_name("蒙古兵士",({"menggu bingshi", "bingshi"}));
-	set("long","这是一位侵犯中原的蒙古兵士。\n");
+	set("long","這是一位侵犯中原的蒙古兵士。\n");
 	set("gender", "男性" );
 	set("age", random(30)+14);
 	
@@ -125,7 +125,7 @@ void die()
             switch( random(3) )
 	{
 		case 0:
-			message_vision(HIR"城下又爬上来一个蒙古兵士。\n"NOR,ob);
+			message_vision(HIR"城下又爬上來一個蒙古兵士。\n"NOR,ob);
 			robber=new(__DIR__"robber1");
 			robber->set("owner",ob->query("id"));
                         robber->do_change(ob);
@@ -134,7 +134,7 @@ void die()
 			ob->kill_ob(robber);
 			break;
 		case 1:
-			message_vision(HIR"城下又爬上来一个蒙古将领。\n"NOR,ob);
+			message_vision(HIR"城下又爬上來一個蒙古將領。\n"NOR,ob);
 			robber=new(__DIR__"robber2");
 			robber->set("owner",ob->query("id"));
                         robber->do_change(ob);
@@ -143,7 +143,7 @@ void die()
 			ob->kill_ob(robber);
 			break;
 		case 2:
-			message_vision(HIR"城下又爬上来一个蒙古高手。\n"NOR,ob);
+			message_vision(HIR"城下又爬上來一個蒙古高手。\n"NOR,ob);
 			robber=new(__DIR__"robber3");
 			robber->set("owner",ob->query("id"));
                         robber->do_change(ob);
@@ -153,7 +153,7 @@ void die()
 			break;
 	}	
       }
-	message_vision("$N扑在地上挣扎了几下，口中喷出几口"HIR"鲜血"NOR"，死了！\n",this_object());
+	message_vision("$N撲在地上掙扎了幾下，口中噴出幾口"HIR"鮮血"NOR"，死了！\n",this_object());
 	destruct(this_object());
 	return;
 }

@@ -12,32 +12,32 @@ object find_boat(string from,string to);
 inherit ROOM;
 void create()
 {
-	set("short","岸边");
+	set("short","岸邊");
 	set("long",@long
-这是一条河的边上，可以坐船到对岸。如果轻功够好，
-也可以自己施展轻功过河。
+這是一條河的邊上，可以坐船到對岸。如果輕功夠好，
+也可以自己施展輕功過河。
 long
 );
 	set("yell_about", "船家");             // yell 船家
-	set("river_type", "江");               // 江面上传来回响
-  set("need_dodge",300);                 // 需要多少轻功
-  set("busy_msg",				"只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……\n");
-  set("come_msg_out",		"一叶扁舟缓缓地驶了过来，艄公将一块踏脚板搭上堤岸，以便乘客上下。\n");
-	set("come_msg_in",		"艄公说“到啦，上岸吧”，随即把一块踏脚板搭上堤岸。\n");
-	set("wait_msg",				"岸边一只渡船上的老艄公说道：正等着你呢，上来吧。\n");
-	set("leave_msg_out",	"艄公把踏脚板收了起来，竹篙一点，扁舟向江心驶去。\n");
-	set("leave_msg_in",		"艄公把踏脚板收起来，说了一声“坐稳喽”，竹篙一点，扁舟向江心驶去。\n");
-  set("item_desc/river", HIC "\n只见近岸处有一叶小舟，也许大声喊("
-                         HIY "yell" HIC ")一声船家(" HIY "boat" HIC
-                        ")就\n能听见。倘若你自负轻功绝佳,也可直接"
-                        "渡水(" HIY "cross" HIC ")踏江而过。\n" NOR);
+	set("river_type", "江");               // 江面上傳來回響
+  set("need_dodge",300);                 // 需要多少輕功
+  set("busy_msg",				"只聽得江面上隱隱傳來：“別急嘛，這兒正忙着吶……\n");
+  set("come_msg_out",		"一葉扁舟緩緩地駛了過來，艄公將一塊踏腳板搭上堤岸，以便乘客上下。\n");
+	set("come_msg_in",		"艄公說“到啦，上岸吧”，隨即把一塊踏腳板搭上堤岸。\n");
+	set("wait_msg",				"岸邊一隻渡船上的老艄公說道：正等着你呢，上來吧。\n");
+	set("leave_msg_out",	"艄公把踏腳板收了起來，竹篙一點，扁舟向江心駛去。\n");
+	set("leave_msg_in",		"艄公把踏腳板收起來，說了一聲“坐穩嘍”，竹篙一點，扁舟向江心駛去。\n");
+  set("item_desc/river", HIC "\n只見近岸處有一葉小舟，也許大聲喊("
+                         HIY "yell" HIC ")一聲船家(" HIY "boat" HIC
+                        ")就\n能聽見。倘若你自負輕功絕佳,也可直接"
+                        "渡水(" HIY "cross" HIC ")踏江而過。\n" NOR);
 	set("boat_short", "渡船");		
 	set("boat_desc",  @LONG
-一叶小舟，最多也就能载七、八个人。一名六十多岁的老艄公手持
-长竹篙，正在船尾吃力地撑着船。
+一葉小舟，最多也就能載七、八個人。一名六十多歲的老艄公手持
+長竹篙，正在船尾喫力地撐着船。
 LONG);																	 // 渡船上的描述
-	set("from",       file_name(this_object()));      // 这趟船的起点
-	set("to",         __DIR__"hanshui2");  // 船的终点 /*   必选   */
+	set("from",       file_name(this_object()));      // 這趟船的起點
+	set("to",         __DIR__"hanshui2");  // 船的終點 /*   必選   */
 	setup();
 }
 
@@ -63,12 +63,12 @@ int do_cross()
                 arrive = load_object(query("to"));
         if (! arrive)
         {
-                tell_object(me, "你举目望去，发现水面雾气极浓，什么都看不清。\n");
+                tell_object(me, "你舉目望去，發現水面霧氣極濃，什麼都看不清。\n");
                 return 1;
         }
         if (! me->query_skill("dodge", 1))
         {
-                tell_object(me, "你大眼一瞪？干什么，跳河自杀么？\n");
+                tell_object(me, "你大眼一瞪？幹什麼，跳河自殺麼？\n");
                 return 1;
         }
         dskill = me->query_skill_mapped("dodge");
@@ -91,22 +91,22 @@ int do_cross()
         }        
         if (can != 1) 
         {
-        	tell_object(me, "你掂量了一下，觉得自己的轻功似乎还没练到家。\n");
+        	tell_object(me, "你掂量了一下，覺得自己的輕功似乎還沒練到家。\n");
         	return 1;
         }
         if (me->query("neili") < 300)
         {
-                tell_object(me, "你的内力不够，还是先休息一下吧。\n");
+                tell_object(me, "你的內力不夠，還是先休息一下吧。\n");
                 return 1;
         }
         if (!stringp(go_msg))
-        	go_msg = HIW "\n只见$N" HIW "身形微微一晃，已然飘出丈许，以"
-                "足尖轻点水面向对岸踏波掠去，漾起层层微澜。\n身形洋洋"
-                  "洒洒，若彩蝶飞扬，甚是逍遥。便在众人惊叹轻功绝妙间"
-                 "，早已没了踪影。\n\n" NOR;
+        	go_msg = HIW "\n只見$N" HIW "身形微微一晃，已然飄出丈許，以"
+                "足尖輕點水面向對岸踏波掠去，漾起層層微瀾。\n身形洋洋"
+                  "灑灑，若彩蝶飛揚，甚是逍遙。便在衆人驚歎輕功絕妙間"
+                 "，早已沒了蹤影。\n\n" NOR;
         if (!stringp(come_msg))
-          come_msg = HIW "\n忽见水面上雾气散开，一人踏波"
-                          "逐浪，竟大踏步掠过江来！\n\n" NOR;
+          come_msg = HIW "\n忽見水面上霧氣散開，一人踏波"
+                          "逐浪，竟大踏步掠過江來！\n\n" NOR;
 
         me->add("neili", -200);
         message_vision(go_msg, me);
@@ -124,15 +124,15 @@ int do_yell(string arg)
 
 	if( arg=="boat" ) arg = query("yell_about");
 	if( (int)this_player()->query("age") < 16 )
-		message_vision("$N使出吃奶的力气喊了一声：“" + arg + "”\n",this_player());
+		message_vision("$N使出喫奶的力氣喊了一聲：“" + arg + "”\n",this_player());
 	else if( (int)this_player()->query("neili") > 500 )
-		message_vision("$N吸了口气，一声“" + arg +"”，声音中正平和地远远传了出去。\n", this_player());
+		message_vision("$N吸了口氣，一聲“" + arg +"”，聲音中正平和地遠遠傳了出去。\n", this_player());
 	else
-			message_vision("$N鼓足中气，长啸一声：“" + arg + "！”\n", this_player());
+			message_vision("$N鼓足中氣，長嘯一聲：“" + arg + "！”\n", this_player());
 	if( arg==query("yell_about"))
 		check_trigger();
 	else
-		message_vision(query("river_type")+"面上远远传来一阵回声：“" + arg + "～～～”\n", this_player());
+		message_vision(query("river_type")+"面上遠遠傳來一陣回聲：“" + arg + "～～～”\n", this_player());
 	return 1;
 }
 
@@ -154,7 +154,7 @@ void check_trigger()
 				call_out("on_board", 15 , boat, file_name(this_object()),query("to"));
 		}
 		else
-			message("vision","只听得"+query("river_type")+"面上隐隐传来：“别急嘛，这儿正忙着呐……”\n",this_object() );
+			message("vision","只聽得"+query("river_type")+"面上隱隱傳來：“別急嘛，這兒正忙着吶……”\n",this_object() );
 	}
 	else 
 		message("vision",query("wait_msg"), this_object() );
@@ -201,7 +201,7 @@ void arrive(object boat,string from,string to)//到岸
 	to_room->set("exits/enter",file_name(boat));
 
   remove_call_out("on_board");
-  call_out("on_board",20,boat,to,from); //到岸20秒后 从终点返回起点
+  call_out("on_board",20,boat,to,from); //到岸20秒後 從終點返回起點
 }
 
 object find_boat(string from,string to)

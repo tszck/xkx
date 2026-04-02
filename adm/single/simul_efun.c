@@ -1,4 +1,4 @@
-// 继承mudcore框架的simul_efun
+// 繼承mudcore框架的simul_efun
 inherit CORE_SIMUL_EFUN_OB;
 
 #include "/adm/simul_efun/override.c"

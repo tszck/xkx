@@ -1,14 +1,14 @@
-//Room: nanyanfeng.c 南岩峰
+//Room: nanyanfeng.c 南巖峯
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-      set("short","南岩峰");
+      set("short","南巖峯");
       set("long",@LONG
-这里是武当三十六岩之最，松树翳天，木石争奇，峭壁万仞。在悬
-崖之半筑有一宫宇，下临深渊，工程浩大。宫前有一石柱，自峭壁上横
+這裏是武當三十六巖之最，松樹翳天，木石爭奇，峭壁萬仞。在懸
+崖之半築有一宮宇，下臨深淵，工程浩大。宮前有一石柱，自峭壁上橫
 出。
 LONG);
       set("objects", ([
@@ -33,10 +33,10 @@ int valid_leave(object me, string dir)
 	mapping myfam;
 	myfam = (mapping)me->query("family");
 
-	if ((!myfam || myfam["family_name"] != "武当派") &&
+	if ((!myfam || myfam["family_name"] != "武當派") &&
 		dir == "southdown" &&
 		objectp(present("mo shenggu", environment(me))))
-		return notify_fail("莫声谷拦住你说：此处乃本派禁地，请止步。\n");
+		return notify_fail("莫聲谷攔住你說：此處乃本派禁地，請止步。\n");
 
 	return ::valid_leave(me, dir);
 }

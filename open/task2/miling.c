@@ -4,19 +4,19 @@
 inherit ITEM;
 
 string * help_str=({
-"这封密令是要你去保护一位人质，将之送到安全的地点去。在途中，
-不断会有各种杀手截杀人质，而人质本身是不堪一击的。途中会遇到
-各种各样的状况，需要靠你自己的智慧去解决。\n",
-"对人质而言：提供了如下命令以便保护者（你）使用：",
-"baohu : 这条命令可以使人质处于“被保护”状态，而你将成为“保
-        护者”，任何施加于人质的攻击都会自动地转施加在你身上
-        （当然，需要你和人质在同一房间内）；",
-"order ：这条命令可以“命令”人质做某件事；",
-"	比如：order go east “命令”人质往东方走；",
-"	具体可采用的命令可在实践中得到；\n",
-"在护送过程中，当然你需要不断地用hp来查看人质的健康情况。一旦
-人质到达目的地后，你将得到很高的奖励（具体奖励值视途中艰苦情
-况而定）。",
+"這封密令是要你去保護一位人質，將之送到安全的地點去。在途中，
+不斷會有各種殺手截殺人質，而人質本身是不堪一擊的。途中會遇到
+各種各樣的狀況，需要靠你自己的智慧去解決。\n",
+"對人質而言：提供瞭如下命令以便保護者（你）使用：",
+"baohu : 這條命令可以使人質處於“被保護”狀態，而你將成爲“保
+        護者”，任何施加於人質的攻擊都會自動地轉施加在你身上
+        （當然，需要你和人質在同一房間內）；",
+"order ：這條命令可以“命令”人質做某件事；",
+"	比如：order go east “命令”人質往東方走；",
+"	具體可採用的命令可在實踐中得到；\n",
+"在護送過程中，當然你需要不斷地用hp來查看人質的健康情況。一旦
+人質到達目的地後，你將得到很高的獎勵（具體獎勵值視途中艱苦情
+況而定）。",
 });
 
 string * search = get_dir("/d/");
@@ -37,10 +37,10 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("long",
-		"这是一张已经发黄的纸，上面歪歪曲曲地写着一些字，\n你可以用指令(readling)来读取，\n用指令(helpling)来看帮助，\n用指令(whereis)看地点说明。\n");
+		"這是一張已經發黃的紙，上面歪歪曲曲地寫着一些字，\n你可以用指令(readling)來讀取，\n用指令(helpling)來看幫助，\n用指令(whereis)看地點說明。\n");
 		set("value", 0);
 		set("material","paper");
-		set("unit", "纸");
+		set("unit", "紙");
 		set("no_get", 1);
 		set("no_drop", 1);
 		set("describe","");
@@ -55,7 +55,7 @@ int do_read()
 {
 	object me = this_player();
 
-	tell_object(me,HIG"你这次的任务是："+query("describe")+"。\n"NOR);
+	tell_object(me,HIG"你這次的任務是："+query("describe")+"。\n"NOR);
 	return 1;
 }
 
@@ -76,11 +76,11 @@ int do_where()
 	string where;
 
 	i = find_outdoor(query("src_des"));
-	where = i < sizeof(search) ? to_chinese(search[i]) : "哪个地方的";
-	tell_object(me,HIG"人质好象在"+where+"的"+query("src_add")+"\n"NOR);
+	where = i < sizeof(search) ? to_chinese(search[i]) : "哪個地方的";
+	tell_object(me,HIG"人質好象在"+where+"的"+query("src_add")+"\n"NOR);
 	i = find_outdoor(query("dest_des"));
-	where = i < sizeof(search) ? to_chinese(search[i]) : "哪个地方的";
-	tell_object(me,HIG"要护送到好象在"+where+"的"+query("dest_add")+"\n"NOR);
+	where = i < sizeof(search) ? to_chinese(search[i]) : "哪個地方的";
+	tell_object(me,HIG"要護送到好象在"+where+"的"+query("dest_add")+"\n"NOR);
 	return 1;
 }
 

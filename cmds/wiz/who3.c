@@ -11,7 +11,7 @@ int main(object me, string str)
     ob_list = users();
     ob_list = sort_array(users(), "sort_user", this_object());
     size = (int)sizeof(ob_list)/20;
-    str = HIG"\n 玩家     悟性   根骨   身法   膂力   耐力   灵性   容貌   福缘 定力 胆识\n"NOR;
+    str = HIG"\n 玩家     悟性   根骨   身法   膂力   耐力   靈性   容貌   福緣 定力 膽識\n"NOR;
     str +=     "---------------------------------------------------------------------";
     message("vision", str, me);
     for(t=0; t<=size; t++)
@@ -65,7 +65,7 @@ int main(object me, string str)
 	me->start_more(str);
     }
     str = "------------------------------------------------------------------------------\n";
-    str += sprintf("共有 %d 位使用者连线中。\n", sizeof(ob_list));
+    str += sprintf("共有 %d 位使用者連線中。\n", sizeof(ob_list));
     message("vision", str, me);
     return 1;
 }
@@ -84,7 +84,7 @@ int help(object me)
         write(@HELP
 指令格式：who3
 
-玩家信息查询。
+玩家信息查詢。
 HELP
         );
         return 1;

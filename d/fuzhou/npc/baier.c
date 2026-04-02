@@ -6,10 +6,10 @@ void create()
 {
 	set_name("白二", ({ "bai er","bai" }) );
 	set("gender", "男性");
-	set("title", HIR"福"HIC"威"YEL"镖局"HIY"趟子手"NOR);
+	set("title", HIR"福"HIC"威"YEL"鏢局"HIY"趟子手"NOR);
 	set("age", 30);
 	set("long",
-		"这是个镖局趟子手，长得虎背熊腰，一身横练功夫。\n");
+		"這是個鏢局趟子手，長得虎背熊腰，一身橫練功夫。\n");
 	set("combat_exp", 10000);
         set("shen_type", -1);
 	set("attitude", "peaceful");

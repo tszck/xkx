@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "万毒窟外");
+        set("short", "萬毒窟外");
         set("long", @LONG
-这里是五毒教饲养毒物的地方，山壁旁有一个天然的石洞，里
-面黑漆漆的看不清楚。一阵山风吹来，你闻到一股腥味。有一个衣
-衫褴褛的枯瘦老妇正靠在洞边打盹。
+這裏是五毒教飼養毒物的地方，山壁旁有一個天然的石洞，裏
+面黑漆漆的看不清楚。一陣山風吹來，你聞到一股腥味。有一個衣
+衫襤褸的枯瘦老婦正靠在洞邊打盹。
 LONG
         );
         set("outdoors", "wudujiao");
@@ -35,7 +35,7 @@ int valid_leave(object me, string dir)
         {
             if( !present("tie shao", me)
                 & objectp(present("he hongyao", environment(me))))
-                return notify_fail("何红药身形一晃，忽然挡住你，厉声说道：这位" + RANK_D->query_respect(me) + "没有教主准许，不得进入本教圣地。\n");
+                return notify_fail("何紅藥身形一晃，忽然擋住你，厲聲說道：這位" + RANK_D->query_respect(me) + "沒有教主準許，不得進入本教聖地。\n");
         }
         return ::valid_leave(me, dir);
 }

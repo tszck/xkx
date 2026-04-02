@@ -4,11 +4,11 @@
 inherit ITEM;
 
 string* titles = ({
-	"龙爪功法",
-	"寂灭爪法",
-	"摩诃指法",
-	"一指禅功",
-	"修罗刀法",
+	"龍爪功法",
+	"寂滅爪法",
+	"摩訶指法",
+	"一指禪功",
+	"修羅刀法",
 });
 
 string* skills = ({
@@ -25,8 +25,8 @@ void create()
 
 	set_name(titles[i], ({ "shaolin wuji", "wuji" }));
 	set_weight(200);
-	set("unit", "册");
-	set("long", "这是一册" + titles[i] + "\n");
+	set("unit", "冊");
+	set("long", "這是一冊" + titles[i] + "\n");
 	set("value", 500);
 	set("material", "paper");
 	set("skill", ([

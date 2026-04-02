@@ -7,8 +7,8 @@ void create()
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "颗");
-                set("long","这是一颗夜明珠，悠悠的放着柔和的光，看起来是做装饰的好东西。\n");
+                set("unit", "顆");
+                set("long","這是一顆夜明珠，悠悠的放着柔和的光，看起來是做裝飾的好東西。\n");
                 set("value", 10000);
                 set("material", "iron");
               }

@@ -2,11 +2,11 @@ inherit NPC;
 void create()
 {
     set_name("大灰狼", ({ "huilang", "lang" }) );
-    set("race", "野兽");
+    set("race", "野獸");
     set("age", 10);
-    set("long", "一头高大的恶狼, 来势如电, 露出白森森的獠牙。\n");
+    set("long", "一頭高大的惡狼, 來勢如電, 露出白森森的獠牙。\n");
     set("attitude", "aggressive");
-	set("limbs", ({ "头部", "身体", "前脚", "后脚", "尾巴" }) );
+	set("limbs", ({ "頭部", "身體", "前腳", "後腳", "尾巴" }) );
 	set("verbs", ({ "bite", "claw" }) );
         set("max_qi", 300);
         set("max_jing", 200);
@@ -14,8 +14,8 @@ void create()
 	set("combat_exp", 3000);
 	set("chat_chance", 5);
 	set("chat_msg", ({
-                "「嗥~~~~」大灰狼发出一声嗥叫。\n",
-                "大灰狼发出一声嗥叫，好象随时都要扑上来！\n",
+                "「嗥~~~~」大灰狼發出一聲嗥叫。\n",
+                "大灰狼發出一聲嗥叫，好象隨時都要撲上來！\n",
 	}) );
 	set_temp("apply/attack", 10);
 	set_temp("apply/defense", 8);
@@ -29,7 +29,7 @@ void die()
 {
         object ob;
         seteuid(getuid());
-        message_vision("$N长啸一声，倒在地上，死了！\n", this_object());
+        message_vision("$N長嘯一聲，倒在地上，死了！\n", this_object());
         ob = new(__DIR__"obj/langpi");
         ob->move(environment(this_object()));
         destruct(this_object());

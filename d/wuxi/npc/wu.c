@@ -5,8 +5,8 @@ inherit F_BANKER;
 
 void create()
 {
-        set_name("吴锡生", ({"wu xisheng", "wu", "xisheng"}));
-        set("title", "钱庄老板");
+        set_name("吳錫生", ({"wu xisheng", "wu", "xisheng"}));
+        set("title", "錢莊老闆");
         set("gender", "男性");
         set("age", 34);
         set("str", 22);
@@ -25,8 +25,8 @@ void create()
         set("env/wimpy", 50);
         set("chat_chance", 2);
         set("chat_msg", ({
-        "吴锡生骄傲的说道：本银号已经有上百年的历史，在江南可以说是第一家。\n",
-        "吴锡生笑着说道：在本店存钱无利息，取钱收十分之一手续费，客官您看着办吧。\n"
+        "吳錫生驕傲的說道：本銀號已經有上百年的歷史，在江南可以說是第一家。\n",
+        "吳錫生笑着說道：在本店存錢無利息，取錢收十分之一手續費，客官您看着辦吧。\n"
         }));
         set_skill("unarmed", 50);
         set_skill("dodge", 50);

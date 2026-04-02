@@ -2,7 +2,7 @@
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME HIC"「风"HIW"雪"HIC"回剑」"NOR
+#define PNAME HIC"「風"HIW"雪"HIC"回劍」"NOR
 int perform(object me, object target)
 {
 	object ob;
@@ -19,18 +19,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n"); 
+		return notify_fail("你使用的武器不對。\n"); 
 
 	fskill = "bingxue-xinfa";
 	bskill = "sword";
@@ -44,30 +44,30 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，还不能运用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，還不能運用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 
 	if((int)me->query("max_neili") < 300)
-		return notify_fail("你内力修为现在不够。 \n");
+		return notify_fail("你內力修爲現在不夠。 \n");
 
 	if((int)me->query("neili") < 200)
-		return notify_fail("你内力还现在不够。 \n");
+		return notify_fail("你內力還現在不夠。 \n");
 
 	if( target->is_busy() )
-		return notify_fail(target->name()+"目前正自顾不暇，放胆攻击吧。\n");
+		return notify_fail(target->name()+"目前正自顧不暇，放膽攻擊吧。\n");
 
-	msg = HIC"$N回剑旋舞，剑势不断加快，剑气呼啸四散，如片片雪花遇风，飘然而出。\n形成一个雪花形旋涡，将$n裹在内里。\n";
+	msg = HIC"$N回劍旋舞，劍勢不斷加快，劍氣呼嘯四散，如片片雪花遇風，飄然而出。\n形成一個雪花形旋渦，將$n裹在內裏。\n";
 	if(random(me->query_skill("sword", 1) + me->query_skill("force", 1)) > (target->query_skill("dodge", 1) + (int)target->query_skill("parry", 1))/3)
 	{
-		msg +=HIG"$n"HIG"只觉得四周压力越来越大，道道暗流缠绕周身，几乎动弹不得。\n" NOR;
+		msg +=HIG"$n"HIG"只覺得四周壓力越來越大，道道暗流纏繞周身，幾乎動彈不得。\n" NOR;
 		target->start_busy( (int)me->query_skill(bskill,1) / 30);
 		me->add("neili", -150);
 		me->start_busy(1);
 	} else
 	{
-		msg +=HIR"可是$n运足内力，雪花顿时全部溶解，一片不剩，脱出重围。\n" NOR;
+		msg +=HIR"可是$n運足內力，雪花頓時全部溶解，一片不剩，脫出重圍。\n" NOR;
 		me->start_busy(2);
 		me->add("neili",-50);
 	}
@@ -83,13 +83,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		迟滞对方出手
+		遲滯對方出手
 
 	出手要求：
-		冰雪心法150级
-		雪山剑法150级
-		内力修为300
-		内力200
+		冰雪心法150級
+		雪山劍法150級
+		內力修爲300
+		內力200
 HELP
         );
         return 1;

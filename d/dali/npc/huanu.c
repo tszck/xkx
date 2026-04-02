@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("养花女",({ "yanghua nu", "girl" }) );
+	set_name("養花女",({ "yanghua nu", "girl" }) );
         set("gender", "女性" );
         set("age", 17);
-        set("long", "一位养花少女，她每天就是照顾这数也数不清的茶花。\n");
+        set("long", "一位養花少女，她每天就是照顧這數也數不清的茶花。\n");
  	set_temp("apply/defense", 5);
 	set("combat_exp", 7000);
 //        set("shen", 100);

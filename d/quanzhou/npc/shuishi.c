@@ -4,7 +4,7 @@ inherit NPC;
 
 void create()
 {
-	set_name("水师兵士",({ "shuishi bingshi","bingshi" }) );
+	set_name("水師兵士",({ "shuishi bingshi","bingshi" }) );
 	set("gender", "男性" );
 	set("age", 12);
 	set("combat_exp", 20000);

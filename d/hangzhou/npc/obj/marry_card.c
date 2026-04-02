@@ -4,13 +4,13 @@
 inherit ITEM;
 void create()
 {
-	set_name("婚约", ({"marrycard"}) );
+	set_name("婚約", ({"marrycard"}) );
 	set_weight(10);
 	set("no_get",1);
 	set("no_beg",1);
 	set("no_put",1);
 	set("no_steal",1);
-	set("no_drop","你的婚约不能丢弃, 只能去红娘庄解除婚约。\n");
+	set("no_drop","你的婚約不能丟棄, 只能去紅娘莊解除婚約。\n");
 	if( clonep() )
 		set_default_object(__FILE__);
 	else
@@ -34,7 +34,7 @@ int do_put(string arg)
 	if(arg!="marrycard in corpse") return 0;
 	else
 	{
-	  tell_object(me,"这是你最珍贵的东西，怎么可以放到那儿去？\n");
+	  tell_object(me,"這是你最珍貴的東西，怎麼可以放到那兒去？\n");
 	  return 1;
 	}
 }
@@ -56,12 +56,12 @@ int do_cemote(string arg)
 		cardname = list[i]->query("name");
 	}
 
-	if (sscanf(cardname,"你和%s的婚约" ,target)!=1)
-		return notify_fail("你没有伴侣.\n");
+	if (sscanf(cardname,"你和%s的婚約" ,target)!=1)
+		return notify_fail("你沒有伴侶.\n");
 
 	couple_ob = find_player(target);
 	if( !couple_ob )
-	  return notify_fail("你的伴侣现在听不见你，或者已经离开游戏了。\n");
+	  return notify_fail("你的伴侶現在聽不見你，或者已經離開遊戲了。\n");
 	if ((string)couple_ob->query("gender") != "女性")
 	{
 		tmpstr1 = "老婆"; tmpstr2 = "老公";
@@ -74,9 +74,9 @@ int do_cemote(string arg)
 
 	if (!arg)
 	{
-		write( MAG "你又深情的想念你的爱侣了。\n" NOR);
+		write( MAG "你又深情的想念你的愛侶了。\n" NOR);
 		tell_room(environment(me), CYN+(string)me->name()+
-		"又深情的想念"+str1+"的爱侣"+ (string)couple_ob->name()+
+		"又深情的想念"+str1+"的愛侶"+ (string)couple_ob->name()+
 		"了。\n" +NOR, ({me, couple_ob}));
 		tell_object(couple_ob, sprintf(MAG "%s %s
 		又在深情的想你了\n"NOR, tmpstr1,me->name(1) ));
@@ -86,21 +86,21 @@ int do_cemote(string arg)
 	{
 	   if (arg == "kiss")
 	   {
-	      write( MAG "你拥住你的爱侣，深深的一吻，许久...许久...\n" NOR);
+	      write( MAG "你擁住你的愛侶，深深的一吻，許久...許久...\n" NOR);
 	      tell_room(environment(me), CYN+(string)me->name()+
-	      "拥住"+(string)couple_ob->name()+"，深深的一吻。\n"
+	      "擁住"+(string)couple_ob->name()+"，深深的一吻。\n"
 		+NOR, ({me, couple_ob}));
 		tell_object(couple_ob, sprintf(MAG "%s %s
-		拥住你，深深的一吻，许久...许久...\n"NOR,tmpstr1,me->name(1)));
+		擁住你，深深的一吻，許久...許久...\n"NOR,tmpstr1,me->name(1)));
 	   }
 	   if (arg == "bye")
 	   {
-	      write( MAG "你含泪凝望着你的爱侣，哽咽道: 又要分手了，何时才能长相聚不分离呀......\n" NOR);
+	      write( MAG "你含淚凝望着你的愛侶，哽咽道: 又要分手了，何時才能長相聚不分離呀......\n" NOR);
 	      tell_room(environment(me), CYN+(string)me->name()+
-	      "拥住"+(string)couple_ob->name()+"，深深的一吻。\n"
+	      "擁住"+(string)couple_ob->name()+"，深深的一吻。\n"
 		+NOR, ({me, couple_ob}));
 		tell_object(couple_ob, sprintf(MAG "%s %s
-		含泪凝望着你，哽咽道: 又要分手了，何时才能长相聚不分离呀......\n"NOR,tmpstr1,me->name(1)));
+		含淚凝望着你，哽咽道: 又要分手了，何時才能長相聚不分離呀......\n"NOR,tmpstr1,me->name(1)));
 	   }
 	}
 
@@ -124,12 +124,12 @@ int do_coupletalk(string arg)
 		cardname = list[i]->query("name");
 	}
 
-	if (sscanf(cardname,"你和%s的婚约" ,target)!=1)
-		return notify_fail("你没有伴侣.\n");
+	if (sscanf(cardname,"你和%s的婚約" ,target)!=1)
+		return notify_fail("你沒有伴侶.\n");
 
 	couple_ob = find_player(target);
 	if( !couple_ob )
-	   return notify_fail("你的伴侣现在听不见你，或者已经离开游戏了。\n");
+	   return notify_fail("你的伴侶現在聽不見你，或者已經離開遊戲了。\n");
 	if ((string)couple_ob->query("gender") != "女性")
 	{
 		tmpstr1 = "老婆";
@@ -140,9 +140,9 @@ int do_coupletalk(string arg)
 		tmpstr2 = "老婆";
 	}
 
-	write(sprintf(MAG"你对%s %s 说：%s\n"NOR,
+	write(sprintf(MAG"你對%s %s 說：%s\n"NOR,
 		tmpstr2,couple_ob->name(1), arg ));
-	tell_object(couple_ob, sprintf(MAG "%s %s 对你说：%s\n"NOR,
+	tell_object(couple_ob, sprintf(MAG "%s %s 對你說：%s\n"NOR,
 	       tmpstr1,me->name(1), arg ));
 
 	return 1;
@@ -151,7 +151,7 @@ int do_coupletalk(string arg)
 void owner_is_killed()
 {
  
-	write(HIW"尸体中的婚卡化为云烟消失了……\n"NOR);
+	write(HIW"屍體中的婚卡化爲雲煙消失了……\n"NOR);
 	destruct(this_object());
 }
 
@@ -171,7 +171,7 @@ string query_autoload()
 			cardname = list[i]->query("name");
 	}
 
-	sscanf(cardname,"你和%s的婚约" ,target);
+	sscanf(cardname,"你和%s的婚約" ,target);
 	return target;
 }
 
@@ -195,10 +195,10 @@ void autoload(string arg)
 			tmpstr1 = "老婆";
 			tmpstr = "老公";
 		}
-		write(sprintf( MAG "你的%s也在这里，快去找啦...\n"NOR,tmpstr1));
+		write(sprintf( MAG "你的%s也在這裏，快去找啦...\n"NOR,tmpstr1));
 		tell_object(couple_ob ,
-		sprintf( MAG "你的%s来啦,快去接...\n" NOR, tmpstr));
+		sprintf( MAG "你的%s來啦,快去接...\n" NOR, tmpstr));
 //me->name(1)+"("+me->query("id")+")",environment(me))->query("name") );
 	}
-	set("name","你和"+arg+"的婚约");
+	set("name","你和"+arg+"的婚約");
 }

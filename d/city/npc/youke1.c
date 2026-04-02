@@ -5,7 +5,7 @@ inherit NPC;
 
 void create()
 {
-	set_name( "游客", ({"you ke","ke"}) );
+	set_name( "遊客", ({"you ke","ke"}) );
 	set( "gender", "男性" );
 	set( "age", 28 );
 	set("attribute", "heroism");
@@ -20,9 +20,9 @@ void create()
 	set( "per", 25);
 	set( "con", 26);
 	set( "inquiry", ([
-		"籍贯" : "我是大理人。\n",
-		"家乡" : "我的家乡是大理，大宋国南边的大理。\n",
-		"扬州" : "扬州果真是个繁华的城市啊。\n",
+		"籍貫" : "我是大理人。\n",
+		"家鄉" : "我的家鄉是大理，大宋國南邊的大理。\n",
+		"揚州" : "揚州果真是個繁華的城市啊。\n",
 	]) );
 	set( "no_leave_yangzhou", 1);
 

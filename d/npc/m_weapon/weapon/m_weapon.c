@@ -1,5 +1,5 @@
 // /d/npc/m_weapon/weapon/m_axe.c
-// Modified by Zeratul Jan 13 2001 不能锻炼在地上的自铸武器
+// Modified by Zeratul Jan 13 2001 不能鍛鍊在地上的自鑄武器
 
 #include <ansi.h>
 #include <weapon.h>
@@ -39,7 +39,7 @@ void copyto(object me)
     return;
   }
   set("inited",1);
-//读入数据
+//讀入數據
 	w_name=me->query("weapon/name");
 	w_id = me->query("weapon/id");
 	w_or = me->query("weapon/or");
@@ -53,112 +53,112 @@ void copyto(object me)
 		case "斧":
 			set("unit","把");
 			set("wield_msg", "$N往腰中一摸，抽出了一把"+w_name+"在手中。\n");
-			set("unwield_msg", "$N手中"+w_name+"往身后一别，别在后腰上了。\n");			
+			set("unwield_msg", "$N手中"+w_name+"往身後一別，別在後腰上了。\n");			
 			init_axe(damage);
-			QI="斧气";
+			QI="斧氣";
 			JI="指斧背";
-			upmsg=CYN"斧身忽的一闪，一道银光隐入$N的"+w_name+CYN"中，不见了！\n"NOR;
+			upmsg=CYN"斧身忽的一閃，一道銀光隱入$N的"+w_name+CYN"中，不見了！\n"NOR;
 			break;
 
 		case "杖":
 			set("unit","杆");
-			set("wield_msg", "$N往背后一摸，掏出了一杆"+w_name+"握在手中。\n");
-			set("unwield_msg", "$N手中"+w_name+"一挥，眨眼间已然不见影踪。\n");			
+			set("wield_msg", "$N往背後一摸，掏出了一杆"+w_name+"握在手中。\n");
+			set("unwield_msg", "$N手中"+w_name+"一揮，眨眼間已然不見影蹤。\n");			
 			init_staff(damage);
-			QI="杖体";
+			QI="杖體";
 			JI="握杖端";
-			upmsg=HIY"杖身忽的一亮，一道金光隐入$N的"+w_name+HIY"体，不见了！\n"NOR;
+			upmsg=HIY"杖身忽的一亮，一道金光隱入$N的"+w_name+HIY"體，不見了！\n"NOR;
 			break;
 
 		case "刀":
 			set("unit","柄");
 			set("wield_msg", "$N往腰中一抽，拔出了一把"+w_name+"在手中。\n");
-			set("unwield_msg", "$N手中"+w_name+"迎风一抖，眨眼间已然不见影踪。\n");
+			set("unwield_msg", "$N手中"+w_name+"迎風一抖，眨眼間已然不見影蹤。\n");
 			init_blade(damage);
-			QI="刀气";
+			QI="刀氣";
 			JI="指刀脊";
-			upmsg=CYN"刀身忽的一闪，一道银光隐入$N的"+w_name+CYN"中，不见了！\n"NOR;
+			upmsg=CYN"刀身忽的一閃，一道銀光隱入$N的"+w_name+CYN"中，不見了！\n"NOR;
 			break;
 
 		case "棍":
 			set("unit","根");
 			set("wield_msg", "$N往腰中一摸，拿出了一把"+w_name+"，端在手中。\n");
-			set("unwield_msg", "$N手中"+w_name+"抖出一个棍花，眨眼间已然不见影踪。\n");
+			set("unwield_msg", "$N手中"+w_name+"抖出一個棍花，眨眼間已然不見影蹤。\n");
 			init_club(damage);
 			QI="兵器";
 			JI="指棍脊";
-			upmsg=HIY"棍身忽的一亮，似乎一种新生的力量在"+w_name+HIY"中涌动起来！\n"NOR;
+			upmsg=HIY"棍身忽的一亮，似乎一種新生的力量在"+w_name+HIY"中湧動起來！\n"NOR;
 			break;
 
-		case "锤":
+		case "錘":
 			set("unit","把");
-			set("wield_msg", "$N往后腰中一摸，取出了一柄"+w_name+"握在手中。\n");
-			set("unwield_msg","$N手中"+w_name+"往腰后一别，眨眼间已然不见影踪。\n");
+			set("wield_msg", "$N往後腰中一摸，取出了一柄"+w_name+"握在手中。\n");
+			set("unwield_msg","$N手中"+w_name+"往腰後一別，眨眼間已然不見影蹤。\n");
 			init_hammer(damage);
-			QI="锤气";
-			JI="指锤体";
-			upmsg=HIY"锤身忽的一亮，一道金光隐入$N的"+w_name+HIY"体，不见了！\n"NOR;
+			QI="錘氣";
+			JI="指錘體";
+			upmsg=HIY"錘身忽的一亮，一道金光隱入$N的"+w_name+HIY"體，不見了！\n"NOR;
 			break;
 
-		case "钩":
+		case "鉤":
 			set("unit","柄");
-			set("wield_msg", "$N「唰」的一声抽出一把"+w_name+"握在手中。\n");
-			set("unwield_msg", "$N将手中的"+w_name+"一抖，白光一闪，转眼间"+w_name+"已然不见踪影。\n");
+			set("wield_msg", "$N「唰」的一聲抽出一把"+w_name+"握在手中。\n");
+			set("unwield_msg", "$N將手中的"+w_name+"一抖，白光一閃，轉眼間"+w_name+"已然不見蹤影。\n");
 			init_hook(damage + 2);
 			QI="兵器";
-			JI="捏钩尖";
-			upmsg=HIY"钩身忽的一亮，一道金光隐入$N的"+w_name+HIY"，不见了！\n"NOR;
+			JI="捏鉤尖";
+			upmsg=HIY"鉤身忽的一亮，一道金光隱入$N的"+w_name+HIY"，不見了！\n"NOR;
 			break;
 
-		case "枪":
+		case "槍":
 			set("unit","杆");
-			set("wield_msg", "$N往背后一摸，掏出了一杆"+w_name+"握在手中。\n");
-			set("unwield_msg", "$N手中"+w_name+"一挥，眨眼间已然不见影踪。\n");
+			set("wield_msg", "$N往背後一摸，掏出了一杆"+w_name+"握在手中。\n");
+			set("unwield_msg", "$N手中"+w_name+"一揮，眨眼間已然不見影蹤。\n");
 			init_spear(damage);
-			QI="枪体";
-			JI="握枪头";
-			upmsg=HIY"枪身忽的一亮，一道金光隐入$N的+"+w_name+HIY"体，不见了！\n"NOR;
+			QI="槍體";
+			JI="握槍頭";
+			upmsg=HIY"槍身忽的一亮，一道金光隱入$N的+"+w_name+HIY"體，不見了！\n"NOR;
 			break;
 
 		case "棒":
 			set("unit","根");
-			set("wield_msg", "$N往背后一摸，掏出了一杆"+w_name+"握在手中。\n");
-			set("unwield_msg", "$N手中"+w_name+"一挥，眨眼间已然不见影踪。\n");
+			set("wield_msg", "$N往背後一摸，掏出了一杆"+w_name+"握在手中。\n");
+			set("unwield_msg", "$N手中"+w_name+"一揮，眨眼間已然不見影蹤。\n");
 			init_stick(damage);
-			QI="棒体";
+			QI="棒體";
 			JI="握棒端";
-			upmsg=HIY"棒身忽的一亮，一道金光隐入$N的"+w_name+HIY"体，不见了！\n"NOR;
+			upmsg=HIY"棒身忽的一亮，一道金光隱入$N的"+w_name+HIY"體，不見了！\n"NOR;
 			break;
 
-		case "剑":
+		case "劍":
 			set("unit","口");
-			set("wield_msg", "$N往腰中一带，抽出了一口"+w_name+"握在手中。\n");
-			set("unwield_msg", "$N手中"+w_name+"迎风一抖，眨眼间已然不见影踪。\n");
+			set("wield_msg", "$N往腰中一帶，抽出了一口"+w_name+"握在手中。\n");
+			set("unwield_msg", "$N手中"+w_name+"迎風一抖，眨眼間已然不見影蹤。\n");
 			init_sword(damage);
-			QI="剑气";
-			JI="指剑脊";
-			upmsg=HIY"剑身忽的一亮，一道金光隐入$N的"+w_name+HIY"体，不见了！\n"NOR;
+			QI="劍氣";
+			JI="指劍脊";
+			upmsg=HIY"劍身忽的一亮，一道金光隱入$N的"+w_name+HIY"體，不見了！\n"NOR;
 			break;
 
 		case "鞭":
-			set("unit","条");
-				set("wield_msg", "$N往腰中一摸，刷的抖出了一条"+w_name+"。\n");
-				set("unwield_msg","$N手中"+w_name+"一抖，眨眼间卷回腰间不见了影踪。\n");
+			set("unit","條");
+				set("wield_msg", "$N往腰中一摸，刷的抖出了一條"+w_name+"。\n");
+				set("unwield_msg","$N手中"+w_name+"一抖，眨眼間捲回腰間不見了影蹤。\n");
 			init_whip(damage);
 			QI="兵器";
 			JI="捏鞭稍";
-			upmsg=HIY"鞭身忽的一亮，一道金光隐入$N的"+w_name+HIY"，不见了！\n"NOR;
+			upmsg=HIY"鞭身忽的一亮，一道金光隱入$N的"+w_name+HIY"，不見了！\n"NOR;
 			break;
 			
 		default :
-			tell_object(me,"你的自铸武器有错，请通知巫师解决。\n");
+			tell_object(me,"你的自鑄武器有錯，請通知巫師解決。\n");
 			call_out("destruct",0,this_object());
 			return;
 	}
 	switch(w_or)
 	{
-		//普通长剑重量 5000
-		//兵器初始硬度rigidity 剑== 伤害/4 其它类型有一点比例差别
+		//普通長劍重量 5000
+		//兵器初始硬度rigidity 劍== 傷害/4 其它類型有一點比例差別
 		case "千年神木" :
 			set_weight(2000);
       			add("rigidity",query("rigidity")/3);
@@ -168,18 +168,18 @@ void copyto(object me)
 			set_weight(30000);
 			set("material", "steel");
 			break;
-		case "寒丝羽竹" :
+		case "寒絲羽竹" :
 			set_weight(30);
       			set("material","softsteel");
 			break;
-		case "陨星铁石" :
+		case "隕星鐵石" :
 			set_weight(10000);
 			add("rigidity",query("rigidity")/2);
 			set("material", "iron");
 			break;
 /*		case "雷火寒晶" :
 			set_weight(30000);
-			set("material", "golden");  //待开发
+			set("material", "golden");  //待開發
 */
 		default :
 	} 
@@ -194,7 +194,7 @@ void copyto(object me)
 
 void create()
 {	
-	set_name("自铸兵器",({"own weapon"}));
+	set_name("自鑄兵器",({"own weapon"}));
 	set("no_get",(: this_player()->query("id") != this_object()->query("owner") :));
 	set("no_drop",1);
 	set("player",1);
@@ -215,38 +215,38 @@ int do_duanlian(object weapon)
 	w_level = (int)me->query("weapon/lv");
 
 	if (me->query("max_neili") < 100 )
-		return notify_fail("你内力修为不够，无法锻炼兵器。\n");
-	if (me->is_busy()) return notify_fail("你现在正忙着呢。\n");
+		return notify_fail("你內力修爲不夠，無法鍛鍊兵器。\n");
+	if (me->is_busy()) return notify_fail("你現在正忙着呢。\n");
 
-	if ( me->is_fighter()) return notify_fail("战斗中无法锻炼！\n");
+	if ( me->is_fighter()) return notify_fail("戰鬥中無法鍛鍊！\n");
 
 	if( !weapon || !present( weapon, me ) || query("owner")!=me->query("id"))
-		return notify_fail("你要锻炼什么？\n");
+		return notify_fail("你要鍛鍊什麼？\n");
 
 	if( (int)me->query("neili") < 10 )
-		return notify_fail("你的内力不够，无法锻炼"+QI+"！\n");
+		return notify_fail("你的內力不夠，無法鍛鍊"+QI+"！\n");
 
 	if( (int)me->query("qi") < 150 )
-		return notify_fail("你的气不够，无法锻炼"+QI+"！\n");
+		return notify_fail("你的氣不夠，無法鍛鍊"+QI+"！\n");
 
 	if( (int)me->query("eff_qi") < 30 )
-		return notify_fail("你现在的体力太弱，无法锻炼"+QI+"！\n");
+		return notify_fail("你現在的體力太弱，無法鍛鍊"+QI+"！\n");
 
 	if( (int)me->query("jing") < 30 )
-			return notify_fail("你现在的精力无法集中，不能锻炼"+QI+"！\n");
+			return notify_fail("你現在的精力無法集中，不能鍛鍊"+QI+"！\n");
 
 	if( ((int)me->query("potential") - (int)me->query("learned_points"))< 2 )
-		return notify_fail("你的潜能不够，无法锻炼"+QI+"！\n");
+		return notify_fail("你的潛能不夠，無法鍛鍊"+QI+"！\n");
 		
 //	if( w_level >= (int)(me->query("int") + me->query("sta"))/2 )
 	if(w_level>=(me->query_con()+me->query_sta())/3
-//		||w_level>=60  	//上限600伤害  
+//		||w_level>=60  	//上限600傷害  
 		)
 	{
-		message_vision(RED"$N使劲锻炼着"+w_name+RED"，可是好象没什么效果！\n"NOR, me);
+		message_vision(RED"$N使勁鍛鍊着"+w_name+RED"，可是好象沒什麼效果！\n"NOR, me);
 		return 1;
 	}
-	message_vision(HIR "$N手"+JI+"，一股内力丝丝的传了进去。\n" NOR, me);
+	message_vision(HIR "$N手"+JI+"，一股內力絲絲的傳了進去。\n" NOR, me);
 
 //	me->start_busy(3);
 	me->add("max_neili",-10);
@@ -266,7 +266,7 @@ int do_duanlian(object weapon)
 		w_level++;
 		me->set("weapon/lv", w_level);
 		message_vision(upmsg,me);
-		message_vision(HIG"$N的"+w_name+HIG"的等级提高了！\n"NOR, me);
+		message_vision(HIG"$N的"+w_name+HIG"的等級提高了！\n"NOR, me);
 //		weapon=this_object();
 //		if(weapon->query("equipped") ) 
 //			weapon->unequip();
@@ -280,7 +280,7 @@ int do_duanlian(object weapon)
 		destruct(this_object());
 		return 1;
 	}
-	message_vision(RED"$N的"+w_name+RED"的质地改善了！\n"NOR, me);
+	message_vision(RED"$N的"+w_name+RED"的質地改善了！\n"NOR, me);
 	return 1;
 }
 
@@ -292,8 +292,8 @@ int do_hui(string weapon)
 	w_name=me->query("weapon/name");
 	if( !weapon || !id(weapon)|| query("owner")!=me->query("id"))
 		return 0;
-//		return notify_fail("你要摧毁什么？\n");
-	message_vision(HIR"$N大喝一声，一掌擎"+me->query("weapon/type")+"，一掌猛力击下。结果轰隆一声巨响"+w_name+HIR"断为两截！\n"NOR,me);
+//		return notify_fail("你要摧毀什麼？\n");
+	message_vision(HIR"$N大喝一聲，一掌擎"+me->query("weapon/type")+"，一掌猛力擊下。結果轟隆一聲巨響"+w_name+HIR"斷爲兩截！\n"NOR,me);
 	me->set("weapon/make",0);
 //	me->delete("weapon");
 	me->save();
@@ -304,7 +304,7 @@ int do_hui(string weapon)
 void owner_is_killed()
 {
 	object piece;
-	write(HIY"只见一声清脆的响声，"+query("name")+HIY"落在地上，断成数截。\n"NOR);
+	write(HIY"只見一聲清脆的響聲，"+query("name")+HIY"落在地上，斷成數截。\n"NOR);
 	this_object()->unequip();
  	seteuid(getuid());
  	piece = new("/clone/misc/piece");
@@ -321,23 +321,23 @@ int do_setwmsg(string info)
 	object me=this_player();
 	string msg,command,msg1;
 	string *ban_name=({
-		"【",		"】",		"仙子",		"风儿",		"巫师",
-		"天神",	"告诉",	"回答",
+		"【",		"】",		"仙子",		"風兒",		"巫師",
+		"天神",	"告訴",	"回答",
 		});
 	object weapon;
 	if( !info ) return 0;
 	if( !(me->query("weapon/make")))
-		return notify_fail("你没有自制的兵器！\n");
+		return notify_fail("你沒有自制的兵器！\n");
 	if (strsrch(info, "$N") < 0)
-		return notify_fail("描述里要有$N表示你自己！\n");
+		return notify_fail("描述裏要有$N表示你自己！\n");
 	if (strsrch(info, "$WEAPON$") < 0)
-		return notify_fail("描述里要带$WEAPON$表示你的兵器！\n");
+		return notify_fail("描述裏要帶$WEAPON$表示你的兵器！\n");
 	for (i=0;i<sizeof(ban_name);i++)
 	if (strsrch(info, ban_name[i]) > 0)
-		return notify_fail("描述里出现了非法字符！\n");
+		return notify_fail("描述裏出現了非法字符！\n");
 	weapon = this_object();
 	if( !objectp(weapon) || !present(weapon,me)) 
-	return notify_fail("你的兵器不在身边！\n");
+	return notify_fail("你的兵器不在身邊！\n");
 	sscanf(info ,"%s %s" ,command ,msg1);
 	switch(command)
 	{
@@ -352,8 +352,8 @@ int do_setwmsg(string info)
 			weapon->set("unwield_msg",msg+"\n"NOR);
 			break;
 		default :
-			return notify_fail("描述设置失败，请选择具体参数。详细请
-看帮助文件。\n");
+			return notify_fail("描述設置失敗，請選擇具體參數。詳細請
+看幫助文件。\n");
 	}
 	write("Ok.\n");
 	return 1;
@@ -420,7 +420,7 @@ void dest_me(object me)
 	set("desting",0);
 	if (!environment(me) || !environment(me)->is_character())
 	{
-		message_vision("$N慢慢失去灵性，终于化做一堆尘土随风而逝。\n",me);
+		message_vision("$N慢慢失去靈性，終於化做一堆塵土隨風而逝。\n",me);
     destruct(me);
   }
 }

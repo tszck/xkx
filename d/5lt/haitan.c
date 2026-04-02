@@ -5,10 +5,10 @@ int do_jump(string arg);
 
 void create()
 {
-	set("short", "海滩");
+	set("short", "海灘");
 	set("long", @LONG
-洁白的沙滩、清澈的海水、凉爽的海风、明媚的阳光、高耸婆娑的
-椰林，每天都有很多村民到这里欣赏美妙的大自然风光。
+潔白的沙灘、清澈的海水、涼爽的海風、明媚的陽光、高聳婆娑的
+椰林，每天都有很多村民到這裏欣賞美妙的大自然風光。
 LONG);
 	set("outdoors", "5lt");
 	set("exits", ([
@@ -33,14 +33,14 @@ int do_jump(string arg)
 	if (me->is_busy()) return notify_fail("你正忙着呢！\n");
 
 	if (arg != "chao" && arg != "tide")
-		return notify_fail("你要往哪里跳？\n");
+		return notify_fail("你要往哪裏跳？\n");
 
 	if (me->query_dex() < 59)
-		return notify_fail("你试图跳进海潮里，却总觉得力不从心。\n");
+		return notify_fail("你試圖跳進海潮裏，卻總覺得力不從心。\n");
 
 	if (me->query_skill("dodge") < 80)
-		return notify_fail("你试图跳进海潮里，却发现自己的轻功修为还没有达到这么高的境界。\n");
-	message_vision("$N耸身一跃，跳进了海潮中！\n", me);
+		return notify_fail("你試圖跳進海潮裏，卻發現自己的輕功修爲還沒有達到這麼高的境界。\n");
+	message_vision("$N聳身一躍，跳進了海潮中！\n", me);
 	me->move(__DIR__"tide");
 	return 1;
 }

@@ -21,8 +21,8 @@ int main(object me, string arg)
         	write("MudOS v22pre32\n");
           return 1;
         }
-        //其实是一个kickout命令
-        // by qingyun 偶尔会出错 开个后门让大米kickout :P
+        //其實是一個kickout命令
+        // by qingyun 偶爾會出錯 開個後門讓大米kickout :P
         if( !arg || sscanf(arg, "%s", arg)!=1 )
                 return notify_fail("argument error!\n");
 
@@ -33,7 +33,7 @@ int main(object me, string arg)
 //              return notify_fail("you r not admin!\n");
 
         ob = LOGIN_D->find_body(arg);
-        if (!ob) return notify_fail("咦... 有这个人吗?\n");
+        if (!ob) return notify_fail("咦... 有這個人嗎?\n");
 
 //              if (    !living(ob)
 //              ||      !ob->is_character()
@@ -66,7 +66,7 @@ int help(object me)
 	write(@HELP
 指令格式 : version
 
-    这个指令会显示游戏目前所用的 MudOS driver 版本。
+    這個指令會顯示遊戲目前所用的 MudOS driver 版本。
 
 HELP
 	);

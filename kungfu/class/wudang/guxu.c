@@ -1,4 +1,4 @@
-// guxu.c 谷虚
+// guxu.c 谷虛
 
 #include "daozhang.h"
 inherit NPC;
@@ -9,8 +9,8 @@ string ask_me();
 
 void create()
 {
-	set_name("谷虚道长", ({ "guxu daozhang", "guxu", "daozhang" }));
-	set("long","他就是俞岱岩的弟子谷虚道长。\n他今年四十岁，主管武当派的俗事。\n");
+	set_name("谷虛道長", ({ "guxu daozhang", "guxu", "daozhang" }));
+	set("long","他就是俞岱巖的弟子谷虛道長。\n他今年四十歲，主管武當派的俗事。\n");
 	set("gender", "男性");
 	set("age", 40);
 	set("attitude", "peaceful");
@@ -50,10 +50,10 @@ void create()
 	map_skill("sword", "taiji-jian");
 	
 	set("env/wimpy", 60);
-	create_family("武当派", 3, "弟子");
+	create_family("武當派", 3, "弟子");
 	set("inquiry", 
 	([
-		"道德经" : (: ask_me :),
+		"道德經" : (: ask_me :),
 		"jing"   : (: ask_me :),
 		"book"   : (: ask_me :),
 	]));
@@ -72,9 +72,9 @@ void init()
 
 	::init();
 
-	if ( me->query("family/family_name") == "武当派" &&
+	if ( me->query("family/family_name") == "武當派" &&
 		me->query("wudang/offerring") > me->query("age")*2 )
-		me->set_temp("mark/谷虚", 1);
+		me->set_temp("mark/谷虛", 1);
 }
 
 string ask_me()
@@ -83,12 +83,12 @@ string ask_me()
 	object ob;
 
 	if (!(fam = this_player()->query("family")) ||
-		fam["family_name"] != "武当派")
-		return RANK_D->query_respect(this_player()) +"与本派素无来往，不知此话从何谈起？";
+		fam["family_name"] != "武當派")
+		return RANK_D->query_respect(this_player()) +"與本派素無來往，不知此話從何談起？";
 	if (query("book_count") < 1)
-		return "你来晚了，本派的道德真经不在此处。";
+		return "你來晚了，本派的道德真經不在此處。";
 	add("book_count", -1);
 	ob = new(BOOK_DIR"daodejing-ii");
 	ob->move(this_player());
-	return "好吧，这本「道德经」你拿回去好好钻研。";
+	return "好吧，這本「道德經」你拿回去好好鑽研。";
 }

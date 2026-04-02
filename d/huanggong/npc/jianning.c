@@ -6,7 +6,7 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIG"建宁公主"NOR,({"jianning gongzhu","jianning","gongzhu"}));
+	set_name(HIG"建寧公主"NOR,({"jianning gongzhu","jianning","gongzhu"}));
 	set("gender", "女性");
 	set("age", 16);
 	set("str", 25);
@@ -14,7 +14,7 @@ void create()
 	set("int", 28);
 	set("con", 28);
 	set("per", 28);
-	set("long", "她一张瓜子脸儿，薄薄的嘴唇，眉目灵动，颇有英气。\n");
+	set("long", "她一張瓜子臉兒，薄薄的嘴脣，眉目靈動，頗有英氣。\n");
 
 	set("combat_exp", 5000);
 	set("score", 200);

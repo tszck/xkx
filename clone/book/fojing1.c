@@ -5,13 +5,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name("摩诃僧诋律",({"moheseng diyu","shu", "book" }));
+	set_name("摩訶僧詆律",({"moheseng diyu","shu", "book" }));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一册佛经。\n");
+		set("long", "這是一冊佛經。\n");
 		set("value", 500);
 		set("material", "paper");
 		set("skill", ([

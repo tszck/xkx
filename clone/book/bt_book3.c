@@ -1,17 +1,17 @@
-// bt_book3.c 毒经
+// bt_book3.c 毒經
 // Last Modified by Winder on May. 15 2001
 
 inherit ITEM;
 
 void create()
 {
-	set_name("毒经", ({ "du jing", "jing" }));
+	set_name("毒經", ({ "du jing", "jing" }));
 	set_weight(1000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一本讲述各类毒药的书。\n");
+		set("long", "這是一本講述各類毒藥的書。\n");
 		set("value", 5500);
 		set("material", "paper");
 		set("skill", ([

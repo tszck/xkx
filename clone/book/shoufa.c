@@ -3,13 +3,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name( "神龙八式手法",({ "shoufa book","shoufa","shu","book"}));
+	set_name( "神龍八式手法",({ "shoufa book","shoufa","shu","book"}));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long","这是一本神龙八式手法。\n");
+		set("long","這是一本神龍八式手法。\n");
 		set("value", 5000);
 		set("material", "paper");
 		set("skill", ([

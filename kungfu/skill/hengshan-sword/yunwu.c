@@ -1,8 +1,8 @@
-// yunwu.c 衡山剑法 百变千幻衡山云雾十三式
+// yunwu.c 衡山劍法 百變千幻衡山雲霧十三式
 // Last Modified by ahda on Sep.1 2001
 
 #include <ansi.h>
-#define PNAME "衡山云雾十三式"
+#define PNAME "衡山雲霧十三式"
 inherit F_SSERVER;
 
 int perform(object me, object target)
@@ -20,30 +20,30 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return  notify_fail("你要对谁使用这一绝技？\n");
+		return  notify_fail("你要對誰使用這一絕技？\n");
 
 	if( environment(me)->query("no_fight") )
-		return notify_fail("这里不能攻击别人! \n");
+		return notify_fail("這裏不能攻擊別人! \n");
 
-  notify_fail("你不能攻击这个人。\n");
+  notify_fail("你不能攻擊這個人。\n");
 	if (!userp(target) && !target->accept_hit(me)) return 0;
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");		
+		return notify_fail("你使用的武器不對。\n");		
 
 	if( target->is_busy()||target->query("id")=="gongping zi")
-		return notify_fail(target->name()+ "目前正自顾不暇，放胆攻击吧！\n");
+		return notify_fail(target->name()+ "目前正自顧不暇，放膽攻擊吧！\n");
 
 	if( userp(me) && (me->query("family/master_id") != "mo da") )
-		return notify_fail("你不是莫大的弟子，不能使用绝招！\n");
+		return notify_fail("你不是莫大的弟子，不能使用絕招！\n");
 
 	fskill = "huiyan-xinfa";
 	bskill = "sword";
@@ -57,30 +57,30 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 180 )
-		return notify_fail("你的"+to_chinese(fskill)+"的功力不够不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"的功力不夠不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 200 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为不够，目前还不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，目前還不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 200 )
-		return notify_fail("你的"+to_chinese(bskill)+"根基不够扎实，目前还不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"根基不夠紮實，目前還不能使用"+PNAME+"。\n");
 
 	if((int)me->query_str() < 40)
-		return notify_fail("你膂力不够,不能使用这一绝技！\n");
+		return notify_fail("你膂力不夠,不能使用這一絕技！\n");
 
 	if((int)me->query("neili") < 500)
-		return notify_fail("你内力现在不够，不能使用"PNAME"！\n");
+		return notify_fail("你內力現在不夠，不能使用"PNAME"！\n");
 
 	if((int)me->query("max_neili") < 2500)
-		return notify_fail("你的内功修为不够，无法使用衡山云雾十三式！\n");
+		return notify_fail("你的內功修爲不夠，無法使用衡山雲霧十三式！\n");
 
 
-	msg = HIC"$N手中"+weapon->name()+"寒光陡闪，猛地反刺，直指$n"HIC"胸口。
-这一下出招快极，抑且如梦如幻，正是“百变千幻衡山云雾十三式”中的绝招！\n";
+	msg = HIC"$N手中"+weapon->name()+"寒光陡閃，猛地反刺，直指$n"HIC"胸口。
+這一下出招快極，抑且如夢如幻，正是“百變千幻衡山雲霧十三式”中的絕招！\n";
 
 	if(random(me->query("combat_exp")/3) > (int)target->query("combat_exp")/4)
 	{                                             
-		msg += HIY "$p大骇之下，急向后退，嗤的一声，胸口已给利剑割了一道长长的口子，\n衣衫尽裂，胸口肌肉也给割伤了，受伤虽然不重，却已惊怒交集，锐气大失。\n"+ HIR "$P一剑既占先机，后着绵绵而至，一柄薄剑犹如灵蛇，颤动不绝，犹如鬼魅，\n一点点鲜血从长剑间溅了出来。\n" NOR;
+		msg += HIY "$p大駭之下，急向後退，嗤的一聲，胸口已給利劍割了一道長長的口子，\n衣衫盡裂，胸口肌肉也給割傷了，受傷雖然不重，卻已驚怒交集，銳氣大失。\n"+ HIR "$P一劍既佔先機，後着綿綿而至，一柄薄劍猶如靈蛇，顫動不絕，猶如鬼魅，\n一點點鮮血從長劍間濺了出來。\n" NOR;
 		qi_wound = (int)target->query("max_qi",1);
 		target->receive_damage("qi", qi_wound/2,me);
 		target->receive_wound("qi", qi_wound/2,me);
@@ -90,7 +90,7 @@ int perform(object me, object target)
 	}
 	else
 	{
-		msg += HIM "可是$p看破了$P的企图，身子往后侧闪，堪堪地躲开了$P这一击。\n" NOR;
+		msg += HIM "可是$p看破了$P的企圖，身子往後側閃，堪堪地躲開了$P這一擊。\n" NOR;
 		me->start_busy(3);
 		me->add("neili", -200);
 	}
@@ -106,14 +106,14 @@ int help(object me)
 	write(@HELP
 	
 	使用功效：
-		严重损伤对方气血
+		嚴重損傷對方氣血
 	
 	出手要求：
-		回雁心法180级
-		衡山剑法200级
-		基本剑法200级
-		内力2500
-		后天膂力40
+		回雁心法180級
+		衡山劍法200級
+		基本劍法200級
+		內力2500
+		後天膂力40
 HELP
 	);
 	return 1;

@@ -9,11 +9,11 @@ string ask_me();
 void create()
 {
 	set_name("祖千秋", ({ "zu qianqiu", "zu", "qianqiu" }) );
-	set("nickname", "黄河老祖");
+	set("nickname", "黃河老祖");
 	set("gender", "男性" );
 	set("age", 52);
-	set("long", "一个衣衫褴褛的落魄书生。焦黄脸皮，一个酒糟鼻，疏疏落落的
-几根胡子，两眼无神。衣衫上一片油光，右手拿了一把破折扇。\n");
+	set("long", "一個衣衫襤褸的落魄書生。焦黃臉皮，一個酒糟鼻，疏疏落落的
+幾根鬍子，兩眼無神。衣衫上一片油光，右手拿了一把破摺扇。\n");
 	set("combat_exp", 400000);
 	set("attitude", "friendly");
 
@@ -31,7 +31,7 @@ void create()
 	set_skill("parry", 100);
 	set_skill("unarmed", 100);
 	set("inquiry", ([
-		"续命八丸" : (: ask_me :),
+		"續命八丸" : (: ask_me :),
 		"8wan"     : (: ask_me :),
 	]));
 
@@ -50,24 +50,24 @@ string ask_me()
 	wan_num = read_file("/data/XUMING", 1, 1);
 	wannum = atoi(wan_num);
 	if (uptime() < 1000)
-		return "这位"+RANK_D->query_respect(this_player()) + 
-		"，续命八丸还在老头子那里，我怎么给你？";
+		return "這位"+RANK_D->query_respect(this_player()) + 
+		"，續命八丸還在老頭子那裏，我怎麼給你？";
 	if (wannum == 0)
-		return "这位"+RANK_D->query_respect(this_player()) + 
-		"，续命八丸还在老头子那里呢，我怎么给你？";
+		return "這位"+RANK_D->query_respect(this_player()) + 
+		"，續命八丸還在老頭子那裏呢，我怎麼給你？";
 	if (random(10) < 3)
-		return "这位"+RANK_D->query_respect(this_player()) + 
-		"，续命八丸给令狐公子吃掉了，我拿什么给你？";
+		return "這位"+RANK_D->query_respect(this_player()) + 
+		"，續命八丸給令狐公子喫掉了，我拿什麼給你？";
 	if (random(10) < 6)
-		return "这位"+RANK_D->query_respect(this_player()) + 
-		"，吃了续命八丸就要给老不死贤侄女放血治病，你能成么？";
+		return "這位"+RANK_D->query_respect(this_player()) + 
+		"，喫了續命八丸就要給老不死賢侄女放血治病，你能成麼？";
 	if (random(10) < 9)
-		return "这位"+RANK_D->query_respect(this_player()) + 
-		"，给了你续命八丸，岂不伤了我和老头子的黄河老祖的义气？";
+		return "這位"+RANK_D->query_respect(this_player()) + 
+		"，給了你續命八丸，豈不傷了我和老頭子的黃河老祖的義氣？";
 	ob = new("/clone/medicine/nostrum/xuming8wan");
 	ob->move(this_player());
 	write_file("/data/XUMING", "0", 1);
-	command("rumor "+this_player()->query("name")+"拿到续命八丸了啦。\n");
-	return "好吧，看在圣姑份上就给你尝尝续命八丸的味道吧。";
+	command("rumor "+this_player()->query("name")+"拿到續命八丸了啦。\n");
+	return "好吧，看在聖姑份上就給你嚐嚐續命八丸的味道吧。";
 }
 

@@ -8,15 +8,15 @@ void create()
         set("gender", "男性" );
         set("age", 70);
         set("long",
-"这个老头正抽旱烟抽得上瘾呢,怎样才能和他搭上话呢?\n");
+"這個老頭正抽旱菸抽得上癮呢,怎樣才能和他搭上話呢?\n");
         set("combat_exp", 1000);
         set("attitude", "friendly");
-        set("rank_info/respect", "老大爷");
+        set("rank_info/respect", "老大爺");
        set("inquiry", ([
 
-                "黑木崖" : "黑木崖上有一个穿女人衣裳的吃人恶魔，你可千万不能去！\n",
-               "旱烟"   : "青年人,难得你有这份孝心,你若替我买包上好的烟草,我就给你一样东西\n",
-                "东西"   : "我所说的东西就是上黑木崖的令牌啦,快去买上好烟草,我等不及了...\n",
+                "黑木崖" : "黑木崖上有一個穿女人衣裳的喫人惡魔，你可千萬不能去！\n",
+               "旱菸"   : "青年人,難得你有這份孝心,你若替我買包上好的菸草,我就給你一樣東西\n",
+                "東西"   : "我所說的東西就是上黑木崖的令牌啦,快去買上好菸草,我等不及了...\n",
         ]) );
 
         setup();
@@ -31,7 +31,7 @@ void init()
         me = this_object();
         what=new(__DIR__"obj/yancao");
         sprintf("%s \n",what);
-        // command("give yancao to",me); //mudren:错误用法，懒得修改，直接注释
+        // command("give yancao to",me); //mudren:錯誤用法，懶得修改，直接註釋
         if( interactive(ob) && !is_fighting() ) {
                 remove_call_out("greeting");
                 call_out("greeting", 1, ob);
@@ -43,11 +43,11 @@ void greeting(object ob)
         if( !ob || environment(ob) != environment() ) return;
         switch( random(2) ) {
                 case 0:
-                        say( "老人家头也不回说道：这位" + RANK_D->query_respect(ob)
-                                + "，不要乱跑,小心野兽。\n");
+                        say( "老人家頭也不回說道：這位" + RANK_D->query_respect(ob)
+                                + "，不要亂跑,小心野獸。\n");
                         break;
                 case 1:
-                        say( "老人家对你说到:我也一大把年纪了,就好那一口,你就行行好吧。\n");
+                        say( "老人家對你說到:我也一大把年紀了,就好那一口,你就行行好吧。\n");
                         break;
         }
 }
@@ -56,7 +56,7 @@ void greeting(object ob)
 {
         if (ob->query("money_id") && ob->value() >= 5000)
         {
-                tell_object(who, "老头对你说:好，好，真是个好孩子。\n");
+                tell_object(who, "老頭對你說:好，好，真是個好孩子。\n");
 
                 who->set_temp("rent_paid",1);
 

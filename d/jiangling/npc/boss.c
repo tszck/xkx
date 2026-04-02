@@ -5,12 +5,12 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("掌柜", ({ "zhang gui", "boss" }));
+	set_name("掌櫃", ({ "zhang gui", "boss" }));
 	set("shen_type", 1);
 
 	set("gender", "男性");
 	set("age", 35);
-	set("long", "这位掌柜是土生土长的武汉人，做了几十年的小买卖。\n");
+	set("long", "這位掌櫃是土生土長的武漢人，做了幾十年的小買賣。\n");
 	set_skill("unarmed", 50);
 	set_skill("dodge", 50);
 	set_temp("apply/damage", 15);

@@ -4,9 +4,9 @@
 inherit ROOM;
 void create()
 {
-	set("short","练功室");
+	set("short","練功室");
 	set("long", @LONG
-这里是白驼山弟子的练功室。有陪练童子陪你练功。
+這裏是白駝山弟子的練功室。有陪練童子陪你練功。
 LONG	);
 	set("exits",([
 		"out" : __DIR__"liangong",
@@ -27,7 +27,7 @@ void init()
 	object ob=this_player();
 	if((int)query_temp("full")==2)
 	{
-		message_vision("$N一见房间里已经有人了，只好退了出去。\n",ob);
+		message_vision("$N一見房間裏已經有人了，只好退了出去。\n",ob);
 		ob->move(__DIR__"liangong");
 		return;
 	}

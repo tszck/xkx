@@ -1,14 +1,14 @@
-// qiner.c 琴儿
+// qiner.c 琴兒
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("琴儿", ({ "qin er", "qiner", "qin" }) );
+	set_name("琴兒", ({ "qin er", "qiner", "qin" }) );
 	set("gender", "女性");
 	set("age", 16);
-	set("long","她是苗若兰的贴身侍婢。\n");
+	set("long","她是苗若蘭的貼身侍婢。\n");
 	set("attitude", "friendly");
 	set("str", 15);
 	set("int", 15);

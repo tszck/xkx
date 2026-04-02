@@ -4,12 +4,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "船厂");
+	set("short", "船廠");
 	set("long", @LONG
-这里是古镇船厂。船厂是位于关外大平原中部的一个古老的小镇，
-此镇西、南、北、三面是以高墙垒筑，利于坚守。东面临松花江天成天
-险，乃兵家必争的要地。松花江在冬春时结冰可通行，夏秋化冻你只好
-找船家帮忙了。
+這裏是古鎮船廠。船廠是位於關外大平原中部的一個古老的小鎮，
+此鎮西、南、北、三面是以高牆壘築，利於堅守。東面臨松花江天成天
+險，乃兵家必爭的要地。松花江在冬春時結冰可通行，夏秋化凍你只好
+找船家幫忙了。
 LONG );
 	set("exits", ([
 		"south"  : __DIR__"xuedi3",
@@ -37,12 +37,12 @@ int valid_leave(object me, string dir)
 			(strsrch(NATURE_D->game_time(), "四月") >= 0) ||
 			(strsrch(NATURE_D->game_time(), "五月") >= 0))
 		{
-			message_vision("$N见江面结冻，便壮起胆子踩冰而过。\n\n", me);
+			message_vision("$N見江面結凍，便壯起膽子踩冰而過。\n\n", me);
 			if (random(me->query_dex())<20)
 			{
 				me->receive_wound("qi",20);
 				me->receive_damage("qi",20);
-			message_vision("$N只觉得脚下一滑，全身腾空而起，结结实实的摔在了冰面上！\n", me);
+			message_vision("$N只覺得腳下一滑，全身騰空而起，結結實實的摔在了冰面上！\n", me);
 			}
 			return 1;
 		}
@@ -59,11 +59,11 @@ int valid_leave(object me, string dir)
 			{
 				obj = new(__DIR__"npc/chuanfu");
 				obj -> move(environment(me));
-			message_vision("船厂里走出一个船夫，瞪着眼看着$N。", me);
+			message_vision("船廠裏走出一個船伕，瞪着眼看着$N。", me);
 			}
 			else
-			message_vision("船夫在旁边拿眼瞪着$N看。", me);
-			return notify_fail("冰面化冻，还是乘船吧！\n");
+			message_vision("船伕在旁邊拿眼瞪着$N看。", me);
+			return notify_fail("冰面化凍，還是乘船吧！\n");
 		}
 	}
 	return 1;

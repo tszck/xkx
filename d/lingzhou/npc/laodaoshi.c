@@ -4,7 +4,7 @@ inherit NPC;
 void create()
 {
 	set_name("老道士", ({"lao daoshi", "daoshi"}));
-	set("long", "这是一个精壮老道士。\n");
+	set("long", "這是一個精壯老道士。\n");
 
 	set("gender", "男性");
 	set("attitude", "peace");

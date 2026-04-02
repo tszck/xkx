@@ -2,8 +2,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("烧火僧人", ({"shaohuo seng", "seng", "shaohuo"}));
-        set("long", "专职在灶下烧火的僧人。\n" );
+	set_name("燒火僧人", ({"shaohuo seng", "seng", "shaohuo"}));
+        set("long", "專職在竈下燒火的僧人。\n" );
         set("gender", "男性");
         set("attitude", "peace");
 

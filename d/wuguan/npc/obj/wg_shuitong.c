@@ -9,11 +9,11 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "只");
-		set("long", "这是一个用圆木圈成的水桶，普通百姓的日常务农用品。\n");
+		set("long", "這是一個用圓木圈成的水桶，普通百姓的日常務農用品。\n");
 		set("value", 0);
 		set("material", "steel");
-		set("wield_msg", "$N 挑起$n挡在肩上。\n");
-		set("unwield_msg", "$N将肩上的$n放了下来。\n");
+		set("wield_msg", "$N 挑起$n擋在肩上。\n");
+		set("unwield_msg", "$N將肩上的$n放了下來。\n");
 	}
 	init_hammer(4);
 	setup();

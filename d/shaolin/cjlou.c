@@ -5,12 +5,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "藏经阁一楼");
+	set("short", "藏經閣一樓");
 	set("long", @LONG
-不愧为中原佛法的总源，少林寺此处藏经之富，天下罕有其
-匹。这里都是密密麻麻，高及顶棚的书架，书架间仅有容身一人
-通行的空隙。几排大书架中间，间隔地放着数丈长的书桌。目光
-及处，你看到桌上放了几本佛经。
+不愧爲中原佛法的總源，少林寺此處藏經之富，天下罕有其
+匹。這裏都是密密麻麻，高及頂棚的書架，書架間僅有容身一人
+通行的空隙。幾排大書架中間，間隔地放着數丈長的書桌。目光
+及處，你看到桌上放了幾本佛經。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"zhulin5",
@@ -36,7 +36,7 @@ int valid_leave(object me, string dir)
 	{
 		if (dir == "up" )
 		{
-			return notify_fail("道一说道: 你未经许可，不能上二楼。\n");
+			return notify_fail("道一說道: 你未經許可，不能上二樓。\n");
 		}
 	}
 	return ::valid_leave(me, dir);

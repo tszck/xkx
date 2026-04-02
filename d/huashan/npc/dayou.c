@@ -4,12 +4,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("陆大有", ({ "lu dayou", "lu", "dayou" }));
-	set("nickname", "六猴儿");
+	set_name("陸大有", ({ "lu dayou", "lu", "dayou" }));
+	set("nickname", "六猴兒");
 	set("long", 
-"陆大有身材很瘦，又长的尖嘴猴腮的，但别看他其貌不扬，他在\n"
-"同门中排行第六，是华山派年轻一代中的好手。肩上坐着一只小\n"
-"猴，一对眼睛四处乱转。\n");
+"陸大有身材很瘦，又長的尖嘴猴腮的，但別看他其貌不揚，他在\n"
+"同門中排行第六，是華山派年輕一代中的好手。肩上坐着一隻小\n"
+"猴，一對眼睛四處亂轉。\n");
 	set("gender", "男性");
 	set("age", 26);
 	set("attitude", "peaceful");
@@ -38,7 +38,7 @@ void create()
 	map_skill("parry", "huashan-jianfa");
 	map_skill("sword", "huashan-jianfa");
 
-	create_family("华山派", 14, "弟子");
+	create_family("華山派", 14, "弟子");
 
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();

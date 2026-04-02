@@ -3,14 +3,14 @@
 inherit ITEM;
 void create()
 {
-	set_name(YEL"「说文解字」"NOR, ({ "literateb8", "shu8", "book8" }));
+	set_name(YEL"「說文解字」"NOR, ({ "literateb8", "shu8", "book8" }));
 	set_weight(500);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else
 	{
 		set("unit", "本");
-		set("long","这本书封皮有点旧，上面写着「说文解字」几个字。\n");
+		set("long","這本書封皮有點舊，上面寫着「說文解字」幾個字。\n");
 		set("value", 10000);
 		set("material", "paper");
 		set("skill",

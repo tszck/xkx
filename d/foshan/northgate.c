@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","佛山北门");
+	set("short","佛山北門");
 	set("long",@LONG
-这里是佛山镇的北门。出北门向北，翻过南岭可达中原。南面
-一条东西向的大街是佛山镇的主要街道。
+這裏是佛山鎮的北門。出北門向北，翻過南嶺可達中原。南面
+一條東西向的大街是佛山鎮的主要街道。
 LONG);
 	set("objects", ([
 //	   __DIR__"npc/puren": 1,

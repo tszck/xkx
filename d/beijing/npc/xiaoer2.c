@@ -1,4 +1,4 @@
-// xiaoer2.c 面馆小二
+// xiaoer2.c 麪館小二
 
 inherit NPC;
 inherit F_DEALER;
@@ -9,7 +9,7 @@ void create()
 	set("gender", "男性" );
 	set("age", 22);
 	set("long",
-		"这位店小二正笑咪咪地忙著，还不时拿起挂在脖子上的抹布擦脸。\n");
+		"這位店小二正笑咪咪地忙著，還不時拿起掛在脖子上的抹布擦臉。\n");
 	set("combat_exp", 100);
 	set("attitude", "friendly");
 	set("rank_info/respect", "小二哥");
@@ -46,10 +46,10 @@ void greeting(object ob)
 	switch( random(2) )
 	{
 		case 0:
-			say("店小二笑咪咪地说道：这位" + RANK_D->query_respect(ob) + "，进来吃碗面，歇歇腿吧。\n");
+			say("店小二笑咪咪地說道：這位" + RANK_D->query_respect(ob) + "，進來喫碗麪，歇歇腿吧。\n");
 			break;
 		case 1:
-			say("店小二用脖子上的毛巾抹了抹手，说道：这位" + RANK_D->query_respect(ob) + "，请进请进。\n");
+			say("店小二用脖子上的毛巾抹了抹手，說道：這位" + RANK_D->query_respect(ob) + "，請進請進。\n");
 			break;
 	}
 }

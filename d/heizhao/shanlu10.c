@@ -5,13 +5,13 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short", "山间平地");
+	set("short", "山間平地");
 	set("long", @LONG
-这里有个极大的喷泉，高达二丈有余，奔雪溅玉，一条巨大的
-水柱从石孔中直喷上来，飞入半空，这喷泉是下面溪水与瀑布的源
-头。侧面山壁陡立，山上林荫如盖，似有一樵夫伐木其间。山边一
-条手臂粗细的长藤(teng)，沿峰而上。仰头上望，见山峰的上半截
-隐入云雾之中，不知峰顶究有多高。
+這裏有個極大的噴泉，高達二丈有餘，奔雪濺玉，一條巨大的
+水柱從石孔中直噴上來，飛入半空，這噴泉是下面溪水與瀑布的源
+頭。側面山壁陡立，山上林蔭如蓋，似有一樵夫伐木其間。山邊一
+條手臂粗細的長藤(teng)，沿峯而上。仰頭上望，見山峯的上半截
+隱入雲霧之中，不知峯頂究有多高。
 LONG );
 	set("outdoors", "taoyuan");
 	set("no_clean_up", 0);
@@ -32,7 +32,7 @@ int valid_leave (object who, string dir)
 {
 	if(dir == "down")
 	{
-		message_vision(HIY"$N顺水流冲舟而下。\n"NOR, who);
+		message_vision(HIY"$N順水流衝舟而下。\n"NOR, who);
 	}
 	return ::valid_leave(who, dir);
 }
@@ -49,18 +49,18 @@ int do_climb(string arg)
 	n = me->query_str();
 	if ( !arg || arg != "teng")
 	{
-		write("你要爬什么呀? \n");
+		write("你要爬什麼呀? \n");
 		return 1;
 	}
-	message_vision("$N深吸了一口气，慢慢沿着长藤的向上爬。\n", me);
+	message_vision("$N深吸了一口氣，慢慢沿着長藤的向上爬。\n", me);
 	if(n > 35)
 	{
-		message_vision("$N爬了半天，终于爬了上来，$N真是高兴。\n", me);
+		message_vision("$N爬了半天，終於爬了上來，$N真是高興。\n", me);
 		this_player()->move(__DIR__"shanding");
 	}
 	else
 	{
-		message_vision("$N爬了一会，太累了，不小心滑了下来。\n", me);
+		message_vision("$N爬了一會，太累了，不小心滑了下來。\n", me);
 		me->receive_damage("qi",15);
 		me->receive_wound("qi",10);
 	}

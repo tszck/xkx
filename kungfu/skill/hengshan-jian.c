@@ -1,4 +1,4 @@
-// hengshan-jian.c 恒山剑法
+// hengshan-jian.c 恆山劍法
 /// Last Modified by sir on 5/17/2001
 
 #include <ansi.h>
@@ -7,51 +7,51 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action":"$N意带神闲，一式"HIG"「苍松迎客」"NOR"，$w轻轻飞动，幻起一片剑光，围掠$n全身",
+([	"action":"$N意帶神閒，一式"HIG"「蒼松迎客」"NOR"，$w輕輕飛動，幻起一片劍光，圍掠$n全身",
 	"lvl" : 0,
-	"skill_name" : "苍松迎客"
+	"skill_name" : "蒼松迎客"
 ]),
-([	"action":"$N使一招"HIR"「拨云见日」"NOR"，身形向上飘起，手中$w虚虚实实幻出点点寒光射向$n$l",
+([	"action":"$N使一招"HIR"「撥雲見日」"NOR"，身形向上飄起，手中$w虛虛實實幻出點點寒光射向$n$l",
 	"lvl" : 20,
-	"skill_name" : "拨云见日"
+	"skill_name" : "撥雲見日"
 ]),
-([	"action":"$N身形一转，猛然一式"HIY"「日入空山」"NOR"，舞出满天剑影，挟着劲风向$n的$l扫去",
+([	"action":"$N身形一轉，猛然一式"HIY"「日入空山」"NOR"，舞出滿天劍影，挾着勁風向$n的$l掃去",
 	"lvl" : 40,
 	"skill_name" : "日入空山"
 ]),
-([	"action":"$N仰天长笑，身形飘然而起，在半空中身子一旋，一式"HIB"「轻云蔽
-月」"NOR"狂风般地击向$n",
+([	"action":"$N仰天長笑，身形飄然而起，在半空中身子一旋，一式"HIB"「輕雲蔽
+月」"NOR"狂風般地擊向$n",
 	"lvl" : 50,
-	"skill_name" : "轻云蔽月"
+	"skill_name" : "輕雲蔽月"
 ]),
-([	"action":"$N左手捏着剑诀，右足踏开一招"HIC"「星划长空」"NOR"向上斜刺，长剑锵然跃出倏的化作几点星光射向$n的$l",
+([	"action":"$N左手捏着劍訣，右足踏開一招"HIC"「星劃長空」"NOR"向上斜刺，長劍鏘然躍出倏的化作幾點星光射向$n的$l",
 	"lvl" : 80,
-	"skill_name" : "星划长空"
+	"skill_name" : "星劃長空"
 ]),
-([	"action":"$N向前迈去一大步，使出"HIW"「织女穿梭」"NOR"，手中$w舞成一个光球，迅若奔雷击向$n的$l",
+([	"action":"$N向前邁去一大步，使出"HIW"「織女穿梭」"NOR"，手中$w舞成一個光球，迅若奔雷擊向$n的$l",
 	"lvl" : 100,
-	"skill_name" : "织女穿梭"
+	"skill_name" : "織女穿梭"
 ]),
-([	"action":"$N运力一抖$w，一时"MAG"「飘然出尘」"NOR"，$w幻出点点剑花，飘然刺向$n的$l",
+([	"action":"$N運力一抖$w，一時"MAG"「飄然出塵」"NOR"，$w幻出點點劍花，飄然刺向$n的$l",
 	"lvl" : 110,
-	"skill_name" : "飘然出尘"
+	"skill_name" : "飄然出塵"
 ]),
-([	"action":"$N大喝一声，一招"GRN"「曲径通幽」"NOR"，$w闪电般划出一道大圆弧劈向$n的$l",
+([	"action":"$N大喝一聲，一招"GRN"「曲徑通幽」"NOR"，$w閃電般劃出一道大圓弧劈向$n的$l",
 	"lvl" : 130,
-	"skill_name" : "曲径通幽"
+	"skill_name" : "曲徑通幽"
 ]),
-([	"action":"$N身形向上飘起，突然一转身，头下脚上，手握$w，一招"HIM"「云霞
-无声」"NOR"，无声无息地攻向$n的$l",
+([	"action":"$N身形向上飄起，突然一轉身，頭下腳上，手握$w，一招"HIM"「雲霞
+無聲」"NOR"，無聲無息地攻向$n的$l",
 	"lvl" : 150,
-	"skill_name" : "云霞无声"
+	"skill_name" : "雲霞無聲"
 ]),
-([	"action":"$N手中$w一抖，一招"BLU"「日照高林」"NOR"，$w逼出耀眼光芒，奋力击向$n的$l",
+([	"action":"$N手中$w一抖，一招"BLU"「日照高林」"NOR"，$w逼出耀眼光芒，奮力擊向$n的$l",
 	"lvl" : 160,
 	"skill_name" : "日照高林"
 ]),
-([	"action":"$N忽然身形高高跃起，使出"RED"「云里乾坤」"NOR"，$w幻出漫天花瓣，迅如雷霆射向$n的$l",
+([	"action":"$N忽然身形高高躍起，使出"RED"「雲裏乾坤」"NOR"，$w幻出漫天花瓣，迅如雷霆射向$n的$l",
 	"lvl" : 180,
-	"skill_name" : "云里乾坤"
+	"skill_name" : "雲裏乾坤"
 ])
 });
 
@@ -60,11 +60,11 @@ int valid_enable(string usage) { return (usage=="sword") || (usage=="parry") ; }
 int valid_learn(object me)
 {
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail(HIC"你的内力不够。\n"NOR);
+		return notify_fail(HIC"你的內力不夠。\n"NOR);
 	if( (string)me->query_skill_mapped("force")!= "baiyun-xinfa")
-		return notify_fail("恒山剑法必须配合白云心法才能练。\n");
+		return notify_fail("恆山劍法必須配合白雲心法才能練。\n");
 	if ((string)me->query("gender") != "女性" )
-		return notify_fail(HIY"这种阴柔的剑法只有女子才适合学。\n"NOR);
+		return notify_fail(HIY"這種陰柔的劍法只有女子才適合學。\n"NOR);
 	return 1;
 }
 int practice_skill(object me)
@@ -73,9 +73,9 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if( (int)me->query("qi") < 40 || (int)me->query("neili") < 30 )
-		return notify_fail("你的内力或气不够练恒山剑法。\n");
+		return notify_fail("你的內力或氣不夠練恆山劍法。\n");
 	me->receive_damage("qi", 35);
 	me->add("neili", -20);
 	return 1;
@@ -104,17 +104,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "割伤" : "刺伤",
+		"damage_type" : random(2) ? "割傷" : "刺傷",
 	]);
 }
 int learn_bonus() { return 20; }
@@ -129,14 +129,14 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\n恒山剑法："NOR"\n");
+	write(HIC"\n恆山劍法："NOR"\n");
 	write(@HELP
 
-    恒山剑法为恒山武功。
+    恆山劍法爲恆山武功。
 
-	学习要求：
-		身具白云心法的女性
-		内力100
+	學習要求：
+		身具白雲心法的女性
+		內力100
 HELP
 	);
 	return 1;

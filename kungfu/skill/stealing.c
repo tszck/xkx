@@ -15,11 +15,11 @@ int help(object me)
 	write(HIC"\n妙手空空："NOR"\n");
 	write(@HELP
 
-    妙手空空是丐帮谋生伎俩。
-    请help steal。
+    妙手空空是丐幫謀生伎倆。
+    請help steal。
 
-	学习要求：
-		无
+	學習要求：
+		無
 HELP
 	);
 	return 1;

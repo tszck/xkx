@@ -7,7 +7,7 @@ inherit NPC;
 void create()
 {
 	set_name("哈巴狗", ({ "dog" }) );
-	set("title", "博饼屋宠物");
+	set("title", "博餅屋寵物");
 	set("race", "走畜");
 	set("gender", "雄性" );
 	set("age", 15);
@@ -16,16 +16,16 @@ void create()
 	set("dex", 30);
 	set("con", 30);
 
-	set("long", "这是博饼屋里的小哈巴狗。\n");
+	set("long", "這是博餅屋裏的小哈巴狗。\n");
 	set("combat_exp", 2000000);
 	set("attitude", "friendly");
 
 	set("max_qi", 10000);
 	set("max_jing", 10000);
 	set("inquiry", ([
-	"博饼屋" : "这儿就是，你要玩吗？\n",
-	"博饼会" :  (: ask_me :),
-	"博饼"   : "你（help bobing）就知道了。\n",
+	"博餅屋" : "這兒就是，你要玩嗎？\n",
+	"博餅會" :  (: ask_me :),
+	"博餅"   : "你（help bobing）就知道了。\n",
 	]) );
 	setup();
 }
@@ -36,13 +36,13 @@ string ask_me()
 	int i;
 	ob = users();
 
-	if ( !wizardp(this_player()) ) return "你无权召开博饼会！\n";
+	if ( !wizardp(this_player()) ) return "你無權召開博餅會！\n";
 
 	for ( i=sizeof(ob); i>0; i-- ) {
 		ob[i-1]->move("/d/city/bobing");
 	}
-	command("chat 博饼屋要聚会了！大家快来！\n");
-	return "好，现在博饼会正式开始，全体集合！\n";
+	command("chat 博餅屋要聚會了！大家快來！\n");
+	return "好，現在博餅會正式開始，全體集合！\n";
 }
 void init()
 {
@@ -68,16 +68,16 @@ void init()
 
 int do_save(string arg)
 {
-	command("say "+this_player()->query("name")+"，这儿不许存盘的。\n");
+	command("say "+this_player()->query("name")+"，這兒不許存盤的。\n");
 	return 1;
 }
 int do_smash(string arg)
 {
-	command("say "+this_player()->query("name")+"，巫师在这儿也不许杀人的。\n");
+	command("say "+this_player()->query("name")+"，巫師在這兒也不許殺人的。\n");
 	return 1;
 }
 int do_exert(string arg)
 {
-	command("say "+this_player()->query("name")+"，专心博饼吧！\n");
+	command("say "+this_player()->query("name")+"，專心博餅吧！\n");
 	return 1;
 }

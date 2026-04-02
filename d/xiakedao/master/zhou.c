@@ -9,9 +9,9 @@ void create()
 {
         set_name("周芷若", ({ "zhou-zhiruo","zhiruo","zhou"}));
         set("long",
-                "她是峨嵋派的第四代掌门弟子。\n"
-                "一张脸秀丽绝俗。身着一身淡黄衣裳。\n"
-                "略显清减的巧笑中带了些许无奈。\n"
+                "她是峨嵋派的第四代掌門弟子。\n"
+                "一張臉秀麗絕俗。身着一身淡黃衣裳。\n"
+                "略顯清減的巧笑中帶了些許無奈。\n"
                 "她很寂寞。\n");
         set("gender", "女性");
         set("age", 20);
@@ -58,7 +58,7 @@ void create()
         map_skill("sword","huifeng-jian");
         map_skill("parry","huifeng-jian");
         prepare_skill("strike","jinding-zhang");
-        create_family("峨嵋派", 4, "掌门弟子");
+        create_family("峨嵋派", 4, "掌門弟子");
 
         setup();
         carry_object("/clone/weapon/changjian");
@@ -83,7 +83,7 @@ void greeting(object ob)
 	int i;
 
 	obj = all_inventory(environment(me));
-        command("say 徒儿定会紧记与心的。");
+        command("say 徒兒定會緊記與心的。");
 	for(i=0; i<sizeof(obj); i++)
 	{
 		if( obj[i]->query("id")=="miejue-shitai")
@@ -92,7 +92,7 @@ void greeting(object ob)
                     COMBAT_D->do_attack(me, obj[i], me->query_temp("weapon"), 0);
                 }
 	}
-        command("say 这一句是否指出掌必尽全力，伤敌无虑。");
+        command("say 這一句是否指出掌必盡全力，傷敵無慮。");
         return;
 }
 

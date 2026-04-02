@@ -16,8 +16,8 @@ void create()
 	set("gender", "女性" );
 	set("age", 12+random(6));
 	set("long",
-	  "这是个年年龄不大的小姑娘，但宽松的道袍也遮不住她过早发育的身体。\n"
-	  "一脸聪明乖巧，满口伶牙俐齿。见有人稍微示意，便过去加茶倒水。\n");
+	  "這是個年年齡不大的小姑娘，但寬鬆的道袍也遮不住她過早發育的身體。\n"
+	  "一臉聰明乖巧，滿口伶牙俐齒。見有人稍微示意，便過去加茶倒水。\n");
 	set("attitude", "friendly");
         set("shen_type", 1);
         set("class", "taoist");
@@ -44,12 +44,12 @@ void create()
         set_temp("apply/defense", 15);
         set_temp("apply/damage", 3);
 
-        create_family("武当派", 5, "弟子");
+        create_family("武當派", 5, "弟子");
 
         set("inquiry", ([
-            "女儿香" : "这「女儿香」珍贵得很，连宋大侠的儿子也不能随便喝着．\n"
-               	+ "不过如果你能从西面茶园老张那里弄些「女儿香」茶叶来，\n"
-                + "我倒是可以为你沏一壶。他见你从我这儿去，大概不会难为你\n"
+            "女兒香" : "這「女兒香」珍貴得很，連宋大俠的兒子也不能隨便喝着．\n"
+               	+ "不過如果你能從西面茶園老張那裏弄些「女兒香」茶葉來，\n"
+                + "我倒是可以爲你沏一壺。他見你從我這兒去，大概不會難爲你\n"
         ]));
 
         setup();
@@ -72,8 +72,8 @@ void init()
 void greeting(object ob)
 {
 	if ( !ob || (environment(ob) != environment()) ) return;
-	say("小翠笑吟吟地说道：这位" + RANK_D->query_respect(ob) 
-		+ "请先入座，我这就给您上茶。\n");
+	say("小翠笑吟吟地說道：這位" + RANK_D->query_respect(ob) 
+		+ "請先入座，我這就給您上茶。\n");
 }
 
 int accept_object(object who, object ob)
@@ -82,12 +82,12 @@ int accept_object(object who, object ob)
 
 	if( !who || environment(who) != environment() ) return 0;
 	if ( !objectp(ob) ) return 0; 
-	if ( !present(ob, who) ) return notify_fail("你没有这件东西。");
-	if ( query("tea_count") < 1) return notify_fail("现在只剩大碗茶了。");
-	if (  (string)ob->query("name") == "茶叶"
-		|| (string)ob->query("name") == "金项链"  ) 
+	if ( !present(ob, who) ) return notify_fail("你沒有這件東西。");
+	if ( query("tea_count") < 1) return notify_fail("現在只剩大碗茶了。");
+	if (  (string)ob->query("name") == "茶葉"
+		|| (string)ob->query("name") == "金項鍊"  ) 
 	{
-		if ( (string)ob->query("name") == "金项链" ) 
+		if ( (string)ob->query("name") == "金項鍊" ) 
 		{
 			command("kiss " + (string)who->query("id")); 
 			command("wear lace");
@@ -101,8 +101,8 @@ int accept_object(object who, object ob)
 				command("smile " + who->query("id"));
 			} else 
 			{
-	    		say("小翠作了个揖道：" + RANK_D->query_respect(who)
-	       		+ "请稍候，小女子这就给您换香茶。\n");
+	    		say("小翠作了個揖道：" + RANK_D->query_respect(who)
+	       		+ "請稍候，小女子這就給您換香茶。\n");
 			}
 
 			who->set_temp("tea_cup", 5);
@@ -112,21 +112,21 @@ int accept_object(object who, object ob)
 		} else 
 		{
 			who->set_temp("tea_cup", 5);
-	    	say("小翠道了个万福：" + RANK_D->query_respect(who)
-	       	+ "请先入上座，小女子这就给您去泡香茶。\n");
+	    	say("小翠道了個萬福：" + RANK_D->query_respect(who)
+	       	+ "請先入上座，小女子這就給您去泡香茶。\n");
 		}
 
 		return 1;
 	}
 
-	if ((string)ob->query("name") == "「女儿香」茶叶") 
+	if ((string)ob->query("name") == "「女兒香」茶葉") 
 	{
 		if ( who->query_temp("marks/sit") )
 		{
 			command("dance " + who->query("id"));
 		} else 
 		{
-			message_vision("小翠引$N到窗边风景最好的桌边坐下．\n", who);
+			message_vision("小翠引$N到窗邊風景最好的桌邊坐下．\n", who);
 		}
 
 		who->set_temp("tea_cup", 10);
@@ -160,7 +160,7 @@ void serve_tea(object who)
 	{
 	 	obn = new("d/wudang/obj/dawancha");
 		obn->move(room);
-		message_vision("小翠搬出个大茶壶来，将桌上的大碗茶倒满．\n",
+		message_vision("小翠搬出個大茶壺來，將桌上的大碗茶倒滿．\n",
 			who);
 	} else 
 	{
@@ -168,13 +168,13 @@ void serve_tea(object who)
 	 	obn = new("d/wudang/obj/xiangcha");
 		add("tea_count",-1);
 		obn->move(room);
-		message_vision("小翠拿出个绍兴小茶壶，沏了杯香茶，放在桌上．\n",
+		message_vision("小翠拿出個紹興小茶壺，沏了杯香茶，放在桌上．\n",
 			who);
 	}
 
  	obn = new("d/wudang/obj/mitao");
 	obn->move(room);
-	message_vision("小翠拿出一碟新鲜的水蜜桃，放在桌上．\n", who);
+	message_vision("小翠拿出一碟新鮮的水蜜桃，放在桌上．\n", who);
 	
 	return;
 }

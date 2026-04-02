@@ -4,11 +4,11 @@
 inherit ROOM;
 void create()
 {
-	set("short", "听泉亭");
+	set("short", "聽泉亭");
 	set("long", @LONG
-沿石梯向下，就是海棠溪。这里是溪上的听泉亭，四顾山环水
-绕，古藤蔓蔓，飞泉溅落池中，如琴弦轻拨，如珠落玉盘，清绝幽
-绝。
+沿石梯向下，就是海棠溪。這裏是溪上的聽泉亭，四顧山環水
+繞，古藤蔓蔓，飛泉濺落池中，如琴絃輕撥，如珠落玉盤，清絕幽
+絕。
 LONG );
         set("outdoors","qingcheng");
 	set("exits", ([

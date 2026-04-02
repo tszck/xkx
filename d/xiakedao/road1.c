@@ -1,4 +1,4 @@
-// /d/xiakedao/road1.c 侠客岛 山路1
+// /d/xiakedao/road1.c 俠客島 山路1
 
 inherit ROOM;
 
@@ -6,8 +6,8 @@ void create()
 {
         set("short", "山路");
         set("long", @LONG
-走在青石铺成的小路上，脚步十分轻捷。两旁都是密林，枝叶遮
-天蔽日，阴沉沉的很不舒服。林中鸟雀叽喳，与呼呼的风声混成一片。
+走在青石鋪成的小路上，腳步十分輕捷。兩旁都是密林，枝葉遮
+天蔽日，陰沉沉的很不舒服。林中鳥雀嘰喳，與呼呼的風聲混成一片。
 LONG );
         set("outdoors", "xiakedao");
         set("exits", ([

@@ -24,55 +24,55 @@ void setup_char(object ob)
  
 	if( !stringp(race = ob->query("race")) )
 	{
-		race = "人类";	
-		ob->set("race", "人类");
+		race = "人類";	
+		ob->set("race", "人類");
 	}
 	switch(race)
 	{
-		case "人类":
+		case "人類":
 			HUMAN_RACE->setup_human(ob);
 			break;	
 		case "妖魔":
 			MONSTER_RACE->setup_monster(ob);
 			break;	
-		case "野兽":
+		case "野獸":
 			BEAST1_RACE->setup_beast(ob);
 			break;	
-		case "走兽": /* 肉食有爪 */
+		case "走獸": /* 肉食有爪 */
 			BEAST_RACE->setup_beast(ob);
 			break;	
 		case "走畜": /* 草食用蹄 */
 			STOCK_RACE->setup_stock(ob);
 			break;
-		case "飞禽":
+		case "飛禽":
 			BIRD_RACE->setup_bird(ob);
 			break;
-		case "游鱼":
+		case "遊魚":
 			FISH_RACE->setup_fish(ob);
 			break;
 		case "爬蛇":
 			SNAKE_RACE->setup_snake(ob);
 			break;
-		case "昆虫":
+		case "昆蟲":
 			INSECT_RACE->setup_insect(ob);
 			break;
 		default: 
 			error("Chard: undefined race " + race + ".\n");
 	}
-/* 为通用兽类保留 */
-	if (race != "人类" && ! ob->query("dead_message"))
+/* 爲通用獸類保留 */
+	if (race != "人類" && ! ob->query("dead_message"))
 	{
-		ob->set("dead_message", "\n$N仰天惨嚎了一声，趴在地上不动了。\n\n");
-		ob->set("unconcious_message", "\n$N低低地吼了一声，滚倒在地了过去。\n\n");
-		ob->set("revive_message", "\n$N四肢慢慢动弹了一下，睁开眼醒了过来。\n\n");
-		ob->set("comeout_message", "往$d奔了过去。\n");
-		ob->set("comein_message", "呼地窜了出来，警惕地四周张望着。\n");
-		ob->set("fleeout_message", "惨叫一声，往$d落荒而逃。\n");
-		ob->set("fleein_message", "摇摇摆摆地跑了过来，伸出舌头呼呼地喘着粗气。\n");
+		ob->set("dead_message", "\n$N仰天慘嚎了一聲，趴在地上不動了。\n\n");
+		ob->set("unconcious_message", "\n$N低低地吼了一聲，滾倒在地了過去。\n\n");
+		ob->set("revive_message", "\n$N四肢慢慢動彈了一下，睜開眼醒了過來。\n\n");
+		ob->set("comeout_message", "往$d奔了過去。\n");
+		ob->set("comein_message", "呼地竄了出來，警惕地四周張望着。\n");
+		ob->set("fleeout_message", "慘叫一聲，往$d落荒而逃。\n");
+		ob->set("fleein_message", "搖搖擺擺地跑了過來，伸出舌頭呼呼地喘着粗氣。\n");
 	} 
 	my = ob->query_entire_dbase();
 	if( undefinedp(my["pighead"]) ) my["pighead"] = 0;
-// 玩家的这个判断改在updated.c中做。这里不必做 
+// 玩家的這個判斷改在updated.c中做。這裏不必做 
 	if( !userp(ob) )
 	{
 		if( undefinedp(my["jing"]) ) my["jing"] = my["max_jing"];
@@ -100,7 +100,7 @@ void setup_char(object ob)
 			if (my["neili"] > my["max_neili"])
 				my["neili"] = my["max_neili"]; 
 		}
-		else // 内力和精力
+		else // 內力和精力
 		{
 			if (my["max_neili"] > ((int)ob->query_skill("force")*10 + (int)ob->query("gift/max_neili")))
 				my["max_neili"] = ob->query_skill("force")*10+(int)ob->query("gift/max_neili");
@@ -119,7 +119,7 @@ void setup_char(object ob)
     if( my["shen"]<-1000000) 	my["shen"]	=	-1000000;
     if( my["score"]>100000) 	my["score"]	=	 100000;
 	}
-	else my["bt_tufei"] = random(30) + 1; /* 巡捕任务之NPC设定 */
+	else my["bt_tufei"] = random(30) + 1; /* 巡捕任務之NPC設定 */
 
 	if( undefinedp(my["shen_type"]) ) my["shen_type"] = 0;
  
@@ -156,10 +156,10 @@ varargs object make_corpse(object victim, object killer)
 	}
  
 	corpse = new(CORPSE_OB);      
-	corpse->set_name( victim->name(1) + "的尸体", ({ "corpse" }) );
+	corpse->set_name( victim->name(1) + "的屍體", ({ "corpse" }) );
 	corpse->set("long", victim->long() 
 		+ "然而，" + gender_pronoun(victim->query("gender"))
-		+ "已经死了，只剩下一具尸体静静地躺在这里。\n");
+		+ "已經死了，只剩下一具屍體靜靜地躺在這裏。\n");
 	corpse->set("age", victim->query("age")); 
 	corpse->set("gender", victim->query("gender"));
 	corpse->set("victim_name", victim->name(1));
@@ -201,14 +201,14 @@ int break_relation(object player)
 	object ob, room;
 	string std_id = player->query("id");
 
-	if (player->query("family/family_name") == "华山派" )
+	if (player->query("family/family_name") == "華山派" )
 	{
 		if(!( room = find_object("/d/huashan/xiaofang")) )
 			room = load_object("/d/huashan/xiaofang");
 		ob = present("feng qingyang", room);
 		player->delete("family");
 		player->set("title","普通百姓");
-		tell_object(player, RED "\n你已非风清扬的弟子了，好自为之吧！\n\n" NOR);
+		tell_object(player, RED "\n你已非風清揚的弟子了，好自爲之吧！\n\n" NOR);
 		ob->delete( "students/"+std_id );
 		ob->set( "pending", std_id );
 		ob->save();

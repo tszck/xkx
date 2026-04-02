@@ -6,10 +6,10 @@ int do_open(string arg);
 int do_close(string arg);
 void create()
 {
-	set("short", "暗道尽头");
+	set("short", "暗道盡頭");
 	set("long",@LONG
-这里是暗道的尽头，有扇铁门(door)看起来很陈旧，不知道通往
-哪里。
+這裏是暗道的盡頭，有扇鐵門(door)看起來很陳舊，不知道通往
+哪裏。
 LONG		
 	);
 	set("no_clean_up", 0);
@@ -17,7 +17,7 @@ LONG
 		"south" : __DIR__"andao2",
 	]));
 	set("item_desc",([
-		"door"	: "这是一扇破旧的铁门。\n"
+		"door"	: "這是一扇破舊的鐵門。\n"
 	]));
 	set("coor/x", 1620);
 	set("coor/y", -1750);
@@ -37,7 +37,7 @@ void close_door()
 	if(objectp(room))
 	{
 		delete("exits/east");
-			message("vision", "忽然间，水流翻涌，又把门合上了。\n", this_object());
+			message("vision", "忽然間，水流翻湧，又把門合上了。\n", this_object());
 		room->delete("exits/west");
 		message("vision", "水流又悠然合上了。\n", room);
 	}
@@ -45,10 +45,10 @@ void close_door()
 int do_close(string arg)
 {
 	if (!query("exits/east"))
-		return notify_fail("已经没有出路了！\n");
+		return notify_fail("已經沒有出路了！\n");
 	if (!arg || (arg != "door" && arg != "east"))
-		return notify_fail("你要关什么？\n");
-	message_vision("$N点了点头。\n", this_player());
+		return notify_fail("你要關什麼？\n");
+	message_vision("$N點了點頭。\n", this_player());
 	remove_call_out("close_door");
 	call_out("close_door", 2);
 	return 1;
@@ -57,17 +57,17 @@ int do_open(string arg)
 {
 	object room;
 	if (query("exits/east"))
-		return notify_fail("已经有出路了！\n");
+		return notify_fail("已經有出路了！\n");
 	if (!arg || (arg != "door" && arg != "east"))
-		return notify_fail("你要开什么？\n");
+		return notify_fail("你要開什麼？\n");
 	if(!( room = find_object(__DIR__"tingzi")) )
 		room = load_object(__DIR__"tingzi");
 	if(objectp(room))
 	{
 		set("exits/east",__DIR__"tingzi");
-		message_vision("$N用力把破铁门打了开来。\n", this_player());
+		message_vision("$N用力把破鐵門打了開來。\n", this_player());
 		room->set("exits/west", __FILE__);
-		message("vision", "忽然间，水流分开，露出一条出路。\n", this_object());
+		message("vision", "忽然間，水流分開，露出一條出路。\n", this_object());
 		remove_call_out("close_door");
 		call_out("close_door", 2);
 	}

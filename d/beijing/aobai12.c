@@ -6,9 +6,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "东厂暗道");
+	set("short", "東廠暗道");
 	set("long", @LONG
-这是一条暗道，是专为鳌拜从鳌府直接到东厂用的。
+這是一條暗道，是專爲鰲拜從鰲府直接到東廠用的。
 LONG );
 	set("exits", ([
 		"southwest" : __DIR__"aobai11",

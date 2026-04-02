@@ -73,9 +73,9 @@ varargs string short(int raw)
 
 	if (!raw) {
 		if ((int)query_temp("pending/exercise") != 0)
-			return name() + "正坐在地下修炼内力。";
+			return name() + "正坐在地下修煉內力。";
 		else if ((int)query_temp("pending/respirate") != 0)
-			return name() + "正坐在地下吐纳炼精。";
+			return name() + "正坐在地下吐納煉精。";
 	}
 	
         if( !raw && sizeof(mask = query_temp("apply/short")) )
@@ -92,9 +92,9 @@ varargs string short(int raw)
 			str = sprintf("「%s」%s", nick, str);
 
 		if( stringp(title = query("title")) ) {
-			// 叛师过的无门派人士改称隐士。Modified by Spacenet@FXLT
+			// 叛師過的無門派人士改稱隱士。Modified by Spacenet@FXLT
 			if (title == "普通百姓" && query("betrayer"))
-				title = "隐士";
+				title = "隱士";
 			str = sprintf("%s%s%s", title,(nick?"":" "), str);
 		}
 		if ( mapp(party = query("party")) ) 
@@ -113,20 +113,20 @@ varargs string short(int raw)
 	}
 
 	if( !raw ) {
-		if( this_object()->is_ghost() ) str = HIB "(鬼气) " NOR + str;
-		if( query_temp("netdead") ) str += HIG" <断线中>" NOR;
-		if( in_input() ) str += HIC" <输入文字中>" NOR;
-		if( in_edit() ) str += HIY" <编辑档案中>" NOR;
-		if( query_temp("boss_screen") ) str += HIG" <逃避老板中>" NOR;
+		if( this_object()->is_ghost() ) str = HIB "(鬼氣) " NOR + str;
+		if( query_temp("netdead") ) str += HIG" <斷線中>" NOR;
+		if( in_input() ) str += HIC" <輸入文字中>" NOR;
+		if( in_edit() ) str += HIY" <編輯檔案中>" NOR;
+		if( query_temp("boss_screen") ) str += HIG" <逃避老闆中>" NOR;
 		if( query_temp("bixie/cimu") ) str += HIR" <失明中>" NOR;
-		if( query_temp("noliving/sleeped") ) str += HIR" <睡梦中>" NOR;
-		if( query_temp("noliving/fakedie") ) str += HIR" <装死中>" NOR;
-		if( query_temp("noliving/jingzuo") ) str += HIR" <静坐中>" NOR;
+		if( query_temp("noliving/sleeped") ) str += HIR" <睡夢中>" NOR;
+		if( query_temp("noliving/fakedie") ) str += HIR" <裝死中>" NOR;
+		if( query_temp("noliving/jingzuo") ) str += HIR" <靜坐中>" NOR;
 		if( query_temp("noliving/journey") ) str += HIR" <旅途中>" NOR;
 		if( query_temp("noliving/unconcious") )
 			str += HIR" <昏迷不醒>" NOR;
 		if( interactive(this_object()) && query_idle(this_object())>120)
-			str += HIM " <发呆中>" NOR;
+			str += HIM " <發呆中>" NOR;
 		if( !living(this_object()) )
 			str += HIR + query("disable_type") + NOR;
 	}

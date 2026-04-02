@@ -5,9 +5,9 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("绿竹翁", ({ "luzhu weng", "weng" }));
+        set_name("綠竹翁", ({ "luzhu weng", "weng" }));
         set("long",
-"他身子略形佝偻，头顶稀稀疏疏的已无多少头发，大手大脚，精神却十分矍铄。\n");
+"他身子略形佝僂，頭頂稀稀疏疏的已無多少頭髮，大手大腳，精神卻十分矍鑠。\n");
         set("gender", "男性");
         set("age", 62);
         set("class", "scholar");
@@ -28,13 +28,13 @@ void create()
         set("shen", 15000);
         set("score", 60000);
 
-	set_skill("literate", 100);         // 读书识字
-	set_skill("force", 100);            // 基本内功
-	set_skill("dodge", 100);            // 基本躲闪
+	set_skill("literate", 100);         // 讀書識字
+	set_skill("force", 100);            // 基本內功
+	set_skill("dodge", 100);            // 基本躲閃
 	set_skill("parry", 100);            // 基本招架
 	set_skill("dagger", 100);           // 基本刺法
-        set_skill("shigu-bifa", 100);       // 石鼓打穴笔法
-	set_skill("piaoyibu", 100);         // 飘逸步法
+        set_skill("shigu-bifa", 100);       // 石鼓打穴筆法
+	set_skill("piaoyibu", 100);         // 飄逸步法
 	set_skill("kuihua-xinfa", 100);	    // 葵花心法
 
 	map_skill("force", "kuihua-xinfa");
@@ -43,12 +43,12 @@ void create()
         map_skill("parry", "shigu-bifa");
 
 	set("inquiry", ([
-		"日月神教" : "你想加入我日月神教，就得找四大堂长老。",
-		"入教"     : "你想加入我日月神教，就得找四大堂长老。",
+		"日月神教" : "你想加入我日月神教，就得找四大堂長老。",
+		"入教"     : "你想加入我日月神教，就得找四大堂長老。",
 	]));
 
 	set("party/party_name", HIB"日月神教"NOR);
-	set("party/rank", "长老");
+	set("party/rank", "長老");
         create_family("黑木崖", 9, "弟子");
 
         setup();
@@ -60,12 +60,12 @@ void attempt_apprentice(object ob)
 {
 	if(!ob->query("party")||ob->query("party/party_name")!=HIB"日月神教"NOR)
 	{
-		command("say 我只收神教弟子，你找四大堂长老入教去！\n");
+		command("say 我只收神教弟子，你找四大堂長老入教去！\n");
 		return;
 	}
         if ((int)ob->query_skill("kuihua-xinfa",1) < 50)
 	{
-                command("say 要百尺竿头更进一步，" + RANK_D->query_respect(ob) + "是否还在我教的内功上多下点功夫？");
+                command("say 要百尺竿頭更進一步，" + RANK_D->query_respect(ob) + "是否還在我教的內功上多下點功夫？");
                 return;
         }
         command("say 好吧，老夫就收下你了。");

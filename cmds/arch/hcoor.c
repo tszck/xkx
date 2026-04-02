@@ -16,30 +16,30 @@ int main(object me, string arg)
         object env = environment(me);
 
         if (!me->query("env/yesiknow"))
-                return notify_fail("这个指令已经被废除了！\n");
+                return notify_fail("這個指令已經被廢除了！\n");
 
         if (!arg) {
                 if (env->query("coor")) {
                         continue_do(env);
                         return 1;
                 } else
-                        return notify_fail("用法不对，请参考帮助。\n");
+                        return notify_fail("用法不對，請參考幫助。\n");
         }
 
         if (arg == "-d") {
-                write("房间 " + base_name(env) + " 已非边界。\n");
+                write("房間 " + base_name(env) + " 已非邊界。\n");
                 env->delete("border");
                 return 1;
         }
 
         if (arg == "-b"){
                 env->set("border", 1);
-                write("房间 " + base_name(env) + " 已设为边界。\n");
+                write("房間 " + base_name(env) + " 已設爲邊界。\n");
                 return 1;
         }
 
         if (sscanf(arg, "%d,%d,%d", x, y, z) != 3)
-                return notify_fail("用法不对，请参考帮助。\n");
+                return notify_fail("用法不對，請參考幫助。\n");
 
         seteuid(getuid());
 
@@ -47,7 +47,7 @@ int main(object me, string arg)
                 env->set("coor/x", x);
                 env->set("coor/y", y);
                 env->set("coor/z", z);
-                write("房间 " + base_name(env) + " 坐标重新设定成功。\n");
+                write("房間 " + base_name(env) + " 座標重新設定成功。\n");
         } else
                 recur_do(environment(me), x, y, z);
 
@@ -70,7 +70,7 @@ int recur_do(object room, int x, int y, int z)
         room->set("coor/x", x);
         room->set("coor/y", y);
         room->set("coor/z", z);
-        write("房间 " + base_name(room) + " 坐标设定成功。\n");
+        write("房間 " + base_name(room) + " 座標設定成功。\n");
 
         if (room->query("border"))
                 return 1;
@@ -169,14 +169,14 @@ int continue_do(object room)
 int help(object me)
 {
 write(@HELP
-指令格式 : hcoor <参数> x,y,z
+指令格式 : hcoor <參數> x,y,z
 
 用法：
-        hcoor           从当前房间（已定位）开始递归定位坐标。
-        hcoor x,y,z     若当前房间已定位，则重新定位该房间，
-			否则从当前房间开始递归定位坐标。
-        hcoor -b        设定当前房间为边界。
-        hcoor -d        设定当前房间为非边界。
+        hcoor           從當前房間（已定位）開始遞歸定位座標。
+        hcoor x,y,z     若當前房間已定位，則重新定位該房間，
+			否則從當前房間開始遞歸定位座標。
+        hcoor -b        設定當前房間爲邊界。
+        hcoor -d        設定當前房間爲非邊界。
 HELP
 );
     return 1;

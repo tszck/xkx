@@ -10,9 +10,9 @@ void create()
 {
 	set("short", "牢房");
 	set("long", @LONG
-这是一个昏暗的房间，窗户都被钉死。地上放着皮鞭、木棍等刑具，显然
-这是鳌拜私立公堂，审讯人犯的所在。一个书生被捆在墙上，鲜血淋漓，遍体
-鳞伤。
+這是一個昏暗的房間，窗戶都被釘死。地上放着皮鞭、木棍等刑具，顯然
+這是鰲拜私立公堂，審訊人犯的所在。一個書生被捆在牆上，鮮血淋漓，遍體
+鱗傷。
 LONG );
 	set("objects", ([
 		__DIR__"npc/zhuangyu" : 1,
@@ -38,13 +38,13 @@ void close_gate()
     if(objectp(room))
     {
         delete("exits/north");
-        message("vision","只听乒地一声，暗门自动关上了。\n",
+        message("vision","只聽乒地一聲，暗門自動關上了。\n",
             this_object());
-        message("vision","你脑海中闪过一个念头：坏了！出不去了！\n" ,
+        message("vision","你腦海中閃過一個念頭：壞了！出不去了！\n" ,
 			this_object());
         room->delete("exits/south");
-        message("vision","只听乒地一声，暗门自动关了起来。\n", room);
-        message("vision","你脑海中闪过一个念头：哎哟！又进不去了！\n" ,
+        message("vision","只聽乒地一聲，暗門自動關了起來。\n", room);
+        message("vision","你腦海中閃過一個念頭：哎喲！又進不去了！\n" ,
 			room );
      }
 }
@@ -54,19 +54,19 @@ int do_unlock(string arg)
 {
 	object room;
 	if (query("exits/north"))
-		return notify_fail("暗门已经是打开的。\n");
+		return notify_fail("暗門已經是打開的。\n");
 	if (!arg || (arg != "men"))
-		return notify_fail("你要打开什么？\n");
-	message_vision(	"$N从里面打开了秘门。\n", this_player());
+		return notify_fail("你要打開什麼？\n");
+	message_vision(	"$N從裏面打開了祕門。\n", this_player());
 	set("exits/north", __DIR__"aobai4");
     if(!( room = find_object(__DIR__"aobai4")) )
         room = load_object(__DIR__"aobai4");
     if(objectp(room))
     {
         set("exits/north", __DIR__"aobai4");
-        message_vision("$N轻轻地推门，只听吱地一声，门开了。\n",this_player());
+        message_vision("$N輕輕地推門，只聽吱地一聲，門開了。\n",this_player());
         room->set("exits/south", __FILE__);
-        message("vision","只听吱地一声，暗门从外面打开了。\n", room);
+        message("vision","只聽吱地一聲，暗門從外面打開了。\n", room);
 		remove_call_out("close_gate");
 		call_out("close_gate", 10);
     }

@@ -3,9 +3,9 @@ inherit ROOM;
 string look();
 void create()
 {
-        set("short", "塔顶");
+        set("short", "塔頂");
         set("long",@LONG
-这是舍利塔塔顶，室中孤零零地放着一张供桌(zhuozi)。
+這是舍利塔塔頂，室中孤零零地放着一張供桌(zhuozi)。
 LONG );
         set("outdoors", "tianlongsi");
         set("exits", ([
@@ -25,5 +25,5 @@ string look()
 {
 	object me=this_player();
 	me->set_temp("marks/ask_temp0",1);
-	return "那是原来供奉舍利子的地方，如今空空如也，看来江湖中传言不虚。\n";
+	return "那是原來供奉舍利子的地方，如今空空如也，看來江湖中傳言不虛。\n";
 }

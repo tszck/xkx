@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short","练功房");
+	set("short","練功房");
 	set("long", @LONG
-这里是白驼山弟子的练功房。里面有几个单间，是练功室。弟子们
-在里边砌磋武艺，绝对不允许外人打搅。
+這裏是白駝山弟子的練功房。裏面有幾個單間，是練功室。弟子們
+在裏邊砌磋武藝，絕對不允許外人打攪。
 LONG	);
 	set("exits",([
 		"west" : __DIR__"liangong",
@@ -26,8 +26,8 @@ LONG	);
 }
 int valid_leave(object who ,string dir)
 {
-	if((string)who->query("family/family_name")!="白驼山派" &&
+	if((string)who->query("family/family_name")!="白駝山派" &&
 		(dir!="west"))
-		return notify_fail("那里禁止外人进入！\n");
+		return notify_fail("那裏禁止外人進入！\n");
 	return 1 ;
 }

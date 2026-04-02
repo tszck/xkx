@@ -6,8 +6,8 @@ inherit F_MASTER;
 #include <ansi.h>
 void create()
 {
-	set_name("郑萼", ({ "zheng e", "zheng", "e" }) );
-	set("long", "她是恒山派俗家弟子。\n");
+	set_name("鄭萼", ({ "zheng e", "zheng", "e" }) );
+	set("long", "她是恆山派俗家弟子。\n");
 	set("gender", "女性");
 	set("class", "swordsman");
 	set("age", 16);
@@ -38,7 +38,7 @@ void create()
 	map_skill("parry", "hengshan-jian");
 	map_skill("dodge", "lingxu-bu");
 
-	create_family("恒山派", 14, "弟子");
+	create_family("恆山派", 14, "弟子");
 	setup();
 
 	carry_object("/clone/weapon/changjian")->wield();

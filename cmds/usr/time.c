@@ -6,76 +6,76 @@ inherit F_CLEAN_UP;
 #include <localtime.h>
 
 mapping *lunarfete = ({
-	([	"month" :  1, "day" :  1, "name" : RED"春节"NOR]),
-	([	"month" :  1, "day" : 15, "name" : RED"元宵节"NOR]),
-	([	"month" :  5, "day" :  5, "name" : GRN"端午节"NOR]),
-	([	"month" :  7, "day" :  7, "name" : CYN"七夕乞巧节"NOR]),
-	([	"month" :  8, "day" : 15, "name" : CYN"中秋节"NOR]),
-	([	"month" :  9, "day" :  9, "name" : MAG"重阳节"NOR]),
-	([	"month" : 12, "day" :  8, "name" : BLU"腊八节"NOR]),
+	([	"month" :  1, "day" :  1, "name" : RED"春節"NOR]),
+	([	"month" :  1, "day" : 15, "name" : RED"元宵節"NOR]),
+	([	"month" :  5, "day" :  5, "name" : GRN"端午節"NOR]),
+	([	"month" :  7, "day" :  7, "name" : CYN"七夕乞巧節"NOR]),
+	([	"month" :  8, "day" : 15, "name" : CYN"中秋節"NOR]),
+	([	"month" :  9, "day" :  9, "name" : MAG"重陽節"NOR]),
+	([	"month" : 12, "day" :  8, "name" : BLU"臘八節"NOR]),
 	([	"month" : 12, "day" : 23, "name" : RED"小年"NOR]),
 	([	"month" : 12, "day" : 30, "name" : RED"除夕"NOR]),
 });
 mapping *solarfete = ({
 	([	"month" :  1, "day" :  1, "name" : RED"元旦"NOR]),
-	([	"month" :  2, "day" : 14, "name" : MAG"情人节"NOR]),
-	([	"month" :  3, "day" :  5, "name" : RED"学雷锋纪念日"NOR]),
-	([	"month" :  3, "day" :  8, "name" : YEL"国际妇女节"NOR]),
-	([	"month" :  3, "day" : 12, "name" : GRN"植树节"NOR]),
-	([	"month" :  3, "day" : 15, "name" : YEL"消费者权益日"NOR]),
-	([	"month" :  3, "day" : 23, "name" : YEL"世界气象日"NOR]),
+	([	"month" :  2, "day" : 14, "name" : MAG"情人節"NOR]),
+	([	"month" :  3, "day" :  5, "name" : RED"學雷鋒紀念日"NOR]),
+	([	"month" :  3, "day" :  8, "name" : YEL"國際婦女節"NOR]),
+	([	"month" :  3, "day" : 12, "name" : GRN"植樹節"NOR]),
+	([	"month" :  3, "day" : 15, "name" : YEL"消費者權益日"NOR]),
+	([	"month" :  3, "day" : 23, "name" : YEL"世界氣象日"NOR]),
 	([	"month" :  3, "day" : 31, "name" : YEL"安全教育日"NOR]),
-	([	"month" :  4, "day" :  1, "name" : GRN"愚人节"NOR]),
-	([	"month" :  4, "day" :  5, "name" : CYN"清明节"NOR]),
-	([	"month" :  4, "day" :  6, "name" : RED"厦门大学校庆"NOR]),
-	([	"month" :  4, "day" :  7, "name" : CYN"世界卫生日"NOR]),
-	([	"month" :  4, "day" :  9, "name" : CYN"耶酥受难日"NOR]),
-	([	"month" :  4, "day" : 12, "name" : CYN"复活节星期一"NOR]),
+	([	"month" :  4, "day" :  1, "name" : GRN"愚人節"NOR]),
+	([	"month" :  4, "day" :  5, "name" : CYN"清明節"NOR]),
+	([	"month" :  4, "day" :  6, "name" : RED"廈門大學校慶"NOR]),
+	([	"month" :  4, "day" :  7, "name" : CYN"世界衛生日"NOR]),
+	([	"month" :  4, "day" :  9, "name" : CYN"耶酥受難日"NOR]),
+	([	"month" :  4, "day" : 12, "name" : CYN"復活節星期一"NOR]),
 	([	"month" :  4, "day" : 22, "name" : CYN"世界地球日"NOR]),
-	([	"month" :  5, "day" :  1, "name" : WHT"国际劳动节"NOR]),
-	([	"month" :  5, "day" :  4, "name" : GRN"中国青年节"NOR]),
-	([	"month" :  5, "day" :  8, "name" : GRN"国际红十字日"NOR]),
-	([	"month" :  5, "day" : 10, "name" : HIR"母亲节"NOR]),
-	([	"month" :  5, "day" : 12, "name" : GRN"国际护士节"NOR]),
-	([	"month" :  5, "day" : 15, "name" : GRN"国际家庭日"NOR]),
-	([	"month" :  5, "day" : 17, "name" : GRN"世界电信日"NOR]),
-	([	"month" :  5, "day" : 19, "name" : GRN"全国助残日"NOR]),
-	([	"month" :  5, "day" : 26, "name" : HIY"佛诞日"NOR]),
-	([	"month" :  5, "day" : 31, "name" : GRN"世界无烟日"NOR]),
-	([	"month" :  6, "day" :  1, "name" : MAG"国际儿童节"NOR]),
-	([	"month" :  6, "day" :  5, "name" : MAG"世界环境节"NOR]),
-	([	"month" :  6, "day" :  6, "name" : MAG"全国爱眼日"NOR]),
-	([	"month" :  6, "day" : 21, "name" : HIG"父亲节"NOR]),
-	([	"month" :  6, "day" : 25, "name" : MAG"全国土地日"NOR]),
-	([	"month" :  6, "day" : 26, "name" : MAG"国际禁毒日"NOR]),
-	([	"month" :  7, "day" :  1, "name" : RED"中共建党节"NOR]),
-	([	"month" :  7, "day" :  1, "name" : HIR"香港回归日"NOR]),
-	([	"month" :  7, "day" :  1, "name" : HIY"世界建筑日"NOR]),
-	([	"month" :  7, "day" :  7, "name" : RED"抗战纪念日"NOR]),
+	([	"month" :  5, "day" :  1, "name" : WHT"國際勞動節"NOR]),
+	([	"month" :  5, "day" :  4, "name" : GRN"中國青年節"NOR]),
+	([	"month" :  5, "day" :  8, "name" : GRN"國際紅十字日"NOR]),
+	([	"month" :  5, "day" : 10, "name" : HIR"母親節"NOR]),
+	([	"month" :  5, "day" : 12, "name" : GRN"國際護士節"NOR]),
+	([	"month" :  5, "day" : 15, "name" : GRN"國際家庭日"NOR]),
+	([	"month" :  5, "day" : 17, "name" : GRN"世界電信日"NOR]),
+	([	"month" :  5, "day" : 19, "name" : GRN"全國助殘日"NOR]),
+	([	"month" :  5, "day" : 26, "name" : HIY"佛誕日"NOR]),
+	([	"month" :  5, "day" : 31, "name" : GRN"世界無煙日"NOR]),
+	([	"month" :  6, "day" :  1, "name" : MAG"國際兒童節"NOR]),
+	([	"month" :  6, "day" :  5, "name" : MAG"世界環境節"NOR]),
+	([	"month" :  6, "day" :  6, "name" : MAG"全國愛眼日"NOR]),
+	([	"month" :  6, "day" : 21, "name" : HIG"父親節"NOR]),
+	([	"month" :  6, "day" : 25, "name" : MAG"全國土地日"NOR]),
+	([	"month" :  6, "day" : 26, "name" : MAG"國際禁毒日"NOR]),
+	([	"month" :  7, "day" :  1, "name" : RED"中共建黨節"NOR]),
+	([	"month" :  7, "day" :  1, "name" : HIR"香港迴歸日"NOR]),
+	([	"month" :  7, "day" :  1, "name" : HIY"世界建築日"NOR]),
+	([	"month" :  7, "day" :  7, "name" : RED"抗戰紀念日"NOR]),
 	([	"month" :  7, "day" : 11, "name" : GRN"世界人口日"NOR]),
-	([	"month" :  8, "day" :  1, "name" : GRN"建军节"NOR]),
-	([	"month" :  9, "day" :  8, "name" : YEL"国际扫盲日"NOR]),
-	([	"month" :  9, "day" :  8, "name" : YEL"国际新闻人团结日"NOR]),
-	([	"month" :  9, "day" : 10, "name" : YEL"中国教师节"NOR]),
-	([	"month" :  9, "day" : 16, "name" : HIG"国际和平节"NOR]),
-	([	"month" :  9, "day" : 20, "name" : YEL"中国爱牙日"NOR]),
-	([	"month" :  9, "day" : 27, "name" : YEL"世界旅游日"NOR]),
-	([	"month" : 10, "day" :  1, "name" : RED"中国国庆节"NOR]),
-	([	"month" : 10, "day" :  1, "name" : RED"世界音乐节"NOR]),
+	([	"month" :  8, "day" :  1, "name" : GRN"建軍節"NOR]),
+	([	"month" :  9, "day" :  8, "name" : YEL"國際掃盲日"NOR]),
+	([	"month" :  9, "day" :  8, "name" : YEL"國際新聞人團結日"NOR]),
+	([	"month" :  9, "day" : 10, "name" : YEL"中國教師節"NOR]),
+	([	"month" :  9, "day" : 16, "name" : HIG"國際和平節"NOR]),
+	([	"month" :  9, "day" : 20, "name" : YEL"中國愛牙日"NOR]),
+	([	"month" :  9, "day" : 27, "name" : YEL"世界旅遊日"NOR]),
+	([	"month" : 10, "day" :  1, "name" : RED"中國國慶節"NOR]),
+	([	"month" : 10, "day" :  1, "name" : RED"世界音樂節"NOR]),
 	([	"month" : 10, "day" :  5, "name" : RED"世界住房日"NOR]),
-	([	"month" : 10, "day" :  9, "name" : RED"世界邮政日"NOR]),
-	([	"month" : 10, "day" : 14, "name" : RED"世界标准日"NOR]),
-	([	"month" : 10, "day" : 16, "name" : RED"世界粮食日"NOR]),
-	([	"month" : 10, "day" : 24, "name" : RED"联合国日"NOR]),
-	([	"month" : 10, "day" : 31, "name" : RED"世界勤俭日"NOR]),
-	([	"month" : 11, "day" :  1, "name" : HIB"万圣节"NOR]),
-	([	"month" : 11, "day" : 17, "name" : HIY"国际学生日"NOR]),
-	([	"month" : 11, "day" : 25, "name" : HIY"感恩节"NOR]),
-	([	"month" : 12, "day" :  5, "name" : BLU"国际志愿人员日"NOR]),
-	([	"month" : 12, "day" : 10, "name" : BLU"世界人权日"NOR]),
-	([	"month" : 12, "day" : 20, "name" : HIG"澳门回归日"NOR]),
-	([	"month" : 12, "day" : 24, "name" : BLU"圣诞夜"NOR]),
-	([	"month" : 12, "day" : 25, "name" : BLU"圣诞节"NOR]),
+	([	"month" : 10, "day" :  9, "name" : RED"世界郵政日"NOR]),
+	([	"month" : 10, "day" : 14, "name" : RED"世界標準日"NOR]),
+	([	"month" : 10, "day" : 16, "name" : RED"世界糧食日"NOR]),
+	([	"month" : 10, "day" : 24, "name" : RED"聯合國日"NOR]),
+	([	"month" : 10, "day" : 31, "name" : RED"世界勤儉日"NOR]),
+	([	"month" : 11, "day" :  1, "name" : HIB"萬聖節"NOR]),
+	([	"month" : 11, "day" : 17, "name" : HIY"國際學生日"NOR]),
+	([	"month" : 11, "day" : 25, "name" : HIY"感恩節"NOR]),
+	([	"month" : 12, "day" :  5, "name" : BLU"國際志願人員日"NOR]),
+	([	"month" : 12, "day" : 10, "name" : BLU"世界人權日"NOR]),
+	([	"month" : 12, "day" : 20, "name" : HIG"澳門迴歸日"NOR]),
+	([	"month" : 12, "day" : 24, "name" : BLU"聖誕夜"NOR]),
+	([	"month" : 12, "day" : 25, "name" : BLU"聖誕節"NOR]),
 });
 mixed LunarCal = ({ 
 	({ 23,  3, 2, 17, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0 }),  /* 1936 */ 
@@ -185,7 +185,7 @@ mixed SolarDays = ({
 int Source, SolarYear, SolarMonth, SolarDate; 
 int LunarYear, LunarMonth, LunarDate, Weekday, Gan, Zhi;
 nosave string *sym_tian=({ "甲","乙","丙","丁","戊","己","庚","辛","壬","癸" });
-nosave string *sym_di=({ "子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥" }); 
+nosave string *sym_di=({ "子","醜","寅","卯","辰","巳","午","未","申","酉","戌","亥" }); 
 string lunar(string arg);
 void prepare();
 
@@ -199,7 +199,7 @@ int main(object me, string arg)
 	{
 		string yy,mm,dd;
 		sscanf(arg, "%d-%d-%d", yy, mm, dd);
-		write( "换算的日期 "+HIC"黄帝历"+lunar(yy+" "+mm+" "+dd+NOR));
+		write( "換算的日期 "+HIC"黃帝歷"+lunar(yy+" "+mm+" "+dd+NOR));
 		return 1;
 	}
 	now = localtime(time());
@@ -212,13 +212,13 @@ int main(object me, string arg)
 	if(d) time = chinese_number(d) + "天";
 	else time = "";
 
-	if(h) time += chinese_number(h) + "小时";
+	if(h) time += chinese_number(h) + "小時";
 	if(m) time += chinese_number(m) + "分";
 	time += chinese_number(s) + "秒\n";
 
-	write( "侠客行一百已运行 "HIR + time + NOR);
-	write( "现在的侠客行时间 "HIG + NATURE_D->game_time() + "\n"NOR);
-	printf("现在的 北京 时间 "HIY"%s年%s月%s日%s时%s分%s秒，星期%s "NOR,
+	write( "俠客行一百已運行 "HIR + time + NOR);
+	write( "現在的俠客行時間 "HIG + NATURE_D->game_time() + "\n"NOR);
+	printf("現在的 北京 時間 "HIY"%s年%s月%s日%s時%s分%s秒，星期%s "NOR,
 		chinese_number(now[LT_YEAR]),
 		chinese_number(now[LT_MON] + 1),
 		chinese_number(now[LT_MDAY]),
@@ -233,7 +233,7 @@ int main(object me, string arg)
 			printf(solarfete[i]["name"]+NOR);
 	}
 	write("\n");
-	write( "现在的 农历 日期 "+HIC"黄帝历"+lunar(now[LT_YEAR]+" "+(string)(now[LT_MON]+1)+" "+now[LT_MDAY])+NOR);
+	write( "現在的 農曆 日期 "+HIC"黃帝歷"+lunar(now[LT_YEAR]+" "+(string)(now[LT_MON]+1)+" "+now[LT_MDAY])+NOR);
 
 	prepare();
 	return 1;
@@ -349,7 +349,7 @@ string lunar(string arg)
 		SolarDate  = dd;
 		Source = 0;
 		CalConv();
-		lunarmsg = sprintf("%s年%s月%s日%s%s ", chinese_number(2697+LunarYear), LunarMonth<0 ? "闰"+chinese_number(-LunarMonth) : chinese_number(LunarMonth), chinese_number(LunarDate), sym_tian[Gan], sym_di[Zhi]);
+		lunarmsg = sprintf("%s年%s月%s日%s%s ", chinese_number(2697+LunarYear), LunarMonth<0 ? "閏"+chinese_number(-LunarMonth) : chinese_number(LunarMonth), chinese_number(LunarDate), sym_tian[Gan], sym_di[Zhi]);
 		for ( i=0; i<sizeof(lunarfete); i++)
 		{
 			if(lunarfete[i]["month"] == LunarMonth &&
@@ -373,9 +373,9 @@ void prepare()
 			msg = "明天是";
 		else
 			if (days == 2)
-				msg = "后天是";
+				msg = "後天是";
 			else
-				msg = "再过"+chinese_number(days)+"天是";
+				msg = "再過"+chinese_number(days)+"天是";
 		now = localtime(time() + days * 86400);
 		for ( i=0; i<sizeof(solarfete); i++)
 		{
@@ -406,10 +406,10 @@ int help(object me)
 	write(@HELP
 指令格式: time
 
-    这个指令让你知道现在的游戏时间、现实的北京时间和农历、节日，以
-及游戏已经连续进行的时间。
-    这个指令还能让你换算农历。如： time 1999-12-31，将得到当天的农
-历日期。
+    這個指令讓你知道現在的遊戲時間、現實的北京時間和農曆、節日，以
+及遊戲已經連續進行的時間。
+    這個指令還能讓你換算農曆。如： time 1999-12-31，將得到當天的農
+歷日期。
 
 HELP
 	);

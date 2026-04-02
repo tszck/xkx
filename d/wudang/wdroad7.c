@@ -7,8 +7,8 @@ void create()
 {
 	set("short", "小路");
 	set("long", @LONG
-这里一条静悄悄的黄土路，两旁有些小土屋，疏疏落落的。路上行
-人很少，都行色匆匆向前赶路。
+這裏一條靜悄悄的黃土路，兩旁有些小土屋，疏疏落落的。路上行
+人很少，都行色匆匆向前趕路。
 LONG);
 	set("outdoors", "sanbuguan");
 	set("exits", ([

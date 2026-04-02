@@ -15,12 +15,12 @@ int main(object me, string arg)
 
     wiz_status = SECURITY_D->get_status(me);
     if( wiz_status != "(admin)" && wiz_status != "(arch)" )
-        return notify_fail("只有 (arch) 以上的巫师才能封住时空\n");
+        return notify_fail("只有 (arch) 以上的巫師才能封住時空\n");
 
     seteuid(getuid());
     LOGIN_D->set_madlock(1);
-        message("system", "\n*** " + RANK_D->query_rank(me) + me->short(1) + "正在封锁时空. ***\n*** 空中发出咝咝的响声. 严酷的考验就要来临... ***\n", users());
-        write("处理中：");
+        message("system", "\n*** " + RANK_D->query_rank(me) + me->short(1) + "正在封鎖時空. ***\n*** 空中發出噝噝的響聲. 嚴酷的考驗就要來臨... ***\n", users());
+        write("處理中：");
 
     ob = users();
     for(i=0; i<sizeof(ob); i++) {
@@ -33,12 +33,12 @@ int main(object me, string arg)
             }
             else {
                 LOGIN_D->set_madlock(0);
-                return notify_fail("时空封锁失败了！！\n");
+                return notify_fail("時空封鎖失敗了！！\n");
             }
         }
     }
 
-    write("成功的封住了时空。\n");
+    write("成功的封住了時空。\n");
 
     return 1;
 }
@@ -48,7 +48,7 @@ int help (object me)
     write(@HELP
 指令格式: blockade
 
-封锁住现在的时空。。。。。。
+封鎖住現在的時空。。。。。。
 
 HELP
 );

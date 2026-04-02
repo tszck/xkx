@@ -12,29 +12,29 @@ int exert(object me)
   !me->query("perform/tiandi") &&
   !me->query("can_perform/linji-zhuang/tiandi") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("你所使用的内功中没有这种功能。");
+   return notify_fail("你所使用的內功中沒有這種功能。");
 
 	if (me->query_temp("ljtiandi"))
-		return notify_fail("你已经在运天地庄了！\n");
+		return notify_fail("你已經在運天地莊了！\n");
 
 	if (me->query("gender") != "女性" || me->query("sex/number"))
-		return notify_fail("你不是处女纯阴之体，不能运天地庄！\n");
+		return notify_fail("你不是處女純陰之體，不能運天地莊！\n");
 
 	if( me->is_fighting() )
-		return notify_fail("战斗中无法运天地庄！\n");
+		return notify_fail("戰鬥中無法運天地莊！\n");
 
 	if( (int)me->query("neili") < 100)
-		return notify_fail("你的真气不够。\n");
+		return notify_fail("你的真氣不夠。\n");
 
 	if( (int)me->query_skill("linji-zhuang",1) < 30)
-		return notify_fail("你的临济庄级别不够。\n");
+		return notify_fail("你的臨濟莊級別不夠。\n");
 
 	if( (int)me->query("eff_qi") < (int)me->query("max_qi") / 2 )
-		return notify_fail( "已经受伤过重，无法运功！\n");
+		return notify_fail( "已經受傷過重，無法運功！\n");
 
 	message_vision(
-HIM "$N坐了下来运起天地庄，将手掌贴在脸上，缓缓地将真气轻轻扑在脸上....
-过了不久，$N的脸上亮出晶莹的颜色，缓缓睁开的眼里透出青春的气息。\n" NOR,
+HIM "$N坐了下來運起天地莊，將手掌貼在臉上，緩緩地將真氣輕輕撲在臉上....
+過了不久，$N的臉上亮出晶瑩的顏色，緩緩睜開的眼裏透出青春的氣息。\n" NOR,
 	me );
 	me->add("neili", -100);
 	me->add("jing", -20);
@@ -50,22 +50,22 @@ void remove_effect(object me, int count)
 	me->add_temp("apply/personality",-count);
 	me->delete_temp("ljtiandi");
 	tell_object(me, 
-HIB "忽然你心里头感到一阵失落，原来你的天地庄收功了，你顿时
-倍感红颜老去之叹！\n" NOR );
+HIB "忽然你心裏頭感到一陣失落，原來你的天地莊收功了，你頓時
+倍感紅顏老去之嘆！\n" NOR );
 }
 
 int help(object me)
 {
-	write(WHT"\n临济十二庄之天地庄："NOR"\n");
+	write(WHT"\n臨濟十二莊之天地莊："NOR"\n");
 	write(@HELP
 
 	使用功效：
-		临时提高容貌
+		臨時提高容貌
 
 	出手要求：
-		临济十二庄30级
-		内力100
-		处女纯阴之体
+		臨濟十二莊30級
+		內力100
+		處女純陰之體
 HELP
 	);
 	return 1;

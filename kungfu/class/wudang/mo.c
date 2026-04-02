@@ -1,4 +1,4 @@
-// mo.c 莫声谷
+// mo.c 莫聲谷
 
 #include <ansi.h>
 inherit NPC;
@@ -13,9 +13,9 @@ string ask_me2();
 
 void create()
 {
-	set_name("莫声谷", ({ "mo shenggu", "mo" }));
-	set("nickname", "武当七侠");
-	set("long","他就是张三丰的最小弟子、武当七侠之末的莫声谷。\n身穿一件干干净净的灰色道袍。\n他自幼便少年老成，脾气粗豪直爽，长得魁梧奇伟，满脸的浓髯。\n武功内外兼修、刚柔合一。\n");
+	set_name("莫聲谷", ({ "mo shenggu", "mo" }));
+	set("nickname", "武當七俠");
+	set("long","他就是張三豐的最小弟子、武當七俠之末的莫聲谷。\n身穿一件乾乾淨淨的灰色道袍。\n他自幼便少年老成，脾氣粗豪直爽，長得魁梧奇偉，滿臉的濃髯。\n武功內外兼修、剛柔合一。\n");
 	set("gender", "男性");
 	set("age", 21);
 	set("attitude", "peaceful");
@@ -72,29 +72,29 @@ void create()
 	}) );
 	set("chat_chance", 20);
 	set("chat_msg", ({
-	"莫声谷轻声说道：在石柱面壁可以大有收获的。\n",
-	"莫声谷斜了你一眼：不过邪魔外道就不能面壁的了。\n",
-	"莫声谷自豪地说道：只有我武当才是天下的正宗。\n",
-	"莫声谷对张三丰的钦仰溢于言表：如果想成为绝顶高手，一定要学道德经。\n"
-	"莫声谷说道: 你知道江湖上的朋友为什么都尊称我们一声武当七侠吗？\n",
-	"莫声谷说道: 身为武当弟子应时时以侠义为先，你要切记啊！\n",
-	"莫声谷说道: 何为侠义之道？你自己好好想清楚吧。 \n",
-	"莫声谷说道: 青书那个畜生不知道躲哪去了，上次在峨嵋真不应该让他逃掉。\n"
-	"莫声谷说道: 下次再见到青书一定不能让他再跑了。 \n",
+	"莫聲谷輕聲說道：在石柱面壁可以大有收穫的。\n",
+	"莫聲谷斜了你一眼：不過邪魔外道就不能面壁的了。\n",
+	"莫聲谷自豪地說道：只有我武當纔是天下的正宗。\n",
+	"莫聲谷對張三豐的欽仰溢於言表：如果想成爲絕頂高手，一定要學道德經。\n"
+	"莫聲谷說道: 你知道江湖上的朋友爲什麼都尊稱我們一聲武當七俠嗎？\n",
+	"莫聲谷說道: 身爲武當弟子應時時以俠義爲先，你要切記啊！\n",
+	"莫聲谷說道: 何爲俠義之道？你自己好好想清楚吧。 \n",
+	"莫聲谷說道: 青書那個畜生不知道躲哪去了，上次在峨嵋真不應該讓他逃掉。\n"
+	"莫聲谷說道: 下次再見到青書一定不能讓他再跑了。 \n",
 	}));
 	set("inquiry", ([
-		"绕指柔剑" : (: ask_me :),
+		"繞指柔劍" : (: ask_me :),
 		"raozhi"   : (: ask_me :),
-		"宋青书"   : (: ask_me1 :),
+		"宋青書"   : (: ask_me1 :),
 		"qingshu"  : (: ask_me1 :),
 		"teach"    : (: ask_me2 :),
 		"指教"     : (: ask_me2 :),
-		"石柱"     : "在石柱面壁可以大有收获的。",
-		"面壁"     : "面壁是一定要注明技能的。",
-		"张三丰"   : "我恩师学究天人，尤其是他的道学心法。"
+		"石柱"     : "在石柱面壁可以大有收穫的。",
+		"面壁"     : "面壁是一定要註明技能的。",
+		"張三豐"   : "我恩師學究天人，尤其是他的道學心法。"
 	]));
 
-	create_family("武当派", 2, "弟子");
+	create_family("武當派", 2, "弟子");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();
@@ -112,7 +112,7 @@ void init()
 		call_out("qingshustory", 1, ob);
 	}
 	if( interactive(ob = this_player()) &&
-		ob->query("family/family_name") == "武当派" )
+		ob->query("family/family_name") == "武當派" )
 		call_out("greeting", 1, ob);
 }
 
@@ -134,22 +134,22 @@ string ask_me()
 		me->set("can_teach", 1);   
 		me->set("fight_mo", 1);
 		command("fight " + me->query("id"));
-		return "既然你帮我抓到了本派叛徒，你我可算有缘，就让我先试试你的身手吧。";
+		return "既然你幫我抓到了本派叛徒，你我可算有緣，就讓我先試試你的身手吧。";
 	}
         if (!(fam = this_player()->query("family")) ||
-		fam["family_name"] != "武当派")
+		fam["family_name"] != "武當派")
 	{ 
-		return RANK_D->query_respect(this_player()) +"有意要加入我武当派？";
+		return RANK_D->query_respect(this_player()) +"有意要加入我武當派？";
 	}
         if (query("first_ask") < 1)
 	{
 		command ("smile");	
-		return "「绕指柔剑」正是武当派的绝技。";
+		return "「繞指柔劍」正是武當派的絕技。";
 	}
   	add("first_ask", -1);
         me->set("know_raozhi", 1);
         command ("hehe");
-	return "这路「绕指柔剑」全仗以浑厚内力逼弯剑刃，使剑招闪烁无常，敌人难以挡架。";
+	return "這路「繞指柔劍」全仗以渾厚內力逼彎劍刃，使劍招閃爍無常，敵人難以擋架。";
 }
 
 string ask_me1()
@@ -158,26 +158,26 @@ string ask_me1()
 	object ob, qingshu, *obs, me = this_player();
         
 	if (!(fam = this_player()->query("family")) ||
-		fam["family_name"] != "武当派")
+		fam["family_name"] != "武當派")
 	{ 
 		command ("hmm");               	
-		return RANK_D->query_respect(this_player())+"， 青书和你是什么关系？";
+		return RANK_D->query_respect(this_player())+"， 青書和你是什麼關係？";
 	}	
         if (!(fam = this_player()->query("family")) ||
-		fam["family_name"] != "武当派")
+		fam["family_name"] != "武當派")
 	{ 
 		command ("hmm");               	
-               	return RANK_D->query_respect(this_player())+"， 请不要再提那个畜生！";
+               	return RANK_D->query_respect(this_player())+"， 請不要再提那個畜生！";
 	}
 	if (query("set_gocatch") < 1)
 	{
 		command ("hmm");	
-		return "我不想再提起那个畜生！";
+		return "我不想再提起那個畜生！";
 	}
   	add("set_gocatch", -1);
         me->set("set_gocatch", 1);
         command ("sigh ");
-        return "上次不小心被那个畜生逃走了，真是师门不幸。只可惜自从上次在峨嵋被他逃走后一直找不到他。";
+        return "上次不小心被那個畜生逃走了，真是師門不幸。只可惜自從上次在峨嵋被他逃走後一直找不到他。";
 }
 
 int do_fight(string arg)
@@ -190,8 +190,8 @@ int do_fight(string arg)
 	if (!objectp(ob)) return 0;
 	if (me->query("fight_mo", 1)) 
 	{       
-		tell_object(me,HIR "如果你要和莫声谷性命相搏，请你也对这个人下一次 kill 指令。\n" NOR);
-		message("vision", HIR"如果你要和莫声谷性命相搏，请你也对这个人下一次 kill 指令。\n看起来莫声谷想杀死" + me->name() +"\n"NOR, environment(), this_object() );
+		tell_object(me,HIR "如果你要和莫聲谷性命相搏，請你也對這個人下一次 kill 指令。\n" NOR);
+		message("vision", HIR"如果你要和莫聲谷性命相搏，請你也對這個人下一次 kill 指令。\n看起來莫聲谷想殺死" + me->name() +"\n"NOR, environment(), this_object() );
 		fight_ob(this_player());
 		add_action("do_halt", "halt");	
 		add_action("do_kill", "kill");
@@ -210,7 +210,7 @@ int do_halt()
 		ob->delete("halt_mo");
 		command("sigh"); 
 		command("halt");
-		command("say 既然如此，你走吧。我没有什么好教你的。");
+		command("say 既然如此，你走吧。我沒有什麼好教你的。");
 		return 1;
 	}
 }
@@ -223,10 +223,10 @@ int do_kill(string arg)
 	if ( !arg ) return 0;
 	ob = present(arg, environment());
 	if (!objectp(ob)) return 0;
-	if ((string)(me->query("family/family_name")) == "武当派" &&
+	if ((string)(me->query("family/family_name")) == "武當派" &&
 		ob->query("id") == "mo shenggu" )
 	{
-		message_vision("$N想杀掉$n。\n$n厉声对$N道：你我本同门，却为何想相害于我！\n$n厉声对$N道：你别妄想学到「绕指柔剑」！\n$n对$N很不满意！\n" , me, ob);
+		message_vision("$N想殺掉$n。\n$n厲聲對$N道：你我本同門，卻爲何想相害於我！\n$n厲聲對$N道：你別妄想學到「繞指柔劍」！\n$n對$N很不滿意！\n" , me, ob);
 		command ("sigh");
 		command ("disapp");
 		ob->delete("halt_mo");
@@ -242,11 +242,11 @@ int accept_object(object who, object ob)
 
 	if ( !who || environment(who) != environment() ) return 0;
 	if ( !objectp(ob) ) return 0; 
-	if ( !present(ob, who) ) return notify_fail("你没有这件东西。");
+	if ( !present(ob, who) ) return notify_fail("你沒有這件東西。");
 	if (who->query("know_raozhi") < 1) 
-		return notify_fail("你这么把青书弄成这样了！");
+		return notify_fail("你這麼把青書弄成這樣了！");
 	if (who->query("set_gocatch") < 1) 
-		return notify_fail("你想干什么？");
+		return notify_fail("你想幹什麼？");
 	if (  (string)ob->query("id") == "song qingshu" )
 	{		
 		who->delete("set_gocatch");
@@ -254,7 +254,7 @@ int accept_object(object who, object ob)
 		who->add("wudang/offerring", 10);
 		command	("thumb");
 		command("touch " + (string)who->query("id")); 
-		command("say" + RANK_D->query_respect(who) + "谢谢你帮我抓到了这个叛徒。 \n");
+		command("say" + RANK_D->query_respect(who) + "謝謝你幫我抓到了這個叛徒。 \n");
 		return 1;
 	}
         command("? " + who->query("id"));
@@ -269,30 +269,30 @@ string ask_me2()
 	if ((int)me->query("can_teach", 1) < 1)
 	{
 		command ("hmm");
-		return "你想请教什么？";
+		return "你想請教什麼？";
 	}
 	if ((int)me->query_skill("sword", 1) < 180)	
 	{
 		me->delete("can_teach");
 		command ("hmm");	
-		return "你的剑法功力太浅，不适宜学「绕指柔剑」";
+		return "你的劍法功力太淺，不適宜學「繞指柔劍」";
 	}
 	if ((int)me->query_skill("force", 1) < 180)	
 	{
 		me->delete("can_teach");
 		command ("hmm");	
-		return "你的内功火候太浅，不适宜学「绕指柔剑」";
+		return "你的內功火候太淺，不適宜學「繞指柔劍」";
 	}
 	me->set("wudang/raozhi", 1); 
 	me->add("wudang/offerring", 10);        
 	me->delete("can_teach");
 	command ("ok");
-	command ("say" + "你的知质品性深的我心，若你要学我就把「绕指柔剑」传授于你吧！\n");
+	command ("say" + "你的知質品性深的我心，若你要學我就把「繞指柔劍」傳授於你吧！\n");
 	if (!me->query("perform/raozhi"))
 	{
 		me->set("perform/raozhi",1);
 		me->add("perform/number",1);
 	}
-	return HIW"恭喜你学会了「绕指柔剑」！\n"NOR;
+	return HIW"恭喜你學會了「繞指柔劍」！\n"NOR;
 }
 

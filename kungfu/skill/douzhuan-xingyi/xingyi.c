@@ -17,7 +17,7 @@ int perform(object me)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 	return 1;
 }
 string name() {return replace_string(replace_string(PNAME,"「",""),"」","");}
@@ -28,13 +28,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		利用对手武功的绝招更狠更快地出手
+		利用對手武功的絕招更狠更快地出手
 
 	出手要求：
-		基本招架120级
-		斗转星移120级
-		神元功120级
-		内力500
+		基本招架120級
+		鬥轉星移120級
+		神元功120級
+		內力500
 HELP
 	);
 	return 1;

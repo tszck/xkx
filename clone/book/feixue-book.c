@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIC"飞雪掌谱"NOR, ({ "feixue-book" }));
+	set_name(HIC"飛雪掌譜"NOR, ({ "feixue-book" }));
 	set_weight(600);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一本学飞雪映梅掌的书。\n");
+		set("long", "這是一本學飛雪映梅掌的書。\n");
 		set("value", 1000);
 		set("material", "paper");
 		set("skill", ([

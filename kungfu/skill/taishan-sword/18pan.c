@@ -1,9 +1,9 @@
 // Last Modified by winder on Aug. 25 2001
-// 18pan.c 泰山十八盘 
+// 18pan.c 泰山十八盤 
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "「泰山十八盘」"
+#define PNAME "「泰山十八盤」"
 int perform(object me,object target)
 {
 	string msg;
@@ -19,18 +19,18 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	fskill = "panshi-shengong";
 	bskill = "sword";
@@ -44,32 +44,32 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 70 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，使不出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 80 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为不够，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，使不出"+PNAME+"。\n");
 
 	if( me->query("neili") < 300 )
-		return notify_fail("你的内力不够，无法运用泰山十八盘！\n");
+		return notify_fail("你的內力不夠，無法運用泰山十八盤！\n");
 
 	if( me->query("max_neili") < 400 )
-		return notify_fail("你的内力修为不够，无法运用泰山十八盘！\n");
+		return notify_fail("你的內力修爲不夠，無法運用泰山十八盤！\n");
 
 	if( target->is_busy() )
-		return notify_fail(target->name()+"已经自顾不暇了，放胆攻击吧！\n");
+		return notify_fail(target->name()+"已經自顧不暇了，放膽攻擊吧！\n");
 
 	skill = me->query_skill(bskill,1);
-	msg = CYN "$N使出泰山十八盘剑法之缠剑式，一把剑闪出十八道剑影！\n";
+	msg = CYN "$N使出泰山十八盤劍法之纏劍式，一把劍閃出十八道劍影！\n";
 	me->start_busy(1);
 	me->add("neili",-100);
 	if( random(me->query("combat_exp") + skill*1000) > (int)target->query("combat_exp")/3 )
 	{
-		msg += HIY"结果$n被缠个动弹不得！\n" NOR;
+		msg += HIY"結果$n被纏個動彈不得！\n" NOR;
 		target->start_busy( skill / 40 + 2);
 	} else
 	{
-		msg += HIC"可是$n看破了$N的剑招，一拧身跃出了剑影。\n" NOR;
-		msg += HIY"$N却一下失去平衡，反陷入了被动。\n" NOR;
+		msg += HIC"可是$n看破了$N的劍招，一擰身躍出了劍影。\n" NOR;
+		msg += HIY"$N卻一下失去平衡，反陷入了被動。\n" NOR;
 		me->start_busy(3);
 	}
 	 message_combatd(msg, me, target);
@@ -84,13 +84,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		迟滞对手出招
+		遲滯對手出招
 
 	出手要求：
-		磐石神功70级
-		泰山剑法80级
-		内力修为400
-		内力300
+		磐石神功70級
+		泰山劍法80級
+		內力修爲400
+		內力300
 HELP
 	);
 	return 1;

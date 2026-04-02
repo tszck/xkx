@@ -18,7 +18,7 @@ int  main(object  me,  string  arg)
     string  *dir/*,  *ppls*/,  name,  address;
 
     if  (!wizardp(me))
-        return  notify_fail("你没有权力使用这个指令。\n");
+        return  notify_fail("你沒有權力使用這個指令。\n");
 
     if  (!arg)
 	        return  notify_fail("指令格式：sameip  <使用者姓名>  |  <IP  地址>\n");
@@ -34,21 +34,21 @@ int  main(object  me,  string  arg)
 if  (name  !=  arg)  {
     name=arg;
     if(  file_size(DATA_DIR  +  "login/"  +  name[0..0]  +  "/"  +  name  +  __SAVE_EXTENSION__)<0  )
-        return  notify_fail("没有这位使用者。\n");
+        return  notify_fail("沒有這位使用者。\n");
 
     who  =  new(LOGIN_OB);
     who->set("id",  name);
     if  (!  who->restore())
-        return  notify_fail("没有这位使用者。\n");
+        return  notify_fail("沒有這位使用者。\n");
 
-    write(who->query("name")+"上次从  "+who->query("last_from")+"  上线。\n");
+    write(who->query("name")+"上次從  "+who->query("last_from")+"  上線。\n");
     if  (!  who->query("last_from"))
         return  notify_fail("");
     address  =  ip2add((string)who->query("last_from"));
 }
 else  address  =  arg;
 
-    write("寻找从  "+address+"  上线的使用者：\n");
+    write("尋找從  "+address+"  上線的使用者：\n");
     count  =  0;
     dir  =  get_dir(DATA_DIR  +  "login/");
     i  =  0;
@@ -82,7 +82,7 @@ void  search_dir  (int  count,  string  *dir,  int  i,  string  address,  object
     string  info;
 
     if  (i  ==  sizeof(dir))  {
-          tell_object(me,"共有"+to_chinese(count)+"位使用者从这个地址上线。\n");
+          tell_object(me,"共有"+to_chinese(count)+"位使用者從這個地址上線。\n");
     }  else  {
         ppls  =  get_dir(DATA_DIR  +  "login/"  +  dir[i]  +  "/");
         for(j=0;  j<sizeof(ppls);  j++)  {
@@ -129,7 +129,7 @@ int  help(object  me)
 write(@HELP
 指令格式：  sameip  <使用者姓名>  |  <IP  地址>
 
-查找所有与使用者用同一地址上线的使用者。
+查找所有與使用者用同一地址上線的使用者。
 HELP
     );
         return  1;

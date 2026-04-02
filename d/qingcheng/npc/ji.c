@@ -8,7 +8,7 @@ void create()
 	set_name("吉人通", ({ "ji rentong", "ji", "rentong" }));
 	set("gender", "男性");
 	set("age", 25);
-	set("long", "他就是和申人俊焦孟不离的吉人通。\n");
+	set("long", "他就是和申人俊焦孟不離的吉人通。\n");
 
 	set("combat_exp", 60000);
 	set("shen_type", -1);

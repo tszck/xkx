@@ -3,9 +3,9 @@
 inherit ROOM;
 void create()
 {
-	set("short", "风雷堂");
+	set("short", "風雷堂");
 	set("long", @LONG
-这里是日月神教教下第一大堂。这里距黑目崖不远，教下第一大堂
+這裏是日月神教教下第一大堂。這裏距黑目崖不遠，教下第一大堂
 堂主童百熊把掌此堂。
 LONG);
 	set("exits", ([

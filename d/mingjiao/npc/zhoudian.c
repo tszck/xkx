@@ -6,13 +6,13 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("周颠", ({ "zhou dian", "zhou", "dian", }));
+	set_name("周顛", ({ "zhou dian", "zhou", "dian", }));
 	set("long",
-	"他是一位疯疯颠颠的老者，身穿一件白布长袍。\n"
-	"他总是慌慌张张的，先天下之急而急。\n"
+	"他是一位瘋瘋顛顛的老者，身穿一件白布長袍。\n"
+	"他總是慌慌張張的，先天下之急而急。\n"
 	);
 
-	set("nickname", "没事不颠有事颠");
+	set("nickname", "沒事不顛有事顛");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "scholar");

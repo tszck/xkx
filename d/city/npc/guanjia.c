@@ -1,4 +1,4 @@
-// guanjia.c 财主管家
+// guanjia.c 財主管家
 
 inherit NPC;
 

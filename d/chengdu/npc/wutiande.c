@@ -5,7 +5,7 @@
 inherit NPC;
 void create()
 {
-	set_name("吴天德", ({ "wu tiande", "wu" }));
+	set_name("吳天德", ({ "wu tiande", "wu" }));
 	set("title", "成都提督");
 	set("shen_type", 0);
 
@@ -13,7 +13,7 @@ void create()
 	set_max_encumbrance(100000000);
 	set("age", 35);
 	set("long",
-		"吴天德大人原来只是一个参将，自从给令狐冲变成小白脸后，居然官运亨通，不但提\n为总兵，还能出督全川之兵。\n");
+		"吳天德大人原來只是一個參將，自從給令狐沖變成小白臉後，居然官運亨通，不但提\n爲總兵，還能出督全川之兵。\n");
 	set("no_get_from", 1);
 
 	set_skill("unarmed", 60);

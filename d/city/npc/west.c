@@ -1,13 +1,13 @@
-// west.c 西家红娘子
+// west.c 西家紅娘子
 inherit NPC;
 
 void create()
 {
-	set_name("红娘子", ({ "hongniangzi"}));
+	set_name("紅娘子", ({ "hongniangzi"}));
 	set("age", 30);
 	set("gender", "女性");
 	set("title", "西家");
-	set("long","她就是红娘子，虽然他老公被人切了头，成了李闯王自毁的长城，她在这里堆起长城也是毫不含糊。\n");
+	set("long","她就是紅娘子，雖然他老公被人切了頭，成了李闖王自毀的長城，她在這裏堆起長城也是毫不含糊。\n");
 	set("attitude", "peaceful");
 	set("str", 24);
 	set("dex", 16);

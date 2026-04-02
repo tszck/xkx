@@ -5,12 +5,12 @@ inherit CLOTH;
 
 void create()
 {
-	set_name("泳裤", ({"swimming cloth", "yong ku", "cloth"}));
+	set_name("泳褲", ({"swimming cloth", "yong ku", "cloth"}));
 	set_weight(3000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "条");
+		set("unit", "條");
 		set("value", 4000);
 		set("material", "cloth");
 		set("armor_prop/armor", 15);

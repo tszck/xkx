@@ -4,10 +4,10 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short", "泊舟坞");
+	set("short", "泊舟塢");
 	set("long",@LONG
-一片芦苇，茭白丛中现出一座船坞，大小船只依次排开。菱花荷叶
-丛中条条水道四通八达，由此可乘船离开燕子坞。湖面正系着几尾小舟
+一片蘆葦，茭白叢中現出一座船塢，大小船隻依次排開。菱花荷葉
+叢中條條水道四通八達，由此可乘船離開燕子塢。湖面正繫着幾尾小舟
 (zhou)。
 LONG );
 	set("outdoors", "yanziwu");
@@ -15,12 +15,12 @@ LONG );
 		"east"  : __DIR__"pindi",
 	]));
 	set("item_desc", ([
-		"zhou" : "这是燕子坞和湖外联系的各色小舟。岛上的客人只要登舟(enter)就可以出发了。
+		"zhou" : "這是燕子塢和湖外聯繫的各色小舟。島上的客人只要登舟(enter)就可以出發了。
 素色小舟(white)  : 出湖
-绿色小舟(green)  : 前往青云庄
-红色小舟(red)    : 前往赤霞庄
-黄色小舟(yellow) : 前往金凤庄
-黑色小舟(black)  : 前往玄霜庄
+綠色小舟(green)  : 前往青雲莊
+紅色小舟(red)    : 前往赤霞莊
+黃色小舟(yellow) : 前往金鳳莊
+黑色小舟(black)  : 前往玄霜莊
 \n",
 	]));
 	set("no_clean_up", 0);
@@ -43,16 +43,16 @@ int do_enter(string arg)
 	 	return 1 ;
 	}
 	ob = this_player();
-message_vision("船上一个秀美温柔的江南少女看到$N登舟，竹篙轻点，舟已离岸，燕子
-坞渐渐在视野里远去。\n", ob);
+message_vision("船上一個秀美溫柔的江南少女看到$N登舟，竹篙輕點，舟已離岸，燕子
+塢漸漸在視野裏遠去。\n", ob);
 	ob ->move(__DIR__"taihu") ;
-	tell_object(ob, HIG "你在湖上飘流，四周看不尽的江南美景。\n" NOR ) ;
+	tell_object(ob, HIG "你在湖上飄流，四周看不盡的江南美景。\n" NOR ) ;
 	call_out("home", 10, ob, arg);
 	return 1 ;
 }
 void home(object ob, string arg)
 {
-	tell_object(ob , "小舟终于恋恋不舍地靠岸了。你走下小舟来。少女挥手依依道别。\n" ) ;
+	tell_object(ob , "小舟終於戀戀不捨地靠岸了。你走下小舟來。少女揮手依依道別。\n" ) ;
 	switch (arg)
 	{
 		case "white"  : ob->move (__DIR__"hupan"); break;

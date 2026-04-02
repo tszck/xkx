@@ -4,10 +4,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("黄蓉", ({"huang rong", "huang", "rong"}));
+	set_name("黃蓉", ({"huang rong", "huang", "rong"}));
 	set("gender", "女性");
 	set("age", 36);
-	set("long", "她是北侠郭靖的夫人，东邪黄药师的爱女，前任丐帮帮主。\n");
+	set("long", "她是北俠郭靖的夫人，東邪黃藥師的愛女，前任丐幫幫主。\n");
 
 	set("attitude", "peaceful");
 	   
@@ -45,7 +45,7 @@ void create()
 	map_skill("dodge"  , "anying-fuxiang");
 	map_skill("sword"  , "luoying-shenjian") ;
 	   
-	create_family("桃花岛", 2, "弟子");
+	create_family("桃花島", 2, "弟子");
 	setup();
 	carry_object("/kungfu/class/taohua/obj/ruanwei")->wear();
 	carry_object("/kungfu/class/taohua/obj/shudai")->wear();
@@ -66,7 +66,7 @@ int accept_object(object who, object ob)
 		who->set_temp("mark/蓉", 0);
 	if (ob->query("money_id") && ob->value() >= 1000)
 	{
-		message_vision("黄蓉同意指点$N一些烹饪手艺的问题。\n", who);
+		message_vision("黃蓉同意指點$N一些烹飪手藝的問題。\n", who);
 		who->add_temp("mark/蓉", ob->value() / 500);
 		return 1;
 	}

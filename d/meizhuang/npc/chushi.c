@@ -6,10 +6,10 @@ string ask_me();
 
 void create()
 {
-	set_name("厨师", ({ "chu shi", "chu" }));
-	set("title", "梅庄");
+	set_name("廚師", ({ "chu shi", "chu" }));
+	set("title", "梅莊");
 	set("long",
-		"梅庄的一名厨师，笑眯眯地看着你，看来很和善的样子。\n");
+		"梅莊的一名廚師，笑眯眯地看着你，看來很和善的樣子。\n");
 	set("gender", "男性");
 	set("age", 34);
 	set("attitude", "peaceful");
@@ -34,7 +34,7 @@ void create()
 	set_skill("parry", 10);
 
 	set("inquiry", ([
-		"吃饭" : (: ask_me :),
+		"喫飯" : (: ask_me :),
 	]));
 	setup();
 }
@@ -47,10 +47,10 @@ string ask_me()
 
 	object me=this_player();
 	if(!(fam = me->query("family")) || fam["family_name"] != "黑木崖")
-		return RANK_D->query_respect(me) + "与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(me) + "與本派素無來往，不知此話從何談起？";
 
 	me->set("food", (int)me->max_food_capacity());
 	me->set("water", (int)me->max_water_capacity());
 
-	return "慢慢吃！别噎住了。";
+	return "慢慢喫！別噎住了。";
 }

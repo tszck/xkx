@@ -1,16 +1,16 @@
 // Last Modified by winder on Apr. 25 2001
-// pi4.c 裨将 白虎内门
+// pi4.c 裨將 白虎內門
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("裨将", ({ "pi jiang", "pi", "jiang" }));
+	set_name("裨將", ({ "pi jiang", "pi", "jiang" }));
 	set("gender", "男性");
 	set("age", random(10) + 30);
 	set("str", 25);
 	set("dex", 16);
-	set("long", "这是一个大宋年轻将领，满脸征尘。\n");
+	set("long", "這是一個大宋年輕將領，滿臉徵塵。\n");
 	set("combat_exp", 45000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");
@@ -51,15 +51,15 @@ void greeting(object ob)
 	if( !ob || environment(ob) != environment() ) return;
 	if(ob->query_temp("guosc_mis_flag")==2)
 	{
-		say("裨将皱了皱眉：这位" + RANK_D->query_respect(ob) + "，你还是安心守城吧。\n");
+		say("裨將皺了皺眉：這位" + RANK_D->query_respect(ob) + "，你還是安心守城吧。\n");
 	}	
 	else if(ob->query_temp("guosc_mis_flag")==1)
 	{
-		say("裨将拱手说道：这位" + RANK_D->query_respect(ob) + "，你来得正是时候，蒙古靼子已经快攻上城了。\n");
+		say("裨將拱手說道：這位" + RANK_D->query_respect(ob) + "，你來得正是時候，蒙古靼子已經快攻上城了。\n");
 	}
 	if(ob->query_temp("guosc_mis_flag")==3)
 	{
-		say("裨将拱手说道：这位" + RANK_D->query_respect(ob) + "，你已经可以回去复命了。\n");
+		say("裨將拱手說道：這位" + RANK_D->query_respect(ob) + "，你已經可以回去覆命了。\n");
 		return;
 	}
 }

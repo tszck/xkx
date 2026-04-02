@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "树洞下");
+	set("short", "樹洞下");
 	set("long", @LONG
-这是老槐树底部，四周光线昏暗，人影晃晃，似乎有几个黑暗的洞
-口在你身边，通向四面八方。一位老乞丐大咧咧地坐在正中的地上。不
-经意中你发现墙壁上画着幅粗糙的路线草图（map）。
+這是老槐樹底部，四周光線昏暗，人影晃晃，似乎有幾個黑暗的洞
+口在你身邊，通向四面八方。一位老乞丐大咧咧地坐在正中的地上。不
+經意中你發現牆壁上畫着幅粗糙的路線草圖（map）。
 LONG );
 	set("no_fight", 1);
 	set("exits", ([
@@ -31,19 +31,19 @@ LONG );
 		"f"    : __DIR__"cdandao1",
 	]));
 	set("item_desc",([ "map" : 
-		"出口零：通往岳阳。\n"
+		"出口零：通往嶽陽。\n"
 		"出口一：通往小村。\n" +
 		"出口二：通往竹林。\n" +
 		"出口三：通往少林。\n" +
 		"出口四：通往星宿。\n" +
-		"出口五：通往武当。\n" +
-		"出口六: 通往华山。\n" +
+		"出口五：通往武當。\n" +
+		"出口六: 通往華山。\n" +
 		"出口七：通往北京。\n" +
-		"出口八：通往嘉兴。\n" +
+		"出口八：通往嘉興。\n" +
 		"出口九：通往雪山。\n" +
 		"出口Ａ：通往大理。\n" +
 		"出口Ｂ：通往福州。\n"
-		"出口Ｃ：通往无锡。\n"
+		"出口Ｃ：通往無錫。\n"
 		"出口Ｆ：通往成都。\n"
 	]));
 	set("objects",([
@@ -60,10 +60,10 @@ void init()
 	object ob = this_player();
 	mapping myfam;
 	myfam = (mapping)ob->query("family");
-	if (!myfam || myfam["family_name"] != "丐帮")
+	if (!myfam || myfam["family_name"] != "丐幫")
 	{
-		message_vision("\n粱长老看到$N闯进来，大喝一声：你不是丐帮弟子，给我滚出去！\n\n", ob);
+		message_vision("\n粱長老看到$N闖進來，大喝一聲：你不是丐幫弟子，給我滾出去！\n\n", ob);
 		ob->move("/d/gaibang/inhole");
-		message("vision", "只听“乒”地一声，" + ob->query("name") + "从小门里飞了出来。\n", environment(ob), ob);
+		message("vision", "只聽“乒”地一聲，" + ob->query("name") + "從小門裏飛了出來。\n", environment(ob), ob);
 	}
 }

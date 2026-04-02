@@ -6,11 +6,11 @@ string do_quit(string arg);
 
 void create()
 {
-	set("short", "擂台");
+	set("short", "擂臺");
 	set("long", @LONG
-这是一个四丈见方的擂台。粗壮结实的木柱撑起一片平台，四角的
-支柱上高挂着四副对联，四面的观众都能清楚地看到台上的手起脚落。
-擂台角上有个兵器架(shelf) ，刀剑鞭棒样样俱全。
+這是一個四丈見方的擂臺。粗壯結實的木柱撐起一片平臺，四角的
+支柱上高掛着四副對聯，四面的觀衆都能清楚地看到臺上的手起腳落。
+擂臺角上有個兵器架(shelf) ，刀劍鞭棒樣樣俱全。
 LONG );
         set("outdoors", "yangzhouw");
 	set("item_desc", ([
@@ -40,19 +40,19 @@ string look_shelf()
 {
 	return 
 "\n
-一个很有年头的兵器架，红漆都剥落得差不多了。
-架上摆满了: 
-                 钢刀(blade)    长剑(sword)
-                 钢杖(staff)    长鞭(whip)
-                 铁锤(hammer)   长棍(club)
-                 铁棒(stick)    板斧(axe)
-                 钢钩(hook)     短兵(dagger)
-                 暗器(throwing) 钢甲(armor)
-                 长枪(spear)
+一個很有年頭的兵器架，紅漆都剝落得差不多了。
+架上擺滿了: 
+                 鋼刀(blade)    長劍(sword)
+                 鋼杖(staff)    長鞭(whip)
+                 鐵錘(hammer)   長棍(club)
+                 鐵棒(stick)    板斧(axe)
+                 鋼鉤(hook)     短兵(dagger)
+                 暗器(throwing) 鋼甲(armor)
+                 長槍(spear)
                  
-参加比武者可以按需要，随便拿取(take)使用。
+參加比武者可以按需要，隨便拿取(take)使用。
 
-                                侠客行擂台  敬启
+                                俠客行擂臺  敬啓
 \n";
 }
 
@@ -83,7 +83,7 @@ void init()
 int valid_leave(object me, string dir)
 {
         if( dir=="up" && !wizardp(me) )
-                return notify_fail("裁判席只有被特邀才能进去。\n");
+                return notify_fail("裁判席只有被特邀才能進去。\n");
 	me->set_temp("view_leitai",1);
 	me->delete("no_get");
         return ::valid_leave(me, dir);
@@ -92,21 +92,21 @@ int do_yun(string arg)
 {
 	if (arg=="roar")
 	{
-        write(this_player()->query("name")+"，专心比武吧！\n");
+        write(this_player()->query("name")+"，專心比武吧！\n");
 	return 0;
 	}
 	return 1;
 }
 int do_quit(string arg)
 {
-        write(this_player()->query("name")+"，专心比武吧！\n");
+        write(this_player()->query("name")+"，專心比武吧！\n");
 	return 1;
 }
 int do_open()
 {
 	if(wizardp(this_player()))
 	{
-		message_vision("$N把兵器架启封了。\n", this_player());
+		message_vision("$N把兵器架啓封了。\n", this_player());
 		this_object()->delete("no_openshelf");
 		return 1;
 	}
@@ -116,7 +116,7 @@ int do_close()
 {
 	if(wizardp(this_player()))
 	{
-		message_vision("$N拿了条封条把兵器架给封了。\n", this_player());
+		message_vision("$N拿了條封條把兵器架給封了。\n", this_player());
 		this_object()->set("no_openshelf", 1);
 		return 1;
 	}
@@ -128,12 +128,12 @@ int do_take(string arg)
 	ob = this_player();
 	if(this_object()->query("no_openshelf"))
 	{
-		message_vision("非大比武的时候，兵器架给封住了。\n", ob);
+		message_vision("非大比武的時候，兵器架給封住了。\n", ob);
 		return 1;
 	}
 	if( !arg || arg=="" )
 	{
-		message_vision("$N站在兵器架前，还没想好要什么兵器。\n", ob);
+		message_vision("$N站在兵器架前，還沒想好要什麼兵器。\n", ob);
 		return 1;
 	}
 	switch (arg)
@@ -141,70 +141,70 @@ int do_take(string arg)
 		case "sword":
 			obj = new("/clone/weapon/changjian1");
 			obj -> move(ob);
-			message_vision("$N从兵器架上取下一口长剑。\n",ob);
+			message_vision("$N從兵器架上取下一口長劍。\n",ob);
 			break;
 		case "blade":
 			obj = new("/clone/weapon/gangdao1");
 			obj -> move(ob);
-			message_vision("$N从兵器架上取下一口钢刀。\n",ob);
+			message_vision("$N從兵器架上取下一口鋼刀。\n",ob);
 			break;
 		case "staff":
 			obj = new("/clone/weapon/gangzhang1");
 			obj -> move(ob);
-			message_vision("$N从兵器架上取下一杆钢杖。\n",ob);
+			message_vision("$N從兵器架上取下一杆鋼杖。\n",ob);
 			break;
 		case "whip":
 			obj = new("/clone/weapon/changbian1");
 			obj -> move(ob);
-			message_vision("$N从兵器架上取下一条长鞭。\n",ob);
+			message_vision("$N從兵器架上取下一條長鞭。\n",ob);
 			break;
 		case "stick":
 			obj = new("/clone/weapon/stick1");
 			obj -> move(ob);
-			message_vision("$N从兵器架上取下一条铁棒。\n",ob);
+			message_vision("$N從兵器架上取下一條鐵棒。\n",ob);
 			break;
 		case "club":
 			obj = new("/clone/weapon/qimeigun1");
 			obj -> move(ob);
-			message_vision("$N从兵器架上取下一条齐眉棍。\n",ob);
+			message_vision("$N從兵器架上取下一條齊眉棍。\n",ob);
 			break;
 		case "hammer":
 			obj = new("/clone/weapon/hammer1");
 			obj -> move(ob);
-			message_vision("$N从兵器架上取下一把铁锤。\n",ob);
+			message_vision("$N從兵器架上取下一把鐵錘。\n",ob);
 			break;
 		case "axe":
 			obj = new("/clone/weapon/axe1");
 			obj -> move(ob);
-			message_vision("$N从兵器架上取下一柄板斧。\n",ob);
+			message_vision("$N從兵器架上取下一柄板斧。\n",ob);
 			break;
 		case "throwing":
 			obj = new("/clone/weapon/lianzi1");
 			obj -> move(ob);
-			message_vision("$N从兵器架上取下一包铁莲子。\n",ob);
+			message_vision("$N從兵器架上取下一包鐵蓮子。\n",ob);
 			break;
 		case "dagger":
 			obj = new("/clone/weapon/dagger1");
 			obj -> move(ob);
-			message_vision("$N从兵器架上取下一把匕首。\n",ob);
+			message_vision("$N從兵器架上取下一把匕首。\n",ob);
 			break;
 		case "armor":
 			obj = new("/clone/weapon/tiejia");
 			obj -> move(ob);
-			message_vision("$N从兵器架上取下一副铁甲。\n",ob);
+			message_vision("$N從兵器架上取下一副鐵甲。\n",ob);
 			break;
 		case "hook":
 			obj = new("/clone/weapon/hook1");
 			obj -> move(ob);
-			message_vision("$N从兵器架上取下一柄钢钩。\n",ob);
+			message_vision("$N從兵器架上取下一柄鋼鉤。\n",ob);
 			break;
                 case "spear":
 			obj = new("/clone/weapon/changqiang1");
 			obj -> move(ob);
-			message_vision("$N从兵器架上取下一杆长枪。\n",ob);
+			message_vision("$N從兵器架上取下一杆長槍。\n",ob);
 			break;			
         	default:
-			message_vision("$N站在兵器架前，还没想好要什么兵器。\n", ob);
+			message_vision("$N站在兵器架前，還沒想好要什麼兵器。\n", ob);
 	}
 	return 1;
 }

@@ -1,10 +1,10 @@
-// jinglei.c 弹指惊雷
+// jinglei.c 彈指驚雷
 // Last Modified by winder on Mar. 10 2000
  
 #include <ansi.h>
  
 inherit F_SSERVER;
-#define PNAME "「弹指惊雷」"
+#define PNAME "「彈指驚雷」"
 int perform(object me,object target)
 {
 	string msg;
@@ -20,14 +20,14 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if( me->query_temp("weapon"))
 		return notify_fail("你使用了武器。\n");
@@ -47,13 +47,13 @@ int perform(object me,object target)
 		return notify_fail("你的"+to_chinese(fskill)+"未到火候, 不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(sskill)+"等级不够, 不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"等級不夠, 不能使用"+PNAME+"。\n");
 
 	if( me->query("neili") < 150 )
-		return notify_fail("你的内力不够，无法运用「弹指惊雷」！\n");
+		return notify_fail("你的內力不夠，無法運用「彈指驚雷」！\n");
  
 	skill = me->query_skill(bskill, 1);
-	msg = HIC "$N"HIC"使出弹指神通之「弹指惊雷」, 顿时眼内精光暴射，\n" NOR;
+	msg = HIC "$N"HIC"使出彈指神通之「彈指驚雷」, 頓時眼內精光暴射，\n" NOR;
 	message_combatd(msg, me, target);
  
 	dp = target->query("combat_exp")/4;
@@ -62,17 +62,17 @@ int perform(object me,object target)
 	{
 		if (target->query_temp("hmg_dzjm"))
 		{
-			msg += HIM "$n微微一笑，抢身而上，全然不顾$N的攻势，$N一指点在$n的气海穴上，$n似乎毫无知觉，反而痛下杀手，连连出招。\n"NOR;
+			msg += HIM "$n微微一笑，搶身而上，全然不顧$N的攻勢，$N一指點在$n的氣海穴上，$n似乎毫無知覺，反而痛下殺手，連連出招。\n"NOR;
 			me->start_busy(random(5) + 1);
 			me->add("neili", -150);
 		} else {
 			if(userp(me)) me->add("neili",-150);
-			msg =HIC"$n"HIC"只觉得眼前一花，气海穴上微微一痛，全身真气狂泄而出！\n"NOR ;
+			msg =HIC"$n"HIC"只覺得眼前一花，氣海穴上微微一痛，全身真氣狂泄而出！\n"NOR ;
 			if ( objectp(weapon2 = target->query_temp("weapon")))
 			{
-				msg += HIC"同时手腕一麻，手中";
+				msg += HIC"同時手腕一麻，手中";
 				msg += weapon2->name();
-				msg += HIC"脱手而出！\n" NOR;
+				msg += HIC"脫手而出！\n" NOR;
 				weapon2->move(environment(me));
 			}
 			wound = skill + random(400);
@@ -88,7 +88,7 @@ int perform(object me,object target)
 	}
 	else
 	{
-		msg ="可是$n的看破了$N的企图，立刻采取守势，使$P的「弹指惊雷」没有起到作用。\n"NOR;
+		msg ="可是$n的看破了$N的企圖，立刻採取守勢，使$P的「彈指驚雷」沒有起到作用。\n"NOR;
 		me->start_busy(3);
 	}
 	message_combatd(msg, me, target);
@@ -107,14 +107,14 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
-		减损对方内力
-		击落对方兵刃
+		損傷對方氣血
+		減損對方內力
+		擊落對方兵刃
 
 	出手要求：
-		碧波神功100级
-		弹指神通120级
-		内力150
+		碧波神功100級
+		彈指神通120級
+		內力150
 HELP
 	);
 	return 1;

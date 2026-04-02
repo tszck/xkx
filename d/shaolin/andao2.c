@@ -10,9 +10,9 @@ void create()
 {
 	set("short", "暗道");
 	set("long", @LONG
-这是一个阴暗潮湿的地道，四壁用粗糙的片岩垒垛而成，一
-颗颗水珠沿着墙壁滚下来，溅在地上。也许是因为长时间无人通
-行的缘故，整个地道弥漫着一股腐尸般的恶臭。
+這是一個陰暗潮溼的地道，四壁用粗糙的片岩壘垛而成，一
+顆顆水珠沿着牆壁滾下來，濺在地上。也許是因爲長時間無人通
+行的緣故，整個地道瀰漫着一股腐屍般的惡臭。
 LONG );
 	set("exits", ([
 		"up" : __DIR__"gulou1",
@@ -32,10 +32,10 @@ void init()
 	&& (int)ob->query_condition("bonze_jail") >= 0 )
 	{
 		message("vision",
-			HIY "只听水声哗啦啦地一响，一个满脸漆黑，全身泥浆的家伙爬了过来！\n\n" NOR, 
+			HIY "只聽水聲嘩啦啦地一響，一個滿臉漆黑，全身泥漿的傢伙爬了過來！\n\n" NOR, 
 			environment(ob), ob);
 
-		tell_object(ob, "你觉得混身轻松，总算走出了这个五行迷魂阵，逃出生天了！\n");
+		tell_object(ob, "你覺得混身輕鬆，總算走出了這個五行迷魂陣，逃出生天了！\n");
 
 		ob->set("startroom", START_ROOM);
 		ob->clear_condition("bonze_jail");

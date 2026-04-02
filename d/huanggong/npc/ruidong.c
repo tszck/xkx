@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("瑞栋", ({"rui dong", "rui", "dong"}));
+	set_name("瑞棟", ({"rui dong", "rui", "dong"}));
 	set("long",
-        "他是一位身材魁梧的豪爽汉子。\n");
+        "他是一位身材魁梧的豪爽漢子。\n");
                                                           
-	set("title",HIY "大内副总管" NOR);
+	set("title",HIY "大內副總管" NOR);
 	set("gender", "男性");
 	set("attitude", "peaceful");
 

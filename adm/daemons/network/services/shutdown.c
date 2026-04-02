@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 /*
@@ -70,5 +70,5 @@ void send_shutdown(string host, int port)
 void create()
 {
   seteuid(ROOT_UID);
-  set("channel_id", "网路关闭精灵");
+  set("channel_id", "網路關閉精靈");
 }

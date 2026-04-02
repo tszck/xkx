@@ -7,15 +7,15 @@ void create()
 {
 	set_name("沙通天", ({ "sha tongtian", "sha", "tongtian" }));
 	set("gender", "男性");
-	set("title", HIY"黄河帮帮主"NOR);
-	set("nickname", HIC"鬼门龙王"NOR);
+	set("title", HIY"黃河幫幫主"NOR);
+	set("nickname", HIC"鬼門龍王"NOR);
 	set("age", 43);
 	set("str", 25);
 	set("dex", 16);
 	set("per", 12);
-	set("long", "沙通天是个秃子，头上油光光地没半根头发，双目布满红丝，眼
-珠突出，生就一副异相。性子暴躁，武功却是出奇地高，江湖上
-无人不晓。\n");
+	set("long", "沙通天是個禿子，頭上油光光地沒半根頭髮，雙目佈滿紅絲，眼
+珠突出，生就一副異相。性子暴躁，武功卻是出奇地高，江湖上
+無人不曉。\n");
 	set("combat_exp", 200000);
 	set("shen_type", -1);
 	set("attitude", "peaceful");

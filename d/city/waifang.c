@@ -6,12 +6,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short","媚香楼");
+	set("short","媚香樓");
 	set("long",@LONG
-外房陈设幽雅，雕梁画栋，绣幕罗帏，地铺五彩绒毡，壁悬八爱名
-画，中挂湘竹灯四，系绘《六才》全本。中设楠木天然几，大理石四仙
-木桌，古铜瓶中养碧桃一枝。壁厢位置竹叶玛瑙榻床，红木圆台，甚是
-精巧。旁有一纱橱，橱门启处，别有洞天。
+外房陳設幽雅，雕樑畫棟，繡幕羅幃，地鋪五彩絨氈，壁懸八愛名
+畫，中掛湘竹燈四，系繪《六才》全本。中設楠木天然幾，大理石四仙
+木桌，古銅瓶中養碧桃一枝。壁廂位置竹葉瑪瑙榻牀，紅木圓臺，甚是
+精巧。旁有一紗櫥，櫥門啓處，別有洞天。
 LONG );
 	set("exits",([ /* sizeof() == 1 */
 		"east"  : __DIR__"woshi",
@@ -20,7 +20,7 @@ LONG );
 	set("objects", ([
 		__DIR__"npc/lulixian" : 1,
 	]));
-	create_door("east", "纱橱门", "west" , DOOR_CLOSED); 
+	create_door("east", "紗櫥門", "west" , DOOR_CLOSED); 
 	set("coor/x", 41);
 	set("coor/y", 21);
 	set("coor/z", 0);

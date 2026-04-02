@@ -1,17 +1,17 @@
 #include <ansi.h>
 
-object load_data(object user,object ob);         //从login ob中读取data
-object load_skill(object user);                  //从data中读取skill
-object check_user(object user,object ob);        //供logind.c调用
-int valid_scborn(object ob);                     //是否可以转生 供外部调用
-int save_data(object user,string arg);           //保存指定数据到loginob
+object load_data(object user,object ob);         //從login ob中讀取data
+object load_skill(object user);                  //從data中讀取skill
+object check_user(object user,object ob);        //供logind.c調用
+int valid_scborn(object ob);                     //是否可以轉生 供外部調用
+int save_data(object user,string arg);           //保存指定數據到loginob
 varargs int save_skill(object user,string arg,int lvl);//保存指定skill到login
-int save_force(object user);                     //保存所有内功到login
-int save_knowledge(object user);                 //保存所有知识技能到login
-varargs int save_perform(object user,string skill,string pfm);//保存一个技能的pfm到login
-int valid_perform(object me,string base_skill,string pfm);//外部调用 是否是保存的pfm
-int query_scborn_times(object me);               //外部调用 转生次数
-varargs int reborn(object user,string skill,string etc1,string etc2);//各级转生保存数据
+int save_force(object user);                     //保存所有內功到login
+int save_knowledge(object user);                 //保存所有知識技能到login
+varargs int save_perform(object user,string skill,string pfm);//保存一個技能的pfm到login
+int valid_perform(object me,string base_skill,string pfm);//外部調用 是否是保存的pfm
+int query_scborn_times(object me);               //外部調用 轉生次數
+varargs int reborn(object user,string skill,string etc1,string etc2);//各級轉生保存數據
 
 void create()
 {
@@ -68,7 +68,7 @@ int valid_scborn(object ob)
 	times = this_object()->query_scborn_times(ob);
 	switch(times)
 	{
-		case 0: //从未转生过
+		case 0: //從未轉生過
 			needexp = 5000000;
 			needskill = 350;
 			break;
@@ -93,25 +93,25 @@ int valid_scborn(object ob)
 			needskill = 1000;
 			break;
 		default: 
-		return notify_fail("你已经功德圆满了，不需要转生了。\n");
+		return notify_fail("你已經功德圓滿了，不需要轉生了。\n");
 	}
 	
 	if (ob->query("combat_exp")<needexp)
-	return notify_fail("你的经验尚浅，无法转世。\n");
+	return notify_fail("你的經驗尚淺，無法轉世。\n");
 	skl = ob->query_skills();
-	if (!mapp(skl)) return notify_fail("你的武功还没到家，多练练吧。\n");
+	if (!mapp(skl)) return notify_fail("你的武功還沒到家，多練練吧。\n");
 	sklname = keys(skl);
 	for (i=0;i<sizeof(skl);i++)
 		if (skl[sklname[i]]>=needskill)	count++;
-	if (count < 5) return notify_fail("你的武功还没到家，多练练吧。\n");
-	if (!ob->query("guangming_winner")) return notify_fail("你未见识过明教光明圣火阵，没资格转生。\n");
-	if (!ob->query("luohan_winner")) return notify_fail("你未见识过少林十八罗汉阵，没资格转生。\n");
-	if (!ob->query("qixing")) return notify_fail("你未见识过全真天罡北斗阵，没资格转生。\n");
-	if (!ob->query("KILLER")) return notify_fail("你知道大宗师长什么样吗？\n");
-	if (ob->query("KILLER") < needskill*(times+1)*(times+1)/10) return notify_fail("宗师对你的评价太差了，再努力一把吧。\n");
-//	if ((int)ob->query("gift/qingyun")< 500 * (times+1) ) return notify_fail("你在线完成任务次数太少，不能转生。\n");
+	if (count < 5) return notify_fail("你的武功還沒到家，多練練吧。\n");
+	if (!ob->query("guangming_winner")) return notify_fail("你未見識過明教光明聖火陣，沒資格轉生。\n");
+	if (!ob->query("luohan_winner")) return notify_fail("你未見識過少林十八羅漢陣，沒資格轉生。\n");
+	if (!ob->query("qixing")) return notify_fail("你未見識過全真天罡北斗陣，沒資格轉生。\n");
+	if (!ob->query("KILLER")) return notify_fail("你知道大宗師長什麼樣嗎？\n");
+	if (ob->query("KILLER") < needskill*(times+1)*(times+1)/10) return notify_fail("宗師對你的評價太差了，再努力一把吧。\n");
+//	if ((int)ob->query("gift/qingyun")< 500 * (times+1) ) return notify_fail("你在線完成任務次數太少，不能轉生。\n");
 //	if (member_array(getuid(ob),bid)>=0)
-//  return notify_fail("你的转生条件不够，没法转生。\n");
+//  return notify_fail("你的轉生條件不夠，沒法轉生。\n");
 
 	return 1;
 }
@@ -273,64 +273,64 @@ varargs int reborn(object user,string skill,string etc1,string etc2)
 	ob = user->query_temp("link_ob");
 	times = this_object()->query_scborn_times(user);
 	
-	save_data(user,"board_last_read");   //保存留言版读取信息
-	save_data(user,"bug");               //保存bug贡献
-	save_data(user,"bug_count");         //保存bug贡献总和
+	save_data(user,"board_last_read");   //保存留言版讀取信息
+	save_data(user,"bug");               //保存bug貢獻
+	save_data(user,"bug_count");         //保存bug貢獻總和
 	save_data(user,"home");              //保存房屋
 	save_data(user,"weapon");            //保存武器
-// 一转 应该是 reborn(user,"taiji-quan","zhen"); 保存taiji-quan和pfm zhen
-// 二转 应该是 reborn(user,"taiji-quan","literate"); 保存 两个技能
-// 三转 应该是 reborn(user,"taiji-quan","taiji-shengong"); 保存
-// 四转 应该是 reborn(user,"taiji-quan","taiji-jian");
-// 五转 应该是 reborn(user,"taiji-quan","taiji-jian","huifeng-jian");
-// 六转 应该是 reborn(user);
+// 一轉 應該是 reborn(user,"taiji-quan","zhen"); 保存taiji-quan和pfm zhen
+// 二轉 應該是 reborn(user,"taiji-quan","literate"); 保存 兩個技能
+// 三轉 應該是 reborn(user,"taiji-quan","taiji-shengong"); 保存
+// 四轉 應該是 reborn(user,"taiji-quan","taiji-jian");
+// 五轉 應該是 reborn(user,"taiji-quan","taiji-jian","huifeng-jian");
+// 六轉 應該是 reborn(user);
 	switch(times)
 	{
 		case 0:
-			save_skill(user,skill);           //保存一个技能100级
+			save_skill(user,skill);           //保存一個技能100級
 			if (stringp(etc1))
-				save_perform(user,skill,etc1);  //保存技能的一个pfm
-			ob->set("scborn/times",1);        //记录已经转生次数
+				save_perform(user,skill,etc1);  //保存技能的一個pfm
+			ob->set("scborn/times",1);        //記錄已經轉生次數
 			break;
 		case 1:
-			save_skill(user,skill);          //保存一个技能100级
-			save_perform(user,skill);	       //以及这个技能的所有pfm
-			save_skill(user,etc1,1);           //完整保存一个知识技能
-			ob->set("scborn/times",2);       //记录已经转生次数
+			save_skill(user,skill);          //保存一個技能100級
+			save_perform(user,skill);	       //以及這個技能的所有pfm
+			save_skill(user,etc1,1);           //完整保存一個知識技能
+			ob->set("scborn/times",2);       //記錄已經轉生次數
 			break;
 		case 2:
-			save_skill(user,skill);          //保存一个技能
-			save_perform(user,skill);	       //以及这个技能的所有pfm
-			save_knowledge(user);            //保存所有知识技能
-			save_skill(user,etc1);         //保存一个内功
-			ob->set("scborn/times",3);       //记录已经转生次数
+			save_skill(user,skill);          //保存一個技能
+			save_perform(user,skill);	       //以及這個技能的所有pfm
+			save_knowledge(user);            //保存所有知識技能
+			save_skill(user,etc1);         //保存一個內功
+			ob->set("scborn/times",3);       //記錄已經轉生次數
 			break;
 		case 3:
-			save_skill(user,skill);          //保存一个技能
-			save_perform(user,skill);	       //以及这个技能的所有pfm
-			save_skill(user,etc1);           //保存一个技能
-			save_perform(user,etc1);         //以及这个技能的所有pfm
-			save_force(user);                //保存所有内功
-			save_knowledge(user);            //保存所有知识技能
-			ob->set("scborn/times",4);       //记录已经转生次数
+			save_skill(user,skill);          //保存一個技能
+			save_perform(user,skill);	       //以及這個技能的所有pfm
+			save_skill(user,etc1);           //保存一個技能
+			save_perform(user,etc1);         //以及這個技能的所有pfm
+			save_force(user);                //保存所有內功
+			save_knowledge(user);            //保存所有知識技能
+			ob->set("scborn/times",4);       //記錄已經轉生次數
 			break;
 		case 4:
-			save_skill(user,skill);          //保存一个技能
-			save_perform(user,skill);	       //以及这个技能的所有pfm
-			save_skill(user,etc1);           //保存一个技能
-			save_perform(user,etc1);         //以及这个技能的所有pfm
-			save_skill(user,etc2);           //保存一个技能
-			save_perform(user,etc2);         //以及这个技能的所有pfm
-			save_force(user);                //保存所有内功
-			save_knowledge(user);            //保存所有知识技能
-			ob->set("scborn/times",5);       //记录已经转生次数
+			save_skill(user,skill);          //保存一個技能
+			save_perform(user,skill);	       //以及這個技能的所有pfm
+			save_skill(user,etc1);           //保存一個技能
+			save_perform(user,etc1);         //以及這個技能的所有pfm
+			save_skill(user,etc2);           //保存一個技能
+			save_perform(user,etc2);         //以及這個技能的所有pfm
+			save_force(user);                //保存所有內功
+			save_knowledge(user);            //保存所有知識技能
+			ob->set("scborn/times",5);       //記錄已經轉生次數
 		  break;
 		case 5:
 			save_skill(user,"all");          //保存所有技能
 			save_perform(user,"all");        //保存所有pfm
-			ob->set("scborn/times",6);       //记录已经转生次数
+			ob->set("scborn/times",6);       //記錄已經轉生次數
 		  break;
-		default: return notify_fail("超出转生范围。\n");
+		default: return notify_fail("超出轉生範圍。\n");
 	}
 	ob->set("scborn/reset_gift",1);
 	if (ob->query("couple/have_couple"))
@@ -344,7 +344,7 @@ varargs int reborn(object user,string skill,string etc1,string etc2)
 		{
 			couple->delete("couple");
 			couple->save();
-			tell_object(couple,"你的"+couple->query("couple/couple_gender")+"自杀了，你们的婚姻关系解除了。\n");
+			tell_object(couple,"你的"+couple->query("couple/couple_gender")+"自殺了，你們的婚姻關係解除了。\n");
 			if(flag == 1) destruct(couple);
 		}
 		ob->delete("couple");

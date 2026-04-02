@@ -4,8 +4,8 @@ inherit NPC;
 
 void create ()
 {
-	set_name("菜贩", ({"cai fan", "fan"}));
-	set("long", "一个卖菜的小贩，挑了一担绿油油的空心菜。\n");
+	set_name("菜販", ({"cai fan", "fan"}));
+	set("long", "一個賣菜的小販，挑了一擔綠油油的空心菜。\n");
 	set("gender", "男性");
 	set("age", 24);
 	set("combat_exp", 1000);

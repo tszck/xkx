@@ -8,8 +8,8 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", YEL"这木盒古朴典雅，沉甸甸的，里面也许有什么宝贵的物事。\n"NOR);
-		set("unit", "个");
+		set("long", YEL"這木盒古樸典雅，沉甸甸的，裏面也許有什麼寶貴的物事。\n"NOR);
+		set("unit", "個");
 		set("open_count", 1);
 		set("weight", 20000);
 	}
@@ -32,10 +32,10 @@ int do_open()
   		ob = new(__DIR__"muhe1");
 	  	ob -> move(me);
 	  	destruct(this_object());
-			message_vision("木盒里什么也没有，$N深深叹了口气。\n",me);
+			message_vision("木盒裏什麼也沒有，$N深深嘆了口氣。\n",me);
 			return 1;
 		}
-		message_vision(HIR "$N伸手打开木盒，只见寒光闪闪，里面竟是把绝世宝剑！\n" NOR, this_player());
+		message_vision(HIR "$N伸手打開木盒，只見寒光閃閃，裏面竟是把絕世寶劍！\n" NOR, this_player());
 		ob -> move(me);
 		ob = new(__DIR__"muhe1");
 		ob -> move(environment(this_object()));
@@ -45,5 +45,5 @@ int do_open()
 	ob = new(__DIR__"muhe1");
 	ob -> move(me);
 	destruct(this_object());
-	return notify_fail("木盒已经被别人打开过了。\n");
+	return notify_fail("木盒已經被別人打開過了。\n");
 }

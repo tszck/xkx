@@ -9,7 +9,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long","这是一本意形步步法。\n");
+		set("long","這是一本意形步步法。\n");
 		set("value", 5000);
 		set("material", "paper");
 		set("skill", ([

@@ -9,20 +9,20 @@ int main(object me, string arg)
 {
 	string name, id ,to,what;
 	object obj=me;
-	if( !arg ) return notify_fail("你要替谁取什么名字？\n");
+	if( !arg ) return notify_fail("你要替誰取什麼名字？\n");
 	if (sscanf(arg, "%s %s(%s)", to,name, id) == 3)
 	{
 				what="name";
 				if (!obj=present(to, environment(me)))
 				if (!obj=find_player(to))
-							return notify_fail("没有这个人。\n");
+							return notify_fail("沒有這個人。\n");
 	}
 	else if (sscanf(arg,"%s cancel",to)==1)
 	{
 				what="cancel";
 				if (!obj=present(to, environment(me)))
 				if (!obj=find_player(to))
-							return notify_fail("没有这个人。\n");
+							return notify_fail("沒有這個人。\n");
 	}
 	else if (sscanf(arg,"%s(%s)", name,id)==2)
 	{
@@ -34,12 +34,12 @@ int main(object me, string arg)
 	}
 	else
 	{
-			return notify_fail("语法格式：name [某人] [cancel] [中文名(id)]\n");
+			return notify_fail("語法格式：name [某人] [cancel] [中文名(id)]\n");
 	}
 	if (what=="cancel")
 	{
 		if (!obj->query("old_name") || !obj->query("old_id"))
-			return notify_fail(obj->query("name")+"并没有用name命令改名过。\n");
+			return notify_fail(obj->query("name")+"並沒有用name命令改名過。\n");
 		else
 		{
 			write("你把 "+obj->query("name")+"("+obj->query("id")+") 的名字");
@@ -47,7 +47,7 @@ int main(object me, string arg)
 			obj->set("name",obj->query("old_name"));
 			obj->delete("old_id");
 			obj->delete("old_name");
-			write("恢复成了 "+obj->query("name")+"("+obj->query("id")+") 。\n");
+			write("恢復成了 "+obj->query("name")+"("+obj->query("id")+") 。\n");
 			return 1;
 		}
 	}
@@ -91,11 +91,11 @@ int main(object me, string arg)
 	obj->set("old_id",obj->query("id"));
 	obj->set("name", name);
 	obj->set("id", id);
-	write("改名为 "+obj->query("name")+"("+obj->query("id")+") 。\n");
+	write("改名爲 "+obj->query("name")+"("+obj->query("id")+") 。\n");
 	}
 	else 
 	{
-		write("你可以考虑向青云要些bug奖励。\n");
+		write("你可以考慮向青雲要些bug獎勵。\n");
 	}
 	return 1;
 }
@@ -108,18 +108,18 @@ int help(object me)
            name dami cancel
 					 
  
-你如果希望在名字中使用ansi的控制字元改变颜色，可以用以下的控制
+你如果希望在名字中使用ansi的控制字元改變顏色，可以用以下的控制
 字串：
 
         $ＢＬＫ$：[30m黑色[0m          
-        $ＲＥＤ$：[31m红色[0m          $ＨＩＲ$：[1;31m亮红色[0m
-        $ＧＲＮ$：[32m绿色[0m          $ＨＩＧ$：[1;32m亮绿色[0m
-        $ＹＥＬ$：[33m土黄色[0m        $ＨＩＹ$：[1;33m黄色[0m
-        $ＢＬＵ$：[34m深蓝色[0m        $ＨＩＢ$：[1;34m蓝色[0m
-        $ＭＡＧ$：[35m浅紫色[0m        $ＨＩＭ$：[1;35m粉红色[0m
-        $ＣＹＮ$：[36m蓝绿色[0m        $ＨＩＣ$：[1;36m天青色[0m
-        $ＷＨＴ$：[37m浅灰色[0m        $ＨＩＷ$：[1;37m白色[0m
-        $ＮＯＲ$：[0m恢复正常颜色[0m
+        $ＲＥＤ$：[31m紅色[0m          $ＨＩＲ$：[1;31m亮紅色[0m
+        $ＧＲＮ$：[32m綠色[0m          $ＨＩＧ$：[1;32m亮綠色[0m
+        $ＹＥＬ$：[33m土黃色[0m        $ＨＩＹ$：[1;33m黃色[0m
+        $ＢＬＵ$：[34m深藍色[0m        $ＨＩＢ$：[1;34m藍色[0m
+        $ＭＡＧ$：[35m淺紫色[0m        $ＨＩＭ$：[1;35m粉紅色[0m
+        $ＣＹＮ$：[36m藍綠色[0m        $ＨＩＣ$：[1;36m天青色[0m
+        $ＷＨＴ$：[37m淺灰色[0m        $ＨＩＷ$：[1;37m白色[0m
+        $ＮＯＲ$：[0m恢復正常顏色[0m
 
 HELP
 	);

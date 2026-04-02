@@ -1,4 +1,4 @@
-// checking.c 道听途说
+// checking.c 道聽途說
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -12,15 +12,15 @@ int power_point() { return 1; }
 
 int help(object me)
 {
-	write(HIC"\n道听途说："NOR"\n");
+	write(HIC"\n道聽途說："NOR"\n");
 	write(@HELP
 
-    丐帮帮众遍及大江南北，消息灵通，凡江湖上发生什么事，往
-往他们最先得知。身具此艺的丐帮帮众，可以在江湖上打探(check)
-别人的消息。
+    丐幫幫衆遍及大江南北，消息靈通，凡江湖上發生什麼事，往
+往他們最先得知。身具此藝的丐幫幫衆，可以在江湖上打探(check)
+別人的消息。
 
-	学习要求：
-		无
+	學習要求：
+		無
 HELP
 	);
 	return 1;

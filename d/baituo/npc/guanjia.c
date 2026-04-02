@@ -8,7 +8,7 @@ void create()
 	set_name("管家", ({ "guan jia","guan","jia" }) );
 	set("gender", "男性" );
 	set("age", 30);
-	set("long", "一个老谋深算的老管家。\n");
+	set("long", "一個老謀深算的老管家。\n");
 	set("shen_type", -1);
 	set("combat_exp", 20000);
 	set("str", 24);
@@ -30,9 +30,9 @@ void create()
 	set_temp("apply/defense", 14);
 	set_temp("apply/damage", 15);
 	set_temp("apply/armor", 10);
-	create_family("白驼山派", 3, "弟子");
+	create_family("白駝山派", 3, "弟子");
 	set("inquiry" ,([
-		"储藏室" : "管家警惕地盯着你，说：你想偷东西吗？\n",
+		"儲藏室" : "管家警惕地盯着你，說：你想偷東西嗎？\n",
 	]));
 	setup();
 	carry_object("/d/baituo/obj/baipao")->wear();

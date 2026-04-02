@@ -63,12 +63,12 @@ void close_men()
 int do_close(string arg)
 {
 	if ( !is_open() )
-		return notify_fail("门已经是关着的了。\n");
+		return notify_fail("門已經是關着的了。\n");
 
 	if (!arg || (arg != "men" && arg != "door"))
-		return notify_fail("你要关什么？\n");
+		return notify_fail("你要關什麼？\n");
 
-	message_vision("$N想把门关上。\n", this_player());
+	message_vision("$N想把門關上。\n", this_player());
 
 	remove_call_out("close_men");
 	call_out("close_men", 0);
@@ -82,23 +82,23 @@ int do_open(string arg)
 	object me = this_player();
 
 	if (is_open())
-		return notify_fail("大门已经是开着了。\n");
+		return notify_fail("大門已經是開着了。\n");
 
 	if (!arg || (arg != "men" && arg != "door" && arg != query("door_dir")))
-		return notify_fail("你要开什么？\n");
+		return notify_fail("你要開什麼？\n");
 
 	if(!objectp( room = find_object(query("outroom"))) )
 		room = load_object(query("outroom"));
 	if(objectp(room))
 	{
 		open_door();
-		message_vision("$N轻手轻脚地把门打开。\n", this_player());
+		message_vision("$N輕手輕腳地把門打開。\n", this_player());
 		room->open_door(__FILE__);
 		
 		if (me->query_temp("sleeped"))
-		message("vision", "吱地一声，"+me->query("name")+"精神焕发地从里面把门打开了。\n",room);
+		message("vision", "吱地一聲，"+me->query("name")+"精神煥發地從裏面把門打開了。\n",room);
 		else
-		message("vision", "梆地一声，"+me->query("name")+"从里面把门打开，一脸的不耐烦。\n",room);
+		message("vision", "梆地一聲，"+me->query("name")+"從裏面把門打開，一臉的不耐煩。\n",room);
 		
 		remove_call_out("close_men");
 		call_out("close_men", 10);
@@ -117,7 +117,7 @@ int force_open()
 	
 	open_door();
 	room->open_door(__FILE__);
-	message("vision","外面突然响起粗重的脚步声，由远而近，到门前停了下来．．．\n"+query("force_name")+"啪地把门打开，伸个头进来，一脸狐疑：呆大半天了还不出去，搞什么鬼？\n", room);
+	message("vision","外面突然響起粗重的腳步聲，由遠而近，到門前停了下來．．．\n"+query("force_name")+"啪地把門打開，伸個頭進來，一臉狐疑：呆大半天了還不出去，搞什麼鬼？\n", room);
 	remove_call_out("close_men");
 	call_out("close_men", 10);
 }

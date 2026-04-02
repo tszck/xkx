@@ -13,10 +13,10 @@ void create()
 
 	set_name("血刀老祖", ({ "xuedao laozu", "xue dao", "laozu" }));
 	set("long",@LONG
-这喇嘛身着黄袍，年纪极老，尖头削耳，脸上都是皱纹。他就是血刀门第四代掌门。
+這喇嘛身着黃袍，年紀極老，尖頭削耳，臉上都是皺紋。他就是血刀門第四代掌門。
 LONG
 	);
-	set("title",HIR"血刀门第四代掌门"NOR);
+	set("title",HIR"血刀門第四代掌門"NOR);
 	set("gender", "男性");
 	set("age", 85);
 	set("attitude", "peaceful");
@@ -93,23 +93,23 @@ void attempt_apprentice(object ob)
 	}
 	if ((string)ob->query("family/family_name") != "雪山寺")
 	{
-		command("say 这位" + RANK_D->query_respect(ob) +
-			"既非本门弟子，还是请回吧！\n");
+		command("say 這位" + RANK_D->query_respect(ob) +
+			"既非本門弟子，還是請回吧！\n");
 		return;
 	}
 	if ((int)ob->query("shen") > -100000)
 	{
-		command("say 你是不是向着侠义道，连杀人都不会！\n");
+		command("say 你是不是向着俠義道，連殺人都不會！\n");
 		return;
 	}
 	if ((int)ob->query_skill("longxiang", 1) < 60)
 	{
-		command("say 入我血刀门，修习龙象功法是首要的。\n");
+		command("say 入我血刀門，修習龍象功法是首要的。\n");
 		return;
 	}
 	command("haha");
 	command("nod");
 	command("recruit " + ob->query("id"));
 
-	ob->set("title", HIR "血刀门第五代弟子" NOR);
+	ob->set("title", HIR "血刀門第五代弟子" NOR);
 }

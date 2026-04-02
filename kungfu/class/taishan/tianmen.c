@@ -7,9 +7,9 @@ inherit F_MANAGER;
 #include <ansi.h>
 void create()
 {
-	set_name("天门道人", ({ "tianmen daoren", "daoren", "tianmen" }) );
+	set_name("天門道人", ({ "tianmen daoren", "daoren", "tianmen" }) );
 	set("gender", "男性");
-	set("title", HIG"泰山派第十三代掌门"NOR);
+	set("title", HIG"泰山派第十三代掌門"NOR);
 	set("class", "taoist");
 	set("age", 45);
 	set("attitude", "peaceful");
@@ -53,7 +53,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("泰山派", 13, "掌门");
+	create_family("泰山派", 13, "掌門");
 	setup();
 
 	carry_object(WEAPON_DIR+"sword/houjian")->wield();
@@ -87,10 +87,10 @@ void greeting(object ob)
 void attempt_apprentice(object ob)
 {
 	if((int)ob->query("shen")<50000)
-	command("say 我泰山派弟子都是行侠仗义之辈，"+RANK_D->query_respect(ob)+"还做的不够啊。");
+	command("say 我泰山派弟子都是行俠仗義之輩，"+RANK_D->query_respect(ob)+"還做的不夠啊。");
 	else
 		if((int)ob->query_skill("panshi-shengong",1) < 100)
-			command("say 你的本门心法还得多多练习。");
+			command("say 你的本門心法還得多多練習。");
 		else
 		{
 			command("say 好啊，那我就收下你吧。");

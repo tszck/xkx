@@ -7,10 +7,10 @@ void init();
 
 void create()
 {
-	set_name("王诚", ({ "wang cheng","wang"}) );
+	set_name("王誠", ({ "wang cheng","wang"}) );
 	set("gender", "男性" );
 	set("age", 65);
-	set("long", "此人身材矮胖，满脸堆笑，其实为人十分狠毒。\n");
+	set("long", "此人身材矮胖，滿臉堆笑，其實爲人十分狠毒。\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 	set("env/wimpy", 40);
@@ -50,7 +50,7 @@ void create()
 	]));
 
 	set("party/party_name", HIB"日月神教"NOR);
-	set("party/rank", HIC"风雷堂旗主"NOR);
+	set("party/rank", HIC"風雷堂旗主"NOR);
 	create_family("黑木崖", 10, "弟子");
 
 	setup();
@@ -66,7 +66,7 @@ void attempt_apprentice(object ob)
 
 string ask_me()
 {
-	return "你想加入我日月神教就得去找四大长老。";
+	return "你想加入我日月神教就得去找四大長老。";
 }
 void init()
 {

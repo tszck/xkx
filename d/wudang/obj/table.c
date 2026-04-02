@@ -10,8 +10,8 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "张");
-		set("long", "这张破桌子放在这里，说不出的诡异。\n");
+		set("unit", "張");
+		set("long", "這張破桌子放在這裏，說不出的詭異。\n");
 		set("value", 1);
 	}
 }

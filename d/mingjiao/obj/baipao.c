@@ -7,7 +7,7 @@ inherit CLOTH;
 
 void create()
 {
-        set_name("白布长袍", ({ "cloth","pao" }) );
+        set_name("白布長袍", ({ "cloth","pao" }) );
         set_weight(1000);
         if( clonep() )
                 set_default_object(__FILE__);
@@ -15,8 +15,8 @@ void create()
 	{
                 set("unit", "件");
 		set("long", 
-			"这是件白布长袍，虽不奢华，却洗得一尘不染，在袍襟上绣了一团血红的火焰，\n"
-			"颇为鲜艳。\n");
+			"這是件白布長袍，雖不奢華，卻洗得一塵不染，在袍襟上繡了一團血紅的火焰，\n"
+			"頗爲鮮豔。\n");
                 set("material", "cloth");
                 set("armor_prop/armor", 1);
         }

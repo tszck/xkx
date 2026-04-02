@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "独尊厅大门");
+	set("short", "獨尊廳大門");
 	set("long",@LONG
-这就是通向『灵鹫宫』独尊厅的大门。大门左右各有一头石雕的猛
-鹫，高达三丈有余，尖喙巨爪，神骏非凡，栩栩如生，似乎随时要腾空
+這就是通向『靈鷲宮』獨尊廳的大門。大門左右各有一頭石雕的猛
+鷲，高達三丈有餘，尖喙巨爪，神駿非凡，栩栩如生，似乎隨時要騰空
 而去。
 LONG );
 	set("outdoors", "lingjiu");
@@ -27,10 +27,10 @@ LONG );
 int valid_leave(object me, string dir)
 {
 	if ( (dir == "north") &&
-		((string)me->query("family/family_name") != "逍遥派") &&
-		((string)me->query("family/family_name") != "灵鹫宫") &&
+		((string)me->query("family/family_name") != "逍遙派") &&
+		((string)me->query("family/family_name") != "靈鷲宮") &&
 		( objectp(present("mei jian", environment(me))) ||
 		objectp(present("lan jian", environment(me))) ) )
-		return notify_fail("梅兰双姝伸手拦住你，说道：“非逍遥弟子请回！”\n");
+		return notify_fail("梅蘭雙姝伸手攔住你，說道：“非逍遙弟子請回！”\n");
 	return ::valid_leave(me, dir);
 }

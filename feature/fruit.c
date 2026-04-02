@@ -30,19 +30,19 @@ int do_eat(string arg)
 	if( !living(this_player()) || this_player()->query_temp("noliving") )
 		return 1;
 	if( me->query("jing") < 0 || me->query("qi") < 0 )
-		return notify_fail("你太累了，实在没力气吃什么了。\n");
-	if( !this_object()->id( arg ) ) return notify_fail("你要吃什么？\n");
+		return notify_fail("你太累了，實在沒力氣喫什麼了。\n");
+	if( !this_object()->id( arg ) ) return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 	if( me->is_fighting() )
 		me->start_busy(2);
 	if( !query( "fruit_remaining" )  )
-		return notify_fail("你拿着这个" + ob->name() + "，看了半天觉得无处下嘴。\n");
+		return notify_fail("你拿着這個" + ob->name() + "，看了半天覺得無處下嘴。\n");
 	if( (int)me->query("water") >= (int)me->max_food_capacity() ||
 		(int)me->query("food") >= (int)me->max_water_capacity() )
 	{
 		if ( msg = query( "over_msg" ) ) notify_fail( msg );
-		else notify_fail("吃那么多？？真贪心，小心撑死了……\n");
+		else notify_fail("喫那麼多？？真貪心，小心撐死了……\n");
 		return 0;
 	}
 	add( "fruit_remaining", -1);
@@ -52,9 +52,9 @@ int do_eat(string arg)
 		me->add("food" ,  query( "food_supply" ) );
 		me->add( "water" , query( "water_supply" ) );
 
-// hamlet的想法：食物对天赋有影响 (trill)
-// 可以在food,fruit等加个mapping gifts
-// 这样对gifts有影响
+// hamlet的想法：食物對天賦有影響 (trill)
+// 可以在food,fruit等加個mapping gifts
+// 這樣對gifts有影響
 
 		if ( gifts = query("gifts") )
 		{
@@ -68,16 +68,16 @@ int do_eat(string arg)
 				temp *= sign;
 				if (temp >= 500  && random( 2000 - temp ) == 0 && me->query("age")<22)
 				{
-//如果这个player年纪小<22，就改善先天的天赋
-//否则 只影响后天的天赋就 query_per()这类了..
-//现在这个东西太麻烦，而且我们对先天后天的天赋使用没有明确的概念
+//如果這個player年紀小<22，就改善先天的天賦
+//否則 隻影響後天的天賦就 query_per()這類了..
+//現在這個東西太麻煩，而且我們對先天后天的天賦使用沒有明確的概念
 //所以我就把它都改成先天的了。——lala，１９９８－０１－０７
 
-//原来的奖励可以吃到30 30 35 35 的天赋 进行了限制
+//原來的獎勵可以喫到30 30 35 35 的天賦 進行了限制
 //-- qingyun 2004.10.13
-//这个东西是别的mud的吧
-//原本是建立在不能迅速降食物基础上，因为侠客行有沙漠
-//这个东西等同于送天赋给知道的人 
+//這個東西是別的mud的吧
+//原本是建立在不能迅速降食物基礎上，因爲俠客行有沙漠
+//這個東西等同於送天賦給知道的人 
 					if (me->query(list[i])>=30 )
 						sign = 0;
 					if (me->query("gift/hamlet/"+list[i])>0)
@@ -89,19 +89,19 @@ int do_eat(string arg)
 						me->add("gift/hamlet/"+list[i],1);
 						me->add( list[ i ] , sign );
 						me->set( "hamlet_food/" + list[ i ], 0);
-						tell_object( me, YEL"由于你日常的饮食习惯而造成了你天赋的改变！\n"NOR );
+						tell_object( me, YEL"由於你日常的飲食習慣而造成了你天賦的改變！\n"NOR );
 					}
 				}
 			}
 		}
 		if ( msg = query( "eat_msg" ) ) message_vision( msg, me, ob );
-		else message_vision( RED"$N拿起$n，狠狠地咬了几口，大赞道：味道好极了！\n" NOR, me, ob);
+		else message_vision( RED"$N拿起$n，狠狠地咬了幾口，大讚道：味道好極了！\n" NOR, me, ob);
 	}
 	else
 	{
-//吃到最后一口就变成个水果核
+//喫到最後一口就變成個水果核
 		if ( msg = query ("end_msg" ) ) message_vision( msg , me, ob );
-		else message_vision(RED"$N吃完最后一口$n，心满意足的说：真不错。\n", me,ob);
+		else message_vision(RED"$N喫完最後一口$n，心滿意足的說：真不錯。\n", me,ob);
 		if ( query("core") )
 		{
 			core = new( "/clone/misc/core.c" );
@@ -137,21 +137,21 @@ int stats( int i )
 			break;
 		case 1:
 			base_long = query("base_long");
-			set("long",base_long+"，上面好象有些斑点，不过还不算显眼。\n");
+			set("long",base_long+"，上面好象有些斑點，不過還不算顯眼。\n");
 			call_out("stats", life/4, 2);
 			break;
 		case 2:
 			base_name = query("base_name");
 			base_long = query("base_long");
-			set("name","有点烂了的"+base_name );
-			set("long",base_long+"，可惜已经开始烂了。\n");
+			set("name","有點爛了的"+base_name );
+			set("long",base_long+"，可惜已經開始爛了。\n");
 			call_out("stats", life/4, 3);
 			break;
 		case 3:
 			base_name = query("base_name");
 			base_long = query("base_long");
-			set("name", "烂" + base_name );
-			set("long",base_long+"，可惜已经烂了，散发出一股异味。\n");
+			set("name", "爛" + base_name );
+			set("long",base_long+"，可惜已經爛了，散發出一股異味。\n");
 			call_out("stats", life/4, 4);
 			break;
 		default :
@@ -168,7 +168,7 @@ int stats( int i )
 				if ( env = environment( this_object() ) )
 					core->move( env );
 			}
-			tell_room( environment(this_object()), this_object()->query("name")+"终于完全烂掉了。\n" );
+			tell_room( environment(this_object()), this_object()->query("name")+"終於完全爛掉了。\n" );
 			destruct( this_object() );
 			break;
 	}

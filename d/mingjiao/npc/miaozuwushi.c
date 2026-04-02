@@ -11,7 +11,7 @@ void create()
 	set("gender", "男性" );
 
 	set("age", 45);
-	set("long", "诡异的苗人巫士，好象想杀了你祭神。\n");
+	set("long", "詭異的苗人巫士，好象想殺了你祭神。\n");
 	set("shen_type",-1);
 	set("combat_exp", 6000);
 
@@ -22,7 +22,7 @@ void create()
 
 	set("chat_chance", 30);
 	set("chat_msg", ({
-		"巫士一声大喊: @@###$$!!! @@@! &*%%%%@!!! \n",
+		"巫士一聲大喊: @@###$$!!! @@@! &*%%%%@!!! \n",
 	}) );
 
 	set_skill("unarmed", 35);

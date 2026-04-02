@@ -5,10 +5,10 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("蒋涛", ({ "jiang tao", "jiang", "tao" }));
+	set_name("蔣濤", ({ "jiang tao", "jiang", "tao" }));
 	set("long", 
-"他穿青色长袍，背上斜插长剑，二十八九岁年纪，脸罩寒霜，一
-副要惹事生非的模样。\n");
+"他穿青色長袍，背上斜插長劍，二十八九歲年紀，臉罩寒霜，一
+副要惹事生非的模樣。\n");
 	set("gender", "男性");
 	set("age", 22);
 	set("attitude", "peaceful");
@@ -31,7 +31,7 @@ void create()
 	set_skill("huashan-jianfa", 80);
 	map_skill("parry", "huashan-jianfa");
 	map_skill("sword", "huashan-jianfa");
-	create_family("昆仑派", 4, "弟子");
+	create_family("崑崙派", 4, "弟子");
 
 	setup();
 	carry_object("/d/wudang/obj/bluecloth")->wear();

@@ -8,12 +8,12 @@ int do_drink(string);
 void create()
 {
 	set_name("老猴子", ({ "monkey", "hou", "houzi" }) );
-	set("race", "走兽");
+	set("race", "走獸");
 	set("age", 200 + random(50));
-	set("long", "一只老态龙钟的老猴子，虽然动作迟缓，但丝毫不减狡诈的性子。\n");
+	set("long", "一隻老態龍鍾的老猴子，雖然動作遲緩，但絲毫不減狡詐的性子。\n");
 	set("attitude", "peaceful");
 
-	set("limbs", ({ "头部", "身体",  "前腿", "后腿", "尾巴" }) );
+	set("limbs", ({ "頭部", "身體",  "前腿", "後腿", "尾巴" }) );
 	set("verbs", ({ "bite", "claw" }) );
 
 // make sure those shenlong dizis can not catch it without using tricks
@@ -45,7 +45,7 @@ void init()
 			if( random(6) > 3 ) COMBAT_D->do_attack(me, ob);
 			kill_ob(ob);}
 		else {		       
-			message_vision("老猴子被$N吓了一跳，赶紧躲在一旁。\n", me);
+			message_vision("老猴子被$N嚇了一跳，趕緊躲在一旁。\n", me);
 			command("look " + ob->query("id"));
 		}
 	}
@@ -75,14 +75,14 @@ int do_drink(string arg)
 		if( inv[i]->query("id") == "jiudai" && inv[i]->query("liquid/type") == "alcohol" ) {
 			command("get " + inv[i]->query("id"));
 			if( !inv[i]->query("liquid/remaining") ) {
-				say("老猴子摇了摇" + inv[i]->query("name") + "后，失望地摇了摇头。\n");
-				say("老猴子用力一甩，把" + inv[i]->query("name") + "抡得无影无踪。\n");
+				say("老猴子搖了搖" + inv[i]->query("name") + "後，失望地搖了搖頭。\n");
+				say("老猴子用力一甩，把" + inv[i]->query("name") + "掄得無影無蹤。\n");
 				destruct(inv[i]);
 			} else {
-				say("老猴子高兴得吱吱乱叫，一口全喝了下去。\n");
+				say("老猴子高興得吱吱亂叫，一口全喝了下去。\n");
 				inv[i]->set("liquid/remaining", 0);
 				command("drop " + inv[i]->query("id"));
-				say("老猴子看起来有点力不从心，摇摇欲坠。\n");
+				say("老猴子看起來有點力不從心，搖搖欲墜。\n");
 				set_temp("drunk", 1);
 				add_temp("apply/attack", -20);
 				add_temp("apply/defense", -20);
@@ -121,7 +121,7 @@ void die()
 	if( objectp(obj = this_object()->query_temp("last_damage_from")) )
 	ob->set("owner", obj->query("id"));
 
-	message_vision("$N惨嚎一声，死了！\n", this_object());
+	message_vision("$N慘嚎一聲，死了！\n", this_object());
 	destruct(this_object());
 }
 

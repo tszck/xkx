@@ -1,4 +1,4 @@
-// hongma.c 红马
+// hongma.c 紅馬
 
 #include <command.h>
 #include <dbase.h>
@@ -8,8 +8,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("红马", ({ "hong ma" }));
-	set("long","一匹骏马，全身火红，无一根杂毛。\n");
+	set_name("紅馬", ({ "hong ma" }));
+	set("long","一匹駿馬，全身火紅，無一根雜毛。\n");
 	set("race", "走畜");
 	set("age", 5);
 	set("attitude","heroism");

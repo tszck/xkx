@@ -13,7 +13,7 @@ void init_cron();
 void create()
 {
         seteuid( ROOT_UID );
-        set("channel_id", "任务精灵");
+        set("channel_id", "任務精靈");
         init_cron();
 }
 

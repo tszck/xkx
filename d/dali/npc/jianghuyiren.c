@@ -3,8 +3,8 @@
 inherit NPC;
 void create()
 {
-	set_name("江湖艺人", ({ "jianghu yiren", "yiren" }));
-	set("long", "他是一个外地来的江湖艺人，手里牵着一只金丝猴儿，满脸风尘之色。\n");
+	set_name("江湖藝人", ({ "jianghu yiren", "yiren" }));
+	set("long", "他是一個外地來的江湖藝人，手裏牽着一隻金絲猴兒，滿臉風塵之色。\n");
 	set("gender", "男性");
 	set("age", 53);
 	set("attitude", "friendly");

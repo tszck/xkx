@@ -12,7 +12,7 @@ void create()
 	set("gender", "男性");
 	set("age", 75);
 	set("long", 
-		"他就是丐帮第十七任帮主，号称“北丐”的洪七公老爷子。\n");
+		"他就是丐幫第十七任幫主，號稱“北丐”的洪七公老爺子。\n");
 	set("attitude", "peaceful");
         set("class", "beggar");
 	
@@ -23,15 +23,15 @@ void create()
 
 	set("chat_chance", 1);
 	set("chat_msg", ({
-		"洪七公叹了口气道：“唉……何时能再吃到蓉儿做的「叫化鸡」啊……”\n",
-		"洪七公说道：“俗话说「吃在江南」，所以老叫化特地跑来扬州看看。”\n",
-		"洪七公喃喃道：“我们丐帮的「降龙十八掌」是天下最霸道的掌法。”\n",
+		"洪七公嘆了口氣道：“唉……何時能再喫到蓉兒做的「叫化雞」啊……”\n",
+		"洪七公說道：“俗話說「喫在江南」，所以老叫化特地跑來揚州看看。”\n",
+		"洪七公喃喃道：“我們丐幫的「降龍十八掌」是天下最霸道的掌法。”\n",
 //		(: random_move :),
 	}));
 //	set("inquiry", ([
-//		"青竹林" : "东北西北东西北。\n",
-//		"丐帮" : "东北西北东西北。\n",
-//		"拜师" : "你可以去东城门的我帮总舵拜鲁有脚。\n",
+//		"青竹林" : "東北西北東西北。\n",
+//		"丐幫" : "東北西北東西北。\n",
+//		"拜師" : "你可以去東城門的我幫總舵拜魯有腳。\n",
 //	]));
 
 	set("qi", 1000);
@@ -46,17 +46,17 @@ void create()
 	set("score", 200000);
 	set("shen", 100000);
 	 
-	set_skill("force", 150);             // 基本内功
-	set_skill("huntian-qigong", 150);    // 混天气功
-	set_skill("unarmed", 180);           // 基本拳脚
-	set_skill("xianglong-zhang", 180);   // 降龙十八掌
-	set_skill("dodge", 150);      	     // 基本躲闪
-	set_skill("xiaoyaoyou", 150);        // 逍遥游
+	set_skill("force", 150);             // 基本內功
+	set_skill("huntian-qigong", 150);    // 混天氣功
+	set_skill("unarmed", 180);           // 基本拳腳
+	set_skill("xianglong-zhang", 180);   // 降龍十八掌
+	set_skill("dodge", 150);      	     // 基本躲閃
+	set_skill("xiaoyaoyou", 150);        // 逍遙遊
 	set_skill("parry", 150);             // 基本招架
 	set_skill("staff", 150);             // 基本棍杖
 	set_skill("dagou-bang", 150);        // 打狗棒法
-	set_skill("begging", 100);           // 叫化绝活
-	set_skill("checking", 100);          // 道听途说
+	set_skill("begging", 100);           // 叫化絕活
+	set_skill("checking", 100);          // 道聽途說
 	
 	map_skill("force", "huntian-qigong");
 	map_skill("unarmed", "xianglong-zhang");
@@ -64,7 +64,7 @@ void create()
 	map_skill("parry", "dagou-bang");
 	map_skill("staff", "dagou-bang");
 	
-	create_family("丐帮", 17, "帮主");
+	create_family("丐幫", 17, "幫主");
 	setup();
 	
 	carry_object("/kungfu/class/gaibang/obj/yuzhu_zhang");

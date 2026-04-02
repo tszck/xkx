@@ -8,7 +8,7 @@ void create()
 {
 	set_name("蒙古兵", ({ "menggu bing", "bing", "menggu" }));
 	set("long", 
-"蒙古兵长年跃马横枪，十分骁勇。\n");
+"蒙古兵長年躍馬橫槍，十分驍勇。\n");
 	set("gender", "男性");
 	set("age", 18);
 	set("attitude", "friendly");
@@ -34,7 +34,7 @@ void create()
 	map_skill("club", "zhongping-qiang");
 
 	set("env/wimpy", 60);
-	set_temp("is_riding", HIY"蒙古马"NOR);
+	set_temp("is_riding", HIY"蒙古馬"NOR);
 	set("env/wimpy", 40);
 
  	setup();

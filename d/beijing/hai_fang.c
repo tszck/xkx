@@ -6,9 +6,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "海澄公府厢房");
+	set("short", "海澄公府廂房");
 	set("long", @LONG
-这里是海澄公府的左侧的一个厢房，供给海澄公府的客人居住。
+這裏是海澄公府的左側的一個廂房，供給海澄公府的客人居住。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"hai_dayuan",

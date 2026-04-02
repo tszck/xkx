@@ -10,21 +10,21 @@ int do_insert(string arg);
 
 void create()
 {
-	set("short", "悬崖");
+	set("short", "懸崖");
 	set("long", @TEXT
-又一座陡峭的悬崖立在了你的面前。悬崖上仿佛有座白色的建筑，
-可云烟缭绕，看不清晰。崖上又垂下一条绳索(rope)，看上去象是悬崖
-上下互通消息的工具，要想办法找其他的牌子啊。绳索的上面似乎隐约
-有一个吊篮(basket)，悬崖的墙上似乎有一个匣子(xiazi)。
+又一座陡峭的懸崖立在了你的面前。懸崖上彷彿有座白色的建築，
+可雲煙繚繞，看不清晰。崖上又垂下一條繩索(rope)，看上去象是懸崖
+上下互通消息的工具，要想辦法找其他的牌子啊。繩索的上面似乎隱約
+有一個吊籃(basket)，懸崖的牆上似乎有一個匣子(xiazi)。
 TEXT );
 	set("outdoors", "heimuya");
 	set("exits", ([
 		"westdown" : __DIR__"up2",
 	]));
 	set("item_desc", ([
-		"basket" : "那是一个掉篮，看样子有些古怪。\n",
-		"rope"   : "绳子就是绳子，可能是向上的工具。\n",
-		"xiazi"  : "这是一个匣子，看样子是一个开关，匣子的侧面有一个插孔。\n",
+		"basket" : "那是一個掉籃，看樣子有些古怪。\n",
+		"rope"   : "繩子就是繩子，可能是向上的工具。\n",
+		"xiazi"  : "這是一個匣子，看樣子是一個開關，匣子的側面有一個插孔。\n",
 	]));
 	set("no_clean_up", 0);
 	set("coor/x", -3260);
@@ -54,16 +54,16 @@ void check_trigger()
 				room->set("insert_trigger", 1);
 				set("exits/enter", __DIR__"basket");
 				room->set("exits/out", __FILE__);
-				message("vision","只见一个掉篮(basket)从天而降，你不禁一怔！\n" , this_object() );
+				message("vision","只見一個掉籃(basket)從天而降，你不禁一怔！\n" , this_object() );
 				set("item_desc", ([
-					"basket" : "这是一个掉篮，是传说中的交通工具。\n",
+					"basket" : "這是一個掉籃，是傳說中的交通工具。\n",
 				]));
 				
 				remove_call_out("on_board");
 				call_out("on_board", 15);
 			}
 			else
-				message("vision", "看样子你得等下拨儿。\n",this_object() );
+				message("vision", "看樣子你得等下撥兒。\n",this_object() );
 		}
 		else
 			message("vision", "ERROR: basket not found\n", this_object() );
@@ -76,7 +76,7 @@ void on_board()
 	object room;
 
 	if( !query("exits/enter") ) return;
-	message("vision","只见掉篮缓缓向上，四周无限美好，\n你似乎置身于一处人间仙境无异。\n", this_object() );
+	message("vision","只見掉籃緩緩向上，四周無限美好，\n你似乎置身於一處人間仙境無異。\n", this_object() );
 	if( room = find_object(__DIR__"basket") )
 	{
 		room->delete("exits/out");
@@ -92,7 +92,7 @@ void arrive()
 	if( room = find_object(__DIR__"basket") )
 	{
 		room->set("exits/out", __DIR__"up4");
-		message("vision","噔的一声，你似乎一下从天上到了地上。\n",room);
+		message("vision","噔的一聲，你似乎一下從天上到了地上。\n",room);
 	}
 	remove_call_out("close_passage");
 	call_out("close_passage", 20);
@@ -118,7 +118,7 @@ int do_insert(string arg)
 	if( arg=="card3")
 	{
 		if( !objectp(ob = present(arg, me)) )
-			return notify_fail("你身上没有这样东西。\n");
+			return notify_fail("你身上沒有這樣東西。\n");
 		if( !me->query_temp("mark/cards") )
 			me->set_temp("mark/cards",1);
 		if( me->query_temp("mark/cards")==4)
@@ -129,7 +129,7 @@ int do_insert(string arg)
 		else
 		{
 			me->add_temp("mark/cards",1);
-			message("vision","噔的一声，你看到掉篮向下一节。\n",me);
+			message("vision","噔的一聲，你看到掉籃向下一節。\n",me);
 		}
 	}
 	return 1;

@@ -5,12 +5,12 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("凤七", ({ "feng qi", "feng", "qi" }) );
+	set_name("鳳七", ({ "feng qi", "feng", "qi" }) );
 	set("gender", "男性" );
-	set("title", "酒楼老板" );
+	set("title", "酒樓老闆" );
 	set("age", 42);
 	set("long",
-"凤七是凤天南的远房祖弟，在这英雄楼当掌柜。武功没有什么，为人却极是机灵。\n");
+"鳳七是鳳天南的遠房祖弟，在這英雄樓當掌櫃。武功沒有什麼，爲人卻極是機靈。\n");
 	set("combat_exp", 100);
 	set("attitude", "friendly");
 	set("no_get", "1");
@@ -34,7 +34,7 @@ void init()
 	::init();
 	if( interactive(ob) && !is_fighting() ) {
 		if ( (myfam = ob->query("family")) 
-		&& myfam["family_name"] == "丐帮" 
+		&& myfam["family_name"] == "丐幫" 
 		&& ob->query_skill("begging",1) > 10 )
 		{
 			remove_call_out("saying");
@@ -56,12 +56,12 @@ void greeting(object ob)
 	if( !ob || environment(ob) != environment() ) return;
 	switch( random(2) ) {
 		case 0:
-			say( "凤七笑咪咪地说道：这位" + RANK_D->query_respect(ob)
-				+ "，进来喝杯茶，歇歇腿吧。\n");
+			say( "鳳七笑咪咪地說道：這位" + RANK_D->query_respect(ob)
+				+ "，進來喝杯茶，歇歇腿吧。\n");
 			break;
 		case 1:
-			say( "凤七笑咪咪地说道：这位" + RANK_D->query_respect(ob)
-				+ "，快请进。\n");
+			say( "鳳七笑咪咪地說道：這位" + RANK_D->query_respect(ob)
+				+ "，快請進。\n");
 			break;
 	}
 }
@@ -70,7 +70,7 @@ void saying(object ob)
 {
 	if (!ob || environment(ob) != environment()) return;
 
-	say("\n凤七大喝一声：你这臭要饭的进来干什麽？ 给我滚出去！\n\n");
+	say("\n鳳七大喝一聲：你這臭要飯的進來幹什麼？ 給我滾出去！\n\n");
 	remove_call_out("kicking");
 	call_out("kicking", 1, ob);
 	
@@ -81,5 +81,5 @@ void kicking(object ob)
 	if (!ob || environment(ob) != environment()) return;
 
 	ob->move("/d/foshan/street4");
-	message("vision", "只听“乒”地一声，" + ob->query("name") + "被人从英雄楼里一脚踢了出来，狼狈万状的逃开了。\n", environment(ob), ob);
+	message("vision", "只聽“乒”地一聲，" + ob->query("name") + "被人從英雄樓裏一腳踢了出來，狼狽萬狀的逃開了。\n", environment(ob), ob);
 }

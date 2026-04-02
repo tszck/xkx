@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("采茶女", ({ "girl" }) );
+        set_name("採茶女", ({ "girl" }) );
         set("gender", "女性" );
         set("age", 19);
         set("per", 40);
-        set("long", "江南清秀的采茶姑娘一样楚楚动人。\n");
+        set("long", "江南清秀的採茶姑娘一樣楚楚動人。\n");
         set("combat_exp", 700);
         set("attitude", "friendly");
         set_skill("unarmed", 40);
@@ -17,7 +17,7 @@ void create()
 
         set("chat_chance", 5);
         set("chat_msg", ({
-            "采茶女说道：侬今早去庙里上香伐，带我一道去好勿好？\n",
+            "採茶女說道：儂今早去廟裏上香伐，帶我一道去好勿好？\n",
         }) );
 
         setup();

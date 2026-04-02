@@ -6,8 +6,8 @@ void create()
 {
         set("short", "射旭洞");
         set("long", @LONG
-洞後侧穹顶上的石罅间可仰见一束天光，故又名“一线天”。东
-南边是下山的路。
+洞後側穹頂上的石罅間可仰見一束天光，故又名“一線天”。東
+南邊是下山的路。
 LONG);
         set("exits", ([
                 "southeast" : __DIR__"longhongdong",

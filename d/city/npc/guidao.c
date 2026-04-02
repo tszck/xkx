@@ -20,19 +20,19 @@ void create()
 	set("dex", 25);
 	set("int", 25);
 	set("long",
-		"这是个喝得醉醺醺的酒鬼，正盯着手中的酒杯喃喃地念叨着什麽。\n" );
+		"這是個喝得醉醺醺的酒鬼，正盯着手中的酒杯喃喃地念叨着什麼。\n" );
 
 	set("combat_exp", 20000);
 	set("attitude", "heroism");
 	set("chat_chance_combat", 15);
 	set("chat_msg_combat", ({
-		"王五说道: 你当真吃了豹子胆啦 ? 敢跟大爷较量 ! \n",
-		"王五忽然挥出一刀，招数精奇，但刀到中途却又急忙收招。\n",
-		"王五说道: 快滚 ! 算我输了还不行 ?....\n"
+		"王五說道: 你當真喫了豹子膽啦 ? 敢跟大爺較量 ! \n",
+		"王五忽然揮出一刀，招數精奇，但刀到中途卻又急忙收招。\n",
+		"王五說道: 快滾 ! 算我輸了還不行 ?....\n"
 	}) );
 
 	set("inquiry", ([
-		"王老五" : "哈哈哈! 有趣有趣，可惜你认错人了。" ,
+		"王老五" : "哈哈哈! 有趣有趣，可惜你認錯人了。" ,
 		"鬼刀"   : (: ask_me :),
 	]) );
 
@@ -57,7 +57,7 @@ string ask_me(object who)
 		else {
 			kill_ob(who);
 			who->fight_ob(this_object());
-			return "老子就是鬼刀王五，鬼刀王五就是你老子！纳命来吧！\n";
+			return "老子就是鬼刀王五，鬼刀王五就是你老子！納命來吧！\n";
 		}
 	}
 
@@ -73,9 +73,9 @@ string ask_me(object who)
 	set("title", HIR "鬼刀" NOR);
 
 	message("vision",
-		HIY "王五眼中突然放出异样的光芒，颤声说道，看来...你都知道了？\n"
-		"王五大喝一声，叫道，既然如此，老子今天反正豁出去，跟你拼了。\n"
-		"王五使开单刀，招数精奇，沉猛狠辣，和刚才的醉鬼简直判若两人。\n" NOR,
+		HIY "王五眼中突然放出異樣的光芒，顫聲說道，看來...你都知道了？\n"
+		"王五大喝一聲，叫道，既然如此，老子今天反正豁出去，跟你拼了。\n"
+		"王五使開單刀，招數精奇，沉猛狠辣，和剛纔的醉鬼簡直判若兩人。\n" NOR,
 		environment(), this_object() );
 
 	set("pursuer", 1);
@@ -103,5 +103,5 @@ string ask_me(object who)
 //	carry_object("/d/city/obj/mianju.c");
 	add_money("silver", 5);
 	set("revealed", 1);
-	return "老子就是鬼刀王五，鬼刀王五就是你老子！纳命来吧！\n";
+	return "老子就是鬼刀王五，鬼刀王五就是你老子！納命來吧！\n";
 }

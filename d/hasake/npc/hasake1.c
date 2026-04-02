@@ -1,10 +1,10 @@
 inherit NPC;
 void create()
 {
-        set_name("哈萨克妇女", ({ "hasake", "woman"}));
+        set_name("哈薩克婦女", ({ "hasake", "woman"}));
         set("gender", "女性");
         set("age", 25);
-        set("long", "一位热情好客的哈萨克族妇女。\n");
+        set("long", "一位熱情好客的哈薩克族婦女。\n");
         set("attitude", "friendly");
         set("combat_exp", 500);
         set("str", 18);
@@ -22,13 +22,13 @@ void create()
         set_temp("apply/defense", 5);
         set_temp("apply/damage", 5);
         set("inquiry", ([
-            "阿曼" : "阿曼是草原上一朵会走路的花。\n",
-            "李文秀" : "李文秀这孩子，长得和阿曼一样美丽，歌也唱得好。\n",
+            "阿曼" : "阿曼是草原上一朵會走路的花。\n",
+            "李文秀" : "李文秀這孩子，長得和阿曼一樣美麗，歌也唱得好。\n",
         ]) );
         setup();
         set("chat_chance", 10);
         set("chat_msg", ({
-"哈萨克妇女道: 请进来坐坐吧，喝碗草原上香甜的乳酪。\n",
+"哈薩克婦女道: 請進來坐坐吧，喝碗草原上香甜的乳酪。\n",
         }) );
         carry_object(__DIR__"obj/yangao")->wear();
         carry_object(__DIR__"obj/shuinang");

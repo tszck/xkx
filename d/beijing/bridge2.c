@@ -2,9 +2,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "桥底西侧");
+	set("short", "橋底西側");
 	set("long", @LONG
-这里是小桥西侧，一股寒风吹过，冷得你瑟瑟发抖，只想离开。
+這裏是小橋西側，一股寒風吹過，冷得你瑟瑟發抖，只想離開。
 LONG );
 
 	set("resource/water", 1);

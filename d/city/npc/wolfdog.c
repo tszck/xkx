@@ -5,9 +5,9 @@ inherit NPC;
 void create()
 {
 	set_name("大狼狗", ({ "wolf dog", "dog" }) );
-	set("race", "走兽");
+	set("race", "走獸");
 	set("age", 4);
-	set("long", "一只昂首挺胸，吐着长舌头的大狼狗。像是财主家里养的宠物。\n");
+	set("long", "一隻昂首挺胸，吐着長舌頭的大狼狗。像是財主家裏養的寵物。\n");
 	set("attitude", "peaceful");
 	
 	set("str", 26);
@@ -17,8 +17,8 @@ void create()
 	
 	set("chat_msg_combat", ({
 		(: this_object(), "random_move" :),
-		"大狼狗大声吠叫：汪！汪！汪！汪！汪！汪！\n",
-		"大狼狗突然跳了起来，口中乱咬，却不知道是在咬谁。\n"
+		"大狼狗大聲吠叫：汪！汪！汪！汪！汪！汪！\n",
+		"大狼狗突然跳了起來，口中亂咬，卻不知道是在咬誰。\n"
 	,		"大狼狗突然左嗅嗅右瞧瞧,大概又是在找包子吧:P\n"		
 }) );
 	set("accept_baozi",0);		
@@ -43,7 +43,7 @@ void init()
 void die()
 {
 	object ob;
-	message_vision("$N惨嚎一声，死了！\n", this_object());
+	message_vision("$N慘嚎一聲，死了！\n", this_object());
 	ob = new(__DIR__"obj/goupi");
 	ob->move(environment(this_object()));
 	destruct(this_object());
@@ -58,9 +58,9 @@ int accept_object(object who, object ob)
 		this_object()->remove_all_enemy();
 		if (query("accept_baozi")>2) {
 		set_leader(who);
-	  	message("vision", name() + "在你的脚边挨挨擦擦的，想讨东西吃。\n", environment());
+	  	message("vision", name() + "在你的腳邊挨挨擦擦的，想討東西喫。\n", environment());
 		}
-		else message("vision", name() + "用鼻子闻了闻包子，一口吞下,不再作声了。\n", environment());
+		else message("vision", name() + "用鼻子聞了聞包子，一口吞下,不再作聲了。\n", environment());
 
 	return 1;
 	}

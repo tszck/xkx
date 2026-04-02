@@ -13,7 +13,7 @@ void create()
       set_name("小和尚", ({ "xiao heshang" }) );
       set("gender", "男性" );
       set("age", 14);
-      set("long", "这是个机灵乖巧的小和尚\n");
+      set("long", "這是個機靈乖巧的小和尚\n");
       set("str", 15);
       set("dex", 20);
       set("con", 17);
@@ -30,15 +30,15 @@ void create()
       set("attitude", "peaceful");
       set("inquiry", ([
             "定力" : (: ask_dingli :),
-            "禅力" : (: ask_changli :),
-            "天马行空" : "你玩完啦，居然连我的主人都不认识！\n",
+            "禪力" : (: ask_changli :),
+            "天馬行空" : "你玩完啦，居然連我的主人都不認識！\n",
       ]));
       set("chat_chance", 20);
       set("chat_msg", ({
-            "南无阿弥陀佛！\n",
-            "南无弥勒佛菩萨！\n",
-            "南无大势致菩萨！\n",
-            "南无大慈大悲观世音菩萨！\n",
+            "南無阿彌陀佛！\n",
+            "南無彌勒佛菩薩！\n",
+            "南無大勢致菩薩！\n",
+            "南無大慈大悲觀世音菩薩！\n",
             (: random_move :),
             (: random_move :),
       }) );
@@ -64,7 +64,7 @@ void greeting(object ob)
       if ( environment(ob) != environment() )
             return;
       if (ob->query("id") == "solomon" )
-            command("say 师傅回来啦");
+            command("say 師傅回來啦");
       else
             command("hi "+ob->query("id"));
 }
@@ -73,12 +73,12 @@ int ask_dingli()
 {
       if ( this_player()->query("chanxin/save")>=2 )
       {
-            command("say 这个麽你还是有一点的！\n");
+            command("say 這個麼你還是有一點的！\n");
             this_player()->set("chanxin/save",3);
       }
       else
       {
-            command("say 别给我打哈哈，瞧你这德性！\n");
+            command("say 別給我打哈哈，瞧你這德性！\n");
       }
       return 1;
 }
@@ -87,12 +87,12 @@ int ask_changli()
 {
       if ( this_player()->query("chanxin/save")>=3 )
       {
-            command("say 这个麽还不错，要到楼上来喝点酒么！\n");
+            command("say 這個麼還不錯，要到樓上來喝點酒麼！\n");
             this_player()->set("chanxin/save",4);
       }
       else
       {
-            command("say 别给我打哈哈，瞧你这德性！\n");
+            command("say 別給我打哈哈，瞧你這德性！\n");
       }
       return 1;
 }
@@ -113,7 +113,7 @@ void serve_tea(object who)
 
       obn = new("d/wudang/obj/xiangcha");
       obn->move(room);
-      message_vision("小和尚拿出紫沙小茶壶，沏了杯香茶，放在桌上．\n", who);
+      message_vision("小和尚拿出紫沙小茶壺，沏了杯香茶，放在桌上．\n", who);
 
       obn = new("d/hangzhou/npc/obj/jiuping");
       obn->move(room);
@@ -127,7 +127,7 @@ void serve_tea(object who)
       obn->move(room);
       obn = new("d/hangzhou/npc/obj/fish");
       obn->move(room);
-      message_vision("然后拿出一瓶酒和一盘盘好吃的放在桌上．\n", who);
+      message_vision("然後拿出一瓶酒和一盤盤好喫的放在桌上．\n", who);
       
       return;
 }

@@ -1,18 +1,18 @@
-// liu.c 刘处玄
+// liu.c 劉處玄
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-        set_name("刘处玄", ({"liu chuxuan", "liu"}));
+        set_name("劉處玄", ({"liu chuxuan", "liu"}));
         set("gender", "男性");
         set("age", 38);
         set("class", "quanzhen");
-        set("nickname",WHT"长生子"NOR);
+        set("nickname",WHT"長生子"NOR);
         set("long",
-                "他就是全真三徒刘处玄刘真人，他身材瘦小，面目宛似猿猴，\n"
-                "但顾盼间自有一种威严气概。\n");
+                "他就是全真三徒劉處玄劉真人，他身材瘦小，面目宛似猿猴，\n"
+                "但顧盼間自有一種威嚴氣概。\n");
         set("attitude", "peaceful");
         set("shen_type",1);
         set("str", 30);
@@ -45,9 +45,9 @@ void create()
 
         set_skill("array", 80);
         set_skill("force", 140);
-        set_skill("xiantian-qigong", 140);    //先天气功
+        set_skill("xiantian-qigong", 140);    //先天氣功
         set_skill("sword", 140);
-        set_skill("quanzhen-jian",200);  //全真剑
+        set_skill("quanzhen-jian",200);  //全真劍
         set_skill("dodge", 120);
         set_skill("jinyan-gong", 200);   //金雁功
         set_skill("unarmed",140);
@@ -55,7 +55,7 @@ void create()
         set_skill("strike", 140);
         set_skill("haotian-zhang", 200);    //昊天掌
         set_skill("cuff", 140);
-        set_skill("chunyang-quan", 200);    //纯阳拳
+        set_skill("chunyang-quan", 200);    //純陽拳
         set_skill("literate", 80);
         set_skill("taoism", 100);
 
@@ -72,7 +72,7 @@ void create()
 
         set("book_count",1);
         set("inquiry", ([
-                "全真教" :  "我全真教是天下道家玄门正宗。\n",
+                "全真教" :  "我全真教是天下道家玄門正宗。\n",
         ]) );
 
         setup();

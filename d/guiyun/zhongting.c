@@ -8,13 +8,13 @@ string look_zishi();
 
 void create()
 {
-	set("short","中厅");
+	set("short","中廳");
 	set("long",@LONG
-这是归云庄的中厅。庄中的大事以及召集弟子训话都是在这里进行
-的。由于修建年代久远，看起来已颇为陈旧，但打扫得十分干净，光线
-也较为充足，完全没有陈年旧宅的阴晦之气。四壁挂着一些古人书画精
-品，皆为上乘之作，显得主人眼光不凡，胸中大有丘壑。
-    靠里面是一张太师椅，椅后的墙上挂着一幅画(hua)。
+這是歸雲莊的中廳。莊中的大事以及召集弟子訓話都是在這裏進行
+的。由於修建年代久遠，看起來已頗爲陳舊，但打掃得十分乾淨，光線
+也較爲充足，完全沒有陳年舊宅的陰晦之氣。四壁掛着一些古人書畫精
+品，皆爲上乘之作，顯得主人眼光不凡，胸中大有丘壑。
+    靠裏面是一張太師椅，椅後的牆上掛着一幅畫(hua)。
 LONG );
 	set("objects",([
 		__DIR__"npc/kezhene" : 1,
@@ -33,7 +33,7 @@ LONG );
 		"south" : __DIR__"zoulang4",
 	]) );
 	set("item_desc", ([
-		"hua" :  "画中是一位形貌清矍的青衫老者，正在吹箫(xiao)，但是他的姿势(zishi)却有点奇怪。\n",
+		"hua" :  "畫中是一位形貌清矍的青衫老者，正在吹簫(xiao)，但是他的姿勢(zishi)卻有點奇怪。\n",
 		"xiao" : (: look_xiao :),
 		"zishi" : (: look_zishi :),
 	]) );
@@ -46,9 +46,9 @@ string look_xiao()
 {
         object me = this_player();
 
-	if (!me->query_temp("guiyun_hua")) return "画中老人拿箫的姿势甚是怪异！\n";
+	if (!me->query_temp("guiyun_hua")) return "畫中老人拿簫的姿勢甚是怪異！\n";
 	me->set_temp("guiyun_hua", 2);
-	return "原来画中老人竟是把手中握着的箫当作了剑来舞。\n";
+	return "原來畫中老人竟是把手中握着的簫當作了劍來舞。\n";
 }
 
 string look_zishi()
@@ -61,35 +61,35 @@ string look_zishi()
 	if (me->query_temp("guiyun_hua") < 2)
 	{
 		me->set_temp("guiyun_hua", 1);
-		return "你仔细地端详着画中老人的身姿，恍惚间仿佛看见老人正在缓缓舞动着什么。\n";
+		return "你仔細地端詳着畫中老人的身姿，恍惚間彷彿看見老人正在緩緩舞動着什麼。\n";
 	}
 	else
 	{
-		write("原来画中老人舞箫的姿势里竟然暗藏着高深的剑法！\n");
+		write("原來畫中老人舞簫的姿勢裏竟然暗藏着高深的劍法！\n");
 		if (me->is_busy())
 		{
-			write("可惜你现在正忙着做别的事，无法专心研究这幅画。\n");
+			write("可惜你現在正忙着做別的事，無法專心研究這幅畫。\n");
 			return "";
 		}
 		if( me->is_fighting() ) {
-			write("可惜你现在正在战斗中，无法专心研究这幅画。\n");
+			write("可惜你現在正在戰鬥中，無法專心研究這幅畫。\n");
 			return "";
 		}
 		if (me->query("jing") < 30) 
-			return "可惜你太累了，无法集中精神来研究这幅画。\n";
+			return "可惜你太累了，無法集中精神來研究這幅畫。\n";
 		if (me->query_skill("sword", 1) > 100) 
-			return "这幅在以前的你看来很艰深的画对现在的你而言已经没有什么可值得研究的了。\n";
+			return "這幅在以前的你看來很艱深的畫對現在的你而言已經沒有什麼可值得研究的了。\n";
 		if ((int)me->query_skill("sword", 1) < 30 )
-			return "你努力试图从画中老人的身姿里看出些什么，却发现一切都是徒劳的。\n";
+			return "你努力試圖從畫中老人的身姿裏看出些什麼，卻發現一切都是徒勞的。\n";
 	
 		me->receive_damage("jing", 25);
 		if( level * level * level /10 < exp)
 			me->improve_skill("sword", me->query("int"));
 
-		write("你仔细端详着画中老人舞箫的身姿。\n");
+		write("你仔細端詳着畫中老人舞簫的身姿。\n");
 		if (!random(8))
-			tell_room(this_object(), me->name() + "仔细端详着画中老人舞箫的身姿。\n", ({me}));
-		return "你对剑法运用的微妙之处有了进一步的认识。\n";
+			tell_room(this_object(), me->name() + "仔細端詳着畫中老人舞簫的身姿。\n", ({me}));
+		return "你對劍法運用的微妙之處有了進一步的認識。\n";
 	}
 }
 

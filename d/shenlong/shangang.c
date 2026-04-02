@@ -1,14 +1,14 @@
-// 山岗 /d/shenlong/shangang
+// 山崗 /d/shenlong/shangang
 // Last Modified by winder on Jul. 12 2002
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "山岗");
+	set("short", "山崗");
 	set("long", @LONG
-这是一个乱石岗，野草丛生，乱石成堆，显得很荒凉，石缝中有许
-多小洞，四周是许多乱石。
+這是一個亂石崗，野草叢生，亂石成堆，顯得很荒涼，石縫中有許
+多小洞，四周是許多亂石。
 LONG
 	);
 	set("outdoors", "shenlong");

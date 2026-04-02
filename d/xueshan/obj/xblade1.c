@@ -17,11 +17,11 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "把");
-		set("long", HIR "这是一把缠在腰间的宝刀，刀锋带着淡淡的血影。\n" NOR );
+		set("long", HIR "這是一把纏在腰間的寶刀，刀鋒帶着淡淡的血影。\n" NOR );
 		set("value", 1000);
 		set("material", "steel");
-		set("wield_msg", "$N「唰」的一声抽出一柄$n握在手中。\n");
-		set("unwield_msg", "$N将手中的$n插回刀鞘。\n");
+		set("wield_msg", "$N「唰」的一聲抽出一柄$n握在手中。\n");
+		set("unwield_msg", "$N將手中的$n插回刀鞘。\n");
 	}
 	init_blade(20);
 	setup();
@@ -41,19 +41,19 @@ int do_wield(string arg)
         string str;
 	int i, count;
 
-        if (!id(arg))   return notify_fail("你要装备什么？\n");
+        if (!id(arg))   return notify_fail("你要裝備什麼？\n");
 
 
 	if( !objectp(ob = present(arg, me)) )
-		return notify_fail("你身上没有这样东西。\n");
+		return notify_fail("你身上沒有這樣東西。\n");
 
 	if( ob->query("equipped") )
-		return notify_fail("你已经装备著了。\n");
+		return notify_fail("你已經裝備著了。\n");
 
 
 	if( ob->wield() ) {
               if( !stringp(str = ob->query("wield_msg")) )
-			str = "$N装备$n作武器。\n";
+			str = "$N裝備$n作武器。\n";
               message_vision(str, me, ob);
               if ( me->query_skill("xue-dao")
               && me->query_skill_mapped("blade") == "xue-dao" )

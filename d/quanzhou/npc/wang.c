@@ -7,13 +7,13 @@ inherit F_DEALER;
 void create()
 {
 	set_name("王通治", ({ "wang tongzhi", "wang", "tongzhi" }));
-	set("title", "药铺掌柜");
+	set("title", "藥鋪掌櫃");
 	set("shen_type", 1);
 
 	set("str", 20);
 	set("gender", "男性");
 	set("age", 35);
-	set("long", "王通治号称通治，医术如何不知道，药倒是蛮齐全的。\n");
+	set("long", "王通治號稱通治，醫術如何不知道，藥倒是蠻齊全的。\n");
 	set("attitude", "friendly");
 	set_skill("unarmed", 50);
 	set_skill("dodge", 50);

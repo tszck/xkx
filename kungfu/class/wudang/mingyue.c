@@ -5,7 +5,7 @@ inherit NPC;
 void create()
 {
 	set_name("明月", ({ "ming yue", "ming", "yue" }));
-	set("long", "他是武当山的小道童，身穿道袍，头挽道髻。\n");
+	set("long", "他是武當山的小道童，身穿道袍，頭挽道髻。\n");
 	set("gender", "男性");
 	set("age", 16);
 	set("attitude", "peaceful");
@@ -36,13 +36,13 @@ void create()
 	set_temp("apply/defense", 15);
 	set_temp("apply/damage", 5);
 	set("inquiry", ([
-		"明月" : "贫道便是明月，不知这位"+ RANK_D->query_respect(this_player())+"有何见教？",
-		"武当" : "贫道便是武当派弟子，不知这位"+ RANK_D->query_respect(this_player())+"有何见教？",
-		"武当派" : "贫道便是武当派弟子，不知这位"+ RANK_D->query_respect(this_player())+"有何见教？",
-		"张无忌" : "小师叔？唉，不知道他现在病好了没有，大家都好生挂念他。",
-		"张三丰" : "祖师爷就在里面，不知这位"+ RANK_D->query_respect(this_player())+"是否有要事找我们祖师爷?",
+		"明月" : "貧道便是明月，不知這位"+ RANK_D->query_respect(this_player())+"有何見教？",
+		"武當" : "貧道便是武當派弟子，不知這位"+ RANK_D->query_respect(this_player())+"有何見教？",
+		"武當派" : "貧道便是武當派弟子，不知這位"+ RANK_D->query_respect(this_player())+"有何見教？",
+		"張無忌" : "小師叔？唉，不知道他現在病好了沒有，大家都好生掛念他。",
+		"張三豐" : "祖師爺就在裏面，不知這位"+ RANK_D->query_respect(this_player())+"是否有要事找我們祖師爺?",
 	]));
-	create_family("武当派", 5, "弟子");
+	create_family("武當派", 5, "弟子");
 
 	setup();
 	carry_object(CLOTH_DIR"dao-cloth")->wear();

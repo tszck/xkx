@@ -11,22 +11,22 @@ int main(object me, string arg)
 	string /**killer,*/ callname;
 	seteuid(getuid());
 	if( environment(me)->query("no_ansuan") )
-		return notify_fail("这里禁止战斗。\n");
+		return notify_fail("這裏禁止戰鬥。\n");
 	if( environment(me)->query("no_fight") )
-		return notify_fail("这里不准战斗。\n");
+		return notify_fail("這裏不準戰鬥。\n");
 	if(me->is_busy())
-		return notify_fail("你上一个动作还没有完成！\n");
+		return notify_fail("你上一個動作還沒有完成！\n");
 	if( !arg )
-		return notify_fail("你想杀谁？\n");
+		return notify_fail("你想殺誰？\n");
 	if(!objectp(obj = present(arg, environment(me))))
-		return notify_fail("这里没有这个人。\n");
+		return notify_fail("這裏沒有這個人。\n");
 	if( !obj->is_character() || obj->is_corpse() )
-		return notify_fail("看清楚一点，那并不是活物。\n");
+		return notify_fail("看清楚一點，那並不是活物。\n");
 //	if (userp(me)&& obj->query("owner") && me->query("id") != obj->query("owner"))
-//    return notify_fail("不是你要抓的人，凑什么热闹！\n");
-//增加一个yinshi任务的限制条件		
+//    return notify_fail("不是你要抓的人，湊什麼熱鬧！\n");
+//增加一個yinshi任務的限制條件		
 	if( obj->query("no_kill") ||( obj->query("yinshi") && obj->query("ask_time")<=2) )
-		return notify_fail("你真黑，居然下得了这个毒手！\n");
+		return notify_fail("你真黑，居然下得了這個毒手！\n");
 	
        if( objectp(hitter = obj->query_temp("last_damage_from")))
 	{       
@@ -42,45 +42,45 @@ int main(object me, string arg)
 				me->query("quest/helian/quest")) &&
 			(!living(obj) ||obj->query_temp("noliving") ||
 				obj->query("qi") < obj->query("max_qi")/2) )
-				return notify_fail("不是你打伤的，你不能杀了来完成任务。\n");
+				return notify_fail("不是你打傷的，你不能殺了來完成任務。\n");
 			else
-				message_vision("\n$N对着$n得意地笑道：「"+obj->query("name")+"！今日活该你倒霉，欺侮你身上有伤，这个便宜我就不客气了！」\n\n", me, obj);
+				message_vision("\n$N對着$n得意地笑道：「"+obj->query("name")+"！今日活該你倒黴，欺侮你身上有傷，這個便宜我就不客氣了！」\n\n", me, obj);
 		}
 	}
 
 	if(me->query("id") != obj->query_temp("bt_ownname") &&
 		me->query_temp("bt/working"))
-		return notify_fail("你身为捕快，执行公务，可不能杀良冒功！\n");
-	if(obj==me) return notify_fail("用 suicide 指令会比较快:P。\n");
+		return notify_fail("你身爲捕快，執行公務，可不能殺良冒功！\n");
+	if(obj==me) return notify_fail("用 suicide 指令會比較快:P。\n");
 	if((int)obj->query("age") <= 15 && userp(obj))
-		return notify_fail("为了世界更美好，放过小孩子吧.\n");
+		return notify_fail("爲了世界更美好，放過小孩子吧.\n");
 
 //限制大米pk  
   if( userp(obj) && obj->query_temp("noliving") && 
       obj->query("id") != me->query("last_die_by_id") &&
      (!objectp(hitter) || hitter->query("id")!= me->query("id")) &&
      me->query("combat_exp",1)<1000000)
-          return notify_fail("想占这样的便宜，多练练再来吧!\n");
+          return notify_fail("想佔這樣的便宜，多練練再來吧!\n");
 	if (userp(me) && userp(obj) && me->query("combat_exp")<100000 &&
 	       obj->query("id") != me->query("last_die_by_id") &&
       obj->query("combat_exp")>1000000)
-			return notify_fail("就凭你这点实力，还是少惹点事吧。")  ;       
+			return notify_fail("就憑你這點實力，還是少惹點事吧。")  ;       
 
-	notify_fail("此人来头不小，还是少惹为妙。\n");
+	notify_fail("此人來頭不小，還是少惹爲妙。\n");
 	if (!userp(obj) && !obj->accept_kill(me)) return 0;		
 
 	callname = RANK_D->query_rude(obj);
 	if (random(3) > 1)
-		message_vision("\n$N对着$n喝道：「" + callname + "！今日不是你死就是我活！」\n\n", me, obj);
+		message_vision("\n$N對着$n喝道：「" + callname + "！今日不是你死就是我活！」\n\n", me, obj);
 	else
-		message_vision("\n$N对着$n喝道：「" + callname + "！明年今日就是你的忌日！」\n\n", me, obj);
+		message_vision("\n$N對着$n喝道：「" + callname + "！明年今日就是你的忌日！」\n\n", me, obj);
 
 	me->delete("env/combatd");
 	obj->delete("env/combatd");
 
 	me->kill_ob(obj);
 	if ( userp(obj))
-		write_file("/log/static/ATTEMP_KILL", sprintf("%s   试图杀死   %s on %s\n", me->name(1),obj->name(1), ctime(time()) ));
+		write_file("/log/static/ATTEMP_KILL", sprintf("%s   試圖殺死   %s on %s\n", me->name(1),obj->name(1), ctime(time()) ));
 // Look for PKS 
 	if( !userp(obj) ) 
 	{
@@ -89,7 +89,7 @@ int main(object me, string arg)
 		(string)obj->query("family/family_name") == (string)me->query("family/family_name"))
 		{
 			if (living(obj) && !obj->query_temp("noliving"))
-			message_vision(HIC"$n厉声对$N道：你我本同门，却为何想相害于我！\n"NOR,me,obj);
+			message_vision(HIC"$n厲聲對$N道：你我本同門，卻爲何想相害於我！\n"NOR,me,obj);
 			me->delete("family/fealty");
 			"/cmds/skill/expell"->main(obj,me->query("id"));
 		}
@@ -98,7 +98,7 @@ int main(object me, string arg)
 	else
 	{
 		obj->fight_ob(me);
-		tell_object(obj, HIR "如果你要和" + me->name() + "性命相搏，请你也对这个人下一次 kill 指令。\n" NOR);
+		tell_object(obj, HIR "如果你要和" + me->name() + "性命相搏，請你也對這個人下一次 kill 指令。\n" NOR);
 	}
 
 	return 1;
@@ -108,16 +108,16 @@ int help(object me)
 	write(@HELP
 指令格式 : kill <人物>
  
-    这个指令让你主动开始攻击一个人物，并且试图杀死对方，kill 和 fight 
-最大的不同在于双方将会真刀实枪地打斗，也就是说，会真的受伤。由于 kill 
-只需单方面一厢情愿就可以成立，因此你对任何人使用 kill 指令都会开始战斗，
-通常如果对方是 NPC 的话，他们也会同样对你使用 kill。
+    這個指令讓你主動開始攻擊一個人物，並且試圖殺死對方，kill 和 fight 
+最大的不同在於雙方將會真刀實槍地打鬥，也就是說，會真的受傷。由於 kill 
+只需單方面一廂情願就可以成立，因此你對任何人使用 kill 指令都會開始戰鬥，
+通常如果對方是 NPC 的話，他們也會同樣對你使用 kill。
 
-    当有人对你使用 kill 指令时会出现红色的字样警告你，对于一个玩家而言，
-如果你没有对一名敌人使用过 kill 指令，就不会将对方真的打伤或杀死（使用
-毒术除外）。
+    當有人對你使用 kill 指令時會出現紅色的字樣警告你，對於一個玩家而言，
+如果你沒有對一名敵人使用過 kill 指令，就不會將對方真的打傷或殺死（使用
+毒術除外）。
 
-其他相关指令: hit, fight
+其他相關指令: hit, fight
 
 HELP
 	);

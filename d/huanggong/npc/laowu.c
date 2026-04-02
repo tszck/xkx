@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("老吴", ({ "lao wu", "lao" ,"wu"}));
-	set("gender", "无性");
-	set("title", HIC"东六宫太监"NOR);
+	set_name("老吳", ({ "lao wu", "lao" ,"wu"}));
+	set("gender", "無性");
+	set("title", HIC"東六宮太監"NOR);
 	set("age", 26);
-	set("long", "一个半老瘦削汉子。\n");
+	set("long", "一個半老瘦削漢子。\n");
 
 	set("combat_exp", 3000);
 	set("shen_type", 0);

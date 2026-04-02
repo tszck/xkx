@@ -5,9 +5,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "将军府书房");
+	set("short", "將軍府書房");
 	set("long", @LONG
-这是靖海侯府的书房，里面除了书籍之外，更多的还是各种兵刃。
+這是靖海侯府的書房，裏面除了書籍之外，更多的還是各種兵刃。
 LONG );
 	set("exits", ([
 		"south" : __DIR__"jiangjunfu",

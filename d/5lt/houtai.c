@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "后台");
+	set("short", "後臺");
 	set("long", @LONG
-这里是演播厅的后台，演员们得了空儿赶着跑来歇口气。嘉宾室门
-口的过道里挤满了索要签名的歌迷影迷。
+這裏是演播廳的後臺，演員們得了空兒趕着跑來歇口氣。嘉賓室門
+口的過道里擠滿了索要簽名的歌迷影迷。
 LONG	);
 	set("outdoors", "5lt");
 	set("exits", ([

@@ -8,13 +8,13 @@ inherit F_MASTER;
 void create()
 {
 	set_name("常赫志", ({ "chang hezhi", "chang", "hezhi" }));
-	set("title", HIR"红花会"HIG"五当家"NOR);
-	set("nickname", HIB"黑无常"NOR);
+	set("title", HIR"紅花會"HIG"五當家"NOR);
+	set("nickname", HIB"黑無常"NOR);
 	set("long", 
-"他身材又高又瘦，脸色蜡黄，眼睛凹进，眼角上有一粒黑痣，眉毛
-斜斜的倒垂下来，形相甚是可怖。他是青城派慧侣道人的徒弟。黑砂
-掌的功夫，江湖上无人能敌。黑白无常两兄弟是川江上著名的侠盗，
-一向劫富济贫，不过心狠手辣，因此得了这难听的外号。\n");
+"他身材又高又瘦，臉色蠟黃，眼睛凹進，眼角上有一粒黑痣，眉毛
+斜斜的倒垂下來，形相甚是可怖。他是青城派慧侶道人的徒弟。黑砂
+掌的功夫，江湖上無人能敵。黑白無常兩兄弟是川江上著名的俠盜，
+一向劫富濟貧，不過心狠手辣，因此得了這難聽的外號。\n");
 	set("gender", "男性");
 	set("class", "fighter");
 	set("age", 42);
@@ -55,7 +55,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 	set("double_attack", 1);
-	create_family("红花会", 2, "弟子");
+	create_family("紅花會", 2, "弟子");
 
  	setup();
 	carry_object("/clone/misc/cloth")->wear();
@@ -70,9 +70,9 @@ void init()
 	if((int)ob->query("shen") < -1000 &&
 		ob->query("family/master_id")=="chang hezhi")
 	{
-		command( "chat "+ob->query("name")+"！你这等邪恶奸诈之徒，我岂能仍是你的师父。\n");
+		command( "chat "+ob->query("name")+"！你這等邪惡奸詐之徒，我豈能仍是你的師父。\n");
 		command("expell "+ ob->query("id"));
-		this_player()->set("title","红花会" + RED + "弃徒" NOR);
+		this_player()->set("title","紅花會" + RED + "棄徒" NOR);
 	}
 }
 
@@ -80,11 +80,11 @@ void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("shen") < 5000)
 	{
-		command("say 我红花会收徒极严。");
-		command("say 这位" + RANK_D->query_respect(ob) + "平时还要多做一些行侠仗义之事！");
+		command("say 我紅花會收徒極嚴。");
+		command("say 這位" + RANK_D->query_respect(ob) + "平時還要多做一些行俠仗義之事！");
 		return;
 	}
-	command("say 好，你这个年青人还不错，我收下你了！");
+	command("say 好，你這個年青人還不錯，我收下你了！");
 	command("recruit " + ob->query("id"));
 }
 

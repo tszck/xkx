@@ -1,12 +1,12 @@
-//libu2.c  礼部
+//libu2.c  禮部
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "礼部公署");
+	set("short", "禮部公署");
 	set("long", @LONG
-这里是六部之三--礼部官员候朝的朝房.
+這裏是六部之三--禮部官員候朝的朝房.
 LONG
 	);
         set("no_clean_up", 0);

@@ -1,8 +1,8 @@
-// zhen.c 猴拳「震」字诀
+// zhen.c 猴拳「震」字訣
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
-#define PNAME "「震」字诀"
+#define PNAME "「震」字訣"
 inherit F_SSERVER;
 int perform(object me, object target)
 {
@@ -18,17 +18,17 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("你必须空手才能使用「震」字诀！\n");		
+		return notify_fail("你必須空手才能使用「震」字訣！\n");		
 
 	fskill = "yunlong-shengong";
 	bskill = "unarmed";
@@ -42,15 +42,15 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 40 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 40 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili", 1) < 100 )
-		return notify_fail("你现在内力太弱，不能使用"PNAME"。\n");
+		return notify_fail("你現在內力太弱，不能使用"PNAME"。\n");
 			
-	msg = CYN "$N"CYN"默运神功，使出猴拳「震」字诀，企图以内力震伤$n"CYN"。\n"NOR;
+	msg = CYN "$N"CYN"默運神功，使出猴拳「震」字訣，企圖以內力震傷$n"CYN"。\n"NOR;
 	me->add("neili", -50);
 
 //	if( !target->is_killing(me) ) target->kill_ob(me);
@@ -67,15 +67,15 @@ int perform(object me, object target)
 		target->receive_wound("qi", damage/3,me);
     me->add("neili", -damage/3);
 		
-		if( damage < 20 ) msg += HIY"结果$n受到$N的内力反震，闷哼一声。\n"NOR;
-        	else if( damage < 40 ) msg += HIY"结果$n被$N以内力反震，「嘿」地一声退了两步。\n"NOR;
-        	else if( damage < 80 ) msg += RED"结果$n被$N以内力一震，胸口有如受到一记重锤，连退了五六步！\n"NOR;
-                else msg += HIR"结果$n被$N的内力一震，眼前一黑，身子向后飞出丈许！！\n"NOR;
+		if( damage < 20 ) msg += HIY"結果$n受到$N的內力反震，悶哼一聲。\n"NOR;
+        	else if( damage < 40 ) msg += HIY"結果$n被$N以內力反震，「嘿」地一聲退了兩步。\n"NOR;
+        	else if( damage < 80 ) msg += RED"結果$n被$N以內力一震，胸口有如受到一記重錘，連退了五六步！\n"NOR;
+                else msg += HIR"結果$n被$N的內力一震，眼前一黑，身子向後飛出丈許！！\n"NOR;
 		
 	} else 
 	{
 		me->start_busy(3);
-		msg += CYN"可是$p看破了$P的企图，并没有上当。\n"NOR;
+		msg += CYN"可是$p看破了$P的企圖，並沒有上當。\n"NOR;
 	}
 	message_combatd(msg, me, target);
 	if(!target->is_fighting(me)) target->fight_ob(me);
@@ -90,13 +90,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
-		迟滞对方出手
+		損傷對方氣血
+		遲滯對方出手
 
 	出手要求：
-		云龙神功40级
-		猴拳40级
-		内力100
+		雲龍神功40級
+		猴拳40級
+		內力100
 HELP
 	);
 	return 1;

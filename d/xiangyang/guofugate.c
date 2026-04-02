@@ -5,14 +5,14 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short", "郭府大门");
+	set("short", "郭府大門");
 	set("long", 
-"一座建筑古朴的大宅院出现在你的眼前。只见门楼高挑，
-上书两个大字"HIY"
+"一座建築古樸的大宅院出現在你的眼前。只見門樓高挑，
+上書兩個大字"HIY"
                      郭   府
 "NOR"
-    全真教第二代弟子耶律齐和几个家丁站在门前接待前来保
-卫襄阳的各方义士。\n"
+    全真教第二代弟子耶律齊和幾個家丁站在門前接待前來保
+衛襄陽的各方義士。\n"
  );
         set("outdoors", "xiangyang");
 	set("exits", ([

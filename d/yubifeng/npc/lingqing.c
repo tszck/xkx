@@ -1,13 +1,13 @@
-// lingqing.c 灵清居士
+// lingqing.c 靈清居士
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("灵清居士", ({ "lingqing jushi", "jushi", "lingqing" }) );
+	set_name("靈清居士", ({ "lingqing jushi", "jushi", "lingqing" }) );
 	set("gender", "男性");
-	set("title", "昆仑派");
+	set("title", "崑崙派");
 	set("class", "taoist");
 	set("age", 43);
 	set("attitude", "friendly");

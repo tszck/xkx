@@ -13,8 +13,8 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("material", "silk");
-		set("unit", "袭");
-		set("long", "这是一袭珍贵的紫貂皮毛做的貂裘。\n");
+		set("unit", "襲");
+		set("long", "這是一襲珍貴的紫貂皮毛做的貂裘。\n");
 		set("value", 20000);
 		set("armor_prop/dodge", 5);
 	}

@@ -3,19 +3,19 @@ inherit __DIR__"gift";
 
 void create()
 {
-        set_name(HIG "青龙炼睿丹" NOR, ({ "qinglong dan", "qinglong", "dan" }));
+        set_name(HIG "青龍煉睿丹" NOR, ({ "qinglong dan", "qinglong", "dan" }));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", HIG "这是一颗葱绿剔透的药丸，据说吃了可以增强悟性。\n" NOR);
-                set("unit", "颗");
+                set("long", HIG "這是一顆蔥綠剔透的藥丸，據說喫了可以增強悟性。\n" NOR);
+                set("unit", "顆");
                 set("value", 50000);
                 set("weight", 50);
                 set("gift_type", "int");
                 set("gift_name", "先天悟性");
                 set("gift_point", 65);
-                set("gift_msg", HIG "一股火热蓦然从脑中升起，"
-			    "你头痛欲裂，恰在此时一股清凉之意油然而起，顿感舒泰无比。\n"NOR);
+                set("gift_msg", HIG "一股火熱驀然從腦中升起，"
+			    "你頭痛欲裂，恰在此時一股清涼之意油然而起，頓感舒泰無比。\n"NOR);
         }
         setup();
 }

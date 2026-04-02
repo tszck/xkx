@@ -1,16 +1,16 @@
-// guanjinglou.c 观景楼
+// guanjinglou.c 觀景樓
 // Winder Oct.10 1998
 
 inherit ROOM;
 
 void create()
 {
-        set("short", "观景楼");
+        set("short", "觀景樓");
         set("long", @LONG
-这里是一座两层的小楼，是建筑在庄园边缘用来登高凭拦看
-风景的。你轻轻靠在栏杆上，竟朽的吱吱做响。看来已经很久没
-有人有这个雅兴来这里看风景了。窗户(window)上的窗纸已经破
-了不少，风一吹哗哗的响。
+這裏是一座兩層的小樓，是建築在莊園邊緣用來登高憑攔看
+風景的。你輕輕靠在欄杆上，竟朽的吱吱做響。看來已經很久沒
+有人有這個雅興來這裏看風景了。窗戶(window)上的窗紙已經破
+了不少，風一吹嘩嘩的響。
 LONG
         );
         set("outdoors", "hanzhong");
@@ -19,7 +19,7 @@ LONG
         ]));
         set("no_clean_up", 0);
         set("item_desc", ([
-        "window": "窗外是黄沙满天，往远处看，什么都看不清楚。\n"
+        "window": "窗外是黃沙滿天，往遠處看，什麼都看不清楚。\n"
         ]) );
 
 	set("coor/x", -3120);

@@ -7,8 +7,8 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(HIY"护法袈裟"NOR, ({ "hufa jiasha", "jiasha", "cloth" }) );
-	set("long","一件金光灿灿的护法袈裟。");
+	set_name(HIY"護法袈裟"NOR, ({ "hufa jiasha", "jiasha", "cloth" }) );
+	set("long","一件金光燦燦的護法袈裟。");
 	set_weight(4000);
 	if( clonep() )
 		set_default_object(__FILE__);

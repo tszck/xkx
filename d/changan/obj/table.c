@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 
@@ -12,11 +12,11 @@ void create()
 {
         set_name("石桌", ({ "table" }));
         set_weight(200000);
-   set("long", "这是张大理石制的桌子。\n" );
+   set("long", "這是張大理石制的桌子。\n" );
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "张");
+                set("unit", "張");
                 set("material", "stone");
      set("value", 2000);
                 set("no_get", 1);

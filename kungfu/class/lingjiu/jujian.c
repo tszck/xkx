@@ -9,11 +9,11 @@ void greeting(object);
 void init();
 void create()
 {
-	set_name("菊剑", ({ "ju jian", "ju"}));
-	set("title", "灵鹫宫第三代弟子");
+	set_name("菊劍", ({ "ju jian", "ju"}));
+	set("title", "靈鷲宮第三代弟子");
 	set("long",
-		"这是个容貌姣好的女子，瓜子脸蛋，眼如点漆，清秀绝俗。
-你总觉得在哪见过她。\n");
+		"這是個容貌姣好的女子，瓜子臉蛋，眼如點漆，清秀絕俗。
+你總覺得在哪見過她。\n");
 	set("gender", "女性");
 	set("class", "dancer");
 	set("age", 18);
@@ -68,7 +68,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );		
 
-	create_family("逍遥派",3,"弟子");
+	create_family("逍遙派",3,"弟子");
 	setup();
 	carry_object("/d/lingjiu/obj/qingyi")->wear();
 	carry_object("/d/lingjiu/obj/doupeng")->wear();
@@ -92,9 +92,9 @@ void init()
 void greeting(object ob)
 {
 	if (objectp(ob) && environment(ob)==environment(this_object()))
-	if ((string)ob->query("family/family_name") == "灵鹫宫") 
+	if ((string)ob->query("family/family_name") == "靈鷲宮") 
 	{
-		message_vision("菊剑冲着$N点点头，微微笑了笑。\n",ob);
+		message_vision("菊劍衝着$N點點頭，微微笑了笑。\n",ob);
 		return;
 	}
 }
@@ -103,7 +103,7 @@ void attempt_apprentice(object ob)
 {
 	if ((string)ob->query("gender")=="女性")
 	{
-		message_vision("菊剑垂目沉思片刻, 说道：“好吧, 我就收下你了。”\n",ob);
+		message_vision("菊劍垂目沉思片刻, 說道：“好吧, 我就收下你了。”\n",ob);
 		command("recruit " + ob->query("id"));
 //		if((string)ob->query("class") != "dancer")
 //			ob->set("class", "dancer");
@@ -111,7 +111,7 @@ void attempt_apprentice(object ob)
 	}
 	else
 	{
-		message_vision("菊剑瞪着你看了半天, 娇嗔道：“你一个大男人，跑这里来学功夫，羞也不羞。”\n",ob);
+		message_vision("菊劍瞪着你看了半天, 嬌嗔道：“你一個大男人，跑這裏來學功夫，羞也不羞。”\n",ob);
 		return;
 	}
 }
@@ -121,6 +121,6 @@ int recruit_apprentice(object ob)
         {
 		if((string)ob->query("class") != "dancer")
 			ob->set("class", "dancer");
-		ob->set("title","灵鹫宫第四代弟子");
+		ob->set("title","靈鷲宮第四代弟子");
 	}
 }

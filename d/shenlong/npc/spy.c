@@ -10,11 +10,11 @@ int is_sg_spy() { return 1;}
 
 void create()
 {
-	set_name("魏无双", ({ "wulin mengzhu", "mengzhu", "zhu" }) );
+	set_name("魏無雙", ({ "wulin mengzhu", "mengzhu", "zhu" }) );
 	set("title", "武林盟主" );
 	set("gender", "男性" );
 	set("age", 40);
-	set("long","他就是雄踞武林，号召天下，威风赫赫的当今武林盟主。\n");
+	set("long","他就是雄踞武林，號召天下，威風赫赫的當今武林盟主。\n");
 	set("attitude", "heroism");
 
 	set("str", 25);

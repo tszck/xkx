@@ -5,15 +5,15 @@ inherit ITEM;
 inherit F_AUTOLOAD;
 void create()
 {
-	set_name(HIB"无字天书"NOR, ({"skybook","book"}) );
+	set_name(HIB"無字天書"NOR, ({"skybook","book"}) );
 	set_weight(10);
 	set("no_steal", 1);
 	set("no_beg", 1);
 //	set("no_get", 1);
-	set("no_drop","哇？天书都想丢掉,小心遭天谴。\n\n");
+	set("no_drop","哇？天書都想丟掉,小心遭天譴。\n\n");
 	set("long",@LONG
-此乃当年仙人赠于"蛋生"的宝物,因为蛋生不识字,仙人施了法,
-把天书变成了无字天书,呵呵!就是文盲也能读懂,快看看(kan)吧！
+此乃當年仙人贈於"蛋生"的寶物,因爲蛋生不識字,仙人施了法,
+把天書變成了無字天書,呵呵!就是文盲也能讀懂,快看看(kan)吧！
 LONG );
 	if( clonep() )
 		set_default_object(__FILE__);
@@ -34,7 +34,7 @@ int query_autoload()
 {
 	return 1;
 }
-//介绍
+//介紹
 int kan_book()
 {
 	object me;
@@ -42,11 +42,11 @@ int kan_book()
 	if (!present(this_object(), this_player())) return 0;
 
 	tell_object(me,
-    "法诀		    功能
-筋斗云(cloud)	 到想去的地方\n");
+    "法訣		    功能
+筋斗雲(cloud)	 到想去的地方\n");
 	return 1;
 }
-// 筋斗云
+// 筋斗雲
 
 int cloud_goto(string arg)
 {
@@ -64,10 +64,10 @@ int cloud_goto(string arg)
 		{
 			obj = environment(ob[i-1]);
 			this_player()->move(obj);
-			tell_object(mme,HIM"你一个筋斗窜向空中,只见眼前红云飞过,耳边风呼呼作响 ..\n\n"NOR);
+			tell_object(mme,HIM"你一個筋斗竄向空中,只見眼前紅雲飛過,耳邊風呼呼作響 ..\n\n"NOR);
 			tell_object(mme,"哇喔,好痛快,好爽,爽歪歪!\n\n");
 			mme->move(obj);
-			tell_object(mme,"你驾着云缓缓下降,叭叽一声,嘿!安全着陆...\n");
+			tell_object(mme,"你駕着雲緩緩下降,叭嘰一聲,嘿!安全着陸...\n");
 			return 1;
 		}
 	}
@@ -76,6 +76,6 @@ int cloud_goto(string arg)
 
 void owner_is_killed()
 {
-	write(HIY"只见眼前金光一闪...好象是.....\n"NOR);
+	write(HIY"只見眼前金光一閃...好象是.....\n"NOR);
 	destruct(this_object());
 }

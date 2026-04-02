@@ -6,34 +6,34 @@
 
 mixed names = ({
 	({
-//	"玉音子","沐剑屏","天山童姥",
-//	"石破天","殷梨亭","刘处玄","丘处机","大痴大师",
-//	"渡劫","渡难","方戈","简长老","大癫大师","方成",
-//"大疯大师",
-"独臂神尼",
-"宋青书",
-"玄贞道长",
-"大痍大师",
-	"郭芙","武三通","鲁有脚","静玄师太","静照师太","宋远桥","莫声谷",
-	"韩宝驹","黄药师","余沧海","殷野王","尹志平","小龙女","武三通","朱子柳",
-	"刘乘风","欧阳锋","九翼道人","阿紫","玉磬子",	"岳夫人","岳不群",
-	"令狐冲","玄苦大师","清善比丘",	"庄夫人","双儿","吴六奇",
-	"木婉清","萧远山","李沅芷","向问天","曲洋","黑白子","程瑶迦",
-	"天柏道人","本尘","本观",	"韦一笑","谢逊","澄坚","马超兴",
-	"张翠山",	"苏星河","陈近南",	"俞莲舟",
-	"封不平","天乙道人","天松道人","天柏道人","天门道人","段正淳",
-	"傅思归","高升泰","古笃诚","华赫艮","刀白凤","静风师太","静和师太",
-	"静慧师太","静迦师太","静空师太","李明霞","赵灵珠","定闲师太","定逸师太",
-	"莫大","刘正风","常伯志",	"陈家洛","矮老者","高老者","崔志方",
-	"房志起","郝大通","李志常",	"马钰","祁志诚","皮清玄",
-	"申志凡","孙不二","谭处端","尹志平","王处一","张志光","澄观","澄和",
-	"澄寂","澄坚","澄净","澄灵","澄灭","澄明","张松溪","苟读","欧阳克",
-	"大痕大师","元惑","大病大师",	"大疾大师","大疲大师",
-	"大苦大师",	"大痒大师",	"方尘","方回",
-	"方济","方戒","方空","方穷","方通","方逝","方土","方现","方相","方厌",
-	"元悲","元慈","元恶","元恩","元忿","元患","元恚","元惑","元忌","元恐",
-	"元虑","元怒","元忍","元伤","元恕","元痛","元忘","元息","元恙","元愚",
-	"元怨","胜谛",
+//	"玉音子","沐劍屏","天山童姥",
+//	"石破天","殷梨亭","劉處玄","丘處機","大癡大師",
+//	"渡劫","渡難","方戈","簡長老","大癲大師","方成",
+//"大瘋大師",
+"獨臂神尼",
+"宋青書",
+"玄貞道長",
+"大痍大師",
+	"郭芙","武三通","魯有腳","靜玄師太","靜照師太","宋遠橋","莫聲谷",
+	"韓寶駒","黃藥師","餘滄海","殷野王","尹志平","小龍女","武三通","朱子柳",
+	"劉乘風","歐陽鋒","九翼道人","阿紫","玉磬子",	"嶽夫人","嶽不羣",
+	"令狐沖","玄苦大師","清善比丘",	"莊夫人","雙兒","吳六奇",
+	"木婉清","蕭遠山","李沅芷","向問天","曲洋","黑白子","程瑤迦",
+	"天柏道人","本塵","本觀",	"韋一笑","謝遜","澄堅","馬超興",
+	"張翠山",	"蘇星河","陳近南",	"俞蓮舟",
+	"封不平","天乙道人","天松道人","天柏道人","天門道人","段正淳",
+	"傅思歸","高升泰","古篤誠","華赫艮","刀白鳳","靜風師太","靜和師太",
+	"靜慧師太","靜迦師太","靜空師太","李明霞","趙靈珠","定閒師太","定逸師太",
+	"莫大","劉正風","常伯志",	"陳家洛","矮老者","高老者","崔志方",
+	"房志起","郝大通","李志常",	"馬鈺","祁志誠","皮清玄",
+	"申志凡","孫不二","譚處端","尹志平","王處一","張志光","澄觀","澄和",
+	"澄寂","澄堅","澄淨","澄靈","澄滅","澄明","張松溪","苟讀","歐陽克",
+	"大痕大師","元惑","大病大師",	"大疾大師","大疲大師",
+	"大苦大師",	"大癢大師",	"方塵","方回",
+	"方濟","方戒","方空","方窮","方通","方逝","方土","方現","方相","方厭",
+	"元悲","元慈","元惡","元恩","元忿","元患","元恚","元惑","元忌","元恐",
+	"元慮","元怒","元忍","元傷","元恕","元痛","元忘","元息","元恙","元愚",
+	"元怨","勝諦",
 	}),
 });
 int ask_job()
@@ -45,25 +45,25 @@ int ask_job()
 	me=this_object();
 	exp=ob->query("combat_exp");
 
-//guoys_mis_flat == 1  获得任务 
-//guoys_mis_target     目前的目标
-//condition(guoys_mis) 还在任务间隔中
+//guoys_mis_flat == 1  獲得任務 
+//guoys_mis_target     目前的目標
+//condition(guoys_mis) 還在任務間隔中
 	
 	if (interactive(ob) && ob->query_temp("guoys_mis_target") && 
 		(int)ob->query_condition("guoys_mis") )
 	{
-		tell_object(ob,"郭靖对你哼了一声道：“你上一次的任务还没完成！”\n"); 
+		tell_object(ob,"郭靖對你哼了一聲道：“你上一次的任務還沒完成！”\n"); 
 		return 1;
 	}
 	if (interactive(ob) && !ob->query_temp("guoys_mis_target") &&
 		(int)ob->query_condition("guoys_mis"))
 	{
-		tell_object(ob,"郭靖对你哼了一声道：“你办事不力，先等会吧！”\n"); 
+		tell_object(ob,"郭靖對你哼了一聲道：“你辦事不力，先等會吧！”\n"); 
 		return 1;
 	}
 	if(exp<=100000)
 	{
-		tell_object(ob,"郭靖对你笑道：“你的武功太差了，等练强了再来吧。”\n");	
+		tell_object(ob,"郭靖對你笑道：“你的武功太差了，等練強了再來吧。”\n");	
 		return 1;
 	}
    	ob->set_temp("guoys_mis_flag",1);
@@ -72,32 +72,32 @@ int ask_job()
 	ob->apply_condition("guoys_mis",30);    
 	ob->set_temp("guoys_mis_target", target);
 	call_out("begin_kill",10,ob,target);
-	tell_object(ob,CYN "郭靖点了点头，对你说道：蒙古人收买了一批武林败类，好象要暗杀"+target+"，你去保护他一下。\n"NOR);
-	message_vision("郭靖叮嘱道：“一路上危险重重，务必多加小心。”\n",me);
-	message("channel:qst", HIR"【保护义士】"+ob->query("name")+"申请保护"+ob->query_temp("guoys_mis_target")+"任务。\n"NOR, users());
+	tell_object(ob,CYN "郭靖點了點頭，對你說道：蒙古人收買了一批武林敗類，好象要暗殺"+target+"，你去保護他一下。\n"NOR);
+	message_vision("郭靖叮囑道：“一路上危險重重，務必多加小心。”\n",me);
+	message("channel:qst", HIR"【保護義士】"+ob->query("name")+"申請保護"+ob->query_temp("guoys_mis_target")+"任務。\n"NOR, users());
 	return 1;
 }
 /*int accept_object(object who, object ob,object me)
 {
 	if ( ob->query("id") != "corpse")
 	{
-		tell_object(who,"郭靖惊道：“这好像不是我要的东西！”\n");
+		tell_object(who,"郭靖驚道：“這好像不是我要的東西！”\n");
 		return 0;
 	}
 	if ( !who->query_temp("guoys_mis_target") )
 	{
-		tell_object(who,"郭靖问道：“你有申请过任务么？”\n");
+		tell_object(who,"郭靖問道：“你有申請過任務麼？”\n");
 		return 0;
 	}
 	if ( who->query_temp("guoys_mis_flag")!= 3 )
 	{
-		tell_object(who,"郭靖问道：“你的任务还没完成吧？”\n");
+		tell_object(who,"郭靖問道：“你的任務還沒完成吧？”\n");
 		return 0;
 	}
 	if (ob->query_temp("must_killby")!= who->query("id") ||
 			ob->query("victim_user")||who->query_temp("guoys_mis_given") )
 		{
-			tell_object(who,"郭靖叹了口气，说道：“阁下好像杀错人了吧？”\n");
+			tell_object(who,"郭靖嘆了口氣，說道：“閣下好像殺錯人了吧？”\n");
 			return 0;
 		} 
 	who->set_temp("guoys_mis_given",1);
@@ -111,8 +111,8 @@ void ok(object who)
 {
 	int exp,pot;
 	if (!who) return;
-	tell_object(who,"郭靖满脸欢喜，赞道：“干的好，阁下办事干净利落，将来必成大器！”\n");
-	//去掉原先这个任务加的zzz_job_count参数
+	tell_object(who,"郭靖滿臉歡喜，讚道：“乾的好，閣下辦事幹淨利落，將來必成大器！”\n");
+	//去掉原先這個任務加的zzz_job_count參數
 	if( who->query("zzz_job_count")) who->delete("zzz_job_count",1);
 	
 	exp=400+random(200);
@@ -123,9 +123,9 @@ void ok(object who)
 	who->delete_temp("guoys_mis_given");
 	who->delete_temp("guoys_mis_flag");
 	who->clear_condition("guoys_mis");	
-	tell_object(who,HIW"你被奖励了：" + 
-		chinese_number(exp) + "点实战经验，" +
-		chinese_number(pot) + "点潜能。\n"+ NOR);
+	tell_object(who,HIW"你被獎勵了：" + 
+		chinese_number(exp) + "點實戰經驗，" +
+		chinese_number(pot) + "點潛能。\n"+ NOR);
 	return;
 }
 
@@ -247,7 +247,7 @@ object create_killer( object me )
 	}
 	topexp = (int) me->query("combat_exp");
 	obj->set("combat_exp", topexp + 100);
-/* 1000万以上玩家，在此长正气或戾气 */
+/* 1000萬以上玩家，在此長正氣或戾氣 */
 	if(me->query("combat_exp") > 10000000)
 		obj->set("shen", -1*hp_status["shen"]);
 	
@@ -348,7 +348,7 @@ void begin_kill(object me,string target)
 			if(environment(me)->query("no_fight")) obj->set_leader(me);
 			obj->set_temp("must_killby",me->query("id"));
 			obj->set("owner",me->query("id"));
-			obj->set("title",HIR"武林败类"NOR);
+			obj->set("title",HIR"武林敗類"NOR);
 			if (random(30)==1)
 			{
 //				obj->set("title",HIR""NOR);
@@ -359,9 +359,9 @@ void begin_kill(object me,string target)
 				obj->add_temp("apply/armor",200);
 				obj->add("combat_exp",obj->query("combat_exp"));
 			}
-	message_vision( GRN"\n$N对着"+target+"发出一阵阴笑声，令"+target+"全身上下的寒毛根根竖起，不寒而栗。\n"NOR,obj); 
-	message_vision(HIY"$N对$n喝道：大胆狂徒，竟敢在这撒野！！\n"NOR,me,obj);
-	message_vision(HIY"$N阴阴一笑：要你多管闲事，去死吧！！\n"NOR,obj);
+	message_vision( GRN"\n$N對着"+target+"發出一陣陰笑聲，令"+target+"全身上下的寒毛根根豎起，不寒而慄。\n"NOR,obj); 
+	message_vision(HIY"$N對$n喝道：大膽狂徒，竟敢在這撒野！！\n"NOR,me,obj);
+	message_vision(HIY"$N陰陰一笑：要你多管閒事，去死吧！！\n"NOR,obj);
 			obj->kill_ob(me);
 			me->kill_ob(obj);
 			if (!me->is_busy())

@@ -1,4 +1,4 @@
-// fish.c 游鱼
+// fish.c 遊魚
 // Last Modified by winder on Aug. 1 2002
 
 inherit F_DBASE;
@@ -14,14 +14,14 @@ inherit F_DBASE;
 
 mapping *combat_action = ({
 ([
-	"action":	"$N游上来来张嘴往$n的$l狠狠地一咬",
+	"action":	"$N游上來來張嘴往$n的$l狠狠地一咬",
 	"damage":	20,
-	"damage_type":	"咬伤",
+	"damage_type":	"咬傷",
 ]),
 ([
-	"action":	"$N摆动尾巴往$n的$l猛地一拍",
+	"action":	"$N擺動尾巴往$n的$l猛地一拍",
 	"damage":	20,
-	"damage_type":	"淤伤",
+	"damage_type":	"淤傷",
 ]),
 });
 
@@ -30,17 +30,17 @@ void create()
 	seteuid(getuid());
 	set("attitude", "peaceful");
 	set("limbs", ({
-		"头部",	"腮部",	"背部",	"腹部",	
-		"前鳍",	"后鳍", "尾巴"
+		"頭部",	"腮部",	"背部",	"腹部",	
+		"前鰭",	"後鰭", "尾巴"
 	}) );
 
-	set("dead_message", "\n$N摆动了几下，白白的肚子往上翻了起来。\n\n");
-	set("unconcious_message", "\n$N摆动了几下，红红的腮帮往外翻了出来。\n\n");
-	set("revive_message", "\n$N摆了几下，又在水中游了开去。\n\n");
-	set("comeout_message", "打了个水漂，往$d游了出去。\n");
-	set("comein_message", "游了过来，在水中灵活地打了个转儿。\n");
-	set("fleeout_message", "打了个水漂，往$d游了出去。\n");
-	set("fleein_message", "摇头摆尾地游了过来，白白的肚子往上翻着。\n");
+	set("dead_message", "\n$N擺動了幾下，白白的肚子往上翻了起來。\n\n");
+	set("unconcious_message", "\n$N擺動了幾下，紅紅的腮幫往外翻了出來。\n\n");
+	set("revive_message", "\n$N擺了幾下，又在水中游了開去。\n\n");
+	set("comeout_message", "打了個水漂，往$d遊了出去。\n");
+	set("comein_message", "遊了過來，在水中靈活地打了個轉兒。\n");
+	set("fleeout_message", "打了個水漂，往$d遊了出去。\n");
+	set("fleein_message", "搖頭擺尾地遊了過來，白白的肚子往上翻着。\n");
 }
 
 void setup_fish(object ob)
@@ -51,9 +51,9 @@ void setup_fish(object ob)
 
 	ob->set("default_actions", (: call_other, __FILE__, "query_action" :));
 
-	my["unit"] = "条";
+	my["unit"] = "條";
 	
-	if( undefinedp(my["gender"]) ) my["gender"] = "无性";
+	if( undefinedp(my["gender"]) ) my["gender"] = "無性";
 	if( undefinedp(my["age"]) ) my["age"] = random(5) + 5;
 
 	if( undefinedp(my["str"]) ) my["str"] = random(10) + 5;

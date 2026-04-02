@@ -8,9 +8,9 @@ void create()
 {
         set("short", "老君殿");
         set("long", @LONG
-这里是供奉太上老君的大殿。殿的正中塑着老君的塑像，老君骑
-在青牛上，正临云而去。两旁塑着两个童子，都栩栩如生。殿中的地
-都是以青砖一块块的铺成，打扫得一尘不染。
+這裏是供奉太上老君的大殿。殿的正中塑着老君的塑像，老君騎
+在青牛上，正臨雲而去。兩旁塑着兩個童子，都栩栩如生。殿中的地
+都是以青磚一塊塊的鋪成，打掃得一塵不染。
 LONG
         );
         set("exits", ([
@@ -38,7 +38,7 @@ int valid_leave(object me, string dir)
                         if(present("qiu chuji", environment(me)) && living(present("qiu chuji", environment(me))))
                         {
                                 return notify_fail(
-"丘处机喝道：后面是本教重地，这位" + RANK_D->query_respect(me) + "请止步。\n");
+"丘處機喝道：後面是本教重地，這位" + RANK_D->query_respect(me) + "請止步。\n");
                         }
                         else
                                 return ::valid_leave(me, dir);

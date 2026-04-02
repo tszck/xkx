@@ -9,12 +9,12 @@ void do_something();
 
 void create()
 {
-	set_name("公孙大娘", ({"gongsun daniang", "gongsun", "daniang"}));
+	set_name("公孫大娘", ({"gongsun daniang", "gongsun", "daniang"}));
 	set("age", 32);
 	set("gender", "女性");
 	set("per", 20);
-	set("long","城内不知道公孙大娘的人恐怕没几个。\n特别是那些文人骚客，跟公孙大娘不熟简直就是没面子。\n");
-	set("title", "老板娘");
+	set("long","城內不知道公孫大娘的人恐怕沒幾個。\n特別是那些文人騷客，跟公孫大娘不熟簡直就是沒面子。\n");
+	set("title", "老闆娘");
 	set("attitude", "friendly");
 
 	set("combat_exp", 40000);
@@ -30,14 +30,14 @@ void create()
 	map_skill("dodge", "yunying-wubu");
 
 	set("inquiry", ([
-		"name" : "嘻嘻...连老娘我公孙大娘你都不知道...\n",
-		"here" : "嘿嘿...天下美景不胜数，长安此处最繁华。\n",
+		"name" : "嘻嘻...連老孃我公孫大娘你都不知道...\n",
+		"here" : "嘿嘿...天下美景不勝數，長安此處最繁華。\n",
 		"舞妓" : (: apply_dancer :),
 		"舞女" : (: apply_dancer :),
 		"歌妓" : (: apply_dancer :),
 		"歌女" : (: apply_dancer :),
 		"leave" : (: answer_leaving :),
-		"离开" : (: answer_leaving :),
+		"離開" : (: answer_leaving :),
 	]) );
 
 	setup();
@@ -57,19 +57,19 @@ string apply_dancer(object me)
 	me=this_player();
 	if( (string)me->query("gender") == "男性" ) 
 	{
-		return "这就要看阁下的本事了，我可帮不上多少忙。\n";
+		return "這就要看閣下的本事了，我可幫不上多少忙。\n";
 	}
 	else
 	{
 		if( (string)me->query("class") == "dancer" )
-			return "好好干吧，以后不愁嫁不上好人家。\n";
+			return "好好幹吧，以後不愁嫁不上好人家。\n";
 
 		if( (int)me->query("age") >= 30 )
-			return "岁月不饶人，姑娘还是另寻它路吧。\n";
+			return "歲月不饒人，姑娘還是另尋它路吧。\n";
 
-		message_vision("公孙大娘看了$N一眼叹道：这碗饭可不是容易吃的。\n", me);	
+		message_vision("公孫大娘看了$N一眼嘆道：這碗飯可不是容易喫的。\n", me);	
 		me->set_temp("dancer_applied", 1);
-		return "姑娘果真是下了决心？(yes)\n";
+		return "姑娘果真是下了決心？(yes)\n";
 	}
 }
 
@@ -78,13 +78,13 @@ string answer_leaving(object me)
 	me=this_player();
 	if( (string)me->query("gender") == "男性" ) 
 	{
-		return "快滚，滚得远远的！老娘这地方还怕没人来吗？\n";
+		return "快滾，滾得遠遠的！老孃這地方還怕沒人來嗎？\n";
 	}
 	else
 	{
 		if( (string)me->query("class") == "dancer" )
-			return "既入此门，大家都知道了，离不离开又有什么分别呢？\n";
-		else return "快走吧，这里本来就不是女人玩的地方。\n";
+			return "既入此門，大家都知道了，離不離開又有什麼分別呢？\n";
+		else return "快走吧，這裏本來就不是女人玩的地方。\n";
 	}
 }
 
@@ -107,7 +107,7 @@ int do_yes(string arg)
 	if(me->query_temp("dancer_applied")) 
 	{
 		message_vision("$N答道：我都想清楚了！\n\n", me);
-		message_vision("公孙大娘拍了拍$N的头道：好好干！只要能碰上好运气，荣华富贵垂手可得！\n", me);
+		message_vision("公孫大娘拍了拍$N的頭道：好好幹！只要能碰上好運氣，榮華富貴垂手可得！\n", me);
 		me->delete_temp("dancer_applied");
 		me->set("class", "dancer");
 		return 1;

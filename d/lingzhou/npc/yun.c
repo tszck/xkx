@@ -6,15 +6,15 @@ inherit NPC;
 void create()
 {
 
-	set_name("云中鹤", ({ "yun zhonghe", "yun" }));
+	set_name("雲中鶴", ({ "yun zhonghe", "yun" }));
 	set("gender", "男性");
-	set("nickname", HIY"穷凶极恶"NOR);
+	set("nickname", HIY"窮兇極惡"NOR);
 	set("age", 34);
 	set("str", 25);
 	set("dex", 16);
 	set("per", 21);
-	set("long", "此人长得又高又瘦象一杆大竹竿，说话声音忽尖忽粗，十分难
-听，穿着一身青衫，一副色迷迷模样。\n");
+	set("long", "此人長得又高又瘦象一杆大竹竿，說話聲音忽尖忽粗，十分難
+聽，穿着一身青衫，一副色迷迷模樣。\n");
 	set("combat_exp", 150000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");

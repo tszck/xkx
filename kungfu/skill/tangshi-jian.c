@@ -1,4 +1,4 @@
-// tangshi-jian.c 唐诗剑法
+// tangshi-jian.c 唐詩劍法
 // Last Modified by winder on Mar. 10 2000
 // Edited by fandog, 02/13/2000
 
@@ -8,33 +8,33 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N手中$w自左上方斜劈向下，跟着向后挺剑刺出，一招"HIC"「孤鸿海上来，池潢不敢顾」"NOR"，手中$w更不回头，一剑剑点向$n的$l。",
+([	"action" : "$N手中$w自左上方斜劈向下，跟着向後挺劍刺出，一招"HIC"「孤鴻海上來，池潢不敢顧」"NOR"，手中$w更不回頭，一劍劍點向$n的$l。",
 	"lvl" : 0,
-	"skill_name" : "孤鸿海上来，池潢不敢顾"
+	"skill_name" : "孤鴻海上來，池潢不敢顧"
 ]),
-([	"action" : "$N退了两步，$w大开大阖，一声吆喝，横削三剑，一招"HIB"「哥翁喊上来，是横不敢过」"NOR"直刺$n的$l",
+([	"action" : "$N退了兩步，$w大開大闔，一聲吆喝，橫削三劍，一招"HIB"「哥翁喊上來，是橫不敢過」"NOR"直刺$n的$l",
 	"lvl" : 10,
-	"skill_name"  : "哥翁喊上来，是横不敢过"
+	"skill_name"  : "哥翁喊上來，是橫不敢過"
 ]),
-([	"action" : "突然间嗤嗤嗤三声，$N向$n连刺三剑，一式"HIG"「俯听闻惊风，连山若波涛」"NOR"，剑刃在$n的$l边堪堪掠过，$n只觉$l凉飕飕地，大吃一惊，急忙倒退。",
+([	"action" : "突然間嗤嗤嗤三聲，$N向$n連刺三劍，一式"HIG"「俯聽聞驚風，連山若波濤」"NOR"，劍刃在$n的$l邊堪堪掠過，$n只覺$l涼颼颼地，大喫一驚，急忙倒退。",
 	"lvl" : 20,
-	"skill_name" : "俯听闻惊风，连山若波涛"
+	"skill_name" : "俯聽聞驚風，連山若波濤"
 ]),
-([	"action" : "$N手中$w递出，一个虚招指向$n的左肩，反手却使出一式"HIY"「落日照大旗，马鸣风萧萧」"NOR"，由下而上$w疾刺$n的$l",
+([	"action" : "$N手中$w遞出，一個虛招指向$n的左肩，反手卻使出一式"HIY"「落日照大旗，馬鳴風蕭蕭」"NOR"，由下而上$w疾刺$n的$l",
 	"lvl" : 30,
-	"skill_name" :"落日照大旗，马鸣风萧萧"
+	"skill_name" :"落日照大旗，馬鳴風蕭蕭"
 ]),
-([	"action" : "$N一招"HIW"「举头望明月，低头思故乡」"NOR"，身子前倾，忽地回剑斜削，手中$w平平地向$n的$l挥去",
+([	"action" : "$N一招"HIW"「舉頭望明月，低頭思故鄉」"NOR"，身子前傾，忽地回劍斜削，手中$w平平地向$n的$l揮去",
 	"lvl" : 40,
-	"skill_name" : "举头望明月，低头思故乡"
+	"skill_name" : "舉頭望明月，低頭思故鄉"
 ]),
-([	"action" : "$N上身往左侧一拧，一招"BLU"「长安一片月，万户捣衣声」"NOR"，右手$w反手向$n的$l挥去",
+([	"action" : "$N上身往左側一擰，一招"BLU"「長安一片月，萬戶搗衣聲」"NOR"，右手$w反手向$n的$l揮去",
 	"lvl" : 50,
-	"skill_name" : "长安一片月，万户捣衣声"
+	"skill_name" : "長安一片月，萬戶搗衣聲"
 ]),
-([	"action" : "$N左一招"MAG"「万国仰宗周」"NOR"，右一招"HIM"「衣冠拜冕旒」"NOR"，剑锋平指，一气呵成横扫$n的$l",
+([	"action" : "$N左一招"MAG"「萬國仰宗周」"NOR"，右一招"HIM"「衣冠拜冕旒」"NOR"，劍鋒平指，一氣呵成橫掃$n的$l",
 	"lvl" : 60,
-	"skill_name" : "万国仰宗周 衣冠拜冕旒"
+	"skill_name" : "萬國仰宗周 衣冠拜冕旒"
 ]),
 });
 
@@ -42,7 +42,7 @@ int valid_enable(string usage) { return usage == "sword" || usage == "parry"; }
 int valid_learn(object me)
 {
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -51,9 +51,9 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if( (int)me->query("qi") < 30 || (int)me->query("neili") < 10 )
-		return notify_fail("你的内力或气不够练唐诗剑法。\n");
+		return notify_fail("你的內力或氣不夠練唐詩劍法。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -10);
 	return 1;
@@ -82,17 +82,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "割伤" : "刺伤",
+		"damage_type" : random(2) ? "割傷" : "刺傷",
 	]);
 }
 int learn_bonus() { return 30; }
@@ -102,14 +102,14 @@ int power_point(object me) { return 1.0; }
 
 int help(object me)
 {
-	write(HIC"\n唐诗剑法："NOR"\n");
+	write(HIC"\n唐詩劍法："NOR"\n");
 	write(@HELP
 
-    铁骨墨萼梅念笙传给他三个徒弟五云手万震山，陆地神龙言达
-平，铁锁横江戚长发的剑法。
+    鐵骨墨萼梅念笙傳給他三個徒弟五雲手萬震山，陸地神龍言達
+平，鐵鎖橫江戚長髮的劍法。
 
-	学习要求：
-		内力100
+	學習要求：
+		內力100
 HELP
 	);
 	return 1;

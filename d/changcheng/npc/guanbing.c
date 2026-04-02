@@ -7,7 +7,7 @@ void create()
 	set_name("官兵", ({ "guan bing", "bing" }));
 	set("age", 22);
 	set("gender", "男性");
-	set("long", "这就是守卫边疆的官兵，虽然他们年纪不大，由于长年的风吹日晒，使他们显得很苍老。\n");
+	set("long", "這就是守衛邊疆的官兵，雖然他們年紀不大，由於長年的風吹日曬，使他們顯得很蒼老。\n");
 	set("attitude", "peaceful");
 //	set("vendetta_mark", "authority");
 //      set("pursuer", 1);
@@ -36,9 +36,9 @@ void create()
 
         set("chat_chance", 10);
 	set("chat_msg", ({
-		"官兵大声喝道：大胆，竟敢造反不成？\n",
-		"官兵叹了口气：唉，很久没有回家了，不知道她怎么样了？\n",
-		"官兵大声说道：只要有我在这里就没有人能打过去！\n",
+		"官兵大聲喝道：大膽，竟敢造反不成？\n",
+		"官兵嘆了口氣：唉，很久沒有回家了，不知道她怎麼樣了？\n",
+		"官兵大聲說道：只要有我在這裏就沒有人能打過去！\n",
 	}));
 	setup();
 	carry_object("/d/city/obj/gangdao")->wield();
@@ -58,7 +58,7 @@ void init()
 
 int accept_fight(object me)
 {
-	command("say 大爷我正想找人杀呐，今天算你倒霉。\n");
+	command("say 大爺我正想找人殺吶，今天算你倒黴。\n");
 	me->apply_condition("killer", 500);
 	kill_ob(me);
 	return 1;

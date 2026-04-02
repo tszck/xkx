@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("台夷妇女",({ "fu nv", "woman" }) );
+	set_name("臺夷婦女",({ "fu nv", "woman" }) );
         set("gender", "女性" );
         set("age", 37);
-        set("long", "一位中年的台夷妇女，上着无领衬花对襟，下穿五色筒裙，正在编织渔网。\n");
+        set("long", "一位中年的臺夷婦女，上着無領襯花對襟，下穿五色筒裙，正在編織漁網。\n");
  	set_temp("apply/defense", 5);
 	set("combat_exp", 3000);
 	set("shen_type", 1);

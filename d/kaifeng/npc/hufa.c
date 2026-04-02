@@ -1,9 +1,9 @@
 inherit NPC;
 void create()
 {
-        set_name("护寺僧人",({"seng ren"}));
-        set("long", "他是一位身材高大的青年僧人，两臂粗壮，膀阔腰圆。他手持兵\n"
-                    "刃，身穿一袭白布镶边袈裟，似乎有一身武艺。\n");
+        set_name("護寺僧人",({"seng ren"}));
+        set("long", "他是一位身材高大的青年僧人，兩臂粗壯，膀闊腰圓。他手持兵\n"
+                    "刃，身穿一襲白布鑲邊袈裟，似乎有一身武藝。\n");
         set("gender", "男性");
         set("attitude", "aggressive");
         set("class", "bonze");

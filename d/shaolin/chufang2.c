@@ -5,20 +5,20 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "厨房");
+	set("short", "廚房");
 	set("long", @LONG
-这里是一间厨房。厨房很大，可能也是因为兼作仓库的缘故。
-灶头砌在北首，一根大烟囱直通出屋顶。房子四壁被常年烟火熏得
-发黑，连房梁也是焦黑焦黑。墙角堆满了柴火，另一边放了些晒干
-的辣椒，稻谷等。东边的墙灰剥落了一块，露出犬牙交错的砖缝来。
-屋角边有个大洞(dong)。
+這裏是一間廚房。廚房很大，可能也是因爲兼作倉庫的緣故。
+竈頭砌在北首，一根大煙囪直通出屋頂。房子四壁被常年煙火燻得
+發黑，連房梁也是焦黑焦黑。牆角堆滿了柴火，另一邊放了些曬乾
+的辣椒，稻穀等。東邊的牆灰剝落了一塊，露出犬牙交錯的磚縫來。
+屋角邊有個大洞(dong)。
 LONG );
 	set("exits", ([
 		"southwest" : __DIR__"houshan",
 	]));
 	set("item_desc",([
-		"brick"	: "西...东...北...东...南...北...东...西\n",
-		"dong"	: "墙角被扒开了个大洞，里面黑沉沉的，不知通往哪里。\n"
+		"brick"	: "西...東...北...東...南...北...東...西\n",
+		"dong"	: "牆角被扒開了個大洞，裏面黑沉沉的，不知通往哪裏。\n"
 	]));
 	set("no_clean_up", 0);
 	set("coor/x", -20);
@@ -44,18 +44,18 @@ int do_enter(string arg)
 
 	if( arg=="dong" )
 	{
-		if( (fam = me->query("family")) && fam["family_name"] == "丐帮" ) 
+		if( (fam = me->query("family")) && fam["family_name"] == "丐幫" ) 
 		{
 			message("vision",
-				me->name() + "运起丐帮缩骨功，一弯腰往洞里钻了进去。\n",
+				me->name() + "運起丐幫縮骨功，一彎腰往洞裏鑽了進去。\n",
 				environment(me), ({me}) );
 			me->move("/d/gaibang/undersl");
                 	message("vision",
-				me->name() + "从洞里走了进来。\n",
+				me->name() + "從洞裏走了進來。\n",
                 		environment(me), ({me}) );
 			return 1;
 		}
 		else 
-			return notify_fail("这么小的洞，你钻得进去吗？\n");
+			return notify_fail("這麼小的洞，你鑽得進去嗎？\n");
 	}
 }	

@@ -8,7 +8,7 @@ inherit NPC;
 void create()
 {
 	set_name("小狗", ({ "dog" }) );
-	set("title", "可怜的小东西");
+	set("title", "可憐的小東西");
 	set("race", "走畜");
 	set("gender", "雄性" );
 	set("age", 10);
@@ -24,7 +24,7 @@ void create()
 	set("max_qi", 10000);
 	set("max_jing", 10000);
 	set("inquiry", ([
-		"参禅" : "找小和尚就知道了\n",
+		"參禪" : "找小和尚就知道了\n",
 	]) );
 	setup();
 }
@@ -47,15 +47,15 @@ void init()
 void wangwang(object ob)
 {
 	if (ob->query("id") == "solomon" )
-		message_vision("小狗高兴地冲你直摇尾巴\n",ob);
+		message_vision("小狗高興地衝你直搖尾巴\n",ob);
 	else
-		message_vision("小狗悲伤地冲你汪汪两声\n",ob);
+		message_vision("小狗悲傷地衝你汪汪兩聲\n",ob);
 }
 
 int do_save(string arg)
 {
 	this_player()->set("chanxin/save",1);
-	message_vision("小狗高兴地冲你摇了两下尾巴\n",this_player());
+	message_vision("小狗高興地衝你搖了兩下尾巴\n",this_player());
 	return 1;
 }
 
@@ -64,12 +64,12 @@ int do_wei(string arg)
 	if (this_player()->query("chanxin/save")>=1)
 	{
 		this_player()->set("chanxin/save",2);
-		message_vision("小狗高兴地冲你摇了两下尾巴\n",this_player());
+		message_vision("小狗高興地衝你搖了兩下尾巴\n",this_player());
 		return 1;
 	}
 	else
 	{
-		message_vision("小狗高兴地冲你摇了两下尾巴\n",this_player());
+		message_vision("小狗高興地衝你搖了兩下尾巴\n",this_player());
 		return 1;
 	}
 }

@@ -1,13 +1,13 @@
-//Room: cangjingge.c 藏经阁
+//Room: cangjingge.c 藏經閣
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 void create()
 {
-      set("short","藏经阁");
+      set("short","藏經閣");
       set("long",@LONG
-小阁楼上便是峨嵋派的藏经阁了。这里都是密密麻麻，高及顶棚的书架。
-窗口下有一张大桌子，桌上放了几本佛经。有个小师太正在向静道师太借书。
+小閣樓上便是峨嵋派的藏經閣了。這裏都是密密麻麻，高及頂棚的書架。
+窗口下有一張大桌子，桌上放了幾本佛經。有個小師太正在向靜道師太借書。
 LONG);
       set("objects", ([
            CLASS_D("emei") + "/dao" : 1,
@@ -30,7 +30,7 @@ int valid_leave(object me, string dir)
           && objectp(present("jingdao", environment(me))))
      {
          return notify_fail
-                ("静道师太见你想把经书拿走，上前轻声说道：本阁经书不外借。\n");
+                ("靜道師太見你想把經書拿走，上前輕聲說道：本閣經書不外借。\n");
      }
      return ::valid_leave(me, dir);
 }

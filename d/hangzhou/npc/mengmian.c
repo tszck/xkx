@@ -4,7 +4,7 @@ inherit NPC;
 void create()
 {
         set_name("蒙面人", ({"mengmianren"}));
-        set("long", "一个蒙面大汉，杀气腾腾。\n" );
+        set("long", "一個蒙面大漢，殺氣騰騰。\n" );
 
         set("gender", "男性");
         set("attitude", "peace");

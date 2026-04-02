@@ -7,7 +7,7 @@ inherit MACE;
 
 void create()
 {
-	set_name(HIY"金装锏"NOR,({"gold mace", "mace", "goldmace", "jinjian"}));
+	set_name(HIY"金裝鐧"NOR,({"gold mace", "mace", "goldmace", "jinjian"}));
 	set_weight(10000);
 	if( clonep() )
 		set_default_object(__FILE__);
@@ -15,8 +15,8 @@ void create()
 		set("unit", "柄");
 		set("value", 20000);
 		set("material", "gold");
-		set("wield_msg", "$N抽出了$n，喃喃道：锏儿，锏儿，再请你一回！\n");
-		set("unwield_msg", "$N收起了$n，长吁了一口气道：宝锏果然又显雄风！\n");
+		set("wield_msg", "$N抽出了$n，喃喃道：鐧兒，鐧兒，再請你一回！\n");
+		set("unwield_msg", "$N收起了$n，長籲了一口氣道：寶鐧果然又顯雄風！\n");
 	}
 	
 	init_mace(95);

@@ -8,10 +8,10 @@ void create()
 {
 	set("short", "院子");
 	set("long", @LONG
-这个院子里虽只有几颗小树，却堆放着上百堆的石头。这些石头有大
-有小，大如一间房屋，小如一个鸭蛋。你发现旁边矮墙下有一条深沟，下
-面水花盈盈看不清有什么东西。身后有道铁门(tiemen)，不过已经关上了。
-一股股的腥臭味飘来，使你快要做呕了。
+這個院子裏雖只有幾顆小樹，卻堆放着上百堆的石頭。這些石頭有大
+有小，大如一間房屋，小如一個鴨蛋。你發現旁邊矮牆下有一條深溝，下
+面水花盈盈看不清有什麼東西。身後有道鐵門(tiemen)，不過已經關上了。
+一股股的腥臭味飄來，使你快要做嘔了。
 LONG);
 	set("exits", ([
 		"northwest" : __DIR__"yuanzi2",
@@ -46,12 +46,12 @@ int do_fan(string arg)
 	dex = this_player()->query_dex();
 	me = this_player();
 	if (dex < 18 )
-		return notify_fail("这矮墙虽矮，你却怎么也翻不过去。\n");
+		return notify_fail("這矮牆雖矮，你卻怎麼也翻不過去。\n");
 	if (dex > 17 )
 	{
-		message_vision("$N双手在矮墙上一按，一翻身便纵了过去。\n", me);
+		message_vision("$N雙手在矮牆上一按，一翻身便縱了過去。\n", me);
 		me->move(__DIR__"yuanzi");
-		message("vision", me->name() + "从院子里面翻了过来。\n", environment(me), ({me}) );
+		message("vision", me->name() + "從院子裏面翻了過來。\n", environment(me), ({me}) );
 		return 1;
 	}
 }
@@ -67,18 +67,18 @@ int do_push(string arg)
 	{
 		if( (int)me->query_skill("hamagong", 1))
 		{
-			message_vision("$N蹲下身子，双掌平伸推向铁门。\n", me);
-			message_vision("铁门突然打开，$N一没留神滚了进去。铁门却又合上了。\n", me);
+			message_vision("$N蹲下身子，雙掌平伸推向鐵門。\n", me);
+			message_vision("鐵門突然打開，$N一沒留神滾了進去。鐵門卻又合上了。\n", me);
 			me->add("neili", -100);
 			me->receive_damage("qi", 50);
 			me->move(__DIR__"yuanzi");
 			return 1;
 		}
 		if (str < 21 )
-			return notify_fail("你使出了吃奶的力气，可就是推不动这铁门。\n");
+			return notify_fail("你使出了喫奶的力氣，可就是推不動這鐵門。\n");
 		if (str > 20)
 		{
-			message_vision("$N使出全身力气推向铁门，可铁门却纹丝不动。\n", me);
+			message_vision("$N使出全身力氣推向鐵門，可鐵門卻紋絲不動。\n", me);
 			me->add("neili", -300);
 			me->receive_damage("qi", 200);
 			return 1;

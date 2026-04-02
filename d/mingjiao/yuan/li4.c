@@ -35,7 +35,7 @@ void create()
         map_skill("throwing", "xuanyuan-arrow");
         map_skill("unarmed", "changquan");
 
-	set_temp("is_riding", HIW"玉花马"NOR);
+	set_temp("is_riding", HIW"玉花馬"NOR);
         setup();
         carry_object(__DIR__"obj/arrow")->wield();
         carry_object("/clone/misc/cloth")->wear();

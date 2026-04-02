@@ -1,4 +1,4 @@
-// six-fingers.c 六脉神剑
+// six-fingers.c 六脈神劍
 // Last Modified by sir 10.22.2001
 
 #include <ansi.h>
@@ -7,34 +7,34 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"skill_name" : "少商剑",
-	"action": "$N反过手来，双手拇指同时捺出，嗤嗤两声急响，“少商剑”
-有如石破天惊、风雨大至之势，分指$n膻中和$l",
+([	"skill_name" : "少商劍",
+	"action": "$N反過手來，雙手拇指同時捺出，嗤嗤兩聲急響，“少商劍”
+有如石破天驚、風雨大至之勢，分指$n膻中和$l",
 	"lvl"   : 0
 ]),
-([	"skill_name" : "商阳剑",
-	"action": "$N食指连动，手腕园转，“商阳剑”一剑又一剑的刺出，轻灵
-迅速，奇巧活泼，剑气纵横，$n根本无法看清来路",
+([	"skill_name" : "商陽劍",
+	"action": "$N食指連動，手腕園轉，“商陽劍”一劍又一劍的刺出，輕靈
+迅速，奇巧活潑，劍氣縱橫，$n根本無法看清來路",
 	"lvl"   : 10
 ]),
-([	"skill_name" : "中冲剑",
-	"action": "$N右手中指一竖，“中冲剑”向前刺出。真气鼓荡，嗤然声响，
-无形剑气直指$n的$l",
+([	"skill_name" : "中衝劍",
+	"action": "$N右手中指一豎，“中衝劍”向前刺出。真氣鼓盪，嗤然聲響，
+無形劍氣直指$n的$l",
 	"lvl"   : 20
 ]),
-([	"skill_name" : "关冲剑",
-	"action": "$N右手无名指伸出，“关冲剑”剑路拙滞古朴，一股雄浑的内
-力鼓荡而出，如排山倒海般向$n涌去",
+([	"skill_name" : "關衝劍",
+	"action": "$N右手無名指伸出，“關衝劍”劍路拙滯古樸，一股雄渾的內
+力鼓盪而出，如排山倒海般向$n湧去",
 	"lvl"   : 30
 ]),
-([	"skill_name" : "少泽剑",
-	"action": "$N左手小指一伸，一条气流从少冲穴中激射而出，“少泽剑”
-出手入风，指向$n的$l",
+([	"skill_name" : "少澤劍",
+	"action": "$N左手小指一伸，一條氣流從少衝穴中激射而出，“少澤劍”
+出手入風，指向$n的$l",
 	"lvl"   : 40
 ]),
-([	"skill_name" : "少冲剑",
-	"action": "$N右手反指，小指伸出，真气自少冲穴激荡而出，“少泽剑”
-横生奇变，从$n意想不到的方向刺向$n的$l",
+([	"skill_name" : "少衝劍",
+	"action": "$N右手反指，小指伸出，真氣自少衝穴激盪而出，“少澤劍”
+橫生奇變，從$n意想不到的方向刺向$n的$l",
 	"lvl"   : 50
 ]),
 });
@@ -43,11 +43,11 @@ int valid_enable(string usage) { return usage=="finger" || usage=="parry"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练六脉神剑必须空手。\n");
+		return notify_fail("練六脈神劍必須空手。\n");
 	if ((int)me->query("max_neili") < 1200)
-		return notify_fail("你的内力太弱，无法学六脉神剑。\n");
+		return notify_fail("你的內力太弱，無法學六脈神劍。\n");
 	if ((int)me->query_skill("kurong-changong",1) < 120)
-		return notify_fail("你的枯荣禅功太低，无法学六脉神剑。\n");
+		return notify_fail("你的枯榮禪功太低，無法學六脈神劍。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -56,13 +56,13 @@ int practice_skill(object me)
 	int i,skill,damage,cost;
 	cost=40;
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 160)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 50)
-		return notify_fail("你的内力不够练六脉神剑。\n");
+		return notify_fail("你的內力不夠練六脈神劍。\n");
 	if( skill > 100 && me->query("shen") < 1)
-		return notify_fail("这种武功当得行侠义事。\n");
+		return notify_fail("這種武功當得行俠義事。\n");
 	if ((int)me->query_skill("six-finger", 1)>150) cost=80;
 	if ((int)me->query_skill("six-finger", 1)>250) cost=160;
 	me->receive_damage("qi", cost);
@@ -83,7 +83,7 @@ mixed hit_ob(object me, object victim, int damage_bonus)
 	if( random(damage_bonus/2) > victim->query_str() )
 	{
 		victim->receive_wound("qi", (damage_bonus - 100) / 3 );
-		return HIR "你听到「嗤啦」一声轻响，脸上竟溅到一些血滴！\n" NOR;
+		return HIR "你聽到「嗤啦」一聲輕響，臉上竟濺到一些血滴！\n" NOR;
 	}
 }
 mapping query_action(object me, object weapon)
@@ -102,11 +102,11 @@ mapping query_action(object me, object weapon)
 	{
 		me->add("neili",-50);
 		return ([
-			"action" : "$N忽然觉得剑谱中的六路剑法一一涌向心头，十指纷弹，此去彼来，连绵无尽。剑气纵横，尘烟四起，六路剑法回转运使，$n顿时心神大乱，但觉全身几处刺痛，几股鲜血从身上标出。忍痛抬头一看，一柱剑气迎面又到",
+			"action" : "$N忽然覺得劍譜中的六路劍法一一湧向心頭，十指紛彈，此去彼來，連綿無盡。劍氣縱橫，塵煙四起，六路劍法迴轉運使，$n頓時心神大亂，但覺全身幾處刺痛，幾股鮮血從身上標出。忍痛抬頭一看，一柱劍氣迎面又到",
 			"dodge": 5,
 			"parry": -50,
 			"force": 600,
-			"damage_type": "刺伤"]);
+			"damage_type": "刺傷"]);
 	}
 	else
 	{
@@ -114,16 +114,16 @@ mapping query_action(object me, object weapon)
 		for(i = ttl; i > 0; i--)
 			if(lvl > action[i-1]["lvl"])
 			{
-				seq = i; /* 获得招数序号上限 */
+				seq = i; /* 獲得招數序號上限 */
 				break;
 			}
-		seq = random(seq);       /* 选择出手招数序号 */
+		seq = random(seq);       /* 選擇出手招數序號 */
 		return ([
 			"action"      : action[seq]["action"],
 			"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 			"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 			"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-			"damage_type" : random(2) ? "内伤" : "刺伤",
+			"damage_type" : random(2) ? "內傷" : "刺傷",
 		]);
 	}
 }
@@ -138,16 +138,16 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIC"\n六脉神剑："NOR"\n");
+	write(HIC"\n六脈神劍："NOR"\n");
 	write(@HELP
 
-    六脉神剑是大理段氏不传之秘。天龙寺为大理武学之根本，此
-技即为天龙镇寺之宝，俗家弟子无法窥其堂奥。六脉神剑并非普通
-剑法，而是以无上内力运指作剑，伤敌于无形，亦即“气剑”。
+    六脈神劍是大理段氏不傳之祕。天龍寺爲大理武學之根本，此
+技即爲天龍鎮寺之寶，俗家弟子無法窺其堂奧。六脈神劍並非普通
+劍法，而是以無上內力運指作劍，傷敵於無形，亦即“氣劍”。
 
-	学习要求：
-		枯荣禅功120级
-		内力1200
+	學習要求：
+		枯榮禪功120級
+		內力1200
 HELP
 	);
 	return 1;

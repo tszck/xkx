@@ -18,9 +18,9 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "把");
-                set("long", "这是一把洪湖羽毛扇。这种扇子选用各种鸟禽之翅、尾毛，按羽毛的色泽
-纹理，制成扇面，然后配竹蔑、牛骨、象牙等作为扇骨，扇尾还吊一根丝
-线结坠。民间又称之为孔明扇。你可以扇扇(shan)它。\n");
+                set("long", "這是一把洪湖羽毛扇。這種扇子選用各種鳥禽之翅、尾毛，按羽毛的色澤
+紋理，製成扇面，然後配竹蔑、牛骨、象牙等作爲扇骨，扇尾還吊一根絲
+線結墜。民間又稱之爲孔明扇。你可以扇扇(shan)它。\n");
                 set("value", 300);
         }
 //        setup();
@@ -29,16 +29,16 @@ void create()
 int do_shan(string arg)
 {
         if (!id(arg))
-                return notify_fail("你要扇什么？\n");
+                return notify_fail("你要扇什麼？\n");
         switch( random(2) ) {
                 case 0:
-                        say(this_player()->name() + "拿起羽毛扇，悠闲自得地扇了扇，颇得孔明的遗风呢。\n");
-			write(this_player()->name() + "拿起羽毛扇，悠闲自得地扇了扇，颇得孔明的遗风呢。\n");
+                        say(this_player()->name() + "拿起羽毛扇，悠閒自得地扇了扇，頗得孔明的遺風呢。\n");
+			write(this_player()->name() + "拿起羽毛扇，悠閒自得地扇了扇，頗得孔明的遺風呢。\n");
 
                         break;
                 case 1:
-                        say(this_player()->name() + "一边摇着羽毛扇，一边抑扬顿挫地吟着：羽扇纶巾，数千古风流人物，咱也算一个。\n");
-			write(this_player()->name() + "一边摇着羽毛扇，一边抑扬顿挫地吟着：羽扇纶巾，数千古风流人物，咱也算一个。\n");
+                        say(this_player()->name() + "一邊搖着羽毛扇，一邊抑揚頓挫地吟着：羽扇綸巾，數千古風流人物，咱也算一個。\n");
+			write(this_player()->name() + "一邊搖着羽毛扇，一邊抑揚頓挫地吟着：羽扇綸巾，數千古風流人物，咱也算一個。\n");
 
                         break;
         }

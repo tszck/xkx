@@ -13,8 +13,8 @@ int help(object me)
 write(@HELP
 指令格式 : qload 
 
-这个指令显示出目前 CPU 的负担, cmds/s 是每秒编译几个 cmds
-comp lines/s 是每秒几行。
+這個指令顯示出目前 CPU 的負擔, cmds/s 是每秒編譯幾個 cmds
+comp lines/s 是每秒幾行。
 HELP
     );
     return 1;

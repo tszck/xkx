@@ -8,9 +8,9 @@ void create()
 {
 	set("short", "渡船");
 	set("long", @LONG
-一叶小舟，一次就能载七、八个人。一名三十多岁日月教徒装扮的
-艄公手持长竹篙，正在船尾撑着船，这艄公臂力惊人，小舟在他的操控
-之下，一支箭般飞快地射向对岸。
+一葉小舟，一次就能載七、八個人。一名三十多歲日月教徒裝扮的
+艄公手持長竹篙，正在船尾撐着船，這艄公臂力驚人，小舟在他的操控
+之下，一支箭般飛快地射向對岸。
 LONG );
 	set("no_clean_up", 0);
 	set("outdoors", "heimuya");
@@ -24,7 +24,7 @@ void init()
 	object me = this_player();
 	if (me->query("family/master_id")=="dongfang bubai")
 	{
-		message_vision("帮众见是$N教主座下弟子，丝毫不敢怠慢，立即起航。\n",me);
+		message_vision("幫衆見是$N教主座下弟子，絲毫不敢怠慢，立即起航。\n",me);
 		arrive(me,1);
 	}
 	else
@@ -33,7 +33,7 @@ void init()
 
 int arrive(object me,int i)
 {
-	message_vision("帮众奋力划船，船行如飞，片刻就把$N送到了彼岸。\n", me);
+	message_vision("幫衆奮力划船，船行如飛，片刻就把$N送到了彼岸。\n", me);
 	if (intp(i) && i==1)
 	{
 		if(me->query_temp("hmy_ship/ct")) me->move(__DIR__"xingxingtan",1);

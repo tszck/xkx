@@ -5,12 +5,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "彦明钱庄");
+	set("short", "彥明錢莊");
 	set("long", @LONG
-彦明钱庄是江南的老字号了，从邸家第一代「邸彦明」创下这家钱
-庄后传到现在，已经有上百年的历史了。彦明钱庄印发的银票各家钱庄
-都给兑换，天下通用，信誉极好。钱庄里简简单单，就一个柜台，几个
-伙计和帐房先生坐在后面，不时有人在此存钱，换钱。边上挂着个牌子
+彥明錢莊是江南的老字號了，從邸家第一代「邸彥明」創下這家錢
+莊後傳到現在，已經有上百年的歷史了。彥明錢莊印發的銀票各家錢莊
+都給兌換，天下通用，信譽極好。錢莊裏簡簡單單，就一個櫃檯，幾個
+夥計和帳房先生坐在後面，不時有人在此存錢，換錢。邊上掛着個牌子
 (paizi)。
 LONG );
 	set("exits", ([
@@ -18,11 +18,11 @@ LONG );
 	]));
 	set("item_desc", ([
 		"paizi" : @TEXT
-     本钱庄提供以下服务：
-      存钱        deposit或者cun
-      取钱        withdraw或者qu
-      钱币兑换    convert或者duihuan
-      查帐        check或者chazhang
+     本錢莊提供以下服務：
+      存錢        deposit或者cun
+      取錢        withdraw或者qu
+      錢幣兌換    convert或者duihuan
+      查帳        check或者chazhang
 TEXT
 	]) );
 

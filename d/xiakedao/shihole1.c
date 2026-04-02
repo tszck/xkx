@@ -1,4 +1,4 @@
-// /d/xiakedao/shihole1.c 侠客岛 石洞1
+// /d/xiakedao/shihole1.c 俠客島 石洞1
 
 inherit ROOM;
 
@@ -7,10 +7,10 @@ void create()
 {
         set("short", "石洞");
         set("long", @LONG
-这里依次是六个石洞，各自通向四句诗的石室。后人研习「侠客
-行」武功，悟出六句总纲，也分别刻在这里。此洞一色青布帷幔，侍
-立的弟子均是青衣长剑。正面壁上，粗隶刻着前四句诗的总纲「一剑
-飞鸿」。
+這裏依次是六個石洞，各自通向四句詩的石室。後人研習「俠客
+行」武功，悟出六句總綱，也分別刻在這裏。此洞一色青布帷幔，侍
+立的弟子均是青衣長劍。正面壁上，粗隸刻着前四句詩的總綱「一劍
+飛鴻」。
 LONG );
         set("exits", ([
                 "out"   : __DIR__"neiting",
@@ -37,7 +37,7 @@ int valid_leave(object me, string dir)
         if(dir!="out")
         {
            if( me->query("score")<30000 )
-           return notify_fail("你就这点江湖阅历，回去历练几年再来吧！\n");
+           return notify_fail("你就這點江湖閱歷，回去歷練幾年再來吧！\n");
            if( me->query("weiwang")>=20 )
            {
                 inv = all_inventory(me);
@@ -45,15 +45,15 @@ int valid_leave(object me, string dir)
                    if(inv[i]->query("weapon_prop") && ((string)inv[i]->query("equipped")=="wielded"))
                        if(objectp(present("wang", environment(me))) &&
                            living(present("wang", environment(me))))
-                         return notify_fail("王五上前挡住你，朗声说道：这位" +
-                             RANK_D->query_respect(me) + "里面是本岛重地，不准比试武功。你可以进去，但不得手持兵刃。\n");
+                         return notify_fail("王五上前擋住你，朗聲說道：這位" +
+                             RANK_D->query_respect(me) + "裏面是本島重地，不準比試武功。你可以進去，但不得手持兵刃。\n");
                 return ::valid_leave(me, dir);
            }
            else
            {
                    if(objectp(present("wang wu", environment(me)))&&
                    living(present("wang", environment(me))))
-                     return notify_fail("王五拦住你说道：里面是本岛重地，只有各派掌门及著名的侠客才能进去。\n" + RANK_D->query_rude(me) +"你还是回去吧。\n");
+                     return notify_fail("王五攔住你說道：裏面是本島重地，只有各派掌門及著名的俠客才能進去。\n" + RANK_D->query_rude(me) +"你還是回去吧。\n");
            }
         }
         return ::valid_leave(me, dir);

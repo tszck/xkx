@@ -1,15 +1,15 @@
-//Room: chuwujian.c 储物间
+//Room: chuwujian.c 儲物間
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 void create()
 {
-      set("short","储物间");
+      set("short","儲物間");
       set("long",@LONG
-这里便是峨嵋华藏庵的储物间，四周都是架子。一个架上放满了各样兵
-器，有长剑，拂尘，长鞭等，琳琅满目。另一个架上放了各种防具。还有一
-个架上摆了许多小柜子，原来是装满药品的药柜。一位师太负责管理这里的
-物品，正忙碌着整理防具。后面好象有个小楼梯。门外就是斋堂了。
+這裏便是峨嵋華藏庵的儲物間，四周都是架子。一個架上放滿了各樣兵
+器，有長劍，拂塵，長鞭等，琳琅滿目。另一個架上放了各種防具。還有一
+個架上擺了許多小櫃子，原來是裝滿藥品的藥櫃。一位師太負責管理這裏的
+物品，正忙碌着整理防具。後面好象有個小樓梯。門外就是齋堂了。
 LONG);
       set("objects",([
            CLASS_D("emei") + "/feng" : 1,
@@ -17,7 +17,7 @@ LONG);
            __DIR__"obj/zhujian" : 1,
            __DIR__"obj/jiudai" : 1,
            __DIR__"obj/yaodai" : 1,
-//  软剑(Ruanjian)
+//  軟劍(Ruanjian)
       ]));
       set("exits",([ /* sizeof() == 1 */
           "up"    : __DIR__"cangjingge", 

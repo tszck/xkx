@@ -1,17 +1,17 @@
 //
-//  羊皮书
+//  羊皮書
 
 inherit ITEM;
 
 void create()
 {
-	set_name( "羊皮书", ({ "skin" , "shu", "book" }));
+	set_name( "羊皮書", ({ "skin" , "shu", "book" }));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一张羊皮，上面画着舞剑的小人。\n");
+		set("long", "這是一張羊皮，上面畫着舞劍的小人。\n");
 		set("value", 0);
 		set("material", "paper");
 		set("skill", ([

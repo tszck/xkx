@@ -7,25 +7,25 @@ string type() { return "martial"; }
 string martialtype() { return "dodge"; }
 
 string *dodge_msg = ({
-	"只见$n一招"BLU"「似来还往」"NOR"，双脚一前一后，似进又腿，在$n一愣间躲过了攻击。\n",
-	"但是$n使出"CYN"「蜻蜓点水」"NOR"，脚尖站地，身形东倒西歪间，破天冲起。\n",
-	"$n一招"HIY"「飞黄腾达」"NOR"，身随意转，刹那间在原地转了七八十圈，突然往地上一坐，\n原是转晕了，却使$N落了空。\n",
-	"可是$n一个"HIW"「白驹过隙」"NOR"，身形微侧，提气直纵，躲过$N攻击。\n",
-	"却见$n使出"HIW"「浮光掠影」"NOR"，在原地留下一个幻象，真身躲到了一边。\n",
-	"$n身形一顿，"HIB"「逝者如斯」"NOR"，身形平平掠出，在空中留下一道弧形。\n"
+	"只見$n一招"BLU"「似來還往」"NOR"，雙腳一前一後，似進又腿，在$n一愣間躲過了攻擊。\n",
+	"但是$n使出"CYN"「蜻蜓點水」"NOR"，腳尖站地，身形東倒西歪間，破天衝起。\n",
+	"$n一招"HIY"「飛黃騰達」"NOR"，身隨意轉，剎那間在原地轉了七八十圈，突然往地上一坐，\n原是轉暈了，卻使$N落了空。\n",
+	"可是$n一個"HIW"「白駒過隙」"NOR"，身形微側，提氣直縱，躲過$N攻擊。\n",
+	"卻見$n使出"HIW"「浮光掠影」"NOR"，在原地留下一個幻象，真身躲到了一邊。\n",
+	"$n身形一頓，"HIB"「逝者如斯」"NOR"，身形平平掠出，在空中留下一道弧形。\n"
 });
 
 int valid_enable(string usage) { return (usage=="dodge") || (usage=="move"); }
 int valid_learn(object me) 
 { 
 	if( (int)me->query_skill("hanbing-zhenqi", 1) < 10 )
-	return notify_fail("你的寒冰真气不够精熟，无法领会浮光掠影。\n");
+	return notify_fail("你的寒冰真氣不夠精熟，無法領會浮光掠影。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if( (int)me->query("qi") < 30 || (int)me->query("neili") < 6 )
-		return notify_fail("你的体力太差了，无法能练习浮光掠影。\n");
+		return notify_fail("你的體力太差了，無法能練習浮光掠影。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -6);
 	return 1;
@@ -44,10 +44,10 @@ int help(object me)
 	write(HIC"\n浮光掠影："NOR"\n");
 	write(@HELP
 
-    嵩山派轻功身法。
+    嵩山派輕功身法。
 
-        学习要求：
-            寒冰真气10级	   
+        學習要求：
+            寒冰真氣10級	   
 HELP
 	);
 	return 1;

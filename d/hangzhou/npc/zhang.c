@@ -6,15 +6,15 @@ inherit NPC;
 
 void create()
 {
-	set_name("张召重", ({ "zhang zhaozhong", "zhang", "zhaozhong"}) );
-	set("title", "御林军骁骑营佐领");
+	set_name("張召重", ({ "zhang zhaozhong", "zhang", "zhaozhong"}) );
+	set("title", "御林軍驍騎營佐領");
 	set("nickname", HIR"火手判官"NOR);
 	set("gender", "男性");
 	set("age", 43);
 	set("long",
-"张召重人称“火手判官”，身材魁梧，留一丛短胡子。江湖盛
-言“宁挨一枪，莫遇一张”就是指他了。他热衷功名利禄，投
-身朝廷，此人办事卖力，这些年来更是青云直上。\n");
+"張召重人稱“火手判官”，身材魁梧，留一叢短鬍子。江湖盛
+言“寧挨一槍，莫遇一張”就是指他了。他熱衷功名利祿，投
+身朝廷，此人辦事賣力，這些年來更是青雲直上。\n");
 	set("combat_exp", 750000);
         set("shen_type", -1);
 	set("attitude", "heroism");
@@ -45,7 +45,7 @@ void create()
 	map_skill("unarmed", "taiji-quan");
 	map_skill("parry", "taiji-jian");
 
-        create_family("武当派", 13, "弟子");
+        create_family("武當派", 13, "弟子");
 	setup();
 
         carry_object(WEAPON_DIR"treasure/green_sword")->wield();

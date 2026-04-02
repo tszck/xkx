@@ -1,4 +1,4 @@
-// yujiamu-quan.c 金刚瑜迦母拳
+// yujiamu-quan.c 金剛瑜迦母拳
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,36 +7,36 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N并举双拳，使出一招"HIC"「灌顶」"NOR"，当头砸向$n的$l",
-	"skill_name" : "灌顶",
+([	"action" : "$N並舉雙拳，使出一招"HIC"「灌頂」"NOR"，當頭砸向$n的$l",
+	"skill_name" : "灌頂",
 	"lvl" : 0
 ]),
-([	"action" : "$N使出一招"HIC"「解苦」"NOR"，身形一低，左手护顶，右手一拳击向$n的裆部",
+([	"action" : "$N使出一招"HIC"「解苦」"NOR"，身形一低，左手護頂，右手一拳擊向$n的襠部",
 	"skill_name" : "解苦",
 	"lvl" : 8
 ]),
-([	"action" : "$N使出一招"HIC"「颦眉」"NOR"，左拳虚击$n的前胸，一错身，右拳横扫$n的太阳穴",
-	"skill_name" : "颦眉",
+([	"action" : "$N使出一招"HIC"「顰眉」"NOR"，左拳虛擊$n的前胸，一錯身，右拳橫掃$n的太陽穴",
+	"skill_name" : "顰眉",
 	"lvl" : 16
 ]),
-([	"action" : "$N神形怪异，使一招"HIC"「嗔恚」"NOR"，双拳上下击向$n的$l",
+([	"action" : "$N神形怪異，使一招"HIC"「嗔恚」"NOR"，雙拳上下擊向$n的$l",
 	"skill_name" : "嗔恚",
 	"lvl" : 24
 ]),
-([	"action" : "$N使出一招"HIC"「静寂」"NOR"，双拳交错，缓缓击出，劲气直指$n的$l",
-	"skill_name" : "静寂",
+([	"action" : "$N使出一招"HIC"「靜寂」"NOR"，雙拳交錯，緩緩擊出，勁氣直指$n的$l",
+	"skill_name" : "靜寂",
 	"lvl" : 32
 ]),
-([	"action" : "$N微微一笑，使出一式"HIC"「妙音」"NOR"，双拳前后击出，直取$n的左胸",
+([	"action" : "$N微微一笑，使出一式"HIC"「妙音」"NOR"，雙拳前後擊出，直取$n的左胸",
 	"skill_name" : "妙音",
 	"lvl" : 40
 ]),
-([	"action" : "$N使出一招"HIC"「明心」"NOR"，全身疾转，双拳横扫$n的$l",
+([	"action" : "$N使出一招"HIC"「明心」"NOR"，全身疾轉，雙拳橫掃$n的$l",
 	"skill_name" : "明心",
 	"lvl" : 48
 ]),
-([	"action" : "$N飞身一跃，使出一招"HIC"「制胜」"NOR"，一拳猛击$n咽喉",
-	"skill_name" : "制胜",
+([	"action" : "$N飛身一躍，使出一招"HIC"「制勝」"NOR"，一拳猛擊$n咽喉",
+	"skill_name" : "制勝",
 	"lvl" : 56
 ]),
 });
@@ -47,27 +47,27 @@ int valid_combine(string combo) { return combo=="dashou-yin"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练金刚瑜迦母拳必须空手。\n");
+		return notify_fail("練金剛瑜迦母拳必須空手。\n");
 	else if ((int)me->query("max_neili") < 50)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if ((int)me->query_skill("longxiang", 1) >= 20 ||
 		(int)me->query_skill("xiaowuxiang", 1) >= 20)
 		return 1;
 	else if ((int)me->query_skill("longxiang", 1) < 20)
-		return notify_fail("你的龙象般若功火候太浅。\n");
+		return notify_fail("你的龍象般若功火候太淺。\n");
 	else if ((int)me->query_skill("xiaowuxiang", 1) < 20)
-		return notify_fail("你的小无相功火候太浅。\n");
+		return notify_fail("你的小無相功火候太淺。\n");
 }
 int practice_skill(object me)
 {
 	object weapon;
 
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练金刚瑜迦母拳必须空手。\n");
+		return notify_fail("練金剛瑜迦母拳必須空手。\n");
 	if ((int)me->query("qi") < 40)
-		return notify_fail("你的体力不够，练不了金刚瑜迦母拳。\n");
+		return notify_fail("你的體力不夠，練不了金剛瑜迦母拳。\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够练金刚瑜迦母拳。\n");
+		return notify_fail("你的內力不夠練金剛瑜迦母拳。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -10);
 	return 1;
@@ -94,16 +94,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : "瘀伤",
+		"damage_type" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 30; }
@@ -113,15 +113,15 @@ int power_point(object me) { return 1.0; }
 
 int help(object me)
 {
-	write(HIC"\n金刚瑜迦母拳："NOR"\n");
+	write(HIC"\n金剛瑜迦母拳："NOR"\n");
 	write(@HELP
 
-    金刚瑜迦母拳是密宗雪山寺武功。
-    可与密宗大手印互备。
+    金剛瑜迦母拳是密宗雪山寺武功。
+    可與密宗大手印互備。
 
-	学习要求：
-		龙象般若功或小无相功20级
-		内力50
+	學習要求：
+		龍象般若功或小無相功20級
+		內力50
 HELP
 	);
 	return 1;

@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("沙虫", ({ "sha chong", "chong", "bug" }) );
-	set("race", "昆虫");
-	set("subrace", "爬虫");
+        set_name("沙蟲", ({ "sha chong", "chong", "bug" }) );
+	set("race", "昆蟲");
+	set("subrace", "爬蟲");
         set("age", 3);
-        set("long", "一只黄褐色的小甲虫，尾巴上有黄蓝相间的环纹。你的直觉告诉\n"
+        set("long", "一隻黃褐色的小甲蟲，尾巴上有黃藍相間的環紋。你的直覺告訴\n"
 "你它一定有毒。\n");
         set("attitude", "peaceful");
         set("combat_exp", 300);
@@ -22,7 +22,7 @@ void create()
 void die()
 {
         object ob;
-        message_vision("$N冒出一股绿水，死了。\n", this_object());
+        message_vision("$N冒出一股綠水，死了。\n", this_object());
         ob = new(__DIR__"shachongke");
         ob->move(environment(this_object()));
         destruct(this_object());

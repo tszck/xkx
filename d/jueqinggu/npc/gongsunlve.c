@@ -5,9 +5,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("公孙绿萼", ({ "gongsun lve", "gongsun", "lve" }));
+	set_name("公孫綠萼", ({ "gongsun lve", "gongsun", "lve" }));
 	set("long",
-		"她眉目清雅，眼神清澈，肤色白里泛红，嘴角边有粒小小黑痣。看上去自有一般清灵之气。\n");
+		"她眉目清雅，眼神清澈，膚色白裏泛紅，嘴角邊有粒小小黑痣。看上去自有一般清靈之氣。\n");
 	set("gender", "女性");
 	set("age", 18);
 	set("attitude", "friendly");
@@ -37,8 +37,8 @@ void create()
 	map_skill("dodge", "kunlun-shenfa");
 	map_skill("sword", "liangyi-jian");
 	set("inquiry", ([
-		"绝情丹": "丹药好象只有两颗了，而且我父亲收藏的很严密。",
-		"情花": "有些外表美丽的，往往是有毒的。",
+		"絕情丹": "丹藥好象只有兩顆了，而且我父親收藏的很嚴密。",
+		"情花": "有些外表美麗的，往往是有毒的。",
 	]) );
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();

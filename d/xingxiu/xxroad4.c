@@ -7,8 +7,8 @@ void create()
 {
 	set("short", "小路");
 	set("long", @LONG
-你走在一条在山壁上人工开凿出来崎岖的小路上，这里寒风凛冽，
-西面是望不见底的深涧。
+你走在一條在山壁上人工開鑿出來崎嶇的小路上，這裏寒風凜冽，
+西面是望不見底的深澗。
 LONG );
 	set("exits", ([
 		"southdown" : __DIR__"tianroad3",

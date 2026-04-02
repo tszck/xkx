@@ -6,7 +6,7 @@ inherit EQUIP;
 
 void create()
 {
-        set_name( HIR "结婚礼服" NOR, ({ "li fu", "dress" }) );
+        set_name( HIR "結婚禮服" NOR, ({ "li fu", "dress" }) );
         set_weight(700);
         if( clonep() )
                 set_default_object(__FILE__);
@@ -18,7 +18,7 @@ void create()
                 set("armor_prop/personality", 5);
                 set("armor_prop/armor", 3);
                 set("wear_msg","$N穿上一件$n。\n");
-                set("remove_msg","$将$n脱了下来。\n");
+                set("remove_msg","$將$n脫了下來。\n");
         }
 }
 

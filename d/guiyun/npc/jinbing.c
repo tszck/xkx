@@ -7,7 +7,7 @@ void create()
 	set_name("大金兵", ({ "jin bing", "bing" }));
 	set("gender", "男性");
 	set("age", 25);
-	set("long", "那些大汉个个虎背熊腰，甚是剽健。\n");
+	set("long", "那些大漢個個虎背熊腰，甚是剽健。\n");
 	set("combat_exp", 40000);
         set_skill("dodge", 50);
         set_skill("unarmed", 50);

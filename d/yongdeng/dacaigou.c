@@ -7,10 +7,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "打柴沟");
+	set("short", "打柴溝");
 	set("long", @LONG
-打柴沟地势不如乌鞘岭那样险要，比较平坦，官道两边全是密林，
-时常有樵夫砍柴的声音从林中传出。
+打柴溝地勢不如烏鞘嶺那樣險要，比較平坦，官道兩邊全是密林，
+時常有樵夫砍柴的聲音從林中傳出。
 LONG );
 	set("exits", ([
 		"southwest" : __DIR__"gulang",

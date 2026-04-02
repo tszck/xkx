@@ -1,15 +1,15 @@
-//Room: shiliang.c 石梁
+//Room: shiliang.c 石樑
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-      set("short","石梁");
+      set("short","石樑");
       set("long",@LONG
-你走入山坞中，有一道石梁跨溪而建，这里是九渡涧的下流，各岭
-之水均在此交汇，景色极佳。附近设有许多小吃店，游人至此，大多小
-住歇歇脚力。再往上就是陡峭的十八盘了。
+你走入山塢中，有一道石樑跨溪而建，這裏是九渡澗的下流，各嶺
+之水均在此交匯，景色極佳。附近設有許多小喫店，遊人至此，大多小
+住歇歇腳力。再往上就是陡峭的十八盤了。
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "northup"    : __DIR__"taizipo",

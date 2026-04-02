@@ -28,7 +28,7 @@ int do_go(string arg)
 {
 	if (this_player()->query_condition("guojx_mis"))
 	{
-		write(HIR"蒙古奸细就在眼前，怎可临阵脱逃！\n"NOR);
+		write(HIR"蒙古奸細就在眼前，怎可臨陣脫逃！\n"NOR);
 		return 1;
 	}
 }
@@ -43,7 +43,7 @@ int accept_hit(object who)
 		who->kill_ob(me);
 		return 1;
 	}
-	else return notify_fail(HIY"想对付"HIR"蒙古奸细"HIY"？快去找郭靖大侠！\n"NOR);
+	else return notify_fail(HIY"想對付"HIR"蒙古奸細"HIY"？快去找郭靖大俠！\n"NOR);
 }
 int accept_fight(object who)	{return accept_hit(who);}
 int accept_kill(object who)		{return accept_hit(who);}
@@ -197,7 +197,7 @@ int do_copy( int maxexp )
 }
 int do_back(object me)
 {			
-	tell_room(environment(me), me->query("name")+"匆匆忙忙的离开了。\n", ({me}));	
+	tell_room(environment(me), me->query("name")+"匆匆忙忙的離開了。\n", ({me}));	
 	destruct(me); 
 	return 1;
 }

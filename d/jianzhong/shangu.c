@@ -7,8 +7,8 @@ void create()
 {
       set("short","山谷");
       set("long",@LONG
-你沿着雕鸣声走入深谷，景致更加秀丽了。你侧耳倾听，
-雕鸣声似乎就在耳边，你不禁加快了脚步。
+你沿着雕鳴聲走入深谷，景緻更加秀麗了。你側耳傾聽，
+雕鳴聲似乎就在耳邊，你不禁加快了腳步。
 LONG);
       set("outdoors", "jianzhong");
       set("exits",([ /* sizeof() == 1 */

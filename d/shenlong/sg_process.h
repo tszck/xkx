@@ -46,9 +46,9 @@ void message_zhong(object *spys)
 
 	ob = leaver[random(sizeof(leaver))];
 
-	message("vision", zhong_ob->name() + "急急忙忙地离开了。\n", environment(zhong_ob), ({zhong_ob}));
+	message("vision", zhong_ob->name() + "急急忙忙地離開了。\n", environment(zhong_ob), ({zhong_ob}));
 	zhong_ob->move(environment(ob));
-	message_vision("\n$N走了过来。\n", zhong_ob);
+	message_vision("\n$N走了過來。\n", zhong_ob);
 	zhong_ob->set_leader(ob);
 	zhong_ob->set("sgwork/persuaded", 1);
 
@@ -78,10 +78,10 @@ void persuade_leave(object zhong_ob, object ob)
 	if( !zhong_ob->query_temp("yield") )
 		zhong_ob->set_temp("yield", 1);
 
-	message_vision("\n$N对$n苦苦规劝道：既然教主不再信任你，你还是尽快离开神龙教吧。\n", zhong_ob, ob);
+	message_vision("\n$N對$n苦苦規勸道：既然教主不再信任你，你還是儘快離開神龍教吧。\n", zhong_ob, ob);
 	if( !ob->query_temp("zhong/nod") )
 		ob->set_temp("zhong/nod", 1);
-	tell_object(ob, "你只要打一个指令：leave shenlong，就算离开神龙了。\n");
+	tell_object(ob, "你只要打一個指令：leave shenlong，就算離開神龍了。\n");
 	ob->add_temp("sg/zhong_persuade", 1);
 
 	if( ob->query_temp("sg/zhong_persuade") > 3 )
@@ -121,9 +121,9 @@ void message_hong(object *spys)
 		strsrch(file, "/d/taohua/") == 0 ||
 		strsrch(file, "/d/xiakedao/") == 0 )  return;
 
-	message("vision", hong_ob->name() + "急急忙忙地离开了。\n", environment(hong_ob), ({hong_ob}));
+	message("vision", hong_ob->name() + "急急忙忙地離開了。\n", environment(hong_ob), ({hong_ob}));
 	hong_ob->move(dest);
-	message_vision("\n$N走了过来。\n", hong_ob);
+	message_vision("\n$N走了過來。\n", hong_ob);
 	hong_ob->set_leader(ob);
 	"/cmds/std/look"->main(hong_ob, ob->query("id"));
 	hong_ob->set("sgwork/chased", 1);
@@ -161,7 +161,7 @@ void do_killing(object hong_ob, object ob)
 		call_out("destroy_ob", 1, hong_ob);
 		return;
 	}
-	message_vision(RED"\n$N对$n大声喝道："+ RANK_D->query_rude(ob) + "！在教中这么多年居然毫无建树，我废了你吧！！！\n\n"NOR, hong_ob, ob);
+	message_vision(RED"\n$N對$n大聲喝道："+ RANK_D->query_rude(ob) + "！在教中這麼多年居然毫無建樹，我廢了你吧！！！\n\n"NOR, hong_ob, ob);
 	hong_ob->kill_ob(ob);
 	call_out("check_killing", 1, hong_ob, ob);
 }

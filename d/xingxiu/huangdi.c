@@ -6,9 +6,9 @@ void create()
 {
 	set("short", "山前荒地");
 	set("long", @LONG
-你站在石山前的荒地上。这儿人迹罕见，放眼望去，尽是枯树败草。
-朔风萧杀，令人心惊胆颤。路边有几个星宿弟子在练功，同时监视着行
-人一举一动。你没事，还是快回吧。
+你站在石山前的荒地上。這兒人跡罕見，放眼望去，盡是枯樹敗草。
+朔風蕭殺，令人心驚膽顫。路邊有幾個星宿弟子在練功，同時監視着行
+人一舉一動。你沒事，還是快回吧。
 LONG);
 	set("objects", ([
 		CLASS_D("xingxiu")+"/feitian" : 1,
@@ -34,7 +34,7 @@ int valid_leave(object me, string dir)
 	if (dir =="northup" && present("feitian zi", environment(me)) &&
 		(!myfam || myfam["family_name"] != "星宿派") &&
 		me->query("combat_exp") < 100000) 
-		return notify_fail("飞天子挡住了你：像你这样糟糕的邪派弟子怎么可以去拜见我们老仙？\n");
+		return notify_fail("飛天子擋住了你：像你這樣糟糕的邪派弟子怎麼可以去拜見我們老仙？\n");
 	return ::valid_leave(me, dir);
 }
 

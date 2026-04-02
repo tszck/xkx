@@ -1,15 +1,15 @@
-//Room: wanxingan.c 万行庵
+//Room: wanxingan.c 萬行庵
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 
 void create()
 {
-      set("short","万行庵");
+      set("short","萬行庵");
       set("long",@LONG
-太子坪万行庵是古智禅师创建的。庵外满山长满莎椤花，花数芭合成一朵，
-叶子包在花外，古人以其根坚难易而盛赞之，以喻洁身自好之高贵品质。由此
-向南上便至金顶，下至接引殿。
+太子坪萬行庵是古智禪師創建的。庵外滿山長滿莎欏花，花數芭合成一朵，
+葉子包在花外，古人以其根堅難易而盛讚之，以喻潔身自好之高貴品質。由此
+向南上便至金頂，下至接引殿。
 LONG);
       set("objects", ([
            CLASS_D("emei") + "/jia" : 1,

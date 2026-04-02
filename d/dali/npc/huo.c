@@ -9,15 +9,15 @@ void create()
 {
         set_name("霍先生", ({"huo xiansheng", "huo", "xiansheng"}));
         set("long",
-"他一身邋遢，形容委琐，整天迷迷糊糊的睡不醒模样。可是他的账务十几年来无可挑剔。
-原来他就是伏牛派的崔百泉，为避仇祸隐居于此。\n"
+"他一身邋遢，形容委瑣，整天迷迷糊糊的睡不醒模樣。可是他的賬務十幾年來無可挑剔。
+原來他就是伏牛派的崔百泉，爲避仇禍隱居於此。\n"
         );
 
         set("gender", "男性");
         set("attitude", "heroism");
 
         set("inquiry",([
-                "工资"    : (: ask_for_gongzi :),
+                "工資"    : (: ask_for_gongzi :),
                 "薪水"    : (: ask_for_gongzi :),
                 "salary"  : (: ask_for_gongzi :),
                 "payment" : (: ask_for_gongzi :),
@@ -60,7 +60,7 @@ int ask_for_gongzi()
  
 
         me = this_player();
-	if (me->query("guard") == "镇南王府武将") 
+	if (me->query("guard") == "鎮南王府武將") 
 	{
 	    paytimes = (int)(me->query("mud_age")/7200);
 	    if (me->query("dlpaytimes")<paytimes)
@@ -68,11 +68,11 @@ int ask_for_gongzi()
 	        payment=new("/clone/money/gold");
 	        payment->move(me);
 	        me->add("dlpaytimes",1);
-	        tell_object(me,"霍先生道：这是你本月的份额，收好吧。\n");
+	        tell_object(me,"霍先生道：這是你本月的份額，收好吧。\n");
 	    }
-	    else tell_object(me,"霍先生道：欺负我老糊涂？你本月工资已经领取过了！\n");
+	    else tell_object(me,"霍先生道：欺負我老糊塗？你本月工資已經領取過了！\n");
 	}
 	else
-	tell_object(me,"霍先生道：欺负我老糊涂？等你升到武将再来领工资！\n");
+	tell_object(me,"霍先生道：欺負我老糊塗？等你升到武將再來領工資！\n");
         return 1;
 }

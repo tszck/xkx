@@ -7,10 +7,10 @@ void create()
 {
       set("short","石柱");
       set("long",@LONG
-这是南岩宫前的一根石柱，雕成龙形，自峭壁上横出，犹如飞龙在
-天。龙首刻一香炉，在此上香称为“上龙头香”，是香客的最大心愿。
-石柱仅粗如屋梁，旁无扶栏，前有白云缭绕，下有万丈深渊，稍一失足，
-即尸骨无存。
+這是南巖宮前的一根石柱，雕成龍形，自峭壁上橫出，猶如飛龍在
+天。龍首刻一香爐，在此上香稱爲“上龍頭香”，是香客的最大心願。
+石柱僅粗如屋樑，旁無扶欄，前有白雲繚繞，下有萬丈深淵，稍一失足，
+即屍骨無存。
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "northup"  : __DIR__"nanyanfeng",
@@ -37,17 +37,17 @@ int do_mianbi(string arg)
    ob = this_player();
    if ( !arg )
    {
-      message_vision("$N面对着石柱趺坐静思良久，白忙一场，一无所获。\n",ob);
+      message_vision("$N面對着石柱趺坐靜思良久，白忙一場，一無所獲。\n",ob);
       return 1;
    }
    if ((int)ob->query_skill("taoism", 1) <100)
    {
-      message_vision("$N面对着石柱上满面蝌蚪文，没一个字认识。\n",ob);
+      message_vision("$N面對着石柱上滿面蝌蚪文，沒一個字認識。\n",ob);
       return 1;
    }
    if ((int)ob->query_skill("literate", 1) <100)
    {
-      message_vision("$N对石柱上每一个字都认识，就是不知道说的是什么。\n",ob);
+      message_vision("$N對石柱上每一個字都認識，就是不知道說的是什麼。\n",ob);
       return 1;
    }
    if (((int)ob->query_skill("huagong-dafa", 1) >0)||
@@ -57,7 +57,7 @@ int do_mianbi(string arg)
        ((int)ob->query_skill("xuantian-force", 1) >0)||
        ((int)ob->query_skill("zixia-shengong", 1) >0))
    {
-      message_vision("$N旁门杂学太多了，实在静不下心来面壁。\n",ob);
+      message_vision("$N旁門雜學太多了，實在靜不下心來面壁。\n",ob);
       return 1;
    }    
    if (
@@ -66,12 +66,12 @@ int do_mianbi(string arg)
    {
       if ((int)ob->query_skill(arg, 1) <100)
       {
-         message_vision("$N的" + to_chinese(arg) + "显然太低，无法领悟石柱内容。\n",ob);
+         message_vision("$N的" + to_chinese(arg) + "顯然太低，無法領悟石柱內容。\n",ob);
          return 1;
       }
       if ((int)ob->query_skill(arg, 1) > 180)
       {
-         message_vision("$N的" + to_chinese(arg) + "已经没必要读石柱内容了。\n",
+         message_vision("$N的" + to_chinese(arg) + "已經沒必要讀石柱內容了。\n",
 ob);
          return 1;
       }
@@ -80,20 +80,20 @@ ob);
         *ob->query_skill(arg,1)/10)> (int)ob->query("combat_exp"))
         && arg != "literate")
       {
-         message_vision("$N的实战经验不足，无法领悟石柱内容。\n",ob);
+         message_vision("$N的實戰經驗不足，無法領悟石柱內容。\n",ob);
          return 1;
       }
       if (ob->query("jing")<20)
       {
-         message_vision("$N太累了，现在无法领悟石柱内容。\n",ob);
+         message_vision("$N太累了，現在無法領悟石柱內容。\n",ob);
          return 1;
       }
-      message_vision("$N面对着石柱趺坐静思，良久，对" + to_chinese(arg) + "似有所悟。\n",ob);
+      message_vision("$N面對着石柱趺坐靜思，良久，對" + to_chinese(arg) + "似有所悟。\n",ob);
       ob->improve_skill(arg, random(10*ob->query("int")));
       ob->add("jing",-5);
       return 1;
    }
-   message_vision("$N面对着石柱趺坐静思，良久，似有所悟。\n",ob);
+   message_vision("$N面對着石柱趺坐靜思，良久，似有所悟。\n",ob);
    ob->add("jing",-5);
    return 1;
 }

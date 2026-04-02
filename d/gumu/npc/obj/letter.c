@@ -11,8 +11,8 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "封");
-                set("long","这是一封杨过给小龙女的书信。\n");
-//		set("no_drop", "这样东西不能离开你。\n");
+                set("long","這是一封楊過給小龍女的書信。\n");
+//		set("no_drop", "這樣東西不能離開你。\n");
                 set("material", "paper");
         }
 }

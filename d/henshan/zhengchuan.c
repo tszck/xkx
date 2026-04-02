@@ -5,10 +5,10 @@
 inherit ROOM;
 void create()
 {
-        set("short", "正川门");
+        set("short", "正川門");
         set("long", @LONG
-正川门是南岳大庙的第三进。院内是玄德宗殿，关圣殿，观音阁等
-楼宇。
+正川門是南嶽大廟的第三進。院內是玄德宗殿，關聖殿，觀音閣等
+樓宇。
 LONG);
         set("exits", ([ /* sizeof() == 4 */
            "south"  : __DIR__"kuixingge",

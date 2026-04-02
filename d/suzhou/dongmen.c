@@ -6,12 +6,12 @@ inherit ROOM;
 string look_gaoshi();
 void create()
 {
-	set("short", "相门");
+	set("short", "相門");
 	set("long", @LONG
-这是号称天堂的苏州东城门，城门正上方刻着“相门”两个楷书大
-字，城墙上贴着几张官府告示(gaoshi)。守门官兵们警惕地注视着过往
-行人，你最好小心为妙。一条笔直的青石板大道向东西两边延伸，西边
-是城里。
+這是號稱天堂的蘇州東城門，城門正上方刻着“相門”兩個楷書大
+字，城牆上貼着幾張官府告示(gaoshi)。守門官兵們警惕地注視着過往
+行人，你最好小心爲妙。一條筆直的青石板大道向東西兩邊延伸，西邊
+是城裏。
 LONG );
 	set("outdoors", "suzhou");
 //	set("no_clean_up", 0);
@@ -34,5 +34,5 @@ LONG );
 
 string look_gaoshi()
 {
-	return FINGER_D->get_killer() + "\n苏州知府\n冯旭东\n";
+	return FINGER_D->get_killer() + "\n蘇州知府\n馮旭東\n";
 }

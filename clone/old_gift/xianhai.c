@@ -12,10 +12,10 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一张诡秘的卡片，据说用它可以陷害别人。\n");
+		set("long", "一張詭祕的卡片，據說用它可以陷害別人。\n");
 		set("value", 1);
 		set("no_sell", 1);
-		set("unit", "张");
+		set("unit", "張");
 		set("time_to_leave", 20);
 	}
 }

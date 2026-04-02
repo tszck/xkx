@@ -1,4 +1,4 @@
-// shenyangjiu.c 参阳玉酒
+// shenyangjiu.c 參陽玉酒
 // Last Modified by winder on Jul. 15 2001
 
 #include <ansi.h>
@@ -8,9 +8,9 @@ void init()
 {
 	if (!wizardp(this_player()))
 	{
-		set("no_give","这么珍贵的酒，哪能随便给人？\n");
-		set("no_drop","这么宝贵的美酒，扔了多可惜呀！\n");
-		set("no_sell","这样的美酒都要卖,你太不解风情了吧。\n");
+		set("no_give","這麼珍貴的酒，哪能隨便給人？\n");
+		set("no_drop","這麼寶貴的美酒，扔了多可惜呀！\n");
+		set("no_sell","這樣的美酒都要賣,你太不解風情了吧。\n");
 	}
 	add_action("do_drink", "drink");
 	add_action("do_drink", "he");
@@ -18,15 +18,15 @@ void init()
 
 void create()
 {
-	set_name( YEL "参阳玉酒" NOR , ({"shenyang yujiu", "jiu"}));
+	set_name( YEL "參陽玉酒" NOR , ({"shenyang yujiu", "jiu"}));
 	set_weight(90);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "壶");
-		set("long","一壶金黄的粘稠药酒，是凌霄城的珍藏，饮之于学武大有裨益。\n");
+		set("unit", "壺");
+		set("long","一壺金黃的粘稠藥酒，是凌霄城的珍藏，飲之於學武大有裨益。\n");
 		set("value", 0);
-		set("drug_type", "补品");
+		set("drug_type", "補品");
 	}
 	set("is_monitored",1);
 	set("pour_type", "1");
@@ -37,16 +37,16 @@ int do_drink(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要喝什么？\n");
+	if(!id(arg)) return notify_fail("你要喝什麼？\n");
 	if(!present(this_object(), this_player()))
-		return notify_fail("你要喝什么？\n");
+		return notify_fail("你要喝什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢喝，小心别呛着了。\n");
+		return notify_fail("別急，慢慢喝，小心別嗆着了。\n");
 
 	if(me->query("eff_jing") >= me->query("max_jing") &&
 		me->query("eff_qi") >= me->query("max_qi") )
 	{
-		write("你满面红光的，喝如此凶的酒不怕上火？\n");
+		write("你滿面紅光的，喝如此兇的酒不怕上火？\n");
 		return 1;
 	}
 	me->set("eff_jing", (int)me->query("max_jing"));
@@ -54,7 +54,7 @@ int do_drink(string arg)
 	me->set("eff_qi", (int)me->query("max_qi"));
 	me->set("qi", (int)me->query("max_qi"));
 	me->set("neili", (int)me->query("max_neili"));
-	message_vision(HIW "$N举杯饮下参阳玉酒，只觉小腹间热气上冲，跟着胸口间便\n如火烧般热了起来，只觉通体融和，四骸俱泰。\n" NOR, me);
+	message_vision(HIW "$N舉杯飲下參陽玉酒，只覺小腹間熱氣上衝，跟着胸口間便\n如火燒般熱了起來，只覺通體融和，四骸俱泰。\n" NOR, me);
 	destruct(this_object());
 	return 1;
 }

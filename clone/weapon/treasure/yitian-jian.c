@@ -1,4 +1,4 @@
-// yitianjian.c 倚天剑
+// yitianjian.c 倚天劍
 // Last Modified by winder on Sep. 7 2001
 
 #include <weapon.h>
@@ -7,7 +7,7 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("倚天剑", ({ "yitian jian", "sword", "jian" }) );
+	set_name("倚天劍", ({ "yitian jian", "sword", "jian" }) );
 	set_weight(15000);
 	if( clonep() )
 		set_default_object(__FILE__);
@@ -16,9 +16,9 @@ void create()
 		set("value", 50000);
 //		set("no_drop", "1");
 		set("material", "iron");
-		set("long", "这是天下第一利器，有“倚天不出，谁与争锋”之说。\n");
-		set("wield_msg", "直如矫龙吞水，长虹冠日一般，$n已在$N手中，天地为之变色。\n");
-		set("unwield_msg", "$N将$n插回腰间，华光顿敛，天地间只闻龙鸣。\n");
+		set("long", "這是天下第一利器，有“倚天不出，誰與爭鋒”之說。\n");
+		set("wield_msg", "直如矯龍吞水，長虹冠日一般，$n已在$N手中，天地爲之變色。\n");
+		set("unwield_msg", "$N將$n插回腰間，華光頓斂，天地間只聞龍鳴。\n");
 	}
    	init_sword(170);
 	enable_commands(); 
@@ -40,8 +40,8 @@ int init()
 void destyitianjian()
 {
  
-	message_vision("突然有个黑衣人匆匆和你擦身而过，消失在街口拐角处，糟糕，你的$N丢了。\n",this_object());
+	message_vision("突然有個黑衣人匆匆和你擦身而過，消失在街口拐角處，糟糕，你的$N丟了。\n",this_object());
 	destruct(this_object());
-/*	message("channel:rumor", MAG"【谣言】某人："+"遗失多年的倚天剑又重现江湖啦。\n"NOR, users());*/
+/*	message("channel:rumor", MAG"【謠言】某人："+"遺失多年的倚天劍又重現江湖啦。\n"NOR, users());*/
 }
 

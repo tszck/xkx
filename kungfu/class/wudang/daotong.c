@@ -5,7 +5,7 @@ inherit NPC;
 void create()
 {
 	set_name("道童", ({ "daotong", "dao", "tong" }));
-	set("long", "他是武当山的小道童。\n");
+	set("long", "他是武當山的小道童。\n");
 	set("gender", "男性");
 	set("age", 16);
 	set("attitude", "peaceful");
@@ -35,7 +35,7 @@ void create()
 	set_temp("apply/attack", 15);
 	set_temp("apply/defense", 15);
 	set_temp("apply/damage", 5);
-	create_family("武当派", 5, "弟子");
+	create_family("武當派", 5, "弟子");
 
 	setup();
 	carry_object(CLOTH_DIR"dao-cloth")->wear();

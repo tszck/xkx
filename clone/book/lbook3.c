@@ -10,7 +10,7 @@ void create()
 	else
 	{
 		set("unit", "本");
-		set("long","读书人必读的千字文。\n");
+		set("long","讀書人必讀的千字文。\n");
 		set("value", 500000);
 		set("material", "paper");
 		set("skill",

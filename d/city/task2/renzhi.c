@@ -1,6 +1,6 @@
-// /d/npc/renzhi.c 人质
+// /d/npc/renzhi.c 人質
 //modified by sega 1/10/99
-//修改了奖励的上限
+//修改了獎勵的上限
 #include <ansi.h>
 #define lay_exp 20
 #define lay_pot 5
@@ -17,15 +17,15 @@
 
 inherit NPC;
 string * des_str=({
-	"这是一位黑纱蒙面的人，看不出有多大岁数。\n",
-	"他整个人都被裹在一件长大的黑衣里，默默站在那里一言不发。\n",
-	"一位微微发胖的人，满脸堆着笑。\n",
-	"他的眉头都锁在一起，似乎对什么事很担心的样子。\n",
-	"这个人猥猥琐琐地站在那里，好象有什么话又不敢说似的。\n",
-	"一位看起来神神秘秘的人，可是总让人觉得有点怪异的样子。\n",
-	"这个人站在那里好象不停地在发抖，也许是害怕什么。\n",
-	"他满脸的皱纹，看起来好象岁数很大，不过仔细一看，又好象并没有实际那么大。\n",
-	"他穿着一件本来质地很好的衣服，可是现在衣服上沾满了尘土和血迹。\n",
+	"這是一位黑紗蒙面的人，看不出有多大歲數。\n",
+	"他整個人都被裹在一件長大的黑衣裏，默默站在那裏一言不發。\n",
+	"一位微微發胖的人，滿臉堆着笑。\n",
+	"他的眉頭都鎖在一起，似乎對什麼事很擔心的樣子。\n",
+	"這個人猥猥瑣瑣地站在那裏，好象有什麼話又不敢說似的。\n",
+	"一位看起來神神祕祕的人，可是總讓人覺得有點怪異的樣子。\n",
+	"這個人站在那裏好象不停地在發抖，也許是害怕什麼。\n",
+	"他滿臉的皺紋，看起來好象歲數很大，不過仔細一看，又好象並沒有實際那麼大。\n",
+	"他穿着一件本來質地很好的衣服，可是現在衣服上沾滿了塵土和血跡。\n",
 });
 
 string * random_act = ({
@@ -36,7 +36,7 @@ string * random_act = ({
 	"dazuo 120",
 	"sigh",
 	"sigh1",
-	"say 你要把我带到哪里去啊？",
+	"say 你要把我帶到哪裏去啊？",
 	"remove all",
 	"remove all",
 	"remove all",
@@ -44,14 +44,14 @@ string * random_act = ({
 });
 
 string * escape_msg = ({
-	"$N突然惊恐地道：“哎呀，杀手来了，我从这条路先跑了。”\n",
-	"$N突然惊恐地指着你，歇斯底里地大喊起来：“杀手！你就是杀手！你就是派来杀我的杀手！”没等谁反应过来，$N转身大跑起来。\n",
-	"$N怯怯地四处看了看，突然叫了起来：“这地方如此偏僻，怎么能多呆呢，我先走吧。”\n",
-	"$N一回头，似乎看见远处有什么东西掠过，惊得转身就跑。\n",
-	"忽然听到$N一声惨叫，好象被踩住了尾巴的兔子一样转身逃了开去。\n",
-	"$N突然恍然般道：“哦，这地方我以前来过，该从这条路走。说罢，转身就走。”\n"
+	"$N突然驚恐地道：“哎呀，殺手來了，我從這條路先跑了。”\n",
+	"$N突然驚恐地指着你，歇斯底里地大喊起來：“殺手！你就是殺手！你就是派來殺我的殺手！”沒等誰反應過來，$N轉身大跑起來。\n",
+	"$N怯怯地四處看了看，突然叫了起來：“這地方如此偏僻，怎麼能多呆呢，我先走吧。”\n",
+	"$N一回頭，似乎看見遠處有什麼東西掠過，驚得轉身就跑。\n",
+	"忽然聽到$N一聲慘叫，好象被踩住了尾巴的兔子一樣轉身逃了開去。\n",
+	"$N突然恍然般道：“哦，這地方我以前來過，該從這條路走。說罷，轉身就走。”\n"
 ,
-	"$N蓦地撒腿就跑，怎么喊他也不回头，一溜烟地消失了。\n",
+	"$N驀地撒腿就跑，怎麼喊他也不回頭，一溜煙地消失了。\n",
 });
 
 string status_color(int current, int max);
@@ -77,7 +77,7 @@ void create()
 	set("combat_exp", 500 + random(5000));
 	set("attitude", "friendly");
 	set("inquiry", ([
-		"name" : "我的姓名是不能对人乱讲的。\n",
+		"name" : "我的姓名是不能對人亂講的。\n",
 	]));
 
 	set("env/wimpy",50);
@@ -131,9 +131,9 @@ int do_baohu(string arg)
 	object me = this_player();
 
 	if ( query("leader_name") != me->query("id") )
-		return notify_fail("你没有负责保护该人质的义务！\n"); 
+		return notify_fail("你沒有負責保護該人質的義務！\n"); 
 	set("gurader_name",me->query("id") );
-	tell_object(me,HIR"注意：你现在开始对人质进行保卫，任何针对人质的攻击都将自动转移到你身上！\n"NOR);
+	tell_object(me,HIR"注意：你現在開始對人質進行保衛，任何針對人質的攻擊都將自動轉移到你身上！\n"NOR);
 	return 1;
 }
 
@@ -149,12 +149,12 @@ int do_hp(string arg)
 	my = ob->query_entire_dbase();
 
 	if (me->query("id") == query("leader_name") ) {
-		tell_object(me,sprintf("%s的健康情况如下：\n",my["name"]));
+		tell_object(me,sprintf("%s的健康情況如下：\n",my["name"]));
 		msg = sprintf(" 精  ： %s%4d/ %4d %s(%3d%%)\n" NOR ,
 			status_color(my["jing"], my["eff_jing"]), my["jing"], my["eff_jing"],
 			status_color(my["eff_jing"], my["max_jing"]), my["eff_jing"] * 100 / my["max_jing"]);
 		tell_object(me,msg);
-		msg = sprintf(" 气  ： %s%4d/ %4d %s(%3d%%)\n" NOR ,
+		msg = sprintf(" 氣  ： %s%4d/ %4d %s(%3d%%)\n" NOR ,
 status_color(my["qi"], my["eff_qi"]), my["qi"], my["eff_qi"],
 status_color(my["eff_qi"], my["max_qi"]), my["eff_qi"] * 100 / my["max_qi"]);
 		tell_object(me,msg);
@@ -176,7 +176,7 @@ int do_hit(string arg)
 	{
 		if (userp(me) )
 		{
-			tell_object(me,HIW"玩家不能攻击无保护的人质！\n"NOR);
+			tell_object(me,HIW"玩家不能攻擊無保護的人質！\n"NOR);
 			return 1;
 		}
 		else
@@ -184,13 +184,13 @@ int do_hit(string arg)
 	}
 	if (me == gurad_ob)
 	{
-		tell_object(me,HIR"咦？你不是他的保护者吗?\n"NOR);
+		tell_object(me,HIR"咦？你不是他的保護者嗎?\n"NOR);
 		return 1;
 	}
 	else
 	{
-		tell_object(me,HIR"人质正受到"+gurad_ob->query("name")+"的保护，人家加入战斗对你发起攻击！\n"NOR);
-		tell_object(gurad_ob,HIR"人质受到"+me->query("name")+"攻击，你挺身加入战斗！\n"NOR);
+		tell_object(me,HIR"人質正受到"+gurad_ob->query("name")+"的保護，人家加入戰鬥對你發起攻擊！\n"NOR);
+		tell_object(gurad_ob,HIR"人質受到"+me->query("name")+"攻擊，你挺身加入戰鬥！\n"NOR);
 		me -> fight_ob(gurad_ob);		
 		gurad_ob -> fight_ob(me);
 		return 1;
@@ -209,7 +209,7 @@ environment()) )
 	{
 		if (userp(me) )
 		{
-			tell_object(me,HIW"玩家不能攻击无保护的人质！\n"NOR);
+			tell_object(me,HIW"玩家不能攻擊無保護的人質！\n"NOR);
 			return 1;
 		}
 		else return 0;
@@ -219,13 +219,13 @@ environment()) )
 		return 0;
 	if (me == gurad_ob)
 	{
-		tell_object(me,HIR"你不想完成你的任务了吗？\n"NOR);
+		tell_object(me,HIR"你不想完成你的任務了嗎？\n"NOR);
 		return 1;
 	}
 	else
 	{
-		tell_object(me,HIR"人质正受到"+gurad_ob->query("name")+"的保护，人家加入战斗抵御你的攻击！\n"NOR);
-		tell_object(gurad_ob,HIR+me->query("name")+"准备杀死人质，你挺身加入战斗！\n"NOR);
+		tell_object(me,HIR"人質正受到"+gurad_ob->query("name")+"的保護，人家加入戰鬥抵禦你的攻擊！\n"NOR);
+		tell_object(gurad_ob,HIR+me->query("name")+"準備殺死人質，你挺身加入戰鬥！\n"NOR);
 		me -> kill_ob(gurad_ob);		
 		gurad_ob -> fight_ob(me);
 		return 1;
@@ -244,7 +244,7 @@ int do_touxi(string arg)
 	{
 		if (userp(me) )
 		{
-			tell_object(me,HIW"玩家不能攻击无保护的人质！\n"NOR);
+			tell_object(me,HIW"玩家不能攻擊無保護的人質！\n"NOR);
 			return 1;
 		}
 		else return 0;
@@ -255,13 +255,13 @@ int do_touxi(string arg)
 	if (me == gurad_ob)
 	{
 		command("papa "+me->query("id"));
-		tell_object(me,HIR"你不能偷袭人质。\n"NOR);
+		tell_object(me,HIR"你不能偷襲人質。\n"NOR);
 		return 1;
 	}
 	else
 	{
-		tell_object(me,HIR"人质正受到"+gurad_ob->query("name")+"的保护，人家加入战斗抵御你的攻击！\n"NOR);
-		tell_object(gurad_ob,HIR+me->query("name")+"准备对人质进行偷袭，你挺身加入战斗！\n"NOR);
+		tell_object(me,HIR"人質正受到"+gurad_ob->query("name")+"的保護，人家加入戰鬥抵禦你的攻擊！\n"NOR);
+		tell_object(gurad_ob,HIR+me->query("name")+"準備對人質進行偷襲，你挺身加入戰鬥！\n"NOR);
 		me -> kill_ob(gurad_ob);
 		gurad_ob -> fight_ob(me);
 		return 1;
@@ -278,7 +278,7 @@ int do_steal(string arg)
 
 	if (who == ob->query("id") || who == "rz" )
 	{
-		message("vision",HIW"玩家不能偷人质身上的东西！\n"NOR,me);
+		message("vision",HIW"玩家不能偷人質身上的東西！\n"NOR,me);
 		return 1;
 	}
 	return 0;
@@ -295,15 +295,15 @@ int do_order(string arg)
 	string ss_name;
 
 	if ( query("leader_name") != me->query("id") )
-		return notify_fail("由于你不是该任务的接收者，人质不会听你的指挥！\n");
+		return notify_fail("由於你不是該任務的接收者，人質不會聽你的指揮！\n");
 	if (!arg || sscanf(arg, "%s %s",act,sth) != 2)
-		return notify_fail("指令格式：order <动作词> <具体动作描述>\n");
+		return notify_fail("指令格式：order <動作詞> <具體動作描述>\n");
 
 	if (query("qi") < 50)
-		return notify_fail("目前人质没有力气执行该项动作！\n");
+		return notify_fail("目前人質沒有力氣執行該項動作！\n");
 
 	if ( act!="go" && act!="ask chuanfu about 出海" && act!="get" && act!="give" && act!="drink" && act!="wear" && act!="remove" && act!="zou" && act!="wield" && act!="unwield" && act!="enter" && act!="eat" )
-		return notify_fail("目前暂时不支持该项动作指令！\n");
+		return notify_fail("目前暫時不支持該項動作指令！\n");
 
         if ( me->is_busy() || me->is_fighting())
 		    return notify_fail("你正忙着呢。\n");
@@ -311,18 +311,18 @@ int do_order(string arg)
 	if (act == "go")
 	{
 		if (this_object()->is_busy() )
-			return notify_fail(HIY"人质要休息一会儿再上路。\n"NOR);
+			return notify_fail(HIY"人質要休息一會兒再上路。\n"NOR);
 		dest = sprintf( "exits/%s",sth);
 		if (! dest_add = environment()->query(dest))
-			return notify_fail("这个方向没有出路。\n");
+			return notify_fail("這個方向沒有出路。\n");
 		if (! environment(this_object())->query("no_fight"))
 			add("total_steps",1);
 		if (dest_add == query("dest_add") )
 		{
-		//目的地到达
-			message_vision(YEL"$N长出了一口气道：哎，终于到了。不知道从哪里冒出来一辆马车将$N接上了车，然后扬尘而去。\n"NOR,this_object(),me);
-			tell_object(me,HIW"恭喜你成功将人质送到目的地，完成了这项任务！\n"NOR);
-			message("channel:chat", HIM"【谣言】听说"+ me->query("name") +"成功将人质护送到目的地了！\n"NOR,users());
+		//目的地到達
+			message_vision(YEL"$N長出了一口氣道：哎，終於到了。不知道從哪裏冒出來一輛馬車將$N接上了車，然後揚塵而去。\n"NOR,this_object(),me);
+			tell_object(me,HIW"恭喜你成功將人質送到目的地，完成了這項任務！\n"NOR);
+			message("channel:chat", HIM"【謠言】聽說"+ me->query("name") +"成功將人質護送到目的地了！\n"NOR,users());
              
                         i = 0;
 			give_exp = lay_exp * query("total_steps");
@@ -338,9 +338,9 @@ int do_order(string arg)
 			if(give_exp > 8000) give_exp = 6000 + random(2000);
 			if(give_pot > 2000 ) give_pot = 1800 + random(400);
 			if(give_score > 1500 ) give_score = 1000 + random(500);
-			log_file("mission/ms_renzhi",sprintf("%20s做保护人质任务，得到：%4i点EXP和%4i点潜能。\n",
+			log_file("mission/ms_renzhi",sprintf("%20s做保護人質任務，得到：%4i點EXP和%4i點潛能。\n",
        me->query("name")+"("+getuid(me)+")",give_exp,give_pot));
-			tell_object(me,HIW + sprintf("你被奖励了！得到%s点经验和%s点潜能，%s点江湖阅历。\n", chinese_number(give_exp), chinese_number(give_pot), chinese_number(give_score) ) + NOR);
+			tell_object(me,HIW + sprintf("你被獎勵了！得到%s點經驗和%s點潛能，%s點江湖閱歷。\n", chinese_number(give_exp), chinese_number(give_pot), chinese_number(give_score) ) + NOR);
 			me->add("combat_exp",give_exp);
 			me->add("potential",give_pot);
 			me->add("score",give_score);
@@ -386,12 +386,12 @@ int do_give(string arg)
 	if ( sscanf(arg,"%s to %s",o_name,p_name) !=2 ) return 0;
 	if ( p_name != "rz") return 0;
 	if (! ob = present(o_name,me))
-		return notify_fail("你身上没有这样东西。\n");
+		return notify_fail("你身上沒有這樣東西。\n");
 	if (ob->query("no_drop"))
-		return notify_fail("这样东西不能随便给人。\n");
+		return notify_fail("這樣東西不能隨便給人。\n");
 
 	ob -> move(this_object());
-	message("vision",sprintf("%s给%s一%s%s。\n",me->name(),
+	message("vision",sprintf("%s給%s一%s%s。\n",me->name(),
 		this_object()->name(),ob->query("unit"),ob->name()),me);
 	return 1;
 
@@ -404,7 +404,7 @@ int active_died()
 
 	if (! me = find_player(query("leader_name")) ) return 1;
 	else {
-		tell_object(me,HIB"人质死了，你的任务失败了！\n"NOR);
+		tell_object(me,HIB"人質死了，你的任務失敗了！\n"NOR);
 		if (ml = present("mi ling",me) )
 			destruct(ml);
 		return 1;
@@ -477,7 +477,7 @@ void do_check1()
 
 	if (ob -> query("qi") < 10)
 	{
-		message_vision(HIR"$N一声惨叫，轰地一声倒在地上。\n"NOR,ob);
+		message_vision(HIR"$N一聲慘叫，轟地一聲倒在地上。\n"NOR,ob);
 		ob -> receive_damage("qi",100);
 		ob -> receive_wound("qi",100);
 		ob -> die();
@@ -491,7 +491,7 @@ void do_check1()
 		}
 		else
 		{
-			message_vision(HIR"$N在昏迷中突然急促地呻吟了一声，然后就再没有声音了。\n"NOR,ob);
+			message_vision(HIR"$N在昏迷中突然急促地呻吟了一聲，然後就再沒有聲音了。\n"NOR,ob);
 			ob -> die();
 		}
 	}

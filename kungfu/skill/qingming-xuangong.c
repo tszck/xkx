@@ -17,14 +17,14 @@ int valid_enable(string usage) { return usage == "force"; }
 int valid_learn(object me)
 {
 	if (me->query_skill("force",1) < 10)
-		return notify_fail("基本内功还不到火候，怎能学青冥玄功？！\n");
+		return notify_fail("基本內功還不到火候，怎能學青冥玄功？！\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("青冥玄功只能用学(learn)的来增加熟练度。\n");
+	return notify_fail("青冥玄功只能用學(learn)的來增加熟練度。\n");
 }
 
 string exert_function_file(string func)
@@ -36,10 +36,10 @@ int help(object me)
 	write(HIC"\n青冥玄功："NOR"\n");
 	write(@HELP
 
-    青冥玄功是青城派本门内功。
+    青冥玄功是青城派本門內功。
 
-	学习要求：
-		基本内功10级
+	學習要求：
+		基本內功10級
 HELP
 	);
 	return 1;

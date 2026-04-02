@@ -6,14 +6,14 @@ inherit STAFF;
 
 void create()
 {
-	 set_name("树干", ({ "shugan", "staff" }) );
+	 set_name("樹幹", ({ "shugan", "staff" }) );
 	 set_weight(1000);
 	 if( clonep() )
 		 set_default_object(__FILE__);
 	 else {
 		 set("unit", "根");
 		 set("material", "wood");
-		 set("long", "这是一根粗长的树枝。\n");
+		 set("long", "這是一根粗長的樹枝。\n");
 		 set("weapon_prop/courage", -4);
 	 }
 	 init_staff(5);

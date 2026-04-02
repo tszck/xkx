@@ -13,9 +13,9 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "块");
-		set("long", "李白醉酒卧眠的醉石，石上一人形依稀可见，观其形状恰似
-酒至酣处。\n");
+		set("unit", "塊");
+		set("long", "李白醉酒臥眠的醉石，石上一人形依稀可見，觀其形狀恰似
+酒至酣處。\n");
 		set("value", 1);
 		set("skill", ([
 			"name"         : "literate",

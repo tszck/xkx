@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("廖自砺",({"liao zili","liao"}));
+	set_name("廖自礪",({"liao zili","liao"}));
 	set("gender", "男性");
 	set("age", 40);
-	set("long", "廖自砺是雪山派掌门人威德先生白自在的师弟。\n");
+	set("long", "廖自礪是雪山派掌門人威德先生白自在的師弟。\n");
 	set("attitude", "peaceful");
 
 	set("str", 30);

@@ -5,8 +5,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("烧饭僧", ({ "shaofan seng", "shaofan", "seng" }));
-	set("long","这是位胖胖的中年僧人，大概是因为长年烧饭作菜的缘故，才如此发福的吧。\n");
+	set_name("燒飯僧", ({ "shaofan seng", "shaofan", "seng" }));
+	set("long","這是位胖胖的中年僧人，大概是因爲長年燒飯作菜的緣故，才如此發福的吧。\n");
 	set("gender", "男性");
 	set("attitude", "peaceful");
 	set("class", "bonze");

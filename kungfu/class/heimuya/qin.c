@@ -8,10 +8,10 @@ string ask_me();
 void init();
 void create()
 {
-	set_name("秦伟邦", ({ "qin weibang","qin","weibang"}) );
+	set_name("秦偉邦", ({ "qin weibang","qin","weibang"}) );
 	set("gender", "男性" );
 	set("age", 40);
-	set("long", "一个肥肥矮矮的老者。\n");
+	set("long", "一個肥肥矮矮的老者。\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 	set("env/wimpy", 40);
@@ -50,7 +50,7 @@ void create()
 	]));
 
 	set("party/party_name", HIB"日月神教"NOR);
-	set("party/rank", BLK"玄武堂长老"NOR);
+	set("party/rank", BLK"玄武堂長老"NOR);
 	create_family("黑木崖", 9, "弟子");
 
 	setup();
@@ -83,7 +83,7 @@ void init()
 
 string ask_me()
 {
-	return "你想加入我日月神教(join riyuejiao)吗？";
+	return "你想加入我日月神教(join riyuejiao)嗎？";
 }
 
 #include "riyuejiao.h"

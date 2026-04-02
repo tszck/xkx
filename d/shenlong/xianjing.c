@@ -10,7 +10,7 @@ void create()
 {
 	set("short", "陷阱");
 	set("long", @LONG
-突然，四周的墙壁冒出许多锋利的钢板，向你扎了过来。完了。。。
+突然，四周的牆壁冒出許多鋒利的鋼板，向你紮了過來。完了。。。
 LONG
 	);
 	set("exits", ([
@@ -44,9 +44,9 @@ void dropping()
 	p = me->query_skill("parry",1);
 	if( interactive(me = this_player()) )
 	{
-		message_vision( HIR "$N的眼前突然出现一个无底的深渊...$N掉入了陷阱之中。\n" NOR, me);
-		message_vision( HIR "陷阱中的钢板突然冒出许多锋利的钢针，深深地扎入了$N的身体中...\n" NOR, me);
-//		message_vision( HIR "一声惨嚎，$N被扎死在陷阱中。\n" NOR, me);
+		message_vision( HIR "$N的眼前突然出現一個無底的深淵...$N掉入了陷阱之中。\n" NOR, me);
+		message_vision( HIR "陷阱中的鋼板突然冒出許多鋒利的鋼針，深深地扎入了$N的身體中...\n" NOR, me);
+//		message_vision( HIR "一聲慘嚎，$N被扎死在陷阱中。\n" NOR, me);
 //		if (f>=2) me->set_skill("force",f-2);
 //		if (d>=2) me->set_skill("dodge",d-2);
 //		if (p>=2) me->set_skill("parry",p-2);

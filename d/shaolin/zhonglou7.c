@@ -8,14 +8,14 @@ string look_out();
 
 void create()
 {
-	set("short", "钟楼七层");
+	set("short", "鐘樓七層");
 	set("long", @LONG
-这里就是钟楼之顶。直入眼帘的便是那口大钟和一根悬挂空
-中的巨杵。细看大钟，整整有两丈来高，直径也有丈许。钟身似
-由青铜浇铸，上面满是密密麻麻的印文古篆，估计重逾数千斤。
-巨杵粗可合抱，丈把来长，一头裹以厚皮，正对着钟腰。尽管山
-风吹人欲倒，谁都禁不住想撞一下钟(bell)试试。往外看，有个很
-大的汉白玉窗台(out)，上面足可站一个人。
+這裏就是鐘樓之頂。直入眼簾的便是那口大鐘和一根懸掛空
+中的巨杵。細看大鐘，整整有兩丈來高，直徑也有丈許。鐘身似
+由青銅澆鑄，上面滿是密密麻麻的印文古篆，估計重逾數千斤。
+巨杵粗可合抱，丈把來長，一頭裹以厚皮，正對着鐘腰。儘管山
+風吹人慾倒，誰都禁不住想撞一下鍾(bell)試試。往外看，有個很
+大的漢白玉窗臺(out)，上面足可站一個人。
 LONG );
 	set("exits", ([
 		"down" : __DIR__"zhonglou6",
@@ -45,13 +45,13 @@ int do_knock(string arg)
 	object me;
 
 	me = this_player();
-	if ( !arg || ( arg != "bell" ) ) return notify_fail("你要敲什麽？\n");
+	if ( !arg || ( arg != "bell" ) ) return notify_fail("你要敲什麼？\n");
 
 	me->add("qi", -20);
 
 	if ( random((int)me->query("kar")) < 5 )
 	{
-		message_vision("$N一不小心敲到自己头上了。\n", me);
+		message_vision("$N一不小心敲到自己頭上了。\n", me);
 		me->unconcious();
 	}
 
@@ -60,10 +60,10 @@ int do_knock(string arg)
 		mapping mine;
 
 		mine = me->query_entire_dbase();
-		message_vision("$N敲了一下大钟，『咣……』声音传遍整个寺庙。\n", me);
-		write("钟声如迅雷般在你耳边炸响，你头脑中一片糊涂，\n"
-			"全身摇摇欲坠，勉力支撑着不倒在地上。心中一个\n"
-			"声音告诉你，得赶快离开这里，不然就没命了。\n");
+		message_vision("$N敲了一下大鐘，『咣……』聲音傳遍整個寺廟。\n", me);
+		write("鐘聲如迅雷般在你耳邊炸響，你頭腦中一片糊塗，\n"
+			"全身搖搖欲墜，勉力支撐着不倒在地上。心中一個\n"
+			"聲音告訴你，得趕快離開這裏，不然就沒命了。\n");
 
     		if (random(2)==0) mine["combat_exp"] += 1;
     		else
@@ -89,16 +89,16 @@ int do_out(string arg)
 	if(((int)me->query("jing") < ging_cost) || ((int)me->query("qi") < qi_cost))
 		i = 0;
 
-	message_vision("$N爬上窗台，一个纵身，跳了下去。\n", me);
+	message_vision("$N爬上窗臺，一個縱身，跳了下去。\n", me);
 	me->move(__DIR__"zhonglou");
 	me->start_busy(5);
-	message_vision("只听『砰』地一声$N从塔顶跳了下来。\n", me);
+	message_vision("只聽『砰』地一聲$N從塔頂跳了下來。\n", me);
 	if ( i < 50)
 		me->die();
 	else if( i < 125)
 		me->unconcious();
 	else {
-		message_vision("$N已稳稳地站在地上。\n", me);
+		message_vision("$N已穩穩地站在地上。\n", me);
 		if( i > 175 && me->query_skill("dodge",1)<200)
 			me->improve_skill("dodge", 2*(int)me->query_skill("dodge", 1));
 		me->receive_damage("jing", ging_cost );
@@ -113,9 +113,9 @@ string look_bell()
 	return
 	"**********************************************\n"
 	"********　　　　　　　　　　　　　　　********\n"
-	"********　　　　　佛语有曰：　　　　　********\n"
+	"********　　　　　佛語有曰：　　　　　********\n"
 	"********　　　　　　　　　　　　　　　********\n"
-	"********　『做一天和尚，撞一天钟』　　********\n"
+	"********　『做一天和尚，撞一天鐘』　　********\n"
 	"********　　　　　　　　　　　　　　　********\n"
 	"********　（ｋｎｏｃｋ　ｂｅｌｌ）　　********\n"
 	"********　　　　　　　　　　　　　　　********\n"
@@ -124,7 +124,7 @@ string look_bell()
 
 string look_out()
 {
-	return  "这里是钟楼顶层的窗台，从这里可以遥望整个少室山脉，\n"
-"以及高耸入云的嵩山。浮世烟尘，尽在眼底。据说在此地\n"
-"可以与天界诸佛直接交流，对禅修大有益处。\n";
+	return  "這裏是鐘樓頂層的窗臺，從這裏可以遙望整個少室山脈，\n"
+"以及高聳入雲的嵩山。浮世煙塵，盡在眼底。據說在此地\n"
+"可以與天界諸佛直接交流，對禪修大有益處。\n";
 }

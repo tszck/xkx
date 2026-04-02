@@ -7,13 +7,13 @@ string ask_me();
 
 void create()
 {
-	set_name("班淑娴", ({ "ban shuxian", "ban" }));
-	set("title", "昆仑派掌门夫人");
+	set_name("班淑嫺", ({ "ban shuxian", "ban" }));
+	set("title", "崑崙派掌門夫人");
 	set("long",
-"这是一个身材高大的半老女子，头发花白，双目含威，眉心间聚
-有煞气。她就是昆仑派掌门、名扬江湖的铁琴先生何太冲的夫人。
-班淑娴是昆仑派的“太上掌门”，连何太冲也忌她三分，数十年
-来在昆仑山下颐指气使惯了，数百里方圆之内，俨然女王一般。\n");
+"這是一個身材高大的半老女子，頭髮花白，雙目含威，眉心間聚
+有煞氣。她就是崑崙派掌門、名揚江湖的鐵琴先生何太沖的夫人。
+班淑嫺是崑崙派的“太上掌門”，連何太沖也忌她三分，數十年
+來在崑崙山下頤指氣使慣了，數百里方圓之內，儼然女王一般。\n");
 	set("gender", "女性");
 	set("class", "swordman");
 	set("age", 44);
@@ -58,11 +58,11 @@ void create()
 	prepare_skill("leg", "chuanyun-leg");
 	set("inquiry",
 	([
-		"秘籍" : (: ask_me :),
+		"祕籍" : (: ask_me :),
 	]));
 	set("book_count", 1);
 	set("env/wimpy", 60);
-	create_family("昆仑派", 4, "掌门夫人");
+	create_family("崑崙派", 4, "掌門夫人");
 
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();
@@ -74,8 +74,8 @@ void attempt_apprentice(object ob)
 /*
 	if((int)ob->query("shen")<0)
 	{
-		 command("say 我昆仑乃是堂堂名门正派，"+RANK_D->query_respect(ob)+"的品德实在令人怀疑。");
-		command("say "+RANK_D->query_respect(ob)+"还是先回去做点善事吧。");
+		 command("say 我崑崙乃是堂堂名門正派，"+RANK_D->query_respect(ob)+"的品德實在令人懷疑。");
+		command("say "+RANK_D->query_respect(ob)+"還是先回去做點善事吧。");
 		return;
 	}
 */
@@ -83,13 +83,13 @@ void attempt_apprentice(object ob)
 	{
 		command("hmm");
 		command("say "+RANK_D->query_respect(ob)+
-			"你们这些臭男人我见了就烦，快给我走开！");
+			"你們這些臭男人我見了就煩，快給我走開！");
 		return;
 	}
 
 	if(ob->query("appren_hezudao", 1) == 1)
 	{
-		command("say 前辈怎敢开这等玩笑，真是折杀做晚辈的了。");
+		command("say 前輩怎敢開這等玩笑，真是折殺做晚輩的了。");
 		return;
 	}
 
@@ -97,10 +97,10 @@ void attempt_apprentice(object ob)
 	{
 		command("hmm");
 		command("say "+RANK_D->query_respect(ob)+
-			"你的玄天无极功太差，我可不想收你。");
+			"你的玄天無極功太差，我可不想收你。");
 		return;
 	}
-	command("say 好吧，以后你就跟我学武功吧，你须得安心学艺，不可乱来。");
+	command("say 好吧，以後你就跟我學武功吧，你須得安心學藝，不可亂來。");
 	command("recruit " + ob->query("id"));
 }
 
@@ -111,17 +111,17 @@ string ask_me()
 	ob = this_player();
 
 	if (!(fam = this_player()->query("family"))
-		|| fam["family_name"] != "昆仑派")
+		|| fam["family_name"] != "崑崙派")
 		return RANK_D->query_respect(this_player()) +
-			"与本派素无来往，不知此话从何谈起？";
+			"與本派素無來往，不知此話從何談起？";
 	if(ob->query("gender")=="男性")
-		return "给我走开，我看见你们这些臭男人就烦。";
+		return "給我走開，我看見你們這些臭男人就煩。";
 	if (query("book_count") < 1)
-		return "你来晚了，本派真经已被你师兄拿走了。";
+		return "你來晚了，本派真經已被你師兄拿走了。";
 	add("book_count", -1);
 	ob = new("/clone/book/lyj-book.c");
 	ob->move(this_player());
-	command("rumor "+this_player()->query("name")+"拿到两仪剑心得啦。\n");
-	return "先师曾传下来这本「两仪剑心得」，你拿回去好好钻研。";
+	command("rumor "+this_player()->query("name")+"拿到兩儀劍心得啦。\n");
+	return "先師曾傳下來這本「兩儀劍心得」，你拿回去好好鑽研。";
 }
 

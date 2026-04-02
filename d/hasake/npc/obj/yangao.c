@@ -6,13 +6,13 @@ inherit CLOTH;
 
 void create()
 {
-        set_name("羊皮袄", ({ "yangpi ao", "ao"}) );
+        set_name("羊皮襖", ({ "yangpi ao", "ao"}) );
         set_weight(5000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
                 set("unit", "件");
-                set("long", "这是一件灰色的羊皮袄。牧羊人不管春夏秋冬, 刮风下雨都穿着它。\n");
+                set("long", "這是一件灰色的羊皮襖。牧羊人不管春夏秋冬, 颳風下雨都穿着它。\n");
                 set("material", "cloth");
                 set("armor_prop/armor", 3);
                 set("warm_cloth", 1);

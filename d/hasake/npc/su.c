@@ -1,10 +1,10 @@
 inherit NPC;
 void create()
 {
-        set_name("苏鲁克", ({ "suluke", "su"}));
+        set_name("蘇魯克", ({ "suluke", "su"}));
         set("gender", "男性");
         set("age", 45);
-        set("long", "他就是哈萨克第一勇士苏鲁克。\n");
+        set("long", "他就是哈薩克第一勇士蘇魯克。\n");
         set("attitude", "heroism");
         set("combat_exp", 110000);
         set("shen", 1100);

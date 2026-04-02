@@ -1,4 +1,4 @@
-// tonggui.c 全真剑法 同归剑法
+// tonggui.c 全真劍法 同歸劍法
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,7 +7,7 @@
 #include <combat.h>
 
 inherit F_SSERVER;
-#define PNAME "「同归剑法」"
+#define PNAME "「同歸劍法」"
 int perform(object me, object target)
 {
 	object weapon;	
@@ -23,18 +23,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if( !objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail("没有剑在手怎么能用同归剑法？\n");
+		return notify_fail("沒有劍在手怎麼能用同歸劍法？\n");
 		
 	fskill = "xiantian-qigong";
 	bskill = "sword";
@@ -48,24 +48,24 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 10 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，不能使"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，不能使"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为太浅，未领会"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲太淺，未領會"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 500 )
-		return notify_fail("你的内力还不够！\n");
+		return notify_fail("你的內力還不夠！\n");
 
 	qi = me->query("qi");
 	maxqi = me->query("max_qi");
 	if(qi > (maxqi * 0.4))
-		return notify_fail("你现在的身体状况无法激发同归剑法！\n");
+		return notify_fail("你現在的身體狀況無法激發同歸劍法！\n");
 
 	skill = (int) (me->query_skill(bskill, 1) / 3);
 	count = me->query_str();
 	d_count = (int)me->query_dex() / 2;
 
-	msg = HIY"$N使出「同归剑法」，剑气纵横，只攻不守，招招拼命，凶狠危险之至！\n" NOR;
+	msg = HIY"$N使出「同歸劍法」，劍氣縱橫，只攻不守，招招拼命，兇狠危險之至！\n" NOR;
 	if ( random(me->query("combat_exp")) > (int)target->query("combat_exp")/3 )
 	{
 		me->start_busy(2);
@@ -73,14 +73,14 @@ int perform(object me, object target)
 		damage = target->query("qi");
 		target->receive_damage("qi", damage-10,me);
 		target->receive_wound("qi", damage-10,me);
-		msg += HIC "$n疾忙斜跃，但剑急如电，只觉一阵钻心剧痛，剑尖扎入胸前，鲜血飞溅！\n"NOR;
+		msg += HIC "$n疾忙斜躍，但劍急如電，只覺一陣鑽心劇痛，劍尖扎入胸前，鮮血飛濺！\n"NOR;
 		me->set("neili",0);
 	}
 	else
 	{
 		me->start_busy(2);
 		me->set("neili",100);
-		msg += HIY"可是$n微微一笑，气定神闲，身形轻变，闪过剑招。\n"NOR;
+		msg += HIY"可是$n微微一笑，氣定神閒，身形輕變，閃過劍招。\n"NOR;
 	}
 
 	message_combatd(msg, me, target);
@@ -95,12 +95,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		耗尽全部内力，出手一剑
+		耗盡全部內力，出手一劍
 
 	出手要求：
-		先天气功100级
-		全真剑法150级
-		内力500
+		先天氣功100級
+		全真劍法150級
+		內力500
 HELP
 	);
 	return 1;

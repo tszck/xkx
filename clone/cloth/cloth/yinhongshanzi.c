@@ -1,11 +1,11 @@
-// yinhongshanzi.c 银红红衫子
+// yinhongshanzi.c 銀紅紅衫子
 
 #include <ansi.h>
 #include <armor.h>
 inherit CLOTH;
 void create()
 {
-	set_name( HIR "银红红衫子" NOR, ({ "yinhong shanzi", "cloth" }) );
+	set_name( HIR "銀紅紅衫子" NOR, ({ "yinhong shanzi", "cloth" }) );
 	set_weight(800);
 	if( clonep() )
 		set_default_object(__FILE__);

@@ -3,89 +3,89 @@
 #include <ansi.h>
 
 mapping *dizhia=({
-	(["cdizhi":	"白驼山",
+	(["cdizhi":	"白駝山",
 	"weizhi2" :	"/d/baituo/cao1",]),
-	(["cdizhi":	"长城",
+	(["cdizhi":	"長城",
 	"weizhi2" :	"/d/changcheng/changcheng13",]),
-	(["cdizhi":	"扬州城",
+	(["cdizhi":	"揚州城",
 	"weizhi2" :	"/d/city/bingyin",]),
 	(["cdizhi":	"北京城",
 	"weizhi2" :	"/d/beijing/huayuan",]),
 	(["cdizhi":	"成都城",
 	"weizhi2" :	"/d/chengdu/wuhouci",]),
-	(["cdizhi":	"长安城",
+	(["cdizhi":	"長安城",
 	"weizhi2" :	"/d/changan/chaguan",]),
 	(["cdizhi":	"大理城",
 	"weizhi2" :	"/d/dali/tingyuan",]),
 	(["cdizhi":	"峨嵋山",
 	"weizhi2" :	"/d/emei/jieyindian",]),
-	(["cdizhi":	"佛山镇",
+	(["cdizhi":	"佛山鎮",
 	"weizhi2" :	"/d/foshan/street4",]),
 	(["cdizhi":	"福州城",
 	"weizhi2" :	"/d/fuzhou/luoxingta",]),
-	(["cdizhi":	"关外",
+	(["cdizhi":	"關外",
 	"weizhi2" :	"/d/guanwai/xuedi2",]),
 	(["cdizhi":	"杭州城",
 	"weizhi2" :	"/d/hangzhou/shiwudong",]),
 	(["cdizhi":	"黑木崖",
 	"weizhi2" :	"/d/heimuya/shijie2",]),
-	(["cdizhi":	"恒山",
+	(["cdizhi":	"恆山",
 	"weizhi2" :	"/d/hengshan/yuyang",]),
 	(["cdizhi":	"衡山",
 	"weizhi2" :	"/d/henshan/nantaisi",]),
-	(["cdizhi":	"黄河",
+	(["cdizhi":	"黃河",
 	"weizhi2" :	"/d/huanghe/weifen",]),
-	(["cdizhi":	"华山",
+	(["cdizhi":	"華山",
 	"weizhi2" :	"/d/huashan/yunuci",]),
 	(["cdizhi":	"江陵城",
 	"weizhi2" :	"/d/jiangling/longzhong",]),
-	(["cdizhi":	"嘉兴城",
+	(["cdizhi":	"嘉興城",
 	"weizhi2" :	"/d/jiaxing/njroad2",]),
-	(["cdizhi":	"昆仑山",
+	(["cdizhi":	"崑崙山",
 	"weizhi2" :	"/d/kunlun/jiuqulang2",]),
-	(["cdizhi":	"兰州城",
+	(["cdizhi":	"蘭州城",
 	"weizhi2" :	"/d/lanzhou/street1",]),
-	(["cdizhi":	"灵鹫峰",
+	(["cdizhi":	"靈鷲峯",
 	"weizhi2" :	"/d/lingjiu/jian",]),
-	(["cdizhi":	"灵州城",
+	(["cdizhi":	"靈州城",
 	"weizhi2" :	"/d/lingzhou/kongdi",]),
-	(["cdizhi":	"洛阳城",
+	(["cdizhi":	"洛陽城",
 	"weizhi2" :	"/d/luoyang/wanghuating",]),
-	(["cdizhi":	"光明顶",
+	(["cdizhi":	"光明頂",
 	"weizhi2" :	"/d/mingjiao/tohsq1",]),
-	(["cdizhi":	"祁连山",
+	(["cdizhi":	"祁連山",
 	"weizhi2" :	"/d/qilian/zhutishan",]),
 	(["cdizhi":	"青城山",
 	"weizhi2" :	"/d/qingcheng/huyingting",]),
 	(["cdizhi":	"嵩山",
 	"weizhi2" :	"/d/songshan/junjigate",]),
-	(["cdizhi":	"苏州城",
+	(["cdizhi":	"蘇州城",
 	"weizhi2" :	"/d/suzhou/liuyuan",]),
 	(["cdizhi":	"泰山",
 	"weizhi2" :	"/d/taishan/tianjie",]),
-	(["cdizhi":	"天龙寺",
+	(["cdizhi":	"天龍寺",
 	"weizhi2" :	"/d/tianlongsi/tading",]),
-	(["cdizhi":	"铁掌峰",
+	(["cdizhi":	"鐵掌峯",
 	"weizhi2" :	"/d/tiezhang/guangchang",]),
-	(["cdizhi":	"华山村",
+	(["cdizhi":	"華山村",
 	"weizhi2" :	"/d/village/wexit",]),
-	(["cdizhi":	"万劫谷",
+	(["cdizhi":	"萬劫谷",
 	"weizhi2" :	"/d/wanjiegu/port2",]),
 	(["cdizhi":	"五毒教",
 	"weizhi2" :	"/d/wudujiao/wdsl2",]),
-	(["cdizhi":	"无量山",
+	(["cdizhi":	"無量山",
 	"weizhi2" :	"/d/wuliang/road4",]),
-	(["cdizhi":	"无锡城",
+	(["cdizhi":	"無錫城",
 	"weizhi2" :	"/d/wuxi/road15",]),
-	(["cdizhi":	"襄阳城",
+	(["cdizhi":	"襄陽城",
 	"weizhi2" :	"/d/xiangyang/walle3",]),
 	(["cdizhi":	"星宿海",
 	"weizhi2" :	"/d/xingxiu/shidao",]),
 	(["cdizhi":	"雪域",
 	"weizhi2" :	"/d/xuedao/shandong2",]),
-	(["cdizhi":	"大轮寺",
+	(["cdizhi":	"大輪寺",
 	"weizhi2" :	"/d/xueshan/zoulang2",]),
-	(["cdizhi":	"燕子坞",
+	(["cdizhi":	"燕子塢",
 	"weizhi2" :	"/d/yanziwu/qiushuan",]),
 	(["cdizhi":	"泉州",
 	"weizhi2" :	"/d/quanzhou/jiangjunfu1",]),
@@ -126,13 +126,13 @@ void init()
 	dizhis = dizhia[random(sizeof(dizhia))];
 	exp = ob->query("combat_exp");
 
-///第一次追杀
+///第一次追殺
 	if (ob->query_temp("mark/gkill1") )
 	{
-	  message_vision( HIR"$n看到$N目光冷冷注视着自己一动不动，不由停下了脚步。\n"NOR, ob, me);
+	  message_vision( HIR"$n看到$N目光冷冷注視着自己一動不動，不由停下了腳步。\n"NOR, ob, me);
 	 if ((string)me->query("name") == ob->query_temp("guanf_huida1"))
 		{
-			message_vision( HIR"$n看到$N走到近前，狠狠的骂道，不识抬举的东西，我好言相劝没用，\n今天就让你尝尝大爷的厉害。\n"NOR,ob,me);
+			message_vision( HIR"$n看到$N走到近前，狠狠的罵道，不識抬舉的東西，我好言相勸沒用，\n今天就讓你嚐嚐大爺的厲害。\n"NOR,ob,me);
 			me->set_leader(ob);
 			remove_call_out("kill_ob");
 			call_out("kill_ob", 0, ob);
@@ -173,35 +173,35 @@ void init()
 			switch(random(4))
 			{
 				case 0:
-					message_vision("$n嘿嘿奸笑几声，连忙赔笑道，这位"+RANK_D->query_respect(ob)+ "是官府的捕头吧？！大家都是武林中人，今天能否高抬贵手？我必有重谢！你好好斟酌一下，是否愿意？\n",ob,me);
-					write (HIY"你可以选择同意(yes)或者拒绝(no)。\n"NOR);
+					message_vision("$n嘿嘿奸笑幾聲，連忙賠笑道，這位"+RANK_D->query_respect(ob)+ "是官府的捕頭吧？！大家都是武林中人，今天能否高抬貴手？我必有重謝！你好好斟酌一下，是否願意？\n",ob,me);
+					write (HIY"你可以選擇同意(yes)或者拒絕(no)。\n"NOR);
 					ob->set_temp("guanf_huida1", me->query("name"));
 					break;
 				case 1:
-					message_vision( HIR"$n阴笑一声说道，这麽多不怕死的？再来十个大爷我也不怕！\n随即眼睛一瞪，向着$N就冲了过去！\n"NOR,ob,me);
+					message_vision( HIR"$n陰笑一聲說道，這麼多不怕死的？再來十個大爺我也不怕！\n隨即眼睛一瞪，向着$N就衝了過去！\n"NOR,ob,me);
 					me->set_leader(ob);
 					remove_call_out("kill_ob");
 					call_out("kill_ob", 0, ob);
 					ob->delete_temp("mark/gkill1");
 					break;
 				case 2:
-					message_vision( WHT"$n待$N走到近前，冷冷一笑，说道，你千里追到这里，我看你又能奈我何！\n"NOR,ob,me);
-					write(WHT"你感到一股无形的杀气，心中不由一颤。\n"NOR);
+					message_vision( WHT"$n待$N走到近前，冷冷一笑，說道，你千里追到這裏，我看你又能奈我何！\n"NOR,ob,me);
+					write(WHT"你感到一股無形的殺氣，心中不由一顫。\n"NOR);
 					ob->delete_temp("mark/gkill1");
 					break;
 				case 3:
-					message_vision("$n忽然泪流满面，一幅可怜的神情对$N说道，小人上有老下有小，而且完全是官府被\n陷害才落此地步，望你老明察秋毫，网开一面，我今生一定感激不尽。\n",ob,me);
+					message_vision("$n忽然淚流滿面，一幅可憐的神情對$N說道，小人上有老下有小，而且完全是官府被\n陷害才落此地步，望你老明察秋毫，網開一面，我今生一定感激不盡。\n",ob,me);
 					ob->delete_temp("mark/gkill1");
 			}
 		}
 	}
-// end///  第二次追杀
+// end///  第二次追殺
 		if (ob->query_temp("mark/gkill2"))
 		{
 			switch(random(2))
 			{
 				case 0:
-					message_vision( HIR"$n额头青筋跳动，冷哼了一声，瞪着通红的眼睛向着$N就冲了过去。\n"NOR, ob,me);
+					message_vision( HIR"$n額頭青筋跳動，冷哼了一聲，瞪着通紅的眼睛向着$N就衝了過去。\n"NOR, ob,me);
 					me->set_leader(ob);
 					if ((int)exp<3000000)
 			                   me->set("combat_exp",exp*3/2);
@@ -212,7 +212,7 @@ void init()
 					call_out("kill_ob", 0, ob);
 					break;
 				case 1:
-					message_vision( HIY"$n一看到$N，嘿嘿一笑，头也不回挤进行人之中，脚下抹油溜了。\n"NOR,ob,me);
+					message_vision( HIY"$n一看到$N，嘿嘿一笑，頭也不回擠進行人之中，腳下抹油溜了。\n"NOR,ob,me);
 					ob->delete_temp("mark/gkill2");
 					ob->set_temp("mark/gkill3",1);
 					write(WHT"「"+ob->query_temp("guanfu_targetnm")+"」好象往「"+dizhis["cdizhi"]+"」的方向逃去了。\n"NOR);
@@ -226,7 +226,7 @@ void init()
 		//第三次
 		if (ob->query_temp("mark/gkill3"))
 		{
-			message_vision(HIR "$n气急败坏的对$N嚷道，杀人不过头点地，你一再苦苦相逼，大爷今天就和你拼个鱼死网破。\n"NOR,ob,me);
+			message_vision(HIR "$n氣急敗壞的對$N嚷道，殺人不過頭點地，你一再苦苦相逼，大爺今天就和你拼個魚死網破。\n"NOR,ob,me);
 			if(nei<nei1&& (!me->query_temp("gf_nlset")))
 			{
 				me->set("max_neili",ob->query("max_neili"));
@@ -267,7 +267,7 @@ void init()
         {
                 if (userp(me) )
                 {
-                        tell_object(me,HIW"不是你要抓的人，凑什么热闹！\n"NOR);
+                        tell_object(me,HIW"不是你要抓的人，湊什麼熱鬧！\n"NOR);
                         return 1;
                 }
                 else return 0;
@@ -278,7 +278,7 @@ int accept_hit(object who)
 	object me = this_player();
 	object ob = this_object();
 	if (!(me->query_temp("guanfu_target")==ob->query("id")))
-		return notify_fail(HIW"不是你要抓的人，凑什么热闹！\n"NOR);
+		return notify_fail(HIW"不是你要抓的人，湊什麼熱鬧！\n"NOR);
     return 1;
 }
 
@@ -316,10 +316,10 @@ int do_yes()
 		return 0;
 	if ((int)ob->query("shen") < 1 && ob->query("combat_exp",1) < 180000)
 	{
-		command("say 这位"+RANK_D->query_respect(ob)+"一定前途远大，嘿嘿，我是不会亏待你的。\n");
+		command("say 這位"+RANK_D->query_respect(ob)+"一定前途遠大，嘿嘿，我是不會虧待你的。\n");
 		me->add_money("gold",20+random(20));
 		command("give "+ob->query("id")+" gold");
-		message_vision("$N嘿嘿一笑，转身离开，一眨眼就消失不见了。\n",me);
+		message_vision("$N嘿嘿一笑，轉身離開，一眨眼就消失不見了。\n",me);
 		destruct(me);
 		return 1;
 	}
@@ -327,29 +327,29 @@ int do_yes()
 		ob->query("combat_exp",1) > 180000 &&
 		ob->query("combat_exp",1) < 500000)
 	{
-		command("say 我早就看出这位"+RANK_D->query_respect(ob)+"是当世的俊杰，嘿嘿，这点小礼物请务必收下。\n");
-		message_vision("$N嘿嘿奸笑两声，悄悄塞给了$n一棵人参。\n",me,ob);
+		command("say 我早就看出這位"+RANK_D->query_respect(ob)+"是當世的俊傑，嘿嘿，這點小禮物請務必收下。\n");
+		message_vision("$N嘿嘿奸笑兩聲，悄悄塞給了$n一棵人蔘。\n",me,ob);
 		r_shen=new("/clone/medicine/vegetable/renshen");
 		r_shen->move(ob);
 		command("give "+ob->query("id")+" gold");
-		message_vision("$N嘿嘿一笑，转身离开，一眨眼就消失不见了。\n",me);
+		message_vision("$N嘿嘿一笑，轉身離開，一眨眼就消失不見了。\n",me);
 		destruct(me);
 		return 1;
 	}
 	if ((int)ob->query("shen") < 1 && ob->query("combat_exp",1) > 500000)
 	{
-		command( "say 您老人家功夫如此出众，小的实在想不出拿什麽孝敬您老，回头我想起在说吧。\n");
-		message_vision("$N嘿嘿一笑，转身离开，一眨眼就消失不见了。\n",me);
+		command( "say 您老人家功夫如此出衆，小的實在想不出拿什麼孝敬您老，回頭我想起在說吧。\n");
+		message_vision("$N嘿嘿一笑，轉身離開，一眨眼就消失不見了。\n",me);
 		destruct(me);
 		return 1;
 	}
 	if ((int)ob->query("shen") > 1 && ob->query("combat_exp",1) < 120000)
 	{
-		command("say 这位"+RANK_D->query_respect(ob)+"前途远大，一身正气，嘿嘿，佩服。\n");
+		command("say 這位"+RANK_D->query_respect(ob)+"前途遠大，一身正氣，嘿嘿，佩服。\n");
 		me->add_money("gold",20+random(30));
 		command("give "+ob->query("id")+" gold");
 		ob->add("shen",-1000);
-		message_vision("$N嘿嘿一笑，转身离开，一眨眼就消失不见了。\n",me);
+		message_vision("$N嘿嘿一笑，轉身離開，一眨眼就消失不見了。\n",me);
 		destruct(me);
 		return 1;
 	}
@@ -357,21 +357,21 @@ int do_yes()
 		ob->query("combat_exp",1) > 120000 &&
 		ob->query("combat_exp",1) < 500000)
 	{
-		command("say 这位"+RANK_D->query_respect(ob)+"真是义薄云天，这个小礼物敬请务必收下。\n");
+		command("say 這位"+RANK_D->query_respect(ob)+"真是義薄雲天，這個小禮物敬請務必收下。\n");
 		me->add_money("gold",30+random(30));
 		command("give "+ob->query("id")+" gold");
-		message_vision("$N嘿嘿奸笑两声，悄悄塞给了$n一棵人参。\n",me,ob);
+		message_vision("$N嘿嘿奸笑兩聲，悄悄塞給了$n一棵人蔘。\n",me,ob);
 		r_shen=new("/clone/medicine/vegetable/renshen");
 		r_shen->move(ob);
 		ob->add("shen",-3000);
-		message_vision("$N嘿嘿一笑，转身离开，一眨眼就消失不见了。\n",me);
+		message_vision("$N嘿嘿一笑，轉身離開，一眨眼就消失不見了。\n",me);
 		destruct(me);
 		return 1;
 	}
-	command("say 自古邪正势不两立，在下不过开个小小玩笑，千万不要当真啊。\n");
+	command("say 自古邪正勢不兩立，在下不過開個小小玩笑，千萬不要當真啊。\n");
 	command("laugh " + ob->query("id"));
-	write("对方好象在拿你取笑，你不由怒火中烧。\n");
-	tell_room(environment(me), me->query("name")+"纵身跳入行人之中，转眼就不见了。\n", ({me}));
+	write("對方好象在拿你取笑，你不由怒火中燒。\n");
+	tell_room(environment(me), me->query("name")+"縱身跳入行人之中，轉眼就不見了。\n", ({me}));
 	destruct(me);
 	return 1;
 }
@@ -388,12 +388,12 @@ int do_no()
 		return 0;
 	if ((int)ob->query("shen") < 1)
 	{
-		command("say 这位"+RANK_D->query_respect(ob)+"一身瘴气，你我本是一路货色，却在这里装什么侠义英雄呢？！\n");
+		command("say 這位"+RANK_D->query_respect(ob)+"一身瘴氣，你我本是一路貨色，卻在這裏裝什麼俠義英雄呢？！\n");
 		ob->delete_temp("guanf_huida1");
 		ob->delete_temp("mark/gkill1");
 		return 1;
 	}
-	command("say 这位"+RANK_D->query_respect(ob)+"一身正气，不愧名门正派弟子，不过不知道功夫怎麽样？！\n");
+	command("say 這位"+RANK_D->query_respect(ob)+"一身正氣，不愧名門正派弟子，不過不知道功夫怎麼樣？！\n");
 	command("hehe " + ob->query("id"));
 	ob->delete_temp("guanf_huida1");
 	ob->delete_temp("mark/gkill1");
@@ -413,7 +413,7 @@ void die()
 		!me->query_temp("mark/gkill2") &&
 		(string)ob->query("id") == me->query_temp("guanfu_target"))
 	{
-		message_vision(WHT "$N深吸口气，冷笑道：“好身手！”说完强忍伤痛纵身向「"+dizhis["cdizhi"]+"」处逃走。\n"NOR,ob,me);
+		message_vision(WHT "$N深吸口氣，冷笑道：“好身手！”說完強忍傷痛縱身向「"+dizhis["cdizhi"]+"」處逃走。\n"NOR,ob,me);
 		me->set_temp("mark/gkill2",1);
 //		message_vision(WHT"「"+ob->query_temp("guanfu_targetnm")+"」好象往「"+dizhis["cdizhi"]+"」的方向逃去了。\n"NOR);
 		newob = new(me->query_temp("path_rooms"));
@@ -427,7 +427,7 @@ void die()
 	if (me->query_temp("mark/gkill2") &&
 		(string)ob->query("id") == me->query_temp("guanfu_target"))
 	{
-		message_vision(WHT "$N冷笑一声，说道：“好俊的功夫！”说完纵身向「"+dizhis["cdizhi"]+"」处逃走。\n"NOR,ob,me);
+		message_vision(WHT "$N冷笑一聲，說道：“好俊的功夫！”說完縱身向「"+dizhis["cdizhi"]+"」處逃走。\n"NOR,ob,me);
 		me->delete_temp("mark/gkill2");
 		me->set_temp("mark/gkill3",1);
 //		message_vision(WHT"「"+ob->query_temp("guanfu_targetnm")+"」好象往「"+dizhis["cdizhi"]+"」的方向逃去了。\n"NOR);
@@ -442,7 +442,7 @@ void die()
 	}
 	if((string)ob->query("id") != me->query_temp("guanfu_target"))
 	{
-		message_vision(WHT "突然$N一跃而起，道：“再见了各位！”就消失得无影无踪了。\n"NOR,ob,me);
+		message_vision(WHT "突然$N一躍而起，道：“再見了各位！”就消失得無影無蹤了。\n"NOR,ob,me);
 		destruct(ob);
 		return;
 	}
@@ -450,7 +450,7 @@ void die()
 }
 int accept_fight(object me)
 {
-	command("say 大爷我正要赶路，没心思和你动手。");
+	command("say 大爺我正要趕路，沒心思和你動手。");
 	return 0;
 }
 void dest()
@@ -458,6 +458,6 @@ void dest()
 	object ob;
 	ob = this_object();
 	if (environment())
-	message_vision("只见$N忽然急转身行，纵身钻进行人中，转眼就踪迹皆无。\n", ob);
+	message_vision("只見$N忽然急轉身行，縱身鑽進行人中，轉眼就蹤跡皆無。\n", ob);
 	destruct(this_object());
 }

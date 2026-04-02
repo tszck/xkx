@@ -8,11 +8,11 @@ inherit F_DEALER;
 void create()
 {
 	set_name("路人乙", ({ "hehehehe" }));
-	set("title", "小贩");
+	set("title", "小販");
 	set("shen_type", 1);
 
 	set("gender", "男性" );
-	set("nickname", HIW"电视台热心观众"NOR);
+	set("nickname", HIW"電視臺熱心觀衆"NOR);
 	set("age", 20);
 	set("per", 30);
 	set("attitude", "friendly");		

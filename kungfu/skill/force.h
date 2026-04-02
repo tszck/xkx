@@ -23,7 +23,7 @@ varargs int valid_public(object me,mixed comb)
 			if ( member_array(sk[i],can_skill) == -1 )
 		     	     if (!SCBORN_D->valid_learn(me,sk[i])) 
 				return notify_fail("你不散掉"+to_chinese(sk[i])
-					+"，如何能修习"+to_chinese(skl_name)+"。\n");
+					+"，如何能修習"+to_chinese(skl_name)+"。\n");
 	}
 	return 1;
 }

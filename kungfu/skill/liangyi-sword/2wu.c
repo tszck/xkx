@@ -1,9 +1,9 @@
-// 2wu.c 无声无色
+// 2wu.c 無聲無色
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "「无声无色」"
+#define PNAME "「無聲無色」"
 int perform(object me,object target)
 {
 	string msg;
@@ -19,21 +19,21 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if( !objectp(weapon1 = me->query_temp("weapon")) ||
 		(string)weapon1->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 /*	if( !objectp(weapon2 = me->query_temp("secondary_weapon"))
 		|| (string)weapon2->query("skill_type") != "sword")
-		return notify_fail("你左手使用的武器不对。\n");
+		return notify_fail("你左手使用的武器不對。\n");
 */
 	fskill = "xuantian-wuji";
 	bskill = "sword";
@@ -47,26 +47,26 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(bskill)+"修为不够，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"修爲不夠，使不出"+PNAME+"。\n");
 
 	if( me->query_skill("dodge", 1) < 80)
-		return notify_fail("你基本轻功修为不够，使不出"PNAME"！\n");
+		return notify_fail("你基本輕功修爲不夠，使不出"PNAME"！\n");
 
 	if( me->query("neili") < 250 )
-		return notify_fail("你的内力不够，无法运用"PNAME"！\n");
+		return notify_fail("你的內力不夠，無法運用"PNAME"！\n");
 
 	if( me->query("max_neili") < 500 )
-		return notify_fail("你的内力修为不够，无法运用"PNAME"！\n");
+		return notify_fail("你的內力修爲不夠，無法運用"PNAME"！\n");
 	
 	skill = me->query_skill(bskill,1);
 
-	msg = HIB "$N轻吸一口气，突然使出一招“无声无色”，手中"+weapon1->name()+HIB"灌注两道相同内劲， 但劲力恰恰相反，剑上所生的荡激之力、破空之声，一齐相互抵消，无声无息疾向$n背后刺去。\n";
+	msg = HIB "$N輕吸一口氣，突然使出一招“無聲無色”，手中"+weapon1->name()+HIB"灌注兩道相同內勁， 但勁力恰恰相反，劍上所生的蕩激之力、破空之聲，一齊相互抵消，無聲無息疾向$n背後刺去。\n";
 	message_combatd(msg, me, target);
 
 	ap = skill * 3;
@@ -75,7 +75,7 @@ int perform(object me,object target)
 	if( random(ap) > random(dp) )
 	{
 		if(userp(me)) me->add("neili", -250);//400
-		msg = HIR "$n突见剑刃划空之声，已无从闪避！\n" NOR;
+		msg = HIR "$n突見劍刃劃空之聲，已無從閃避！\n" NOR;
 		qi_wound = skill * 2;
 		qi_wound = qi_wound + random(qi_wound);
 //	target->receive_damage("qi", qi_wound/3);
@@ -87,7 +87,7 @@ int perform(object me,object target)
 	else
 	{
 		me->add("neili", -100);
-		msg = HIY"$n"HIY"猛地一纵而起，只听一声轻响，好险！襟袖均堪堪被$N"HIY"的剑尖划破了。\n"NOR;
+		msg = HIY"$n"HIY"猛地一縱而起，只聽一聲輕響，好險！襟袖均堪堪被$N"HIY"的劍尖劃破了。\n"NOR;
 		me->start_busy(2+random(1));
 	}
 	message_combatd(msg, me, target);
@@ -102,15 +102,15 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
+		損傷對方氣血
 
 	出手要求：
-		玄天无极功100级
-		两仪剑法120级
-		基本剑法100级
-		基本轻功80级
-		内力修为500
-		内力250
+		玄天無極功100級
+		兩儀劍法120級
+		基本劍法100級
+		基本輕功80級
+		內力修爲500
+		內力250
 		
 HELP
 	);

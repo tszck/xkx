@@ -1,9 +1,9 @@
-// fuxue.c 兰花拂穴手 「兰花拂穴」
+// fuxue.c 蘭花拂穴手 「蘭花拂穴」
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "「兰花拂穴」"
+#define PNAME "「蘭花拂穴」"
 int perform(object me, object target)
 {
 	string msg;
@@ -17,19 +17,19 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 //	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if( environment(me)->query("no_fight") )
-		return notify_fail("这里不能攻击别人! \n");
+		return notify_fail("這裏不能攻擊別人! \n");
 		
-  notify_fail("你不能攻击这个人。\n");
+  notify_fail("你不能攻擊這個人。\n");
 	if (!userp(target) && !target->accept_hit(me)) return 0;
 	
 	// 兵器空手均可
@@ -46,40 +46,40 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"的功力不够不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"的功力不夠不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为不够，目前还不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，目前還不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(bskill)+"修为不够，目前还不能使用用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"修爲不夠，目前還不能使用用"+PNAME+"。\n");
 
 	if((int)me->query("neili") < 500)
-		return notify_fail("你内力现在不够，不能使用拈花拂穴！\n");
+		return notify_fail("你內力現在不夠，不能使用拈花拂穴！\n");
 
 	if((int)me->query_str() < 25)
-		return notify_fail("你臂力不够,不能使用这一绝技!\n");
+		return notify_fail("你臂力不夠,不能使用這一絕技!\n");
 		
 	if( target->is_busy() )
-		return notify_fail(target->name()+"目前正自顾不暇，放胆攻击吧！\n");
+		return notify_fail(target->name()+"目前正自顧不暇，放膽攻擊吧！\n");
 
-	msg = HIB"$N右手反手伸出，三个指头婉转如一朵盛开的兰花，轻盈点向了$n"HIB"的胁下要穴, 使$n动弹不得。\n";
+	msg = HIB"$N右手反手伸出，三個指頭婉轉如一朵盛開的蘭花，輕盈點向了$n"HIB"的脅下要穴, 使$n動彈不得。\n";
 	if(random(me->query("combat_exp")) > (int)target->query("combat_exp")/4)
 	{
 		if (target->query_temp("hmg_dzjm"))
 		{
-			msg +=HIY"$p不思避闪，反而抢身迎上，任$P一指点在要穴上，行动却丝毫不为之受阻。\n"NOR;
+			msg +=HIY"$p不思避閃，反而搶身迎上，任$P一指點在要穴上，行動卻絲毫不爲之受阻。\n"NOR;
 			me->start_busy(4);
 			me->add("neili", -100);
 		} else {
-			msg += HIB"结果$p被$P点个正着，顿时手足无措，呆立当地！ \n"NOR;
+			msg += HIB"結果$p被$P點個正着，頓時手足無措，呆立當地！ \n"NOR;
 			target->start_busy( random((int)me->query_skill("hand", 1) / 20 ));
 			me->add("neili", -100);
 		}
 	}
 	else
 	{
-		msg += HIY "可是$p看破了$P的企图，轻轻一跃，跳了开去。\n" NOR;
+		msg += HIY "可是$p看破了$P的企圖，輕輕一躍，跳了開去。\n" NOR;
 		me->start_busy(4);
 		if(!target->is_fighting(me) &&
 			target->query("owner") &&
@@ -97,14 +97,14 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		迟滞对方出手
+		遲滯對方出手
 
 	出手要求：
-		碧波神功100级
-		基本手法120级
-		兰花拂穴手120级
-		后天身法25
-		内力500
+		碧波神功100級
+		基本手法120級
+		蘭花拂穴手120級
+		後天身法25
+		內力500
 HELP
 	);
 	return 1;

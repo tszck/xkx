@@ -5,9 +5,9 @@ inherit NPC;
 void create()
 {
 	set_name("狐狸", ({ "fox", "huli", "hu" }) );
-	set("race", "走兽");
+	set("race", "走獸");
 	set("age", 4);
-	set("long", "一只多疑成性的狐狸。\n");
+	set("long", "一隻多疑成性的狐狸。\n");
 	set("attitude", "peace");
 	set("shen_type", -1);
 	set("combat_exp", 10000);
@@ -18,8 +18,8 @@ void create()
 	setup();
 	set("chat_chance", 10);
 	set("chat_msg", ({
-		"狐狸向后挪了挪，很是戒备的神情。\n",
-		"狐狸瞪着多疑的眼光冲你看，全身一副很紧张的模样。\n",
+		"狐狸向後挪了挪，很是戒備的神情。\n",
+		"狐狸瞪着多疑的眼光衝你看，全身一副很緊張的模樣。\n",
 	}) );
 }
 

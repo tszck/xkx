@@ -6,7 +6,7 @@ inherit MACE;
 
 void create()
 {
-        set_name("竹节鞭", ({"bamboo mace", "mace"}));
+        set_name("竹節鞭", ({"bamboo mace", "mace"}));
         set_weight(4000);
         if( clonep() )
                 set_default_object(__FILE__);

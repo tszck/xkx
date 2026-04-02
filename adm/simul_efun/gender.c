@@ -14,7 +14,7 @@ string gender_pronoun(string sex)
 		case "中性神":	return "他";	break;
 		case "仙界":    return "他";	break;
 		case "男性":	return "他";	break;
-		case "无性":    return "他";    break;
+		case "無性":    return "他";    break;
 		case "女性":	return "她";	break;
 		case "雄性":
 		case "雌性":	return "它";	break;

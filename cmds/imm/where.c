@@ -9,7 +9,7 @@ int main(object me, string str)
 	int i;
 
 	if (!str)
-		return notify_fail("指令格式：where <人物或档名>\n"); 
+		return notify_fail("指令格式：where <人物或檔名>\n"); 
 	ob = find_player(str);
 	if( !ob ) ob = find_living(str);
 	if( !ob || !me->visible(ob)) {
@@ -21,10 +21,10 @@ int main(object me, string str)
 		}
 		return 1;
 	}
-	if (!ob) return notify_fail("现在没这个人.\n");
+	if (!ob) return notify_fail("現在沒這個人.\n");
 	where = environment(ob);
-	if (!where) return notify_fail("这个人不知道在那里耶...\n");
-	printf("%s(%s)现在在%s(%s).\n",
+	if (!where) return notify_fail("這個人不知道在那裏耶...\n");
+	printf("%s(%s)現在在%s(%s).\n",
 		(string)ob->name(),
 		(string)ob->query("id"),
 		(string)where->query("short"),
@@ -37,7 +37,7 @@ int help(object me)
 	write(@HELP
 指令格式: where <玩家的 ID>
 
-这个指令是用来得知玩家目前所在的位置.
+這個指令是用來得知玩家目前所在的位置.
 
 HELP
 	);

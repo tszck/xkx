@@ -2,9 +2,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "武器库");
+	set("short", "武器庫");
 	set("long", @LONG
-这里是武器库，架上摆满了各种武器，任由武士门挑选。
+這裏是武器庫，架上擺滿了各種武器，任由武士門挑選。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"kang2",

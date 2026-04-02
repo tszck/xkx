@@ -1,4 +1,4 @@
-// feng.c 静风师太
+// feng.c 靜風師太
 // Modified by That Oct.1997
 #include <command.h>
 #include <ansi.h>
@@ -9,8 +9,8 @@ string ask_jian();
 
 void create()
 {
-	set_name("静风师太", ({ "jingfeng shitai","jingfeng","shitai"}));
-	set("long","她是一位中年师太，只见她眉目底垂，手中握着一把钢刀。自然而然的有股威严。\n");
+	set_name("靜風師太", ({ "jingfeng shitai","jingfeng","shitai"}));
+	set("long","她是一位中年師太，只見她眉目底垂，手中握着一把鋼刀。自然而然的有股威嚴。\n");
 	set("gender", "女性");
 	set("age", 42);
 	set("attitude", "peaceful");
@@ -68,7 +68,7 @@ void create()
 		(: exert_function, "regenerate" :),
 	}) );
 	set("inquiry", ([
-		"伤药" : (: ask_yao :),
+		"傷藥" : (: ask_yao :),
 		"武器" : (: ask_jian :),
 	]));
 	set("gao_count",3);
@@ -82,8 +82,8 @@ void create()
 }
 void attempt_apprentice(object ob)
 {
-	command ("say 阿弥陀佛！贫尼不收弟子。\n");
-	command ("say 你若想继续学峨嵋派的功夫，还是去找我俗家师妹吧。\n");
+	command ("say 阿彌陀佛！貧尼不收弟子。\n");
+	command ("say 你若想繼續學峨嵋派的功夫，還是去找我俗家師妹吧。\n");
 	return;
 }
 string ask_yao()
@@ -93,17 +93,17 @@ string ask_yao()
 
 	if (!(fam = this_player()->query("family")) || fam["family_name"] != "峨嵋派")
 		return RANK_D->query_respect(this_player()) +
-		"与本派素无来往，不知此话从何谈起？";
+		"與本派素無來往，不知此話從何談起？";
 	if (this_player()->query("qi")>=this_player()->query("max_qi"))
-		return "你未曾受伤，讨这药膏做什么？";
+		return "你未曾受傷，討這藥膏做什麼？";
 	if (ob = present("tianxiang gao", this_player()))
-		return "你身上不是带着本门秘药？！";
+		return "你身上不是帶着本門祕藥？！";
 	if (query("gao_count") < 1)
-		return "你来晚了，本门秘药已尽数给了本派弟子。";
+		return "你來晚了，本門祕藥已盡數給了本派弟子。";
 	add("gao_count", -1);
 	ob = new("/d/emei/obj/tianxiang-gao");
 	ob->move(this_player());
-	return "我这里有本门秘药，你拿去疗伤吧。";
+	return "我這裏有本門祕藥，你拿去療傷吧。";
 }
 
 string ask_jian()
@@ -114,14 +114,14 @@ string ask_jian()
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "峨嵋派")
 		return RANK_D->query_respect(this_player()) +
-		"与本派素无来往，不知此话从何谈起？";
+		"與本派素無來往，不知此話從何談起？";
 	if (query("jian_count") < 1)
-		return "我现在没有什么武器好给，你下次再来吧。";
+		return "我現在沒有什麼武器好給，你下次再來吧。";
 	if (ob = present("ruanjian", this_player()))
-		return "你身上不是带着武器吗？怎么还来要！";
+		return "你身上不是帶着武器嗎？怎麼還來要！";
 	add("jian_count", -1);
 	ob = new("/d/emei/obj/ruanjian");
 	ob->move(this_player());
-	return "我这里有一把软剑，你拿去用吧。";
+	return "我這裏有一把軟劍，你拿去用吧。";
 }
 

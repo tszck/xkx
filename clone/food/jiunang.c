@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 // created by snowcat on 4/9/1997
@@ -15,8 +15,8 @@ void create()
     set_default_object(__FILE__);
   else
   {
-     set("long", "一个用来装羊奶酒的大酒囊，大概装得十来升的酒。\n");
-     set("unit", "个");
+     set("long", "一個用來裝羊奶酒的大酒囊，大概裝得十來升的酒。\n");
+     set("unit", "個");
      set("value", 100);
      set("max_liquid", 20);
   }

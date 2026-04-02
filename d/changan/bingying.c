@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "兵营");
+	set("short", "兵營");
 	set("long", @LONG
-这里是长安守军驻扎地，一对官兵正在操练。你最好赶紧走开，不
-然被随便安个罪名关进大牢可不是好玩的。
+這裏是長安守軍駐紮地，一對官兵正在操練。你最好趕緊走開，不
+然被隨便安個罪名關進大牢可不是好玩的。
 LONG );
 	set("exits", ([
 		"west" : __DIR__"northroad2",

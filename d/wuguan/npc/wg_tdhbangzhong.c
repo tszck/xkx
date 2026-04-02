@@ -3,11 +3,11 @@ inherit NPC;
 
 void create()
 {
-       set_name("天地会帮众", ({ "tiandihui bangzhong", "bangzhong" }) );
+       set_name("天地會幫衆", ({ "tiandihui bangzhong", "bangzhong" }) );
        set("gender", "男性" );
        set("age", 26);
        set("long",
-               "他是一个身材矮小的天地会帮众。\n");
+               "他是一個身材矮小的天地會幫衆。\n");
        set("combat_exp", 12500);
        set("attitude", "friendly");
  
@@ -31,14 +31,14 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "天地会帮众说道：这位" + RANK_D->query_respect(ob)
-            + "想加入天地会吗，可以看"BRED"(help tiandihui)"NOR"。\n");
+			say( "天地會幫衆說道：這位" + RANK_D->query_respect(ob)
+            + "想加入天地會嗎，可以看"BRED"(help tiandihui)"NOR"。\n");
 			break;
 		case 1:
-			say( "天地会帮众说道：加入天地会即成为反抗清廷的义士。\n");
+			say( "天地會幫衆說道：加入天地會即成爲反抗清廷的義士。\n");
 			break;
 		case 2:
-			say( "天地会帮众说道：总舵主陈近南的成名绝技，凝血神抓威震江湖，宵小之辈望风披靡。\n");
+			say( "天地會幫衆說道：總舵主陳近南的成名絕技，凝血神抓威震江湖，宵小之輩望風披靡。\n");
 			break;
 	}
 

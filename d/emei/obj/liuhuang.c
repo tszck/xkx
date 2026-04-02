@@ -7,8 +7,8 @@ void create()
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "一块黄色的硫磺晶体。\n");
-                set("unit", "块");
+                set("long", "一塊黃色的硫磺晶體。\n");
+                set("unit", "塊");
                 set("value", 10);
         }
 }

@@ -1,15 +1,15 @@
-// shijianyan.c 试剑岩
+// shijianyan.c 試劍巖
 // Winder Oct.10 1998
 
 inherit ROOM;
 
 void create()
 {
-        set("short", "试剑岩");
+        set("short", "試劍巖");
         set("long", @LONG
-石阶旁立着一块大岩石，上面斑斑驳驳的尽是砍伤。这块大岩
-石便是全真教的试剑岩，天下的英雄来到这里，望着先辈们练剑时
-在岩石上的砍痕，无不肃然起敬。
+石階旁立着一塊大岩石，上面斑斑駁駁的盡是砍傷。這塊大巖
+石便是全真教的試劍巖，天下的英雄來到這裏，望着先輩們練劍時
+在岩石上的砍痕，無不肅然起敬。
 LONG
         );
         set("outdoors", "zhongnan");

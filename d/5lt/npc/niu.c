@@ -6,15 +6,15 @@ inherit NPC;
 void create()
 {
 	set_name("牛", ({ "niu" }));
-	set("title", "隐士");
+	set("title", "隱士");
 	set("shen_type", 1);
 
 	set("gender", "男性" );
 	set("long", @LONG
-他就是电视台的农业副业主编，年少时投身明教，追随张教主行走
-江湖多年，立下了赫赫战功，急流勇退后隐于无厘头村。
+他就是電視臺的農業副業主編，年少時投身明教，追隨張教主行走
+江湖多年，立下了赫赫戰功，急流勇退後隱於無釐頭村。
 LONG);
-	set("nickname", HIG"农业频道主任·林业副业频道主编"NOR);
+	set("nickname", HIG"農業頻道主任·林業副業頻道主編"NOR);
 	set("age", 30);
 	set("per", 30);
 	set("attitude", "friendly");		
@@ -22,11 +22,11 @@ LONG);
 	set("env/no_teach", "1");
 
 	set("inquiry", ([
-                 "yoyo": "你问台长啊，他在电视台，你是要做广告吗？\n",
-           "singleblue": "细胳膊啊，她是我的无敌搭档啊。\n",
-                  "lip": "那个可怜的猪头，正在大连泡mm呢。",
-               "fandog": "恩，大狗狗是我们最敬仰的村长。",
-                  "niu": "问什么问，没见过长得帅的牛吗？",
+                 "yoyo": "你問臺長啊，他在電視臺，你是要做廣告嗎？\n",
+           "singleblue": "細胳膊啊，她是我的無敵搭檔啊。\n",
+                  "lip": "那個可憐的豬頭，正在大連泡mm呢。",
+               "fandog": "恩，大狗狗是我們最敬仰的村長。",
+                  "niu": "問什麼問，沒見過長得帥的牛嗎？",
 	]));   
 	set("str", 30);
 	set("int", 30);

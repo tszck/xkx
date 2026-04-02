@@ -5,13 +5,13 @@ inherit NPC;
 
 void create()
 {
-	set_name("哟哟", ({ "yoyo" }));
-	set("title", HIM"电视台台长"NOR);
+	set_name("喲喲", ({ "yoyo" }));
+	set("title", HIM"電視臺臺長"NOR);
 	set("shen_type", 1);
 
 	set("gender", "男性" );
 
-	set("nickname", HIW"一朵梨花压海棠"NOR);
+	set("nickname", HIW"一朵梨花壓海棠"NOR);
 	set("age", 20);
 	set("per", 30);
 	set("attitude", "friendly");		

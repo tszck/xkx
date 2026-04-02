@@ -1,14 +1,14 @@
-//Room: guiyunge.c 归云阁
+//Room: guiyunge.c 歸雲閣
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 
 void create()
 {
-      set("short","归云阁");
+      set("short","歸雲閣");
       set("long",@LONG
-归云阁，原是唐代福昌达道禅师的道场。宋代绍兴年间，僧人士性又率众
-重建。归云阁左有玉女峰，西上可抵纯阳殿，东下是观音堂。
+歸雲閣，原是唐代福昌達道禪師的道場。宋代紹興年間，僧人士性又率衆
+重建。歸雲閣左有玉女峯，西上可抵純陽殿，東下是觀音堂。
 LONG);
       set("objects", ([
            __DIR__"npc/boydizi" : 1,

@@ -4,8 +4,8 @@ inherit NPC;
 
 void create ()
 {
-	set_name("乡农", ({"xiang nong", "nong"}));
-	set("long", "一个乡下农民，黑黝黝的面庞，肩膀上搭了块脏兮兮的破汗巾。\n");
+	set_name("鄉農", ({"xiang nong", "nong"}));
+	set("long", "一個鄉下農民，黑黝黝的面龐，肩膀上搭了塊髒兮兮的破汗巾。\n");
 	set("gender", "男性");
 	set("age", 24);
 	set("combat_exp", 500);

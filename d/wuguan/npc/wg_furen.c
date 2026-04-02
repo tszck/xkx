@@ -3,7 +3,7 @@ inherit NPC;
 void create()
 {
 	set_name("朱夫人", ({ "zhu furen", "zhu", "furen" }));
-	set("long", "这是一个中年女人，容颜俏丽，面含微笑。\n");
+	set("long", "這是一箇中年女人，容顏俏麗，面含微笑。\n");
 	set("gender", "女性");
 	set("age", 40);
 	set("attitude","friendly");

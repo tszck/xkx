@@ -4,10 +4,10 @@ inherit BULLETIN_BOARD;
 
 void create()
 {
-	set_name("红花会留言板", ({ "board" }) );
+	set_name("紅花會留言板", ({ "board" }) );
 	set("location", "/d/huijiang/zongduo");
 	set("board_id", "honghua_b");
-	set("long", "这是一个供红花会众交流的留言板。\n" );
+	set("long", "這是一個供紅花會衆交流的留言板。\n" );
 	setup();
 	set("capacity", 100);
 	replace_program(BULLETIN_BOARD);

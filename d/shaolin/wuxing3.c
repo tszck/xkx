@@ -11,11 +11,11 @@ void create()
 {
 	set("short", HIR "五行洞" NOR);
 	set("long", HIR @LONG
-这是五行洞。进来顿觉一股热浪扑面而来，冲得你差点晕了
-过去。四周一片通红，地面上冒着丝丝白气，脚底剧烈的炙痛使
-你几乎立脚不住。热风带着隆隆巨响冲击着耳鼓，令你觉得置身
-洪炉之中，全身的水分都在被一滴滴地烤干。墙角上几具枯柴般
-的干尸就证明了这一点。
+這是五行洞。進來頓覺一股熱浪撲面而來，衝得你差點暈了
+過去。四周一片通紅，地面上冒着絲絲白氣，腳底劇烈的炙痛使
+你幾乎立腳不住。熱風帶着隆隆巨響衝擊着耳鼓，令你覺得置身
+洪爐之中，全身的水分都在被一滴滴地烤乾。牆角上幾具枯柴般
+的乾屍就證明瞭這一點。
 LONG
 NOR	);
 	set("exits", ([
@@ -66,14 +66,14 @@ int valid_leave(object me, string dir)
 			count++;
 			me->set_temp("wuxing/土", count);
 			if (check_out(me))
-				return notify_fail("你顺利地走出了五行迷宫。\n");
+				return notify_fail("你順利地走出了五行迷宮。\n");
 		}
 		else if (dir == "west")
 		{
 //			write("*火克金*\n");
 			me->delete_temp("wuxing");
 			me->move(__DIR__"jianyu1");
-			return notify_fail("你掉进机关，落入僧监。\n");
+			return notify_fail("你掉進機關，落入僧監。\n");
 		}
 	}
 	return ::valid_leave(me, dir);

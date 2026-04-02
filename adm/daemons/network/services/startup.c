@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 /* File    : startup.c
@@ -42,5 +42,5 @@ incoming_request(mapping info)
 void create()
 {
   seteuid(ROOT_UID);
-  set("channel_id", "网路连通精灵");
+  set("channel_id", "網路連通精靈");
 }

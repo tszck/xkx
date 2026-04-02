@@ -7,44 +7,44 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"skill_name" : "让字诀",
-	"action" : "$N使出"MAG"「让字诀」"NOR"，上身侧过，手中刀斜斜砍出，一道白光劈向$n的$l",
+([	"skill_name" : "讓字訣",
+	"action" : "$N使出"MAG"「讓字訣」"NOR"，上身側過，手中刀斜斜砍出，一道白光劈向$n的$l",
 	"lvl"    : 0
 ]),
-([	"skill_name" : "打字诀",
-	"action" : "$N使出"BLU"「打字诀」"NOR"，左手护顶，大喝一声，右手刀当头直劈，化作一道白芒直向$n的$l砍落",
+([	"skill_name" : "打字訣",
+	"action" : "$N使出"BLU"「打字訣」"NOR"，左手護頂，大喝一聲，右手刀當頭直劈，化作一道白芒直向$n的$l砍落",
 	"lvl"    : 10
 ]),
-([	"skill_name" : "顶字诀",
-	"action" : "$N使出"HIY"「顶字诀」"NOR"，左手后撤，刀斜上招架，顺势下剁，左手自腋下穿出，托住对方手腕，刀光不停指向$n的$l",
+([	"skill_name" : "頂字訣",
+	"action" : "$N使出"HIY"「頂字訣」"NOR"，左手後撤，刀斜上招架，順勢下剁，左手自腋下穿出，托住對方手腕，刀光不停指向$n的$l",
 	"lvl"    : 20
 ]),
-([	"skill_name" : "引字诀",
-	"action" : "$N使出"HIC"「引字诀」"NOR"，侧身而上，身形突闪，左手带过对方$n兵刃，右手刀猛地弹出，把$n绞在刀光中",
+([	"skill_name" : "引字訣",
+	"action" : "$N使出"HIC"「引字訣」"NOR"，側身而上，身形突閃，左手帶過對方$n兵刃，右手刀猛地彈出，把$n絞在刀光中",
 	"lvl"    : 30
 ]),
-([	"skill_name" : "套字诀",
-	"action" : "$N使出"HIG"「套字诀」"NOR"，身形向后乍然一闪，左手急速缠住$n左手，手中刀一阵乱披风，刀光罩住$n的$l",
+([	"skill_name" : "套字訣",
+	"action" : "$N使出"HIG"「套字訣」"NOR"，身形向後乍然一閃，左手急速纏住$n左手，手中刀一陣亂披風，刀光罩住$n的$l",
 	"lvl"    : 40
 ]),
-([	"skill_name" : "陈字诀",
-	"action" : "$N使出"HIM"「陈字诀」"NOR"，身法陡变，轻灵飘忽，捉摸不透，乘$n眼花耳鸣之际，右手刀光反卷向$n的$l",
+([	"skill_name" : "陳字訣",
+	"action" : "$N使出"HIM"「陳字訣」"NOR"，身法陡變，輕靈飄忽，捉摸不透，乘$n眼花耳鳴之際，右手刀光反捲向$n的$l",
 	"lvl"    : 50
 ]),
-([	"skill_name" : "探字诀",
-	"action" : "$N使出"HIR"「探字诀」"NOR"，轻盈地一个急转身，两脚撤步，右手刀尽力向前，直抵$n的$l",
+([	"skill_name" : "探字訣",
+	"action" : "$N使出"HIR"「探字訣」"NOR"，輕盈地一個急轉身，兩腳撤步，右手刀盡力向前，直抵$n的$l",
 	"lvl"    : 60
 ]),
-([	"skill_name" : "逼字诀",
-	"action" : "$N凝神使出"HIB"「逼字诀」"NOR"，身随意转，手随心动，绕着$n疾转，手中刀光漫卷，将$n的全身笼罩在自己布下的刀网中，无从逃脱",
+([	"skill_name" : "逼字訣",
+	"action" : "$N凝神使出"HIB"「逼字訣」"NOR"，身隨意轉，手隨心動，繞着$n疾轉，手中刀光漫卷，將$n的全身籠罩在自己佈下的刀網中，無從逃脫",
 	"lvl"    : 70
 ]),
-([	"skill_name" : "藏字诀",
-	"action" : "$N凝神使出"GRN"「藏字诀」"NOR"，侧身藏刀，引诱$n前进了一步，刀光陡现，势如千军万马，奔腾而出",
+([	"skill_name" : "藏字訣",
+	"action" : "$N凝神使出"GRN"「藏字訣」"NOR"，側身藏刀，引誘$n前進了一步，刀光陡現，勢如千軍萬馬，奔騰而出",
 	"lvl"    : 80
 ]),
-([	"skill_name" : "错字诀",
-	"action" : "$N凝神使出"RED"「错字诀」"NOR"，双手交叉，刀光批攉，$n实在看不清刀光来向，退后欲避，只觉一阵寒气直逼过来",
+([	"skill_name" : "錯字訣",
+	"action" : "$N凝神使出"RED"「錯字訣」"NOR"，雙手交叉，刀光批攉，$n實在看不清刀光來向，退後欲避，只覺一陣寒氣直逼過來",
 	"lvl"    : 90
 ]),
 });
@@ -53,11 +53,11 @@ int valid_enable(string usage) { return usage=="blade" || usage=="parry"; }
 int valid_learn(object me)
 {
 	if ((int)me->query("max_neili") < 50)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if ((int)me->query_skill("linji-zhuang", 1) < 20)
-		return notify_fail("你的临济十二庄火候太浅。\n");
+		return notify_fail("你的臨濟十二莊火候太淺。\n");
 	if ((int)me->query_skill("blade", 1) +100 < (int)me->query_skill("yanxing-dao", 1) )
-		return notify_fail("你的基本刀法火候太浅。\n");
+		return notify_fail("你的基本刀法火候太淺。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -66,9 +66,9 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "blade")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if ((int)me->query("qi") < 50)
-		return notify_fail("你的体力不够练雁行刀。\n");
+		return notify_fail("你的體力不夠練雁行刀。\n");
 	me->receive_damage("qi", 10);
 	return 1;
 }
@@ -104,17 +104,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "割伤" : "擦伤",
+		"damage_type" : random(2) ? "割傷" : "擦傷",
 	]);
 }
 int learn_bonus() { return 0; }
@@ -131,12 +131,12 @@ int help(object me)
 	write(HIC"\n雁行刀法："NOR"\n");
 	write(@HELP
 
-    雁行刀法为峨嵋派刀法。
+    雁行刀法爲峨嵋派刀法。
 
-	学习要求：
-		基本刀法等级不能低于雁行刀法等级
-		临济十二庄20级
-		内力50
+	學習要求：
+		基本刀法等級不能低於雁行刀法等級
+		臨濟十二莊20級
+		內力50
 HELP
 	);
 	return 1;

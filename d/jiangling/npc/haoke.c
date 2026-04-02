@@ -6,7 +6,7 @@ void create()
 {
 	set_name("江湖豪客", ({ "jianghu haoke", "haoke" }));
 	set("long", 
-		"一名满脸彪捍之色的江湖豪客。\n");
+		"一名滿臉彪捍之色的江湖豪客。\n");
 	set("gender", "男性");
 	set("age", 30);
 	set("attitude", "heroism");

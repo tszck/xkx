@@ -1,4 +1,4 @@
-// taiji-jian.c 太极剑法
+// taiji-jian.c 太極劍法
 // Last Modified by sir 10.22.2001
 
 #include <ansi.h>
@@ -14,157 +14,157 @@ int raozhi(object me, object victim, object weapon, int damage);
 string *order = ({""HIY"", ""HIG"", ""RED"", ""MAG"", ""YEL"", ""HIC"", ""HIW"", ""HIR"",""HIB"", ""CYN"",""WHT"",""HIM"",""BLU""});
 
 string *parry_msg = ({
-	 "$p左手剑诀斜引，$W横过，画了个半圈，平搭在$P$w之上，劲力传出，$w登时一沉。\n",
-	 "$p$W交左手，在身前划了两个圆圈，$P见$p剑劲连绵，护住全身，竟无半分空隙。\n",
-	 "$p剑招未曾使老，已然圈转。突然之间，$P眼前出现了几个白色光圈，大圈小圈，正圈斜圈，闪烁不已。$P眼睛一花，只好回招。\n",
-	 "$p当下凝神专志，将一套太极剑法使得圆转如意，严密异常的守住门户。\n",
-	 "$p以太极剑中「云麾三舞」三式解开。$P见$p化解时举重若轻，深得内家剑术三昧，不待$p回手，跳开一步。\n"
+	 "$p左手劍訣斜引，$W橫過，畫了個半圈，平搭在$P$w之上，勁力傳出，$w登時一沉。\n",
+	 "$p$W交左手，在身前劃了兩個圓圈，$P見$p劍勁連綿，護住全身，竟無半分空隙。\n",
+	 "$p劍招未曾使老，已然圈轉。突然之間，$P眼前出現了幾個白色光圈，大圈小圈，正圈斜圈，閃爍不已。$P眼睛一花，只好回招。\n",
+	 "$p當下凝神專志，將一套太極劍法使得圓轉如意，嚴密異常的守住門戶。\n",
+	 "$p以太極劍中「雲麾三舞」三式解開。$P見$p化解時舉重若輕，深得內家劍術三昧，不待$p回手，跳開一步。\n"
 });
 string *taiji_msg = ({
-	 "$N当下左足踏上，剑交左手，一招「三环套月」，虚虚实实，以左手剑攻敌，剑尖上光芒闪烁，嗤嗤嗤的发出轻微响声",
-	 "$N剑法吞吐开合、阴阳动静，将太极剑法中最精要之处都发挥了出来，功劲一加运开，绵绵不绝",
-	 "$N左手$w缓缓向前划出，成一弧形。$n只觉一股森森寒气，直逼过来",
-	 "$N右手捏著剑诀，左手$w不住抖动，突然平刺，剑尖急颤，看不出攻向何处。$P这一招中笼罩了$n上盘七大要穴",
-	 "$N剑招未曾使老，已然圈转。突然之间，$n眼前出现了几个白色光圈，大圈小圈，正圈斜圈，闪烁不已",
-	 "$N剑上所幻的光圈越来越多，过不多时，$P全身已隐在无数光圈之中，光圈一个未消，另一个再生。\n$w虽使得极快，却听不到丝毫金刃劈风之声，足见剑劲之柔韧已达於化境",
-	 "$n只觉似有千百柄$w护住了$N全身。$N纯采守势，端的是绝无破绽。\n可是这座剑锋所组成的堡垒却能移动，千百个光圈犹如浪潮一般，缓缓涌来",
-	 "$N并非一招一招的相攻，而是以数十招剑法混成的守势，同时化为攻势，使$n无法抵御"
+	 "$N當下左足踏上，劍交左手，一招「三環套月」，虛虛實實，以左手劍攻敵，劍尖上光芒閃爍，嗤嗤嗤的發出輕微響聲",
+	 "$N劍法吞吐開合、陰陽動靜，將太極劍法中最精要之處都發揮了出來，功勁一加運開，綿綿不絕",
+	 "$N左手$w緩緩向前劃出，成一弧形。$n只覺一股森森寒氣，直逼過來",
+	 "$N右手捏著劍訣，左手$w不住抖動，突然平刺，劍尖急顫，看不出攻向何處。$P這一招中籠罩了$n上盤七大要穴",
+	 "$N劍招未曾使老，已然圈轉。突然之間，$n眼前出現了幾個白色光圈，大圈小圈，正圈斜圈，閃爍不已",
+	 "$N劍上所幻的光圈越來越多，過不多時，$P全身已隱在無數光圈之中，光圈一個未消，另一個再生。\n$w雖使得極快，卻聽不到絲毫金刃劈風之聲，足見劍勁之柔韌已達於化境",
+	 "$n只覺似有千百柄$w護住了$N全身。$N純採守勢，端的是絕無破綻。\n可是這座劍鋒所組成的堡壘卻能移動，千百個光圈猶如浪潮一般，緩緩湧來",
+	 "$N並非一招一招的相攻，而是以數十招劍法混成的守勢，同時化爲攻勢，使$n無法抵禦"
 });
 mapping *action = ({
-([	"action" : "$N虚步提腰，一招"+(order[random(13)])+"「蜻蜓点水」"NOR"，手中$w轻轻颤动，一剑剑点向$n的$l",
+([	"action" : "$N虛步提腰，一招"+(order[random(13)])+"「蜻蜓點水」"NOR"，手中$w輕輕顫動，一劍劍點向$n的$l",
 	"lvl" : 0,
-	"skill_name" : "蜻蜓点水"
+	"skill_name" : "蜻蜓點水"
 ]),
-([	"action" : "$N向前跨上一步，左手剑诀，右手$w使出一式"+(order[random(13)])+"「指南针」"NOR"直刺$n的$l",
+([	"action" : "$N向前跨上一步，左手劍訣，右手$w使出一式"+(order[random(13)])+"「指南針」"NOR"直刺$n的$l",
 	"lvl" : 4,
-	"skill_name" : "指南针"
+	"skill_name" : "指南針"
 ]),
-([	"action" : "$N身形往右一挫，左手剑诀，右手$w使出一式"+(order[random(13)])+"「大魁星」"NOR"刺向$n的$l",
+([	"action" : "$N身形往右一挫，左手劍訣，右手$w使出一式"+(order[random(13)])+"「大魁星」"NOR"刺向$n的$l",
 	"lvl" : 9,
 	"skill_name" : "大魁星"
 ]),
-([	"action" : "$N双膝下沉，右手$w使出一式"+(order[random(13)])+"「探海式」"NOR"，由下而上疾刺$n的$l",
+([	"action" : "$N雙膝下沉，右手$w使出一式"+(order[random(13)])+"「探海式」"NOR"，由下而上疾刺$n的$l",
 	"lvl" : 14,
 	"skill_name" : "探海式"
 ]),
-([	"action" : "$N一招"+(order[random(13)])+"「燕子掠波」"NOR"，$w自上而下划出一个大弧，平平地向$n的$l挥
+([	"action" : "$N一招"+(order[random(13)])+"「燕子掠波」"NOR"，$w自上而下劃出一個大弧，平平地向$n的$l揮
 去",
 	"lvl" : 19,
 	"skill_name" : "燕子掠波"
 ]),
-([	"action" : "$N上身往左侧一拧，一招"+(order[random(13)])+"「乌龙摆尾」"NOR"，右手$w反手向$n的$l挥去",
+([	"action" : "$N上身往左側一擰，一招"+(order[random(13)])+"「烏龍擺尾」"NOR"，右手$w反手向$n的$l揮去",
 	"lvl" : 24,
-	"skill_name" : "乌龙摆尾"
+	"skill_name" : "烏龍擺尾"
 ]),
-([	"action" : "$N一招"+(order[random(13)])+"「右拦扫」"NOR"，一招"+(order[random(13)])+"「左拦扫」"NOR"，剑锋平指，一气呵成横扫$n的
+([	"action" : "$N一招"+(order[random(13)])+"「右攔掃」"NOR"，一招"+(order[random(13)])+"「左攔掃」"NOR"，劍鋒平指，一氣呵成橫掃$n的
 $l",
 	"lvl" : 29,
-	"skill_name" : "右拦扫左拦扫"
+	"skill_name" : "右攔掃左攔掃"
 ]),
-([	"action" : "$N左腿提膝，手中$w斜指，一招"+(order[random(13)])+"「宿鸟投林」"NOR"刺向$n的$l",
+([	"action" : "$N左腿提膝，手中$w斜指，一招"+(order[random(13)])+"「宿鳥投林」"NOR"刺向$n的$l",
 	"lvl" : 34,
-	"skill_name" : "宿鸟投林"
+	"skill_name" : "宿鳥投林"
 ]),
-([	"action" : "$N一招"+(order[random(13)])+"「青龙出水」"NOR"，$w自下而上划出一个大弧，平平地挥向$n的$l",
+([	"action" : "$N一招"+(order[random(13)])+"「青龍出水」"NOR"，$w自下而上劃出一個大弧，平平地揮向$n的$l",
 	"lvl" : 39,
-	"skill_name" : "青龙出水"
+	"skill_name" : "青龍出水"
 ]),
-([	"action" : "$N使出"+(order[random(13)])+"「三环套月」"NOR"，$w划出三个圆圈，剑锋直出，绵绵不断划向$n
+([	"action" : "$N使出"+(order[random(13)])+"「三環套月」"NOR"，$w劃出三個圓圈，劍鋒直出，綿綿不斷划向$n
 的$l",
 	"lvl" : 44,
-	"skill_name" : "三环套月"
+	"skill_name" : "三環套月"
 ]),
-([	"action" : "$N一招"+(order[random(13)])+"「风卷荷叶」"NOR"，$w轻灵地划出几个圆弧，迅速地向$n的$l挥去",
+([	"action" : "$N一招"+(order[random(13)])+"「風捲荷葉」"NOR"，$w輕靈地劃出幾個圓弧，迅速地向$n的$l揮去",
 	"lvl" : 49,
-	"skill_name" : "风卷荷叶"
+	"skill_name" : "風捲荷葉"
 ]),
-([	"action" : "$N一招"+(order[random(13)])+"「虎抱头」"NOR"，$w划出一个左低右高的大弧，斜斜地斩向$n的$l",
+([	"action" : "$N一招"+(order[random(13)])+"「虎抱頭」"NOR"，$w劃出一個左低右高的大弧，斜斜地斬向$n的$l",
 	"lvl" : 54,
-	"skill_name" : "虎抱头"
+	"skill_name" : "虎抱頭"
 ]),
-([	"action" : "$N使出"+(order[random(13)])+"「狮子摇头」"NOR"，$w由右向左划出一个大８字，将$n圈在其中",
+([	"action" : "$N使出"+(order[random(13)])+"「獅子搖頭」"NOR"，$w由右向左劃出一個大８字，將$n圈在其中",
 	"lvl" : 59,
-	"skill_name" : "狮子摇头"
+	"skill_name" : "獅子搖頭"
 ]),
-([	"action" : "$N左脚踏实，右脚虚点，一招"+(order[random(13)])+"「仙人指路」"NOR"，右手$w带着一团剑花，
+([	"action" : "$N左腳踏實，右腳虛點，一招"+(order[random(13)])+"「仙人指路」"NOR"，右手$w帶着一團劍花，
 逼向$n的$l",
 	"lvl" : 64,
 	"skill_name" : "仙人指路"
 ]),
-([	"action" : "$N轻轻跃起，一招"+(order[random(13)])+"「野马跳涧」"NOR"，$w在半空中化为一圈银芒，落向$n
+([	"action" : "$N輕輕躍起，一招"+(order[random(13)])+"「野馬跳澗」"NOR"，$w在半空中化爲一圈銀芒，落向$n
 的$l",
 	"lvl" : 69,
-	"skill_name" : "野马跳涧"
+	"skill_name" : "野馬跳澗"
 ]),
-([	"action" : "$N两腿前箭后弓，一招"+(order[random(13)])+"「射雁式」"NOR"，右手$w直刺$n的$l",
+([	"action" : "$N兩腿前箭後弓，一招"+(order[random(13)])+"「射雁式」"NOR"，右手$w直刺$n的$l",
 	"lvl" : 74,
 	"skill_name" : "射雁式"
 ]),
-([	"action" : "$N一招"+(order[random(13)])+"「小魁星」"NOR"，身形往左一挫，左手剑诀，右手$w平平地向$n的
-$l挥去",
+([	"action" : "$N一招"+(order[random(13)])+"「小魁星」"NOR"，身形往左一挫，左手劍訣，右手$w平平地向$n的
+$l揮去",
 	"lvl" : 79,
 	"skill_name" : "小魁星"
 ]),
-([	"action" : "$N猱身扑上，一招"+(order[random(13)])+"「白猿献果」"NOR"，手中$w斜斜地向$n的$l挥去",
+([	"action" : "$N猱身撲上，一招"+(order[random(13)])+"「白猿獻果」"NOR"，手中$w斜斜地向$n的$l揮去",
 	"lvl" : 84,
-	"skill_name" : "白猿献果"
+	"skill_name" : "白猿獻果"
 ]),
-([	"action" : "$N一招"+(order[random(13)])+"「迎风掸尘」"NOR"，$w看似随意地一挥，$n却陡觉一股劲气迎面袭
-来。",
+([	"action" : "$N一招"+(order[random(13)])+"「迎風撣塵」"NOR"，$w看似隨意地一揮，$n卻陡覺一股勁氣迎面襲
+來。",
 	"lvl" : 89,
-	"skill_name" : "迎风掸尘"
+	"skill_name" : "迎風撣塵"
 ]),
-([	"action" : "$N一招"+(order[random(13)])+"「顺水推舟」"NOR"，$w自上而下划出一个大弧，平平地向$n的$l挥
+([	"action" : "$N一招"+(order[random(13)])+"「順水推舟」"NOR"，$w自上而下劃出一個大弧，平平地向$n的$l揮
 去。",
 	"lvl" : 94,
-	"skill_name" : "顺水推舟"
+	"skill_name" : "順水推舟"
 ]),
-([	"action" : "$N一招"+(order[random(13)])+"「流星赶月」"NOR"，$w疾刺$n的$l",
+([	"action" : "$N一招"+(order[random(13)])+"「流星趕月」"NOR"，$w疾刺$n的$l",
 	"lvl" : 99,
-	"skill_name" : "流星赶月"
+	"skill_name" : "流星趕月"
 ]),
-([	"action" : "$N突然盘蹲下身来，一招"+(order[random(13)])+"「海底捞月」"NOR"，$w自下而上地向$n的$l挥去",
+([	"action" : "$N突然盤蹲下身來，一招"+(order[random(13)])+"「海底撈月」"NOR"，$w自下而上地向$n的$l揮去",
 	"lvl" : 104,
-	"skill_name" : "海底捞月"
+	"skill_name" : "海底撈月"
 ]),
-([	"action" : "$N一招"+(order[random(13)])+"「挑帘式」"NOR"，$w自下而上徐徐划出一个大弧，平平地向$n的$l
-挥去",
+([	"action" : "$N一招"+(order[random(13)])+"「挑簾式」"NOR"，$w自下而上徐徐劃出一個大弧，平平地向$n的$l
+揮去",
 	"lvl" : 109,
-	"skill_name" : "挑帘式"
+	"skill_name" : "挑簾式"
 ]),
-([	"action" : "$N一招"+(order[random(13)])+"「黄蜂入洞」"NOR"，$w自上而下划出一个大弧，平平地向$n的$l挥
+([	"action" : "$N一招"+(order[random(13)])+"「黃蜂入洞」"NOR"，$w自上而下劃出一個大弧，平平地向$n的$l揮
 去",
 	"lvl" : 114,
-	"skill_name" : "黄蜂入洞"
+	"skill_name" : "黃蜂入洞"
 ]),
-([	"action" : "$N一招"+(order[random(13)])+"「大鹏展翅」"NOR"，身形跃起，右手$w刺向$n的$l",
+([	"action" : "$N一招"+(order[random(13)])+"「大鵬展翅」"NOR"，身形躍起，右手$w刺向$n的$l",
 	"lvl" : 119,
-	"skill_name" : "大鹏展翅"
+	"skill_name" : "大鵬展翅"
 ]),
-([	"action" : "$N一招"+(order[random(13)])+"「车轮剑」"NOR"，$w化作一片银盘，平平地向$n的$l卷去",
+([	"action" : "$N一招"+(order[random(13)])+"「車輪劍」"NOR"，$w化作一片銀盤，平平地向$n的$l捲去",
 	"lvl" : 124,
-	"skill_name" : "车轮剑"
+	"skill_name" : "車輪劍"
 ]),
-([	"action" : "$N左脚轻点地面，身形往前一扑，一招"+(order[random(13)])+"「天马行空」"NOR"，$w向$n的$l挥
+([	"action" : "$N左腳輕點地面，身形往前一撲，一招"+(order[random(13)])+"「天馬行空」"NOR"，$w向$n的$l揮
 去",
 	"lvl" : 129,
-	"skill_name" : "天马行空"
+	"skill_name" : "天馬行空"
 ]),
-([	"action" : "$N一招"+(order[random(13)])+"「风扫梅花」"NOR"，身体跃在半空，手中$w扫向$n的$l",
+([	"action" : "$N一招"+(order[random(13)])+"「風掃梅花」"NOR"，身體躍在半空，手中$w掃向$n的$l",
 	"lvl" : 90,
-	"skill_name" : "风扫梅花"
+	"skill_name" : "風掃梅花"
 ]),
-([	"action" : "$N一招"+(order[random(13)])+"「却步抽剑」"NOR"，左脚跃步落地，$w回抽，反手勾向$n的$l",
+([	"action" : "$N一招"+(order[random(13)])+"「卻步抽劍」"NOR"，左腳躍步落地，$w回抽，反手勾向$n的$l",
 	"lvl" : 139,
-	"skill_name" : "却步抽剑"
+	"skill_name" : "卻步抽劍"
 ]),
-([	"action" : "$N右腿半屈般蹲，一招"+(order[random(13)])+"「如封似闭」"NOR"，剑尖虚指，转身撩向$n的$l",
+([	"action" : "$N右腿半屈般蹲，一招"+(order[random(13)])+"「如封似閉」"NOR"，劍尖虛指，轉身撩向$n的$l",
 	"lvl" : 144,
-	"skill_name" : "如封似闭"
+	"skill_name" : "如封似閉"
 ]),
-([	"action" : "$N回身拧腰，右手虚抱，一招"+(order[random(13)])+"「拨云瞻日」"NOR"，$w中宫直进，刺向$n的$l",
+([	"action" : "$N回身擰腰，右手虛抱，一招"+(order[random(13)])+"「撥雲瞻日」"NOR"，$w中宮直進，刺向$n的$l",
 	"lvl" : 149,
-	"skill_name" : "拨云瞻日"
+	"skill_name" : "撥雲瞻日"
 ]),
 });
 
@@ -172,17 +172,17 @@ int valid_enable(string usage) { return usage == "sword" || usage == "parry"; }
 int valid_learn(object me)
 {
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 
 	if ((int)me->query_skill("taiji-shengong", 1) < 20)
-		return notify_fail("你的「太极神功」火候太浅。\n");
+		return notify_fail("你的「太極神功」火候太淺。\n");
 
 	if ((int)me->query_skill("taiji-quan", 1) < 20)
-		return notify_fail("你的「太极拳」火候太浅。\n");
+		return notify_fail("你的「太極拳」火候太淺。\n");
 
   if ((int)me->query_skill("taiji-jian")>=200 &&
   (int)me->query_skill("taiji-quan",1) < (int)me->query_skill("taiji-jian",1))
-    return notify_fail("武当「太极拳」乃是「太极剑」的根基，打好基础方可再求上进。\n");
+    return notify_fail("武當「太極拳」乃是「太極劍」的根基，打好基礎方可再求上進。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -191,9 +191,9 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if( (int)me->query("qi") < 35 || (int)me->query("neili") < 15 )
-		return notify_fail("你的内力或气不够练太极剑法。\n");
+		return notify_fail("你的內力或氣不夠練太極劍法。\n");
 	me->receive_damage("qi", 35);
 	me->add("neili", -15);
 	return 1;
@@ -233,18 +233,18 @@ mapping query_action(object me, object weapon)
 		target = victim->name();
 	}
 
-//////// 附加双击 yun taiji后的双击/////
+//////// 附加雙擊 yun taiji後的雙擊/////
 	if( me->query_temp("double_attack") )
 	{
 		return ([
-			"action" : HIW"突然之间，$N剑交右手，寒光一闪，向$n$l划出，这一下快速无伦"NOR,
+			"action" : HIW"突然之間，$N劍交右手，寒光一閃，向$n$l劃出，這一下快速無倫"NOR,
 			"force"  : 350+random(100),
 			"dodge"  : 20,
 			"parry"  : 20,
 			"damage" : 100+random(50),
-			"damage_type" : "割伤" ]);
+			"damage_type" : "割傷" ]);
 	}
-////////太极剑 chan 好像没用/////
+////////太極劍 chan 好像沒用/////
 	if( me->query_temp("chan/"+target) )
 	{
 		victim->start_busy(2);
@@ -254,17 +254,17 @@ mapping query_action(object me, object weapon)
 		if( me->query_temp("chan/"+target) >= busy_time )
 			me->delete_temp("chan/"+target);
 	}
-//////// perform raozhi后的双（三）击 ////
+//////// perform raozhi後的雙（三）擊 ////
 	if( random(me->query_temp("wudang/raozhi")) > 50 ||
 		me->query_temp("raozhi_attack") ) 
 	{
 		switch( me->query_temp("raozhi_attack") )
 		{
-			case 1: msg =HIY"不料铮的一声轻响，$w"+HIY+"反弹过来，直刺向$p$l"NOR;
+			case 1: msg =HIY"不料錚的一聲輕響，$w"+HIY+"反彈過來，直刺向$p$l"NOR;
 				break;
-			case 2: msg =HIC"谁知$N於$w"HIC"上连催两重劲，剑弯成弧，又是一弯，便如长蛇之游，奇诡不可设想"NOR;
+			case 2: msg =HIC"誰知$N於$w"HIC"上連催兩重勁，劍彎成弧，又是一彎，便如長蛇之遊，奇詭不可設想"NOR;
 				break;
-			default: msg = HIW"突然间$N$w"HIW"破空，疾刺$n"+limb+"，剑到中途，剑尖微颤，竟然弯了过去，斜刺$p$l"NOR;
+			default: msg = HIW"突然間$N$w"HIW"破空，疾刺$n"+limb+"，劍到中途，劍尖微顫，竟然彎了過去，斜刺$p$l"NOR;
 				break;
 		}
 		me->add_temp("wudang/raozhi", -1); 
@@ -277,11 +277,11 @@ mapping query_action(object me, object weapon)
 			"parry" : 10,
 			"force" : 380+random(120),
 			"damage": 120+random(80),
-			"damage_type":"刺伤",
+			"damage_type":"刺傷",
 			"post_action": (: raozhi :)
 		]);
 	}
-///////////yun taiji后的普通招////////////
+///////////yun taiji後的普通招////////////
 	if( me->query_temp("taiji") && me->query("neili") > 100 )
 	{
 		me->add_temp("taiji_fight", 1);
@@ -291,24 +291,24 @@ mapping query_action(object me, object weapon)
 			"force" : 420+random(120),
 			"dodge" : 100+random(50),
 			"damage": 120+random(80),
-			"damage_type" : random(2)?"刺伤":"割伤",
+			"damage_type" : random(2)?"刺傷":"割傷",
 			"post_action" : (: taiji :) ]);
 	}
-/////////// 都没有的话/////////
+/////////// 都沒有的話/////////
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "割伤" : "刺伤",
+		"damage_type" : random(2) ? "割傷" : "刺傷",
 	]);
 }
 int taiji(object me, object victim, object weapon, int damage)
@@ -329,14 +329,14 @@ int taiji(object me, object victim, object weapon, int damage)
 		{
 			me->set_temp("double_attack", 1);
 			COMBAT_D->do_attack(me,victim,me->query_temp("weapon"));
-			message_combatd("\n$N又是剑交左手，在身前划了两个圆圈。$n见$P剑劲连绵，护住全身，竟无半分空隙。\n"NOR,me,victim);
+			message_combatd("\n$N又是劍交左手，在身前劃了兩個圓圈。$n見$P劍勁連綿，護住全身，竟無半分空隙。\n"NOR,me,victim);
 		}
 		me->delete_temp("double_attack");
 		return 1;
 	}
 	else if( damage <= 0 )
 	{
-		message_combatd("$p但觉$P剑上有股绵劲，震得自己手臂隐隐发麻。\n", me, victim);
+		message_combatd("$p但覺$P劍上有股綿勁，震得自己手臂隱隱發麻。\n", me, victim);
 //		if( !victim->is_busy() )
 //  		victim->start_busy(1+random((int)(me->query_skill("force")/150))); 
 		victim->add("neili", -(int)(me->query_skill("force")/10));
@@ -378,17 +378,17 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIC"\n太极剑法："NOR"\n");
+	write(HIC"\n太極劍法："NOR"\n");
 	write(@HELP
 
-    和太极拳武学原理相同，亦是张三丰祖师晚年时闭关悟得，剑
-势圆融，并无固定招式，讲究以无招胜有招，招名乃是后人所加。
-太极剑法有了一定修为后，需相当的太极拳基础，方可上进。
+    和太極拳武學原理相同，亦是張三豐祖師晚年時閉關悟得，劍
+勢圓融，並無固定招式，講究以無招勝有招，招名乃是後人所加。
+太極劍法有了一定修爲後，需相當的太極拳基礎，方可上進。
 
-	学习要求：
-		太极拳20级
-		太极神功20级
-		内力100
+	學習要求：
+		太極拳20級
+		太極神功20級
+		內力100
 HELP
 	);
 	return 1;

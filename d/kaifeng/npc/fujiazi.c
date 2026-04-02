@@ -6,7 +6,7 @@ void create()
 	set("gender", "男性" );
 	set("age", 21);
 	set("long",
-		"一个白白胖胖的年轻人，一看就知道是娇生惯养惯了的。\n");
+		"一個白白胖胖的年輕人，一看就知道是嬌生慣養慣了的。\n");
 	set("shen_type", 1);
 	set("combat_exp", 10000);
 	set("str", 10);

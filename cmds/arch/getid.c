@@ -19,7 +19,7 @@ string status;
  status = wizhood(me);
  if( me!=this_player(1)
  || wiz_level(me) < wiz_level(status) )
- return notify_fail("你没有权力使用这个指令。\n");
+ return notify_fail("你沒有權力使用這個指令。\n");
  if(!arg) return notify_fail("指令格式：getid (player's ip)\n");
         return get_sameaddress_players(arg);
 }
@@ -61,7 +61,7 @@ continue;
     if(count)
         write( count + "位使用者。\n");
     else
-        write("不存在这个使用者.\n");
+        write("不存在這個使用者.\n");
 return 1;
 }
 

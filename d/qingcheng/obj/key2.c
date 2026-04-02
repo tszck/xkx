@@ -4,9 +4,9 @@ inherit ITEM;
 
 void create()
 {
-	set_name("铁钥匙", ({"tie key", "key", "yaoshi"}));
+	set_name("鐵鑰匙", ({"tie key", "key", "yaoshi"}));
 
-	set("long", "这是一把铁钥匙，不知道有什么用。\n");
+	set("long", "這是一把鐵鑰匙，不知道有什麼用。\n");
 	set("unit", "把");
 	set("weight", 10);
 	set("no_drop", 1);

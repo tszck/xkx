@@ -1,11 +1,11 @@
-// ciqu.c 此去彼来
+// ciqu.c 此去彼來
 
 #include <ansi.h>
 #include <combat.h>
 
 inherit F_SSERVER;
 #include "/kungfu/skill/eff_msg.h";
-#define PNAME "「此去彼来」"
+#define PNAME "「此去彼來」"
 int perform(object me, object target)
 {
 	string msg, *limbs;
@@ -21,17 +21,17 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("你必须空手才能使用「此去彼来」！\n");
+		return notify_fail("你必須空手才能使用「此去彼來」！\n");
 
 	fskill = "kurong-changong";
 	bskill = "finger";
@@ -45,19 +45,19 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 160 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(sskill)+"还不够娴熟，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"還不夠嫺熟，無法使用"+PNAME+"。\n");
 
 		if( (int)me->query_skill("force", 1) < 160 )
-			return notify_fail("你的内功等级不够，不能使用「此去彼来」。\n");
+			return notify_fail("你的內功等級不夠，不能使用「此去彼來」。\n");
 
 	if( (int)me->query_str() < 26 )
-		return notify_fail("你的膂力不够强，不能使用「此去彼来」。\n");
+		return notify_fail("你的膂力不夠強，不能使用「此去彼來」。\n");
 
 	if( (int)me->query("neili", 1) < 200 * arg )
-		return notify_fail("你现在的内力不够使用「此去彼来」进行攻击。\n");
+		return notify_fail("你現在的內力不夠使用「此去彼來」進行攻擊。\n");
 	
 	if ( !userp(me) && me->query("family/family_name")!="大理段家")
 		return notify_fail("只有玩家和大理人氏可以使用。\n");
@@ -65,7 +65,7 @@ int perform(object me, object target)
 	a=me->query("max_neili",1);
 	b=target->query("max_neili",1);
 
-	message_combatd(MAG "$N"MAG"十指连动，忽伸忽缩，或点或按，空中气流激荡，剑气自$N"MAG"指中汹涌而出，此去彼来，连绵无尽。\n" NOR, me, target);
+	message_combatd(MAG "$N"MAG"十指連動，忽伸忽縮，或點或按，空中氣流激盪，劍氣自$N"MAG"指中洶湧而出，此去彼來，連綿無盡。\n" NOR, me, target);
 
 	if( random(me->query("combat_exp")) > target->query("combat_exp")/2 )
 	{
@@ -79,7 +79,7 @@ int perform(object me, object target)
 		target->receive_damage("qi", damage,me);
 		target->receive_wound("qi", damage,me);
 		p = (int)target->query("qi")*100/(int)target->query("max_qi");
-		msg = damage_msg(damage, "内伤");
+		msg = damage_msg(damage, "內傷");
 		msg += "( $n"+eff_status_msg(p)+" )\n";  
 
 		me->add("neili", -200 * arg);
@@ -90,7 +90,7 @@ int perform(object me, object target)
 		me->start_busy(arg/2+1);
 		me->add("neili", -100*arg);
 		target->add("neili", -100);
-		msg =RED"\n$n就地一滚，躲开了攻击，吓的脸色惨白。\n" NOR;
+		msg =RED"\n$n就地一滾，躲開了攻擊，嚇的臉色慘白。\n" NOR;
 	}
 	message_combatd(msg, me, target);
 
@@ -105,14 +105,14 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		激发六脉旋环，连续出手
+		激發六脈旋環，連續出手
 
 	出手要求：
-		六脉神剑120级
-		枯荣禅功160级
-		基本内功160级
-		后天膂力26
-		内力足够
+		六脈神劍120級
+		枯榮禪功160級
+		基本內功160級
+		後天膂力26
+		內力足夠
 HELP
 	);
 	return 1;

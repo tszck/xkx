@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("小山贼", ({ "xiao shanzei","xiao" }) );
+	set_name("小山賊", ({ "xiao shanzei","xiao" }) );
 	set("gender", "男性" );
 	set("age", 12);
-	set("long", "这是个尚未成年的小山贼。\n");
+	set("long", "這是個尚未成年的小山賊。\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 

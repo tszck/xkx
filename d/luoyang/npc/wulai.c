@@ -1,13 +1,13 @@
-// wulai.c 无赖
+// wulai.c 無賴
 
 inherit NPC;
 
 void create()
 {
-	set_name("无赖", ({ "wu lai", "wulai" }));
+	set_name("無賴", ({ "wu lai", "wulai" }));
 	set("gender", "男性");
 	set("age", 19);
-	set("long", "他是一个成天游手好闲的无赖，赌钱赌得两眼红肿、脸色灰暗。\n");
+	set("long", "他是一個成天遊手好閒的無賴，賭錢賭得兩眼紅腫、臉色灰暗。\n");
 	set("combat_exp", 2000);
 	set("shen_type", -1);
 

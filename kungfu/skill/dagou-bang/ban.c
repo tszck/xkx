@@ -1,8 +1,8 @@
-// ban.c 打狗棒法「绊」字诀
+// ban.c 打狗棒法「絆」字訣
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
-#define PNAME "「绊」字诀"
+#define PNAME "「絆」字訣"
 inherit F_SSERVER;
 int perform(object me, object target)
 {
@@ -18,21 +18,21 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "stick")
-			return notify_fail("你使用的武器不对。\n");
+			return notify_fail("你使用的武器不對。\n");
 
 //	if( target->is_busy() )
-//		return notify_fail(target->name()+"目前正自顾不暇，放胆攻击吧ⅵ\n");
+//		return notify_fail(target->name()+"目前正自顧不暇，放膽攻擊吧ⅵ\n");
 	fskill = "huntian-qigong";
 	bskill = "stick";
 	if (SCBORN_D->valid_perform(me,sskill,pfname))
@@ -44,25 +44,25 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够深厚，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠深厚，不會使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 	if(me->query("max_neili") < 800)
-		return notify_fail("你的内力修为不够，不会使用"PNAME"。\n");
+		return notify_fail("你的內力修爲不夠，不會使用"PNAME"。\n");
 	if(me->query("neili") < 400)
-		return notify_fail("你的内力修为不够，不会使用"PNAME"。\n");
-	msg = HIY "$N"+weapon->name()+HIY"一幌，$n"HIY"急忙跃起，双足离地半尺，\n";
+		return notify_fail("你的內力修爲不夠，不會使用"PNAME"。\n");
+	msg = HIY "$N"+weapon->name()+HIY"一幌，$n"HIY"急忙躍起，雙足離地半尺，\n";
  
 	me->start_busy(2);
 	me->add("neili", -200);
 	if(random(me->query("combat_exp")) > (int)target->query("combat_exp")/2)
 	{
-		msg += HIR "刚好棒儿一绊，轻轻巧巧的便将$n"HIR"绊倒了。\n" NOR;
+		msg += HIR "剛好棒兒一絆，輕輕巧巧的便將$n"HIR"絆倒了。\n" NOR;
 		target->receive_damage("qi", 200,me);
 		target->receive_damage("jing", 200,me);
 		target->start_busy(3);
 	} else {
-		msg += HIG"可是$n"HIG"全神留心下盘，只待"+weapon->name()+HIG"伸来，立即上跃，教$N"HIG"绊之不著。\n" NOR;
+		msg += HIG"可是$n"HIG"全神留心下盤，只待"+weapon->name()+HIG"伸來，立即上躍，教$N"HIG"絆之不著。\n" NOR;
 	}
 	message_combatd(msg, me, target);
 
@@ -77,13 +77,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-        损耗对方的气血与精气
+        損耗對方的氣血與精氣
 
 	出手要求：
-		混天气功120级
-		打狗棒法120级
-		内力修为800
-		内力400
+		混天氣功120級
+		打狗棒法120級
+		內力修爲800
+		內力400
 HELP
 	);
 	return 1;

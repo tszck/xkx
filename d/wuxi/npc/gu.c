@@ -1,13 +1,13 @@
-// gu.c 顾宪成
+// gu.c 顧憲成
 
 inherit NPC;
 #include <ansi.h>
 
 void create()
 {
-	set_name("顾宪成", ({ "gu xiancheng", "gu" }));
+	set_name("顧憲成", ({ "gu xiancheng", "gu" }));
 	set("gender", "男性");
-	set("long", "顾宪成重于学识，讲究品行，受到各地学者仰慕。\n");
+	set("long", "顧憲成重於學識，講究品行，受到各地學者仰慕。\n");
 	set("age", 45);
 	set("no_get", 1);
 	set_skill("literate", 300);
@@ -22,8 +22,8 @@ void create()
 	set("combat_exp", 400000);
 	set("shen_type", 1);
 	set("inquiry", ([
-		"书"   : "唉！书到用时方恨少。",
-		"借书" : "借？你不还我到哪里找你？哼！",
+		"書"   : "唉！書到用時方恨少。",
+		"借書" : "借？你不還我到哪裏找你？哼！",
 	]));
 	setup();
 
@@ -31,24 +31,24 @@ void create()
 
 int recognize_apprentice(object ob)
 {
-	if (!(int)ob->query_temp("mark/顾"))
+	if (!(int)ob->query_temp("mark/顧"))
 		return 0;
-	ob->add_temp("mark/顾", -1);
+	ob->add_temp("mark/顧", -1);
 	return 1;
 }
 
 int accept_object(object who, object ob)
 {
 	object me = this_player();
-	if (!(int)who->query_temp("mark/顾"))
-		who->set_temp("mark/顾", 0);
+	if (!(int)who->query_temp("mark/顧"))
+		who->set_temp("mark/顧", 0);
 	if (ob->query("money_id") && ob->value() >= 1000)
 	{
-		message_vision("顾宪成同意指点$N一些读书写字的问题。\n", who);
-		who->add_temp("mark/顾", ob->value() / 50);
+		message_vision("顧憲成同意指點$N一些讀書寫字的問題。\n", who);
+		who->add_temp("mark/顧", ob->value() / 50);
 		if( me->query_skill("literate", 1) > 21)
 		{
-			tell_object(me,"你现在已有一定的文化知识,也可以自己读书深造了。\n");
+			tell_object(me,"你現在已有一定的文化知識,也可以自己讀書深造了。\n");
 			return 1;
 		}
 		return 1;

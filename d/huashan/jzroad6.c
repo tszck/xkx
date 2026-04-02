@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "树林外");
+	set("short", "樹林外");
 	set("long", @LONG
-树林外，赫然站着一个汉子，在阴森森的林子边上，凭添一股煞气。
-西上是登山的路，东边就进入森林了。
+樹林外，赫然站着一個漢子，在陰森森的林子邊上，憑添一股煞氣。
+西上是登山的路，東邊就進入森林了。
 LONG );
 	set("outdoors", "zhongtiao");
 	set("exits", ([ /* sizeof() == 4 */

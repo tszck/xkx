@@ -1,11 +1,11 @@
-// guanjia.c 财主管家
+// guanjia.c 財主管家
 
 inherit NPC;
 
 void create()
 {
         set_name("管家", ({ "guan jia", "guan" }));
-        set("long","这是一位尖嘴候腮的老管家，一对小绿豆眼总在不停地转动着。\n");
+        set("long","這是一位尖嘴候腮的老管家，一對小綠豆眼總在不停地轉動着。\n");
         set("gender", "男性");
         set("age", 65);
 

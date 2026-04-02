@@ -12,10 +12,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("草上飞", ({ "bangzhu" }));
+	set_name("草上飛", ({ "bangzhu" }));
 	set("gender", "男性");
 	set("age", 30);
-	set("long", "一个魁梧之极的大汉，脸庞极尽苍桑，精神却甚矍铄。\n");
+	set("long", "一個魁梧之極的大漢，臉龐極盡蒼桑，精神卻甚矍鑠。\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 
@@ -43,7 +43,7 @@ void create()
 	set_skill("wuxingbu", 80);
 	map_skill("dodge", "wuxingbu");
 */
-	set("no_get", "帮主太重了");
+	set("no_get", "幫主太重了");
 
 	setup();
 
@@ -63,12 +63,12 @@ int do_ask(string arg)
 	string dest, topic;
 
 	if( !arg || sscanf(arg, "%s about %s", dest, topic) != 2 ) {
-		write("你要问谁什么事？\n");
+		write("你要問誰什麼事？\n");
 		return 1;
 	}
 
 	if( !objectp(ob = present(dest, environment(me))) ) {
-		write("这里没有这个人。\n");
+		write("這裏沒有這個人。\n");
 		return 1;
 	}
 
@@ -78,7 +78,7 @@ int do_ask(string arg)
 	if( !living(me) )
 		return 1;
 
-	say(name() + "大怒道：没见老子生了病烦着呢？滚！！！\n");
+	say(name() + "大怒道：沒見老子生了病煩着呢？滾！！！\n");
 	return 1;
 }
 
@@ -94,15 +94,15 @@ void come_attacker()
 	}
 
 	if( !(helper = query("helper")) ) {
-		say(name() + "自言自语道：此地不可久留，三十六计走为上！\n");
-		say(name() + "急急忙忙地离开了。\n");
+		say(name() + "自言自語道：此地不可久留，三十六計走爲上！\n");
+		say(name() + "急急忙忙地離開了。\n");
 		destruct(me);
 		return;
 	}
 
 	if( room != environment(helper) ) {
-		say(name() + "自言自语道：此地不可久留，三十六计走为上！\n");
-		say(name() + "急急忙忙地离开了。\n");
+		say(name() + "自言自語道：此地不可久留，三十六計走爲上！\n");
+		say(name() + "急急忙忙地離開了。\n");
 		destruct(me);
 		return;
 	}
@@ -115,13 +115,13 @@ void come_attacker()
 			bonus = bonus * 100000 / ( 100000 + (int)helper->query("combat_exp") );
 			record = bonus/2 + random(bonus);
 			helper->add("combat_exp", record);
-			log_file("BangJob", sprintf("%s于%s时因护驾有功得%s经验点\n", helper->query("name"), ctime(time()), chinese_number(record)));
+			log_file("BangJob", sprintf("%s於%s時因護駕有功得%s經驗點\n", helper->query("name"), ctime(time()), chinese_number(record)));
 			bonus /= 4;
 			obj->add("score", bonus);
 			obj->delete("job");
 		}
-		say(name() + "双手一抱拳道：帮主养伤要化一段时间，你好自为之吧！\n");
-		say(name() + "扬长而去。\n");
+		say(name() + "雙手一抱拳道：幫主養傷要化一段時間，你好自爲之吧！\n");
+		say(name() + "揚長而去。\n");
 		destruct(me);
 		return;
 	}
@@ -145,10 +145,10 @@ void come_attacker()
 
 	ob->move(room);
 	message("vision",
-		ob->name() + "走了过来。\n",
+		ob->name() + "走了過來。\n",
 		room, ({ob}));
 	ob->set_leader(me);
-	message_vision("$N对$n喝道：看你还往哪里跑？！\n", ob, me);
+	message_vision("$N對$n喝道：看你還往哪裏跑？！\n", ob, me);
 	ob->kill_ob(me);
 	command("!!!");
 	me->kill_ob(ob);

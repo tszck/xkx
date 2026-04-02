@@ -16,10 +16,10 @@ mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 			damage = - damage;
 			me->receive_damage( "qi", damage * 2 );
 			me->receive_wound( "qi", damage );
-			if( damage < 10 ) return "$N受到$n的内力反震，闷哼一声。\n";
-			else if( damage < 20 ) return "$N被$n以内力反震，「嘿」地一声退了两步。\n";
-			else if( damage < 40 ) return "$N被$N以内力一震，胸口有如受到一记重锤，连退了五六步！\n";
-			else return "$N被$n的内力一震，眼前一黑，身子向后飞出丈许！！\n";
+			if( damage < 10 ) return "$N受到$n的內力反震，悶哼一聲。\n";
+			else if( damage < 20 ) return "$N被$n以內力反震，「嘿」地一聲退了兩步。\n";
+			else if( damage < 40 ) return "$N被$N以內力一震，胸口有如受到一記重錘，連退了五六步！\n";
+			else return "$N被$n的內力一震，眼前一黑，身子向後飛出丈許！！\n";
 		}
 		if( damage_bonus + damage < 0 ) return - damage_bonus;
 		return damage;
@@ -32,5 +32,5 @@ mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 }
 
 //mixed be_hit_ob(object me, object victim, int damage_bonus, int factor) 
-// 可以重载,被打中的效果,factor 为对方的加力,damage_bonus 是对方的
-//臂力值,是计算最后伤害的基数之一.
+// 可以重載,被打中的效果,factor 爲對方的加力,damage_bonus 是對方的
+//臂力值,是計算最後傷害的基數之一.

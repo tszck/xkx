@@ -1,4 +1,4 @@
-// guest.c 进香客
+// guest.c 進香客
 
 inherit NPC;
 
@@ -7,7 +7,7 @@ void create()
 	int age;
 	age = 20 + random(40);
 	
-	set_name("进香客", ({ "jinxiang ke", "ke", "guest" }));
+	set_name("進香客", ({ "jinxiang ke", "ke", "guest" }));
 	set("gender", "男性");
 	set("age", age);
 

@@ -19,8 +19,8 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "颗");
-		set("long","这是一颗晶莹如玉的菩提子，采自灵山佛祖座前，珍稀无比，\n乃万年菩提树之实，功能化百劫，渡千灾，与天地同寿。\n");
+		set("unit", "顆");
+		set("long","這是一顆晶瑩如玉的菩提子，採自靈山佛祖座前，珍稀無比，\n乃萬年菩提樹之實，功能化百劫，渡千災，與天地同壽。\n");
 		set("value", 500000);
 	}
 	set("pour_type", "1");
@@ -37,16 +37,16 @@ int do_eat(string arg)
 	neili_limit = me->query("max_neili");
 	force_skill = me->query_skill("force", 1);
 	
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
 	if ( (int)me->query_condition("putizi_drug" ) > 0 )
 	{
 		me->add("max_neili", -100);
-		message_vision(HIR "$N又吃下一颗菩提子，只觉得肝肠寸断，五脏欲裂，原来服食太急太多，药效适得其反！\n" NOR, me);
+		message_vision(HIR "$N又喫下一顆菩提子，只覺得肝腸寸斷，五臟欲裂，原來服食太急太多，藥效適得其反！\n" NOR, me);
 	}
 	else if ( neili_limit <= force_limit  )
 	{
@@ -60,7 +60,7 @@ int do_eat(string arg)
 		me->add("max_neili", 100);
 		me->add("neili", 100);
 
-		message_vision(HIY "$N吃下一颗菩提子，顿然间只觉一股浩荡无比的真气直冲顶门...\n" NOR, this_player());
+		message_vision(HIY "$N喫下一顆菩提子，頓然間只覺一股浩蕩無比的真氣直衝頂門...\n" NOR, this_player());
 		me->apply_condition("putizi_drug", 1000);
 	}
 	me->unconcious();

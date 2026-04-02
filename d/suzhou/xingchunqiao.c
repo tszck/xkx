@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "行春桥");
+	set("short", "行春橋");
 	set("long",@long
-顺着石湖岸边走就来到了行春桥，你站在行春桥的石级上，极目远
-望，湖水接天，群山蜿蜒，塔影倒影，美若画卷。
+順着石湖岸邊走就來到了行春橋，你站在行春橋的石級上，極目遠
+望，湖水接天，羣山蜿蜒，塔影倒影，美若畫卷。
 long);
 	set("outdoors", "suzhou");
 	set("exits",([

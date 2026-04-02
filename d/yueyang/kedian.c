@@ -4,19 +4,19 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "牡丹楼");
+	set("short", "牡丹樓");
 	set("long", @LONG
-吕洞宾三醉洞庭的故事无人不知，而白牡丹戏洞宾的传说在这里也
-是人人皆晓。这里就是当年白牡丹戏洞宾的所在。楼上是行商休息的地
-方，楼下靠边上，有一个柜台，柜台后有一个帐房先生正在拨着算盘珠
-子，一边还拿枝笔记着什么。一个店小二看到你的到来，笑吟吟的迎上
-前来。边上的楼梯前挂着个告示(paizi)。
+呂洞賓三醉洞庭的故事無人不知，而白牡丹戲洞賓的傳說在這裏也
+是人人皆曉。這裏就是當年白牡丹戲洞賓的所在。樓上是行商休息的地
+方，樓下靠邊上，有一個櫃檯，櫃檯後有一個帳房先生正在撥着算盤珠
+子，一邊還拿枝筆記着什麼。一個店小二看到你的到來，笑吟吟的迎上
+前來。邊上的樓梯前掛着個告示(paizi)。
 LONG );
 	set("no_fight", 1);
 	set("valid_startroom", 1);
 	set("no_sleep_room",1);
 	set("item_desc", ([
-		"paizi" : "楼上雅房，每夜五十两白银。\n"
+		"paizi" : "樓上雅房，每夜五十兩白銀。\n"
 	]));
 	set("objects", ([
 		"/d/city/npc/xiaoer" : 1,
@@ -36,10 +36,10 @@ LONG );
 int valid_leave(object me, string dir)
 {
 	if ( !me->query_temp("rent_paid") && dir == "up" )
-		return notify_fail("店小二一下挡在楼梯前，白眼一翻：怎么着，想白住啊！\n");
+		return notify_fail("店小二一下擋在樓梯前，白眼一翻：怎麼着，想白住啊！\n");
 
 	if ( me->query_temp("rent_paid") && dir == "west" )
-		return notify_fail("店小二跑到门边拦住：客官已经付了银子，怎么不住店就走了呢！\n旁人还以为小店伺候不周呢！\n");
+		return notify_fail("店小二跑到門邊攔住：客官已經付了銀子，怎麼不住店就走了呢！\n旁人還以爲小店伺候不周呢！\n");
 
 	return ::valid_leave(me, dir);
 }

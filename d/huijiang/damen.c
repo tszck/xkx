@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "总舵大门");
+	set("short", "總舵大門");
 	set("long",@LONG
-你站在两扇红漆大门前，门上钉满的碗口大小的铜钉，门口的台阶
-上叉腰站着两个膀阔腰圆的大汉，往里看去可以看见一条蜿延曲折的走
-廊通向房屋深处。
+你站在兩扇紅漆大門前，門上釘滿的碗口大小的銅釘，門口的臺階
+上叉腰站着兩個膀闊腰圓的大漢，往裏看去可以看見一條蜿延曲折的走
+廊通向房屋深處。
 LONG );
 	set("outdoors", "huijiang");
 	set("exits", ([
@@ -32,21 +32,21 @@ void init()
 {
 	object me = this_player();
 	if ( interactive( this_player()) &&
-		((string)me->query("family/family_name") != "红花会") &&
+		((string)me->query("family/family_name") != "紅花會") &&
 		(!present("honghua ling", me)))
-		message_vision(HIG"两个大汉向$N瞪了一眼，鼻子里重重的哼了一声！\n"NOR,me);
+		message_vision(HIG"兩個大漢向$N瞪了一眼，鼻子裏重重的哼了一聲！\n"NOR,me);
 	else
 		if ( present("honghua ling",me) &&
 			!(present("honghua ling",me))->query("zizhi")) 
-			message_vision(HIG"两个大汉躬身向你行了个礼,说道：令主好！\n"NOR,me);
+			message_vision(HIG"兩個大漢躬身向你行了個禮,說道：令主好！\n"NOR,me);
 }
 
 int valid_leave(object me, string dir)
 {
 	if ( (dir == "enter") &&
-		((string)me->query("family/family_name") != "红花会") &&
+		((string)me->query("family/family_name") != "紅花會") &&
 		objectp(present("wen tailai", environment(me))) &&
 		(!present("honghua ling", me)))
-		return notify_fail("文泰来拦住你说：非本会弟兄，不能进去！\n");
+		return notify_fail("文泰來攔住你說：非本會弟兄，不能進去！\n");
 	return ::valid_leave(me, dir);
 }

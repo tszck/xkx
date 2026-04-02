@@ -1,4 +1,4 @@
-// zhifa.c 执法弟子
+// zhifa.c 執法弟子
 
 #include <ansi.h>
 
@@ -13,7 +13,7 @@ string ask_me();
 
 void create()
 {
-	set_name("执法弟子", ({ "zhifa dizi", "dizi", "zhifa" }) );
+	set_name("執法弟子", ({ "zhifa dizi", "dizi", "zhifa" }) );
 	set("gender", "男性" );
 	set("age", 40);
 	set("str", 30);
@@ -87,7 +87,7 @@ int do_kill(object me, object dest)
 	if( objectp(dest) && present(dest, environment(me))
 		 && !environment(me)->query("no_fight"))
 	{
-		message_vision(HIR "$N对$n说道："+me->query("owner")+"指认你犯上做乱，"+RANK_D->query_rude(dest)+"，认命吧！\n" NOR, me, dest);
+		message_vision(HIR "$N對$n說道："+me->query("owner")+"指認你犯上做亂，"+RANK_D->query_rude(dest)+"，認命吧！\n" NOR, me, dest);
 		me->set_leader(dest);
 		me->kill_ob(dest);
 		dest->fight_ob(me);

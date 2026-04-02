@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "潇湘馆");
+	set("short", "瀟湘館");
 	set("long",@LONG
-这是『灵鹫宫』的裁缝室。几个女子围坐在一块，飞针走线，苦练
-女红，难道她们是为了以后找一个好婆家吗？ 
+這是『靈鷲宮』的裁縫室。幾個女子圍坐在一塊，飛針走線，苦練
+女紅，難道她們是爲了以後找一個好婆家嗎？ 
 LONG );
 	set("exits", ([
 		"south" : __DIR__"changl10",

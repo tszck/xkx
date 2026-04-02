@@ -1,13 +1,13 @@
-// majuan.c.c 马圈
+// majuan.c.c 馬圈
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "马圈");
+	set("short", "馬圈");
 	set("long", @LONG
-皇家马圈, 自然是好马云集. 一排排齐整的马厩, 一匹匹英挺高头
-俊马, 让你不由想起大草原上万马奔腾的壮伟景象.
+皇家馬圈, 自然是好馬雲集. 一排排齊整的馬廄, 一匹匹英挺高頭
+俊馬, 讓你不由想起大草原上萬馬奔騰的壯偉景象.
 LONG
 	);
 	set("exits", ([

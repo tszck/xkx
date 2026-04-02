@@ -5,10 +5,10 @@ string ask_me();
 
 void create()
 {
-	set_name("黄蓉", ({"huang rong", "huang", "rong"}));
+	set_name("黃蓉", ({"huang rong", "huang", "rong"}));
 	set("gender", "女性");
 	set("age", 36);
-	set("long", "她是北侠郭靖的夫人，东邪黄药师的爱女，前任丐帮帮主。\n");
+	set("long", "她是北俠郭靖的夫人，東邪黃藥師的愛女，前任丐幫幫主。\n");
 
 	set("attitude", "peaceful");
 	   
@@ -47,11 +47,11 @@ void create()
 	map_skill("sword"  , "luoying-shenjian") ;
 
 	set("inquiry",([
-		"秘籍"     : (: ask_me :),
-		"烹饪入门" : (: ask_me :),
+		"祕籍"     : (: ask_me :),
+		"烹飪入門" : (: ask_me :),
 	]));	
 	set("book_count", 1);	   
-	create_family("桃花岛", 2, "弟子");
+	create_family("桃花島", 2, "弟子");
 	setup();
 	carry_object("/kungfu/class/taohua/obj/ruanwei")->wear();
 	carry_object("/kungfu/class/taohua/obj/shudai")->wear();
@@ -72,7 +72,7 @@ int accept_object(object who, object ob)
 		who->set_temp("mark/蓉", 0);
 	if (ob->query("money_id") && ob->value() >= 1000)
 	{
-		message_vision("黄蓉同意指点$N一些烹饪手艺的问题。\n", who);
+		message_vision("黃蓉同意指點$N一些烹飪手藝的問題。\n", who);
 		who->add_temp("mark/蓉", ob->value() / 500);
 		return 1;
 	}
@@ -84,12 +84,12 @@ string ask_me()
 	object ob,me;
 
 	if (this_player()->query_skill("cookery",1)<60)
-                return "你的烹饪之术尚欠火候，下回再来吧。";
+                return "你的烹飪之術尚欠火候，下回再來吧。";
 	if (query("book_count") < 1)
-		return "你来晚了，「烹饪入门」不在此处。";
+		return "你來晚了，「烹飪入門」不在此處。";
 	add("book_count", -1);
 	ob = new("/clone/book/cookery_book.c");
 	ob->move(this_player());
-	command("rumor "+this_player()->query("name")+"拿到烹饪入门啦。\n");
-	return "好吧，这本「烹饪入门」你拿回去好好钻研。";
+	command("rumor "+this_player()->query("name")+"拿到烹飪入門啦。\n");
+	return "好吧，這本「烹飪入門」你拿回去好好鑽研。";
 }

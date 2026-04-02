@@ -1,15 +1,15 @@
-// wujiang.c 武将
+// wujiang.c 武將
 
 inherit NPC;
 
 void create()
 {
-        set_name("武将", ({ "wu jiang", "wu", "jiang" }));
+        set_name("武將", ({ "wu jiang", "wu", "jiang" }));
         set("gender", "男性");
         set("age", random(10) + 30);
         set("str", 25);
         set("dex", 16);
-        set("long", "他站在那里，的确有说不出的威风。\n");
+        set("long", "他站在那裏，的確有說不出的威風。\n");
         set("combat_exp", 75000);
         set("shen_type", 1);
         set("attitude", "peaceful");

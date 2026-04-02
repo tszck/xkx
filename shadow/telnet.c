@@ -6,14 +6,14 @@
 //inherit F_SHADOW;
 inherit __DIR__"shadow";
 
-nosave string from_user;        // 用户发送来的信息
-nosave int fd;                  // 连接远端机器的套接字
-nosave string dest_addr;        // 连接远端机器的地址
-nosave int port;                // 连接远端机器的端口号
+nosave string from_user;        // 用戶發送來的信息
+nosave int fd;                  // 連接遠端機器的套接字
+nosave string dest_addr;        // 連接遠端機器的地址
+nosave int port;                // 連接遠端機器的端口號
 
 #define MAX_PENDING_INPUT               16384
 
-// 取消所有人物的基本属性
+// 取消所有人物的基本屬性
 
 private void send_to_remote();
 
@@ -29,7 +29,7 @@ void telnet_input(string str)
 {
         if (str == "CLOSE")
         {
-                write("用户断开了连接。\n");
+                write("用戶斷開了連接。\n");
                 destruct(this_object());
                 return;
         }
@@ -42,12 +42,12 @@ void telnet_input(string str)
                 if (find_call_out("send_to_remote") == -1)
                         send_to_remote();
         } else
-                write("你输入的太多了...\n");
+                write("你輸入的太多了...\n");
 }
 
 int accept_fight(object ob)
 {
-        return notify_fail("正在远程登录中...\n");
+        return notify_fail("正在遠程登錄中...\n");
 }
 
 int accept_hit(object ob)
@@ -118,7 +118,7 @@ void connect_to(string arg)
 {
         if (sscanf(arg, "%s %d", dest_addr, port) != 2)
         {
-                write("地址错误。\n");
+                write("地址錯誤。\n");
                 return;
         }
 
@@ -144,7 +144,7 @@ void telnet_resolve_callback(string address, string resolved, int key)
         {
                 if (! resolved)
                 {
-                        message("telnet", "无法解析地址。\n", sob);
+                        message("telnet", "無法解析地址。\n", sob);
                         if (sscanf(dest_addr, "%*d.%*d.%*d.%*d") == 4)
                                 resolved = dest_addr;
                         else
@@ -157,7 +157,7 @@ void telnet_resolve_callback(string address, string resolved, int key)
                                    "telnet_close_callback" );
                 if (fd < 0)
                 {
-                        message("telnet", "SOCKET 初始化错误。\n", sob);
+                        message("telnet", "SOCKET 初始化錯誤。\n", sob);
                         break;
                 }
 
@@ -166,11 +166,11 @@ void telnet_resolve_callback(string address, string resolved, int key)
                                      "telnet_write_callback");
                 if (ret != EESUCCESS)
                 {
-                        message("telnet", "网络连接错误。\n", sob);
+                        message("telnet", "網絡連接錯誤。\n", sob);
                         break;
                 }
 
-                message("telnet", "正在连接" + address +
+                message("telnet", "正在連接" + address +
                                   "(" + full_addr + ")...\n", sob);
                 return;
         }
@@ -204,7 +204,7 @@ void telnet_close_callback(int fd)
         object sob;
 
         if (objectp(sob = query_shadow_now()))
-                message("telnet", HIR "连接断开了：请按回车键继续...\n" NOR, sob);
+                message("telnet", HIR "連接斷開了：請按回車鍵繼續...\n" NOR, sob);
 
         destruct(this_object());
 }
@@ -236,31 +236,31 @@ varargs string short(int raw)
         if (objectp(sob = query_shadow_now()))
         {
                 str = sob->short(raw);
-                str = replace_string(str, " <输入文字中>", " <远程登录中>");
+                str = replace_string(str, " <輸入文字中>", " <遠程登錄中>");
                 return str;
         }
 
         return 0;
 }
 
-// 将用户发送来的数据发送到远端服务器上去
+// 將用戶發送來的數據發送到遠端服務器上去
 private void send_to_remote()
 {
         switch (socket_write(fd, from_user))
         {
         case EESUCCESS:
         case EECALLBACK:
-                // 发送成功了
+                // 發送成功了
                 from_user = "";
                 return;
 
         case EEWOULDBLOCK:
-                // 发送数据阻塞
+                // 發送數據阻塞
                 call_out("send_to_remote", 2);
                 return;
 
         default:
-                // 发送失败
+                // 發送失敗
                 return;
         }
 }

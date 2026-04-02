@@ -1,4 +1,4 @@
-// force.c 基本内功
+// force.c 基本內功
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -21,14 +21,14 @@ void skill_improved(object me)
 {}
 int help(object me)
 {
-	write(HIC"\n基本内功："NOR"\n");
+	write(HIC"\n基本內功："NOR"\n");
 	write(@HELP
 
-    基本内功是所有武功的基础，并能改善你后天的根骨。
-    请help neigong。
+    基本內功是所有武功的基礎，並能改善你後天的根骨。
+    請help neigong。
 
-	学习要求：
-		无
+	學習要求：
+		無
 HELP
 	);
 	return 1;

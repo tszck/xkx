@@ -5,9 +5,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("冯从吾", ({ "feng congwu", "feng" }));
+	set_name("馮從吾", ({ "feng congwu", "feng" }));
 	set("long",
-"冯先生是当代大学者，精通儒术。\n");
+"馮先生是當代大學者，精通儒術。\n");
 	set("gender", "男性");
 	set("age", 65);
 	set("no_get", 1);
@@ -27,20 +27,20 @@ void create()
 
 int recognize_apprentice(object ob)
 {
-	if (!(int)ob->query_temp("mark/冯"))
+	if (!(int)ob->query_temp("mark/馮"))
 		return 0;
-	ob->add_temp("mark/冯", -1);
+	ob->add_temp("mark/馮", -1);
 	return 1;
 }
 
 int accept_object(object who, object ob)
 {
  
-	if (!(int)who->query_temp("mark/冯"))
-		who->set_temp("mark/冯", 0);
+	if (!(int)who->query_temp("mark/馮"))
+		who->set_temp("mark/馮", 0);
 	if (ob->query("money_id") && ob->value() >= 1000) {
-		message_vision("冯从吾同意指点$N一些读书写字的问题。\n", who);
-		who->add_temp("mark/冯", ob->value() / 50);
+		message_vision("馮從吾同意指點$N一些讀書寫字的問題。\n", who);
+		who->add_temp("mark/馮", ob->value() / 50);
 		return 1;
 	}
 }

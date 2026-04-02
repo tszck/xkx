@@ -8,7 +8,7 @@ void create()
 	if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "一个小牛腰子。\n");
-                set("unit", "个");
+                set("long", "一個小牛腰子。\n");
+                set("unit", "個");
         }
 }

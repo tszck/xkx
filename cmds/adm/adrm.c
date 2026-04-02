@@ -37,31 +37,31 @@ int main(object me, string arg)
 	switch (file_size(file))
 	{
 	case -1:
-		write("没有这个文件。\n");
+		write("沒有這個文件。\n");
 		return 1;
 	case -2:
 		if (rm_dir)
 		{
-			write(HIR "删除目录中，请稍候..." NOR),
+			write(HIR "刪除目錄中，請稍候..." NOR),
 
 			count = rm_dir(file);
 			if (count)
-				write(HIY "总共有" + count + "个文件被成功删除。\n" NOR);
+				write(HIY "總共有" + count + "個文件被成功刪除。\n" NOR);
 			return 1;
 		}
 
 		if (rmdir(file))
-			write("成功的删除了目录(" + file + ").\n");
+			write("成功的刪除了目錄(" + file + ").\n");
 		else
-			write("你没有删除该目录的权限或者试图删除一个"
-			      "非空的目录。\n");
+			write("你沒有刪除該目錄的權限或者試圖刪除一個"
+			      "非空的目錄。\n");
 		return 1;
 
 	default:
 		if (rm(file))
-			write("成功的删除了文件(" + file + ").\n");
+			write("成功的刪除了文件(" + file + ").\n");
 		else
-			write("你没有删除它的权限。\n");
+			write("你沒有刪除它的權限。\n");
 		return 1;
 	}
 }
@@ -96,7 +96,7 @@ int rm_dir(string dir)
 			count += rm_dir(dir + file[i][0]);
 	}
 
-	write (HIC "删除目录(" + dir + ")。\n" NOR);
+	write (HIC "刪除目錄(" + dir + ")。\n" NOR);
 	rmdir(dir);
 	return count;
 }
@@ -104,10 +104,10 @@ int rm_dir(string dir)
 int help(object me)
 {
   write(@HELP
-指令格式 : rm [-R] 档案名
+指令格式 : rm [-R] 檔案名
 
-此指令可让你删除某个档案或目录。如果使用了-R参数，可以删除非空的目
-录，使用该参数务必要小心，以免删除错路径。
+此指令可讓你刪除某個檔案或目錄。如果使用了-R參數，可以刪除非空的目
+錄，使用該參數務必要小心，以免刪除錯路徑。
 HELP
     );
     return 1;

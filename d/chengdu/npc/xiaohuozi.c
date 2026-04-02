@@ -1,14 +1,14 @@
-// xiaohuozi.c 小伙子
+// xiaohuozi.c 小夥子
 // Last Modifyed by Winder on Dec. 24 2001
 
 inherit NPC;
 
 void create()
 {
-	set_name("小伙子", ({ "xiao huozi", "xiao" }));
+	set_name("小夥子", ({ "xiao huozi", "xiao" }));
 	set("gender", "男性");
 	set("age", 19);
-	set("long","他是一个在酿酒屋打工的年轻人，长的牛高马大，看上去有些力气。\n");
+	set("long","他是一個在釀酒屋打工的年輕人，長的牛高馬大，看上去有些力氣。\n");
 	
 	set("combat_exp", 1000);
 	set("shen_type", -1);

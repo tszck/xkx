@@ -7,9 +7,9 @@ void create()
 {
 	set("short", "睡房");
 	set("long", @LONG
-这间睡房宽敞明亮，想来便是庄主的卧室了。有一张书桌，桌子上
-放有几本书，却是《易经》之类。墙边有一大箱子。整个房间看上去极
-为单调。
+這間睡房寬敞明亮，想來便是莊主的臥室了。有一張書桌，桌子上
+放有幾本書，卻是《易經》之類。牆邊有一大箱子。整個房間看上去極
+爲單調。
 LONG);
 	set("no_fight", "1");
 	set("objects", ([
@@ -32,8 +32,8 @@ void init()
 
 	if (random(me->query("kar")) > 20 && query("book_count") >= 1)
 	{
-		write("你走进屋里，随手在床边一翻，忽然发现床单下盖着什么东西。\n");
-		write("掀开床单一看，原来是一本薄薄的线装书。\n");
+		write("你走進屋裏，隨手在牀邊一翻，忽然發現牀單下蓋着什麼東西。\n");
+		write("掀開牀單一看，原來是一本薄薄的線裝書。\n");
 		book = new("/clone/book/bt_book");
 		book->move(environment(me));
 	}

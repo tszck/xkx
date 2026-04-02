@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create ()
 {
-	set ("short", "东湖");
+	set ("short", "東湖");
 	set ("long", @LONG
-一面碧绿的湖水，浩淼连天，湖面烟波迷茫，一派江南好风景。
+一面碧綠的湖水，浩淼連天，湖面煙波迷茫，一派江南好風景。
 LONG);
 	set("exits", ([
 		"west" : __DIR__"huanghelou",

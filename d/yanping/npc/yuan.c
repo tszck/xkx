@@ -6,9 +6,9 @@ void create()
 {
 	set_name("白猿", ({ "yuan", "monkey"}) );
 	set("gender", "雄性");
-	set("race", "走兽");
+	set("race", "走獸");
 	set("age", 65);
-	set("long","这是一只白猿，它身手极为敏捷。\n");
+	set("long","這是一隻白猿，它身手極爲敏捷。\n");
 	set("combat_exp", 50000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");

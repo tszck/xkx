@@ -9,14 +9,14 @@ string ask_me();
 
 void create()
 {
-	set_name("道果禅师", ({
+	set_name("道果禪師", ({
 		"daoguo chanshi",
 		"daoguo",
 		"chanshi",
 	}));
 	set("long",
-		"他是一位身材高大的中年僧人，两臂粗壮，膀阔腰圆。他手持兵\n"
-		"刃，身穿一袭灰布镶边袈裟，似乎有一身武艺。\n"
+		"他是一位身材高大的中年僧人，兩臂粗壯，膀闊腰圓。他手持兵\n"
+		"刃，身穿一襲灰布鑲邊袈裟，似乎有一身武藝。\n"
 	);
 
 
@@ -90,7 +90,7 @@ int repairing_1(object me, object ob)
 {
 	if ( !present(ob, environment()) ) return 1; 
 
-	command("say 是这个木人吧？ 唔，我来瞧瞧！ 你在边上呆着，看能帮我什么忙。");
+	command("say 是這個木人吧？ 唔，我來瞧瞧！ 你在邊上待著，看能幫我什麼忙。");
 	
 	remove_call_out("repairing_2");
 	call_out("repairing_2", 2+random(3), me, ob);
@@ -104,16 +104,16 @@ int repairing_2(object me, object ob)
 
 	if( ob->query("damaged") )
 	{
-		message_vision(GRN "\n道果禅师对着木人瞧了一会，又试着扳动木人的四肢和脑袋，嘴里喃喃念叨着什么。\n\n" NOR, me);
+		message_vision(GRN "\n道果禪師對着木人瞧了一會，又試着扳動木人的四肢和腦袋，嘴裏喃喃唸叨着什麼。\n\n" NOR, me);
 		remove_call_out("repairing_3");
 		call_out("repairing_3", 2+random(2), me, ob);
 	}
 	else
 	{
-		command("say 这木人好端端地又没坏！ 还大老远地拖着我过来！");
+		command("say 這木人好端端地又沒壞！ 還大老遠地拖着我過來！");
 		command("follow none");
 
-		message_vision(GRN "\n道果禅师气鼓鼓地走了。\n" NOR, me);
+		message_vision(GRN "\n道果禪師氣鼓鼓地走了。\n" NOR, me);
 		me->move("/d/shaolin/guangchang3");
 
 		remove_call_out("do_back");
@@ -125,8 +125,8 @@ int repairing_2(object me, object ob)
 	
 int repairing_3(object me, object ob)
 {
-	command("say 唔，原来如此，我来修修看吧！");
-	message_vision(GRN "\n他接着从怀里掏出一大堆工具来，打开木人的身体，摆弄了几下。\n\n" NOR, me);
+	command("say 唔，原來如此，我來修修看吧！");
+	message_vision(GRN "\n他接着從懷裏掏出一大堆工具來，打開木人的身體，擺弄了幾下。\n\n" NOR, me);
 
 	remove_call_out("repairing_4");
 	call_out("repairing_4", 3+random(3), me, ob);
@@ -141,16 +141,16 @@ int repairing_4(object me, object ob)
 		command("say 好，修好了！");
 		ob->delete("damaged");
 		ob->set("fight_times", 0);	
-		message_vision(GRN "\n木人的身体吱吱地扭动了几下，恢复了正常站立的姿态。\n\n" NOR, me);
+		message_vision(GRN "\n木人的身體吱吱地扭動了幾下，恢復了正常站立的姿態。\n\n" NOR, me);
 	}
 	else 
-		message_vision(GRN "\n道果禅师叹了口气，说道：看来不行，这木人损坏得太厉害了，没法子修了！\n" NOR, me);
+		message_vision(GRN "\n道果禪師嘆了口氣，說道：看來不行，這木人損壞得太厲害了，沒法子修了！\n" NOR, me);
 
 	command("say 好，那我走了！");
 	command("wave");
 	command("follow none");
 
-	message_vision(GRN "\n道果禅师走了出去。\n" NOR, me);
+	message_vision(GRN "\n道果禪師走了出去。\n" NOR, me);
 	me->move("/d/shaolin/guangchang3");
 
 	remove_call_out("do_back");
@@ -174,10 +174,10 @@ string ask_me()
 	
 	if (!(fam = ob->query("family")) || fam["family_name"] != "少林派")
 		return RANK_D->query_respect(ob) + 
-		"与本派素无来往，不知此话从何谈起？";
+		"與本派素無來往，不知此話從何談起？";
 
-	command("say 木人打坏了是吧？ 好吧，我跟你去看看。");
+	command("say 木人打壞了是吧？ 好吧，我跟你去看看。");
 	command("follow " + ob->query("id"));
 
-	return "我们走罢！\n";
+	return "我們走罷！\n";
 }

@@ -1,13 +1,13 @@
-// maoniu.c 牦牛
+// maoniu.c 犛牛
 
 inherit NPC;
 
 void create()
 {
-	set_name("牦牛", ({ "mao niu", "niu" ,"yak"}) );
+	set_name("犛牛", ({ "mao niu", "niu" ,"yak"}) );
 	set("race", "走畜");
 	set("age", 5);
-	set("long", "一只身强体壮的牦牛，全身长着长毛，似乎在觅食。\n");
+	set("long", "一隻身強體壯的犛牛，全身長着長毛，似乎在覓食。\n");
 	set("attitude", "peaceful");
 	set("str",60);
 	set("max_qi",1000);
@@ -27,7 +27,7 @@ void create()
 void die()
 {
 	object ob, corpse;
-	message_vision("$N发出哞地一声哀鸣，静静倒在地上死去。\n", this_object());
+	message_vision("$N發出哞地一聲哀鳴，靜靜倒在地上死去。\n", this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 		ob = new("/clone/medicine/vegetable/niuhuang");
 	ob->move(corpse);

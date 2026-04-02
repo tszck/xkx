@@ -5,7 +5,7 @@ void create()
 {
 	set("short", "天香堂");
 	set("long",@LONG
-这里是黑木崖的第四大堂“天香堂”。一中年妇人横眉立在当地。
+這裏是黑木崖的第四大堂“天香堂”。一中年婦人橫眉立在當地。
 LONG );
 	set("exits", ([
 		"northdown"   : __DIR__"dating4",

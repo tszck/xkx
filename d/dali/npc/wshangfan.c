@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("乌夷商贩", ({ "shang fan", "shang", "fan" }) );
+	set_name("烏夷商販", ({ "shang fan", "shang", "fan" }) );
 	set("gender", "男性" );
 	set("age", 22);
-	set("long", "一位乌夷族的商贩，挑着一担皮毛野味在贩卖。\n");
+	set("long", "一位烏夷族的商販，挑着一擔皮毛野味在販賣。\n");
 	set("combat_exp", 5000);
 	set("str", 27);
 	set("str", 22);

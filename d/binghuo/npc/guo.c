@@ -5,11 +5,11 @@ inherit F_MASTER;
 #include <ansi.h>
 void create()
 {
-	set_name("过三拳", ({ "guo sanquan", "guo", "sanquan" }));
-	set("title", HIY"神拳门掌门"NOR);
+	set_name("過三拳", ({ "guo sanquan", "guo", "sanquan" }));
+	set("title", HIY"神拳門掌門"NOR);
 	set("long", 
-"过三拳这名字的由来，乃因他拳力极猛，一拳可毙牯牛，寻常武师万
-万挡不住他三拳的轰击，江湖上传扬开来，他本来的名字反而没人知
+"過三拳這名字的由來，乃因他拳力極猛，一拳可斃牯牛，尋常武師萬
+萬擋不住他三拳的轟擊，江湖上傳揚開來，他本來的名字反而沒人知
 道了。\n");
 	set("gender", "男性");
 	set("age", 62);

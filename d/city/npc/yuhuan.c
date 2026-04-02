@@ -1,14 +1,14 @@
-// yuhuan.c 程玉环 
+// yuhuan.c 程玉環 
 
 inherit NPC;
 //inherit F_SKILL;
 
 void create()
 {
-	set_name("程玉环", ({ "cheng yuhuan", "cheng", "yuhuan" }));
+	set_name("程玉環", ({ "cheng yuhuan", "cheng", "yuhuan" }));
 	set("long", 
-		"她就是程知府的独生女儿，长得如花似玉，貌赛天仙的程玉环。\n"
-		"据说她曾经在武当门下学过剑法。\n");
+		"她就是程知府的獨生女兒，長得如花似玉，貌賽天仙的程玉環。\n"
+		"據說她曾經在武當門下學過劍法。\n");
 		
 	set("title", "知府千金");
 	set("nickname", "玉仙姑");

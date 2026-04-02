@@ -1,5 +1,5 @@
 // Last Modified by winder on Sep. 12 2001
-// zhuhun-jian.c 追魂夺命剑
+// zhuhun-jian.c 追魂奪命劍
 
 #include <ansi.h>
 inherit SKILL;
@@ -7,25 +7,25 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N使一式"HIB"「无常抖索」"NOR"，手中$w嗡嗡微振，幻成一条白光刺向$n的$l",
+([	"action" : "$N使一式"HIB"「無常抖索」"NOR"，手中$w嗡嗡微振，幻成一條白光刺向$n的$l",
 	"lvl"    : 0,
-	"skill_name" : "无常抖索"
+	"skill_name" : "無常抖索"
 ]),
-([	"action" : "$N错步上前，使出"BLU"「煞神当道」"NOR"，剑意如虹，$w凶猛无匹地向$n的$l挥去",
+([	"action" : "$N錯步上前，使出"BLU"「煞神當道」"NOR"，劍意如虹，$w兇猛無匹地向$n的$l揮去",
 	"lvl"    : 20,
-	"skill_name" : "煞神当道"
+	"skill_name" : "煞神當道"
 ]),
-([	"action" : "$N一个斜身，一式"MAG"「望乡回顾」"NOR"，更不回头，倒转剑尖，手中$w向后刺向$n的$l",
+([	"action" : "$N一個斜身，一式"MAG"「望鄉回顧」"NOR"，更不回頭，倒轉劍尖，手中$w向後刺向$n的$l",
 	"lvl"    : 40,
-	"skill_name" : "望乡回顾"
+	"skill_name" : "望鄉回顧"
 ]),
-([	"action" : "$N手中$w一沉，一式"HIB"「孟婆灌汤」"NOR"，无声无息地扎向$n的喉头",
+([	"action" : "$N手中$w一沉，一式"HIB"「孟婆灌湯」"NOR"，無聲無息地扎向$n的喉頭",
 	"lvl"    : 60,
-	"skill_name" : "孟婆灌汤"
+	"skill_name" : "孟婆灌湯"
 ]),
-([	"action" :"$N随风轻轻飘落，一式"BLU"「怨魂缠足」"NOR"，和身下扑，手中$w下指，疾刺$n的下三路",
+([	"action" :"$N隨風輕輕飄落，一式"BLU"「怨魂纏足」"NOR"，和身下撲，手中$w下指，疾刺$n的下三路",
 	"lvl"    : 80,
-	"skill_name" : "怨魂缠足"
+	"skill_name" : "怨魂纏足"
 ]),
 });
 
@@ -33,11 +33,11 @@ int valid_enable(string usage) { return usage == "sword" || usage == "parry"; }
 int valid_learn(object me)
 {
 	if ((int)me->query("max_neili") < 300)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if ((int)me->query_skill("sword", 1) < 50)
-		return notify_fail("你的红花神功火候太浅。\n");
+		return notify_fail("你的紅花神功火候太淺。\n");
 	if ((int)me->query_skill("honghua-shengong", 1) < 50)
-		return notify_fail("你的红花神功火候太浅。\n");
+		return notify_fail("你的紅花神功火候太淺。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -46,9 +46,9 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if( (int)me->query("qi") < 40 || (int)me->query("neili") < 30 )
-		return notify_fail("你的内力或气不够练追魂夺命剑法。\n");
+		return notify_fail("你的內力或氣不夠練追魂奪命劍法。\n");
 	me->receive_damage("qi", 35);
 	me->add("neili", -20);	
 	return 1;
@@ -77,17 +77,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "割伤" : "刺伤",
+		"damage_type" : random(2) ? "割傷" : "刺傷",
 	]);
 }
 int learn_bonus() { return 20; }
@@ -101,15 +101,15 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIM"\n追魂夺命剑："NOR"\n");
+	write(HIM"\n追魂奪命劍："NOR"\n");
 	write(@HELP
 
-    七十二路追魂夺命剑天下无双，是红花会二当家无尘道长的得意武功。
+    七十二路追魂奪命劍天下無雙，是紅花會二當家無塵道長的得意武功。
 
-	学习要求：
-		红花神功50级
-		基本剑法50级
-		内力修为300
+	學習要求：
+		紅花神功50級
+		基本劍法50級
+		內力修爲300
 HELP
 	);
 	return 1;

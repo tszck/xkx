@@ -1,4 +1,4 @@
-// yangguo.c 杨过
+// yangguo.c 楊過
 // Last Modified by winder on Mar. 8 2001
 
 #include <ansi.h>
@@ -8,13 +8,13 @@ string ask_me();
 
 void create()
 {
-	set_name("杨过", ({"yang guo", "yang", "guo"}));
-	set("nickname", HIB"神雕大侠"NOR);
+	set_name("楊過", ({"yang guo", "yang", "guo"}));
+	set("nickname", HIB"神鵰大俠"NOR);
 	set("gender", "男性");
 	set("age", 26);
 	set("long",
-	"他就是神雕大侠杨过，一张清癯俊秀的脸孔，剑眉入鬓，凤眼生威。\n"
-	"虽然他只有一只胳膊，但是魁伟的身材仍让人感觉英气逼人。\n");
+	"他就是神鵰大俠楊過，一張清癯俊秀的臉孔，劍眉入鬢，鳳眼生威。\n"
+	"雖然他只有一隻胳膊，但是魁偉的身材仍讓人感覺英氣逼人。\n");
 	set("attitude", "friendly");
 
 	set("per", 28);
@@ -24,7 +24,7 @@ void create()
 	set("dex", 38);
 	set("chat_chance", 1);
 	set("chat_msg", ({
-		"杨过喃喃道：“独孤求败！独孤求败！求一败而不可得？”\n", 
+		"楊過喃喃道：“獨孤求敗！獨孤求敗！求一敗而不可得？”\n", 
 	}));
 	set("chat_chance_combat",50);
 	set("chat_msg_combat", ({
@@ -67,15 +67,15 @@ void create()
 	set("letter_count", 1);
 
 	set("inquiry", ([
-		"小龙女"   :  "你也在找我的龙儿？\n",
-		"玉女剑法" : "玉女剑法和全真剑法合壁，天下无敌！\n",
-		"古墓派"   : "我的林祖师爷爷本来和重阳先师是一对璧人，可是..\n",
-		"郭靖"     : "我郭伯父是当世一代大侠。\n",
-		"黄蓉"     : "我郭伯母确实是算无遗策。\n",
-		"雕兄"     : "雕兄既是我师，亦复我友。\n",
-		"神雕"     : "你问雕兄？\n",
-		"玄铁剑"   : "玄铁剑在高昌古城。\n",
-		"独孤剑冢" : "独孤剑冢嘛，自己找吧。\n",
+		"小龍女"   :  "你也在找我的龍兒？\n",
+		"玉女劍法" : "玉女劍法和全真劍法合壁，天下無敵！\n",
+		"古墓派"   : "我的林祖師爺爺本來和重陽先師是一對璧人，可是..\n",
+		"郭靖"     : "我郭伯父是當世一代大俠。\n",
+		"黃蓉"     : "我郭伯母確實是算無遺策。\n",
+		"雕兄"     : "雕兄既是我師，亦復我友。\n",
+		"神鵰"     : "你問雕兄？\n",
+		"玄鐵劍"   : "玄鐵劍在高昌古城。\n",
+		"獨孤劍冢" : "獨孤劍冢嘛，自己找吧。\n",
 		"dan"      : (: ask_me :),
 		"回春丹"   : (: ask_me :),
 	]) );
@@ -94,13 +94,13 @@ string ask_me()
 	wan_num = read_file("/data/HUICHUN", 1, 1);
 	wannum = atoi(wan_num);
 	if (wannum == 0)
-		return "这位"+RANK_D->query_respect(this_player())+"，回春丹需经一年养炼，方克有成。你再等"RED+ chinese_number(12-(int)(uptime()/7200))+CYN"个月再来吧！\n";
+		return "這位"+RANK_D->query_respect(this_player())+"，回春丹需經一年養煉，方克有成。你再等"RED+ chinese_number(12-(int)(uptime()/7200))+CYN"個月再來吧！\n";
 	if (wannum == 2)
-		return "这位"+RANK_D->query_respect(this_player())+"，回春丹早给别人拿走了。你以后再来吧！\n";
+		return "這位"+RANK_D->query_respect(this_player())+"，回春丹早給別人拿走了。你以後再來吧！\n";
 	ob = new("/clone/medicine/nostrum/huichundan");
 	ob->move(this_player());
 	write_file("/data/HUICHUN", "2", 1);
 	command("rumor "+this_player()->query("name")+"拿到回春丹了啦。\n");
-	return "好吧，不给你尝尝回春丹，你也不知道它的味道吧。";
+	return "好吧，不給你嚐嚐回春丹，你也不知道它的味道吧。";
 }
 

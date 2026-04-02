@@ -8,10 +8,10 @@ void create()
 {
 	set("short", MAG"戒律院"NOR);
 	set("long", @LONG
-整个大殿门户紧闭，密不透风。即便是在白昼，也犹如黑夜一般，
-每隔几步的墙上，点燃着几枝牛油巨烛。殿上供奉着降魔韦陀下方摆着
-一排排水牛皮鞭、穿孔竹板及狼牙棒等执法刑杖。四周站满了怀抱戒刀
-的执法僧兵。他们正用威严的眼神打量着你，令你不禁心生惧意。
+整個大殿門戶緊閉，密不透風。即便是在白晝，也猶如黑夜一般，
+每隔幾步的牆上，點燃着幾枝牛油巨燭。殿上供奉着降魔韋陀下方擺着
+一排排水牛皮鞭、穿孔竹板及狼牙棒等執法刑杖。四周站滿了懷抱戒刀
+的執法僧兵。他們正用威嚴的眼神打量着你，令你不禁心生懼意。
 LONG );
 	set("exits", ([
 		"west" : __DIR__ "songshu4",
@@ -43,7 +43,7 @@ void init()
 			fam["generation"] <= 20 &&
 			!ob->query("guilty") ) 
 			return;
-		message_vision(HIY"$N一进戒律院，...只听几声大喝，如同炸雷般在大殿里回响。$N不禁浑身发抖，再也站立不住，腿一软，扑通一声跪了下来。\n\n"NOR,ob);
+		message_vision(HIY"$N一進戒律院，...只聽幾聲大喝，如同炸雷般在大殿裏迴響。$N不禁渾身發抖，再也站立不住，腿一軟，撲通一聲跪了下來。\n\n"NOR,ob);
 		ob->set("startroom", "/d/shaolin/jieluyuan");
 		call_out("processing", 3, ob);
 	}
@@ -54,24 +54,24 @@ void processing(object ob)
 	mapping fam;
 
 	if (!ob) return;
-	write(HIW "\n你定了定神，抬头细看，只见数十名持刀僧人将你团团围起来，\n"
-		"一片雪亮的刀光逼得你眼都睁不开。正前方的高台上放着一把\n"
-		"太师椅，居中高坐着位白须白眉的老僧，脸色铁青，目射精光，\n"
+	write(HIW "\n你定了定神，抬頭細看，只見數十名持刀僧人將你團團圍起來，\n"
+		"一片雪亮的刀光逼得你眼都睜不開。正前方的高臺上放着一把\n"
+		"太師椅，居中高坐着位白鬚白眉的老僧，臉色鐵青，目射精光，\n"
 		"狠狠地瞪着你。\n\n\n" NOR);
 	if ( !(fam = ob->query("family")) || fam["family_name"] != "南少林派" )
 	{
-		message_vision(HIY "大癫一声大喝：尔等大胆狂徒，擅闯本寺，意在不轨，该当何罪！\n堂堂南少林寺，岂能容你等宵小如此胡作非为！执法僧兵何在！\n\n" NOR, ob);
+		message_vision(HIY "大癲一聲大喝：爾等大膽狂徒，擅闖本寺，意在不軌，該當何罪！\n堂堂南少林寺，豈能容你等宵小如此胡作非爲！執法僧兵何在！\n\n" NOR, ob);
 		call_out("responsing", 3, ob, 3);
         }
 	if ( (fam = ob->query("family")) && fam["family_name"] == "南少林派" ) 
 	{
 		if (ob->query("guilty") == 1)
-			message_vision(HIY "大癫一声大喝：$N！你离寺仅有数日，却在外杀人越货，胡作非为，\n累犯大戒，败坏本寺千载清誉！你该当何罪？！执法僧兵何在！\n\n" NOR, ob);
+			message_vision(HIY "大癲一聲大喝：$N！你離寺僅有數日，卻在外殺人越貨，胡作非爲，\n累犯大戒，敗壞本寺千載清譽！你該當何罪？！執法僧兵何在！\n\n" NOR, ob);
 		if (ob->query("guilty") == 3)
-			message_vision(HIY"大癫一声大喝：$N！本寺护法松林历代向来不许门人弟子擅入，\n你擅闯此地，意在不轨，该当何罪！执法僧兵何在！\n\n"NOR,ob);
+			message_vision(HIY"大癲一聲大喝：$N！本寺護法松林歷代向來不許門人弟子擅入，\n你擅闖此地，意在不軌，該當何罪！執法僧兵何在！\n\n"NOR,ob);
 		if (ob->query("guilty") == 2)
 		{
-			message_vision(HIY "大癫盯着$N看了半饷，说道：$N，你惩恶扬善，锄暴安良，当得表彰，\n但出家人首戒杀生，你伤害人命，乃是僧家的重罪！\n你去罢，下次定不轻饶！\n\n" NOR, ob);
+			message_vision(HIY "大癲盯着$N看了半餉，說道：$N，你懲惡揚善，鋤暴安良，當得表彰，\n但出家人首戒殺生，你傷害人命，乃是僧家的重罪！\n你去罷，下次定不輕饒！\n\n" NOR, ob);
 			ob->delete("guilty");
 			ob->set("startroom", START_ROOM);
 			return;
@@ -85,7 +85,7 @@ void responsing(object ob, int i)
 	int j;
 
 	if (!ob) return;
-	message_vision(HIR "僧兵大声应道：弟子在！\n" NOR, ob);
+	message_vision(HIR "僧兵大聲應道：弟子在！\n" NOR, ob);
 	i--;
 	j = random(3);
 	if (i == 0) 
@@ -101,7 +101,7 @@ void responsing1(object ob, int i)
 	int j;
 
 	if (!ob) return;
-	message_vision(HIR "僧兵大声应道：弟子在！\n" NOR, ob);
+	message_vision(HIR "僧兵大聲應道：弟子在！\n" NOR, ob);
 	i--;
 	j = random(3);
 	if (i == 0) 
@@ -116,8 +116,8 @@ void beating(object ob)
 {
 
 	if (!ob) return;
-	message_vision(HIY "\n\n大癫喝道：杖责三百，将$N打入僧监拘押三月，非洗心悔改，\n不得释放！意图越狱者罪加一等！\n\n" NOR, ob);
-	message_vision(HIR "僧兵们一涌而上，乱棒齐下，$N痛得昏了过去......\n" NOR, ob);
+	message_vision(HIY "\n\n大癲喝道：杖責三百，將$N打入僧監拘押三月，非洗心悔改，\n不得釋放！意圖越獄者罪加一等！\n\n" NOR, ob);
+	message_vision(HIR "僧兵們一湧而上，亂棒齊下，$N痛得昏了過去......\n" NOR, ob);
 	ob->delete("guilty");
 	ob->move("/d/nanshaolin/jianyu");
 	ob->unconcious();
@@ -132,8 +132,8 @@ void beating1(object ob)
 	i = 20 + ob->query("combat_exp") / 100000 * 10;
 	if (i > 50) i = 50;
 	ob->set("carry_count", i);
-	message_vision(HIY "\n\n大癫喝道：杖责三百，将$N罚去后殿挑水" + chinese_number(i) + "桶，非洗心悔改，\n不得释放！意图偷懒者罪加一等！\n\n" NOR, ob);
-	message_vision(HIR "僧兵们一涌而上，乱棒齐下，$N痛得昏了过去......\n" NOR, ob);
+	message_vision(HIY "\n\n大癲喝道：杖責三百，將$N罰去後殿挑水" + chinese_number(i) + "桶，非洗心悔改，\n不得釋放！意圖偷懶者罪加一等！\n\n" NOR, ob);
+	message_vision(HIR "僧兵們一湧而上，亂棒齊下，$N痛得昏了過去......\n" NOR, ob);
 	ob->delete("guilty");
 	kao = new("/d/nanshaolin/obj/liao_kao");
 	kao->move(ob);
@@ -153,7 +153,7 @@ int valid_leave(object me, string dir)
 			fam["generation"] <= 20 && !me->query("guilty")) 
 			return ::valid_leave(me, dir);
 		else
-			return notify_fail("大癫说道: 大胆，你还敢逃跑！执法僧兵何在！\n");
+			return notify_fail("大癲說道: 大膽，你還敢逃跑！執法僧兵何在！\n");
 	}
 
 }

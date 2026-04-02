@@ -7,7 +7,7 @@ inherit NPC;
 void create()
 {
 	set_name("何盛", ({ "he sheng","he" }));
-	set("long", "无根道人的大弟子。\n");
+	set("long", "無根道人的大弟子。\n");
 	set("gender", "男性");
 	set("age", 28);
 	set("attitude", "peaceful");
@@ -43,10 +43,10 @@ void create()
 	map_skill("parry", "huagu-mianzhang");
 	prepare_skill("strike", "huagu-mianzhang");
 
-	set("party/party_name", HIY"神龙教"NOR);
-	set("party/rank", HIR"赤龙门"NOR"教众");
+	set("party/party_name", HIY"神龍教"NOR);
+	set("party/rank", HIR"赤龍門"NOR"教衆");
 	set("party/level", 1);
-	create_family("神龙教", 3, "弟子");
+	create_family("神龍教", 3, "弟子");
 
 	setup();
 	carry_object(CLOTH_DIR"cloth")->wear();

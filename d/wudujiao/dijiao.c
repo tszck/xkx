@@ -6,8 +6,8 @@ void create()
 {
         set("short", "地窖");
         set("long", @LONG
-这是一个阴暗的地窖，头顶被一张草席挡住了光线。地窖里
-存放着一些准备过冬的食物，都整齐的堆放在木板上。
+這是一個陰暗的地窖，頭頂被一張草蓆擋住了光線。地窖裏
+存放着一些準備過冬的食物，都整齊的堆放在木板上。
 LONG
         );
 
@@ -17,7 +17,7 @@ LONG
                 __DIR__"obj/tudou": 1,
         ]));
         set("item_desc", ([
-                "草席" : "\n一张厚厚的草席盖在洞口，遮住了外面的阳光。\n" ,
+                "草蓆" : "\n一張厚厚的草蓆蓋在洞口，遮住了外面的陽光。\n" ,
         ]));
         set("coor/x", -44940);
 	set("coor/y", -81050);
@@ -34,14 +34,14 @@ int do_move(string arg)
         
         me = this_player();
         if (!arg||arg=="") return 0;
-        if( arg=="草席" ) {
+        if( arg=="草蓆" ) {
 //            hole = new(__DIR__"minju10");
-            message_vision("\n$N掀开盖在洞口的草席爬了上去。\n",this_player());
+            message_vision("\n$N掀開蓋在洞口的草蓆爬了上去。\n",this_player());
             me->move(__DIR__"minju10");
-            message_vision("\n盖在地上的草席忽然一掀，$N从下面钻了出来。\n",me);
+            message_vision("\n蓋在地上的草蓆忽然一掀，$N從下面鑽了出來。\n",me);
         }
         else {
-            message_vision("\n$N双手在空中比划了几下，但似乎什么也没抓住。\n", this_player());
+            message_vision("\n$N雙手在空中比劃了幾下，但似乎什麼也沒抓住。\n", this_player());
         }
         return 1;
 }

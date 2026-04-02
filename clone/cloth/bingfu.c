@@ -11,7 +11,7 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一件兵服，前后有铜镜护心，中绣大唐二字．\n");
+		set("long", "一件兵服，前後有銅鏡護心，中繡大唐二字．\n");
 		set("material", "cloth");
 		set("value", 300);
 		set("unit", "件");

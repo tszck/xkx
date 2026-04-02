@@ -10,14 +10,14 @@ void create()
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "一个晶莹碧绿的的大酒瓶，装了熏熏醉人的竹叶青。\n");
-                set("unit", "个");
+                set("long", "一個晶瑩碧綠的的大酒瓶，裝了熏熏醉人的竹葉青。\n");
+                set("unit", "個");
                 set("value", 1600);
                 set("max_liquid", 15);
         }
         set("liquid", ([
                 "type": "alcohol",
-                "name": "竹叶青",
+                "name": "竹葉青",
                 "remaining": 15,
                 "drunk_apply": 3,
         ]));

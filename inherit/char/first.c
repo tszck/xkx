@@ -1,7 +1,7 @@
-// first.c 掌门弟子
+// first.c 掌門弟子
 // Last Modified by Winder on Mar. 27 2000
 // Based on XYJ4.51
-// Modified by Zeratul 4.11 2001 首次成为掌门弟子可获得赏善罚恶令，加大了挑战掌门弟子的难度。
+// Modified by Zeratul 4.11 2001 首次成爲掌門弟子可獲得賞善罰惡令，加大了挑戰掌門弟子的難度。
 // qingyun 2004
 
 #include <ansi.h>
@@ -10,21 +10,21 @@ inherit NPC;
 inherit F_SAVE;
 
 string zname(object);
-void reset(object me);// 初始化武功、经验、title 等
-void create_identity (mixed master, mixed where);//为弟子重置准备(只一次)
+void reset(object me);// 初始化武功、經驗、title 等
+void create_identity (mixed master, mixed where);//爲弟子重置準備(只一次)
 int init_identity (object me, object master, object where);//重置弟子restore
-int save_record(object me, object ob);//完全拷贝ob的武功等给me 并保存
-void self_adjust (object me); //设所有武功60 气血同reset  用于copy from master后恢复 
-string zm_apply();// 处理ask about 掌门事件
-int fully_recover (object me); // 开始打架之前 恢复状态
-int check_result(object me, object ob); // 开始打架 并检查结束
-void find_master (object me, object ob); // 带去掌门路上循环检测
-void master_announce (object me, object who, object ob); //掌门通知
-int convert_identity (object me, object ob);//更新掌门弟子
+int save_record(object me, object ob);//完全拷貝ob的武功等給me 並保存
+void self_adjust (object me); //設所有武功60 氣血同reset  用於copy from master後恢復 
+string zm_apply();// 處理ask about 掌門事件
+int fully_recover (object me); // 開始打架之前 恢復狀態
+int check_result(object me, object ob); // 開始打架 並檢查結束
+void find_master (object me, object ob); // 帶去掌門路上循環檢測
+void master_announce (object me, object who, object ob); //掌門通知
+int convert_identity (object me, object ob);//更新掌門弟子
 
 void create()
 {
-	set_name("掌门大弟子", ({ "zhang men", "zhangmen", "first" }) );
+	set_name("掌門大弟子", ({ "zhang men", "zhangmen", "first" }) );
 	set("gender", "男性" );
 	set("age", 30);
 	set("str", 30);
@@ -34,7 +34,7 @@ void create()
 	set("per", 30);
 	set("no_get", 1);
 	set("no_get_from", 1);
-	set("long", "这是本门掌门大弟子。你如果不服，可以挑战。\n" );
+	set("long", "這是本門掌門大弟子。你如果不服，可以挑戰。\n" );
 	set("attitude", "heroism");
 	set("combat_exp", 100000);
 	set("current_player","none of us");
@@ -48,11 +48,11 @@ void init()
 
 	me->create_identity(me->query("master_dir"), me->query("start_room"));
 	me->set("inquiry", ([
-		"掌门大弟子" : (: zm_apply :),
-		"掌门弟子" : (: zm_apply :),
+		"掌門大弟子" : (: zm_apply :),
+		"掌門弟子" : (: zm_apply :),
 		"大弟子" : (: zm_apply :),
-		"掌门" : (: zm_apply :),
-		"挑战" : (: zm_apply :),
+		"掌門" : (: zm_apply :),
+		"挑戰" : (: zm_apply :),
 	]) );
 	add_action("do_bandage","bandage");
 	add_action("do_reset", "reset");
@@ -62,13 +62,13 @@ int do_reset(string arg)
 	object ob=this_player();
 	object me=this_object();
 	if (!wizardp(ob)) return 0;
-	if (arg != "zhangmen") return notify_fail("你要reset zhangmen吗？\n");
-	set_name("掌门大弟子", ({ "zhang men", "zhangmen", "first" }) );
+	if (arg != "zhangmen") return notify_fail("你要reset zhangmen嗎？\n");
+	set_name("掌門大弟子", ({ "zhang men", "zhangmen", "first" }) );
 	me->reset_me(me);
 	me->set("current_player","none of us");
 	me->delete("weapon");
 	me->save();
-  write("重置"+me->query("family/family_name")+"掌门弟子成功。\n");
+  write("重置"+me->query("family/family_name")+"掌門弟子成功。\n");
   return 1;
 }
 
@@ -338,19 +338,19 @@ string zm_apply()
 
 	if (me->query("family/family_name") != ob->query("family/family_name")) 
 	{
-		return "我便是"+me->query("family/family_name")+"掌门弟子！\n";
+		return "我便是"+me->query("family/family_name")+"掌門弟子！\n";
 	}
 	if (ob->query("betrayer") || ob->query("detach/"+me->query("family/family_name")) )
 	{
-		return "你曾叛师欺祖，言无信行不轨，岂能出任掌门弟子一职！\n";
+		return "你曾叛師欺祖，言無信行不軌，豈能出任掌門弟子一職！\n";
 	}
 	if (me->query("current_player") == ob->query("id")) 
 	{
-		return "你又糊涂了！\n";
+		return "你又糊塗了！\n";
 	}
 	if (me->is_fighting())
 	{
-		return "我在比武之中，请稍候。\n";
+		return "我在比武之中，請稍候。\n";
 	}
 	ob->set_temp("zm_applied", 1);
 	fully_recover (me);
@@ -360,7 +360,7 @@ string zm_apply()
 	me->set_temp("zhangmen/kill",0);
 	remove_call_out("check_result");
 	call_out("check_result", 1, me, ob);
-	return "好！你有意出任掌门弟子一职？我们就切磋一下吧！\n";
+	return "好！你有意出任掌門弟子一職？我們就切磋一下吧！\n";
 }
 
 int fully_recover (object me)
@@ -493,10 +493,10 @@ int check_result(object me, object ob)
 	if (((int)me->query("qi")*100/(1+my_max_qi)) <= 50 )
 	{
 		object who;
-		message_vision ("$N翻身下拜，连声佩服！\n",me);
+		message_vision ("$N翻身下拜，連聲佩服！\n",me);
 		if (me->query_temp("zhangmen/kill") && ob->query_temp("zm_applied"))
 		{
-			message_vision ("$N皱了皱眉道：此次比武我未能静心尽力，希望重新来过。\n", me);
+			message_vision ("$N皺了皺眉道：此次比武我未能靜心盡力，希望重新來過。\n", me);
 			return 1;
 		}
 		if( ob->query_temp("zm_applied") != 1 ) return 1;
@@ -509,7 +509,7 @@ int check_result(object me, object ob)
 		}
 		else
 		{
-			message_vision("$N躬身对$n道：恭请拜见师父。\n",me,ob);
+			message_vision("$N躬身對$n道：恭請拜見師父。\n",me,ob);
 			command ("follow "+ob->query("id"));
 			if (! me->query("where"))
 				me->set("where",base_name(environment(me)));
@@ -520,11 +520,11 @@ int check_result(object me, object ob)
 	}
 	else if (( (int)ob->query("qi")*100/his_max_qi)<=50)
 	{
-		message_vision ("$N将$n扶起。\n",me,ob);
+		message_vision ("$N將$n扶起。\n",me,ob);
 	}
 	else 
 	{
-		message_vision ("$N皱了皱眉道：此次比武未能一较高下，希望重新来过。\n", me);
+		message_vision ("$N皺了皺眉道：此次比武未能一較高下，希望重新來過。\n", me);
 	}
 	return 1;  
 }
@@ -541,8 +541,8 @@ void find_master (object me, object ob)
 	}
 	else
 	{
-		message_vision ("$N见了师父赶紧下拜，又抬起头朝$n使了个眼色。\n\n",me,ob);
-		message_vision ("$N微微地点了点头。\n\n",who);
+		message_vision ("$N見了師父趕緊下拜，又抬起頭朝$n使了個眼色。\n\n",me,ob);
+		message_vision ("$N微微地點了點頭。\n\n",who);
 		message_vision ("$N退下。\n\n",me);
 		me->set_leader(0);
 		call_out("master_announce",1,me,who,ob);
@@ -555,7 +555,7 @@ void master_announce (object me, object who, object ob)
 	// Modified by Zeratul 4.11 2001
 	object ling;
 
-	CHANNEL_D->do_channel(who,"chat","本派掌门弟子"+ob->query("name")+"今日走马上任。恭请各位大侠多加捧场！");
+	CHANNEL_D->do_channel(who,"chat","本派掌門弟子"+ob->query("name")+"今日走馬上任。恭請各位大俠多加捧場！");
 	ob->delete_temp("zm_applied");
 	me->set("new_player",1);
 
@@ -570,8 +570,8 @@ void master_announce (object me, object who, object ob)
 		ling = new( "/d/xiakedao/obj/tongpai2" );
 		ling->set( "own", ob->query("id") );
 		ling->move( ob );
-		message_vision( HIY"$N对$n说道：侠客岛昨日送来赏善罚恶令，邀请为师上岛。\n                你是本门掌门弟子，就代为师走一趟吧。\n"NOR, who, ob );
-		message_vision( HIC"说完，$N把两块令牌交到$n手里。\n"NOR, who, ob );
+		message_vision( HIY"$N對$n說道：俠客島昨日送來賞善罰惡令，邀請爲師上島。\n                你是本門掌門弟子，就代爲師走一趟吧。\n"NOR, who, ob );
+		message_vision( HIC"說完，$N把兩塊令牌交到$n手裏。\n"NOR, who, ob );
 		ob->set( "xkd/ling", 1 );
 		ob->set( "xkd/time", time() + 86400 );
 	}
@@ -629,7 +629,7 @@ int convert_identity (object me, object ob)
 
 void die()
 {
-        message_vision(HIW"$N大喝到：“今日算你走运，待我请来本门师尊为我报仇！”说话间人已负伤遁去！\n"NOR,this_object());	
+        message_vision(HIW"$N大喝到：“今日算你走運，待我請來本門師尊爲我報仇！”說話間人已負傷遁去！\n"NOR,this_object());	
 	destruct(this_object());
 }
 
@@ -664,8 +664,8 @@ void kill_ob(object ob)
 
 string zname(object ob)
 {
-	if( (string)ob->query("gender") == "女性" ) return "掌门大师姐";
-	else return "掌门大师兄";
+	if( (string)ob->query("gender") == "女性" ) return "掌門大師姐";
+	else return "掌門大師兄";
 }
 
 int do_bandage(string arg)
@@ -675,18 +675,18 @@ int do_bandage(string arg)
 
 	if (! arg || me != present(arg, environment(me))) return 0;
 
-	message_vision ("$N别有用心地要给$n包扎伤口。\n",who,me);
+	message_vision ("$N別有用心地要給$n包紮傷口。\n",who,me);
 	call_out("no_bandage",1,who,me);
 	return 1;
 }
 
 void no_bandage(object who, object me)
 {
-	message_vision ("$N向$n摇了摇头。\n",me,who);
+	message_vision ("$N向$n搖了搖頭。\n",me,who);
 }
 int accept_hit(object me)
 {
-   command("say 我是堂堂掌门弟子！要切磋你找别人去。\n");
+   command("say 我是堂堂掌門弟子！要切磋你找別人去。\n");
    return notify_fail("");
 }
 int accept_fight(object who)	{return accept_hit(who);}

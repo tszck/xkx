@@ -5,30 +5,30 @@
 inherit NPC;
 
 string *ouyezi_msg =({
-GRN"欧冶子将一块"HIR"赤铜"GRN"和一块"HIC"青锡"GRN"塞进炼炉，拉起沉重的风箱，火焰\n",
-GRN"贪婪吞噬了铜锡块。..当铜锡块通体透"HIR"红"GRN"时，欧冶子师傅将"BLK"黑铁"GRN"置入\n",
-GRN"炉中，掺入"HIY"黄金"GRN"和"HIW"白银"GRN"。一会工夫，欧冶子用钢钳夹出五金块，猛地\n",
-GRN"将它浸入一种无嗅无味的"BLK"黑色液体"GRN"中..唧！..\n",
-GRN"随后..乒..乒..梆....梆....乒....乒...梆....梆...乒..梆....梆...乒...梆.....\n",
-GRN"..哈....哈....哈....哈....欧冶子仰天长笑声震瓦铄，道：嘿..嘿.....\n\n",
-GRN"宝剑有名方能传，你的宝剑该什么名(name)？!\n"NOR,
+GRN"歐冶子將一塊"HIR"赤銅"GRN"和一塊"HIC"青錫"GRN"塞進煉爐，拉起沉重的風箱，火焰\n",
+GRN"貪婪吞噬了銅錫塊。..當銅錫塊通體透"HIR"紅"GRN"時，歐冶子師傅將"BLK"黑鐵"GRN"置入\n",
+GRN"爐中，摻入"HIY"黃金"GRN"和"HIW"白銀"GRN"。一會工夫，歐冶子用鋼鉗夾出五金塊，猛地\n",
+GRN"將它浸入一種無嗅無味的"BLK"黑色液體"GRN"中..唧！..\n",
+GRN"隨後..乒..乒..梆....梆....乒....乒...梆....梆...乒..梆....梆...乒...梆.....\n",
+GRN"..哈....哈....哈....哈....歐冶子仰天長笑聲震瓦鑠，道：嘿..嘿.....\n\n",
+GRN"寶劍有名方能傳，你的寶劍該什麼名(name)？!\n"NOR,
 });
 
 void create()
 {
-        set_name("欧冶子",({ "ou yezi","ou" }));
+        set_name("歐冶子",({ "ou yezi","ou" }));
         set("gender", "男性" );
         set("age", 73);
         set("long",
-"欧冶子是当世铸剑大师。他铸的剑锋利无比。可是你给的钱太少可也
-不行。一分钱一分货么。\n");
+"歐冶子是當世鑄劍大師。他鑄的劍鋒利無比。可是你給的錢太少可也
+不行。一分錢一分貨麼。\n");
         set("combat_exp", 200000);
         set("attitude", "friendly");
-        set("rank_info/respect", "欧冶师傅");
+        set("rank_info/respect", "歐冶師傅");
         set("inquiry", ([
-            "造剑": "造剑，好说，十两黄金，款到交货！",
-            "铸剑": "造剑，好说，十两黄金，款到交货！",
-            "价格": "这个价格嘛...!嘿嘿,一律十两黄金起价，一分钱一分货么。",
+            "造劍": "造劍，好說，十兩黃金，款到交貨！",
+            "鑄劍": "造劍，好說，十兩黃金，款到交貨！",
+            "價格": "這個價格嘛...!嘿嘿,一律十兩黃金起價，一分錢一分貨麼。",
          ]) );
         setup();
 }
@@ -42,12 +42,12 @@ int accept_object(object me, object ob)
        if((int)me->query_temp("done_s",1))
        {
           say(
-"欧冶子奇怪的看着"+ me->query("name")+"，道:你不是有自己的兵器吗？\n");
+"歐冶子奇怪的看着"+ me->query("name")+"，道:你不是有自己的兵器嗎？\n");
         return 0; }
         if( ob->query("money_id") && ob->value() >= 100000)
         {
         command("nod");
-        command("say 好吧,"+me->query("name")+"我这就替你打造, 请稍等！\n");
+        command("say 好吧,"+me->query("name")+"我這就替你打造, 請稍等！\n");
         call_out( "ouyezi_stage", -10, me, 0 );
         (int)me->query_temp("marks/ouyezi");
         me->set_temp("marks/ouyezi",1);
@@ -71,12 +71,12 @@ int do_name(string arg,object ownsword)
         object me = this_player();
         if(!(int)me->query_temp("marks/ouyezi"))
         {
-            return notify_fail("欧冶子气得一甩手：什么？和我老人家也赖？\n");
+            return notify_fail("歐冶子氣得一甩手：什麼？和我老人家也賴？\n");
         }
         if( !arg ) return notify_fail
-         ("欧冶子问道：宝剑有名方能传，你的宝剑该什么名(name)？可以问(ask)嘛！\n");
+         ("歐冶子問道：寶劍有名方能傳，你的寶劍該什麼名(name)？可以問(ask)嘛！\n");
         if( strwidth(arg) > 20 )
-        return notify_fail("欧冶子说：哇拷！这么长怎么写得下，想个短一点的吧！\n");
+        return notify_fail("歐冶子說：哇拷！這麼長怎麼寫得下，想個短一點的吧！\n");
 
         arg = replace_string(arg, "$BLK$", BLK);
         arg = replace_string(arg, "$RED$", RED);
@@ -98,14 +98,14 @@ int do_name(string arg,object ownsword)
         ownsword= new(__DIR__"obj/ownsword");
         ownsword->set("name",arg +NOR);
         tell_object(me,
-"只见欧冶子师傅抽出鱼肠剑，在宝剑上随手挥洒，立马就有了"+arg+NOR"几个\n");
+"只見歐冶子師傅抽出魚腸劍，在寶劍上隨手揮灑，立馬就有了"+arg+NOR"幾個\n");
         tell_object(me,
-"龙飞凤舞的细字，直把你看得目瞪口呆。\n\n");
+"龍飛鳳舞的細字，直把你看得目瞪口呆。\n\n");
         command("smile");
-        command("say 成了。" + me->query("name") +"，拿去吧！说完便递了一把剑
-过来..\n\n");
+        command("say 成了。" + me->query("name") +"，拿去吧！說完便遞了一把劍
+過來..\n\n");
         ownsword->move(me);
-        write("你拿着剑端详一下，宝剑暗纹浮动，真是绝世无双的手艺。\n\n");
+        write("你拿着劍端詳一下，寶劍暗紋浮動，真是絕世無雙的手藝。\n\n");
         (int)me->query_temp("done_s");
         me->set_temp("done_s",1);
         me->delete_temp("marks/ouyezi");
@@ -117,23 +117,23 @@ int do_ask(object me)
        me = this_player();
        if(!(int)me->query_temp("marks/ouyezi"))
        {
-           return notify_fail("欧冶子道：你想铸宝剑吗？\n");
+           return notify_fail("歐冶子道：你想鑄寶劍嗎？\n");
        }
        write(@HELP
-欧冶子说道:我这门手艺叫做刻字( name <名称> ),
-可以在宝剑上刻字，如果你想在你的兵器上刻下带色的字，剑以名传么。
-那就要采用某种特殊工艺，你且听我慢慢说来:
+歐冶子說道:我這門手藝叫做刻字( name <名稱> ),
+可以在寶劍上刻字，如果你想在你的兵器上刻下帶色的字，劍以名傳麼。
+那就要採用某種特殊工藝，你且聽我慢慢說來:
 
-$BLK$ - 黑色            $NOR$ - 恢复正常颜色
-$RED$ - 红色            $HIR$ - 亮红色
-$GRN$ - 绿色            $HIG$ - 亮绿色
-$YEL$ - 土黄色          $HIY$ - 黄色
-$BLU$ - 深蓝色          $HIB$ - 蓝色
-$MAG$ - 浅紫色          $HIM$ - 粉红色
-$CYN$ - 蓝绿色          $HIC$ - 天青色
-$WHT$ - 浅灰色          $HIW$ - 白色
+$BLK$ - 黑色            $NOR$ - 恢復正常顏色
+$RED$ - 紅色            $HIR$ - 亮紅色
+$GRN$ - 綠色            $HIG$ - 亮綠色
+$YEL$ - 土黃色          $HIY$ - 黃色
+$BLU$ - 深藍色          $HIB$ - 藍色
+$MAG$ - 淺紫色          $HIM$ - 粉紅色
+$CYN$ - 藍綠色          $HIC$ - 天青色
+$WHT$ - 淺灰色          $HIW$ - 白色
 
-我担保它永不褪色。
+我擔保它永不褪色。
 HELP
         );
         return 1;

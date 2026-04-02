@@ -81,21 +81,21 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	command("chat " + ob->query("name")+"我好喜欢你啊！\n");
+	command("chat " + ob->query("name")+"我好喜歡你啊！\n");
 }
 int do_hit(string arg)
 {
-	command("chat "+this_player()->query("name")+"要非礼我了！\n");
+	command("chat "+this_player()->query("name")+"要非禮我了！\n");
 	return 1;
 }
 int do_kill(string arg)
 {
-	command("chat "+this_player()->query("name")+"这个混蛋要强奸我了！快来人哪！\n");
+	command("chat "+this_player()->query("name")+"這個混蛋要強姦我了！快來人哪！\n");
 	return 1;
 }
 int accept_fight(object me)
 {
-	command("chat "+this_player()->query("name")+"要强奸我了，救命啊！\n");
+	command("chat "+this_player()->query("name")+"要強姦我了，救命啊！\n");
 	return 0;
 }
 */

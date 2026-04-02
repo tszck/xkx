@@ -7,8 +7,8 @@ void create()
 {
 	set("short", "街道");
 	set("long", @LONG
-这是泉州南面东西向的一条干道，规模不大。南去可达海外交通使
-节府，东面是一所绸缎庄。
+這是泉州南面東西向的一條幹道，規模不大。南去可達海外交通使
+節府，東面是一所綢緞莊。
 LONG );
 	set("outdoors", "quanzhou");
 	set("exits", ([

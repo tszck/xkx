@@ -9,12 +9,12 @@ inherit ROOM;
 
 void create()
 {
-        set("short",HIC"练功房"NOR);
+        set("short",HIC"練功房"NOR);
 	set("long", @LONG
-这是一间用花岗岩砌成的石屋。室内一只大炉中燃了洪炭，煮着热
-气腾腾的一镬(huo )东西，镬旁两个黑衣小童，一个使劲推拉风箱，另
-一个用铁铲翻炒镬中之物，听这沙沙之声，所炒的似是铁沙。几名帮中
-弟子闭目盘膝坐在锅前，或对着腾上的热气吐呐，或插指于镬中苦练。
+這是一間用花崗巖砌成的石屋。室內一隻大爐中燃了洪炭，煮着熱
+氣騰騰的一鑊(huo )東西，鑊旁兩個黑衣小童，一個使勁推拉風箱，另
+一個用鐵鏟翻炒鑊中之物，聽這沙沙之聲，所炒的似是鐵沙。幾名幫中
+弟子閉目盤膝坐在鍋前，或對着騰上的熱氣吐吶，或插指於鑊中苦練。
 LONG
 	);
         set("exits", ([ 
@@ -24,7 +24,7 @@ LONG
 		__DIR__"npc/heiyi" : 1,
 	]));
 	set("item_desc", ([
-		"huo" : "这是一口巨大的铁锅，锅中盛满铁沙，下面燃着炭火。\n",
+		"huo" : "這是一口巨大的鐵鍋，鍋中盛滿鐵沙，下面燃着炭火。\n",
 	]));
 	set("coor/x", -2050);
 	set("coor/y", -1970);
@@ -47,25 +47,25 @@ int do_chazhi(string arg)
 	if (!living(me)) return 0;
 	if ( !living(this_player()) || arg != "huo" )
 	{
-		write("你想往哪儿插呀！\n");
+		write("你想往哪兒插呀！\n");
 		return 1;
 	}
-	if (!(fam = me->query("family")) || fam["family_name"] != "铁掌帮")
-		return notify_fail("你非本帮弟子，不能在此练功！\n");
+	if (!(fam = me->query("family")) || fam["family_name"] != "鐵掌幫")
+		return notify_fail("你非本幫弟子，不能在此練功！\n");
 
 	if ( (int)me->query_skill("strike", 1) > 100)
-		return notify_fail("你将双手插入镬中，发现铁沙的温度对你来说太低，已毫无意义了。\n");
+		return notify_fail("你將雙手插入鑊中，發現鐵沙的溫度對你來說太低，已毫無意義了。\n");
  
 	if((int)me->query("qi")<30)
 	{
 		me->receive_damage("qi",10);
-		write("你觉得一股热气直逼上来，焦燥难当！\n");
+		write("你覺得一股熱氣直逼上來，焦燥難當！\n");
 		me->unconcious();
 		return 1;
 	}
 	me->receive_damage("qi", random(40));
 	me->improve_skill("strike", me->query("int"));
-	message_vision("$N将双手插进镬中的铁沙里。\n", me);
-	write("灼热的铁沙将你的双手烫得通红，你觉得双手变得强壮有力。\n");
+	message_vision("$N將雙手插進鑊中的鐵沙裏。\n", me);
+	write("灼熱的鐵沙將你的雙手燙得通紅，你覺得雙手變得強壯有力。\n");
 	return 1;
 }

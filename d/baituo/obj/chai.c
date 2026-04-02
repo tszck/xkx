@@ -8,7 +8,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "捆");
-		set("long","这是一捆木柴。\n");
+		set("long","這是一捆木柴。\n");
 		set("value", 0);
 		set("material", "wood");
 	}

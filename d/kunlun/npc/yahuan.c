@@ -6,8 +6,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("小凤", ({ "xiao feng", "feng" }));
-	set("title", HIR"红梅山庄丫鬟"NOR);
+	set_name("小鳳", ({ "xiao feng", "feng" }));
+	set("title", HIR"紅梅山莊丫鬟"NOR);
 	set("gender", "女性");
 	set("age", 35);
 

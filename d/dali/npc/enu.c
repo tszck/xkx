@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("恶奴", ({ "e nu", "nu" }));
+	set_name("惡奴", ({ "e nu", "nu" }));
 	set("age", 32);
 	set("gender", "男性");
-	set("long", "他看上去膀大腰粗，横眉怒目，满面横肉。看来手下倒也有点功夫 。\n");
+	set("long", "他看上去膀大腰粗，橫眉怒目，滿面橫肉。看來手下倒也有點功夫 。\n");
 	set("attitude", "peaceful");
 
 	set("str", 24);

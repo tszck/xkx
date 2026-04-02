@@ -1,11 +1,11 @@
-// jianzhang.c 剑掌五连环
+// jianzhang.c 劍掌五連環
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
 #include <skill.h>
 #include <weapon.h>
 #include <combat.h>
-#define PNAME "「剑掌五连环」"
+#define PNAME "「劍掌五連環」"
 inherit F_SSERVER;
  
 int perform(object me, object target)
@@ -23,18 +23,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail(PNAME"开始时必须拿着一把剑！\n");
+		return notify_fail(PNAME"開始時必須拿着一把劍！\n");
 
 	fskill = "zixia-shengong";
 	bskill = "sword";
@@ -48,18 +48,18 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(sskill)+"还不到家，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"還不到家，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(bskill)+"还不到家，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"還不到家，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 100 )
-		return notify_fail("你的真气不够！\n");
+		return notify_fail("你的真氣不夠！\n");
 
-	msg = HIY "$N"HIY"已然领悟了「御气于剑」之真义，使出华山派绝技「剑掌五连环」，
+	msg = HIY "$N"HIY"已然領悟了「御氣於劍」之真義，使出華山派絕技「劍掌五連環」，
 身法陡然加快！\n" NOR;
 	message_combatd(msg, me);
 
@@ -85,13 +85,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		连续攻击对手五剑
+		連續攻擊對手五劍
 
 	出手要求：
-		紫霞神功50级
-		基本剑法50级
-		华山剑法50级
-		内力100
+		紫霞神功50級
+		基本劍法50級
+		華山劍法50級
+		內力100
 HELP
 	);
 	return 1;

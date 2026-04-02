@@ -180,25 +180,25 @@ int main(object me,string arg)
 
 	if(!objectp(male = present(id1, environment(me))) ||
 		!objectp(female = present(id2, environment(me))))
-		return notify_fail("这里没有这两个人哦~~~\n");
+		return notify_fail("這裏沒有這兩個人哦~~~\n");
 
 	if ( ! living( male ) || ! living (female) )
-		return notify_fail("看清楚点，那不是活的。\n");
+		return notify_fail("看清楚點，那不是活的。\n");
 	if(( male->query("gender")!="男性" && male->query("gender")!="雄性") ||
 	(female->query("gender")!="女性" && female->query("gender")!="雌性"))
-		return notify_fail("老兄，不要错点鸳鸯哦~\n");
+		return notify_fail("老兄，不要錯點鴛鴦哦~\n");
 
 	name1 = male->query("name");
 	name2 = female->query("name");
 
 	if ((me->query("qi")<100) || (me->query("jing")<100) ||
 		(me->query("neili")<100))
-		return notify_fail("你没有精神祝福人家了！\n");
+		return notify_fail("你沒有精神祝福人家了！\n");
 	me->set("qi",10);
 	me->set("jing",10);
 	me->set("neili",10);
 
-	message_vision(CYN"$N虔诚地双手合十，默默地祈祷道：爱神呀，请赐予"+name1+"和"+name2+CYN"幸福吧！愿他们会\n永远相亲相爱，互相扶持，爱火永不熄灭！\n",me);
+	message_vision(CYN"$N虔誠地雙手合十，默默地祈禱道：愛神呀，請賜予"+name1+"和"+name2+CYN"幸福吧！願他們會\n永遠相親相愛，互相扶持，愛火永不熄滅！\n",me);
 	call_out("show_picture", 2 + random( 3 ), name1, name2);
 	return 1;
 }
@@ -206,7 +206,7 @@ int main(object me,string arg)
 void show_picture(string name1, string name2)
 {
 	string str;
-	str = GRN"只听见东方轰隆隆地响了一声，一个姣美的女声响起：\n\t"HIM+name1+BLU"和"HIM+name2+BLU"将在我的庇护下永远\n幸福！我以爱神的名义起誓！\n\n\n"NOR;
+	str = GRN"只聽見東方轟隆隆地響了一聲，一個姣美的女聲響起：\n\t"HIM+name1+BLU"和"HIM+name2+BLU"將在我的庇護下永遠\n幸福！我以愛神的名義起誓！\n\n\n"NOR;
 	message("vision",str, users());
 	call_out("show_flower", 2, name1, name2);
 }
@@ -214,9 +214,9 @@ void show_picture(string name1, string name2)
 void show_flower(string name1, string name2)
 {
 	string str;
-	str = "天空中突然闪出一道绚丽的火花，一个巨大的图案逐渐\n显现：\n";
+	str = "天空中突然閃出一道絢麗的火花，一個巨大的圖案逐漸\n顯現：\n";
 	str += color1[random(sizeof(color1))]+pic[random(sizeof(pic))]+NOR;
-	str += YEL"四下里隐隐传来众人深沉的祝福声：\n     “"HIM+name1+YEL"和"HIM+name2+YEL"永远幸福...\n                                           永远幸福！！”\n\n\n";
+	str += YEL"四下裏隱隱傳來衆人深沉的祝福聲：\n     “"HIM+name1+YEL"和"HIM+name2+YEL"永遠幸福...\n                                           永遠幸福！！”\n\n\n";
 	message("vision", str, users());
 	if ( random( 2) )
 		call_out( "show_flower",2 + random ( 3 ),name1,name2 );
@@ -226,7 +226,7 @@ int help(object me)
 	write(@HELP
 指令格式 : mbless <男名> with <女名>
 
-    这个指令可以让你衷心祝贺一些喜事。
+    這個指令可以讓你衷心祝賀一些喜事。
 
 HELP
 	);

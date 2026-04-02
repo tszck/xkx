@@ -2,7 +2,7 @@
 inherit NPC;
 #include <ansi.h>
 
-string *first_name = ({ "白眼", "饿", "公", "母"});
+string *first_name = ({ "白眼", "餓", "公", "母"});
 string *name_words = ({ "狼"});
 
 
@@ -14,8 +14,8 @@ void create()
 
         set_name(name,({"wolf"}));
 
-	set("race", "走兽");
-        set("long", "一只凶狠残暴的狼，正瞪着火红的狼眼盯着你。\n");
+	set("race", "走獸");
+        set("long", "一隻兇狠殘暴的狼，正瞪着火紅的狼眼盯着你。\n");
         set("age", 3);
         set("attitude", "peaceful");
 

@@ -1,4 +1,4 @@
-// fanye.c 范骅
+// fanye.c 範驊
 
 #include <ansi.h>
 inherit NPC;
@@ -6,9 +6,9 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("范骅", ({ "fan ye", "fan" }));
-	set("title",  "大理司马" );
-	set("long", "他是大理国三公之一。\n");
+	set_name("範驊", ({ "fan ye", "fan" }));
+	set("title",  "大理司馬" );
+	set("long", "他是大理國三公之一。\n");
 	set("gender", "男性");
 	set("age", 40);
 	set("class", "officer");
@@ -60,6 +60,6 @@ void create()
 	carry_object("/clone/weapon/changjian")->wield();
 	add_money("silver", 20);
 
-	create_family("大理段家",19,"武将");
+	create_family("大理段家",19,"武將");
 }
 

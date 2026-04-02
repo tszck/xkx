@@ -6,7 +6,7 @@ void create()
 {
 	set("short", "走廊");
 	set("long", @LONG
-这里是走廊。
+這裏是走廊。
 LONG);
 	set("exits", ([
 		"north"  : __DIR__"bobingwu",

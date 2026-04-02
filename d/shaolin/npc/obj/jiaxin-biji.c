@@ -1,16 +1,16 @@
-// jiaxin-biji.c 夹心荸荠
+// jiaxin-biji.c 夾心荸薺
 
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-	set_name("夹心荸荠", ({"jiaxin biji", "biji"}));
+	set_name("夾心荸薺", ({"jiaxin biji", "biji"}));
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一盆形态精巧别致，外脆里嫩，而又别有风味的夹心荸荠。\n");
+		set("long", "一盆形態精巧別緻，外脆裏嫩，而又別有風味的夾心荸薺。\n");
 		set("unit", "盆");
 		set("value", 150);
 		set("food_remaining", 4);

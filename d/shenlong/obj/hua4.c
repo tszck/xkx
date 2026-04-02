@@ -10,26 +10,26 @@ void init()
 
 void create()
 {
-	set_name(HIC "翡翠兰" NOR, ({"hua4", "feicui"}));
+	set_name(HIC "翡翠蘭" NOR, ({"hua4", "feicui"}));
 	set("unit", "朵");
-	set("long", "这是一朵千年难得一见的翡翠兰，据说能解百毒。\n");
+	set("long", "這是一朵千年難得一見的翡翠蘭，據說能解百毒。\n");
 	setup();
 }
 
 int do_eat(string arg)
 {
 	object me=this_player();
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 	this_player()->set_temp("nopoison", 1);
 	this_player()->set("eff_jing",this_player()->query("max_jing"));
 	this_player()->set("jing",this_player()->query("max_jing"));
 	this_player()->set("eff_qi",this_player()->query("max_qi"));
 	this_player()->set("qi",this_player()->query("max_qi"));
-	tell_object(this_player(), HIG "你只觉一股清香沁入心肺，顿时灵台一片空明，神意清爽！\n" NOR );
+	tell_object(this_player(), HIG "你只覺一股清香沁入心肺，頓時靈臺一片空明，神意清爽！\n" NOR );
 	destruct(this_object());
 	return 1;
 }

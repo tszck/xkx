@@ -5,13 +5,13 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("高丽商", ({ "gaoli shang", "shang" }));
-	set("title", "新罗坊老板");
+	set_name("高麗商", ({ "gaoli shang", "shang" }));
+	set("title", "新羅坊老闆");
 	set("shen_type", 1);
 
 	set("gender", "男性");
 	set("age", 45);
-	set("long", "这是个高丽商人，长得和中国人没啥区别。连卖的东西也差不多。\n");
+	set("long", "這是個高麗商人，長得和中國人沒啥區別。連賣的東西也差不多。\n");
 	set_skill("unarmed", 50);
 	set_skill("dodge", 50);
 	set_temp("apply/damage", 15);

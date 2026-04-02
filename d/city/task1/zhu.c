@@ -1,12 +1,12 @@
-// zhu.c 朱安国
+// zhu.c 朱安國
  
 inherit NPC;
  
 void create()
 {
-	set_name("朱安国", ({ "zhu  anguo"}));
-	set("title", "朝廷钦犯");
-	set("long", "朝廷追捕的要犯，一直反对朝廷。\n");
+	set_name("朱安國", ({ "zhu  anguo"}));
+	set("title", "朝廷欽犯");
+	set("long", "朝廷追捕的要犯，一直反對朝廷。\n");
 	set("gender", "男性");
 	set("age", 37);
 	set("attitude", "peaceful");

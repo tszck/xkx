@@ -24,13 +24,13 @@ string extra_long()
 	{
 		max = query("max_liquid");
 		if( amount == max )
-			str = "里面装满了" + query("liquid/name") + "。\n";
+			str = "裏面裝滿了" + query("liquid/name") + "。\n";
 		else if( amount > max/2 )
-			str = "里面装了七、八分满的" + query("liquid/name") + "。\n";
+			str = "裏面裝了七、八分滿的" + query("liquid/name") + "。\n";
 		else if( amount >= max/3 )
-			str = "里面装了五、六分满的" + query("liquid/name") + "。\n";
+			str = "裏面裝了五、六分滿的" + query("liquid/name") + "。\n";
 		else if( amount > max/2 )
-			str = "里面装了少许的" + query("liquid/name") + "。\n";
+			str = "裏面裝了少許的" + query("liquid/name") + "。\n";
 		return str;
 	}
 	else return 0;
@@ -41,20 +41,20 @@ int do_drink(string arg)
 	if( !living(this_player()) || this_player()->query_temp("noliving") )
 		return 1;
 	if( this_player()->query("jing")<0 || this_player()->query("qi")<0 )
-		return notify_fail("你太累了，实在没力气喝东西了。\n");
+		return notify_fail("你太累了，實在沒力氣喝東西了。\n");
 	if( !this_object()->id(arg) ) return 0;
 	if( !present(this_object(), this_player()) )
-		return notify_fail("你要喝什么东西？\n");
+		return notify_fail("你要喝什麼東西？\n");
 	if( this_player()->is_busy() )
-		return notify_fail("别急，慢慢喝，别呛着了。\n");
+		return notify_fail("別急，慢慢喝，別嗆着了。\n");
 	if( !query("liquid/remaining") )
-		return notify_fail( name() + (query("liquid/name") ? "已经被喝得一滴也不剩了":"是空的。\n"));
+		return notify_fail( name() + (query("liquid/name") ? "已經被喝得一滴也不剩了":"是空的。\n"));
 	if( (int)this_player()->query("water") >=
 		(int)this_player()->max_water_capacity() )
-		return notify_fail("你已经喝太多了，再也灌不下一滴水了。\n");
+		return notify_fail("你已經喝太多了，再也灌不下一滴水了。\n");
 
 	add("liquid/remaining", -1);
-	message_vision("$N拿起" + name() + "咕噜噜地喝了几口" + query("liquid/name") + "。\n", this_player());
+	message_vision("$N拿起" + name() + "咕嚕嚕地喝了幾口" + query("liquid/name") + "。\n", this_player());
 	if( query("liquid/supply") >0 )
 		this_player()->add("water", query("liquid/supply"));
   	else
@@ -62,11 +62,11 @@ int do_drink(string arg)
 	if( query("liquid/poisontime") > 1 )
 	{
 		this_player()->apply_condition(query("liquid/poison"),query("liquid/poisontime") );
-		write("你突然觉得喝的东西有点不对劲。可已经来不及了。\n");
+		write("你突然覺得喝的東西有點不對勁。可已經來不及了。\n");
 	}
 	if( this_player()->is_fighting() ) this_player()->start_busy(2);
 	if( !query("liquid/remaining") )
-		write("你已经将" + name() + "里的" + query("liquid/name") +"喝得一滴也不剩了。\n");
+		write("你已經將" + name() + "裏的" + query("liquid/name") +"喝得一滴也不剩了。\n");
 
 // This allows customization of drinking effect.
 	if( query("liquid/drink_func") ) return 1;
@@ -87,15 +87,15 @@ int do_fill(string arg)
 {
 	if( !this_object()->id(arg) ) return 0;
 	if (!present(this_object(), this_player()))
-		return notify_fail("你身上没有这样东西！\n");
+		return notify_fail("你身上沒有這樣東西！\n");
 	if( this_player()->is_busy() )
-		return notify_fail("你上一个动作还没有完成。\n");
+		return notify_fail("你上一個動作還沒有完成。\n");
 	if( !environment(this_player())->query("resource/water") )
-		return notify_fail("这里没有地方可以装水。\n");
+		return notify_fail("這裏沒有地方可以裝水。\n");
 
 	if( query("liquid/remaining") )
-		message_vision("$N将" + name() + "里剩下的" + query("liquid/name") + "倒掉。\n", this_player());
-	message_vision("$N将" + name() + "装满清水。\n", this_player());
+		message_vision("$N將" + name() + "裏剩下的" + query("liquid/name") + "倒掉。\n", this_player());
+	message_vision("$N將" + name() + "裝滿清水。\n", this_player());
 
 	if( this_player()->is_fighting() ) this_player()->start_busy(2);
 

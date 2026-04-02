@@ -6,9 +6,9 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("段无畏", ({ "duan wuwei", "duan" }));
-	set("title",  "镇南王府管家" );
-	set("long", "他是大理国镇南王府管家。\n");
+	set_name("段無畏", ({ "duan wuwei", "duan" }));
+	set("title",  "鎮南王府管家" );
+	set("long", "他是大理國鎮南王府管家。\n");
 	set("gender", "男性");
 	set("age", 40);
 	set("attitude", "friendly");
@@ -73,16 +73,16 @@ int checking(object me, object ob)
 
 	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 ) 
 	{
-		command("say 青出於蓝胜於蓝，不愧是大理段家的好弟子 ! 恭喜你了 !\n");
-		command("say 你的武功可以进一步深造了 !\n");
+		command("say 青出於藍勝於藍，不愧是大理段家的好弟子 ! 恭喜你了 !\n");
+		command("say 你的武功可以進一步深造了 !\n");
 		ob->set_temp("have_fight1",1);
 		return 1;
 	}
 
 	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 ) 
 	{
-		command("say 看来" + RANK_D->query_respect(ob) + 
-			"还得多加练习，方能在大理段家诸多弟子中出人头地 !\n");
+		command("say 看來" + RANK_D->query_respect(ob) + 
+			"還得多加練習，方能在大理段家諸多弟子中出人頭地 !\n");
 		return 1;
 	}
 

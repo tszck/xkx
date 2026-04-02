@@ -4,14 +4,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name("华山剑谱", ({ "sword book", "book" }));
+	set_name("華山劍譜", ({ "sword book", "book" }));
 	set_weight(600);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
 		set("long",
-"封面上写著「华山剑法 -- 卷二（进阶）」\n");
+"封面上寫著「華山劍法 -- 卷二（進階）」\n");
 		set("value", 1000);
 		set("material", "paper");
 		set("skill", ([

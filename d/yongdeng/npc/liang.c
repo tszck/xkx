@@ -5,15 +5,15 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-	set_name("梁子翁", ({ "liang ziwen", "liang", "ziwen" }));
+	set_name("樑子翁", ({ "liang ziwen", "liang", "ziwen" }));
 	set("gender", "男性");
-	set("nickname", HIR"参仙"HIW"老怪"NOR);
+	set("nickname", HIR"參仙"HIW"老怪"NOR);
 	set("age", 43);
 	set("str", 25);
 	set("per", 20);
 	set("dex", 16);
-	set("long", "梁子翁身材中等，满头白发如银，但脸色光润，神采弈弈，穿一
-件葛布长袍，打扮非道非俗。他是长白山武学的一派宗师。\n");
+	set("long", "樑子翁身材中等，滿頭白髮如銀，但臉色光潤，神采弈弈，穿一
+件葛布長袍，打扮非道非俗。他是長白山武學的一派宗師。\n");
 	set("combat_exp", 200000);
 	set("shen_type", -1);
 	set("attitude", "peaceful");

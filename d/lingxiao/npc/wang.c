@@ -6,12 +6,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("王万仞",({"wang wanren","wang"}));
+	set_name("王萬仞",({"wang wanren","wang"}));
 	set("gender", "男性");
 	set("age", 20);
 	set("long", 
-	       "他是凌霄城第六代弟子王万仞，专门负责接送新入门的弟子上山。\n"
-	       "他本是凌霄城中杰出弟子，只是好酒贪杯，才被罚到此守卫。\n");
+	       "他是凌霄城第六代弟子王萬仞，專門負責接送新入門的弟子上山。\n"
+	       "他本是凌霄城中傑出弟子，只是好酒貪杯，才被罰到此守衛。\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);
@@ -29,11 +29,11 @@ void create()
 	set("combat_exp", 200000);
 	set("chat_chance", 10);
 	set("chat_msg", ({
-"王万仞打了个喷嚏，叹了一声：在这鬼地方，真够冷的，要是有点酒喝就暖和多了。\n", 
-"王万仞说道，你要能给我点酒，我就让你进密道去，山腰小店就有卖的。\n", 
+"王萬仞打了個噴嚏，嘆了一聲：在這鬼地方，真夠冷的，要是有點酒喝就暖和多了。\n", 
+"王萬仞說道，你要能給我點酒，我就讓你進密道去，山腰小店就有賣的。\n", 
 	}) );
 	set("inquiry", ([
-		"暗道"   : "那是只有我们凌霄弟子才能走的。",
+		"暗道"   : "那是隻有我們凌霄弟子才能走的。",
 	]));
 	set("shen_type", 0);
 	set("score", 20000);
@@ -73,19 +73,19 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say 我是不收徒，你进城找我师兄们好了。");
+	command("say 我是不收徒，你進城找我師兄們好了。");
 }
 
 int accept_object(object me, object ob)
 {
 	if ((string)ob->query("name")!="牛皮酒袋")
 	{
-		command("say 你给我这玩意干什么。");
+		command("say 你給我這玩意幹什麼。");
 		return 1;
 	}
 	else
 	{
-		command("say 这位"+RANK_D->query_respect(me) + "你太好了！\n多谢了，我这就送你进密道去，不过你千万不要说是我放你进去的哦。\n");
+		command("say 這位"+RANK_D->query_respect(me) + "你太好了！\n多謝了，我這就送你進密道去，不過你千萬不要說是我放你進去的哦。\n");
 		me->move("/d/lingxiao/andao");
 		return 1;
 	}

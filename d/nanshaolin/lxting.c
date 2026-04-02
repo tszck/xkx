@@ -7,10 +7,10 @@ void create()
 {
 	set("short", MAG"立雪亭"NOR);
 	set("long", @LONG
-你沿台阶拾阶而上，眼前出现一座亭子一般的殿堂。殿前横匾上写
-着『立雪亭』三个大字。这里又名达摩亭。殿内佛龛供奉达摩铜像和二
-祖，三祖，四祖，五祖的立像。相传神光在嵩山本院立雪亭立雪断臂得
-授达摩真传衣钵的地方。殿内正中的蒲团上坐着一位白眉白须的老僧。
+你沿臺階拾階而上，眼前出現一座亭子一般的殿堂。殿前橫匾上寫
+着『立雪亭』三個大字。這裏又名達摩亭。殿內佛龕供奉達摩銅像和二
+祖，三祖，四祖，五祖的立像。相傳神光在嵩山本院立雪亭立雪斷臂得
+授達摩真傳衣鉢的地方。殿內正中的蒲團上坐着一位白眉白鬚的老僧。
 LONG );
 	set("exits", ([
 		"north"     : __DIR__"sblu-2",
@@ -36,7 +36,7 @@ int valid_leave(object me, string dir)
 		objectp(present("dayi dashi", environment(me))) &&
 		dir == "north" ) 
 	{
-		return notify_fail("大痍大师伸手拦住你躬身说道：后面乃是本寺重地，非本派高辈弟子，不能擅入！\n");
+		return notify_fail("大痍大師伸手攔住你躬身說道：後面乃是本寺重地，非本派高輩弟子，不能擅入！\n");
 	}
 	return ::valid_leave(me, dir);
 }

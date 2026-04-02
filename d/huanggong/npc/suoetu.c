@@ -6,8 +6,8 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIY "索额图" NOR, ({"suo etu", "etu", "suo"}));
-	set("title", "吏部尚书");
+	set_name(HIY "索額圖" NOR, ({"suo etu", "etu", "suo"}));
+	set("title", "吏部尚書");
 	set("gender", "男性");
 	set("age", 46);
 	set("str", 25);
@@ -15,7 +15,7 @@ void create()
 	set("int", 28);
 	set("con", 28);
 	set("per", 20);
-	set("long", "他是康熙顾命大臣索尼之子。\n");
+	set("long", "他是康熙顧命大臣索尼之子。\n");
 
 	set("combat_exp", 10000);
 	set("score", 200);

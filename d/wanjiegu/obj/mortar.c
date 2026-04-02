@@ -13,7 +13,7 @@ void create()
                 set("unit", "只");
                 set("no_shown",1);
                 set("no_get",1);
-                set("long", "这是一用来炼药用的石臼。\n");
+                set("long", "這是一用來煉藥用的石臼。\n");
                 set("value", 1);
         }
 }

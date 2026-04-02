@@ -3,8 +3,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("观众丁", ({ "ding" }));
-	set("long", "此人身材瘦小，却是气宇暄昂, 似乎身怀惊人艺业。\n");
+	set_name("觀衆丁", ({ "ding" }));
+	set("long", "此人身材瘦小，卻是氣宇暄昂, 似乎身懷驚人藝業。\n");
 	set("gender", "男性");
 	set("age", 25);
 	set("attitude", "peaceful");
@@ -57,12 +57,12 @@ void init()
 	&& !environment(ob)->query("no_fight"))
 	{
 		if( !ob->query_temp("warned") ) {
-			command("say 你也不看看长自己什么样，居然到这儿来撒野！");
+			command("say 你也不看看長自己什麼樣，居然到這兒來撒野！");
 		}
 		else if( ob->query_temp("stay") < 10 ) ob->add_temp("stay", 1);
 		else {
 			me->set_leader(ob);
-			command("say 你还想跑，我非宰了你不可！");
+			command("say 你還想跑，我非宰了你不可！");
 			remove_call_out("kill_ob");
 			call_out("kill_ob", 1, ob); 
 		}

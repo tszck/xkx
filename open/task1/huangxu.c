@@ -1,11 +1,11 @@
-// huangxu.c 黄须道人
+// huangxu.c 黃鬚道人
 
 inherit NPC;
  
 void create()
 {
-	set_name("黄须道人", ({ "huangxu  daoren", "daoren" }));
-	set("long", "武当的叛徒，为人奸诈，常常干些坏事。\n");
+	set_name("黃鬚道人", ({ "huangxu  daoren", "daoren" }));
+	set("long", "武當的叛徒，爲人奸詐，常常幹些壞事。\n");
 	set("gender", "男性");
 	set("age", 35);
 	set("attitude", "peaceful");

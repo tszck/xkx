@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name(HIB "牛头" NOR, ({ "niu tou" }) );
+	set_name(HIB "牛頭" NOR, ({ "niu tou" }) );
         set("nickname",CYN "妖怪" NOR);
         set("long",RED @LONG
-一个似人非人，似畜非畜的妖怪，人身牛头，似笑似哭，尖牙龇露...
+一個似人非人，似畜非畜的妖怪，人身牛頭，似笑似哭，尖牙齜露...
 LONG NOR);
         set("age",0);
 	set("max_jing", 10000);

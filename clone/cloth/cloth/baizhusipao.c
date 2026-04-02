@@ -1,11 +1,11 @@
-// baizhusipao.c 白苎丝袍
+// baizhusipao.c 白薴絲袍
 
 #include <armor.h>
 inherit CLOTH;
 void create()
 {
-	set_name("白苎丝袍", ({ "baisi pao", "cloth" }));
-	set("long","一套玉色的苎丝袍，裁剪和体，缝制精细。\n");
+	set_name("白薴絲袍", ({ "baisi pao", "cloth" }));
+	set("long","一套玉色的薴絲袍，裁剪和體，縫製精細。\n");
 	set_weight(2000);
 	if (clonep())
 		set_default_object(__FILE__);

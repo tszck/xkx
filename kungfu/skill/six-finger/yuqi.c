@@ -1,9 +1,9 @@
-// yuqi.c 驭剑气
+// yuqi.c 馭劍氣
 // Last Modified by winder on Mar. 10 2000
  
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "「驭剑气」"
+#define PNAME "「馭劍氣」"
 int perform(object me,object target)
 {
 	string msg;
@@ -20,17 +20,17 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (objectp(weapon = me->query_temp("weapon")))
-		return notify_fail("你必须空手运功。\n");
+		return notify_fail("你必須空手運功。\n");
 
 	fskill = "kurong-changong";
 	bskill = "finger";
@@ -44,20 +44,20 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(fskill)+"等级不够, 不能使"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"等級不夠, 不能使"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(sskill)+"等级不够, 不能使"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"等級不夠, 不能使"+PNAME+"。\n");
 
 	if( me->query_str() < 30)
-		return notify_fail("你的臂力不够，无法运功！\n");
+		return notify_fail("你的臂力不夠，無法運功！\n");
  
 	if( me->query("neili") < 1500 )
-		return notify_fail("你的内力不够，无法运功！\n");
+		return notify_fail("你的內力不夠，無法運功！\n");
  
 	skill = me->query_skill(bskill,1);
-	msg = HIY "$N忽然心头大乱，十指乱伸，内息滚动，直是连绵无尽。霎时
-间剑气纵横，尘烟四起，\n"NOR;
+	msg = HIY "$N忽然心頭大亂，十指亂伸，內息滾動，直是連綿無盡。霎時
+間劍氣縱橫，塵煙四起，\n"NOR;
 
 
 	ap = me->query("combat_exp") + skill * 400;
@@ -77,7 +77,7 @@ int perform(object me,object target)
 		me->start_busy(random(3));
 		me->add("neili", -1000);
 
-		msg += HIR"$n顿时手足无错，全身刺痛锥心，鲜血标出丈多远！\n"NOR;
+		msg += HIR"$n頓時手足無錯，全身刺痛錐心，鮮血標出丈多遠！\n"NOR;
 		if (objectp(target_w = target->query_temp("weapon")))
 		{
 			target_w->unequip();
@@ -88,12 +88,12 @@ int perform(object me,object target)
       	piece->set_name( target_w->query("name") + "的碎片", ({target_w->query("id"),"piece"}) );
       	piece->move(environment(target));
      		destruct(target_w);
-			msg += HIY "同时只听到「叮当」一声兵刃破碎的声音，$n顿觉手中一震，兵器竟被剑气误打误撞，脱手而出！\n" NOR;
+			msg += HIY "同時只聽到「叮噹」一聲兵刃破碎的聲音，$n頓覺手中一震，兵器竟被劍氣誤打誤撞，脫手而出！\n" NOR;
 		}
 	}
 	else
 	{
-		msg += HIG "只见$n不慌不忙，轻轻一闪，躲过了$N的气剑！\n"NOR;
+		msg += HIG "只見$n不慌不忙，輕輕一閃，躲過了$N的氣劍！\n"NOR;
 		me->start_busy(4);
 		me->add("neili", -500);
 	}
@@ -111,14 +111,14 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
-		损毁对方兵刃
+		損傷對方氣血
+		損毀對方兵刃
 
 	出手要求：
-		枯荣禅功150级
-		六脉神剑120级
-		内力1500
-		后天膂力30
+		枯榮禪功150級
+		六脈神劍120級
+		內力1500
+		後天膂力30
 HELP
 	);
 	return 1;

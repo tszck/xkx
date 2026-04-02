@@ -7,10 +7,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("剑客", ({ "jian ke","ke" }) );
+	set_name("劍客", ({ "jian ke","ke" }) );
 	set("gender", "男性");
 	set("age", 45);
-	set("long","这是位中年武人，肩背长剑，长长的剑穗随风飘扬，看来似乎身怀绝艺。\n");
+	set("long","這是位中年武人，肩背長劍，長長的劍穗隨風飄揚，看來似乎身懷絕藝。\n");
 	set("combat_exp", 20000);
         set("shen_type", -1);
 	set("attitude", "heroism");
@@ -42,7 +42,7 @@ void init()
 	mengzhu = ob->query("winner");
 
 	if( this_player()->query("id") == mengzhu ) {
-		message_vision(HIY "剑客向$N躬身为礼，说道：盟主您老人家好！\n" NOR, 
+		message_vision(HIY "劍客向$N躬身爲禮，說道：盟主您老人家好！\n" NOR, 
 		this_player());
 	}	
 }

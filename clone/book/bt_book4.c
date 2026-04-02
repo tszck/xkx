@@ -1,17 +1,17 @@
-// bt_book4.c 蛇经
+// bt_book4.c 蛇經
 // Last Modified by Winder on May. 15 2001
 
 inherit ITEM;
 
 void create()
 {
-	set_name("蛇经", ({ "she jing", "jing"}));
+	set_name("蛇經", ({ "she jing", "jing"}));
 	set_weight(1000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一本西毒欧阳锋手书的蛇经。\n");
+		set("long", "這是一本西毒歐陽鋒手書的蛇經。\n");
 		set("value", 10000);
 		set("material", "paper");
 		set("skill", ([

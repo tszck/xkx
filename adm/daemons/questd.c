@@ -53,10 +53,10 @@ int quest_reward(object me, object who,object quest_item)
         me->add("combat_exp",exp);
         me->add("potential",pot);
         me->add("score",score);
-	tell_object(me,HIW"你被奖励了：\n" +
-        	    chinese_number(exp) + "点实战经验\n"+
-        	    chinese_number(pot) + "点潜能\n" +
-        	    chinese_number(score)+"点江湖阅历\n"NOR);
+	tell_object(me,HIW"你被獎勵了：\n" +
+        	    chinese_number(exp) + "點實戰經驗\n"+
+        	    chinese_number(pot) + "點潛能\n" +
+        	    chinese_number(score)+"點江湖閱歷\n"NOR);
 	me->add("TASK",1);
 	if ( !undefinedp(quest["fin_func"]))
 		call_other(this_object(), quest["fin_func"], me, who, quest_item);
@@ -154,15 +154,15 @@ string dyn_quest_list(int unfinished)
 string locate_obj(object me,string strr)
 {
         string *distance = ({
-		"极近", "很近", "比较近", "不远",
-		"不近", "比较远", "很远", "极远"
+		"極近", "很近", "比較近", "不遠",
+		"不近", "比較遠", "很遠", "極遠"
         });
         string *altitude = ({
-		"高处", "地方", "低处"
+		"高處", "地方", "低處"
         });
         string *directions = ({
-		"周围","北方", "南方", "东方","西方",
-		"东北方","西北方","东南方","西南方"
+		"周圍","北方", "南方", "東方","西方",
+		"東北方","西北方","東南方","西南方"
         });
 
         object ob, *ob_list;
@@ -205,7 +205,7 @@ string locate_obj(object me,string strr)
 
         if (ob) {
 		if (wizardp(me))
-			return "『" + item->query("name") + "』在" + base_name(ob) + "处\n";
+			return "『" + item->query("name") + "』在" + base_name(ob) + "處\n";
 
               	x0 = (int)room->query("coor/x");
               	y0 = (int)room->query("coor/y");

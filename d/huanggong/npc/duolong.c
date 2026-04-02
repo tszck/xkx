@@ -8,9 +8,9 @@ void create()
 {
 	set_name("多隆", ({"duo long", "duo", "long"}));
 	set("long",
-        "他是一位身材魁梧的豪爽汉子。\n");
+        "他是一位身材魁梧的豪爽漢子。\n");
                                                           
-	set("title",HIY "御前侍卫总管" NOR);
+	set("title",HIY "御前侍衛總管" NOR);
 	set("gender", "男性");
 	set("attitude", "peaceful");
 

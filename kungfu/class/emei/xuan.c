@@ -1,4 +1,4 @@
-// xuan.c 静玄师太
+// xuan.c 靜玄師太
 //Modified by That Oct.1997
 #include <command.h>
 #include <ansi.h>
@@ -9,8 +9,8 @@ string ask_for_join();
 void create()
 {
 
-	set_name("静玄师太", ({ "jingxuan shitai","jingxuan","shitai"}));
-	set("long","她是峨嵋派大师姐，跟随灭绝师太二十余载，峨嵋派的基本功夫已尽得所传。\n");
+	set_name("靜玄師太", ({ "jingxuan shitai","jingxuan","shitai"}));
+	set("long","她是峨嵋派大師姐，跟隨滅絕師太二十餘載，峨嵋派的基本功夫已盡得所傳。\n");
 	set("gender", "女性");
 	set("age", 42);
 	set("attitude", "peaceful");
@@ -20,7 +20,7 @@ void create()
 	set("inquiry",([
 		"剃度" : (: ask_for_join :),
 		"出家" : (: ask_for_join :),
-		"还俗" : "峨嵋弟子，不能还俗。你找掌门师太吧。",
+		"還俗" : "峨嵋弟子，不能還俗。你找掌門師太吧。",
 	]));
 
 	set("str", 30);
@@ -89,27 +89,27 @@ void attempt_apprentice(object ob)
 {
 	if( (string)ob->query("class")!="bonze" )
 	{
-		command("say 阿弥陀佛！贫尼不收弟子。\n");
-		command("say 你若想继续学峨嵋派的功夫，还是去找我俗家师妹吧。\n");
+		command("say 阿彌陀佛！貧尼不收弟子。\n");
+		command("say 你若想繼續學峨嵋派的功夫，還是去找我俗家師妹吧。\n");
 		return;
 	}
 	if( (string)ob->query("gender") != "女性" )
 	{
-		command("say 阿弥陀佛！贫尼不收男弟子。施主若想学艺可去找我俗家师妹。");
+		command("say 阿彌陀佛！貧尼不收男弟子。施主若想學藝可去找我俗家師妹。");
 		return;
 	}
 	if ((int)ob->query("shen") < 100)
 	{
-		command("say "+RANK_D->query_respect(ob)+"你行侠仗义之事还做的不够。");
+		command("say "+RANK_D->query_respect(ob)+"你行俠仗義之事還做的不夠。");
 		return;
 	}
 	if ((int)ob->query_skill("mahayana",1) <50)
 	{
-		command("say 你大乘佛法的修为还要提高些。");
+		command("say 你大乘佛法的修爲還要提高些。");
 		return;
 	}
-	command("say 阿弥陀佛，善哉！善哉！好吧，我就收下你了。");
-	command("say 希望你能以慈悲之心，以智慧之力，努力行善，济度众生。");
+	command("say 阿彌陀佛，善哉！善哉！好吧，我就收下你了。");
+	command("say 希望你能以慈悲之心，以智慧之力，努力行善，濟度衆生。");
 	command("recruit " + ob->query("id"));
 }
 #include "emei.h"

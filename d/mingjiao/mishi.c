@@ -7,9 +7,9 @@ void create()
 {
 	set("short", "石室");
 	set("long", @LONG
-这间石室极大，顶上垂下钟乳，显是天然的石洞。走了几步，突见
-地下倒着两具骷髅。骷髅身上衣服尚未烂尽，着得出是一男一女。走近
-两具骷髅，只见那女子右手抓着一柄晶光闪亮的匕首，插在她自己胸口。
+這間石室極大，頂上垂下鍾乳，顯是天然的石洞。走了幾步，突見
+地下倒着兩具骷髏。骷髏身上衣服尚未爛盡，着得出是一男一女。走近
+兩具骷髏，只見那女子右手抓着一柄晶光閃亮的匕首，插在她自己胸口。
 LONG );
 	set("exits", ([
 		"south" : __DIR__"midao0",
@@ -25,7 +25,7 @@ LONG );
 	set("coor/y", 1080);
 	set("coor/z", 90);
 	setup();
-	create_door("south", "石门", "north", !DOOR_CLOSED);
+	create_door("south", "石門", "north", !DOOR_CLOSED);
 }
 void init()
 {
@@ -41,21 +41,21 @@ int do_ketou()
 		
 	if ( me->query_temp("ketou_times") == 0 )
 	{
-		message_vision("$N磕头磕得晕了过去。\n", me);
+		message_vision("$N磕頭磕得暈了過去。\n", me);
 		me->set_temp("ketou_times", random(50));
 		me->unconcious();
 		return 1;
 	}
 	me->add_temp("ketou_times", -1);	
 
-	message_vision("$N虔诚地跪下来，在阳教主遗骨前恭恭敬敬地磕头。\n", me);
+	message_vision("$N虔誠地跪下來，在陽教主遺骨前恭恭敬敬地磕頭。\n", me);
 
 	if ( random(20) == 3 && query("xin_count") > 0 )
 	{
 		add("xin_count", -1);
 		ob=new("/d/mingjiao/obj/yixin");
 		ob->move(this_object());
-		tell_object(me, "突然你抬眼看到遗骨下面，有几张纸片！\n");
+		tell_object(me, "突然你抬眼看到遺骨下面，有幾張紙片！\n");
 	}
 	return 1;
 }

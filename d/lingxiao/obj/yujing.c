@@ -11,8 +11,8 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long","这是万年寒玉所凝结而成的冰魄玉精，看上去洁白剔透，散发出绿幽幽的光芒。\n");
-		set("unit", "块");
+		set("long","這是萬年寒玉所凝結而成的冰魄玉精，看上去潔白剔透，散發出綠幽幽的光芒。\n");
+		set("unit", "塊");
 		set("value", 70000);
 	}
 }

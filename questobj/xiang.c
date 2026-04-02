@@ -7,10 +7,10 @@ void setup()
 
 void create()
 {
-	set_name(HIC"龙涎香"NOR, ({"longxian xiang","xiang" }));
-	set("unit","块");
+	set_name(HIC"龍涎香"NOR, ({"longxian xiang","xiang" }));
+	set("unit","塊");
 	set("taskobj", 1);
-	set("long","这是一块黑红色的东西，散发出奇异香气,据说可以吸引毒虫。\n");
+	set("long","這是一塊黑紅色的東西，散發出奇異香氣,據說可以吸引毒蟲。\n");
 	set("value", 0);
 	set_weight(50);
 	setup();

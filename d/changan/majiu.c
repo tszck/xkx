@@ -1,15 +1,15 @@
-// /d/changan/majiu.c 马厩
+// /d/changan/majiu.c 馬廄
 
 inherit ROOM;
 
 void create()
 {
-	set("short","马厩");
+	set("short","馬廄");
 	set("long",@LONG
-这是客店后的马厩，常年供应新鲜草料。扬州民风淳朴，马夫们会
-把马牵到马厩好生照看，将它们喂饱饮足，再洗刷得干乾净净，一直伺
-候到客人上路。马厩雨檐下的烂木柱上钉着一块破木牌(paizi)。
-    马厩中堆放著几堆草料，正中有一口泔槽。
+這是客店後的馬廄，常年供應新鮮草料。揚州民風淳樸，馬伕們會
+把馬牽到馬廄好生照看，將它們餵飽飲足，再洗刷得幹乾淨淨，一直伺
+候到客人上路。馬廄雨檐下的爛木柱上釘着一塊破木牌(paizi)。
+    馬廄中堆放著幾堆草料，正中有一口泔槽。
 LONG);
 	set("outdoors", "changan");
 	set("no_fight", "1");
@@ -23,10 +23,10 @@ LONG);
 	]));
 	set("item_desc", ([
 		"paizi": @TEXT
-客人们只要给马夫一两白银的租金就可以雇到一匹马了。
+客人們只要給馬伕一兩白銀的租金就可以僱到一匹馬了。
 
-前往      扬州城:  rideyz
-          伊犁镇:  rideyl
+前往      揚州城:  rideyz
+          伊犁鎮:  rideyl
 TEXT]));
 	set("exits",([ /* sizeof() == 1 */
 		"south" : __DIR__"kedian",

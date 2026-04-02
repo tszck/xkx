@@ -1,4 +1,4 @@
-// chanfang3.c 禅房
+// chanfang3.c 禪房
 // Winder Oct.10 1998
 
 #include <ansi.h>
@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "禅房");
+        set("short", "禪房");
         set("long", @LONG
-这里是全真弟子修身养性、打熬气力的地方。为了方便练功，桌
-椅都没有摆放，仅仅在地下丢了几个小蒲团。
+這裏是全真弟子修身養性、打熬氣力的地方。爲了方便練功，桌
+椅都沒有擺放，僅僅在地下丟了幾個小蒲團。
 LONG
         );
         set("exits", ([

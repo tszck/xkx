@@ -21,7 +21,7 @@ void create()
 		set("unit", "支");
 		set("value", 0);
 		set("material", "steel");
-		set("long", "这是一支黑黝黝的铁筒，不知道做什么用的。\n");
+		set("long", "這是一支黑黝黝的鐵筒，不知道做什麼用的。\n");
 	}
 	setup();
 }

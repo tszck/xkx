@@ -10,7 +10,7 @@ void create()
 	set("age", random(10) + 20);
 	set("str", 25);
 	set("dex", 16);
-	set("long", "这是一品堂的护院武士，身披钢甲，手执弯刀。\n");
+	set("long", "這是一品堂的護院武士，身披鋼甲，手執彎刀。\n");
 	set("combat_exp", 50000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");

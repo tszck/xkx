@@ -11,17 +11,17 @@ int save();
 void create()
 {
 //	if (!restore()){
-	set_name("坐骑", ({"pet"}));
-	set("race", "野兽");
+	set_name("坐騎", ({"pet"}));
+	set("race", "野獸");
 	set("age", 1);
 	set("mud_age", 1);
 	set("combat_exp", 100);
-	set("limbs", ({ "头部","身体","前心","后背","前爪","后腿","尾巴" }) );
+	set("limbs", ({ "頭部","身體","前心","後背","前爪","後腿","尾巴" }) );
 	set("verbs", ({ "bite", "claw"}));
 
-	set("ride/msg", "骑");
+	set("ride/msg", "騎");
 	set("ride/dodge", 5);
-	set("curiousness", 1);    // 好学的。可以学习的条件
+	set("curiousness", 1);    // 好學的。可以學習的條件
 	set("owner","mudlib");
 	set_temp("owner","mudlib");
 	set_temp("apply/attack", 5);
@@ -49,7 +49,7 @@ void die()
 {
 	int exp;
 
-	message("channel:rumor", HIM"【谣言】某人：听说"+query_temp("ownername")+"的"+name()+"死了，等级下降了。真是可惜。\n"NOR, users());
+	message("channel:rumor", HIM"【謠言】某人：聽說"+query_temp("ownername")+"的"+name()+"死了，等級下降了。真是可惜。\n"NOR, users());
 
 	exp = (int) query("combat_exp");
 	set("combat_exp", exp/10 * 9);
@@ -95,18 +95,18 @@ int do_modify(string arg)
 	object me = this_player();
 
 	if(!arg || sscanf(arg,"%s %s", item, msg) != 2)
-		return notify_fail("命令错误：modify 款项 内容\n\n\t款项列表：
+		return notify_fail("命令錯誤：modify 款項 內容\n\n\t款項列表：
 
-                    爱称         name
-                    绰号         nick
-                    细节描述     long
-                    逃跑系数     wimpy\n\n");
+                    愛稱         name
+                    綽號         nick
+                    細節描述     long
+                    逃跑係數     wimpy\n\n");
 	if(me->query("jing") < 20)
-		return notify_fail("你的精气不足，暂时没法修改宠物。\n");
+		return notify_fail("你的精氣不足，暫時沒法修改寵物。\n");
 	if(item == "wimpy")
 	{
 		set("env/wimpy", atoi(msg));
-		write("设定宠物逃跑系数成功。\n");
+		write("設定寵物逃跑係數成功。\n");
 		return 1;
 	}
 	msg = replace_string(msg, "$BLK$", BLK);
@@ -131,36 +131,36 @@ int do_modify(string arg)
 		if(CHINESE_D->check_control(msg))
 			return notify_fail("描述文字中不可有控制符。\n");
 		if(!CHINESE_D->check_chinese(msg))
-			return notify_fail("描述必须是中文。\n");
+			return notify_fail("描述必須是中文。\n");
 	}
 	if(CHINESE_D->check_space(msg))
 		return notify_fail("描述中不能含空格。\n");
 	if(CHINESE_D->check_return(msg))
-		return notify_fail("描述文字中不能含回车键！\n");
+		return notify_fail("描述文字中不能含回車鍵！\n");
 	me->receive_damage("jing", 10);
 	switch(item)
 	{
 		case "name" :
 			if(CHINESE_D->check_length(msg) > 10)
-				return notify_fail("宠物爱称描述太长！\n");
+				return notify_fail("寵物愛稱描述太長！\n");
 			set("name",msg);
 			me->set("Pet/name",msg+NOR);
-			write("宠物爱称设定成功！\n");
+			write("寵物愛稱設定成功！\n");
 			return 1;
 		case "nick" :
 			if(CHINESE_D->check_length(msg) > 20)
-				return notify_fail("宠物绰号描述太长！\n");
+				return notify_fail("寵物綽號描述太長！\n");
 			set("nickname",msg+NOR);
-			write("宠物绰号设定成功！\n");
+			write("寵物綽號設定成功！\n");
 			return 1;
 		case "long":
 			if(CHINESE_D->check_length(msg) > 100)
-				return notify_fail("宠物细节描述太长！\n");
+				return notify_fail("寵物細節描述太長！\n");
 			set("long",msg+"\n"+NOR);
-			write("宠物细节设定成功！\n");
+			write("寵物細節設定成功！\n");
 			return 1;
 	}
-	return notify_fail("你要修改什么？\n");
+	return notify_fail("你要修改什麼？\n");
 }
 int do_xunlian(string arg)
 {
@@ -168,33 +168,33 @@ int do_xunlian(string arg)
 	int jing_cost, amount, exp, myskill, itskill;
 
 	if(!arg || arg == "")
-		return notify_fail("你要训练宠物什么技能呢？\n");
+		return notify_fail("你要訓練寵物什麼技能呢？\n");
 	if(!myskill = me->query_skill(arg,1))
-		return notify_fail("这项技能你好象还不会呢！\n");
+		return notify_fail("這項技能你好象還不會呢！\n");
 	if(arg != "unarmed" && arg != "dodge" && arg != "parry")
-		return notify_fail("它学不会这项技能的！\n");
+		return notify_fail("它學不會這項技能的！\n");
 	itskill = query_skill(arg, 1);
 	if(myskill <= itskill)
-		return notify_fail( name()+"以嘲笑的目光望着你：你还没我牛呢，想教我？！\n");
+		return notify_fail( name()+"以嘲笑的目光望着你：你還沒我牛呢，想教我？！\n");
 	if(me->is_busy())
-		return notify_fail("你的动作还没有完成，不能教导宠物。\n");
+		return notify_fail("你的動作還沒有完成，不能教導寵物。\n");
 	if(me->is_fighting() )
-		return notify_fail("你已经在战斗中了，还想教导宠物？\n");
+		return notify_fail("你已經在戰鬥中了，還想教導寵物？\n");
 	if(pet->is_busy())
-		return notify_fail("它的动作还没有完成，不能学习。\n");
+		return notify_fail("它的動作還沒有完成，不能學習。\n");
 	if(pet->is_fighting() )
-		return notify_fail("他已经在战斗中了，还想学习？\n");
+		return notify_fail("他已經在戰鬥中了，還想學習？\n");
 	if((int)me->query("potential")-(int)me->query("learned_points") < 1)
-		return notify_fail("你的潜能不够。\n");
+		return notify_fail("你的潛能不夠。\n");
 	jing_cost = (int) query_int();
 	if((int)me->query("jing") < jing_cost)
-		return notify_fail("你显然太累了，没有办法继续教！\n");
+		return notify_fail("你顯然太累了，沒有辦法繼續教！\n");
 	me->receive_damage("jing",jing_cost);
 	amount = (int)((me->query("int") + query("int"))/3);
-	message_vision(sprintf("$N不厌其烦地教$n「%s」。\n",to_chinese(arg)), me, pet);
+	message_vision(sprintf("$N不厭其煩地教$n「%s」。\n",to_chinese(arg)), me, pet);
 	if(random(100) > query("obe") )
 	{
-		message_vision("$N很不情愿地哼了一声。\n", pet);
+		message_vision("$N很不情願地哼了一聲。\n", pet);
 		return 1;
 	}
 	else
@@ -205,10 +205,10 @@ int do_xunlian(string arg)
 			pet->improve_skill(arg, amount);
 			pet->add("combat_exp", random(5));
 			me->add("learned_points", 1);
-			message_vision(sprintf("$N似乎真的学会了一些「%s」！\n", to_chinese(arg)), pet);
+			message_vision(sprintf("$N似乎真的學會了一些「%s」！\n", to_chinese(arg)), pet);
 		}
 		else
-			message_vision(sprintf("由于经验所限，$N似乎不能理解更高深的「%s」。\n", to_chinese(arg)), pet);
+			message_vision(sprintf("由於經驗所限，$N似乎不能理解更高深的「%s」。\n", to_chinese(arg)), pet);
 	}
 	return 1;
 
@@ -235,20 +235,20 @@ int do_shape(string arg)
 
 	printf(HIC"≡"HIY"------------------------------------------------------------"HIC"≡\n"NOR);
 	printf("主人： %s\t\t\t姓名： %s\n"NOR, my["owner"], this_object()->query_temp("ownername"));
-	printf("年龄： %d\t种类： %s\t爱称： %s\t绰号： %s\n"NOR, my["age"], my["title"], my["name"], my["nickname"]);
-	printf("才智： %d\t体质： %d\t速度： %d\t力量： %d\n",query_int(),query_con(),query_dex(),query_str());
-	printf("体态： %d\t灵性： %d\t冒险： %d\t克制： %d\n",query_per(),query_kar(),query_cor(), query_cps());
-	printf("驯服： "HIM"%d"NOR"\t杀气： "HIR"%d"NOR"\t经验： "HIG"%d"NOR "\t逃命： "HIC"%d\n"NOR, query_obe(), my["shen"], my["combat_exp"], my["env/wimpy"]);
+	printf("年齡： %d\t種類： %s\t愛稱： %s\t綽號： %s\n"NOR, my["age"], my["title"], my["name"], my["nickname"]);
+	printf("才智： %d\t體質： %d\t速度： %d\t力量： %d\n",query_int(),query_con(),query_dex(),query_str());
+	printf("體態： %d\t靈性： %d\t冒險： %d\t剋制： %d\n",query_per(),query_kar(),query_cor(), query_cps());
+	printf("馴服： "HIM"%d"NOR"\t殺氣： "HIR"%d"NOR"\t經驗： "HIG"%d"NOR "\t逃命： "HIC"%d\n"NOR, query_obe(), my["shen"], my["combat_exp"], my["env/wimpy"]);
 	at_pt= COMBAT_D->skill_power(this_object(),"unarmed",SKILL_USAGE_ATTACK);
 	pa_pt= COMBAT_D->skill_power(this_object(),"parry",SKILL_USAGE_DEFENSE);
 	do_pt= COMBAT_D->skill_power(this_object(),"dodge",SKILL_USAGE_DEFENSE);
-	printf("攻击： "HIY"%d"NOR"\t防御： "HIC"%d\t"NOR"食物： %s%3d/ %3d\t"NOR"饮水： %s%3d/ %3d\n"NOR,
+	printf("攻擊： "HIY"%d"NOR"\t防禦： "HIC"%d\t"NOR"食物： %s%3d/ %3d\t"NOR"飲水： %s%3d/ %3d\n"NOR,
 		at_pt+1, pa_pt/2+do_pt/2+1,
 		status_color(my["food"], this_object()->max_food_capacity()),
 		my["food"], this_object()->max_food_capacity(),
 		status_color(my["water"], this_object()->max_water_capacity()),
 		my["water"], this_object()->max_water_capacity());
-	printf("精气：%s%3d/ %3d %s(%3d%%)\t\t"NOR"气血：%s%3d/ %3d %s(%3d%%)\n\n"NOR, status_color(my["jing"],my["eff_jing"]),my["jing"],my["eff_jing"], status_color(my["eff_jing"],my["max_jing"]),my["eff_jing"]*100/my["max_jing"], status_color(my["qi"], my["eff_qi"]), my["qi"], my["eff_qi"], status_color(my["eff_qi"], my["max_qi"]), my["eff_qi"] * 100 / my["max_qi"] );
+	printf("精氣：%s%3d/ %3d %s(%3d%%)\t\t"NOR"氣血：%s%3d/ %3d %s(%3d%%)\n\n"NOR, status_color(my["jing"],my["eff_jing"]),my["jing"],my["eff_jing"], status_color(my["eff_jing"],my["max_jing"]),my["eff_jing"]*100/my["max_jing"], status_color(my["qi"], my["eff_qi"]), my["qi"], my["eff_qi"], status_color(my["eff_qi"], my["max_qi"]), my["eff_qi"] * 100 / my["max_qi"] );
 	printf(HIC"≡"HIY"------------------------------------------------------------"HIC"≡\n"NOR);
 	printf("/cmds/skill/skills"->pet_skill(this_object()));
 	printf(HIC"≡"HIY"------------------------------------------------------------"HIC"≡\n"NOR);
@@ -268,22 +268,22 @@ int do_command(string arg)
 	object me= this_object();
 
 	if( !arg || sscanf(arg, "%s to %s", id, cmd)!=2)
-		return notify_fail("你要命令什么做什么？\n");
+		return notify_fail("你要命令什麼做什麼？\n");
 	if(id!=(string)me->query("id")) return 0;
 	if(who->query("id")!=me->query_temp("owner"))
-		return notify_fail("你对"+me->query("name")+"命令了几句，可是它理都不理你。\n");
+		return notify_fail("你對"+me->query("name")+"命令了幾句，可是它理都不理你。\n");
 	tell_object(who,"你命令" +me->name() + "去: " + cmd + "\n");
 	cmds = explode(cmd," ");
 	for(i=0;i< sizeof(cmds_exclude);i++)
 		if (!strcmp(cmds[0],cmds_exclude[i]))
 			j = i;
 	if(!strcmp(cmds[0],cmds_exclude[j]))
-		return notify_fail("你胡乱发了几个指令，"+me->query("name")+"瞪着无辜的大眼睛@_@看着你：“我不懂耶....”\n");
+		return notify_fail("你胡亂發了幾個指令，"+me->query("name")+"瞪着無辜的大眼睛@_@看着你：“我不懂耶....”\n");
 //	err=me->command(cmd);
 	return me->force_me(cmd);
 /*
 	if (!err )
-		return notify_fail("你胡乱发了几个指令，"+me->query("name")+"瞪着无辜的大眼睛@_@看着你：“我不懂耶....”\n");
+		return notify_fail("你胡亂發了幾個指令，"+me->query("name")+"瞪着無辜的大眼睛@_@看着你：“我不懂耶....”\n");
 	return 1;
 */
 }
@@ -293,11 +293,11 @@ int do_order(string arg)
 	object me = this_player();
 
 	if(me->query("jing") < 20)
-		return notify_fail("你的精气不足，暂时没法使唤宠物。\n");
+		return notify_fail("你的精氣不足，暫時沒法使喚寵物。\n");
 	me->receive_damage("jing", 5);
 	obedience = query("obe");
 	if(random(100) < obedience )
 		command("emote " + arg);
-	else command("emote 很不情愿地哼了一声。");
+	else command("emote 很不情願地哼了一聲。");
 	return 1;
 }

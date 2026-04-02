@@ -9,7 +9,7 @@ void create()
         set_name("小流氓", ({"punk"}) );
         set("gender", "男性" );
         set("age", 18);
-        set("long", "这是一个游手好闲的小流氓。\n");
+        set("long", "這是一個遊手好閒的小流氓。\n");
 
         set_temp("apply/attack", 10);
         set_temp("apply/defense", 10);

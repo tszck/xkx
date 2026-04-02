@@ -5,73 +5,73 @@
 
 #include <ansi.h>
 
-// 标识对应的地名
+// 標識對應的地名
 mapping map_short = ([
         "xiyu"      : "西域",
         "gaochang"  : "高昌附近",
         "xingxiu"   : "星宿海",
-        "guanwai"   : "关外",
-        "city"      : "扬州",
+        "guanwai"   : "關外",
+        "city"      : "揚州",
         "fuzhou"    : "福州",
-        "xiangyang" : "襄阳",
-        "suzhou"    : "苏州",
+        "xiangyang" : "襄陽",
+        "suzhou"    : "蘇州",
         "hangzhou"  : "杭州",
         "quanzhou"  : "泉州",
-        "lingzhou"  : "灵州",
+        "lingzhou"  : "靈州",
         "chengdu"   : "成都",
-        "jingzhou"  : "荆州",
-        "jiaxing"   : "嘉兴",
-        "nanyang"   : "南阳",
+        "jingzhou"  : "荊州",
+        "jiaxing"   : "嘉興",
+        "nanyang"   : "南陽",
         "foshan"    : "佛山",
         "dali"      : "大理",
-        "changan"   : "长安",
+        "changan"   : "長安",
         "wugong"    : "武功",
-        "hengyang"  : "衡阳",
+        "hengyang"  : "衡陽",
         "beijing"   : "北京",
         "shaolin"   : "少林",
-        "wudang"    : "武当",
+        "wudang"    : "武當",
         "emei"      : "峨嵋",
         "qingcheng" : "青城",
-        "mingjiao"  : "昆仑山",
-        "quanzhen"  : "终南山",
+        "mingjiao"  : "崑崙山",
+        "quanzhen"  : "終南山",
         "henshan"   : "衡山",
         "taishan"   : "泰山",
-        "huashan"   : "华山",
-        "hengshan"  : "恒山",
+        "huashan"   : "華山",
+        "hengshan"  : "恆山",
         "songshan"  : "嵩山",
-        "huanghe"   : "黄河",
+        "huanghe"   : "黃河",
         "lingjiu"   : "天山",
         "gumu"      : "古墓",
-        "meizhuang" : "梅庄",
-        "tianlongsi": "天龙寺",
+        "meizhuang" : "梅莊",
+        "tianlongsi": "天龍寺",
         "xueshan"   : "雪山",
-        "taohua"    : "桃花岛",
-        "baituo"    : "白驼山",
-        "shenlong"  : "神龙岛",
-        "yanziwu"   : "燕子坞",
-        "village"   : "华山村",
-        "xiakedao"  : "侠客岛",
-        "xiaoyao"   : "逍遥林",
-        "wanjiegu"  : "万劫谷",
+        "taohua"    : "桃花島",
+        "baituo"    : "白駝山",
+        "shenlong"  : "神龍島",
+        "yanziwu"   : "燕子塢",
+        "village"   : "華山村",
+        "xiakedao"  : "俠客島",
+        "xiaoyao"   : "逍遙林",
+        "wanjiegu"  : "萬劫谷",
         "xuedao"    : "大雪山",
-        "guiyun"    : "归云庄",
+        "guiyun"    : "歸雲莊",
         "heimuya"   : "黑木崖",
         "motianya"  : "摩天崖",
-        "nanhai"    : "南海之滨",
-        "tiezhang"  : "铁掌山",
-        "kaifeng"   : "开封",
+        "nanhai"    : "南海之濱",
+        "tiezhang"  : "鐵掌山",
+        "kaifeng"   : "開封",
         "ruzhou"    : "汝州",
         "zhongzhou" : "中州",
-        "luoyang"   : "洛阳",
+        "luoyang"   : "洛陽",
         "lingxiao"  : "凌霄城",
-        "lanzhou"   : "兰州",
+        "lanzhou"   : "蘭州",
         "wudujiao"  : "五毒教",
-        "honghua"   : "红花会",
+        "honghua"   : "紅花會",
         "kunming"   : "昆明",
-        "jueqing"   : "绝情谷",
+        "jueqing"   : "絕情谷",
 ]);
 
-// 标识对应的地图帮助文件(全部在HELP_DIR中)
+// 標識對應的地圖幫助文件(全部在HELP_DIR中)
 mapping map_to = ([
         "xiyu"      : "map_xy",
         "gaochang"  : "map_xy",
@@ -137,39 +137,39 @@ mapping map_to = ([
         "jueqing"   : "map_jqg",
 ]);
 
-// 各地交通联络地
+// 各地交通聯絡地
 mapping map_trans = ([
         "beijing"   : ([ "name" : "北京",     "room" : "/d/beijing/majiu", ]),
-        "yangzhou"  : ([ "name" : "扬州",     "room" : "/d/city/majiu", ]),
+        "yangzhou"  : ([ "name" : "揚州",     "room" : "/d/city/majiu", ]),
         "dali"      : ([ "name" : "大理",     "room" : "/d/dali/majiu", ]),
         "foshan"    : ([ "name" : "佛山",     "room" : "/d/foshan/majiu", ]),
         "fuzhou"    : ([ "name" : "福州",     "room" : "/d/fuzhou/majiu", ]),
-        "guanwai"   : ([ "name" : "关外",     "room" : "/d/guanwai/majiu", ]),
+        "guanwai"   : ([ "name" : "關外",     "room" : "/d/guanwai/majiu", ]),
         "hangzhou"  : ([ "name" : "杭州",     "room" : "/d/hangzhou/majiu", ]),
-        "lanzhou"   : ([ "name" : "兰州",     "room" : "/d/lanzhou/majiu", ]),
-        "lingzhou"  : ([ "name" : "灵州",     "room" : "/d/lingzhou/majiu", ]),
-        "luoyang"   : ([ "name" : "洛阳",     "room" : "/d/luoyang/majiu", ]),
+        "lanzhou"   : ([ "name" : "蘭州",     "room" : "/d/lanzhou/majiu", ]),
+        "lingzhou"  : ([ "name" : "靈州",     "room" : "/d/lingzhou/majiu", ]),
+        "luoyang"   : ([ "name" : "洛陽",     "room" : "/d/luoyang/majiu", ]),
         "yongdeng"  : ([ "name" : "永登",     "room" : "/d/huanghe/majiu", ]),
-        "suzhou"    : ([ "name" : "苏州",     "room" : "/d/suzhou/majiu", ]),
-        "xiangyang" : ([ "name" : "襄阳",     "room" : "/d/xiangyang/majiu", ]),
+        "suzhou"    : ([ "name" : "蘇州",     "room" : "/d/suzhou/majiu", ]),
+        "xiangyang" : ([ "name" : "襄陽",     "room" : "/d/xiangyang/majiu", ]),
         "yili"      : ([ "name" : "伊犁",     "room" : "/d/xingxiu/majiu", ]),
         "chengdu"   : ([ "name" : "成都",     "room" : "/d/city3/majiu", ]),
         "emei"      : ([ "name" : "峨嵋山",   "room" : "/d/emei/majiu1", ]),
         "emei2"     : ([ "name" : "峨嵋半山", "room" : "/d/emei/majiu2", ]),
         "quanzhou"  : ([ "name" : "泉州",     "room" : "/d/quanzhou/majiu1", ]),
-        "jiaxing"   : ([ "name" : "嘉兴",     "room" : "/d/quanzhou/majiu2", ]),
-        "jingzhou"  : ([ "name" : "荆州",     "room" : "/d/jingzhou/majiu", ]),
-        "nanyang"   : ([ "name" : "南阳",     "room" : "/d/shaolin/majiu1", ]),
-        "changan"   : ([ "name" : "长安",     "room" : "/d/changan/majiu", ]),
-        "wugong"    : ([ "name" : "武功镇",   "room" : "/d/quanzhen/majiu", ]),
-        "hengyang"  : ([ "name" : "衡阳",     "room" : "/d/henshan/majiu", ]),
-        "kaifeng"   : ([ "name" : "开封",     "room" : "/d/kaifeng/majiu", ]),
+        "jiaxing"   : ([ "name" : "嘉興",     "room" : "/d/quanzhou/majiu2", ]),
+        "jingzhou"  : ([ "name" : "荊州",     "room" : "/d/jingzhou/majiu", ]),
+        "nanyang"   : ([ "name" : "南陽",     "room" : "/d/shaolin/majiu1", ]),
+        "changan"   : ([ "name" : "長安",     "room" : "/d/changan/majiu", ]),
+        "wugong"    : ([ "name" : "武功鎮",   "room" : "/d/quanzhen/majiu", ]),
+        "hengyang"  : ([ "name" : "衡陽",     "room" : "/d/henshan/majiu", ]),
+        "kaifeng"   : ([ "name" : "開封",     "room" : "/d/kaifeng/majiu", ]),
         "kunming"   : ([ "name" : "昆明",     "room" : "/d/kunming/majiu", ]),
         "zhongzhou" : ([ "name" : "中州",     "room" : "/d/zhongzhou/majiu", ]),
 ]);
 
 
-// 交通连接
+// 交通連接
 mixed connect_info = ({
         ({ "beijing", "guanwai",        300, }),
         ({ "beijing", "lingzhou",       300, }),
@@ -244,13 +244,13 @@ mixed connect_info = ({
         ({ "kaifeng", "zhongzhou",      100, }),
 });
 
-// 查看某个地点是否被MAPD所知晓
+// 查看某個地點是否被MAPD所知曉
 public int been_known(string outdoors)
 {
         return stringp(map_short[outdoors]);
 }
 
-// 获得某个户外地点的中文名字
+// 獲得某個戶外地點的中文名字
 public string query_map_short(string outdoors)
 {
         string str;
@@ -258,16 +258,16 @@ public string query_map_short(string outdoors)
         if (stringp(str = map_short[outdoors]))
                 return str;
 
-        return "不详地点";
+        return "不詳地點";
 }
 
-// 获得所有户外地点的集合
+// 獲得所有戶外地點的集合
 public string *query_all_map_zone()
 {
         return keys(map_short);
 }
 
-// 获得某个户外地点的地图
+// 獲得某個戶外地點的地圖
 public string query_maps(string outdoors)
 {
         mixed maps;
@@ -275,14 +275,14 @@ public string query_maps(string outdoors)
 	int i;
 
         if (undefinedp(maps = map_to[outdoors]))
-                return "未有详细地图。\n";
+                return "未有詳細地圖。\n";
 
         if (stringp(maps))
         {
                 file = HELP_DIR + maps;
                 map_result = read_file(file);
                 if (! stringp(map_result))
-                        map_result = "无法读取地图" + file + "。\n";
+                        map_result = "無法讀取地圖" + file + "。\n";
                 map_result = SHOP_D->color_filter(map_result);
                 return map_result;
         }
@@ -297,7 +297,7 @@ public string query_maps(string outdoors)
                 	{
 				if (file_size(HELP_DIR + file) > 0)
 					map_result += read_file(HELP_DIR+file);
-				else map_result += "无法读取地图"+file + "。\n";
+				else map_result += "無法讀取地圖"+file + "。\n";
 			}
                 }
 /*
@@ -306,22 +306,22 @@ public string query_maps(string outdoors)
                         if (file_size(HELP_DIR + file) > 0)
                                 map_result += read_file(HELP_DIR + file);
                         else
-                                map_result += "无法读取地图" + file + "。\n";
+                                map_result += "無法讀取地圖" + file + "。\n";
                 }
 */
                 map_result = SHOP_D->color_filter(map_result);
                 return map_result;
         }
 
-        error("未知错误。\n");
+        error("未知錯誤。\n");
 }
 
-// 获得地图中某一行的第x开始的n个字符，其中地图行中@打头的字
-// 符及后续字符一概认为不占地方。比如"@B123@E"，则第二个字符
-// 是'2'，而不是B。如果n为-1，则返回一直到末尾的所有字符
+// 獲得地圖中某一行的第x開始的n個字符，其中地圖行中@打頭的字
+// 符及後續字符一概認爲不佔地方。比如"@B123@E"，則第二個字符
+// 是'2'，而不是B。如果n爲-1，則返回一直到末尾的所有字符
 //
-// 这样存在问题，有必要引入一个变量， 标识是否取回颜色，不过
-// 由于出错的几率相当小，所以姑且不计。
+// 這樣存在問題，有必要引入一個變量， 標識是否取回顏色，不過
+// 由於出錯的幾率相當小，所以姑且不計。
 string get_map_line(string line, int x, int n)
 {
         string rs;
@@ -330,37 +330,37 @@ string get_map_line(string line, int x, int n)
         if (n == 0)
                 return rs;
 
-        // 找到相应的位置
+        // 找到相應的位置
         while (x)
         {
                 if (strwidth(line) == 0)
-                        // 字符串长度不够
+                        // 字符串長度不夠
                         return rs;
 
                 if (line[0] == '@')
                 {
                         if (strwidth(line) >= 2)
-                                // 去掉@和后续的字符
+                                // 去掉@和後續的字符
                                 line = line[2..<1];
                         else
-                                // 长度不够？返回空字符串
+                                // 長度不夠？返回空字符串
                                 return rs;
                 } else
                 {
-                        // 字符串去掉第一个字符，相当于向右移动
+                        // 字符串去掉第一個字符，相當於向右移動
                         x--;
                         line = line[1..<1];
                 }
         }
 
-        // 截取n个字符
-        // 为什么这里用do-while，而不直接用while？这是有原因
+        // 截取n個字符
+        // 爲什麼這裏用do-while，而不直接用while？這是有原因
         // 的。
         rs = "";
         for (;;)
         {
                 if (strwidth(line) == 0)
-                        // 已经无字符可取
+                        // 已經無字符可取
                         return rs;
 
                 if (line[0] == '@')
@@ -376,7 +376,7 @@ string get_map_line(string line, int x, int n)
                         }
                 } else
                 {
-                        if (n == 0) break; // 结束截取
+                        if (n == 0) break; // 結束截取
                         n--;
                         rs += line[0..0];
                         line = line[1..<1];
@@ -386,29 +386,29 @@ string get_map_line(string line, int x, int n)
         return rs;
 }
 
-// 为地点标记颜色：名字必须为中文
-// 标记的时候一行行扫描，扫描的同时打标记，将标记设置为@B和
-// @E，如果扫描成功就把@B和@E替换成为@R和@N，否则就去掉这些
-// 临时标记。
-// 最后将将所有的标记替换成颜色：@R->WHT @N->NOR
+// 爲地點標記顏色：名字必須爲中文
+// 標記的時候一行行掃描，掃描的同時打標記，將標記設置爲@B和
+// @E，如果掃描成功就把@B和@E替換成爲@R和@N，否則就去掉這些
+// 臨時標記。
+// 最後將將所有的標記替換成顏色：@R->WHT @N->NOR
 public string mark_map(string map, string name)
 {
         string *lines;
         string temp;
         string rs;
         int i;
-        int x, y, xd;           // 比较的地图位置
+        int x, y, xd;           // 比較的地圖位置
         int n;
 
-        // 去除地图的颜色：这样可以准确的判断绝对的坐标
+        // 去除地圖的顏色：這樣可以準確的判斷絕對的座標
         map = SHOP_D->filter_color(map);
 
-        // 将地图分成行
+        // 將地圖分成行
         lines = explode(map, "\n");
         for (i = 0; i < sizeof(lines); i++)
         {
                 if (strsrch(lines[i], name[0..1]) == -1)
-                        // 本行不存在名称的第一个汉字，继续，继续下一行
+                        // 本行不存在名稱的第一個漢字，繼續，繼續下一行
                         continue;
 
                 x = 0;
@@ -418,12 +418,12 @@ public string mark_map(string map, string name)
                 {
                         xd = strsrch(temp[x..<1], name[0..1]);
                         if (xd == -1)
-                                // 本行后续没有名称的第一个汉字，继续下一行
+                                // 本行後續沒有名稱的第一個漢字，繼續下一行
                                 break;
 
-                        // 该行匹配上了第一个汉字：比较后续的汉字，
-                        // 首先横向比较，因此不断移动xd，如果横向扫
-                        // 描不到，就往纵向比较，变化y。
+                        // 該行匹配上了第一個漢字：比較後續的漢字，
+                        // 首先橫向比較，因此不斷移動xd，如果橫向掃
+                        // 描不到，就往縱向比較，變化y。
                         x += xd;
                         y = i;
                         xd = 2;
@@ -432,16 +432,16 @@ public string mark_map(string map, string name)
                         rs += get_map_line(lines[y], x, 2);
                         for (n = 2; n < strwidth(name); n += 2, xd += 2)
                         {
-                                // 首先横向比较
+                                // 首先橫向比較
                                 if (x + xd + 2 <= strwidth(lines[y]) &&
                                     get_map_line(lines[y], x + xd, 2) == name[n..n + 1])
                                 {
-                                        // 横向比较到了，继续横向比较
+                                        // 橫向比較到了，繼續橫向比較
                                         rs += name[n..n + 1];
                                         continue;
                                 }
 
-                                // 横向比较失败了，横向还原对齐，纵向比较
+                                // 橫向比較失敗了，橫向還原對齊，縱向比較
                                 rs += "@E" + get_map_line(lines[y], x + xd, -1);
                                 xd = 0;
                                 y++;
@@ -449,7 +449,7 @@ public string mark_map(string map, string name)
                                     x + 2 <= strwidth(lines[y]) &&
                                     get_map_line(lines[y], x, 2) == name[n..n + 1])
                                 {
-                                        // 纵向比较到了，继续横向比较
+                                        // 縱向比較到了，繼續橫向比較
                                         lines[y - 1] = rs;
                                         rs = get_map_line(lines[y], 0, x);
                                         rs += "@B";
@@ -457,11 +457,11 @@ public string mark_map(string map, string name)
                                         continue;
                                 }
 
-                                // 比较失败，不在(x, i)这个位置
+                                // 比較失敗，不在(x, i)這個位置
                                 y--;
                                 while (y >= i)
                                 {
-                                        // 恢复原先的地图，去掉标记
+                                        // 恢復原先的地圖，去掉標記
                                         lines[y] = replace_string(lines[y], "@B", "");
                                         lines[y] = replace_string(lines[y], "@E", "");
                                         y--;
@@ -476,24 +476,24 @@ public string mark_map(string map, string name)
                                 lines[y] = rs;
                                 while (y >= i)
                                 {
-                                        // 将标记设置为正常标记
+                                        // 將標記設置爲正常標記
                                         lines[y] = replace_string(lines[y], "@B", "@R");
                                         lines[y] = replace_string(lines[y], "@E", "@N");
                                         y--;
                                 }
                         }
 
-                        // 移动x，继续匹配
+                        // 移動x，繼續匹配
                         x++;
                 }
-                // 扫描完毕一行，继续扫描下一行
+                // 掃描完畢一行，繼續掃描下一行
         }
-        // 处理完毕
+        // 處理完畢
 
         return implode(lines, "\n") + "\n";
 }
 
-// 获得所在某个地点的地图并标记当前所在的位置
+// 獲得所在某個地點的地圖並標記當前所在的位置
 public string marked_map(object env)
 {
         mixed maps;
@@ -501,20 +501,20 @@ public string marked_map(object env)
         int result_ok, i;
 
         if (! objectp(env))
-                return "这里无法获得地图。\n";
+                return "這裏無法獲得地圖。\n";
 
         if (! stringp(outdoors = env->query("outdoors")))
-                return "必须在室外察看所处的具体位置。\n";
+                return "必須在室外察看所處的具體位置。\n";
 
         if (undefinedp(maps = map_to[outdoors]))
-                return "未有详细地图。\n";
+                return "未有詳細地圖。\n";
 
         if (stringp(maps))
         {
                 file = HELP_DIR + maps;
                 map_result = read_file(file);
                 if (! stringp(map_result))
-                        map_result = "无法读取地图" + file + "。\n";
+                        map_result = "無法讀取地圖" + file + "。\n";
                 map_result = SHOP_D->color_filter(map_result);
                 map_result = mark_map(map_result, env->short());
         } else
@@ -531,7 +531,7 @@ public string marked_map(object env)
 					map_result = read_file(HELP_DIR + file);
 				else
 				{
-					map_result = "无法读取地图"+file+"。\n";
+					map_result = "無法讀取地圖"+file+"。\n";
 					result_ok = 1;
 					break;
 				}
@@ -552,7 +552,7 @@ public string marked_map(object env)
                                 map_result = read_file(HELP_DIR + file);
                         else
                         {
-                                map_result = "无法读取地图" + file + "。\n";
+                                map_result = "無法讀取地圖" + file + "。\n";
                                 result_ok = 1;
                                 break;
                         }
@@ -566,21 +566,21 @@ public string marked_map(object env)
                         }
                 }
 */
-                // 所有的地图都没有变化？取第一个
+                // 所有的地圖都沒有變化？取第一個
                 if (! result_ok)
                 {
                         map_result = read_file(HELP_DIR + maps[0]);
                         map_result = SHOP_D->color_filter(map_result);
                 }
         } else
-                error("未知错误。\n");
+                error("未知錯誤。\n");
 
         map_result = replace_string(map_result, "@R", HIC);
         map_result = replace_string(map_result, "@N", NOR);
         return map_result;
 }
 
-// 玩家纪录传闻
+// 玩家紀錄傳聞
 public int record_rumor(mixed obs, string topic, mixed event_ob)
 {
         
@@ -602,15 +602,15 @@ public int record_rumor(mixed obs, string topic, mixed event_ob)
                 if (! playerp(ob) || ! ob->query("out_family")) continue;
                 if (ob->query("rumor/" + topic)) continue;
                 ob->set("rumor/" + topic, event_ob);
-                message("vision", "你掏出地图册，翻到最后面，写下了有关『" +
-                                  topic + "』的记录。\n", ob);
+                message("vision", "你掏出地圖冊，翻到最後面，寫下了有關『" +
+                                  topic + "』的記錄。\n", ob);
                 n++;
         }
 */
         return n;
 }
 
-// 获得某个交通地点的信息
+// 獲得某個交通地點的信息
 public varargs mixed query_trans_info(string to)
 {
         if (! stringp(to))
@@ -619,7 +619,7 @@ public varargs mixed query_trans_info(string to)
         return map_trans[to];
 }
 
-// 获得交通连接信息
+// 獲得交通連接信息
 public mapping query_connect_info()
 {
         return connect_info;

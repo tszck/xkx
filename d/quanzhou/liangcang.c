@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "粮仓");
+	set("short", "糧倉");
 	set("long", @LONG
-粮仓是所占地宽广的库房，堆放着堆积如山的军粮，逢到旱涝灾年
-也做济灾之用。由于仓广人少，经常引起匪徒的窥视。
+糧倉是所佔地寬廣的庫房，堆放着堆積如山的軍糧，逢到旱澇災年
+也做濟災之用。由於倉廣人少，經常引起匪徒的窺視。
 LONG );
 	set("outdoors", "quanzhou");
 	set("exits", ([
@@ -28,7 +28,7 @@ LONG );
 int valid_leave(object me, string dir)
 {
 	if (dir == "northeast" && objectp(present("wu jiang", environment(me))))
-		return notify_fail("武将大喝道：都督有令，闲杂人等不能由此经过！\n");
+		return notify_fail("武將大喝道：都督有令，閒雜人等不能由此經過！\n");
 	return ::valid_leave(me, dir);
 }
 

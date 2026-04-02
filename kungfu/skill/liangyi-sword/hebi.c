@@ -1,12 +1,12 @@
-// 昆仑正两仪剑之双剑合壁
+// 崑崙正兩儀劍之雙劍合壁
 // Last Modified by Winder on Jun. 23 2001
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "「双剑合璧」"
+#define PNAME "「雙劍合璧」"
 int remove_effect(object me);
 int remove_effect1(object target);
-// 有bug待解决
+// 有bug待解決
 int perform(object me, string arg)
 {
 	object weapon, weapon1, target;
@@ -22,18 +22,18 @@ int perform(object me, string arg)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
-	if(!arg) return notify_fail("你想和谁一起合璧？\n");
+	if(!arg) return notify_fail("你想和誰一起合璧？\n");
 	if(!objectp(target = present(arg, environment(me))))
-		return notify_fail("这里没有这个人。\n");
-/*需要判断是否攻击同一个人*/
+		return notify_fail("這裏沒有這個人。\n");
+/*需要判斷是否攻擊同一個人*/
 	if( !target->is_fighting() ||
 		!target->is_character() ||
 		!me->is_fighting())
-		return notify_fail("合璧只能在战斗中使用。\n");
+		return notify_fail("合璧只能在戰鬥中使用。\n");
 	if( !living(target) || target->query_temp("noliving") )
-		return notify_fail(target->name()+"已经无法战斗了。\n"); 
+		return notify_fail(target->name()+"已經無法戰鬥了。\n"); 
 	if(target==me) return notify_fail("和自己合璧？\n"); 
 	if(me->is_fighting(target))
 		return notify_fail("你正在和"+target->name()+"打架呢。\n");
@@ -42,33 +42,33 @@ int perform(object me, string arg)
 	if(!weapon || weapon->query("skill_type") != "sword" ||
 		me->query_skill_mapped("sword") != "liangyi-sword" ||
 		me->query_skill_mapped("parry") != "liangyi-sword")
-		return notify_fail("你现在无法使用「双剑合璧」。\n");
+		return notify_fail("你現在無法使用「雙劍合璧」。\n");
 
 	if(!weapon1 || weapon1->query("skill_type") != "sword" ||
 		target->query_skill_mapped("sword") != "liangyi-sword" ||
 		target->query_skill_mapped("parry") != "liangyi-sword")
-		return notify_fail(target->name()+"现在无法使用「双剑合璧」。\n");
+		return notify_fail(target->name()+"現在無法使用「雙劍合璧」。\n");
 	skill = me->query_skill("liangyi-sword", 1);
 	skill1 = target->query_skill("liangyi-sword", 1);
 	if(skill < 100 )
-		return notify_fail("你的两仪剑法等级不够，不能使用「双剑合璧」。\n");
+		return notify_fail("你的兩儀劍法等級不夠，不能使用「雙劍合璧」。\n");
 	if((int)me->query_skill("xuantian-wuji", 1) < 100 )
-		return notify_fail("你的玄天无级功等级不够，不能使用「双剑合璧」。\n");	   
+		return notify_fail("你的玄天無級功等級不夠，不能使用「雙劍合璧」。\n");	   
 	if((int)me->query("neili") < 500 )
-		return notify_fail("你现在真气太弱，不能使用「双剑合璧」。\n");
+		return notify_fail("你現在真氣太弱，不能使用「雙劍合璧」。\n");
 	if((int)me->query("max_neili") < 1000 )
-		return notify_fail("你现在内力太弱，不能使用「双剑合璧」。\n");
+		return notify_fail("你現在內力太弱，不能使用「雙劍合璧」。\n");
 	if(me->query_temp("ly_hebi")) 
-		return notify_fail("你已经在使用「双剑合璧」了。\n");
+		return notify_fail("你已經在使用「雙劍合璧」了。\n");
 	if(target->query_temp("ly_hebi")) 
-		return notify_fail(target->name()+"已经在和他人使用「双剑合璧」了。\n");
+		return notify_fail(target->name()+"已經在和他人使用「雙劍合璧」了。\n");
 	if(me->query_temp("lyhebi_target"))
 	{
 		if(me->query_temp("lyhebi_target")==target)
-			return notify_fail("你已经做好和"+target->name()+"双剑合璧的准备了。\n");
+			return notify_fail("你已經做好和"+target->name()+"雙劍合璧的準備了。\n");
 		else
 		{
-			tell_object(me->query_temp("hebi_target"), YEL+me->name()+"不打算和你进行双剑合璧了。\n"NOR); 
+			tell_object(me->query_temp("hebi_target"), YEL+me->name()+"不打算和你進行雙劍合璧了。\n"NOR); 
 			me->delete_temp("lyprepare_hebi");
 			me->delete_temp("lyhebi_target");
 		}
@@ -76,7 +76,7 @@ int perform(object me, string arg)
 	if(target->query_temp("lyprepare_hebi") &&
 		target->query_temp("lyhebi_target") ==me)
 	{
-		message_combatd(MAG"\n $N对$n使个眼色,手中"+weapon->name()+MAG+"和$n的"+weapon1->name()+MAG+"交错相击，双剑齐上，顿时只见剑光凌厉，威力大增！\n"NOR, me, target);
+		message_combatd(MAG"\n $N對$n使個眼色,手中"+weapon->name()+MAG+"和$n的"+weapon1->name()+MAG+"交錯相擊，雙劍齊上，頓時只見劍光凌厲，威力大增！\n"NOR, me, target);
 		me->delete_temp("lyprepare_hebi");
 		me->delete_temp("lyhebi_target");
 		target->delete_temp("lyprepare_hebi");
@@ -94,8 +94,8 @@ int perform(object me, string arg)
 		target->start_call_out( (: call_other, __FILE__, "remove_effect", target :), (skill+skill1)/2);
 		return 1;
 	}
-	message_combatd(HIC"\n $N将手中"+weapon->name()+HIC"一横，暗示$n和$P一起运用双剑合璧。\n"NOR, me, target);
-	tell_object(target, YEL"你如果愿意和"+me->name()+"进行双剑和壁，请也对"+me->name()+"下一次 ( perform hebi <player's id> ) 的命令。\n"NOR); 
+	message_combatd(HIC"\n $N將手中"+weapon->name()+HIC"一橫，暗示$n和$P一起運用雙劍合璧。\n"NOR, me, target);
+	tell_object(target, YEL"你如果願意和"+me->name()+"進行雙劍和壁，請也對"+me->name()+"下一次 ( perform hebi <player's id> ) 的命令。\n"NOR); 
 	me->set_temp("lyprepare_hebi", 1);	 
 	me->set_temp("lyhebi_target", target);
 	me->set_temp("no_unwield", 1);
@@ -159,7 +159,7 @@ int check_reply(object me,object target )
 		me->delete_temp("lyhebi_target");
 		me->delete_temp("no_unwield");
 		target->delete_temp("no_unwield");
-		message_combatd(HIY"似乎对方对$N的暗示没有反应，$N在只好取消了双剑合壁的请求。\n"NOR, me);
+		message_combatd(HIY"似乎對方對$N的暗示沒有反應，$N在只好取消了雙劍合壁的請求。\n"NOR, me);
 		return 1;
 	}
 }
@@ -174,7 +174,7 @@ int remove_effect(object me)
 		me->delete_temp("no_unwield");
 		me->add_temp("apply/attack", -attack1);
 		me->add_temp("apply/damage", -damage1);
-		message_combatd(HIC"双剑合璧完结，$N的攻守恢复正常了。\n"NOR, me);
+		message_combatd(HIC"雙劍合璧完結，$N的攻守恢復正常了。\n"NOR, me);
 		return 1; 
 	}
 }
@@ -189,7 +189,7 @@ int remove_effect1(object target)
 		target->delete_temp("no_unwield");
 		target->add_temp("apply/attack", -attack2);
 		target->add_temp("apply/damage", -damage2);
-		message_combatd(HIC"双剑合璧完结，$N攻守恢复正常了。\n"NOR, target);
+		message_combatd(HIC"雙劍合璧完結，$N攻守恢復正常了。\n"NOR, target);
 		return 1; 
 	}
 }
@@ -201,14 +201,14 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		两个等级相近的人才可以使用，可加强攻击次数。
+		兩個等級相近的人纔可以使用，可加強攻擊次數。
 
 	出手要求：
-		玄天无极功100级
-		两仪剑有效100级
-		最大内力 1000
-		激发正两仪剑法为招架技能
-		激发正两仪剑法为剑法技能
+		玄天無極功100級
+		兩儀劍有效100級
+		最大內力 1000
+		激發正兩儀劍法爲招架技能
+		激發正兩儀劍法爲劍法技能
 HELP
 	);
 	return 1;

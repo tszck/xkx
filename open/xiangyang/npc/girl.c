@@ -8,7 +8,7 @@ void create()
         set("gender", "女性" );
         set("age", 12);
         set("long", 
-"这是个平民少女，只有十二、三岁，身材已经很成形了。\n");
+"這是個平民少女，只有十二、三歲，身材已經很成形了。\n");
         set_temp("apply/defense", 5);
 	set("combat_exp", 70);
 //        set("shen", 100);

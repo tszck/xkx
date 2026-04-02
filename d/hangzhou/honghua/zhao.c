@@ -4,17 +4,17 @@ inherit NPC;
 
 void create()
 {
-	set_name("赵半山", ({"zhao banshan", "zhao", "banshan"}));
-	set("title", HIR"红花会"HIG"三当家"NOR);
-	set("nickname", HIY "千臂如来" NOR );
+	set_name("趙半山", ({"zhao banshan", "zhao", "banshan"}));
+	set("title", HIR"紅花會"HIG"三當家"NOR);
+	set("nickname", HIY "千臂如來" NOR );
 	set("gender", "男性");
 	set("age", 48);
 	set("long", 
-"他一张胖胖的脸，笑起来给人一副很慈祥的感觉。他
-原是温州王氏太极门掌门大弟子。豪迈豁达，行侠江
-湖，一手暗器功夫和太极剑少有能匹敌。屠龙帮风流
-云散之后，投入红花会。很得被红花会老当家于万亭
-赏识。\n");
+"他一張胖胖的臉，笑起來給人一副很慈祥的感覺。他
+原是溫州王氏太極門掌門大弟子。豪邁豁達，行俠江
+湖，一手暗器功夫和太極劍少有能匹敵。屠龍幫風流
+雲散之後，投入紅花會。很得被紅花會老當家於萬亭
+賞識。\n");
 	set("attitude", "peaceful");
 	set("class", "fighter");
 	set("per", 21);

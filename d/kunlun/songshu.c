@@ -5,12 +5,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "松树");
+	set("short", "松樹");
 	set("long", @LONG
-这是一株长于峭壁上的松树。向上而望，不能看见悬之上之物，刚
-才从上而跳下之时，回想起来你自不禁心悸，额头冷汗涔涔而下，一看
-四下形势，向上而攀援是绝不可能，脚下深不见底。便算到了底下，十
-之八九也是没有出路，唯有沿着山壁斜坡，慢慢的爬行出去。
+這是一株長於峭壁上的松樹。向上而望，不能看見懸之上之物，剛
+才從上而跳下之時，回想起來你自不禁心悸，額頭冷汗涔涔而下，一看
+四下形勢，向上而攀援是絕不可能，腳下深不見底。便算到了底下，十
+之八九也是沒有出路，唯有沿着山壁斜坡，慢慢的爬行出去。
 LONG	);
 	set("exits",([
 	]));
@@ -31,18 +31,18 @@ int do_pa(string arg)
 	me=this_player();
 	if (!(arg||arg=="east"||arg=="west")) return 0;
 	if (arg=="east"){
-		message("vision",me->name()+"向着太阳升起的地方爬去。\n",environment(me),me);
-		write("你向东面的雪山斜坡爬去。\n");
+		message("vision",me->name()+"向着太陽昇起的地方爬去。\n",environment(me),me);
+		write("你向東面的雪山斜坡爬去。\n");
 		me->move(__DIR__"xsxiepo1");
-		message("vision",me->name()+"从松树爬了过来。\n",environment(me),me);
+		message("vision",me->name()+"從松樹爬了過來。\n",environment(me),me);
 		return 1;
 	}
 	if (arg=="west")
 	{
-		message("vision",me->name()+"向西边爬去。\n",environment(me),me);
-		write("你向西面的悬崖爬去。\n");
+		message("vision",me->name()+"向西邊爬去。\n",environment(me),me);
+		write("你向西面的懸崖爬去。\n");
 		me->move(__DIR__"xuanya1");
-		message("vision",me->name()+"从松树爬了过来。\n",environment(me),me);
+		message("vision",me->name()+"從松樹爬了過來。\n",environment(me),me);
 		return 1;
 	}
 	return 1;

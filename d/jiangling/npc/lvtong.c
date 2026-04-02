@@ -4,8 +4,8 @@ inherit NPC;
 
 void create ()
 {
-	set_name("吕通", ({"lv tong","lv"}));
-	set("long", "这是个满腮虬髯，身形魁梧的粗豪汉子。\n");
+	set_name("呂通", ({"lv tong","lv"}));
+	set("long", "這是個滿腮虯髯，身形魁梧的粗豪漢子。\n");
 	set("gender", "男性");
 	set("title", "太行山寨主");
 	set("age", 38);

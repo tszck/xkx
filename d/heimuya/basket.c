@@ -3,10 +3,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "竹篓");
+	set("short", "竹簍");
 	set("long", @LONG
-这是一只大竹篓，足可装得十来石米。抬头上望，只见头顶有天风
-崖壁，这黑木崖着实高得厉害。
+這是一隻大竹簍，足可裝得十來石米。抬頭上望，只見頭頂有天風
+崖壁，這黑木崖着實高得厲害。
 LONG );
 	set("outdoors", "heimuya");
 	set("no_clean_up", 0);

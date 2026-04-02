@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "木桩");
+	set("short", "木樁");
 	set("long",@LONG
-烟波浩淼的大湖上，水天一色，多么美丽的地方，在这儿练功怎能
+煙波浩淼的大湖上，水天一色，多麼美麗的地方，在這兒練功怎能
 不事半功倍呢。
 LONG );
 	set("outdoors", "yanziwu");

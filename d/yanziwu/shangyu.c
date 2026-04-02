@@ -7,11 +7,11 @@ int do_jump(string);
 
 void create()
 {
-	set("short", "赏鱼台");
+	set("short", "賞魚臺");
 	set("long",@LONG
-站在台上，你可以看见一片荷花菱角，不时有几尾金鱼跃出水面，
-有的甚至还跳你眼前，仿佛一伸手就可以抓住。透过荷叶隐约可以看到
-船坞，你不知是否有把握能跳过去。
+站在臺上，你可以看見一片荷花菱角，不時有幾尾金魚躍出水面，
+有的甚至還跳你眼前，彷彿一伸手就可以抓住。透過荷葉隱約可以看到
+船塢，你不知是否有把握能跳過去。
 LONG );
 	set("outdoors", "yanziwu");
 	set("exits", ([
@@ -40,9 +40,9 @@ int do_jump(string arg)
 	if(((int)me->query("jing")<jing_cost) || ((int)me->query("qi")<qi_cost))
 		i = 0;
 
-	message_vision("$N深吸一口气，一个纵身，从台上向船坞跳去。\n", me);
+	message_vision("$N深吸一口氣，一個縱身，從臺上向船塢跳去。\n", me);
 	me->move(__DIR__"bozhou");
-	message_vision("只听「砰」的一声，$N从空中飞了下来。\n", me);
+	message_vision("只聽「砰」的一聲，$N從空中飛了下來。\n", me);
 	if ( i < 40)
 	{
 		tell_object(me,"你突然心中大叫“不好”！唉呀.....");
@@ -50,12 +50,12 @@ int do_jump(string arg)
 	}
 	else if( i < 80)
 	      {
-		      tell_object(me,"你暗呼一声“不好”.....");
+		      tell_object(me,"你暗呼一聲“不好”.....");
 		      me->unconcious();
 	      }
 	      else
 	      {
-		      message_vision("$N已稳稳地站在船坞上。\n", me);
+		      message_vision("$N已穩穩地站在船塢上。\n", me);
 		      me->receive_damage("jing", jing_cost );
 		      me->receive_damage("qi", qi_cost );
 	      }

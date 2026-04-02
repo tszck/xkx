@@ -5,16 +5,16 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "后渚港");
+	set("short", "後渚港");
 	set("long", @LONG
-后渚港是泉州三大港口之首。这里港阔水深，风平浪静。极目远眺，
-海天一色，蔚蓝无暇。岸边停靠着密密麻麻的各种船只。由于海外贸易
-的广泛发展，泉州因而成为「海上丝绸之路」的起点。在众多的船只中
-间，还有一只大战船(chuan)。
+後渚港是泉州三大港口之首。這裏港闊水深，風平浪靜。極目遠眺，
+海天一色，蔚藍無暇。岸邊停靠着密密麻麻的各種船隻。由於海外貿易
+的廣泛發展，泉州因而成爲「海上絲綢之路」的起點。在衆多的船隻中
+間，還有一隻大戰船(chuan)。
 LONG );
 	set("outdoors", "quanzhou");
 	set("item_desc", ([
-                "chuan" : "一条大海船。出远海没这样的船可不行。\n",
+                "chuan" : "一條大海船。出遠海沒這樣的船可不行。\n",
 	]));
 	set("exits", ([
 		"north"   : __DIR__"portroad2",
@@ -40,11 +40,11 @@ int do_enter ( string arg )
  
 	if( !arg || arg !="chuan" ) 
 	{
-		tell_object(this_player() , "你要 enter 哪儿？\n" ) ;
+		tell_object(this_player() , "你要 enter 哪兒？\n" ) ;
 		return 1 ;
 	}
-	message_vision("船夫一见有人上船，忙叫了一声：开船喽！\n", ob);
-	message_vision("船夫升起帆，船就向东方航行。\n", ob);
+	message_vision("船伕一見有人上船，忙叫了一聲：開船嘍！\n", ob);
+	message_vision("船伕升起帆，船就向東方航行。\n", ob);
 	ob ->move("/d/taiwan/dahai") ;
 	tell_object(ob, BLU "你在海上航行了很久很久.......\n" NOR ) ;
 	call_out("tpenghu", 10 , ob );
@@ -52,6 +52,6 @@ int do_enter ( string arg )
 }
 void tpenghu(object ob )
 {
-	tell_object(ob , "大船终于抵达了大海中一个大岛屿。你走下船来。\n" ) ;
+	tell_object(ob , "大船終於抵達了大海中一個大島嶼。你走下船來。\n" ) ;
 	ob->move ("/d/taiwan/penghu") ;
 }

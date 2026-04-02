@@ -12,9 +12,9 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一颗园园的神力丸，据说吃了可以增强膂力。\n");
+		set("long", "一顆園園的神力丸，據說喫了可以增強膂力。\n");
 		set("value", 10000);
-		set("unit", "颗");
+		set("unit", "顆");
 	}
 }
 
@@ -28,22 +28,22 @@ int do_eat(string arg)
 	object me;
 
 	if (! id(arg))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 
 	me = this_player();
-	message_vision("$N一仰脖，吞下了一颗" + this_object()->name() +
+	message_vision("$N一仰脖，吞下了一顆" + this_object()->name() +
 		       "。\n", me);
 	if (me->query("gift/shenliwan") >= 5)
 	{
 		message_vision("$N眨眨眼。\n", me);
-		tell_object(me, "你觉得这药没啥味道，还不如花生好吃。\n");
+		tell_object(me, "你覺得這藥沒啥味道，還不如花生好喫。\n");
 	} else
 	if (random(5) == 0)
 	{
-		tell_object(me, "不过你觉得好像没什么作用。\n");
+		tell_object(me, "不過你覺得好像沒什麼作用。\n");
 	} else
 	{
-		tell_object(me, HIR "你觉得双臂几乎爆裂，充满了力量。\n" NOR);
+		tell_object(me, HIR "你覺得雙臂幾乎爆裂，充滿了力量。\n" NOR);
 		me->add_temp("apply/strength", 1);
 	}
 

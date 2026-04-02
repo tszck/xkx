@@ -1,4 +1,4 @@
-// /kungfu/class/xueshan/fawang.c  金轮法王
+// /kungfu/class/xueshan/fawang.c  金輪法王
 // by secret
 
 #include <ansi.h>
@@ -9,10 +9,10 @@ inherit F_MASTER;
 void create()
 {
 	object ob;
-        set_name("金轮法王", ({ "jinlun fawang", "fawang", "fawang" }));
+        set_name("金輪法王", ({ "jinlun fawang", "fawang", "fawang" }));
         set("long",@LONG
-他是雪山寺的护教法王。在雪山寺的地位仅次与掌门人鸠摩智。
-身穿一件紫红袈裟，头带僧帽。
+他是雪山寺的護教法王。在雪山寺的地位僅次與掌門人鳩摩智。
+身穿一件紫紅袈裟，頭帶僧帽。
 LONG
         );
         set("title", HIY "法王" NOR);
@@ -66,7 +66,7 @@ LONG
 		(: exert_function, "regenerate" :),
 		(: exert_function, "recover" :),
         }) );
-        create_family("雪山寺", 2, "护教法王");
+        create_family("雪山寺", 2, "護教法王");
         set("class", "lama");
 
         setup();
@@ -90,35 +90,35 @@ void attempt_apprentice(object ob)
 {
 
         if ((string)ob->query("gender") != "男性") {
-                command("say 修习密宗内功需要纯阳之体。");
-                command("say 这位" + RANK_D->query_respect(ob) +
-                        "还是请回吧！");
+                command("say 修習密宗內功需要純陽之體。");
+                command("say 這位" + RANK_D->query_respect(ob) +
+                        "還是請回吧！");
                 return;
         }
 
         if ((string)ob->query("class") != "lama") {
-                command("say 我西藏黄教门内的清规戒律甚多。");
-                command("say 这位" + RANK_D->query_respect(ob) +
-                        "还是请回吧！");
+                command("say 我西藏黃教門內的清規戒律甚多。");
+                command("say 這位" + RANK_D->query_respect(ob) +
+                        "還是請回吧！");
                 return;
         }
 
         if ((string)ob->query("family/family_name") != "雪山寺")        {
-                command("say 这位" + RANK_D->query_respect(ob) +
-                        "既非本寺弟子，还是请回吧！");
+                command("say 這位" + RANK_D->query_respect(ob) +
+                        "既非本寺弟子，還是請回吧！");
                 return;
                   }
 
         if ((int)ob->query_skill("lamaism", 1) < 80) {
-                command("say 入我雪山寺，修习密宗心法是首要的。");
-                command("say 这位" + RANK_D->query_respect(ob) +
-                        "是否还应该多多钻研本门的心法？");
+                command("say 入我雪山寺，修習密宗心法是首要的。");
+                command("say 這位" + RANK_D->query_respect(ob) +
+                        "是否還應該多多鑽研本門的心法？");
                 return;
         }
 
         command("smile");
         command("nod");
-        command("say 你就随我学习佛法吧！");
+        command("say 你就隨我學習佛法吧！");
         command("recruit " + ob->query("id"));
 
         ob->set("title", HIY"活佛"NOR);

@@ -8,13 +8,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "飞雪堂");
+	set("short", "飛雪堂");
 	set("long", @LONG
-这是侠客行玩家们闲暇时喜欢逗留的地方。这里窗明几净，一尘不
-染。壁上的书架(shelf) 堆满侠客行的先贤们的文选，记录了侠客行的
-风风雨雨和无数或凄婉深情或粗豪奔放的传说，虽然那些日子已经很遥
-远，却难以磨灭。你可以阅读(read)到这些古老的故事。楼上是射雕院，
-收藏有金庸大师的主要作品。
+這是俠客行玩家們閒暇時喜歡逗留的地方。這裏窗明幾淨，一塵不
+染。壁上的書架(shelf) 堆滿俠客行的先賢們的文選，記錄了俠客行的
+風風雨雨和無數或悽婉深情或粗豪奔放的傳說，雖然那些日子已經很遙
+遠，卻難以磨滅。你可以閱讀(read)到這些古老的故事。樓上是射鵰院，
+收藏有金庸大師的主要作品。
 LONG);
 	set("item_desc", ([
 		"shelf" : (: look_shelf :),
@@ -54,7 +54,7 @@ int do_read(string arg)
 {
 	object me=this_player();
 	if (arg == "" || file_size(STORY_DIR + arg) <= 0)
-		return notify_fail("我们没有这本书。\n");
+		return notify_fail("我們沒有這本書。\n");
 
 	log_file("LIBRARY", sprintf("%s read %s.\n", me->query("name"), arg));
 	me->start_more(read_file(STORY_DIR + arg));

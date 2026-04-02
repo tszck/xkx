@@ -6,10 +6,10 @@ int do_jump();
 
 void create()
 {
-        set("short", "五老峰");
+        set("short", "五老峯");
         set("long", @LONG
-你感到寒意阵阵，原来已到了五老峰的峰顶。这里怪石嶙峋，最高
-的地方一石卓立，你突然有种想跳上去(jump)一试身手的冲动。
+你感到寒意陣陣，原來已到了五老峯的峯頂。這裏怪石嶙峋，最高
+的地方一石卓立，你突然有種想跳上去(jump)一試身手的衝動。
 LONG );
         set("exits", ([ /* sizeof() == 1 */
 	    "westdown"  : __DIR__"shanlu",
@@ -47,15 +47,15 @@ int do_jump()
 	if(((int)me->query("jing") < ging_cost) || ((int)me->query("qi") < qi_cost))
 		i = 0;
 
-	message_vision("$N纵身一跃，在空中摆了个酷毙了的姿势。\n", me);
+	message_vision("$N縱身一躍，在空中擺了個酷斃了的姿勢。\n", me);
 	me->start_busy(5);
-	message_vision("只听『砰』地一声$N从空中跳了下来。\n", me);
+	message_vision("只聽『砰』地一聲$N從空中跳了下來。\n", me);
 	if ( i < 60)
 		me->die();
 	else if( i < 135)
 		me->unconcious();
 	else {
-		message_vision("$N已稳稳地站在地上。\n", me);
+		message_vision("$N已穩穩地站在地上。\n", me);
 		if( i > 210 && me->query_skill("dodge",1)<230)
 			me->improve_skill("dodge", 2*(int)me->query_skill("dodge", 1));
 		me->receive_damage("jing", ging_cost );

@@ -6,7 +6,7 @@ void create()
 {
 	set("short", "湖心小洞");
 	set("long",
-	     "这里是潭中的一个小洞，里面零零落落的有几块石头。\n"
+	     "這裏是潭中的一個小洞，裏面零零落落的有幾塊石頭。\n"
 	);
 	set("objects" , ([
 		__DIR__"item/stone" : 1,

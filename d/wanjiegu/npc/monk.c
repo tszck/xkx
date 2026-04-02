@@ -5,10 +5,10 @@ int savemu();
 
 void create()
 {
-        set_name("黄眉大师", ({ "huangmei dashi", "dashi", "huangmei" }));
+        set_name("黃眉大師", ({ "huangmei dashi", "dashi", "huangmei" }));
         set("age", 69);
         set("gender", "男性");
-        set("long", "这是一个满脸皱纹、身形高大的老僧。这老僧两道焦黄长眉，
+        set("long", "這是一個滿臉皺紋、身形高大的老僧。這老僧兩道焦黃長眉，
 眉尾下垂，是拈花寺主持。\n");
         set("attitude", "peaceful");
         set("class", "bonze");
@@ -72,11 +72,11 @@ int savemu()
         object obj;
 
         if(obj = present("duan yanqing", environment(this_object()) ) ) {
-            command("say 好吧，你拿解药给木姑娘，我来缠住段延庆。\n");
+            command("say 好吧，你拿解藥給木姑娘，我來纏住段延慶。\n");
             this_object()->kill_ob(obj);
             obj->kill_ob(this_object() );
         } else
-            command("say 木姑娘在里面，快拿解药给她。\n");
+            command("say 木姑娘在裏面，快拿解藥給她。\n");
         return 1;
 }
 

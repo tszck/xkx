@@ -3,11 +3,11 @@ inherit F_DEALER;
 
 void create()
 {
-        set_name("皮货商", ({ "pihuo shang", "pihuo", "shang" }) );
+        set_name("皮貨商", ({ "pihuo shang", "pihuo", "shang" }) );
         set("gender", "男性" );
         set("age", 25);
         set("long",
-                "这是一位皮货商，他自己也是满身皮裘。\n");
+                "這是一位皮貨商，他自己也是滿身皮裘。\n");
         set("combat_exp", 5000);
         set("attitude", "friendly");
         set_temp("apply/attack", 20);

@@ -8,9 +8,9 @@ void create()
 {
 	set("short", "院子");
 	set("long", @LONG
-这里堆放着上百堆的石头。这些石头有大有小，大如一间房屋，小如
-一个鸭蛋，形状大多都呈圆柱形。你发现从有些石头之间的缝隙(fengxi)
-中飘出一股股的腥臭味，使你快要做呕了。
+這裏堆放着上百堆的石頭。這些石頭有大有小，大如一間房屋，小如
+一個鴨蛋，形狀大多都呈圓柱形。你發現從有些石頭之間的縫隙(fengxi)
+中飄出一股股的腥臭味，使你快要做嘔了。
 LONG);
 	set("exits", ([
 		"southeast" : __DIR__"yuanzi2",
@@ -18,7 +18,7 @@ LONG);
 		"east"      : __DIR__"yuanzi3",
 	]));
 	set("item_desc", ([
-		"fengxi": "\n缝隙里面漆黑一片，隐隐约约有沙沙的声响。\n",
+		"fengxi": "\n縫隙裏面漆黑一片，隱隱約約有沙沙的聲響。\n",
 	]));
 	set("outdoors", "baituo");
 	set("no_clean_up", 0);
@@ -53,10 +53,10 @@ int do_enter(string arg)
 
 	if (arg == "fengxi" )
 	{
-		message_vision("$N刨开缝隙口的乱石子。\n" NOR, me); 
-		message("vision", me->name() + "一弯腰往缝隙里钻了进去。\n", environment(me), ({me}) );
+		message_vision("$N刨開縫隙口的亂石子。\n" NOR, me); 
+		message("vision", me->name() + "一彎腰往縫隙裏鑽了進去。\n", environment(me), ({me}) );
 		me->move(__DIR__"fengxi2");
-		message("vision", me->name() + "从外面钻了进来。\n", environment(me), ({me}) );
+		message("vision", me->name() + "從外面鑽了進來。\n", environment(me), ({me}) );
 		return 1;
 	}
 }
@@ -75,13 +75,13 @@ int do_open()
 {
  
 	object room;	
-	message("vision","石柱忽然发出轧轧的声音，向一侧缓缓移开，向下露出一个黑洞洞的入口。\n", this_object() );
+	message("vision","石柱忽然發出軋軋的聲音，向一側緩緩移開，向下露出一個黑洞洞的入口。\n", this_object() );
 	set("exits/down", __DIR__"midao0");
 	if( room = load_object(__DIR__"midao0") )
 	{
 		 room->set("exits/up", __FILE__);
 		 message("vision",
- "头顶上的石柱忽然发出轧轧的声音，露出一个光亮亮的洞口。\n",room );
+ "頭頂上的石柱忽然發出軋軋的聲音，露出一個光亮亮的洞口。\n",room );
 	} 
 	remove_call_out("close_door");
 	call_out("close_door", 3);
@@ -93,11 +93,11 @@ void close_door()
 	object room;
 
 	if( !query("exits/down") ) return;
-	message("vision","石柱发出轧轧的声音，缓缓地移回原处，将向下的洞口盖住了。\n", this_object() );
+	message("vision","石柱發出軋軋的聲音，緩緩地移回原處，將向下的洞口蓋住了。\n", this_object() );
 	if( room = load_object(__DIR__"midao0") )
 	{
 		room->delete("exits/up");
-		message("vision","头顶上发出轧轧的声音，石柱又缓缓地收了回去，阶梯消失了。\n", room );
+		message("vision","頭頂上發出軋軋的聲音，石柱又緩緩地收了回去，階梯消失了。\n", room );
 	}
 	delete("exits/down");
 }

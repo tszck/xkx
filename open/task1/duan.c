@@ -1,18 +1,18 @@
-// duan.c 段延庆
+// duan.c 段延慶
 inherit NPC;
 inherit F_SKILL;
 #include <ansi.h>
 void create()
 {
 
-	set_name("段延庆", ({ "duan  yanqing", "duan" }));
+	set_name("段延慶", ({ "duan  yanqing", "duan" }));
 	set("gender", "男性");
-	set("nickname", HIC"恶贯满盈"NOR);
+	set("nickname", HIC"惡貫滿盈"NOR);
 	set("age", 54);
 	set("str", 25);
 	set("dex", 16);
 	set("per", 21);
-	set("long", "他一身青袍人，长须垂胸，面目漆黑，一双眼睁大大的，
+	set("long", "他一身青袍人，長鬚垂胸，面目漆黑，一雙眼睜大大的，
 一霎也不霎。\n");
 	set("combat_exp", 3000000+ random(1000000));
 	set("attitude", "peaceful");

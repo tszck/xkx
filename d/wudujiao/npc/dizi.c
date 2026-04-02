@@ -7,7 +7,7 @@ void create()
         set_name("五毒教弟子", ({ "di zi", "dizi" }));
         set("age", 28);
         set("gender", "男性");
-        set("long", "一个身体强壮的苗族青年，看来武功已小由所成。\n");
+        set("long", "一個身體強壯的苗族青年，看來武功已小由所成。\n");
         set("attitude", "peaceful");
         set("max_qi", 500);
 

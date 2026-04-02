@@ -13,7 +13,7 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一杯热茶，悠悠地冒着香气～～～\n");
+		set("long", "一杯熱茶，悠悠地冒着香氣～～～\n");
 		set("unit", "杯");
 		set("value", 10);
 		set("remaining", 2);
@@ -37,10 +37,10 @@ int do_drink(string arg)
 
 	if( !this_object()->id(arg) ) return 0;
 	if( this_player()->is_busy() )
-		return notify_fail("你上一个动作还没有完成。\n");
+		return notify_fail("你上一個動作還沒有完成。\n");
 	if( (int)this_player()->query("water")
 		>= (int)this_player()->max_water_capacity() )
-		return notify_fail("你已经喝太多了，再也灌不下一滴水了。\n");
+		return notify_fail("你已經喝太多了，再也灌不下一滴水了。\n");
 
 	set("value", 0);
 	this_player()->add("water", (int)query("drink_supply"));
@@ -79,11 +79,11 @@ int do_drink(string arg)
 	add("remaining", -1);
 	if ( query("remaining") )
 	{
-		message_vision("$N端起杯香茶，有滋有味地品了几口。\n"+
-		"一股香气直入心脾，$N觉得精神好多了。\n", this_player());
+		message_vision("$N端起杯香茶，有滋有味地品了幾口。\n"+
+		"一股香氣直入心脾，$N覺得精神好多了。\n", this_player());
 	} else 
 	{ 
-		message_vision("$N端起雕花小杯，把剩下的香茶一饮而尽。\n"+"一股香气直入心脾，$N觉得精神好多了。\n", this_player());
+		message_vision("$N端起雕花小杯，把剩下的香茶一飲而盡。\n"+"一股香氣直入心脾，$N覺得精神好多了。\n", this_player());
 		destruct(this_object());
 	}
 	return 1;

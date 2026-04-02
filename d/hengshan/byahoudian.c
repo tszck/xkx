@@ -1,15 +1,15 @@
 // Last Modified by Sir on May. 22 2001
-//Room: byahoudian.c 白云庵后殿
+//Room: byahoudian.c 白雲庵後殿
 
 inherit ROOM;
 void do_chat();
 
 void create()
 {
-	set("short","白云庵后殿");
+	set("short","白雲庵後殿");
 	set("long",@LONG
-恒山白云庵的后殿。是恒山派掌门人的居所。这里供有一尊普贤菩
-萨像。两旁靠墙放着几张太师椅，地上放着几个蒲团。
+恆山白雲庵的後殿。是恆山派掌門人的居所。這裏供有一尊普賢菩
+薩像。兩旁靠牆放着幾張太師椅，地上放着幾個蒲團。
 LONG);
 	set("no_clean_up", 0);
 	set("exits",([ /* sizeof() == 1 */

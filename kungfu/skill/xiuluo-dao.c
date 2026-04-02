@@ -1,4 +1,4 @@
-// xiuluo-dao.c 修罗刀
+// xiuluo-dao.c 修羅刀
 // Last Modified by sega on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,51 +7,51 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N藏刀内收，一招"HIY"「割肉饲鹰」"NOR"，刀锋自下而上划了个半弧，向$n的
-$l挥去",
+([	"action" : "$N藏刀內收，一招"HIY"「割肉飼鷹」"NOR"，刀鋒自下而上劃了個半弧，向$n的
+$l揮去",
 	"lvl" : 0,
-	"skill_name" : "割肉饲鹰",
+	"skill_name" : "割肉飼鷹",
 ]),
-([	"action" : "$N左掌虚托右肘，一招"MAG"「投身饿虎」"NOR"，手中$w笔直划向$n的$l",	
+([	"action" : "$N左掌虛託右肘，一招"MAG"「投身餓虎」"NOR"，手中$w筆直划向$n的$l",	
 	"lvl" : 10,
-	"skill_name" : "投身饿虎",
+	"skill_name" : "投身餓虎",
 ]),
-([	"action" : "$N一招"BLU"「斫头谢天」"NOR"，$w绕颈而过，刷地一声自上而下向$n猛劈",
+([	"action" : "$N一招"BLU"「斫頭謝天」"NOR"，$w繞頸而過，刷地一聲自上而下向$n猛劈",
 	"lvl" : 20,
-	"skill_name" : "斫头谢天",
+	"skill_name" : "斫頭謝天",
 ]),
-([	"action" : "$N右手反执刀柄，一招"HIW"「折骨出髓」"NOR"，猛一挫身，$w直向$n的颈中斩
+([	"action" : "$N右手反執刀柄，一招"HIW"「折骨出髓」"NOR"，猛一挫身，$w直向$n的頸中斬
 去",
 	"lvl" : 30,
 	"skill_name" : "折骨出髓",
 ]),
-([	"action" : "$N一招"GRN"「挑身千灯」"NOR"，无数刀尖化作点点繁星，向$n的$l挑去",	
+([	"action" : "$N一招"GRN"「挑身千燈」"NOR"，無數刀尖化作點點繁星，向$n的$l挑去",	
 	"lvl" : 40,
-	"skill_name" : "挑身千灯",
+	"skill_name" : "挑身千燈",
 ]),
-([	"action" : "$N双手合执$w，一招"BLU"「挖眼布施」"NOR"，拧身急转，刀尖直刺向$n的双眼
+([	"action" : "$N雙手合執$w，一招"BLU"「挖眼佈施」"NOR"，擰身急轉，刀尖直刺向$n的雙眼
 ",
 	"lvl" : 50,
-	"skill_name" : "挖眼布施",
+	"skill_name" : "挖眼佈施",
 ]),
-([	"action" : "$N一招"CYN"「剥皮书经」"NOR"，手中$w划出一个大平十字，向$n纵横劈去",
+([	"action" : "$N一招"CYN"「剝皮書經」"NOR"，手中$w劃出一個大平十字，向$n縱橫劈去",
 	"lvl" : 60,
-	"skill_name" : "剥皮书经",
+	"skill_name" : "剝皮書經",
 ]),
-([	"action" : "$N反转刀尖对准自己，一招"RED"「剜心决志」"NOR"，全身一个翻滚，$w向$n拦
-腰斩去",
+([	"action" : "$N反轉刀尖對準自己，一招"RED"「剜心決志」"NOR"，全身一個翻滾，$w向$n攔
+腰斬去",
 	"lvl" : 70,
-	"skill_name" : "剜心决志",
+	"skill_name" : "剜心決志",
 ]),
-([	"action" : "$N一招"HIB"「烧身供佛」"NOR"，$w的刀光仿佛化成一簇簇烈焰，将$n团团围绕
+([	"action" : "$N一招"HIB"「燒身供佛」"NOR"，$w的刀光彷彿化成一簇簇烈焰，將$n團團圍繞
 ",
 	"lvl" : 80,
-	"skill_name" : "烧身供佛",
+	"skill_name" : "燒身供佛",
 ]),
-([	"action" : "$N刀尖平指，一招"HIR"「刺血满地」"NOR"，一片片切骨刀气如飓风般裹向$n的
+([	"action" : "$N刀尖平指，一招"HIR"「刺血滿地」"NOR"，一片片切骨刀氣如颶風般裹向$n的
 全身",
 	"lvl" : 90,
-	"skill_name" : "刺血满地",
+	"skill_name" : "刺血滿地",
 ]),
 });
 
@@ -59,9 +59,9 @@ int valid_enable(string usage) { return usage == "blade" || usage == "parry"; }
 int valid_learn(object me)
 {
 	if ((int)me->query("max_neili") < 50)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if ((int)me->query_skill("hunyuan-yiqi", 1) < 10)
-		return notify_fail("你的混元一气功火候太浅。\n");
+		return notify_fail("你的混元一氣功火候太淺。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -70,9 +70,9 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "blade")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if ((int)me->query("qi") < 50)
-		return notify_fail("你的体力不够练修罗刀。\n");
+		return notify_fail("你的體力不夠練修羅刀。\n");
 	me->receive_damage("qi", 35);
 	return 1;
 }
@@ -100,17 +100,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "割伤" : "擦伤",
+		"damage_type" : random(2) ? "割傷" : "擦傷",
 	]);
 }
 int learn_bonus() { return 10; }
@@ -120,14 +120,14 @@ int power_point(object me) { return 1; }
 
 int help(object me)
 {
-	write(HIC"\n修罗刀："NOR"\n");
+	write(HIC"\n修羅刀："NOR"\n");
 	write(@HELP
 
-    修罗刀为少林七十二绝技之一。
+    修羅刀爲少林七十二絕技之一。
 
-	学习要求：
-		混元一气功10级
-		内力50
+	學習要求：
+		混元一氣功10級
+		內力50
 HELP
 	);
 	return 1;

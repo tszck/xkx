@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "风门小院");
+	set("short", "風門小院");
 	set("long", @LONG
-这是竹林中的一间小院，竹影依依，经声入耳，其南北各有一间竹
-舍，乃是明教中释道和佛家弟子的修炼场所。
+這是竹林中的一間小院，竹影依依，經聲入耳，其南北各有一間竹
+舍，乃是明教中釋道和佛家弟子的修煉場所。
 LONG );
 	set("exits", ([
 		"northwest" : __DIR__"mjfengmen",

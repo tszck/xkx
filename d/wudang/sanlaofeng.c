@@ -1,13 +1,13 @@
-//Room: sanlaofeng.c 三老峰
+//Room: sanlaofeng.c 三老峯
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-      set("short","三老峰");
+      set("short","三老峯");
       set("long",@LONG
-只见三座奇峰突兀，惊险无比，行人多不敢放胆在此玩赏风景。
+只見三座奇峯突兀，驚險無比，行人多不敢放膽在此玩賞風景。
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "northdown": __DIR__"wuyaling",

@@ -6,12 +6,12 @@ void create()
         
 
         set_name("程英", ({ "cheng ying","cheng" }) );
-//        set_name("颜程英", ({ "yan ruofeng","yan","ruofeng" }) );
+//        set_name("顏程英", ({ "yan ruofeng","yan","ruofeng" }) );
         set("gender", "女性" );
         set("age",18);
         set("long", @TEXT
-程英是黄药师从小收养的孤女。由黄药师亲手教得了一手人人称绝的
-烹调手法，因此桃花岛的膳食就由她负责。
+程英是黃藥師從小收養的孤女。由黃藥師親手教得了一手人人稱絕的
+烹調手法，因此桃花島的膳食就由她負責。
 TEXT );
         set("per", 30);
         set("class", "scholar");
@@ -31,11 +31,11 @@ TEXT );
 
         set("chat_chance", 7);
         set("chat_msg", ({
-        "程英微笑著说道：我们桃花岛景色优美，欢迎来作客！\n",
-        "程英高兴的说：有幸见到您真高兴！\n",
-        "程英微笑著说道：您饿不饿？我桃花岛的烹调功夫可算天下第一呀。\n",
+        "程英微笑著說道：我們桃花島景色優美，歡迎來作客！\n",
+        "程英高興的說：有幸見到您真高興！\n",
+        "程英微笑著說道：您餓不餓？我桃花島的烹調功夫可算天下第一呀。\n",
         }) );
-        create_family("桃花岛", 3, "弟子");
+        create_family("桃花島", 3, "弟子");
 
         setup();
         carry_object("/clone/misc/cloth")->wear();
@@ -57,20 +57,20 @@ void greeting(object ob)
         object teatp,foodtp;
         if( !ob || environment(ob)!=environment() )
                 return;
-        if ( ob->query_temp("taohua/茶饭") )
-                say("程英微笑着说： 这位"
-                    +RANK_D->query_respect(ob)+"，你好！欢迎来到桃花岛！\n");
+        if ( ob->query_temp("taohua/茶飯") )
+                say("程英微笑着說： 這位"
+                    +RANK_D->query_respect(ob)+"，你好！歡迎來到桃花島！\n");
         else
         {
                 tell_room(environment(this_object()),
-                        "程英奉上茶饭，微笑着说道：这位" + RANK_D->query_respect(ob)
-                        + "，你好！欢迎来到桃花岛。请用饭！\n");
+                        "程英奉上茶飯，微笑着說道：這位" + RANK_D->query_respect(ob)
+                        + "，你好！歡迎來到桃花島。請用飯！\n");
                 teatp = new("/d/taohua/obj/cha");
                 teatp ->move(ob);
                 foodtp= new("/d/taohua/obj/gao");
                 foodtp->move(ob);
 
-                command ("say 这是我亲手做的，请您品尝！\n");
-                ob->set_temp("taohua/茶饭", 1);
+                command ("say 這是我親手做的，請您品嚐！\n");
+                ob->set_temp("taohua/茶飯", 1);
         }
 }

@@ -1,4 +1,4 @@
-// sword.c 基本剑法
+// sword.c 基本劍法
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -13,16 +13,16 @@ int power_point(object me) { return 1; }
 
 int help(object me)
 {
-	write(HIC"\n基本剑法："NOR"\n");
+	write(HIC"\n基本劍法："NOR"\n");
 	write(@HELP
 
-    剑类武技的基本功。
-    剑，号称「百兵之君」。剑诀云：「剑是青龙剑走剑要平善，
-气要随剑行，两眼顾剑尖，气沉两足稳，身法需自然，剑行如飞燕，
-剑落如停风，剑收如花絮，剑刺如钢钉。」
+    劍類武技的基本功。
+    劍，號稱「百兵之君」。劍訣雲：「劍是青龍劍走劍要平善，
+氣要隨劍行，兩眼顧劍尖，氣沉兩足穩，身法需自然，劍行如飛燕，
+劍落如停風，劍收如花絮，劍刺如鋼釘。」
 
-	学习要求：
-		无
+	學習要求：
+		無
 HELP
 	);
 	return 1;

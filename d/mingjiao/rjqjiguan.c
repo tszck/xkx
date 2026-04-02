@@ -6,7 +6,7 @@ void create()
 {
 	set("short", "密道");
 	set("long", @LONG
-这里是一条秘道的尽头，石墙之上嵌入两盏油灯，火苗幽蓝，向北
+這裏是一條祕道的盡頭，石牆之上嵌入兩盞油燈，火苗幽藍，向北
 望去，黑暗中有些光亮。
 LONG );
 	set("exits", ([
@@ -29,7 +29,7 @@ void init()
 	d=(int)me->query_skill("dodge");
 	if(((int)me->query("mingjiao")!=1)&&(d<=100))
 	{
-		message_vision("$N只觉犹如利刃加身，喷血而出，浑身被射成刺猬一般\n",me);
+		message_vision("$N只覺猶如利刃加身，噴血而出，渾身被射成刺蝟一般\n",me);
 		eq=(int)me->query("qi")-q+(int)(q*d/100);
 		me->set("qi",eq);
 		me->set("eff_qi",eq);

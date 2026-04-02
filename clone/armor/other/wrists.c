@@ -7,7 +7,7 @@ inherit WRISTS;
 
 void create()
 {
-	set_name("护腕", ({"wrists"}));
+	set_name("護腕", ({"wrists"}));
 		set_weight(1000);
 	if( clonep() )
 		set_default_object(__FILE__);

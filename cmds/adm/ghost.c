@@ -11,7 +11,7 @@ int main(object me, string arg)
 	if (!arg || arg!="-p")
 	{
 		me->set_ghost(1);
-		write("你成功地变成了一只鬼！\n");
+		write("你成功地變成了一隻鬼！\n");
 	}
 	else {
 		me->set_ghost(0);
@@ -25,7 +25,7 @@ int help(object me)
 write(@HELP
 指令格式 : ghost [-p]
  
-这个指令让你在人鬼之间切换。
+這個指令讓你在人鬼之間切換。
 HELP	);
 	return 1;
 }

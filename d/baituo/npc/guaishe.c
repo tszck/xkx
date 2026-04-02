@@ -7,7 +7,7 @@ void create()
 	set_name("怪蛇", ({ "guai she", "snake", "she" }) );
 	set("race", "爬蛇");
 	set("age", 30);
-	set("long", "一条三尺来长的眼镜王蛇。\n");
+	set("long", "一條三尺來長的眼鏡王蛇。\n");
 	set("attitude", "aggressive");
 	set("combat_exp", 5500);
 	set_temp("apply/attack", 250);

@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 
@@ -13,14 +13,14 @@ void create()
   if( clonep() )
     set_default_object(__FILE__);
   else {
-    set("long", "一只楠木茶盅。\n");
+    set("long", "一隻楠木茶盅。\n");
     set("unit", "只");
     set("max_liquid", 2);
 }
   
   set("liquid", ([
        "type": "water",
-       "name": "云雾山香茶",
+       "name": "雲霧山香茶",
        "remaining": 2,
        ]) );
   setup();

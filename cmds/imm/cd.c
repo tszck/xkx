@@ -9,7 +9,7 @@ int main(object me, string arg)
 	if( !arg )
 		arg = user_path(me->query("id"));
 	dir = resolve_path(me->query("cwd"), arg);
-	if(file_size(dir)!=-2) return notify_fail("没有这个目录。\n");
+	if(file_size(dir)!=-2) return notify_fail("沒有這個目錄。\n");
 
 	if(dir[strwidth(dir)-1]!='/') dir += "/";
 	me->set("cwd", dir);
@@ -20,9 +20,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-指令格式 : cd <子目录名>, cd .. , and cd
+指令格式 : cd <子目錄名>, cd .. , and cd
 
-将目前参考的目录移至指定的子目录或回到上一主目录; 亦可直接回到自己工作目录。
+將目前參考的目錄移至指定的子目錄或回到上一主目錄; 亦可直接回到自己工作目錄。
 HELP
 	);
 	return 1;

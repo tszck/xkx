@@ -3,9 +3,9 @@ inherit NPC;
 
 void create()
 {
-        set_name("小沙弥", ({"xiao shami","shami",}));
+        set_name("小沙彌", ({"xiao shami","shami",}));
         set("long",
-                "他是本寺小沙弥。\n");
+                "他是本寺小沙彌。\n");
         set("gender", "男性");
         set("age", 12);
         set("attitude", "peaceful");

@@ -5,8 +5,8 @@ void create()
 {
 	set("short", "草地");
 	set("long",@LONG
-你走在一片草地。草地西边似乎香气四逸，往东边望，那里好象是
-一个小花园。
+你走在一片草地。草地西邊似乎香氣四逸，往東邊望，那裏好象是
+一個小花園。
 LONG );
 	set("outdoors", "heimuya");
 	set("exits", ([

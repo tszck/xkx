@@ -1,4 +1,4 @@
-// xiejian.c 邪剑李四
+// xiejian.c 邪劍李四
 
 #include <ansi.h>
 
@@ -14,7 +14,7 @@ string ask_cloth();
 void create()
 {
 	set_name("李四", ({ "li si", "li" }) );
-	set("title", "小店老板");
+	set("title", "小店老闆");
 	set("gender", "男性" );
 	set("shen_type", -1);
 	set("age", 40);
@@ -26,19 +26,19 @@ void create()
 	set("no_clean_up",1);
 
 	set("long",
-		"这是整天笑咪咪的小店老板，虽然不卖什麽东西，却也过得自在。\n" );
+		"這是整天笑咪咪的小店老闆，雖然不賣什麼東西，卻也過得自在。\n" );
 
 	set("combat_exp", 50000);
 	set("attitude", "peaceful");
 	set("chat_chance", 1);
 	set("chat_msg", ({
-		"李四说道: 这位客官，您想买些什麽东西吗 ?\n",
+		"李四說道: 這位客官，您想買些什麼東西嗎 ?\n",
 	}) );
 
 	set("inquiry", ([
-		"邪剑"     : (: ask_me :),
-		"杀人"     : (: ask_me :),
-		"英雄无敌" : (: ask_cloth :),
+		"邪劍"     : (: ask_me :),
+		"殺人"     : (: ask_me :),
+		"英雄無敵" : (: ask_cloth :),
 	]) );
 
 	set("max_qi", 700);
@@ -73,14 +73,14 @@ void init()
 	if( !me->query("waiting_target") && ob->query_temp("fee_paid") ) 
 		ob->delete_temp("fee_paid");
 
-	add_action("do_name","杀");
+	add_action("do_name","殺");
 	add_action("do_name","name");
 	
 }
 
 string ask_me()
 {
-	return "我就是邪剑李四，你来找我有什麽事吗？\n";
+	return "我就是邪劍李四，你來找我有什麼事嗎？\n";
 }
 
 int do_name(string target)
@@ -92,13 +92,13 @@ int do_name(string target)
 	all = users();
 
 	if(me->query("waiting_target"))
-		return notify_fail("李四嘿嘿一笑：我现在正忙着哪，您呆会儿在来吧！\n");
+		return notify_fail("李四嘿嘿一笑：我現在正忙着哪，您呆會兒在來吧！\n");
 	
 	if( !this_player()->query_temp("fee_paid") ) 
-		return notify_fail("李四说道：不管叫我做什麽，您可得先付钱哪！\n");
+		return notify_fail("李四說道：不管叫我做什麼，您可得先付錢哪！\n");
 
 	if( !target || target==" ") 
-		return notify_fail("李四恶狠狠地说道：快告诉我那家伙的名字，我可没功夫听你闲聊！\n");
+		return notify_fail("李四惡狠狠地說道：快告訴我那傢伙的名字，我可沒功夫聽你閒聊！\n");
 
 	for(i=0; i<sizeof(all); i++) 
 	{
@@ -107,12 +107,12 @@ int do_name(string target)
 	}
 	
 	if( !dest || !this_player()->visible(dest) )
-		return notify_fail("李四一声冷笑：他现在不在游戏中，过会再来吧。\n");
+		return notify_fail("李四一聲冷笑：他現在不在遊戲中，過會再來吧。\n");
 		
 	if (dest->is_ghost())
-		return notify_fail("李四很不高兴：他已经是个死鬼了，你还来找我干什么！\n");
+		return notify_fail("李四很不高興：他已經是個死鬼了，你還來找我幹什麼！\n");
 
-	write_file("/log/static/KILLRECORD",sprintf("%s   派李四去杀   %s on %s\n", this_player()->name(1),dest->name(1), ctime(time()) ));
+	write_file("/log/static/KILLRECORD",sprintf("%s   派李四去殺   %s on %s\n", this_player()->name(1),dest->name(1), ctime(time()) ));
 	me->set("waiting_target", dest->query("id"));
 	me->set("target_name", target);
 		
@@ -120,15 +120,15 @@ int do_name(string target)
 	me->set_temp("apply/defense", 50);
 	me->set_temp("apply/damage",  20);
 
-	me->set("title", HIB "邪剑" NOR);
+	me->set("title", HIB "邪劍" NOR);
 	me->set("long",
-		"邪剑李四，杀手帮十大高级剑士之一，有剑不染血不归鞘之名。\n" );
+		"邪劍李四，殺手幫十大高級劍士之一，有劍不染血不歸鞘之名。\n" );
 
 	me->delete("chat_chance");
 	me->delete("chat_msg");
 
 	message("vision",
-		HIY "李四嘿嘿嘿地干笑了几声，说道：您就在这儿静侯好音吧!\n"NOR,
+		HIY "李四嘿嘿嘿地乾笑了幾聲，說道：您就在這兒靜侯好音吧!\n"NOR,
 		environment(), me );
  
 	me->set("pursuer", 1);
@@ -149,14 +149,14 @@ int accept_object(object who, object ob)
 	if (ob->query("money_id") && ob->value() >= 1000000 
 		&& !this_object()->query("waiting_target")) 
 	{
-		tell_object(who, "李四沉下脸来：好，爽快说吧，你要我帮你杀谁？\n");
-		tell_object(who, "请键入：杀 目标中文名字\n");
+		tell_object(who, "李四沉下臉來：好，爽快說吧，你要我幫你殺誰？\n");
+		tell_object(who, "請鍵入：殺 目標中文名字\n");
 		who->set_temp("fee_paid",1);
 		return 1;
 	}
 	else if (ob->query("money_id") && ob->value() < 1000000) 
 	{
-		tell_object(who, "李四嘿嘿一笑，说道：给我这麽多钱？ 将来我可没法还你啊。\n");
+		tell_object(who, "李四嘿嘿一笑，說道：給我這麼多錢？ 將來我可沒法還你啊。\n");
 		return 1;
 	}
 
@@ -176,7 +176,7 @@ int do_chase(object me)
 	}
 	
 	me->move(environment(dest));
-	message_vision("$N走了过来。\n" NOR, me);
+	message_vision("$N走了過來。\n" NOR, me);
 	me->set_leader(dest);
 	command("look " + dest->query("id"));
 	
@@ -200,8 +200,8 @@ int do_kill(object me, object dest)
 	if( objectp(dest) && present(dest, environment(me))
 		 && !environment(me)->query("no_fight"))
 	{
-		message_vision(HIR "$N对$n说道：阴司鬼王差我来，请你去他那儿做客，"
-			+RANK_D->query_rude(dest)+"，你认命吧！\n" NOR, me, dest);
+		message_vision(HIR "$N對$n說道：陰司鬼王差我來，請你去他那兒做客，"
+			+RANK_D->query_rude(dest)+"，你認命吧！\n" NOR, me, dest);
 		me->set_leader(dest);
 		me->kill_ob(dest);
 		dest->fight_ob(me);
@@ -268,18 +268,18 @@ int do_back(object me)
 {
 
 	me->move("/d/village/shop");
-	message("vision", "李四走了进来，拍了拍身上的尘土，把剑上的血迹抹拭干净，\n"
-		"他接着一笑说道：老天爷保佑，活儿干得干净利落，您老以後有什麽事还可以找我。\n", 
+	message("vision", "李四走了進來，拍了拍身上的塵土，把劍上的血跡抹拭乾淨，\n"
+		"他接着一笑說道：老天爺保佑，活兒幹得乾淨利落，您老以後有什麼事還可以找我。\n", 
 		environment(), me );
 
-	me->set("title", "小店老板");
+	me->set("title", "小店老闆");
 	me->set("long",
-		"这是整天笑咪咪的小店老板，虽然不卖什麽东西，却也过得自在。\n" );
+		"這是整天笑咪咪的小店老闆，雖然不賣什麼東西，卻也過得自在。\n" );
 	
 	me->set_leader(0);
 	me->set("chat_chance", 1);
 	me->set("chat_msg", ({
-		"李四说道: 这位客官，您想买些什麽东西吗 ?\n",
+		"李四說道: 這位客官，您想買些什麼東西嗎 ?\n",
 	}) );
 
 	return 1;
@@ -294,5 +294,5 @@ string ask_cloth()
 		ob = new("/u/winder/cloth");
 		ob->move(me);
 	}
-	return "你他妈的也敢叫英雄无敌？\n";
+	return "你他媽的也敢叫英雄無敵？\n";
 }

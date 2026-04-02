@@ -1,4 +1,4 @@
-// kang.c 康亲王
+// kang.c 康親王
 
 #include <ansi.h>
 
@@ -8,14 +8,14 @@ int ask_meili();
 
 void create()
 {
-	set_name("杰书", ({ "jie shu", "jie", "shu"}));
+	set_name("傑書", ({ "jie shu", "jie", "shu"}));
 	set("gender", "男性");
-	set("title", HIY"康亲王"HIR"镶红旗旗主"NOR);
+	set("title", HIY"康親王"HIR"鑲紅旗旗主"NOR);
 	set("age", 42);
 	set("str", 25);
 	set("dex", 20);
-	set("long", "\n只见他一身锦衣，笑容满面，任谁见了他都生不起气来。\n"+
-		"此人深谙为官之道，极善察言观色、溜须拍马，颇得皇帝欢心。\n");
+	set("long", "\n只見他一身錦衣，笑容滿面，任誰見了他都生不起氣來。\n"+
+		"此人深諳爲官之道，極善察言觀色、溜鬚拍馬，頗得皇帝歡心。\n");
 	set("combat_exp", 50000);
 	set("score", 5000);
 	set("shen_type", -1);
@@ -37,10 +37,10 @@ void create()
 	set("max_neili", 500);
 	set("jiali", 50);
 	set("inquiry", ([
-		"鳌拜" :  "\n鳌拜这厮横行霸道，我早就想除了他。\n",
-		"玉骢马" :  "\n你想要我就送与你吧，不过它可不一定会服你。\n",
+		"鰲拜" :  "\n鰲拜這廝橫行霸道，我早就想除了他。\n",
+		"玉驄馬" :  "\n你想要我就送與你吧，不過它可不一定會服你。\n",
 		"魅力" :  (: ask_meili :),
-		"当官" : (: ask_meili :),
+		"當官" : (: ask_meili :),
 	]) );
 
 	setup();
@@ -50,9 +50,9 @@ void create()
 
 int ask_meili()
 {
-	command("tell "+this_player()->query("id")+" 你现在的魅力值是 " +(string)(this_player()->query("meili")));
-	say("\n康亲王笑道：要想当官魅力不高可不行啊。\n");
-	say("康亲王又说：多跟达官显贵们交往，魅力自然会提高的。\n");
+	command("tell "+this_player()->query("id")+" 你現在的魅力值是 " +(string)(this_player()->query("meili")));
+	say("\n康親王笑道：要想當官魅力不高可不行啊。\n");
+	say("康親王又說：多跟達官顯貴們交往，魅力自然會提高的。\n");
 	return 1;
 }
 
@@ -74,10 +74,10 @@ void greeting(object ob)
 	if((int)ob->query("meili")<20)
 	{
 		if(userp(ob))
-			message_vision("\n康亲王一见$N, 顿时勃然大怒，叫道：“来人啊！将这厮给我拿下！”\n",ob);
+			message_vision("\n康親王一見$N, 頓時勃然大怒，叫道：“來人啊！將這廝給我拿下！”\n",ob);
 			if(!present("shi wei", environment(ob)))
 			{
-				message_vision("登时门外冲进几个侍卫，挥刀向$N直扑过来。\n",ob);
+				message_vision("登時門外衝進幾個侍衛，揮刀向$N直撲過來。\n",ob);
 				man=new("/d/huanggong/npc/shiwei");
 				man->move(environment(ob));
 				man=new("/d/huanggong/npc/shiwei");
@@ -90,16 +90,16 @@ void greeting(object ob)
 	switch( random(5) )
 	{
 		case 0:
-			message_vision("\n$N刚一进门, 康亲王便抢着迎了出来，笑道：“这位"+RANK_D->query_respect(ob)+"，请进请进。\n",ob);
+			message_vision("\n$N剛一進門, 康親王便搶着迎了出來，笑道：“這位"+RANK_D->query_respect(ob)+"，請進請進。\n",ob);
 			if(ob->query("meili")<60)
 			{
 				ob->add("meili",10);
 				message_vision(HIC"$N的魅力值提高了！\n"NOR,ob);
-				command("tell "+ob->query("id")+" 你现在的魅力值是 " +(string)(ob->query("meili")));
+				command("tell "+ob->query("id")+" 你現在的魅力值是 " +(string)(ob->query("meili")));
 			}
 			break;
 		default:
-			say("康亲王笑道：不知这位" + RANK_D->query_respect(ob)+"，光临寒舍有何贵干？\n");
+			say("康親王笑道：不知這位" + RANK_D->query_respect(ob)+"，光臨寒舍有何貴幹？\n");
 			break;
 	}
 }

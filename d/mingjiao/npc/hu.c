@@ -11,10 +11,10 @@ void create()
 {
 	set_name("胡青牛", ({ "hu qingniu", "hu" }));
 	set("long", 
-		"他就是明教号称见死不救的胡青牛，据说他精通医理，可以起死回\n"
-                "生。但他从不医教外人士。\n");
+		"他就是明教號稱見死不救的胡青牛，據說他精通醫理，可以起死回\n"
+                "生。但他從不醫教外人士。\n");
 	set("gender", "男性");
-	set("nickname","蝶谷医仙");
+	set("nickname","蝶谷醫仙");
 	set("age", 50);
 	set("no_get", "1");
 	set("class", "shaman");
@@ -24,13 +24,13 @@ void create()
 	set("con", 25);
 	set("dex", 25);
 	set("inquiry", ([
-		"疗伤" : (:ask_me:),
+		"療傷" : (:ask_me:),
 		"治病"	: (: ask_heal :),
 		"解毒"	: (: ask_poison :),
 		"jing" : (:ask_book:),
-		"医书" : (:ask_book:),
-		"医经" : (:ask_book:),
-		"胡青牛医经" : "我的胡青牛医经已经给张无忌拿去了。",
+		"醫書" : (:ask_book:),
+		"醫經" : (:ask_book:),
+		"胡青牛醫經" : "我的胡青牛醫經已經給張無忌拿去了。",
 	]) );
 
 	set("max_qi", 1500);
@@ -50,7 +50,7 @@ void create()
 	set_skill("parry", 90);
 
 	set("party/party_name",HIG"明教"NOR);
-	set("party/rank","教众"NOR);
+	set("party/rank","教衆"NOR);
 	create_family("明教", 35, "弟子");
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
@@ -64,13 +64,13 @@ int ask_me()
 	
 	if(me->is_fighting() || me->query_temp("busy"))
 	{
-		command("say 我现在没空！");
+		command("say 我現在沒空！");
 		return 1;
 	}
 	
 	if(me->query("count") < 1)
 	{
-		command("say 伤药都用完了，我还没来得及配，你一会再来吧。");
+		command("say 傷藥都用完了，我還沒來得及配，你一會再來吧。");
 		return 1;
 	}
 	
@@ -78,17 +78,17 @@ int ask_me()
 	 && (int)ob->query("eff_jing") == (int)ob->query("max_jing"))
 	{
 		command("? "+ob->query("id"));     
-		command("say 你没有受任何伤啊？");
+		command("say 你沒有受任何傷啊？");
 		return 1;
 	}
 	if(ob->query("score")<500&&ob->query("combat_exp")>100500)
 	{       
-		command("say 你这点江湖阅历，也想让我为你疗伤？");
+		command("say 你這點江湖閱歷，也想讓我爲你療傷？");
 		return 1;
 	}	
 	else
 	{
-		message_vision("胡青牛喂$N服下一颗药丸，然后盘膝坐下，双掌贴着$N的背心。\n", ob);
+		message_vision("胡青牛喂$N服下一顆藥丸，然後盤膝坐下，雙掌貼着$N的背心。\n", ob);
 		if (ob->query("combat_exp")>100500)
 		{
 		if (ob->query("family/family_name") != "明教")
@@ -115,8 +115,8 @@ int recover(object ob)
 	this_object()->delete_temp("busy");
 	ob->set("eff_qi", (int)ob->query("max_qi"));
 	ob->set("eff_jing", (int)ob->query("max_jing"));  
-	message_vision("大约过了一盅茶的时分，胡青牛慢慢地站了起来。\n",ob);
-	command("say 你的伤势已经全好了,可以走啦。");
+	message_vision("大約過了一盅茶的時分，胡青牛慢慢地站了起來。\n",ob);
+	command("say 你的傷勢已經全好了,可以走啦。");
 	return 1;
 }
 int newyao(object me)
@@ -135,13 +135,13 @@ int ask_heal()
 
         if(me->is_fighting()|| me->query_temp("busy"))
          {
-           command("say 我现在没空！");
+           command("say 我現在沒空！");
            return 1;
          }
 
 	if(ob->query("score")<500&&ob->query("combat_exp")>100000)
 	{       
-		command("say 你这点江湖阅历，也想让我为你治病？");
+		command("say 你這點江湖閱歷，也想讓我爲你治病？");
 		return 1;
 	}
 		
@@ -151,7 +151,7 @@ int ask_heal()
 	    ||ob->query_condition("ill_dongshang")
 	    ||ob->query_condition("ill_fashao"))
 	{
-		message_vision("胡青牛轻扣$N脉门，略一思索，随后转身从药篓里取出几味草药，开始为$N熬药。\n", ob);
+		message_vision("胡青牛輕釦$N脈門，略一思索，隨後轉身從藥簍裏取出幾味草藥，開始爲$N熬藥。\n", ob);
 		if( ob->query("combat_exp")>100000)
 		{
 		if (ob->query("family/family_name") != "明教")
@@ -169,7 +169,7 @@ int ask_heal()
 	else
 	{
 		command("? "+ob->query("id"));
-		command("say 看你的气色，并没有生病啊？");
+		command("say 看你的氣色，並沒有生病啊？");
 		return 1;
 	}
 	
@@ -187,8 +187,8 @@ int recover_II(object ob)
 		ob->clear_condition("ill_dongshang",0);
 	if (ob->query_condition("ill_fashao"))
 		ob->clear_condition("ill_fashao",0);
-	message_vision("大约一柱香过后，胡青牛让你喝下一碗刚熬好的热气腾腾的中药。\n",ob);
-	command("say 你的身体已无大碍,可以走啦。");
+	message_vision("大約一柱香過後，胡青牛讓你喝下一碗剛熬好的熱氣騰騰的中藥。\n",ob);
+	command("say 你的身體已無大礙,可以走啦。");
 	return 1;
 }
 
@@ -201,12 +201,12 @@ int ask_poison()
 
         if(me->is_fighting()|| me->query_temp("busy"))
          {
-           command("say 我现在没空！");
+           command("say 我現在沒空！");
            return 1;
          }
 	if(ob->query("score")<500&&ob->query("combat_exp")>100000)
 	{       
-		command("say 你这点江湖阅历，也想让我为你解毒？");
+		command("say 你這點江湖閱歷，也想讓我爲你解毒？");
 		return 1;
 	}
 		
@@ -227,7 +227,7 @@ int ask_poison()
 	    || ob->query_condition("zhua_poison")
 	    ||ob->query_condition("ice_sting"))
 	{
-		message_vision("胡青牛轻扣$N脉门，双眉深锁，随后喂$N服下一颗药丸，盘膝坐下，双掌贴着$N的背心，开始为$N解毒。\n", ob);
+		message_vision("胡青牛輕釦$N脈門，雙眉深鎖，隨後喂$N服下一顆藥丸，盤膝坐下，雙掌貼着$N的背心，開始爲$N解毒。\n", ob);
 		if (ob->query("combat_exp")>100000)
 		{
 		if (ob->query("family/family_name") != "明教")
@@ -245,7 +245,7 @@ int ask_poison()
 	else
 	{
 		command("? "+ob->query("id"));
-		command("say 看来我帮不了你什么忙了！");
+		command("say 看來我幫不了你什麼忙了！");
 		return 1;
 	}
 	
@@ -285,8 +285,8 @@ int recover_III(object ob)
 		ob->clear_condition("zhua_poison",0);
 	if (ob->query_condition("ice_sting"))
 		ob->clear_condition("ice_sting", 0);
-	message_vision("大约一柱香过后，$N吐出一口紫血，胡青牛慢慢地站了起来。\n",ob);
-	command("say 你体内毒素已清,可以走啦。");
+	message_vision("大約一柱香過後，$N吐出一口紫血，胡青牛慢慢地站了起來。\n",ob);
+	command("say 你體內毒素已清,可以走啦。");
 	return 1;
 }
 string ask_book()
@@ -295,7 +295,7 @@ string ask_book()
 	object ob;
 	
 	if (query("bookcount") < 1)
-		return "你来晚了，我的医经给别人借去了。";
+		return "你來晚了，我的醫經給別人借去了。";
 	add("bookcount", -1);
 	switch (random(4))
 	{
@@ -305,5 +305,5 @@ string ask_book()
 		case 3 : ob = new("/clone/book/medicine4"); break;
 	}
 	ob->move(this_player());
-	return "好吧，这本医经你拿回去好好钻研。";
+	return "好吧，這本醫經你拿回去好好鑽研。";
 }

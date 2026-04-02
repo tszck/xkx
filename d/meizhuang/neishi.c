@@ -4,20 +4,20 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "内室");
+	set("short", "內室");
 	set("long", @LONG
-室内一床一几，陈设简单，床上挂了的纱帐，铺着的被褥，均甚是
-陈旧，已呈黄色。几上放着一张短琴，通体黝黑，似是铁制。
+室內一牀一幾，陳設簡單，牀上掛了的紗帳，鋪着的被褥，均甚是
+陳舊，已呈黃色。几上放着一張短琴，通體黝黑，似是鐵製。
 LONG
 	);
 	set("exits", ([ /* sizeof() == 1 */
 		"south" : __DIR__"xiaowu",
 	]));
 	set("item_desc", ([
-		"chuang" : "这是一张很陈旧的木床。\n" ,
-		"床"     : "这是一张很陈旧的木床。\n" ,
-		"beiru"  : "这是一床铺在床上的旧被褥。\n" ,
-		"被褥"   : "这是一床铺在床上的旧被褥。\n" ,
+		"chuang" : "這是一張很陳舊的木牀。\n" ,
+		"牀"     : "這是一張很陳舊的木牀。\n" ,
+		"beiru"  : "這是一牀鋪在牀上的舊被褥。\n" ,
+		"被褥"   : "這是一牀鋪在牀上的舊被褥。\n" ,
 	]));
 	set("coor/x", 3510);
 	set("coor/y", -1410);
@@ -36,10 +36,10 @@ int do_move(string arg)
 {
 	object me = this_player();
 
-	if (!arg||arg!="beiru") return notify_fail("你要掀开什么？\n");
+	if (!arg||arg!="beiru") return notify_fail("你要掀開什麼？\n");
 	if ( query("beiru") )
-		return notify_fail("被褥已经掀开了，再掀就掉地上了！\n");
-	message_vision("$N掀开床上被褥，揭起床板，下面却是块铁板，上有铜环。\n", me);
+		return notify_fail("被褥已經掀開了，再掀就掉地上了！\n");
+	message_vision("$N掀開牀上被褥，揭起牀板，下面卻是塊鐵板，上有銅環。\n", me);
 	set("beiru", 1);
 	return 1;
 }
@@ -48,10 +48,10 @@ int do_open(string arg)
 {
 	object midao1, me = this_player();
 
-	if (!arg||arg!="tieban") return notify_fail("你要提开什么？\n");
+	if (!arg||arg!="tieban") return notify_fail("你要提開什麼？\n");
 	if (me->query("neili") < 200)
 	{
-		message_vision("$N握住铜环，向上一提，铁板纹风不动。\n", me);
+		message_vision("$N握住銅環，向上一提，鐵板紋風不動。\n", me);
 		me->set("neili", 0);
 		return 1;
 	}
@@ -61,9 +61,9 @@ int do_open(string arg)
         if(objectp(midao1))
         {
 		set("exits/down", __DIR__"midao1");
-		message_vision("$N握住铜环，向上一提，一块四尺来阔、五尺来长的铁板应手而起，露出一个长大方洞。\n", me);
+		message_vision("$N握住銅環，向上一提，一塊四尺來闊、五尺來長的鐵板應手而起，露出一個長大方洞。\n", me);
 		midao1->set("exits/up", __FILE__);
-                message("vision","头上透出一点光，好象是上面有人打开铁板了。\n", midao1);
+                message("vision","頭上透出一點光，好象是上面有人打開鐵板了。\n", midao1);
                 remove_call_out("close_gate");
                 call_out("close_gate", 5);
         }
@@ -72,7 +72,7 @@ int do_open(string arg)
 void close_gate()
 {
 	if( !query("exits/down") ) return;
-	message("vision","铁板落下来, 将洞口遮得严严实实的。\n", this_object());
+	message("vision","鐵板落下來, 將洞口遮得嚴嚴實實的。\n", this_object());
 	delete("exits/down");
 }
 

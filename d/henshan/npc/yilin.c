@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("仪琳",({ "yi lin", "yi", "lin" }) );
+	set_name("儀琳",({ "yi lin", "yi", "lin" }) );
         set("gender", "女性" );
         set("age", 16);
         set("long", 
-"仪琳是恒山派定逸师太的心爱弟子。\n");
+"儀琳是恆山派定逸師太的心愛弟子。\n");
 	set("combat_exp", 40000);
 	set("shen_type", 1);
 	set("class", "bonze");
@@ -26,7 +26,7 @@ void create()
         set_skill("dodge", 30);
         set_skill("parry", 30);
         set("attitude", "friendly");
-	create_family("恒山派", 14, "弟子");
+	create_family("恆山派", 14, "弟子");
         setup();
         carry_object("clone/cloth/cloth")->wear();
         carry_object("clone/weapon/changjian")->wield();

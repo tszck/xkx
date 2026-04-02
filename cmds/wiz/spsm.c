@@ -12,7 +12,7 @@ int main(object me, string arg)
 
 	if (!arg) return notify_fail("指令格式: smash <living>\n");
 	ob = present(arg, environment(me));
-	if (!ob) return notify_fail("找不到这个生物.\n");
+	if (!ob) return notify_fail("找不到這個生物.\n");
 	name1 = (string)me->query("name");
 	name2 = (string)ob->query("name");
 	ob -> die();

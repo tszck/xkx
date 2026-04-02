@@ -7,10 +7,10 @@
 inherit  ITEM;
 
 string  *prefixs  =  ({
-    "锦面",
-    "缎面",
-    "鹅绒",
-    "丝绣",
+    "錦面",
+    "緞面",
+    "鵝絨",
+    "絲繡",
 });
 
 string  *names  =  ({
@@ -18,12 +18,12 @@ string  *names  =  ({
     "大",
     "扶手",
     "靠背",
-    "折叠",
-    "安乐",
+    "摺疊",
+    "安樂",
 });
 
 string  *suffixs  =  ({
-    "长椅",
+    "長椅",
     "躺椅",
 });
 
@@ -32,7 +32,7 @@ void  create()
     set_name(prefixs[random(sizeof(prefixs))]+names[random(sizeof(names))]+
                       suffixs[random(sizeof(suffixs))],  ({  "chair"  }));
     set_weight(28000);
-    set("long",  "这是一把椅子。\n"  );
+    set("long",  "這是一把椅子。\n"  );
     if(  clonep()  )
         set_default_object(__FILE__);
     else  {

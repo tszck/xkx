@@ -6,11 +6,11 @@ inherit THROWING;
  
 void create()
 {
-	set_name("飞刀", ({ "fei dao", "feidao" }) );
+	set_name("飛刀", ({ "fei dao", "feidao" }) );
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "特制的飞刀，每只都磨得十分锋锐。\n");
+		set("long", "特製的飛刀，每隻都磨得十分鋒銳。\n");
 		set("unit", "把");
 		set("value", 0);
 		set("base_unit", "把");

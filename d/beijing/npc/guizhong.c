@@ -6,9 +6,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("归钟", ({ "gui zhong", "gui" }));
-	set("long", "一个痨病鬼，不住的咳嗽，神情却又犹如小孩子一\n"
-		"般，他便是归辛树之子归钟，从小便体弱多病。\n");
+	set_name("歸鍾", ({ "gui zhong", "gui" }));
+	set("long", "一個癆病鬼，不住的咳嗽，神情卻又猶如小孩子一\n"
+		"般，他便是歸辛樹之子歸鍾，從小便體弱多病。\n");
 	set("gender", "男性");
 	set("age", 34);
 	set("attitude", "peaceful");
@@ -51,11 +51,11 @@ void create()
 
 	set("chat_chance", 20);
 	set("chat_msg", ({
-		CYN "归钟轻轻地咳嗽了几声。\n" NOR,
-		CYN "归钟咳嗽了几声，一张脸涨得通红。\n" NOR,
+		CYN "歸鍾輕輕地咳嗽了幾聲。\n" NOR,
+		CYN "歸鍾咳嗽了幾聲，一張臉漲得通紅。\n" NOR,
 	}) );
 
-	create_family("华山派", 32, "弟子");
+	create_family("華山派", 32, "弟子");
 
 	set("chat_chance_combat", 60);
 	set("chat_msg_combat", ({
@@ -76,8 +76,8 @@ void kill_ob (object ob)
 	::kill_ob(ob);
 	if (guard && !guard->is_fighting())
 	{
-		message_vision (HIR "$N" HIR "大怒：阁下欺人太"
-				"甚，别怪我无情！\n" NOR, guard);
+		message_vision (HIR "$N" HIR "大怒：閣下欺人太"
+				"甚，別怪我無情！\n" NOR, guard);
 		guard->kill_ob(ob);
 	}
 }

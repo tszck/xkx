@@ -1,9 +1,9 @@
-// huoqiang.c 抽髓掌 火墙
+// huoqiang.c 抽髓掌 火牆
 // Last Modified by winder on Feb. 17 2001
 
 #include <ansi.h>
 #include <combat.h>
-#define PNAME "「火墙」"
+#define PNAME "「火牆」"
 
 inherit F_SSERVER;
 #include "/kungfu/skill/eff_msg.h";
@@ -22,24 +22,24 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 //	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail("这里没有你想对付的这个人。\n");
-	notify_fail("你不能攻击这个人。\n");
+		return notify_fail("這裏沒有你想對付的這個人。\n");
+	notify_fail("你不能攻擊這個人。\n");
 	if (!userp(target) && !target->accept_hit(me)) return 0;
 	if(environment(me)->query("no_fight"))
-		return notify_fail("在这里好象施展不开！\n");
+		return notify_fail("在這裏好象施展不開！\n");
 
 		if( objectp(me->query_temp("weapon")) )
-		return notify_fail("你必须空手才能使用"PNAME"！\n");	
+		return notify_fail("你必須空手才能使用"PNAME"！\n");	
 		
 	if(me->query_temp("pfm_chousui"))
-		return notify_fail("你正在驱动火堆进行攻击！\n");
+		return notify_fail("你正在驅動火堆進行攻擊！\n");
 	fskill = "huagong-dafa";
 	bskill = "strike";
 	pskill = "poison";
@@ -53,28 +53,28 @@ int perform(object me, object target)
 		pskill = "douzhuan-xingyi";
 	}
 	if( (int)me->query_skill(fskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 150 )
-		return notify_fail("你发现自己的"+to_chinese(sskill)+"还不够娴熟，无法使用"+PNAME+"进行攻击。\n");
+		return notify_fail("你發現自己的"+to_chinese(sskill)+"還不夠嫺熟，無法使用"+PNAME+"進行攻擊。\n");
 	if( (int)me->query_skill(pskill,1) < 120)
-		return notify_fail("你发现自己体内聚毒不够，无法使用"PNAME"进行攻击。\n");	 
+		return notify_fail("你發現自己體內聚毒不夠，無法使用"PNAME"進行攻擊。\n");	 
 	if( (int)me->query("max_neili") < 1000)
-		return notify_fail("你发现自己内力实在太弱，无法驱动"PNAME"进行攻击。\n");
+		return notify_fail("你發現自己內力實在太弱，無法驅動"PNAME"進行攻擊。\n");
 	if((int)me->query("neili") < 800)
-		return notify_fail("你发现自己现在真气实在太弱，举不起"PNAME"进行攻击。\n");
+		return notify_fail("你發現自己現在真氣實在太弱，舉不起"PNAME"進行攻擊。\n");
 	if( me->query_skill_mapped("force") != fskill)
-		return notify_fail("你发现自己所用的内功无法进行"PNAME"攻击。\n");
+		return notify_fail("你發現自己所用的內功無法進行"PNAME"攻擊。\n");
 	if(!objectp(ob = present("huo yan", environment(me))))
 	{
 		if (userp(me))
-		return notify_fail("没有火堆怎么驱动"PNAME"进行攻击？\n");
-	  message_combatd(HIR"\n$N"HIR"咬破指尖，数滴鲜血落到地面，再用内力一鼓，轰地一声燃起一堆熊熊火焰！\n\n"NOR,me);
+		return notify_fail("沒有火堆怎麼驅動"PNAME"進行攻擊？\n");
+	  message_combatd(HIR"\n$N"HIR"咬破指尖，數滴鮮血落到地面，再用內力一鼓，轟地一聲燃起一堆熊熊火焰！\n\n"NOR,me);
  	  seteuid(getuid());
 	  ob = new("/d/xingxiu/npc/obj/huoyan");
 	  ob->move(environment(me));
 	}
 
-	message_combatd(BLU"\n$N"BLU"神色惨淡，伸手打开发髻，长发下垂，覆在脸上，跟着点燃红磷粉，咬破舌尖，\n一口"RED"鲜血"BLU"向火焰中喷去。"HIR"火焰"BLU"忽地一暗，随即大为"RED"明亮"HIR"，耀得众人眼睛也不易睁开。\n\n"NOR,me);
+	message_combatd(BLU"\n$N"BLU"神色慘淡，伸手打開發髻，長髮下垂，覆在臉上，跟着點燃紅磷粉，咬破舌尖，\n一口"RED"鮮血"BLU"向火焰中噴去。"HIR"火焰"BLU"忽地一暗，隨即大爲"RED"明亮"HIR"，耀得衆人眼睛也不易睜開。\n\n"NOR,me);
 
 	me->start_busy(2);
 	me->set_temp("pfm_chousui", 1);
@@ -97,23 +97,23 @@ int check_pfm(object me, object target, object ob)
 		environment(me)->query("no_fight") ||
 		environment(me)!=environment(target))
 	{
-		message_combatd(HIY"$N衣袖再拂，将抬起的"HIR"火墙"HIY"压回火焰之中。\n"NOR,me);
+		message_combatd(HIY"$N衣袖再拂，將抬起的"HIR"火牆"HIY"壓回火焰之中。\n"NOR,me);
 		return 1;
 	}
 	if(!objectp(present(ob, environment(me))))
 	{
-		message_combatd(HIY"$N眼看火堆熄灭，散开内息。\n"NOR,me);
+		message_combatd(HIY"$N眼看火堆熄滅，散開內息。\n"NOR,me);
 		return 1;
 	}
 	me->add("neili", -500);
 	me->receive_damage("jing", 300);
 
-	msg = BLU"\n$N猛地身子急旋，如陀螺般连转了十多个圈子，接着$P大袖拂动，\n"HIR"整个火焰"BLU"堆陡地拨起，凌空燃烧，便如一座"RED"火墙"BLU"般，夹着排山倒海之势向$n压来！\n"NOR;
+	msg = BLU"\n$N猛地身子急旋，如陀螺般連轉了十多個圈子，接着$P大袖拂動，\n"HIR"整個火焰"BLU"堆陡地撥起，凌空燃燒，便如一座"RED"火牆"BLU"般，夾着排山倒海之勢向$n壓來！\n"NOR;
 	if(!target->is_killing(me->query("id"))) target->kill_ob(me);
        
 	if(!me->query("owner") && random(me->query_str()) > target->query_dex()/2)
 	{
-		msg += HIG"碧焰"HIY"映照之下$p微一迟疑，那"HIR"火墙"HIY"来得快极，便要扑到身上，$p只得双掌齐出，\n两股轻风向外送出，衣袖鼓风飘起，劲力已推向那堵"HIG"绿色的光墙！\n\n" NOR;
+		msg += HIG"碧焰"HIY"映照之下$p微一遲疑，那"HIR"火牆"HIY"來得快極，便要撲到身上，$p只得雙掌齊出，\n兩股輕風向外送出，衣袖鼓風飄起，勁力已推向那堵"HIG"綠色的光牆！\n\n" NOR;
 		target->add("neili", -600);
 		target->receive_damage("jing", 200,me);  
 		me->set_temp("huoqiang_target", target->query("id"));
@@ -131,10 +131,10 @@ int check_pfm(object me, object target, object ob)
 		{
 //			me->start_busy(4);
 			target->start_busy(3);
-			msg += HIY"\n$n只吓目瞪口呆，一怔之间，急忙跃起，但一朵"HIW "火花"HIY"已射到身前，嗤的一声响，\n火花已烧上肚腹。$n“啊”的一声大叫，落了下来。那团"HIR"大火墙"HIY"也即回入火焰堆中。\n" NOR;
+			msg += HIY"\n$n只嚇目瞪口呆，一怔之間，急忙躍起，但一朵"HIW "火花"HIY"已射到身前，嗤的一聲響，\n火花已燒上肚腹。$n“啊”的一聲大叫，落了下來。那團"HIR"大火牆"HIY"也即回入火焰堆中。\n" NOR;
 			target->receive_damage("qi", me->query_skill("force"),me);
 			p = (int)target->query("qi")*100/(int)target->query("max_qi");
-			msg += damage_msg(me->query_skill("force"), "刺伤");
+			msg += damage_msg(me->query_skill("force"), "刺傷");
 			msg += "( $n"+eff_status_msg(p)+" )\n"; 
 			msg = replace_string(msg, "$l", "肚腹");
 			msg = replace_string(msg, "$w", HIW"火花"NOR);
@@ -143,7 +143,7 @@ int check_pfm(object me, object target, object ob)
 		{
 //			me->start_busy(3);
 			if(me->query("neili") > 10) me->set("neili", 10);
-			msg +=HIY"$n只吓目瞪口呆，一怔之间，"HIR"火墙"HIY"已射到身前，急忙跃起，"HIR"火墙"HIY"堪堪从$p足底下飞过！\n" NOR;
+			msg +=HIY"$n只嚇目瞪口呆，一怔之間，"HIR"火牆"HIY"已射到身前，急忙躍起，"HIR"火牆"HIY"堪堪從$p足底下飛過！\n" NOR;
 		}      
 	message_combatd(msg, me, target);
 	return 1;
@@ -163,7 +163,7 @@ int start_huoqiang(object me)
 	if(!target || target->is_ghost() ||
 		environment(me)!=environment(target))
 	{
-		message_combatd(CYN"$N当下内劲一收，的一双衣袖便即垂下，摇摇幌幌地站了起来。\n"NOR, me);
+		message_combatd(CYN"$N當下內勁一收，的一雙衣袖便即垂下，搖搖幌幌地站了起來。\n"NOR, me);
 		return 0;
 	}
 	neili_lost = 30 + target->query_skill("force")/10 + me->query("jiali")/2 + target->query("jiali")/2;
@@ -177,17 +177,17 @@ int start_huoqiang(object me)
 
 	if(neili < neili_lost)
 	{
-		message_combatd(HIY"$N内力消耗殆尽，终因不支倒地！\n"NOR, me);
+		message_combatd(HIY"$N內力消耗殆盡，終因不支倒地！\n"NOR, me);
 		me->unconcious();
 		return 0;
 	}
 	if( (!living(target) || target->query_temp("noliving") ) &&
 		(living(me) && !me->query_temp("noliving")) )
 	{
-		msg = HIR"$N双掌拍出，一道"GRN"碧焰"HIR"吐出，射向$n。$p此刻已无丝毫还手余地，连站起来逃命的力气也无。\n"GRN"碧焰"HIR"一射到$p身上，霎时间头发衫着火，狂叫惨号声中，全身都裹入"RED"烈焰"HIR"之中。\n"NOR;
+		msg = HIR"$N雙掌拍出，一道"GRN"碧焰"HIR"吐出，射向$n。$p此刻已無絲毫還手餘地，連站起來逃命的力氣也無。\n"GRN"碧焰"HIR"一射到$p身上，霎時間頭髮衫着火，狂叫慘號聲中，全身都裹入"RED"烈焰"HIR"之中。\n"NOR;
 		target->set_temp("last_damage_from",me);
-		msg += "结果只听见几声喀喀轻响，$n一声惨叫，像滩软泥般塌了下去！！\n";
-		msg += "( "RED"$n受伤过重，已经有如风中残烛，随时都可能断气。"NOR")\n";
+		msg += "結果只聽見幾聲喀喀輕響，$n一聲慘叫，像灘軟泥般塌了下去！！\n";
+		msg += "( "RED"$n受傷過重，已經有如風中殘燭，隨時都可能斷氣。"NOR")\n";
 		message_combatd(msg, me, target);     
 		target->die();     
 		return 0;
@@ -195,14 +195,14 @@ int start_huoqiang(object me)
 	if( (!living(target) || target->query_temp("noliving") ) &&
 		(!living(me) || me->query_temp("noliving")) )
 	{
-		message_combatd(HIW"此时$N脸上都已无半点血色，看来已经到了油尽灯枯之时！\n"NOR,me);
+		message_combatd(HIW"此時$N臉上都已無半點血色，看來已經到了油盡燈枯之時！\n"NOR,me);
 		me->set_temp("last_damage_from",target);
 		me->die();
 		return 0;
 	}
 	if(!objectp(ob = present("huo yan", environment(me))))
 	{
-		message_combatd(HIY"$N眼看火堆熄灭，也慢慢收功，站了起来。\n"NOR,me);
+		message_combatd(HIY"$N眼看火堆熄滅，也慢慢收功，站了起來。\n"NOR,me);
 		return 0;
 	}
 	switch(period)
@@ -230,7 +230,7 @@ int start_huoqiang(object me)
 		case 205:  
 			if(neili > neili2)
 			{
-				msg = random(2)?HIR"碧焰在一点点向$N的方向移动！\n"NOR:HIR"$N使出全力，试图将那步步逼进的碧焰推挡回去！\n"NOR;
+				msg = random(2)?HIR"碧焰在一點點向$N的方向移動！\n"NOR:HIR"$N使出全力，試圖將那步步逼進的碧焰推擋回去！\n"NOR;
 				message_combatd(msg,target);
 			}
 			break;
@@ -245,7 +245,7 @@ int start_huoqiang(object me)
 		case 185:
 			if(neili > neili2)
 			{
-				msg = random(2)?HIR""GRN"碧焰"HIR"逐渐接近，$N使出全力，试图将那步步逼进的碧焰推挡回去！\n"NOR:HIR "$N眼看"GRN"碧焰"HIR"向自己移来，却不能开口停送真气，不然碧焰卷将过来，立时会被活活烧死！\n"NOR;
+				msg = random(2)?HIR""GRN"碧焰"HIR"逐漸接近，$N使出全力，試圖將那步步逼進的碧焰推擋回去！\n"NOR:HIR "$N眼看"GRN"碧焰"HIR"向自己移來，卻不能開口停送真氣，不然碧焰卷將過來，立時會被活活燒死！\n"NOR;
 				message_combatd(msg, target);
 			}
 			break; 
@@ -259,7 +259,7 @@ int start_huoqiang(object me)
 		case 195:
 			if(me->query("jiali") > target->query("jiali"))
 			{
-				msg = random(2)?HIR"这片"GRN"碧焰"HIR"在空中略一停滞，便缓缓向$N面前退去，$N大惊，又在舌尖\n上一咬，一口"RED"鲜血"HIR"再向火焰喷去，火焰一盛，回了过来！\n"NOR:HIW "$N此时脸上已无半点血色，一口口"RED"鲜血"HIW"不住向火焰中吐去，要将火焰逼回！\n"NOR;     
+				msg = random(2)?HIR"這片"GRN"碧焰"HIR"在空中略一停滯，便緩緩向$N面前退去，$N大驚，又在舌尖\n上一咬，一口"RED"鮮血"HIR"再向火焰噴去，火焰一盛，回了過來！\n"NOR:HIW "$N此時臉上已無半點血色，一口口"RED"鮮血"HIW"不住向火焰中吐去，要將火焰逼回！\n"NOR;     
 				message_combatd(msg, me);
 			}
 			break;
@@ -276,17 +276,17 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		伤害对方精气
-		损伤对方气血
-		损耗对方内力
+		傷害對方精氣
+		損傷對方氣血
+		損耗對方內力
 
 	出手要求：
-		化功大法150级
-		抽髓掌150级
-		基本毒技120级
-		内力修为1000
-		内力800
-		周围有火堆
+		化功大法150級
+		抽髓掌150級
+		基本毒技120級
+		內力修爲1000
+		內力800
+		周圍有火堆
 HELP
 	);
 	return 1;

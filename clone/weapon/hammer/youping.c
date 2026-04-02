@@ -12,11 +12,11 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一个装油的瓶子．\n");
-		set("unit", "个");
+		set("long", "一個裝油的瓶子．\n");
+		set("unit", "個");
 		set("value", 30);
 		set("max_liquid", 5);
-		set("wield_msg", "$N抓起一个$n，握在手中当武器。\n");
+		set("wield_msg", "$N抓起一個$n，握在手中當武器。\n");
 		set("material", "bone");
 	}
 	set("liquid", ([

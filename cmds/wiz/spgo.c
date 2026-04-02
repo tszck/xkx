@@ -8,11 +8,11 @@ int main(object me, string arg)
 	object obj;
 //	string msg;
 
-	if( !arg ) return notify_fail("你要去哪里？\n");
+	if( !arg ) return notify_fail("你要去哪裏？\n");
 
 	if( sscanf(arg, "-i %s", arg) ) goto_inventory = 1;
 
-	if( !arg ) return notify_fail("你要去哪里？\n");
+	if( !arg ) return notify_fail("你要去哪裏？\n");
 
 	obj = find_player(arg);
 	if(!obj) obj = find_living(arg);
@@ -22,14 +22,14 @@ int main(object me, string arg)
 		if( !(obj = find_object(arg)) ) {
 			if( file_size(arg)>=0 )
 				return me->move(arg);
-			return notify_fail("没有这个玩家、生物、或地方。\n");
+			return notify_fail("沒有這個玩家、生物、或地方。\n");
 		}
 	}
 
 	if(!goto_inventory && environment(obj))
 		obj = environment(obj);
 
-	if( !obj ) return notify_fail("这个物件没有环境可以 goto。\n");
+	if( !obj ) return notify_fail("這個物件沒有環境可以 goto。\n");
 
 	me->move(obj);
 
@@ -39,11 +39,11 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-指令格式 : goto [-i] <目标>
+指令格式 : goto [-i] <目標>
  
-这个指令会将你传送到指定的目标. 目标可以是一个living 或房间
-的档名. 如果目标是living , 你会被移到跟那个人同样的环境.
-如果有加上 -i 参数且目标是 living, 则你会被移到该 living 的
+這個指令會將你傳送到指定的目標. 目標可以是一個living 或房間
+的檔名. 如果目標是living , 你會被移到跟那個人同樣的環境.
+如果有加上 -i 參數且目標是 living, 則你會被移到該 living 的
 的 inventory 中.
  
 HELP

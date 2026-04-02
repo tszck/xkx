@@ -8,9 +8,9 @@ void create()
 {
 	set_name("石嫂", ({ "shi sao", "shi", "sao" }));
 	set("long",
-		"她是「灵鹫宫」九天九部中朱天部的首领。
-她跟随童姥多年， 出生入死，饱经风霜。\n");
-	set("title", "灵鹫宫朱天部首领");
+		"她是「靈鷲宮」九天九部中朱天部的首領。
+她跟隨童姥多年， 出生入死，飽經風霜。\n");
+	set("title", "靈鷲宮朱天部首領");
 	set("gender", "女性");
 	set("class", "dancer");
 	set("age", 30);
@@ -50,7 +50,7 @@ void create()
 	prepare_skill("strike","liuyang-zhang");
 	prepare_skill("hand", "zhemei-shou");
 
-	create_family("逍遥派",3,"弟子");
+	create_family("逍遙派",3,"弟子");
 	setup();
 	carry_object("/d/lingjiu/obj/qingyi")->wear();
 	carry_object("/d/lingjiu/obj/doupeng")->wear();

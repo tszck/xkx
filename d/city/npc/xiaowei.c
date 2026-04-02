@@ -7,7 +7,7 @@ inherit NPC;
 void create()
 {
 	set_name(YEL "校尉" NOR, ({ "xiao wei", "jiang" }));
-	set("title","扬州守备");
+	set("title","揚州守備");
 	set("age", 31);
 	set("gender", "男性");
 	set("str", 24);
@@ -27,11 +27,11 @@ void create()
 
 	set("chat_chance", 30);
 	set("chat_msg", ({
-		"当了这么多年兵，才是个校尉。。唉。。。。\n",
-		"在扬州混了这么多年了，却好多地方没去过。。。\n",
-		"当兵真是无聊透顶了。。。\n",
-		"校尉喝道：大胆刁民，竟敢杀官，莫不是想造反不成？\n",
-		"校尉喝道：你还能逃出大宋国界不成，还是乖乖投降吧！\n",
+		"當了這麼多年兵，纔是個校尉。。唉。。。。\n",
+		"在揚州混了這麼多年了，卻好多地方沒去過。。。\n",
+		"當兵真是無聊透頂了。。。\n",
+		"校尉喝道：大膽刁民，竟敢殺官，莫不是想造反不成？\n",
+		"校尉喝道：你還能逃出大宋國界不成，還是乖乖投降吧！\n",
 	}));
 	setup();
 	carry_object(__DIR__"obj/gangdao")->wield();
@@ -54,7 +54,7 @@ void greeting()
 	object me = this_player();
 	if( me->query_condition("killer") )
 	{
-		message_vision( "校尉对着$N大喝一声：“杀人放火的刁民，快快受死吧！！！” \n", me );
+		message_vision( "校尉對着$N大喝一聲：“殺人放火的刁民，快快受死吧！！！” \n", me );
 		kill_ob(me);
 	}
 }
@@ -65,10 +65,10 @@ int accept_fight(object me)
 	int i;
 	if ( random(5) == 0 )
 	{
-		command("say 军爷我今天心情好，别烦我，滚！！！！\n");
+		command("say 軍爺我今天心情好，別煩我，滾！！！！\n");
 		return 0;
 	}
-	command("say 我看你今天是活得不耐烦了,"+RANK_D->query_rude(me)+",去死吧！\n");
+	command("say 我看你今天是活得不耐煩了,"+RANK_D->query_rude(me)+",去死吧！\n");
 	me->apply_condition("killer", 360);
 	all = all_inventory(environment(me));
 	for ( i = 0; i < sizeof( all ); i ++ )

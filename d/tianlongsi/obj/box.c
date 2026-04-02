@@ -5,13 +5,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name("锦盒", ({ "jin he", "he" }) );
+	set_name("錦盒", ({ "jin he", "he" }) );
 	set_weight(3000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "个");
-		set("long", "这是装舍利子的盒子，你似乎应该交还失主。\n");
+		set("unit", "個");
+		set("long", "這是裝舍利子的盒子，你似乎應該交還失主。\n");
 		set("value", 0);
 		set("material", "wood");
 	}
@@ -29,9 +29,9 @@ int do_open(string arg)
 	
 	me = this_player();
 
-	if(!arg&&arg!="he") return notify_fail("你要打开什么东西？\n");
-	message_vision("$N打开盒子，只见两支毒箭飞射而出，擦身而过！\n",me);
-	message_vision("一个黑影突然出现，从$N手中一把抢过锦盒，飞身而去！\n",me);
+	if(!arg&&arg!="he") return notify_fail("你要打開什麼東西？\n");
+	message_vision("$N打開盒子，只見兩支毒箭飛射而出，擦身而過！\n",me);
+	message_vision("一個黑影突然出現，從$N手中一把搶過錦盒，飛身而去！\n",me);
 	destruct(this_object());
 	return 1;
 }

@@ -4,7 +4,7 @@ inherit NPC;
 void create()
 {
         set_name("知客僧", ({"zhike seng", "seng"}));
-        set("long", "一个精壮僧人。\n" );
+        set("long", "一個精壯僧人。\n" );
         set("gender", "男性");
         set("attitude", "peace");
 
@@ -39,10 +39,10 @@ void greeting(object ob)
 		return;
   	if (ob->query("id") == "qi gai")
 	{
-        	message_vision(CYN "$N" CYN "对着$n" CYN "连连挥袖：去，去"
-                               "去，一边去！" NOR, this_object(), ob);
+        	message_vision(CYN "$N" CYN "對着$n" CYN "連連揮袖：去，去"
+                               "去，一邊去！" NOR, this_object(), ob);
     		return;
   	}
-	command("say 施主请到大殿上香。");
+	command("say 施主請到大殿上香。");
    	return;
 }

@@ -9,9 +9,9 @@ void create()
 {
 	set("short", "九曲廊");
 	set("long",@long
-九曲廊前后共有九进，曲曲折折地盘旋在水面。一路穿花度柳，抚
-石依泉，落花浮荡，水色溶溶。两边垂柳杂着桃杏，藤蔓绕柱。白石为
-栏，飞楼插空，转折处皆由小亭相接。
+九曲廊前後共有九進，曲曲折折地盤旋在水面。一路穿花度柳，撫
+石依泉，落花浮蕩，水色溶溶。兩邊垂柳雜着桃杏，藤蔓繞柱。白石爲
+欄，飛樓插空，轉折處皆由小亭相接。
 long);
 	set("exits",([
 		"north" : __DIR__"jiuqulang7",
@@ -29,6 +29,6 @@ long);
 int valid_leave(object me, string dir)
 {
 	if (dir == "southwest" && me->query("gender") != "男性")
-		return notify_fail("你低着头走了进去。却发现里面是男卧室，不由得脸上发烧，一扭头跑了出来。\n");
+		return notify_fail("你低着頭走了進去。卻發現裏面是男臥室，不由得臉上發燒，一扭頭跑了出來。\n");
 	return ::valid_leave(me, dir);
 }

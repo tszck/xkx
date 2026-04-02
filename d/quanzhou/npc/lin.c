@@ -5,8 +5,8 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-	set_name("林少宁", ({ "lin shaoning", "lin" }));
-	set("long", "林少宁是泉州武馆馆长。\n");
+	set_name("林少寧", ({ "lin shaoning", "lin" }));
+	set("long", "林少寧是泉州武館館長。\n");
 	set("gender", "男性");
 	set("age", 35);
 	set_skill("dodge", 80);
@@ -39,17 +39,17 @@ int accept_object(object who, object ob)
 {
 	if (who->query("combat_exp")>= 3500)
 	{
-		message_vision("林少宁望着$N说：你的武功应该历练江湖才能再长进，不能埋没在这里了。\n", who);
+		message_vision("林少寧望着$N說：你的武功應該歷練江湖才能再長進，不能埋沒在這裏了。\n", who);
 		return 0;
 	}
 	if (ob->query("money_id") && ob->value() >= 500)
 	{
 		who->set_temp("marks/quanzhou_paied",1);
-		message_vision("林少宁对$N说：好！这位" + RANK_D->query_respect(who) + "想学什么呢？\n" , who);
+		message_vision("林少寧對$N說：好！這位" + RANK_D->query_respect(who) + "想學什麼呢？\n" , who);
 		return 1;
 	}
 	else
-		message_vision("林少宁皱眉对$N说：钱我不在乎。可你也给的也太少了点儿吧？\n", who);
+		message_vision("林少寧皺眉對$N說：錢我不在乎。可你也給的也太少了點兒吧？\n", who);
 	return 0;
 }
 

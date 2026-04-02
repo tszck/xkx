@@ -5,11 +5,11 @@ inherit NPC;
 void create()
 {
 	set_name("蟾蜍", ({ "chan chu", "chu", "hama" }) );
-	set("race", "野兽");
+	set("race", "野獸");
 	set("age", 10);
-	set("long", "一只肥大的蟾蜍，趴在地上一动不动。\n");
+	set("long", "一隻肥大的蟾蜍，趴在地上一動不動。\n");
 	set("attitude", "peaceful");	
-	set("limbs", ({ "头部", "身体", "后肢", "肚皮" }) );
+	set("limbs", ({ "頭部", "身體", "後肢", "肚皮" }) );
 	set("verbs", ({ "hoof"}) );
 	set("combat_exp", 1900);
 	set_temp("apply/attack", 8);

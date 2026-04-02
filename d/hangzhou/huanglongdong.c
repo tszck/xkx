@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-        set("short", "黄龙洞");
+        set("short", "黃龍洞");
         set("long", @LONG
-一进山门，松篁交翠，别有洞天。石壁陡削，苔痕常绿；回廊临
-之间有一小峰，上题：“有龙则灵”。
+一進山門，松篁交翠，別有洞天。石壁陡削，苔痕常綠；迴廊臨
+之間有一小峯，上題：“有龍則靈”。
 LONG);
         set("exits", ([
             "south"     : __DIR__"shanlu8",

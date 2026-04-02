@@ -7,9 +7,9 @@
 inherit CLOTH;
 
 string* clothname = ({
-	HIB"天师袍"NOR,
-	HIC"无缝天衣"NOR,
-	HIY"黄金战甲"NOR,
+	HIB"天師袍"NOR,
+	HIC"無縫天衣"NOR,
+	HIY"黃金戰甲"NOR,
 });
 string* clothid = ({
 	"wizard cloth",
@@ -17,9 +17,9 @@ string* clothid = ({
 	"wizard cloth",
 });
 string* clothlong = ({
-	"这是一件巫师随常穿的休闲衣服。\n",
-	"这是一件织女银梭织就的无缝天衣。\n",
-	"这是一件黄金打造的无敌战甲。\n",
+	"這是一件巫師隨常穿的休閒衣服。\n",
+	"這是一件織女銀梭織就的無縫天衣。\n",
+	"這是一件黃金打造的無敵戰甲。\n",
 });
 
 void create()

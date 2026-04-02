@@ -1,13 +1,13 @@
-// Roon: chaoyangpath1.c 朝阳峰小路
+// Roon: chaoyangpath1.c 朝陽峯小路
 //Date: Oct. 2 1997 by Venus
 
 inherit ROOM;
 
 void create()
 {
-	set("short","朝阳峰小路");
+	set("short","朝陽峯小路");
 	set("long",@LONG
-这里是朝阳峰小路，山势陡峭，两边下临深谷，一不小心都会掉了
+這裏是朝陽峯小路，山勢陡峭，兩邊下臨深谷，一不小心都會掉了
 下去。
 LONG);
 	set("outdoors", "huashan");

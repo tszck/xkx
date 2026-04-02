@@ -5,10 +5,10 @@ void consider();
 
 void create()
 {
-	set_name("观众丙", ({"bing"}));
+	set_name("觀衆丙", ({"bing"}));
 	set("gender", "女性");
 	set("age", 18);
-	set("long", "这是一位小姑娘。\n");
+	set("long", "這是一位小姑娘。\n");
 	set("attitude", "peaceful");
 	
 	set("str", 18);
@@ -48,11 +48,11 @@ void init()
 	{
 		if( !ob->query_temp("warned") )
 		{
-			command("say 居然有人敢不让我看戏，气死我了！");
+			command("say 居然有人敢不讓我看戲，氣死我了！");
 		}
 		else if( ob->query_temp("stay") < 10 ) ob->add_temp("stay", 1);
 		else {
-			command("say 我杀了你！！！\n");
+			command("say 我殺了你！！！\n");
 			me->set_leader(ob);
 			remove_call_out("kill_ob");
 			call_out("kill_ob", 1, ob); 

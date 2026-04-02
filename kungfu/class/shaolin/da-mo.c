@@ -8,18 +8,18 @@ inherit F_MANAGER;
 
 void create()
 {
-	set_name("达摩老祖", ({
+	set_name("達摩老祖", ({
 		"da mo",
 		"da",
 		"mo",
 	}));
 	set("long",
-		"他是一位卷发络腮须的天竺老僧，身穿一袭邋遢金丝绣红袈裟。\n"
-		"但却满面红光，目蕴慈笑，眼现智珠，一派得道高僧气势。\n"
-                "他就是少林派开山鼻祖、当今武林的隐世高僧达摩祖师。\n"
+		"他是一位捲髮絡腮須的天竺老僧，身穿一襲邋遢金絲繡紅袈裟。\n"
+		"但卻滿面紅光，目蘊慈笑，眼現智珠，一派得道高僧氣勢。\n"
+                "他就是少林派開山鼻祖、當今武林的隱世高僧達摩祖師。\n"
 	);
 
-	set("title", HIR"少林开山祖师"NOR);
+	set("title", HIR"少林開山祖師"NOR);
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -124,26 +124,26 @@ void attempt_apprentice(object ob)
 
 	if (!(ob_fam = ob->query("family")) || ob_fam["family_name"] != "少林派")
 	{
-		command("say " + RANK_D->query_respect(ob) + "与本派素无来往，不知此话从何谈起？");
+		command("say " + RANK_D->query_respect(ob) + "與本派素無來往，不知此話從何談起？");
 		return;
 	}
 
 	if ( (string)ob->query("class")!="bonze" && ob_fam["family_name"] == "少林派")
 	{
-		command("say " + RANK_D->query_respect(ob) + "是俗家弟子，不能在寺内学艺。");
+		command("say " + RANK_D->query_respect(ob) + "是俗家弟子，不能在寺內學藝。");
 		return;
 	}
 
 	if ( ob_fam["generation"] != 36 )
 	{
-		command("say " + RANK_D->query_respect(ob) + "，贫僧哪里敢当 !");
+		command("say " + RANK_D->query_respect(ob) + "，貧僧哪裏敢當 !");
 		return;
 	}
 
         if ((ob->query_int() < 40) || (ob->query("PKS") > 3 ))
         {
-                command("say 万事都讲一个缘字。");
-                command("say " + RANK_D->query_respect(ob) + "与佛无缘，还是请回吧。");
+                command("say 萬事都講一個緣字。");
+                command("say " + RANK_D->query_respect(ob) + "與佛無緣，還是請回吧。");
 		return;
 	}
 
@@ -152,15 +152,15 @@ void attempt_apprentice(object ob)
 		ob->query_skill("parry",1)>=150 &&
 		ob->query_skill("buddhism",1)>=150)
 	{
-		command("say 老衲又得一可塑之才，真是大畅老怀 !");
+		command("say 老衲又得一可塑之才，真是大暢老懷 !");
 		name = ob->query("name");
 		new_name = "渡" + name[1..1];
 		ob->set("name", new_name);
 
-		command("say 从今以后你的法名叫做" + new_name + "，恭喜你荣升为少林派渡字辈弟子 !");
+		command("say 從今以後你的法名叫做" + new_name + "，恭喜你榮升爲少林派渡字輩弟子 !");
 		command("recruit " + ob->query("id"));
 	}
 	else
-		command("say 你现在就来找我也太早了点吧 !");
+		command("say 你現在就來找我也太早了點吧 !");
 	return;
 }

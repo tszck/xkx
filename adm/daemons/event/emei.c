@@ -1,9 +1,9 @@
-// emei.c 事件：峨嵋金顶日出
+// emei.c 事件：峨嵋金頂日出
 // for XKX100 , by Sir 2003.11.3
 
 #include <ansi.h>
 
-// 奖励
+// 獎勵
 private void do_bonus(object room)
 {
         object *obs;
@@ -18,15 +18,15 @@ private void do_bonus(object room)
         r = random(365);
         if (r == 0)
         {
-                msg = HIY "【自然奇观】峨嵋佛光\n"NOR;
-                msg += HIR "只见太阳一点一点的升了起来，倏的眼前一亮，一道光晕出现在云际，\n"
-                          "朦朦胧胧似乎有一个佛影立在当中，令人叹羡不已。\n" NOR;
-                msg += HIG "你冥冥中仿佛得到了佛主的指示，登时有茅塞顿开的感觉。\n" NOR;
+                msg = HIY "【自然奇觀】峨嵋佛光\n"NOR;
+                msg += HIR "只見太陽一點一點的升了起來，倏的眼前一亮，一道光暈出現在雲際，\n"
+                          "朦朦朧朧似乎有一個佛影立在當中，令人歎羨不已。\n" NOR;
+                msg += HIG "你冥冥中彷彿得到了佛主的指示，登時有茅塞頓開的感覺。\n" NOR;
                 
                
                
 
-                // 佛门弟子增加佛学技能
+                // 佛門弟子增加佛學技能
                 for ( i = 0 ; i < sizeof(obs); i++)
                 {
                 	if( !living(obs[i]) || !userp(obs[i]) ) continue;
@@ -50,27 +50,27 @@ private void do_bonus(object room)
                 }
 
                 message("vision", msg, obs);
-		message("channel:rumor", HIM"【谣言】"+"听说峨嵋金顶佛光出现，令人叹为观止，赞叹不已。\n"NOR, users());
+		message("channel:rumor", HIM"【謠言】"+"聽說峨嵋金頂佛光出現，令人歎爲觀止，讚歎不已。\n"NOR, users());
                
         } else
         if (r < 250)
         {
-        	msg = HIY "【自然奇观】峨嵋日出\n"NOR;
-        	msg +=HIG "在峨嵋山上欣赏日出令人心旷神怡，格外领略峨嵋山的隽秀险奇。\n"NOR;
+        	msg = HIY "【自然奇觀】峨嵋日出\n"NOR;
+        	msg +=HIG "在峨嵋山上欣賞日出令人心曠神怡，格外領略峨嵋山的雋秀險奇。\n"NOR;
         	
                 switch (random(3))
                 {
                 case 0:
-                        msg += HIY "一轮红日跃出天际，映射得层峦叠翠分外妖娆，茫茫云海，尽披红妆。\n" NOR;
+                        msg += HIY "一輪紅日躍出天際，映射得層巒疊翠分外妖嬈，茫茫雲海，盡披紅妝。\n" NOR;
                         break;
                 case 1:
-                        msg += HIY "忽然间一轮红日跃了上来，天地之间登时辉煌无比，只射得你眼睛都无法睁开。\n" NOR;
+                        msg += HIY "忽然間一輪紅日躍了上來，天地之間登時輝煌無比，只射得你眼睛都無法睜開。\n" NOR;
                         break;
                 default:
-                        msg += HIY "蓦然眼前金光四射，一轮红日冉冉升起。\n" NOR;
+                        msg += HIY "驀然眼前金光四射，一輪紅日冉冉升起。\n" NOR;
                         break;
                 }
-                msg += HIG "你心头闪过一道灵光，似乎受到了某种启迪。\n" NOR;
+                msg += HIG "你心頭閃過一道靈光，似乎受到了某種啓迪。\n" NOR;
                 
                 for ( i = 0 ; i < sizeof(obs); i++)
                 {
@@ -89,27 +89,27 @@ private void do_bonus(object room)
                 switch (random(3))
                 {
                 case 0:
-                        msg = WHT "眼见太阳朦朦胧胧的就要升上来，却见一片乌云飘过，遮了个严严实实。\n" NOR;
+                        msg = WHT "眼見太陽朦朦朧朧的就要升上來，卻見一片烏雲飄過，遮了個嚴嚴實實。\n" NOR;
                         break;
                 case 1:
-                        msg = WHT "你眼前越来越亮，但是雾气好重，让你什么都看不清楚。\n" NOR;
+                        msg = WHT "你眼前越來越亮，但是霧氣好重，讓你什麼都看不清楚。\n" NOR;
                         break;
                 default:
-                        msg = WHT "天边渐渐的发白，但是一层一层的云气将日头压得光芒一丝都看不见。\n" NOR;
+                        msg = WHT "天邊漸漸的發白，但是一層一層的雲氣將日頭壓得光芒一絲都看不見。\n" NOR;
                         break;
                 }
-                msg += HIG "你心中连叹：“太可惜了！”\n" NOR;
+                msg += HIG "你心中連嘆：“太可惜了！”\n" NOR;
 
                 message("vision", msg, obs);
         }
 }
 
-//事件触发
+//事件觸發
 void trigger_event()
 {
         object room;
 
-        // 峨嵋金顶日出
+        // 峨嵋金頂日出
         if (objectp(room = find_object("/d/emei/jinding")))
                 do_bonus(room);
 }
@@ -117,6 +117,6 @@ void trigger_event()
 void create() 
 { 
 	seteuid(getuid()); 
-	message("channel:sys", HIR"【自然奇观】峨嵋金顶日出。\n"NOR, users());
+	message("channel:sys", HIR"【自然奇觀】峨嵋金頂日出。\n"NOR, users());
 	trigger_event();
 }

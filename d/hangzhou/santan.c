@@ -7,12 +7,12 @@ void create()
 {
         set("short", "三潭印月");
         set("long", @LONG
-这里是西湖小瀛洲的“我心相应”亭，小瀛洲人称“湖中有岛，岛
-中有湖”。亭前有联曰：“客中客入画中画  楼外楼看山外山”。岛后
-三塔为东坡狩杭时所建。“塔影亭亭引碧流”、“玲珑塔底月轮悬”，
+這裏是西湖小瀛洲的“我心相應”亭，小瀛洲人稱“湖中有島，島
+中有湖”。亭前有聯曰：“客中客入畫中畫  樓外樓看山外山”。島後
+三塔爲東坡狩杭時所建。“塔影亭亭引碧流”、“玲瓏塔底月輪懸”，
 遂使“三潭印月”位列西湖十景。
-    元代三塔被毁，大明万历重建时已不在原处，致成今时“天上月一
-轮，湖中影成三”之景。亭边泊着小舟(zhou)是送游客去苏堤。
+    元代三塔被毀，大明萬曆重建時已不在原處，致成今時“天上月一
+輪，湖中影成三”之景。亭邊泊着小舟(zhou)是送遊客去蘇堤。
 LONG);
         set("outdoors", "xihu");
         set("no_clean_up", 0);
@@ -32,18 +32,18 @@ int do_enter ( string arg )
  
 	if( !arg || arg !="zhou" ) 
 	{
-		tell_object(this_player() , "你要 enter 哪儿？\n" ) ;
+		tell_object(this_player() , "你要 enter 哪兒？\n" ) ;
 		return 1 ;
 	}
 	ob = this_player () ;
-	message_vision("梢公一见有人上船，轻摇木桨，小舟西行。\n", ob);
+	message_vision("梢公一見有人上船，輕搖木槳，小舟西行。\n", ob);
 	ob ->move(__DIR__"xihu") ;
-	tell_object(ob, HIG "你在湖面穿行，轻风徐来，满面生暖。\n" NOR ) ;
+	tell_object(ob, HIG "你在湖面穿行，輕風徐來，滿面生暖。\n" NOR ) ;
 	call_out("tostyy", 10 , ob );
 	return 1 ;
 }
 void tostyy(object ob )
 {
-	tell_object(ob , "小舟轻轻靠上苏堤。你走下船来。\n" ) ;
+	tell_object(ob , "小舟輕輕靠上蘇堤。你走下船來。\n" ) ;
 	ob->move (__DIR__"suti6") ;
 }

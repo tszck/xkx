@@ -9,9 +9,9 @@ string ask_job();
 void create()
 {
 	set_name("方回", ({ "fang hui", "fang", "hui"}));
-	set("long", "他是一位身穿黄布袈裟的青年僧人。脸上稚气未脱，身手却已相\n"
-		"当矫捷，看来似乎学过一点武功。\n");
-	set("nickname", "菜头");
+	set("long", "他是一位身穿黃布袈裟的青年僧人。臉上稚氣未脫，身手卻已相\n"
+		"當矯捷，看來似乎學過一點武功。\n");
+	set("nickname", "菜頭");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -59,8 +59,8 @@ void create()
 	prepare_skill("strike", "weituo-strike");
 
 	set("inquiry", ([
-		"种菜" : "在这种菜浇粪都得听老子的，达摩院首座也是如此！\n",
-		"浇粪" : (: ask_job :),
+		"種菜" : "在這種菜澆糞都得聽老子的，達摩院首座也是如此！\n",
+		"澆糞" : (: ask_job :),
 	]) );
 	create_family("南少林派", 21, "弟子");
 	setup();
@@ -81,11 +81,11 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	if(ob->query_temp("job_name")!="菜地种菜") return; 
-	if(!(ob->query_temp("job_name")!="菜地种菜"))
+	if(ob->query_temp("job_name")!="菜地種菜") return; 
+	if(!(ob->query_temp("job_name")!="菜地種菜"))
 	{
 		command("stare "+ob->query("id"));
-		command("say " +RANK_D->query_rude(ob)+"，你还不到这来浇粪(jiao 粪)还等什么？！\n");
+		command("say " +RANK_D->query_rude(ob)+"，你還不到這來澆糞(jiao 糞)還等什麼？！\n");
 	}
 }
 string ask_job()
@@ -93,13 +93,13 @@ string ask_job()
 	object ob = this_player();
 
 	if (ob->query("combat_exp")>=30000)
-		return ("你已经有了基础了，没必要再找我来领活了。\n");
+		return ("你已經有了基礎了，沒必要再找我來領活了。\n");
 	if ((string)ob->query("family/family_name") != "南少林派")
-		return ("非南少林弟子不能领工作。");
+		return ("非南少林弟子不能領工作。");
 	if (ob->query_temp("job_name"))
-		return ("你不是已经领了工作吗？还不快去做。\n");
-	ob->set_temp("job_name","菜地种菜");
-		return "来这要什么都干，你就帮我浇粪"HIR"(jiao 粪)"HIC"吧。";
+		return ("你不是已經領了工作嗎？還不快去做。\n");
+	ob->set_temp("job_name","菜地種菜");
+		return "來這要什麼都幹，你就幫我澆糞"HIR"(jiao 糞)"HIC"吧。";
 }
 #include "/kungfu/class/nanshaolin/fang.h";
 

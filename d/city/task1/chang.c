@@ -1,11 +1,11 @@
-// chang.c 常长风
+// chang.c 常長風
 inherit NPC;
  
 void create()
 {
-	set_name("常长风", ({ "chang  changfeng"}));
-	set("nickname", "双掌开碑");
-	set("long", "他又高又肥，便如是一座铁塔摆在地下，身前放著一块大石碑，碑上写的是「先考黄府君诚本之墓」，这自是一块墓碑了，不知放在身前有何用意？\n");
+	set_name("常長風", ({ "chang  changfeng"}));
+	set("nickname", "雙掌開碑");
+	set("long", "他又高又肥，便如是一座鐵塔擺在地下，身前放著一塊大石碑，碑上寫的是「先考黃府君誠本之墓」，這自是一塊墓碑了，不知放在身前有何用意？\n");
 	set("gender", "男性");
 	set("age", random(10) + 25);
 	set("attitude", "peaceful");

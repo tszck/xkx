@@ -3,15 +3,15 @@ inherit ITEM;
 
 void create()
 {
-	set_name("黄石谱", ({ "huangshi pu" ,"pu" ,"book"}));
+	set_name("黃石譜", ({ "huangshi pu" ,"pu" ,"book"}));
 	set_weight(600);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一本琴谱，你读着读着，似
-乎可以从里面发现一些其他的东西。\n"
-			"原来这是一本藏着剑法的琴谱。\n");
+		set("long", "這是一本琴譜，你讀着讀着，似
+乎可以從裏面發現一些其他的東西。\n"
+			"原來這是一本藏着劍法的琴譜。\n");
 		set("value", 1000);
 		set("material", "paper");
 		set("skill", ([

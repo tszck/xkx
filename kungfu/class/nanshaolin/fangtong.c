@@ -7,8 +7,8 @@ inherit NPC;
 void create()
 {
 	set_name("方通", ({ "fang tong", "fang", "tong"}));
-	set("long", "他是一位身穿黄布袈裟的青年僧人。脸上稚气未脱，身手却已相\n"
-		"当矫捷，看来似乎学过一点武功。\n");
+	set("long", "他是一位身穿黃布袈裟的青年僧人。臉上稚氣未脫，身手卻已相\n"
+		"當矯捷，看來似乎學過一點武功。\n");
 	set("nickname", "知客僧");
 	set("gender", "男性");
 	set("attitude", "friendly");
@@ -61,17 +61,17 @@ int accept_object(object who, object ob,object me)
 		fam["family_name"] != "南少林派")
 	{
 		command("hehe "+who->query("id"));
-		command("say 你给我东西有什么企图？！");
+		command("say 你給我東西有什麼企圖？！");
 		return 0;
 	}
 	if(!who->query_temp("lunzhi"))
 	{
-		command("say 你的令牌是那来的，轮值必须得到大苦大师的允许！");
+		command("say 你的令牌是那來的，輪值必須得到大苦大師的允許！");
 		return 0;
 	}
-	if(ob->query("name")=="轮值令")
+	if(ob->query("name")=="輪值令")
 	{
-		command( "say 好吧，你既然有大苦大师的令牌，你就在这和我在这里一起守卫吧。");
+		command( "say 好吧，你既然有大苦大師的令牌，你就在這和我在這裏一起守衛吧。");
 //		who->apply_condition("sl_lunzhi",random(5)+15);
 		who->apply_condition("sl_lunzhi", 2);
 		who->set_temp("lunzhied",1);

@@ -5,8 +5,8 @@ inherit NPC;
 void create()
 {
 	set_name("玉真子", ({ "yu  zhenzi" }));
-	set("title", "铁剑门的叛徒");
-	set("long","铁剑门的叛徒，极其好色，虽是武林败类，但是一身功夫早就出神入化。\n");
+	set("title", "鐵劍門的叛徒");
+	set("long","鐵劍門的叛徒，極其好色，雖是武林敗類，但是一身功夫早就出神入化。\n");
 	set("gender", "男性");
 	set("age", 66);
 	set("attitude", "peaceful");

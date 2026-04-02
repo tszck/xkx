@@ -7,8 +7,8 @@ void create()
 {
 	set("short", "南疆沙漠");
 	set("long", @LONG
-这就是浩瀚的塔克拉马干大沙漠，一走进来，你仿佛迷失了方向。
-你感到口内十分焦渴，还是快些离开吧。
+這就是浩瀚的塔克拉馬幹大沙漠，一走進來，你彷彿迷失了方向。
+你感到口內十分焦渴，還是快些離開吧。
 LONG );
 	set("outdoors", "xiyu");
 	set("exits", ([
@@ -35,14 +35,14 @@ int valid_leave(object me, string dir)
 	current_water = me->query("water");
 	if (current_water==0)
 	{
-		write("你已经感到不行了，冥冥中你觉得有人把你抬到天山脚下。\n");
+		write("你已經感到不行了，冥冥中你覺得有人把你抬到天山腳下。\n");
 		me->move(__DIR__"shanjiao");
 		if ( userp(me) )
 		me->unconcious();
 	}
 	if (current_water>0 && current_water<=20&&userp(me))
 	{
-	    write("你过于缺水，眼冒金星。\n");
+	    write("你過於缺水，眼冒金星。\n");
 	    me->set("water",0);
 	}
 	if (current_water>20&&userp(me))
@@ -50,7 +50,7 @@ int valid_leave(object me, string dir)
 	    me->set("water",current_water-20);
 	}
 	if (dir=="east" || dir=="south" || dir=="west" || dir=="north") 
-		return notify_fail("你向那边走去，结果发现那是沙漠中的海市蜃楼。\n");
+		return notify_fail("你向那邊走去，結果發現那是沙漠中的海市蜃樓。\n");
 	return ::valid_leave(me, dir);
 }
 

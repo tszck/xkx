@@ -19,11 +19,11 @@ int wear()
 	if( !mapp(armor_prop = query("armor_prop")) ||
 		query("weapon_prop/damage")>0 )
 //	if( !mapp(armor_prop = query("armor_prop")) )
-		return notify_fail("你只能穿戴可当作护具的东西。\n");
+		return notify_fail("你只能穿戴可當作護具的東西。\n");
 
 	type = query("armor_type");
 	if( owner->query_temp("armor/" + type) )
-		return notify_fail("你已经穿戴了同类型的护具了。\n");
+		return notify_fail("你已經穿戴了同類型的護具了。\n");
 
 	owner->set_temp("armor/" + type, this_object());
 	apply = keys(armor_prop);
@@ -54,7 +54,7 @@ int wield()
 
 	// Check if we have "weapon_prop" defined.
 	if( !mapp(weapon_prop = query("weapon_prop")) )
-		return notify_fail("你只能装备可当作武器的东西。\n");
+		return notify_fail("你只能裝備可當作武器的東西。\n");
 
 	flag = query("flag");
 
@@ -62,7 +62,7 @@ int wield()
 		if( owner->query_temp("weapon")
 		||	owner->query_temp("secondary_weapon")
 		||	owner->query_temp("armor/shield") )
-			return notify_fail("你必须空出双手才能装备双手武器。\n");
+			return notify_fail("你必須空出雙手才能裝備雙手武器。\n");
 		owner->set_temp("weapon", this_object());
 	} else {
 
@@ -98,11 +98,11 @@ int wield()
 
 			// We need unwield our old weapon before we can use this one.
 			} else
-				return notify_fail("你必须先放下你目前装备的武器。\n");
+				return notify_fail("你必須先放下你目前裝備的武器。\n");
 
 		// We have both hands wearing something.
 		} else
-			return notify_fail("你必须空出一只手来使用武器。\n");
+			return notify_fail("你必須空出一隻手來使用武器。\n");
 	}
 
 	apply = keys(weapon_prop);
@@ -127,7 +127,7 @@ int unequip()
 	if( !(owner = environment())->is_character() ) return 0;
 
 	if( !stringp(equipped = query("equipped")) )
-		return notify_fail("你目前并没有装备这样东西。\n");
+		return notify_fail("你目前並沒有裝備這樣東西。\n");
 
 	if( equipped=="second_wield")
 	{

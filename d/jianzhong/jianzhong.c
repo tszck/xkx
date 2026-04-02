@@ -2,14 +2,14 @@
 inherit ROOM;
 void create()
 {
-	set("short","剑冢");
+	set("short","劍冢");
 	set("long",@LONG
-平台上大石「剑冢」两个大字之旁，尚有两行字体较小的石刻：
-        「剑魔独孤求败既无敌于天下，乃埋剑于斯。
-          呜呼！群雄束手，长剑空利，不亦悲夫！」
-大石之下，许多石块堆着一个大坟，背向山谷，俯仰空阔，占尽了
-形势。想剑魔文武全才，抱负非常，但恨生得晚了，无缘得见这位
-前辈英雄，你不禁仰天长叹，豪情万千。
+平臺上大石「劍冢」兩個大字之旁，尚有兩行字體較小的石刻：
+        「劍魔獨孤求敗既無敵於天下，乃埋劍於斯。
+          嗚呼！羣雄束手，長劍空利，不亦悲夫！」
+大石之下，許多石塊堆着一個大墳，背向山谷，俯仰空闊，佔盡了
+形勢。想劍魔文武全才，抱負非常，但恨生得晚了，無緣得見這位
+前輩英雄，你不禁仰天長嘆，豪情萬千。
 LONG
 	);
 	set("no_clean_up",1);
@@ -31,14 +31,14 @@ int do_move(string arg)
 	object me,room,ob,ob1,ob2,ob3;
 	me=this_player();
 	room=this_object();
-	if((arg!="stone")&&(arg!="石块"))
+	if((arg!="stone")&&(arg!="石塊"))
 	{	
-		return notify_fail("你要搬什么？\n");
+		return notify_fail("你要搬什麼？\n");
 	}	else	
 	{
 		if(!room->query("move_stone"))
-			return notify_fail("石块已被人搬开了！\n");
-		message_vision("$N搬开了冢上的石块，露出了并列的三柄长剑，在第一、二把长剑\n之间，另有一块长石条片。三把剑和石片并列于一块大青石之上。\n",me);
+			return notify_fail("石塊已被人搬開了！\n");
+		message_vision("$N搬開了冢上的石塊，露出了並列的三柄長劍，在第一、二把長劍\n之間，另有一塊長石條片。三把劍和石片並列於一塊大青石之上。\n",me);
 		room->set("move_stone",0);
 		ob=new(WEAPON_DIR"treasure/qingguang-jian");
 		if ( ob->violate_unique() ) destruct( ob );
@@ -58,9 +58,9 @@ int do_climb(string arg)
 {
 	object me;
 	me=this_player();
-	if(arg!="down")	return notify_fail("你要往哪儿爬？\n");
-	message_vision("$N顺着来路爬了下去。\n",me);
+	if(arg!="down")	return notify_fail("你要往哪兒爬？\n");
+	message_vision("$N順着來路爬了下去。\n",me);
 	me->move(__DIR__"qiaobi");
-	message_vision("$N从「剑冢」上爬了下来。\n",me);
+	message_vision("$N從「劍冢」上爬了下來。\n",me);
 	return 1;
 }

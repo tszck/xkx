@@ -12,7 +12,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "尊");
-		set("long","一尊用万年寒玉所制的花瓶，晶莹剔透，光洁无比，几枝梅花插在里面，芳香四溢。\n");
+		set("long","一尊用萬年寒玉所制的花瓶，晶瑩剔透，光潔無比，幾枝梅花插在裏面，芳香四溢。\n");
 		set("value", 0);
 	}
 }

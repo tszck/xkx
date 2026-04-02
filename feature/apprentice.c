@@ -28,7 +28,7 @@ void assign_apprentice(string title, int privs)
 
 	if( userp(this_object()) || !query("title") ) {
 		if( family["generation"]==1 )
-			set("title", family["family_name"] + "开山祖师");
+			set("title", family["family_name"] + "開山祖師");
 		else
 			set("title", sprintf("%s第%s代%s", family["family_name"],
 				chinese_number(family["generation"]), family["title"]));

@@ -3,7 +3,7 @@
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "满天花雨"
+#define PNAME "滿天花雨"
 
 int perform(object me, object target)
 {
@@ -20,18 +20,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "throwing")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	fskill = "huagong-dafa";
 	bskill = "throwing";
@@ -44,26 +44,26 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够娴熟，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠嫺熟，不能使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 	if( (int)me->query("neili") < 300 )
-		return notify_fail("你内力不够了。\n");
+		return notify_fail("你內力不夠了。\n");
 	skill = me->query_skill(bskill, 1);
 	
 	target->receive_damage("qi", (int)skill/ 3,me);
 
-	msg= HIY"只听一股劲风从$N"HIY"的右侧发出，$N"HIY"手中的"+weapon->name()+"如烟雨般向$n"HIY"笼罩过去！\n"NOR;
+	msg= HIY"只聽一股勁風從$N"HIY"的右側發出，$N"HIY"手中的"+weapon->name()+"如煙雨般向$n"HIY"籠罩過去！\n"NOR;
 	
 	if(random(skill)>target->query_skill("parry")/2)
 	{
-		msg += "结果$p被$P攻了个措手不及！\n" NOR;
+		msg += "結果$p被$P攻了個措手不及！\n" NOR;
 		target->receive_wound("qi", skill+random(skill),me);
 		target->start_busy(1+random(2));
 		me->start_busy(1);
 		me->add("neili", -200);
 	} else {
-		msg += "可是$p躲过了$P的最后一击。\n" NOR;
+		msg += "可是$p躲過了$P的最後一擊。\n" NOR;
 		me->start_busy(2);
 		me->add("neili", -250);
 	}
@@ -86,13 +86,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
-		迟滞对方出手
+		損傷對方氣血
+		遲滯對方出手
 
 	出手要求：
-		化功大法100级
-		飞星术100级
-		内力300
+		化功大法100級
+		飛星術100級
+		內力300
 HELP
 	);
 	return 1;

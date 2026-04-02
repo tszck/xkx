@@ -1,4 +1,4 @@
-// Yanwu.c 烟雾弹
+// Yanwu.c 煙霧彈
 #include <command.h>
 #include <ansi.h>
 
@@ -6,15 +6,15 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIM"烟雾弹"NOR, ({ "yanwu"}) );
+	set_name(HIM"煙霧彈"NOR, ({ "yanwu"}) );
 	set_weight(100);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一颗星宿派特制的烟雾弹。它可以用(apply)。\n");
-		set("unit", "个");
+		set("long", "一顆星宿派特製的煙霧彈。它可以用(apply)。\n");
+		set("unit", "個");
 		set("value", 10000);
-		set("no_drop", RED"难道你想制造混乱吗？\n"NOR);
+		set("no_drop", RED"難道你想製造混亂嗎？\n"NOR);
 	}
 }
 
@@ -53,8 +53,8 @@ int do_apply(string arg)
 	}
 	me->set_temp("no_follow",1);
 //      GO_CMD->do_flee(me);
-	tell_room(environment(me),HIM"地面突然腾出一股桃红色的烟雾，大家什么也看
-不见，陷入混乱之中。\n"NOR);
+	tell_room(environment(me),HIM"地面突然騰出一股桃紅色的煙霧，大傢什麼也看
+不見，陷入混亂之中。\n"NOR);
 
 	GO_CMD->do_flee(me);
 	destruct(this_object());
@@ -63,7 +63,7 @@ int do_apply(string arg)
 void owner_is_killed()
 {
 	object me = this_player();
-	write(HIM"只见一阵桃红色的烟雾闪过...尸体上什么东西消失了。\n"NOR);
+	write(HIM"只見一陣桃紅色的煙霧閃過...屍體上什麼東西消失了。\n"NOR);
 	destruct(this_object());
 }
 int query_autoload()

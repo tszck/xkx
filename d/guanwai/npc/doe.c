@@ -10,11 +10,11 @@ void create()
 	set("race", "走畜");
 	set("gender", "雌性");
 	set("age", 20);
-	set("long", "一只温驯的梅花雌鹿，正在低头吃草。\n");
+	set("long", "一隻溫馴的梅花雌鹿，正在低頭喫草。\n");
 	set("attitude", "peace");
 	set("shen_type", -1);
 
-	set("limbs", ({ "鹿头", "鹿身", "前腿", "后腿", "臀部" }) );
+	set("limbs", ({ "鹿頭", "鹿身", "前腿", "後腿", "臀部" }) );
 	set("verbs", ({ "hoof" }) );
 
 	set("combat_exp", 2000);
@@ -28,7 +28,7 @@ void create()
 void die()
 {
 	object ob, corpse;
-	message_vision("$N发出凄婉的哀鸣，静静倒在地上，死去了。\n", this_object());
+	message_vision("$N發出悽婉的哀鳴，靜靜倒在地上，死去了。\n", this_object());
 	if( objectp(corpse = CHAR_D->make_corpse(this_object())) )
 		ob = new("/clone/medicine/vegetable/lurong");
 	destruct(ob);

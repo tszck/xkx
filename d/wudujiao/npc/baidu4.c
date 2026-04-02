@@ -2,8 +2,8 @@
 inherit NPC;
 #include <ansi.h>
 
-string *first_name = ({"五毒", "长螯", "双头", "花斑"});
-string *name_words = ({"蝎子"});
+string *first_name = ({"五毒", "長螯", "雙頭", "花斑"});
+string *name_words = ({"蠍子"});
 
 void create()
 {
@@ -13,9 +13,9 @@ void create()
 
         set_name(name,({"xie zi"}));
 
-	set("race", "昆虫");
-	set("subrace", "爬虫");
-        set("long", "一条半尺来长，鬼头鬼脑的小蝎子。\n");
+	set("race", "昆蟲");
+	set("subrace", "爬蟲");
+        set("long", "一條半尺來長，鬼頭鬼腦的小蠍子。\n");
         set("age", 100);
         set("attitude", "peaceful");
 
@@ -54,7 +54,7 @@ int hit_ob(object me, object ob, int damage)
        if ((string)ob->query("family/family_name") != "五毒教") {
                 ob->apply_condition("xiezi_poison", 20
               +(int)ob->query_condition("xiezi_poison") );
-              tell_object(ob, HIG "你觉得被咬中的地方一阵麻木！\n" NOR );
+              tell_object(ob, HIG "你覺得被咬中的地方一陣麻木！\n" NOR );
        }
 }
 

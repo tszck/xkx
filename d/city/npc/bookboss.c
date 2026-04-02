@@ -9,16 +9,16 @@ int ask_gong();
 void create()
 {
 	set_name("辛友清", ({ "xin youqing","xin" }) );
-	set("title","书局老板");
+	set("title","書局老闆");
 	set("gender", "男性" );
 	set("book_count", 1);
 	set("age", 38);
-	set("long", "辛友清一看就是个读书人，他功名未就，但卖书贩画为生，也颇为自得。\n");
+	set("long", "辛友清一看就是個讀書人，他功名未就，但賣書販畫爲生，也頗爲自得。\n");
 	set("attitude","friendly");
 	set("inquiry",([
-	       "书"    : "我这里什么书都有，你想买什么？\n",
-	       "here"  : "这是我花了三百两银子买来的店铺。\n",  
-	       "遗物"  : (: ask_me :),
+	       "書"    : "我這裏什麼書都有，你想買什麼？\n",
+	       "here"  : "這是我花了三百兩銀子買來的店鋪。\n",  
+	       "遺物"  : (: ask_me :),
 	       "恩公"  : (: ask_gong :),
 	]));
 	set("vendor_goods",({
@@ -38,10 +38,10 @@ void create()
 	set("chat_chance", 15);
 	set("chat_msg",(
 	{
-	    "老板手里拿着一把鸡毛掸子，轻轻掸去墙上，书架上的尘土。\n",
-	    "老板笑着问道：“买书？还是看看字画儿？”\n",
-	    "老板轻声嘟喃着:识货者分文不取，不识者千金难求。\n",
-	    "辛友清仰头叹道:何日才能见到恩公的后人啊。\n",
+	    "老闆手裏拿着一把雞毛撣子，輕輕撣去牆上，書架上的塵土。\n",
+	    "老闆笑着問道：“買書？還是看看字畫兒？”\n",
+	    "老闆輕聲嘟喃着:識貨者分文不取，不識者千金難求。\n",
+	    "辛友清仰頭嘆道:何日才能見到恩公的後人啊。\n",
 	}));
      
 	setup();
@@ -58,12 +58,12 @@ int ask_me()
 {
 	if ((int)this_player()->query_skill("literate",1)<125){ 
 		say(
-"辛友清白了白眼，对" + this_player()->name() + "说道：怎么看你也不象个读书人。\n");
+"辛友清白了白眼，對" + this_player()->name() + "說道：怎麼看你也不象個讀書人。\n");
             return 1;
         }else{
         say(
-        "辛友清看了" + this_player()->name() + "一眼,神神秘秘的说道：\n"
-        "请问您是谁的后人(answer)?\n");
+        "辛友清看了" + this_player()->name() + "一眼,神神祕祕的說道：\n"
+        "請問您是誰的後人(answer)?\n");
         this_player()->set_temp("pending/answer",1);
         return 1;
       }
@@ -71,9 +71,9 @@ int ask_me()
 int ask_gong()
 {
         tell_object(this_player(),
-        "辛友清看了你一眼,神神秘秘的说道：\n"
-        "恩公生前曾在此留有一部书籍，交待要悉心保管以传给后人。\n"
-        "只是不知何时何人会来取书。\n"
+        "辛友清看了你一眼,神神祕祕的說道：\n"
+        "恩公生前曾在此留有一部書籍，交待要悉心保管以傳給後人。\n"
+        "只是不知何時何人會來取書。\n"
         );
         return 1;
 }
@@ -84,24 +84,24 @@ int do_answer(string arg)
 	ob = this_player();
 	if (!ob->query_temp("pending/answer")) return 0;
 	ob->delete_temp("pending/answer");
-	if (arg == "先祖司马迁" && query("book_count"))
+	if (arg == "先祖司馬遷" && query("book_count"))
 	{
    add("book_count", -1);
 	 book = new("/u/evil/lbook6");	
 	 if ( book->violate_unique())
 	 {
 	  	destruct(book);
-	    write("辛友清冲着" + ob->name() + "说道：可惜你晚来一步啊。\n");
+	    write("辛友清衝着" + ob->name() + "說道：可惜你晚來一步啊。\n");
 	   	return 1;
 	 }
 		say(
-"辛友清对" + ob->name() + "说道：今儿终于遇到恩人的后代拉。\n"
-"我把先生的遗书交还给您拉。\n");
+"辛友清對" + ob->name() + "說道：今兒終於遇到恩人的後代拉。\n"
+"我把先生的遺書交還給您拉。\n");
    book->move(ob);
-	 message_vision("$N交给$n一本书。\n", me, ob);
-	 command("rumor "+ob->query("name")+"拿到史记真篇啦。\n");
+	 message_vision("$N交給$n一本書。\n", me, ob);
+	 command("rumor "+ob->query("name")+"拿到史記真篇啦。\n");
    return 1;
   }
-   message_vision("$N笑道：原来先祖是"+arg+"啊，失敬失敬。\n",me);
+   message_vision("$N笑道：原來先祖是"+arg+"啊，失敬失敬。\n",me);
    return 1;
 }

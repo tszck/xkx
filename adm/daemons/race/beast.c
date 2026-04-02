@@ -1,4 +1,4 @@
-// beast.c 野兽
+// beast.c 野獸
 // Last Modified by winder on Aug. 1 2002
 
 inherit F_DBASE;
@@ -14,19 +14,19 @@ inherit F_DBASE;
 
 mapping *combat_action = ({
 ([
-	"action":	"$N扑上来张嘴往$n的$l狠狠地一咬",
+	"action":	"$N撲上來張嘴往$n的$l狠狠地一咬",
 	"damage":	50,
-	"damage_type":	"咬伤",
+	"damage_type":	"咬傷",
 ]),
 ([
-	"action":	"$N举起爪子往$n的$l抓了过去",
+	"action":	"$N舉起爪子往$n的$l抓了過去",
 	"damage":	30,
-	"damage_type":	"抓伤",
+	"damage_type":	"抓傷",
 ]),
 ([
-	"action":	"$N跃起来用前掌往$n的$l猛地一拍",
+	"action":	"$N躍起來用前掌往$n的$l猛地一拍",
 	"damage":	30,
-	"damage_type":	"瘀伤",
+	"damage_type":	"瘀傷",
 ]),
 });
 
@@ -35,17 +35,17 @@ void create()
 	seteuid(getuid());
 	set("attitude", "aggressive");
 	set("limbs", ({
-		"头部",	"颈部",	"胸部",	"后背",	"腹部",	
-		"前腿",	"后腿", "前爪",	"后爪", "尾巴"
+		"頭部",	"頸部",	"胸部",	"後背",	"腹部",	
+		"前腿",	"後腿", "前爪",	"後爪", "尾巴"
 	}) );
 
-	set("dead_message", "\n$N仰天惨嚎了一声，趴在地上不动了。\n\n");
-	set("unconcious_message", "\n$N低低地吼了一声，滚倒在地晕了过去。\n\n");
-	set("revive_message", "\n$N四肢慢慢动弹了一下，睁开眼醒了过来。\n\n");
-	set("comeout_message", "往$d奔了过去。\n");
-	set("comein_message", "呼地窜了出来，警惕地四周张望着。\n");
-	set("fleeout_message", "惨叫一声，往$d落荒而逃。\n");
-	set("fleein_message", "摇摇摆摆地跑了过来，伸出舌头呼呼地喘着粗气。\n");
+	set("dead_message", "\n$N仰天慘嚎了一聲，趴在地上不動了。\n\n");
+	set("unconcious_message", "\n$N低低地吼了一聲，滾倒在地暈了過去。\n\n");
+	set("revive_message", "\n$N四肢慢慢動彈了一下，睜開眼醒了過來。\n\n");
+	set("comeout_message", "往$d奔了過去。\n");
+	set("comein_message", "呼地竄了出來，警惕地四周張望着。\n");
+	set("fleeout_message", "慘叫一聲，往$d落荒而逃。\n");
+	set("fleein_message", "搖搖擺擺地跑了過來，伸出舌頭呼呼地喘着粗氣。\n");
 }
 
 void setup_beast(object ob)

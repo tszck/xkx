@@ -10,7 +10,7 @@ void create()
 	set("age", random(10) + 20);
 	set("str", 25);
 	set("dex", 16);
-	set("long", "这是守护西夏王陵的石人武士。\n");
+	set("long", "這是守護西夏王陵的石人武士。\n");
 	set("combat_exp", 30000);
 	set("shen_type", 1);
 	set("attitude", "aggressive");

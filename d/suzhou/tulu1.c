@@ -7,7 +7,7 @@ void create()
 {
         set("short", "土路");
         set("long",@long
-你来到了一条土路上，西南边不远好象有条江。北边是去苏州的官
+你來到了一條土路上，西南邊不遠好象有條江。北邊是去蘇州的官
 道。
 long);
 	set("outdoors", "suzhou");

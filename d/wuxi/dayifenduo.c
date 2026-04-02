@@ -5,14 +5,14 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "大义分舵");
+	set("short", "大義分舵");
 	set("long", @LONG
-这里是杏子林中的丐帮大义分舵。分舵群丐分坐草地上，次序和职
-司前后井然。林子边有一个大草堆(dui) ，看似十分平常，可是你总觉
-得有点奇怪。
+這裏是杏子林中的丐幫大義分舵。分舵羣丐分坐草地上，次序和職
+司前後井然。林子邊有一個大草堆(dui) ，看似十分平常，可是你總覺
+得有點奇怪。
 LONG );
 	set("item_desc", ([
-		"dui"  : "你仔细一看，发现秘密了：呵呵，草堆下面有个黑乎乎的大洞口！\n",
+		"dui"  : "你仔細一看，發現祕密了：呵呵，草堆下面有個黑乎乎的大洞口！\n",
 	]));
 	set("exits", ([
 		"south" : __DIR__"xinlin1",
@@ -44,17 +44,17 @@ int do_enter(string arg)
 
 	if( arg=="dui" )
 	{
-		if((fam = me->query("family")) && fam["family_name"] == "丐帮" )
+		if((fam = me->query("family")) && fam["family_name"] == "丐幫" )
 		{
 			message("vision",
-				me->name() + "运起丐帮缩骨功，一弯腰往草堆下的洞里钻了进去。\n",
+				me->name() + "運起丐幫縮骨功，一彎腰往草堆下的洞裏鑽了進去。\n",
 				environment(me), ({me}) );
 			me->move("/d/gaibang/underwx");
-                	message("vision", me->name() + "从洞里走了进来。\n", environment(me), ({me}) );
+                	message("vision", me->name() + "從洞裏走了進來。\n", environment(me), ({me}) );
 			return 1;
 		}
 		else 
-			return notify_fail("这么小的洞，你钻得进去吗？\n");
+			return notify_fail("這麼小的洞，你鑽得進去嗎？\n");
 	}
 }	
 

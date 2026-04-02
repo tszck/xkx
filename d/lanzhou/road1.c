@@ -6,8 +6,8 @@ void  create  ()
 {
 	set("short",  "官道");
 	set("long",  @LONG
-一条青石铺就的官道，向北通往兰州，往东则到达长安。道路两旁
-是一片茂密的树林。
+一條青石鋪就的官道，向北通往蘭州，往東則到達長安。道路兩旁
+是一片茂密的樹林。
 LONG);
 	set("exits",  ([  /*  sizeof()  ==  2  */
 		"north" : __DIR__"southgate",

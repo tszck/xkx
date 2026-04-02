@@ -4,7 +4,7 @@
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME "唱仙法吼字决"
+#define PNAME "唱仙法吼字決"
 int perform(object me, object target)
 {
 	int skill, ap, dp,i,neili,damage;
@@ -19,14 +19,14 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	fskill = "dulong-dafa";
 	bskill = "staff";
@@ -40,23 +40,23 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 90 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 500 )
-		return notify_fail("你已经唱得精疲力竭,内力不够了。\n");
+		return notify_fail("你已經唱得精疲力竭,內力不夠了。\n");
 
 	neili = me->query("neili");	
 	if( neili/2 + random(neili/2) < (int)target->query("neili")/10) 
-		return notify_fail("敌人的内力比你高出太多，伤不了！\n");
+		return notify_fail("敵人的內力比你高出太多，傷不了！\n");
 
 	me->receive_damage("qi", 10);
 
 	me->start_busy(random(5));
 
-	message_combatd(HIY"$N深深地吸一囗气，忽然仰天长啸，高声狂叫：不死神龙，唯我不败！\n" NOR, me);
+	message_combatd(HIY"$N深深地吸一囗氣，忽然仰天長嘯，高聲狂叫：不死神龍，唯我不敗！\n" NOR, me);
 
 	damage = me->query("max_neili") / 5;
 	ap = me->query_skill(bskill) * 2;
@@ -69,11 +69,11 @@ int perform(object me, object target)
 		target->receive_wound("jing", damage/3,me);
 		target->receive_wound("qi", damage,me);
 		if (userp(me)) me->add("neili", -500);
-		message_combatd( HIR "$N只觉脑中一阵剧痛，金星乱冒，犹如有万条金龙在眼前舞动。\n" NOR, target);
+		message_combatd( HIR "$N只覺腦中一陣劇痛，金星亂冒，猶如有萬條金龍在眼前舞動。\n" NOR, target);
 	}
 	else
 	{
-		message_combatd(HIR "$N只觉脑中微痛，似乎受了一点轻伤。\n" NOR, target);
+		message_combatd(HIR "$N只覺腦中微痛，似乎受了一點輕傷。\n" NOR, target);
 		target->receive_damage("jing", 50 ,me);
 		target->receive_damage("qi", 50 ,me);
 		target->receive_wound("qi", 10 ,me);
@@ -90,12 +90,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对手精气和气血
+		損傷對手精氣和氣血
 
 	出手要求：
-		毒龙大法90级
-		神龙杖法100级
-		内力500
+		毒龍大法90級
+		神龍杖法100級
+		內力500
 HELP
 	);
 	return 1;

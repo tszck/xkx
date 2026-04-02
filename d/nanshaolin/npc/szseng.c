@@ -10,7 +10,7 @@ void create()
 	set_name("侍粥僧", ({ "shizhou seng", "shizhou","seng" }) );
 	set("gender", "男性" );
 	set("age", 30);
-	set("long", "他膀大腰圆，看来长年从事体力劳动！\n");
+	set("long", "他膀大腰圓，看來長年從事體力勞動！\n");
 	set("combat_exp", 10000);
 	set("attitude", "friendly");
 	set("inquiry", 
@@ -36,13 +36,13 @@ string ask_job()
 	object ob = this_player();
 
 	if (ob->query("combat_exp")>=30000)
-		return ("你已经有了基础了，没必要再找我来领活了。\n");
+		return ("你已經有了基礎了，沒必要再找我來領活了。\n");
 	if ((string)ob->query("family/family_name")!="南少林派")
-		return ("非南少林弟子不能领工作。");
+		return ("非南少林弟子不能領工作。");
 	if (ob->query_temp("job_name"))
-		return ("你不是已经领了工作吗？还不快去做。\n");
+		return ("你不是已經領了工作嗎？還不快去做。\n");
 	ob->set_temp("job_name","熬粥");
-		return "做僧侣就要能吃苦耐劳，你就帮我熬粥"HIR"(ao 粥)"HIC"吧。";
+		return "做僧侶就要能喫苦耐勞，你就幫我熬粥"HIR"(ao 粥)"HIC"吧。";
 }
 void greeting(object ob)
 {
@@ -51,6 +51,6 @@ void greeting(object ob)
 	if(!(ob->query_temp("job_name")!="熬粥"))   
 	{
 		command("stare "+ob->query("id"));
-		command("say " + RANK_D->query_respect(ob)+"，来替我帮忙"HIR"(ao 粥)"HIC"真是多谢你了!!!\n");
+		command("say " + RANK_D->query_respect(ob)+"，來替我幫忙"HIR"(ao 粥)"HIC"真是多謝你了!!!\n");
 	}
 }

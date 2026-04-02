@@ -1,8 +1,8 @@
 // magic-rice.c
 // 1998/12/16 Modified by Winder
-// 增加基本赌技排行榜,zeratul 2000.1.13
-// Last Modified by winder on Aug. 5 2001 增加宠物排行
-// Last Modified by winder on Feb. 21 2002 增加秒杀排行
+// 增加基本賭技排行榜,zeratul 2000.1.13
+// Last Modified by winder on Aug. 5 2001 增加寵物排行
+// Last Modified by winder on Feb. 21 2002 增加秒殺排行
 
 #define TOPTEN DATA_DIR + "topten"
 

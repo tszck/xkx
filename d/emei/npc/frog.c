@@ -6,9 +6,9 @@ void create()
 {
     set_name(GRN"大青蛙"NOR,({ "big frog","qing wa","frog"}) );
     set("age", 7);
-    set("long", "这是一只黑丝大青蛙，长在深不见日的水潭里，全身恶臭，\n
-肥肥壮壮，一对血红的眼睛，十分恶心，你真想杀了它。\n");
-    set("limbs", ({ "蛙前爪", "蛙后抓", "蛙嘴" }) );
+    set("long", "這是一隻黑絲大青蛙，長在深不見日的水潭裏，全身惡臭，\n
+肥肥壯壯，一對血紅的眼睛，十分噁心，你真想殺了它。\n");
+    set("limbs", ({ "蛙前爪", "蛙後抓", "蛙嘴" }) );
     set("verbs", ({ "bite", "claw" }) );
 
     set("combat_exp", 50);
@@ -19,8 +19,8 @@ void create()
     set("int", 11);
     set("attitude", "peaceful");
     set("chat_msg", ({
-        "大青蛙呱呱叫了两声，一副幸灾乐祸的得意模样。\n",
-        "大青蛙蹦了两蹦，跳到你的脚边，真恶心！\n",
+        "大青蛙呱呱叫了兩聲，一副幸災樂禍的得意模樣。\n",
+        "大青蛙蹦了兩蹦，跳到你的腳邊，真噁心！\n",
     }));
     setup();
 }
@@ -44,21 +44,21 @@ void init()
 void greeting(object ob)
 {
     if( !ob || environment(ob) != environment() ) return;
-    say( "大青蛙呱呱叫了两声，一副幸灾乐祸的得意模样。\n");
+    say( "大青蛙呱呱叫了兩聲，一副幸災樂禍的得意模樣。\n");
 }
 
 int do_dajia(string arg)
 {
-    command("say 这里都是水，站都站不稳，还打什么打？省点力气罢！\n");
+    command("say 這裏都是水，站都站不穩，還打什麼打？省點力氣罷！\n");
     return 0;
 }
 int do_save()
 {
-    command("say 想存盘？省点力气罢！\n");
+    command("say 想存盤？省點力氣罷！\n");
     return 0;
 }
 int do_drop(object arg)
 {
-    command("say 乱丢垃圾？先捡起来！\n");
+    command("say 亂丟垃圾？先撿起來！\n");
     return 0;
 }

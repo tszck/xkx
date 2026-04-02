@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create ()
 {
-	set ("short", "客厅");
+	set ("short", "客廳");
 	set ("long", @LONG
-这是知府大人接待宾客的地方，摆着茶几座椅，墙上还挂了几幅山
-水条幅。茶几上新沏的一壶龙井还在冒着热气。
+這是知府大人接待賓客的地方，擺着茶几座椅，牆上還掛了幾幅山
+水條幅。茶几上新沏的一壺龍井還在冒着熱氣。
 LONG);
 	set("exits", ([
 		"north" : __DIR__"huapu",

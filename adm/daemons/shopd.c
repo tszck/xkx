@@ -1,40 +1,40 @@
-// 商业系统总控程序
+// 商業系統總控程序
 
 #include <ansi.h>
 #include <config.h>
 #include <getconfig.h>
-public mapping *query_shop();                                  // 返回店铺列表
-public int is_inited();                                        // 返回店铺是否全部初始化
-private int check_owner(string arg);                           // 检查店铺主人和店铺伙计主人是否相同
-public int change_owner(object me,string arg,string owner);    // 修改店铺店主（店铺主人和店铺伙计主人）
-public int is_owner(string owner);                             // 查看玩家 owner 是否店铺店主
-public int close_all(object me);                               // 关闭所有店铺
-public int close_shop(object me,string arg);                   // 关闭指定店铺
-public int open_all(object me);                                // 开放所有店铺
-public int open_shop(object me,string arg);                    // 开放指定店铺
-public int reset_all(object me);                               // 初始化所有店铺
-public int reset_shop(object me,string arg);                   // 初始化指定店铺
-public int list_shop(object me);                               // 查询店铺
-public string do_modify(object obj, object me, string arg);    // 修改店铺伙计的属性
-public string do_stock(object ob, object me, string arg);      // 标价并出售货物
-public string do_unstock(object ob, object me, string arg);    // 取下货物
-public string do_list(object ob, object me, string arg);       // 查询货物
-public int do_listall(object me);                              // 查所有商店货物
-public int do_buy(object obj, object me, string arg);          // 购买货物
-private int player_pay(object who, object target, int amount); // 付款，计算商业评价以及税率
-public string do_jiezhang(object ob, object me);               // 结帐（店铺主人不在线时候的店铺收入）
-public string list_invite(object ob, object me);               // 查询贵宾列表
-public string do_invite(object ob, object me, string arg);     // 设置|取消 贵宾
-public string list_ban(object ob, object me);                  // 查询黑户列表
-public string do_ban(object ob, object me, string arg);        // 设置|取消 黑户
-public string list_order(object ob,object me);		       // 店主显示预约
-public string do_order(object ob,object me,string arg);	       // 预约物品
+public mapping *query_shop();                                  // 返回店鋪列表
+public int is_inited();                                        // 返回店鋪是否全部初始化
+private int check_owner(string arg);                           // 檢查店鋪主人和店鋪夥計主人是否相同
+public int change_owner(object me,string arg,string owner);    // 修改店鋪店主（店鋪主人和店鋪夥計主人）
+public int is_owner(string owner);                             // 查看玩家 owner 是否店鋪店主
+public int close_all(object me);                               // 關閉所有店鋪
+public int close_shop(object me,string arg);                   // 關閉指定店鋪
+public int open_all(object me);                                // 開放所有店鋪
+public int open_shop(object me,string arg);                    // 開放指定店鋪
+public int reset_all(object me);                               // 初始化所有店鋪
+public int reset_shop(object me,string arg);                   // 初始化指定店鋪
+public int list_shop(object me);                               // 查詢店鋪
+public string do_modify(object obj, object me, string arg);    // 修改店鋪夥計的屬性
+public string do_stock(object ob, object me, string arg);      // 標價並出售貨物
+public string do_unstock(object ob, object me, string arg);    // 取下貨物
+public string do_list(object ob, object me, string arg);       // 查詢貨物
+public int do_listall(object me);                              // 查所有商店貨物
+public int do_buy(object obj, object me, string arg);          // 購買貨物
+private int player_pay(object who, object target, int amount); // 付款，計算商業評價以及稅率
+public string do_jiezhang(object ob, object me);               // 結帳（店鋪主人不在線時候的店鋪收入）
+public string list_invite(object ob, object me);               // 查詢貴賓列表
+public string do_invite(object ob, object me, string arg);     // 設置|取消 貴賓
+public string list_ban(object ob, object me);                  // 查詢黑戶列表
+public string do_ban(object ob, object me, string arg);        // 設置|取消 黑戶
+public string list_order(object ob,object me);		       // 店主顯示預約
+public string do_order(object ob,object me,string arg);	       // 預約物品
 private void destruct_it(object ob);
-public void reset_goods(object obj);                              // 检查玩家摆摊物品
+public void reset_goods(object obj);                              // 檢查玩家擺攤物品
 string makeup_space(string s,int max);
 string *special_props = ({ "short", "long" });
 string filter_color(string arg);
-string top;							//最大销售额店铺名(例如清香园)
+string top;							//最大銷售額店鋪名(例如清香園)
 int color_len(string arg);
 
 nosave mapping *all_shop = ({
@@ -46,7 +46,7 @@ nosave mapping *all_shop = ({
                 "price":          500,
         ]),
         ([
-                "id":             "长安",
+                "id":             "長安",
                 "name":           "同盛祥",
                 "start_room":     "changan_shop",
                 "type":           "shop",
@@ -54,70 +54,70 @@ nosave mapping *all_shop = ({
         ]),
         ([
                 "id":             "成都",
-                "name":           "清香园",
+                "name":           "清香園",
                 "start_room":     "chengdu_shop",
                 "type":           "shop",
                 "price":          300,
         ]),
         ([
-                "id":             "扬州",
-                "name":           "月明轩",
+                "id":             "揚州",
+                "name":           "月明軒",
                 "start_room":     "yangzhou_shop",
                 "type":           "shop",
                 "price":          800,
         ]),
         ([
-                "id":             "苏州",
-                "name":           "采芝斋",
+                "id":             "蘇州",
+                "name":           "採芝齋",
                 "start_room":     "suzhou_shop",
                 "type":           "shop",
                 "price":          500,
         ]),
         ([
                 "id":             "杭州",
-                "name":           "颐香斋",
+                "name":           "頤香齋",
                 "start_room":     "hangzhou_shop",
                 "type":           "shop",
                 "price":          500,
         ]),
         ([
                 "id":             "福州",
-                "name":           "聚春园",
+                "name":           "聚春園",
                 "start_room":     "fuzhou_shop",
                 "type":           "shop",
                 "price":          300,
         ]),
         ([
-                "id":             "无锡",
-                "name":           "聚丰园",
+                "id":             "無錫",
+                "name":           "聚豐園",
                 "start_room":     "wuxi_shop",
                 "type":           "shop",
                 "price":          300,
         ]),
         ([
-                "id":             "开封",
-                "name":           "福兴斋",
+                "id":             "開封",
+                "name":           "福興齋",
                 "start_room":     "kaifeng_shop",
                 "type":           "shop",
                 "price":          500,
         ]),
         ([
                 "id":             "延平",
-                "name":           "双溪楼",
+                "name":           "雙溪樓",
                 "start_room":     "yanping_shop",
                 "type":           "shop",
                 "price":          50000,
         ]),
         ([
                 "id":             "泉州",
-                "name":           "福人颐",
+                "name":           "福人頤",
                 "start_room":     "quanzhou_shop",
                 "type":           "shop",
                 "price":          50000,
         ]),
         ([
                 "id":             "佛山",
-                "name":           "天海楼",
+                "name":           "天海樓",
                 "start_room":     "foshan_shop",
                 "type":           "shop",
                 "price":          50000,
@@ -125,20 +125,20 @@ nosave mapping *all_shop = ({
 /*
         ([
                 "id":             "大理",
-                "name":           "拨云堂",
+                "name":           "撥雲堂",
                 "start_room":     "dali_shop",
                 "type":           "shop",
                 "price":          500,
         ]),
         ([
                 "id":             "武昌",
-                "name":           "悦新昌",
+                "name":           "悅新昌",
                 "start_room":     "wuchang_shop",
                 "type":           "shop",
                 "price":          300,
         ]),
         ([
-                "id":             "灵州",
+                "id":             "靈州",
                 "name":           "同福居",
                 "start_room":     "lingzhou_shop",
                 "type":           "shop",
@@ -209,7 +209,7 @@ private int check_owner(string arg)
                 }
         }
 
-        // 没有找到指定的店铺
+        // 沒有找到指定的店鋪
         if (! have_it)
                 return 0;
 
@@ -239,15 +239,15 @@ public int change_owner(object me, string arg, string owner)
 
         if (! have_it)
         {
-                tell_object(me, "对不起，" + arg + "店铺并不存在。\n");
+                tell_object(me, "對不起，" + arg + "店鋪並不存在。\n");
                 return 1;
         }
 
         if (! check_owner(arg))
         {
-                tell_object(me, "警告：" + arg + "店铺主人和店铺伙计主人数据异常，请仔细检查。\n");
+                tell_object(me, "警告：" + arg + "店鋪主人和店鋪夥計主人數據異常，請仔細檢查。\n");
 
-                log_file("static/shop", sprintf("%s店铺数据异常，时间：%s。\n", arg, ctime(time())));
+                log_file("static/shop", sprintf("%s店鋪數據異常，時間：%s。\n", arg, ctime(time())));
                 return 1;
         }
 
@@ -257,10 +257,10 @@ public int change_owner(object me, string arg, string owner)
         {
                 the_shop->set("owner", owner);
                 the_shop->save();
-                tell_object(me, arg + "店铺店主修改完毕。\n");
+                tell_object(me, arg + "店鋪店主修改完畢。\n");
         } else
         {
-                tell_object(me, arg + "店铺文件不存在，请仔细查看。\n");
+                tell_object(me, arg + "店鋪文件不存在，請仔細查看。\n");
                 return 1;
         }
 
@@ -297,7 +297,7 @@ public int close_all(object me)
         return 1;
 }
 
-// 关闭店铺是修改店铺的 shop_type 为 0
+// 關閉店鋪是修改店鋪的 shop_type 爲 0
 public int close_shop(object me, string arg)
 {
         int i, have_it;
@@ -316,14 +316,14 @@ public int close_shop(object me, string arg)
 
         if (! have_it)
         {
-                tell_object(me, "对不起，" + arg + "店铺并不存在。\n");
+                tell_object(me, "對不起，" + arg + "店鋪並不存在。\n");
                 return 1;
         }
 
         if (! check_owner(arg))
         {
-                tell_object(me, "警告：" + arg + "店铺主人和店铺伙计主人数据异常，请仔细检查。\n");
-                log_file("static/shop",sprintf("%s店铺数据异常，时间：%s。\n", arg, ctime(time())));
+                tell_object(me, "警告：" + arg + "店鋪主人和店鋪夥計主人數據異常，請仔細檢查。\n");
+                log_file("static/shop",sprintf("%s店鋪數據異常，時間：%s。\n", arg, ctime(time())));
                 return 1;
         }
 
@@ -333,10 +333,10 @@ public int close_shop(object me, string arg)
         {
                 the_shop->set("shop_type", 0);
                 the_shop->save();
-                tell_object(me, arg + "店铺成功关闭。\n");
+                tell_object(me, arg + "店鋪成功關閉。\n");
         } else
         {
-                tell_object(me, arg + "店铺文件不存在，请仔细查看。\n");
+                tell_object(me, arg + "店鋪文件不存在，請仔細查看。\n");
                 return 1;
         }
         return 1;
@@ -350,7 +350,7 @@ public int open_all(object me)
         return 1;
 }
 
-// 开放店铺是修改店铺的 shop_type 为 1
+// 開放店鋪是修改店鋪的 shop_type 爲 1
 public int open_shop(object me, string arg)
 {
         int i, have_it;
@@ -367,14 +367,14 @@ public int open_shop(object me, string arg)
         }
         if (! have_it)
         {
-                tell_object(me, "对不起，" + arg + "店铺并不存在。\n");
+                tell_object(me, "對不起，" + arg + "店鋪並不存在。\n");
                 return 1;
         }
 
         if (! check_owner(arg))
         {
-                tell_object(me, "警告：" + arg + "店铺主人和店铺伙计主人数据异常，请仔细检查！\n");
-                log_file("static/shop", sprintf("%s店铺数据异常，时间：%s。\n", arg, ctime(time())));
+                tell_object(me, "警告：" + arg + "店鋪主人和店鋪夥計主人數據異常，請仔細檢查！\n");
+                log_file("static/shop", sprintf("%s店鋪數據異常，時間：%s。\n", arg, ctime(time())));
                 return 1;
         }
 
@@ -384,11 +384,11 @@ public int open_shop(object me, string arg)
         {
                 the_shop->set("shop_type", 1);
                 the_shop->save();
-                tell_object(me, arg + "店铺成功开放！\n");
+                tell_object(me, arg + "店鋪成功開放！\n");
         }
 	else
         {
-                tell_object(me, arg + "店铺文件不存在，请仔细查看！\n");
+                tell_object(me, arg + "店鋪文件不存在，請仔細查看！\n");
                 return 1;
         }
         return 1;
@@ -418,11 +418,11 @@ public int reset_all(object me)
         return 1;
 }
 
-// 初始化店铺包括：
-// 关闭店铺
-// 设置店铺和伙计的主人为空值
-// 清除伙计的货物以及伙计的存款
-// 清除伙计的贵宾和黑户
+// 初始化店鋪包括：
+// 關閉店鋪
+// 設置店鋪和夥計的主人爲空值
+// 清除夥計的貨物以及夥計的存款
+// 清除夥計的貴賓和黑戶
 public int reset_shop(object me, string arg)
 {
         int i, have_it;
@@ -441,13 +441,13 @@ public int reset_shop(object me, string arg)
         }
         if (! have_it)
         {
-                tell_object(me,"对不起，" + arg + "店铺并不存在。\n");
+                tell_object(me,"對不起，" + arg + "店鋪並不存在。\n");
                 return 1;
         }
 
         the_shop = load_object(SHOP_DIR + all_shop[i]["start_room"]);
 //from here
-	tell_object(me,arg+"店铺初始化aa成功！\n");
+	tell_object(me,arg+"店鋪初始化aa成功！\n");
 	return 1;
 // to here
         if (the_shop)
@@ -465,10 +465,10 @@ public int reset_shop(object me, string arg)
 
                 the_shop->save();
 
-                tell_object(me, arg + "店铺成功初始化！\n");
+                tell_object(me, arg + "店鋪成功初始化！\n");
         } else
         {
-                tell_object(me, arg + "店铺文件不存在，请仔细查看！\n");
+                tell_object(me, arg + "店鋪文件不存在，請仔細查看！\n");
                 return 1;
         }
 
@@ -484,9 +484,9 @@ public int reset_shop(object me, string arg)
 				if(prop == props[i])
 				{
 	                                if (prop == "name")
-						the_waiter->set_name("店铺伙计", ({ "huo ji", "huo", "ji" }));
+						the_waiter->set_name("店鋪夥計", ({ "huo ji", "huo", "ji" }));
 					if (prop == "long")
-						the_waiter->set("long","他就是这家店铺的伙计。\n");
+						the_waiter->set("long","他就是這家店鋪的夥計。\n");
 					the_waiter->delete(prop);
 				}
 			}
@@ -494,18 +494,18 @@ public int reset_shop(object me, string arg)
                         foreach (prop in props)
                         {
                                 if (prop == "name")
-                                        the_waiter->set_name("店铺伙计", ({ "huo ji", "huo", "ji" }));
+                                        the_waiter->set_name("店鋪夥計", ({ "huo ji", "huo", "ji" }));
                                 if (prop == "long")
-                                        the_waiter->set("long","他就是这家店铺的伙计。\n");
+                                        the_waiter->set("long","他就是這家店鋪的夥計。\n");
                                 the_waiter->delete(prop);
                         }
 */
                         the_shop->delete("waiter");
                 }
-                tell_object(me, arg + "伙计成功初始化！\n");
+                tell_object(me, arg + "夥計成功初始化！\n");
         } else
         {
-                tell_object(me, arg + "店铺伙计不存在，请仔细查看！\n");
+                tell_object(me, arg + "店鋪夥計不存在，請仔細查看！\n");
                 return 1;
         }
         return 1;
@@ -518,7 +518,7 @@ public int list_shop(object me)
         object ob, the_shop;
         string str;
 
-        msg = WHT "当前" + LOCAL_MUD_NAME() + "的店铺列表如下：\n" NOR;
+        msg = WHT "當前" + LOCAL_MUD_NAME() + "的店鋪列表如下：\n" NOR;
         msg += HIC"≡" HIY "------------------------------------------------------------------------" HIC "≡\n" NOR;
         for (i = 0; i < sizeof(all_shop); i++)
         {
@@ -537,33 +537,33 @@ public int list_shop(object me)
                         na = HIR + ob->query("name");
                 else
                 {
-                        na = GRN "离线玩家";
+                        na = GRN "離線玩家";
                 }
 
-               msg += sprintf(WHT " 店铺：" HIG "%s[" HIW "%s" HIG "] " NOR ,
+               msg += sprintf(WHT " 店鋪：" HIG "%s[" HIW "%s" HIG "] " NOR ,
                			all_shop[i]["name"], arg);
 
                str = (the_shop->query("shop_type") &&
                                the_shop->query("owner") != "VOID_SHOP") ?
-                               HIG " 营业中 " NOR : HIY "暂不营业" NOR,
+                               HIG " 營業中 " NOR : HIY "暫不營業" NOR,
                msg += sprintf(HIG"%8s%s"NOR,str,makeup_space(str,8));
 
-               msg += WHT " 销售积分：" HIC ;
+               msg += WHT " 銷售積分：" HIC ;
                if ((int)the_shop->query("score")<=0)
-               str = HIY"暂无"NOR;
+               str = HIY"暫無"NOR;
                else
                str = sprintf("%d",the_shop->query("score"));
 	       msg += sprintf("%-6s%s",str,makeup_space(str,6));
 
                str = the_shop->query("owner") == "VOID_SHOP" ?
-                               HIC "风儿(系统)" NOR : na +
+                               HIC "風兒(系統)" NOR : na +
                                "(" + the_shop->query("owner") + ")" NOR,
-               msg += sprintf(WHT "  店铺主人：" HIG "%-20s%s" NOR ,str,makeup_space(str,20));
+               msg += sprintf(WHT "  店鋪主人：" HIG "%-20s%s" NOR ,str,makeup_space(str,20));
 
                msg += "\n";
         }
         msg += HIC"≡"HIY"------------------------------------------------------------------------" HIC "≡\n" NOR;
-        msg += WHT"总共有" + chinese_number(sizeof(all_shop)) + "家店铺。\n"NOR;
+        msg += WHT"總共有" + chinese_number(sizeof(all_shop)) + "家店鋪。\n"NOR;
         tell_object(me, msg);
         return 1;
 }
@@ -577,10 +577,10 @@ public string do_modify(object obj, object me, string arg)
         room = environment(obj);
 
         if (! room->query("shop_type"))
-                return "对不起，该店铺目前已经被巫师关闭。\n";
+                return "對不起，該店鋪目前已經被巫師關閉。\n";
 
         if (! arg || sscanf(arg,"%s %s", item, msg) != 2)
-                return "设定格式为：modify <项目> <内容>\n";
+                return "設定格式爲：modify <項目> <內容>\n";
 
         if (CHINESE_D->check_control(msg))
                 return "描述不可有控制符。\n";
@@ -589,7 +589,7 @@ public string do_modify(object obj, object me, string arg)
                 return "描述必需不含空格。\n";
 
         if (CHINESE_D->check_return(msg))
-                return "描述必需不含回车键。\n";
+                return "描述必需不含回車鍵。\n";
 
         msg = replace_string(msg, "$BLK$", BLK);
         msg = replace_string(msg, "$RED$", RED);
@@ -613,40 +613,40 @@ public string do_modify(object obj, object me, string arg)
         {
         case "desc":
                 if (CHINESE_D->check_length(msg) > 100)
-                        return "你所设定的描述太长了。\n";
+                        return "你所設定的描述太長了。\n";
 
                 obj->set("long", msg + NOR "\n");
                 room->set("waiter/long", msg + NOR "\n");
 
                 room->save();
-                return WHT "你为店铺伙计设定好了描述。\n" NOR;
+                return WHT "你爲店鋪夥計設定好了描述。\n" NOR;
 
         case "nickname" :
                 if (CHINESE_D->check_length(msg) > 20)
-                        return "你所设定的描述太长了。\n";
+                        return "你所設定的描述太長了。\n";
 
                 obj->set("nickname", msg + NOR);
                 room->set("waiter/nickname", msg + NOR);
 
                 room->save();
-                return WHT "你为店铺伙计设定好了绰号。\n" NOR;
+                return WHT "你爲店鋪夥計設定好了綽號。\n" NOR;
 
         case "title" :
                 if (CHINESE_D->check_length(msg) > 20)
-                        return "你所设定的描述太长了。\n";
+                        return "你所設定的描述太長了。\n";
 
                 obj->set("title", msg + NOR);
                 room->set("waiter/title", msg + NOR);
 
                 room->save();
-                return WHT "你为店铺伙计设定好了头衔。\n" NOR;
+                return WHT "你爲店鋪夥計設定好了頭銜。\n" NOR;
 
         case "name" :
                 if (CHINESE_D->check_length(msg) > 10)
-                        return "你所设定的描述太长了。\n";
+                        return "你所設定的描述太長了。\n";
 
                 if (! is_chinese(msg))
-                        return "店铺伙计的姓名只能用中文。\n";
+                        return "店鋪夥計的姓名只能用中文。\n";
 
                 dbase = obj->query_entire_dbase();
                 dbase["name"] = msg;
@@ -654,9 +654,9 @@ public string do_modify(object obj, object me, string arg)
                 room->set("waiter/name", msg);
 
                 room->save();
-                return WHT "你为店铺伙计设定好了名字。\n" NOR;
+                return WHT "你爲店鋪夥計設定好了名字。\n" NOR;
         }
-        return "你要修改什么？\n";
+        return "你要修改什麼？\n";
 }
 
 public string do_stock(object ob, object me, string arg)
@@ -669,36 +669,36 @@ public string do_stock(object ob, object me, string arg)
         room = environment(ob);
 
         if (! room->query("shop_type"))
-                return "对不起，该店铺目前已经被巫师关闭。\n";
+                return "對不起，該店鋪目前已經被巫師關閉。\n";
 
         if (! arg || ! sscanf(arg, "%s value %d", arg, value) == 2)
-                return "指令格式：stock <货物> value * ( 其中 * 是以铜板作单位的价格 )\n";
+                return "指令格式：stock <貨物> value * ( 其中 * 是以銅板作單位的價格 )\n";
 
         if (! value)
-                return "指令格式：stock <货物> value * ( 其中 * 是以铜板作单位的价格 )\n";
+                return "指令格式：stock <貨物> value * ( 其中 * 是以銅板作單位的價格 )\n";
 
         if (value > 10000000 && !wizardp(me))
-                return "店铺最多标价一千两黄金，你就别那么心黑了吧。\n";
+                return "店鋪最多標價一千兩黃金，你就別那麼心黑了吧。\n";
         if (! (goods = present(arg, me)) || ! objectp(goods))
-                return "你身上并没有这个货物啊！\n";
+                return "你身上並沒有這個貨物啊！\n";
         if (goods->query("no_sell"))
-                return "这个东西太招摇了，还是别拿出来贩卖。\n";
+                return "這個東西太招搖了，還是別拿出來販賣。\n";
         if (goods->query("no_sell"))
-                return "这个东西太招摇了，还是别拿出来贩卖。\n";
+                return "這個東西太招搖了，還是別拿出來販賣。\n";
 	if (goods->query("no_get") || goods->query("no_drop") ||
 		goods->query("no_put") || goods->query("no_beg") ||
 		goods->query("no_steal") || goods->query("no_drop") ||
 		goods->query("ownmake") || goods->query("owner"))
-                return "这个东西摆不上货架，就暂时别拿出来卖啦。\n";
-  if (goods->query("last_value")) return "这种便宜货，就别拿出来卖啦。\n";
+                return "這個東西擺不上貨架，就暫時別拿出來賣啦。\n";
+  if (goods->query("last_value")) return "這種便宜貨，就別拿出來賣啦。\n";
 	if (goods->query("wiz_only") && !wizardp(me))
-		return "这个东西只能在巫师商店里卖。\n";
+		return "這個東西只能在巫師商店裏賣。\n";
         if (goods->is_character())
-                return "你不能贩卖活物。\n";
+                return "你不能販賣活物。\n";
         if (goods->query("money_id"))
-                return "你把钱也拿来出售？\n";
+                return "你把錢也拿來出售？\n";
         if (room->query("all_vendor_goods") >= 80)
-                return "你店铺上的东西太多了，先收几种货物再摆吧。\n";
+                return "你店鋪上的東西太多了，先收幾種貨物再擺吧。\n";
 
         all_goods = room->query("vendor_goods");
 
@@ -708,9 +708,9 @@ public string do_stock(object ob, object me, string arg)
         all_goods_num = room->query("vendor_goods_num");
         if (! all_goods_num) all_goods_num = ([ ]);
 //	if (all_goods_num[base_name(goods)] > 14 )
-//		return "同样的物品不能摆放超过十五件。\n";
+//		return "同樣的物品不能擺放超過十五件。\n";
      if (goods->is_unique() && all_goods_num[base_name(goods)]>=2)
-        return "这种东西太宝贵了，店里放太多了会招贼的。\n";
+        return "這種東西太寶貴了，店裏放太多了會招賊的。\n";
         all_goods[base_name(goods)] = value;
         all_goods_num[base_name(goods)] += 1;
 
@@ -718,7 +718,7 @@ public string do_stock(object ob, object me, string arg)
         room->set("vendor_goods_num", all_goods_num);
         room->add("all_vendor_goods", 1);
 
-        message_vision(HIW "$N" HIW "将『" HIG + goods->name(1) + HIW "』标上" HIY + MONEY_D->price_str(value) + HIW "的价格开始出售。\n" NOR, me);
+        message_vision(HIW "$N" HIW "將『" HIG + goods->name(1) + HIW "』標上" HIY + MONEY_D->price_str(value) + HIW "的價格開始出售。\n" NOR, me);
         room->save();
         if (goods->query_amount() && goods->query_amount() > 1)
         {
@@ -728,7 +728,7 @@ public string do_stock(object ob, object me, string arg)
                 destruct(obj2);
         }
         else destruct(goods);
-        return "你摆置好了货物。\n";
+        return "你擺置好了貨物。\n";
 }
 
 public string do_unstock(object ob, object me, string arg)
@@ -741,20 +741,20 @@ public string do_unstock(object ob, object me, string arg)
         seteuid(getuid());
         room = environment(ob);
         if (! room->query("shop_type"))
-                return "对不起，该店铺目前已经被巫师关闭。\n";
+                return "對不起，該店鋪目前已經被巫師關閉。\n";
 
         if (! arg)
-                return "指令格式：unstock <货物>\n";
+                return "指令格式：unstock <貨物>\n";
 
         if (! room->query("all_vendor_goods"))
-                return "你现在还没有摆上任何货物。\n";
+                return "你現在還沒有擺上任何貨物。\n";
 
         all_goods = room->query("vendor_goods");
         all_goods_num = room->query("vendor_goods_num");
 
 //        if (sizeof(all_inventory(me)) >= MAX_ITEM_CARRIED)
         if (sizeof(all_inventory(me)) >= 15 && !wizardp(me))
-                return "你身上的东西太多了，没法从货架上取东西。\n";
+                return "你身上的東西太多了，沒法從貨架上取東西。\n";
 
         all_goods = room->query("vendor_goods");
 
@@ -782,7 +782,7 @@ public string do_unstock(object ob, object me, string arg)
         }
 
         if (! ob_file)
-                return "现在"+ environment(ob)->query("short") + "的货架上并没有这样货物。\n";
+                return "現在"+ environment(ob)->query("short") + "的貨架上並沒有這樣貨物。\n";
 
         goods = new(ob_file);
         goods->set_amount(1);
@@ -796,7 +796,7 @@ public string do_unstock(object ob, object me, string arg)
                 map_delete(all_goods_num, base_name(goods));
         }
 
-        message_vision(HIW "$N" HIW "将『" HIG + goods->name(1) + HIW"』从货架上取下来不卖了。\n" NOR, me);
+        message_vision(HIW "$N" HIW "將『" HIG + goods->name(1) + HIW"』從貨架上取下來不賣了。\n" NOR, me);
 
         room->set("vendor_goods", all_goods);
         room->set("vendor_goods_num", all_goods_num);
@@ -805,9 +805,9 @@ public string do_unstock(object ob, object me, string arg)
         if (! goods->move(me))
         {
                 goods->move(environment(me));
-                tell_object(me, "可是你已经拿不动了，只好把" + goods->name(1) + NOR "放在地上。\n");
+                tell_object(me, "可是你已經拿不動了，只好把" + goods->name(1) + NOR "放在地上。\n");
         }
-        return "你取好了货物。\n";
+        return "你取好了貨物。\n";
 }
 
 public string do_list(object ob, object me, string arg)
@@ -827,14 +827,14 @@ public string do_list(object ob, object me, string arg)
 
         room = environment(ob);
         if (! room->query("shop_type"))
-                return "对不起，该店铺目前已经被巫师关闭。\n";
+                return "對不起，該店鋪目前已經被巫師關閉。\n";
 
         if (room->query("ban") &&
 		member_array(me->query("id"), room->query("ban")) != -1)
-                return "你是这家店铺不受欢迎的人物，无法购买东西。\n";
+                return "你是這家店鋪不受歡迎的人物，無法購買東西。\n";
 
         if (! room->query("all_vendor_goods"))
-		return "现在"+room->query("short")+"目前并没有出售任何货物。\n";
+		return "現在"+room->query("short")+"目前並沒有出售任何貨物。\n";
 
         goods = room->query("vendor_goods");
 
@@ -875,7 +875,7 @@ public string do_list(object ob, object me, string arg)
                 count += ([ short_name : goods_num[gks[i]] ]);
         }
 
-        msg = "该店铺目前出售以下物品：\n";
+        msg = "該店鋪目前出售以下物品：\n";
         msg += "-------------------------------------------------------\n";
         dk = sort_array(keys(unit), 1);
 
@@ -883,16 +883,16 @@ public string do_list(object ob, object me, string arg)
         {
                 int p;
                 p = price[dk[i]];
-		msg += sprintf("%" + sprintf("%d", (30 + color_len(dk[i])) ) + "-s：每%s%s" CYN "(现货%s)\n" NOR, dk[i], unit[dk[i]], MONEY_D->price_str(p), chinese_number(count[dk[i]]) + unit[dk[i]]);
+		msg += sprintf("%" + sprintf("%d", (30 + color_len(dk[i])) ) + "-s：每%s%s" CYN "(現貨%s)\n" NOR, dk[i], unit[dk[i]], MONEY_D->price_str(p), chinese_number(count[dk[i]]) + unit[dk[i]]);
         }
 
         msg += "-------------------------------------------------------\n";
 
         if (me->query("id") == room->query("owner"))
-                msg += "总共" + chinese_number(room->query("all_vendor_goods")) + "件货物。\n";
+                msg += "總共" + chinese_number(room->query("all_vendor_goods")) + "件貨物。\n";
 
         if (room->query("invite/" + me->query("id")))
-                msg += WHT"您是本店贵宾，购买所有货物均享受"HIW+chinese_number(room->query("invite/"+me->query("id")))+HIW"折"NOR+WHT"的优惠。\n" NOR;
+                msg += WHT"您是本店貴賓，購買所有貨物均享受"HIW+chinese_number(room->query("invite/"+me->query("id")))+HIW"折"NOR+WHT"的優惠。\n" NOR;
         return msg;
 }
 
@@ -910,7 +910,7 @@ public int do_buy(object obj, object me, string arg)
         room = environment(obj);
         if (! room->query("shop_type"))
         {
-               tell_object(me, "对不起，该店铺目前已经被巫师关闭。\n");
+               tell_object(me, "對不起，該店鋪目前已經被巫師關閉。\n");
                return 1;
         }
 
@@ -918,25 +918,25 @@ public int do_buy(object obj, object me, string arg)
 		member_array(me->query("id"), room->query("ban")) != -1)
         {
 
-               tell_object(me, "你是这家店铺不受欢迎的人物，无法购买东西。\n");
+               tell_object(me, "你是這家店鋪不受歡迎的人物，無法購買東西。\n");
                return 1;
         }
 
         if(me->is_busy())
         {
-                tell_object(me, "什么事都得等你忙完再说吧！\n");
+                tell_object(me, "什麼事都得等你忙完再說吧！\n");
                 return 1;
         }
 
         if (! arg)
         {
-                tell_object(me, "你要买什么东西？\n");
+                tell_object(me, "你要買什麼東西？\n");
                 return 1;
         }
 
         if (sizeof(all_inventory(me)) >= MAX_ITEM_CARRIED)
         {
-                tell_object(me, "你身上的东西太多了，先处理一下再买东西吧。\n");
+                tell_object(me, "你身上的東西太多了，先處理一下再買東西吧。\n");
                 return 1;
         }
 
@@ -963,13 +963,13 @@ public int do_buy(object obj, object me, string arg)
 
         if (! ob_file)
         {
-                tell_object(me, "该店铺并没有出售这样货物。\n");
+                tell_object(me, "該店鋪並沒有出售這樣貨物。\n");
                 return 1;
         }
 
         value = goods[ob_file];
 
-        // 如果是贵宾，则有优惠
+        // 如果是貴賓，則有優惠
         if (room->query("invite/" + me->query("id")))
                 value = value * room->query("invite/" + me->query("id")) / 10;
 
@@ -979,23 +979,23 @@ public int do_buy(object obj, object me, string arg)
         switch (player_pay(me, obj, value))
         {
         case 0:
-                tell_object(me, CYN + obj->name(1) + NOR + CYN "冷笑道：穷光蛋，一边呆着去。\n" NOR);
+                tell_object(me, CYN + obj->name(1) + NOR + CYN "冷笑道：窮光蛋，一邊待著去。\n" NOR);
                 return 1;
 
         case 2:
-                tell_object(me, CYN + obj->name(1) + NOR + CYN "皱眉道：您还有没有零钱啊？银票我可找不开。\n" NOR);
+                tell_object(me, CYN + obj->name(1) + NOR + CYN "皺眉道：您還有沒有零錢啊？銀票我可找不開。\n" NOR);
                 return 1;
 
         default:
                 if (ob->query_amount())
                 {
-                        message_vision("$N从$n那里买下了" + ob->short() + "。\n", me, obj);
+                        message_vision("$N從$n那裏買下了" + ob->short() + "。\n", me, obj);
                 }
 		else
                 {
-                        message_vision("$N从$n那里买下了一" + ob->query("unit") + ob->query("name") + "。\n", me, obj);
+                        message_vision("$N從$n那裏買下了一" + ob->query("unit") + ob->query("name") + "。\n", me, obj);
                 }
-//             log_file("shop_log",sprintf("%-20s在%6s花%9s买下",who->query("name")+"("+who->query("id")+")",environment(who)->query("short"),amount));
+//             log_file("shop_log",sprintf("%-20s在%6s花%9s買下",who->query("name")+"("+who->query("id")+")",environment(who)->query("short"),amount));
 
               log_file("shop_log",ob->query("name")+"。\n");
                 ob->move(me, 1);
@@ -1122,7 +1122,7 @@ private int player_pay(object who, object target, int amount)
 	                environment(target)->add("score",pay_amount/10000);
                 } else
                         environment(target)->add("balance", pay_amount);
-                log_file("shop_log",sprintf("%-20s在 %6s 花%9i买下",who->query("name")+"("+who->query("id")+")",environment(who)->query("short"),amount));
+                log_file("shop_log",sprintf("%-20s在 %6s 花%9i買下",who->query("name")+"("+who->query("id")+")",environment(who)->query("short"),amount));
                 return 1;
         }
 }
@@ -1134,20 +1134,20 @@ public string do_jiezhang(object ob, object me)
 
        room = environment(ob);
        if (! room->query("shop_type"))
-               return "对不起，该店铺目前已经被巫师关闭。\n";
+               return "對不起，該店鋪目前已經被巫師關閉。\n";
 
        amount = room->query("balance");
 
-       if (amount < 1) return "您不在的时候还没有任何的收入。\n";
+       if (amount < 1) return "您不在的時候還沒有任何的收入。\n";
 
        me->add("balance", amount);
        me->add("trade_balance", amount);
        me->add("vendor_score", amount / 10000);
 
-       tell_object(me, HIY"您不在线时共有"+MONEY_D->price_str(amount)+HIY"的收入，现已全部转入您的银号。\n"NOR);
+       tell_object(me, HIY"您不在線時共有"+MONEY_D->price_str(amount)+HIY"的收入，現已全部轉入您的銀號。\n"NOR);
        room->set("balance", 0);
        room->save();
-       return "结帐完毕，请即时核对数目。\n";
+       return "結帳完畢，請即時覈對數目。\n";
 }
 
 public string list_invite(object ob, object me)
@@ -1159,14 +1159,14 @@ public string list_invite(object ob, object me)
 
         room = environment(ob);
         if (! room->query("shop_type"))
-                return "对不起，该店铺目前已经被巫师关闭。\n";
+                return "對不起，該店鋪目前已經被巫師關閉。\n";
 
         invite = room->query("invite");
 
         if (! invite || sizeof(invite) < 1)
-                return "您并没有设定任何的贵宾。\n";
+                return "您並沒有設定任何的貴賓。\n";
 
-        msg = HIC "您所定义的贵宾有以下几位：\n" NOR;
+        msg = HIC "您所定義的貴賓有以下幾位：\n" NOR;
         msg += HIC "≡" HIY "------------------------" HIC "≡\n" NOR;
         invite_key = sort_array(keys(invite), 1);
 
@@ -1177,7 +1177,7 @@ public string list_invite(object ob, object me)
         }
 
         msg += HIC "≡" HIY "------------------------" HIC "≡\n" NOR;
-        msg += HIC "总共有 " HIY + sizeof(invite) + HIC " 个贵宾。\n" NOR;
+        msg += HIC "總共有 " HIY + sizeof(invite) + HIC " 個貴賓。\n" NOR;
         return msg;
 }
 
@@ -1189,31 +1189,31 @@ public string do_invite(object ob, object me, string arg)
         room = environment(ob);
 
         if (! room->query("shop_type"))
-                return "对不起，该店铺目前已经被巫师关闭。\n";
+                return "對不起，該店鋪目前已經被巫師關閉。\n";
 
         if (! sscanf(arg, "%s %d", arg, num) == 2)
-                return "指令格式：invite <id> <折数>\n";
+                return "指令格式：invite <id> <折數>\n";
 
         if (num < 1 || num > 10)
-                return "指令格式：invite <id> <折数>\n";
+                return "指令格式：invite <id> <折數>\n";
 
         if (num == 10)
         {
                 if (! room->query("invite/" + arg))
-                        return CYN + ob->name(1) + NOR + CYN "对你说道：老板，那 " + arg + " 本来就不是我们店的贵宾啊。\n" NOR;
+                        return CYN + ob->name(1) + NOR + CYN "對你說道：老闆，那 " + arg + " 本來就不是我們店的貴賓啊。\n" NOR;
 
                 room->delete("invite/" + arg);
                 room->save();
-                return CYN + ob->name(1) + NOR + CYN "翻开帐簿用划了划，奸笑道：老板，已经按照你的吩咐取消掉 " + arg + " 的贵宾资格了。\n" NOR;
+                return CYN + ob->name(1) + NOR + CYN "翻開帳簿用劃了劃，奸笑道：老闆，已經按照你的吩咐取消掉 " + arg + " 的貴賓資格了。\n" NOR;
         }
 
         if (sizeof(room->query("invite")) >= 30)
-                return "您已经设定了三十个贵宾，把不常来的先划掉吧。\n";
+                return "您已經設定了三十個貴賓，把不常來的先劃掉吧。\n";
 
         room->set("invite/" + arg, num);
         room->save();
 
-        return CYN + ob->name(1) + NOR + CYN "翻开帐簿边写边说道：老板，已经按照你的吩咐对 " WHT + arg + CYN " 实行" + HIY + chinese_number(num) + "折" + NOR + CYN "优惠。\n" NOR;
+        return CYN + ob->name(1) + NOR + CYN "翻開帳簿邊寫邊說道：老闆，已經按照你的吩咐對 " WHT + arg + CYN " 實行" + HIY + chinese_number(num) + "折" + NOR + CYN "優惠。\n" NOR;
 }
 
 public string list_ban(object ob, object me)
@@ -1225,23 +1225,23 @@ public string list_ban(object ob, object me)
         room = environment(ob);
 
         if (! room->query("shop_type"))
-               return "对不起，该店铺目前已经被巫师关闭。\n";
+               return "對不起，該店鋪目前已經被巫師關閉。\n";
 
         ban = room->query("ban");
 
         if (! ban || sizeof(ban) < 1)
         {
-                msg = "您并没有设定任何的黑户。\n";
+                msg = "您並沒有設定任何的黑戶。\n";
                 return msg;
         }
-        msg = HIC "您所定义的黑户有如下玩家：\n" NOR;
+        msg = HIC "您所定義的黑戶有如下玩家：\n" NOR;
         msg += HIC "≡" HIY "------------------------" HIC "≡\n" NOR;
         for (i = 0;i < sizeof(ban);i++)
         {
                 msg += sprintf(CYN "  %s\n" NOR, ban[i]);
         }
         msg += HIC "≡" HIY "------------------------" HIC "≡\n" NOR;
-        msg += HIC "总共有 " HIY + sizeof(ban) + HIC " 个黑户。\n" NOR;
+        msg += HIC "總共有 " HIY + sizeof(ban) + HIC " 個黑戶。\n" NOR;
         return msg;
 }
 
@@ -1253,7 +1253,7 @@ public string do_ban(object ob, object me, string arg)
         room = environment(ob);
 
         if (! room->query("shop_type"))
-               return "对不起，该店铺目前已经被巫师关闭。\n";
+               return "對不起，該店鋪目前已經被巫師關閉。\n";
 
         ban = room->query("ban");
 
@@ -1263,24 +1263,24 @@ public string do_ban(object ob, object me, string arg)
         if (sscanf(arg, "%s %s", type, the_id) == 2 && type == "-")
         {
                 if (member_array(the_id, ban) == -1)
-                        return CYN + ob->name(1) + NOR + CYN "对你说道：老板，那 " + arg + " 本来就不是我们店的黑户啊。\n" NOR;
+                        return CYN + ob->name(1) + NOR + CYN "對你說道：老闆，那 " + arg + " 本來就不是我們店的黑戶啊。\n" NOR;
 
                 ban -= ({ the_id });
                 room->set("ban", ban);
                 room->save();
-                return CYN + ob->name(1) + NOR + CYN "翻开帐簿划了划，对你赔笑道：老板，已经取消了 " + the_id + " 黑户身份。\n" NOR;
+                return CYN + ob->name(1) + NOR + CYN "翻開帳簿劃了劃，對你賠笑道：老闆，已經取消了 " + the_id + " 黑戶身份。\n" NOR;
         }
 
         if (member_array(arg, ban) != -1)
-                return CYN + ob->name(1) + NOR + CYN "奸笑着道：老板，您忘记了？那" + arg + "早已被列为黑户啦。\n" NOR;
+                return CYN + ob->name(1) + NOR + CYN "奸笑着道：老闆，您忘記了？那" + arg + "早已被列爲黑戶啦。\n" NOR;
 
         if (sizeof(ob->query("ban")) >= 30)
-                return "您已经设定了三十个黑户，还是先划掉一些吧。\n";
+                return "您已經設定了三十個黑戶，還是先劃掉一些吧。\n";
 
         ban += ({ arg });
         room->set("ban", ban);
         room->save();
-        return CYN + ob->name(1) + NOR + CYN "翻开帐簿边写边说道：老板，已经按照你的吩咐将 " WHT + arg + CYN " 列为了黑户。\n"NOR;
+        return CYN + ob->name(1) + NOR + CYN "翻開帳簿邊寫邊說道：老闆，已經按照你的吩咐將 " WHT + arg + CYN " 列爲了黑戶。\n"NOR;
 }
 public string do_order(object ob,object me,string arg)
 {
@@ -1293,39 +1293,39 @@ public string do_order(object ob,object me,string arg)
 	room = environment(ob);
 
         if (! room->query("shop_type"))
-               return "对不起，该店铺目前已经被巫师关闭。\n";
+               return "對不起，該店鋪目前已經被巫師關閉。\n";
 
         if (me->query("id")==room->query("owner"))
         {
         	//店主操作
         	if (sscanf(arg,"%s %s",ab,buyer)!=2)
-        		return "删除订单内容命令： order - 顾客id [某一商品]\n";
+        		return "刪除訂單內容命令： order - 顧客id [某一商品]\n";
 
         	if (ab!="-")
-        		return "删除订单内容命令： order - 顾客id [某一商品]\n";
+        		return "刪除訂單內容命令： order - 顧客id [某一商品]\n";
 
 
         	if (sscanf(buyer,"%s %s",buyer,obname)==2)
         	{
        			if (!arrayp(room->query("order/"+buyer)))
-	       		return "顾客"+buyer+"并没有定购过商品。\n";
+	       		return "顧客"+buyer+"並沒有定購過商品。\n";
         		clist = room->query("order/"+buyer);
         		if (member_array(obname,clist)==-1)
-        			return "顾客"+buyer+"并没有定购过"+HIC+obname+NOR+"这样商品。\n";
+        			return "顧客"+buyer+"並沒有定購過"+HIC+obname+NOR+"這樣商品。\n";
         		clist -= ({ obname });
         		if (sizeof(clist)>0)
         		room->set("order/"+buyer,clist);
         		else room->delete("order/"+buyer);
         		room->save();
-        		return "清除顾客"+buyer+"定购"+HIC+obname+NOR+"的消息。\n";
+        		return "清除顧客"+buyer+"定購"+HIC+obname+NOR+"的消息。\n";
         	}
         	else
         	{
        			if (!arrayp(room->query("order/"+buyer)))
-	       		return "顾客"+buyer+"并没有定购过商品。\n";
+	       		return "顧客"+buyer+"並沒有定購過商品。\n";
         		room->delete("order/"+buyer);
         		room->save();
-        		return "清除顾客"+buyer+"的所有定购消息。\n";
+        		return "清除顧客"+buyer+"的所有定購消息。\n";
         	}
         }
 	else
@@ -1335,27 +1335,27 @@ public string do_order(object ob,object me,string arg)
 		if (sscanf(arg,"- %s",arg)==1)
 		{
 			if (!arrayp(clist) || member_array(arg,clist)==-1)
-			return "你并没有定购这样商品。\n";
+			return "你並沒有定購這樣商品。\n";
 			clist -= ({arg});
         		if (sizeof(clist)>0)
         		room->set("order/"+buyer,clist);
         		else room->delete("order/"+buyer);
         		room->save();
-        		return "清除定购"+HIC+arg+NOR+"的消息。\n";
+        		return "清除定購"+HIC+arg+NOR+"的消息。\n";
 		}
 		if (arrayp(clist))
 		{
 			if (member_array(arg,clist)>=0)
-			return "你已经定购过了"+arg+"。\n";
+			return "你已經定購過了"+arg+"。\n";
 			if (sizeof(clist)>20)
-			return "你在这个店铺定购的东西已经很多了，等店主先处理完吧。\n";
+			return "你在這個店鋪定購的東西已經很多了，等店主先處理完吧。\n";
 		}
 		else clist = ({});
 		clist += ({ arg });
 		room->set("order/"+buyer,clist);
 		room->save();
-		tell_object(find_player(room->query("owner")),"店里有新的定购消息了，快去处理吧。\n");
-		return "你在"+room->query("short")+"定购商品"+arg+"成功，请等待店主处理。\n";
+		tell_object(find_player(room->query("owner")),"店裏有新的定購消息了，快去處理吧。\n");
+		return "你在"+room->query("short")+"定購商品"+arg+"成功，請等待店主處理。\n";
 	}
 }
 public string list_order(object ob,object me)
@@ -1369,34 +1369,34 @@ public string list_order(object ob,object me)
 
         room = environment(ob);
         if (! room->query("shop_type"))
-               return "对不起，该店铺目前已经被巫师关闭。\n";
+               return "對不起，該店鋪目前已經被巫師關閉。\n";
 
         if (me->query("id")!=room->query("owner") && !wizardp(me))
         {
 	        clist = room->query("order/"+me->query("id"));
 	        if (!arrayp(clist) || sizeof(clist)<1)
-        	return "你想定购什么？order 商品名称\n";
-        	str = HIW"你已经在"+room->query("short")+"定购了以下物品：\n"NOR;
+        	return "你想定購什麼？order 商品名稱\n";
+        	str = HIW"你已經在"+room->query("short")+"定購了以下物品：\n"NOR;
         	str += implode(clist,"\n");
         	str += "\n";
         	return str;
         }
 
 	if (!mapp(orders = room->query("order")) || sizeof(orders)<1)
-		return "目前没有任何定购消息。\n";
+		return "目前沒有任何定購消息。\n";
 
-	str = HIG"当前店铺定购消息如下：\n"NOR;
+	str = HIG"當前店鋪定購消息如下：\n"NOR;
 	korder = keys(orders);
 	for (i=0;i<sizeof(orders);i++)
 	{
 		if (arrayp(orders[korder[i]]))
 		{
-			str += HIW"玩家"+korder[i]+"要求购买：\n"NOR;
+			str += HIW"玩家"+korder[i]+"要求購買：\n"NOR;
 			str += implode(orders[korder[i]],"\n");
 			str += "\n";
 		}
 	}
-	str += HIC"处理顾客定购消息请用 order - 顾客id [商品名称]\n"NOR;
+	str += HIC"處理顧客定購消息請用 order - 顧客id [商品名稱]\n"NOR;
 	return str;
 }
 
@@ -1414,7 +1414,7 @@ public int do_listall(object me)
         mapping goods, goods_num, price, unit, count;
         string the_shop, na, msg, short_name, prefix, *dk, *gks;
 
-        msg = HIY "货物总表\n" NOR;
+        msg = HIY "貨物總表\n" NOR;
 	tell_object(me, msg);
         for (j = 0; j < sizeof(all_shop); j++)
         {
@@ -1427,7 +1427,7 @@ public int do_listall(object me)
                         na = HIR + shop->query("name");
                 else
                 {
-                        na = GRN "离线玩家";
+                        na = GRN "離線玩家";
                 }
 
 		msg = HIC "≡"HIY"--------------------------------------------------------------------------" HIC "≡\n" NOR;
@@ -1435,12 +1435,12 @@ public int do_listall(object me)
                                all_shop[j]["name"],
                                the_shop,
                                room->query("owner") == "VOID_SHOP" ?
-                               HIC "系统" NOR : na +
+                               HIC "系統" NOR : na +
                                "(" + room->query("owner") + ")" NOR,);
 
 		if (! room->query("all_vendor_goods"))
 		{
-			msg += HIR"无货。\n"NOR;
+			msg += HIR"無貨。\n"NOR;
 			tell_object(me, msg);
 			continue;
 		}
@@ -1483,7 +1483,7 @@ public int do_listall(object me)
 
 		for (i = 0; i < sizeof(dk); i++)
 		{
-			msg += sprintf("%" + sprintf("%d", (30 + color_len(dk[i])) ) + "-s：每%s%s" CYN "(现货%s)\n" NOR, dk[i], unit[dk[i]], MONEY_D->price_str(price[dk[i]]), chinese_number(count[dk[i]]) + unit[dk[i]]);
+			msg += sprintf("%" + sprintf("%d", (30 + color_len(dk[i])) ) + "-s：每%s%s" CYN "(現貨%s)\n" NOR, dk[i], unit[dk[i]], MONEY_D->price_str(price[dk[i]]), chinese_number(count[dk[i]]) + unit[dk[i]]);
 //			msg += sprintf("%s-%d" CYN "(%d)\n" NOR, dk[i], price[dk[i]], count[dk[i]]);
 		}
 		tell_object(me, msg);

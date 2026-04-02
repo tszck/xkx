@@ -4,11 +4,11 @@
 inherit ROOM;
 void create()
 {
-	set("short", "飞来石");
+	set("short", "飛來石");
 	set("long", @LONG
-在平坦的山面之上，突然冒出一块石头，似乎除了飞来一说，别的
-实在难以解释。石面光滑，上书三字“飞来石”，远看石头，上粗下细，
-好象摇晃不止，实在令人匪夷所思。
+在平坦的山面之上，突然冒出一塊石頭，似乎除了飛來一說，別的
+實在難以解釋。石面光滑，上書三字“飛來石”，遠看石頭，上粗下細，
+好象搖晃不止，實在令人匪夷所思。
 LONG
 	);
 	set("exits", ([ 
@@ -16,8 +16,8 @@ LONG
 		"north" : __DIR__"paiyun",
 	]));
 	set("item_desc", ([
-		"飞来石": "你可以试着推一推（push）\n",
-		"stone" : "你可以试着推一推（push）\n"
+		"飛來石": "你可以試着推一推（push）\n",
+		"stone" : "你可以試着推一推（push）\n"
 	]) );
 	set("outdoors", "huangshan");
 	setup();
@@ -30,6 +30,6 @@ int do_push()
 {
 	object me = this_player();
 	me->receive_damage("qi", 30);
-	message_vision("$N用尽全身力气，用力推了推飞来石，飞来石似乎晃了晃！\n",me);
+	message_vision("$N用盡全身力氣，用力推了推飛來石，飛來石似乎晃了晃！\n",me);
 	return 1;
 }

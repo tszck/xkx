@@ -12,7 +12,7 @@ void create()
 	if ( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "白玉雕成的戒指，莹白圆润\n");
+		set("long", "白玉雕成的戒指，瑩白圓潤\n");
 		set("unit", "枚");
                 set("value", 30000);
 		set("material", "jade");

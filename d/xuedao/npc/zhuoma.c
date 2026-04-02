@@ -5,7 +5,7 @@ inherit NPC;
 
 void create()
 {
-        set_name("卓玛", ({ "zhuoma" }));
+        set_name("卓瑪", ({ "zhuoma" }));
         set("long",
                 "她是一位藏族女同胞。\n");
         set("gender", "女性");
@@ -50,6 +50,6 @@ void init()
 void greeting(object ob)
 {
 
-        say ("卓玛合什为礼，说道：阿弭佗佛！"+RANK_D->query_respect(ob) + "，贫尼这厢有礼了。\n");
+        say ("卓瑪合什爲禮，說道：阿弭佗佛！"+RANK_D->query_respect(ob) + "，貧尼這廂有禮了。\n");
         return;
 }

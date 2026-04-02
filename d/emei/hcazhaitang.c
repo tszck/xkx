@@ -1,4 +1,4 @@
-//Room: hcazhaitang.c 华藏庵斋堂
+//Room: hcazhaitang.c 華藏庵齋堂
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
@@ -11,11 +11,11 @@ string* names = ({
 
 void create()
 {
-      set("short","华藏庵斋堂");
+      set("short","華藏庵齋堂");
       set("long",@LONG
-这里便是峨嵋华藏庵的斋堂。斋堂里摆满了长长的餐桌和长凳，几位小
-师太正来回忙碌着布置素斋。桌上摆了几盆豆腐，花生，青菜以及素鸭等美
-味素食。斋堂后面有一道门通往华藏庵储物间，北边的走廊通向广场。
+這裏便是峨嵋華藏庵的齋堂。齋堂裏擺滿了長長的餐桌和長凳，幾位小
+師太正來回忙碌着佈置素齋。桌上擺了幾盆豆腐，花生，青菜以及素鴨等美
+味素食。齋堂後面有一道門通往華藏庵儲物間，北邊的走廊通向廣場。
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "south" : __DIR__"chuwujian", 

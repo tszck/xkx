@@ -1,9 +1,9 @@
-// kuai.c 快剑
+// kuai.c 快劍
 
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME "「快剑」"
+#define PNAME "「快劍」"
 int perform(object me, object target)
 {
 	object weapon;
@@ -18,22 +18,22 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (target->query_temp("pfm-target/xunlei-kuai"))	     
-	        return notify_fail("对手已被昆仑「快剑」心法所困。\n");	
+	        return notify_fail("對手已被崑崙「快劍」心法所困。\n");	
 
 	weapon = me->query_temp("weapon");
 
 	if( !objectp(weapon) || weapon->query("skill_type") != "sword" )
-		return notify_fail("你手中无剑，怎能运用「快剑」心法？！\n");
+		return notify_fail("你手中無劍，怎能運用「快劍」心法？！\n");
 
 	fskill = "xuantian-wuji";
 	bskill = "sword";
@@ -47,33 +47,33 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为火候未到，施展"+PNAME+"只会伤及自身。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲火候未到，施展"+PNAME+"只會傷及自身。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为还不够，还未领悟"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲還不夠，還未領悟"+PNAME+"。\n");
 
 	if( me->query_skill_mapped("force") != fskill)
-		return notify_fail("你所用内功与「快剑」心法相悖！\n");
+		return notify_fail("你所用內功與「快劍」心法相悖！\n");
 
 	if( me->query("max_neili") <= 1500 )
-		return notify_fail("你的内力修为不足，劲力不足以施展「快剑」！\n");
+		return notify_fail("你的內力修爲不足，勁力不足以施展「快劍」！\n");
 
 	if( me->query("neili") <= 700 )
-		return notify_fail("你的内力不够，劲力不足以施展「快剑」！\n");
+		return notify_fail("你的內力不夠，勁力不足以施展「快劍」！\n");
 
 	if( me->query("qi") <= 200 )
-		return notify_fail("你的气血有限，不足以施展「快剑」！\n");
+		return notify_fail("你的氣血有限，不足以施展「快劍」！\n");
 	
 	dodge = target->query_skill("dodge", 1)/3;
 	parry = target->query_skill("parry", 1)/3;
 	sword = me->query_skill(bskill, 1)/3;
 	busy_time = me->query_skill(bskill, 1)/30;	
 	
-	message_combatd(HIW"$N飘身而起，使出昆仑绝技「快剑」心法，顿时剑意空灵飘逸，似万千柳絮飞舞，\n" NOR, me, target);
+	message_combatd(HIW"$N飄身而起，使出崑崙絕技「快劍」心法，頓時劍意空靈飄逸，似萬千柳絮飛舞，\n" NOR, me, target);
 	
 	if(random(me->query("combat_exp")) > (int)target->query("combat_exp")/5)
 	{ 
-		message_combatd(HIW"又如和风阵阵拂过。$n"HIW"眼花缭乱，被攻了个措手不及！\n" NOR, me, target);
+		message_combatd(HIW"又如和風陣陣拂過。$n"HIW"眼花繚亂，被攻了個措手不及！\n" NOR, me, target);
 		target->add_temp("apply/dodge", -dodge);
 		target->add_temp("apply/parry", -parry);
 		target->add_temp("apply/attack", -sword);
@@ -85,7 +85,7 @@ int perform(object me, object target)
 	}
 	else
 	{
-		message_combatd(HIW"可$n"HIW"镇定自若，丝毫不为所动！\n"NOR, me, target);
+		message_combatd(HIW"可$n"HIW"鎮定自若，絲毫不爲所動！\n"NOR, me, target);
 		me->start_busy(1);
 		me->add("neili", -200);
 		me->add("qi", -100);
@@ -105,7 +105,7 @@ void remove_effect(object me,object victim, int dodge, int parry, int sword)
 	
 	if (objectp(me) && objectp(victim) && victim->is_fighting(me))
 	{
-		message_combatd(HIY "\n\n$N"HIY"渐渐适应了$n"HIY"的剑路，攻守自如多了。\n" NOR, victim, me);
+		message_combatd(HIY "\n\n$N"HIY"漸漸適應了$n"HIY"的劍路，攻守自如多了。\n" NOR, victim, me);
 	}
 }
 string name() {return replace_string(replace_string(PNAME,"「",""),"」","");}
@@ -116,14 +116,14 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损害对方攻防
-		迟滞对方出手
+		損害對方攻防
+		遲滯對方出手
 
 	出手要求：
-		玄天无极功120级
-		迅雷十六剑120级
-		内力1500
-		气血200
+		玄天無極功120級
+		迅雷十六劍120級
+		內力1500
+		氣血200
 HELP
 	);
 	return 1;

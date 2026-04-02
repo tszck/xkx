@@ -11,11 +11,11 @@ void create()
 {
 	set("short", HIB "五行洞" NOR);
 	set("long", HIB @LONG
-这是五行洞。一进这里，你就陷在齐腰深的水里，脚底是厚
-厚的淤泥，一踩上去就松松地散开，还带出一大串气泡冒出水面。
-最可怖的是水面上不时飘过来一两具浸得发肿的浮尸，几只老鼠
-在上面爬上爬下，把尸体咬得面木全非。四壁用粗糙的片岩垒垛
-而成，一颗颗水珠沿着墙壁滚下来，溅在水中．
+這是五行洞。一進這裏，你就陷在齊腰深的水裏，腳底是厚
+厚的淤泥，一踩上去就鬆鬆地散開，還帶出一大串氣泡冒出水面。
+最可怖的是水面上不時飄過來一兩具浸得發腫的浮屍，幾隻老鼠
+在上面爬上爬下，把屍體咬得面木全非。四壁用粗糙的片岩壘垛
+而成，一顆顆水珠沿着牆壁滾下來，濺在水中．
 LONG
 NOR	);
 	set("exits", ([
@@ -66,14 +66,14 @@ int valid_leave(object me, string dir)
 			count++;
 			me->set_temp("wuxing/木", count);
 			if (check_out(me))
-				return notify_fail("你顺利地走出了五行迷宫。\n");
+				return notify_fail("你順利地走出了五行迷宮。\n");
 		}
 		else if (dir == "north")
 		{
 //			write("*水克火*\n");
 			me->delete_temp("wuxing");
 			me->move(__DIR__"jianyu1");
-			return notify_fail("你掉进机关，落入僧监。\n");
+			return notify_fail("你掉進機關，落入僧監。\n");
 		}
 	}
 	return ::valid_leave(me, dir);

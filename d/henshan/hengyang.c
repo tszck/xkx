@@ -5,9 +5,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "衡阳城");
+	set("short", "衡陽城");
 	set("long", @LONG
-这里就是衡阳县城。衡阳地处偏远，显见远不如中原繁华了。
+這裏就是衡陽縣城。衡陽地處偏遠，顯見遠不如中原繁華了。
 LONG );
 	set("outdoors", "hengyang");
 	set("exits", ([

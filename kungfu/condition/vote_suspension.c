@@ -6,7 +6,7 @@
 int update_condition(object me, int duration)
 {
 	if (duration < 1) {
-		tell_object(me, HIY "观察期已满，你又可以投票了！\n" NOR);
+		tell_object(me, HIY "觀察期已滿，你又可以投票了！\n" NOR);
 		me->delete("vote/deprived");
 		return 0;
 	}

@@ -8,7 +8,7 @@ void create()
 	set("gender", "男性" );
 	set("age", 28);
 	set("long",
-		"这是个老实巴交的穷挑夫，长得膀阔腰圆，一身肌肉。\n");
+		"這是個老實巴交的窮挑夫，長得膀闊腰圓，一身肌肉。\n");
 //	set("shen_type", 1);
 	set("combat_exp", 1000);
         set("str", 25);

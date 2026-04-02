@@ -6,7 +6,7 @@ void  create  ()
 {
 	set("short",  "竹林");
 	set("long",  @LONG
-一片绿茸般的竹林把燥热挡在视野之外，这里是一片清凉世界。
+一片綠茸般的竹林把燥熱擋在視野之外，這裏是一片清涼世界。
 LONG);
 	set("exits",  ([  /*  sizeof()  ==  1  */
 		"southwest"  :  __DIR__"eroad2",

@@ -5,13 +5,13 @@ inherit F_LIQUID;
 
 void create()
 {
-	set_name("清水葫芦", ({"qingshui hulu", "hulu", "bottle"}));
+	set_name("清水葫蘆", ({"qingshui hulu", "hulu", "bottle"}));
 	set_weight(700);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一个用葫芦制成的水壶。\n");
-		set("unit", "个");
+		set("long", "一個用葫蘆製成的水壺。\n");
+		set("unit", "個");
 		set("value", 100);
 		set("max_liquid", 10);
 	}

@@ -1,4 +1,4 @@
-// chongxu.c 冲虚
+// chongxu.c 沖虛
 
 #include "daozhang.h"
 inherit NPC;
@@ -7,8 +7,8 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("冲虚道长", ({ "chongxu daozhang", "chongxu", "daozhang" }));
-	set("long","他就是俞莲舟的弟子冲虚道长。\n他今年四十八岁，主管武当派金顶的俗事。\n");
+	set_name("沖虛道長", ({ "chongxu daozhang", "chongxu", "daozhang" }));
+	set("long","他就是俞蓮舟的弟子沖虛道長。\n他今年四十八歲，主管武當派金頂的俗事。\n");
 	set("gender", "男性");
 	set("age", 48);
 	set("attitude", "peaceful");
@@ -47,7 +47,7 @@ void create()
 	map_skill("sword", "wudang-jian");
 
 	set("env/wimpy", 60);
-	create_family("武当派", 3, "弟子");
+	create_family("武當派", 3, "弟子");
 	set("class", "taoist");
 
 	setup();

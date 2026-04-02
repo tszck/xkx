@@ -1,14 +1,14 @@
-// shihou.c 狮吼子
+// shihou.c 獅吼子
 #include <ansi.h>
 inherit NPC;
 inherit F_MASTER;
 string ask_job();
 void create()
 {
-	set_name("狮吼子", ({ "shihou zi", "shihou", "zi" }));
+	set_name("獅吼子", ({ "shihou zi", "shihou", "zi" }));
 	set("nickname", "星宿派二弟子");
-	set("long","他三十多岁，双耳上各垂着一只亮晃晃的黄大环，狮鼻阔口，形貌颇
-为凶狠诡异。一望而知不是中土人士。\n");
+	set("long","他三十多歲，雙耳上各垂着一隻亮晃晃的黃大環，獅鼻闊口，形貌頗
+爲兇狠詭異。一望而知不是中土人士。\n");
 	set("gender", "男性");
 	set("age", 32);
 	set("attitude", "peaceful");
@@ -57,9 +57,9 @@ void create()
 	}));
 	create_family("星宿派", 2, "弟子");
 	set("inquiry", ([
-		"星宿派" : "你想加入，就拜我为师。",
-		"星宿海" : "去星宿海干什么？拜我为师就够你学的了。",
-		"丁春秋" : "丁春秋是你叫的吗？没大没小的。以后叫老仙！", 
+		"星宿派" : "你想加入，就拜我爲師。",
+		"星宿海" : "去星宿海幹什麼？拜我爲師就夠你學的了。",
+		"丁春秋" : "丁春秋是你叫的嗎？沒大沒小的。以後叫老仙！", 
 		"老仙"   : (: ask_job :), 
 		"job"    : (: ask_job :), 
 	]));
@@ -72,15 +72,15 @@ void attempt_apprentice(object ob)
 {
 	if(ob->query("family/family_name") != "星宿派")
 	{
-		say("狮吼子对"+ob->name()+"理都不理。\n");
+		say("獅吼子對"+ob->name()+"理都不理。\n");
 		return;
 	}
 	if(ob->query_skill("huagong-dafa",1) < 45 || ob->query("shen") > -500)
 	{
-		command("say 你的条件还不够，我才不想收你呢。");
+		command("say 你的條件還不夠，我纔不想收你呢。");
 		return;
 	}
-	command("say 好吧，看来你的化功大法有点基础了，我就收下你吧。");
+	command("say 好吧，看來你的化功大法有點基礎了，我就收下你吧。");
 	command("recruit " + ob->query("id"));
 }
 string ask_job()
@@ -94,21 +94,21 @@ string ask_job()
 	exp=me->query("combat_exp",1); 
 
 	if(!fam)
-		return "看得出你对老仙态度恭敬，何不先加入我星宿派呢？";
+		return "看得出你對老仙態度恭敬，何不先加入我星宿派呢？";
 	if(fam["family_name"] != "星宿派" && !me->query_temp("ding_flatter"))
-		return "你对老仙的态度看上去不太恭敬啊！";
+		return "你對老仙的態度看上去不太恭敬啊！";
 	if(exp<250000)
-		return "哈哈哈，你再加把力练功吧。";
+		return "哈哈哈，你再加把力練功吧。";
 	if(exp>=500000)
-		return "老仙最近的情况我不太清楚，你去问问我师兄摘星子吧。";
+		return "老仙最近的情況我不太清楚，你去問問我師兄摘星子吧。";
 	if(me->query_condition("wait_xx_task"))
-		return "上次搞砸了，这次你就等等吧。"; 
+		return "上次搞砸了，這次你就等等吧。"; 
 	if(interactive(me) && me->query_temp("xx_job"))
-		return "你怎么还在这里发呆？";
+		return "你怎麼還在這裏發呆？";
 	if(interactive(me) && me->query_condition("wait_xx_task"))  
-		return "老仙现在心情还好，不用你来为他分忧。";
+		return "老仙現在心情還好，不用你來爲他分憂。";
 	if(query("di_count") < 1)  
-		return "老仙现在心情还好，你别再来烦我了。";
+		return "老仙現在心情還好，你別再來煩我了。";
 
 	ob = new(__DIR__"obj/di");
 	add("di_count", -1);
@@ -117,6 +117,6 @@ string ask_job()
 	if(fam["family_name"] != "星宿派")
 		me->set_temp("apply/short", ({WHT"星宿派跟班 "NOR+me->name()+"("+me->query("id")+")"}));               
 	me->set_temp("xx_job", 1);
-	message_vision("\n$N拿出一只玉制短笛，交给$n。\n", this_object(), me);
-	return "老仙最近心情不佳，你可要多多为他老人家分忧才是！\n";    
+	message_vision("\n$N拿出一隻玉製短笛，交給$n。\n", this_object(), me);
+	return "老仙最近心情不佳，你可要多多爲他老人家分憂纔是！\n";    
 }

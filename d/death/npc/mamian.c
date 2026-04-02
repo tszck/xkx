@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name(HIY "马面" NOR, ({ "ma mian" }) );
+	set_name(HIY "馬面" NOR, ({ "ma mian" }) );
         set("nickname",CYN "妖怪" NOR);
         set("long",GRN @LONG
-一个似人非人，似畜非畜的妖怪，人身马面，似笑似哭，尖牙龇露...
+一個似人非人，似畜非畜的妖怪，人身馬面，似笑似哭，尖牙齜露...
 LONG NOR);
 	set("max_jing", 10000);
 	set("max_qi", 10000);

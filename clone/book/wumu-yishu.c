@@ -11,7 +11,7 @@ void init()
 
 void create()
 {
-	set_name( "「武穆遗书」", ({ "wumu yishu", "yishu" }));
+	set_name( "「武穆遺書」", ({ "wumu yishu", "yishu" }));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
@@ -19,11 +19,11 @@ void create()
 		set("unit", "本");
 		set("long",
 			GRN
-			"\n这就是岳武穆临死前留下的“破金要诀”。\n"
-			"只见第一页上写了十八个大字：\n"
-			"“重搜选，谨训习”\n"
-			"“公赏罚，明号令”\n"
-			"“严纪律，同甘苦”\n"NOR
+			"\n這就是嶽武穆臨死前留下的“破金要訣”。\n"
+			"只見第一頁上寫了十八個大字：\n"
+			"“重搜選，謹訓習”\n"
+			"“公賞罰，明號令”\n"
+			"“嚴紀律，同甘苦”\n"NOR
 		);
 		set("value", 10000000);
 		set("material", "paper");
@@ -46,12 +46,12 @@ int do_du(string arg)
 //if( me->query("wumu+int")) 
 	if ((int)this_player()->query("mark/+int")) 
 	{
-		write("这可真是一部兵法奇书呀！！！\n");
+		write("這可真是一部兵法奇書呀！！！\n");
 	}
 	else
 	{
 		me->add("int", 1);
-		write(HIY"你随手翻阅，但见一字一句之间，无不阐明临阵对敌的妙法，不禁大声赞叹！\n"NOR);
+		write(HIY"你隨手翻閱，但見一字一句之間，無不闡明臨陣對敵的妙法，不禁大聲讚歎！\n"NOR);
 		write(HIR"你的悟性提高了！\n"NOR);
 		this_player()->set("mark/+int", 1); 
 	}

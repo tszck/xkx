@@ -4,9 +4,9 @@ inherit ITEM;
 
 void create()
 {
-        set_name("铁牌", ({ "qulingfeng tiepai", "tiepai", "pai" }) );
+        set_name("鐵牌", ({ "qulingfeng tiepai", "tiepai", "pai" }) );
 	set("long","
-一面做成八卦形状的铁牌，翻过来看，背面写着一个“曲”字。
+一面做成八卦形狀的鐵牌，翻過來看，背面寫着一個“曲”字。
 ");
         set_weight(10);
         if( clonep() )

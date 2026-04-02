@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "书房");
+	set("short", "書房");
 	set("long", @LONG
-这是公孙止的书房，书架上放着一些武林秘籍，一般很少有人能够
-进来。
+這是公孫止的書房，書架上放着一些武林祕籍，一般很少有人能夠
+進來。
 LONG
 	);
 

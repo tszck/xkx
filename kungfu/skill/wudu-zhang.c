@@ -7,23 +7,23 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N双手一翻，两掌带着淡淡的蓝光，直向$n拍去",
+([	"action" : "$N雙手一翻，兩掌帶着淡淡的藍光，直向$n拍去",
 	"lvl" : 0,
 	"skill_name" : "五毒掌"
 ]),
-([	"action" : "$N左掌虚晃，右掌直出，犹如毒蛇一般直迫$n的胸前",
+([	"action" : "$N左掌虛晃，右掌直出，猶如毒蛇一般直迫$n的胸前",
 	"lvl" : 10,
 	"skill_name" : "五毒掌"
 ]),
-([	"action" : "$N双掌翻飞，四周迷茫着一股暗淡的雾气，排向$n的全身",
+([	"action" : "$N雙掌翻飛，四周迷茫着一股暗淡的霧氣，排向$n的全身",
 	"lvl" : 20,
 	"skill_name" : "五毒掌"
 ]),
-([	"action" : "$N两掌一分，左掌如蝎，右掌似蛇，同时向$n击过去",
+([	"action" : "$N兩掌一分，左掌如蠍，右掌似蛇，同時向$n擊過去",
 	"lvl" : 30,
 	"skill_name" : "五毒掌"
 ]),
-([	"action" : "$N默运内力，双掌忽然变黑，带着一股阴风只扑$n的全身",
+([	"action" : "$N默運內力，雙掌忽然變黑，帶着一股陰風只撲$n的全身",
 	"lvl" : 40,
 	"skill_name" : "五毒掌"
 ])
@@ -35,21 +35,21 @@ int valid_combine(string combo) { return combo=="qianzhu-wandushou"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练五毒掌必须空手。\n");
+		return notify_fail("練五毒掌必須空手。\n");
 	if ((int)me->query_skill("wudu-shengong", 1) < 20)
-		return notify_fail("你的五毒神功火候不够，无法学五毒掌。\n");
+		return notify_fail("你的五毒神功火候不夠，無法學五毒掌。\n");
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail("你的内力太弱，无法练五毒掌。\n");
+		return notify_fail("你的內力太弱，無法練五毒掌。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 30)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够练五毒掌。\n");
+		return notify_fail("你的內力不夠練五毒掌。\n");
 	me->receive_damage("qi", 25);
 	me->add("neili", -10);
 	return 1;
@@ -79,14 +79,14 @@ mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 				victim->apply_condition("chanchu_poison", (me->query_skill("wudu-shengong"))/10 + victim->query_condition("chanchu_poison"));
 				break;
 		}
-		return HIR"$n只觉得伤处一阵发麻，似乎中毒了。\n" NOR;
+		return HIR"$n只覺得傷處一陣發麻，似乎中毒了。\n" NOR;
 	}
 }
 void skill_improved(object me)
 {
 	if(random(15) < 1 && me->query("per") > 5)
 	{
-		tell_object(me, HIR"你忽然觉得体内毒气狂窜，面上顿时罩着一层黑气！\n" NOR );
+		tell_object(me, HIR"你忽然覺得體內毒氣狂竄，面上頓時罩着一層黑氣！\n" NOR );
 		me->add("per", -1);
 	}
 }
@@ -112,16 +112,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 30; }
@@ -134,11 +134,11 @@ int help(object me)
 	write(HIC"\n五毒掌："NOR"\n");
 	write(@HELP
 
-    五毒掌是五毒教的独门功夫，可与千蛛万毒手互备。
+    五毒掌是五毒教的獨門功夫，可與千蛛萬毒手互備。
 
-	学习要求：
-		五毒神功20级
-		内力100
+	學習要求：
+		五毒神功20級
+		內力100
 HELP
 	);
 	return 1;

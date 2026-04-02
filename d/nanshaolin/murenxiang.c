@@ -12,8 +12,8 @@ void create()
 {
 	set("short", "木人巷");
 	set("long", @LONG
-这里是南少林寺的木人巷，出家的小弟子第一次下山都必须通过十
-八木人的考验。这里只有向前的路，并无回头的路了。
+這裏是南少林寺的木人巷，出家的小弟子第一次下山都必須通過十
+八木人的考驗。這裏只有向前的路，並無回頭的路了。
 LONG);
 	set("exits", ([ 
 		"north" : __FILE__,
@@ -34,7 +34,7 @@ void init()
 	{
 		if(interactive(me) && me->query("muren_winner") && !wizardp(me))
 		{
-			message_vision( HIR"一大群僧兵一涌而上，乱棒齐下，将$N打得昏死过去......\n"NOR, me);
+			message_vision( HIR"一大羣僧兵一湧而上，亂棒齊下，將$N打得昏死過去......\n"NOR, me);
 			me->unconcious();
 			me->set("eff_qi", 1);
 			me->set("qi", 1);
@@ -62,13 +62,13 @@ void muren_attack(object me)
 
 int do_save()
 {
-	write("这里不准存盘！\n");
+	write("這裏不準存盤！\n");
 	return 1;
 }
 
 int do_quit()
 {
-	write("这里不准退出！\n");
+	write("這裏不準退出！\n");
 	return 1;
 }
 
@@ -84,8 +84,8 @@ int valid_leave(object me, string dir)
 		me->move(__DIR__"ting");
 		me->set("muren_winner", 1);
 		me->delete_temp("ask_muren");
-		message("channel:snow", HIR"【风闻】历尽千辛万苦，"+me->query("name")+"终于闯过了南少林寺木人巷！\n"NOR,users());		
-		return notify_fail(HIY"你终于闯过了木人巷！ 经过此次闯阵，你觉得武功大进！\n"NOR);
+		message("channel:snow", HIR"【風聞】歷盡千辛萬苦，"+me->query("name")+"終於闖過了南少林寺木人巷！\n"NOR,users());		
+		return notify_fail(HIY"你終於闖過了木人巷！ 經過此次闖陣，你覺得武功大進！\n"NOR);
 	}
 	return ::valid_leave(me, dir);
 }

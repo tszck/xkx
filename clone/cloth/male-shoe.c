@@ -15,8 +15,8 @@ string* shoeid = ({
 	"skin shoes",
 });
 string* shoelong = ({
-	"这是一双很普通的粗布鞋。\n",
-	"这是一双用上好牛皮作的皮靴。\n",
+	"這是一雙很普通的粗布鞋。\n",
+	"這是一雙用上好牛皮作的皮靴。\n",
 });
 
 void create()
@@ -30,7 +30,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
         	set("material", "cloth");
-		set("unit", "双");
+		set("unit", "雙");
 	//	set("long", shoelong[i]);
 		set("value", 0);
 		set("armor_prop/armor", 1 );

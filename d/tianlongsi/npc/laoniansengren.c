@@ -10,7 +10,7 @@ void create()
 	set_name("老年僧人", ({ "laonian sengren", "seng", "sengren" }) );
 	set("gender", "男性" );
 	set("age", 80);
-	set("long","他是寺中掌管烟火的僧人。\n");
+	set("long","他是寺中掌管煙火的僧人。\n");
 	set("combat_exp", 1000);
 	set("attitude", "friendly");
 	set("rank_info/respect", "老僧");
@@ -39,8 +39,8 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	say( "老年僧人笑咪咪地说道：这位" + RANK_D->query_respect(ob)
-				+ "，买柱香吧。\n");
+	say( "老年僧人笑咪咪地說道：這位" + RANK_D->query_respect(ob)
+				+ "，買柱香吧。\n");
 }
 
 string ask_me()
@@ -49,7 +49,7 @@ string ask_me()
 	if(me->query_temp("marks/ask_temp2"))
 	{
 		me->set_temp("marks/ask_temp3",1);
-		return "“失窃的那天晚上我看见一个黑影往后面跑了。\n";
+		return "“失竊的那天晚上我看見一個黑影往後面跑了。\n";
 	}
-	else return "“你胡说八道什么？”\n";
+	else return "“你胡說八道什麼？”\n";
 }

@@ -6,10 +6,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "皇宫大门");
+	set("short", "皇宮大門");
 	set("long", @LONG
-这里就是西夏皇宫正门，四扇宽阔的朱红大门，上面包着拳头大的
-铜钉。门的两边站着两排衣甲鲜明的武士，戒备深严。
+這裏就是西夏皇宮正門，四扇寬闊的硃紅大門，上面包着拳頭大的
+銅釘。門的兩邊站着兩排衣甲鮮明的武士，戒備深嚴。
 LONG );
 	set("exits", ([
 		"north"  : __DIR__"gongsquare",
@@ -23,14 +23,14 @@ LONG );
 	set("coor/y", 32090);
 	set("coor/z", 0);
 	setup();
-        create_door("north" , "红漆宫门", "south" , DOOR_CLOSED);
+        create_door("north" , "紅漆宮門", "south" , DOOR_CLOSED);
 }
 
 int valid_leave(object me, string dir)
 {
         if (dir == "north" && 
             objectp(present("wei shi", environment(me))))
-           return notify_fail("卫士对你大吼一声：放肆！那不是你能进去的地方。\n");
+           return notify_fail("衛士對你大吼一聲：放肆！那不是你能進去的地方。\n");
 
         return ::valid_leave(me, dir);
 }

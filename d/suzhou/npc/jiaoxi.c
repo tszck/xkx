@@ -7,7 +7,7 @@ void create()
 {
 	set_name("老夫子", ({ "lao fuzi", "lao", "fuzi" }));
 	set("long",
-"一个唯利是图的苏州老教习，肚子里有墨水，可你还要有钱。\n");
+"一個唯利是圖的蘇州老教習，肚子裏有墨水，可你還要有錢。\n");
 	set("gender", "男性");
 	set("age", 65);
 	set_skill("literate", 200);
@@ -22,8 +22,8 @@ void create()
 	set("combat_exp", 40000);
 	set("shen_type", 1);
 	set("inquiry", ([
-	    "书"   : "唉！书到用时方恨少。",
-	    "借书" : "借？你不还我到哪里找你？哼！",
+	    "書"   : "唉！書到用時方恨少。",
+	    "借書" : "借？你不還我到哪裏找你？哼！",
 	]));
 	setup();
 }
@@ -41,7 +41,7 @@ int accept_object(object who, object ob)
 	if (!(int)who->query_temp("mark/朱2")) who->set_temp("mark/朱2", 0);
 	if (ob->query("money_id") && ob->value() >= 500)
 	{
-		message_vision("老夫子同意指点$N一些读书写字的问题。\n", who);
+		message_vision("老夫子同意指點$N一些讀書寫字的問題。\n", who);
 		who->add_temp("mark/朱2", ob->value() / 50);
 		return 1;
 	}

@@ -13,7 +13,7 @@ int exert(object me, object target)
 
 	skill = me->query_skill("force");
 	message_combatd(
-        HIY "$N气凝丹田，运集全身内力吟出一曲「君临天下」！\n" NOR, me);
+        HIY "$N氣凝丹田，運集全身內力吟出一曲「君臨天下」！\n" NOR, me);
 
 	ob = all_inventory(environment(me));
 	for(i=0; i<sizeof(ob); i++)
@@ -28,7 +28,7 @@ int exert(object me, object target)
 			ob[i]->receive_damage("jing", damage * 2 );
 			if( (int)ob[i]->query("neili") < skill * 2 )
 				ob[i]->receive_wound("jing", damage);
-			tell_object(ob[i],"你只觉得眼前一片模糊，朦胧中......\n");
+			tell_object(ob[i],"你只覺得眼前一片模糊，朦朧中......\n");
 		}		
 		if( !ob[i]->is_killing(me) ) ob[i]->kill_ob(me);
 		if( !me->is_killing(ob[i]) ) me->fight_ob(ob[i]);

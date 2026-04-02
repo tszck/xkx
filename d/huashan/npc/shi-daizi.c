@@ -8,7 +8,7 @@ void create()
         set("gender", "男性");
         set("age", 22);
         set("long",
-                "施戴子是岳不群的第四位弟子。\n");
+                "施戴子是嶽不羣的第四位弟子。\n");
         set("attitude", "peaceful");
         set("str", 26);
         set("con", 30);
@@ -50,7 +50,7 @@ void create()
         map_skill("unarmed", "huashan-ken");
         map_skill("dodge", "feiyan-huixiang");
 
-        create_family("华山派", 14, "弟子");
+        create_family("華山派", 14, "弟子");
 
         setup();
 

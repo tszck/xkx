@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "仙人桥");
+	set("short", "仙人橋");
 	set("long", @LONG
-仙人桥在爱身崖西侧。两崖对峙，下临深涧，中有三石衔接抵撑而
-成桥状。
+仙人橋在愛身崖西側。兩崖對峙，下臨深澗，中有三石銜接抵撐而
+成橋狀。
 LONG );
 	set("exits", ([
 		"northeast" : __DIR__"aishen",

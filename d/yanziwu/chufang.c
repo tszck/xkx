@@ -2,9 +2,9 @@
 inherit ROOM;
 void create()
 {
-	set("short","厨房");
+	set("short","廚房");
 	set("long",@LONG
-这是间宽敞的厨房，厨师们在展示各自的烹饪绝活。整个房间弥漫
+這是間寬敞的廚房，廚師們在展示各自的烹飪絕活。整個房間瀰漫
 着令人垂涎欲滴的菜香。
 LONG );
 	set("exits",([

@@ -105,91 +105,91 @@ mapping  *CARDS=({
 	"worth":  0,
 	"misc":  "",
 	]),
-([  "name":  HIR  "红桃Ａ"  NOR,
+([  "name":  HIR  "紅桃Ａ"  NOR,
 	"suit":  "heart",
 	"rank":  14,
 	"status":  "undealt",
 	"worth":  -5000,
 	"misc":  "blood",
 	]),
-([  "name":  HIR  "红桃Ｋ"  NOR,
+([  "name":  HIR  "紅桃Ｋ"  NOR,
 	"suit":  "heart",
 	"rank":  13,
 	"status":  "undealt",
 	"worth":  -4000,
 	"misc":  "",
 	]),
-([  "name":  HIR  "红桃Ｑ"  NOR,
+([  "name":  HIR  "紅桃Ｑ"  NOR,
 	"suit":  "heart",
 	"rank":  12,
 	"status":  "undealt",
 	"worth":  -3000,
 	"misc":  "",
 	]),
-([  "name":  HIR  "红桃Ｊ"  NOR,
+([  "name":  HIR  "紅桃Ｊ"  NOR,
 	"suit":  "heart",
 	"rank":  11,
 	"status":  "undealt",
 	"worth":  -2000,
 	"misc":  "",
 	]),
-([  "name":  HIR  "红桃Ｔ"  NOR,
+([  "name":  HIR  "紅桃Ｔ"  NOR,
 	"suit":  "heart",
 	"rank":  10,
 	"status":  "undealt",
 	"worth":  -1000,
 	"misc":  "",
 	]),
-([  "name":  HIR  "红桃９"  NOR,
+([  "name":  HIR  "紅桃９"  NOR,
 	"suit":  "heart",
 	"rank":  9,
 	"status":  "undealt",
 	"worth":  -1000,
 	"misc":  "",
 	]),
-([  "name":  HIR  "红桃８"  NOR,
+([  "name":  HIR  "紅桃８"  NOR,
 	"suit":  "heart",
 	"rank":  8,
 	"status":  "undealt",
 	"worth":  -1000,
 	"misc":  "",
 	]),
-([  "name":  HIR  "红桃７"  NOR,
+([  "name":  HIR  "紅桃７"  NOR,
 	"suit":  "heart",
 	"rank":  7,
 	"status":  "undealt",
 	"worth":  -1000,
 	"misc":  "",
 	]),
-([  "name":  HIR  "红桃６"  NOR,
+([  "name":  HIR  "紅桃６"  NOR,
 	"suit":  "heart",
 	"rank":  6,
 	"status":  "undealt",
 	"worth":  -1000,
 	"misc":  "",
 	]),
-([  "name":  HIR  "红桃５"  NOR,
+([  "name":  HIR  "紅桃５"  NOR,
 	"suit":  "heart",
 	"rank":  5,
 	"status":  "undealt",
 	"worth":  -1000,
 	"misc":  "",
 	]),
-([  "name":  HIR  "红桃４"  NOR,
+([  "name":  HIR  "紅桃４"  NOR,
 	"suit":  "heart",
 	"rank":  4,
 	"status":  "undealt",
 	"worth":  -1,
 	"misc":  "",
 	]),
-([  "name":  HIR  "红桃３"  NOR,
+([  "name":  HIR  "紅桃３"  NOR,
 	"suit":  "heart",
 	"rank":  3,
 	"status":  "undealt",
 	"worth":  -1,
 	"misc":  "",
 	]),
-([  "name":  HIR  "红桃２"  NOR,
+([  "name":  HIR  "紅桃２"  NOR,
 	"suit":  "heart",
 	"rank":  2,
 	"status":  "undealt",
@@ -447,13 +447,13 @@ string*  SUIT=({"spade",  "heart",  "diamond",  "club",});
 int  LIMIT  =  -5000;
 mapping  CSUIT=([
 "spade":  HIB"黑桃"NOR,
-"heart":  HIR"红桃"NOR,
+"heart":  HIR"紅桃"NOR,
 "diamond":  HIR"方片"NOR,
 "club":  HIB"草花"NOR,
 ]);
 
 mapping  CDIR  =  ([
-"east"  :  "东",
+"east"  :  "東",
 "north":  "北",
 "west"  :  "西",
 "south":  "南",
@@ -472,10 +472,10 @@ mapping  NCARD=([
 "doubler":  44,
 ]);
 mapping  CCARD=([
-"pig":  "猪（"+HIB+"黑桃Ｑ"+NOR+"）",
+"pig":  "豬（"+HIB+"黑桃Ｑ"+NOR+"）",
 "sheep":  "羊（"+HIR+"方片Ｊ"+NOR+"）",
-"doubler":  "变压器（"+HIB+"草花Ｔ"+NOR+"）",
-"blood":  "血（"+HIR+"红桃Ａ"+NOR+"）",
+"doubler":  "變壓器（"+HIB+"草花Ｔ"+NOR+"）",
+"blood":  "血（"+HIR+"紅桃Ａ"+NOR+"）",
 ]);
 
 string  *CNUM  =  ({"？",  "１",  "２",  "３",  "４",  "５",  "６",
@@ -523,7 +523,7 @@ mapping  CLAIM=([
 "south":  "no",
 ]);
 
-//  possible  states:  "等人",  "等发牌",  "等卖牌",  "出牌",  "算分",
+//  possible  states:  "等人",  "等發牌",  "等賣牌",  "出牌",  "算分",
 
 mapping  TABLE=([
 "cond":  "等人",
@@ -607,13 +607,13 @@ int  display_cards(object  player);
 /******************************************************************************/
 void  create  ()
 {
-    set  ("short",  "拱猪房");
+    set  ("short",  "拱豬房");
     set  ("long",  @LONG
-这间房子是专门为了拱猪用而设的，整间屋子都是用不去皮的松树
-搭成。一张石桌 (table)周围摆着四个石礅，桌面镶了一块大理石，摸
-上去极为光滑。四壁挂着长明灯，把屋子照得有如白昼。墙角里烧了一
-炉不知名的香，似乎颇有提神之效。香炉旁边挂着张告示(gaoshi)，上
-面写着这里的规矩；桌上有张小纸条(note)，上面草草的记着拱猪成绩。
+這間房子是專門爲了拱豬用而設的，整間屋子都是用不去皮的松樹
+搭成。一張石桌 (table)周圍擺着四個石礅，桌面鑲了一塊大理石，摸
+上去極爲光滑。四壁掛着長明燈，把屋子照得有如白晝。牆角里燒了一
+爐不知名的香，似乎頗有提神之效。香爐旁邊掛着張告示(gaoshi)，上
+面寫着這裏的規矩；桌上有張小紙條(note)，上面草草的記着拱豬成績。
 LONG);
 
     set("exits",  ([
@@ -642,19 +642,19 @@ void  init()
 {
         add_action("do_leave",  "leave");
         add_action("do_leave",  "likai");
-        add_action("do_leave",  "离开");
+        add_action("do_leave",  "離開");
         add_action("do_sit",  "sit");
         add_action("do_sit",  "zuo");
         add_action("do_sit",  "坐");
         add_action("do_deal",  "deal");
         add_action("do_deal",  "fapai");
-        add_action("do_deal",  "发牌");
+        add_action("do_deal",  "發牌");
         add_action("do_sell",  "sell");
         add_action("do_sell",  "liang");
         add_action("do_sell",  "亮");
         add_action("do_pass",  "pass");
         add_action("do_pass",  "tingmai");
-        add_action("do_pass",  "停卖");
+        add_action("do_pass",  "停賣");
         add_action("do_play",  "play");
         add_action("do_play",  "da");
         add_action("do_play",  "打");
@@ -684,37 +684,37 @@ void  init()
 int  valid_leave(object  me,  string  dir)
 {
         if  (in_table(me))
-	return  notify_fail("对不起，你现在在拱猪，就这么走掉不太好吧？\n");
+	return  notify_fail("對不起，你現在在拱豬，就這麼走掉不太好吧？\n");
         return  ::valid_leave(me,  dir);
 }
 int  do_quit(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里离开游戏，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏離開遊戲，謝謝。\n");
         return  1;
 }
 int  do_steal(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里偷东西，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏偷東西，謝謝。\n");
         return  1;
 }
 int  do_fight(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里打架，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏打架，謝謝。\n");
         return  1;
 }
 int  do_kill(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里杀戮，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏殺戮，謝謝。\n");
         return  1;
 }
 int  do_exercise(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里练功，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏練功，謝謝。\n");
         return  1;
 }
 int  do_meditate(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里修炼，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏修煉，謝謝。\n");
         return  1;
 }
 int  do_get(string  arg)
@@ -727,64 +727,64 @@ int  do_get(string  arg)
         if  (ob=present(person,  this_object()))
 	if(userp(ob))
 	{
-	        tell_object(this_player(),  "请不要占别人的便宜，谢谢。\n");
+	        tell_object(this_player(),  "請不要佔別人的便宜，謝謝。\n");
 	        return  1;
 	}
         return  0;
 }
 int  do_cast(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里施用法术，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏施用法術，謝謝。\n");
         return  1;
 }
 int  do_exert(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里施用内功，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏施用內功，謝謝。\n");
         return  1;
 }
 int  do_perform(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里施用外功，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏施用外功，謝謝。\n");
         return  1;
 }
 int  do_xiudao(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里修道，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏修道，謝謝。\n");
         return  1;
 }
 int  do_check(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里查别人的功夫，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏查別人的功夫，謝謝。\n");
         return  1;
 }
 int  do_find(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里查别人的踪迹，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏查別人的蹤跡，謝謝。\n");
         return  1;
 }
 int  do_bian(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里变来变去，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏變來變去，謝謝。\n");
         return  1;
 }
 int  do_practice(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里练功，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏練功，謝謝。\n");
         return  1;
 }
 int  do_read(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里读书，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏讀書，謝謝。\n");
         return  1;
 }
 int  do_study(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里读书，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏讀書，謝謝。\n");
         return  1;
 }
 int  do_learn(string  arg)
 {
-        tell_object(this_player(),  "请不要在拱猪房里学习，谢谢。\n");
+        tell_object(this_player(),  "請不要在拱豬房裏學習，謝謝。\n");
         return  1;
 }
 /******************************************************************************/
@@ -838,7 +838,7 @@ string  card_suit(string  arg)
 	case  "C":
 	        return  "club";
 	default:
-	        return  "花色错误：card_suit。\n";
+	        return  "花色錯誤：card_suit。\n";
         }
 }
 int  card_rank(string  card)
@@ -879,7 +879,7 @@ int  card_rank(string  card)
 	case  "a":
 	        return  14;
 	default:
-	        return  notify_fail("无法理解输入的牌，"+card+"。请重新输入。\n");
+	        return  notify_fail("無法理解輸入的牌，"+card+"。請重新輸入。\n");
         }
 }
 int  card_numb(string  card)
@@ -887,7 +887,7 @@ int  card_numb(string  card)
         int  base,  rank;
         string  suit;
         if  (!(suit=card_suit(card))  ||  !(rank=card_rank(card)))
-	return  notify_fail("函数错误：card_numb。\n");
+	return  notify_fail("函數錯誤：card_numb。\n");
         switch  (suit)
         {
 	case  "spade":
@@ -903,7 +903,7 @@ int  card_numb(string  card)
 	        base=40;
 	        break;
 	default:
-	        return  notify_fail("函数错误：card_numb。\n");
+	        return  notify_fail("函數錯誤：card_numb。\n");
         }
         return  (base+15-rank);
 }
@@ -928,7 +928,7 @@ int  is_playable(object  me,  int  cardno)
 
         if  (!is_my_card(me,  cardno))
         {
-	tell_object(me,  "对不起，"+CARDS[cardno]["name"]+"不在你手里。\n");
+	tell_object(me,  "對不起，"+CARDS[cardno]["name"]+"不在你手裏。\n");
 	return  0;
         }
         if  (dir==GAMEINFO["rlead"])
@@ -938,7 +938,7 @@ int  is_playable(object  me,  int  cardno)
         if  (suit  !=  GAMEINFO["suit"]
           &&  search_suit(me,  GAMEINFO["suit"]))
         {
-	tell_object(me,  "对不起，你手中还有"+CSUIT[GAMEINFO["suit"]]+"，不能出"+CARDS[cardno]["name"]+"。\n");
+	tell_object(me,  "對不起，你手中還有"+CSUIT[GAMEINFO["suit"]]+"，不能出"+CARDS[cardno]["name"]+"。\n");
 	return  0;
         }
         if  (!GAMEINFO[CARDS[cardno]["suit"]]
@@ -947,7 +947,7 @@ int  is_playable(object  me,  int  cardno)
 	if  (SOLD[CARDS[cardno]["misc"]][0]  ==  "m"
                   &&  search_suit(me,  (GAMEINFO["suit"]  ==  ""?CARDS[cardno]["suit"]:GAMEINFO["suit"]))  >  1)
 	{
-	        tell_object(me,"对不起，明卖了的牌不能在本花色第一轮出。\n");
+	        tell_object(me,"對不起，明賣了的牌不能在本花色第一輪出。\n");
 	        return  0;
 	}
         }
@@ -991,18 +991,18 @@ int  do_sit(string  dir)
         object  me=this_player();
 
         if(!is_dir(dir))
-	return  notify_fail("请选择「east、north、south  或  west」。\n");
+	return  notify_fail("請選擇「east、north、south  或  west」。\n");
         if(in_table(me))
-	return  notify_fail("你已经在座了。请用「leave」站起来。\n");
+	return  notify_fail("你已經在座了。請用「leave」站起來。\n");
         if  (!is_empty(dir))
-	return  notify_fail(search_dir(dir)->query("name")+"正在"+CDIR[dir]+"边坐着呢，你还是等空位吧。\n");
+	return  notify_fail(search_dir(dir)->query("name")+"正在"+CDIR[dir]+"邊坐着呢，你還是等空位吧。\n");
         me->set_temp("piggy/seating",  dir);
         TABLE[dir]["player_id"]=me->query("id");
         TABLE[dir]["player_name"]=me->query("name");
         TABLE[dir]["status"]="filled";
         if  (all_have("players"))
-	TABLE["cond"]="等发牌";
-        message_vision("$N坐入了"+CDIR[dir]+"边的空位。\n",  me);
+	TABLE["cond"]="等發牌";
+        message_vision("$N坐入了"+CDIR[dir]+"邊的空位。\n",  me);
         return  1;
 }
 /******************************************************************************/
@@ -1014,17 +1014,17 @@ int  do_leave(string  arg)
         object  me=this_player();
 
         if  (!in_table(me))
-	return  notify_fail("对不起，你并没在拱猪桌边坐着。\n");
+	return  notify_fail("對不起，你並沒在拱豬桌邊坐着。\n");
         dir  =  search_my_dir(me);
         if  (is_empty(dir)  ||  search_dir(dir)  !=  me)
-	return  notify_fail("函数错误：do_leave。请告诉酸黄瓜。\n");
+	return  notify_fail("函數錯誤：do_leave。請告訴酸黃瓜。\n");
         me->delete_temp("piggy/seating",  dir);
         TABLE[dir]["status"]="empty";
         TABLE[dir]["player_name"]="「空」";
         TABLE[dir]["player_id"]="no  one";
         TABLE["cond"]="等人";
         renew("all");
-        message_vision("$N让出了"+CDIR[dir]+"边的位置，不打算拱下去了。\n",  me);
+        message_vision("$N讓出了"+CDIR[dir]+"邊的位置，不打算拱下去了。\n",  me);
         return  1;
 }
 /******************************************************************************/
@@ -1040,10 +1040,10 @@ int  do_deal(string  arg)
         if  (dir  ==  "none")
         {
 	me->delete_temp("piggy/seating");
-	return  notify_fail("对不起，你没有入座，无法要求发牌。\n");
+	return  notify_fail("對不起，你沒有入座，無法要求發牌。\n");
         }
         if  (!all_have("players"))
-	return  notify_fail("还没凑齐四个人，没法开牌局。\n");
+	return  notify_fail("還沒湊齊四個人，沒法開牌局。\n");
         if  (TABLE[dir]["status"]  ==  "asked_for_deal"  &&  TABLE["cond"]  ==  "等人")
         {
 	while(i--)
@@ -1059,25 +1059,25 @@ int  do_deal(string  arg)
 	        case  1:  str  =  name[0];  break;
 	        case  2:  str  =  name[0]+"和"+name[1];break;
 	        case  3:  str  =  name[0]+"、"+name[1]+"和"+name[2];  break;
-	        default:  tell_room(HERE,  "函数错误：发牌。请告诉酸黄瓜。\n");  break;
+	        default:  tell_room(HERE,  "函數錯誤：發牌。請告訴酸黃瓜。\n");  break;
 	}
-	return  notify_fail("对不起，"+str+"还没准备好呢。\n");
+	return  notify_fail("對不起，"+str+"還沒準備好呢。\n");
         }
-        if  (TABLE[dir]["status"]  !=  "filled"  ||  TABLE["cond"]  !=  "等发牌")
-	return  notify_fail("对不起，现在不是发牌的时候。\n");
+        if  (TABLE[dir]["status"]  !=  "filled"  ||  TABLE["cond"]  !=  "等發牌")
+	return  notify_fail("對不起，現在不是發牌的時候。\n");
         TABLE[dir]["status"]="asked_for_deal";
-        message_vision("$N说道：我准备好了，发牌吧。\n",  me);
+        message_vision("$N說道：我準備好了，發牌吧。\n",  me);
         if  (all_have("req_deal"))
         {
-	message_vision("\n大家都准备好了，由$N负责发牌。\n\n",  me);
-	TABLE["cond"]="等卖牌";
+	message_vision("\n大家都準備好了，由$N負責發牌。\n\n",  me);
+	TABLE["cond"]="等賣牌";
 	deal_cards("east");
 	deal_cards("north");
 	deal_cards("west");
 	deal_cards("south");
 	if  (!is_dir(GAMEINFO["rlead"]))
 	        GAMEINFO["rlead"]=search_my_dir(me);
-	tell_room(HERE,  "请用「sell」卖牌，「pass」停卖。\n");
+	tell_room(HERE,  "請用「sell」賣牌，「pass」停賣。\n");
         }
         return  1;
 }
@@ -1092,30 +1092,30 @@ int  do_sell(string  arg)
         int   index;
 
         if(!in_table(me))
-	return  notify_fail("对不起，你并不在拱猪。\n");
-        if(TABLE["cond"]  !=  "等卖牌")
-	return  notify_fail("对不起，现在不能卖牌。\n");
+	return  notify_fail("對不起，你並不在拱豬。\n");
+        if(TABLE["cond"]  !=  "等賣牌")
+	return  notify_fail("對不起，現在不能賣牌。\n");
         dir=search_my_dir(me);
         if(TABLE[dir]["status"]  ==  "passed")
-	return  notify_fail("对不起，你已经决定停卖了。\n");
+	return  notify_fail("對不起，你已經決定停賣了。\n");
         if(!arg)
-	return  notify_fail("请用  sell  [-m]  <card>  来卖牌。\n");
+	return  notify_fail("請用  sell  [-m]  <card>  來賣牌。\n");
         if  (sscanf(arg,  "-%s  %s",  flag,  card)  !=  2)
 	card=arg;
         else  if  (flag  !=  "m")
-	return  notify_fail("对不起，只能选择  [-m]。\n");
+	return  notify_fail("對不起，只能選擇  [-m]。\n");
         if  (!(index=card_numb(card)))
-	return  notify_fail("对不起，「"+card+"」并不是一张牌。\n");
+	return  notify_fail("對不起，「"+card+"」並不是一張牌。\n");
         index--;
         if  (!is_my_card(me,  index))
-	return  notify_fail("对不起，"+CARDS[index]["name"]+"不在你手里。\n");
+	return  notify_fail("對不起，"+CARDS[index]["name"]+"不在你手裏。\n");
         if(!is_sellable(index))
-	return  notify_fail("对不起，只能卖猪（黑桃Ｑ）、羊（方片Ｊ）、变压器（草花Ｔ）或血（红桃Ａ）。\n");
+	return  notify_fail("對不起，只能賣豬（黑桃Ｑ）、羊（方片Ｊ）、變壓器（草花Ｔ）或血（紅桃Ａ）。\n");
         card=CARDS[index]["misc"];
         SOLD[card]=({flag,  (dir=search_my_dir(me))});
         if  (member_array(card,  TABLE[dir]["sold"])  ==  -1)
 	TABLE[dir]["sold"]+=({card});
-        tell_object(me,  "你决定"+(flag=="a"?"暗":"明")+"卖"+CCARD[card]+"。\n");
+        tell_object(me,  "你決定"+(flag=="a"?"暗":"明")+"賣"+CCARD[card]+"。\n");
         return  1;
 }
 
@@ -1126,31 +1126,31 @@ int  do_claim(string  arg)
         int  i=NUM,j=CARDNO+1;
 
         if  (TABLE["cond"]  !=  "出牌")
-	return  notify_fail("对不起，现在并不在出牌。\n");
+	return  notify_fail("對不起，現在並不在出牌。\n");
         switch(arg)
         {
 	case  "all":
 	        if  (dir  ==  CLAIM["claimer"])
-		return  notify_fail("你已经发出要求，请等别人的回音。\n");
+		return  notify_fail("你已經發出要求，請等別人的迴音。\n");
 	        if  (CLAIM["claimer"]  !=  "")
-		return  notify_fail("已经有人发出要求了，请先否决。\n");
+		return  notify_fail("已經有人發出要求了，請先否決。\n");
 	        CLAIM[dir]="yes";
 	        CLAIM["claimer"]  =  dir;
-	        str  =  "$N认为自己手中的牌都大了：\n";
+	        str  =  "$N認爲自己手中的牌都大了：\n";
 	        str  +=  display_suit(dir,  "spade");
 	        str  +=  display_suit(dir,  "heart");
 	        str  +=  display_suit(dir,  "diamond");
 	        str  +=  display_suit(dir,  "club");
-	        str  +=  "\n请用「yes」表示同意，「no」表示反对。\n";
+	        str  +=  "\n請用「yes」表示同意，「no」表示反對。\n";
 	        message_vision(str,  me);
 	        break;
 	case  "yes":
 	        if  (CLAIM["dir"]  ==  "yes")
-		return  notify_fail("你已经同意了。\n");
+		return  notify_fail("你已經同意了。\n");
 	        if  (!is_dir(CLAIM["claimer"]))
-		return  notify_fail("对不起，没人要求摊牌。\n");
+		return  notify_fail("對不起，沒人要求攤牌。\n");
 	        CLAIM[dir]="yes";
-	        message_vision("$N摊牌道：我同意。\n",  me);
+	        message_vision("$N攤牌道：我同意。\n",  me);
 	        if  (all_have("agreed_claim"))
 	        {
 		while  (i--)
@@ -1170,7 +1170,7 @@ int  do_claim(string  arg)
 			CARDS[j]["status"]  =  "played";
 			if  (j==3)
 			{
-			        tell_room(HERE,HIB+TABLE[CLAIM["claimer"]]["player_name"]+"吃了猪头！\n"+NOR);
+			        tell_room(HERE,HIB+TABLE[CLAIM["claimer"]]["player_name"]+"喫了豬頭！\n"+NOR);
 			        PIG_OWNER=CLAIM["claimer"];
 			}
 		        }
@@ -1182,14 +1182,14 @@ int  do_claim(string  arg)
 	        break;
 	case  "no":
 	        if  (!is_dir(CLAIM["claimer"]))
-		return  notify_fail("对不起，没有人要求摊牌。\n");
-	        message_vision("$N不同意，请继续打下去。\n",  me);
+		return  notify_fail("對不起，沒有人要求攤牌。\n");
+	        message_vision("$N不同意，請繼續打下去。\n",  me);
 	        while  (i--)
 		CLAIM[DIR[i]]  =  "no";
 	        CLAIM["claimer"]  =  "";
 	        break;
 	default:
-	        return  notify_fail("请用「all」表示你想全收，「yes」表示同意，「no」表示反对。\n");
+	        return  notify_fail("請用「all」表示你想全收，「yes」表示同意，「no」表示反對。\n");
 	        break;
         }
         return  1;
@@ -1201,21 +1201,21 @@ int  do_pass(string  arg)
         string  dir=search_my_dir(me),  str;
 
         if  (!in_table(me))
-	return  notify_fail("对不起，你并不在拱猪。\n");
-        if  (TABLE["cond"]  !=  "等卖牌")
-	return  notify_fail("对不起，现在不能卖牌或停卖。\n");
+	return  notify_fail("對不起，你並不在拱豬。\n");
+        if  (TABLE["cond"]  !=  "等賣牌")
+	return  notify_fail("對不起，現在不能賣牌或停賣。\n");
         if  (TABLE[dir]["status"]=="passed")
-	return  notify_fail("你已经决定停卖了。\n");
+	return  notify_fail("你已經決定停賣了。\n");
         TABLE[dir]["status"]="passed";
-        message_vision("$N说道：我停卖。\n",  me);
+        message_vision("$N說道：我停賣。\n",  me);
         if  (all_have("pass"))
         {
 	TABLE["cond"]="出牌";
 	GAMEINFO["round"]=1;
-	str  =  "\n大家都停卖了，";
+	str  =  "\n大家都停賣了，";
 	str  +=  display_sell();
-	str  +=  "\n一切就绪，开拱！\n";
-	str  +=  "这把由"+TABLE[GAMEINFO["rlead"]]["player_name"]+"先出！\n\n";
+	str  +=  "\n一切就緒，開拱！\n";
+	str  +=  "這把由"+TABLE[GAMEINFO["rlead"]]["player_name"]+"先出！\n\n";
 	GAMEINFO["next"]=GAMEINFO["rlead"];
 	tell_room(HERE,  str);
         }
@@ -1227,17 +1227,17 @@ int  do_play(string  card)
         int  numb;
 
         if  (!in_table(me))
-	return  notify_fail("对不起，你并不在拱猪。\n");
+	return  notify_fail("對不起，你並不在拱豬。\n");
         if  (!card)
-	return  notify_fail("请用  play  <card>  出牌。\n");
+	return  notify_fail("請用  play  <card>  出牌。\n");
         if  (TABLE["cond"]  !=  "出牌")
-	return  notify_fail("对不起，现在不能出牌。\n");
+	return  notify_fail("對不起，現在不能出牌。\n");
         if  (GAMEINFO["next"]  !=  search_my_dir(me))
-	return  notify_fail("对不起，现在不该你出牌。\n");
+	return  notify_fail("對不起，現在不該你出牌。\n");
         if  (is_dir(CLAIM["claimer"]))
-	return  notify_fail("对不起，请等到"+TABLE[CLAIM["claimer"]]["player_name"]+"的全收要求有结果后再出牌。\n");
+	return  notify_fail("對不起，請等到"+TABLE[CLAIM["claimer"]]["player_name"]+"的全收要求有結果後再出牌。\n");
         if  (!(numb=card_numb(card)))
-	return  notify_fail("对不起，无法分辨  "+card+"。\n");
+	return  notify_fail("對不起，無法分辨  "+card+"。\n");
         numb--;
         if  (!is_playable(me,  numb))
 	return  1;
@@ -1247,18 +1247,18 @@ int  do_play(string  card)
         if  (GAMEINFO["next"]  ==  GAMEINFO["rlead"])
 	GAMEINFO["suit"]=CARDS[numb]["suit"];
         if  (!is_sellable(numb))
-	message_vision("$N"+(CARDS[numb]["suit"]  ==  GAMEINFO["suit"]?"出":"垫")
-		+"了一张"+CARDS[numb]["name"]+"。\n",  me);
+	message_vision("$N"+(CARDS[numb]["suit"]  ==  GAMEINFO["suit"]?"出":"墊")
+		+"了一張"+CARDS[numb]["name"]+"。\n",  me);
         else  if(SOLD[CARDS[numb]["misc"]][0]  !=  "not")
 	message_vision(  "$N出"  +  (SOLD[CARDS[numb]["misc"]][0]=="m"  ?
-		"明"  :  "暗")  +  "卖的"+CARDS[numb]["name"]+"！\n",  me);
+		"明"  :  "暗")  +  "賣的"+CARDS[numb]["name"]+"！\n",  me);
 	else  message_vision("$N"+(CARDS[numb]["suit"]  ==  GAMEINFO["suit"]?
-		"出":"垫")  +"了一张"+CARDS[numb]["name"]+"。\n",  me);
+		"出":"墊")  +"了一張"+CARDS[numb]["name"]+"。\n",  me);
         if(all_have("cards"))
 	finish_round();
         else  GAMEINFO["next"]=next_player(GAMEINFO["next"]);
         if  (is_dir(GAMEINFO["next"]))
-	tell_room(HERE,  "下面该由"+TABLE[GAMEINFO["next"]]["player_name"]+"出牌。\n");
+	tell_room(HERE,  "下面該由"+TABLE[GAMEINFO["next"]]["player_name"]+"出牌。\n");
         return  1;
 }
 /******************************************************************************/
@@ -1269,10 +1269,10 @@ object  find_me(string  dir)
 
         if  (!(player=present(id,  HERE)))
         {
-	tell_room(HERE,  TABLE[dir]["player_name"]+"不在房间里！\n");
-	tell_room(HERE,  "清理房间中……\n");
+	tell_room(HERE,  TABLE[dir]["player_name"]+"不在房間裏！\n");
+	tell_room(HERE,  "清理房間中……\n");
 	renew("all");
-	tell_room(HERE,  "请重新凑人！\n");
+	tell_room(HERE,  "請重新湊人！\n");
         }
 
         return  player;
@@ -1300,10 +1300,10 @@ int  score_player(string  dir)
         }
 //        else  score  =  (score  /  10)  *  10;
 //        tell_room(HERE,  "so  far  after  hearts  score  is  "+score+"\n");
-        if  (SOLD["blood"][0]  ==  "m")  score  =  score  *  4;		//  明卖
-        else  if  (SOLD["blood"][0]  ==  "a")  score  =  score  *  2;	//  暗卖
+        if  (SOLD["blood"][0]  ==  "m")  score  =  score  *  4;		//  明賣
+        else  if  (SOLD["blood"][0]  ==  "a")  score  =  score  *  2;	//  暗賣
 
-//  then  pig.  the  rules  i  go  by  are  that  if  收全红，猪变正。
+//  then  pig.  the  rules  i  go  by  are  that  if  收全紅，豬變正。
 
         if  (member_array(3,  collected)  !=  -1)
         {
@@ -1379,7 +1379,7 @@ string  find_large()
         if  (mark)
         {
 	PIG_OWNER=dir;
-	tell_room(HERE,  HIB+TABLE[dir]["player_name"]+"吃了猪头！\n"NOR);
+	tell_room(HERE,  HIB+TABLE[dir]["player_name"]+"喫了豬頭！\n"NOR);
         }
         return  dir;
 }
@@ -1395,7 +1395,7 @@ void  finish_round()
 	while(j--)
 	{
 	        if  (CARDS[j+1]["status"]  !=  "played")
-		tell_room(HERE,"函数错误：finish_round。"+CARDS[j+1]["name"]+"还没打过。\n");
+		tell_room(HERE,"函數錯誤：finish_round。"+CARDS[j+1]["name"]+"還沒打過。\n");
 	        continue;
 	}
 	score_player(PIG_OWNER);
@@ -1458,7 +1458,7 @@ string  next_player(string  dir)
 	case  "south":
 	        return  "east";
 	default:
-	        return  "函数错误：next_player。\n";
+	        return  "函數錯誤：next_player。\n";
         }
 }
 int  deal_cards(string  dir)
@@ -1507,7 +1507,7 @@ string  check_collected(string  dir,  string  suit)
 	        base=1;
 	        break;
 	case  "heart":
-	        str  +=  "\n　　"+HIR"红桃："NOR;
+	        str  +=  "\n　　"+HIR"紅桃："NOR;
 	        base=14;
 	        break;
 	case  "diamond":
@@ -1519,7 +1519,7 @@ string  check_collected(string  dir,  string  suit)
 	        base=40;
 	        break;
 	default:
-	        return  "函数错误：display_suit。\n";
+	        return  "函數錯誤：display_suit。\n";
         }
         while  (i--)
         {
@@ -1549,7 +1549,7 @@ string  display_suit(string  dir,  string  suit)
 	        base=1;
 	        break;
 	case  "heart":
-	        str  +=  "\n　　"+HIR"红桃："NOR;
+	        str  +=  "\n　　"+HIR"紅桃："NOR;
 	        base=14;
 	        break;
 	case  "diamond":
@@ -1561,7 +1561,7 @@ string  display_suit(string  dir,  string  suit)
 	        base=40;
 	        break;
 	default:
-	        return  "函数错误：display_suit。\n";
+	        return  "函數錯誤：display_suit。\n";
         }
         while  (i--)
         {
@@ -1598,7 +1598,7 @@ int  search_suit(object  me,  string  suit)
 	        base=40;
 	        break;
 	default:
-	        return  notify_fail("函数错误：search_suit。\n");
+	        return  notify_fail("函數錯誤：search_suit。\n");
         }
         while(i--)
         {
@@ -1626,7 +1626,7 @@ void  renew(string  type)
 	        GAMEINFO["suit"]="";
 	        break;
 	case  "hand":
-	        TABLE["cond"]="等发牌";
+	        TABLE["cond"]="等發牌";
 	        GAMEINFO["round"]=0;
 	        GAMEINFO["suit"]  =  "";
 	        GAMEINFO["rlead"]  =  PIG_OWNER;
@@ -1667,7 +1667,7 @@ void  renew(string  type)
 	        GAMEINFO["rlead"]  =  "";
 	        break;
 	default:
-	        tell_room(HERE,"函数用法错误：renew。\n");
+	        tell_room(HERE,"函數用法錯誤：renew。\n");
 	        break;
         }
         return;
@@ -1739,7 +1739,7 @@ int  all_have(string  arg)
 	        break;
 
 	default:
-	        tell_room(HERE,"函数用法错误：all_have。\n");
+	        tell_room(HERE,"函數用法錯誤：all_have。\n");
 	        value  =  0;
 	        break;
         }
@@ -1764,7 +1764,7 @@ string  look_collected()
         int  i=NUM;
 
         if  (TABLE["cond"]  !=  "出牌"  &&  TABLE["cond"]  !=  "算分")
-	return  "现在没在打牌，桌子上空着。\n";
+	return  "現在沒在打牌，桌子上空着。\n";
         str  =  display_sell();
         while  (i--)
         {
@@ -1782,11 +1782,11 @@ string  look_hand()
         string  str="",  dir;
 
         if  (!in_table(me))
-	return  "对不起，你并不在拱猪。\n";
+	return  "對不起，你並不在拱豬。\n";
         if  (TABLE["cond"]  ==  "算分")
-	return  "这把已经打完了。\n";
-        if  (TABLE["cond"]  ==  "等人"  ||  TABLE["cond"]  ==  "等发牌")
-	return  "你手中还没有牌。\n";
+	return  "這把已經打完了。\n";
+        if  (TABLE["cond"]  ==  "等人"  ||  TABLE["cond"]  ==  "等發牌")
+	return  "你手中還沒有牌。\n";
         dir=search_my_dir(me);
         str  +=  "\n你手中的牌如下：\n";
         str  +=  display_suit(dir,  "spade");
@@ -1802,7 +1802,7 @@ string  look_note()
         
 
         if  (TABLE["cond"]  ==  "等人")
-	return  "纸上画着一个猪头，旁边的名字被人擦去了。下面是个表格，画得歪七扭八的。\n";
+	return  "紙上畫着一個豬頭，旁邊的名字被人擦去了。下面是個表格，畫得歪七扭八的。\n";
         return  display_score();
 }
 string  display_score()
@@ -1810,7 +1810,7 @@ string  display_score()
         int  i  =  NUM;
         string  format  =  "│%2s家：%-12s　　　%6d　　%6d　　　%2s│\n";
         string  str  =  "\n┌------------------------------------------------┐\n"
-		+    "│方向　玩家　　　　　　　　盘分　　　总分　　　猪│\n"
+		+    "│方向　玩家　　　　　　　　盤分　　　總分　　　豬│\n"
 		+    "├------------------------------------------------┤\n";
 
 
@@ -1846,10 +1846,10 @@ string  display_sell()
                 counta++;
         else  if  (SOLD["doubler"][0]  ==  "m")
                 countm++;
-        if  (!(countm+counta))  str  +=  "这把没人卖牌。\n";
+        if  (!(countm+counta))  str  +=  "這把沒人賣牌。\n";
         else
         {
-                str  +=  "卖牌情况如下：\n";
+                str  +=  "賣牌情況如下：\n";
                 while(i--)
                 {
         	        dir=DIR[i];
@@ -1861,10 +1861,10 @@ string  display_sell()
         	        {
         		card=TABLE[dir]["sold"][j];
         		if  (SOLD[card][0]=="a")  count++;
-        		else  str  +=  "明卖"+CCARD[card]+"，";
+        		else  str  +=  "明賣"+CCARD[card]+"，";
         	        }
         	        if  (!count)  str  =  str[0..(strwidth(str)-3)]+"。";
-        	        else  str  +=  "暗卖"+chinese_number(count)+"张。";
+        	        else  str  +=  "暗賣"+chinese_number(count)+"張。";
         	        str  +=  "\n";
                 }
         }
@@ -1905,10 +1905,10 @@ string  display_table(string  cond)
 	continue;
         }
         if(is_dir(cond))
-	state="第"+chinese_number(GAMEINFO["round"])+"轮结束，"+TABLE[cond]["player_name"]+"的牌最大。";
+	state="第"+chinese_number(GAMEINFO["round"])+"輪結束，"+TABLE[cond]["player_name"]+"的牌最大。";
         else
 	state  =  (TABLE["cond"]  ==  "出牌"  ?
-	        "现在是第"+chinese_number(GAMEINFO["round"])+"轮，该"
+	        "現在是第"+chinese_number(GAMEINFO["round"])+"輪，該"
 		+TABLE[GAMEINFO["next"]]["player_name"]+"出牌："  :  "");
         if  ((cond  ||  TABLE["cond"]  !=  "出牌")  &&  !is_dir(cond))
 	str  =  sprintf(PIGSTATE_SHORT,  state,
@@ -2042,8 +2042,8 @@ string  read_rules()
 
         string  str="";
 
-        str  +=  "如果您不会打拱猪，请用  help  pigrules  来查看。\n\n";
-        str  +=  "具体打牌方法请用  help  pigcmds  来查看。\n\n";
+        str  +=  "如果您不會打拱豬，請用  help  pigrules  來查看。\n\n";
+        str  +=  "具體打牌方法請用  help  pigcmds  來查看。\n\n";
 
         return  str;
 }

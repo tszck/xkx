@@ -5,10 +5,10 @@ inherit NPC;
 void create()
 {
 	set_name("柳燕", ({"liu yan", "liu", "yan"}));
-	set("title",HIY"神龙教"HIR"赤龙使"NOR"座下弟子");
-	set("nickname",HIY"身轻如燕"NOR);
-	set("long","一个三十五六岁年纪的宫女，体态极肥，脚步却甚轻盈，脸如
-满月，眼小嘴大，笑嘻嘻的看着你。\n");
+	set("title",HIY"神龍教"HIR"赤龍使"NOR"座下弟子");
+	set("nickname",HIY"身輕如燕"NOR);
+	set("long","一個三十五六歲年紀的宮女，體態極肥，腳步卻甚輕盈，臉如
+滿月，眼小嘴大，笑嘻嘻的看着你。\n");
 	set("gender", "女性");
 	set("attitude", "peaceful"); 
 	set("age", 35);

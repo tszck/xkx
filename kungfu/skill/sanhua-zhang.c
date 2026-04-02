@@ -7,21 +7,21 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N合掌抱球，一式"HIG"「春深芳草尽」"NOR"，双掌变幻吞吐，缓缓推向$n的$l",
+([	"action" : "$N合掌抱球，一式"HIG"「春深芳草盡」"NOR"，雙掌變幻吞吐，緩緩推向$n的$l",
 	"lvl" : 0,
-	"skill_name" : "春深芳草尽"
+	"skill_name" : "春深芳草盡"
 ]),
-([	"action" : "$N五指绽开，一式"GRN"「夏闲独兰馨」"NOR"，左右掌穿插翻飞，疾向$n的$l拍去",
+([	"action" : "$N五指綻開，一式"GRN"「夏閒獨蘭馨」"NOR"，左右掌穿插翻飛，疾向$n的$l拍去",
 	"lvl" : 20,
-	"skill_name" : "夏闲独兰馨"
+	"skill_name" : "夏閒獨蘭馨"
 ]),
-([	"action" : "$N使一式"YEL"「秋酣菊霜清」"NOR"，左掌虚托，右掌乍伸乍合，猛地插往$n的$l",
+([	"action" : "$N使一式"YEL"「秋酣菊霜清」"NOR"，左掌虛託，右掌乍伸乍合，猛地插往$n的$l",
 	"lvl" : 40,
 	"skill_name" : "秋酣菊霜清"
 ]),
-([	"action" : "$N双掌血红，一式"MAG"「冬卧听梅吟」"NOR"，幻成漫天梅花朵朵，雨点般向$n击去",
+([	"action" : "$N雙掌血紅，一式"MAG"「冬臥聽梅吟」"NOR"，幻成漫天梅花朵朵，雨點般向$n擊去",
 	"lvl" : 60,
-	"skill_name" : "冬卧听梅吟"
+	"skill_name" : "冬臥聽梅吟"
 ])
 });
 
@@ -31,21 +31,21 @@ int valid_combine(string combo) { return combo=="nianhua-zhi"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练散花掌必须空手。\n");
+		return notify_fail("練散花掌必須空手。\n");
 	if ((int)me->query_skill("hunyuan-yiqi", 1) < 20)
-		return notify_fail("你的混元一气功火候不够，无法学散花掌。\n");
+		return notify_fail("你的混元一氣功火候不夠，無法學散花掌。\n");
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail("你的内力太弱，无法练散花掌。\n");
+		return notify_fail("你的內力太弱，無法練散花掌。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 30)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够练散花掌。\n");
+		return notify_fail("你的內力不夠練散花掌。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -15);
 	return 1;
@@ -72,16 +72,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 25; }
@@ -94,12 +94,12 @@ int help(object me)
 	write(HIC"\n散花掌："NOR"\n");
 	write(@HELP
 
-    散花掌为少林七十二绝技之一。
-    可与拈花指互备。
+    散花掌爲少林七十二絕技之一。
+    可與拈花指互備。
 
-	学习要求：
-		混元一气功20级
-		内力100
+	學習要求：
+		混元一氣功20級
+		內力100
 HELP
 	);
 	return 1;

@@ -7,7 +7,7 @@ void create()
 {
         set("short", "密道");
         set("long", @LONG
-这是一条长长的密道，地面和石壁满是灰尘，好象很久没人来过了。
+這是一條長長的密道，地面和石壁滿是灰塵，好象很久沒人來過了。
 LONG );
         set("exits", ([
                 "southdown" : __DIR__"midao7"
@@ -26,9 +26,9 @@ void init()
         {
                 me->receive_damage("qi", 50);
                 me->receive_wound("qi",  50);
-                message_vision(HIR"$N一不小心踩到地上的一个暗纽，... 啊...！\n"NOR, me);
+                message_vision(HIR"$N一不小心踩到地上的一個暗紐，... 啊...！\n"NOR, me);
                 me->move(__DIR__"road3");
-                tell_object(me, HIR"你从山上滚了下来，只觉得浑身无处不疼，还受了几处伤。\n"NOR);
-                message("vision", HIR"只见" + me->query("name") + "从山上骨碌碌地滚了下来，躺在地上半天爬不起来！\n"NOR, environment(me), me);
+                tell_object(me, HIR"你從山上滾了下來，只覺得渾身無處不疼，還受了幾處傷。\n"NOR);
+                message("vision", HIR"只見" + me->query("name") + "從山上骨碌碌地滾了下來，躺在地上半天爬不起來！\n"NOR, environment(me), me);
         }
 }

@@ -19,32 +19,32 @@ int look_feng(string arg)
                     ^ @@@__
                    ^   ^  ^
 
-抬眼望去，流云片片，烟雾缭绕，天柱峰若隐若现，似遥不可及…\n\n");
+抬眼望去，流雲片片，煙霧繚繞，天柱峯若隱若現，似遙不可及…\n\n");
 
 	me = this_player();
 	lucky = random(me->query_dex() + me->query_kar()) + me->query_dex();
 
 	if (lucky > 58)
 	{
-		write("突然间，有个黑点在云雾中一掠而过，好象是一只大雕！\n"
-			+"可是那么高的地方，怎么可能呢？ｈｍｍ．．．也许是一时花了眼。\n\n");
+		write("突然間，有個黑點在雲霧中一掠而過，好象是一隻大雕！\n"
+			+"可是那麼高的地方，怎麼可能呢？ｈｍｍ．．．也許是一時花了眼。\n\n");
 	
 	}else if(lucky >= 45)
 	{
 		// do nothing here
 	}else if(lucky >= 30)
 	{
-		message_vision(HIY"$N光顾着看天，一不留神脚下踏了个空，... 啊...！\n\n"NOR, me);
-		message_vision(HIY"$N一个趔趄摔了一跤！还好，只伤了些皮骨，没有滚下去。\n\n"NOR, me);
+		message_vision(HIY"$N光顧着看天，一不留神腳下踏了個空，... 啊...！\n\n"NOR, me);
+		message_vision(HIY"$N一個趔趄摔了一跤！還好，只傷了些皮骨，沒有滾下去。\n\n"NOR, me);
 		me->receive_damage("qi", 30+4*random((int)me->query("age")));
 		me->receive_damage("jing", 50);
 	}else // bad luck 
 	{
-		message_vision(HIR"$N光顾着抬头看天，一不留神脚下踏了个空，... 啊...！\n\n"NOR, me);
-		tell_object(me, HIR"你控制不住地直往山下滚，只觉得浑身无处不疼，痛得要晕死过去。\n\n"NOR);
+		message_vision(HIR"$N光顧着抬頭看天，一不留神腳下踏了個空，... 啊...！\n\n"NOR, me);
+		tell_object(me, HIR"你控制不住地直往山下滾，只覺得渾身無處不疼，痛得要暈死過去。\n\n"NOR);
 		me->move(__DIR__"tyroad8");
-		message("vision", HIR"只见" + me->query("name")
-			+ "从山上骨碌碌地滚了下来，躺在地上半天爬不起来！\n\n"NOR,
+		message("vision", HIR"只見" + me->query("name")
+			+ "從山上骨碌碌地滾了下來，躺在地上半天爬不起來！\n\n"NOR,
 			environment(me), me);
 		me->unconcious();
 	}

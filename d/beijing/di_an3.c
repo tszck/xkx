@@ -2,10 +2,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "地安门西大街");
+	set("short", "地安門西大街");
 	set("long", @LONG
-这是一条东西走向的大道。东边通往地安门。西边通往西四。不知
-道为什么，这里总是冷冷清清，见不到几个行人。
+這是一條東西走向的大道。東邊通往地安門。西邊通往西四。不知
+道爲什麼，這裏總是冷冷清清，見不到幾個行人。
 LONG );
         set("outdoors", "beijing");
 	set("exits", ([

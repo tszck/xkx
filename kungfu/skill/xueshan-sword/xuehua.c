@@ -22,18 +22,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	fskill = "bingxue-xinfa";
 	bskill = "sword";
@@ -47,21 +47,21 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为还不够，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲還不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为不够，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(bskill)+"修为不够，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"修爲不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query("max_neili") < 500 )
-		return notify_fail("你的内力修为不够！\n");
+		return notify_fail("你的內力修爲不夠！\n");
 
 	if( (int)me->query("neili") < 400 )
-		return notify_fail("你的真气不够！\n");
+		return notify_fail("你的真氣不夠！\n");
 
-	msg = HIY"$N一抖手中长剑，一式"HIW"「雪花六出」"HIY"，连续刺出六剑，剑剑快如流星，\n幻成雪花六点，带起一阵寒飚向前疾飘而去。\n"NOR;
+	msg = HIY"$N一抖手中長劍，一式"HIW"「雪花六出」"HIY"，連續刺出六劍，劍劍快如流星，\n幻成雪花六點，帶起一陣寒飈向前疾飄而去。\n"NOR;
 	message_combatd(msg, me);
 	addatk= 10 + random(10);
 	me->add_temp("apply/attack", addatk);
@@ -90,14 +90,14 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		连续出手六招
+		連續出手六招
 
 	出手要求：
-		冰雪心法50级
-		雪山剑法50级
-		基本剑法50级
-		内力修为500
-		内力400
+		冰雪心法50級
+		雪山劍法50級
+		基本劍法50級
+		內力修爲500
+		內力400
 HELP
         );
         return 1;

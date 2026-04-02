@@ -7,18 +7,18 @@ void create()
 {
 	set("short", "大院");
 	set("long", @LONG
-这里是归云庄的大院，整个院子相当宽敞。左右靠墙各建有几间低
-矮的平房，像是家人的住处。正前方几棵树木，湖中清风吹来，落叶萧
-萧而下。树木再往后是一间大厅。
+這裏是歸雲莊的大院，整個院子相當寬敞。左右靠牆各建有幾間低
+矮的平房，像是家人的住處。正前方几棵樹木，湖中清風吹來，落葉蕭
+蕭而下。樹木再往後是一間大廳。
 LONG );
 	set("outdoors", "guiyun");
 	set("no_clean_up", 0);
 	set("valid_startroom", 1);
 /*
-右首有一对白雕(diao)。原来这里是桃花岛为方便弟子回岛的。
+右首有一對白雕(diao)。原來這裏是桃花島爲方便弟子回島的。
 	set("item_desc", ([
-		"diao" : "一对白雕正展翅欲飞。如果是桃花岛的弟子，\n"
-		"骑上(ride)就可以飞回桃花岛。\n",
+		"diao" : "一對白雕正展翅欲飛。如果是桃花島的弟子，\n"
+		"騎上(ride)就可以飛回桃花島。\n",
 	]));
 */
 	set("exits", ([
@@ -39,11 +39,11 @@ int do_ride ( )
 	object room;
 	object ob = this_player () ;
 	myfam = (mapping)ob->query("family");
-	if(!myfam || myfam["family_name"] != "桃花岛")
+	if(!myfam || myfam["family_name"] != "桃花島")
 	{
-		message_vision("$N一跃身跨上了白雕。只见白雕仰天长唳，突然猛然一颠......\n"
-		HIR "结果$N摔了个鼻青脸肿！\n" NOR
-		"看来白雕对$N并不感兴趣，它只认识桃花岛的弟子。\n" , ob ) ;
+		message_vision("$N一躍身跨上了白雕。只見白雕仰天長唳，突然猛然一顛......\n"
+		HIR "結果$N摔了個鼻青臉腫！\n" NOR
+		"看來白雕對$N並不感興趣，它只認識桃花島的弟子。\n" , ob ) ;
 		ob -> receive_damage ("qi",50) ;
 		ob -> receive_wound  ("qi",50) ;
 		return 1;
@@ -53,21 +53,21 @@ int do_ride ( )
 	if( room = find_object("/d/taohua/lantian") ) 
 	if((int)room->query_temp("tian_trigger")==1 ) 
 	{
-		message_vision("现在白雕正忙着,请过一会再乘坐!\n" , ob) ;
+		message_vision("現在白雕正忙着,請過一會再乘坐!\n" , ob) ;
 		return 1 ;
 	}
 	room->set_temp("tian_trigger", 1);
-	message_vision("$N一跃身跨上了白雕。只见白雕仰天长唳，突然展翅高飞。\n\n"
-		"但看一雕一人身形渐渐缩小，终至不见。\n" , ob );
+	message_vision("$N一躍身跨上了白雕。只見白雕仰天長唳，突然展翅高飛。\n\n"
+		"但看一雕一人身形漸漸縮小，終至不見。\n" , ob );
 	ob->move(room) ;
-	tell_object(ob, CYN  "\n你不断地飞呀飞，万水千山身下飘过 ......\n\n" NOR ) ;
+	tell_object(ob, CYN  "\n你不斷地飛呀飛，萬水千山身下飄過 ......\n\n" NOR ) ;
 	call_out("taohua", 3 , ob );
 	room->delete_temp("tian_trigger");
 	return 1 ;
 }
 void taohua( object ob )
 {
-	tell_object(ob, "你终于飞到了桃花山庄，白雕落了下来。\n\n"  ) ;
+	tell_object(ob, "你終於飛到了桃花山莊，白雕落了下來。\n\n"  ) ;
 	ob -> move ("/d/taohua/damen") ; 
 }
 void reset()

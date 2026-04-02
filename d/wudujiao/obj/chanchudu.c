@@ -15,10 +15,10 @@ void create()
 {
                set_name("蟾蜍毒囊", ({"chanchu dunang" ,"dunang"}));
 
-                set("unit", "个");
-                set("long", "这是一个蟾蜍的毒囊。\n");
+                set("unit", "個");
+                set("long", "這是一個蟾蜍的毒囊。\n");
                 set("value", 100);
-//            set("no_drop", "这样东西不能离开你。\n");
+//            set("no_drop", "這樣東西不能離開你。\n");
               set_weight(100);
 
         setup();
@@ -30,6 +30,6 @@ int do_eat(string arg)
     object ob = this_object();
     if (arg != "xiezi dunang"& arg !="dunang")
     return 0;
-    tell_object(me,  "你想死啊，用suicide比较快一点。\n" );
+    tell_object(me,  "你想死啊，用suicide比較快一點。\n" );
     return 1;
 }

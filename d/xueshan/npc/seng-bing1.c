@@ -14,8 +14,8 @@ void create()
 		"bing",
 	}));
 	set("long",
-                "他是一位身材高大的壮年僧人，两臂粗壮，膀阔腰圆。他手持僧\n"
-                "棍，身穿一袭黑色袈裟，似乎怀有一身武艺。\n"
+                "他是一位身材高大的壯年僧人，兩臂粗壯，膀闊腰圓。他手持僧\n"
+                "棍，身穿一襲黑色袈裟，似乎懷有一身武藝。\n"
 	);
 
 	set("gender", "男性");
@@ -74,13 +74,13 @@ void init()
         && fam["family_name"]!="雪山寺" ))
 	{
 		if( !ob->query_temp("warned") ) {
-                        command("say 你是谁？怎么闯入雪山寺来了！！\n");
-			command("say 快给我速速离开，下次看到决不轻饶！");
+                        command("say 你是誰？怎麼闖入雪山寺來了！！\n");
+			command("say 快給我速速離開，下次看到決不輕饒！");
 			ob->set_temp("warned", 1);
 		}
 		else if( ob->query_temp("stay") < 10 ) ob->add_temp("stay", 1);
 		else {
-                        command("say 大胆狂徒，受死吧！\n");
+                        command("say 大膽狂徒，受死吧！\n");
                         me->set_leader(ob);
 			remove_call_out("kill_ob");
 			call_out("kill_ob", 1, ob); 

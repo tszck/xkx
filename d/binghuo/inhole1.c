@@ -7,9 +7,9 @@ void create()
 {
 	set("short", "外洞");
 	set("long", @LONG
-山洞极是宽敞，有八九丈纵深，中间透入一线天光，宛似天窗一
-般。洞里陶盆、瓷碗、石凳、木桌、竹帚，自有一番情趣。石洞中套
-洞，里头还有一个里洞。
+山洞極是寬敞，有八九丈縱深，中間透入一線天光，宛似天窗一
+般。洞裏陶盆、瓷碗、石凳、木桌、竹帚，自有一番情趣。石洞中套
+洞，裏頭還有一個裏洞。
 LONG );
 	set("no_clean_up", 0);
 	set("exits", ([
@@ -27,7 +27,7 @@ void init()
 
 	ob = this_player();
 
-	message_vision(HIR "\n$N一不小心，掉进了的陷阱！
-$N只觉得脚下一阵巨痛，原来是踩上了......\n\n" NOR, ob);
+	message_vision(HIR "\n$N一不小心，掉進了的陷阱！
+$N只覺得腳下一陣巨痛，原來是踩上了......\n\n" NOR, ob);
 	ob->move(__DIR__"xianjing");
 }

@@ -1,5 +1,5 @@
 // Last Modified by winder on May. 29 2001
-// shaolin-leg.c 少林弹腿 与少林南拳互备
+// shaolin-leg.c 少林彈腿 與少林南拳互備
 
 #include <ansi.h>
 inherit SKILL;
@@ -7,29 +7,29 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N一式"BLU"「落燕式」"NOR"，右腿支地，左腿画弧，直踢$n的头部",
+([	"action" : "$N一式"BLU"「落燕式」"NOR"，右腿支地，左腿畫弧，直踢$n的頭部",
 	"lvl"    : 0,
 	"skill_name" : "落燕式"
 ]),
-([	"action" : "$N身形一闪，已从$n身边掠过，右足反踢，正是一招"HIW"「抚平式」"NOR"，踹向$n的背心",
+([	"action" : "$N身形一閃，已從$n身邊掠過，右足反踢，正是一招"HIW"「撫平式」"NOR"，踹向$n的背心",
 	"lvl"    : 20,
-	"skill_name" : "抚平式"
+	"skill_name" : "撫平式"
 ]),
-([	"action" : "$N身体半蹲，右足画出个半圆，使出"HIC"「追月式」"NOR"，扫向$n的膝部",
+([	"action" : "$N身體半蹲，右足畫出個半圓，使出"HIC"「追月式」"NOR"，掃向$n的膝部",
 	"lvl"    : 40,
 	"skill_name" : "追月式"
 ]),
-([	"action" : "$N上身微侧，左足倏地弹出，踢向$n的头部，裆部，正是一式"GRN"「连环式」"NOR"",
+([	"action" : "$N上身微側，左足倏地彈出，踢向$n的頭部，襠部，正是一式"GRN"「連環式」"NOR"",
 	"lvl"    : 60,
-	"skill_name" : "连环式"
+	"skill_name" : "連環式"
 ]),
-([	"action" : "$N右足独立，左足随身形反转横扫，又左足立定，右足横扫向前，一招"HIG"「扫叶式」"NOR"，踢向$n的$l",
+([	"action" : "$N右足獨立，左足隨身形反轉橫掃，又左足立定，右足橫掃向前，一招"HIG"「掃葉式」"NOR"，踢向$n的$l",
 	"lvl"    : 80,
-	"skill_name" : "扫叶式"
+	"skill_name" : "掃葉式"
 ]),
-([	"action" : "$N跃起在半空，双足乱舞，带起无数劲风，"HIY"「盘龙式」"NOR"！迅捷无伦地卷向$n",
+([	"action" : "$N躍起在半空，雙足亂舞，帶起無數勁風，"HIY"「盤龍式」"NOR"！迅捷無倫地卷向$n",
 	"lvl"    : 100,
-	"skill_name" : "盘龙式"
+	"skill_name" : "盤龍式"
 ]),
 });
 
@@ -39,17 +39,17 @@ int valid_combine(string combo) { return combo=="shaolin-cuff"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("学少林弹腿时手里不能拿武器。\n");
+		return notify_fail("學少林彈腿時手裏不能拿武器。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 1)
-		return notify_fail("你的站桩功火候不够，无法学少林弹腿。\n");
+		return notify_fail("你的站樁功火候不夠，無法學少林彈腿。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if ((int)me->query("qi") < 30)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够练少林弹腿。\n");
+		return notify_fail("你的內力不夠練少林彈腿。\n");
 	me->receive_damage("qi", 20);
 	me->add("neili", -10);
 	return 1;
@@ -76,16 +76,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 30; }
@@ -95,13 +95,13 @@ int power_point(object me) { return 1.0; }
 
 int help(object me)
 {
-	write(HIC"\n少林弹腿："NOR"\n");
+	write(HIC"\n少林彈腿："NOR"\n");
 	write(@HELP
 
-    弹腿是南少林入门腿法，注重腿法练习。
+    彈腿是南少林入門腿法，注重腿法練習。
 
-	学习要求：
-		站桩功
+	學習要求：
+		站樁功
 HELP
 	);
 	return 1;

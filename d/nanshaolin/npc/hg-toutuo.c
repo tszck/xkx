@@ -5,8 +5,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("火工头陀", ({ "huogong toutuo", "huogong", "toutuo" }));
-	set("long", "这是一个混身被熏得漆黑的负责劈柴，生火的火工头陀。\n");
+	set_name("火工頭陀", ({ "huogong toutuo", "huogong", "toutuo" }));
+	set("long", "這是一個混身被燻得漆黑的負責劈柴，生火的火工頭陀。\n");
 	set("gender", "男性");
 	set("attitude", "peaceful");
 	set("class", "bonze");

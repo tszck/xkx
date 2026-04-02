@@ -4,13 +4,13 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-       set_name("刘乘风", ({ "liu chengfeng", "liu" }));
+       set_name("劉乘風", ({ "liu chengfeng", "liu" }));
        set("long", 
        "他就是南四奇“落花流水”中的老三。\n"
-       "南四奇横行江南，行侠仗义，刘承风一手太极剑，更是声震大江南北。\n");
+       "南四奇橫行江南，行俠仗義，劉承風一手太極劍，更是聲震大江南北。\n");
        set("gender", "男性");
        set("title", "南四奇");
-       set("nickname", HIY"柔云剑"NOR);
+       set("nickname", HIY"柔雲劍"NOR);
        set("age", 41);
        set("attitude", "peaceful");
        set("shen_type", 0);
@@ -45,7 +45,7 @@ void create()
        map_skill("sword", "taiji-jian");
        set("chat_chance", 20);
        set("chat_msg", ({
-              "刘乘风忽然纵声长啸：“落花流～～水……”中气充沛，远远传了出去。\n",
+              "劉乘風忽然縱聲長嘯：“落花流～～水……”中氣充沛，遠遠傳了出去。\n",
 	}));
 
        setup();

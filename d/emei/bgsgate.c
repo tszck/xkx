@@ -1,4 +1,4 @@
-//Room: bgsgate.c 报国寺山门
+//Room: bgsgate.c 報國寺山門
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
@@ -6,10 +6,10 @@ string look_gate();
 
 void create()
 {
-      set("short","山门");
+      set("short","山門");
       set("long",@LONG
-报国寺为峨嵋出入之门户。山门(gate)上有一块大匾。寺外苍楠环卫，翠
-柏掩映。由此一路向西上开始登峨嵋山，北面下山是一条弯弯的石阶路。
+報國寺爲峨嵋出入之門戶。山門(gate)上有一塊大匾。寺外蒼楠環衛，翠
+柏掩映。由此一路向西上開始登峨嵋山，北面下山是一條彎彎的石階路。
 LONG);
       set("outdoors", "emei");
       set("item_desc", ([
@@ -33,7 +33,7 @@ string look_gate()
       return
 "　　　　　　　　≌≌≌≌≌≌≌≌≌≌≌≌≌≌≌≌≌\n"
 "　　　　　　　　≌≌　　　　　　　　　　　　　≌≌\n"
-"　　　　　　　　≌≌　　　报　　国　　寺　　　≌≌\n"
+"　　　　　　　　≌≌　　　報　　國　　寺　　　≌≌\n"
 "　　　　　　　　≌≌　　　　　　　　　　　　　≌≌\n"
 "　　　　　　　　≌≌≌≌≌≌≌≌≌≌≌≌≌≌≌≌≌\n";
 }

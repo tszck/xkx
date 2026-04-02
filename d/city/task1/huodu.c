@@ -8,7 +8,7 @@ void create()
 {
 	set_name("霍都", ({ "huo  du"}));
 	set("long",@LONG
-他是金轮法王座下的三弟子。深得法王的真传。
+他是金輪法王座下的三弟子。深得法王的真傳。
 LONG);
 	set("gender", "男性");
 	set("age", 40);

@@ -1,4 +1,4 @@
-// guducheng.c 古笃诚
+// guducheng.c 古篤誠
 
 #include <ansi.h>
 inherit NPC;
@@ -9,9 +9,9 @@ string clear_title(string arg);
 int ask_me();
 void create()
 {
-	set_name("古笃诚", ({ "gu ducheng", "gu" }));
-	set("title",  "大理护卫" );
-	set("long", "他是大理国四大护卫之一。\n");
+	set_name("古篤誠", ({ "gu ducheng", "gu" }));
+	set("title",  "大理護衛" );
+	set("long", "他是大理國四大護衛之一。\n");
 	set("gender", "男性");
 	set("age", 40);
 	set("class", "officer");
@@ -58,13 +58,13 @@ void create()
 	}) );
 
 	set("inquiry", ([
-		"指点武功" : (: ask_me :),
+		"指點武功" : (: ask_me :),
 	]));
 	setup();
 	carry_object("/d/dali/npc/obj/junfu")->wear();
 	carry_object("/kungfu/class/dali/obj/axe")->wield();
 	add_money("silver", 10);
 
-	create_family("大理段家",19,"护卫");
+	create_family("大理段家",19,"護衛");
 }
 #include "/kungfu/class/dali/weishi.h"; 

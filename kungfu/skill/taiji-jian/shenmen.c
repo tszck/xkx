@@ -1,10 +1,10 @@
-// shenmen.c 「神门十三剑」
+// shenmen.c 「神門十三劍」
 // Last Modified by winder on Aug. 18 2002
 
 #include <combat.h>
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "「神门十三剑」"
+#define PNAME "「神門十三劍」"
 int perform(object me, object target)
 {
         mapping prepare;
@@ -22,18 +22,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if( !objectp(weapon = me->query_temp("weapon")) ||
 		weapon->query("skill_type") != "sword" )
-		return notify_fail("你手中无剑，怎能使出「神门十三剑」？！\n");
+		return notify_fail("你手中無劍，怎能使出「神門十三劍」？！\n");
 
 	fskill = "taiji-shengong";
 	bskill = "sword";
@@ -47,32 +47,32 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 140 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为还不够，难以施展"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲還不夠，難以施展"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 125 )
-		return notify_fail("你的"+to_chinese(bskill)+"还不够娴熟，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"還不夠嫺熟，無法使用"+PNAME+"。\n");
 
 	if( me->query_skill_mapped("force") != fskill )
-		return notify_fail("你所用的内功与「神门十三剑」心法相悖！\n");
+		return notify_fail("你所用的內功與「神門十三劍」心法相悖！\n");
 
 	if( !me->query_temp("murong/xingyi") )
 	{
 		if( me->query_skill("sword", 1) < 125 )
-			return notify_fail("你的剑法修为还不够，难以施展「神门十三剑」！\n");
+			return notify_fail("你的劍法修爲還不夠，難以施展「神門十三劍」！\n");
 		if( me->query_skill("taiji-jian", 1) < 125 )
-			return notify_fail("你的太极剑法修为还不够，难以施展「神门十三剑」！\n");
+			return notify_fail("你的太極劍法修爲還不夠，難以施展「神門十三劍」！\n");
 	}
 
 	if( me->query("neili") <= 200 )
-		return notify_fail("你的内力不够，难以施展「神门十三剑」！\n");
+		return notify_fail("你的內力不夠，難以施展「神門十三劍」！\n");
 
 	if( me->query("qi") <= 400 )
-		return notify_fail("你的体力有限，难以施展「神门十三剑」！\n");
+		return notify_fail("你的體力有限，難以施展「神門十三劍」！\n");
 
-	msg = "\n$N运剑如风似电，指尖抖动，$w於瞬息之间刺了十三下，十三点寒星似乎同时扑出，落点不失厘毫，每一剑都刺向$n手腕“神门穴”！\n"NOR;
+	msg = "\n$N運劍如風似電，指尖抖動，$w於瞬息之間刺了十三下，十三點寒星似乎同時撲出，落點不失釐毫，每一劍都刺向$n手腕“神門穴”！\n"NOR;
 
   ap = me->query_skill(bskill,1);
   dp = target->query_skill("dodge",1)/4;
@@ -98,12 +98,12 @@ int perform(object me, object target)
 		{
 			if( objectp(weapon2) )
 			{
-				msg += HIR"$n只觉得“神门穴”上一阵酸麻，手指无力，"
-				"$W"HIR"拿捏不稳，抛在地下！\n"NOR;                        
+				msg += HIR"$n只覺得“神門穴”上一陣痠麻，手指無力，"
+				"$W"HIR"拿捏不穩，拋在地下！\n"NOR;                        
 				weapon2->unequip();
 				weapon2->move(environment(target));
 			}
-			else msg += HIR"$n只觉得“神门穴”上一阵酸麻，$W再也使不出半点力道。\n"NOR;
+			else msg += HIR"$n只覺得“神門穴”上一陣痠麻，$W再也使不出半點力道。\n"NOR;
 
 			level = me->query_skill("taiji-jian", 1);
 			target->reset_action();
@@ -121,7 +121,7 @@ int perform(object me, object target)
 			target->receive_damage("qi", damage, me);
 			target->receive_wound("qi", damage/2, me);
 
-			result = COMBAT_D->damage_msg(damage, "刺伤");
+			result = COMBAT_D->damage_msg(damage, "刺傷");
 			msg += result;
 
 			result = COMBAT_D->status_msg((int)target->query("qi") * 100 /
@@ -134,7 +134,7 @@ int perform(object me, object target)
 	me->receive_damage("qi", 40);
 	me->start_busy(1);
 
-	msg = replace_string( msg, "$l", "神门穴" );
+	msg = replace_string( msg, "$l", "神門穴" );
 	msg = replace_string( msg, "$w", weapon->name() );
 
 	prepare = target->query_skill_prepare();
@@ -153,7 +153,7 @@ int perform(object me, object target)
 	{
 		case "finger" :	msg = replace_string( msg, "$W", "手指" );
 				break;
-		case "cuff" :	msg = replace_string( msg, "$W", "拳头" );
+		case "cuff" :	msg = replace_string( msg, "$W", "拳頭" );
 				break;
 		case "strike" :	msg = replace_string( msg, "$W", "手掌" );
 				break;
@@ -169,7 +169,7 @@ int perform(object me, object target)
 
 void remove_effect(object me, int amount)
 {
-  message_combatd(HIG"$N活动了一下手腕，手上渐渐又有了力气。\n"NOR, me);
+  message_combatd(HIG"$N活動了一下手腕，手上漸漸又有了力氣。\n"NOR, me);
 	me->add_temp("apply/strength", amount);
 	me->delete_temp("acupoint/shenmen");
 }
@@ -182,16 +182,16 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-                这“神门十三剑”共有一十三记招数，每记招式各不相同，但所刺之处，
-全是敌人手腕的“神门穴”。
+                這“神門十三劍”共有一十三記招數，每記招式各不相同，但所刺之處，
+全是敵人手腕的“神門穴”。
 
 	出手要求：
-		激发太极神功
-		基本剑法125级
-		太极剑法125级
-		太极神功100级
-		内力200
-		气血400
+		激發太極神功
+		基本劍法125級
+		太極劍法125級
+		太極神功100級
+		內力200
+		氣血400
 HELP
 	);
 	return 1;

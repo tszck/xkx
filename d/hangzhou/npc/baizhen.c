@@ -7,12 +7,12 @@ inherit NPC;
 void create()
 {
 	set_name("白振", ({ "bai zhen", "bai", "zhen"}) );
-	set("title", "御前侍卫");
-	set("nickname", HIY"金爪"HIB"铁钩"NOR);
+	set("title", "御前侍衛");
+	set("nickname", HIY"金爪"HIB"鐵鉤"NOR);
 	set("gender", "男性");
 	set("age", 64);
 	set("long",
-		"白振是嵩阳派高手，三十年前就驰名武林了。\n");
+		"白振是嵩陽派高手，三十年前就馳名武林了。\n");
 	set("combat_exp", 450000);
         set("shen_type", -1);
 	set("attitude", "heroism");

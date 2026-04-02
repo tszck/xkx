@@ -4,11 +4,11 @@ inherit F_UNIQUE;
 #include <ansi.h>
 void create()
 {
-	set_name("黄伯流", ({ "huang boliu","huang","boliu"}) );
+	set_name("黃伯流", ({ "huang boliu","huang","boliu"}) );
 	set("gender", "男性" );
-	set("nickname", HIW"银髯蛟"NOR);
+	set("nickname", HIW"銀髯蛟"NOR);
 	set("age", 85);
-	set("long", "一部白须，直垂至胸，身材魁梧之极。\n");
+	set("long", "一部白鬚，直垂至胸，身材魁梧之極。\n");
 	set("attitude", "friendly");
 	set("shen_type", 1);
 	set("env/wimpy", 40);
@@ -39,12 +39,12 @@ void create()
 	map_skill("unarmed", "changquan");
 
 	set("inquiry", ([
-		"日月神教" : "你想加入我日月神教，就得找四大堂长老。",
-		"入教"     : "你想加入我日月神教，就得找四大堂长老。",
+		"日月神教" : "你想加入我日月神教，就得找四大堂長老。",
+		"入教"     : "你想加入我日月神教，就得找四大堂長老。",
 	]));
 
 	set("party/party_name", HIB"日月神教"NOR);
-	set("party/rank", HIC"风雷堂香主"NOR);
+	set("party/rank", HIC"風雷堂香主"NOR);
 	create_family("黑木崖", 10, "弟子");
 
 	setup();
@@ -59,7 +59,7 @@ void attempt_apprentice(object ob)
 
 string ask_me()
 {
-	return "你想加入我日月神教就得去找四大长老。";
+	return "你想加入我日月神教就得去找四大長老。";
 }
 void init()
 {

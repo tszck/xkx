@@ -8,7 +8,7 @@ void create()
 	set_name("青城弟子", ({ "qingcheng dizi", "dizi" }));
 	set("gender", "男性");
 	set("age", 20);
-	set("long", "他是「青城派」年轻一代弟子。\n");
+	set("long", "他是「青城派」年輕一代弟子。\n");
 
 	set("combat_exp", 30000);
 	set("shen_type", -1);

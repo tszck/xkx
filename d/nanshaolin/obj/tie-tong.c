@@ -6,13 +6,13 @@ inherit F_LIQUID;
 
 void create()
 {
-	set_name("大铁桶", ({"tie tong", "tong"}));
+	set_name("大鐵桶", ({"tie tong", "tong"}));
 	set_weight(50000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long","一对大铁桶，比之寻常水桶大了两倍有余，只怕有二百多斤重。\n");
-		set("unit", "对");
+		set("long","一對大鐵桶，比之尋常水桶大了兩倍有餘，只怕有二百多斤重。\n");
+		set("unit", "對");
 		set("value", 100);
 		set("max_liquid", 10);
 		set("shaolin", 1);
@@ -44,7 +44,7 @@ int do_fill(string arg)
 		write("只有在山外佛心井才能灌水。\n");
 		return 1;
 	}
-	message_vision("$N将$n装满清水。\n", me, this_object());
+	message_vision("$N將$n裝滿清水。\n", me, this_object());
 	set("liquid/remaining", query("max_liquid"));
 	return 1;
 }
@@ -55,20 +55,20 @@ int do_pour(string arg)
 	if (!arg || arg != "gang") return 0;
 	if (base_name(environment(me)) != "/d/nanshaolin/houdian")
 	{
-		write("要到后殿才有水缸让你倒水。\n");
+		write("要到後殿纔有水缸讓你倒水。\n");
 		return 1;
 	}
 	if (!query("liquid/remaining"))
 	{
-		message_vision("$N拿着两只空铁桶对着大水缸比划着。\n", me);
+		message_vision("$N拿着兩隻空鐵桶對着大水缸比劃着。\n", me);
 		return 1;
 	}
 	if (query("liquid/remaining") < query("max_liquid"))
 	{
-		message_vision("$N拿着两只没装满水的铁桶对着大水缸比划着。\n", me);
+		message_vision("$N拿着兩隻沒裝滿水的鐵桶對着大水缸比劃着。\n", me);
 		return 1;
 	}
-	message_vision("$N将清水倒入大水缸中。\n", me, this_object());
+	message_vision("$N將清水倒入大水缸中。\n", me, this_object());
 	me->receive_damage("qi", 100);
 	if(me->query_skill("yiwei-dujiang", 1) < 150)
 	{
@@ -78,7 +78,7 @@ int do_pour(string arg)
 	if (me->add("carry_count", -1) < 1)
 	{
 		me->delete("carry_count");
-		message_vision("$N干完活，丢下镣铐和铁桶，伸了个懒腰。\n", me);
+		message_vision("$N幹完活，丟下鐐銬和鐵桶，伸了個懶腰。\n", me);
 		if (present("liao kao", me)) destruct(present("liao kao", me));
 		destruct(this_object());
 	}

@@ -7,10 +7,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "乌鞘岭");
+	set("short", "烏鞘嶺");
 	set("long", @LONG
-乌鞘岭是武威东南的一个险要地段，黑石山上密林重重，时常有野
-兽出没。一条官道从山下蜿蜒而过。
+烏鞘嶺是武威東南的一個險要地段，黑石山上密林重重，時常有野
+獸出沒。一條官道從山下蜿蜒而過。
 LONG );
 	set("exits", ([
 		"south"     : __DIR__"dacaigou",

@@ -25,7 +25,7 @@ nomask void add_encumbrance(int w)
 void over_encumbrance()
 {
 	if( !interactive(this_object()) ) return;
-	tell_object(this_object(), "你的负荷过重了！\n");
+	tell_object(this_object(), "你的負荷過重了！\n");
 }
 
 nomask int query_weight() { return weight; }
@@ -53,7 +53,7 @@ varargs int move(mixed dest, int silently)
 
 	// If we are equipped, unequip first.
 	if( query("equipped") && !me->unequip() )
-		return notify_fail("你没有办法取下这样东西。\n");
+		return notify_fail("你沒有辦法取下這樣東西。\n");
 
 	// Find the destination ob for moving.
 	if( objectp(dest) )
@@ -77,9 +77,9 @@ varargs int move(mixed dest, int silently)
 		> (int)ob->query_max_encumbrance() )
 	{
 		if( ob==this_object() )
-			return notify_fail(me->name() + "对你而言太重了。\n");
+			return notify_fail(me->name() + "對你而言太重了。\n");
 		else
-			return notify_fail(me->name() + "对" + ob->name() +"而言太重了。\n");
+			return notify_fail(me->name() + "對" + ob->name() +"而言太重了。\n");
 	}
 
 	// Move the object and update encumbrance
@@ -143,17 +143,17 @@ varargs int move(mixed dest, int silently)
 				if ( environment()->query("outdoors") &&
 					!present("fire", this_object()) &&
 					!wizardp(this_object()) &&
-					((strsrch(time, "亥时") >= 0) ||
-					 (strsrch(time, "子时") >= 0) ||
-					 (strsrch(time, "丑时") >= 0) ||
-					 (strsrch(time, "寅时") >= 0) ))
-					str += "    天色太黑了，你看不清明显的出路。\n";
+					((strsrch(time, "亥時") >= 0) ||
+					 (strsrch(time, "子時") >= 0) ||
+					 (strsrch(time, "醜時") >= 0) ||
+					 (strsrch(time, "寅時") >= 0) ))
+					str += "    天色太黑了，你看不清明顯的出路。\n";
 				else if( sizeof(dirs)==0 )
-					str += "    这里没有任何明显的出路。\n";
+					str += "    這裏沒有任何明顯的出路。\n";
 				else if( sizeof(dirs)==1 )
-					str += "    这里唯一的出口是 " + BOLD + dirs[0] + NOR + "。\n";
+					str += "    這裏唯一的出口是 " + BOLD + dirs[0] + NOR + "。\n";
 				else
-					str += sprintf("    这里明显的出口是 " + BOLD + "%s" + NOR + " 和 " + BOLD + "%s" + NOR + "。\n",
+					str += sprintf("    這裏明顯的出口是 " + BOLD + "%s" + NOR + " 和 " + BOLD + "%s" + NOR + "。\n",
 					implode(dirs[0..sizeof(dirs)-2], "、"), dirs[sizeof(dirs)-1]);
 			}
 			tell_object(me, str);
@@ -176,7 +176,7 @@ void remove(string euid)
 	if( userp(this_object()) && euid!=ROOT_UID ) {
 		log_file("destruct", sprintf("%s attempt to destruct user object %s (%s)\n",
 			euid, this_object()->query("id"), ctime(time())));
-		error("你(" + euid + ")不能摧毁其他的使用者。\n");
+		error("你(" + euid + ")不能摧毀其他的使用者。\n");
 	} else if( this_object()->query("equipped")) {
 		if(	!this_object()->unequip() )
 			log_file("destruct", sprintf("Failed to unequip %s when destructed.\n",file_name(this_object())));
@@ -193,7 +193,7 @@ void remove(string euid)
 int move_or_destruct( object dest )
 {
 	if( userp(this_object()) ) {
-		tell_object(this_object(), "一阵时空的扭曲将你传送到另一个地方....\n");
+		tell_object(this_object(), "一陣時空的扭曲將你傳送到另一個地方....\n");
 		move(VOID_OB);
 	}
 }

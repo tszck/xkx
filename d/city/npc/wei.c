@@ -4,11 +4,11 @@
 inherit NPC;
 void create()
 {
-	set_name("韦春芳", ({ "wei chunfang", "chunfang", "wei" }) );
+	set_name("韋春芳", ({ "wei chunfang", "chunfang", "wei" }) );
 	set("gender", "女性" );
-	set("title", "丽春院老板娘");
+	set("title", "麗春院老闆娘");
 	set("age", 42);
-	set("long", "韦春芳是当朝鹿鼎公兼天地会青木堂香主韦小宝他娘，虽是徐\n娘半老，但风韵犹存。\n");
+	set("long", "韋春芳是當朝鹿鼎公兼天地會青木堂香主韋小寶他娘，雖是徐\n娘半老，但風韻猶存。\n");
 	set("no_get", "1");
 	set("no_get_from", 1);
 	set("str", 25);
@@ -30,19 +30,19 @@ void create()
 
 	set("attitude", "friendly");
 	set("inquiry", ([
-		"name"   : "老娘我就是韦春芳。",
-		"韦小宝" : "那是我的乖儿子，长得就像你。",
-		"丽春院" : "我们丽春院可是扬州城里头一份的找乐子去处。",
-		"here"   : "我们丽春院可是扬州城里头一份的找乐子去处。",
+		"name"   : "老孃我就是韋春芳。",
+		"韋小寶" : "那是我的乖兒子，長得就像你。",
+		"麗春院" : "我們麗春院可是揚州城裏頭一份的找樂子去處。",
+		"here"   : "我們麗春院可是揚州城裏頭一份的找樂子去處。",
 	]) );
 
 	setup();
 	set("chat_chance", 15);
 	set("chat_msg", ({
-		"韦春芳得意地说道：当年老娘我标致得很，每天有好几个客人。\n",
-		"韦春芳怒骂道：辣块妈妈，要是罗刹鬼、红毛鬼子到丽春院来，老娘用
-大扫帚拍了出去。\n",
-		"韦春芳对你说道：你一双眼睛贼忒嘻嘻的，真像那个喇嘛！\n",
+		"韋春芳得意地說道：當年老孃我標緻得很，每天有好幾個客人。\n",
+		"韋春芳怒罵道：辣塊媽媽，要是羅剎鬼、紅毛鬼子到麗春院來，老孃用
+大掃帚拍了出去。\n",
+		"韋春芳對你說道：你一雙眼睛賊忒嘻嘻的，真像那個喇嘛！\n",
 	}) );
 	carry_object("/d/city/obj/flower_shoe")->wear();
 
@@ -64,30 +64,30 @@ void greeting(object me)
 {
 	command("look " + me->query("id"));
 
-	if ((me->query("gender")=="无性") &&
+	if ((me->query("gender")=="無性") &&
 		(file_name(environment())=="/d/city/lichunyuan"))
 	{
-		command("say 你当老娘是烂婊子吗？辣块妈妈，老娘满汉蒙藏回都接，
-就是不伺太监！\n");
+		command("say 你當老孃是爛婊子嗎？辣塊媽媽，老孃滿漢蒙藏回都接，
+就是不伺太監！\n");
 		command("kick " + me->query("id"));
-		message("vision", me->name() +"被韦春芳一脚踢出门外。\n", environment(me), ({me}));
+		message("vision", me->name() +"被韋春芳一腳踢出門外。\n", environment(me), ({me}));
 		me->move("/d/city/beiliuxiang");
-		message("vision", me->name() + "被人从丽春院里踢了出来，栽倒在地上，磕掉两颗门牙。\n",environment(me), ({me}));
+		message("vision", me->name() + "被人從麗春院裏踢了出來，栽倒在地上，磕掉兩顆門牙。\n",environment(me), ({me}));
 	}
 	else
 	{
 		if (me->query("class") =="bonze")
 		{
-			command( "say 呦，" + RANK_D->query_respect(me)+"也来光顾我们丽春院啊。");
-			command( "say 想当年我接过一个西藏喇嘛，他上床前一定要念经，一面念经，眼珠子就骨溜溜的瞧着我。");
+			command( "say 呦，" + RANK_D->query_respect(me)+"也來光顧我們麗春院啊。");
+			command( "say 想當年我接過一個西藏喇嘛，他上牀前一定要念經，一面唸經，眼珠子就骨溜溜的瞧着我。");
 		}
 		if (me->query("gender")=="女性")
 		{
-			command("say 哎呀，这年月大姑娘也逛窑子，成何体统。");
+			command("say 哎呀，這年月大姑娘也逛窯子，成何體統。");
 			command("sigh");
-			command("say 可惜我儿子不在，不然让他伺候你。");
+			command("say 可惜我兒子不在，不然讓他伺候你。");
 		}
-		command("say 楼上楼下的姑娘们，客人来了！");
+		command("say 樓上樓下的姑娘們，客人來了！");
 	}
 	return ;
 }
@@ -99,24 +99,24 @@ int do_sell(string arg)
  
 	
 	if (!arg || !(ob = present(arg, this_player())))
-		return notify_fail("你要卖什么？\n");
+		return notify_fail("你要賣什麼？\n");
 	if (!userp(ob))
-		return notify_fail("老娘只买「人」。你这是要给我什么东东？\n");
+		return notify_fail("老孃只買「人」。你這是要給我什麼東東？\n");
 	if( query_ip_name(this_player()) == query_ip_name(ob))
-		return notify_fail("自己卖自己？实在是发财有道了。\n");
+		return notify_fail("自己賣自己？實在是發財有道了。\n");
 	if (ob->query_condition("prostitute") > 1)
-		return notify_fail("这人已经是老娘的人了。你还敢来骗钱？\n");
+		return notify_fail("這人已經是老孃的人了。你還敢來騙錢？\n");
 
 	ob->set("value", ob->query("per") * 800);
-	command("rumor "+ob->query("name")+"被拐卖到丽春院了，不多不少，正好" +
-		CHINESE_D->chinese_number(ob->query("value")) + "个铜板哪。\n");
+	command("rumor "+ob->query("name")+"被拐賣到麗春院了，不多不少，正好" +
+		CHINESE_D->chinese_number(ob->query("value")) + "個銅板哪。\n");
 
-	message_vision("$N把" + ob->query("name") + "卖给韦春芳。\n", this_player());
+	message_vision("$N把" + ob->query("name") + "賣給韋春芳。\n", this_player());
 	command("sys "+ob->query("name")+"被" +this_player()->query("name")+"("+this_player()->query("id")+")。");
 	log_file("sell",sprintf("%-20s sell %-20s [%s]\n",this_player()->query("name")+"("+this_player()->query("id")+")",ob->query("name")+"("+ob->query("id")+")",ctime(time())));
 	MONEY_D->pay_player(this_player(), value * 70 / 100);
 	myenv = environment (this_player());
-	tell_room(myenv,"韦春芳开心大笑：老娘要发财了。\n");
+	tell_room(myenv,"韋春芳開心大笑：老孃要發財了。\n");
 	ob->move("/d/city/lichunyuan2");
 	ob->set("startroom","/d/city/lichunyuan2");
 	ob->apply_condition("prostitute", 50);

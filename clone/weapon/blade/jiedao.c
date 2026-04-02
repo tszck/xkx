@@ -13,9 +13,9 @@ void create()
 		 set("unit", "柄");
 		 set("value", 500);
 		 set("material", "iron");
-		 set("long", "这是一柄寺庙里可以见到的戒刀。\n");
+		 set("long", "這是一柄寺廟裏可以見到的戒刀。\n");
 		 set("wield_msg", "$N抽出一把明晃晃的$n握在手中。\n");
-		 set("unequip_msg", "$N将手中的$n插入腰间的刀鞘。\n");
+		 set("unequip_msg", "$N將手中的$n插入腰間的刀鞘。\n");
 	 }
 	 init_blade(25);
 	 setup();

@@ -3,7 +3,7 @@ inherit NPC;
 
 void create()
 {
-	set_name("护塔僧", ({ "huta seng","seng"}) );
+	set_name("護塔僧", ({ "huta seng","seng"}) );
 	set("gender", "男性" );
 	set("class", "bonze");
 	set("age", 30);
@@ -32,8 +32,8 @@ void create()
 	map_skill("force", "kurong-changong");
 	map_skill("dodge", "tiannan-step");
 	set("inquiry" ,([
-	"舍利子" : "“那是我寺之宝，原来供奉在塔顶，施主想上去看看吗？”\n",
-	"上塔" : "“施主也该知道我们的清苦生活啦。难道不意思意思一下？”\n",
+	"舍利子" : "“那是我寺之寶，原來供奉在塔頂，施主想上去看看嗎？”\n",
+	"上塔" : "“施主也該知道我們的清苦生活啦。難道不意思意思一下？”\n",
 	]));
 
 	setup();
@@ -47,13 +47,13 @@ int accept_object(object who, object ob)
 	{
 	if( ob->value() >= 100000) 
 		{
-        message_vision("$n悄悄地把$N带上了塔顶。\n", who, obj);
+        message_vision("$n悄悄地把$N帶上了塔頂。\n", who, obj);
 		who->move("/d/tianlongsi/tading");
 		return 1;
 		}
 	else
 		{
- message_vision("$n双手合十，对着$N朗声宣道：“阿弥陀佛！”\n", who, obj);
+ message_vision("$n雙手合十，對着$N朗聲宣道：“阿彌陀佛！”\n", who, obj);
 		return 1;
 		}
 	}

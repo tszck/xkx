@@ -1,4 +1,4 @@
-// makadaowoman.c 马卡道族女子
+// makadaowoman.c 馬卡道族女子
 // Last Modifyed by Ahda on Jan. 4 2002
 
 inherit NPC;
@@ -8,7 +8,7 @@ void create()
 	int age;
 	age = 20 + random(40);
 	
-	set_name("马卡道族女子", ({ "makadao woman", "woman"}));
+	set_name("馬卡道族女子", ({ "makadao woman", "woman"}));
 	set("gender", "女性");
 	set("age", age);
 

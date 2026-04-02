@@ -3,7 +3,7 @@ inherit NPC;
 void create()
 {
         set_name("老僧人",({"lao seng", "lao", "seng"}));
-        set("long", "一个老朽的僧人，脸上满是皱纹，眼睛都睁不开来了。\n" );
+        set("long", "一個老朽的僧人，臉上滿是皺紋，眼睛都睜不開來了。\n" );
         set("gender", "男性");
         set("attitude", "peace");
         set("age", 87);

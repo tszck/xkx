@@ -25,7 +25,7 @@ int main(object me, string arg)
 
 	if (file_size(flogin) < 0 && file_size(fuser) < 0)
 	{
-		write("这个玩家在暂存区中没有临时档案。\n");
+		write("這個玩家在暫存區中沒有臨時檔案。\n");
 		return 1;
 	}
 
@@ -33,11 +33,11 @@ int main(object me, string arg)
 	rm(fuser);
 	if (file_size(flogin) >= 0 || file_size(fuser) >= 0)
 	{
-		write("清除暂存区中玩家(" + arg + ")的文件失败了。");
+		write("清除暫存區中玩家(" + arg + ")的文件失敗了。");
 		return 1;
 	}
 
-	write("成功的清除暂存中玩家(" + arg + ")的档案。\n");
+	write("成功的清除暫存中玩家(" + arg + ")的檔案。\n");
 	return 1;
 }
 
@@ -46,10 +46,10 @@ int help(object me)
 	write(@HELP
 指令格式：cleartemp <玩家ID>
 
-    这是清除暂存区中的玩家临时档案的命令，这些临时档案一般是使
-用 restore命令从备份区恢复玩家数据时产生的。
+    這是清除暫存區中的玩家臨時檔案的命令，這些臨時檔案一般是使
+用 restore命令從備份區恢復玩家數據時產生的。
 
-相关指令：restore
+相關指令：restore
 HELP );
     return 1;
 }

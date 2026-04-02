@@ -1,4 +1,4 @@
-// xuanfeng.c 铁掌掌法 「旋风快掌」
+// xuanfeng.c 鐵掌掌法 「旋風快掌」
 
 #include <ansi.h>
 #include <skill.h>
@@ -6,7 +6,7 @@
 #include <combat.h>
 
 inherit F_SSERVER;
-#define PNAME "「旋风快掌」"
+#define PNAME "「旋風快掌」"
 int perform(object me, object target)
 {
 	object weapon, ob;
@@ -22,17 +22,17 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("使「旋风快掌」时不能拿着兵器！\n");
+		return notify_fail("使「旋風快掌」時不能拿着兵器！\n");
 
 	fskill = "guiyuan-tunafa";
 	bskill = "strike";
@@ -46,18 +46,18 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"还不到家，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"還不到家，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 300 )
-		return notify_fail("你的真气不够！\n");
+		return notify_fail("你的真氣不夠！\n");
 
 	if( (int)me->query("max_neili") < 300 )
-		return notify_fail("你的内力修为不够！\n");
+		return notify_fail("你的內力修爲不夠！\n");
 
-	msg = HIY "$N"HIY"使出铁掌的绝技「旋风快掌」，出手陡然加快！\n" NOR;
+	msg = HIY "$N"HIY"使出鐵掌的絕技「旋風快掌」，出手陡然加快！\n" NOR;
 	message_combatd(msg, me);
 
 	for (count=0;count<3;count++)
@@ -81,13 +81,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		连续出手三招
+		連續出手三招
 
 	出手要求：
-		归元吐纳法50级
-		铁掌掌法100级
-		内力修为400
-		内力300
+		歸元吐納法50級
+		鐵掌掌法100級
+		內力修爲400
+		內力300
 HELP
 	);
 	return 1;

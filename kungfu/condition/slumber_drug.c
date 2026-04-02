@@ -15,8 +15,8 @@ int update_condition(object me, int duration)
 	} else
 		if( duration > limit/2 )
 		{
-			tell_object(me,"你觉得脑中昏昏沉沉，心中空荡荡的，直想躺下来睡一觉。\n");
-			message("vision", me->name() + "摇头晃脑地站都站不稳，显然是蒙汗药的药力发作了。\n", environment(me), me);
+			tell_object(me,"你覺得腦中昏昏沉沉，心中空蕩蕩的，直想躺下來睡一覺。\n");
+			message("vision", me->name() + "搖頭晃腦地站都站不穩，顯然是蒙汗藥的藥力發作了。\n", environment(me), me);
 		}
 
 	me->apply_condition("slumber_drug", duration - 1);

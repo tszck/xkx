@@ -7,8 +7,8 @@ void create()
 {
         set("short", "山道");
         set("long", @LONG
-此段山路是通往后山脚。往南上是一大片树林。往北下可以望见
-一个较大的湖。
+此段山路是通往後山腳。往南上是一大片樹林。往北下可以望見
+一個較大的湖。
 LONG
         );
         set("outdoors", "zhongnan");

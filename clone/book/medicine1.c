@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIY"黄帝内经"NOR, ({ "huangdi neijing", "neijing", "jing"}));
+	set_name(HIY"黃帝內經"NOR, ({ "huangdi neijing", "neijing", "jing"}));
 	set_weight(10);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long","这是据传上古时代轩辕黄帝传世的医书。\n");
+		set("long","這是據傳上古時代軒轅黃帝傳世的醫書。\n");
 		set("value", 1500);
 		set("material", "paper");
 		set("skill", ([

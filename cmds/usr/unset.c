@@ -4,7 +4,7 @@
 
 inherit F_CLEAN_UP;
 
-// 增加以下两个数组，用于检查环境变量设置的合法性。
+// 增加以下兩個數組，用於檢查環境變量設置的合法性。
 // Added by Constant Jan 4 2001
 string *player_settings = ({
 	"brief",
@@ -50,18 +50,18 @@ int main(object me, string arg)
 
 	if (arg == "all") { 
 		me->delete("env");
-		write("你的环境变量已被清空。\n");
+		write("你的環境變量已被清空。\n");
 		return 1;
 	}
 
 	if (!me->query("env/" + arg))
-		return notify_fail("你并没有设过这个环境变量。\n");
+		return notify_fail("你並沒有設過這個環境變量。\n");
 
 	if (member_array(arg, player_settings) == -1) {
 		if (!wizardp(me))
-			return notify_fail("没有这种环境变量，请参照帮助。\n");
+			return notify_fail("沒有這種環境變量，請參照幫助。\n");
 		else if (member_array(arg, wizard_settings) == -1)
-			return notify_fail("没有这种环境变量，请参照帮助。\n");
+			return notify_fail("沒有這種環境變量，請參照幫助。\n");
 	}
 
 	me->delete("env/" + arg);
@@ -72,10 +72,10 @@ int main(object me, string arg)
 int help()
 {
 	write(@TEXT
-指令格式：unset <变量名> | all
+指令格式：unset <變量名> | all
 
-    这个指令让你删除环境变量的设定，若所带参数为all， 则删
-除所有环境变量。
+    這個指令讓你刪除環境變量的設定，若所帶參數爲all， 則刪
+除所有環境變量。
 
 See also：set
 TEXT

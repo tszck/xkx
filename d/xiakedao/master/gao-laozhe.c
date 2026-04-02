@@ -6,10 +6,10 @@ inherit F_MASTER;
 void create()
 {
 	set_name("高老者", ({ "gao-laozhe", "gao" }));
-	set("title", HIR"华山第十二代长老"NOR);
+	set("title", HIR"華山第十二代長老"NOR);
 	set("long", 
-"他就是华山的长老高老者。一副浑不在乎的模样，开朗乐天，万事不萦怀，\n"
-"但事事追随他的师兄矮老者。\n");
+"他就是華山的長老高老者。一副渾不在乎的模樣，開朗樂天，萬事不縈懷，\n"
+"但事事追隨他的師兄矮老者。\n");
 	set("gender", "男性");
 	set("age", 65);
 	set("attitude", "peaceful");
@@ -53,7 +53,7 @@ void create()
 	map_skill("sword", "huashan-sword");
 	map_skill("strike", "hunyuan-zhang");
 
-	create_family("华山派", 12, "弟子");
+	create_family("華山派", 12, "弟子");
 
 	set("chat_chance_combat", 60);
 	set("chat_msg_combat", ({

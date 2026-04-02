@@ -6,9 +6,9 @@ void create()
 {
 	set("short", "雪地");
 	set("long", @LONG
-这里是一片白茫茫的雪地，一眼望不到边际。四周一个人影也没有，
-厚厚的积雪踩起来发出咯吱的响声，大地上留下一串孤独的脚印。寒冷
-的北风呼啸而过，吹得脸生痛。暗淡的太阳低悬在天边，显得那么苍白。
+這裏是一片白茫茫的雪地，一眼望不到邊際。四周一個人影也沒有，
+厚厚的積雪踩起來發出咯吱的響聲，大地上留下一串孤獨的腳印。寒冷
+的北風呼嘯而過，吹得臉生痛。暗淡的太陽低懸在天邊，顯得那麼蒼白。
 LONG );
 	set("exits", ([
 		"north"  : __DIR__"chuanchang",
@@ -25,6 +25,6 @@ int valid_leave(object me, string dir)
 {
 	me->receive_damage("qi",30);
 	me->receive_wound("qi",30);
-	tell_object(me,"一股刺骨的寒风吹过，你只觉得浑身的血液都快被冻住了！\n");
+	tell_object(me,"一股刺骨的寒風吹過，你只覺得渾身的血液都快被凍住了！\n");
 	return 1;
 }

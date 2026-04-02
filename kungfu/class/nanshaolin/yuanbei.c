@@ -8,8 +8,8 @@ inherit F_MASTER;
 void create()
 {
 	set_name("元悲", ({ "yuan bei", "bei", "yuan" }));
-	set("long","他是一位中等个子的和尚，身穿一袭青布镶边袈裟。太阳穴微凸，双目炯炯有神。\n");
-	set("nickname", "达摩院上座三僧");
+	set("long","他是一位中等個子的和尚，身穿一襲青布鑲邊袈裟。太陽穴微凸，雙目炯炯有神。\n");
+	set("nickname", "達摩院上座三僧");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -43,7 +43,7 @@ void create()
 	set_skill("boluomi-hand", 100);
 	set_skill("jingang-strike", 100);
 // basic skill end
-// 拳、腿、刀、剑
+// 拳、腿、刀、劍
 	set_skill("cuff", 100);
 	set_skill("leg", 100);
 	set_skill("shaolin-leg", 100);

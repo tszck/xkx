@@ -7,9 +7,9 @@ int exert(object me, object target)
 {
 	if( !wizardp (me)) return 0;
 	if( !target )
-		return notify_fail("你要用真气为谁疗伤？\n");
+		return notify_fail("你要用真氣爲誰療傷？\n");
 
-	message_combatd( HIY "$N坐了下来运起内功，将手掌贴在$n背心，缓缓地将真气输入$n体内....\n\n过了不久，$N额头上冒出豆大的汗珠，$n吐出一口瘀血，脸色看起来红润多了。\n" NOR, me, target );
+	message_combatd( HIY "$N坐了下來運起內功，將手掌貼在$n背心，緩緩地將真氣輸入$n體內....\n\n過了不久，$N額頭上冒出豆大的汗珠，$n吐出一口瘀血，臉色看起來紅潤多了。\n" NOR, me, target );
 
 	target->set("eff_qi", target->query("max_qi"));
 	target->set("qi", target->query("max_qi"));

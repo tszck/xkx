@@ -13,8 +13,8 @@ void create()
 {
 	set("short", HIW"金"NOR);
 	set("long", @LONG
-这里是五行层的金，你一走下来，往上的铁梯就被撤掉了。五行层
-的构局互相连通，进入后就迷失了方向。每一行与其他四行的关系是生、
+這裏是五行層的金，你一走下來，往上的鐵梯就被撤掉了。五行層
+的構局互相連通，進入後就迷失了方向。每一行與其他四行的關係是生、
 被生、克、被克。
 LONG
 	);
@@ -51,20 +51,20 @@ void init()
 		me->set_temp("wuxing_total", 12);
 		me->set_temp("wuxing_step", 1);
 		me->set_temp("wuxing_error", 1);
-		tempstr = "由于";
-		if (me->query_temp("liangyi") < 0) tempstr += "误断两仪";
-		if (me->query_temp("sixiang") < 0) tempstr += "乱入四象";
-		if (me->query_temp("wuxing") < 0) tempstr += "错踏五行";
-		me->set_temp("last_damage_from", tempstr + "，触发阵中机关而被射");
+		tempstr = "由於";
+		if (me->query_temp("liangyi") < 0) tempstr += "誤斷兩儀";
+		if (me->query_temp("sixiang") < 0) tempstr += "亂入四象";
+		if (me->query_temp("wuxing") < 0) tempstr += "錯踏五行";
+		me->set_temp("last_damage_from", tempstr + "，觸發陣中機關而被射");
 	}
 	if (me->query_temp("sixiang") < 0 || me->query_temp("liangyi") < 0) 
 		me->set_temp("wuxing", -1);
 	if (me->query_temp("wuxing_error") >= 12) {
-		tempstr = "由于你";
-		if (me->query_temp("liangyi") < 0) tempstr += "误断两仪、";
-		if (me->query_temp("sixiang") < 0) tempstr += "乱入四象、";
-//		if (me->query_temp("wuxing") < 0) tempstr += "错踏五行";
-		write(tempstr + "错踏五行，被一股大力甩出了阵，正好摔到山脚下的一块岩石上！\n"); 
+		tempstr = "由於你";
+		if (me->query_temp("liangyi") < 0) tempstr += "誤斷兩儀、";
+		if (me->query_temp("sixiang") < 0) tempstr += "亂入四象、";
+//		if (me->query_temp("wuxing") < 0) tempstr += "錯踏五行";
+		write(tempstr + "錯踏五行，被一股大力甩出了陣，正好摔到山腳下的一塊岩石上！\n"); 
 		me->delete_temp("wuxing");
 		me->delete_temp("liangyi");
 		me->delete_temp("sixiang");
@@ -76,7 +76,7 @@ void init()
 		return;
 	}
 	if (me->query_temp("wuxing_step") >= me->query_temp("wuxing_total")) {
-		write("你将五行踏遍，终于穿出了迷阵，从高台底层走了出来。\n"); 
+		write("你將五行踏遍，終於穿出了迷陣，從高臺底層走了出來。\n"); 
 		me->delete_temp("wuxing");
 		me->delete_temp("liangyi");
 		me->delete_temp("sixiang");
@@ -90,13 +90,13 @@ void init()
 
 int do_save()
 {
-	write("这里不准存盘！\n");
+	write("這裏不準存盤！\n");
 	return 1;
 }
 
 int do_quit()
 {
-	write("这里不准退出！\n");
+	write("這裏不準退出！\n");
 	return 1;
 }
 
@@ -106,7 +106,7 @@ int valid_leave(object me, string dir)
 
 	if (dir == "shui" || dir == "huo" || dir == "mu" || dir == "tu") {
 		if (wuxing < 0) {
-			write("阵中机关忽然大作，数道青芒红芒击中了你，你只觉全身痛楚，意识也有些模糊了！\n");
+			write("陣中機關忽然大作，數道青芒紅芒擊中了你，你只覺全身痛楚，意識也有些模糊了！\n");
 			me->receive_wound("jing", 50);
 			me->receive_wound("qi", 50);
 			me->add_temp("wuxing_error", 1);
@@ -115,7 +115,7 @@ int valid_leave(object me, string dir)
 			switch (dir) {
 				case "mu":
 					if (wuxing == 1) {
-						write("阵中机关忽然发作，一道红芒击中了你，你只觉一阵痛楚！\n");
+						write("陣中機關忽然發作，一道紅芒擊中了你，你只覺一陣痛楚！\n");
 						me->receive_damage("qi", 40);
 						me->add_temp("wuxing_error", 1);
 					}
@@ -128,7 +128,7 @@ int valid_leave(object me, string dir)
 						me->add_temp("wuxing_total", 1);
 					}
 					else {
-						write("阵中机关忽然大作，数道青芒红芒击中了你，你只觉全身痛楚，意识也有些模糊了！\n");
+						write("陣中機關忽然大作，數道青芒紅芒擊中了你，你只覺全身痛楚，意識也有些模糊了！\n");
 						me->receive_wound("jing", 40);
 						me->receive_wound("qi", 40);
 						me->add_temp("wuxing_error", 1);
@@ -137,7 +137,7 @@ int valid_leave(object me, string dir)
 
 				case "huo":
 					if (wuxing == 1) {
-						write("阵中机关忽然大作，数道青芒红芒击中了你，你只觉全身痛楚，意识也有些模糊了！\n");
+						write("陣中機關忽然大作，數道青芒紅芒擊中了你，你只覺全身痛楚，意識也有些模糊了！\n");
 						me->receive_wound("jing", 40);
 						me->receive_wound("qi", 40);
 						me->add_temp("wuxing_error", 1);
@@ -151,7 +151,7 @@ int valid_leave(object me, string dir)
 					if (wuxing == 1) 
 						me->add_temp("wuxing_step", 1);
 					else {
-						write("阵中机关忽然发作，一道青芒击中了你，你只觉一阵晕眩！\n");
+						write("陣中機關忽然發作，一道青芒擊中了你，你只覺一陣暈眩！\n");
 						me->receive_damage("jing", 40);
 						me->add_temp("wuxing_error", 1);
 					}

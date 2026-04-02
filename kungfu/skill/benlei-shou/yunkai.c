@@ -1,9 +1,9 @@
-// yunkai.c 云开雾阖
+// yunkai.c 雲開霧闔
 // Last Modified by winder on Sep. 12 2001
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "「云开雾阖」"
+#define PNAME "「雲開霧闔」"
 int perform(object me,object target)
 {
 	string msg;
@@ -20,17 +20,17 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("你必须空手才能使用"PNAME"！\n");
+		return notify_fail("你必須空手才能使用"PNAME"！\n");
 		
 	fskill = "honghua-shengong";
 	bskill = "hand";
@@ -43,15 +43,15 @@ int perform(object me,object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(fskill)+"等级不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"等級不夠，不能使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(sskill)+"等级不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"等級不夠，不能使用"+PNAME+"。\n");
 	if( me->query("max_neili") < 200 )
-		return notify_fail("你的内力修为不够，无法使"PNAME"！\n");
+		return notify_fail("你的內力修爲不夠，無法使"PNAME"！\n");
 	if( me->query("neili") < 150 )
-		return notify_fail("你的内力不够，无法运用"PNAME"！\n");
+		return notify_fail("你的內力不夠，無法運用"PNAME"！\n");
  
-	msg = HIC "$N"HIC"潜运「云开雾阖」，双掌挟着阵阵的风雷之声向$n"HIC"击去。\n"NOR;
+	msg = HIC "$N"HIC"潛運「雲開霧闔」，雙掌挾着陣陣的風雷之聲向$n"HIC"擊去。\n"NOR;
 	message_combatd(msg, me, target);
 	skill = me->query_skill(bskill, 1);
  
@@ -60,7 +60,7 @@ int perform(object me,object target)
 	if( dp < 1 ) dp = 1;
 	if( random(ap) > dp )
 	{
-		msg=HIR"$n"HIR"只觉得胸前一阵剧痛，“哇”的一声喷出一口鲜血！\n"NOR;
+		msg=HIR"$n"HIR"只覺得胸前一陣劇痛，“哇”的一聲噴出一口鮮血！\n"NOR;
 		neili_wound = 100 + random(skill);
 		qi_wound = neili_wound * 2;
 		if(qi_wound > target->query("qi"))
@@ -76,7 +76,7 @@ int perform(object me,object target)
 	}
 	else
 	{
-		msg = HIG"只见$n不慌不忙，轻轻一闪，躲过了$N的必杀一击！\n"NOR;
+		msg = HIG"只見$n不慌不忙，輕輕一閃，躲過了$N的必殺一擊！\n"NOR;
 		if(userp(me)) me->add("neili",-100);
 		me->start_busy(4);
 	}
@@ -92,13 +92,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		伤害对方气血和内力
+		傷害對方氣血和內力
 
 	出手要求：
-		红花神功60级
-		奔雷手60级
-		内力修为200
-		内力150
+		紅花神功60級
+		奔雷手60級
+		內力修爲200
+		內力150
 HELP
 	);
 	return 1;

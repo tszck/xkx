@@ -64,13 +64,13 @@ int complete_trade(object me, string what)
      }
      save();
 
-     message_vision("$N向$n买下一" + 
+     message_vision("$N向$n買下一" + 
         ob->query("unit") + ob->query("name") + "。\n",
         me, this_object() );
 
      return 1;
    }
-   return notify_fail("没有这样东西卖。\n");
+   return notify_fail("沒有這樣東西賣。\n");
 }
 
 // price is the original price.
@@ -85,7 +85,7 @@ int take_money(int paid, int price)
      else {
          if(deposit+earn<0) {
         message_vision(
-          "\n"+name()+"破产了！\n\n",this_object());
+          "\n"+name()+"破產了！\n\n",this_object());
         new_owner();
         return notify_fail("the owner bankrupted\n");
          }
@@ -101,13 +101,13 @@ string price_string(int v)
     int val;
     
     val=v/10000;
-    if(val) str+=chinese_number(val) + "两黄金";
+    if(val) str+=chinese_number(val) + "兩黃金";
     val=(v%10000)/100;
-    if(val) str+=chinese_number(val) + "两银子";
+    if(val) str+=chinese_number(val) + "兩銀子";
     val=(v%100);
-    if(val) str+=chinese_number(val)  + "文钱";
+    if(val) str+=chinese_number(val)  + "文錢";
     
-    if(str=="") str="零文钱";
+    if(str=="") str="零文錢";
 
      return str;
 }
@@ -122,7 +122,7 @@ int do_vendor_list(string arg)
    if( !mapp(goods = query("vendor_goods")) ) return 0;
    if( arg && !this_object()->id(arg) ) return 0;
    name = keys(goods);
-   list = "你可以购买下列这些东西：\n";
+   list = "你可以購買下列這些東西：\n";
    for(i=0; i<sizeof(name); i++)  {
      tlist = sprintf("%s(%s)", goods[name[i]]->query("name"), name[i]);
      list += sprintf("%-30s：%s\n", tlist,
@@ -181,7 +181,7 @@ int do_bid(string arg)
        "你至少需要出"+price_string(minimum)+"。\n");
 
     if(who->query("balance")<amount) return notify_fail(
-       "你户头里没有这么多钱。\n");
+       "你戶頭裏沒有這麼多錢。\n");
     
     env=environment(this_object());
     if(base_name(env)!=this_object()->query("startroom"))
@@ -194,9 +194,9 @@ int do_bid(string arg)
    if(getuid(who)!=bidder) {
      who1=find_player(bidder);
      if(who1)
-       tell_object(who1, "你投标购买"+
+       tell_object(who1, "你投標購買"+
          roomname
-     +"失败了！\n");
+     +"失敗了！\n");
    }
     }
 
@@ -211,7 +211,7 @@ int do_bid(string arg)
     bid=amount;
 
     save();
-    message_vision("$N出价"+price_string(amount)+"收购"+
+    message_vision("$N出價"+price_string(amount)+"收購"+
        roomname+"！\n",who);
     
     return 1;
@@ -261,7 +261,7 @@ int do_deposit(string arg)
     int amount;
     
     if(getuid(who)!=owner_id) return
-   notify_fail("只有店主能用这个命令。\n");
+   notify_fail("只有店主能用這個命令。\n");
     
     notify_fail("Usage: deposit <amount> <gold|silver>\n");
 
@@ -272,10 +272,10 @@ int do_deposit(string arg)
     else if(money=="silver") amount*=100;
     else return 0;
 
-    if(amount<10000) return notify_fail("一次至少要一两金子。\n");
+    if(amount<10000) return notify_fail("一次至少要一兩金子。\n");
     
     if(who->query("balance")<amount) return
-       notify_fail("你户头里没有这么多钱。\n");
+       notify_fail("你戶頭裏沒有這麼多錢。\n");
 
     who->add("balance",-amount);
     who->save();
@@ -283,7 +283,7 @@ int do_deposit(string arg)
     deposit+=amount;
     save();
     
-    write("现在共有"+price_string(deposit)+"预付金。\n");
+    write("現在共有"+price_string(deposit)+"預付金。\n");
 
     return 1;
 }
@@ -295,7 +295,7 @@ int do_setprice(string arg)
     string str;
     
     if(getuid(who)!=owner_id) return
-   notify_fail("只有店主能用这个命令。\n");
+   notify_fail("只有店主能用這個命令。\n");
 
     notify_fail("Usage: set_price <ratio> \n"+
          "<ratio> is between 1 to 100.\n");
@@ -305,21 +305,21 @@ int do_setprice(string arg)
     if(ratio<1 || ratio>100) return 0;
     
     if(ratio<5 && deposit<1) return
-   notify_fail("你的定价少于成本，必须先付定金(deposit)。\n");
+   notify_fail("你的定價少於成本，必須先付定金(deposit)。\n");
     
     price_ratio=ratio;
     save();
     
     if(ratio<10)
-   message_vision("$N决定所有物品"+chinese_number(ratio)+
+   message_vision("$N決定所有物品"+chinese_number(ratio)+
      "折出售。\n", who);
     else if(ratio==10)
-   message_vision("$N决定所有物品按原价出售。\n", who);
+   message_vision("$N決定所有物品按原價出售。\n", who);
     else {
    str=chinese_number(ratio/10);
    ratio=ratio-(ratio/10)*10;
-   if(ratio) str+="点"+chinese_number(ratio);
-   message_vision("$N决定所有物品按原价的"+
+   if(ratio) str+="點"+chinese_number(ratio);
+   message_vision("$N決定所有物品按原價的"+
      str+"倍出售。\n", who);
     }
     
@@ -343,27 +343,27 @@ int do_status(string arg)
     else {
    hour=next/3600;
    if(hour)
-     str=chinese_number(hour)+"小时";
+     str=chinese_number(hour)+"小時";
    else
        str="";
    hour=(next-hour*3600)/60;
    if(hour)
-       str+=chinese_number(hour)+"分种";
-        write("投标获胜者将于"+str+"后成为新店主。\n");
+       str+=chinese_number(hour)+"分種";
+        write("投標獲勝者將於"+str+"後成爲新店主。\n");
     }
 
     if(bidder)
-      write("当前最高投标是"+bidder_name+"("+
+      write("當前最高投標是"+bidder_name+"("+
        bidder+")："+price_string(bid)+"\n");
     else
-   write("目前还没有人投标。\n");
+   write("目前還沒有人投標。\n");
 
     write("昨日盈利："+price_string(last_profit)+"\n");
 
     if(wizardp(who) || getuid(who)==owner_id) {
    write("\n盈利　　　："+price_string(profit)+"\n");
-   write("剩余预付金："+price_string(deposit)+"\n");
-   write("价格指数　："+price_ratio+"\n");
+   write("剩餘預付金："+price_string(deposit)+"\n");
+   write("價格指數　："+price_ratio+"\n");
     }
     
     return 1;
@@ -385,16 +385,16 @@ void new_owner()
        pay_back(owner_id, prof);
    old=find_player(owner_id);
 
-   msg="你的店主("+name(1)+")任期结束，结余"+
-       price_string(prof)+"已存入你的户头。\n";
+   msg="你的店主("+name(1)+")任期結束，結餘"+
+       price_string(prof)+"已存入你的戶頭。\n";
    msg+="其中盈利"+price_string(profit)+"，"+
-       "剩余预付金"+price_string(deposit)+"。\n";
+       "剩餘預付金"+price_string(deposit)+"。\n";
 
    if(old)
        tell_object(old,msg);
         mail = ([
           "from": name(1) + "(" + query("id") + ")",
-          "title": name(1)+"：帐目结算",
+          "title": name(1)+"：帳目結算",
           "to": owner_id,
           "time": time(),
           "status": "N",
@@ -459,7 +459,7 @@ void set_new_owner(string id, string name, string long)
     
     short+=name+"("+capitalize(newid[0])+")";
     set_temp("apply/short",({short}));
-    message_vision("\n新店主"+name+"走马上任！\n\n",
+    message_vision("\n新店主"+name+"走馬上任！\n\n",
      this_object());
 }
 

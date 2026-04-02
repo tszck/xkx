@@ -6,11 +6,11 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIC "青骢马" NOR, ({ "horse"}));
+	set_name(HIC "青驄馬" NOR, ({ "horse"}));
 	set("race", "走畜");
 	set("age", 2+random(3));
-	set("long", "这是一匹回部宝马，日行千里，夜行八百。\n"+
-		"玩家可以骑上它去指定的地方(ride)。\n");
+	set("long", "這是一匹回部寶馬，日行千里，夜行八百。\n"+
+		"玩家可以騎上它去指定的地方(ride)。\n");
 	set("ridable", 1);
 	set("int", 30);
 	set("qi", 300);

@@ -7,7 +7,7 @@ void create()
 	set_name("草寇", ({ "cao  kou"}));
 //	set("nickname", "");
 	set("long", 
-	"一个四处流窜的草寇，坏事干了不少。\n");
+	"一個四處流竄的草寇，壞事幹了不少。\n");
 	set("gender", "男性");
 	set("age", random(20) + 25);
 	set("attitude", "peaceful");

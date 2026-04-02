@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 // xueli.c 雪梨
@@ -13,8 +13,8 @@ void create()
    if (clonep())
      set_default_object(__FILE__);
    else {
-                set("long", "这种雪梨只生长于雪山极寒之地。\n");
-                set("unit", "颗");
+                set("long", "這種雪梨只生長於雪山極寒之地。\n");
+                set("unit", "顆");
      set("value", 80);
      set("food_remaining", 4);
      set("food_supply", 30);

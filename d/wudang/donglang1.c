@@ -1,4 +1,4 @@
-// donglang1.c 东厢走廊
+// donglang1.c 東廂走廊
 // by Xiang
 
 #include <room.h>
@@ -6,9 +6,9 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "东厢走廊");
+        set("short", "東廂走廊");
         set("long", @LONG
-你走在一条走廊上，东边有几间雅室，人来人往很热闹。西边是大
+你走在一條走廊上，東邊有幾間雅室，人來人往很熱鬧。西邊是大
 殿。
 LONG );
         set("exits", ([
@@ -30,9 +30,9 @@ int valid_leave(object me, string dir)
         mapping myfam;
         myfam = (mapping)me->query("family");
 
-        if ((!myfam || myfam["family_name"] != "武当派") && dir == "east" &&
+        if ((!myfam || myfam["family_name"] != "武當派") && dir == "east" &&
                 objectp(present("zhang songxi", environment(me))))
-           return notify_fail("张松溪喝道：你不是武当弟子，不得入内。\n");
+           return notify_fail("張松溪喝道：你不是武當弟子，不得入內。\n");
 
         return ::valid_leave(me, dir);
 }

@@ -5,12 +5,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "达摩院二楼");
+	set("short", "達摩院二樓");
 	set("long", @LONG
-这是一座古朴的殿堂。西首的墙上挂满了各类武功图谱，不
-少白须白眉的老僧们正端坐在图谱画轴之前，似乎在苦苦思索。
-南北山墙是高及屋顶的大书架，走近细看，它们是各门各派的武
-功秘笈，屋正中摆着几张矮几诃和几个团，几位老僧正在入定中。
+這是一座古樸的殿堂。西首的牆上掛滿了各類武功圖譜，不
+少白鬚白眉的老僧們正端坐在圖譜畫軸之前，似乎在苦苦思索。
+南北山牆是高及屋頂的大書架，走近細看，它們是各門各派的武
+功祕笈，屋正中擺着幾張矮几訶和幾個團，幾位老僧正在入定中。
 LONG );
 	set("exits", ([
 		"down" : __DIR__"dmyuan",
@@ -29,6 +29,6 @@ LONG );
 int valid_leave(object me, string dir)
 {
 	if (!present("xisuijing",this_object()) )
-		return notify_fail("本寺最高心法不见了，你怎敢就走？\n");
+		return notify_fail("本寺最高心法不見了，你怎敢就走？\n");
 	return 1;
 }

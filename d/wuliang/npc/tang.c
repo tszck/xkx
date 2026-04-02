@@ -35,7 +35,7 @@ void create()
 	map_skill("sword", "damo-jian");
 	map_skill("parry", "damo-jian");
 
-	create_family("无量剑东宗", 5, "弟子");
+	create_family("無量劍東宗", 5, "弟子");
 	setup();
 
         carry_object("/clone/cloth/cloth")->wear();

@@ -8,8 +8,8 @@ void create()
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "个");
-                set("long","这是一个漂亮的手帕。\n");
+                set("unit", "個");
+                set("long","這是一個漂亮的手帕。\n");
                 set("value", 50);
                 set("material", "cloth");
                 set("female_only", 1);

@@ -7,17 +7,17 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "练武场");
+	set("short", "練武場");
 	set ("long", @long
-这里是练武场，昆仑派的很多弟子在这里练习武功，在练武场的一
-角，有一个专门用来练武的梅花桩(zhuang)，许多弟子都围在这里练习
+這裏是練武場，崑崙派的很多弟子在這裏練習武功，在練武場的一
+角，有一個專門用來練武的梅花樁(zhuang)，許多弟子都圍在這裏練習
 腿功。
 long);
 	set("exits",([
 		"west" : __DIR__"huayuan1",
 	]));
 	set("item_desc", ([
-		"zhuang" : "这是一片梅花桩，跳上去可以练习腿功，许多弟子在上面扎马(zhama)。\n",
+		"zhuang" : "這是一片梅花樁，跳上去可以練習腿功，許多弟子在上面扎馬(zhama)。\n",
 	]));
 	set("no_clean_up", 0);
 	set("outdoors", "kunlun");
@@ -36,18 +36,18 @@ int do_zhama(string arg)
 	object me;
 	me = this_player();
 	if ( !living(this_player()) || arg != "zhuang" )
-		return notify_fail("你要在哪扎马？\n");
+		return notify_fail("你要在哪扎馬？\n");
 	if ((int)me->query_skill("leg", 1) > 100)
-		return notify_fail("你的腿功已经很高了,这种练习对你没什么作用。\n");
+		return notify_fail("你的腿功已經很高了,這種練習對你沒什麼作用。\n");
 	if ( (int)me->query("qi")<30)
 	{
 		me->receive_damage("qi", 10);
-		write("你的腿已经酸了,还是先休息一会吧！\n");
+		write("你的腿已經酸了,還是先休息一會吧！\n");
 		return 1;
 	}
 	me->receive_damage("qi", random(25));
-	message_vision("$N正在梅花桩上扎着马步。\n", me);
-	write("你全神贯注的在梅花桩上扎了一柱香时间的马步，感觉基本腿法又进了一步。\n");
+	message_vision("$N正在梅花樁上扎着馬步。\n", me);
+	write("你全神貫注的在梅花樁上紮了一柱香時間的馬步，感覺基本腿法又進了一步。\n");
 	me->improve_skill("leg", me->query_int());
 	return 1;
 } 

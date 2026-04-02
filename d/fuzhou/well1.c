@@ -9,7 +9,7 @@ void create()
 {
         set("short", "井底");
         set("long", @LONG
-这是在一口枯井的井底。光线极暗，什么也看不清。
+這是在一口枯井的井底。光線極暗，什麼也看不清。
 LONG );
         set("exits", ([
                 "up" : __DIR__"well",
@@ -36,7 +36,7 @@ int do_use(string arg)
         if (!present("fire", me))  return 0;
         if( arg=="fire" ) {
              write(
-             "你点燃了火折，发现井底什么也没有。\n"
+             "你點燃了火折，發現井底什麼也沒有。\n"
              );
              return 1;
        }
@@ -48,9 +48,9 @@ int do_zuan(string arg)
       me = this_player();
 
       message_vision(
-      "$N像没头苍蝇一样在黑洞洞的井底瞎钻，结果一头撞在井壁的石头上。\n", this_player());
+      "$N像沒頭蒼蠅一樣在黑洞洞的井底瞎鑽，結果一頭撞在井壁的石頭上。\n", this_player());
       if (random(2)==1) {
-         write("你觉得你晕乎乎的，似乎撞傻了。\n");
+         write("你覺得你暈乎乎的，似乎撞傻了。\n");
          if (me->query_skill("literate", 1) )
              me->set_skill("literate", me->query_skill("literate", 1)-1);
       }

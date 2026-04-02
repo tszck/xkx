@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("雪鸡", ({ "xue ji","ji" }) );
-	set("race", "飞禽");
+	set_name("雪雞", ({ "xue ji","ji" }) );
+	set("race", "飛禽");
 	set("age", 2);
-	set("long", "一只肥肥白白的雪鸡。\n");
+	set("long", "一隻肥肥白白的雪雞。\n");
 
 	set("combat_exp", 100);
 	set_temp("apply/attack", 20);
@@ -22,7 +22,7 @@ void create()
 void die()
 {
        object ob;
-       message_vision("$N惨嚎一声，慢慢倒下死了！\n", this_object());
+       message_vision("$N慘嚎一聲，慢慢倒下死了！\n", this_object());
        ob = new(__DIR__"obj/xueji-rou");
        ob->move(environment(this_object()));
        destruct(this_object());

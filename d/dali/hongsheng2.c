@@ -4,11 +4,11 @@
 inherit ROOM;
 void create()
 {
-	set("short","宏圣寺塔");
+	set("short","宏聖寺塔");
 	set("long",@LONG
-这里是宏圣寺塔内部，四面墙壁上都辟有佛龛，龛内置佛像。
-抬头上望，可以看到中心柱、葫芦顶、伞盖、相轮及莲花座托等。
-伞盖成八角形，角上挂有风铎。
+這裏是宏聖寺塔內部，四面牆壁上都闢有佛龕，龕內置佛像。
+抬頭上望，可以看到中心柱、葫蘆頂、傘蓋、相輪及蓮花座託等。
+傘蓋成八角形，角上掛有風鐸。
 LONG);
 	set("exits",([ /* sizeof() == 1 */
 	    "down"   : __DIR__"hongsheng1",
@@ -35,7 +35,7 @@ int valid_leave(object me, string dir)
                         if (((c_skill*c_skill*c_skill/10)< c_exp) && (c_skill<
 101))
                  	me->improve_skill("dodge", (int)me->query_skill("dodge",1));
-                        tell_object(me,"你爬上一层楼，有些累了。\n");
+                        tell_object(me,"你爬上一層樓，有些累了。\n");
                 }
 	}
 	return 1;

@@ -1,4 +1,4 @@
-// loveroom.c 相约轩
+// loveroom.c 相約軒
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
@@ -13,7 +13,7 @@ create_food(string nmstr, string *idlist, string longstr)
         if (longstr)
               obj->set("long", longstr);
         else
-              obj->set("long", "一盘热气腾腾, 香喷喷的"+nmstr+"。\n");
+              obj->set("long", "一盤熱氣騰騰, 香噴噴的"+nmstr+"。\n");
         obj->move(this_object());
 }
 
@@ -49,12 +49,12 @@ create_wine(string nmstr, string *idlist, string cup, string longstr)
 
 void create()
 {
-        set("short", MAG"相约轩"NOR);
+        set("short", MAG"相約軒"NOR);
         set("long", @LONG
-楼外楼的相约轩，四面通窗。湖风拂面，淡淡生暖。远望苏堤一
-线，映波，锁澜，望山，压堤，东浦，跨虹六桥断续连沿，烟柳笼纱，
-流莺娇啼。近处白堤横亘湖上，堤上杨柳覆地，芳草寒茵如一段碧绸
-飘然湖面。室内一张精巧的小桌。桌上一纸精致的菜单(menu)。
+樓外樓的相約軒，四面通窗。湖風拂面，淡淡生暖。遠望蘇堤一
+線，映波，鎖瀾，望山，壓堤，東浦，跨虹六橋斷續連沿，煙柳籠紗，
+流鶯嬌啼。近處白堤橫亙湖上，堤上楊柳覆地，芳草寒茵如一段碧綢
+飄然湖面。室內一張精巧的小桌。桌上一紙精緻的菜單(menu)。
 LONG
         );
         set("exits", ([ /* sizeof() == 1 */
@@ -63,17 +63,17 @@ LONG
         set("sleep_room",1);
         set("item_desc", ([
             "menu": @TEXT
-        order party:    浓情幽会    (200两银子)
+        order party:    濃情幽會    (200兩銀子)
 
-        order end  :    结束狂欢
+        order end  :    結束狂歡
 
-        close door  :   关闭房门
+        close door  :   關閉房門
 
-        open door   :   打开房门
+        open door   :   打開房門
 
 TEXT
         ]) );
-        //create_door("down", "红木雕花门", "up", DOOR_OPENED);
+        //create_door("down", "紅木雕花門", "up", DOOR_OPENED);
         set("no_clean_up", 0);
 	set("coor/x", 4160);
 	set("coor/y", -1450);
@@ -108,7 +108,7 @@ int do_broadcast(string arg)
                 return 0;
         type = query("order_type");
         if (type == "party") {
-                mesg = me->name() + "在杭州楼外楼和某人幽会 !!!!!!\n";
+                mesg = me->name() + "在杭州樓外樓和某人幽會 !!!!!!\n";
         message("channel:chat", RED+"【通告】"+mesg+NOR, users() );
         message("channel:chat", GRN+"【通告】"+mesg+NOR, users() );
         message("channel:chat", CYN+"【通告】"+mesg+NOR, users() );
@@ -126,7 +126,7 @@ int do_order(string arg)
         env = this_object();
         mesg = query("order_owner");
         if (mesg && (arg == "end") && (mesg == me->query("id"))) {
-                mesg = "幽会终于结束了 !!!!!!\n";
+                mesg = "幽會終於結束了 !!!!!!\n";
                 message("channel:chat", RED+"【通告】"+mesg+NOR, users() );
                 delete_temp("plugin");
                 delete("order_owner");
@@ -142,27 +142,27 @@ int do_order(string arg)
                 return 1;
         }
         if (mesg)
-                return notify_fail("这里已经被人包租了.\n");
-        notify_fail("你没有足够的钱或零钱不够.\n");
+                return notify_fail("這裏已經被人包租了.\n");
+        notify_fail("你沒有足夠的錢或零錢不夠.\n");
         if (arg == "party") {
-                mesg = me->name() + "和某人在杭州楼外楼幽会 !!!!!!\n";
+                mesg = me->name() + "和某人在杭州樓外樓幽會 !!!!!!\n";
                 if (me->can_afford(20000) == 0)
                         return 0;
                 me->pay_money(20000);
-                create_water(CYN"龙井茶"NOR, ({ "tea" }), MAG"紫砂茶盅"NOR );
-                create_water(HIG"碧螺春"NOR, ({ "tea" }), MAG"紫砂盏"NOR );
-                create_wine(HIY"绍兴黄酒"NOR, ({ "wine" }), HIW"象牙杯"NOR );
-                create_wine(GRN"竹叶青"NOR, ({ "wine" }), HIG"翡翠杯"NOR );
-                create_wine(RED"女儿红"NOR, ({ "wine" }), MAG"紫檀杯"NOR );
-                create_food(RED"东坡肉"NOR, ({ "pork" }) );
-                create_food(HIB"西湖醋鱼"NOR, ({ "fish" }) );
-                create_food(HIR"龙井虾仁"NOR, ({ "shrimp" }) );
-                create_food(YEL"叫化童鸡"NOR, ({ "chicken" }) );
-                create_food(HIR"桂花鲜栗羹"NOR, ({ "guihua geng" }) );
+                create_water(CYN"龍井茶"NOR, ({ "tea" }), MAG"紫砂茶盅"NOR );
+                create_water(HIG"碧螺春"NOR, ({ "tea" }), MAG"紫砂盞"NOR );
+                create_wine(HIY"紹興黃酒"NOR, ({ "wine" }), HIW"象牙杯"NOR );
+                create_wine(GRN"竹葉青"NOR, ({ "wine" }), HIG"翡翠杯"NOR );
+                create_wine(RED"女兒紅"NOR, ({ "wine" }), MAG"紫檀杯"NOR );
+                create_food(RED"東坡肉"NOR, ({ "pork" }) );
+                create_food(HIB"西湖醋魚"NOR, ({ "fish" }) );
+                create_food(HIR"龍井蝦仁"NOR, ({ "shrimp" }) );
+                create_food(YEL"叫化童雞"NOR, ({ "chicken" }) );
+                create_food(HIR"桂花鮮慄羹"NOR, ({ "guihua geng" }) );
                 create_food(HIY"百果油包"NOR, ({ "baozi" }) );
                 }
          else {
-                return notify_fail("这儿只承办幽会小宴。\n");
+                return notify_fail("這兒只承辦幽會小宴。\n");
         }
         message("channel:chat", RED+"【通告】"+mesg+NOR, users() );
         message("channel:chat", GRN+"【通告】"+mesg+NOR, users() );
@@ -176,7 +176,7 @@ int do_close(string arg)
 {
         object me=this_player();
         object room;
-        if(arg!="door") return notify_fail("你要干什么？\n");
+        if(arg!="door") return notify_fail("你要幹什麼？\n");
         if (me->is_busy() || me->is_fighting())
                  return notify_fail("你正忙着呢。\n");
         room=this_object();
@@ -184,7 +184,7 @@ int do_close(string arg)
         (int)me->query_temp("plugin");
         me->set_temp("plugin",1);
         me->start_busy(10);
-        message("channel:chat", HIR+"【通告】"+me->name()+"连门都关上啦 !!!!\n"NOR, users() );
+        message("channel:chat", HIR+"【通告】"+me->name()+"連門都關上啦 !!!!\n"NOR, users() );
         return 1;
 }
 
@@ -192,7 +192,7 @@ int do_open(string arg)
 {
         object me=this_player();
         object room;
-        if(arg!="door") return notify_fail("你要干什么？\n");
+        if(arg!="door") return notify_fail("你要幹什麼？\n");
         if (me->is_busy() || me->is_fighting())
                  return notify_fail("你正忙着呢。\n");
         room=this_object();
@@ -200,7 +200,7 @@ int do_open(string arg)
         (int)me->query_temp("plugin");
         me->delete_temp("plugin",1);
         me->start_busy(10);
-        message("channel:chat", HIR+"【通告】"+me->name()+"终于打开门啦 !!!!\n"NOR, users() );
+        message("channel:chat", HIR+"【通告】"+me->name()+"終於打開門啦 !!!!\n"NOR, users() );
         return 1;
 }
 
@@ -208,5 +208,5 @@ int valid_leave(object me, string dir)
 {
         if (me->query("id") != query("order_owner"))
                 return 1;
-        return notify_fail(RED + "先用 order end 结束后再走.\n" + NOR);
+        return notify_fail(RED + "先用 order end 結束後再走.\n" + NOR);
 }

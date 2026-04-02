@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("铁线蛇",({"du she"}));
+        set_name("鐵線蛇",({"du she"}));
 
 	set("race", "爬蛇");
-        set("long", "一条七尺多长，拇指粗细的毒蛇。\n");
+        set("long", "一條七尺多長，拇指粗細的毒蛇。\n");
         set("age", 1000);
         set("attitude", "peaceful");
 
@@ -46,7 +46,7 @@ int hit_ob(object me, object ob, int damage)
        if ((string)ob->query("family/family_name") != "五毒教") {
                 ob->apply_condition("snake_poison", 20
               +(int)ob->query_condition("snake_poison") );
-              tell_object(ob, HIG "你觉得被咬中的地方一阵麻木！\n" NOR );
+              tell_object(ob, HIG "你覺得被咬中的地方一陣麻木！\n" NOR );
        }
 }
 

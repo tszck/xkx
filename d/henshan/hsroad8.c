@@ -1,14 +1,14 @@
-// Room: /d/henshan/hsroad8.c 林间道
+// Room: /d/henshan/hsroad8.c 林間道
 // Modified by Java on Feb.14.1998
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "林间道");
+	set("short", "林間道");
 	set("long", @LONG
-这里是一条林间小道，在树丛中蜿蜒。西北方连着一条黄土路，南
-面的道路要宽一些。
+這裏是一條林間小道，在樹叢中蜿蜒。西北方連着一條黃土路，南
+面的道路要寬一些。
 LONG );
 	set("outdoors", "hengyang");
 

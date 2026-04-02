@@ -1,12 +1,12 @@
-// eba.c 恶霸
+// eba.c 惡霸
  
 inherit NPC;
  
 void create()
 {
-	set_name("恶霸", ({ "e  ba", "e" }));
+	set_name("惡霸", ({ "e  ba", "e" }));
 	set("long", 
-	"一个危害一方的恶霸，强男霸女，无恶不做。\n");
+	"一個危害一方的惡霸，強男霸女，無惡不做。\n");
 	set("gender", "男性");
 	set("age", random(20) + 25);
 	set("attitude", "peaceful");

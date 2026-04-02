@@ -5,13 +5,13 @@ inherit F_FOOD;
 
 void create()
 {
-        set_name("鸟肉", ({"niao", "bird"}));
+        set_name("鳥肉", ({"niao", "bird"}));
         set_weight(40);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "一块喷香的鸟肉，真让人嘴馋。\n");
-                set("unit", "块");
+                set("long", "一塊噴香的鳥肉，真讓人嘴饞。\n");
+                set("unit", "塊");
                 set("value", 180);
                 set("food_remaining", 5);
                 set("food_supply", 50);

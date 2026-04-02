@@ -1,4 +1,4 @@
-// qimen-wuxing 奇门五行
+// qimen-wuxing 奇門五行
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -14,32 +14,32 @@ int power_point(object me) { return 1; }
 
 int practice_skill(object me)
 {	
-	return notify_fail("奇门五行能靠学(learn)来提高。\n");
+	return notify_fail("奇門五行能靠學(learn)來提高。\n");
 }
 int valid_learn(object me) 
 {
 	if( me->query_skill("hubo",1))
-    return notify_fail("你的杂念太多，一时无法领会奇门五行！\n");
+    return notify_fail("你的雜念太多，一時無法領會奇門五行！\n");
   return 1;
 }
 int help(object me)
 {
-	write(HIC"\n奇门五行："NOR"\n");
+	write(HIC"\n奇門五行："NOR"\n");
 	write(@HELP
 
 
-    是东海桃花岛的独门功夫。相传桃花岛虽然地处海外，人迹罕
-至，但岛上却是家传渊博，对奇门五行研究得很深。有了这门功夫，
-再配上桃花岛的布阵箱就可以摆出奇门五行阵，把敌人困在阵内。
+    是東海桃花島的獨門功夫。相傳桃花島雖然地處海外，人跡罕
+至，但島上卻是家傳淵博，對奇門五行研究得很深。有了這門功夫，
+再配上桃花島的佈陣箱就可以擺出奇門五行陣，把敵人困在陣內。
 
-    array somebody  在布阵箱的配合下，可以对某人布阵，使其
-身陷阵内。
+    array somebody  在佈陣箱的配合下，可以對某人佈陣，使其
+身陷陣內。
 
-    可以阅读《易经》系列书籍提高。
+    可以閱讀《易經》系列書籍提高。
 
 
-	学习要求：
-		不能同时修习左右互博之术
+	學習要求：
+		不能同時修習左右互博之術
 HELP
 	);
 	return 1;

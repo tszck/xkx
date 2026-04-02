@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "厢房");
+	set("short", "廂房");
 	set("long", @LONG
-这是一间乱糟糟的厢房，里面到处都是各种大大小小的笼子、瓦罐之
-类的东西。不时能看到有毒虫在笼子里面上窜下跳，四处游走。一个赤着
-膀子的白胡子老者正在手忙脚乱的给毒虫们挨个喂食，忙得手忙脚乱。
+這是一間亂糟糟的廂房，裏面到處都是各種大大小小的籠子、瓦罐之
+類的東西。不時能看到有毒蟲在籠子裏面上竄下跳，四處遊走。一個赤着
+膀子的白鬍子老者正在手忙腳亂的給毒蟲們挨個餵食，忙得手忙腳亂。
 LONG
 	);
 	set("exits", ([
@@ -40,17 +40,17 @@ int do_cun (string arg)
 	object me = this_player();
 	if ((string)me->query("family/family_name")!="五毒教" ||
 		!objectp(present("old man", environment(me))))
-		return notify_fail("什么？\n");
-	if (!arg) return notify_fail("你要寄存什么？\n");
+		return notify_fail("什麼？\n");
+	if (!arg) return notify_fail("你要寄存什麼？\n");
 		ob = present(arg,environment(me));
-	if (!objectp(ob)) return notify_fail("你要寄存什么？\n");
+	if (!objectp(ob)) return notify_fail("你要寄存什麼？\n");
 	if (ob->query("host_id") != me->query("id"))
-		return notify_fail("看清楚了，那可不是你的毒虫。\n");
+		return notify_fail("看清楚了，那可不是你的毒蟲。\n");
 	if (ob->query("age") < 99 )
-		return notify_fail("看清楚了，那可不是你的毒虫。\n");
+		return notify_fail("看清楚了，那可不是你的毒蟲。\n");
 	if (me->query("duchong_cun") > 0 )
-		return notify_fail("白髯老者把眼一瞪，气呼呼的道：你已经存有一个毒虫了，想累死我啊？\n");
-	message_vision ("白髯老者笑道：好吧，我就帮你照看一段时间，你放心吧。\n",me);
+		return notify_fail("白髯老者把眼一瞪，氣呼呼的道：你已經存有一個毒蟲了，想累死我啊？\n");
+	message_vision ("白髯老者笑道：好吧，我就幫你照看一段時間，你放心吧。\n",me);
 	me->set("duchong_cun",1);
 	du_exp=ob->query("combat_exp");
 	du_attack=ob->query_temp("apply/attack");
@@ -76,7 +76,7 @@ int do_cun (string arg)
 	if(du_age > 99 && du_age < 999) me->set("du/age",100);
 	if(du_age > 999 && du_age < 9999) me->set("du/age",1000);
 	if(du_age > 9999 ) me->set("du/age",10000);
-	message_vision ("白髯老者一把将"+du_name+"抓起来，丢进了旁边的笼子里。\n",me);
+	message_vision ("白髯老者一把將"+du_name+"抓起來，丟進了旁邊的籠子裏。\n",me);
 	destruct(ob);
 	me->save();
 	return 1;
@@ -90,31 +90,31 @@ int do_qu (string arg)
 
 	if ((string)me->query("family/family_name")!="五毒教" ||
 		!objectp(present("old man", environment(me))))
-		return notify_fail("什么？\n");
+		return notify_fail("什麼？\n");
 	obj = objects();
 	for (i=0; i<sizeof(obj); i++)
 	{
 		if(obj[i]->query("host_id") == me->query("id") )
 		{
 			if(environment(obj[i]) == me )
-				return notify_fail(ob->name()+ "说道：你不是正骑在它身上么？\n");
+				return notify_fail(ob->name()+ "說道：你不是正騎在它身上麼？\n");
 			else
 				if(environment(obj[i]) != environment(me) )
-					return notify_fail("白髯老者说道：它在"+(environment(obj[i])->query("outdoors") ? to_chinese(environment(obj[i])->query("outdoors")) : "哪里")+"的"+environment(obj[i])->query("short")+"，赶快去找吧。\n");
+					return notify_fail("白髯老者說道：它在"+(environment(obj[i])->query("outdoors") ? to_chinese(environment(obj[i])->query("outdoors")) : "哪裏")+"的"+environment(obj[i])->query("short")+"，趕快去找吧。\n");
 				else
-					return notify_fail("白髯老者说道：它不是就在你旁边么？\n");
+					return notify_fail("白髯老者說道：它不是就在你旁邊麼？\n");
 			return 1;
 		}
 	}
 	if (present("wudu ling",me))
 	{
 		me->set("duchong_cun",1);
-		message_vision("白髯老者苦笑道：阁下拿着五毒令，不管有没有，变也要给你变出来一个。\n",me);
+		message_vision("白髯老者苦笑道：閣下拿着五毒令，不管有沒有，變也要給你變出來一個。\n",me);
 		destruct(present("wudu ling",me));
 	}
 	if (me->query("duchong_cun") < 1 )
-		return notify_fail("白髯老者把眼一瞪，气呼呼的道：你什么时候来存过东西啊？\n");
-	message_vision("白髯老者笑道：快把它领走吧，这段时间真累死我了。\n",me);
+		return notify_fail("白髯老者把眼一瞪，氣呼呼的道：你什麼時候來存過東西啊？\n");
+	message_vision("白髯老者笑道：快把它領走吧，這段時間真累死我了。\n",me);
 	me->set("duchong_cun",0);
 	du_exp=me->query("du/exp");
 	du_attack=me->query("du/attack");
@@ -201,7 +201,7 @@ int do_qu (string arg)
 	ob->set("qi", ob->query("max_qi"));
 	ob->set("food", ob->max_food_capacity());
 	ob->set("water", ob->max_water_capacity());
-	message_vision ("白髯老者从旁边取出一个笼子，打开笼门。"+du_name+"顿时从里面窜了出来。\n",me);
+	message_vision ("白髯老者從旁邊取出一個籠子，打開籠門。"+du_name+"頓時從裏面竄了出來。\n",me);
 	ob->set("host_id",(string)me->query("id"));
 	ob->set_leader(me);
 	me->save();

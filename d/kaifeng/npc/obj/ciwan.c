@@ -9,7 +9,7 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "只");
-                set("long", HIW "纯白无瑕,薄如纸的上佳瓷器。\n" NOR);
+                set("long", HIW "純白無瑕,薄如紙的上佳瓷器。\n" NOR);
                 set("value", 1500);
         }
 }

@@ -7,12 +7,12 @@ int ask_taixuan();
 
 void create()
 {
-        set_name("龙岛主", ( { "long daozhu", "long" }) );
-        set("title", HIR"侠客岛岛主"NOR);
+        set_name("龍島主", ( { "long daozhu", "long" }) );
+        set("title", HIR"俠客島島主"NOR);
         set("gender", "男性" );
         set("age", 60);
         set("long",
-              "这是个看起来五十来岁的汉子，面眉全面，脸色红润，着一袭黄袍，昂然挺立。\n"
+              "這是個看起來五十來歲的漢子，面眉全面，臉色紅潤，着一襲黃袍，昂然挺立。\n"
         );
 
         set("int", 30);
@@ -53,16 +53,16 @@ void create()
         map_skill("sword", "taiji-jian");
         set("chat_chance", 5);
         set("inquiry", ([
-            "腊八粥" : (: ask_zhou :),
-            "侠客岛" :  "\n这个岛是我和木兄弟无意中发现的。\n",
+            "臘八粥" : (: ask_zhou :),
+            "俠客島" :  "\n這個島是我和木兄弟無意中發現的。\n",
             "太玄功" : (: ask_taixuan :),
             "太玄神功" : (: ask_taixuan :),            
         ]));
         set("chat_msg", ({
-"龙岛主忽然一怕脑袋，说：腊八粥可是好东西哇！\n",
-"龙岛主说道：怎么这么多的英雄也不能领悟太玄经呢。\n",
+"龍島主忽然一怕腦袋，說：臘八粥可是好東西哇！\n",
+"龍島主說道：怎麼這麼多的英雄也不能領悟太玄經呢。\n",
         }) );
-        create_family("侠客岛", 1, "岛主");
+        create_family("俠客島", 1, "島主");
         setup();
 
         carry_object("/clone/weapon/changjian")->wield();
@@ -85,15 +85,15 @@ void init()
 void greeting(object ob)
 {
         if( ob->query("combat_exp")< 10000)
-              say ("龙岛主抬头望了你一眼，说道：经验尚浅。\n");
+              say ("龍島主抬頭望了你一眼，說道：經驗尚淺。\n");
         return;
 }
 
 int ask_zhou()
 {
-        say("\n龙岛主对你说：这是本岛特有的东西，它主要由一味'断肠蚀骨腐心草'构成，\n"
-"要开花后效力方著，但这种草每十年才开一次花，所以腊八粥很名贵，\n"
-"一般人很难得到的，小兄弟想要就要看你的缘分了！\n");
+        say("\n龍島主對你說：這是本島特有的東西，它主要由一味'斷腸蝕骨腐心草'構成，\n"
+"要開花後效力方著，但這種草每十年纔開一次花，所以臘八粥很名貴，\n"
+"一般人很難得到的，小兄弟想要就要看你的緣分了！\n");
         return 1;
 }
 int ask_taixuan()
@@ -104,10 +104,10 @@ int ask_taixuan()
 	  || me->query("combat_exp")< 3000000
 	  )
   {
-  	command("say 这位"+RANK_D->query_respect(me)+"功力尚浅，还是多修炼修炼再来吧。");
+  	command("say 這位"+RANK_D->query_respect(me)+"功力尚淺，還是多修煉修煉再來吧。");
     return 1;	
 	}
-	command("say 好，你先和木岛主比划一下。多加小心。");
+	command("say 好，你先和木島主比劃一下。多加小心。");
 	me->set_temp("pending/fight",1);
   return 1;
 }
@@ -117,14 +117,14 @@ int accept_object(object who, object ob)
 
         if (  ob->query("id") != "shane bu" && ob->query("id") != "fuxin cao")
         {
-                message_vision("\n龙岛主摇头道：这不是我想要的呀！\n",who);
+                message_vision("\n龍島主搖頭道：這不是我想要的呀！\n",who);
                 return 0;
         }
         if ( ob->query("id") == "shane bu" )
         {
                 if (random((int)who->query("kar")) <=25 )
                 {
-                        message_vision("龙岛主摇头道：我看小兄弟今生于此无缘。\n",who);
+                        message_vision("龍島主搖頭道：我看小兄弟今生於此無緣。\n",who);
                         return 1;
                 }
                 else
@@ -134,7 +134,7 @@ int accept_object(object who, object ob)
 
                         if(query_temp("cao"))
                         {
-                                message_vision("\n龙岛主见是赏善罚恶簿，大喜道：恭喜这位小兄弟了!\n",who);
+                                message_vision("\n龍島主見是賞善罰惡簿，大喜道：恭喜這位小兄弟了!\n",who);
                                 obn=new("/clone/medicine/nostrum/labazhou");
                                 obn->move(who);
                                 delete_temp("bu");
@@ -143,12 +143,12 @@ int accept_object(object who, object ob)
                         }
                         else if(query_temp("bu"))
                         {
-                                message_vision("\n龙岛主见是赏善罚恶簿，对$N摇头道：赏善罚恶簿我有了。\n",who);
+                                message_vision("\n龍島主見是賞善罰惡簿，對$N搖頭道：賞善罰惡簿我有了。\n",who);
                                 return 0;
                         }
                         else
                         {
-                                message("vision","龙岛主看见赏善罚恶簿，大喜道：现在只差腐心草了。\n",environment(who));
+                                message("vision","龍島主看見賞善罰惡簿，大喜道：現在只差腐心草了。\n",environment(who));
                                 set_temp("bu",1);
                                 return 1;
                         }
@@ -158,7 +158,7 @@ int accept_object(object who, object ob)
         {
                 if (random((int)who->query("kar")) <=25 )
                 {
-                        message_vision("龙岛主摇头道：我看小兄弟今生于此无缘。\n",who);
+                        message_vision("龍島主搖頭道：我看小兄弟今生於此無緣。\n",who);
                         return 1;
                 }
                 else
@@ -168,7 +168,7 @@ int accept_object(object who, object ob)
 
                         if(query_temp("bu"))
                         {
-                                message_vision("\n龙岛主见是腐心草，大喜道：恭喜这位小兄弟了!\n",who);
+                                message_vision("\n龍島主見是腐心草，大喜道：恭喜這位小兄弟了!\n",who);
                                 obn=new("/clone/medicine/nostrum/labazhou");
                                 obn->move(who);
                                 delete_temp("cao");
@@ -177,12 +177,12 @@ int accept_object(object who, object ob)
                         }
                         else if(query_temp("cao"))
                         {
-                                message_vision("\n龙岛主见是腐心草，对$N摇头道：腐心草我已经有了。\n",who);
+                                message_vision("\n龍島主見是腐心草，對$N搖頭道：腐心草我已經有了。\n",who);
                                 return 0;
                         }
                         else
                         {
-                                message("vision","龙岛主看见腐心草，大喜道：现在只差赏善罚恶簿了。\n",environment(who));
+                                message("vision","龍島主看見腐心草，大喜道：現在只差賞善罰惡簿了。\n",environment(who));
                                 set_temp("cao",1);
                                 return 1;
                         }
@@ -194,8 +194,8 @@ int accept_object(object who, object ob)
 int recognize_apprentice(object ob)
 {
 
-    message_vision("$N摇了摇头。\n",this_object());
-    command("tell "+ob->query("id")+"我是不收弟子的，你可以到石室中自学哇！ \n");
+    message_vision("$N搖了搖頭。\n",this_object());
+    command("tell "+ob->query("id")+"我是不收弟子的，你可以到石室中自學哇！ \n");
     return 0;
 
 }
@@ -210,21 +210,21 @@ int do_skills(string arg)
                 return 0;
         if (ob->query("weiwang") <50 )
         {
-        message_vision("$N摇了摇头。\n",this_object());
-        write("龙岛主说道：你怎么能看我的武功呢？\n");
+        message_vision("$N搖了搖頭。\n",this_object());
+        write("龍島主說道：你怎麼能看我的武功呢？\n");
         return 1;
         }
         command("tell "+ob->query("id")+" 我所有的武功如下：\n"+
-"  基本轻功 (dodge)                         - 一代宗师  100/    \n"+
-"  基本内功 (force)                         - 一代宗师  100/    \n"+
-"  读书写字 (literate)                      - 一代宗师  100/    \n"+
-"  基本招架 (parry)                         - 一代宗师  100/    \n"+
-"  基本剑法 (sword)                         - 一代宗师  100/    \n"+
-"□太极剑法 (taiji-jian)                    - 深不可测  200/    \n"+
-"□太极拳 (taiji-quan)                      - 登峰造极  150/    \n"+
-"□太极神功 (taiji-shengong)                - 登峰造极  150/    \n"+
-"  道学心法 (taoism)                        - 深不可测  200/    \n"+
-"□梯云纵 (tiyunzong)                       - 登峰造极  100/    \n"+
-"  基本拳脚 (unarmed)                       - 一代宗师  100/    \n");
+"  基本輕功 (dodge)                         - 一代宗師  100/    \n"+
+"  基本內功 (force)                         - 一代宗師  100/    \n"+
+"  讀書寫字 (literate)                      - 一代宗師  100/    \n"+
+"  基本招架 (parry)                         - 一代宗師  100/    \n"+
+"  基本劍法 (sword)                         - 一代宗師  100/    \n"+
+"□太極劍法 (taiji-jian)                    - 深不可測  200/    \n"+
+"□太極拳 (taiji-quan)                      - 登峯造極  150/    \n"+
+"□太極神功 (taiji-shengong)                - 登峯造極  150/    \n"+
+"  道學心法 (taoism)                        - 深不可測  200/    \n"+
+"□梯雲縱 (tiyunzong)                       - 登峯造極  100/    \n"+
+"  基本拳腳 (unarmed)                       - 一代宗師  100/    \n");
         return 1;
 }

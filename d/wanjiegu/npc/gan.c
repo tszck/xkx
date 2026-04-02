@@ -4,7 +4,7 @@ inherit NPC;
 
 void create()
 {
-        set_name("甘宝宝", ({ "gan baobao","gan","baobao" }) );
+        set_name("甘寶寶", ({ "gan baobao","gan","baobao" }) );
         set("gender", "女性" );
         set("age", 35);
         set("str", 16);
@@ -13,10 +13,10 @@ void create()
         set("per", 27);
         set("int", 27);
         set("long",
-        "甘宝宝容色清秀，多愁善感，年轻时曾与\n"
-        "段正淳有过一段风流佳话，但段正淳未能\n"
-        "与她共守白头，段正淳离去后，甘宝宝因\n"
-        "有身孕，无奈嫁给钟万仇为妻。\n");
+        "甘寶寶容色清秀，多愁善感，年輕時曾與\n"
+        "段正淳有過一段風流佳話，但段正淳未能\n"
+        "與她共守白頭，段正淳離去後，甘寶寶因\n"
+        "有身孕，無奈嫁給鍾萬仇爲妻。\n");
 
         set("attitude", "friendly");
 

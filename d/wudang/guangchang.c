@@ -1,15 +1,15 @@
-//Room: guangchang.c 武当广场
+//Room: guangchang.c 武當廣場
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-      set("short","武当广场");
+      set("short","武當廣場");
       set("long",@LONG
-这是一个由大石板铺成的广场，是武当弟子学习武功和互相切磋的
-地点。周围种满了梧桐树，一到秋天就是满地的落叶。一个年纪轻轻的
-道童正在打扫。南边是灵霄宫三清殿。
+這是一個由大石板鋪成的廣場，是武當弟子學習武功和互相切磋的
+地點。周圍種滿了梧桐樹，一到秋天就是滿地的落葉。一個年紀輕輕的
+道童正在打掃。南邊是靈霄宮三清殿。
 LONG);
       set("objects", ([
            CLASS_D("wudang") +"/daotong": 2,

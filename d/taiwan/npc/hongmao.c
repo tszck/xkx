@@ -6,12 +6,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("红毛鬼", ({ "hongmao gui", "gui"}));
+	set_name("紅毛鬼", ({ "hongmao gui", "gui"}));
 	set("gender", "男性");
 	set("age", random(10) + 30);
 	set("str", 25);
 	set("dex", 16);
-	set("long","入侵我天朝宝岛台湾的荷兰红毛鬼。他手上端着一支火枪，枪口还冒着青烟。\n");
+	set("long","入侵我天朝寶島臺灣的荷蘭紅毛鬼。他手上端着一支火槍，槍口還冒着青煙。\n");
 	set("combat_exp", 25000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");
@@ -41,7 +41,7 @@ void init()
 void greeting(object ob)
 {
 	if( environment(ob) != environment() ) return;
-	say("红毛鬼抬手就是一枪：砰！枪口一团火焰喷出。\n");
+	say("紅毛鬼抬手就是一槍：砰！槍口一團火焰噴出。\n");
 	ob->receive_damage("qi",50);
 	ob->receive_wound("qi",50);
 }

@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("菊剑", ({ "ju jian", "ju"}));
+	set_name("菊劍", ({ "ju jian", "ju"}));
 	set("long",
-	    "这是个容貌姣好的女子, 瓜子脸蛋,\n"+
-	    "眼如点漆, 清秀绝俗.\n"+
-	    "你总觉得在哪见过她.\n");
+	    "這是個容貌姣好的女子, 瓜子臉蛋,\n"+
+	    "眼如點漆, 清秀絕俗.\n"+
+	    "你總覺得在哪見過她.\n");
 	set("gender", "女性");
 	set("age", 18);
 	set("shen_type",1);
@@ -54,7 +54,7 @@ void create()
 	map_skill("parry", "liuyang-zhang");
 	map_skill("sword", "tianyu-jianfa");
 
-	create_family("灵鹫宫",3,"弟子");
+	create_family("靈鷲宮",3,"弟子");
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();
 	carry_object("/d/lingjiu/obj/qingyi")->wear();

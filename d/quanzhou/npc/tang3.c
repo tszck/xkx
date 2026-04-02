@@ -23,11 +23,11 @@ void create()
 	seteuid(getuid());
 
 	if (!restore()) {
-	set_name("魏无双", ({ "wulin mengzhu", "mengzhu", "zhu" }) );
+	set_name("魏無雙", ({ "wulin mengzhu", "mengzhu", "zhu" }) );
 	set("title", "武林盟主" );
 	set("gender", "男性" );
 	set("age", 40);
-      set("long","他就是雄踞武林，号召天下，威风赫赫的当今武林盟主。\n");
+      set("long","他就是雄踞武林，號召天下，威風赫赫的當今武林盟主。\n");
 	set("attitude", "heroism");
 	set("generation",0);
 	set("winner","none");
@@ -88,10 +88,10 @@ int do_kill()
 	object ob;
 	int i;
 
-	command("say 你想谋害本盟主，当真是吃了熊心豹子胆了！！");
+	command("say 你想謀害本盟主，當真是喫了熊心豹子膽了！！");
 	command("say 座下白衣武士何在！");
 
-	message_vision("四周的白衣武士群起对$N发动攻击！\n", this_player());
+	message_vision("四周的白衣武士羣起對$N發動攻擊！\n", this_player());
 
 	for(i=0; i<4; i++) {
 		if( objectp( ob = present("wei shi " + (i+1), environment(this_object())) ) )
@@ -109,14 +109,14 @@ int accept_fight(object ob)
 	if ( me->query("winner") == ob->query("id") )
 {                remove_call_out("do_copy");
                 call_out("do_copy", 1, me, ob);
-		return notify_fail("你跟你自己打什么架？！\n");
+		return notify_fail("你跟你自己打什麼架？！\n");
 }
 
 	if (wizardp(this_player()))
-		return notify_fail("巫师不能抢盟主之位！\n");
+		return notify_fail("巫師不能搶盟主之位！\n");
 
 	if ( me->is_fighting() )
-		return notify_fail("已经有人正在挑战武林盟主！\n");
+		return notify_fail("已經有人正在挑戰武林盟主！\n");
 
 	me->set("eff_qi", me->query("max_qi"));
 	me->set("qi",     me->query("max_qi"));
@@ -149,17 +149,17 @@ int checking(object me, object ob)
 	if ( !present(ob, environment()) ) return 1;
 
 	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 ) {
-		command("say 果然厉害，恭喜你成为当今武林盟主！\n");
-		command("chat 哈哈哈，到底是长江後浪推前浪，一代新人换旧人！\n");
-		command("chat 恭喜" + ob->query("name") + "被推举为当今武林盟主！\n");
+		command("say 果然厲害，恭喜你成爲當今武林盟主！\n");
+		command("chat 哈哈哈，到底是長江後浪推前浪，一代新人換舊人！\n");
+		command("chat 恭喜" + ob->query("name") + "被推舉爲當今武林盟主！\n");
 		remove_call_out("do_copy");
 		call_out("do_copy", 1, me, ob);
 		return 1;
 	}
 
 	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 ) {
-		command("say 看来" + RANK_D->query_respect(ob) +
-			"还得多加练习，方能在当今武林中出人头地 !\n");
+		command("say 看來" + RANK_D->query_respect(ob) +
+			"還得多加練習，方能在當今武林中出人頭地 !\n");
 		return 1;
 	}
 
@@ -220,7 +220,7 @@ int do_recopy(object me, object ob)
 	ob = this_player();
 
 	if ( me->query("winner") != ob->query("id") )
-		return notify_fail("你不是现任武林盟主！\n");;
+		return notify_fail("你不是現任武林盟主！\n");;
 
 	me->set("name",  ob->query("name") );
 	me->set("title", "第" + chinese_number(me->query("generation")) + "代武林盟主");
@@ -362,7 +362,7 @@ int do_clone(object me, object ob)
 
 	save();
 
-	tell_object(ob, "状态储存完毕。\n");
+	tell_object(ob, "狀態儲存完畢。\n");
 
 	new_ob = new("/clone/npc/meng-zhu");
 	new_ob->move("/d/taishan/fengchan");
@@ -382,7 +382,7 @@ int do_recover()
 	ob = this_player();
 
 	if ( me->query("winner") != ob->query("id") )
-		return notify_fail("你不是现任武林盟主！\n");;
+		return notify_fail("你不是現任武林盟主！\n");;
 
 /* delete and copy skills */
 
@@ -442,7 +442,7 @@ int do_recover()
 
 	ob->set("combat_exp", me->query("combat_exp"));
 
-	write("状态复元完毕。\n");
+	write("狀態復元完畢。\n");
 
 	return 1;
 }

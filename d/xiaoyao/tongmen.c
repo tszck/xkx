@@ -5,9 +5,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "铜门");
+	set("short", "銅門");
 	set("long", @LONG
-这是一个月形的铜门，门旁的壁上凿着“琅环福地”四个大字。
+這是一個月形的銅門，門旁的壁上鑿着“琅環福地”四個大字。
 LONG );
 	set("exits", ([
 		"south" : __DIR__"shiji3",

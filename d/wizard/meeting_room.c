@@ -11,15 +11,15 @@ private string filename;
 
 void create()
 {
-        set("short", "巫师会议室");
+        set("short", "巫師會議室");
         set("long",
-"这是一间宽敞的会议室，里面静悄悄的，只听见窗外杨柳轻击窗梁的\n"
-"声音。这时不断走来三两个人，围着圆桌坐了下来，原来是"+MUD_NAME+
-"\n的巫师们正前来开会。墙上订着个便笺(pad)。\n");
+"這是一間寬敞的會議室，裏面靜悄悄的，只聽見窗外楊柳輕擊窗梁的\n"
+"聲音。這時不斷走來三兩個人，圍着圓桌坐了下來，原來是"+MUD_NAME+
+"\n的巫師們正前來開會。牆上訂着個便箋(pad)。\n");
         set("item_desc", ([
-                "pad" : "\n会议室的使用方法：\n"
-"start  :       开始会议。\n"
-"stop   :       结束会议。\n\n"
+                "pad" : "\n會議室的使用方法：\n"
+"start  :       開始會議。\n"
+"stop   :       結束會議。\n\n"
         ]));
         set("no_fight",1);
         set("exits", ([
@@ -48,7 +48,7 @@ int do_start()
         int i;
         me = this_player();
         if(wiz_level(me) < 4 )
-                return notify_fail("你没有召开会议的权力。\n");
+                return notify_fail("你沒有召開會議的權力。\n");
 
         set("meeting_trigger", 1);
 
@@ -62,7 +62,7 @@ int do_start()
 
                 ob[i-1]->move("/d/wizard/meeting_room");
                 tell_object(ob[i-1],
-                sprintf(HIG"%s(%s)告诉你：巫师会议现在召开，请到巫师会议室开会。
+                sprintf(HIG"%s(%s)告訴你：巫師會議現在召開，請到巫師會議室開會。
 \n"NOR,
                         me->query("name"),me->query("id")) );
                 message_vision("$N到了。\n",ob[i-1]);
@@ -71,7 +71,7 @@ int do_start()
         if( !str )
                 return notify_fail("Put meeting record to where??\n");
 
-        message_vision(HIW"\n$N大声宣布：“会议现在开始。”\n"NOR, me);
+        message_vision(HIW"\n$N大聲宣佈：“會議現在開始。”\n"NOR, me);
         add_action("do_fail", "update");
         add_action("do_fail", "call");
         add_action("do_fail", "home");
@@ -98,11 +98,11 @@ int do_stop()
         me = this_player(); 
         ob = users();
         if( !wizardp(me) )
-                return notify_fail("你没有权力终止会议。\n");
+                return notify_fail("你沒有權力終止會議。\n");
         if ( (int)query("meeting_trigger") == 0 )
-                return notify_fail("现在没有进行任何会议。\n");
+                return notify_fail("現在沒有進行任何會議。\n");
         delete("meeting_trigger");
-        message_vision(HIW"\n$N大声宣布：“会议现在结束。”\n"NOR, this_player()
+        message_vision(HIW"\n$N大聲宣佈：“會議現在結束。”\n"NOR, this_player()
 );
           for ( i=sizeof(ob); i>0; i-- ) {
                   if( wiz_level(ob[i-1]) < 1) continue;
@@ -119,7 +119,7 @@ int do_stop()
 
 int do_fail()
 {
-        write("正在进行会议！\n");
+        write("正在進行會議！\n");
         return 1;
 }
 
@@ -128,7 +128,7 @@ int valid_leave(object obj, string dir)
 {
     obj = this_player();
     if (obj->query_temp("meeting"))
-      return notify_fail(HIY"天神挥舞着一根鸡毛掸子追了出来：“会还没开完，你想往哪里跑？”\n"NOR);
+      return notify_fail(HIY"天神揮舞着一根雞毛撣子追了出來：“會還沒開完，你想往哪裏跑？”\n"NOR);
     else  return 1;
 }
 

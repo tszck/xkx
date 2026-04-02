@@ -1,4 +1,4 @@
-// wushuang.c 玉女剑法 无双无对
+// wushuang.c 玉女劍法 無雙無對
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -8,7 +8,7 @@
 void remove_effect(object me, int a_amount, int d_amount);
 
 inherit F_SSERVER;
-#define PNAME "无双无对"
+#define PNAME "無雙無對"
 int perform(object me, object target)
 {
 	object weapon;
@@ -24,18 +24,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	fskill = "zixia-shengong";
 	bskill = "sword";
@@ -49,21 +49,21 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 40 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 40 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 300  ) 
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 
 	if( (int)me->query_temp("hsj_wu") ) 
-		return notify_fail("你已经在运功中了。\n");
+		return notify_fail("你已經在運功中了。\n");
 
-        msg = YEL "$N但觉丹田中一股内力涌将上来，手握" + weapon->name() + HIY"，剑芒暴长，挺剑刺出，运力\n姿式，宛然便是岳夫人那一招"HIR"
-      【 无 双 无 对 ～～ 宁 氏 一 剑 】"HIY"
-藉由此招的精义，你感到一股前所未有的力量正由体内源源而出，一时之间剑势
-如虹，嗤嗤之声大作，剑刃未到，剑力已将$n全身笼罩住了。\n"NOR;
+        msg = YEL "$N但覺丹田中一股內力湧將上來，手握" + weapon->name() + HIY"，劍芒暴長，挺劍刺出，運力\n姿式，宛然便是嶽夫人那一招"HIR"
+      【 無 雙 無 對 ～～ 寧 氏 一 劍 】"HIY"
+藉由此招的精義，你感到一股前所未有的力量正由體內源源而出，一時之間劍勢
+如虹，嗤嗤之聲大作，劍刃未到，劍力已將$n全身籠罩住了。\n"NOR;
 
 	message_combatd(msg, me, target);
 
@@ -93,12 +93,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		增强自己的攻击力，降低自己的防护力
+		增強自己的攻擊力，降低自己的防護力
 
 	出手要求：
-		紫霞神功40级
-		玉女剑法40级
-		内力300
+		紫霞神功40級
+		玉女劍法40級
+		內力300
 HELP
 	);
 	return 1;

@@ -1,4 +1,4 @@
-// /kungfu/class/xueshan/shengdi.c  胜谛
+// /kungfu/class/xueshan/shengdi.c  勝諦
 // by secret
 
 #include <ansi.h>
@@ -8,12 +8,12 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("胜谛", ({ "sheng di", "sheng", "di" }));
+        set_name("勝諦", ({ "sheng di", "sheng", "di" }));
         set("long",@LONG
-这是一个身形魁梧的西藏僧人，神色冷漠。武功是同门中最高的一人。
+這是一個身形魁梧的西藏僧人，神色冷漠。武功是同門中最高的一人。
 LONG
         );
-        set("title",HIR"血刀门第五代弟子"NOR);
+        set("title",HIR"血刀門第五代弟子"NOR);
         set("gender", "男性");
         set("age", 35);
         set("attitude", "peaceful");
@@ -77,16 +77,16 @@ void attempt_apprentice(object ob)
         }
         if (ob->query("shen") > -50000)
         {
-                command("say 看来我还要先教你如何心狠杀人。\n");
+                command("say 看來我還要先教你如何心狠殺人。\n");
                 return;
         }
         if ((int)ob->query_skill("longxiang", 1) < 45)
         {
-                command("say 入我血刀门，修习龙象功法是首要的。\n");
+                command("say 入我血刀門，修習龍象功法是首要的。\n");
                 return;
         }
         command("haha");
         command("recruit " + ob->query("id"));
 
-        ob->set("title", HIR "血刀门第六代弟子" NOR);
+        ob->set("title", HIR "血刀門第六代弟子" NOR);
 }

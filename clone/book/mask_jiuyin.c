@@ -1,4 +1,4 @@
-// /clone/book/mask_jiuyin.c 九阴假经
+// /clone/book/mask_jiuyin.c 九陰假經
 
 #include <ansi.h>
 
@@ -15,25 +15,25 @@ void init()
 
 void create()
 {
-	set_name(YEL"九阴假经"NOR, ({ "mask_jiuyin", "jiuyin-jiajing" }));
+	set_name(YEL"九陰假經"NOR, ({ "mask_jiuyin", "jiuyin-jiajing" }));
 	set_weight(300);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
 		set("material", "paper");
-		set("no_drop", "你好不容易拿到手的宝经，你舍得丢么？\n");
-		set("no_put", "这么宝贵的东西，不要到处乱放。\n");
-		set("long", "这就是武林中人人梦寐以求的“九阴真经”啊，千万不要丢了哦。:P \n");
+		set("no_drop", "你好不容易拿到手的寶經，你捨得丟麼？\n");
+		set("no_put", "這麼寶貴的東西，不要到處亂放。\n");
+		set("long", "這就是武林中人人夢寐以求的“九陰真經”啊，千萬不要丟了哦。:P \n");
 	}
 }
 
 int do_du(string arg)
 {
 	if (!arg && arg != "mask_jiuyin" && arg != "jiuyin-jiajing")
-		return notify_fail("你要读什么？\n");
+		return notify_fail("你要讀什麼？\n");
 	if (!present(this_object(), this_player())) return 0;
 
-	return notify_fail("没有人解释经义，你自己能看得懂么？\n");
+	return notify_fail("沒有人解釋經義，你自己能看得懂麼？\n");
 }
 

@@ -1,10 +1,10 @@
-// lao-qiao.c 乔三槐
+// lao-qiao.c 喬三槐
 
 inherit NPC;
 
 void create()
 {
-	set_name("乔三槐", ({ "lao qiao", "qiao" }));
+	set_name("喬三槐", ({ "lao qiao", "qiao" }));
 	set("gender", "男性");
 	set("age", 55 );
 

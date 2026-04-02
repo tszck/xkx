@@ -7,7 +7,7 @@
 inherit BOOTS;
 
 string* shoename = ({
-	HIM"绣花小鞋"NOR,
+	HIM"繡花小鞋"NOR,
 	"布鞋",
 });
 string* shoeid = ({
@@ -15,8 +15,8 @@ string* shoeid = ({
 	"cloth shoes",
 });
 string* shoelong = ({
-	"这是一双女人穿的缝制得很精美的绣花鞋。\n",
-	"这是一双很普通的粗布鞋。\n",
+	"這是一雙女人穿的縫製得很精美的繡花鞋。\n",
+	"這是一雙很普通的粗布鞋。\n",
 });
 
 void create()
@@ -30,7 +30,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("material", "cloth");
-		set("unit", "双");
+		set("unit", "雙");
         //	set("long", shoelong[i]);
 		set("value", 0);
 		set("armor_prop/armor", 1 );

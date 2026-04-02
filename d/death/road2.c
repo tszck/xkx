@@ -4,10 +4,10 @@ inherit ROOM;
  
 void create()
 {
-        set("short", "鬼门大道");
+        set("short", "鬼門大道");
         set("long", @LONG
-你走在一条阴森森的路上, 浓浓的雾环绕在你的四周, 好像永
-远都不会散去似的. 整条路前後只看到零星的几盏灯笼........
+你走在一條陰森森的路上, 濃濃的霧環繞在你的四周, 好像永
+遠都不會散去似的. 整條路前後只看到零星的幾盞燈籠........
  
 LONG );
         set("no_fight", 1);
@@ -30,7 +30,7 @@ int valid_leave(object me, string dir)
                 }
                 else {
                         me->set_temp("long_road",i);
-                        return notify_fail("你走著走著..... 发现四周景色居然都没有变....\n");
+                        return notify_fail("你走著走著..... 發現四周景色居然都沒有變....\n");
                 }
         }
         else {

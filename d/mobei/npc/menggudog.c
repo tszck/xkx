@@ -5,15 +5,15 @@ inherit NPC;
 void create()
 {
 	set_name("獒犬", ({ "dog" }) );
-	set("race", "走兽");
+	set("race", "走獸");
 	set("age",8);
-	set("long", "威猛的獒犬,脖子上挂了带刺的颈圈。\n");
+	set("long", "威猛的獒犬,脖子上掛了帶刺的頸圈。\n");
 	set("str", 32);
 	set("combat_exp", 20000);
 	set("chat_chance", 6);
 	set("chat_msg", ({
-		"獒犬嘴角搭拉下两长条唾液。\n",
-		"獒犬嘴角慢慢的裂开来，露出锋利的犬牙。\n",
+		"獒犬嘴角搭拉下兩長條唾液。\n",
+		"獒犬嘴角慢慢的裂開來，露出鋒利的犬牙。\n",
 	}));
 	set_temp("apply/attack",30);
 	set_temp("apply/armor",30);
@@ -32,9 +32,9 @@ void init()
 void greeting(object ob)
 {
 	if (!ob||environment(ob)!=environment()) return;
-	if (environment()->query("short")=="察合台营帐")
+	if (environment()->query("short")=="察合臺營帳")
 	{
-		message_vision("$N露出白色獠牙，向$n冲去.\n",this_object(),ob);
+		message_vision("$N露出白色獠牙，向$n衝去.\n",this_object(),ob);
 		kill_ob(ob);
 		return;
 	}

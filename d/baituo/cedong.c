@@ -5,9 +5,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "侧洞");
+	set("short", "側洞");
 	set("long", @LONG
-这里是一个小小的侧洞，里面有张梳妆台，上边摆放着一些女人的
+這裏是一個小小的側洞，裏面有張梳妝檯，上邊擺放着一些女人的
 用品。
 LONG	);
 	set("exits", ([

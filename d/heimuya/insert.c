@@ -10,7 +10,7 @@ int main(object me, string arg)
 	string *dirs, dir;
 	int i;
 
-	if( !arg ) return notify_fail("你要插入什么？\n");
+	if( !arg ) return notify_fail("你要插入什麼？\n");
 
 	cards = environment(me)->query_cards();
 	if( mapp(cards) ) {
@@ -21,10 +21,10 @@ int main(object me, string arg)
 				dir = dirs[i];
 				break;
 			}
-		if( !dir ) return notify_fail("你要插入什么？\n");
+		if( !dir ) return notify_fail("你要插入什麼？\n");
 
 		if( environment(me)->insert_card1(dir) ) {
-			message_vision("$N将" + cards[dir]["name"] + "插入。\n", me);
+			message_vision("$N將" + cards[dir]["name"] + "插入。\n", me);
 			return 1;
 		}
 	}

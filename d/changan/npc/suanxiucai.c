@@ -7,7 +7,7 @@ void  create()
 	set_name("酸秀才",  ({"suan  xiucai","xiucai"}));
 	set("age",  22);
 	set("gender",  "男性");
-	set("long", "落榜秀才，颇觉得有些怀才不遇。\n");
+	set("long", "落榜秀才，頗覺得有些懷纔不遇。\n");
 	set("attitude",  "peaceful");
 	set("per",  22);
 	set("combat_exp",  8000);

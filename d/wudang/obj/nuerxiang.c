@@ -1,4 +1,4 @@
-// nuerxiang.c 女儿香
+// nuerxiang.c 女兒香
 // By Marz 04/02/96
 
 inherit ITEM;
@@ -8,12 +8,12 @@ void do_eat();
 
 void create()
 {
-	set_name("女儿香",({"nuer xiang", "xiang", "tea"}));
+	set_name("女兒香",({"nuer xiang", "xiang", "tea"}));
 	set_weight(50);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "叶若柳眉，香如处子。这便是茶中极品「女儿香」！\n");
+		set("long", "葉若柳眉，香如處子。這便是茶中極品「女兒香」！\n");
 		set("unit", "杯");
 		set("value", 8000);
 		set("remaining", 1);
@@ -34,10 +34,10 @@ int do_drink(string arg)
 	
 	if( !this_object()->id(arg) ) return 0;
 	if( this_player()->is_busy() )
-		return notify_fail("你上一个动作还没有完成。\n");
+		return notify_fail("你上一個動作還沒有完成。\n");
 	if( (int)this_player()->query("water")
 		>= (int)this_player()->max_water_capacity() )
-		return notify_fail("你已经喝太多了，再也灌不下一滴水了。\n");
+		return notify_fail("你已經喝太多了，再也灌不下一滴水了。\n");
 
 	set("value", 0);
 	this_player()->add("water", (int)query("drink_supply"));
@@ -78,11 +78,11 @@ int do_drink(string arg)
 	add("remaining", -1);
 	if ( query("remaining") )
 	{
-		message_vision("$N端起杯香茶，有滋有味地品了几口。\n"+"一股香气直入心脾，$N觉得精神好多了。\n", this_player());
+		message_vision("$N端起杯香茶，有滋有味地品了幾口。\n"+"一股香氣直入心脾，$N覺得精神好多了。\n", this_player());
 	}
 	else 
 	{ 
-		 message_vision("$N端起雕花小杯，把里面的「女儿香」一饮而尽。\n"+"一股幽香直入心脾，$N顿时觉得精神大振。\n", this_player());
+		 message_vision("$N端起雕花小杯，把裏面的「女兒香」一飲而盡。\n"+"一股幽香直入心脾，$N頓時覺得精神大振。\n", this_player());
 		destruct(this_object());
 	}
 	return 1;

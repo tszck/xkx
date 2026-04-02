@@ -1,13 +1,13 @@
-//Room: ertiangate.c 二天门
+//Room: ertiangate.c 二天門
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-      set("short","二天门");
+      set("short","二天門");
       set("long",@LONG
-这里是“二天门”，金光灿灿的金顶就在眼前了。
+這裏是“二天門”，金光燦燦的金頂就在眼前了。
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "northdown": __DIR__"toutiangate",

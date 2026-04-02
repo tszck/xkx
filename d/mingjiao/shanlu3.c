@@ -5,12 +5,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "悬天崖");
+	set("short", "懸天崖");
 	set("long", @LONG
-这里山路陡峭，仅有一人多宽，路左是峭壁高耸，路右紧临万丈深
-渊，实在是一夫当关、万夫莫开的险要之处。继续上攀，就要到达明教
-五行旗了。紧挨路右，天然生有一块巨石，高近三丈，名为“悬天石”，
-常有侠客于上远观云海。
+這裏山路陡峭，僅有一人多寬，路左是峭壁高聳，路右緊臨萬丈深
+淵，實在是一夫當關、萬夫莫開的險要之處。繼續上攀，就要到達明教
+五行旗了。緊挨路右，天然生有一塊巨石，高近三丈，名爲“懸天石”，
+常有俠客於上遠觀雲海。
 LONG );
 	set("exits", ([
 		"southdown" : __DIR__"shanlu2",
@@ -29,15 +29,15 @@ int valid_leave(object me, string dir)
 {
 	if ((random((int)me->query_skill("dodge")) <= 20) && dir=="up")
 	{
-		return notify_fail("你使劲儿一蹦，离石顶还有数丈远就掉了下来，摔的鼻青脸肿。\n");
+		return notify_fail("你使勁兒一蹦，離石頂還有數丈遠就掉了下來，摔的鼻青臉腫。\n");
 	}
 	if ((random((int)me->query_skill("dodge")) <= 35) && dir=="up")	
 	{
-		return notify_fail("你奋力一跃，却离石顶还有一丈多远，看来是白费力气。\n");
+		return notify_fail("你奮力一躍，卻離石頂還有一丈多遠，看來是白費力氣。\n");
 	}
 	if ((random((int)me->query_skill("dodge")) <= 60) && dir=="up")	
 	{
-		return notify_fail("你纵身而起，离石顶只差一点点了，再加把劲。\n");
+		return notify_fail("你縱身而起，離石頂只差一點點了，再加把勁。\n");
 	}
 
 	return ::valid_leave(me, dir);

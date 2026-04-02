@@ -3,13 +3,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name( "蜡烛", ({ "zhu", "lazhu" }) );
+	set_name( "蠟燭", ({ "zhu", "lazhu" }) );
 	set_weight(10);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "只");
-		set("long", "这是一只普通的蜡烛，上面镂着一些花纹，还比较精致。\n");
+		set("long", "這是一隻普通的蠟燭，上面鏤着一些花紋，還比較精緻。\n");
 		set("value", 0);
 	}
 	setup();
@@ -20,7 +20,7 @@ void init()
 }
 void dest()
 {
-	write("眼前烛光一闪，不好，蜡烛熄灭了。\n");
+	write("眼前燭光一閃，不好，蠟燭熄滅了。\n");
 	destruct(this_object());
 }
 

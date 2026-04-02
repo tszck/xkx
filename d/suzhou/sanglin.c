@@ -7,9 +7,9 @@ void create()
 {
 	set("short", "桑林");
 	set("long", @LONG
-这里是一片桑林。江南丝绸甲于天下，苏绣更是天下绝品。看着满
-眼的绿绿桑树，想象着春蚕吐丝的情节和亮丽如彩虹的丝缎，你倒有点
-想摘下几片眼前再平常不过的桑叶，好好看看。
+這裏是一片桑林。江南絲綢甲於天下，蘇繡更是天下絕品。看着滿
+眼的綠綠桑樹，想象着春蠶吐絲的情節和亮麗如彩虹的絲緞，你倒有點
+想摘下幾片眼前再平常不過的桑葉，好好看看。
 LONG );
 	set("outdoors", "suzhou");
 	set("no_clean_up", 0);
@@ -33,14 +33,14 @@ int do_zhai(string arg)
 
 	if( !arg || arg=="" )
 	{
-		message_vision("你想摘什么？\n", me);
+		message_vision("你想摘什麼？\n", me);
 		return 1;
 	}
 	if( arg=="ye"||arg=="sang ye" )
 	{
 		if(query("ye_count") > 0)
 		{
-			message_vision("$N从桑树上摘下一片绿油油的桑叶。\n",me);
+			message_vision("$N從桑樹上摘下一片綠油油的桑葉。\n",me);
 			ye = new("/clone/medicine/vegetable/sangye");
 			ye->move(me);
 			add("ye_count",-1);
@@ -48,7 +48,7 @@ int do_zhai(string arg)
 		}
 		else
 		{
-			message_vision("桑叶还太嫩了，$N等一会再摘吧。\n",me);
+			message_vision("桑葉還太嫩了，$N等一會再摘吧。\n",me);
 			return 1;	     
 		}
 	}

@@ -8,13 +8,13 @@ inherit F_MASTER;
 void create()
 {
 	set_name("沙千里", ({ "sha qianli", "sha" }));
-	set("nickname", HIG "黑龙" NOR);
+	set("nickname", HIG "黑龍" NOR);
 	set("long",@LONG
-他就是五毒教的护法弟子沙千里，身材魁梧，方面大耳。在教中转管招募
-教众，教授弟子们的入门功夫。
+他就是五毒教的護法弟子沙千里，身材魁梧，方面大耳。在教中轉管招募
+教衆，教授弟子們的入門功夫。
 LONG
 	);
-	set("title","五毒教护法弟子");
+	set("title","五毒教護法弟子");
 	set("class", "shaman");
 	set("gender", "男性");
 	set("age", 32);
@@ -66,7 +66,7 @@ LONG
 		(: exert_function, "regenerate" :),
 		(: exert_function, "recover" :),
 	}) );
-	create_family("五毒教", 13, "护法弟子");
+	create_family("五毒教", 13, "護法弟子");
 
 	setup();
 
@@ -80,21 +80,21 @@ LONG
 void attempt_apprentice(object ob)
 {
 
-	if ((string)ob->query("gender") == "无性") {
-		command("say 这位公公不要开玩笑了。");
-		command("say 这位" + RANK_D->query_respect(ob) +
-			"还是快去伺候皇上吧！");
+	if ((string)ob->query("gender") == "無性") {
+		command("say 這位公公不要開玩笑了。");
+		command("say 這位" + RANK_D->query_respect(ob) +
+			"還是快去伺候皇上吧！");
 		return;
 	}
 
 	if ((int)ob->query("shen") > 1000) {
-		command("say 做我五毒教弟子必须心狠手辣。");
-		command("say 我教弟子贵在随心所欲，不收伪君子");
+		command("say 做我五毒教弟子必須心狠手辣。");
+		command("say 我教弟子貴在隨心所欲，不收僞君子");
 		return;
 	}
 
 //	command("chat 嘿嘿嘿嘿！！！！！");
-//	command("chat 该当我五毒教发扬光大，称霸武林指日可待了。");
+//	command("chat 該當我五毒教發揚光大，稱霸武林指日可待了。");
 //	command("chat 嘿嘿嘿嘿！！！！！");
 	command("recruit " + ob->query("id"));
 	return;

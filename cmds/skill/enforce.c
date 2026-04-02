@@ -7,16 +7,16 @@ int main(object me, string arg)
 	int pts;
 
 	if( !arg || (arg!="none" && !sscanf(arg, "%d", pts)) ) 
-		return notify_fail("指令格式：enforce|jiali <使出几成内力伤敌>|none");
+		return notify_fail("指令格式：enforce|jiali <使出幾成內力傷敵>|none");
 
 	if( !me->query_skill_mapped("force") )
-		return notify_fail("你必须先 enable 一种内功。\n");
+		return notify_fail("你必須先 enable 一種內功。\n");
 
 	if( arg=="none" )
 		me->delete("jiali");
 	else {
 		if( pts < 0 || pts > (int)me->query_skill("force") / 2 )
-			return notify_fail("你只能用 none 表示不运内力，或数字表示每一击用几点内力。\n");
+			return notify_fail("你只能用 none 表示不運內力，或數字表示每一擊用幾點內力。\n");
 		me->set("jiali", pts);
 	}
 
@@ -27,11 +27,11 @@ int main(object me, string arg)
 int help (object me)
 {
         write(@HELP
-指令格式: enforce | jiali <使出几点内力伤敌>|none
+指令格式: enforce | jiali <使出幾點內力傷敵>|none
  
-    这个指令让你指定每次击中敌人时，要发出几点内力伤敌。
+    這個指令讓你指定每次擊中敵人時，要發出幾點內力傷敵。
 
-    enforce none 则表示你不使用内力。 
+    enforce none 則表示你不使用內力。 
 
 See Also: enable
 HELP

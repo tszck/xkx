@@ -1,14 +1,14 @@
-//Room: wnachanfang.c 万年庵禅房
+//Room: wnachanfang.c 萬年庵禪房
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
 
 void create()
 {
-      set("short","万年庵禅房");
+      set("short","萬年庵禪房");
       set("long",@LONG
-这里是一间安静宽敞的禅房，乃是庵中弟子打坐修行之所。地下整整
-齐齐地放着许多蒲团。几位年轻师太和俗家女弟子正肃容入定。
+這裏是一間安靜寬敞的禪房，乃是庵中弟子打坐修行之所。地下整整
+齊齊地放着許多蒲團。幾位年輕師太和俗家女弟子正肅容入定。
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "west"     : __DIR__"wnadian",

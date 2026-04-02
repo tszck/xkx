@@ -6,8 +6,8 @@ void  create  ()
 {
 	set("short",  "大官道");
 	set("long",  @LONG
-这是一条宽阔笔直的官道，足可容得下十马并驰。往东通向函谷关，
-往西北则直达长安城。
+這是一條寬闊筆直的官道，足可容得下十馬並馳。往東通向函谷關，
+往西北則直達長安城。
 LONG);
 	set("exits",  ([  /*  sizeof()  ==  2  */
 		"northwest" :  __DIR__"road4",

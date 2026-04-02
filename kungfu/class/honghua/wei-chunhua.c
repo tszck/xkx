@@ -1,19 +1,19 @@
 // Last Modified by winder on Sep. 12 2001
-// wei-chunhua.c 卫春华
+// wei-chunhua.c 衛春華
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("卫春华", ({ "wei chunhua", "wei","chunhua" }));
-	set("title", HIR "红花会"HIG"九当家" NOR);
-	set("nickname", HIY "九命锦豹子" NOR);
+	set_name("衛春華", ({ "wei chunhua", "wei","chunhua" }));
+	set("title", HIR "紅花會"HIG"九當家" NOR);
+	set("nickname", HIY "九命錦豹子" NOR);
 	set("long", 
-"他长得面目英俊，穿一件青布长衫，三十岁左右年纪，双目炯炯，
-英气逼人。凡逢江湖上凶殴争斗、对抗官兵之时，卫春华总是不顾
-性命的勇往直前，一生所遇凶险不计其数，但连重伤也未受过一次，
-是以说他有九条性命。\n");
+"他長得面目英俊，穿一件青布長衫，三十歲左右年紀，雙目炯炯，
+英氣逼人。凡逢江湖上兇毆爭鬥、對抗官兵之時，衛春華總是不顧
+性命的勇往直前，一生所遇兇險不計其數，但連重傷也未受過一次，
+是以說他有九條性命。\n");
 	set("gender", "男性");
 	set("class", "swordsman");
 	set("age", 31);
@@ -58,7 +58,7 @@ void create()
 		(: exert_function, "regenerate" :),
 		(: exert_function, "recover" :),
 	}) );
-	create_family("红花会", 2, "弟子");
+	create_family("紅花會", 2, "弟子");
 
  	setup();
 	carry_object("/d/wudang/obj/bluecloth")->wear();

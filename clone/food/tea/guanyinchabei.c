@@ -6,12 +6,12 @@ inherit F_LIQUID;
 
 void create()
 {
-	set_name("铁观音茶杯",({"guanyin chabei", "cha", "chabei"}));
+	set_name("鐵觀音茶杯",({"guanyin chabei", "cha", "chabei"}));
 	set_weight(120);
 	if (clonep())
 		 set_default_object(__FILE__);
 	else {
- 		set("long", "一杯新沏的铁观音茶，悠悠地冒着香气~~~~~~\n");
+ 		set("long", "一杯新沏的鐵觀音茶，悠悠地冒着香氣~~~~~~\n");
 		set("unit", "杯");
 		set("value", 40);
 		set("remaining",10);

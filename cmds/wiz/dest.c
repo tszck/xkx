@@ -11,7 +11,7 @@ int main(object me, string arg)
 
 	object obj;
 
-	if (!arg) return notify_fail("指令格式 : dest <物件之名称或档名>\n" );
+	if (!arg) return notify_fail("指令格式 : dest <物件之名稱或檔名>\n" );
 
   if (sscanf(arg,"-r %s",target)==1) option = "-r";
   else target=arg;
@@ -26,16 +26,16 @@ int main(object me, string arg)
 	if (!obj) obj = present(target, me);
 	if (!obj) obj = present(target, environment(me));
 	if (!obj) obj = find_object( resolve_path(me->query("cwd"), target) );
-	if (!obj) return notify_fail("没有这样物件....。\n");
+	if (!obj) return notify_fail("沒有這樣物件....。\n");
 
 	if( environment(me)==environment(obj) )
 	if( !stringp(msg = me->query("env/msg_dest")) )
-		msg = "$N召唤出一个黑洞，将$n吞没了。\n";
+		msg = "$N召喚出一個黑洞，將$n吞沒了。\n";
 	else
 		message_vision(msg + "\n", me, obj);
 
 	destruct(obj);
-	if(obj) write("你无法将这个物件摧毁。\n");
+	if(obj) write("你無法將這個物件摧毀。\n");
 	else write("Ok.\n");
 
 	return 1;
@@ -44,15 +44,15 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-指令格式 : dest [-r] <物件之名称或档名>
+指令格式 : dest [-r] <物件之名稱或檔名>
 
-利用此一指令可将一个物件(object)或物件定义(class)从记忆体中清除，若清除物
-件定义(即：指定档名的情况下)则下一次参考到这个物件的时候会重新将它编译。
+利用此一指令可將一個物件(object)或物件定義(class)從記憶體中清除，若清除物
+件定義(即：指定檔名的情況下)則下一次參考到這個物件的時候會重新將它編譯。
 
-具有 (admin) 身分的巫师可以用 -r 选项以 ROOT_UID 身分来清除被保护的物件如
+具有 (admin) 身分的巫師可以用 -r 選項以 ROOT_UID 身分來清除被保護的物件如
 使用者。
 
-参考资料： destruct()
+參考資料： destruct()
 HELP
     );
     return 1;

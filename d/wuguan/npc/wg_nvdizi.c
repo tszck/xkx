@@ -8,7 +8,7 @@ void create()
        set("gender", "女性" );
        set("age", 16);
        set("long",
-               "这是是一位古墓女弟子，一身白衣。。\n");
+               "這是是一位古墓女弟子，一身白衣。。\n");
        set("combat_exp", 30500);
        set("attitude", "friendly");
  
@@ -33,16 +33,16 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "古墓女弟子微微笑着说道：这位" + RANK_D->query_respect(ob)
+			say( "古墓女弟子微微笑着說道：這位" + RANK_D->query_respect(ob)
           + "，若想入古墓清修，可以看"BRED"(help gumu)"NOR"。\n");
 			break;
 		case 1:
-			say( "古墓女弟子说道：古墓派清尘脱俗，容貌欠佳者还是及早拜
-入其它门派为好。\n");
+			say( "古墓女弟子說道：古墓派清塵脫俗，容貌欠佳者還是及早拜
+入其它門派爲好。\n");
 			break;
 		case 2:
-			say( "古墓女弟子自语道：听说师姐们已经成为了神雕大侠的传人，
-古墓派弟子应当耐得住寂寞，奋发努力，重兴古墓。\n");
+			say( "古墓女弟子自語道：聽說師姐們已經成爲了神鵰大俠的傳人，
+古墓派弟子應當耐得住寂寞，奮發努力，重興古墓。\n");
 			break;
 	}
 

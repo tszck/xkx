@@ -13,11 +13,11 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit","把");
-		set("long","刀鞘是黄金所铸,刀柄尽头处铸了一个黄金的虎头,狰狞生威。\n");
+		set("long","刀鞘是黃金所鑄,刀柄盡頭處鑄了一個黃金的虎頭,猙獰生威。\n");
 		set("value", 5000);
 		set("material","gold");
-		set("wield_msg", "$N将$n抽出鞘来，只觉寒气逼人，刃锋上隐隐有血光之印。\n");
-		set("unwield_msg", "$N将手中的$n插回黄金刀鞘。\n");
+		set("wield_msg", "$N將$n抽出鞘來，只覺寒氣逼人，刃鋒上隱隱有血光之印。\n");
+		set("unwield_msg", "$N將手中的$n插回黃金刀鞘。\n");
 	}
 	init_blade(60);
 	setup();

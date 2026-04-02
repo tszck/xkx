@@ -2,7 +2,7 @@
 //
 
 inherit ITEM;
-//假面具  真的到杂货铺买
+//假面具  真的到雜貨鋪買
 void create()
 {
         set_name("面具", ({ "mian ju", "mask" }) );
@@ -10,9 +10,9 @@ void create()
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "个");
-		set("long", "这似乎是一个由人皮制成的面具。\n");
-		set("no_drop", "这样东西不能离开你。\n");
+                set("unit", "個");
+		set("long", "這似乎是一個由人皮製成的面具。\n");
+		set("no_drop", "這樣東西不能離開你。\n");
         }
         setup();
 }
@@ -33,11 +33,11 @@ int do_pretend(string arg)
                 return 0;
 
 	if (!arg)
-		return notify_fail("你想假装谁？\n");
+		return notify_fail("你想假裝誰？\n");
 /*
 	if (userp(this_player()))
 	if (userp(this_player()) && !wizardp(this_player()))
-		return notify_fail("什么？\n");
+		return notify_fail("什麼？\n");
 */
 	if (arg == "none" || arg == "cancel") {
 		this_player()->delete_temp("apply/name");
@@ -46,16 +46,16 @@ int do_pretend(string arg)
 		this_player()->delete_temp("apply/long");
 		this_player()->delete_temp("pretend");
 	  this_player()->delete_temp("apply/come_msg");
-		message_vision("$N从脸上取下了一个人皮面具。\n", this_player());
+		message_vision("$N從臉上取下了一個人皮面具。\n", this_player());
 		return 1;
 	}
 	if(!objectp(who = present(arg, environment(this_player()))) || 
 		!living(who))
-		return notify_fail("你想假装谁？\n");
+		return notify_fail("你想假裝誰？\n");
 	if(wizardp(who))
-	   return notify_fail("你不能假装巫师！\n");
-	write("你开始假装" + who->name() + "。\n");
-//	message_vision("$N戴上了一个精功制成的人皮面具。\n", this_player());
+	   return notify_fail("你不能假裝巫師！\n");
+	write("你開始假裝" + who->name() + "。\n");
+//	message_vision("$N戴上了一個精功製成的人皮面具。\n", this_player());
 	this_player()->set_temp("apply/name", ({who->name()}));
 //	this_player()->delete_temp("apply/id");
 	this_player()->set_temp("pretend",1);
@@ -73,20 +73,20 @@ int do_pretend(string arg)
 		string thing_msg;
 		object env = environment(me);
 		
-		dir = "西边";
+		dir = "西邊";
 	if( me->is_fighting() )
 	{
-		if( me->query("race") == "人类" )
+		if( me->query("race") == "人類" )
 		{
 			if (me->query_temp("is_riding") )
 			{
 				mout = me->name()+"伏在" + me->query_temp("is_riding")->name() + "身上往" + dir + "落荒而逃了。\n";	       
-				min = me->name()+"骑着" + me->query_temp("is_riding")->name() + "跌跌撞撞地跑了过来，模样有些狼狈。\n";
+				min = me->name()+"騎着" + me->query_temp("is_riding")->name() + "跌跌撞撞地跑了過來，模樣有些狼狽。\n";
 			}
 			else
 			{
 				mout = me->name()+"往" + dir + "落荒而逃了。\n";
-				min = me->name()+"跌跌撞撞地跑了过来，模样有些狼狈。\n";
+				min = me->name()+"跌跌撞撞地跑了過來，模樣有些狼狽。\n";
 			}
 		}
 		else {
@@ -96,22 +96,22 @@ int do_pretend(string arg)
 	} 
 	else
 	{
-			if( me->query("race") == "人类" && me->query("age")>15)
+			if( me->query("race") == "人類" && me->query("age")>15)
 			{
 				face="的";
 				if (me->query("gender")=="女性")
 				{
 					if (me->query("per") >= 30)
-						face ="娇艳绝伦" + face;
+						face ="嬌豔絕倫" + face;
 					if ((me->query("per") >= 28) &&
 						(me->query("per") < 30))
-						face= "清丽绝俗" + face;
+						face= "清麗絕俗" + face;
 					if ((me->query("per") >= 26) &&
 						(me->query("per") < 28))
-						face= "风情万种" + face;
+						face= "風情萬種" + face;
 					if ((me->query("per") >= 24) &&
 						(me->query("per") < 26))
-						face= "容色秀丽" + face;
+						face= "容色秀麗" + face;
 					if ((me->query("per") >= 21) &&
 						(me->query("per") < 24))
 						face= "面目姣好" + face;
@@ -119,7 +119,7 @@ int do_pretend(string arg)
 						face = "亭亭玉立" + face;
 					if ((me->query("str") <= 20) &&
 						(me->query("str") > 16))
-						face= "体态轻盈"+ face;
+						face= "體態輕盈"+ face;
 					if ((me->query("per") < 21) &&
 						(me->query("str") > 20) ||
 						!userp(me))
@@ -128,18 +128,18 @@ int do_pretend(string arg)
 				else
 				{
 					if (me->query("per") >= 30)
-						face= "玉树临风般" + face;
+						face= "玉樹臨風般" + face;
 					if ((me->query("per") >= 26) &&
 						(me->query("per") < 30))
-						face="英俊潇洒" + face;
+						face="英俊瀟灑" + face;
 					if ((me->query("per") >= 22) &&
 						(me->query("per") < 26))
-						face="仪表堂堂" + face;
+						face="儀表堂堂" + face;
 					if (me->query("str") >=23)
-						face = "身材壮硕" + face;
+						face = "身材壯碩" + face;
 					if ((me->query("str") >= 20) &&
 						(me->query("str") < 23))
-						face= "膀大腰圆"+ face;
+						face= "膀大腰圓"+ face;
 					if ((me->query("per")<22) &&
 						(me->query("str")<20) ||
 						!userp(me))
@@ -148,21 +148,21 @@ int do_pretend(string arg)
 			} else face="";
 			if (objectp(thing = me->query_temp("armor/cloth")))
 				thing_msg = "身着" + thing->query("name");
-			else thing_msg = "全身清洁溜溜";
+			else thing_msg = "全身清潔溜溜";
 			if (objectp(thing = me->query_temp("weapon")))
-				thing_msg += "手执" + thing->query("name");
-			if( me->query("race") == "人类" )
+				thing_msg += "手執" + thing->query("name");
+			if( me->query("race") == "人類" )
 			{
 					if( env->query("outdoors") &&
 						me->query_temp("is_riding"))
 					{
-						mout = me->name()+"骑着"+me->query_temp("is_riding")->name()+"向" + dir + "疾驰而去。\n";
-						min = face + me->name() + thing_msg + "骑着"+me->query_temp("is_riding")->name()+"一路疾驰而来。\n";
+						mout = me->name()+"騎着"+me->query_temp("is_riding")->name()+"向" + dir + "疾馳而去。\n";
+						min = face + me->name() + thing_msg + "騎着"+me->query_temp("is_riding")->name()+"一路疾馳而來。\n";
 					}
 					else
 					{
-						mout = me->name() + "往" + dir + "离开。\n";
-						min = face + me->name() + thing_msg + "走了过来。\n";
+						mout = me->name() + "往" + dir + "離開。\n";
+						min = face + me->name() + thing_msg + "走了過來。\n";
 					}
 			}
 			else

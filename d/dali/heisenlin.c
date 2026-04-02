@@ -6,10 +6,10 @@ void create()
 {
 	set("short","黑森林");
 	set("long",@LONG
-迎面一大片黑压压的森林，高大的古松参天而立。左首一排
-九株大松树，看起来有些特别。
+迎面一大片黑壓壓的森林，高大的古松參天而立。左首一排
+九株大松樹，看起來有些特別。
 LONG);
-// 万劫谷 here.
+// 萬劫谷 here.
 // wait to be done in future.
 	set("outdoors", "dalic");
 	set("exits",([ /* sizeof() == 1 */

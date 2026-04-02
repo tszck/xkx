@@ -1,14 +1,14 @@
-// jingxiushi.c 静修室
+// jingxiushi.c 靜修室
 // Winder Oct.10 1998
 
 inherit ROOM;
 
 void create()
 {
-        set("short", "静修室");
+        set("short", "靜修室");
         set("long", @LONG
-这里是全真教弟子静修参悟道情的房间，房间很小，但收拾的干
-干净净，桌椅都摆放得整整齐齐，让人一看就心无杂念。
+這裏是全真教弟子靜修參悟道情的房間，房間很小，但收拾的幹
+乾淨淨，桌椅都擺放得整整齊齊，讓人一看就心無雜念。
 LONG
         );
         set("exits", ([
@@ -37,7 +37,7 @@ int valid_leave(object me, string dir)
                         if(present("liu chuxuan", environment(me)) && living(present("liu chuxuan", environment(me))))
                         {
                                 return notify_fail(
-"刘处一伸手拦住你道：后面是本教祖师清修之地，" + RANK_D->query_respect(me) + "请
+"劉處一伸手攔住你道：後面是本教祖師清修之地，" + RANK_D->query_respect(me) + "請
 止步。\n");
                         }
                         else

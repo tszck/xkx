@@ -11,8 +11,8 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "这是一块用蜜饯莲子煮过，流着红油的香喷喷的宣威火腿。\n");
-		set("unit", "块");
+		set("long", "這是一塊用蜜餞蓮子煮過，流着紅油的香噴噴的宣威火腿。\n");
+		set("unit", "塊");
 		set("value", 200);
 		set("food_remaining", 10);
 		set("food_supply", 30);

@@ -8,7 +8,7 @@ void create()
         set("age", 23);
         set("gender", "男性");
         set("long",
-"真武剑阵的五行方位弟子。\n");
+"真武劍陣的五行方位弟子。\n");
         set("attitude", "peaceful");
         set("str", 24);
         set("dex", 16);
@@ -25,9 +25,9 @@ void create()
         set_temp("apply/armor", 30);
         set("chat_chance",2);
         set("chat_msg", ({
-                "五行弟子齐声吆喝：真武剑阵，天下第一！\n",
+                "五行弟子齊聲吆喝：真武劍陣，天下第一！\n",
         }));
-        create_family("武当派", 3, "弟子");
+        create_family("武當派", 3, "弟子");
         setup();
 	carry_object(WEAPON_DIR"changjian")->wield();
         carry_object("/d/wudang/obj/wuxingfu")->wear();

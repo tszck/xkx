@@ -1,12 +1,12 @@
-// mafu.c 马夫
+// mafu.c 馬伕
 
 inherit NPC;
 #include <ansi.h> 
 int do_ride(string arg);
 
 mapping *road=({
-([	"title"     : "扬州城 ←→ 北京城",
-	"from_name" : "扬州城",
+([	"title"     : "揚州城 ←→ 北京城",
+	"from_name" : "揚州城",
 	"to_name"   : "北京城",
 	"from_id"   : "yz",
 	"to_id"     : "bj",
@@ -16,9 +16,9 @@ mapping *road=({
 	"room"      : ({"/d/city/kedian","/d/city/shilijie5","/d/city/shilijie4","/d/city/shilijie3","/d/city/shilijie2","/d/city/shilijie1","/d/city/beimendajie","/d/city/beimen","/d/nanyang/yidao1","/d/nanyang/yidao2","/d/nanyang/hanshui1","/d/nanyang/hanshui2","/d/nanyang/nanmen","/d/nanyang/dajie1","/d/nanyang/nanyang","/d/nanyang/dajie2","/d/nanyang/beimen","/d/nanyang/yidao3","/d/nanyang/ruzhou","/d/beijing/road10","/d/beijing/road9","/d/beijing/road8","/d/beijing/road4","/d/beijing/road7","/d/beijing/road6","/d/beijing/road5","/d/beijing/yongding","/d/beijing/nandaj2","/d/beijing/nandaj1","/d/beijing/kedian"}),
 	"time"      : 10
 ]),
-([	"title"     : "扬州城 ←→ 长安城",
-	"from_name" : "扬州城",
-	"to_name"   : "长安城",
+([	"title"     : "揚州城 ←→ 長安城",
+	"from_name" : "揚州城",
+	"to_name"   : "長安城",
 	"from_id"   : "yz",
 	"to_id"     : "ca",
 	"from_file" : "/d/city/majiu",
@@ -27,8 +27,8 @@ mapping *road=({
 	"room"      : ({"/d/city/kedian","/d/city/ganquanjie","/d/city/shilijie4","/d/city/tongsiqiao","/d/city/caohexiaojie","/d/city/tongsijie","/d/city/ximen","/d/luoyang/road1","/d/luoyang/road8","/d/luoyang/road9","/d/luoyang/road10","/d/luoyang/road11","/d/luoyang/road0","/d/luoyang/hulaoguan","/d/luoyang/road2","/d/luoyang/eastgate","/d/luoyang/eastroad","/d/luoyang/center","/d/luoyang/westroad","/d/luoyang/westgate","/d/changan/road1","/d/changan/hanguguan","/d/changan/road2","/d/changan/zhongnan","/d/changan/road3","/d/changan/road4","/d/changan/baqiao","/d/changan/eastgate","/d/changan/eastroad1","/d/changan/eastroad2","/d/changan/center","/d/changan/westroad2","/d/changan/westroad1","/d/changan/kedian"}),
 	"time"      : 10
 ]),
-([	"title"     : "扬州城 ←→ 成都城",
-	"from_name" : "扬州城",
+([	"title"     : "揚州城 ←→ 成都城",
+	"from_name" : "揚州城",
 	"to_name"   : "成都城",
 	"from_id"   : "yz",
 	"to_id"     : "cd",
@@ -49,8 +49,8 @@ mapping *road=({
 	"room"      : ({"/d/chengdu/kedian","/d/chengdu/dongjie1","/d/chengdu/dongjie2","/d/chengdu/dongjie3","/d/chengdu/eastgate","/d/chengdu/fuheqiaoe","/d/chengdu/road2","/d/chengdu/road1","/d/emei/qsjie1","/d/emei/qsjie2","/d/dali/road1","/d/dali/road2","/d/dali/road3","/d/dali/dehuabei","/d/dali/taihecheng","/d/dali/dalinorth","/d/dali/northgate","/d/dali/paifang","/d/dali/taihejiekou","/d/dali/center","/d/dali/shizilukou","/d/dali/dahejiewest","/d/dali/bingying"}),
 	"time"      : 10
 ]),
-([	"title"     : "扬州城 ←→ 峨嵋山",
-	"from_name" : "扬州城",
+([	"title"     : "揚州城 ←→ 峨嵋山",
+	"from_name" : "揚州城",
 	"to_name"   : "峨嵋山",
 	"from_id"   : "yz",
 	"to_id"     : "em",
@@ -60,8 +60,8 @@ mapping *road=({
 	"room"      : ({"/d/city/kedian","/d/city/shilijie5","/d/city/shilijie6","/d/city/shilijie7","/d/city/nanmendajie","/d/city/nanmen","/d/city/dujiangqiao","/d/wudang/wdroad1","/d/wudang/wdroad2","/d/wudang/wdroad3","/d/wudang/wdroad4","/d/wudang/wdroad5","/d/wudang/wdroad6","/d/wudang/wdroad7","/d/wudang/wdroad8","/d/wudang/sanbuguan","/d/emei/wdroad","/d/emei/xiaolu1","/d/emei/xiaolu2","/d/emei/qsjie1","/d/emei/qsjie2","/d/emei/caopeng"}),
 	"time"      : 10
 ]),
-([	"title"     : "扬州城 ←→ 佛山城",
-	"from_name" : "扬州城",
+([	"title"     : "揚州城 ←→ 佛山城",
+	"from_name" : "揚州城",
 	"to_name"   : "佛山城",
 	"from_id"   : "yz",
 	"to_id"     : "fs",
@@ -71,8 +71,8 @@ mapping *road=({
 	"room"      : ({"/d/city/kedian","/d/city/shilijie5","/d/city/shilijie6","/d/city/shilijie7","/d/city/nanmendajie","/d/city/nanmen","/d/city/dujiangqiao","/d/wudang/wdroad1","/d/wudang/wdroad2","/d/wudang/wdroad3","/d/wudang/wdroad4","/d/henshan/hsroad1","/d/henshan/hsroad2","/d/henshan/hsroad3","/d/henshan/hengyang","/d/henshan/hengyang1","/d/henshan/hsroad4","/d/henshan/hsroad5","/d/henshan/hsroad9","/d/foshan/nanling","/d/foshan/northgate","/d/foshan/street3","/d/foshan/street4","/d/foshan/yingxionglou"}),
 	"time"      : 10
 ]),
-([	"title"     : "扬州城 ←→ 福州城",
-	"from_name" : "扬州城",
+([	"title"     : "揚州城 ←→ 福州城",
+	"from_name" : "揚州城",
 	"to_name"   : "福州城",
 	"from_id"   : "yz",
 	"to_id"     : "fz",
@@ -82,8 +82,8 @@ mapping *road=({
 	"room"      : ({"/d/city/kedian","/d/city/ganquanjie","/d/city/ninghaiqiao","/d/city/matou","/d/city/dashixijie","/d/city/dashidongjie","/d/city/dongmen","/d/taishan/yidao","/d/taishan/yidao1","/d/jiaxing/jnroad1","/d/jiaxing/jnroad2","/d/jiaxing/jnroad3","/d/jiaxing/jnroad4","/d/yanping/xianxialing","/d/yanping/erbapu","/d/yanping/shandao1","/d/yanping/yidao1","/d/yanping/yidao2","/d/yanping/gubao","/d/yanping/banyanting","/d/yanping/3800kan","/d/yanping/yidao3","/d/yanping/fengguanyan","/d/yanping/dongmen","/d/yanping/fuqiao1","/d/yanping/mazhan","/d/yanping/guandao3","/d/yanping/milin","/d/yanping/guandao2","/d/yanping/guandao1","/d/fuzhou/ximen","/d/fuzhou/xixiaojie","/d/fuzhou/xidajie","/d/fuzhou/dongjiekou","/d/fuzhou/dongdajie","/d/fuzhou/rongcheng"}),
 	"time"      : 10
 ]),
-([	"title"     : "扬州城 ←→ 延平城",
-	"from_name" : "扬州城",
+([	"title"     : "揚州城 ←→ 延平城",
+	"from_name" : "揚州城",
 	"to_name"   : "延平城",
 	"from_id"   : "yz",
 	"to_id"     : "yp",
@@ -93,8 +93,8 @@ mapping *road=({
 	"room"      : ({"/d/city/kedian","/d/city/ganquanjie","/d/city/ninghaiqiao","/d/city/matou","/d/city/dashixijie","/d/city/dashidongjie","/d/city/dongmen","/d/taishan/yidao","/d/taishan/yidao1","/d/jiaxing/jnroad1","/d/jiaxing/jnroad2","/d/jiaxing/jnroad3","/d/jiaxing/jnroad4","/d/yanping/xianxialing","/d/yanping/erbapu","/d/yanping/shandao1","/d/yanping/yidao1","/d/yanping/yidao2","/d/yanping/gubao","/d/yanping/banyanting","/d/yanping/3800kan","/d/yanping/yidao3","/d/yanping/fengguanyan","/d/yanping/dongmen","/d/yanping/fuqiao1","/d/yanping/mazhan"}),
 	"time"      : 10
 ]),
-([	"title"     : "扬州城 ←→ 杭州城",
-	"from_name" : "扬州城",
+([	"title"     : "揚州城 ←→ 杭州城",
+	"from_name" : "揚州城",
 	"to_name"   : "杭州城",
 	"from_id"   : "yz",
 	"to_id"     : "hz",
@@ -104,9 +104,9 @@ mapping *road=({
 	"room"      : ({"/d/city/kedian","/d/city/ganquanjie","/d/city/ninghaiqiao","/d/city/matou","/d/city/dashixijie","/d/city/dashidongjie","/d/city/dongmen","/d/taishan/yidao","/d/taishan/yidao1","/d/jiaxing/jnroad1","/d/jiaxing/jnroad2","/d/jiaxing/jiaxing","/d/jiaxing/jxnanmen","/d/hangzhou/road1","/d/hangzhou/road2","/d/hangzhou/road3","/d/hangzhou/hongchunqiao","/d/hangzhou/road4","/d/hangzhou/road5","/d/hangzhou/road6","/d/hangzhou/road7","/d/hangzhou/road8","/d/hangzhou/road9","/d/hangzhou/road10","/d/hangzhou/road11","/d/hangzhou/road12","/d/hangzhou/road13","/d/hangzhou/kedian"}),
 	"time"      : 10
 ]),
-([	"title"     : "扬州城 ←→ 苏州城",
-	"from_name" : "扬州城",
-	"to_name"   : "苏州城",
+([	"title"     : "揚州城 ←→ 蘇州城",
+	"from_name" : "揚州城",
+	"to_name"   : "蘇州城",
 	"from_id"   : "yz",
 	"to_id"     : "sz",
 	"from_file" : "/d/city/majiu",
@@ -115,8 +115,8 @@ mapping *road=({
 	"room"      : ({"/d/city/kedian","/d/city/ganquanjie","/d/city/ninghaiqiao","/d/city/matou","/d/city/dashixijie","/d/city/dashidongjie","/d/city/dongmen","/d/taishan/yidao","/d/taishan/yidao1","/d/jiaxing/jnroad1","/d/jiaxing/jnroad2","/d/suzhou/dongmen","/d/suzhou/dongdajie2","/d/suzhou/dongdajie1","/d/suzhou/canlangting","/d/suzhou/beidajie1"}),
 	"time"      : 10
 ]),
-([	"title"     : "扬州城 ←→ 武昌城",
-	"from_name" : "扬州城",
+([	"title"     : "揚州城 ←→ 武昌城",
+	"from_name" : "揚州城",
 	"to_name"   : "武昌城",
 	"from_id"   : "yz",
 	"to_id"     : "wc",
@@ -126,9 +126,9 @@ mapping *road=({
 	"room"      : ({"/d/city/kedian","/d/city/shilijie5","/d/city/shilijie6","/d/city/shilijie7","/d/city/nanmendajie","/d/city/nanmen","/d/city/dujiangqiao","/d/wudang/wdroad1","/d/wudang/wdroad2","/d/wudang/wdroad3","/d/wudang/wdroad4","/d/henshan/hsroad1","/d/henshan/hsroad2","/d/henshan/hsroad3","/d/henshan/hengyang","/d/henshan/hengyang1","/d/henshan/hsroad4","/d/henshan/hsroad5","/d/henshan/hsroad6","/d/henshan/hsroad7","/d/henshan/hsroad8","/d/jiangling/tulu2","/d/jiangling/tulu1","/d/jiangling/hzjie5","/d/jiangling/hzjie4","/d/jiangling/kedian"}),
 	"time"      : 10
 ]),
-([	"title"     : "扬州城 ←→ 无锡城",
-	"from_name" : "扬州城",
-	"to_name"   : "无锡城",
+([	"title"     : "揚州城 ←→ 無錫城",
+	"from_name" : "揚州城",
+	"to_name"   : "無錫城",
 	"from_id"   : "yz",
 	"to_id"     : "wx",
 	"from_file" : "/d/city/majiu",
@@ -137,9 +137,9 @@ mapping *road=({
 	"room"      : ({"/d/city/kedian","/d/city/shilijie5","/d/city/shilijie6","/d/city/shilijie7","/d/city/nanmendajie","/d/city/nanmen","/d/city/dujiangqiao","/d/wudang/wdroad1","/d/wudang/wdroad2","/d/yixing/yixing","/d/yixing/tiandi","/d/yixing/shulin5","/d/yixing/shulin2","/d/yixing/shulin3","/d/yixing/shulin4","/d/yixing/shanlu1","/d/yixing/shanlu2","/d/wuxi/road17","/d/wuxi/road16","/d/wuxi/road14","/d/wuxi/kuaxiqiao","/d/wuxi/westgate","/d/wuxi/westroad2","/d/wuxi/kedian"}),
 	"time"      : 10
 ]),
-([	"title"     : "扬州城 ←→ 襄阳城",
-	"from_name" : "扬州城",
-	"to_name"   : "襄阳城",
+([	"title"     : "揚州城 ←→ 襄陽城",
+	"from_name" : "揚州城",
+	"to_name"   : "襄陽城",
 	"from_id"   : "yz",
 	"to_id"     : "xy",
 	"from_file" : "/d/city/majiu",
@@ -148,8 +148,8 @@ mapping *road=({
 	"room"      : ({"/d/city/kedian","/d/city/ganquanjie","/d/city/shilijie4","/d/city/tongsiqiao","/d/city/caohexiaojie","/d/city/tongsijie","/d/city/ximen","/d/luoyang/road1","/d/luoyang/road8","/d/luoyang/road9","/d/luoyang/road10","/d/luoyang/road11","/d/luoyang/road0","/d/luoyang/hulaoguan","/d/luoyang/road2","/d/luoyang/eastgate","/d/luoyang/eastroad","/d/luoyang/center","/d/luoyang/southroad","/d/luoyang/southgate","/d/luoyang/tianjinqiao","/d/luoyang/road4","/d/luoyang/longmen1","/d/luoyang/road3","/d/xiangyang/caodi3","/d/xiangyang/northgate2","/d/xiangyang/northgate1","/d/xiangyang/northjie","/d/xiangyang/dingzi","/d/xiangyang/northroad2"}),
 	"time"      : 10
 ]),
-([	"title"     : "扬州城 ←→ 永登城",
-	"from_name" : "扬州城",
+([	"title"     : "揚州城 ←→ 永登城",
+	"from_name" : "揚州城",
 	"to_name"   : "永登城",
 	"from_id"   : "yz",
 	"to_id"     : "yd",
@@ -159,9 +159,9 @@ mapping *road=({
 	"room"      : ({"/d/city/kedian","/d/city/shilijie5","/d/city/shilijie4","/d/city/shilijie3","/d/city/shilijie2","/d/city/shilijie1","/d/city/beimendajie","/d/city/beimen","/d/huanghe/caodi1","/d/huanghe/caodi2","/d/huanghe/shulin1","/d/huanghe/shulin3","/d/huanghe/tiandi1","/d/huanghe/tiandi3","/d/huanghe/tiandi4","/d/huanghe/huanghe1","/d/huanghe/weifen","/d/huanghe/huanghe_1","/d/huanghe/hetao","/d/huanghe/huangtu","/d/huanghe/huanghe_2","/d/huanghe/huanghe_3","/d/yongdeng/yongdeng","/d/yongdeng/kedian"}),
 	"time"      : 10
 ]),
-([	"title"     : "北京城 ←→ 赫图阿拉",
+([	"title"     : "北京城 ←→ 赫圖阿拉",
 	"from_name" : "北京城",
-	"to_name"   : "赫图阿拉",
+	"to_name"   : "赫圖阿拉",
 	"from_id"   : "bj",
 	"to_id"     : "ht",
 	"from_file" : "/d/beijing/majiu",
@@ -170,8 +170,8 @@ mapping *road=({
 	"room"      : ({"/d/beijing/kedian","/d/beijing/nandaj1","/d/beijing/tian_anm","/d/beijing/dongcha1","/d/beijing/dongcha2","/d/beijing/dongmen","/d/beijing/road1","/d/beijing/road2","/d/beijing/road3","/d/guanwai/laolongtou","/d/guanwai/shanhaiguan","/d/guanwai/road1","/d/guanwai/road2","/d/guanwai/road3","/d/guanwai/ningyuan","/d/guanwai/road4","/d/guanwai/road5","/d/guanwai/road6","/d/guanwai/road7","/d/guanwai/road8","/d/guanwai/muqiao","/d/guanwai/nancheng","/d/guanwai/jishi"}),
 	"time"      : 10
 ]),
-([	"title"     : "长安城 ←→ 伊犁城",
-	"from_name" : "长安城",
+([	"title"     : "長安城 ←→ 伊犁城",
+	"from_name" : "長安城",
 	"to_name"   : "伊犁城",
 	"from_id"   : "ca",
 	"to_id"     : "yl",
@@ -192,8 +192,8 @@ mapping *road=({
 	"room"      : ({"/d/fuzhou/rongcheng","/d/fuzhou/dongdajie","/d/fuzhou/dongjiekou","/d/fuzhou/nandajie","/d/fuzhou/nanmendou","/d/fuzhou/nanmen","/d/fuzhou/zhongzhou","/d/fuzhou/puxian","/d/quanzhou/anpingqiao","/d/quanzhou/shanlu1","/d/quanzhou/qingyuandong","/d/quanzhou/huruquan","/d/quanzhou/shanlu2","/d/quanzhou/shanlu3","/d/quanzhou/ruixiangyan","/d/quanzhou/wangzhouting","/d/quanzhou/shanlu4","/d/quanzhou/cienyan","/d/quanzhou/shanlu5","/d/quanzhou/shanlu6","/d/quanzhou/weiyuanlou","/d/quanzhou/northroad3","/d/quanzhou/northroad2","/d/quanzhou/northroad1","/d/quanzhou/kedian"}),
 	"time"      : 10
 ]),
-([	"title"     : "峨嵋山脚 ←→ 峨嵋山腰",
-	"from_name" : "峨嵋山脚",
+([	"title"     : "峨嵋山腳 ←→ 峨嵋山腰",
+	"from_name" : "峨嵋山腳",
 	"to_name"   : "峨嵋山腰",
 	"from_id"   : "em",
 	"to_id"     : "em",
@@ -203,9 +203,9 @@ mapping *road=({
 	"room"      : ({"/d/emei/caopeng","/d/emei/qsjie2","/d/emei/bgsgate","/d/emei/bgs","/d/emei/milin1","/d/emei/fhs","/d/emei/milin2","/d/emei/jietuopo","/d/emei/guanyintang","/d/emei/guiyunge","/d/emei/chunyangdian","/d/emei/shenshuian","/d/emei/zhongfengsi","/d/emei/qingyinge","/d/emei/bailongdong","/d/emei/wannianan","/d/emei/shierpan1","/d/emei/shierpan2","/d/emei/shierpan3","/d/emei/shierpan4","/d/emei/huayanding"}),
 	"time"      : 10
 ]),
-([	"title"     : "永登城 ←→ 灵州城",
+([	"title"     : "永登城 ←→ 靈州城",
 	"from_name" : "永登城",
-	"to_name"   : "灵州城",
+	"to_name"   : "靈州城",
 	"from_id"   : "yd",
 	"to_id"     : "lz",
 	"from_file" : "/d/yongdeng/majiu",
@@ -214,9 +214,9 @@ mapping *road=({
 	"room"      : ({"/d/yongdeng/kedian","/d/yongdeng/yongdeng","/d/yongdeng/gulang","/d/yongdeng/dacaigou","/d/yongdeng/wuqiao","/d/yongdeng/wuwei","/d/yongdeng/tumenzi","/d/yongdeng/shixiazi","/d/yongdeng/bingcao","/d/yongdeng/yinpanshui","/d/yongdeng/guchangcheng","/d/lingzhou/xuanhebao","/d/lingzhou/mingshazhou","/d/lingzhou/qingtongxia","/d/lingzhou/xiaoba","/d/lingzhou/huangyangtan","/d/lingzhou/nanmen","/d/lingzhou/nandajie","/d/lingzhou/chema"}),
 	"time"      : 10
 ]),
-([	"title"     : "扬州城 ←→ 开封城",
-	"from_name" : "扬州城",
-	"to_name"   : "开封城",
+([	"title"     : "揚州城 ←→ 開封城",
+	"from_name" : "揚州城",
+	"to_name"   : "開封城",
 	"from_id"   : "yz",
 	"to_id"     : "kf",
 	"from_file" : "/d/city/majiu",
@@ -228,10 +228,10 @@ mapping *road=({
 });
 void create()
 {
-	set_name("马夫", ({ "ma fu","mafu"}));
+	set_name("馬伕", ({ "ma fu","mafu"}));
 	set("age", 32);
 	set("gender", "男性");
-	set("long","驯马和租马的小贩，给他租金就可以雇到马。\n");
+	set("long","馴馬和租馬的小販，給他租金就可以僱到馬。\n");
 	set("attitude", "peaceful");
 	set("str", 24);
 	set("dex", 16);
@@ -287,7 +287,7 @@ void greeting(object ob)
 	chance = random(10);		
 	if( !ob || environment(ob) != environment() ) return;
 	ob->set_temp("ridechance",chance);	
-	say( "马夫点头哈腰地说道：这位客官，是想到这里挑一匹好马吧？\n");
+	say( "馬伕點頭哈腰地說道：這位客官，是想到這裏挑一匹好馬吧？\n");
 }
 
 int accept_object(object who, object ob)
@@ -297,17 +297,17 @@ int accept_object(object who, object ob)
 	{
 		if ((int)who->query_temp("ridechance")<=2)
 		{
-			message_vision("马夫惊慌地对$N说：对不起这位"+RANK_D->query_respect(who) + "，最近道上不太平，小的可不敢担这个险。\n", who); 
+			message_vision("馬伕驚慌地對$N說：對不起這位"+RANK_D->query_respect(who) + "，最近道上不太平，小的可不敢擔這個險。\n", who); 
 			return 0;
 		}
 		else  
 		{     
-			message_vision("马夫对$N说：好！这位"+RANK_D->query_respect(who) + "现在就出发吗？那就上马吧。\n", who);
+			message_vision("馬伕對$N說：好！這位"+RANK_D->query_respect(who) + "現在就出發嗎？那就上馬吧。\n", who);
 			who->set_temp("marks/horserent",1);		
 			return 1;
 		}
 	}
-	else message_vision("马夫皱眉对$N说：您给得也太少了吧？\n", who);
+	else message_vision("馬伕皺眉對$N說：您給得也太少了吧？\n", who);
 	return 1;
 }
 
@@ -334,7 +334,7 @@ int do_rideyp() { do_ride("yp"); return 1; }
 
 int do_ride(string arg)
 {
-	string horse, *hname=({MAG"紫骝马"NOR, RED"枣红马"NOR, HIY"黄骠马"NOR});
+	string horse, *hname=({MAG"紫騮馬"NOR, RED"棗紅馬"NOR, HIY"黃驃馬"NOR});
 	int roomi, roomttl, roadi, roadttl, thistmp, direct;
 	object ob = this_player(), here = environment(ob);
 
@@ -343,16 +343,16 @@ int do_ride(string arg)
 	{
 		if(ob->query_temp("shout"))
 		{
-			message_vision("马夫对$N说：这位"+RANK_D->query_respect(ob) + "，驿马需要付钱的。\n", ob);
+			message_vision("馬伕對$N說：這位"+RANK_D->query_respect(ob) + "，驛馬需要付錢的。\n", ob);
 			return 0;
 		}
-		command("chat 来人啦！"+ob->query("name")+"这个"+RANK_D->query_rude(ob)+"想偷马！\n");
+		command("chat 來人啦！"+ob->query("name")+"這個"+RANK_D->query_rude(ob)+"想偷馬！\n");
 		ob->set_temp("shout", 1);
 		return 1;
 	}
 	roadttl = sizeof(road);
 	direct = 0;
-// direct = 1 正向走, direct = 2 反向走, direct = 3 马夫位置不对, 无效
+// direct = 1 正向走, direct = 2 反向走, direct = 3 馬伕位置不對, 無效
 	for (roadi = 0; roadi < roadttl; roadi++)
 	{
 		if (arg == road[roadi]["to_id"] &&
@@ -370,11 +370,11 @@ int do_ride(string arg)
 	}
 	if (direct == 0)
 	{
-		message_vision("马夫对$N说：这位" +RANK_D->query_respect(ob)+"，看看牌子吧，这里没有去那儿的直达驿马。\n", ob);
+		message_vision("馬伕對$N說：這位" +RANK_D->query_respect(ob)+"，看看牌子吧，這裏沒有去那兒的直達驛馬。\n", ob);
 		return 0;
 	}
 	horse = hname[random(sizeof(hname))];
-	message_vision("马夫随手给$N牵来一匹" +horse+"。$N翻身跃上马背。动作潇洒利索。\n路边行人一阵起哄：喔噢喔噢。\n"NOR , ob);
+	message_vision("馬伕隨手給$N牽來一匹" +horse+"。$N翻身躍上馬背。動作瀟灑利索。\n路邊行人一陣起鬨：喔噢喔噢。\n"NOR , ob);
 	roomttl = sizeof(road[thistmp]["room"]);
 	ob->delete_temp("shout");
 	ob->set_temp("ride_horse",1);
@@ -383,23 +383,23 @@ int do_ride(string arg)
 		for (roomi = 0; roomi < roomttl; roomi++)
 		{
 			ob->move(road[thistmp]["room"][roomi]);
-			tell_room(environment(ob),ob->query("name")+"骑着"+horse+"一路招摇疾驰而过。\n", ({ob}));
+			tell_room(environment(ob),ob->query("name")+"騎着"+horse+"一路招搖疾馳而過。\n", ({ob}));
 		}
 		ob->move(road[thistmp]["to_file"]);
-		tell_room(environment(ob),ob->query("name")+"骑着"+horse+"一路顺利到达"+road[thistmp]["to_name"]+"。\n");
+		tell_room(environment(ob),ob->query("name")+"騎着"+horse+"一路順利到達"+road[thistmp]["to_name"]+"。\n");
 	}
 	else
 	{
 		for (roomi = roomttl-1; roomi > -1; roomi--)
 		{
 			ob->move(road[thistmp]["room"][roomi]);
-			tell_room(environment(ob),ob->query("name")+"骑着"+horse+"一路招摇疾驰而过。\n", ({ob}));
+			tell_room(environment(ob),ob->query("name")+"騎着"+horse+"一路招搖疾馳而過。\n", ({ob}));
 		}
 		ob->move(road[thistmp]["from_file"]);
-		tell_room(environment(ob),ob->query("name")+"骑着"+horse+"一路顺利到达"+road[thistmp]["from_name"]+"。\n");
+		tell_room(environment(ob),ob->query("name")+"騎着"+horse+"一路順利到達"+road[thistmp]["from_name"]+"。\n");
 	}
 	ob->delete_temp("ride_horse");
-	message_vision("\n$N身形一转，跃下马来，姿态十分优美。闲人也给$N一大哄！\n", ob);
+	message_vision("\n$N身形一轉，躍下馬來，姿態十分優美。閒人也給$N一大哄！\n", ob);
 	ob->delete_temp("marks/horserent");
 	return 1;
 }

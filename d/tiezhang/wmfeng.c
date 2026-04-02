@@ -8,13 +8,13 @@ string look_bei();
 
 void create()
 {
-	set("short", GRN"无名峰"NOR);
+	set("short", GRN"無名峯"NOR);
 	set("long", @LONG
-跨过路上的荆棘和荒草，你终于登上了无名峰的峰顶。由于这里地
-处五峰之中，四周有其它山峰阻挡，因此风势很小，常年笼罩在一片云
-雾之中。峰顶长满了齐腰的荒草，怪石嶙峋，一片荒凉景色。在峰顶的
-正中，赫然矗立着一座岩石砌就的坟墓，坟墓的前面立着一块一人多高
-的花岗岩的墓碑(bei)。
+跨過路上的荊棘和荒草，你終於登上了無名峯的峯頂。由於這裏地
+處五峯之中，四周有其它山峯阻擋，因此風勢很小，常年籠罩在一片雲
+霧之中。峯頂長滿了齊腰的荒草，怪石嶙峋，一片荒涼景色。在峯頂的
+正中，赫然矗立着一座岩石砌就的墳墓，墳墓的前面立着一塊一人多高
+的花崗巖的墓碑(bei)。
 LONG );
 	set("exits", ([ /* sizeof() == 1 */
 		"southdown" : __DIR__"hclu4",
@@ -39,20 +39,20 @@ int do_move(string arg)
 {
 	object me=this_player();
 
-	if ((int)this_player()->query_temp("marks/闹1")) 
+	if ((int)this_player()->query_temp("marks/鬧1")) 
 	{
 		if ( (int)me->query_str() < 30)
-			return notify_fail("你的力量不够，无法将石碑推开。\n");
+			return notify_fail("你的力量不夠，無法將石碑推開。\n");
 		if (arg !="bei") 
-			return notify_fail("你要推什么？？\n");
-		write("你扎下马步，深深的吸了口气，将墓碑缓缓的向旁推开。\n");
-		message("vision", me->name() + "双膀用力，将墓碑向旁缓缓推开，下面露出一个黑洞洞的入口。\n", environment(me), ({me}) );
+			return notify_fail("你要推什麼？？\n");
+		write("你紮下馬步，深深的吸了口氣，將墓碑緩緩的向旁推開。\n");
+		message("vision", me->name() + "雙膀用力，將墓碑向旁緩緩推開，下面露出一個黑洞洞的入口。\n", environment(me), ({me}) );
 		set("exits/enter", __DIR__"shijie1");
 		remove_call_out("close_passage");
 		call_out("close_passage", 10);
 		return 1;
 	}
-	return notify_fail("你有病呀！没事推墓碑做什么？？\n");
+	return notify_fail("你有病呀！沒事推墓碑做什麼？？\n");
 }
 
 void close_passage()
@@ -60,7 +60,7 @@ void close_passage()
 	object room;
 
 	if( !query("exits/enter") ) return;
-	message("vision", "墓碑发出隆隆的声音，缓缓移回原处。\n", this_object() );
+	message("vision", "墓碑發出隆隆的聲音，緩緩移回原處。\n", this_object() );
 	delete("exits/enter");
 }
 
@@ -69,14 +69,14 @@ string look_bei()
     return
     "\n"
  "*****************\n"
- "*           铁  *\n"
+ "*           鐵  *\n"
  "*           掌  *\n"
- "*           帮  *\n"
+ "*           幫  *\n"
  "*       上  第  *\n"
  "*           十  *\n"
  "*       官  三  *\n"
  "*           代  *\n"
- "*       剑  帮  *\n"
+ "*       劍  幫  *\n"
  "*           主  *\n"
  "*   不  南      *\n"
  "*   肖          *\n"
@@ -85,7 +85,7 @@ string look_bei()
  "*   裘  墓      *\n"
  "*   千          *\n"
  "*   仞          *\n"
- "*   谨          *\n"
+ "*   謹          *\n"
  "*   立          *\n"
  "*****************\n";
     "\n";

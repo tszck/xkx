@@ -6,10 +6,10 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("殷无寿", ({ "yin wushou", "yin", "wushou", }));
+	set_name("殷無壽", ({ "yin wushou", "yin", "wushou", }));
 	set("long",
-	"他是一位老者，身穿一件白布长袍。\n"
-	"他是白眉鹰王殷天正的仆从。整天愁眉苦脸的，一副短命横死相。\n"
+	"他是一位老者，身穿一件白布長袍。\n"
+	"他是白眉鷹王殷天正的僕從。整天愁眉苦臉的，一副短命橫死相。\n"
 	);
 
  	set("gender", "男性");
@@ -47,7 +47,7 @@ void create()
 	prepare_skill("cuff", "jingang-quan");
 
 	set("party/party_name",HIG"明教"NOR);
-	set("party/rank",MAG "紫微堂" NOR "属下");
+	set("party/rank",MAG "紫微堂" NOR "屬下");
 	setup();
 
 	carry_object("/d/mingjiao/obj/baipao")->wear();

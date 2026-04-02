@@ -24,7 +24,7 @@ int main(object me, string arg)
 //              return notify_fail("you r not admin!\n");
 
         ob = LOGIN_D->find_body(arg);
-        if (!ob) return notify_fail("咦... 有这个人吗?\n");
+        if (!ob) return notify_fail("咦... 有這個人嗎?\n");
 
 //              if (    !living(ob)
 //              ||      !ob->is_character()

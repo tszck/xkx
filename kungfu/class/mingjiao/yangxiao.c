@@ -11,14 +11,14 @@ string ask_ling();
 
 void create()
 {
-	set_name("杨逍", ({"yang xiao","yang","xiao",}));
+	set_name("楊逍", ({"yang xiao","yang","xiao",}));
 	set("long",
-		"他是一位中年书生，身穿白布长袍。\n"
-		"他相貌俊雅，只是双眉略向下垂，嘴边露出几条深深的皱纹，不免略带衰老凄苦\n"
-		"之相。他不言不动，神色漠然，似乎心驰远方，正在想什么事情。\n"
+		"他是一位中年書生，身穿白布長袍。\n"
+		"他相貌俊雅，只是雙眉略向下垂，嘴邊露出幾條深深的皺紋，不免略帶衰老悽苦\n"
+		"之相。他不言不動，神色漠然，似乎心馳遠方，正在想什麼事情。\n"
 	);
 
-	set("nickname", HIY "逍遥二仙" NOR);
+	set("nickname", HIY "逍遙二仙" NOR);
 	set("level",11);
 	set("gender", "男性");
 	set("attitude", "peaceful");
@@ -68,10 +68,10 @@ void create()
 
 	set("inquiry", 
 	([
-		"光明圣火阵" : (: ask_me :),
-		"明教圣火阵" : (: ask_me :),
-		"圣火阵"     : (: ask_me :),
-//		"铁焰令"     : (: ask_ling :)
+		"光明聖火陣" : (: ask_me :),
+		"明教聖火陣" : (: ask_me :),
+		"聖火陣"     : (: ask_me :),
+//		"鐵焰令"     : (: ask_ling :)
 	]));
 
 	set("env/wimpy", 60);
@@ -116,7 +116,7 @@ string ask_ling()
 	int i;
 	
 	if ( !(party = this_player()->query("party")) || party["party_name"] != HIG "明教" NOR )
-		return RANK_D->query_respect(this_player()) + "与本教素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) + "與本教素無來往，不知此話從何談起？";
 
 	skl = this_player()->query_skills();
 	sname = sort_array( keys(skl), (: strcmp :) );
@@ -125,14 +125,14 @@ string ask_ling()
 	{
 		if (skl[sname[i]] < 30) 
 		return RANK_D->query_respect(this_player()) + 
-		"功力不够，不能领取铁焰令。";
+		"功力不夠，不能領取鐵焰令。";
 	}
 
 	ob = new("d/mingjiao/obj/tieyanling");
 	ob->move(this_player());
-	message_vision("$N要得一面铁焰令。\n",this_player());
+	message_vision("$N要得一面鐵焰令。\n",this_player());
 
-	return "好吧，凭这面铁焰令，你可自由向你的尊长挑战。";
+	return "好吧，憑這面鐵焰令，你可自由向你的尊長挑戰。";
 
 }
 

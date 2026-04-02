@@ -1,4 +1,4 @@
-// liangong.c 练功房
+// liangong.c 練功房
 // Winder Oct.10 1998
 
 #include <ansi.h>
@@ -6,12 +6,12 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "练功房");
+        set("short", "練功房");
         set("long", @LONG
-这里是全真教弟子练功的房间。这座房间形状甚是奇特，前窄
-後宽，成为梯形，东边半圆，西边却作三角形状，原来这是全真教
-独有的练功室，前窄练掌，後宽使指，东圆研剑，西角发镖。房间
-中央立着几个练功用的木人，吊着几个沙袋(bag)和纸册(paper)。
+這裏是全真教弟子練功的房間。這座房間形狀甚是奇特，前窄
+後寬，成爲梯形，東邊半圓，西邊卻作三角形狀，原來這是全真教
+獨有的練功室，前窄練掌，後寬使指，東圓研劍，西角發鏢。房間
+中央立着幾個練功用的木人，吊着幾個沙袋(bag)和紙冊(paper)。
 LONG );
 
         set("exits", ([
@@ -19,9 +19,9 @@ LONG );
                 "north" : __DIR__"chanfang2",
         ]));
         set("item_desc", ([
-                "paper" : "这是一摞厚厚的牛皮纸册，用铁钉钉在墙上。好象可以
-用来练掌法的，打打(da paper)试试看。\n",
-                "bag"   : "这是一个大沙袋，看起来非常结实。好象是用来练指法
+                "paper" : "這是一摞厚厚的牛皮紙冊，用鐵釘釘在牆上。好象可以
+用來練掌法的，打打(da paper)試試看。\n",
+                "bag"   : "這是一個大沙袋，看起來非常結實。好象是用來練指法
 的，你可以打打(ci bag)看。\n",
         ]));
         set("objects", ([
@@ -48,7 +48,7 @@ int do_finger()
       qi_cost = 10;
       if (me->query("qi")>qi_cost)
       {
-	   message_vision( "$N伸指狠狠地点向沙袋，觉得指尖微微有些痛。\n", me );
+	   message_vision( "$N伸指狠狠地點向沙袋，覺得指尖微微有些痛。\n", me );
            if (((c_skill*c_skill*c_skill/10)< c_exp) && (c_skill<101))
            me->improve_skill("finger", (int)me->query_skill("finger", 1));
            me->receive_damage("qi", qi_cost );
@@ -68,7 +68,7 @@ int do_strike()
       qi_cost = 10;
       if (me->query("qi")>qi_cost)
       {
-	   message_vision( "$N蹲了一个马步，挥掌击向牛皮纸册。\n", me );
+	   message_vision( "$N蹲了一個馬步，揮掌擊向牛皮紙冊。\n", me );
            if (((c_skill*c_skill*c_skill/10)< c_exp) && (c_skill<101))
            me->improve_skill("strike", (int)me->query_skill("strike", 1));
            me->receive_damage("qi", qi_cost );

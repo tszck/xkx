@@ -7,10 +7,10 @@ string ask_jiu();
 
 void create()
 {
-	set_name("张万风",({"zhang wanfeng","zhang"}));
+	set_name("張萬風",({"zhang wanfeng","zhang"}));
 	set("gender", "男性");
 	set("age", 20);
-	set("long", "他是凌霄城第六代弟子张万风，正在这喝酒喝得高兴。\n");
+	set("long", "他是凌霄城第六代弟子張萬風，正在這喝酒喝得高興。\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);
@@ -25,7 +25,7 @@ void create()
 	set("max_qi", 1200);
 	set("inquiry", ([
 	    "jiu"      : (: ask_jiu :), 
-	    "参阳玉酒" : (: ask_jiu :), 
+	    "參陽玉酒" : (: ask_jiu :), 
 	]) ); 
 	set("jiu_count", 2);
 
@@ -69,24 +69,24 @@ string ask_jiu()
 	object ob;
 
 	if (this_player()->query_skill("force", 1) < 50)
-		return "阁下看来就不是个饮酒之人，这酒烈啊";
+		return "閣下看來就不是個飲酒之人，這酒烈啊";
 //	if (this_player()->query("family/family_name") != "凌霄城")
-//		return RANK_D->query_respect(this_player()) +"阁下非我凌霄弟子，我为什么要给你参阳玉酒？";
+//		return RANK_D->query_respect(this_player()) +"閣下非我凌霄弟子，我爲什麼要給你參陽玉酒？";
 	if ( present("shenyang yujiu", this_player()) )
-		return RANK_D->query_respect(this_player()) +"你身上就有一壶，还想要，别那么贪心！"; 
+		return RANK_D->query_respect(this_player()) +"你身上就有一壺，還想要，別那麼貪心！"; 
 	if (query("jiu_count") < 1)
-		return "哎呀呀！最近好酒的人还真不少！对不起，参阳玉酒已经发完了。";
+		return "哎呀呀！最近好酒的人還真不少！對不起，參陽玉酒已經發完了。";
 	if (random(5) != 0)
 	{
 		add("jiu_count", -1);
 		command("wield sword");
 		command("unwield sword");
-		return "昨天师父还在问，最近怎么窖里的酒少了。你少来烦我。";
+		return "昨天師父還在問，最近怎麼窖裏的酒少了。你少來煩我。";
 	}
 	ob = new(NOSTRUM_DIR"shenyangjiu");
 	ob->move(this_player());
 	add("jiu_count", -1);
-	message_vision("$N接过一壶参阳玉酒。\n",this_player());
-	return "拿去吧，不要当酒喝呀。";
+	message_vision("$N接過一壺參陽玉酒。\n",this_player());
+	return "拿去吧，不要當酒喝呀。";
 }
 

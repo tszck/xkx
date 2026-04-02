@@ -6,12 +6,12 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("铁匠", ({ "tiejiang", "smith" }));
+	set_name("鐵匠", ({ "tiejiang", "smith" }));
 	set("shen_type", 1);
 
 	set("gender", "男性" );
 	set("age", 33);
-	set("long", "铁匠正用汗流浃背地打铁。\n");
+	set("long", "鐵匠正用汗流浹背地打鐵。\n");
 
 	set("combat_exp", 500);
 	set("attitude", "friendly");

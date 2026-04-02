@@ -8,8 +8,8 @@ void create()
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "块");
-                set("long","这是一块破布，凭此可直接向简长老要求升袋。\n");
+                set("unit", "塊");
+                set("long","這是一塊破布，憑此可直接向簡長老要求升袋。\n");
                 set("material", "cloth");
         }
 }

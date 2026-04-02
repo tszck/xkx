@@ -6,9 +6,9 @@ void create()
 {
         set("short", "千毒窟外");
         set("long", @LONG
-这里是五毒教饲养毒物的地方，山壁旁有一个天然的石洞，里
-面黑漆漆的看不清楚。一阵山风吹来，你闻到一股腥味。洞口站着
-几个五毒教弟子。
+這裏是五毒教飼養毒物的地方，山壁旁有一個天然的石洞，裏
+面黑漆漆的看不清楚。一陣山風吹來，你聞到一股腥味。洞口站着
+幾個五毒教弟子。
 LONG
         );
         set("outdoors", "wudujiao");
@@ -35,8 +35,8 @@ int valid_leave(object me, string dir)
     {
     if ((string)me->query("family/family_name")!="五毒教"
         & objectp(present("di zi", environment(me))))
-          return notify_fail("五毒教弟子忽然挡住你，厉声喝道：这位" +
-           RANK_D->query_respect(me) + "鬼头鬼脑的想干什么？\n");
+          return notify_fail("五毒教弟子忽然擋住你，厲聲喝道：這位" +
+           RANK_D->query_respect(me) + "鬼頭鬼腦的想幹什麼？\n");
     }
     return ::valid_leave(me, dir);
 }

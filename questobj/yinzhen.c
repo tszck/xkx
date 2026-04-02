@@ -6,21 +6,21 @@ inherit THROWING;
 
 void create()
 {
-	set_name(HIC"冰魄银针"NOR, ({ "ice_sting", "zhen" })); 
+	set_name(HIC"冰魄銀針"NOR, ({ "ice_sting", "zhen" })); 
 	set("taskobj", 1);
 	set_weight(300);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
 		set("unit", "把");
-		set("long", "这就是武林中人闻之色变的冰魄银针，针身缕刻花纹，打造得极是精细，令人忍不住想把玩(bawan)一番。\n");
+		set("long", "這就是武林中人聞之色變的冰魄銀針，針身縷刻花紋，打造得極是精細，令人忍不住想把玩(bawan)一番。\n");
 		set("value", 0);
 		set("base_unit", "根");
 		set("base_weight", 30);
 		set("base_value", 0);
 		set("meterial", "iron");
-		set("wield_msg", "$N小心翼翼地取出一根冰魄银针当武器。\n");
-		set("unwield_msg", "$N把银针放回衣囊中。\n");
+		set("wield_msg", "$N小心翼翼地取出一根冰魄銀針當武器。\n");
+		set("unwield_msg", "$N把銀針放回衣囊中。\n");
 	}
 	setup();
 }

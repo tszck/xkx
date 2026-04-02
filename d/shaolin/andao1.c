@@ -8,15 +8,15 @@ void create()
 {
 	set("short", "暗道");
 	set("long", @LONG
-这是一个阴暗潮湿的地道，四壁用粗糙的片岩垒垛而成，一
-颗颗水珠沿着墙壁滚下来，溅在地上。也许是因为长时间无人通
-行的缘故，整个地道弥漫着一股腐尸般的恶臭。
+這是一個陰暗潮溼的地道，四壁用粗糙的片岩壘垛而成，一
+顆顆水珠沿着牆壁滾下來，濺在地上。也許是因爲長時間無人通
+行的緣故，整個地道瀰漫着一股腐屍般的惡臭。
 LONG );
 	set("exits", ([
 		"south" : __DIR__"rukou",
 		"north" : __DIR__"jianyu1",
 	]));
-	create_door("north","木门","south",DOOR_CLOSED);
+	create_door("north","木門","south",DOOR_CLOSED);
 	set("objects",([
 		__DIR__"npc/ad-laoshu" : 1,
 	]));

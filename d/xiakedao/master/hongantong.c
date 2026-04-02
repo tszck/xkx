@@ -11,7 +11,7 @@ void create()
 {
 	set_name("洪安通", ({ "hong-antong", "hong" }));
         set("nickname", HIR "永享仙福" NOR);
-	set("long", "他就是武功盖世、令江湖人等谈之色变的神龙教教主洪安通。\n");
+	set("long", "他就是武功蓋世、令江湖人等談之色變的神龍教教主洪安通。\n");
 	set("gender", "男性");
 	set("age", 50);
 	set("attitude", "friendly");
@@ -62,10 +62,10 @@ void create()
 	map_skill("parry", "yingxiong-sanzhao");
 	prepare_skill("finger", "yingxiong-sanzhao");
 	prepare_skill("hand", "shenlong-bashi");
-	set("party/party_name", HIY"神龙教"NOR);
+	set("party/party_name", HIY"神龍教"NOR);
 	set("party/rank", HIM"教主"NOR);
 	set("party/level", 3);
-	create_family("神龙教",1,"弟子");
+	create_family("神龍教",1,"弟子");
 
 	setup();
 	carry_object(CLOTH_DIR"cloth")->wear();
@@ -90,7 +90,7 @@ void greeting(object ob)
 	int i;
 
 	obj = all_inventory(environment(me));
-        command("say 夫人所说甚是有理，但这句似更含深意。");
+        command("say 夫人所說甚是有理，但這句似更含深意。");
 	for(i=0; i<sizeof(obj); i++)
 	{
 		if( obj[i]->query("id")=="su-quan")
@@ -99,7 +99,7 @@ void greeting(object ob)
                     COMBAT_D->do_attack(me, obj[i], me->query_temp("weapon"), 0);
                 }
 	}
-        command("say 横剑似指剑行之势。。。");
+        command("say 橫劍似指劍行之勢。。。");
         return;
 }
 

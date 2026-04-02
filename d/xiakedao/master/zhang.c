@@ -1,16 +1,16 @@
-// zhang.c 张三丰
+// zhang.c 張三豐
 
 inherit NPC;
 inherit F_MASTER;
 
 void create()
 {
-	set_name("张三丰", ({ "zhang-sanfeng", "zhang" }));
+	set_name("張三豐", ({ "zhang-sanfeng", "zhang" }));
 	set("nickname", "邋遢真人");
 	set("long", 
-		"他就是武当派开山鼻祖、当今武林的泰山北斗张三丰真人。\n"
-		"身穿一件污秽的灰色道袍，不修边幅。\n"
-		"身材高大，年满百岁，满脸红光，须眉皆白。\n");
+		"他就是武當派開山鼻祖、當今武林的泰山北斗張三豐真人。\n"
+		"身穿一件污穢的灰色道袍，不修邊幅。\n"
+		"身材高大，年滿百歲，滿臉紅光，鬚眉皆白。\n");
 	set("gender", "男性");
 	set("age", 100);
 	set("attitude", "friendly");
@@ -53,7 +53,7 @@ void create()
 	map_skill("parry", "taiji-jian");
 	map_skill("sword", "liangyi-jian");
 
-	create_family("武当派", 1, "开山祖师");
+	create_family("武當派", 1, "開山祖師");
 	set("class", "taoist");
 
 	setup();
@@ -78,7 +78,7 @@ void greeting(object ob)
 	int i;
 
 	obj = all_inventory(environment(me));
-        command("say 这招好象应该这样，直中有曲，曲中有直。");
+        command("say 這招好象應該這樣，直中有曲，曲中有直。");
 	for(i=0; i<sizeof(obj); i++)
 	{
 		if( obj[i]->query("id")=="feng-qingyang")

@@ -11,7 +11,7 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "这是一株蓬松轻盈，状如云雾的情人草，象征着爱意永恒。\n");
+		set("long", "這是一株蓬鬆輕盈，狀如雲霧的情人草，象徵着愛意永恆。\n");
 		set("unit", "束");
 		set("value", 15);
 		set("base_unit", "株");

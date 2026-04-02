@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-        set("short", "西泠桥");
+        set("short", "西泠橋");
         set("long", @LONG
-西泠桥衔结孤山，跨过里西湖。桥的东南边是孤山。北边则是一
-条青石大道。
+西泠橋銜結孤山，跨過裏西湖。橋的東南邊是孤山。北邊則是一
+條青石大道。
 LONG);
         set("exits", ([
             "southeast" : __DIR__"gushan",

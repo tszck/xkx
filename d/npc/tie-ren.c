@@ -1,14 +1,14 @@
-// tie-ren.c 铁人
+// tie-ren.c 鐵人
 
 inherit NPC;
 //inherit F_CLEAN_UP;
 
 void create()
 {
-	set_name("铁人", ({ "tie ren", "tie", "steel man", "steel" }) );
+	set_name("鐵人", ({ "tie ren", "tie", "steel man", "steel" }) );
 	set("gender", "男性" );
 	set("age", 30);
-	set("long", "一个练功用的比武铁人\n");
+	set("long", "一個練功用的比武鐵人\n");
 	set("attitude", "heroism");
 
 	set("str", 30);
@@ -49,15 +49,15 @@ int accept_fight(object ob)
 	if (is_fighting()) return 0;
 
 	if (me->query("damaged"))
-		return notify_fail("这个铁人已经被打坏了! \n");
+		return notify_fail("這個鐵人已經被打壞了! \n");
 
 	if (random(me->query("fight_times")) >= 10) {
 		me->set("damaged", 1);
-		return notify_fail("这个铁人已经被打坏了! \n");
+		return notify_fail("這個鐵人已經被打壞了! \n");
 	}
 
 	if (me->query("last_fighter") == ob->query("id"))
-		return notify_fail("你刚跟这个铁人练过功! \n");
+		return notify_fail("你剛跟這個鐵人練過功! \n");
 
 	me->set("last_fighter", ob->query("id"));
 	me->add("fight_times", 1);

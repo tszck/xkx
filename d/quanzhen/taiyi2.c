@@ -7,10 +7,10 @@ void create()
 {
         set("short", "太乙池");
         set("long", @LONG
-你身在湖水里，只觉得湖水冰凉透骨。但见四周高峰环列，池面
-碧波荡漾，山光水影，风景贻人。这里原来是太乙池的东岸，太累的
-话，你可以爬(climb) 上岸。远远望去，西边的山峰之间似乎有一个
-大洞。想不想游(swim)过去看？
+你身在湖水裏，只覺得湖水冰涼透骨。但見四周高峯環列，池面
+碧波盪漾，山光水影，風景貽人。這裏原來是太乙池的東岸，太累的
+話，你可以爬(climb) 上岸。遠遠望去，西邊的山峯之間似乎有一個
+大洞。想不想遊(swim)過去看？
 LONG
         );
         set("outdoors", "zhongnan");
@@ -31,13 +31,13 @@ int do_climb(string arg)
         c_exp = me->query("combat_exp");
         if( !arg || arg != "up")
         {
-                write("那个方向没法爬。\n");
+                write("那個方向沒法爬。\n");
                 return 1;
         }
 
         message_vision("$N在太乙池中往岸上爬了上去。\n", me);
         me->move("/d/quanzhen/taiyi1");
-        message_vision("$N从太乙池中爬了上去。\n", me);
+        message_vision("$N從太乙池中爬了上去。\n", me);
         return 1;
 }
 int do_swim()
@@ -54,7 +54,7 @@ int do_swim()
         	me->receive_damage("qi",10);
         	if (((c_skill*c_skill*c_skill/10)< c_exp) && (c_skill < 51))
 			me->improve_skill("jinyan-gong", (int)me->query_skill("jinyan-gong", 1));
-	        message_vision("$N在太乙池中划了划水，用力游了起来。\n", me);
+	        message_vision("$N在太乙池中劃了划水，用力遊了起來。\n", me);
 	}
         return 1;
 }

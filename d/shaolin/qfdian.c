@@ -8,10 +8,10 @@ void create()
 {
 	set("short", "千佛殿");
 	set("long", @LONG
-这是千佛殿。大殿入口是朱红格扇，七宝玲珑。内里供奉的西
-天诸佛，计有八菩萨，四金刚，五百阿罗，三千揭谛，十一大曜，
-十八伽蓝，以及众优婆塞，优婆夷等。直看得你眼花缭乱。边上
-有道小木门。
+這是千佛殿。大殿入口是硃紅格扇，七寶玲瓏。內裏供奉的西
+天諸佛，計有八菩薩，四金剛，五百阿羅，三千揭諦，十一大曜，
+十八伽藍，以及衆優婆塞，優婆夷等。直看得你眼花繚亂。邊上
+有道小木門。
 LONG );
 	set("exits", ([
 		"southdown" : __DIR__"guangchang5",
@@ -20,7 +20,7 @@ LONG );
 	set("objects",([
 		CLASS_D("shaolin") + "/qing-guan" : 1,
 	]));
-	create_door("north","木门","south",DOOR_CLOSED);
+	create_door("north","木門","south",DOOR_CLOSED);
 //	set("no_clean_up", 0);
 	set("coor/x", 0);
 	set("coor/y", 920);

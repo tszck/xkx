@@ -1,5 +1,5 @@
-// 加入login_time_out函数，和logind.c配合，喀擦掉停留
-// 在login画面超过30秒的玩家:PP
+// 加入login_time_out函數，和logind.c配合，喀擦掉停留
+// 在login畫面超過30秒的玩家:PP
 // Modified by Constant Apr 21 2000
 
 #include <login.h>
@@ -35,7 +35,7 @@ void time_out()
 {
 	if(objectp(query_temp("body_ob"))) return;
 	if(interactive(this_object()))
-		write("您花在创造新角色的时间太长了，下次再来吧:))\n");
+		write("您花在創造新角色的時間太長了，下次再來吧:))\n");
 	destruct(this_object());
 }
 
@@ -43,7 +43,7 @@ void login_time_out()
 {
 	if(query_temp("new_char")) return;
 	if(interactive(this_object()))
-		write("您花在连线进入的时间太长了，下次再来吧:))\n");
+		write("您花在連線進入的時間太長了，下次再來吧:))\n");
 	destruct(this_object());
 }
 

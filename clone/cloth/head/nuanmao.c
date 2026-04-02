@@ -4,12 +4,12 @@
 inherit HEAD;
 void create()
 {
-	set_name("遮尘暖帽", ({ "nuan mao", "head" }) );
+	set_name("遮塵暖帽", ({ "nuan mao", "head" }) );
 	set_weight(100);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "顶");
+		set("unit", "頂");
 		set("value",150);
 		set("material", "cloth");
 		set("armor_prop/armor", 1);

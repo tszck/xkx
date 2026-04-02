@@ -6,7 +6,7 @@ void create()
 {
         set("short","大雪山口");
         set("long",@LONG
-冰天雪地，寒风刺骨。不是内力高深的人，已然经受不住了。
+冰天雪地，寒風刺骨。不是內力高深的人，已然經受不住了。
 LONG );
         set("exits",([
                 "northdown" : __DIR__"sroad5",

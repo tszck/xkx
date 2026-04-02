@@ -7,17 +7,17 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("张木匠", ({ "zhang mujiang", "mujiang", "zhang" }));
+	set_name("張木匠", ({ "zhang mujiang", "mujiang", "zhang" }));
 	set("str", 20);
 	set("gender", "男性");
 	set("age", 43);
-	set("long", "他是个手艺高超的木匠，据说他在为少林做事。\n");
+	set("long", "他是個手藝高超的木匠，據說他在爲少林做事。\n");
 	set("combat_exp", 2500);
 	set("attitude", "friendly");
 	set("inquiry", ([
-		"name": "小人姓张，在成都也算一个好手艺人。",
-		"木人": "说到木人嘛，那可是大半生研究的成果哦。",
-		"陈麻婆": "她....我暗恋了她大半辈子，但是.......",
+		"name": "小人姓張，在成都也算一個好手藝人。",
+		"木人": "說到木人嘛，那可是大半生研究的成果哦。",
+		"陳麻婆": "她....我暗戀了她大半輩子，但是.......",
 	]));
 	set("vendor_goods", ({
 		WEAPON_DIR"staff/muzhang",

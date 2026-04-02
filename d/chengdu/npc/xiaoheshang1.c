@@ -6,7 +6,7 @@ inherit NPC;
 void create()
 {
 	set_name("小和尚", ({ "xiao heshang", "xiao", "heshang" }));
-	set("long", "这是位年轻的和尚，看他虔诚的样子，长大后肯定是位得道高僧。\n"); 
+	set("long", "這是位年輕的和尚，看他虔誠的樣子，長大後肯定是位得道高僧。\n"); 
 	set("gender", "男性");
 	set("attitude", "peaceful");
 	set("class", "bonze");

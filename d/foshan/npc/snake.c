@@ -6,8 +6,8 @@ inherit NPC;
 
 void create()
 {
-	set_name(HIG"竹叶青"NOR, ({ "zhuye qing", "snake" }) );
-	set("long", "一只昂首吐着"HIR"红信"NOR"的"HIG"竹叶青"NOR"正虎视眈眈地盯著你。\n");
+	set_name(HIG"竹葉青"NOR, ({ "zhuye qing", "snake" }) );
+	set("long", "一隻昂首吐着"HIR"紅信"NOR"的"HIG"竹葉青"NOR"正虎視眈眈地盯著你。\n");
 	set("race", "爬蛇");
 	set("age", 3);
 	set("attitude", "peaceful");
@@ -45,7 +45,7 @@ int hit_ob(object me, object ob, int damage)
 	if( random(damage) > (int)ob->query_temp("apply/armor")
 	&&	(int)ob->query_condition("snake_poison") < 10 ) {
 		ob->apply_condition("snake_poison", 20);
-        tell_object(ob, HIG "你觉得被咬中的地方一阵麻木！\n" NOR );
+        tell_object(ob, HIG "你覺得被咬中的地方一陣麻木！\n" NOR );
 	}
 }
 void killob(object ob)

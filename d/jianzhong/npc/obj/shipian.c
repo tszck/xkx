@@ -7,11 +7,11 @@ void init()
 }
 void create()
 {
-        set_name(HIC"长石片"NOR, ({ "chang shipian", "stone", "shipian" }) );
+        set_name(HIC"長石片"NOR, ({ "chang shipian", "stone", "shipian" }) );
         set_weight(5000);
-        set("unit", "块");
+        set("unit", "塊");
         set("long",HIC@LONG
-一块普普通通的长条石片，上面有些细细的纹路，看不出什么特别之处。
+一塊普普通通的長條石片，上面有些細細的紋路，看不出什麼特別之處。
 LONG
 NOR
 );
@@ -24,18 +24,18 @@ int do_study(string arg)
 	object me = this_player();
 	int dugulevel = me->query_skill("dugu-jiujian-sword",1);
 	if ( (arg != "stone") && (arg != "shipian") && (arg != "chang shipian") )
-		return notify_fail("你要学什么？\n");
+		return notify_fail("你要學什麼？\n");
 	if ((dugulevel >= 150) && (dugulevel <= 250) )
 	{
 	       if( (int)me->query("combat_exp") < (int)dugulevel*dugulevel*dugulevel/10 ) 
-			return notify_fail("你只觉得石头的纹理暗合「独孤九剑」的剑意，可是就是理不出\n头绪，看来是实战经验不够。\n");
+			return notify_fail("你只覺得石頭的紋理暗合「獨孤九劍」的劍意，可是就是理不出\n頭緒，看來是實戰經驗不夠。\n");
 	       if( (int)me->query("jing") < 25 ) 
-        		return notify_fail("你现在过于疲倦，无法专心下来研读新知。\n");
+        		return notify_fail("你現在過於疲倦，無法專心下來研讀新知。\n");
         	me->receive_damage("jing", 25);
 		me->improve_skill("dugu-jiujian-sword", (me->query("int"))*(me->query("combat_exp")/20000));
-		message("vision","你拿出长石条仔细研究，竟从石条的纹理上领悟出「独孤九剑」\n的剑意，「独孤九剑」大有长进。\n",me);
-		message("vision",me->query("name")+"仔细研读一块石片。\n",environment(me),me);
+		message("vision","你拿出長石條仔細研究，竟從石條的紋理上領悟出「獨孤九劍」\n的劍意，「獨孤九劍」大有長進。\n",me);
+		message("vision",me->query("name")+"仔細研讀一塊石片。\n",environment(me),me);
 		return 1;
 	}
-	return notify_fail("你对着石头看来看去，没看出什么道理出来。\n");
+	return notify_fail("你對着石頭看來看去，沒看出什麼道理出來。\n");
 }

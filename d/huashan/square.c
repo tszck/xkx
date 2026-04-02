@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "练武场");
+	set("short", "練武場");
 	set("long", @LONG
-这里是华山派的练武场，场上立着几个木人，东边是兵器库，西边
-是个小店。通常有许多华山派弟子在此习武练剑。北边的房屋门上挂着
-一块匾，上书「群仙观」，西北方似乎有条小道通往山上。
+這裏是華山派的練武場，場上立着幾個木人，東邊是兵器庫，西邊
+是個小店。通常有許多華山派弟子在此習武練劍。北邊的房屋門上掛着
+一塊匾，上書「羣仙觀」，西北方似乎有條小道通往山上。
 LONG );
 	set("exits", ([ /* sizeof() == 2 */
 		"west"      : __DIR__"shop",
@@ -33,8 +33,8 @@ int valid_leave(object me, string dir)
 {
 	mapping myfam;
 	myfam=(mapping)me->query("family");
-	if ((!myfam ||myfam["family_name"] != "华山派") && (dir == "east"))
-		return notify_fail("那边是华山派的兵器库，这位" + RANK_D->query_respect(me) + "请止步。\n");
+	if ((!myfam ||myfam["family_name"] != "華山派") && (dir == "east"))
+		return notify_fail("那邊是華山派的兵器庫，這位" + RANK_D->query_respect(me) + "請止步。\n");
 	return ::valid_leave(me, dir);
 }
  

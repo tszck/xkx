@@ -4,7 +4,7 @@ inherit NPC;
 
 void create()
 {
-        set_name("进喜儿", ({ "jin xier","jin" }) );
+        set_name("進喜兒", ({ "jin xier","jin" }) );
         set("gender", "女性" );
         set("age", 22);
         set("str", 16);
@@ -12,7 +12,7 @@ void create()
         set("dex", 11);
         set("per", 17);
         set("int", 14);
-        set("long","进喜儿是万劫谷的丫鬟。\n");
+        set("long","進喜兒是萬劫谷的丫鬟。\n");
         set("attitude", "friendly");
 
         set("max_neili", 200);

@@ -1,46 +1,46 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 
 inherit ITEM;
 inherit F_FOOD;
 
-string *food_name= ({"麻辣肚丝",
+string *food_name= ({"麻辣肚絲",
                 "松仁玉米",
      "梅菜扣肉",
-     "五香腊肠",
-     "鱼香肉丝",
-     "红油鸡片",
-     "清炒虾仁",
-     "五花焖肉",
-     "青丝熏鱼",
+     "五香臘腸",
+     "魚香肉絲",
+     "紅油雞片",
+     "清炒蝦仁",
+     "五花燜肉",
+     "青絲燻魚",
      "糖醋排骨",
-     "京酱肉丝",
-     "油炝大虾",
-     "脆皮烤鸭",
-     "红烧素鹅",
-     "宫保鸡丁",
-     "麻辣肚丝",
-     "红油肺片",
-     "嫩汆猪肝",
-     "走油脆肠",
+     "京醬肉絲",
+     "油熗大蝦",
+     "脆皮烤鴨",
+     "紅燒素鵝",
+     "宮保雞丁",
+     "麻辣肚絲",
+     "紅油肺片",
+     "嫩汆豬肝",
+     "走油脆腸",
      "爆炒腰花",
-     "麝香冬笋",
+     "麝香冬筍",
      "翡翠豆腐",
      "麻婆豆腐",
-     "三鲜腐竹",
+     "三鮮腐竹",
 });
 
 void create()
-{   string name = "婚礼大菜";
+{   string name = "婚禮大菜";
      set_name(name, ({"food"}));
      set_weight(1000);
      if (clonep())
          set_default_object(__FILE__);
      else {
-         set("long", "一盘令人垂涎的婚礼大菜。\n");
-         set("unit", "盘");
-     set("eat_msg", "$N拿起玉筷夹了些" + name + "，放到嘴中吃了起来。\n");
+         set("long", "一盤令人垂涎的婚禮大菜。\n");
+         set("unit", "盤");
+     set("eat_msg", "$N拿起玉筷夾了些" + name + "，放到嘴中喫了起來。\n");
          set("value", 250);
          set("food_remaining", 5);
          set("food_supply", 20);
@@ -49,16 +49,16 @@ void create()
 
 void init ()
 {
-   if (query("name")=="婚礼大菜")
+   if (query("name")=="婚禮大菜")
    {
      string name;
      name=food_name[random(sizeof(food_name))];
        set_name(name, ({"food"}));
-     set("long", "一盘令人垂涎的"+name+"。\n");
-     set("eat_msg", "$N拿起玉筷夹了些" + name + "，放到嘴中吃了起来。\n");
+     set("long", "一盤令人垂涎的"+name+"。\n");
+     set("eat_msg", "$N拿起玉筷夾了些" + name + "，放到嘴中喫了起來。\n");
    }
         if(!wizardp(this_player())) {
-           set("no_get", "在婚礼上这么干似乎不大好吧！\n");
+           set("no_get", "在婚禮上這麼幹似乎不大好吧！\n");
         }
         add_action("do_get", "get");
         add_action("do_eat", "eat");
@@ -83,7 +83,7 @@ int do_get (string arg)
 
   if (present(arg,environment(who))==me)
   {
-    tell_object(who,"在婚礼上这么干似乎不大好吧！\n");
+    tell_object(who,"在婚禮上這麼幹似乎不大好吧！\n");
     return 1;
   }
   return 0;

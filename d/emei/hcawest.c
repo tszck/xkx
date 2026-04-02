@@ -1,4 +1,4 @@
-//Room: hcawest.c 华藏庵侧殿
+//Room: hcawest.c 華藏庵側殿
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
@@ -7,13 +7,13 @@ string look_paizi();
 
 void create()
 {
-      set("short","华藏庵侧殿");
+      set("short","華藏庵側殿");
       set("long",@LONG
-这里是金顶华藏庵西侧殿，是接待香客及来宾的地方。殿内摆着几张桌子，
-桌旁围放数把椅子。墙上悬着几幅字画，墙边一排书架，架上摆满经书。有几
-位进香客正在品茶养神，欣赏墙上的字画或翻阅架上的经书。还有两个二十来
-岁的姑娘在向一位师太打听有关出家的事。一个十来岁的小师太正在忙前忙后
-招待客人。南边有扇窗子(chuang)。
+這裏是金頂華藏庵西側殿，是接待香客及來賓的地方。殿內擺着幾張桌子，
+桌旁圍放數把椅子。牆上懸着幾幅字畫，牆邊一排書架，架上擺滿經書。有幾
+位進香客正在品茶養神，欣賞牆上的字畫或翻閱架上的經書。還有兩個二十來
+歲的姑娘在向一位師太打聽有關出家的事。一個十來歲的小師太正在忙前忙後
+招待客人。南邊有扇窗子(chuang)。
 LONG);
       set("objects", ([
            CLASS_D("emei") + "/wenqing" : 1,
@@ -34,11 +34,11 @@ LONG);
 
 string look_chuang()
 {
-    return "窗外可以看到峨嵋山的秀丽山景。窗下有个小牌子(paizi)。\n";
+    return "窗外可以看到峨嵋山的秀麗山景。窗下有個小牌子(paizi)。\n";
 }
 string look_paizi()
 {
-    return "牌子上写着：请来客行为尊重，切勿跳(jump)窗。\n";
+    return "牌子上寫着：請來客行爲尊重，切勿跳(jump)窗。\n";
 }
 void init()
 {
@@ -51,6 +51,6 @@ int do_jump(string arg)
         me = this_player();
         message_vision("$N趁人不注意，跳出窗外。\n",me);
         me->move(__DIR__"xiaoshulin1");
-        message_vision("$N从华藏庵里跳窗出来。\n",me);
+        message_vision("$N從華藏庵裏跳窗出來。\n",me);
         return 1;
 }

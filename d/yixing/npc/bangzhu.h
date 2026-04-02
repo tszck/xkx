@@ -30,12 +30,12 @@ void checking(object ob)
 	if( environment() != environment(ob) ) return;
 	if( ob->query("party/party_name") == query("party/party_name") )
 	{
-		message_vision("$N拍了拍$n的头说道：加油！长乐帮发了自有你的好处！\n", me, ob);
+		message_vision("$N拍了拍$n的頭說道：加油！長樂幫發了自有你的好處！\n", me, ob);
 		return;
 	}
 	if( !random(2) )
-		message_vision("$N双手抱拳，牛里牛气地说道：见到本帮主，难道没有任何表示吗？\n", me);
-	else message_vision("$N说道：还不赶快加入" + query("party/party_name") + "！！！\n", me);
+		message_vision("$N雙手抱拳，牛裏牛氣地說道：見到本幫主，難道沒有任何表示嗎？\n", me);
+	else message_vision("$N說道：還不趕快加入" + query("party/party_name") + "！！！\n", me);
 }
 
 int do_check(string arg)
@@ -60,51 +60,51 @@ int ask_join()
 	int exp = ob->query("combat_exp");
 
 	ob_fam = (string)ob->query("family/family_name");
-	if( ob_fam == "丐帮" )
+	if( ob_fam == "丐幫" )
 	{
-		say(name() + "大怒道：" + RANK_D->query_rude(ob) + "一定是丐帮派来卧底的吧！\n");
+		say(name() + "大怒道：" + RANK_D->query_rude(ob) + "一定是丐幫派來臥底的吧！\n");
 		return 1;
 	}
 	if( ob_fam == "大理段家" )
 	{
-		say(name() + "大怒道：" + RANK_D->query_rude(ob) + "一定是大理国派来卧底的吧！\n");
+		say(name() + "大怒道：" + RANK_D->query_rude(ob) + "一定是大理國派來臥底的吧！\n");
 		return 1;
 	}
 
-	if( ob_fam == "桃花岛" )
+	if( ob_fam == "桃花島" )
 	{
-		say(name() + "说道：贵派祖师黄药师一向不与江湖人士往来，我怎么能随便收容他老人家的门下！\n");
+		say(name() + "說道：貴派祖師黃藥師一向不與江湖人士往來，我怎麼能隨便收容他老人家的門下！\n");
 		return 1;
 	}
 
-	if( ob_fam == "武当派" || ob_fam == "峨嵋派" || ob_fam == "华山派" ||
+	if( ob_fam == "武當派" || ob_fam == "峨嵋派" || ob_fam == "華山派" ||
 		 ob_fam == "少林派" || ob_fam == "南少林派" )
 	{
-		say(name() + "大怒道：" + RANK_D->query_rude(ob) + "一定是名门正派派来卧底的吧！\n");
+		say(name() + "大怒道：" + RANK_D->query_rude(ob) + "一定是名門正派派來臥底的吧！\n");
 		return 1;
 	}
 	myfam = (string)query("party/party_name");
 	if( (string)ob->query("party/party_name") == myfam )
 	{
-		say(name() + "大怒道：" + RANK_D->query_rude(ob) + "！竟敢开帮主的玩笑！！！\n");
+		say(name() + "大怒道：" + RANK_D->query_rude(ob) + "！竟敢開幫主的玩笑！！！\n");
 		return 1;
 	}
 	if( exp > query("combat_exp") && !wizardp(ob))
 	{
-		say(name()+"双手一抱拳道："+RANK_D->query_respect(ob)+ "莫非是开玩笑吧。\n");
+		say(name()+"雙手一抱拳道："+RANK_D->query_respect(ob)+ "莫非是開玩笑吧。\n");
 		return 1;
 	}
 	if( time() < (int)ob->query("party/enter_time") + 600 )
 	{
-		say(name() + "大怒道：" + RANK_D->query_rude(ob) + "，你如此反复无常岂能容身于江湖！！！\n");
+		say(name() + "大怒道：" + RANK_D->query_rude(ob) + "，你如此反覆無常豈能容身於江湖！！！\n");
 		return 1;
 	}
-	message_vision("$N重重地拍了一下$n的肩膀，喝道：好样的！从今以后跟兄弟们有难同当！\n", this_object(), ob);
+	message_vision("$N重重地拍了一下$n的肩膀，喝道：好樣的！從今以後跟兄弟們有難同當！\n", this_object(), ob);
 
-	ob->set_temp("apply/short", ({ HIR + myfam + "帮众"NOR + ob->query("name")+"("+capitalize(ob->query("id"))+")" }));
+	ob->set_temp("apply/short", ({ HIR + myfam + "幫衆"NOR + ob->query("name")+"("+capitalize(ob->query("id"))+")" }));
 	ob->delete("party");
 	ob->set("party/party_name", myfam);
-	ob->set("party/rank", "帮众");
+	ob->set("party/rank", "幫衆");
 	ob->set("party/enter_time", time());
 	if( obj = present("bang ling", ob) ) destruct(obj);
 
@@ -112,10 +112,10 @@ int ask_join()
 	obj->set("owner", ob->query("id"));
 	obj->set("fam", myfam);
 	obj->set("combat_exp", query("combat_exp"));
-	obj->set("long", "这是" + myfam + "的帮令，上面刻着「" + ob->query("name") + "」。\n");
+	obj->set("long", "這是" + myfam + "的幫令，上面刻着「" + ob->query("name") + "」。\n");
 	obj->move(ob);
-	message_vision("$N把一" + obj->query("unit") + obj->name() + "扔给$n。\n", this_object(), ob);
-	log_file("partyjoin", sprintf("%s于%s时加入%s\n", ob->query("name"), ctime(time()), myfam));
+	message_vision("$N把一" + obj->query("unit") + obj->name() + "扔給$n。\n", this_object(), ob);
+	log_file("partyjoin", sprintf("%s於%s時加入%s\n", ob->query("name"), ctime(time()), myfam));
 	return 1;
 }
 
@@ -127,19 +127,19 @@ string ask_skills()
 	int amount;
 
 	if( is_fighting() )
-		return RANK_D->query_rude(me) + "瞎了眼没见我正忙着？！";
+		return RANK_D->query_rude(me) + "瞎了眼沒見我正忙着？！";
 
 	if( (string)me->query("party/party_name") != (string)query("party/party_name") )
-		return RANK_D->query_rude(me) + "莫非是想打听我帮的秘密吧。";
+		return RANK_D->query_rude(me) + "莫非是想打聽我幫的祕密吧。";
 
 	if( !(ling = present("bang ling", me)) )
-		return RANK_D->query_rude(me) + "竟连自己的帮令都管不住！";
+		return RANK_D->query_rude(me) + "竟連自己的幫令都管不住！";
 
 	if( (string)ling->query("owner") != me->query("id") )
-		return RANK_D->query_rude(me) + "竟连自己的帮令都管不住！";
+		return RANK_D->query_rude(me) + "竟連自己的幫令都管不住！";
 
 	if( (amount = (int)ling->query("score")) < 10 )
-		return RANK_D->query_rude(me)+"再加把劲，帮主才会指点你一下！";
+		return RANK_D->query_rude(me)+"再加把勁，幫主纔會指點你一下！";
 
 	if( amount > 100 )
 	{
@@ -150,7 +150,7 @@ string ask_skills()
 		ling->delete("score");
 	}
 
-	tell_object(me, "请键入：武功的英文名字。\n");
+	tell_object(me, "請鍵入：武功的英文名字。\n");
 	return "好吧。";
 }
 
@@ -162,50 +162,50 @@ int do_xue(string arg)
 
 	if( !(amount = (int)me->query("party/skills_asked")) )
 	{
-		write("你还没征求帮主同意呢。\n");
+		write("你還沒徵求幫主同意呢。\n");
 		return 1;
 	}
 
 	if( is_fighting() )
 	{
-		say(name() + "大怒道：" + RANK_D->query_rude(me) + "瞎了眼没见我正忙着？！");
+		say(name() + "大怒道：" + RANK_D->query_rude(me) + "瞎了眼沒見我正忙着？！");
 		return 1;
 	}
 	if( !arg )
 	{
 		sname = keys(query_skills());
-		write("\n" + name() + "所学过的技能：\n\n");
+		write("\n" + name() + "所學過的技能：\n\n");
 		for(i = 0; i < sizeof(sname); i++)
 			write(to_chinese(sname[i]) + " (" + sname[i] + ")" + "\n");
 		return 1;
 	}
 	if( (level = (int)query_skill(arg, 1)) < 1 )
 	{
-		say(name() + "摇了摇头道：帮主没学过。\n");
+		say(name() + "搖了搖頭道：幫主沒學過。\n");
 		return 1;
 	}
 
 	mylvl = (int)me->query_skill(arg, 1);
 	if( level < mylvl )
 	{
-		say(name() + "大怒道：" + RANK_D->query_rude(me) + "居然超过老子了。\n");
+		say(name() + "大怒道：" + RANK_D->query_rude(me) + "居然超過老子了。\n");
 		return 1;
 	}
 	if( mylvl > 80 )
 	{
-		say(name() + "摇了摇头道：你得去门派中正式拜师才能继续提高" + to_chinese(arg) + "。\n");
+		say(name() + "搖了搖頭道：你得去門派中正式拜師才能繼續提高" + to_chinese(arg) + "。\n");
 		return 1;
 	}
 	if( (int)me->query("jing") + 10 < (int)me->query("max_jing") )
 	{ 
-		write("你先歇会儿吧。\n");
+		write("你先歇會兒吧。\n");
 		return 1;
 	}
 	me->set("jing", 10);
 	me->improve_skill(arg, amount * me->query("int") / 3); 
 	me->delete("party/skills_asked");
-	message_vision("$N向$n请教有关「" + to_chinese(arg) + "」的疑问。\n", me, this_object());
-	tell_object(me, "你听了帮主的指导，对「" + to_chinese(arg) + "」似乎有些心得。\n");
+	message_vision("$N向$n請教有關「" + to_chinese(arg) + "」的疑問。\n", me, this_object());
+	tell_object(me, "你聽了幫主的指導，對「" + to_chinese(arg) + "」似乎有些心得。\n");
 	return 1;
 }
 
@@ -223,7 +223,7 @@ void die()
 		ob = new(BANGYIN);
 		ob->set("long", query("fam") + ob->query("name") + "。\n");
 		ob->move(environment());
-		message_vision(HIR"\n突然从$N衣袋中掉下一" + ob->query("unit") + ob->name() + "。\n"NOR, this_object());
+		message_vision(HIR"\n突然從$N衣袋中掉下一" + ob->query("unit") + ob->name() + "。\n"NOR, this_object());
 		set_temp("my_killer", killer->query("id"));
 		ob->set("my_killer",  killer->query("id"));
 		ob->set("combat_exp", query("combat_exp"));

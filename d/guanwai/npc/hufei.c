@@ -9,13 +9,13 @@ void create()
 {
 	set_name("胡斐", ({"hu fei", "hu", "fei"}));
 	set("gender", "男性");
-	set("nickname", "雪山飞"HIG"狐"NOR);
+	set("nickname", "雪山飛"HIG"狐"NOR);
 	set("age", 25);
 	set("long", 
-		"他就是胡一刀之子，因其武功高强神出鬼没。\n"
-		"在江湖上人送外号「雪山飞狐」。\n"
-		"他身穿一件白色长衫，腰间别着一把看起来很旧的刀。\n"
-		"他满腮虬髯，根根如铁，一头浓发，却不结辫。\n");
+		"他就是胡一刀之子，因其武功高強神出鬼沒。\n"
+		"在江湖上人送外號「雪山飛狐」。\n"
+		"他身穿一件白色長衫，腰間別着一把看起來很舊的刀。\n"
+		"他滿腮虯髯，根根如鐵，一頭濃髮，卻不結辮。\n");
 	set("attitude", "peaceful");
         set("no_get", "1");
 	set("str", 45);
@@ -24,9 +24,9 @@ void create()
 	set("dex", 30);
 	set("chat_chance", 20);
 	set("chat_msg", ({
-		"胡斐叹了口气道：“不知什么时候还能再见到若兰姑娘。\n",
-		"胡斐恨恨道：“苗人凤是我杀父仇人，我必报此仇！”\n",
-		"胡斐切齿恨道：“阎基老贼暗中下毒，我必手刃此獠！”\n",
+		"胡斐嘆了口氣道：“不知什麼時候還能再見到若蘭姑娘。\n",
+		"胡斐恨恨道：“苗人鳳是我殺父仇人，我必報此仇！”\n",
+		"胡斐切齒恨道：“閻基老賊暗中下毒，我必手刃此獠！”\n",
 //		(: random_move :),
 	}));
 	
@@ -40,11 +40,11 @@ void create()
 	set("combat_exp", 190000);
 	set("score", 20000);
 	 
-	set_skill("force", 110);             // 基本内功
+	set_skill("force", 110);             // 基本內功
 	set_skill("hujia-daofa", 150);       // 胡家刀法	
 	set_skill("blade", 120);             // 基本刀法
-	set_skill("hunyuan-yiqi", 120);      // 混元一气功
-	set_skill("dodge", 120);             // 基本躲闪
+	set_skill("hunyuan-yiqi", 120);      // 混元一氣功
+	set_skill("dodge", 120);             // 基本躲閃
 	set_skill("shaolin-shenfa", 120);    // 胡家身法
 	set_skill("parry", 120);             // 基本招架
 		
@@ -53,18 +53,18 @@ void create()
 	map_skill("dodge", "shaolin-shenfa");
 	map_skill("parry", "hujia-daofa");
 	set("inquiry",([
-		"宝刀":     (: ask_me :),
-		"刀谱":     (: ask_book :),
-		"胡家刀谱": (: ask_book :),
-		"阎基":     "阎基这个狗贼我非杀了他不可。\n",
-		"胡一刀":   "辽东大侠胡一刀是我爹。不过我从没见过他。\n",
-		"苗人凤":   "苗人凤虽和家父齐名，家父却死在他的剑下。\n",
-		"苗若兰":   "不知什么时候还能再见到若兰姑娘。\n",
-		"若兰":   "不知什么时候还能再见到若兰姑娘。\n",
-		"若兰姑娘":   "不知什么时候还能再见到若兰姑娘。\n",
-		"程灵素":   "二妹是为我而死的。\n",
-		"赵半山":   "你见我赵三哥了? \n",
-		"袁紫衣":   "算了，别提这伤心事了。\n"
+		"寶刀":     (: ask_me :),
+		"刀譜":     (: ask_book :),
+		"胡家刀譜": (: ask_book :),
+		"閻基":     "閻基這個狗賊我非殺了他不可。\n",
+		"胡一刀":   "遼東大俠胡一刀是我爹。不過我從沒見過他。\n",
+		"苗人鳳":   "苗人鳳雖和家父齊名，家父卻死在他的劍下。\n",
+		"苗若蘭":   "不知什麼時候還能再見到若蘭姑娘。\n",
+		"若蘭":   "不知什麼時候還能再見到若蘭姑娘。\n",
+		"若蘭姑娘":   "不知什麼時候還能再見到若蘭姑娘。\n",
+		"程靈素":   "二妹是爲我而死的。\n",
+		"趙半山":   "你見我趙三哥了? \n",
+		"袁紫衣":   "算了，別提這傷心事了。\n"
 	]));
 	set("baodao_count",1);
 	set("book_count",1);
@@ -83,7 +83,7 @@ string ask_me()
 		call_out("do_kill",1,this_player());
 	}
 	else if((int)(me->query("shen")<100000))
-		return "以你目前的作为是不能拿这把刀的。\n";
+		return "以你目前的作爲是不能拿這把刀的。\n";
 
    	else if((int)(me->query("shen") > 100000))
 	{
@@ -94,13 +94,13 @@ string ask_me()
 			if ( ob->violate_unique() )
 			{
 				destruct( ob );
-				return "你来晚了，现在这把刀已不在此处。\n";
+				return "你來晚了，現在這把刀已不在此處。\n";
 			}
     			ob->move(me);
-			command("rumor "+me->query("name")+"拿到闯王宝刀啦。\n");
-			return " 好吧，这把闯王宝刀就赠与你，希望你好好利用它。\n";
+			command("rumor "+me->query("name")+"拿到闖王寶刀啦。\n");
+			return " 好吧，這把闖王寶刀就贈與你，希望你好好利用它。\n";
 		}
-		else return "你来晚了，现在这把刀已不在此处。\n";
+		else return "你來晚了，現在這把刀已不在此處。\n";
 	}
 
 }
@@ -116,7 +116,7 @@ void do_kill(object ob)
  
 	if (interactive(ob))
 	{
-		command("say 你这恶贼竟敢打我宝刀的主意，给我纳命来！\n");
+		command("say 你這惡賊竟敢打我寶刀的主意，給我納命來！\n");
 //		me->set_leader(ob);
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, ob);
@@ -129,11 +129,11 @@ int accept_object(object me, object ob)
  
 	if( !me || environment(me) != environment() ) return 0;
 	if ( !objectp(ob) ) return 0; 
-	if ( !present(ob, me) ) return notify_fail("你没有这件东西。");
+	if ( !present(ob, me) ) return notify_fail("你沒有這件東西。");
 	if ( (string)ob->query("id") == "yan ji") 
 	{
-		write(HIC "\n胡斐说道：这位" + RANK_D->query_respect(me)+"，如此大恩大德，在下实不知何以为报。\n");
-		write(HIC "\n胡斐大喜道：狗贼！想不到你也有今天！！手起刀落，将阎基剁为两段。\n");
+		write(HIC "\n胡斐說道：這位" + RANK_D->query_respect(me)+"，如此大恩大德，在下實不知何以爲報。\n");
+		write(HIC "\n胡斐大喜道：狗賊！想不到你也有今天！！手起刀落，將閻基剁爲兩段。\n");
 		ob->die();
 		me->set_temp("marks/hujiadaopu",1);
         }
@@ -145,22 +145,22 @@ string ask_book()
 	object ob, me;
 	
 	me = this_player();
-	if (!me->query_temp("marks/hujiadaopu",1)) return "你说什么? \n";
+	if (!me->query_temp("marks/hujiadaopu",1)) return "你說什麼? \n";
 	if((int)(me->query("shen")<10000))
-		return "刀谱落入宵小之手，难免是阎基第二。\n";
+		return "刀譜落入宵小之手，難免是閻基第二。\n";
 
    	else if((int)(me->query("shen") > 100000))
 	{
 		if(query("book_count") > 0)
 		{		
-		write(HIC "胡斐说着转身从阎基尸身上搜出一本破旧书本，递了给你。\n");
+		write(HIC "胡斐說着轉身從閻基屍身上搜出一本破舊書本，遞了給你。\n");
 			add("book_count", -1);
     			ob = new ("/clone/book/blade_book");
     			ob->move(this_player());
-			command("rumor "+me->query("name")+"拿到胡家刀谱啦。\n");
-			return "这本刀谱被这狗贼霸占多时了，现在就赠与你吧。\n";
+			command("rumor "+me->query("name")+"拿到胡家刀譜啦。\n");
+			return "這本刀譜被這狗賊霸佔多時了，現在就贈與你吧。\n";
 		}
-		else return "你来晚了，现在刀谱已不在此处。\n";
+		else return "你來晚了，現在刀譜已不在此處。\n";
 	}
 
 }

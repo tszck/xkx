@@ -7,7 +7,7 @@ void create()
 	set_name("侍者", ({ "shi zhe", "shi", "zhe" }));
 	set("age", 32);
 	set("gender", "男性");
-	set("long", "他看上去长的眉清目秀。\n");
+	set("long", "他看上去長的眉清目秀。\n");
 	set("attitude", "peaceful");
 
 	set("str", 24);

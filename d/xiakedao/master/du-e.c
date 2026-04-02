@@ -8,11 +8,11 @@ string ask_me();
 void create()
 {
 	set_name("渡厄", ({ "du-e", "e" }) );
-	set("title", "少林长老");
+	set("title", "少林長老");
 	set("gender", "男性");
 	set("age", 90);
 	set("long",
-		"这是一个面颊深陷，瘦骨零丁的老僧，他脸色枯黄，如同一段枯木。\n");
+		"這是一個面頰深陷，瘦骨零丁的老僧，他臉色枯黃，如同一段枯木。\n");
 
 	set("attitude", "peaceful");
 	set("class", "bonze");

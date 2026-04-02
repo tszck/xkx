@@ -4,12 +4,12 @@
 inherit NPC;
 
 string *answer_msg =({
-"不错，看在你平日的积德，加上你近日的磨练，就饶你这一次，你去见见判官吧。\n",
-"嗯，你的罪孽已经差不多了，在过一段时间就可以了。\n",
-"你心中积恶还未洗清，不能回家。",
-"你罪孽深重，还是先等着吧。",
-"哼，你孽似海深，还是老实点，多受些苦吧。",
-"",//万一有人是300，就是这行。
+"不錯，看在你平日的積德，加上你近日的磨練，就饒你這一次，你去見見判官吧。\n",
+"嗯，你的罪孽已經差不多了，在過一段時間就可以了。\n",
+"你心中積惡還未洗清，不能回家。",
+"你罪孽深重，還是先等着吧。",
+"哼，你孽似海深，還是老實點，多受些苦吧。",
+"",//萬一有人是300，就是這行。
 });
 string ask_me();
 
@@ -17,13 +17,13 @@ void create()
 {
 	set_name(HIW "酆都冥府大帝" NOR, ({ "ming king","king" }) );
 	set("long",HIW @LONG
-岱泰山乃天帝之孙，群灵之府，主世界人民官职生死贵贱等事，定生死簿，辖天下众
-生，驭冥府群鬼。
+岱泰山乃天帝之孫，羣靈之府，主世界人民官職生死貴賤等事，定生死簿，轄天下衆
+生，馭冥府羣鬼。
 LONG NOR);
 	set("gender","男性");
 	set("str",1000);
-	set("nickname",HIR "阎罗冥王" NOR);
-	set("title",GRN"天"RED"齐"YEL"仁"BLU"圣"CYN"大"MAG"生"WHT"敬"BLK"道"HIW"东岳大帝"NOR);            
+	set("nickname",HIR "閻羅冥王" NOR);
+	set("title",GRN"天"RED"齊"YEL"仁"BLU"聖"CYN"大"MAG"生"WHT"敬"BLK"道"HIW"東嶽大帝"NOR);            
 	set("attitude", "peaceful");
 	set("age", 102400000);
 	set("combat_exp", 100000000);
@@ -43,7 +43,7 @@ string ask_me()
 	object who;
 	who=this_player();
 	if(who->query("age")<=15)
-		return "咦？你这么小年纪，怎么会跑到这里来？";
+		return "咦？你這麼小年紀，怎麼會跑到這裏來？";
 	mud_age=(int)who->query("mud_age");
 	rein_time=(int)(who->query("PKS") * 20) + (int)(who->query("MKS") / 10);
 	i=rein_time-mud_age;

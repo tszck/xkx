@@ -5,12 +5,12 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-	set_name("郑克爽", ({ "zheng keshuang", "zheng" }));
+	set_name("鄭克爽", ({ "zheng keshuang", "zheng" }));
 	set("title", HIC"一等海澄公"NOR);
-	set("long", "这是一个弓腰曲背的老头儿，头发花白，容色憔悴不堪，\n"
-		"仔细再看，这人年纪倒也不怎么老，只是愁眉苦脸，眼角\n"
-		"边都是皱纹，颏下留了短须，也已花白，再凝神一看，却\n"
-		"不是郑克爽是谁\n");
+	set("long", "這是一個弓腰曲背的老頭兒，頭髮花白，容色憔悴不堪，\n"
+		"仔細再看，這人年紀倒也不怎麼老，只是愁眉苦臉，眼角\n"
+		"邊都是皺紋，頦下留了短鬚，也已花白，再凝神一看，卻\n"
+		"不是鄭克爽是誰\n");
 	set("gender", "男性");
 	set("age", 32);
 	set("attitude", "peaceful");

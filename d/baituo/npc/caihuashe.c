@@ -8,7 +8,7 @@ void create()
 	set_name("菜花蛇", ({ "caihua she", "she" }) );
 	set("race", "爬蛇");
 	set("age", 1);
-	set("long", "一只青幽幽的菜花蛇，头部呈椭圆形。\n");
+	set("long", "一隻青幽幽的菜花蛇，頭部呈橢圓形。\n");
 	set("attitude", "peaceful");
 	set("str", 15);
 	set("cor", 16);
@@ -23,7 +23,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$N抽搐两下，$N死了。\n", this_object());
+	message_vision("$N抽搐兩下，$N死了。\n", this_object());
 	ob = new(__DIR__"obj/sherou");
 	ob->move(environment(this_object()));
 	destruct(this_object());

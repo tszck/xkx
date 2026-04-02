@@ -10,8 +10,8 @@ void create()
 {
 	set_name("裘千丈", ({ "qiu qianzhang", "qiu", "qianzhang", "zhang" }));
 	set("long", 
-		"他是一个白须老头，身穿黄葛短衫，足穿麻鞋，右手挥着一把大蒲扇。\n"
-	"他满脸的油滑无赖的表情。\n");
+		"他是一個白鬚老頭，身穿黃葛短衫，足穿麻鞋，右手揮着一把大蒲扇。\n"
+	"他滿臉的油滑無賴的表情。\n");
 	set("gender", "男性");
 	set("age", 60);
 	set("attitude", "friendly");
@@ -51,27 +51,27 @@ void create()
 	set("env/wimpy", 60);
 	set("chat_chance_combat", 10);
 	set("chat_msg_combat", ({
-		YEL"裘千丈正色道：你身上已受内伤，快回去密室中休养七七四十九日，不可见风，否则小命不保！\n\n"NOR,
-		YEL"裘千丈急道：你再不住手，爷爷可就要不客气了！！！\n\n"NOR,
+		YEL"裘千丈正色道：你身上已受內傷，快回去密室中休養七七四十九日，不可見風，否則小命不保！\n\n"NOR,
+		YEL"裘千丈急道：你再不住手，爺爺可就要不客氣了！！！\n\n"NOR,
 		(: random_move :)
 	}) );
 	
 	set("inquiry", ([
-		"name" : "记得先父曾给我起过一个名，叫甚么‘千丈’。我念着不好听，也就难得用它。\n",
-		"here" : "这里就是铁掌帮的总坛所在，你如没事，不要四处乱走，免招杀身之祸！！！\n",
-		"上官剑南" : (: ask_qiubai :),
-		"闹鬼" : (: ask_naogui :),
+		"name" : "記得先父曾給我起過一個名，叫甚麼‘千丈’。我念着不好聽，也就難得用它。\n",
+		"here" : "這裏就是鐵掌幫的總壇所在，你如沒事，不要四處亂走，免招殺身之禍！！！\n",
+		"上官劍南" : (: ask_qiubai :),
+		"鬧鬼" : (: ask_naogui :),
 	]));
 
 	set("chat_chance", 10);
 	set("chat_msg", ({
-		"裘千丈大大咧咧的说道：“铁掌帮上上下下的事情，没有爷爷不知道的！”\n",
-		"裘千丈神秘的说道：“无名峰上有一座坟墓，听说那里经常闹鬼！”\n",
-		"裘千丈神秘的说道：“一旦内功基础有成，就可以从花草树木中采气来提高了！”\n",
-		"裘千丈说道：“中指峰第二指节处，有一个神秘的所在，听说是已故帮主的埋骨之处！”\n",
+		"裘千丈大大咧咧的說道：“鐵掌幫上上下下的事情，沒有爺爺不知道的！”\n",
+		"裘千丈神祕的說道：“無名峯上有一座墳墓，聽說那裏經常鬧鬼！”\n",
+		"裘千丈神祕的說道：“一旦內功基礎有成，就可以從花草樹木中採氣來提高了！”\n",
+		"裘千丈說道：“中指峯第二指節處，有一個神祕的所在，聽說是已故幫主的埋骨之處！”\n",
 		(: random_move :)
 	}) );
-	create_family("铁掌帮", 14, "弟子");
+	create_family("鐵掌幫", 14, "弟子");
 	setup();
 	carry_object(__DIR__"obj/yellowcloth")->wear();
 	carry_object(WEAPON_DIR+"spear/tieqiang")->wield();
@@ -82,28 +82,28 @@ void attempt_apprentice(object me)
 	if ((int)me->query("shen") > 0)
 	{
 		command("hehe");
-		command("say 他妈的！爷爷我最恨你这样心慈手软的小王八蛋！。");
+		command("say 他媽的！爺爺我最恨你這樣心慈手軟的小王八蛋！。");
 		return;
 	}
 	command("haha");
-	command("say 爷爷我武功盖世，你这娃娃好好跟着我学，准没错！");
+	command("say 爺爺我武功蓋世，你這娃娃好好跟着我學，準沒錯！");
 	command("recruit " + me->query("id"));
 }
 int ask_qiubai()
 {
-	say( "他是铁掌帮的第十三代帮主。听说十年前遭了暗算，死在湖北，不知是真是假！\n");
+	say( "他是鐵掌幫的第十三代幫主。聽說十年前遭了暗算，死在湖北，不知是真是假！\n");
 	return 1;
 }
 int ask_naogui()
 {
-	say( "听一些帮众说，经常听见无名峰上的坟墓中，传出响声！嘿嘿！一定有什么蹊跷在里面！\n");
-	this_player()->set_temp("marks/闹1", 1);
+	say( "聽一些幫衆說，經常聽見無名峯上的墳墓中，傳出響聲！嘿嘿！一定有什麼蹊蹺在裏面！\n");
+	this_player()->set_temp("marks/鬧1", 1);
 	return 1;
 }
 
 int accept_fight(object me)
 {
-	command("say " + RANK_D->query_respect(me) + "怕是活腻了，来来来，让爷爷教训教训你！！\n");
-	command( "say 啊哟，糟糕，糟糕，这会儿当真不凑巧！你等一会，我肚子痛，要出恭！\n");
+	command("say " + RANK_D->query_respect(me) + "怕是活膩了，來來來，讓爺爺教訓教訓你！！\n");
+	command( "say 啊喲，糟糕，糟糕，這會兒當真不湊巧！你等一會，我肚子痛，要出恭！\n");
 	return 0;
 }

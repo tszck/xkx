@@ -7,10 +7,10 @@ string ask_me(string name);
 
 void create()
 {
-	set_name("方尘", ({ "fang chen", "fang", "chen"}));
-	set("long", "他是一位身穿黄布袈裟的青年僧人。脸上稚气未脱，身手却已相\n"
-		"当矫捷，看来似乎学过一点武功。\n");
-	set("nickname", "兵器头");
+	set_name("方塵", ({ "fang chen", "fang", "chen"}));
+	set("long", "他是一位身穿黃布袈裟的青年僧人。臉上稚氣未脫，身手卻已相\n"
+		"當矯捷，看來似乎學過一點武功。\n");
+	set("nickname", "兵器頭");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -54,11 +54,11 @@ void create()
 	prepare_skill("hand", "fengyun-hand");
 
 	set("inquiry", ([
-		"长剑" : (: ask_me, "changjian" :),
-		"剑"   : (: ask_me, "changjian" :),
+		"長劍" : (: ask_me, "changjian" :),
+		"劍"   : (: ask_me, "changjian" :),
 		"戒刀" : (: ask_me, "jiedao" :),
 		"刀"   : (: ask_me, "jiedao" :),
-		"禅杖" : (: ask_me, "chanzhang" :),
+		"禪杖" : (: ask_me, "chanzhang" :),
 		"杖"   : (: ask_me, "chanzhang" :),
 		"戒棍" : (: ask_me, "qimeigun" :),
 		"棍"   : (: ask_me, "qimeigun" :),
@@ -81,11 +81,11 @@ string ask_me(string name)
 	
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "南少林派")
-		return RANK_D->query_respect(this_player()) +"与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) +"與本派素無來往，不知此話從何談起？";
 	if ( present(name, this_player()) )
-		return RANK_D->query_respect(this_player()) +"你现在身上不是有这样武器吗，怎麽又来要了？ 真是贪得无餍！";
+		return RANK_D->query_respect(this_player()) +"你現在身上不是有這樣武器嗎，怎麼又來要了？ 真是貪得無饜！";
 	if (query("wuqi_count") < 1)
-		return "抱歉，你来得不是时候，武器已经发完了。";
+		return "抱歉，你來得不是時候，武器已經發完了。";
 	if (name == "changjian") 
 		ob = new(WEAPON_DIR + "sword/" + name);
 	if (name == "jiedao") 
@@ -98,7 +98,7 @@ string ask_me(string name)
 		ob = new(WEAPON_DIR + name);
 	ob->move(this_player());
 	add("wuqi_count", -1);
-	message_vision("方尘给$N一件"+ob->query("name")+"。\n",this_player());
-	return "拿去吧。不过要记住，武器只可防身练武，不可凭此杀害生灵。";
+	message_vision("方塵給$N一件"+ob->query("name")+"。\n",this_player());
+	return "拿去吧。不過要記住，武器只可防身練武，不可憑此殺害生靈。";
 }
 #include "/kungfu/class/nanshaolin/fang.h";

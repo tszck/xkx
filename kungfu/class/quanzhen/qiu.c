@@ -1,18 +1,18 @@
-// qiu.c 丘处机
+// qiu.c 丘處機
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-        set_name("丘处机", ({"qiu chuji", "qiu"}));
+        set_name("丘處機", ({"qiu chuji", "qiu"}));
         set("gender", "男性");
         set("age", 36);
         set("class", "quanzhen");
-        set("nickname",HIM"长春子"NOR);
+        set("nickname",HIM"長春子"NOR);
         set("long",
-                "他就是江湖上人称‘长春子’的丘处机丘真人，他方面大耳，\n"
-                "满面红光，剑目圆睁，双眉如刀，相貌威严，平生疾恶如仇。\n");
+                "他就是江湖上人稱‘長春子’的丘處機丘真人，他方面大耳，\n"
+                "滿面紅光，劍目圓睜，雙眉如刀，相貌威嚴，平生疾惡如仇。\n");
         set("attitude", "heroism");
         set("shen_type",1);
         set("str", 32);
@@ -47,16 +47,16 @@ void create()
 
         set_skill("array", 100);
         set_skill("force", 150);
-        set_skill("xiantian-qigong", 150);    //先天气功
+        set_skill("xiantian-qigong", 150);    //先天氣功
         set_skill("sword", 150);
-        set_skill("quanzhen-jian", 220);  //全真剑
+        set_skill("quanzhen-jian", 220);  //全真劍
         set_skill("dodge", 120);
         set_skill("jinyan-gong", 180);   //金雁功
         set_skill("parry", 150);
         set_skill("strike", 150);
         set_skill("haotian-zhang", 220);    //昊天掌
         set_skill("cuff", 150);
-        set_skill("chunyang-quan", 220);    //纯阳拳
+        set_skill("chunyang-quan", 220);    //純陽拳
         set_skill("literate", 80);
         set_skill("taoism", 100);
 
@@ -73,7 +73,7 @@ void create()
 
         set("book_count",1);
         set("inquiry", ([
-                "全真教" :  "我全真教是天下道家玄门正宗。\n",
+                "全真教" :  "我全真教是天下道家玄門正宗。\n",
         ]) );
 
         setup();
@@ -102,10 +102,10 @@ void greeting(object ob)
              if (!(fam = ob->query("family")) || fam["family_name"] != "全真教")
              {
                   if (ob->query("shen")>-5000) {
-                        command("say 这里是本教重地，你走动小心些。");
+                        command("say 這裏是本教重地，你走動小心些。");
                   }
                   else {
-                        command( "say 你这魔头，竟敢闯入我全真重地，我一定要杀了你！");
+                        command( "say 你這魔頭，竟敢闖入我全真重地，我一定要殺了你！");
                         me->set_leader(ob);
                         remove_call_out("kill_ob");
                         call_out("kill_ob", 1, ob);

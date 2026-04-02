@@ -6,10 +6,10 @@ void greeting(object);
 void init();
 void create()
 {
-	set_name("教练", ({ "trainer"}) );
+	set_name("教練", ({ "trainer"}) );
 	set("gender", "男性" );
 	set("age", 25);
-	set("long", "这是个和蔼可亲的教练。\n");
+	set("long", "這是個和藹可親的教練。\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 
@@ -31,7 +31,7 @@ void create()
 	set_skill("parry", 60);
 	set_skill("staff",60);
 
-	create_family("白驼山派", 3, "弟子");
+	create_family("白駝山派", 3, "弟子");
 	setup();
 }
 
@@ -49,27 +49,27 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	if ((string)ob->query("family/family_name") == "白驼山派")
+	if ((string)ob->query("family/family_name") == "白駝山派")
 	{
 		if(ob->query("qi")<60)
-			message_vision("教练对着$N笑道：练功累吧？没关系，苦尽甜来嘛。\n",ob);
+			message_vision("教練對着$N笑道：練功累吧？沒關係，苦盡甜來嘛。\n",ob);
 		else
-			message_vision("教练对着$N夸道：你又来练功，精神可嘉！\n",ob);
+			message_vision("教練對着$N誇道：你又來練功，精神可嘉！\n",ob);
 	}
 }
 
 void attempt_apprentice(object ob)
 {
-	command("say 我不能收徒。你还是拜李教头吧。\n");
+	command("say 我不能收徒。你還是拜李教頭吧。\n");
 	return;
 }
 
 int accept_fight(object ob)
 {
-	if ((string)ob->query("family/family_name") == "白驼山派")
+	if ((string)ob->query("family/family_name") == "白駝山派")
 	{
 		if((int)ob->query("combat_exp")<10000)
-			return notify_fail("教练笑道：你的经验太低了，还是找陪练童子比划吧！(bi tongzi)\n");
+			return notify_fail("教練笑道：你的經驗太低了，還是找陪練童子比劃吧！(bi tongzi)\n");
 	}
 	return 1;
 }

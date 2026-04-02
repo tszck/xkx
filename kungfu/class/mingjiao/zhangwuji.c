@@ -12,9 +12,9 @@ void create()
 {
 	object ob;
 	seteuid(getuid());
-	set_name("张无忌", ({ "zhang wuji", "zhang", "wuji" }));
-	set("long", "明教教主张无忌，统领天下十万教众，豪气干云，叱咤千秋，\n"
-		+"「九阳神功」、「乾坤大挪移」独步天下，是江湖中不世出的\n"
+	set_name("張無忌", ({ "zhang wuji", "zhang", "wuji" }));
+	set("long", "明教教主張無忌，統領天下十萬教衆，豪氣幹雲，叱吒千秋，\n"
+		+"「九陽神功」、「乾坤大挪移」獨步天下，是江湖中不世出的\n"
 		+"少年英雄。\n");
 	set("gender", "男性");
 	set("age", 20);
@@ -82,20 +82,20 @@ void create()
 	}) );
 	set("chat_chance",2);
 	set("chat_msg",({
-"张无忌愤然说道：“大丈夫当以国为家，捐躯沙场，抗元大业未成，同辈仍需努力！”\n",
-"张无忌叹道：“人生失一知己，生亦何欢，死亦何忧，敏儿，你在哪里？”\n",
-"张无忌道：“我教兄弟听了：生于乱世，当克己为公，行侠仗义，荡寇驱魔！”\n",
+"張無忌憤然說道：“大丈夫當以國爲家，捐軀沙場，抗元大業未成，同輩仍需努力！”\n",
+"張無忌嘆道：“人生失一知己，生亦何歡，死亦何憂，敏兒，你在哪裏？”\n",
+"張無忌道：“我教兄弟聽了：生於亂世，當克己爲公，行俠仗義，蕩寇驅魔！”\n",
 	}));
 
 	set("inquiry",([
-		"金毛狮王":"那是我义父谢大侠的职司。\n",
-		"谢逊"  :"他就是我义父的大号。\n",
-		"张翠山":"你想找我父亲有事麽？\n",
-		"殷素素":"我妈是明尊座下紫微堂主。\n",
-		"张三丰":"我太师父近来可好？\n",
-		"赵敏"  :"人生失一知己，生亦何欢，死亦何忧，敏儿，你在哪里？\n",
-		"小昭"  :"小昭我可一直念着她的好处。\n",
-		"周芷若":"找她就去峨嵋山，别来烦我。\n",
+		"金毛獅王":"那是我義父謝大俠的職司。\n",
+		"謝遜"  :"他就是我義父的大號。\n",
+		"張翠山":"你想找我父親有事麼？\n",
+		"殷素素":"我媽是明尊座下紫微堂主。\n",
+		"張三豐":"我太師父近來可好？\n",
+		"趙敏"  :"人生失一知己，生亦何歡，死亦何憂，敏兒，你在哪裏？\n",
+		"小昭"  :"小昭我可一直念着她的好處。\n",
+		"周芷若":"找她就去峨嵋山，別來煩我。\n",
 	]));
 	setup();
 	if (clonep())
@@ -142,19 +142,19 @@ void greeting(object ob)
 	}
 	else if((int)ob->query("shen")<-5000)
 	{
-		command("say 魔从心起，于武学不利，其道必诛，劝君放下屠刀，立地成佛。");
+		command("say 魔從心起，於武學不利，其道必誅，勸君放下屠刀，立地成佛。");
 	}
 	else if((int)ob->query("shen")<-100)
 	{
-		command("say 这位朋友，人行江湖，言行当正，切务走进邪魔歪道。");
+		command("say 這位朋友，人行江湖，言行當正，切務走進邪魔歪道。");
 	}
 	else if((int)ob->query("shen")>=0)
 	{
-		command("say 光明正道任人走，劝君多加保重。");
+		command("say 光明正道任人走，勸君多加保重。");
 	}
 	else if((int)ob->query("shen")>10000)
 	{
-		command("say 大侠在上，受无忌一礼，大侠它日必为武林翘楚。");
+		command("say 大俠在上，受無忌一禮，大俠它日必爲武林翹楚。");
 	}
 	return;
 }
@@ -163,20 +163,20 @@ void attempt_apprentice(object ob)
 {
 	if((int)ob->query("int")<20)
 	{
-		command("say 你的悟性太低了，不适合学习我的功夫。");
+		command("say 你的悟性太低了，不適合學習我的功夫。");
 		return 0;
 	}
-	if((string)ob->query("gender")=="无性")
+	if((string)ob->query("gender")=="無性")
 	{
-		command("say 你阳气不足，习我功夫恐将走火如魔。");
+		command("say 你陽氣不足，習我功夫恐將走火如魔。");
 		return 0;
 	}
 	if((int)ob->query("shen") <= 15000)
 	{
-		command("say 你应当多作些行侠仗义的事，以修身心。");
+		command("say 你應當多作些行俠仗義的事，以修身心。");
 		return 0;
 	}
-	command("say 好，我就收下你这位好徒弟！");
+	command("say 好，我就收下你這位好徒弟！");
 	command("recruit " + ob->query("id"));
 	return;
 }
@@ -185,18 +185,18 @@ int accept_fight(object ob)
 {
 	if(((int)ob->query("combat_exp")<30000)&&((int)ob->query("shen")>0))
 	{
-		message_vision("武林中人最忌争强斗狠，你不是我的对手，回去吧。\n",ob);
+		message_vision("武林中人最忌爭強鬥狠，你不是我的對手，回去吧。\n",ob);
 		return 0;
 	}
-	message_vision("张无忌一拱手说道：这位"+RANK_D->query_respect(ob)+
-	"，在下领教了。\n", ob);
+	message_vision("張無忌一拱手說道：這位"+RANK_D->query_respect(ob)+
+	"，在下領教了。\n", ob);
 	return 1;
 }
 int recruit_apprentice(object ob)
 {
         if( ::recruit_apprentice(ob) )
 		       {
-			command("say 你的职司就是本教的光明使者。");
+			command("say 你的職司就是本教的光明使者。");
 			ob->set("title", HIR"明教使者"NOR);
  				  }
 }

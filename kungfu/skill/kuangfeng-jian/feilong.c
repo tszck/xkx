@@ -1,10 +1,10 @@
-// feilong.c  狂风快剑「天外飞龙」
+// feilong.c  狂風快劍「天外飛龍」
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME "「天外飞龙」"
+#define PNAME "「天外飛龍」"
 int perform(object me, object target)
 {
 	int damage;
@@ -20,18 +20,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail(RED"装备剑才能使用"PNAME"！\n"NOR);
+		return notify_fail(RED"裝備劍才能使用"PNAME"！\n"NOR);
 
 	fskill = "huashan-neigong";
 	bskill = "sword";
@@ -45,18 +45,18 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(fskill)+"火候不够，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"火候不夠，使不出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 
 	if ((int)me->query("max_neili") < 600)
-		return notify_fail(RED"你内力修为不足，无法运足内力。\n"NOR);
+		return notify_fail(RED"你內力修爲不足，無法運足內力。\n"NOR);
 
 	if ((int)me->query("neili") < 400)
-		return notify_fail(HIC"你现在内力不够，没能将"PNAME"使完！\n"NOR);
+		return notify_fail(HIC"你現在內力不夠，沒能將"PNAME"使完！\n"NOR);
 
-	msg = HIC"$N心念电闪，一提内力，勒手仗剑，运劲于臂，呼的一声向$n"HIC"掷了出去，\n"NOR;
+	msg = HIC"$N心念電閃，一提內力，勒手仗劍，運勁於臂，呼的一聲向$n"HIC"擲了出去，\n"NOR;
 	if(random(me->query("combat_exp")) > (int)target->query("combat_exp")/3)
 	{
 		me->start_busy(2);
@@ -64,12 +64,12 @@ int perform(object me, object target)
 		damage = target->query("qi");
 		target->receive_damage("qi", damage-10,me);
 		target->receive_wound("qi", damage-10,me);
-		msg +=HIC"$n"HIC"疾忙跃起，但剑如电闪，只觉一阵剧痛，剑刃拦腰而过，鲜血飞溅，皮肉卷起！\n"NOR;
+		msg +=HIC"$n"HIC"疾忙躍起，但劍如電閃，只覺一陣劇痛，劍刃攔腰而過，鮮血飛濺，皮肉捲起！\n"NOR;
 		me->set("neili", 100);
 	} else
 	{
 		me->start_busy(2);
-		msg +=HIY"可是$n"HIY"轻轻一笑，侧身伸指，正弹在$N"HIY"的剑脊上，剑斜飞落地。\n"NOR;
+		msg +=HIY"可是$n"HIY"輕輕一笑，側身伸指，正彈在$N"HIY"的劍脊上，劍斜飛落地。\n"NOR;
 	}
 	weapon->move(environment(me));
 	message_combatd(msg, me, target);
@@ -84,13 +84,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		脱手飞剑伤敌
-		极度损伤对方气血
+		脫手飛劍傷敵
+		極度損傷對方氣血
 
 	出手要求：
-		狂风快剑150级
-		华山内功120级
-		内力600
+		狂風快劍150級
+		華山內功120級
+		內力600
 HELP
 	);
 	return 1;

@@ -5,7 +5,7 @@ inherit NPC;
 void create ()
 {
 	set_name("卜垣", ({"bo yuan","bo"}));
-	set("title","万门五弟子");
+	set("title","萬門五弟子");
 	set("long", "\n");
 	set("gender", "男性");
 	set("age", 26);

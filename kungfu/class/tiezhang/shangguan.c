@@ -6,8 +6,8 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("上官剑南", ({ "shangguan jiannan", "jiannan", "shangguan"}));
-	set("long", "他就是威震川湘的铁掌帮的上代帮主-上官剑南。\n");
+	set_name("上官劍南", ({ "shangguan jiannan", "jiannan", "shangguan"}));
+	set("long", "他就是威震川湘的鐵掌幫的上代幫主-上官劍南。\n");
 	set("gender", "男性");
 	set("age", 70);
 	set("attitude", "peaceful");
@@ -54,7 +54,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("铁掌帮", 13, "帮主");
+	create_family("鐵掌幫", 13, "幫主");
 	setup();
 	carry_object(__DIR__"obj/yellowcloth")->wear();
 	carry_object(WEAPON_DIR+"spear/yinqiang")->wield();
@@ -63,10 +63,10 @@ void create()
 void attempt_apprentice(object me)
 {
 	if(me->query_skill("guiyuan-tunafa", 1) < 100)
-		command("say 你的归元吐纳法根基太弱了。\n");
+		command("say 你的歸元吐納法根基太弱了。\n");
 	else
 	{
-		command( "say 好吧，我就收下你了。否则我的武功就要和我这把老骨头一起埋在这个山洞里了。");
+		command( "say 好吧，我就收下你了。否則我的武功就要和我這把老骨頭一起埋在這個山洞裏了。");
 		command("recruit " + me->query("id"));
 	}
 }

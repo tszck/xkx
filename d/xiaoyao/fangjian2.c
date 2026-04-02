@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "房间");
+        set("short", "房間");
         set("long", @LONG
-这是一间布置成卧室模样的小房间，有张石床，床上摆着个小小的
-木头制成的摇篮，墙壁上悬着一个七弦琴，弦线都已经断了。
+這是一間佈置成臥室模樣的小房間，有張石牀，牀上擺着個小小的
+木頭製成的搖籃，牆壁上懸着一個七絃琴，絃線都已經斷了。
 LONG );
        set("exits", ([
                "south" : __DIR__"shiji2",
@@ -32,19 +32,19 @@ int do_shout(string arg)
 
 	if( !arg || arg=="" ) return 0;
 
-	if( arg=="芝麻开门") 
+	if( arg=="芝麻開門") 
 	{
-		tell_object(me,"你气运丹田，对着墙壁大喝一声：“芝麻开门！”\n");
-		if (random(100) >50 || ((me->query("family")) && me->query("family")["master_name"]=="逍遥子"))
+		tell_object(me,"你氣運丹田，對着牆壁大喝一聲：“芝麻開門！”\n");
+		if (random(100) >50 || ((me->query("family")) && me->query("family")["master_name"]=="逍遙子"))
 		{
-		message("vision", "过了一会儿，你只听到一阵轰隆隆的响声，出现了一道暗门。\n", me);
+		message("vision", "過了一會兒，你只聽到一陣轟隆隆的響聲，出現了一道暗門。\n", me);
 		set("exits/down", __DIR__"shishi4");
 		remove_call_out("close");
 		call_out("close", 5, this_object());
 		}
 	else
 		{
-		message("vision", "房间里到处回荡着你的声音，震得你的耳朵翁翁作响。\n", me);
+		message("vision", "房間裏到處迴盪着你的聲音，震得你的耳朵翁翁作響。\n", me);
 		me->receive_wound("qi",20);
 		me->unconcious();
 		}
@@ -54,6 +54,6 @@ int do_shout(string arg)
 
 void close(object room)
 {
-	message("vision","一阵轰隆隆的响声过后，石门又缓缓地关上了。\n", room);
+	message("vision","一陣轟隆隆的響聲過後，石門又緩緩地關上了。\n", room);
 	room->delete("exits/down");
 }

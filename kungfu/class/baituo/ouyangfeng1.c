@@ -12,11 +12,11 @@ int do_accept();
 void create()
 {
 	object ob;
-	set_name("欧阳锋", ({ "ouyang feng", "ouyang", "feng" }));
-	set("long", "他是白驼山庄主，号称“西毒”的欧阳锋。\n"
-		+"由于习练「九阴真经」走火入魔，已变得精\n"
-		+"神错乱，整日披头散发。\n");
-	set("title", "白驼山庄主");
+	set_name("歐陽鋒", ({ "ouyang feng", "ouyang", "feng" }));
+	set("long", "他是白駝山莊主，號稱“西毒”的歐陽鋒。\n"
+		+"由於習練「九陰真經」走火入魔，已變得精\n"
+		+"神錯亂，整日披頭散髮。\n");
+	set("title", "白駝山莊主");
 	set("gender", "男性");
 	set("age", 53);
 	set("nickname", HIY "西毒" NOR);
@@ -76,17 +76,17 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("白驼山派",1, "开山祖师");
+	create_family("白駝山派",1, "開山祖師");
 	set("chat_chance",2);
 	set("chat_msg",({
-		"欧阳锋自言自语道：何日白驼山派才能重霸江湖呢…\n",
-		"欧阳锋道：我儿欧阳克必能够重振白驼山派雄风！\n",
-		"欧阳锋道：江湖险恶，困难重重哪！\n",
+		"歐陽鋒自言自語道：何日白駝山派才能重霸江湖呢…\n",
+		"歐陽鋒道：我兒歐陽克必能夠重振白駝山派雄風！\n",
+		"歐陽鋒道：江湖險惡，困難重重哪！\n",
 	}));
 	
 	set("inquiry", ([
-		"name":   "名字，我...我没有名字，我...我是谁?",
-		"名字":   "名字，我...我没有名字，我...我是谁?",
+		"name":   "名字，我...我沒有名字，我...我是誰?",
+		"名字":   "名字，我...我沒有名字，我...我是誰?",
 		"公公救我":   (: ask_help :),
 		"help":   (: ask_help :),
 	]));
@@ -114,12 +114,12 @@ int ask_help()
 {
 	object me = this_player();
 	
-	if (me->query("family/family_name") == "白驼山派" &&
+	if (me->query("family/family_name") == "白駝山派" &&
 		me->query("family/master_id") != "ouyang feng" &&
 		me->query_condition("ice_sting") &&
 		me->query_condition("ice_sting") < 10)
 	{
-		message_vision(HIG"欧阳锋说道：“好，救你不难，但是你须答应(accept)叫我一声爸爸。”\n"NOR, me);
+		message_vision(HIG"歐陽鋒說道：“好，救你不難，但是你須答應(accept)叫我一聲爸爸。”\n"NOR, me);
 		me->set_temp("helpme", 1);
 		return 1;
 	}
@@ -132,12 +132,12 @@ int do_accept()
 	{
 		this_player()->set("oyf_son", 1);
 		this_player()->apply_condition("ice_sting", 0);
-		message_vision( HIY"欧阳锋哈哈大笑，声震林梢：“好，好，乖儿子，我就传你蛤蟆功作见面礼吧！只要你勤加修习，”\n", this_player());
-		message_vision( HIY"不但除去身上剧毒轻而易举，他日称霸武林，光我白驼亦非难事！“ \n", this_player());
-		tell_object(this_player(),HIG"你按照欧阳锋所传依法行功，胸口痛楚立减，不由得喜上眉梢。\n"NOR);
+		message_vision( HIY"歐陽鋒哈哈大笑，聲震林梢：“好，好，乖兒子，我就傳你蛤蟆功作見面禮吧！只要你勤加修習，”\n", this_player());
+		message_vision( HIY"不但除去身上劇毒輕而易舉，他日稱霸武林，光我白駝亦非難事！“ \n", this_player());
+		tell_object(this_player(),HIG"你按照歐陽鋒所傳依法行功，胸口痛楚立減，不由得喜上眉梢。\n"NOR);
 		this_player()->set_temp("baifeng", 1);
 		return 1;
-	} else return notify_fail("欧阳锋瞥了你一眼：“你没事瞎答应甚么！”\n");
+	} else return notify_fail("歐陽鋒瞥了你一眼：“你沒事瞎答應甚麼！”\n");
 }
 
 void attempt_apprentice(object ob)
@@ -145,5 +145,5 @@ void attempt_apprentice(object ob)
 //	if (ob->query_temp("baifeng") && ob->query("combat_exp") > 50000 && ob->query("age") <= 18 && ob->query("age") >= 16)
 	if (ob->query_temp("baifeng") && ob->query("combat_exp") > 50000 )
 		command("recruit " + ob->query("id"));
-	else message_vision("欧阳锋瞪了$N一眼道：“我白驼山不世艺业岂可轻传。”\n", ob); 	
+	else message_vision("歐陽鋒瞪了$N一眼道：“我白駝山不世藝業豈可輕傳。”\n", ob); 	
 }

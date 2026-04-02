@@ -7,15 +7,15 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "射雕院");
+	set("short", "射鵰院");
 	set("long", @LONG
-这是一间轩敞明净的大屋子，正中一张大书桌 (table)，上面摞了
-几叠书。这里收藏了武侠大师金庸先生的主要作品，所有惊心动魄、婉
-约深情的故事，由大师的生花妙笔娓娓道来。许多成名后的大侠时常来
-这里走走、看看，回味自己漫长的江湖岁月中那些弥足珍贵的感受，以
-自己坎坷的刀剑生涯印证大师的手笔，并写下自己走上江湖之路。夜深
-人静时，如果您仍辗转难眠，不妨翻翻 (fan)这些书。楼下是飞雪堂，
-收藏侠客行早期玩家的作品。
+這是一間軒敞明淨的大屋子，正中一張大書桌 (table)，上面摞了
+幾疊書。這裏收藏了武俠大師金庸先生的主要作品，所有驚心動魄、婉
+約深情的故事，由大師的生花妙筆娓娓道來。許多成名後的大俠時常來
+這裏走走、看看，回味自己漫長的江湖歲月中那些彌足珍貴的感受，以
+自己坎坷的刀劍生涯印證大師的手筆，並寫下自己走上江湖之路。夜深
+人靜時，如果您仍輾轉難眠，不妨翻翻 (fan)這些書。樓下是飛雪堂，
+收藏俠客行早期玩家的作品。
 LONG);
 	set("item_desc", ([
 	    "table" : (: look_table :),
@@ -59,7 +59,7 @@ int do_fan(string arg)
 {
 	object me=this_player();
 	if (arg == "" || file_size(STORY_DIR + arg) <= 0)
-		return notify_fail("我们没有这本书。\n");
+		return notify_fail("我們沒有這本書。\n");
 
 	log_file("LIBRARY", sprintf("%s read %s.\n", me->query("name"), arg));
 	me->start_more(read_file(STORY_DIR + arg));

@@ -5,9 +5,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("仆人", ({ "pu ren", "pu", "ren" }));
+	set_name("僕人", ({ "pu ren", "pu", "ren" }));
 	set("long",
-		"绝情谷公孙止的贴身仆人，身强力壮，似乎有些能耐。\n");
+		"絕情谷公孫止的貼身僕人，身強力壯，似乎有些能耐。\n");
 	set("gender", "男性");
 	set("age", 28);
 	set("attitude", "friendly");

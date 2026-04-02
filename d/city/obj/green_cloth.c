@@ -7,12 +7,12 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(HIG"淡绿衣衫"NOR, ({ "green cloth", "cloth" }) );
+	set_name(HIG"淡綠衣衫"NOR, ({ "green cloth", "cloth" }) );
 	set_weight(1000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "这是一件非常素雅而质地普通的淡绿衣衫。\n");
+		set("long", "這是一件非常素雅而質地普通的淡綠衣衫。\n");
 		set("unit", "件");
 		set("value", 300);
 		set("material", "cloth");

@@ -5,12 +5,12 @@ int do_qiao(string arg);
 
 void create()
 {
-	set("short", "库房");
+	set("short", "庫房");
 	set("long", @LONG
-这里是青城一派的库房，收藏着各种途径得来的珍宝。库房北边壁
-上柜挂着一些白章虎皮、花格豹皮和其它不知名的皮毛，南边壁柜里摆
-放着一些奇石和铜铁制品，看来还是值点钱的。东壁下是一个大铁箱，
-锁得甚是严实。
+這裏是青城一派的庫房，收藏着各種途徑得來的珍寶。庫房北邊壁
+上櫃掛着一些白章虎皮、花格豹皮和其它不知名的皮毛，南邊壁櫃裏擺
+放着一些奇石和銅鐵製品，看來還是值點錢的。東壁下是一個大鐵箱，
+鎖得甚是嚴實。
 LONG );
 	set("objects", ([
 		__DIR__"obj/xiang" : 1,
@@ -31,9 +31,9 @@ int do_qiao(string arg)
 	if(objectp(room))
 	{
 		set("exits/west", __DIR__"zoulang2");
-		message_vision("$N费了半天劲，把门撬开了。\n",me);
+		message_vision("$N費了半天勁，把門撬開了。\n",me);
 		room->set("exits/east", __FILE__);
-		message("vision","里面有人把库门打开了。\n",room);
+		message("vision","裏面有人把庫門打開了。\n",room);
 		remove_call_out("close_gate");
 		call_out("close_gate", 10);
 	}
@@ -52,10 +52,10 @@ void close_gate()
 	if(objectp(room))
 	{
 		room->delete("exits/east");
-		message("vision","只听乒地一声，库门自动关了起来。\n",room);
-		message("vision","你脑海中闪过一个念头：哎哟！又进不去了！\n", room);
+		message("vision","只聽乒地一聲，庫門自動關了起來。\n",room);
+		message("vision","你腦海中閃過一個念頭：哎喲！又進不去了！\n", room);
 		delete("exits/west");
-		message("vision","只听乒地一声，库门自动关了起来。\n",this_object());
-		message("vision","你脑海中闪过一个念头：坏了！出不去了！\n" , this_object());
+		message("vision","只聽乒地一聲，庫門自動關了起來。\n",this_object());
+		message("vision","你腦海中閃過一個念頭：壞了！出不去了！\n" , this_object());
 	}
 }

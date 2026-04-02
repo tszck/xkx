@@ -54,16 +54,16 @@ string *nindex = ({ "1","2","3","4","5","6","7","8","9","10",
 string lookbook();
 void create ()
 {
-	set ("short", "围棋室");
+	set ("short", "圍棋室");
 	set ("long", @LONG
-在入神坐照室中，除了一张石桌、两只石凳之外，空荡荡的一无所
-有，石桌上刻着纵横十九道棋路，对放着一盒黑子、一盒白子。靠窗处
-茶几上放着一本棋书(book)和刘仲甫的《棋诀》(jue) ，有空可以读读
-(read)看。这棋室中除了几椅棋子之外不设一物，当是免得对局者分心。
-围棋十诀云：“贪不得胜  逢危须弃  入界宜缓  慎勿轻速  攻彼顾我
-动须相应  弃子争先  彼强自保  舍小就大  势孤取和”，你可得小心
+在入神坐照室中，除了一張石桌、兩隻石凳之外，空蕩蕩的一無所
+有，石桌上刻着縱橫十九道棋路，對放着一盒黑子、一盒白子。靠窗處
+茶几上放着一本棋書(book)和劉仲甫的《棋訣》(jue) ，有空可以讀讀
+(read)看。這棋室中除了几椅棋子之外不設一物，當是免得對局者分心。
+圍棋十訣雲：“貪不得勝  逢危須棄  入界宜緩  慎勿輕速  攻彼顧我
+動須相應  棄子爭先  彼強自保  舍小就大  勢孤取和”，你可得小心
 了。
-    墙上贴了一张小帖子(tie)。
+    牆上貼了一張小帖子(tie)。
 LONG);
 
 	set("objects", ([ /* sizeof() == 4 */
@@ -71,24 +71,24 @@ LONG);
 		__DIR__"obj/seat" : 2,
 	]));
 	set("item_desc", ([
-		"jue":	HIG"\n	棋诀\n\n"NOR,
+		"jue":	HIG"\n	棋訣\n\n"NOR,
 		"book": (: lookbook :),
 		"tie" :
 "
-在这里您可以下围棋或五子棋，以下告诉您下棋的步骤：
-一、先找好对手，然后分别用 sit black 和 sit white 入座；
-二、使用 new 开始一盘新的棋局：new [-5] [-b(numbers)] [-h(numbers)]
-    其中 -5 代表下五子棋，不选即为下围棋；
-         -b 指定所用棋盘的大小；
-         -h 指定让子的数目；
+在這裏您可以下圍棋或五子棋，以下告訴您下棋的步驟：
+一、先找好對手，然後分別用 sit black 和 sit white 入座；
+二、使用 new 開始一盤新的棋局：new [-5] [-b(numbers)] [-h(numbers)]
+    其中 -5 代表下五子棋，不選即爲下圍棋；
+         -b 指定所用棋盤的大小；
+         -h 指定讓子的數目；
     例如：
-    围棋：new
+    圍棋：new
     十五乘十五的五子棋：new -5 -b15
-    让九子围棋：new -h9
-三、使用 play 轮流走棋：例如 play d4 等等。
-四、使用 refresh观看棋盘。
+    讓九子圍棋：new -h9
+三、使用 play 輪流走棋：例如 play d4 等等。
+四、使用 refresh觀看棋盤。
 五、使用 undo 悔棋。(目前只提供五子棋的悔棋功能。)
-六、使用 leave 站起来开路。
+六、使用 leave 站起來開路。
 "
 	]));
 	set("exits", ([ /* sizeof() == 1 */
@@ -115,7 +115,7 @@ void init()
 }
 string lookbook()
 {
-	return HIR"\n  棋经十三篇\n\n"NOR;
+	return HIR"\n  棋經十三篇\n\n"NOR;
 }
 int do_read(string arg)
 {
@@ -124,7 +124,7 @@ int do_read(string arg)
 	if (arg=="jue")
 		this_player()->start_more(read_file("/d/changan/obj/go_jue"));
 	else
-		return notify_fail("你要读什么？\n");
+		return notify_fail("你要讀什麼？\n");
 	return 1;
 }
 
@@ -158,18 +158,18 @@ int do_sit(string arg)
 	object me = this_player();
 
 	if(me->query_temp("weiqi_seat"))
-		return notify_fail("你已经坐着了。\n");
+		return notify_fail("你已經坐着了。\n");
 
 	if(!arg || (arg != "black" && arg != "white"))
-		return notify_fail("你想玩黑棋还是白棋？\n");
+		return notify_fail("你想玩黑棋還是白棋？\n");
 
 	if (objectp(pl[arg]))
-		return notify_fail("这个位子上已经有人了！\n");
+		return notify_fail("這個位子上已經有人了！\n");
 
 	pl[arg] = me;
 	me->set_temp("weiqi_seat",arg);
 	if(arg == "black") message_vision("$N坐上了深色的石凳。\n",me);
-	else message_vision("$N坐上了浅色的石凳。\n",me);
+	else message_vision("$N坐上了淺色的石凳。\n",me);
 	return(1);
 }
 
@@ -178,9 +178,9 @@ int do_leave(string arg)
 	string s;
 	object me = this_player();
 	if(!me->query_temp("weiqi_seat"))
-		return notify_fail("你没有在下棋。\n");
+		return notify_fail("你沒有在下棋。\n");
 	s = (string)me->query_temp("weiqi_seat");
-	message_vision("$N不想再下了，站了起来。\n",me);
+	message_vision("$N不想再下了，站了起來。\n",me);
 	map_delete(pl,s);
 	me->delete_temp("weiqi_seat");
 	status=WQ_NOT_PLAYING;
@@ -238,9 +238,9 @@ int do_new(string arg)
 	string s;
 
 	if(!me->query_temp("weiqi_seat"))
-		return notify_fail("你还没坐好呐。\n");
+		return notify_fail("你還沒坐好吶。\n");
 	if(!objectp(pl["black"]) || !objectp(pl["white"]) )
-		return notify_fail("还没有对手呐。\n");
+		return notify_fail("還沒有對手吶。\n");
 
 	status = WQ_PLAYING;
 	jie_flag = WQ_NO_JIE;
@@ -287,8 +287,8 @@ int do_new(string arg)
 	lastlastmove="";
 	tell_room(rm,show_game());
 	player = pl[turn];
-	if(turn=="black") message_vision("现在轮到黑方$N走棋。\n",player);
-	else message_vision("现在轮到白方$N走棋。\n",player);
+	if(turn=="black") message_vision("現在輪到黑方$N走棋。\n",player);
+	else message_vision("現在輪到白方$N走棋。\n",player);
 	return(1);
 }
 
@@ -298,7 +298,7 @@ int do_refresh(string arg)
  
 	object player;
 
-	if(status==WQ_NOT_PLAYING) return notify_fail("棋盘上是空的。\n");
+	if(status==WQ_NOT_PLAYING) return notify_fail("棋盤上是空的。\n");
 	if (WQ_Started)
 	{
 		if (turn=="black")
@@ -312,8 +312,8 @@ int do_refresh(string arg)
 //	if(pl["black"] || pl["white"]) return 1;
 	player = pl[turn];
 	if(turn=="black")
-		tell_object(me,"现在轮到黑方"+player->name()+"走棋。\n");
-	else tell_object(me,"现在轮到白方"+player->name()+"走棋。\n");
+		tell_object(me,"現在輪到黑方"+player->name()+"走棋。\n");
+	else tell_object(me,"現在輪到白方"+player->name()+"走棋。\n");
 	return 1;
 }
 /* Function 'no_qi' checks if the qi of stone (x,y) is 0.
@@ -613,13 +613,13 @@ int do_undo()
 	object rm = environment(me);
 	object player;
 	if(!me->query_temp("weiqi_seat"))
-		return notify_fail("你是旁观者，怎么好意思瞎指挥？\n");
+		return notify_fail("你是旁觀者，怎麼好意思瞎指揮？\n");
 	if(status==WQ_NOT_PLAYING)
-		return notify_fail("还没新开一局棋呐。\n");
+		return notify_fail("還沒新開一局棋吶。\n");
 	if (status!=WQ_PLAYING_WUZI)
 		return notify_fail("目前只提供五子棋的悔棋功能。\n");
 	if(!WQ_Started)
-		return notify_fail("一步都没走，悔什么棋。\n");
+		return notify_fail("一步都沒走，悔什麼棋。\n");
 	if (me->query_temp("weiqi_seat")!= turn)
 		return notify_fail("要悔棋也得跟人家商量一下呀。\n");
 	if (WQ_Undoed)
@@ -658,8 +658,8 @@ int do_undo()
 	tell_room(rm,show_game());
 	player = pl[turn];
 	if(turn=="black")
-		tell_room(rm,"现在轮到黑方"+player->name()+"走棋。\n");
-	else tell_room(rm,"现在轮到白方"+player->name()+"走棋。\n");
+		tell_room(rm,"現在輪到黑方"+player->name()+"走棋。\n");
+	else tell_room(rm,"現在輪到白方"+player->name()+"走棋。\n");
 	return 1;
 }
 
@@ -674,30 +674,30 @@ int do_play(string arg)
 	int wf=0; // winning flag
 
 	if(!me->query_temp("weiqi_seat"))
-		return notify_fail("你是旁观者，怎么好意思瞎指挥？\n");
+		return notify_fail("你是旁觀者，怎麼好意思瞎指揮？\n");
 	if(status==WQ_NOT_PLAYING)
-		return notify_fail("还没新开一局棋呐。\n");
+		return notify_fail("還沒新開一局棋吶。\n");
 	if(me->query_temp("weiqi_seat") != turn)
-		return notify_fail("还没轮到你走棋。\n");
+		return notify_fail("還沒輪到你走棋。\n");
 	if(!translate_position(arg,x_ptr,y_ptr))
-		return notify_fail("你要下在哪里？\n");
+		return notify_fail("你要下在哪裏？\n");
 
 	if(status==WQ_PLAYING_WUZI)
 	{
 		rv = wuzi_rule(x_ptr[0],y_ptr[0]);
 		if(rv==WQ_POS_OCCUPIED)
-			return notify_fail("这个位置上已经有子了！\n");
+			return notify_fail("這個位置上已經有子了！\n");
 		if(rv==WQ_WINNING) wf=1;
 	}
 	else
 	{
 		rv=weiqi_rule(x_ptr[0],y_ptr[0]);
 		if(rv==WQ_POS_OCCUPIED)
-			return notify_fail("这个位置上已经有子了！\n");
+			return notify_fail("這個位置上已經有子了！\n");
 		if(rv==WQ_JIE_BANNED)
-			return notify_fail("现在还没轮到你提劫！\n");
+			return notify_fail("現在還沒輪到你提劫！\n");
 		if(rv==WQ_NO_QI_BANNED)
-			return notify_fail("这个位置是禁入点！\n");
+			return notify_fail("這個位置是禁入點！\n");
 	}
 	WQ_Started=1;
 	WQ_Undoed=0;
@@ -708,8 +708,8 @@ int do_play(string arg)
 	if(wf)
 	{
 		tell_room(rm,show_game());
-		if(turn=="black") message_vision("黑方$N胜。\n",me);
-		else message_vision("白方$N胜。\n",me);
+		if(turn=="black") message_vision("黑方$N勝。\n",me);
+		else message_vision("白方$N勝。\n",me);
 		status=WQ_NOT_PLAYING;
 		return 1;
 	}
@@ -722,7 +722,7 @@ int do_play(string arg)
 		turn = "black"; op = pl["black"];
 	}
 	tell_room(rm,show_game());
-	if(turn=="black") message_vision("现在轮到黑方$N走棋。\n",op);
-	else message_vision("现在轮到白方$N走棋。\n",op);
+	if(turn=="black") message_vision("現在輪到黑方$N走棋。\n",op);
+	else message_vision("現在輪到白方$N走棋。\n",op);
 	return 1;
 }

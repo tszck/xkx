@@ -3,7 +3,7 @@
 inherit ITEM;
 
 string* titles = ({
-		 "两仪剑心得",
+		 "兩儀劍心得",
 });
 
 void create()
@@ -14,7 +14,7 @@ void create()
 					 set_default_object(__FILE__);
 		  else {
 		  set("unit", "本");
-		  set("long", "这是昆仑派前人所总结的正两仪剑法的秘籍。\n");
+		  set("long", "這是崑崙派前人所總結的正兩儀劍法的祕籍。\n");
 		  set("value", 500);
 		  set("material", "paper");
 /*		  set("skill", ([
@@ -39,17 +39,17 @@ int do_study(string arg)
 		object me=this_player();
 
 		if (arg != "shu" && arg!="book" && arg != "xinde" )
-			return notify_fail("你要学什么？\n");
+			return notify_fail("你要學什麼？\n");
 
 		 if ( (int)me->query("jing")<30 )
-		 return notify_fail("你太累了，还是歇会再研究吧！\n");
+		 return notify_fail("你太累了，還是歇會再研究吧！\n");
 
 		if ((int)me->query_skill("liangyi-jian", 1) > 100
 			&& (int)me->query_skill("liangyi-jian", 1) <= 180)
 		{
                          me->receive_damage("jing", 40);
 			me->improve_skill("liangyi-jian", (me->query("int", 1))/2+(me->query_skill("literate", 1))/5,1 );
-			message_vision("$N苦心研究「两仪剑心得」，思索良久，似乎有所领悟。\n",me);
+			message_vision("$N苦心研究「兩儀劍心得」，思索良久，似乎有所領悟。\n",me);
 			return 1;
 		}
 

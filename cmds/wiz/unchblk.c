@@ -13,12 +13,12 @@ string *blocks_name = ({
 });
 mapping ch_str = ([
 	"all"	:	"所有",
-	"rumor"	:	"谣言",
+	"rumor"	:	"謠言",
 	"chat"	:	"聊天",
-	"xkx"	:	"侠客行",
+	"xkx"	:	"俠客行",
 	"sing"	:	"歌唱",
-	"party"	:	"帮会",
-	"family":	"门派",
+	"party"	:	"幫會",
+	"family":	"門派",
 ]);
 
 int main(object me, string arg)
@@ -37,16 +37,16 @@ int main(object me, string arg)
 			return notify_fail("<Syntax>: unchblk <player id> <channel name>\n");
 		}
 	}
-// 打开所有玩家的频道 	
+// 打開所有玩家的頻道 	
     	ob = LOGIN_D->find_body(who);
 	if (ch_name == "" && !ob && (member_array(who, blocks_name) == -1))
-		return notify_fail("你无法打开此频道或此人不在线！\n");
-//	if (!ob) return notify_fail("此人不在线！\n");
+		return notify_fail("你無法打開此頻道或此人不在線！\n");
+//	if (!ob) return notify_fail("此人不在線！\n");
 	if (who == "all")
 	{
 		for (i = 0;i < sizeof(blocks_name);i ++)
 			CHANNEL_D->set_block(blocks_name[i],0);
-		CHANNEL_D->do_channel(me,"sys","所有频道	ｏｋａｙ！\n");
+		CHANNEL_D->do_channel(me,"sys","所有頻道	ｏｋａｙ！\n");
 		return 1;
 	}	
     	for (i = 1;i < sizeof(blocks_name);i ++)
@@ -54,7 +54,7 @@ int main(object me, string arg)
 		if (who	== blocks_name[i])
 		{
 			CHANNEL_D->set_block(who, 0);
-			CHANNEL_D->do_channel(me, "sys", ch_str[who] + "频道ｏｋａｙ！\n");
+			CHANNEL_D->do_channel(me, "sys", ch_str[who] + "頻道ｏｋａｙ！\n");
 			return 1;
 		}
 	}			
@@ -71,9 +71,9 @@ int main(object me, string arg)
 			ob->delete("chblk_on");
 			for (i = 1;i < sizeof(blocks_name);i ++)
 				ob->delete("chblk_" + blocks_name[i]);
-			tell_object(me,(string)ob->query("name") + "的所有频道被打开了。\n");
+			tell_object(me,(string)ob->query("name") + "的所有頻道被打開了。\n");
 		}
-		else tell_object(me, (string)ob->query("name") + "的所有频道本来就是开着的。\n");	
+		else tell_object(me, (string)ob->query("name") + "的所有頻道本來就是開着的。\n");	
 	}
 	else
 		if (member_array(ch_name, blocks_name, 1) != -1)
@@ -82,9 +82,9 @@ int main(object me, string arg)
 			{
 				ob->delete("chblk_on");
 				ob->delete("chblk_" + ch_name);
-				tell_object(me, (string)ob->query("name") + "的" + ch_str[ch_name] + "频道被打开了。\n");
+				tell_object(me, (string)ob->query("name") + "的" + ch_str[ch_name] + "頻道被打開了。\n");
 			}
-			else tell_object(me, (string)ob->query("name") + "的" + ch_str[ch_name] + "频道本来就是开着的。\n");	
+			else tell_object(me, (string)ob->query("name") + "的" + ch_str[ch_name] + "頻道本來就是開着的。\n");	
 		}
 		else 
 		{
@@ -96,11 +96,11 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-    指令格式 : unchblk <某人> <频道名>
+    指令格式 : unchblk <某人> <頻道名>
 
-    此命令将打开某人的频道。如果没有频道名就打开所有合法频道。
-    <某人>　也可以是频道名。这将打开所有玩家的某个频道。
-    <频道名> 可以是rumor， chat， xkx， sing， party，family或者all
+    此命令將打開某人的頻道。如果沒有頻道名就打開所有合法頻道。
+    <某人>　也可以是頻道名。這將打開所有玩家的某個頻道。
+    <頻道名> 可以是rumor， chat， xkx， sing， party，family或者all
 
 HELP
     );

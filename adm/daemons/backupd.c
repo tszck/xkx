@@ -8,7 +8,7 @@ inherit F_DBASE;
 
 
 
-#define BACKUP_DATE     3               //备份天数 原来是7 the oldest's backup (days)
+#define BACKUP_DATE     3               //備份天數 原來是7 the oldest's backup (days)
 
 private int state;
 
@@ -23,10 +23,10 @@ private int state;
 private int *tlist = ({ 0, 450, 459, 500 });
 private  int *hlist = ({ 45, 1, 1, 1 });
 
-// 通知一次准备的时间：凌晨4:50分
-// 通知再次准备的时间：凌晨4:59分
-// 开始进行备份的时间：凌晨5:00分
-// 凌晨五点以后到第二天凌晨4:50分之前属于休眠状态
+// 通知一次準備的時間：凌晨4:50分
+// 通知再次準備的時間：凌晨4:59分
+// 開始進行備份的時間：凌晨5:00分
+// 凌晨五點以後到第二天凌晨4:50分之前屬於休眠狀態
 
 void backup_data();
 private void change_state(int new_state);
@@ -43,8 +43,8 @@ int query_backup_time()         { return tlist[BACKUPING]; }
 void create()
 {
         seteuid(ROOT_UID);
-        set("channel_id", "备份精灵");
-        sys_info("备份系统已经启动。");
+        set("channel_id", "備份精靈");
+        sys_info("備份系統已經啓動。");
         state = SLEEPING;
         set_heart_beat(hlist[state]);
 }
@@ -112,17 +112,17 @@ private void change_state(int new_state)
         case GET_READY_2:
                 if (lt[LT_HOUR] * 100 + lt[LT_MIN] != tlist[BACKUPING])
                 {
-/*                        message_vision(sprintf("现在是 %d 点 %d 分，系统将在 %d 点 %d 分"
-                                       "自动备份所有玩家的数据，期间游戏会有停滞。",
+/*                        message_vision(sprintf("現在是 %d 點 %d 分，系統將在 %d 點 %d 分"
+                                       "自動備份所有玩家的數據，期間遊戲會有停滯。",
                                        lt[LT_HOUR], lt[LT_MIN],
                                        (tlist[BACKUPING] / 100) % 100,
                                        tlist[BACKUPING] % 100));
 */
-        set("channel_id", "系统精灵");
+        set("channel_id", "系統精靈");
 
         CHANNEL_D->do_channel( this_object(), "chat",
-				sprintf(HIW"现在是 %d 点 %d 分，系统将在 %d 点 %d 分"
-                                       "自动备份所有玩家的数据，期间游戏会有停滞。"NOR,
+				sprintf(HIW"現在是 %d 點 %d 分，系統將在 %d 點 %d 分"
+                                       "自動備份所有玩家的數據，期間遊戲會有停滯。"NOR,
                                        lt[LT_HOUR], lt[LT_MIN],
                                        (tlist[BACKUPING] / 100) % 100,
                                        tlist[BACKUPING] % 100));                        break;
@@ -132,22 +132,22 @@ private void change_state(int new_state)
         case BACKUPING:
                 state = new_state;
 /*                
-                message_vision(sprintf(HIY "现在是 %d 点 %d 分，系统开始"
-                                       "自动备份所有玩家数据，请稍候..." NOR,
+                message_vision(sprintf(HIY "現在是 %d 點 %d 分，系統開始"
+                                       "自動備份所有玩家數據，請稍候..." NOR,
                                        lt[LT_HOUR], lt[LT_MIN]));
 */
 
         CHANNEL_D->do_channel( this_object(), "chat",
-				sprintf(HIW "现在是 %d 点 %d 分，系统开始"
-                                       "自动备份所有玩家数据，请稍候..." NOR,
+				sprintf(HIW "現在是 %d 點 %d 分，系統開始"
+                                       "自動備份所有玩家數據，請稍候..." NOR,
                                        lt[LT_HOUR], lt[LT_MIN]));                backup_data();
 
-/*                message_vision(sprintf(HIC "系统已经处理完备份工作。" NOR,
+/*                message_vision(sprintf(HIC "系統已經處理完備份工作。" NOR,
                                        lt[LT_HOUR], lt[LT_MIN]));
 */
 
         CHANNEL_D->do_channel( this_object(), "chat",
-				sprintf(HIW "系统已经处理完备份工作。" NOR,
+				sprintf(HIW "系統已經處理完備份工作。" NOR,
                                        lt[LT_HOUR], lt[LT_MIN]));
                 // after backup, change state to SLEEPING
                 new_state = SLEEPING;
@@ -184,7 +184,7 @@ void backup_data()
 */
         seteuid(getuid());
 
-        sys_info(sprintf("备份工作开始。", bkdir));
+        sys_info(sprintf("備份工作開始。", bkdir));
         lt = localtime(time());
 
         // because LT_MON is from 0..11, so I must add 1
@@ -194,14 +194,14 @@ void backup_data()
 
         if (! assure_not_exist(bkdir))
         {
-                sys_info(sprintf("备份失败：无法删除(%s)。", bkdir));
+                sys_info(sprintf("備份失敗：無法刪除(%s)。", bkdir));
                 return;
         }
 
         // backup data
         count = ADM_CMD_CP->copy_dir(DATA_DIR, bkdir);
         if (count)
-                sys_info(sprintf("总共有%d个文件被保存到(%s)中。", count, bkdir));
+                sys_info(sprintf("總共有%d個文件被保存到(%s)中。", count, bkdir));
 
         // clear the older backup data
         file = get_dir(BACKUP_DIR, -1);
@@ -223,10 +223,10 @@ void backup_data()
                         continue;
 
                 ADM_CMD_RM->rm_dir(BACKUP_DIR + file[i][0]);
-                sys_info(sprintf("备份(%s)已经被自动删除。", file[i][0]));
+                sys_info(sprintf("備份(%s)已經被自動刪除。", file[i][0]));
         }
 
-        sys_info(sprintf("备份工作完毕。", bkdir));
+        sys_info(sprintf("備份工作完畢。", bkdir));
 }
 
 // check that y/m/d wether or not close cy/cm/cd(current time)

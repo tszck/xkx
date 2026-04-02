@@ -10,9 +10,9 @@ void create()
 {
 	set("short", "休息室");
 	set("long", @LONG
-这是一个黑暗的大房间。窗户用厚厚的帘子遮住，不露丝毫光亮。
-屋内整齐的排列着十几张木板搭成的床铺，可以让练功后的帮众及时得
-到休息。这里静悄悄的，黑暗中偶尔传来清微的鼾声。
+這是一個黑暗的大房間。窗戶用厚厚的簾子遮住，不露絲毫光亮。
+屋內整齊的排列着十幾張木板搭成的牀鋪，可以讓練功後的幫衆及時得
+到休息。這裏靜悄悄的，黑暗中偶爾傳來清微的鼾聲。
 LONG );
 	set("sleep_room", 1);
 	set("no_fight", 1);
@@ -37,9 +37,9 @@ void close_men()
 	if(objectp(room))
 	{
 		delete("exits/south");
-			message("vision", "门吱吱呀呀地自己合上了。\n", this_object());
+			message("vision", "門吱吱呀呀地自己合上了。\n", this_object());
 		room->delete("exits/north");
-		message("vision", "门吱吱呀呀地自己合上了。\n", room);
+		message("vision", "門吱吱呀呀地自己合上了。\n", room);
 	}
 }
 int do_tui(string arg)
@@ -48,25 +48,25 @@ int do_tui(string arg)
 	object me = this_player();
 
 	if (query("exits/south"))
-		return notify_fail("大门已经是开着了。\n");
+		return notify_fail("大門已經是開着了。\n");
 
 	if (arg != "men" && arg != "door" && arg != "south")
-		return notify_fail("你要开什么？\n");
+		return notify_fail("你要開什麼？\n");
 
 	if(!( room = find_object(__DIR__"zoulang4")) )
 		room = load_object(__DIR__"zoulang4");
 	if(objectp(room))
 	{
 		set("exits/south", __DIR__"zoulang4");
-		message_vision("$N轻手轻脚地把门打开。\n", this_player());
+		message_vision("$N輕手輕腳地把門打開。\n", this_player());
 		room->set("exits/north", __FILE__);
 		
 		if (me->query_temp("sleeped"))
 		{
-			message("vision", "吱地一声，"+me->query("name")+"从里面把门打开了。\n", room);
+			message("vision", "吱地一聲，"+me->query("name")+"從裏面把門打開了。\n", room);
 		} else 
 		{
-			message("vision", "吱地一声，"+me->query("name")+"从里面把门打开。\n", room);
+			message("vision", "吱地一聲，"+me->query("name")+"從裏面把門打開。\n", room);
 		}	
 		remove_call_out("close_men");
 		call_out("close_men", 10);

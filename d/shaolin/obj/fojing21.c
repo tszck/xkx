@@ -3,15 +3,15 @@
 inherit ITEM;
 
 string* titles = ({
-//	"般若经",
-//	"维摩经",
-//	"法华经",
-//	"华严经",
-	"无量寿经",
-	"大般涅磐经",
-	"阿含经",
-	"金刚经",
-	"波罗蜜多心经",
+//	"般若經",
+//	"維摩經",
+//	"法華經",
+//	"華嚴經",
+	"無量壽經",
+	"大般涅磐經",
+	"阿含經",
+	"金剛經",
+	"波羅蜜多心經",
 });
 
 void create()
@@ -22,7 +22,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一册佛经。\n");
+		set("long", "這是一冊佛經。\n");
 		set("value", 500);
 		set("material", "paper");
 		set("skill", ([
@@ -50,15 +50,15 @@ int do_tear(string arg)
 	object where;
 
 	me = this_player();
-	if(!id(arg)) return notify_fail("你要撕什么？\n");
+	if(!id(arg)) return notify_fail("你要撕什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要撕什么？\n");
+		return notify_fail("你要撕什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢撕。\n");
+		return notify_fail("別急，慢慢撕。\n");
 
 	bible = new(CLASS_D("shaolin")+"/obj/book-jiuyang");
 	where = environment(me);
-	message_vision("$N轻轻地把书撕掉……，突然从书缝中飘落出几页羊皮纸。\n", this_player());
+	message_vision("$N輕輕地把書撕掉……，突然從書縫中飄落出幾頁羊皮紙。\n", this_player());
 	bible->move(file_name(where));
 	destruct(this_object());
 	return 1;

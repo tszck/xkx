@@ -10,7 +10,7 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "还没定义，等下层调用。\n");
+		set("long", "還沒定義，等下層調用。\n");
 		set("unit", "杯");
 		set("value", 100);
 //		set("no_get", "1");

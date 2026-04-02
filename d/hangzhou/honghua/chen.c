@@ -1,4 +1,4 @@
-// chen.c 陈家洛
+// chen.c 陳家洛
 
 #include <ansi.h>
 
@@ -7,13 +7,13 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("陈家洛", ({ "chen jialuo", "chen","jialuo" }));
-	set("title", HIR "红花会"HIG"总舵主" NOR);
+	set_name("陳家洛", ({ "chen jialuo", "chen","jialuo" }));
+	set("title", HIR "紅花會"HIG"總舵主" NOR);
 	set("long", 
-"他一副模样直是个富贵人家的纨裤子弟，丰姿如玉，目朗似星，轻
-袍缓带，手中摇着一柄折扇，神采飞扬，气度闲雅，吐属斯文。服
-饰俨然是个贵介公子。\n");
-	set("nickname", HIY"玉面神龙"NOR);
+"他一副模樣直是個富貴人家的紈褲子弟，丰姿如玉，目朗似星，輕
+袍緩帶，手中搖着一柄摺扇，神采飛揚，氣度閒雅，吐屬斯文。服
+飾儼然是個貴介公子。\n");
+	set("nickname", HIY"玉面神龍"NOR);
 	set("gender", "男性");
 	set("class", "scholar");
 	set("age", 22);

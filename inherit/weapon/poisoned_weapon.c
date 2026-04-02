@@ -25,13 +25,13 @@ mixed hit_ob(object me, object victim, int damage)
 		if( wp > 0 && wp > (wp1 + wp2) * 5 &&
 			random(me->query("str")) > victim->query("str")/2)
 		{
-			message_vision(HIM"只听见「哐」地一声轻响，$N手中的"+weapon1->name()+HIY"已经被"+weapon->name()+HIY"削为两截！\n"NOR,victim);
+			message_vision(HIM"只聽見「哐」地一聲輕響，$N手中的"+weapon1->name()+HIY"已經被"+weapon->name()+HIY"削爲兩截！\n"NOR,victim);
 			weapon1->unequip();
 			victim->reset_action();
      	seteuid(getuid());
      	piece = new("/clone/misc/piece");
-     	piece->set("long", "断成两截的"+weapon1->query("name")+"。\n");
-     	piece->set_name( "断掉的"+weapon1->query("name"), ({weapon1->query("id"),"piece"}) );
+     	piece->set("long", "斷成兩截的"+weapon1->query("name")+"。\n");
+     	piece->set_name( "斷掉的"+weapon1->query("name"), ({weapon1->query("id"),"piece"}) );
      	piece->move(environment(victim));
     	destruct(weapon1);
 		} 
@@ -41,7 +41,7 @@ mixed hit_ob(object me, object victim, int damage)
 			weapon1->query("material") != "softsteel" &&
 			weapon1->query("skill_type") != "whip" &&
 			weapon1->query("rigidity") < weapon->query("rigidity") &&
-			!weapon1->query("rao") ) //绕指柔剑
+			!weapon1->query("rao") ) //繞指柔劍
 		{
 			wap = (int)weapon->weight() / 500 +
 				(int)weapon->query("rigidity") +
@@ -62,30 +62,30 @@ mixed hit_ob(object me, object victim, int damage)
 			wap = random(wap);
 			if( wap > 5 * wdp)
 			{
-				message_vision(HIM"只听见「啪」地一声，$N手中的"+weapon1->name()+HIM"已经断为两截！\n"NOR,victim);
+				message_vision(HIM"只聽見「啪」地一聲，$N手中的"+weapon1->name()+HIM"已經斷爲兩截！\n"NOR,victim);
 				weapon1->unequip();
 				victim->reset_action();
        	seteuid(getuid());
        	piece = new("/clone/misc/piece");
-      	piece->set("long", "断成两截的"+weapon1->query("name")+"。\n");
-      	piece->set_name( "断掉的"+weapon1->query("name"), ({weapon1->query("id"),"piece"}) );
+      	piece->set("long", "斷成兩截的"+weapon1->query("name")+"。\n");
+      	piece->set_name( "斷掉的"+weapon1->query("name"), ({weapon1->query("id"),"piece"}) );
      	  piece->move(environment(victim));
       	destruct(weapon1);
 			} 
 			else if( wap > 3 * wdp )
 				{
-					message_vision(HIY"$N只觉得手中"+weapon1->name()+HIY"把持不定，脱手飞出！\n"NOR,victim);
+					message_vision(HIY"$N只覺得手中"+weapon1->name()+HIY"把持不定，脫手飛出！\n"NOR,victim);
 					weapon1->unequip();
 					weapon1->move(environment(victim));
 					victim->reset_action();
 				} 
 				else if( wap > wdp )
 					{
-						message_vision(HIW "$N只觉得手中" + weapon1->name() + HIW"一震，险些脱手！\n"NOR, victim);
+						message_vision(HIW "$N只覺得手中" + weapon1->name() + HIW"一震，險些脫手！\n"NOR, victim);
 					}
 					else
 					{
-						message_vision(HIR"$N的"+weapon->name()+HIR"和$n的"+weapon1->name()+HIR"相击，冒出点点的火星。\n"NOR,me,victim);
+						message_vision(HIR"$N的"+weapon->name()+HIR"和$n的"+weapon1->name()+HIR"相擊，冒出點點的火星。\n"NOR,me,victim);
 					}
 		}
 
@@ -96,14 +96,14 @@ mixed hit_ob(object me, object victim, int damage)
 			victim->query_condition(poison) < 50)
 		{
 			if (poison1 == 2)
-				weapon->set_temp("apply/long", ({weapon->query("long")+"好象是被喂过剧毒，不过效果已经不明显了。\n"}));
+				weapon->set_temp("apply/long", ({weapon->query("long")+"好象是被餵過劇毒，不過效果已經不明顯了。\n"}));
 			weapon->add("poison_number", -1);
 			victim->apply_condition(poison, victim->query_condition(poison) + random(10));
-			if(victim->query("race") == "人类" && !victim->query("mute"))
-				message_vision(HIR "$N只觉得伤口上一麻，大叫一声：不好！\n"NOR,victim);
-			else if(victim->query("race") == "人类")
-				message_vision(HIR "$N只觉得伤口上一麻，眉头一挤，显然是发怒了！\n"NOR,victim);
-				else message_vision(HIR"$N猛然一颤，伤口处流出黑血，凶相毕露！\n"NOR,victim);
+			if(victim->query("race") == "人類" && !victim->query("mute"))
+				message_vision(HIR "$N只覺得傷口上一麻，大叫一聲：不好！\n"NOR,victim);
+			else if(victim->query("race") == "人類")
+				message_vision(HIR "$N只覺得傷口上一麻，眉頭一擠，顯然是發怒了！\n"NOR,victim);
+				else message_vision(HIR"$N猛然一顫，傷口處流出黑血，兇相畢露！\n"NOR,victim);
 			if(!victim->is_killing(me->query("id"))) victim->kill_ob(me);
 		}
 	return this_object()->weapon_hit_ob(me, victim, damage);

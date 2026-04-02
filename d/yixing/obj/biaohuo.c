@@ -6,12 +6,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name(RED"红镖"NOR, ({"hong biao", "biao"}));
+	set_name(RED"紅鏢"NOR, ({"hong biao", "biao"}));
 	set("weight", 20);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "这是一份红镖，包装非常仔细，不知装着什么东西。\n");
+		set("long", "這是一份紅鏢，包裝非常仔細，不知裝着什麼東西。\n");
 		set("unit", "份");
 		set("value", 30);
 	}

@@ -1,5 +1,5 @@
 // Last Modified by winder on May. 29 2001
-// qianye-shou.c 如来千叶手 和韦陀掌互备 截自《佛展千手法》。
+// qianye-shou.c 如來千葉手 和韋陀掌互備 截自《佛展千手法》。
 
 #include <ansi.h>
 inherit SKILL;
@@ -7,49 +7,49 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N一式"HIR"「两手结印」"NOR"，双手抬起，手心向上，两大拇指指尖轻轻接触，向前架起",
+([	"action" : "$N一式"HIR"「兩手結印」"NOR"，雙手抬起，手心向上，兩大拇指指尖輕輕接觸，向前架起",
 	"lvl"   : 0,
-	"skill_name" : "两手结印"
+	"skill_name" : "兩手結印"
 ]),
-([	"action" : "$N以手印势抬起，向上转掌，一式"YEL"「弥勒伸腰」"NOR"，全身逐渐抻直，双手向$n的方向晃出",
+([	"action" : "$N以手印勢抬起，向上轉掌，一式"YEL"「彌勒伸腰」"NOR"，全身逐漸抻直，雙手向$n的方向晃出",
 	"lvl"   : 10,
-	"skill_name" : "弥勒伸腰"
+	"skill_name" : "彌勒伸腰"
 ]),
-([	"action" : "$N一式"CYN"「如来灌顶」"NOR"，两手同时向外转掌，以手成漏斗状，接着伸腕落掌，下落$n顶门",
+([	"action" : "$N一式"CYN"「如來灌頂」"NOR"，兩手同時向外轉掌，以手成漏斗狀，接着伸腕落掌，下落$n頂門",
 	"lvl"   : 20,
-	"skill_name" : "如来灌顶"
+	"skill_name" : "如來灌頂"
 ]),
-([	"action" : "$N提起两手到胸前，渐渐"BLU"「双手合十」"NOR"，跟着手心空开，两肘架起来，两小臂成一直线直挥$n",
+([	"action" : "$N提起兩手到胸前，漸漸"BLU"「雙手合十」"NOR"，跟着手心空開，兩肘架起來，兩小臂成一直線直揮$n",
 	"lvl"   : 30,
-	"skill_name" : "双手合十"
+	"skill_name" : "雙手合十"
 ]),
-([	"action" : "$N使一式"HIC"「掌指乾坤」"NOR"，两掌松开转掌，左手立指在胸前，右手却掌心向下，拍向$n$l",
+([	"action" : "$N使一式"HIC"「掌指乾坤」"NOR"，兩掌鬆開轉掌，左手立指在胸前，右手卻掌心向下，拍向$n$l",
 	"lvl"   : 40,
 	"skill_name" : "掌指乾坤"
 ]),
-([	"action" : "$N一式"HIY"「金猴分身」"NOR"，两手由胸前拉开向两侧伸展，与$n肩平，接着向两边用力一甩",
+([	"action" : "$N一式"HIY"「金猴分身」"NOR"，兩手由胸前拉開向兩側伸展，與$n肩平，接着向兩邊用力一甩",
 	"lvl"   : 50,
 	"skill_name" : "金猴分身"
 ]),
-([	"action" : "$N两手一边分开，一边向前下方伸展，一式"MAG"「双龙下海」"NOR"，手臂变幻，在$n胸前印了不下十掌",
+([	"action" : "$N兩手一邊分開，一邊向前下方伸展，一式"MAG"「雙龍下海」"NOR"，手臂變幻，在$n胸前印了不下十掌",
 	"lvl"   : 60,
-	"skill_name" : "双龙下海"
+	"skill_name" : "雙龍下海"
 ]),
-([	"action" : "$N一式"CYN"「菩萨扶莲」"NOR"，全身逐渐抻直，手指尖向$n力点，然后全身立即放松，两手恢复到胸前合十",
+([	"action" : "$N一式"CYN"「菩薩扶蓮」"NOR"，全身逐漸抻直，手指尖向$n力點，然後全身立即放鬆，兩手恢復到胸前合十",
 	"lvl"   : 70,
-	"skill_name" : "菩萨扶莲"
+	"skill_name" : "菩薩扶蓮"
 ]),
-([	"action" : "$N一式"HIG"「罗汉背山」"NOR"，两手一边分开，一边向$n体后伸展，同时两掌心转向后方，将$p摔了出去",
+([	"action" : "$N一式"HIG"「羅漢背山」"NOR"，兩手一邊分開，一邊向$n體後伸展，同時兩掌心轉向後方，將$p摔了出去",
 	"lvl"   : 80,
-	"skill_name" : "罗汉背山"
+	"skill_name" : "羅漢背山"
 ]),
-([	"action" : "$N一式"HIM"「金刚排山」"NOR"，指尖向上，臂与肩同高，当臂伸直后，用力一抻，向$n立掌推出",
+([	"action" : "$N一式"HIM"「金剛排山」"NOR"，指尖向上，臂與肩同高，當臂伸直後，用力一抻，向$n立掌推出",
 	"lvl"   : 90,
-	"skill_name" : "金刚排山"
+	"skill_name" : "金剛排山"
 ]),
-([	"action" : "$N两手缓缓下落，并将掌心转向$n腹部，一式"GRN"「叠扣小腹」"NOR"，两手重叠，猛地放劲",
+([	"action" : "$N兩手緩緩下落，並將掌心轉向$n腹部，一式"GRN"「疊扣小腹」"NOR"，兩手重疊，猛地放勁",
 	"lvl"   : 100,
-	"skill_name" : "叠扣小腹"
+	"skill_name" : "疊扣小腹"
 ]),
 });
 
@@ -59,22 +59,22 @@ int valid_combine(string combo){ return combo=="weituo-strike"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练如来千叶手必须空手。\n");
+		return notify_fail("練如來千葉手必須空手。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 20)
-		return notify_fail("你的站桩功火候不够，无法学如来千叶手。\n");
+		return notify_fail("你的站樁功火候不夠，無法學如來千葉手。\n");
 	if ((int)me->query("max_neili") < 50)
-		return notify_fail("你的内力太弱，无法练习如来千叶手。\n");
+		return notify_fail("你的內力太弱，無法練習如來千葉手。\n");
 	if (me->query_skill("fengyun-hand", 1) < 20 ||
 		me->query_skill("luohan-cuff", 1) < 20)
-		return notify_fail("你还未掌握风云手和罗汉拳，无法学习如来千叶手。\n");
+		return notify_fail("你還未掌握風雲手和羅漢拳，無法學習如來千葉手。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if ((int)me->query("qi") < 40)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 40)
-		return notify_fail("你的内力不够练如来千叶手。\n");
+		return notify_fail("你的內力不夠練如來千葉手。\n");
 	me->receive_damage("qi", 35);
 	me->add("neili", -25);
 	return 1;
@@ -101,16 +101,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 15; }
@@ -125,16 +125,16 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\n如来千叶手："NOR"\n");
+	write(HIC"\n如來千葉手："NOR"\n");
 	write(@HELP
 
-    如来千叶手是南少林手法，和韦陀掌互备。出自《佛展千手法》。
+    如來千葉手是南少林手法，和韋陀掌互備。出自《佛展千手法》。
 
-	学习要求：
-		站桩功20级
-		罗汉拳20级
-		风云手20级
-		内力修为50
+	學習要求：
+		站樁功20級
+		羅漢拳20級
+		風雲手20級
+		內力修爲50
 HELP
 	);
 	return 1;

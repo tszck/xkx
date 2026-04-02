@@ -9,8 +9,8 @@ void create()
 {
         set_name("老先生", ({ "lao xiansheng", "lao", "xiansheng"}));
         set("long",
-"这位老先生曾中过状元，做过大官，现因年老回老家襄阳颐养天年，经
-安抚使吕文德的再三邀请，在这儿为秀才们讲课。\n");
+"這位老先生曾中過狀元，做過大官，現因年老回老家襄陽頤養天年，經
+安撫使呂文德的再三邀請，在這兒爲秀才們講課。\n");
         set("gender", "男性");
         set("age", 65);
         set("no_get", 1);
@@ -43,11 +43,11 @@ int accept_object(object who, object ob)
                 who->set_temp("mark/朱", 0);
         if (ob->query("money_id") && ob->value() >= 1000)
         {
-                message_vision("老先生同意指点$N一些读书写字的问题。\n", who);
+                message_vision("老先生同意指點$N一些讀書寫字的問題。\n", who);
                 who->add_temp("mark/朱", ob->value() / 50);
                 if( me->query_skill("literate", 1) > 21)
                 {
-tell_object(me,"你现在已有一定的文化知识，也可以自己读书深造了。\n");
+tell_object(me,"你現在已有一定的文化知識，也可以自己讀書深造了。\n");
                         return 1;
                 }
                 return 1;

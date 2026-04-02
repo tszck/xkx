@@ -7,7 +7,7 @@ inherit F_CLEAN_UP;
 
 
 
-#define	SYNTAX	"指令格式：mudlist [<Mud 名称>]\n"
+#define	SYNTAX	"指令格式：mudlist [<Mud 名稱>]\n"
 
 int main(object me, string arg)
 {
@@ -18,7 +18,7 @@ int main(object me, string arg)
 	int loop, size;
 
 	if( !find_object(DNS_MASTER) )
-		return notify_fail("网路精灵并没有被载入，请先将网路精灵载入。\n");
+		return notify_fail("網路精靈並沒有被載入，請先將網路精靈載入。\n");
 
 	//	Obtain mapping containing mud data
 	mud_list = (mapping)DNS_MASTER->query_muds();
@@ -27,7 +27,7 @@ int main(object me, string arg)
 	mud_svc = DNS_MASTER->query_svc() + ([ Mud_name() : 0 ]);
 
 	if(!mud_list)
-		return notify_fail( MUD_NAME + "目前并没有跟网路上其他 Mud 取得联系。\n");
+		return notify_fail( MUD_NAME + "目前並沒有跟網路上其他 Mud 取得聯繫。\n");
 
 	//	Get list of all mud names within name server
 	muds = keys( mud_list ) - ({ "DEFAULT" });
@@ -41,14 +41,14 @@ int main(object me, string arg)
 		arg = htonn(arg);
 
 		if(!mapp( mud_list[arg] )) {
-			write(MUD_NAME + "并没有和这个 Mud 取得联系。\n");
+			write(MUD_NAME + "並沒有和這個 Mud 取得聯繫。\n");
 			return 1;
 		}
-		printf("有关 %s 的资讯：\n%O\n", arg, mud_list[arg]);
+		printf("有關 %s 的資訊：\n%O\n", arg, mud_list[arg]);
 		return 1;
 	}
 
-	output = "ＭＵＤ名称\t 中文名称\t  网   址\t端口\t玩家数\n--------------------------------------------------------------\n";
+	output = "ＭＵＤ名稱\t 中文名稱\t  網   址\t端口\t玩家數\n--------------------------------------------------------------\n";
 
 	//	Loop through mud list and store one by one
 	for(loop = 0, size = sizeof(muds); loop<size; loop++)
@@ -66,9 +66,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-指令格式：mudlist [<泥巴名称>]
+指令格式：mudlist [<泥巴名稱>]
 
-    这个指令让你列出目前跟这个 Mud 取得联系中的其他 Mud。
+    這個指令讓你列出目前跟這個 Mud 取得聯繫中的其他 Mud。
 HELP
 	);
 	return 1;

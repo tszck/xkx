@@ -7,10 +7,10 @@ void create()
 {
 	set("short","九十九道拐");
 	set("long",@LONG
-这是著名的「九十九道拐」，道路纡曲陡竖，千折百回。据说过去曾有个
-百余岁的疯僧至此，见一巨蟒挡路，便念咒驱蟒。但人们得知此处有巨蟒出没
-后，便再也无人敢碰这里的草木，并以「龙居」名之。由此东可至千佛庵，西
-达九老洞。
+這是著名的「九十九道拐」，道路紆曲陡豎，千折百回。據說過去曾有個
+百餘歲的瘋僧至此，見一巨蟒擋路，便唸咒驅蟒。但人們得知此處有巨蟒出沒
+後，便再也無人敢碰這裏的草木，並以「龍居」名之。由此東可至千佛庵，西
+達九老洞。
 LONG);
 	set("outdoors", "emei");
 	set("exits",([ /* sizeof() == 1 */
@@ -39,7 +39,7 @@ int valid_leave(object me, string dir)
 			if (((c_skill*c_skill*c_skill/10)< c_exp) &&
 				(c_skill < 101))
 				me->improve_skill("dodge", (int)me->query_skill("dodge", 1));
-			tell_object(me,"你沿九十九道拐又向上爬了一阵，觉得好累。\n");
+			tell_object(me,"你沿九十九道拐又向上爬了一陣，覺得好累。\n");
 		}
 	}
 	return 1;

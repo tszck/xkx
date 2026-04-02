@@ -7,8 +7,8 @@ void create()
 {
 	set("short","街道");
 	set("long", @LONG
-再往西就是鳌拜府了，谁也不敢往那儿去。东面是王府井大街。路
-边有个狗洞(dong)，几只懒狗正在那里探头。
+再往西就是鰲拜府了，誰也不敢往那兒去。東面是王府井大街。路
+邊有個狗洞(dong)，幾隻懶狗正在那裏探頭。
 LONG );
 	set("outdoors", "beijing");
 	set("exits", ([
@@ -41,13 +41,13 @@ int do_enter(string arg)
 	if( !arg || arg=="" ) return 0;
 	if( arg=="dong" )
 	{
-		if( (fam = me->query("family")) && fam["family_name"] == "丐帮")
+		if( (fam = me->query("family")) && fam["family_name"] == "丐幫")
 		{
-			message("vision", me->name() + "运起丐帮缩骨功，一弯腰往狗洞里钻了进去。", environment(me), ({me}) );
+			message("vision", me->name() + "運起丐幫縮骨功，一彎腰往狗洞裏鑽了進去。", environment(me), ({me}) );
 			me->move("/d/gaibang/underbj");
-			message("vision", me->name() + "从洞里走了进来。\n", environment(me), ({me}) );
+			message("vision", me->name() + "從洞裏走了進來。\n", environment(me), ({me}) );
 			return 1;
 		}
-		else return notify_fail("这么小的洞，你钻得进去吗？\n");
+		else return notify_fail("這麼小的洞，你鑽得進去嗎？\n");
 	}
 }

@@ -18,16 +18,16 @@ void create()
 	set("inquiry", ([
 		"name": (: ask_name :),
 		"rumors": (: ask_rumors :),
-		"here": "这里叫做东海，传说四海龙王里的东海王就住在水底。",
+		"here": "這裏叫做東海，傳說四海龍王裏的東海王就住在水底。",
 		"位置": (: ask_location :),
 		"taohuadao": (: ask_thd :),
-		"桃花岛": (: ask_thd :),
+		"桃花島": (: ask_thd :),
 		"weizhi": (: ask_location :),
-		"走": "您得告诉我往哪边开呀(turn n|w|s|e)！",
-		"出海": "您得告诉我往哪边开呀(turn n|w|s|e)！",
-		"开船": "您得告诉我往哪边开呀(turn n|w|s|e)！",
-		"起航": "您得告诉我往哪边开呀(turn n|w|s|e)！",
-		"启航": "您得告诉我往哪边开呀(turn n|w|s|e)！",
+		"走": "您得告訴我往哪邊開呀(turn n|w|s|e)！",
+		"出海": "您得告訴我往哪邊開呀(turn n|w|s|e)！",
+		"開船": "您得告訴我往哪邊開呀(turn n|w|s|e)！",
+		"起航": "您得告訴我往哪邊開呀(turn n|w|s|e)！",
+		"啓航": "您得告訴我往哪邊開呀(turn n|w|s|e)！",
 	]) );
 	setup();
 }
@@ -36,7 +36,7 @@ int ask_location()
 {
 	object ob=this_player();
 
-	say("艄公看了看海图，说道：我们现在的位置是(" + ob->query_temp("thd_locx") + "," + ob->query_temp("thd_locy") + ")。\n");
+	say("艄公看了看海圖，說道：我們現在的位置是(" + ob->query_temp("thd_locx") + "," + ob->query_temp("thd_locy") + ")。\n");
 	return 1;
 }
 
@@ -45,9 +45,9 @@ string ask_name()
 	object ob=this_player();
 
 	if (ob->query_temp("thd_target") == "thd")
-		return "不敢不敢，老汉名唤陈阿生，已经在这里划了三十多年船了。\n";
+		return "不敢不敢，老漢名喚陳阿生，已經在這裏劃了三十多年船了。\n";
 	if (ob->query_temp("thd_target") == "bay")
-		return "老汉只不过是黄岛主的属下而已，哪有什么名字。\n";
+		return "老漢只不過是黃島主的屬下而已，哪有什麼名字。\n";
 }
 
 string ask_rumors()
@@ -55,9 +55,9 @@ string ask_rumors()
 	object ob=this_player();
 
 	if (ob->query_temp("thd_target") == "thd")
-		return "听说桃花岛上住着一个恶魔，唉，要不是为了这每趟五两银子的辛苦费，\n老汉是说什么也不会去的。\n";
+		return "聽說桃花島上住着一個惡魔，唉，要不是爲了這每趟五兩銀子的辛苦費，\n老漢是說什麼也不會去的。\n";
 	if (ob->query_temp("thd_target") == "bay")
-		return "老汉长居桃花岛，没听说过什么流言。\n";
+		return "老漢長居桃花島，沒聽說過什麼流言。\n";
 }
 
 string ask_thd()
@@ -65,7 +65,7 @@ string ask_thd()
 	object ob=this_player();
 
 	if (ob->query_temp("thd_target") == "thd")
-		return "听说桃花岛上住着一个恶魔，唉，要不是为了这每趟20两银子的辛苦费，\n老汉是说什么也不会去的。\n";
+		return "聽說桃花島上住着一個惡魔，唉，要不是爲了這每趟20兩銀子的辛苦費，\n老漢是說什麼也不會去的。\n";
 	if (ob->query_temp("thd_target") == "bay")
-		return "老汉长居桃花岛，黄岛主待我们很好。\n";
+		return "老漢長居桃花島，黃島主待我們很好。\n";
 }

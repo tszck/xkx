@@ -5,10 +5,10 @@ inherit NPC;
 int ask_wu();
 void create()
 {
-	set_name("阎基", ({ "yan ji", "yan" }));
-	set("title", "江湖医生");
+	set_name("閻基", ({ "yan ji", "yan" }));
+	set("title", "江湖醫生");
 	set("gender", "男性");
-	set("long", "他是一个没落江湖医生。自从得了胡家刀谱几页残篇后，武功大进。\n");
+	set("long", "他是一個沒落江湖醫生。自從得了胡家刀譜幾頁殘篇後，武功大進。\n");
 	set("age", 45);
 
 	set("int", 20);

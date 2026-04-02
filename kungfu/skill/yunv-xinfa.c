@@ -17,18 +17,18 @@ int valid_enable(string usage) { return usage == "force"; }
 int valid_learn(object me)
 {
 
-	if ( me->query("gender") == "无性")
-		return notify_fail("你无根无性，阴阳难调，不能修习玉女心法。\n");
+	if ( me->query("gender") == "無性")
+		return notify_fail("你無根無性，陰陽難調，不能修習玉女心法。\n");
 
 	if ((int)me->query_skill("force", 1) < 10)
-		return notify_fail("你的基本内功火候还不够。\n");
+		return notify_fail("你的基本內功火候還不夠。\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("玉女心法只能用学(learn)来增加熟练度。\n");
+	return notify_fail("玉女心法只能用學(learn)來增加熟練度。\n");
 }
 
 string exert_function_file(string func)
@@ -41,13 +41,13 @@ int help(object me)
 	write(HIC"\n玉女心法："NOR"\n");
 	write(@HELP
 
-    古墓内功讲究一个“静”字，唯有平心静气、摆脱世俗之扰才
-能修习上乘武功。玉女心经修炼难度很大，学习者要不急不躁，循
-序渐进方有成功之望。可以寻觅本门秘籍《玉女心经》上下册研读。
+    古墓內功講究一個“靜”字，唯有平心靜氣、擺脫世俗之擾才
+能修習上乘武功。玉女心經修煉難度很大，學習者要不急不躁，循
+序漸進方有成功之望。可以尋覓本門祕籍《玉女心經》上下冊研讀。
 
-	学习要求：
-		基本内功10级
-		不能做太监
+	學習要求：
+		基本內功10級
+		不能做太監
 HELP
 	);
 	return 1;

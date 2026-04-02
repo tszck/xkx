@@ -15,12 +15,12 @@ int valid_learn(object me)
 {
 	if( (int)me->query_skill("longxiang",1) <
 		(int)me->query_skill("necromancy",1) )
-		return notify_fail("你的龙相般若功太低了，无法修炼更高深的降伏法。\n");
+		return notify_fail("你的龍相般若功太低了，無法修煉更高深的降伏法。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
-	return notify_fail("降伏法只能靠学(learn)来提高。\n");
+	return notify_fail("降伏法只能靠學(learn)來提高。\n");
 }
 
 int help(object me)
@@ -28,14 +28,14 @@ int help(object me)
 	write(HIC"\n降伏法："NOR"\n");
 	write(@HELP
 
-    降伏法为密宗密技，身为密宗弟子，且有相当的降伏法修为，
-可利用慑心术诱惑某人做把身上的东西给你, 或往那里离开，或者
-跟着你。对方如果内功深厚，而你学艺不精，必然也会招致以牙还
+    降伏法爲密宗密技，身爲密宗弟子，且有相當的降伏法修爲，
+可利用懾心術誘惑某人做把身上的東西給你, 或往那裏離開，或者
+跟着你。對方如果內功深厚，而你學藝不精，必然也會招致以牙還
 牙。
-    请help shexin。
+    請help shexin。
 
-	学习要求：
-		龙象般若功等级不能低于降伏法等级
+	學習要求：
+		龍象般若功等級不能低於降伏法等級
 HELP
 	);
 	return 1;

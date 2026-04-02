@@ -1,4 +1,4 @@
-// meng-zhu.c 罚恶使者
+// meng-zhu.c 罰惡使者
 
 #ifndef NPCDATA
 #define NPCDATA "/data/npc/"
@@ -20,11 +20,11 @@ void create()
 	seteuid(getuid());
 	if (!restore()) {
 	set_name("西方月", ({ "fae shizhe", "fae", "shizhe" }) );
-	set("title", "罚恶使者" );
+	set("title", "罰惡使者" );
 	set("gender", "男性" );
 	set("age", 35);
 	set("no_get", "1");
-	set("long","一位神色严峻的中年武人，他就是嫉恶如仇，侠名远播的武林罚恶使者。\n");
+	set("long","一位神色嚴峻的中年武人，他就是嫉惡如仇，俠名遠播的武林罰惡使者。\n");
 	set("attitude", "heroism");
 	set("generation", 0);
 	set("winner", "none");
@@ -109,8 +109,8 @@ int do_kill()
 
 	if (!present(this_player(), environment(this_object())))
 		return 0;
-	command("say 你想谋害本使者，当真是自找死路！ 座下红衣武士何在！");
-	message_vision("四周的红衣武士群起对$N发动攻击！\n", this_player());
+	command("say 你想謀害本使者，當真是自找死路！ 座下紅衣武士何在！");
+	message_vision("四周的紅衣武士羣起對$N發動攻擊！\n", this_player());
 
 	for(i=0; i<4; i++) {
 		if( objectp( ob = present("wei shi " + (i+1), environment(this_object())) ) )
@@ -133,20 +133,20 @@ int accept_fight(object ob)
 	destruct(mengzhu);
 
 	if( this_player()->query("id") == name1 )
-		return notify_fail("你已经是武林盟主，还要抢当罚恶使者？！\n");
+		return notify_fail("你已經是武林盟主，還要搶當罰惡使者？！\n");
 
 	shangshan = new("/clone/npc/shang-shan");
 	name2 = shangshan->query("winner");
 	destruct(shangshan);
 
 	if( this_player()->query("id") == name2 )
-		return notify_fail("你已经是赏善使者，还要抢当罚恶使者？！\n");
+		return notify_fail("你已經是賞善使者，還要搶當罰惡使者？！\n");
 
 	if ( me->query("winner") == ob->query("id") ) 
-		return notify_fail("你跟你自己打什么架？！\n");
+		return notify_fail("你跟你自己打什麼架？！\n");
 
 	if ( me->is_fighting() ) 
-		return notify_fail("已经有人正在挑战罚恶使者！\n");
+		return notify_fail("已經有人正在挑戰罰惡使者！\n");
 
 	me->set("eff_qi", me->query("max_qi"));
 	me->set("qi",     me->query("max_qi"));
@@ -179,16 +179,16 @@ int checking(object me, object ob)
 	if ( !present(ob, environment()) ) return 1; 
 
 	if (( (int)me->query("qi")*100 / my_max_qi) <= 30 ) {
-		command("say 佩服佩服，看来我的担子可以交卸了，恭喜你成为武林罚恶使者！\n");
-		command("chat 恭喜" + ob->query("name") + "被推举为现任武林罚恶使者！\n");
+		command("say 佩服佩服，看來我的擔子可以交卸了，恭喜你成爲武林罰惡使者！\n");
+		command("chat 恭喜" + ob->query("name") + "被推舉爲現任武林罰惡使者！\n");
 		remove_call_out("do_copy");
 		call_out("do_copy", 1, me, ob);
 		return 1;
 	}
 
 	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 ) {
-		command("say 看来" + RANK_D->query_respect(ob) + 
-			"还得多加练习，方能在当今武林中有所作为 !\n");
+		command("say 看來" + RANK_D->query_respect(ob) + 
+			"還得多加練習，方能在當今武林中有所作爲 !\n");
 		return 1;
 	}
 
@@ -201,14 +201,14 @@ int do_copy(object me, object ob)
 	me->add("generation", 1);	
 
 	me->set("name",  ob->query("name") );
-	me->set("title", "第" + chinese_number(me->query("generation")) + "代罚恶使者");
+	me->set("title", "第" + chinese_number(me->query("generation")) + "代罰惡使者");
 	me->set("short", me->query("title") + " " + me->query("name") + "(" + capitalize(ob->query("id")) + ")");
 	me->delete("title");
 
 	ob->delete_temp("apply/short");
 	ob->set_temp("apply/short", ({me->short()}));
 	
-	me->set("title", "第" + chinese_number(me->query("generation")) + "代罚恶使者");
+	me->set("title", "第" + chinese_number(me->query("generation")) + "代罰惡使者");
 	me->set("short", me->query("title") + " " + me->query("name") + "(fae shizhe)");
 	me->delete("title");
 
@@ -226,24 +226,24 @@ int do_recopy(object me, object ob)
 	if (!present(me, environment(ob)))
 		return 0;
 	if ( me->query("winner") != ob->query("id") ) 
-		return notify_fail("你不是现任罚恶使者！\n");;
+		return notify_fail("你不是現任罰惡使者！\n");;
 
 	me->set("name",  ob->query("name") );
-	me->set("title", "第" + chinese_number(me->query("generation")) + "代罚恶使者");
+	me->set("title", "第" + chinese_number(me->query("generation")) + "代罰惡使者");
 	me->set("short", me->query("title") + " " + me->query("name") + "(" + capitalize(ob->query("id")) + ")");
 	me->delete("title");
 
 	ob->delete_temp("apply/short");
 	ob->set_temp("apply/short", ({me->short()}));
 
-	me->set("title", "第" + chinese_number(me->query("generation")) + "代罚恶使者");
+	me->set("title", "第" + chinese_number(me->query("generation")) + "代罰惡使者");
 	me->set("short", me->query("title") + " " + me->query("name") + "(fae shizhe)");
 	me->delete("title");
 
 	remove_call_out("do_clone");
 	call_out("do_clone", 0, me, ob);
 
-	write("状态更新完毕。\n");
+	write("狀態更新完畢。\n");
 	return 1;
 }
 
@@ -365,7 +365,7 @@ int do_clone(object me, object ob)
 
 	save();
 
-	tell_object(ob, "状态储存完毕。\n");
+	tell_object(ob, "狀態儲存完畢。\n");
 
 	newtmp = new("/clone/npc/fa-e");
 	newtmp->move("/d/taishan/zhengqi");
@@ -384,11 +384,11 @@ int do_recover()
 	if (!present(me, environment(ob)))
 		return 0;
 	if ( me->query("winner") != ob->query("id") ) 
-		return notify_fail("你不是现任罚恶使者！\n");;
+		return notify_fail("你不是現任罰惡使者！\n");;
 
 	ob->set("combat_exp", me->query("combat_exp"));
 
-	write("状态复元完毕。\n");
+	write("狀態復元完畢。\n");
 
 	return 1;
 }

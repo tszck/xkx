@@ -6,7 +6,7 @@ inherit STICK;
 
 void create()
 {
-	set_name("杀威大棒", ({"shawei bang", "bang"}));
+	set_name("殺威大棒", ({"shawei bang", "bang"}));
 	set_weight(3000);
 	if( clonep() )
 		set_default_object(__FILE__);

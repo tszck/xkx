@@ -4,12 +4,12 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short", "百木园");
+	set("short", "百木園");
 	set("long", @LONG
-这里是梅庄的百木园，你一走到这里，就象走到了一个连绵无尽的
-小森林一样，这里无数的松树，柏树，白杨，还有很多叫不出来名字的
-异种苗木，其中有一株黄松(huang song)特别的粗壮，在它的茂密的枝
-叶后面，似乎藏着什么秘密。旁边立着一块牌子(pai zi)。
+這裏是梅莊的百木園，你一走到這裏，就象走到了一個連綿無盡的
+小森林一樣，這裏無數的松樹，柏樹，白楊，還有很多叫不出來名字的
+異種苗木，其中有一株黃松(huang song)特別的粗壯，在它的茂密的枝
+葉後面，似乎藏着什麼祕密。旁邊立着一塊牌子(pai zi)。
 LONG
 	);
 	set("exits", ([ /* sizeof() == 4 */
@@ -19,8 +19,8 @@ LONG
 		"west" : __DIR__"neitang",
 	]));
 	set("item_desc", ([ /* sizeof() == 1 */
-		"huang song" : "一株高大的黄松，挡住了你的视线。\n",
-		"pai zi"     : "百木圣林，非请莫入，只可直行，切勿东向。\n",
+		"huang song" : "一株高大的黃松，擋住了你的視線。\n",
+		"pai zi"     : "百木聖林，非請莫入，只可直行，切勿東向。\n",
 	]));
 	set("outdoors", "meizhuang");
 	set("no_clean_up", 0);
@@ -38,18 +38,18 @@ int do_climb(string arg)
  
 	object me=this_player();
 
-	if( !arg || arg=="" ) {write("你想爬什么？\n");return 1;}
+	if( !arg || arg=="" ) {write("你想爬什麼？\n");return 1;}
 
 	if( arg=="huang song" )
 	{
-		write("你手脚并用，笨手笨脚地向上爬着......\n");
+		write("你手腳並用，笨手笨腳地向上爬着......\n");
 		if((int)me->query_skill("dodge",1)>=30)
 		{
-			write("你爬呀爬，终于爬到了松树的顶端。\n");
+			write("你爬呀爬，終於爬到了松樹的頂端。\n");
 			me->move(__DIR__"shuding1");
 			return 1;
 		}
-		write(RED"“啪”的一声你又跌回原处，摔了个四脚朝天。\n"NOR);
+		write(RED"“啪”的一聲你又跌回原處，摔了個四腳朝天。\n"NOR);
 		me->add("jing",-100);
 		me->add("qi",-100);
 		me->improve_skill("dodge", random(30));

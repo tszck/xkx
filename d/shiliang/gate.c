@@ -5,12 +5,12 @@ inherit ROOM;
 int do_climb(string arg);
 void create()
 {
-    set("short", "温宅大门");
+    set("short", "溫宅大門");
     set("long", @LONG
-这里就是浙南石梁温家的大门，门口两个大石狮，威武异
-常，大门紧锁着，门上的铜环却亮得刺眼。围墙很高，门匾上
-写着两个烫金的大字“温府”，果然气度不凡。门的旁边有一
-株参天大树(tree),人站在下面很是凉快。
+這裏就是浙南石樑溫家的大門，門口兩個大石獅，威武異
+常，大門緊鎖着，門上的銅環卻亮得刺眼。圍牆很高，門匾上
+寫着兩個燙金的大字“溫府”，果然氣度不凡。門的旁邊有一
+株參天大樹(tree),人站在下面很是涼快。
 LONG
     );
 	set("no_clean_up", 0);
@@ -19,7 +19,7 @@ LONG
 		"south" : __DIR__"road1",
 	]));
 	set("item_desc", ([
-	"tree": "这是一株上百年龄的老树，枝叶依然十分茂盛，看来是爬不上去的。\n"
+	"tree": "這是一株上百年齡的老樹，枝葉依然十分茂盛，看來是爬不上去的。\n"
 	]) );
 	set("coor/x", 1610);
 	set("coor/y", -1970);
@@ -37,24 +37,24 @@ int do_climb(string arg)
     int n;
     n = this_player()->query_skill("dodge");
     if( !arg || arg!="tree" ) {
-        write("不要到处乱爬！\n");
+        write("不要到處亂爬！\n");
         return 1;
     }
     message_vision(
-    "$N在古树前深深地吸了口气，猛地跃了起来。\n", this_player());
+    "$N在古樹前深深地吸了口氣，猛地躍了起來。\n", this_player());
         
     if (n>=80) {
-        message_vision("只见$N足尖在树枝上一点，飞身跃过高墙，已悠然飘落院中。\n", this_player());
+        message_vision("只見$N足尖在樹枝上一點，飛身躍過高牆，已悠然飄落院中。\n", this_player());
         this_player()->move(__DIR__"yuanzi");
     }
     else if (n>=50) {
         message_vision(
-        "只见$N双手在树上一攀，勉强翻过围墙，跌落院中。\n", this_player());
+        "只見$N雙手在樹上一攀，勉強翻過圍牆，跌落院中。\n", this_player());
         this_player()->move(__DIR__"yuanzi");
     }
     else {
         message_vision(
-        "$N高高跃起，可还差一大截呢，看来是轻功不够好。\n", this_player());
+        "$N高高躍起，可還差一大截呢，看來是輕功不夠好。\n", this_player());
      }
     return 1;
 }

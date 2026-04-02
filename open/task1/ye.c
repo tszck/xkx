@@ -5,14 +5,14 @@ inherit F_SKILL;
 #include <ansi.h>
 void create()
 {
-	set_name("叶二娘", ({ "ye  erniang", "ye" }));
+	set_name("葉二孃", ({ "ye  erniang", "ye" }));
 	set("gender", "女性");
-	set("nickname", HIR"无恶不作"NOR);
+	set("nickname", HIR"無惡不作"NOR);
 	set("age", 43);
 	set("str", 25);
 	set("dex", 16);
 	set("per", 21);
-	set("long", "一个中年女子，身穿淡青色长袍，左右脸颊上各有三条血痕。\n");
+	set("long", "一箇中年女子，身穿淡青色長袍，左右臉頰上各有三條血痕。\n");
 	set("combat_exp", 3000000+ random(1000000));
 	set("attitude", "peaceful");
 	set("neili", 2000); 

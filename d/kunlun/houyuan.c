@@ -7,18 +7,18 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "后院");
+	set("short", "後院");
 	set("long",@long
-由于这里一向少有人来，渐渐被人忘记，也就很久没有被打扫过了。
-落叶满地，踩上去软绵绵的。墙壁已有些残破，檐下结满了蜘蛛网，角
-落里的一扇小门因为日晒雨淋，开始朽烂。
+由於這裏一向少有人來，漸漸被人忘記，也就很久沒有被打掃過了。
+落葉滿地，踩上去軟綿綿的。牆壁已有些殘破，檐下結滿了蜘蛛網，角
+落裏的一扇小門因爲日曬雨淋，開始朽爛。
 long);
 	set("exits",([
 		"out"   : __DIR__"fufengshan",
 		"south" : __DIR__"shanlin2",
 	]));
 	set("no_clean_up", 0);
-	create_door("out", "小门", "enter", DOOR_CLOSED);
+	create_door("out", "小門", "enter", DOOR_CLOSED);
 	set("outdoors", "kunlun");
 	set("coor/x", -119980);
 	set("coor/y", 40160);

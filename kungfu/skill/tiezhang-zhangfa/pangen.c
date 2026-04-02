@@ -1,9 +1,9 @@
-// pangen.c 铁掌掌法 「枯树盘根」
+// pangen.c 鐵掌掌法 「枯樹盤根」
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "「枯树盘根」"
+#define PNAME "「枯樹盤根」"
 int perform(object me, object target)
 {
 	string msg;
@@ -17,17 +17,17 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if( me->query_temp("weapon") )
-		return notify_fail("只有空手才能施展「枯树盘根」。\n");
+		return notify_fail("只有空手才能施展「枯樹盤根」。\n");
 
 	fskill = "guiyuan-tunafa";
 	bskill = "strike";
@@ -41,36 +41,36 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，不能使"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，不能使"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为不够，不能使"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，不能使"+PNAME+"。\n");
 
 	if((int)me->query("max_neili") < 500)
-		return notify_fail("你内力修为不够，不能使用枯树盘根！\n");
+		return notify_fail("你內力修爲不夠，不能使用枯樹盤根！\n");
 
 	if((int)me->query("neili") < 300)
-		return notify_fail("你内力现在不够，不能使用枯树盘根！\n");
+		return notify_fail("你內力現在不夠，不能使用枯樹盤根！\n");
 
 	if( target->is_busy() )
-		return notify_fail(target->name()+"目前正自顾不暇，放胆攻击吧！\n");
-	msg = HIY"$N使出铁掌掌法的「枯树盘根」，左掌猛地向$n的双手抓去！\n"NOR;
+		return notify_fail(target->name()+"目前正自顧不暇，放膽攻擊吧！\n");
+	msg = HIY"$N使出鐵掌掌法的「枯樹盤根」，左掌猛地向$n的雙手抓去！\n"NOR;
 	if(random(me->query("combat_exp")) > (int)target->query("combat_exp")/3)
 	{
 		if (target->query_temp("hmg_dzjm"))
 		{
-			msg += HIY"结果$P发现$p两手殊非血肉之物，被$p一挣就挣脱了。\n"NOR;
+			msg += HIY"結果$P發現$p兩手殊非血肉之物，被$p一掙就掙脫了。\n"NOR;
 			me->start_busy(random(3) + 1);
 			me->add("neili", -200);
 		} else {
-			msg += HIG"结果$p的双手被$P一把揽住，动弹不得！\n"NOR;
+			msg += HIG"結果$p的雙手被$P一把攬住，動彈不得！\n"NOR;
 			target->start_busy( random((int)me->query_skill(bskill, 1) / 30) + 2);
 			me->add("neili", -300);
 		}
 	}
 	else
 	{
-		msg += HIY "结果$p两手急收，$P的出手扑了个空！\n"NOR;
+		msg += HIY "結果$p兩手急收，$P的出手撲了個空！\n"NOR;
 		me->add("neili", -200);
 		me->start_busy(4);
 	}
@@ -86,13 +86,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		迟滞对方出手
+		遲滯對方出手
 
 	出手要求：
-		归元吐纳法100级
-		铁掌掌法100级
-		内力修为500
-		内力300
+		歸元吐納法100級
+		鐵掌掌法100級
+		內力修爲500
+		內力300
 HELP
 	);
 	return 1;

@@ -1,4 +1,4 @@
-// roar.c 黯然销魂吟
+// roar.c 黯然銷魂吟
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -14,12 +14,12 @@ int exert(object me, object target)
   !me->query("perform/roar") &&
   !me->query("can_perform/yunv-xinfa/roar") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("你所使用的内功中没有这种功能。");
+   return notify_fail("你所使用的內功中沒有這種功能。");
 	if( environment(me)->query("no_fight") )
-		return notify_fail("这里不能攻击别人! \n");
+		return notify_fail("這裏不能攻擊別人! \n");
 
 	if( ((int)me->query("neili") < 150 ) || ((int)me->query("max_neili") < 150 ) || ( (int)me->query_skill("yunv-xinfa",1) < 100) )
-		return notify_fail("你长叹一声，大家吓了一跳。\n");
+		return notify_fail("你長嘆一聲，大家嚇了一跳。\n");
 
 	skill = me->query_skill("force");
 
@@ -27,7 +27,7 @@ int exert(object me, object target)
 	me->receive_damage("qi", 10);
 
 	me->start_busy(3);
-	message_combatd(MAG"$N右手抚胸，低声长吟出一曲「黯然销魂」。\n"NOR, me);
+	message_combatd(MAG"$N右手撫胸，低聲長吟出一曲「黯然銷魂」。\n"NOR, me);
 
 	ob = all_inventory(environment(me));
 	for(i=0; i<sizeof(ob); i++)
@@ -45,7 +45,7 @@ int exert(object me, object target)
 			ob[i]->receive_damage("jing", damage * 2 );
 			if( (int)ob[i]->query("neili") < skill * 2 )
 				ob[i]->receive_wound("jing", damage);
-			tell_object(ob[i], "你忽然觉得一阵寒意扑面而来，心神朦胧中漂移不定。\n");
+			tell_object(ob[i], "你忽然覺得一陣寒意撲面而來，心神朦朧中漂移不定。\n");
 		}
 		if( userp(ob[i]) ) ob[i]->fight_ob(me);
 		else if( !ob[i]->is_killing(me) ) ob[i]->kill_ob(me);
@@ -55,15 +55,15 @@ int exert(object me, object target)
 
 int help(object me)
 {
-	write(WHT"\n玉女心法之黯然销魂吟："NOR"\n");
+	write(WHT"\n玉女心法之黯然銷魂吟："NOR"\n");
 	write(@HELP
 
 	使用功效：
-		伤害自己周围的所有生物的精气
+		傷害自己周圍的所有生物的精氣
 
 	出手要求：
-		玉女心法100级
-	        内力150
+		玉女心法100級
+	        內力150
 HELP
 	);
 	return 1;

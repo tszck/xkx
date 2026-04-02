@@ -13,7 +13,7 @@ string zm_apply()
 	object ob = this_player();
 	if (ob->query("class") != "quanzhen")
 	{
-		return "本教例由全真道士掌门！";
+		return "本教例由全真道士掌門！";
 	}
 	return ::zm_apply();
 }

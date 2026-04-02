@@ -5,9 +5,9 @@ inherit NPC;
 void create()
 {
 	set_name("狼", ({ "wolf2", "lang" }) );
-	set("race", "走兽");
+	set("race", "走獸");
 	set("age", 5);
-	set("long", "一匹昂首直立，两眼放着绿光的狼。\n");
+	set("long", "一匹昂首直立，兩眼放着綠光的狼。\n");
 	set("attitude", "aggressive");
 
 	set("str", 26);

@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name("旧竹片", ({ "bamboo", "shu", "book" }));
+	set_name("舊竹片", ({ "bamboo", "shu", "book" }));
 	set_weight(100);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "片");
-		set("long","易筋经轻功篇\n这是一片两边去皮的旧竹片，正面和背面都画了无数个飞翔纵跃的小图形。\n");
+		set("long","易筋經輕功篇\n這是一片兩邊去皮的舊竹片，正面和背面都畫了無數個飛翔縱躍的小圖形。\n");
 		set("value", 500);
 		set("material", "bamboo");
 		set("skill", ([

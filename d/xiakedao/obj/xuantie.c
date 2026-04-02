@@ -1,4 +1,4 @@
-// xuantie.c 玄铁令
+// xuantie.c 玄鐵令
 
 #include <armor.h>
 #include <ansi.h>
@@ -7,14 +7,14 @@ inherit NECK;
 
 void create()
 {
-        set_name(HIC "玄铁令" NOR, ({ "xuan tie", "xuan" }));
-        set("long", "\n这是一块碧绿色的玉牌，莹洁光绿，真是一块好玉。\n"+
-         "正面雕龙刻凤，正中写着玄铁两个大字。这便是江湖上传说的玄铁令。\n");
+        set_name(HIC "玄鐵令" NOR, ({ "xuan tie", "xuan" }));
+        set("long", "\n這是一塊碧綠色的玉牌，瑩潔光綠，真是一塊好玉。\n"+
+         "正面雕龍刻鳳，正中寫着玄鐵兩個大字。這便是江湖上傳說的玄鐵令。\n");
         set("weight", 300);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "块");
+                set("unit", "塊");
                 set("value", 50000);
                 set("material", "玉");
                 set("armor_prop/armor", 2);

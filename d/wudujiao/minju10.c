@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "后院");
+        set("short", "後院");
         set("long", @LONG
-这是一个用篱笆围成的简易院落，远处种着几畦蔬菜。院子
-中间一棵高大的柿树上结满了鲜红的果实，旁边的地上盖着一张
-厚厚的草席。
+這是一個用籬笆圍成的簡易院落，遠處種着幾畦蔬菜。院子
+中間一棵高大的柿樹上結滿了鮮紅的果實，旁邊的地上蓋着一張
+厚厚的草蓆。
 LONG
         );
         set("outdoors", "wudujiao");
@@ -20,7 +20,7 @@ LONG
                   __DIR__"npc/xuetong": 3,
         ]));
         set("item_desc", ([
-                "草席" : "\n一张厚厚的草席盖在洞口，下面似乎是一个地窖。\n" ,
+                "草蓆" : "\n一張厚厚的草蓆蓋在洞口，下面似乎是一個地窖。\n" ,
         ]));
 	set("coor/x", -44940);
 	set("coor/y", -81040);
@@ -37,13 +37,13 @@ int do_move(string arg)
 //      string dir;
         me = this_player();
         if (!arg||arg=="") return 0;
-        if( arg=="草席" ) {
-            message_vision("\n$N掀开盖在洞口的草席走了下去。\n", this_player());
+        if( arg=="草蓆" ) {
+            message_vision("\n$N掀開蓋在洞口的草蓆走了下去。\n", this_player());
             me->move(__DIR__"dijiao");
-            message_vision("\n盖在洞口的草席一掀，$N从上面走了下来。\n",me);
+            message_vision("\n蓋在洞口的草蓆一掀，$N從上面走了下來。\n",me);
         }
         else {
-            message_vision("\n$N双手在空中比划了几下，但似乎什么也没抓住。\n", this_player());
+            message_vision("\n$N雙手在空中比劃了幾下，但似乎什麼也沒抓住。\n", this_player());
         }
         return 1;
 }

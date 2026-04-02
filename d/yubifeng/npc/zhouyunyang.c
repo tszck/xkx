@@ -1,14 +1,14 @@
-// zhouyunqi.c 周云阳
+// zhouyunqi.c 周雲陽
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("周云阳", ({ "zhou yunyang", "yunyang", "zhou" }) );
+	set_name("周雲陽", ({ "zhou yunyang", "yunyang", "zhou" }) );
 	set("gender", "男性");
-	set("title", "辽东天龙门北宗第六代弟子");
-	set("nickname", "回龙剑");
+	set("title", "遼東天龍門北宗第六代弟子");
+	set("nickname", "回龍劍");
 	set("age", 43);
 	set("attitude", "friendly");
 	set("str", 20);

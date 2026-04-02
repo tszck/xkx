@@ -6,12 +6,12 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("余洪兴", ({"yu hongxing", "yu", "hongxing"}));
+	set_name("餘洪興", ({"yu hongxing", "yu", "hongxing"}));
 	set("gender", "男性");
-	set("nickname", "小吴用");
+	set("nickname", "小吳用");
 	set("age", 30);
 	set("long", 
-		"这是位笑眯眯的丐帮七袋弟子，生性多智，外号小吴用。\n");
+		"這是位笑眯眯的丐幫七袋弟子，生性多智，外號小吳用。\n");
 	set("attitude", "peaceful");
 	set("class", "beggar");
 	set("beggarlvl", 7);
@@ -52,10 +52,10 @@ void create()
 	map_skill("parry", "liuhe-blade");
 	map_skill("dodge", "xiaoyaoyou");
 	
-	set("party/party_name", HIC"丐帮"NOR);
+	set("party/party_name", HIC"丐幫"NOR);
 	set("party/rank", GRN"七袋弟子"NOR);
 	set("party/level", 7);
-	create_family("丐帮", 19, "弟子");
+	create_family("丐幫", 19, "弟子");
 
 	setup();
 
@@ -66,8 +66,8 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if( ob->query("int") < 25 ) return;
-	command("say 唉，本帮诚信为本，只有七公他老人家和我才特别收些聪明徒儿，");
-	command("say 大家都要为长远着想啊！");
+	command("say 唉，本幫誠信爲本，只有七公他老人家和我才特別收些聰明徒兒，");
+	command("say 大家都要爲長遠着想啊！");
 	command("recruit " + ob->query("id"));
 }
 #include "/kungfu/class/gaibang/gaibang.h"

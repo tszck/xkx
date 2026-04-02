@@ -1,4 +1,4 @@
-// /kungfu/class/xueshan/guoshi.c  贡唐仓国师
+// /kungfu/class/xueshan/guoshi.c  貢唐倉國師
 
 #include <ansi.h>
 #include "xueshan.h";
@@ -10,14 +10,14 @@ string ask_for_join();
 
 void create()
 {
-	set_name("贡唐仓国师", ({ "gongtangcang guoshi", "guoshi" }));
+	set_name("貢唐倉國師", ({ "gongtangcang guoshi", "guoshi" }));
 	set("long",@LONG
-贡唐仓国师是雪山寺中地位较高的喇嘛。
-身穿一件青色袈裟，头带僧帽。
+貢唐倉國師是雪山寺中地位較高的喇嘛。
+身穿一件青色袈裟，頭帶僧帽。
 LONG
 	);
 	set("title", HIY "大喇嘛" NOR);
-	set("nickname", HIG "国师" NOR);
+	set("nickname", HIG "國師" NOR);
 	set("gender", "男性");
 	set("age", 40);
 	set("attitude", "peaceful");
@@ -78,33 +78,33 @@ void attempt_apprentice(object ob)
 {
 
 	if ((string)ob->query("gender") != "男性") {
-		command("say 修习密宗内功需要纯阳之体。");
-		command("say 这位" + RANK_D->query_respect(ob) +
-			"还是请回吧！");
+		command("say 修習密宗內功需要純陽之體。");
+		command("say 這位" + RANK_D->query_respect(ob) +
+			"還是請回吧！");
 		return;
 	}
 
 	if ((string)ob->query("class") != "lama") {
-		command("say 我西藏黄教门内的清规戒律甚多。");
+		command("say 我西藏黃教門內的清規戒律甚多。");
 		ob->set_temp("pending/join_bonze", 1);
-		command("say 施主若真心皈依我佛，请跪下(kneel)受戒。\n");
+		command("say 施主若真心皈依我佛，請跪下(kneel)受戒。\n");
 		return;
 	}
 
 	if ((string)ob->query("family/family_name") != "雪山寺")	{
-		command("say 这位" + RANK_D->query_respect(ob) +
-			"既非本寺弟子，还是请回吧！");
+		command("say 這位" + RANK_D->query_respect(ob) +
+			"既非本寺弟子，還是請回吧！");
 		return;
 	}
 
 	if ((int)ob->query_skill("lamaism", 1) < 40) {
-		command("say 入我雪山寺，修习密宗心法是首要的。");
-		command("say 这位" + RANK_D->query_respect(ob) +
-			"是否还应该多多钻研本门的心法？");
+		command("say 入我雪山寺，修習密宗心法是首要的。");
+		command("say 這位" + RANK_D->query_respect(ob) +
+			"是否還應該多多鑽研本門的心法？");
 		return;
 	}
 
-	command("say 好，就传你一些武功吧！");
+	command("say 好，就傳你一些武功吧！");
 	command("recruit " + ob->query("id"));
 
 }
@@ -122,7 +122,7 @@ int do_say(string arg)
 
 	if( !arg || arg=="" ) return 0;
 
-	if( arg=="法轮常转" )	
+	if( arg=="法輪常轉" )	
 	{
 		me->move("/d/xueshan/guangchang");
 		return 1;

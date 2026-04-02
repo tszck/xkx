@@ -1,4 +1,4 @@
-// yinggu.c 刘瑛姑
+// yinggu.c 劉瑛姑
 
 #include <ansi.h>
 
@@ -8,13 +8,13 @@ string ask_book();
 string ask_yideng();
 void create()
 {
-        set_name("刘瑛姑", ({ "liu yinggu", "liu", "yinggu" }));
+        set_name("劉瑛姑", ({ "liu yinggu", "liu", "yinggu" }));
         set("gender", "女性");
         set("nickname", CYN "神算子" NOR ) ;
         set("age", 42);
         set("long",
-        "但见她额头满布皱纹，面颊却如凝脂，一张脸以眼为界，上
-半老，下半少，却似相差了二十多岁年纪。\n",);
+        "但見她額頭滿布皺紋，面頰卻如凝脂，一張臉以眼爲界，上
+半老，下半少，卻似相差了二十多歲年紀。\n",);
 
         set("combat_exp", 1000000);
         set("shen_type", 1);
@@ -46,10 +46,10 @@ void create()
         map_skill("unarmed","kongming-quan");
 
         set("inquiry", ([
-                "周伯通"     : "他、他、、他在哪里！",
-                "段智兴"     : "这个老和尚，枉称慈悲！\n",
-                "一灯大师"   : (: ask_yideng :),
-                "九章算术"   : (: ask_book :),
+                "周伯通"     : "他、他、、他在哪裏！",
+                "段智興"     : "這個老和尚，枉稱慈悲！\n",
+                "一燈大師"   : (: ask_yideng :),
+                "九章算術"   : (: ask_book :),
         ]) );
 	set("book_count", 1);
 	set("yideng_count", 1);
@@ -67,16 +67,16 @@ string ask_book()
 		fam["family_name"] != "大理段家") ||
 		(query("book_count") < 1) ) 
 		return RANK_D->query_respect(this_player()) + 
-		"说什么？我实在不明白。";
+		"說什麼？我實在不明白。";
 
 	if (this_player()->query_skill("literate",1) < 100)
 		return RANK_D->query_respect(this_player()) + 
-		"想要这书？你还读不懂它呢。";
+		"想要這書？你還讀不懂它呢。";
 	add("book_count", -1);
 	ob = new("/clone/book/lbook4");
 	ob->move(this_player());
-	command("rumor "+this_player()->query("name")+"拿到九章算术啦。\n");
-	return "好吧，这本「九章算术」你拿回去好好钻研。\n";
+	command("rumor "+this_player()->query("name")+"拿到九章算術啦。\n");
+	return "好吧，這本「九章算術」你拿回去好好鑽研。\n";
 }
 
 string ask_yideng()
@@ -86,7 +86,7 @@ string ask_yideng()
 	
 	if (query("yideng_count") < 1)
 		return RANK_D->query_respect(this_player()) + 
-		"想说什么？找一灯大师，那可别找我。";
+		"想說什麼？找一燈大師，那可別找我。";
 	add("yideng_count", -1);
 	ob = new(__DIR__"obj/whiteobj");
 	ob->move(this_player());
@@ -94,5 +94,5 @@ string ask_yideng()
 	ob->move(this_player());
 	ob = new(__DIR__"obj/redobj");
 	ob->move(this_player());
-	return "你想见他？好吧，这三个囊儿给你，有缘你就去找他吧。\n";
+	return "你想見他？好吧，這三個囊兒給你，有緣你就去找他吧。\n";
 }

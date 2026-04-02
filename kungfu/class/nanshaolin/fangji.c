@@ -9,10 +9,10 @@ string ask_me_2();
 string ask_me_3();
 void create()
 {
-	set_name("方济", ({ "fang ji", "fang", "ji"}));
-	set("long", "他是一位身穿黄布袈裟的青年僧人。脸上稚气未脱，身手却已相\n"
-		"当矫捷，看来似乎学过一点武功。\n");
-	set("nickname", "药头");
+	set_name("方濟", ({ "fang ji", "fang", "ji"}));
+	set("long", "他是一位身穿黃布袈裟的青年僧人。臉上稚氣未脫，身手卻已相\n"
+		"當矯捷，看來似乎學過一點武功。\n");
+	set("nickname", "藥頭");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -63,9 +63,9 @@ void create()
 	set("xiao_count",6);
 	set("da_count", 6);
 	set("inquiry", ([
-		"金创药" : (: ask_me_1 :),
-		"小还丹" : (: ask_me_2 :),
-		"大还丹" : (: ask_me_3 :)
+		"金創藥" : (: ask_me_1 :),
+		"小還丹" : (: ask_me_2 :),
+		"大還丹" : (: ask_me_3 :)
 	]));
 	create_family("南少林派", 21, "弟子");
 	setup();
@@ -79,18 +79,18 @@ string ask_me_1()
 	
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "南少林派")
-		return RANK_D->query_respect(this_player()) +"与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) +"與本派素無來往，不知此話從何談起？";
 	if ( (int)this_player()->query_condition("bonze_drug" ) > 0 )
 		return RANK_D->query_respect(this_player()) + 
-		"你是不是刚吃过药，怎麽又来要了？ 灵药多吃有害无宜，过段时间再来吧。";
+		"你是不是剛喫過藥，怎麼又來要了？ 靈藥多喫有害無宜，過段時間再來吧。";
 	if ( present("jin chuangyao", this_player()) )
-		return RANK_D->query_respect(this_player()) +"你现在身上不是有颗药丸吗，怎麽又来要了？ 真是贪得无餍！";
-	if (query("jin_count") < 1) return "对不起，金创药已经发完了";
+		return RANK_D->query_respect(this_player()) +"你現在身上不是有顆藥丸嗎，怎麼又來要了？ 真是貪得無饜！";
+	if (query("jin_count") < 1) return "對不起，金創藥已經發完了";
 	ob = new(NOSTRUM_DIR+"jinchuang-yao");
 	ob->move(this_player());
 	add("jin_count", -1);
-	message_vision("$N获得一包金创药。\n",this_player());
-	return "好吧，记住，不到危急关头不要轻易使用此药。";
+	message_vision("$N獲得一包金創藥。\n",this_player());
+	return "好吧，記住，不到危急關頭不要輕易使用此藥。";
 }
 
 string ask_me_2()
@@ -100,17 +100,17 @@ string ask_me_2()
 	
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "南少林派")
-		return RANK_D->query_respect(this_player()) +"与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) +"與本派素無來往，不知此話從何談起？";
 	if ( (int)this_player()->query_condition("bonze_drug" ) > 0 )
-		return RANK_D->query_respect(this_player()) +"你是不是刚吃过药，怎麽又来要了？ 灵药多吃有害无宜，过段时间再来吧。";
+		return RANK_D->query_respect(this_player()) +"你是不是剛喫過藥，怎麼又來要了？ 靈藥多喫有害無宜，過段時間再來吧。";
 	if ( present("xiaohuan dan", this_player()) )
-		return RANK_D->query_respect(this_player()) +"你现在身上不是有颗药丸吗，怎么又来要了？ 真是贪得无餍！";
-	if (query("xiao_count") < 1) return "对不起，小还丹已经发完了";
+		return RANK_D->query_respect(this_player()) +"你現在身上不是有顆藥丸嗎，怎麼又來要了？ 真是貪得無饜！";
+	if (query("xiao_count") < 1) return "對不起，小還丹已經發完了";
 	ob = new(NOSTRUM_DIR+"xiaohuan-dan");
 	ob->move(this_player());
 	add("xiao_count", -1);
-	message_vision("$N获得一颗小还丹。\n",this_player());
-	return "好吧，记住，不到危急关头不要轻易使用此药。";
+	message_vision("$N獲得一顆小還丹。\n",this_player());
+	return "好吧，記住，不到危急關頭不要輕易使用此藥。";
 }
 
 string ask_me_3()
@@ -120,20 +120,20 @@ string ask_me_3()
 	me = this_player();
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "南少林派")
-		return RANK_D->query_respect(this_player()) +"与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) +"與本派素無來往，不知此話從何談起？";
 	if ( (int)this_player()->query_condition("bonze_drug" ) > 0 )
-		return RANK_D->query_respect(this_player()) +"你是不是刚吃过药，怎么又来要了？ 灵药多吃有害无宜，过段时间再来吧。";
+		return RANK_D->query_respect(this_player()) +"你是不是剛喫過藥，怎麼又來要了？ 靈藥多喫有害無宜，過段時間再來吧。";
 	if ( (int)this_player()->query("max_neili" ) < 400)
-		return RANK_D->query_respect(this_player()) +"功力不够，灵药多吃有害无宜，过段时间再来吧。";
+		return RANK_D->query_respect(this_player()) +"功力不夠，靈藥多喫有害無宜，過段時間再來吧。";
 	if ( present("dahuan dan", this_player()) )
-		return RANK_D->query_respect(this_player()) +"你现在身上不是有颗药丸吗，怎么又来要了？ 真是贪得无餍！";
+		return RANK_D->query_respect(this_player()) +"你現在身上不是有顆藥丸嗎，怎麼又來要了？ 真是貪得無饜！";
 	if ((int)me->query("max_neili") >= (int)me->query_skill("force")*10)
-		return RANK_D->query_respect(this_player()) +"怎麽老想吃要呢，你武功已经不凡，去打坐提高修为吧。";
-	if (query("da_count") < 1) return "对不起，大还丹已经发完了";
+		return RANK_D->query_respect(this_player()) +"怎麼老想喫要呢，你武功已經不凡，去打坐提高修爲吧。";
+	if (query("da_count") < 1) return "對不起，大還丹已經發完了";
 	ob = new(NOSTRUM_DIR+"dahuan-dan");
 	ob->move(this_player());
 	add("da_count", -1);
-	message_vision("$N获得一颗大还丹。\n",this_player());
-	return "好吧，记住，不到危急关头不要轻易使用此药。";
+	message_vision("$N獲得一顆大還丹。\n",this_player());
+	return "好吧，記住，不到危急關頭不要輕易使用此藥。";
 }
 #include "/kungfu/class/nanshaolin/fang.h";

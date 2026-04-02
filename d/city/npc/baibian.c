@@ -7,8 +7,8 @@ inherit NPC;
 void create()
 {
 	seteuid(getuid());
-	set_name("张三", ({ "zhang san", "zhang", "san", "bai bian" }) );
-	set("title", HIY "百变道人" NOR);
+	set_name("張三", ({ "zhang san", "zhang", "san", "bai bian" }) );
+	set("title", HIY "百變道人" NOR);
 	set("gender", "男性" );
 	set("age", 50);
 	set("long", "一位邋邋遢遢的道士。\n");
@@ -49,7 +49,7 @@ void create()
 	map_skill("sword", "taiji-jian");
 	map_skill("dodge", "tiyunzong");
 
-	create_family("武当派", 3, "弟子");
+	create_family("武當派", 3, "弟子");
 
 	set("chat_chance", 5);
 	set("chat_msg", ({

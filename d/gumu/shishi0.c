@@ -8,12 +8,12 @@ void create()
 { 
 	set("short",HIB"石室"NOR);
 	set("long", @LONG
-头顶的石壁 (shibi)又恢复了原状，你发现自己置身于一间阴沉的
-石室中，空荡荡的感觉使你心中只有恐惧，甚至忘记孤独。你不知身处
+頭頂的石壁 (shibi)又恢復了原狀，你發現自己置身於一間陰沉的
+石室中，空蕩蕩的感覺使你心中只有恐懼，甚至忘記孤獨。你不知身處
 何地，四周如此漆黑一片，只能靠摸索前行。
 LONG	);
 	set("item_desc", ([
-		"shibi": "石壁恢复了原状，与周围吻合地天衣无缝，你不由感叹其高超造诣。\n"NOR,
+		"shibi": "石壁恢復了原狀，與周圍吻合地天衣無縫，你不由感嘆其高超造詣。\n"NOR,
 	]));
 	set("exits", ([
 		"out" : __DIR__"shishi1",
@@ -38,17 +38,17 @@ int do_tui(string arg)
 		return notify_fail("你正忙着哪！\n");
 	if (arg =="shibi")
 	{
-		message_vision(YEL "$N双手把石壁用力向上推去，咯吱吱一声，石壁缓缓移开。\n"NOR,me);
+		message_vision(YEL "$N雙手把石壁用力向上推去，咯吱吱一聲，石壁緩緩移開。\n"NOR,me);
 		set("exits/up", __DIR__"woshi");
 		remove_call_out("close");
 		call_out("close", 5, this_object());
 		return 1;
 	}
-	return notify_fail("你要推什么？\n");
+	return notify_fail("你要推什麼？\n");
 }
 
 void close(object room)
 {
-	message("vision",HIY"石壁慢慢移了回来，恢复了原状。\n"NOR, room);
+	message("vision",HIY"石壁慢慢移了回來，恢復了原狀。\n"NOR, room);
 	room->delete("exits/up");
 }

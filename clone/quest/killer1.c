@@ -11,7 +11,7 @@ void create()
 	set("quest_no_guard",1);
 	set("no_steal",1);
 	set("no_ansuan",1);
-	set("long", "一个穿着黑色夜行衣的人。\n");
+	set("long", "一個穿着黑色夜行衣的人。\n");
 	set( "chat_chance_combat", 80);         
   set( "chat_msg_combat",({
         		(: exert_function, "recover" :),
@@ -27,7 +27,7 @@ int do_back(object me)
 {			
 	if (objectp(environment(me)))
 	{
-		tell_room(environment(me), me->query("name")+"匆匆忙忙的离开了。\n", ({me}));	
+		tell_room(environment(me), me->query("name")+"匆匆忙忙的離開了。\n", ({me}));	
 		destruct(me); 
 	}
   return 1;
@@ -72,14 +72,14 @@ void die()
 			}
 			me->add("combat_exp",exp);
 			me->add("potential",pot);
-			me->set_temp("prize_reason","追杀");
+			me->set_temp("prize_reason","追殺");
 			me->set_temp("can_give_prize",1);
 			me->set_temp("prize_exp",exp);
 			me->set_temp("prize_pot",pot);
 
-			tell_object(me,HIW"经过这番历练，\n你被奖励了：\n");
-			tell_object(me,chinese_number(exp) +"点实战经验\n" +
-			chinese_number(pot) + "点潜能\n"NOR);
+			tell_object(me,HIW"經過這番歷練，\n你被獎勵了：\n");
+			tell_object(me,chinese_number(exp) +"點實戰經驗\n" +
+			chinese_number(pot) + "點潛能\n"NOR);
 		}
 	}
 	me = find_player(ob->query("owner"));
@@ -91,7 +91,7 @@ void die()
 int accept_fight(object ob)
 {
         add_temp("killer",ob);
-        command("say 好！咱们就比划比划！");
+        command("say 好！咱們就比劃比劃！");
         kill_ob(ob);
         return 1;
 }
@@ -110,5 +110,5 @@ int accept_kill(object ob)
         command("say 哼！找死！");
         return 1;
 }
-int accept_ansuan(object who) {return notify_fail("此人警惕性太高，没法暗算。\n");}
+int accept_ansuan(object who) {return notify_fail("此人警惕性太高，沒法暗算。\n");}
 int accept_touxi(object who)	{return accept_kill(who);}

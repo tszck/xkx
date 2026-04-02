@@ -10,13 +10,13 @@ string ask_me();
 
 void create()
 {
-	set_name("范遥", ({"fan yao","fan","yao",}));
+	set_name("範遙", ({"fan yao","fan","yao",}));
 	set("long",
-		"他是一位带发修行的头陀，身穿白布长袍。\n"
-		"他的脸上七七八八的全是伤疤，简直看不出本来面目了。\n"
+		"他是一位帶髮修行的頭陀，身穿白布長袍。\n"
+		"他的臉上七七八八的全是傷疤，簡直看不出本來面目了。\n"
 	);
 
-	set("nickname", HIY "逍遥二仙" NOR);
+	set("nickname", HIY "逍遙二仙" NOR);
 	set("gender", "男性");
 	set("attitude", "peaceful");
 	set("class", "bonze");
@@ -65,9 +65,9 @@ void create()
 	prepare_skill("claw", "sougu");
 
 	set("inquiry", ([
-		"光明圣火阵" : (: ask_me :),
-		"明教圣火阵" : (: ask_me :),
-		"圣火阵"     : (: ask_me :)
+		"光明聖火陣" : (: ask_me :),
+		"明教聖火陣" : (: ask_me :),
+		"聖火陣"     : (: ask_me :)
 	]));
 
 	set("env/wimpy", 60);

@@ -6,10 +6,10 @@ int ask_lvzhuweng();
 
 void create()
 {
-	set_name("易师爷", ({ "yi shiye", "yi", "shiye"}));
+	set_name("易師爺", ({ "yi shiye", "yi", "shiye"}));
 	set("long",
-"易师爷是个瘦瘦小小、五十来岁的汉子，颏下留着一部稀稀疏
-疏的胡子，衣履甚是整洁。\n");
+"易師爺是個瘦瘦小小、五十來歲的漢子，頦下留着一部稀稀疏
+疏的鬍子，衣履甚是整潔。\n");
 	set("gender", "男性");
 	set("age", 55);
 	set("attitude", "peaceful");
@@ -30,14 +30,14 @@ void create()
 	set_temp("apply/attack", 15);
 	set_temp("apply/damage", 15);
 	set("inquiry", ([
-		"绿竹翁"     : (: ask_lvzhuweng :),
-		"东城绿竹翁" : (: ask_lvzhuweng :),
-		"东城"       : "东城有个绿竹翁，弹得好琴，吹得好箫。\n",
+		"綠竹翁"     : (: ask_lvzhuweng :),
+		"東城綠竹翁" : (: ask_lvzhuweng :),
+		"東城"       : "東城有個綠竹翁，彈得好琴，吹得好簫。\n",
 	]));
 
 	set("chat_chance", 30);
 	set("chat_msg", ({
-		"东城有个绿竹翁，弹得好琴，吹得好箫。\n",
+		"東城有個綠竹翁，彈得好琴，吹得好簫。\n",
 	}) );
 
 	setup();
@@ -47,7 +47,7 @@ void create()
 int ask_lvzhuweng()
 {
 	object me = this_player();
-	message_vision(CYN"易师爷猛地睁圆眯眯眼，对$N说道：你也想去见识他的琴箫？那我们一起去吧。\n"NOR,me);
+	message_vision(CYN"易師爺猛地睜圓眯眯眼，對$N說道：你也想去見識他的琴簫？那我們一起去吧。\n"NOR,me);
 	set_leader(me);
 	return 1;
 }

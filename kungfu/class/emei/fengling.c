@@ -1,4 +1,4 @@
-// fengling.c 风陵师太
+// fengling.c 風陵師太
 // Modified by Winder Jul.2000
 #include <command.h>
 #include <ansi.h>
@@ -10,8 +10,8 @@ mixed out_master(mixed arg);
 
 void create()
 {
-	set_name("风陵师太", ({ "fengling shitai","fengling","shitai"}));
-	set("long","她一副仙风道骨，与世无争模样，是峨嵋派的第二代掌门人。\n");
+	set_name("風陵師太", ({ "fengling shitai","fengling","shitai"}));
+	set("long","她一副仙風道骨，與世無爭模樣，是峨嵋派的第二代掌門人。\n");
 	set("gender", "女性");
 	set("age", 62);
 	set("attitude", "peaceful");
@@ -20,8 +20,8 @@ void create()
 	set("class", "bonze");
 	set("env/wimpy", 60);
 	set("inquiry",([
-		"剃度" : "贫尼只知除妖杀魔，不剃度弟子。",
-		"出家" : "贫尼只知除妖杀魔，不剃度弟子。",
+		"剃度" : "貧尼只知除妖殺魔，不剃度弟子。",
+		"出家" : "貧尼只知除妖殺魔，不剃度弟子。",
 	]));
 
 	set("str", 35);
@@ -76,7 +76,7 @@ void create()
 		(: exert_function, "recover" :),
 		(: exert_function, "regenerate" :),
 	}) );
-	create_family("峨嵋派", 2, "掌门人");
+	create_family("峨嵋派", 2, "掌門人");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();
@@ -93,7 +93,7 @@ void attempt_apprentice(object ob)
 
 	if (!(ob_fam = ob->query("family")) || ob_fam["family_name"] != "峨嵋派")
 	{
-		command("say "+RANK_D->query_respect(ob)+"与本派素无来往，不知此话从何谈起？");
+		command("say "+RANK_D->query_respect(ob)+"與本派素無來往，不知此話從何談起？");
 		return;
 	}
 	switch (random(2))
@@ -102,35 +102,35 @@ void attempt_apprentice(object ob)
 		default:
 			if ((string)ob->query("class")!="bonze" )
 			{
-				command ("say 阿弥陀佛！贫尼不收俗家弟子。");
+				command ("say 阿彌陀佛！貧尼不收俗家弟子。");
 				return;
 			}
 			else
 			{
-				command ("say 阿弥陀佛！贫尼不收弟子。");
+				command ("say 阿彌陀佛！貧尼不收弟子。");
 				return;
 			}
 	}
 	if ((int)ob->query_skill("mahayana",1)<120||
 		(int)ob->query_skill("linji-zhuang",1)<120)
 	{
-		command("say 你本门的功夫修为还太低。");
+		command("say 你本門的功夫修爲還太低。");
 		return;
 	}
 	if ((int)ob->query("shen") < 500000)
 	{
-		command("say "+RANK_D->query_respect(ob)+"你行侠仗义之事还做的不够。");
+		command("say "+RANK_D->query_respect(ob)+"你行俠仗義之事還做的不夠。");
 		return;
 	}
 	if ((string)ob->query("class")=="bonze" )
 	{
 		name = ob->query("name");
-		new_name = "灭" + name[1..1];
+		new_name = "滅" + name[1..1];
 		ob->set("name", new_name);
-		command("say 从今以后你的法名叫做" + new_name + "，恭喜你成为峨嵋第三代弟子!");
+		command("say 從今以後你的法名叫做" + new_name + "，恭喜你成爲峨嵋第三代弟子!");
 	}
 
-	command("say 阿弥陀佛，善哉！善哉！好吧，我就收下你了。");
-	command("say 希望你能以慈悲之心，以智慧之力，努力行善，济度众生。");
+	command("say 阿彌陀佛，善哉！善哉！好吧，我就收下你了。");
+	command("say 希望你能以慈悲之心，以智慧之力，努力行善，濟度衆生。");
 	command("recruit " + ob->query("id"));
 }

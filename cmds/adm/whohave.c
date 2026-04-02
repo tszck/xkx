@@ -54,7 +54,7 @@ int  help  (object  me)
                 write(@HELP
 指令格式  :  whohave  <id>
   
-可列出目前携带某个物品的玩家。
+可列出目前攜帶某個物品的玩家。
   
   
 HELP

@@ -1,9 +1,9 @@
 // Last Modified by winder on Sep. 12 2001
-// zhuihun.c 一剑追魂
+// zhuihun.c 一劍追魂
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "一剑追魂"
+#define PNAME "一劍追魂"
 int perform(object me, object target)
 {
 	object weapon;
@@ -19,18 +19,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	fskill = "honghua-shengong";
 	bskill = "sword";
@@ -44,32 +44,32 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够高，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠高，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	damage = (int)me->query_skill("force", 1);
 	damage += (int)me->query_skill(bskill, 1)*3/2;
 
 	if( (int)me->query("max_neili") < damage + 100)
-		return notify_fail("你的内力修为太弱，使不出「一剑追魂」。\n");
+		return notify_fail("你的內力修爲太弱，使不出「一劍追魂」。\n");
 
 	if( (int)me->query("neili") < damage )
-		return notify_fail("你现在内力太弱，不能使用「一剑追魂」。\n");
+		return notify_fail("你現在內力太弱，不能使用「一劍追魂」。\n");
 			
-	msg = CYN "$N微微一笑，猛吸一口气，飞身跃起，"+weapon->name()+CYN"如无常索命索，绞向$n。\n"NOR;
+	msg = CYN "$N微微一笑，猛吸一口氣，飛身躍起，"+weapon->name()+CYN"如無常索命索，絞向$n。\n"NOR;
 
 	if (random(me->query_skill("force")) > target->query_skill("force")/5 )
 	{
 		target->receive_damage("qi", damage,me);
 		target->receive_wound("qi", damage/2,me);
 		me->add("neili", -(damage/4));
-		msg += HIR "$n只觉剑势如夜幕般铺天盖地般压来，一时间眼前一花，两耳轰鸣，无从招架！！\n"NOR;
+		msg += HIR "$n只覺劍勢如夜幕般鋪天蓋地般壓來，一時間眼前一花，兩耳轟鳴，無從招架！！\n"NOR;
 		me->start_busy(1);
 	} else 
 	{
-		msg += CYN"可是$p见机极快，飞身跃出了$P的剑网。\n"NOR;
+		msg += CYN"可是$p見機極快，飛身躍出了$P的劍網。\n"NOR;
 		me->add("neili", -100);
 		me->start_busy(1+random(1));
 	}
@@ -85,13 +85,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		伤害对方气血
+		傷害對方氣血
 
 	出手要求：
-		红花神功120级
-		追魂夺命剑120级
-		足够的内力修为
-		足够的内力
+		紅花神功120級
+		追魂奪命劍120級
+		足夠的內力修爲
+		足夠的內力
 HELP
 	);
 	return 1;

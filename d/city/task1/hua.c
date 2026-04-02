@@ -1,11 +1,11 @@
-// hua.c 花剑影
+// hua.c 花劍影
 inherit NPC;
  
 void create()
 {
-	set_name("花剑影", ({ "hua  jianying"}));
-	set("nickname", "流星赶月");
-	set("long","他有着一个好听的名字，中等身材，白净脸皮，若不是一副牙齿向外突了一寸，一个鼻头低陷了半寸，倒算是一位相貌英俊的人物，可惜功夫平平，还时常打劫一些路客。\n");
+	set_name("花劍影", ({ "hua  jianying"}));
+	set("nickname", "流星趕月");
+	set("long","他有着一個好聽的名字，中等身材，白淨臉皮，若不是一副牙齒向外突了一寸，一個鼻頭低陷了半寸，倒算是一位相貌英俊的人物，可惜功夫平平，還時常打劫一些路客。\n");
 	set("gender", "男性");
 	set("age", random(10) + 25);
 	set("attitude", "peaceful");

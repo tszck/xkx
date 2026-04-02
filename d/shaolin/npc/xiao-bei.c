@@ -6,13 +6,13 @@ inherit NPC;
 
 void create()
 {
-	set_name("小沙弥", ({
+	set_name("小沙彌", ({
 		"xiao shami",
 		"xiao",
 		"shami",
 	}));
 	set("long",
-		"他是一位未通世故的少年和尚，脸上挂着天真的稚笑。\n"
+		"他是一位未通世故的少年和尚，臉上掛着天真的稚笑。\n"
 	);
 
 

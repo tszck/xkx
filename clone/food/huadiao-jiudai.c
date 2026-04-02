@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 // huadiao-jiudai.c  花雕酒袋
@@ -13,8 +13,8 @@ void create()
    if (clonep())
      set_default_object(__FILE__);
    else {
-     set("long", "一个用来装高级花雕酒的大酒袋。\n");
-     set("unit", "个");
+     set("long", "一個用來裝高級花雕酒的大酒袋。\n");
+     set("unit", "個");
      set("value", 120);
      set("max_liquid", 20);
    }

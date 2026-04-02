@@ -1,5 +1,5 @@
 // Last Modified by winder on May. 29 2001
-// fengyun-hand.c 风云手 和罗汉拳互备
+// fengyun-hand.c 風雲手 和羅漢拳互備
 
 #include <ansi.h>
 inherit SKILL;
@@ -7,37 +7,37 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N一式"CYN"「风满长空」"NOR"，双手以掌化爪，五指如钩，挟着风声直逼$n的膻中要穴",
+([	"action" : "$N一式"CYN"「風滿長空」"NOR"，雙手以掌化爪，五指如鉤，挾着風聲直逼$n的膻中要穴",
 	"limb" : "膻中穴",
 	"lvl" : 0,
-	"skill_name" : "风满长空"
+	"skill_name" : "風滿長空"
 ]),
-([	"action" : "$N一式"RED"「烈火腾云」"NOR"，右手上下挥动化成迷雾，接着左手一探，反扣$n的肩井大穴",
+([	"action" : "$N一式"RED"「烈火騰雲」"NOR"，右手上下揮動化成迷霧，接着左手一探，反扣$n的肩井大穴",
 	"lvl" : 8,
 	"limb" : "肩井穴",
-	"skill_name" : "烈火腾云"
+	"skill_name" : "烈火騰雲"
 ]),
-([	"action" : "$N使一式"GRN"「草深雾泽」"NOR"，掌指齐出，幻出无数幻影，风声中右手按向$n的胸前要害",
+([	"action" : "$N使一式"GRN"「草深霧澤」"NOR"，掌指齊出，幻出無數幻影，風聲中右手按向$n的胸前要害",
 	"lvl" : 16,
-	"skill_name" : "草深雾泽"
+	"skill_name" : "草深霧澤"
 ]),
-([	"action" : "$N左手成掌，右手握拳，一式"BLU"「天目昭辉」"NOR"，拉出的拳影掌影有如云雾变幻一般，罩向$n",
+([	"action" : "$N左手成掌，右手握拳，一式"BLU"「天目昭輝」"NOR"，拉出的拳影掌影有如雲霧變幻一般，罩向$n",
 	"lvl" : 24,
-	"skill_name" : "天目昭辉"
+	"skill_name" : "天目昭輝"
 ]),
-([	"action" : "$N使一式"YEL"「雷震四方」"NOR"，双手挥动，四面八方出现无数掌影，跟着一爪突出，抓向$n$l",
+([	"action" : "$N使一式"YEL"「雷震四方」"NOR"，雙手揮動，四面八方出現無數掌影，跟着一爪突出，抓向$n$l",
 	"lvl" : 40,
 	"skill_name" : "雷震四方"
 ]),
-([	"action" : "$N两手环扣，双臂如流云般晃动，一式"CYN"「水到渠成」"NOR"，节节进逼，将$n拉入招中",
+([	"action" : "$N兩手環扣，雙臂如流雲般晃動，一式"CYN"「水到渠成」"NOR"，節節進逼，將$n拉入招中",
 	"lvl" : 48,
 	"skill_name" : "水到渠成"
 ]),
-([	"action" : "$N一式"GRN"「山高林密」"NOR"，一掌拍出飞天沙石，然后十指齐伸，遮天蔽日般地笼罩$n的全身要穴",
+([	"action" : "$N一式"GRN"「山高林密」"NOR"，一掌拍出飛天沙石，然後十指齊伸，遮天蔽日般地籠罩$n的全身要穴",
 	"lvl" : 54,
 	"skill_name" : "山高林密"
 ]),
-([	"action" : "$N岳立霆峙，一式"YEL"「地老天荒」"NOR"，在一阵暴雷风云声中，双手同时拍中$n的七道死穴",
+([	"action" : "$N嶽立霆峙，一式"YEL"「地老天荒」"NOR"，在一陣暴雷風雲聲中，雙手同時拍中$n的七道死穴",
 	"lvl" : 100,
 	"skill_name" : "地老天荒"
 ])
@@ -49,13 +49,13 @@ int valid_combine(string combo){ return combo=="luohan-cuff"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练风云手必须空手。\n");
+		return notify_fail("練風雲手必須空手。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 10)
-		return notify_fail("你的站桩功火候不够，无法学风云手。\n");
+		return notify_fail("你的站樁功火候不夠，無法學風雲手。\n");
 	if ((int)me->query("max_neili") < 10)
-		return notify_fail("你的内力太弱，无法练风云手。\n");
+		return notify_fail("你的內力太弱，無法練風雲手。\n");
 	if (me->query_skill("shaolin-cuff", 1) < 10 )
-		return notify_fail("你还未掌握少林南拳，无法学习风云手。\n");
+		return notify_fail("你還未掌握少林南拳，無法學習風雲手。\n");
 
 	return 1;
 }
@@ -63,9 +63,9 @@ int valid_learn(object me)
 int practice_skill(object me)
 {
 	if ((int)me->query("qi") < 40)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够练风云手。\n");
+		return notify_fail("你的內力不夠練風雲手。\n");
 	me->receive_damage("qi", 20);
 	me->add("neili", -10);
 	return 1;
@@ -92,16 +92,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 30; }
@@ -116,15 +116,15 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIC"\n风云手："NOR"\n");
+	write(HIC"\n風雲手："NOR"\n");
 	write(@HELP
 
-    风云手是南少林入门手法。和罗汉拳互备。
+    風雲手是南少林入門手法。和羅漢拳互備。
 
-	学习要求：
-		站桩功10级
-		少林南拳10级
-		内力修为10
+	學習要求：
+		站樁功10級
+		少林南拳10級
+		內力修爲10
 HELP
 	);
 	return 1;

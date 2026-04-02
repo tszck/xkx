@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("齐自勉",({"qi zimian","qi"}));
+        set_name("齊自勉",({"qi zimian","qi"}));
         set("gender", "男性");
         set("age", 40);
         set("long", 
-               "齐自勉是雪山派掌门人威德先生白自在的师弟。\n");
+               "齊自勉是雪山派掌門人威德先生白自在的師弟。\n");
         set("attitude", "peaceful");
 
         set("str", 30);

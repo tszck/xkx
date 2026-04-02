@@ -1,13 +1,13 @@
-// Room: /d/henshan/hsroad7.c 林间大道
+// Room: /d/henshan/hsroad7.c 林間大道
 // Modified by Java on Feb.14.1998
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "林间大道");
+	set("short", "林間大道");
 	set("long", @LONG
-这里是一条林间大道，在树丛中蜿蜒。这里是湖北境内。南边是
+這裏是一條林間大道，在樹叢中蜿蜒。這裏是湖北境內。南邊是
 湖南。
 LONG );
 	set("outdoors", "hengyang");

@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
                  // wine.c 江米酒
@@ -13,7 +13,7 @@ void create()
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "南方人爱吃的江米酒。\n");
+                set("long", "南方人愛喫的江米酒。\n");
                 set("unit", "碗");
                 set("value", 120);
      set("food_remaining",6);

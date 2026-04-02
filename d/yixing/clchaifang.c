@@ -7,16 +7,16 @@ void create()
 {
 	set("short", "柴房");
 	set("long", @LONG
-一间简单的柴房，普通的帮众可以在这里干点杂活。劈好的木柴
-凌乱地堆在墙角，旁边是砍柴刀（chaidao）和笤帚（tiaozhou）。门
-后还有个水缸，却已经空了。时而也有帮众过来打个盹。
+一間簡單的柴房，普通的幫衆可以在這裏乾點雜活。劈好的木柴
+凌亂地堆在牆角，旁邊是砍柴刀（chaidao）和笤帚（tiaozhou）。門
+後還有個水缸，卻已經空了。時而也有幫衆過來打個盹。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"clzoulang1",
 	]));
 	set("item_desc",([
-		"chaidao"  : "一把锋利的砍柴刀。\n",
-		"tiaozhou" : "一把用来扫地的笤帚。\n",
+		"chaidao"  : "一把鋒利的砍柴刀。\n",
+		"tiaozhou" : "一把用來掃地的笤帚。\n",
 	]));
 
 	set("sleep_room", 1);
@@ -38,7 +38,7 @@ int do_get(string arg)
 	if( arg && objectp(obj = present(arg, environment(this_player()))) &&
 		obj->is_character() )
 	{
-		write("你不能搬动玩家的身体。\n");
+		write("你不能搬動玩家的身體。\n");
 		return 1;
 	}
 	else

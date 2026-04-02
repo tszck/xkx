@@ -16,7 +16,7 @@ void create()
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "这件孔雀羽衣是用孔雀羽毛织成的。\n");
+                set("long", "這件孔雀羽衣是用孔雀羽毛織成的。\n");
                 set("unit", "件");
 	        set("value", 5000);
                 set("material", "feature");

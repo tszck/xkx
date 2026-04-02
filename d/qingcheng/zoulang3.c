@@ -4,12 +4,12 @@
 inherit RESTROOM_OUT;
 void create()
 {
-	set("short", "松风西廊");
+	set("short", "松風西廊");
 	set("long", @LONG
-这里是松风观中连贯操练场和西厢的走廊，松风观高矗山顶，从走
-廊望去，青山鸟寂，幽谷风生，漫天薄雾时时弥散在长林翠竹之间。自
-古号称：“青城天下幽”，不妨在此体味。这里南边是客房，北边是厨
-房，西边常常关着门的是本派弟子的练功休息室。
+這裏是松風觀中連貫操練場和西廂的走廊，松風觀高矗山頂，從走
+廊望去，青山鳥寂，幽谷風生，漫天薄霧時時彌散在長林翠竹之間。自
+古號稱：“青城天下幽”，不妨在此體味。這裏南邊是客房，北邊是廚
+房，西邊常常關着門的是本派弟子的練功休息室。
 LONG );
 	set("outdoors", "qingcheng");
 	set("exits", ([
@@ -21,12 +21,12 @@ LONG );
 	set("coor/x", -8090);
 	set("coor/y", -840);
 	set("coor/z", 90);
-	set("door_name","大门");
+	set("door_name","大門");
 	set("door_dir","west");
 	set("restroom",__DIR__"xiuxishi");
-	set("open_door_msg","门上挂了个牌子：休息中。\n");
-	set("no_one_msg",   "门上挂了个牌子：青城弟子休息室。\n");
-	set("inside_msg",   "门上挂了个牌子：打扰一次、罚跪三天！\n");
+	set("open_door_msg","門上掛了個牌子：休息中。\n");
+	set("no_one_msg",   "門上掛了個牌子：青城弟子休息室。\n");
+	set("inside_msg",   "門上掛了個牌子：打擾一次、罰跪三天！\n");
 	set("item_desc/door",(: look_men : ));
 	set("item_desc/men", (: look_men : ));
 	setup();

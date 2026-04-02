@@ -4,12 +4,12 @@ inherit NPC;
 
 void create()
 {
-        set_name("潇湘子", ({ "xiaoxiang zi", "zi", "xiaoxiang" }));
+        set_name("瀟湘子", ({ "xiaoxiang zi", "zi", "xiaoxiang" }));
         set("title", "湘西名宿");
-        set("long", "他身材高瘦，脸无血色，形若僵尸。脸上隐隐透著一股青气，手持一根哭丧棒。\n");
+        set("long", "他身材高瘦，臉無血色，形若殭屍。臉上隱隱透著一股青氣，手持一根哭喪棒。\n");
         set("gender", "男性");
-        set("rank_info/respect", "道长");
-        create_family("丐帮", 15, "弟子");
+        set("rank_info/respect", "道長");
+        create_family("丐幫", 15, "弟子");
         set("age", 43);
         set("attitude","heroism");
         set("str", 26);
@@ -40,17 +40,17 @@ void create()
         set("max_neili", 2000);
         set("jiali", 50);
         set("inquiry", ([            
-            "金轮法王" : "嘿嘿，我迟早会把那个老和尚的国师名号抢过来。",
-            "马光佐" : "那是个莽夫，提他做什？",
-            "尹克西" : "这人功夫不错，就是满身的金银太耀眼，不象个武林人士。",
-            "尼摩星" : "西域来的，内功不错。就是，嘿嘿，心眼太小。",            
+            "金輪法王" : "嘿嘿，我遲早會把那個老和尚的國師名號搶過來。",
+            "馬光佐" : "那是個莽夫，提他做什？",
+            "尹克西" : "這人功夫不錯，就是滿身的金銀太耀眼，不象個武林人士。",
+            "尼摩星" : "西域來的，內功不錯。就是，嘿嘿，心眼太小。",            
        ]) );
         setup();
         set("chat_chance", 45);
         set("chat_msg", ({
-            "潇湘子眼睛向你斜望，嘴角边微微冷笑。\n",
+            "瀟湘子眼睛向你斜望，嘴角邊微微冷笑。\n",
             (: random_move :),  
-            "潇湘子道：「西藏武功传自天竺，难道世上当真有青出於蓝之事麽？兄弟可有点不大相信了 。」\n", 
+            "瀟湘子道：「西藏武功傳自天竺，難道世上當真有青出於藍之事麼？兄弟可有點不大相信了 。」\n", 
             (: random_move :),          
         }) );
         carry_object(WEAPON_DIR"gangzhang")->wield();
@@ -60,7 +60,7 @@ void create()
 void kill_ob(object me)
 {     object ob=this_object();
       command("grin");
-      command("say 杖下领死吧！");
+      command("say 杖下領死吧！");
       COMBAT_D->do_attack(ob, me, ob->query_temp("weapon"));
       COMBAT_D->do_attack(ob, me, ob->query_temp("weapon"));
       COMBAT_D->do_attack(ob, me, ob->query_temp("weapon"));            

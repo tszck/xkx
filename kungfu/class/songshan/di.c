@@ -6,7 +6,7 @@ inherit F_MASTER;
 void create()
 {
 	set_name("狄修", ({ "di xiu", "xiu", "di" }) );
-	set("long", "他是一个长大壮汉。\n");
+	set("long", "他是一個長大壯漢。\n");
 	set("gender", "男性");
 	set("class", "swordsman");
 	set("age", 25);

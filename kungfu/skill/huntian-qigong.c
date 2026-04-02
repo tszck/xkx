@@ -1,4 +1,4 @@
-// huntian-qigong.c 混天气功
+// huntian-qigong.c 混天氣功
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -22,14 +22,14 @@ int valid_learn(object me)
 	for (j = 1; j < i / 10; j++) t*= 2;
 
 	if (i > 10 && ((int)me->query("shen") > t * 100 || (int)me->query("shen") < t * (-100)))
-		return notify_fail("学混天气功，要不正不邪、亦正亦邪，你可做得不够呀！\n");
+		return notify_fail("學混天氣功，要不正不邪、亦正亦邪，你可做得不夠呀！\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("混天气功只能用学(learn)的来增加熟练度。\n");
+	return notify_fail("混天氣功只能用學(learn)的來增加熟練度。\n");
 }
 
 string exert_function_file(string func)
@@ -38,13 +38,13 @@ string exert_function_file(string func)
 }
 int help(object me)
 {
-	write(HIC"\n混天气功："NOR"\n"); 
+	write(HIC"\n混天氣功："NOR"\n"); 
 	write(@HELP
 
-    混天气功为丐帮本门内功。 
+    混天氣功爲丐幫本門內功。 
 
-	学习要求：
-		学混天气功，要不正不邪、亦正亦邪
+	學習要求：
+		學混天氣功，要不正不邪、亦正亦邪
 HELP
 	);
 	return 1;

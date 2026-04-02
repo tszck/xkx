@@ -7,7 +7,7 @@ void create()
        set("gender", "男性" );
        set("age", 26);
        set("long",
-               "他是一个年青的嵩山弟子。\n");
+               "他是一個年青的嵩山弟子。\n");
        set("combat_exp", 12500);
        set("attitude", "friendly");
  
@@ -31,15 +31,15 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "嵩山派弟子说道：这位" + RANK_D->query_respect(ob)
-            + "想加入嵩山派吗，可以看"BRED"(help songshan)"NOR"。\n");
+			say( "嵩山派弟子說道：這位" + RANK_D->query_respect(ob)
+            + "想加入嵩山派嗎，可以看"BRED"(help songshan)"NOR"。\n");
 			break;
 		case 1:
-			say( "嵩山派弟子说道：五岳剑派共由江湖中的五大门派组成，即：恒山派、华山派、嵩山派、
-衡山派及泰山派。我嵩山派为五岳剑派盟主。\n");
+			say( "嵩山派弟子說道：五嶽劍派共由江湖中的五大門派組成，即：恆山派、華山派、嵩山派、
+衡山派及泰山派。我嵩山派爲五嶽劍派盟主。\n");
 			break;
 		case 2:
-			say( "嵩山派弟子说道：我们嵩山剑法博大精深，你如能学得一二，就能出人头地了。\n");
+			say( "嵩山派弟子說道：我們嵩山劍法博大精深，你如能學得一二，就能出人頭地了。\n");
 			break;
 	}
 

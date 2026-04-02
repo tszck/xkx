@@ -5,10 +5,10 @@ inherit NPC;
 int ask_back();
 void create()
 {
-	set_name("太湖豪杰", ({ "hao jie", "jie" }));
+	set_name("太湖豪傑", ({ "hao jie", "jie" }));
 	set("gender", "男性");
 	set("age", 25);
-	set("long", "这是归云庄属下的在太湖劫富济贫的太湖豪杰。\n");
+	set("long", "這是歸雲莊屬下的在太湖劫富濟貧的太湖豪傑。\n");
 	set("combat_exp", 100000);
         set_skill("dodge", 50);
         set_skill("lingxu-bu", 50);
@@ -20,7 +20,7 @@ void create()
         map_skill("dodge", "lingxu-bu");
 	set("shen_type", 1);
 	set("chat_msg", ({
-		"太湖豪杰道：“要返航，就告诉我....\n",
+		"太湖豪傑道：“要返航，就告訴我....\n",
 	}));
 	set("inquiry", ([
 		"返航": (:ask_back:),
@@ -43,16 +43,16 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	tell_object(ob,"太湖豪杰道：“这位"+RANK_D->query_respect(ob)+"，要返航，就告诉我....”\n");
+	tell_object(ob,"太湖豪傑道：“這位"+RANK_D->query_respect(ob)+"，要返航，就告訴我....”\n");
 }
 
 int ask_back()
 {
 	object ob = this_player();
 	environment(ob)->delete("exits/out");
-	message_vision("船上群盗齐声应道：扯帆，回去庆功喽！\n", ob);
-	message_vision("船夫升起帆，船就向归云庄航行。\n", ob);
-	tell_object(ob, CYN "你率船在湖上破浪前行，威风凛凛.......\n" NOR ) ;
+	message_vision("船上羣盜齊聲應道：扯帆，回去慶功嘍！\n", ob);
+	message_vision("船伕升起帆，船就向歸雲莊航行。\n", ob);
+	tell_object(ob, CYN "你率船在湖上破浪前行，威風凜凜.......\n" NOR ) ;
 	call_out("rguiyun", 10 , ob );
 	return 1 ;
 }
@@ -63,6 +63,6 @@ void rguiyun( object ob )
 		ship = load_object("/d/guiyun/ship");
 	if(!( matou = find_object("/d/guiyun/matou")) )
 		matou = load_object("/d/guiyun/matou");
-	tell_object(ob , "战船在一阵阵风浪声中靠上了码头。\n" ) ;
+	tell_object(ob , "戰船在一陣陣風浪聲中靠上了碼頭。\n" ) ;
 	ship->set("exits/out", "/d/guiyun/matou" );
 }

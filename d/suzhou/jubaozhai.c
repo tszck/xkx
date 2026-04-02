@@ -5,21 +5,21 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "聚宝斋");
+	set("short", "聚寶齋");
 	set("long", @LONG
-这是一家老字号钱庄，已有几百年的历史，在全国各地都有分店。
-它发行的银票信誉非常好，通行全国。
-    在对面的墙上挂了块牌子(paizi)。
+這是一家老字號錢莊，已有幾百年的歷史，在全國各地都有分店。
+它發行的銀票信譽非常好，通行全國。
+    在對面的牆上掛了塊牌子(paizi)。
 LONG );
 //	set("outdoors", "suzhou");
 	set("no_clean_up", 0);
 	set("item_desc", ([
 		"paizi" : @TEXT
-     本钱庄提供以下服务：
-      存钱        deposit或者cun
-      取钱        withdraw或者qu
-      钱币兑换    convert或者duihuan
-      查帐        check或者chazhang
+     本錢莊提供以下服務：
+      存錢        deposit或者cun
+      取錢        withdraw或者qu
+      錢幣兌換    convert或者duihuan
+      查帳        check或者chazhang
 TEXT
 	]) );
 	set("exits", ([

@@ -13,8 +13,8 @@ void create()
 { 
 	set_name("拉章活佛", ({ "lazhang huofo", "huofo", "lazhang" })); 
 	set("long",@LONG 
-拉章活佛是雪山寺有道的高僧，对佛法有精深的研究。 
-他身穿一件黄色袈裟，头带僧帽。慈眉善目，似乎手无缚鸡之力。 
+拉章活佛是雪山寺有道的高僧，對佛法有精深的研究。 
+他身穿一件黃色袈裟，頭帶僧帽。慈眉善目，似乎手無縛雞之力。 
 LONG 
 	); 
 	set("title",HIY"活佛"NOR); 
@@ -75,42 +75,42 @@ void attempt_apprentice(object ob)
 { 
  
 	if ((string)ob->query("gender") != "男性") { 
-		command("say 修习密宗内功需要纯阳之体。"); 
-		command("say 这位" + RANK_D->query_respect(ob) + 
-			"还是请回吧！"); 
+		command("say 修習密宗內功需要純陽之體。"); 
+		command("say 這位" + RANK_D->query_respect(ob) + 
+			"還是請回吧！"); 
 		return; 
 	} 
  
 	if ((string)ob->query("class") != "lama") { 
-		command("say 我西藏黄教门内的清规戒律甚多。");
-		command("say 这位" + RANK_D->query_respect(ob) + 
-			"还是请回吧！");
+		command("say 我西藏黃教門內的清規戒律甚多。");
+		command("say 這位" + RANK_D->query_respect(ob) + 
+			"還是請回吧！");
 		ob->set_temp("pending/join_bonze", 1);
-		command("say 施主若真心皈依我佛，就请跪下(kneel)受戒。\n");
+		command("say 施主若真心皈依我佛，就請跪下(kneel)受戒。\n");
 
 		return; 
 	} 
  
 	if ((string)ob->query("family/family_name") != "雪山寺")	{ 
-		command("say 这位" + RANK_D->query_respect(ob) + 
-			"既非本寺弟子，还是请回吧！");
-		command("say 这位" + RANK_D->query_respect(ob) + 
-			"不如先跟葛伦布师傅学习？");
+		command("say 這位" + RANK_D->query_respect(ob) + 
+			"既非本寺弟子，還是請回吧！");
+		command("say 這位" + RANK_D->query_respect(ob) + 
+			"不如先跟葛倫布師傅學習？");
 
 		return; 
 	} 
  
 	if ((int)ob->query_skill("lamaism", 1) < 50) { 
-		command("say 入我雪山寺，修习密宗心法是首要的。"); 
-		command("say 这位" + RANK_D->query_respect(ob) + 
-			"是否还应该多多钻研本门的心法？");
+		command("say 入我雪山寺，修習密宗心法是首要的。"); 
+		command("say 這位" + RANK_D->query_respect(ob) + 
+			"是否還應該多多鑽研本門的心法？");
 
 		return; 
 	} 
  
 	command("smile"); 
 	command("nod"); 
-	command("say 你就随我学习佛法吧！"); 
+	command("say 你就隨我學習佛法吧！"); 
 	command("recruit " + ob->query("id")); 
  
 	ob->set("title",HIY"大喇嘛"NOR); 

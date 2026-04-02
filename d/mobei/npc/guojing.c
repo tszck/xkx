@@ -6,7 +6,7 @@ void create()
 {
 	set_name("郭靖",({"guo jing","guo","jing"}));
 	set("gender","男性");
-	set("long","郭靖出生在蒙古，现在正随江南六怪学艺。\n");
+	set("long","郭靖出生在蒙古，現在正隨江南六怪學藝。\n");
 	set("combat_exp", 100000);
 	
 	set("age",17);

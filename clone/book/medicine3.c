@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIY"王叔和脉经"NOR,({"wangshuhe maijing", "maijing", "jing"}));
+	set_name(HIY"王叔和脈經"NOR,({"wangshuhe maijing", "maijing", "jing"}));
 	set_weight(10);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long","这是一本王叔和脉。年代久远，纸质破旧。\n");
+		set("long","這是一本王叔和脈。年代久遠，紙質破舊。\n");
 		set("value", 1500);
 		set("material", "paper");
 		set("skill", ([

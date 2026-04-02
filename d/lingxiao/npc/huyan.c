@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("呼延万善",({"huyan wanshan","huyan","wanshan"}));
+	set_name("呼延萬善",({"huyan wanshan","huyan","wanshan"}));
 	set("gender", "男性");
 	set("age", 20);
-	set("long", "他是凌霄城第六代弟子呼延万善。\n");
+	set("long", "他是凌霄城第六代弟子呼延萬善。\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);
@@ -26,8 +26,8 @@ void create()
 	set("combat_exp", 200000); 
 	set("chat_chance", 20);
 	set("chat_msg", ({
-		"呼延万善拔出剑来，舞了一个半弧，很是神气。\n", 
-		"呼延万善挺了挺胸，大声说：我们凌霄城的剑法，是天下第一的剑法。\n", 
+		"呼延萬善拔出劍來，舞了一個半弧，很是神氣。\n", 
+		"呼延萬善挺了挺胸，大聲說：我們凌霄城的劍法，是天下第一的劍法。\n", 
 	}) ); 
 	set("shen_type", 0);
 	set("score", 20000);

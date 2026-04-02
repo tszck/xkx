@@ -19,18 +19,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "whip")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	fskill = "wudu-shengong";
 	bskill = "whip";
@@ -44,24 +44,24 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"功力太浅，无法"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"功力太淺，無法"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(sskill)+"功力太浅，无法"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"功力太淺，無法"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 250)
-		return notify_fail("你的内力不足，无法聚毒！\n");
+		return notify_fail("你的內力不足，無法聚毒！\n");
 
 	me->add("neili", -200);
 
 	if( target->is_busy() )
-		return notify_fail(target->name() +"已经手忙脚乱了，不需要在用毒了。\n");
+		return notify_fail(target->name() +"已經手忙腳亂了，不需要在用毒了。\n");
 
 	lvl = me->query_skill(bskill, 1);
-	msg = BLU"$N"BLU"默运内力，将毒气运于鞭上，只见一股蓝色的雾气罩住了长鞭。\n";
+	msg = BLU"$N"BLU"默運內力，將毒氣運於鞭上，只見一股藍色的霧氣罩住了長鞭。\n";
 	if( random(me->query("combat_exp")) > (int)target->query("combat_exp")/2 && random(lvl) > 20 )
 	{
-		msg += "$p措不及防，不由身染毒气。\n" NOR;
+		msg += "$p措不及防，不由身染毒氣。\n" NOR;
 		target->receive_damage("qi", lvl,me);
 		target->receive_wound("qi",15 + random(10),me);
 		target->receive_wound("jing", 10,me);
@@ -71,7 +71,7 @@ int perform(object me, object target)
 	}
 	else
 	{
-		msg += HIY"可是$p看出了$P的毒计，立刻屏住呼吸，没有中毒。\n"NOR;
+		msg += HIY"可是$p看出了$P的毒計，立刻屏住呼吸，沒有中毒。\n"NOR;
 		me->start_busy(3);
 	}
 	message_combatd(msg, me, target);
@@ -85,12 +85,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		伤敌气血，使敌手中毒
+		傷敵氣血，使敵手中毒
 
 	出手要求：
-		五毒神功50级
-		五毒鞭法60级
-		内力250
+		五毒神功50級
+		五毒鞭法60級
+		內力250
 HELP
 	);
 	return 1;

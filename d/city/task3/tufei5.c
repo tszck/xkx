@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("神龟花纹", ({ "picture"}) );
+	set_name("神龜花紋", ({ "picture"}) );
 	set("gender", "男性" );
 	set("age", 34);
-	set("long", "他就是大辽有名的燕云十八骑之一。\n");
+	set("long", "他就是大遼有名的燕雲十八騎之一。\n");
 	set("max_qi", 5000);
 	set("max_jing", 5000);
 	set("max_neili", 5000);
@@ -53,7 +53,7 @@ int do_look(string arg)
 {
 	if (arg=="picture" && this_object()->query("id")=="picture")
     {
-    	write("这是一张官府的"+this_object()->query("name")+"。\n");
+    	write("這是一張官府的"+this_object()->query("name")+"。\n");
     	destruct(this_object());
       return 1;
     }
@@ -101,9 +101,9 @@ void init()
 		set_skill("taiji-shengong", maxskill*6/7);
 		if (!present("long sword",obj))
 			carry_object("/clone/weapon/changjian")->wield();
-		obj->set("title","燕云十八骑");
+		obj->set("title","燕雲十八騎");
 		obj->set_weight(500000);
-		set_name("大辽奸细", ({ "jian xi","jx"}) );
+		set_name("大遼奸細", ({ "jian xi","jx"}) );
 		remove_call_out ("destroy_npc");
 		call_out ("destroy_npc", 900); // 15 min
 	}
@@ -112,7 +112,7 @@ void init()
 }
 void destroy_npc()
 {
-	message_vision((string)this_object()->query("name") + "忽然打了个哆嗦，不由心生惧意，身形一晃，顿时混入莽莽人海之中。\n", environment(this_object()));
+	message_vision((string)this_object()->query("name") + "忽然打了個哆嗦，不由心生懼意，身形一晃，頓時混入莽莽人海之中。\n", environment(this_object()));
 	destruct(this_object());
 }
 void die()

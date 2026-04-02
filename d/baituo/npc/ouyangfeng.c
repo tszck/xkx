@@ -11,11 +11,11 @@ int do_accept();
 
 void create()
 {
-	set_name("欧阳锋", ({ "ouyang", "feng" }));
-	set("long", "他是白驼山庄主，号称“西毒”的欧阳锋。\n"
-		   +"由于习练「九阴真经」走火入魔，已变得精\n"
-		   +"神错乱，整日披头散发。\n");
-	set("title", "白驼山庄主");
+	set_name("歐陽鋒", ({ "ouyang", "feng" }));
+	set("long", "他是白駝山莊主，號稱“西毒”的歐陽鋒。\n"
+		   +"由於習練「九陰真經」走火入魔，已變得精\n"
+		   +"神錯亂，整日披頭散髮。\n");
+	set("title", "白駝山莊主");
 	set("gender", "男性");
 	set("age", 53);
 	set("nickname", HIR "西毒" NOR);
@@ -58,12 +58,12 @@ void create()
 	map_skill("parry", "lingshe-zhangfa");
 	map_skill("staff", "lingshe-zhangfa");
 
-	create_family("白驼山派",1, "开山祖师");
+	create_family("白駝山派",1, "開山祖師");
 	set("chat_chance",2);
 	set("chat_msg",({
-		"欧阳锋自言自语道：何日白驼山派才能重霸江湖呢…\n",
-		"欧阳锋道：我儿欧阳克必能够重振白驼山派雄风！\n",
-		"欧阳锋道：江湖险恶，困难重重哪！\n",
+		"歐陽鋒自言自語道：何日白駝山派才能重霸江湖呢…\n",
+		"歐陽鋒道：我兒歐陽克必能夠重振白駝山派雄風！\n",
+		"歐陽鋒道：江湖險惡，困難重重哪！\n",
 	}));
 	setup();
 	carry_object("/d/baituo/obj/shezhang")->wield();
@@ -77,7 +77,7 @@ void init()
 
 void attempt_apprentice(object ob)
 {
-	message_vision("欧阳锋瞪了$N一眼道：“我白驼山不世艺业岂可轻传。”\n", ob); 	
+	message_vision("歐陽鋒瞪了$N一眼道：“我白駝山不世藝業豈可輕傳。”\n", ob); 	
 }
 
 

@@ -1,4 +1,4 @@
-// 神话世界·西游记·版本４．５０
+// 神話世界·西遊記·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 // xianzhi.c        
@@ -9,10 +9,10 @@ inherit F_LIQUID;
 void create()
 {
   string *names = ({
-    "琼浆",
+    "瓊漿",
     "玉液",
     "醍醐",
-    "瑶露",
+    "瑤露",
     });
   string *ids = ({
     "qiong jiang",
@@ -27,7 +27,7 @@ void create()
   if (clonep())
     set_default_object(__FILE__);
   else {
-    set("unit", "玉壶");
+    set("unit", "玉壺");
     set("value", 10000);
     set("max_liquid", 5000);
     set("no_get",1);
@@ -40,7 +40,7 @@ void create()
         "remaining": 5000,
         "drunk_apply": 10,
      ]));
-  set("long", "一玉壶天上才有的仙汁真酒－－"+names[i]+"。\n");
+  set("long", "一玉壺天上纔有的仙汁真酒－－"+names[i]+"。\n");
   setup();
 }
 

@@ -4,11 +4,11 @@ inherit ITEM;
 
 void create()
 {
-	set_name("三笑逍遥散", ({"sanxiaoxiaoyao san", "xiaoyao san", "san"}));
+	set_name("三笑逍遙散", ({"sanxiaoxiaoyao san", "xiaoyao san", "san"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一包无色的粉末, 看样子不是寻常物品. \n");
+		set("long", "一包無色的粉末, 看樣子不是尋常物品. \n");
 		set("unit", "包");
 		set("pour_type", "sanxiao_poison");
 		set("value", 20000);
@@ -26,16 +26,16 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
 	if(arg=="san" || arg=="xiaoyao san")
 	{
-		message_vision("$N仰头咽下一包" + name() + "。\n", me);
-		me->set_temp("die_reason","吃下"+ name()+",自杀身亡了");
+		message_vision("$N仰頭嚥下一包" + name() + "。\n", me);
+		me->set_temp("die_reason","喫下"+ name()+",自殺身亡了");
 		this_player()->die();
 		destruct(this_object());
 	}

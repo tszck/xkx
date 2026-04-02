@@ -1,5 +1,5 @@
 // semote.c
-// 增加参数功能，使semote命令可以查找开头部分字母匹配的emote
+// 增加參數功能，使semote命令可以查找開頭部分字母匹配的emote
 // Modified by Spacenet@FXLT
 inherit F_CLEAN_UP;
 
@@ -18,7 +18,7 @@ int main(object me, string arg)
 	e = filter_array(e, (: head_index :), arg);
 
 	if (sizeof(e)) {
-		str = "                        侠客行一百表情动作总汇 \n\n";
+		str = "                        俠客行一百表情動作總彙 \n\n";
 		str += "—————————————————————————————————————\n";
 		for(i=0; i<sizeof(e); i++)
 //			printf("%-15s%s", e[i], (i%5==4)?"\n": "");
@@ -26,7 +26,7 @@ int main(object me, string arg)
 		me->start_more(str);
 		write("\n");
 		return 1;
-	} else return notify_fail("没有符合指定要求的表情动作。\n");
+	} else return notify_fail("沒有符合指定要求的表情動作。\n");
 }
 
 int head_index(string str, string substr)
@@ -42,11 +42,11 @@ int head_index(string str, string substr)
 int help(object me)
 {
 	write(@HELP
-指令格式 : semote [词首]
+指令格式 : semote [詞首]
 
-    这个指令可以列出目前所能使用的ｅｍｏｔｅ。如果带上参数，将列出以
-该参数为词首的所有ｅｍｏｔｅ，例如：ｓｅｍｏｔｅ ｓｕ，可以列出ｓｕ
-开头的ｅｍｏｔｅ。不跟参数的话将列出全部的ｅｍｏｔｅ。
+    這個指令可以列出目前所能使用的ｅｍｏｔｅ。如果帶上參數，將列出以
+該參數爲詞首的所有ｅｍｏｔｅ，例如：ｓｅｍｏｔｅ ｓｕ，可以列出ｓｕ
+開頭的ｅｍｏｔｅ。不跟參數的話將列出全部的ｅｍｏｔｅ。
 
 HELP
 	);

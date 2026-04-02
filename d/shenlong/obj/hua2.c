@@ -1,4 +1,4 @@
-// hua2.c 无名花
+// hua2.c 無名花
 inherit ITEM;
 
 void init()
@@ -8,9 +8,9 @@ void init()
 
 void create()
 {
-	set_name("无名花", ({"hua2", "wuming"}));
+	set_name("無名花", ({"hua2", "wuming"}));
 	set("unit", "朵");
-	set("long", "这是一朵无名小花，花蕊虽小，却十分美丽。\n");
+	set("long", "這是一朵無名小花，花蕊雖小，卻十分美麗。\n");
 	setup();
 }
 
@@ -22,11 +22,11 @@ int do_eat(string arg)
 	neili_limit = me->query("max_neili");
 	force_skill = me->query_skill("force", 1);
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 	if ( neili_limit <= force_limit  )
 		me->add("max_neili", 1);
 	me->unconcious();

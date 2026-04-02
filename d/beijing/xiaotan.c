@@ -2,11 +2,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "小摊");
+	set("short", "小攤");
 	set("long", @LONG
-这是一临时搭成的小摊，生意却非常兴隆。路人都爱在这里落脚，
-你可以在这里打听到京城的奇闻逸趣。小二匆匆忙忙地接待着南来北往
-的客人。树荫下摆着几张小木桌，桌旁坐满了各种各样的游人。
+這是一臨時搭成的小攤，生意卻非常興隆。路人都愛在這裏落腳，
+你可以在這裏打聽到京城的奇聞逸趣。小二匆匆忙忙地接待着南來北往
+的客人。樹蔭下襬着幾張小木桌，桌旁坐滿了各種各樣的遊人。
 LONG );
         set("no_sleep_room",1);
 	set("objects", ([
@@ -26,6 +26,6 @@ int valid_leave(object me, string dir)
 {
 	if ((dir == "east")&& present("mian", this_player())
 	&& objectp(present("xiao er", environment(me)))&&living(present("xiao", environment(me))))
-	 return notify_fail("\n小二追出来说道：这位客官，吃面还想连碗端走啊？\n");
+	 return notify_fail("\n小二追出來說道：這位客官，喫麪還想連碗端走啊？\n");
 return ::valid_leave(me,dir);
 }

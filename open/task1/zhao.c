@@ -1,12 +1,12 @@
-//  zhaoyishang.c 赵一伤
+//  zhaoyishang.c 趙一傷
  
 inherit NPC;
  
 void create()
 {
-	set_name("赵一伤", ({ "zhao  yishang", "zhao" }));
+	set_name("趙一傷", ({ "zhao  yishang", "zhao" }));
 	set("nickname", "神箭八雄");
-	set("long","原是武林中的巨寇，后来为躲避官府和仇家，随便起了个假名字。\n");
+	set("long","原是武林中的巨寇，後來爲躲避官府和仇家，隨便起了個假名字。\n");
 	set("gender", "男性");
 	set("age", 36);
 	set("attitude", "peaceful");

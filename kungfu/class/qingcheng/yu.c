@@ -7,10 +7,10 @@ inherit F_MANAGER;
 
 void create()
 {
-	set_name("余沧海", ({ "yu canghai", "yu", "canghai" }));
+	set_name("餘滄海", ({ "yu canghai", "yu", "canghai" }));
 	set("gender", "男性");
 	set("age", 52);
-	set("long", "他身形矮小，可是神情凝重，俨然一派大宗师气。\n");
+	set("long", "他身形矮小，可是神情凝重，儼然一派大宗師氣。\n");
 	set("class", "taoist");
 	set("combat_exp", 3000000);
 	set("class", "taoist");
@@ -62,7 +62,7 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("青城派", 5, "掌门");
+	create_family("青城派", 5, "掌門");
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();
 	carry_object("/d/wudang/obj/bluecloth")->wear();
@@ -78,18 +78,18 @@ void attempt_apprentice(object ob)
 {
 	if( query("apprentice_available") ) {
 		if( find_call_out("do_recruit") != -1 )
-			command("say 慢著，一个一个来。");
+			command("say 慢著，一個一個來。");
 		else
 			call_out("do_recruit", 2, ob);
 	} else {
-		command("say 老道今天已经收了三个弟子，不想再收徒了。");
+		command("say 老道今天已經收了三個弟子，不想再收徒了。");
 	}
 }
 
 void do_recruit(object ob)
 {
 	if( (int)ob->query("int") < 20 )
-		command("say 我青城派以暗器见长，依我看"+RANK_D->query_respect(ob)+"不适合于学暗器。");
+		command("say 我青城派以暗器見長，依我看"+RANK_D->query_respect(ob)+"不適合於學暗器。");
 	else {
 		command("say 好，很好。");
 		command("recruit " + ob->query("id") );

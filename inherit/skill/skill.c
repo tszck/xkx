@@ -65,7 +65,7 @@ int exert_function(object me, string arg)
 
 	if( sscanf(arg, "%s %s", func, target)==2 ) {
 		target_ob = present(target, environment(me));
-		if( !target_ob ) return notify_fail("这里没有 " + target + "。\n");
+		if( !target_ob ) return notify_fail("這裏沒有 " + target + "。\n");
 	} else {
 		func = arg;
 		target_ob = me;
@@ -85,7 +85,7 @@ int perform_action(object me, string arg)
 
 	if( sscanf(arg, "%s %s", action, target)==2 ) {
 		target_ob = present(target, environment(me));
-		if( !target_ob ) return notify_fail("这里没有 " + target + "。\n");
+		if( !target_ob ) return notify_fail("這裏沒有 " + target + "。\n");
 	} else {
 		action = arg;
 	}
@@ -101,7 +101,7 @@ int cast_spell(object me, string spell, object target)
 {
 	string file;
 
-	notify_fail("你所选用的咒文系中没有这种咒文。\n");
+	notify_fail("你所選用的咒文系中沒有這種咒文。\n");
 
 	if( !stringp(file = (string)this_object()->cast_spell_file(spell))
 	||	file_size(file + ".c") <= 0 )
@@ -114,7 +114,7 @@ int conjure_magic(object me, string spell, object target)
 {
 	string file;
 
-	notify_fail("你所选用的法术系中没有这种法术。\n");
+	notify_fail("你所選用的法術系中沒有這種法術。\n");
 
 	if( !stringp(file = (string)this_object()->conjure_magic_file(spell))
 	||	file_size(file + ".c") <= 0 )

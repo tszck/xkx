@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "湖滨小路");
+	set("short", "湖濱小路");
 	set("long", @LONG
-一条湖滨的荒野小路，岸堤长满长草，风过处，一阵阵摇头晃脑。
-往西边远处看似乎横着一条小河。东边是无锡的泰伯庙。
+一條湖濱的荒野小路，岸堤長滿長草，風過處，一陣陣搖頭晃腦。
+往西邊遠處看似乎橫着一條小河。東邊是無錫的泰伯廟。
 LONG);
 	set("outdoors", "guiyun");
 	set("objects",([

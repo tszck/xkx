@@ -6,20 +6,20 @@ int do_train(string arg)
 	me =this_object();
 	who=this_player();
 	if (!arg || (arg != me->query("id")))
-		return notify_fail("你要驯服什么？\n");
+		return notify_fail("你要馴服什麼？\n");
 
 	if(me->is_fighting())
-		return notify_fail(me->query("name")+"正在战斗中。\n");
+		return notify_fail(me->query("name")+"正在戰鬥中。\n");
 
 	if((string)who->query("family/family_name")!="五毒教")
-		return notify_fail("什么？\n");
+		return notify_fail("什麼？\n");
 
 	if ((int)who->query_skill("wudu-shengong", 1) < 20) {
-		return notify_fail("你的五毒神功还是不够啊？\n");
+		return notify_fail("你的五毒神功還是不夠啊？\n");
 	}
 
-	message_vision("$N对$n一阵怪啸：大胆，还不驯服更待何时？\n\n", who,me);
-	message_vision("$N勃然大怒道：咱们谁驯谁还不一定哪？！\n$N冲上来和$n扭打到一起。\n",me,who);
+	message_vision("$N對$n一陣怪嘯：大膽，還不馴服更待何時？\n\n", who,me);
+	message_vision("$N勃然大怒道：咱們誰馴誰還不一定哪？！\n$N衝上來和$n扭打到一起。\n",me,who);
 	me->kill_ob(who);
 	who->kill_ob(me);
 	COMBAT_D->do_attack(me, who, query_temp("weapon"));
@@ -38,7 +38,7 @@ void die()
 
 	if(owner_ob && (object)query_temp("last_damage_from") == owner_ob)
 	{
-		message_vision("$N趴在地上，一动也不敢动了。\n",this_object()); 
+		message_vision("$N趴在地上，一動也不敢動了。\n",this_object()); 
 		switch (this_object()->query("id"))
 		{
 			case "du she": 

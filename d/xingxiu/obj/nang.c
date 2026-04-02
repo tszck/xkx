@@ -6,13 +6,13 @@ inherit F_FOOD;
 
 void create()
 {
-        set_name("馕", ({"nang", "cake"}));
+        set_name("饢", ({"nang", "cake"}));
         set_weight(80);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "这是维吾尔族人日常吃的一种面饼\n");
-                set("unit", "个");
+                set("long", "這是維吾爾族人日常喫的一種麪餅\n");
+                set("unit", "個");
                 set("value", 50);
                 set("food_remaining", 3);
                 set("food_supply", 20);

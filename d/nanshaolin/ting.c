@@ -9,9 +9,9 @@ void create()
 {
 	set("short", HIG"迎客亭"NOR);
 	set("long", @LONG
-苍松掩映之中，一座石亭赫然眼中。只见亭上匾额中龙飞凤舞的题
-着『迎客亭』三个大字。凡江湖人士，在此需放下随身所带的兵器，才
-可进入寺内。亭内有两名知客僧正在忙碌的招待来往的香客。
+蒼松掩映之中，一座石亭赫然眼中。只見亭上匾額中龍飛鳳舞的題
+着『迎客亭』三個大字。凡江湖人士，在此需放下隨身所帶的兵器，才
+可進入寺內。亭內有兩名知客僧正在忙碌的招待來往的香客。
 LONG );
 	set("exits", ([
 		"westdown" : __DIR__"fxjing",
@@ -42,7 +42,7 @@ int do_quit()
 	object ob = this_player();
 	if (ob->query_condition("sl_lunzhi")>0)
 	{
-		write("你正在轮值，不能退出游戏。\n");
+		write("你正在輪值，不能退出遊戲。\n");
 		return 1;
 	}
 	return 0;
@@ -59,9 +59,9 @@ int valid_leave(object me, string dir)
 	if (me->query("gender") == "女性" && dir == "northup" )
 	{
 		if(objectp(present("fang tong", environment(me))))
-			return notify_fail("方通伸手拦住你白眼一翻说道：千年以来，少林向不许女流擅入。"+RANK_D->query_respect(me) +"\n请下山去吧，免得自讨没趣。\n");
+			return notify_fail("方通伸手攔住你白眼一翻說道：千年以來，少林向不許女流擅入。"+RANK_D->query_respect(me) +"\n請下山去吧，免得自討沒趣。\n");
 		if(objectp(present("fang kong", environment(me))))
-			return notify_fail("方空迈步挡在你身前，双手合什说道：阿弥陀佛，这位" + RANK_D->query_respect(me) +"请留步，\n恕小寺不接待女客。女施主倘若一心向佛，何妨去峨眉山随喜？\n");
+			return notify_fail("方空邁步擋在你身前，雙手合什說道：阿彌陀佛，這位" + RANK_D->query_respect(me) +"請留步，\n恕小寺不接待女客。女施主倘若一心向佛，何妨去峨眉山隨喜？\n");
 	}
 	if((!myfam ||
 		myfam["family_name"] != "少林派" &&
@@ -74,9 +74,9 @@ int valid_leave(object me, string dir)
 				(inv[i]->query("equipped")))
 			{
 				if(objectp(present("fang tong",environment(me))))
-					return notify_fail("方通拦住你说道：这位"+RANK_D->query_respect(me) +"请放下兵刃。少林千年的规矩，外客\n不得持兵刃上山。\n");
+					return notify_fail("方通攔住你說道：這位"+RANK_D->query_respect(me) +"請放下兵刃。少林千年的規矩，外客\n不得持兵刃上山。\n");
 				if(objectp(present("fang kong", environment(me))))
-					return notify_fail("方空迈步挡在你身前，双手合什说道：阿弥陀佛，这位"+RANK_D->query_respect(me) +"请收起\n兵刃。佛门清静之地，不便随意舞刀弄剑。还请施主鉴谅。\n");
+					return notify_fail("方空邁步擋在你身前，雙手合什說道：阿彌陀佛，這位"+RANK_D->query_respect(me) +"請收起\n兵刃。佛門清靜之地，不便隨意舞刀弄劍。還請施主鑑諒。\n");
 			}
 	}
 	if (!me->query("muren_winner") && mapp(myfam) &&
@@ -84,13 +84,13 @@ int valid_leave(object me, string dir)
 		dir == "east" ) 
 	{
 		if(objectp(present("fang tong", environment(me))))
-			return notify_fail("方通伸手拦住你躬身说道：这位师兄武功还未练好，不能下山，免得折了咱们南少林的名声！\n");
+			return notify_fail("方通伸手攔住你躬身說道：這位師兄武功還未練好，不能下山，免得折了咱們南少林的名聲！\n");
 		if(objectp(present("fang kong", environment(me))))
-			return notify_fail("方空伸手拦住你躬身说道：这位师兄武功还未练好，不能下山，免得折了咱们少林的名声！\n");
+			return notify_fail("方空伸手攔住你躬身說道：這位師兄武功還未練好，不能下山，免得折了咱們少林的名聲！\n");
 	}
 
 	if (me->query_condition("sl_lunzhi")>0)
-		return notify_fail("你正在轮值，不能离开！\n");
+		return notify_fail("你正在輪值，不能離開！\n");
 
 	return ::valid_leave(me, dir);
 }

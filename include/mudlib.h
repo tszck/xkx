@@ -10,7 +10,7 @@
 #define MUDLIB_VERSION_NUMBER	"4.00"
 #define MUDLIB_VERSION		(MUDLIB_NAME + " " + MUDLIB_VERSION_NUMBER)
 #define INTERMUD_MUD_NAME	"xkxyb"
-#define INTERMUD_NAME           "侠客行一百总站"
-#define CHINESE_MUD_NAME	"侠客行一百"
+#define INTERMUD_NAME           "俠客行一百總站"
+#define CHINESE_MUD_NAME	"俠客行一百"
 
 #endif

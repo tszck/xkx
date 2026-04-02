@@ -4,20 +4,20 @@
 inherit ROOM;
 void create()
 {
-	set("short","英雄典当");
+	set("short","英雄典當");
 	set("long",@LONG
-当铺里一张高高的柜台，柜台后面坐着当铺的朝奉。这家当铺
-是凤老爷所开，十多年来从没人来闹过事，朝奉也就很放心。柜台
-上挂着一个木牌子(paizi)。
+當鋪裏一張高高的櫃檯，櫃檯後面坐着當鋪的朝奉。這家當鋪
+是鳳老爺所開，十多年來從沒人來鬧過事，朝奉也就很放心。櫃檯
+上掛着一個木牌子(paizi)。
 LONG);
 	set("no_fight", 1);
 	set("no_steal", 1);
 	set("no_beg",1);
 	set("item_desc", ([
 		"paizi" : "公平交易\n
-	sell        卖 
-	buy         买
-	value       估价
+	sell        賣 
+	buy         買
+	value       估價
 ",
 	]));
 	set("objects", ([

@@ -10,7 +10,7 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "新鲜的玫瑰花的花瓣，上面还挂这晶莹的露珠。\n");
+		set("long", "新鮮的玫瑰花的花瓣，上面還掛這晶瑩的露珠。\n");
 		set("unit", "把");
 		set("value", 0);
 		set("base_unit", "片");

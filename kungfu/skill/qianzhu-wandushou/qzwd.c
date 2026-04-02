@@ -1,10 +1,10 @@
-// qianzhu-wandushou.c 千蛛万毒
+// qianzhu-wandushou.c 千蛛萬毒
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME "千蛛万毒"
+#define PNAME "千蛛萬毒"
 int perform(object me, object target)
 {
 	string msg;
@@ -19,14 +19,14 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 		//空手兵器均可
 		
@@ -44,38 +44,38 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 80 )
-		return notify_fail("你的"+to_chinese(fskill)+"的功力不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"的功力不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为不够，还不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，還不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(pskill, 1) < 100 )
 		return notify_fail("你的"+to_chinese(pskill)+"太低，不能使用"+PNAME+"。\n");
 //	if( !userp(me))
 //		return notify_fail("只有玩家才能玩命。\n");
 	if((int)me->query("max_neili") < 700)
-		return notify_fail("你内力修为不够，不能使用"PNAME"！\n");
+		return notify_fail("你內力修爲不夠，不能使用"PNAME"！\n");
 
 	if((int)me->query("neili") < 500)
-		return notify_fail("你内力不够，不能使用"PNAME"！\n");
+		return notify_fail("你內力不夠，不能使用"PNAME"！\n");
 
 	if(me->query_temp("qzwd_used"))
-		return notify_fail("你刚使用过千蛛万毒，无法在短时间里积聚毒力！\n");
+		return notify_fail("你剛使用過千蛛萬毒，無法在短時間裏積聚毒力！\n");
 
 	skill = me->query_skill(bskill,1);
-	msg = HIR "$N"HIR"一声狞笑飞身纵起，凌空一指向$n"HIR"的眉心点去。\n";
+	msg = HIR "$N"HIR"一聲獰笑飛身縱起，凌空一指向$n"HIR"的眉心點去。\n";
 	message_combatd(msg, me, target);
 
 	if( random(skill) > random((int)target->query_skill("dodge",1)*2/3))
 	{
-		msg=HIR"只见一缕黑气从$N"HIR"的指尖透出，只一闪就没入$n"HIR"的眉心！\n"NOR;
+		msg=HIR"只見一縷黑氣從$N"HIR"的指尖透出，只一閃就沒入$n"HIR"的眉心！\n"NOR;
 		message_combatd(msg, me, target);
 		if(target->query_skill("force", 1) > skill * 12 /10 &&
 			random(2)==0)
 		{
-			msg = RED"$N忽然觉得指力被一团无形的劲力包裹着，紧接着只听\n$n一声大喝，$N顿时如一根稻草般被抛向远处。\n" NOR;
+			msg = RED"$N忽然覺得指力被一團無形的勁力包裹着，緊接着只聽\n$n一聲大喝，$N頓時如一根稻草般被拋向遠處。\n" NOR;
 			message_combatd(msg, me, target);
-			msg = RED"$P只觉得一股如山的劲力顺指尖猛攻过来，只觉得全身毒气狂窜。\n忽然胸口一痛，不由“哇”的一声吐出一口黑血！\n" NOR;
+			msg = RED"$P只覺得一股如山的勁力順指尖猛攻過來，只覺得全身毒氣狂竄。\n忽然胸口一痛，不由“哇”的一聲吐出一口黑血！\n" NOR;
 			message_combatd(msg, me);
 			damage = skill +(int)me->query_skill("force",1);
 			if(damage < 50 ) damage = 50;
@@ -84,7 +84,7 @@ int perform(object me, object target)
 			me->start_busy(2);
 		}
 		else{
-			msg = HIR"$n"HIR"不由一声惨嚎摔倒在地，身体已痛苦得蜷缩成一团！\n" NOR;
+			msg = HIR"$n"HIR"不由一聲慘嚎摔倒在地，身體已痛苦得蜷縮成一團！\n" NOR;
 			message_combatd(msg, me, target);
 			damage= skill + (int)me->query_skill("force", 1)/2;
 			if(damage > 900 ) damage = 900;
@@ -102,7 +102,7 @@ int perform(object me, object target)
 		}
 	}
 	else {
-		msg = HIG "可是$n早有准备，一个懒驴打滚，堪堪躲过了这一招。\n" NOR;
+		msg = HIG "可是$n早有準備，一個懶驢打滾，堪堪躲過了這一招。\n" NOR;
 		me->start_busy(4);
 		message_combatd(msg, me, target);
 		me->add("neili", -100);
@@ -124,15 +124,15 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
-		使对手身中五毒（蛇、蝎子、蜈蚣、蟾蜍、蜘蛛）
+		損傷對方氣血
+		使對手身中五毒（蛇、蠍子、蜈蚣、蟾蜍、蜘蛛）
 
 	出手要求：
-		五毒神功80级
-		五毒毒技100级
-		千蛛万毒手100级
-		内力修为700
-		内力500
+		五毒神功80級
+		五毒毒技100級
+		千蛛萬毒手100級
+		內力修爲700
+		內力500
 HELP
 	);
 	return 1;

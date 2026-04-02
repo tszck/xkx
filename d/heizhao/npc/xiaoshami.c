@@ -3,9 +3,9 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-	set_name("小沙弥", ({"xiao shami","shami",}));
+	set_name("小沙彌", ({"xiao shami","shami",}));
 	set("long",
-	"他是本寺小沙弥。\n");
+	"他是本寺小沙彌。\n");
 	set("gender", "男性");
 	set("age", 12);
 	set("attitude", "peaceful");
@@ -56,7 +56,7 @@ void greeting(object ob)
 	if( (myfam["master_id"] == "yideng dashi") &&
 		! environment(this_object())->query("exits/out"))
 	{
-message_vision(HIY"小沙弥对$N说：“你回来了。去见师父吧。”说着打开后门。\n"NOR, ob);
+message_vision(HIY"小沙彌對$N說：“你回來了。去見師父吧。”說着打開後門。\n"NOR, ob);
 		environment(this_object())->set("exits/out","/d/heizhao/zhulin1");
 	}
 	return;
@@ -66,12 +66,12 @@ int accept_object(object who, object ob)
 {
 	if ( !who || environment(who) != environment() ) return 0;
 	if ( !objectp(ob) ) return 0;
-	if ( !present(ob, who) ) return notify_fail("你没有这件东西。\n");
+	if ( !present(ob, who) ) return notify_fail("你沒有這件東西。\n");
 
 	if ( (string)ob->query("id") != "huangbu xiaonan")
-		return notify_fail("小沙弥不想要这件东西。\n");
+		return notify_fail("小沙彌不想要這件東西。\n");
 	environment(this_object())->set("exits/out","/d/heizhao/zhulin1");
-message_vision(HIY"小沙弥点了点头，把禅院后门打开来。\n"NOR, who);
+message_vision(HIY"小沙彌點了點頭，把禪院後門打開來。\n"NOR, who);
 	return 1;
 }
 

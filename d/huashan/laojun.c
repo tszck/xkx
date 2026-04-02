@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "老君沟");
+	set("short", "老君溝");
 	set("long", @LONG
-爬过两个要命的悬崖，可在这里稍作歇息。老君沟是一条半里多长
-的山沟，相传为太上老君到此，见无路可通，因而套上大青牛用铁犁犁
-出了这条沟作为登山通道。
+爬過兩個要命的懸崖，可在這裏稍作歇息。老君溝是一條半里多長
+的山溝，相傳爲太上老君到此，見無路可通，因而套上大青牛用鐵犁犁
+出了這條溝作爲登山通道。
 LONG );
 	set("exits", ([ /* sizeof() == 2 */
 		"westdown" : __DIR__"pingxinshi",
@@ -28,10 +28,10 @@ LONG );
  
 int valid_leave(object me, string dir)
 {
-	if ((me->query("family/family_name") == "华山派剑宗") &&
+	if ((me->query("family/family_name") == "華山派劍宗") &&
 		dir == "southup" &&
 		objectp(present("lao denuo", environment(me))))
-		return notify_fail("劳德诺劝道：家师有交代，剑宗廿五年前就离开华山了，自认不是华山弟子了。\n我虽是老好人，这位" + RANK_D->query_respect(me) + "还是请回吧。\n");
+		return notify_fail("勞德諾勸道：家師有交代，劍宗廿五年前就離開華山了，自認不是華山弟子了。\n我雖是老好人，這位" + RANK_D->query_respect(me) + "還是請回吧。\n");
 	return ::valid_leave(me, dir);
 }
  

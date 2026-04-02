@@ -1,4 +1,4 @@
-// yufu1.c 渔夫
+// yufu1.c 漁夫
 // Last Modified by winder on Jul. 12 2002
 
 inherit NPC;
@@ -6,10 +6,10 @@ string ask_shenlong();
 
 void create()
 {
-	set_name("渔夫", ({ "yu fu","fu" }) );
+	set_name("漁夫", ({ "yu fu","fu" }) );
 	set("gender", "男性");
 	set("age", 35);
-	set("long", "岛上以打鱼为生的渔夫。\n");
+	set("long", "島上以打魚爲生的漁夫。\n");
 	set("combat_exp", 8800);
 	set("shen_type", 0);
 	set("attitude", "friendly");
@@ -18,8 +18,8 @@ void create()
 	set("apply/defense", 50);
 
 	set("inquiry",([
-		"神龙岛" : (: ask_shenlong :),
-		"神龙教" : (: ask_shenlong :),
+		"神龍島" : (: ask_shenlong :),
+		"神龍教" : (: ask_shenlong :),
 	]));
 
 	setup();
@@ -32,15 +32,15 @@ string ask_shenlong()
 	mapping fam;
 	object ob;
 	if (!(fam = this_player()->query("family")) ||
-		fam["family_name"] != "神龙教")
+		fam["family_name"] != "神龍教")
 	{
 		this_player()->set_temp("marks/shenlong", 1);
-		write("渔夫对你说：神龙岛可是个好去处，你想去就喊小人一声。\n");
+		write("漁夫對你說：神龍島可是個好去處，你想去就喊小人一聲。\n");
 		return "快上船，走吧。\n";
 	}
 	else
 	{
 		command("nod");
-		return "既是本教弟子，喊一声就行了。";
+		return "既是本教弟子，喊一聲就行了。";
 	}
 }

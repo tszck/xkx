@@ -1,7 +1,7 @@
-// 这是玩家自创武功程序。
+// 這是玩家自創武功程序。
 // waiter
 // 店小二
-// 武林至尊逍遥派护法使者
+// 武林至尊逍遙派護法使者
 // 15395700
 // 男性
 // unarmed
@@ -15,27 +15,27 @@ string owner() {return "waiter";}
 mapping *action = ({
 // ZHAOSHI :0
 ([
-	"action" : "$N左手虚晃两招，忽的一个窜步攻到$n身前，右掌一式「冷刃诀」，直拍$n某的部位。[2;37;0m",
+	"action" : "$N左手虛晃兩招，忽的一個竄步攻到$n身前，右掌一式「冷刃訣」，直拍$n某的部位。[2;37;0m",
 	"lvl" : 0,
-	"skill_name" : "冷刃诀",
+	"skill_name" : "冷刃訣",
 ]),
 // ZHAOSHI :1
 ([
-	"action" : "$N左脚虚踏，全身右转，一招「断肠诀」，右掌猛地插向$n的$l。[2;37;0m",
+	"action" : "$N左腳虛踏，全身右轉，一招「斷腸訣」，右掌猛地插向$n的$l。[2;37;0m",
 	"lvl" : 20,
-	"skill_name" : "断肠诀",
+	"skill_name" : "斷腸訣",
 ]),
 // ZHAOSHI :2
 ([
-	"action" : "$N左掌圈花扬起，屈肘当胸，虎口朝上，一招「催心诀」打向$n的$l。[2;37;0m",
+	"action" : "$N左掌圈花揚起，屈肘當胸，虎口朝上，一招「催心訣」打向$n的$l。[2;37;0m",
 	"lvl" : 40,
-	"skill_name" : "催心诀",
+	"skill_name" : "催心訣",
 ]),
 // ZHAOSHI :3
 ([
-	"action" : "$N使一招「震魂诀」，上身前探，双手划了个半圈，击向$n的$l。[2;37;0m",
+	"action" : "$N使一招「震魂訣」，上身前探，雙手劃了個半圈，擊向$n的$l。[2;37;0m",
 	"lvl" : 60,
-	"skill_name" : "震魂诀",
+	"skill_name" : "震魂訣",
 ]),
 });
 // ZHAOSHI :4
@@ -44,14 +44,14 @@ int valid_learn(object me)
 	string creater;
 
 	if( (int)me->query("max_neili") < 50 )
-		return notify_fail("你的内力太弱，无法练"+"玄冥神掌"+"。\n");
+		return notify_fail("你的內力太弱，無法練"+"玄冥神掌"+"。\n");
 	if( me->query_temp("weapon") || me->query_temp("secondary_weapon") )
-		return notify_fail("练"+"玄冥神掌"+"必须空手。\n");
+		return notify_fail("練"+"玄冥神掌"+"必須空手。\n");
 	creater = this_object()->owner();
 	if (userp(me) &&
 	me->query("id")!=creater && 
 	me->query("couple/couple_id")!=creater)
-	return notify_fail("不能向其他玩家学习自创的武功。\n");
+	return notify_fail("不能向其他玩家學習自創的武功。\n");
 	return 1;
 }
 int valid_enable(string usage)
@@ -69,13 +69,13 @@ int practice_skill(object me)
 	qicost = (126 + 231)/10;
 	nlcost = (126 + 231)/15;
 	if( (int)me->query("qi") < qicost )
-		return notify_fail("你的体力不够了，休息一下再练吧。\n");
+		return notify_fail("你的體力不夠了，休息一下再練吧。\n");
 	if( (int)me->query("neili") < nlcost )
-		return notify_fail("你的内力不够了，休息一下再练吧。\n");
+		return notify_fail("你的內力不夠了，休息一下再練吧。\n");
 	me->receive_damage("qi", qicost);
 	me->add("neili", -nlcost);
 	if (lvl>=action[i-1]["lvl"]+20)
-		return notify_fail("这一招你已经练到顶了，该钻研钻研新的招式了。\n");
+		return notify_fail("這一招你已經練到頂了，該鑽研鑽研新的招式了。\n");
 	return 1;
 }
 string query_skill_name(int level)
@@ -100,16 +100,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-                "damage_type" : random(2) ? "内伤" : "瘀伤",
+                "damage_type" : random(2) ? "內傷" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 20; }
@@ -126,7 +126,7 @@ int help(object me)
 	write(HIC"\n"+"玄冥神掌"+"："NOR"\n");
 	write(@HELP
 
-	玄冥神掌为西域绝学之一，至阴至寒，威力极大。
+	玄冥神掌爲西域絕學之一，至陰至寒，威力極大。
 HELP
 	);
 	return 1;

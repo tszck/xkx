@@ -1,4 +1,4 @@
-// luteplaying.c 绕梁琴艺
+// luteplaying.c 繞樑琴藝
 // Last Modified by winder on Jun. 10 2000
 
 #include <ansi.h>
@@ -19,16 +19,16 @@ int valid_learn(object me)
 {
 	int lvl;
 	if ( me->query("int") < 24 && me->query_int() < 32)
-		return notify_fail("琴棋书画乃是极其风雅之事，" +RANK_D->query_respect(me)+"似乎太过于俗气了些。\n");
+		return notify_fail("琴棋書畫乃是極其風雅之事，" +RANK_D->query_respect(me)+"似乎太過於俗氣了些。\n");
 
 	if( (int)me->query("shen") < -10000 )
-		return notify_fail("你杀人如麻，倘若不能先平息了心头魔念，哪里又会有心思弹琴下棋？\n");
+		return notify_fail("你殺人如麻，倘若不能先平息了心頭魔念，哪裏又會有心思彈琴下棋？\n");
 
 	lvl = (int)me->query_skill("luteplaying", 1);
 
 	if (lvl > 29 && me->query("kar") != 29 &&
 		me->query("family/master_name") != "何足道" )
-		return notify_fail("限于天资，你只能修习这个程度了。\n");
+		return notify_fail("限於天資，你只能修習這個程度了。\n");
 
 	return 1;
 }
@@ -43,31 +43,31 @@ int do_play(string arg)
 	object me = this_player();
 
 	if( !arg && (arg != "music") && (arg != "zheng") && (arg != "gu zheng"))
-		return notify_fail("你要做什么？\n");
+		return notify_fail("你要做什麼？\n");
 
 	if ( present("gu zheng", this_player()) &&
 		((arg == "music") || (arg == "zheng") || (arg == "gu zheng")) )
 	{
 		if ( me->query_skill("luteplaying", 1) < 30 )
 		{
-			message_vision("$N摆出一张古筝，铮铮琮琮弹了几声，只听得曲调杂乱无章，宛如鬼哭狼号。\n", me);
+			message_vision("$N擺出一張古箏，錚錚琮琮彈了幾聲，只聽得曲調雜亂無章，宛如鬼哭狼號。\n", me);
 			me->receive_damage("jing", random(20) );
 			me->receive_damage("qi", random(20) );
 			return 1;
 		}
 		if ( me->query_skill("luteplaying", 1) >100 )
 		{
-			message_vision("$N摆出一张古筝，铮铮琮琮弹了几声，只听得曲调平和，洋洋洒洒，颇有佳意。\n", me);
+			message_vision("$N擺出一張古箏，錚錚琮琮彈了幾聲，只聽得曲調平和，洋洋灑灑，頗有佳意。\n", me);
 			return 1;
 		}
 		me->receive_damage("jing", 10);
 		me->receive_damage("qi", 10);
 		me->improve_skill("art", (int)me->query_int()/4 + (int)me->query_skill("art", 1)/10);
-		tell_object(me, "你摆出一张古筝，调了调弦，弹了起来，你只觉得连日来烦燥的心情好了许多。\n");
+		tell_object(me, "你擺出一張古箏，調了調絃，彈了起來，你只覺得連日來煩燥的心情好了許多。\n");
 
-		message_vision("只见" + me->query("name") +
-		"雅兴大发，竟弹起曲子来，你只觉得时而金戈铁马、大漠平沙。。。。。。\n"
-		"时而小桥流水、几户人家。。。。。。万般气象，你心情顿时宁静了许多。\n",
+		message_vision("只見" + me->query("name") +
+		"雅興大發，竟彈起曲子來，你只覺得時而金戈鐵馬、大漠平沙。。。。。。\n"
+		"時而小橋流水、幾戶人家。。。。。。萬般氣象，你心情頓時寧靜了許多。\n",
 		environment(me), ({me}) );
 
 		return 1;
@@ -78,20 +78,20 @@ int do_play(string arg)
 
 int practice_skill(object me)
 {
-	return notify_fail("绕梁琴艺只能靠学习来提高。\n");
+	return notify_fail("繞樑琴藝只能靠學習來提高。\n");
 }
 int help(object me)
 {
-	write(HIC"\n绕梁琴艺："NOR"\n");
+	write(HIC"\n繞樑琴藝："NOR"\n");
 	write(@HELP
 
-    逍遥派祖师逍遥子学究天人，胸中所学包罗万象。他共传下七
-门绝艺：绕梁琴艺 (luteplaying)、纹枰手谈 (goplaying)、泼墨
-丹青(painting)、济世之术(medicine)、土木机关(construction)、
-园艺莳花(horticulture)、梨园旧艺(dramaturgy)。
+    逍遙派祖師逍遙子學究天人，胸中所學包羅萬象。他共傳下七
+門絕藝：繞樑琴藝 (luteplaying)、紋枰手談 (goplaying)、潑墨
+丹青(painting)、濟世之術(medicine)、土木機關(construction)、
+園藝蒔花(horticulture)、梨園舊藝(dramaturgy)。
 
-	学习要求：
-		无。但天赋才气限制了对更高深境界的努力
+	學習要求：
+		無。但天賦才氣限制了對更高深境界的努力
 HELP
 	);
 	return 1;

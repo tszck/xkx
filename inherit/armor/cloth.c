@@ -29,12 +29,12 @@ int do_tear(string str)
 		return notify_fail("你只能撕布料的衣服。\n");
 
 	if( (int)query("teared_count") >= 4 )
-		return notify_fail( name() + "的袖口，下□已经没有多馀的布可撕了。\n");
+		return notify_fail( name() + "的袖口，下□已經沒有多餘的布可撕了。\n");
 
-	message_vision("$N从" + name() + "撕下一条布条。\n", this_player() );
+	message_vision("$N從" + name() + "撕下一條布條。\n", this_player() );
 	add("teared_count", 1);
 	ob = new("/clone/misc/bandage");
-	ob->set_name("从" + name() + "撕下的布条", ({ "cloth piece", "piece", "cloth" }) );
+	ob->set_name("從" + name() + "撕下的布條", ({ "cloth piece", "piece", "cloth" }) );
 	if( !ob->move(this_player()) )
 		ob->move(environment(this_player()));
 	return 1;

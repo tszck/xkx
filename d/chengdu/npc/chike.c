@@ -1,11 +1,11 @@
-// Room: /d/chengdu/npc/chike.c 吃客
+// Room: /d/chengdu/npc/chike.c 喫客
 // Last Modifyed by Winder on Jan. 4 2002
 
 inherit NPC;
 
 void create()
 {
-	set_name("吃客", ({ "chike" }));
+	set_name("喫客", ({ "chike" }));
 	set("gender", "男性");
 	set("age", 20 + random(30));
 

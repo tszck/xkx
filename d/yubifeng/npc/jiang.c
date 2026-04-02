@@ -1,13 +1,13 @@
-// jiang.c 蒋老拳师
+// jiang.c 蔣老拳師
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("蒋老拳师", ({ "jiang" }) );
+	set_name("蔣老拳師", ({ "jiang" }) );
 	set("gender", "男性");
-	set("title", "河南无极门弟子");
+	set("title", "河南無極門弟子");
 	set("age", 63);
 	set("attitude", "friendly");
 	set("str", 20);

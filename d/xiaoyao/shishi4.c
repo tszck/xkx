@@ -7,9 +7,9 @@ void create()
 {
 	set("short", "地下石室");
 	set("long", @LONG
-这是一个地下的秘密石室，四面可以感觉得到的只有强烈的杀气，
-以及处身地底的一些难闻的气味。在微弱的灯光下，你竟然看到有个人
-站着那里。继续往下好象还有路。
+這是一個地下的祕密石室，四面可以感覺得到的只有強烈的殺氣，
+以及處身地底的一些難聞的氣味。在微弱的燈光下，你竟然看到有個人
+站着那裏。繼續往下好象還有路。
 LONG );
 	set("exits", ([
 		"up" : __DIR__"fangjian2",
@@ -28,6 +28,6 @@ LONG );
 /*int valid_leave(object me,string dir)
 {
         if(dir=="down" && (!me->query("family") || (me->query("family/master_id")!="xiaoyao zi")) && present("qingyun",environment(me))) 
-             return notify_fail("青云一个闪身，挡住了你的去路！\n");
+             return notify_fail("青雲一個閃身，擋住了你的去路！\n");
         return ::valid_leave(me,dir);
 }*/

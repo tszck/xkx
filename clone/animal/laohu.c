@@ -7,12 +7,12 @@ inherit "/inherit/char/trainee";
 void create()
 {
 	set_name("老虎", ({ "lao hu", "hu", "tiger" }) );
-	set("race", "走兽");
+	set("race", "走獸");
 	set("age", 25);
-	set("long", "这是一头吊睛白额，气势汹汹的大虎，正恶狠狠地盯着你，好象随时随地都会扑上来择人而噬！\n");
-	set("msg_fail", "$n冲$N呲牙吼了一声");
-	set("msg_succ", "$n一面口中向$N荷荷发威，一面向后退了半步，似乎有些怯了");
-	set("msg_trained","$n低吼着在$N的面前伏了下来");
+	set("long", "這是一頭吊睛白額，氣勢洶洶的大虎，正惡狠狠地盯着你，好象隨時隨地都會撲上來擇人而噬！\n");
+	set("msg_fail", "$n衝$N呲牙吼了一聲");
+	set("msg_succ", "$n一面口中向$N荷荷發威，一面向後退了半步，似乎有些怯了");
+	set("msg_trained","$n低吼着在$N的面前伏了下來");
 	set("auto_follow",1);
 	set("attitude", "aggressive");
 
@@ -36,15 +36,15 @@ void create()
 	set("chat_chance", 10);
 	set("chat_msg", ({
 		(: this_object(), "random_move" :),
-		"老虎用前爪拍击着地面，口中荷荷发威，好象随时都要扑上来！\n",
-		"老虎微微侧着脑袋，双目炯炯，紧紧地注视着你的一举一动。\n",
-		"老虎突然立了起来，绕着你走了半圈，似乎在观察着什么。\n",
+		"老虎用前爪拍擊着地面，口中荷荷發威，好象隨時都要撲上來！\n",
+		"老虎微微側着腦袋，雙目炯炯，緊緊地注視着你的一舉一動。\n",
+		"老虎突然立了起來，繞着你走了半圈，似乎在觀察着什麼。\n",
 	}) );
 	
 	set("chat_msg_combat", ({
 		(: this_object(), "random_move" :),
-		"\n老虎怒啸一声，一反身，长长的尾巴向铁棍一样挥了过来！\n",
-		"\n老虎全身一曲一弓，忽然跃起半空，猛地扑了下来！\n",
+		"\n老虎怒嘯一聲，一反身，長長的尾巴向鐵棍一樣揮了過來！\n",
+		"\n老虎全身一曲一弓，忽然躍起半空，猛地撲了下來！\n",
 	}) );
 		
 	setup();
@@ -52,7 +52,7 @@ void create()
 
 void die()
 {
-	message_vision("\n$N仰天惨嚎了一声，趴在地上不动了。\n", this_object());
+	message_vision("\n$N仰天慘嚎了一聲，趴在地上不動了。\n", this_object());
 	::die();
 }
 

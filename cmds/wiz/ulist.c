@@ -20,7 +20,7 @@ int help(object me)
 write(@HELP
 指令格式 : ulist
 
-将线上所有玩家的/obj/user number 显示出来。
+將線上所有玩家的/obj/user number 顯示出來。
 HELP
     );
     return 1;

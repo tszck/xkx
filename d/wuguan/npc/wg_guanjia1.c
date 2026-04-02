@@ -8,11 +8,11 @@ void create()
 	set("gender", "男性" );
 	set("age", 50);
 	set("long",
-		"他是扬州武馆的一个小管家，专管柴房！\n");
+		"他是揚州武館的一個小管家，專管柴房！\n");
 	set("combat_exp", 50000);
 	set("attitude", "friendly");
 	set("inquiry", ([
-		"劈柴" : "你就在这老老实实劈柴，我不满意，你就别想回去覆命！",
+		"劈柴" : "你就在這老老實實劈柴，我不滿意，你就別想回去覆命！",
 	]) );
 	setup();
 
@@ -35,12 +35,12 @@ void greeting(object ob)
 	if (!( present("chaidao", ob)))
 	{
 		command("hmm "+ob->query("id"));
-		command("say 你还没领工具吧，去东物品房找老李要。 \n");
+		command("say 你還沒領工具吧，去東物品房找老李要。 \n");
 		return;
 	}
 	if(!(ob->query_temp("job_name")!="劈柴"))   
 	{
 		command("nod "+ob->query("id"));
-		command("say "+RANK_D->query_respect(ob)+"，你就在这劈柴(pi 柴)吧。\n");
+		command("say "+RANK_D->query_respect(ob)+"，你就在這劈柴(pi 柴)吧。\n");
 	}
 }

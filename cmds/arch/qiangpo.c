@@ -19,9 +19,9 @@ int main(object me, string arg)
 	if( !objectp(ob = present(dest, environment(me))))
 		return notify_fail("找不到" + dest + "。\n");
 	if( !living(ob) )
-		return notify_fail("这个物件不能执行命令。\n");
+		return notify_fail("這個物件不能執行命令。\n");
 //	if( wiz_level(me) <= wiz_level(ob) )
-//		return notify_fail("你没有强制" + ob->name() + "执行指令的权力。\n");
+//		return notify_fail("你沒有強制" + ob->name() + "執行指令的權力。\n");
 	if( userp(ob) )
 		log_file("force_player", sprintf("[%s] %s forces %s to %s\n",  
 			ctime(time()), geteuid(me), geteuid(ob), cmd));
@@ -33,7 +33,7 @@ int help(object me)
 	write(@Help
  指令格式: qiangpo <某人> to <指令>
 
- 强迫某人做某事, 但你的巫师等级必须比对方高。
+ 強迫某人做某事, 但你的巫師等級必須比對方高。
 Help
 	);
 	return 1;

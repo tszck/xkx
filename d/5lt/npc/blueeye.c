@@ -7,13 +7,13 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("叮当妹", ({ "blueeye" }));
-	set("title", "甜品店老板");
+	set_name("叮噹妹", ({ "blueeye" }));
+	set("title", "甜品店老闆");
 	set("shen_type", 1);
 
 	set("gender", "女性" );
-	set("long", "叮当妹正笑呵呵地看着你，“西西！不要这样看人家嘛。好羞涩哦！”\n");
-	set("nickname", HIW"冰雪聪明活泼可爱"NOR);
+	set("long", "叮噹妹正笑呵呵地看着你，“西西！不要這樣看人家嘛。好羞澀哦！”\n");
+	set("nickname", HIW"冰雪聰明活潑可愛"NOR);
 	set("age", 20);
 	set("per", 30);
 	set("attitude", "friendly");		
@@ -25,7 +25,7 @@ void create()
 	}));        
 
 	set("inquiry", ([
-                 "yoyo": "哥哥一直都在电视台啊，电视台就在无厘头村的西北边。\n",
+                 "yoyo": "哥哥一直都在電視臺啊，電視臺就在無釐頭村的西北邊。\n",
 	]));                 
 	set("combat_exp", 100000);
 

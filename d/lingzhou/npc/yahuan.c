@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("小丫环", ({ "xiao yahuan", "xiao", "yahuan" }) );
+	set_name("小丫環", ({ "xiao yahuan", "xiao", "yahuan" }) );
 	set("gender", "女性");
 	set("age", 15);
 	set("long",
-		"这是将军府的小丫环。\n");
+		"這是將軍府的小丫環。\n");
 	set("combat_exp", 100);
         set("shen_type", 0);
 	set("attitude", "peaceful");

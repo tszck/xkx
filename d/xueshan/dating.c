@@ -1,13 +1,13 @@
-// dating.c 大厅
+// dating.c 大廳
 
 inherit ROOM;
 
 void create()
 {
-	set("short","大厅");
+	set("short","大廳");
 	set("long",@LONG
-这里是寺内的大厅，几位有道的高僧在高声辩论。看来正在引经据
-典，争斗机锋。
+這裏是寺內的大廳，幾位有道的高僧在高聲辯論。看來正在引經據
+典，爭鬥機鋒。
 LONG );
 	set("exits",([
 		"east" : __DIR__"zoulang1",

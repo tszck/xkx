@@ -5,10 +5,10 @@
 inherit ROOM;
 void create()
 {
-        set("short", "嘉应门");
+        set("short", "嘉應門");
         set("long", @LONG
-这里是地方官迎接京师御史官来祭南岳的地方，是南岳大庙第五进
-门了。门上雕塑也较精细些，悬彩灯笼时时换新。
+這裏是地方官迎接京師御史官來祭南嶽的地方，是南嶽大廟第五進
+門了。門上雕塑也較精細些，懸彩燈籠時時換新。
 LONG);
         set("exits", ([ /* sizeof() == 4 */
            "south"  : __DIR__"yubeiting",

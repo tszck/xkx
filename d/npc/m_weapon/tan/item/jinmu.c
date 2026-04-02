@@ -8,9 +8,9 @@ void create()
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "块");
-                set("long","这是一块海底金母，泛着紫悠悠的光，看起来沉甸甸的，\n"
-		    "似乎是制造兵器的绝好材料。\n");
+                set("unit", "塊");
+                set("long","這是一塊海底金母，泛着紫悠悠的光，看起來沉甸甸的，\n"
+		    "似乎是製造兵器的絕好材料。\n");
                 set("value", 0);
                 set("material", "iron");
               }

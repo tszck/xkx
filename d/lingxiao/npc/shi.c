@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("时万年",({"shi wannian","shi",}));
+	set_name("時萬年",({"shi wannian","shi",}));
 	set("gender", "男性");
 	set("age", 20);
-	set("long", "他是凌霄城第六代弟子时万年，在此守卫监狱。\n");
+	set("long", "他是凌霄城第六代弟子時萬年，在此守衛監獄。\n");
 	set("attitude", "peaceful");
 
 	set("no_get", 1);
@@ -35,8 +35,8 @@ void create()
 	}) );
 	set("chat_chance", 5);
 	set("chat_msg", ({
-	"时万年恨恨说道：老疯子不知道又怎么了，把自己关在里面弄死不肯出来。\n", 
-	"时万年把剑一弹，傲然道：有我守在这，谁都别想把老疯子放出来。\n", 
+	"時萬年恨恨說道：老瘋子不知道又怎麼了，把自己關在裏面弄死不肯出來。\n", 
+	"時萬年把劍一彈，傲然道：有我守在這，誰都別想把老瘋子放出來。\n", 
 	}) );
 	set_skill("strike", 120);
 	set_skill("sword", 150);
@@ -72,19 +72,19 @@ void init()
 	if(ob->query("family/family_name") !="凌霄城")
 	{
 		command("heng");
-		command("say 你居然敢闯入本派禁地，受死吧！\n");
+		command("say 你居然敢闖入本派禁地，受死吧！\n");
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, ob); 
 	}
 	else
 		if(ob->query("family/master_id")=="bai zizai")
 		{
-			command( "say 师兄回来了，快去见掌门人吧，不过小心点……没准他又犯病了。");
+			command( "say 師兄回來了，快去見掌門人吧，不過小心點……沒準他又犯病了。");
 		} 
 		else
 			if(ob->query("family/master_id")=="bai wanjian")
 			{
-				command( "say 你是白师哥的弟子吧，快进去见见老爷子吧，他的病越来越不得了啦。");
+				command( "say 你是白師哥的弟子吧，快進去見見老爺子吧，他的病越來越不得了啦。");
 			}
 }
 

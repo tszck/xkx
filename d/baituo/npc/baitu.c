@@ -7,7 +7,7 @@ void create()
 	set_name("白兔", ({ "bai tu", "tu" }) );
 	set("race", "走畜");
 	set("age", 2);
-	set("long", "一只雪白的小白兔，可爱之致。\n");
+	set("long", "一隻雪白的小白兔，可愛之致。\n");
 	set("attitude", "peaceful");
 	set("str", 15);
 	set("cor", 16);
@@ -23,7 +23,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$N两腿一蹬，$N死了。\n", this_object());
+	message_vision("$N兩腿一蹬，$N死了。\n", this_object());
 	ob = new("/d/baituo/obj/turou");
 	ob->move(environment(this_object()));
 	destruct(this_object());

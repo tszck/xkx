@@ -3,9 +3,9 @@
 inherit ROOM;
 void create()
 {
-	set("short", "青龙堂大厅");
+	set("short", "青龍堂大廳");
 	set("long", @LONG
-这是『日月神教』下第三大堂：青龙堂的大厅。一位长者居中，神
+這是『日月神教』下第三大堂：青龍堂的大廳。一位長者居中，神
 情恍惚。
 LONG );
 	set("exits", ([

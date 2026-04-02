@@ -1,4 +1,4 @@
-// r_jiasha.c 红色袈裟
+// r_jiasha.c 紅色袈裟
 //
 
 #include <armor.h>
@@ -8,7 +8,7 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(HIR"红色袈裟"NOR,({"jiasha", "jia sha","cloth"}));
+        set_name(HIR"紅色袈裟"NOR,({"jiasha", "jia sha","cloth"}));
         set_weight(5000);
         if( clonep() )
                 set_default_object(__FILE__);

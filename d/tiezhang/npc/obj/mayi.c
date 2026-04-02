@@ -12,7 +12,7 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", HIB"一件铁掌帮中有地位的帮众常穿的麻衣。\n"NOR);
+		set("long", HIB"一件鐵掌幫中有地位的幫衆常穿的麻衣。\n"NOR);
 		set("material", "cloth");
 		set("unit", "件");
 		set("value", 240);

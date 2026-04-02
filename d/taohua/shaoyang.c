@@ -10,10 +10,10 @@ int do_save();
 
 void create()
 {
-	set("short", "少阳");
+	set("short", "少陽");
 	set("long", @LONG
-这里是四象层的少阳。少阳是阴中之阳。西方对应四灵兽中的白虎，
-白虎之形，尚白。以方位入五行，有一道铁梯直通下方的西方庚辛金。
+這裏是四象層的少陽。少陽是陰中之陽。西方對應四靈獸中的白虎，
+白虎之形，尚白。以方位入五行，有一道鐵梯直通下方的西方庚辛金。
 LONG
 	);
 	set("exits", ([ 
@@ -46,12 +46,12 @@ void init()
 
 int do_save()
 {
-	write("这里不准存盘！\n");
+	write("這裏不準存盤！\n");
 	return 1;
 }
 
 int do_quit()
 {
-	write("这里不准退出！\n");
+	write("這裏不準退出！\n");
 	return 1;
 }

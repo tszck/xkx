@@ -8,9 +8,9 @@ string ask_me_1(object);
 
 void create()
 {
-	set_name("大病大师", ({ "dabing dashi", "dabing", "dashi"}));
-	set("long", "他是一位身材矮小的老年僧人，面上皱纹堆垒。\n"
-		"慈眉善目，露出悲天悯人之像。\n");
+	set_name("大病大師", ({ "dabing dashi", "dabing", "dashi"}));
+	set("long", "他是一位身材矮小的老年僧人，面上皺紋堆壘。\n"
+		"慈眉善目，露出悲天憫人之像。\n");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -68,15 +68,15 @@ void create()
 	}) );
 
 	set("inquiry", ([
-		"钢杵" : (: ask_me_1, "gangchu" :),
+		"鋼杵" : (: ask_me_1, "gangchu" :),
 		"柴刀" : (: ask_me_1, "chaidao" :),
-//		"挠钩" : (: ask_me_1, "naogou" :),
+//		"撓鉤" : (: ask_me_1, "naogou" :),
 //		"套索" : (: ask_me_1, "taosuo" :),
 	]));
 	set("weapon_count", 10);
 //	set("tools_count", 5);
 
-	create_family("南少林派", 19, "心禅堂首座");
+	create_family("南少林派", 19, "心禪堂首座");
 	setup();
 	carry_object(WEAPON_DIR+"blade/jiedao")->wield();
 	carry_object("/d/shaolin/obj/hui-cloth")->wear();
@@ -89,18 +89,18 @@ string ask_me_1(string name)
 
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "南少林派")
-		return RANK_D->query_respect(this_player()) +"与本派素无来往，不知此话从何谈起？";
+		return RANK_D->query_respect(this_player()) +"與本派素無來往，不知此話從何談起？";
 	if ( present(name, this_player()))
-		return RANK_D->query_respect(this_player()) +"你现在身上不是有这样东西吗，怎麽又来要了？ 真是贪得无餍！";
+		return RANK_D->query_respect(this_player()) +"你現在身上不是有這樣東西嗎，怎麼又來要了？ 真是貪得無饜！";
 	if (!(this_player()->query("pass_xin")))
-		return "你是偷偷进来的吧，请出去吧！\n";
+		return "你是偷偷進來的吧，請出去吧！\n";
 	if (query("weapon_count") < 1)
-		return "抱歉，你来得不是时候，东西已经发完了。";
+		return "抱歉，你來得不是時候，東西已經發完了。";
 	ob = new("/d/nanshaolin/obj/" + name);
 	ob->move(this_player());
 	add("weapon_count", -1);
-	message_vision("大病给$N一件"+ob->query("name")+"。\n",this_player());
-	return "拿去吧。用此物为寺中服务。\n";
+	message_vision("大病給$N一件"+ob->query("name")+"。\n",this_player());
+	return "拿去吧。用此物爲寺中服務。\n";
 }
 
 void attempt_apprentice(object ob)
@@ -113,41 +113,41 @@ void attempt_apprentice(object ob)
 
 	if(!(ob_fam=ob->query("family")) || ob_fam["family_name"]!="南少林派")
 	{
-		command("say "+RANK_D->query_respect(ob)+"与本派素无来往，不知此话从何谈起？");
+		command("say "+RANK_D->query_respect(ob)+"與本派素無來往，不知此話從何談起？");
 		return;
 	}
 	if( !(ob->query("pass_xin")) )
 	{
-		command("say"+RANK_D->query_respect(ob) +"是怎么进来的？");
+		command("say"+RANK_D->query_respect(ob) +"是怎麼進來的？");
 		return;
 	}
 	if( ob_fam["generation"] <= my_fam["generation"] )
 	{
-		command("say "+RANK_D->query_respect(ob)+"，贫僧哪里敢当！");
+		command("say "+RANK_D->query_respect(ob)+"，貧僧哪裏敢當！");
 		return;
 	}
 	if( ob->query_skill("force", 1) < 60)
 	{
-		command("say "+RANK_D->query_respect(ob)+"，你的基本内功还需要磨练。贫僧到时再收你为徒。");
+		command("say "+RANK_D->query_respect(ob)+"，你的基本內功還需要磨練。貧僧到時再收你爲徒。");
 		return;
 	}
 	if( ob_fam["generation"]==(my_fam["generation"]+1) && name[0..0]=="元")
 	{
-		command("say "+ob_fam["master_name"]+"的徒弟怎么跑到我这儿来了，哈哈哈！");
+		command("say "+ob_fam["master_name"]+"的徒弟怎麼跑到我這兒來了，哈哈哈！");
 		command("recruit "+ob->query("id"));
 	}
 	if( ob_fam["generation"] == (my_fam["generation"] + 2) )
 	{
 		name = ob->query("name");
 		new_name = "元" + name[1..1];
-		command("say 老衲垂死之年，又得一可塑之才，真是可喜可贺 !");
+		command("say 老衲垂死之年，又得一可塑之才，真是可喜可賀 !");
 		ob->set("name", new_name);
- 		ob->set("title", "心禅堂职事僧");
-		command("say 今后你的法名叫做"+new_name+"。\n");
-		command("say 从今以后你就是心禅堂职事高僧了，望你好好深造！\n");
+ 		ob->set("title", "心禪堂職事僧");
+		command("say 今後你的法名叫做"+new_name+"。\n");
+		command("say 從今以後你就是心禪堂職事高僧了，望你好好深造！\n");
 		command("recruit " + ob->query("id"));
 	}
 	else
-		command("say "+RANK_D->query_respect(ob)+"，你是从哪蹦出来的，你不能越级拜师。");
+		command("say "+RANK_D->query_respect(ob)+"，你是從哪蹦出來的，你不能越級拜師。");
 	return;
 }

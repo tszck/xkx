@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("褚万春",({"zhu wanchun","zhu"}));
+        set_name("褚萬春",({"zhu wanchun","zhu"}));
         set("gender", "男性");
         set("age", 20);
-        set("long", "他是凌霄城第六代弟子褚万春，和孙万年一样，贼眉鼠眼。\n"
-		"也因为行止不端，被关在这里。\n");
+        set("long", "他是凌霄城第六代弟子褚萬春，和孫萬年一樣，賊眉鼠眼。\n"
+		"也因爲行止不端，被關在這裏。\n");
         set("attitude", "peaceful");
 
         set("str", 25);

@@ -9,14 +9,14 @@ int exert(object me, object target)
 	int n, t;
 
 	if (me != target)
-		return notify_fail("你只能用内功恢复自己的体力。\n");
+		return notify_fail("你只能用內功恢復自己的體力。\n");
 
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 
 	t = (int)me->query("max_tili") - (int)me->query("tili");
 	if (t < 10)
-		return notify_fail("你现在体力充沛。\n");
+		return notify_fail("你現在體力充沛。\n");
 	n = me->query_skill("force");
 	if (n < 20) n = 20;
 	if ((int)me->query("neili") < n) n = (int)me->query("neili");
@@ -26,7 +26,7 @@ int exert(object me, object target)
 	if( me->query("tili") > me->query("max_tili"))
 		me->set("tili", me->query("max_tili"));
 	
-        message_combatd("$N吸了口气，丹田真气游走四肢，全身也渐渐有了力气。\n", me);
+        message_combatd("$N吸了口氣，丹田真氣遊走四肢，全身也漸漸有了力氣。\n", me);
 
         if( me->is_fighting() ) me->start_busy(1);
 	
@@ -34,15 +34,15 @@ int exert(object me, object target)
 }
 int help(object me)
 {
-	write(WHT"\n基本内功之补充体力："NOR"\n");
+	write(WHT"\n基本內功之補充體力："NOR"\n");
 	write(@HELP
 
 	使用功效：
-		补充自己消耗的体力　
+		補充自己消耗的體力　
 
 	出手要求：
-		基本内功
-		内力20
+		基本內功
+		內力20
 HELP
 	);
 	return 1;

@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","佛山镇街");
+	set("short","佛山鎮街");
 	set("long",@LONG
-佛山镇街东西相连。东边是镇东门，南面一堵高墙，墙后便是
-凤天南开的“英雄典当”。
+佛山鎮街東西相連。東邊是鎮東門，南面一堵高牆，牆後便是
+鳳天南開的“英雄典當”。
 LONG);
 	set("objects", ([
 	    __DIR__"npc/wolfdog": 1,

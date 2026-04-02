@@ -2,10 +2,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "长安戏院");
+	set("short", "長安戲院");
 	set("long", @LONG
-这里就是著名的长安戏院，几个戏子在台上 (stage)唱戏。台下黑
-压压的一片都是人。唱到妙处，观众们禁不住大声喝采。东边是后台。
+這裏就是著名的長安戲院，幾個戲子在臺上 (stage)唱戲。臺下黑
+壓壓的一片都是人。唱到妙處，觀衆們禁不住大聲喝采。東邊是後臺。
 LONG );
 	set("exits", ([
 		"up"    : __DIR__"stage",
@@ -13,7 +13,7 @@ LONG );
 		"south" : __DIR__"xichang1",
 	]));
 	set("item_desc", ([
-		"stage" : "\n看到戏台，你突然有种想登台表演的冲动。\n" ,
+		"stage" : "\n看到戲臺，你突然有種想登臺表演的衝動。\n" ,
 	]));
 	set("objects", ([
 		__DIR__"npc/guanzhong":  5,
@@ -36,7 +36,7 @@ int valid_leave(object me, string dir)
 			me->set_temp("hastryup",1);
 			if((int)me->query("meili")>=40)
 			{
-				message_vision("只听哗啦啦一片掌声，观众们一起鼓掌。有人大声说道：\n静一静，请看这位"+RANK_D->query_respect(me)+ "表演。\n",me);
+				message_vision("只聽嘩啦啦一片掌聲，觀衆們一起鼓掌。有人大聲說道：\n靜一靜，請看這位"+RANK_D->query_respect(me)+ "表演。\n",me);
 				return ::valid_leave(me, dir);
 			}
 			else
@@ -44,7 +44,7 @@ int valid_leave(object me, string dir)
 				if(query("guanzhong") > 0)
 				{
 					add("guanzhong", -1);
-					message_vision("\n突然观众一拥而上，对$N大叫道：凭你也敢上台闹事？老子宰了你这"+RANK_D->query_rude(me) + "！\n",me);
+					message_vision("\n突然觀衆一擁而上，對$N大叫道：憑你也敢上臺鬧事？老子宰了你這"+RANK_D->query_rude(me) + "！\n",me);
 					if(!present("jia", environment(me)))
 					{
 						man=new(__DIR__"npc/guanzhong1");
@@ -81,11 +81,11 @@ int valid_leave(object me, string dir)
 						}
 					}
 				}
-				return notify_fail("观众们一阵倒彩。\n");
+				return notify_fail("觀衆們一陣倒彩。\n");
 			}
-			return notify_fail("观众们拼死也不让你上台。\n");
+			return notify_fail("觀衆們拼死也不讓你上臺。\n");
 		}
-		message_vision("$N拼死冲上台去。\n",this_player());
+		message_vision("$N拼死衝上臺去。\n",this_player());
 		return ::valid_leave(me, dir);
 		} 
 	return ::valid_leave(me, dir);

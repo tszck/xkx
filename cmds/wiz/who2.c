@@ -12,7 +12,7 @@ int main(object me, string str)
     ob_list = users();
     ob_list = sort_array(users(), "sort_user", this_object());
 	size = (int)sizeof(ob_list)/20;
-    str = HIG" 玩家    年龄 存款           地址               所在       程序       \n"NOR;
+    str = HIG" 玩家    年齡 存款           地址               所在       程序       \n"NOR;
     str +=    "---------------------------------------------------------------------\n";
 	message("vision", str, me);
     for(t=0; t<=size; t++)
@@ -44,7 +44,7 @@ int main(object me, string str)
 	 me->start_more(str);
     }
     str =     "---------------------------------------------------------------------\n";
-    str += sprintf("共有 %d 位使用者连线中。\n", sizeof(ob_list));
+    str += sprintf("共有 %d 位使用者連線中。\n", sizeof(ob_list));
     message("vision", str, me);
     return 1;
 }
@@ -63,7 +63,7 @@ int help(object me)
         write(@HELP
 指令格式：who2
 
-玩家信息查询。
+玩家信息查詢。
 HELP
         );
         return 1;

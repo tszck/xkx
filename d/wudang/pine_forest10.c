@@ -13,8 +13,8 @@ void create()
 
 	set("short", HIM"松中草地"NOR);
 	set("long", @LONG
-眼前霍豁然开朗，密林中露出一片空地，中间一条溪水潺潺流过。
-溪边奇花异草，长得特别鲜艳。
+眼前霍豁然開朗，密林中露出一片空地，中間一條溪水潺潺流過。
+溪邊奇花異草，長得特別鮮豔。
 LONG
 	);
 	if( local[LT_MON] > 5 && local[LT_MON] < 10 )
@@ -39,7 +39,7 @@ void init()
 	object me = this_player();
 	
 	if ( !objectp(me->query_temp("armor/boots")) )
-		me->receive_damage("qi", 10, "被松针扎死了");  
+		me->receive_damage("qi", 10, "被松針扎死了");  
 
 }
 

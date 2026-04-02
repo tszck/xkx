@@ -5,7 +5,7 @@ inherit THROWING;
 
 void create()
 {
-        set_name(HIY "芙蓉金针" NOR, ({ "furong jinzhen", "furong", "jinzhen", "zhen" }) );
+        set_name(HIY "芙蓉金針" NOR, ({ "furong jinzhen", "furong", "jinzhen", "zhen" }) );
         if (clonep())
                 set_default_object(__FILE__);
         else {
@@ -15,7 +15,7 @@ void create()
                 set("base_weight", 200);
                 set("base_value", 0);
                 set("material", "iron");
-                set("long", HIY "这是一些细长的金针，长约寸许。\n" NOR);
+                set("long", HIY "這是一些細長的金針，長約寸許。\n" NOR);
         }
         set_amount(50);
         init_throwing(50);

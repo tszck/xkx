@@ -8,22 +8,22 @@ void create()
 {
         set_name("袁紫衣", ({ "yuan ziyi","ziyi","yuan"}));
         set("long",
-                "她是峨嵋派一个辈份极高的老尼的关门徒弟。\n"
-                "一张脸秀丽绝俗。身着一身淡紫衣裳。\n"
-                "这一路上去京师她夺了好几家掌门。\n");
+                "她是峨嵋派一個輩份極高的老尼的關門徒弟。\n"
+                "一張臉秀麗絕俗。身着一身淡紫衣裳。\n"
+                "這一路上去京師她奪了好幾家掌門。\n");
         set("gender", "女性");
         set("age", 18);
         set("attitude", "peaceful");
         set("shen_type", 1);
-        set("title", RED"九家半门派"HIG"总掌门"NOR);
+        set("title", RED"九家半門派"HIG"總掌門"NOR);
         set("class", "bonze");
         set("chat_chance_combat", 60);
         set("chat_msg_combat", ({
                 (: perform_action, "sword.mie" :),
         }) );
         set("inquiry",([
-                "胡斐"    : "我和胡大哥毕竟没有缘份的。",
-                "掌门"    : "我就喜欢抢掌门！",
+                "胡斐"    : "我和胡大哥畢竟沒有緣份的。",
+                "掌門"    : "我就喜歡搶掌門！",
         ]));
         set("str", 30);
         set("per", 30);
@@ -84,7 +84,7 @@ void greeting(object ob)
 {       
 	if(file_name(environment())=="/d/henshan/chating")
 	{
-		command("say 本姑娘在这里休息，别来打搅！");
+		command("say 本姑娘在這裏休息，別來打攪！");
 		command("kick "+ob->query("id"));
 		ob->move("/d/henshan/hsroad6");
 		return;

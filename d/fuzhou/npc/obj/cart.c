@@ -4,12 +4,12 @@ inherit ITEM;
 
 void create()
 {
-        set_name("镖车", ({ "silver cart", "cart"}) );
+        set_name("鏢車", ({ "silver cart", "cart"}) );
         set_weight(3000000);
         set("no_get", 1);
         set_max_encumbrance(80000000);
-	set("unit", "辆");
-	set("long", "一辆黑漆漆的镖车，上面插着福威镖局的大旗。\n");
+	set("unit", "輛");
+	set("long", "一輛黑漆漆的鏢車，上面插着福威鏢局的大旗。\n");
 	set("closed", 1);
 	set("value", 2000);
     
@@ -30,8 +30,8 @@ int do_close(string arg)
 	me = this_player();
 	ob = this_object();
         if(arg != "cart" && arg != "silver cart")
-                return notify_fail("你要关上什么？\n");
-       	message_vision("$N把$n门关上了。\n", me, ob);
+                return notify_fail("你要關上什麼？\n");
+       	message_vision("$N把$n門關上了。\n", me, ob);
 	ob->set("closed",1);
 	return 1;
 }
@@ -41,12 +41,12 @@ int do_open(string arg)
 	object me, ob;
 
 	if(arg != "cart" && arg != "silver cart")
-		return notify_fail("你要打开什么？\n");
+		return notify_fail("你要打開什麼？\n");
 	me = this_player();
 	if (objectp(ob=present("biao tou",environment())))
-		return notify_fail(ob->name()+"瞪了你一眼：“你要干什么！”\n");
+		return notify_fail(ob->name()+"瞪了你一眼：“你要幹什麼！”\n");
 	this_object()->set("closed",0);
-	message_vision("$N将$n盖打开。\n", me, this_object());
+	message_vision("$N將$n蓋打開。\n", me, this_object());
         return 1;
 }
 

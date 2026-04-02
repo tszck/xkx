@@ -6,15 +6,15 @@ inherit NPC;
 
 void create()
 {
-	set_name("萧远山", ({"xiao yuanshan", "xiao", "yuanshan"}));
+	set_name("蕭遠山", ({"xiao yuanshan", "xiao", "yuanshan"}));
 	set("gender", "男性");
 	set("nickname",HIB"黑衣僧"NOR);
 	set("age", 28);
 	set("long", 
-		"他就是丐帮前任帮主萧峰的父亲，潜伏少林数十年了。\n"
-		"他身穿一件普通的黑僧袍，腰间用一条麻绳随便一系。\n"
-		"他身高六尺有余，体格十分魁梧，长有一张线条粗旷、十\n"
-		"分男性化的脸庞，双目如电，炯炯有神。\n");
+		"他就是丐幫前任幫主蕭峯的父親，潛伏少林數十年了。\n"
+		"他身穿一件普通的黑僧袍，腰間用一條麻繩隨便一系。\n"
+		"他身高六尺有餘，體格十分魁梧，長有一張線條粗曠、十\n"
+		"分男性化的臉龐，雙目如電，炯炯有神。\n");
 	set("attitude", "peaceful");
 	
 	set("str", 45);
@@ -33,12 +33,12 @@ void create()
 	set("combat_exp", 180000);
 	set("score", 20000);
 	 
-	set_skill("force", 120);             // 基本内功
-	set_skill("hunyuan-yiqi", 120);      // 混天气功
-	set_skill("unarmed", 120);           // 基本拳脚
-	set_skill("jingang-quan", 120);      // 降龙十八掌
-	set_skill("dodge", 120);      	     // 基本躲闪
-	set_skill("shaolin-shenfa", 120);    // 逍遥游
+	set_skill("force", 120);             // 基本內功
+	set_skill("hunyuan-yiqi", 120);      // 混天氣功
+	set_skill("unarmed", 120);           // 基本拳腳
+	set_skill("jingang-quan", 120);      // 降龍十八掌
+	set_skill("dodge", 120);      	     // 基本躲閃
+	set_skill("shaolin-shenfa", 120);    // 逍遙遊
 	set_skill("parry", 120);             // 基本招架
 	
 	map_skill("force", "hunyuan-yiqi");

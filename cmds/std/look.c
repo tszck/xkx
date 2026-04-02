@@ -1,13 +1,13 @@
 // look.c
 
 // Modified by zeratul,2000.1.29
-// 修改了房间里相同物品的描述，/inherit/item/combined.c和 /cmds/std/get.c 也作了相应的修改。
+// 修改了房間裏相同物品的描述，/inherit/item/combined.c和 /cmds/std/get.c 也作了相應的修改。
 // Modified by fandog,2000.12.23
-// 增加了对房间座标的显示。
+// 增加了對房間座標的顯示。
 // Modified by Winder 2001.5.22
-// 增加小地图显示。并增加环境参数开关小地图。同时修改了set.c和unset.c。
+// 增加小地圖顯示。並增加環境參數開關小地圖。同時修改了set.c和unset.c。
 // Modified by ahda 2002.6.25
-// 增加了让巫师可以看出玩家、npc武功等级的功能 line 394，暂时先这样，等以后最好重新开列专门的巫师look命令
+// 增加了讓巫師可以看出玩家、npc武功等級的功能 line 394，暫時先這樣，等以後最好重新開列專門的巫師look命令
 inherit F_CLEAN_UP;
 
 
@@ -33,64 +33,64 @@ string clean_color(string arg);
 object i_have(object env,string name);
 string adjust_short(string arg);
 string *tough_level_desc = ({
-	BLU "不堪一击" NOR,
-	BLU "毫不足虑" NOR,
-	BLU "不足挂齿" NOR,
-	BLU "初学乍练" NOR,
-	BLU "勉勉强强" NOR,
-	HIB "初窥门径" NOR,
-	HIB "初出茅庐" NOR,
+	BLU "不堪一擊" NOR,
+	BLU "毫不足慮" NOR,
+	BLU "不足掛齒" NOR,
+	BLU "初學乍練" NOR,
+	BLU "勉勉強強" NOR,
+	HIB "初窺門徑" NOR,
+	HIB "初出茅廬" NOR,
 	HIB "略知一二" NOR,
 	HIB "普普通通" NOR,
 	HIB "平平淡淡" NOR,
-	CYN "平淡无奇" NOR,
+	CYN "平淡無奇" NOR,
 	CYN "粗通皮毛" NOR,
 	CYN "半生不熟" NOR,
-	CYN "马马虎虎" NOR,
+	CYN "馬馬虎虎" NOR,
 	CYN "略有小成" NOR,
 	HIC "已有小成" NOR,
-	HIC "鹤立鸡群" NOR,
-	HIC "驾轻就熟" NOR,
-	HIC "青出于蓝" NOR,
-	HIC "融会贯通" NOR,
-	HIG "心领神会" NOR,
-	HIG "炉火纯青" NOR,
-	HIG "了然于胸" NOR,
+	HIC "鶴立雞羣" NOR,
+	HIC "駕輕就熟" NOR,
+	HIC "青出於藍" NOR,
+	HIC "融會貫通" NOR,
+	HIG "心領神會" NOR,
+	HIG "爐火純青" NOR,
+	HIG "瞭然於胸" NOR,
 	HIG "略有大成" NOR,
 	HIG "已有大成" NOR,
-	YEL "豁然贯通" NOR,
-	YEL "出类拔萃" NOR,
-	YEL "无可匹敌" NOR,
-	YEL "技冠群雄" NOR,
+	YEL "豁然貫通" NOR,
+	YEL "出類拔萃" NOR,
+	YEL "無可匹敵" NOR,
+	YEL "技冠羣雄" NOR,
 	YEL "神乎其技" NOR,
 	HIY "出神入化" NOR,
-	HIY "非同凡响" NOR,
-	HIY "傲视群雄" NOR,
-	HIY "登峰造极" NOR,
-	HIY "无与伦比" NOR,
+	HIY "非同凡響" NOR,
+	HIY "傲視羣雄" NOR,
+	HIY "登峯造極" NOR,
+	HIY "無與倫比" NOR,
 	RED "所向披靡" NOR,
-	RED "一代宗师" NOR,
-	RED "精深奥妙" NOR,
-	RED "神功盖世" NOR,
-	RED "举世无双" NOR,
-	WHT "惊世骇俗" NOR,
-	WHT "撼天动地" NOR,
-	WHT "震古铄今" NOR,
-	WHT "超凡入圣" NOR,
-	WHT "威镇寰宇" NOR,
-	HIW "空前绝后" NOR,
+	RED "一代宗師" NOR,
+	RED "精深奧妙" NOR,
+	RED "神功蓋世" NOR,
+	RED "舉世無雙" NOR,
+	WHT "驚世駭俗" NOR,
+	WHT "撼天動地" NOR,
+	WHT "震古鑠今" NOR,
+	WHT "超凡入聖" NOR,
+	WHT "威鎮寰宇" NOR,
+	HIW "空前絕後" NOR,
 	HIW "天人合一" NOR,
 	MAG "深藏不露" NOR,
-	HIM "深不可测" NOR,
-	HIR "返璞归真" NOR
+	HIM "深不可測" NOR,
+	HIR "返璞歸真" NOR
 });
 string *heavy_level_desc= ({
-	"极轻",
-	"很轻",
+	"極輕",
+	"很輕",
 	"不重",
-	"不轻",
+	"不輕",
 	"很重",
-	"极重"
+	"極重"
 });
 void create() { seteuid(getuid()); }
 
@@ -137,14 +137,14 @@ int look_room(object me, object env)
 
 	if( !env )
 	{
-		write("你的四周灰蒙蒙地一片，什么也没有。\n");
+		write("你的四周灰濛濛地一片，什麼也沒有。\n");
 		return 1;
 	}
-// 房间描述
+// 房間描述
 	str = sprintf(HIC+"%s"+NOR+" - %s\n    %s"NOR, env->query("short"), wizardp(me)? file_name(env)+sprintf(" - (%d,%d,%d)",env->query("coor/x"),env->query("coor/y"),env->query("coor/z")): "", env->query("long") );
-// 天气描述
+// 天氣描述
 	str += sprintf("%s", env->query("outdoors") ? NATURE_D->outdoor_room_description():"");
-// 路径指示
+// 路徑指示
 	if( mapp(exits = env->query("exits")) )
 	{
 		dirs = keys(exits);
@@ -155,24 +155,24 @@ int look_room(object me, object env)
 		if ( env->query("outdoors") &&
 			!present("fire", this_player()) &&
 			!wizardp(this_player()) &&
-			((strsrch(time, "亥时") >= 0) ||
-			 (strsrch(time, "子时") >= 0) ||
-			 (strsrch(time, "丑时") >= 0) ||
-			 (strsrch(time, "寅时") >= 0) ))
-			str += "    天色太黑了，你看不清明显的出路。\n";
+			((strsrch(time, "亥時") >= 0) ||
+			 (strsrch(time, "子時") >= 0) ||
+			 (strsrch(time, "醜時") >= 0) ||
+			 (strsrch(time, "寅時") >= 0) ))
+			str += "    天色太黑了，你看不清明顯的出路。\n";
 		else if( sizeof(dirs)==0 )
-			str += "    这里没有任何明显的出路。\n";
+			str += "    這裏沒有任何明顯的出路。\n";
 		else if( sizeof(dirs)==1 )
-			str += "    这里唯一的出口是 "+BOLD+dirs[0]+NOR+"。\n";
+			str += "    這裏唯一的出口是 "+BOLD+dirs[0]+NOR+"。\n";
 		else
-			str += sprintf("    这里明显的出口是 "+BOLD"%s"NOR+" 和 "+BOLD+"%s"+NOR+"。\n", implode(dirs[0..sizeof(dirs)-2], "、"), dirs[sizeof(dirs)-1]);
+			str += sprintf("    這裏明顯的出口是 "+BOLD"%s"NOR+" 和 "+BOLD+"%s"+NOR+"。\n", implode(dirs[0..sizeof(dirs)-2], "、"), dirs[sizeof(dirs)-1]);
 	}
 //	str += env->door_description();
 
 	inv = all_inventory(env);
 	str += combined(inv);
 	write(str);
-// 小地图描述
+// 小地圖描述
 /*	if (!this_player()->query("env/no_map"))
 	{
 		if( mapp(exits =env->query("exits")) )
@@ -312,7 +312,7 @@ int look_room(object me, object env)
 	}	*/
 	return 1;
 }
-// 清除颜色，匹配小地图
+// 清除顏色，匹配小地圖
 /*string clean_color(string arg)
 {
 	if(!arg) return "";
@@ -336,7 +336,7 @@ int look_room(object me, object env)
 	arg = adjust_short(arg);
 	return BBLU+arg+NOR;
 }*/
-// 小地图房间短描述统一成五个汉字
+// 小地圖房間短描述統一成五個漢字
 /*string adjust_short(string arg)
 {
 	switch (strwidth(arg))
@@ -358,7 +358,7 @@ int look_item(object me, object obj)
 	write(obj->long());
 	inv = all_inventory(obj);
 	if( sizeof(inv) )
-		message("vision",sprintf("里面有：\n%s\n",combined(inv)),me);
+		message("vision",sprintf("裏面有：\n%s\n",combined(inv)),me);
 	return 1;
 }
 string gettof(object me, object ob)
@@ -405,7 +405,7 @@ varargs mixed look_living(object me, object obj, int getstr)
 	age = obj->query("age");
 
 	if( me!=obj && !getstr)
-		message("vision",me->name()+"正盯着你看，不知道打些什么主意。\n",obj);
+		message("vision",me->name()+"正盯着你看，不知道打些什麼主意。\n",obj);
 	str = obj->long();
 	if (obj->query_temp("pretend"))
 	{
@@ -415,24 +415,24 @@ varargs mixed look_living(object me, object obj, int getstr)
 	pro = (obj==me) ? gender_self(obj->query("gender")) : gender_pronoun(obj->query("gender"));
 	if (obj->query_temp("is_riding") && obj != me)
 	 if (stringp(obj->query_temp("is_riding")))
-		str += sprintf("%s正骑在%s上，低头看着你。\n", pro, obj->query_temp("is_riding"));
+		str += sprintf("%s正騎在%s上，低頭看着你。\n", pro, obj->query_temp("is_riding"));
    if (objectp(obj->query_temp("is_riding")))
-		str += sprintf("%s正骑在%s上，低头看着你。\n", pro, (obj->query_temp("is_riding"))->name());
+		str += sprintf("%s正騎在%s上，低頭看着你。\n", pro, (obj->query_temp("is_riding"))->name());
 
 
 	if(wizardp(obj) && !obj->query("no_look_wiz"))
-		str+=sprintf(HIY"%s全身散发着耀眼的金光，看来是万物之尊的神类。\n"NOR, pro);
+		str+=sprintf(HIY"%s全身散發着耀眼的金光，看來是萬物之尊的神類。\n"NOR, pro);
 
-	if( (string)obj->query("race")=="人类" && intp(obj->query("age")) )
+	if( (string)obj->query("race")=="人類" && intp(obj->query("age")) )
 	{
 		if(obj->query("age")>10)
-        	str += sprintf("%s看起来约%s多岁。\n", pro, chinese_number(obj->query("age") / 10 * 10));
+        	str += sprintf("%s看起來約%s多歲。\n", pro, chinese_number(obj->query("age") / 10 * 10));
 		else
-		str += sprintf("%s看起来相当小。\n",pro);
+		str += sprintf("%s看起來相當小。\n",pro);
 	     if ( (obj == me || wizardp(me) ) && !getstr)
 //		if(obj == me)
 		{
-			str += sprintf("%s的武功看来", pro);
+			str += sprintf("%s的武功看來", pro);
 			str += gettof(me,obj);
 			str += sprintf("，");
 			str += sprintf("出手似乎");
@@ -443,7 +443,7 @@ varargs mixed look_living(object me, object obj, int getstr)
 	if(age > 70 ) per = per/4;
 	if(age > 60 ) per = per/3;
 	if(age > 50 ) per = per/2;
-	if( (string)obj->query("race")=="人类")
+	if( (string)obj->query("race")=="人類")
 	{
 		if(age<16 ) str += pro+ "身量不足，形容尚小。\n";
 		else
@@ -454,9 +454,9 @@ varargs mixed look_living(object me, object obj, int getstr)
 		if (living(obj))
 		{
 			if (!obj->query_temp("owner"))
-				str += pro+"是一只未被驯服的畜生，眼光里满是戒心和敌意。\n";
+				str += pro+"是一隻未被馴服的畜生，眼光裏滿是戒心和敵意。\n";
 			else
-				str += pro+"是一只被"+obj->query_temp("ownername")+"驯服的畜生，一副很温驯的样子。\n";
+				str += pro+"是一隻被"+obj->query_temp("ownername")+"馴服的畜生，一副很溫馴的樣子。\n";
 		}
 	}
 	wearornot = 0;
@@ -488,22 +488,22 @@ varargs mixed look_living(object me, object obj, int getstr)
 			if( obj->query("gender")=="女性" )
 			{
 				if (obj->query("mud_age") > me->query("mud_age"))
-				str += sprintf("%s是你的义姐。\n", pro);
-				else str += sprintf("%s是你的结义妹子。\n", pro);
+				str += sprintf("%s是你的義姐。\n", pro);
+				else str += sprintf("%s是你的結義妹子。\n", pro);
 			}
 			else
 			{
 				if (obj->query("mud_age") > me->query("mud_age"))
-				str += sprintf("%s是你的结义兄长。\n", pro);
-				else str += sprintf("%s是你的义弟。\n", pro);
+				str += sprintf("%s是你的結義兄長。\n", pro);
+				else str += sprintf("%s是你的義弟。\n", pro);
 			}
 		}
 	if(obj!=me && me->query("born") && me->query("born/hometown")==obj->query("born/hometown") )
 	{
-		str += sprintf("%s是你的老乡。\n", pro);
+		str += sprintf("%s是你的老鄉。\n", pro);
 	}
 	if((wearornot == 0 ) && userp(obj) && !wizardp(obj) )
-		str += pro+"身上居然什么都没穿耶！\n";
+		str += pro+"身上居然什麼都沒穿耶！\n";
 	// If we both has family, check if we have any relations.
 	if( obj!=me && mapp(fam = obj->query("family"))
 	&& mapp(my_fam = me->query("family"))
@@ -512,44 +512,44 @@ varargs mixed look_living(object me, object obj, int getstr)
 		if( fam["generation"]==my_fam["generation"] )
 		{
 			if( (string)obj->query("gender") == "男性" ||
-				(string)obj->query("gender") == "无性")
+				(string)obj->query("gender") == "無性")
 				str += sprintf( pro + "是你的%s%s。\n",
-					my_fam["master_id"] == fam["master_id"]? "": "同门",
-					my_fam["enter_time"] > fam["enter_time"] ? "师兄": "师弟");
+					my_fam["master_id"] == fam["master_id"]? "": "同門",
+					my_fam["enter_time"] > fam["enter_time"] ? "師兄": "師弟");
 			else
 				str += sprintf( pro + "是你的%s%s。\n",
-					my_fam["master_id"] == fam["master_id"]? "": "同门",
-					my_fam["enter_time"] > fam["enter_time"] ? "师姐": "师妹");
+					my_fam["master_id"] == fam["master_id"]? "": "同門",
+					my_fam["enter_time"] > fam["enter_time"] ? "師姐": "師妹");
 		} else if( fam["generation"] < my_fam["generation"] ) {
 			if( my_fam["master_id"] == obj->query("id") )
-				str += pro + "是你的师父。\n";
+				str += pro + "是你的師父。\n";
 			else if( my_fam["generation"] - fam["generation"] > 1 )
-				str += pro + "是你的同门长辈。\n";
+				str += pro + "是你的同門長輩。\n";
 			else if( fam["enter_time"] < my_fam["enter_time"] )
-				str += pro + "是你的师伯。\n";
+				str += pro + "是你的師伯。\n";
 			else
-				str += pro + "是你的师叔。\n";
+				str += pro + "是你的師叔。\n";
 		} else {
 			if( fam["generation"] - my_fam["generation"] > 1 )
-				str += pro + "是你的同门晚辈。\n";
+				str += pro + "是你的同門晚輩。\n";
 			else if( fam["master_id"] == me->query("id") )
 				str += pro + "是你的弟子。\n";
 			else
-				str += pro + "是你的师侄。\n";
+				str += pro + "是你的師侄。\n";
 		}
 	}
 
 	if( obj->query("max_qi") )
 		str += pro + COMBAT_D->eff_status_msg((int)obj->query("eff_qi")* 100 / (int)obj->query("max_qi")) + "\n";
 
-	if(obj->is_corpse() && obj->query("kantou") == 1) str += sprintf("%s连头都被割走了。\n", pro);
+	if(obj->is_corpse() && obj->query("kantou") == 1) str += sprintf("%s連頭都被割走了。\n", pro);
 
 	inv = all_inventory(obj);
 	if( sizeof(inv) ) {
 		inv = map_array(inv, "inventory_look", this_object(), obj->is_corpse()? 0 : 1 );
 		inv -= ({ 0 });
 		if( sizeof(inv) )
-			str += sprintf( obj->is_corpse() ? "%s的遗物有：\n%s\n": "%s身上带着：\n%s\n",
+			str += sprintf( obj->is_corpse() ? "%s的遺物有：\n%s\n": "%s身上帶着：\n%s\n",
 				pro, implode(inv, "\n") );
 	}
 	if (intp(getstr) && getstr==1) return str;
@@ -561,7 +561,7 @@ varargs mixed look_living(object me, object obj, int getstr)
 		(((me_shen - obj_shen) > ((int)obj->query("neili") * 20)) ||
 		((obj_shen - me_shen) > ((int)obj->query("neili") * 20))))
 	{
-		write( obj->name() + "突然转过头来瞪你一眼。\n");
+		write( obj->name() + "突然轉過頭來瞪你一眼。\n");
 		if(obj->query("age") > 15 && me->query("age") > 15)
 			if(!wizardp(obj) && !wizardp(me) &&
 				obj->query_temp("guardfor")!=me)
@@ -591,7 +591,7 @@ int look_room_item(object me, string arg)
 	mapping item, exits;
 
 	if( !objectp(env = environment(me)) )
-		return notify_fail("这里只有灰蒙蒙地一片，什么也没有。\n");
+		return notify_fail("這裏只有灰濛濛地一片，什麼也沒有。\n");
 	if( mapp(item = env->query("item_desc")) && !undefinedp(item[arg]) ) {
 		if( stringp(item[arg]) )
 			write(item[arg]);
@@ -609,7 +609,7 @@ int look_room_item(object me, string arg)
 		}
 		return 1;
 	}
-	return notify_fail("你要看什么？\n");
+	return notify_fail("你要看什麼？\n");
 }
 string tough_level(int power)
 {
@@ -725,9 +725,9 @@ int help (object me)
 	write(@HELP
 指令格式: look [<物品>|<生物>|<方向>]
 
-    这个指令让你查看你所在的环境、某件物品、生物、或是方向。
-可以看自己。（切记：ｌｏｏｋ的指令作用比一般人想象的要大得多，
-尤其是在迷宫中。）
+    這個指令讓你查看你所在的環境、某件物品、生物、或是方向。
+可以看自己。（切記：ｌｏｏｋ的指令作用比一般人想象的要大得多，
+尤其是在迷宮中。）
 
 HELP
 );

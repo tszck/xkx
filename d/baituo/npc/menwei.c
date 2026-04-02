@@ -7,11 +7,11 @@ void greeting(object);
 void init();
 void create()
 {
-	set_name("门卫", ({ "men wei", "wei"}) );
-	set("nickname", "铁狮子");
+	set_name("門衛", ({ "men wei", "wei"}) );
+	set("nickname", "鐵獅子");
 	set("gender", "男性" );
 	set("age", 22);
-	set("long", "这是个年富力强的卫兵，样子十分威严。\n");
+	set("long", "這是個年富力強的衛兵，樣子十分威嚴。\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 	set("str", 23);
@@ -51,19 +51,19 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	if((string)ob->query("family/family_name")=="白驼山派")
+	if((string)ob->query("family/family_name")=="白駝山派")
 	{
-		say("门卫笑吟吟地说道：这位" + RANK_D->query_respect(ob) + "您辛苦了，快请进吧　。\n");
+		say("門衛笑吟吟地說道：這位" + RANK_D->query_respect(ob) + "您辛苦了，快請進吧　。\n");
 		return;
 	}
 	if(!ob->query("family/family_name"))
 	{
-		say("门卫满脸笑容地说道：这位" + RANK_D->query_respect(ob) + "您是来拜师的吧。\n师傅就在里面，快请进吧。\n");
+		say("門衛滿臉笑容地說道：這位" + RANK_D->query_respect(ob) + "您是來拜師的吧。\n師傅就在裏面，快請進吧。\n");
 		return;
 	}
 	if((int)ob->query("shen")>200)
 	{
-		say("门卫两眼一瞪，说道：这位" + RANK_D->query_respect(ob) + "你是来找麻烦的吧。\n我劝你不要轻举妄动！\n");
+		say("門衛兩眼一瞪，說道：這位" + RANK_D->query_respect(ob) + "你是來找麻煩的吧。\n我勸你不要輕舉妄動！\n");
 		return;
 	}
 }

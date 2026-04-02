@@ -1,4 +1,4 @@
-// mingwang-jian.c 不动明王剑
+// mingwang-jian.c 不動明王劍
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,35 +7,35 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N怒目圆睁，使出一招"HIB"「不动」"NOR"，手中$w一抖，直刺$n的$l",
-	"skill_name" : "不动",
+([	"action" : "$N怒目圓睜，使出一招"HIB"「不動」"NOR"，手中$w一抖，直刺$n的$l",
+	"skill_name" : "不動",
 	"lvl" : 0
 ]),
-([	"action" : "$N使出一式"HIW"「起手出剑」"NOR"，足下一滑，剑芒闪向$n的$l",
-	"skill_name" : "起手出剑",
+([	"action" : "$N使出一式"HIW"「起手出劍」"NOR"，足下一滑，劍芒閃向$n的$l",
+	"skill_name" : "起手出劍",
 	"lvl" : 10
 ]),
-([	"action" : "$N使出一招"HIY"「山崩」"NOR"，纵身跃入半空，$w如山崩般劈向$n的$l",
+([	"action" : "$N使出一招"HIY"「山崩」"NOR"，縱身躍入半空，$w如山崩般劈向$n的$l",
 	"skill_name" : "山崩",
 	"lvl" : 20
 ]),
-([	"action" : "$N使出"HIC"「千旋转」"NOR"，将$w舞得如纺车一般，忽然一剑刺向$n的$l",
-	"skill_name" : "千旋转",
+([	"action" : "$N使出"HIC"「千旋轉」"NOR"，將$w舞得如紡車一般，忽然一劍刺向$n的$l",
+	"skill_name" : "千旋轉",
 	"lvl" : 30
 ]),
-([	"action" : "$N使出一招"HIM"「降魔舞」"NOR"，全身劲气贯于$w中，剑气直指$n的$l",
+([	"action" : "$N使出一招"HIM"「降魔舞」"NOR"，全身勁氣貫於$w中，劍氣直指$n的$l",
 	"skill_name" : "降魔舞",
 	"lvl" : 40
 ]),
-([	"action" : "$N单足独立，使出一式"MAG"「鹤舞」"NOR"，一道剑光如白影般向$n的$l扫去",
-	"skill_name" : "鹤舞",
+([	"action" : "$N單足獨立，使出一式"MAG"「鶴舞」"NOR"，一道劍光如白影般向$n的$l掃去",
+	"skill_name" : "鶴舞",
 	"lvl" : 50
 ]),
-([	"action" : "$N使出一招"GRN"「龙腾」"NOR"，手中$w如游龙般扑向$n的$l",
-	"skill_name" : "龙腾",
+([	"action" : "$N使出一招"GRN"「龍騰」"NOR"，手中$w如遊龍般撲向$n的$l",
+	"skill_name" : "龍騰",
 	"lvl" : 60
 ]),
-([	"action" : "$N飞身一跃，居高临下使出"BLU"「花雨满天」"NOR"，顿时剑尖如雨刺向$n的$l",
+([	"action" : "$N飛身一躍，居高臨下使出"BLU"「花雨滿天」"NOR"，頓時劍尖如雨刺向$n的$l",
 	"skill_name" : "花雨漫天",
 	"lvl" : 80
 ]),
@@ -47,14 +47,14 @@ int valid_enable(string usage) { return usage == "sword" || usage == "parry"; }
 int valid_learn(object me)
 {
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if ((int)me->query_skill("longxiang", 1) >= 20 ||
 		(int)me->query_skill("xiaowuxiang", 1) >= 20)
 		return 1;
 	else if ((int)me->query_skill("longxiang", 1) < 20)
-		return notify_fail("你的龙象般若功火候太浅。\n");
+		return notify_fail("你的龍象般若功火候太淺。\n");
 	else if ((int)me->query_skill("xiaowuxiang", 1) < 20)
-		return notify_fail("你的小无相功火候太浅。\n");
+		return notify_fail("你的小無相功火候太淺。\n");
 }
 int practice_skill(object me)
 {
@@ -62,10 +62,10 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if( (int)me->query("qi") < 30
 	|| (int)me->query("neili") < 15 )
-		return notify_fail("你的内力或气不够，练不了不动明王剑。\n");
+		return notify_fail("你的內力或氣不夠，練不了不動明王劍。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -10);
 	return 1;
@@ -94,17 +94,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "割伤" : "刺伤",
+		"damage_type" : random(2) ? "割傷" : "刺傷",
 	]);
 }
 int learn_bonus() { return 30; }
@@ -114,14 +114,14 @@ int power_point(object me) { return 1.0; }
 
 int help(object me)
 {
-	write(HIC"\n不动明王剑："NOR"\n");
+	write(HIC"\n不動明王劍："NOR"\n");
 	write(@HELP
 
-    雪域雪山寺剑法。
+    雪域雪山寺劍法。
 
-	学习要求：
-		龙象功或小无相功20级
-		内力100
+	學習要求：
+		龍象功或小無相功20級
+		內力100
 HELP
 	);
 	return 1;

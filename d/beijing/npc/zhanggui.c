@@ -3,7 +3,7 @@ inherit NPC;
 
 void create()
 {
-	set_name("掌柜", ({ "zhanggui", "gui" }));
+	set_name("掌櫃", ({ "zhanggui", "gui" }));
 	set("gender", "男性");
 	set("age", 45);
 

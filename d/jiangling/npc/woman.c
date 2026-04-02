@@ -6,15 +6,15 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("老板娘", ({ "laoban niang", "woman", "boss" }));
-	set("title", HIY"老通城第五代传人"NOR);
-	set("nickname", HIW"汉口一宝"NOR);
+	set_name("老闆娘", ({ "laoban niang", "woman", "boss" }));
+	set("title", HIY"老通城第五代傳人"NOR);
+	set("nickname", HIW"漢口一寶"NOR);
 	set("shen_type", 1);
 
 	set("str", 30);
 	set("gender", "女性");
 	set("age", 25);
-	set("long","一位年轻女人，略施脂粉，别有一番风韵，她正在灶台上忙活着，一边还招呼着客人。\n");
+	set("long","一位年輕女人，略施脂粉，別有一番風韻，她正在竈臺上忙活着，一邊還招呼着客人。\n");
 	set("combat_exp", 500);
 	set("attitude", "friendly");
 	set("vendor_goods", ({
@@ -45,10 +45,10 @@ void greeting(object ob)
 	if (!ob || environment(ob) != environment()) return;
 	switch(random(2)) {
 	case 0 :
-		say("老板娘笑眯眯地说道：这位" + RANK_D->query_respect(ob) + "，快请进来喝杯热茶唦。\n");
+		say("老闆娘笑眯眯地說道：這位" + RANK_D->query_respect(ob) + "，快請進來喝杯熱茶唦。\n");
 		break;
 	case 1 :
-		say("老板娘说道：哟！这位" + RANK_D->query_respect(ob) + "您喫么事？本店有刚煎好的豆皮，香喷喷的唦。\n");
+		say("老闆娘說道：喲！這位" + RANK_D->query_respect(ob) + "您喫麼事？本店有剛煎好的豆皮，香噴噴的唦。\n");
 		break;
 	}
 }

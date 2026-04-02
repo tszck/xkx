@@ -6,11 +6,11 @@ int ask_me();
 
 void create()
 {
-	set_name("飞凤花纹", ({ "picture"}) );
+	set_name("飛鳳花紋", ({ "picture"}) );
 	set("gender", "男性" );
 	set("age", 34);
 	set("long",
-		"他就是大名鼎鼎的四大恶人之一的云中鹤。\n");
+		"他就是大名鼎鼎的四大惡人之一的雲中鶴。\n");
 	set("max_qi", 5000);
 	set("max_jing", 5000);
 	set("max_neili", 5000);
@@ -91,9 +91,9 @@ ited"))
 		set_skill("sanshou", maxskill);
 		set_skill("qingfu-shenfa", maxskill*3/2);
 		set_skill("yunlong-shengong", maxskill);
-		obj->set("title","穷凶极恶");
+		obj->set("title","窮兇極惡");
 		obj->set_weight(500000);
-		set_name("云中鹤", ({ "yun zhonghe","yz"}) );
+		set_name("雲中鶴", ({ "yun zhonghe","yz"}) );
 		if (ob->query("id") == obj->query_temp("bt_ownname"))
 			obj->kill_ob(ob);
 		remove_call_out ("destroy_npc");
@@ -102,7 +102,7 @@ ited"))
 }
 void destroy_npc()
 {
-	message_vision("" + (string)this_object()->query("name") + "忽然打了个哆嗦，不由心生惧意，身形一晃，顿时混入莽莽人海之中。\n", environment(this_object()));
+	message_vision("" + (string)this_object()->query("name") + "忽然打了個哆嗦，不由心生懼意，身形一晃，頓時混入莽莽人海之中。\n", environment(this_object()));
 	destruct(this_object());
 }
 //int active_died()

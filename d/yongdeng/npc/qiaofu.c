@@ -11,7 +11,7 @@ void create()
 	set("str", 25);
 	set("dex", 16);
 	set("per", 21);
-	set("long", "这是一个精壮老汉。\n");
+	set("long", "這是一個精壯老漢。\n");
 	set("combat_exp", 5000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");

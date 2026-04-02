@@ -6,10 +6,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "衙门");
+	set("short", "衙門");
 	set("long", @LONG
-这是灵州府衙所在地，黑色大门平时紧紧闭着，门前四个身着皂服
-的衙役没精打采的拄着水火棍站着。边上有个大鼓。
+這是靈州府衙所在地，黑色大門平時緊緊閉着，門前四個身着皁服
+的衙役沒精打採的拄着水火棍站着。邊上有個大鼓。
 LONG );
 	set("exits", ([
 		"south" : __DIR__"dongdajie",

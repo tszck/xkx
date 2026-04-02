@@ -1,4 +1,4 @@
-// guijia.c 乌龟甲
+// guijia.c 烏龜甲
 
 inherit ITEM;
 #include <ansi.h>
@@ -11,13 +11,13 @@ void init()
 
 void create()
 {
-	set_name(HIB"乌龟甲"NOR, ({"gui jia","jia"}));
+	set_name(HIB"烏龜甲"NOR, ({"gui jia","jia"}));
 	set_weight(800);
 	set("vegetable", 2);
 	set("value", 300);
 	set("nostrum", 64);
-	set("unit", "块");
-	set("long", "这是一块乌龟甲，上面有各种花纹，看来可以入药。\n");
+	set("unit", "塊");
+	set("long", "這是一塊烏龜甲，上面有各種花紋，看來可以入藥。\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -26,12 +26,12 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
-	write("你不能这样就啃龟甲。\n");
+	write("你不能這樣就啃龜甲。\n");
 	return 1;
 }

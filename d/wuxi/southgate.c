@@ -6,11 +6,11 @@ inherit ROOM;
 string look_gaoshi();
 void create()
 {
-	set("short", "朝京门");
+	set("short", "朝京門");
 	set("long", @LONG
-这是南城门，城门的名称是从古汉之时就传下来了。城墙外就是清
-名桥，这里住了不少小商小贩，周围贴满了花花绿绿各行各业的广告，
-官府的告示(gaoshi)夹在中间倒也不太显目。
+這是南城門，城門的名稱是從古漢之時就傳下來了。城牆外就是清
+名橋，這裏住了不少小商小販，周圍貼滿了花花綠綠各行各業的廣告，
+官府的告示(gaoshi)夾在中間倒也不太顯目。
 LONG );
 	set("outdoors", "wuxi");
 	set("no_clean_up", 0);
@@ -33,5 +33,5 @@ LONG );
 
 string look_gaoshi()
 {
-	return FINGER_D->get_killer() + "\n无锡知府\n晨宜\n";
+	return FINGER_D->get_killer() + "\n無錫知府\n晨宜\n";
 }

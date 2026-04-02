@@ -11,7 +11,7 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一盆红白相间，脆嫩爽口，清香诱人的醋溜白菜。\n");
+		set("long", "一盆紅白相間，脆嫩爽口，清香誘人的醋溜白菜。\n");
 		set("unit", "盆");
 		set("value", 150);
 		set("food_remaining", 4);

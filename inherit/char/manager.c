@@ -1,12 +1,12 @@
 // /inherit/char/manager.c
 
 // last modified by sega 4/13/2000
-// 修改叛徒的属性为师傅的功夫,quest 的等级,呵呵
+// 修改叛徒的屬性爲師傅的功夫,quest 的等級,呵呵
 // Modified by Constant Jan 11 2001
 // Modified by sir 4/12/2001
-// 修改别派奸细,13个一轮,完成后附加pot,score奖励
+// 修改別派奸細,13個一輪,完成後附加pot,score獎勵
 // Modified by Zeratul May 3 2001
-//修改叛徒任务，10个一轮，完成后可以向师父切磋升特殊skill 1级,附加score奖励
+//修改叛徒任務，10個一輪，完成後可以向師父切磋升特殊skill 1級,附加score獎勵
 //Modified by sir 5.1.2002
 
 #include <dbase.h>
@@ -15,7 +15,7 @@
 #include <quest.h>
 #define ONE_DAY                 (86400 / 365)
 int is_manager() {return 1;}
-///////开始秘籍任务
+///////開始祕籍任務
 int party_quest_book(object me)
 {
 	object book, room, master = this_object();
@@ -25,20 +25,20 @@ int party_quest_book(object me)
 	me = this_player();
   if (!me->query("family/family_name"))
    {
-		message_vision("$N对着$n说：这位"+RANK_D->query_respect(me)+"何不加入我"+master->query("family/family_name")+"？\n", master, me);
+		message_vision("$N對着$n說：這位"+RANK_D->query_respect(me)+"何不加入我"+master->query("family/family_name")+"？\n", master, me);
 		return 1;
    	}
 	if (me->query("family/family_name") !=
 		master->query("family/family_name"))
 	{
-		message_vision("$N对着$n说：我不是你的掌门人，你回你们" + me->query("family/family_name") + "去吧。\n", master, me);
+		message_vision("$N對着$n說：我不是你的掌門人，你回你們" + me->query("family/family_name") + "去吧。\n", master, me);
 		return 1;
 	}
 
 	// Modified by zeratul 2000-12-24
 	if (me->query("combat_exp") <= 1000)
 	{
-		message_vision(WHT"$N对着$n说：你学艺未精，不宜下山。\n"NOR, master, me);
+		message_vision(WHT"$N對着$n說：你學藝未精，不宜下山。\n"NOR, master, me);
 		return 1;
 	}
 
@@ -46,12 +46,12 @@ int party_quest_book(object me)
 	{
 		if (time() < (int)me->query("quest/book/time") )
 		{
-			message_vision("$N对着$n说：我不是叫你去取" + me->query("quest/book/book") + "，怎么空手回来了！？\n", master, me);
+			message_vision("$N對着$n說：我不是叫你去取" + me->query("quest/book/book") + "，怎麼空手回來了！？\n", master, me);
 			return 1;
 		}
 		else
 		{
-			message_vision( CYN"$N对着$n说：你跑到哪里闲逛去了？这次可要小心在意些！\n"CYN, master, me );
+			message_vision( CYN"$N對着$n說：你跑到哪裏閒逛去了？這次可要小心在意些！\n"CYN, master, me );
 			quest_failed( me, "book" );
 		}
 	}
@@ -78,7 +78,7 @@ int party_quest_book(object me)
 		dir[i]=="xiakedao" ||
 		dir[i]=="npc")
 	{
-		message_vision("$N对着$n说：本门秘籍？不是好好的么？\n", master, me);
+		message_vision("$N對着$n說：本門祕籍？不是好好的麼？\n", master, me);
 		return 1;
 	}
 	if(!( room = find_object("/d/"+dir[i]+"/"+file[j]) ))
@@ -88,16 +88,16 @@ int party_quest_book(object me)
 	|| room->query("no_quest")		//add by qingyun
 )
 	{
-		message_vision("$N对着$n说：等等吧，等我回头清点一下看看。\n", master, me);
+		message_vision("$N對着$n說：等等吧，等我回頭清點一下看看。\n", master, me);
 		return 1;
 	}
 	book = new("/clone/quest/questbook");
-	book ->set("name", me->query("family/family_name")+"秘籍");
+	book ->set("name", me->query("family/family_name")+"祕籍");
 	book ->set("owner", me->query("id"));
 	book->move(room);
 	command("qst "+book->query("name")+"在"+room->query("short")+"(/d/"+dir[i]+"/"+file[j]+")。\n");
 
-	message_vision("$N对着$n说：本门秘籍流落江湖，听说最近在" + to_chinese(dir[i]) + "一带出现。你去把它取回来吧？\n", master, me);
+	message_vision("$N對着$n說：本門祕籍流落江湖，聽說最近在" + to_chinese(dir[i]) + "一帶出現。你去把它取回來吧？\n", master, me);
 	me->set("quest/book/book", book->query("name"));
 	me->set("quest/book/family", me->query("family/family_name"));
 	me->set("quest/book/time", time() + 500 );
@@ -115,23 +115,23 @@ int accept_quest_book(object me, object obj)
 	if (me->query("family/family_name") !=
 		master->query("family/family_name"))
 	{
-		message_vision("$N对着$n说：我不是你的掌门人，你回你们" + me->query("family/family_name") + "去吧。\n", master, me);
+		message_vision("$N對着$n說：我不是你的掌門人，你回你們" + me->query("family/family_name") + "去吧。\n", master, me);
 		return 1;
 	}
 	if (obj->query("owner") != me->query("id"))
 	{
-		message_vision("$N对着$n说：这不是我要你找的书。\n",master,me);
+		message_vision("$N對着$n說：這不是我要你找的書。\n",master,me);
 		return 1;
 	}
 	if ( !me->query("quest/book") || me->query( "quest/book/finished" ) )
 	{
-		message_vision("$N对着$n说：我没要这书，你去哪里拿来的！\n", master, me);
+		message_vision("$N對着$n說：我沒要這書，你去哪裏拿來的！\n", master, me);
 		destruct(obj);
 		return 1;
 	}
 	if (time() - (int)me->query("quest/book/time") > 1500 )
 	{
-		message_vision("$N对着$n说：你平时练功勤奋点，就不必去这么久了！下次努力点！\n", master, me);
+		message_vision("$N對着$n說：你平時練功勤奮點，就不必去這麼久了！下次努力點！\n", master, me);
 		destruct(obj);
 		quest_failed( me, "book" );
 		return 1;
@@ -143,7 +143,7 @@ int accept_quest_book(object me, object obj)
 	else times=4;
 
 	e_bonus = 100 + random( 50 );
-	cost = time() - ((int)me->query("quest/book/time")-500); //花了多少时间完成
+	cost = time() - ((int)me->query("quest/book/time")-500); //花了多少時間完成
 
 	e_bonus += e_bonus * cost /250; // cost 最高1500  也就是四倍
 	p_bonus = 12 + random( e_bonus / 8 );
@@ -152,21 +152,21 @@ int accept_quest_book(object me, object obj)
 	me->add("combat_exp",e_bonus);
 	me->add("potential",p_bonus);
 	me->add("family/fealty",s_bonus);
-	me->set_temp("prize_reason","秘籍");
+	me->set_temp("prize_reason","祕籍");
 	me->set_temp("can_give_prize",1);
 	me->set_temp("prize_exp",e_bonus);
 	me->set_temp("prize_pot",p_bonus);
 	me->add("family/gongxian",1);
 
 
-	message_vision("$N对着$n说：本门秘籍？不错，你为本门立了一大功！\n", master, me);
-	tell_object(me,HIW + "你这次行走江湖，获得了" + chinese_number(e_bonus) + "点实战经验，" + chinese_number(p_bonus) + "点潜能，增长了" + chinese_number(s_bonus) + "点师门忠诚。\n"NOR);
+	message_vision("$N對着$n說：本門祕籍？不錯，你爲本門立了一大功！\n", master, me);
+	tell_object(me,HIW + "你這次行走江湖，獲得了" + chinese_number(e_bonus) + "點實戰經驗，" + chinese_number(p_bonus) + "點潛能，增長了" + chinese_number(s_bonus) + "點師門忠誠。\n"NOR);
 
 	quest_finished( me, "book" );
 	return 1;
 }
-//////////秘籍结束//////////
-//////////开始叛徒任务 ////////////
+//////////祕籍結束//////////
+//////////開始叛徒任務 ////////////
 object create_betrayer(object me)
 {
 	mapping name, hp_status, skill_status, map_status, prepare_status;
@@ -213,7 +213,7 @@ object create_betrayer(object me)
 	obj->set("neili",     hp_status["max_neili"]);
 	obj->set("jiali",     hp_status["max_neili"]/20);
 	obj->set("combat_exp",hp_status["combat_exp"]*5/4+100);
-/* 1000万以上玩家，在此长正气或戾气 */
+/* 1000萬以上玩家，在此長正氣或戾氣 */
 	if(me->query("combat_exp") > 100000000)
 			obj->set("shen", -1 * master->query("shen_type") * obj->query("combat_exp") / 2000);
 /* skill */
@@ -279,7 +279,7 @@ object create_betrayer(object me)
 	obj->set("title",master->query("family/family_name") + "第" + chinese_number((int)master->query("family/generation") + 1) + "代叛徒");
   return obj;
 }
-////////询问获得叛徒任务//////////
+////////詢問獲得叛徒任務//////////
 int party_quest_betrayer(object me)
 {
  string *dir, *file;
@@ -291,18 +291,18 @@ int party_quest_betrayer(object me)
 
   if (!me->query("family/family_name"))
    {
-		message_vision("$N对着$n说：这位"+RANK_D->query_respect(me)+"何不加入我"+master->query("family/family_name")+"？\n", master, me);
+		message_vision("$N對着$n說：這位"+RANK_D->query_respect(me)+"何不加入我"+master->query("family/family_name")+"？\n", master, me);
 		return 1;
    	}
 	if (me->query("family/family_name") !=
 		master->query("family/family_name"))
 	{
-		message_vision("$N对着$n说：我不是你的掌门人，你回你们"+me->query("family/family_name")+"去吧。\n", master, me);
+		message_vision("$N對着$n說：我不是你的掌門人，你回你們"+me->query("family/family_name")+"去吧。\n", master, me);
 		return 1;
 	}
 	if (me->query("combat_exp") <= 10000)
 	{
-		message_vision(WHT"$N对着$n说：你学艺未精，不宜下山。\n"NOR, master, me);
+		message_vision(WHT"$N對着$n說：你學藝未精，不宜下山。\n"NOR, master, me);
 		return 1;
 	}
 	if ( islocked( me, "betrayer" ) ) return 1;
@@ -311,12 +311,12 @@ int party_quest_betrayer(object me)
 	{
 		if (time() < (int)me->query("quest/betrayer/time") )
 		{
-			message_vision("$N对着$n说：我不是叫你去杀" + me->query("quest/betrayer/name") + "，怎么空手回来了！？\n", master, me);
+			message_vision("$N對着$n說：我不是叫你去殺" + me->query("quest/betrayer/name") + "，怎麼空手回來了！？\n", master, me);
 			return 1;
 		}
 		else
 		{
-			message_vision( WHT"$N对着$n说：你跑到那里闲逛去了？\n"NOR, master, me );
+			message_vision( WHT"$N對着$n說：你跑到那裏閒逛去了？\n"NOR, master, me );
 			quest_failed( me, "betrayer" );
 			me->add("qi",-(int)(me->query("qi")/10));
 		}
@@ -324,7 +324,7 @@ int party_quest_betrayer(object me)
 
 
 /* Move to dest place */
-//先选地方 减少系统开支
+//先選地方 減少系統開支
 	dir = get_dir("/d/");
 	i = random(sizeof(dir));
 	file = get_dir("/d/"+dir[i]+"/");
@@ -349,7 +349,7 @@ int party_quest_betrayer(object me)
 		dir[i]=="gaibang"||
 		dir[i]=="npc")
 	{
-		message_vision("$N对着$n说：等等吧，等下山弟子回山后你再来看看。\n", master, me);
+		message_vision("$N對着$n說：等等吧，等下山弟子回山後你再來看看。\n", master, me);
 		return 1;
 	}
 	if(!( room = find_object("/d/"+dir[i]+"/"+file[j]) ))
@@ -359,7 +359,7 @@ int party_quest_betrayer(object me)
 	|| room->query("no_quest")		//add by qingyun
 		|| room->query("no_fight"))
 	{
-		message_vision("$N对着$n说：等等吧，等下山弟子回山再看看。\n", master, me);
+		message_vision("$N對着$n說：等等吧，等下山弟子回山再看看。\n", master, me);
 		return 1;
 	}
 
@@ -371,11 +371,11 @@ int party_quest_betrayer(object me)
 	if (!objectp(obj) || !obj->move(room))
 	{
 		if (objectp(obj))	destruct(obj);
-		message_vision("$N对着$n说：等等吧，等下山弟子回山再看看。\n", master, me);
+		message_vision("$N對着$n說：等等吧，等下山弟子回山再看看。\n", master, me);
   	 return 1;
 	}
 	command("qst "+obj->query("name")+"("+obj->query("id")+")"+"在"+room->query("short")+"(/d/"+dir[i]+"/"+file[j]+")。\n");
-	message_vision("$N对着$n说：本门归山弟子回报，本门叛徒" + obj->query("name") + "在" + to_chinese(dir[i]) + "一带出没。你敢去把这叛徒的人头给我取回来么？\n", master, me);
+	message_vision("$N對着$n說：本門歸山弟子回報，本門叛徒" + obj->query("name") + "在" + to_chinese(dir[i]) + "一帶出沒。你敢去把這叛徒的人頭給我取回來麼？\n", master, me);
 	me->set("quest/betrayer/name", obj->query("name"));
 	me->set("quest/betrayer/family", obj->query("family/family_name"));
 	me->set("quest/betrayer/time", time() + 500);
@@ -384,7 +384,7 @@ int party_quest_betrayer(object me)
 	me->delete("quest/betrayer/finished");
 	return 1;
 }
-///////完成叛徒任务、奖励///////
+///////完成叛徒任務、獎勵///////
 int accept_quest_betrayer(object me, object obj)
 {
 	object master = this_object();
@@ -396,7 +396,7 @@ int accept_quest_betrayer(object me, object obj)
 	if (me->query("family/family_name") !=
 		master->query("family/family_name"))
 	{
-		message_vision("$N对着$n说：我不是你的掌门人，你回你们" + me->query("family/family_name") + "去吧。\n", master, me);
+		message_vision("$N對着$n說：我不是你的掌門人，你回你們" + me->query("family/family_name") + "去吧。\n", master, me);
 		return 1;
 	}
 	if ( islocked( me, "betrayer" ) ) return 1;
@@ -405,7 +405,7 @@ int accept_quest_betrayer(object me, object obj)
 		return 0;
 	if (obj->query("userp") == 1)
 	{
-		message_vision(HIR "$N对着$n说：我叫你杀叛徒，你却去杀玩家！去死吧你！\n"NOR, master, me);
+		message_vision(HIR "$N對着$n說：我叫你殺叛徒，你卻去殺玩家！去死吧你！\n"NOR, master, me);
 		destruct(obj);
 		quest_failed( me, "betrayer" );
 		me->delete_temp("mebetrayernum");
@@ -414,7 +414,7 @@ int accept_quest_betrayer(object me, object obj)
 	}
 	if (obj->query("quest") != "betrayer" )
 	{
-		message_vision( HIR"$N对着$n说：我叫你杀叛徒，你却滥杀无辜，蒙蔽师长！去死吧你！\n"NOR, master, me);
+		message_vision( HIR"$N對着$n說：我叫你殺叛徒，你卻濫殺無辜，矇蔽師長！去死吧你！\n"NOR, master, me);
 		destruct(obj);
 		quest_failed( me, "thief" );
 		me->delete_temp("methiefnum");
@@ -429,12 +429,12 @@ int accept_quest_betrayer(object me, object obj)
 	if (num<4) times=num;
 	else times=4;
 
-	cost = time() - ((int)me->query("quest/betrayer/time")-500); //花了多少时间完成
+	cost = time() - ((int)me->query("quest/betrayer/time")-500); //花了多少時間完成
 
 //  e_bonus = 200 + random( 200 );
 		e_bonus = 200 + random( 100 );
     e_bonus += 50*me->query_temp("mebetrayernum");
-    e_bonus += e_bonus * cost / 1200; // 叛徒1200秒就会自动跑走
+    e_bonus += e_bonus * cost / 1200; // 叛徒1200秒就會自動跑走
 //	p_bonus = (int)random(e_bonus/4)+35;
     p_bonus = (int)random(e_bonus/2)+35;
   	s_bonus = random(10)+ 15* times;
@@ -447,8 +447,8 @@ int accept_quest_betrayer(object me, object obj)
 	me->set_temp("prize_exp",e_bonus);
 	me->set_temp("prize_pot",p_bonus);
 
-	message_vision("$N对着$n说：叛徒的人头？不错，你为本门清理了门户！\n", master, me);
-	tell_object(me,HIW + "你经过这次拼杀，获得了" + chinese_number(e_bonus) + "点实战经验，" + chinese_number(p_bonus) + "点潜能，增长了" + chinese_number(s_bonus) + "点师门忠诚。\n"NOR);
+	message_vision("$N對着$n說：叛徒的人頭？不錯，你爲本門清理了門戶！\n", master, me);
+	tell_object(me,HIW + "你經過這次拼殺，獲得了" + chinese_number(e_bonus) + "點實戰經驗，" + chinese_number(p_bonus) + "點潛能，增長了" + chinese_number(s_bonus) + "點師門忠誠。\n"NOR);
 
 	me->add_temp("mebetrayernum",1);
 
@@ -458,8 +458,8 @@ int accept_quest_betrayer(object me, object obj)
 		me->delete_temp("mebetrayernum");
 		me->set_temp("family_can_qiecuo",1);
 
-		message_vision(HIW "$N对着$n笑道：你在外游历期间，为师闭关参悟，近日出关，武学修为又有所突破！\n", master, me);
-		tell_object(me,HIM +"你现在有机会与"+ master->query("name")+"切磋 ( qiecuo )武学。\n"NOR);
+		message_vision(HIW "$N對着$n笑道：你在外遊歷期間，爲師閉關參悟，近日出關，武學修爲又有所突破！\n", master, me);
+		tell_object(me,HIM +"你現在有機會與"+ master->query("name")+"切磋 ( qiecuo )武學。\n"NOR);
 	}
 
 	quest_finished( me, "betrayer" );
@@ -468,7 +468,7 @@ int accept_quest_betrayer(object me, object obj)
 }
 
 
-//取消任务
+//取消任務
 int cancle_quest_betrayer( object me )
 {
 	object master = this_object();
@@ -477,16 +477,16 @@ int cancle_quest_betrayer( object me )
 		return 0;
 	if ( me->query( "quest/betrayer/lock" ) )
 	{
-		tell_object( me, "你已经取消任务了！\n" );
+		tell_object( me, "你已經取消任務了！\n" );
 		return 1;
 	}
 	lock_quest( me, "betrayer", "book" );
-	message_vision( "$N对$n说道：那你就帮我找找秘籍吧。\n", master, me );
+	message_vision( "$N對$n說道：那你就幫我找找祕籍吧。\n", master, me );
 	return 1;
 }
-/////叛徒结束//////////////
+/////叛徒結束//////////////
 
-/////////开始奸细任务////////
+/////////開始奸細任務////////
 object create_thief( object me )
 {
 	mapping name, hp_status, skill_status, map_status, prepare_status;
@@ -686,7 +686,7 @@ object create_thief( object me )
 			weapon->wield();
 		}
 	obj->set( "family_name", thief_master->query("family/family_name") );
-/* 1000万以上玩家，在此长正气或戾气 */
+/* 1000萬以上玩家，在此長正氣或戾氣 */
 	if(me->query("combat_exp") > 100000000)
 			obj->set("shen", -1 * thief_master->query("shen_type") * obj->query("combat_exp") / 2000);
  	destruct( thief_master );
@@ -703,19 +703,19 @@ int party_quest_thief(object me)
 	me = this_player();
   if (!me->query("family/family_name"))
    {
-		message_vision("$N对着$n说：这位"+RANK_D->query_respect(me)+"何不加入我"+master->query("family/family_name")+"？\n", master, me);
+		message_vision("$N對着$n說：這位"+RANK_D->query_respect(me)+"何不加入我"+master->query("family/family_name")+"？\n", master, me);
 		return 1;
    	}
 	if (me->query("family/family_name") !=
 		master->query("family/family_name"))
 	{
-		message_vision("$N对着$n说：我不是你的掌门人，你回你们"+me->query("family/family_name")+"去吧。\n", master, me);
+		message_vision("$N對着$n說：我不是你的掌門人，你回你們"+me->query("family/family_name")+"去吧。\n", master, me);
 		return 1;
 	}
 
 	if (me->query("combat_exp") <= 100000)
 	{
-		message_vision(WHT"$N对着$n说：你学艺未精，无能锄奸。\n"NOR, master, me);
+		message_vision(WHT"$N對着$n說：你學藝未精，無能鋤奸。\n"NOR, master, me);
 		return 1;
 	}
 
@@ -728,12 +728,12 @@ int party_quest_thief(object me)
 	{
 		if (time() < (int)me->query("quest/thief/time") )
 		{
-			message_vision("$N对着$n说：怎么样，奸细"+ me->query("quest/thief/name")+"的人头呢！？\n", master, me);
+			message_vision("$N對着$n說：怎麼樣，奸細"+ me->query("quest/thief/name")+"的人頭呢！？\n", master, me);
 			return 1;
 		}
 		else
 		{
-			message_vision( CYN"$N对着$n说：你跑到哪里闲逛去了？这次可要小心在意些！\n"NOR, master, me );
+			message_vision( CYN"$N對着$n說：你跑到哪裏閒逛去了？這次可要小心在意些！\n"NOR, master, me );
 			quest_failed( me, "thief" );
 			if ((int)me->query_temp("methiefnum")>1)
 				me->add_temp("methiefnum",-1);
@@ -746,7 +746,7 @@ int party_quest_thief(object me)
 /* Move to dest place */
 	dir = get_dir("/d/");
 //	for (i = 0; i < sizeof(dir); i++)
-// 为了照顾南少林(shaolin是nanshaolin字符串的子集)，所以从后读起
+// 爲了照顧南少林(shaolin是nanshaolin字符串的子集)，所以從後讀起
 	for (i = sizeof(dir)-1; i >= 0; i--)
 	{
 		if (strsrch(master->query("startroom"), dir[i]) >= 0)
@@ -758,7 +758,7 @@ int party_quest_thief(object me)
 	if (sizeof(file[j]) < 2 ||
 		file[j][sizeof(file[j])-2..sizeof(file[j])-1] != ".c" )
 	{
-		message_vision("$N对着$n说：等等吧，等下山弟子回山后你再来看看。\n", master, me);
+		message_vision("$N對着$n說：等等吧，等下山弟子回山後你再來看看。\n", master, me);
 		return 1;
 	}
 	if(!( room = find_object("/d/"+dir[k]+"/"+file[j]) ))
@@ -769,13 +769,13 @@ int party_quest_thief(object me)
 	|| room->query("no_quest")		//add by qingyun
 )
 	{
-		message_vision("$N对着$n说：等等吧，等下山弟子回山再看看。\n", master, me);
+		message_vision("$N對着$n說：等等吧，等下山弟子回山再看看。\n", master, me);
 		return 1;
 	}
 	err = catch(obj = create_thief( me ));
 	if (stringp(err))
 	{
-		// tell_object(find_player("qingyun"),"出错。\nerr="+err);
+		// tell_object(find_player("qingyun"),"出錯。\nerr="+err);
 		return 1;
 	}
   if (!obj ||
@@ -783,7 +783,7 @@ int party_quest_thief(object me)
   !obj->move(room))
    {
    	if (objectp(obj)) destruct(obj);
-   	message_vision("$N对着$n说：我这里有点事要忙，等会儿我再看看吧。\n", master, me);
+   	message_vision("$N對着$n說：我這裏有點事要忙，等會兒我再看看吧。\n", master, me);
     return 1;
    }
 	if (!master->query_temp("thiefs")) master->set_temp("thiefs", 1);
@@ -795,7 +795,7 @@ int party_quest_thief(object me)
 	me->set("quest/thief/name", obj->query("fname"));
 	me->set("quest/thief/family", obj->query("family/family_name"));
 	me->set("quest/thief/time", time() + 300 );
-	message_vision("$N对着$n说：本门弟子回报，我派周围有陌生人出现。你去查看一下是不是别派的奸细？\n", master, me);
+	message_vision("$N對着$n說：本門弟子回報，我派周圍有陌生人出現。你去查看一下是不是別派的奸細？\n", master, me);
 	me->set( "quest/thief/obj", obj );
 	me->delete( "quest/thief/finished" );
 	command("qst "+obj->query("name")+"在"+room->query("short")+"(/d/"+dir[k]+"/"+file[j]+")。\n");
@@ -813,7 +813,7 @@ int accept_quest_thief(object me, object obj)
 	if (me->query("family/family_name") !=
 		master->query("family/family_name"))
 	{
-		message_vision("$N对着$n说：我不是你的掌门人，你回你们"+me->query("family/family_name")+"去吧。\n", master, me);
+		message_vision("$N對着$n說：我不是你的掌門人，你回你們"+me->query("family/family_name")+"去吧。\n", master, me);
 		return 1;
 	}
 	if ( islocked( me, "thief" ) )
@@ -824,7 +824,7 @@ int accept_quest_thief(object me, object obj)
 
 	if (obj->query("userp") == 1)
 	{
-		message_vision( HIR"$N对着$n说：我叫你杀奸细，你却去杀玩家！去死吧你！\n"NOR, master, me);
+		message_vision( HIR"$N對着$n說：我叫你殺奸細，你卻去殺玩家！去死吧你！\n"NOR, master, me);
 		destruct(obj);
 		quest_failed( me, "thief" );
 		me->delete_temp("methiefnum");
@@ -834,7 +834,7 @@ int accept_quest_thief(object me, object obj)
 
 	if (obj->query("quest") != "thief" )
 	{
-		message_vision( HIR"$N对着$n说：我叫你杀奸细，你却滥杀无辜，蒙蔽师长！去死吧你！\n"NOR, master, me);
+		message_vision( HIR"$N對着$n說：我叫你殺奸細，你卻濫殺無辜，矇蔽師長！去死吧你！\n"NOR, master, me);
 		destruct(obj);
 		quest_failed( me, "thief" );
 		me->delete_temp("methiefnum");
@@ -849,7 +849,7 @@ int accept_quest_thief(object me, object obj)
 	if (num<4) times = num;
 	else times = 4;
 
-	cost = time() - ((int)me->query("quest/thief/time")-300); //花了多少时间完成
+	cost = time() - ((int)me->query("quest/thief/time")-300); //花了多少時間完成
 
 	e_bonus = (int)me->query_temp("methiefnum");
 	e_bonus = e_bonus*100 + 200 + random(50);
@@ -865,13 +865,13 @@ int accept_quest_thief(object me, object obj)
 	me->add("potential", p_bonus);
 	me->add("family/fealty", s_bonus);
 	me->add("family/gongxian",1);
-	me->set_temp("prize_reason","奸细");
+	me->set_temp("prize_reason","奸細");
 	me->set_temp("can_give_prize",1);
 	me->set_temp("prize_exp",e_bonus);
 	me->set_temp("prize_pot",p_bonus);
 
-	message_vision("$N对着$n说：奸细的人头？不错，你为本门立一大功！\n", master, me);
-	tell_object(me, HIW + "经过这番历练，你获得了" + chinese_number(e_bonus) + "点实战经验，" + chinese_number(p_bonus) + "点潜能，增长" + chinese_number(s_bonus) + "点师门忠诚。\n"NOR);
+	message_vision("$N對着$n說：奸細的人頭？不錯，你爲本門立一大功！\n", master, me);
+	tell_object(me, HIW + "經過這番歷練，你獲得了" + chinese_number(e_bonus) + "點實戰經驗，" + chinese_number(p_bonus) + "點潛能，增長" + chinese_number(s_bonus) + "點師門忠誠。\n"NOR);
 
 	me->add_temp("methiefnum",1);
 
@@ -882,8 +882,8 @@ int accept_quest_thief(object me, object obj)
 
 		me->add("potential",p_bonus);
 		me->add("score", 4000);
-		message_vision(HIW "$N对着$n笑道：哈哈哈！真乃可塑之才也，为本门屡立奇功呀！\n"NOR, master, me);
-		tell_object(me,HIM + master->query("name")+"嘉奖了你："	+ chinese_number(p_bonus) + "点潜能，\n"NOR);
+		message_vision(HIW "$N對着$n笑道：哈哈哈！真乃可塑之才也，爲本門屢立奇功呀！\n"NOR, master, me);
+		tell_object(me,HIM + master->query("name")+"嘉獎了你："	+ chinese_number(p_bonus) + "點潛能，\n"NOR);
 	}
 
 	quest_finished( me, "thief" );
@@ -899,16 +899,16 @@ int cancle_quest_thief( object me )
 		return 0;
 	if( me->query( "quest/thief/lock" ) )
 	{
-		tell_object( me, "你已经取消任务了！\n" );
+		tell_object( me, "你已經取消任務了！\n" );
 		return 1;
 	}
 	lock_quest( me, "thief", "betrayer" );
-	message_vision( "$N对着$n说：还是先把本门叛徒铲除干净再管别的事吧。\n", master, me );
+	message_vision( "$N對着$n說：還是先把本門叛徒剷除乾淨再管別的事吧。\n", master, me );
 	me->delete_temp("methiefnum");
 
 	return 1;
 }
-/////////奸细任务结束////////////
+/////////奸細任務結束////////////
 int party_quest_kill(object me)
 {
 	object killer, room, master = this_object();
@@ -922,48 +922,48 @@ int party_quest_kill(object me)
 	if (master->query("eff_qi") * 2 < master->query("max_qi") ||
 		master->query("qi") * 2 < master->query("max_qi"))
 	{
-		message_vision(HIC "$N" HIC "捂着胸口，一副非常痛苦的样子，对你的"
-                               "话显然没有听进去。\n" NOR, me);
+		message_vision(HIC "$N" HIC "捂着胸口，一副非常痛苦的樣子，對你的"
+                               "話顯然沒有聽進去。\n" NOR, me);
 		return 1;
 	}
 
   if (!me->query("family/family_name"))
   {
-		message_vision("$N对着$n说：这位"+RANK_D->query_respect(me)+"何不加入我"+master->query("family/family_name")+"？\n", master, me);
+		message_vision("$N對着$n說：這位"+RANK_D->query_respect(me)+"何不加入我"+master->query("family/family_name")+"？\n", master, me);
 		return 1;
  	}
 
 	if (me->query("family/family_name") !=
 		master->query("family/family_name"))
 	{
-		message_vision("$N对着$n说：我不是你的掌门人，你回你们" + me->query("family/family_name") + "去吧。\n", master, me);
+		message_vision("$N對着$n說：我不是你的掌門人，你回你們" + me->query("family/family_name") + "去吧。\n", master, me);
 		return 1;
 	}
 
 	if (me->query("combat_exp") <= 1000)
 	{
-		message_vision(WHT"$N对着$n说：你学艺未精，不宜下山。\n"NOR, master, me);
+		message_vision(WHT"$N對着$n說：你學藝未精，不宜下山。\n"NOR, master, me);
 		return 1;
 	}
 
 	if ( me->query("quest/kill") && !me->query( "quest/kill/finished" ) )
 	{
-			message_vision("$N对着$n说：我不是叫你在"HIY+CHINESE_D->chinese_monthday(((me->query("quest/kill/time")-1270000000)*365))+NOR"之前杀了" + me->query("quest/kill/name") + "，现在是"HIY+CHINESE_D->chinese_monthday(((time()-1270000000)*365))+NOR"，我要的人头呢！？\n", master, me);
+			message_vision("$N對着$n說：我不是叫你在"HIY+CHINESE_D->chinese_monthday(((me->query("quest/kill/time")-1270000000)*365))+NOR"之前殺了" + me->query("quest/kill/name") + "，現在是"HIY+CHINESE_D->chinese_monthday(((time()-1270000000)*365))+NOR"，我要的人頭呢！？\n", master, me);
 			return 1;
 	}
 
 	if (me->query("shen")>0 && master->query("shen")<0)
 	{
-		message_vision(CYN "$N" CYN "大怒道：岂有此理！才几天不见，"
-                  "你居然也学起假仁假义来了，快给我滚！\n"
+		message_vision(CYN "$N" CYN "大怒道：豈有此理！才幾天不見，"
+                  "你居然也學起假仁假義來了，快給我滾！\n"
                    NOR, master, me);
     return 1;
 	}
 
 	if (me->query("shen")<0 && master->query("shen")>0)
 	{
-		message_vision(CYN "$N" CYN "大怒道：岂有此理！你居然已经误"
-                  "入歧途，还敢来见我！\n" NOR, master, me);
+		message_vision(CYN "$N" CYN "大怒道：豈有此理！你居然已經誤"
+                  "入歧途，還敢來見我！\n" NOR, master, me);
     return 1;
 	}
 
@@ -973,9 +973,9 @@ int party_quest_kill(object me)
 	killer = new("/clone/quest/killer");
 	killer ->set("owner", me->query("id"));
 	killer ->set("level", level);
-	NPC_D->copy_skill(killer); //无参数则随机取门派
-	NPC_D->init_npc_skill(killer,NPC_D->check_level(me));//按经验拷贝等级
-	NPC_D->copy_status(killer,me,100); //拷贝状态百分率
+	NPC_D->copy_skill(killer); //無參數則隨機取門派
+	NPC_D->init_npc_skill(killer,NPC_D->check_level(me));//按經驗拷貝等級
+	NPC_D->copy_status(killer,me,100); //拷貝狀態百分率
 
 	if (killer->query("combat_exp")<1000000)
 		killer->set("neili",killer->query("max_neili"));
@@ -1002,57 +1002,57 @@ int party_quest_kill(object me)
 	place = to_chinese(killer->query("place"));
 	command("qst "+killer->query("name")+"("+killer->query("id") +")"+"在"+room->query("short")+"("+file_name(room)+")。\n");
 
-		message("vision", WHT + master->name() + WHT "小声的对" + me->name() +
-				  WHT "吩咐着什么，" + me->name() +
-				  WHT "一边听，一边不住的点头。\n" NOR,
+		message("vision", WHT + master->name() + WHT "小聲的對" + me->name() +
+				  WHT "吩咐着什麼，" + me->name() +
+				  WHT "一邊聽，一邊不住的點頭。\n" NOR,
 	       			   environment(me), ({ me }));
 		if (master->query("shen")>0)
 		{
 			killer->set("shen", -killer->query("combat_exp") / 2000);
 			if (master->query("family/family_name") == "少林派")
-				tell_object(me, CYN + master->name() + CYN "对你道：虽"
-						 "然我们出家人以慈悲为怀，但是对于大"
-						 "凶大恶之徒也不能放过。\n最近" NOR +
+				tell_object(me, CYN + master->name() + CYN "對你道：雖"
+						 "然我們出家人以慈悲爲懷，但是對於大"
+						 "兇大惡之徒也不能放過。\n最近" NOR +
 						 HIR + killer->name() +"("+killer->query("id") +")"+NOR + CYN "在" +
-						 place + "作恶多端，你去把他除了，提头来见。\n" NOR);
+						 place + "作惡多端，你去把他除了，提頭來見。\n" NOR);
 			else
-				tell_object(me, CYN + master->name() + CYN"对你道：" NOR
-						 + HIR + killer->name() +"("+killer->query("id") +")"+ NOR + CYN "这个"
-						 "败类打家劫舍，无恶不作，\n听说他最近"
-						 "在" + place +	"，你去除掉他，提头来见我。\n" NOR);
+				tell_object(me, CYN + master->name() + CYN"對你道：" NOR
+						 + HIR + killer->name() +"("+killer->query("id") +")"+ NOR + CYN "這個"
+						 "敗類打家劫舍，無惡不作，\n聽說他最近"
+						 "在" + place +	"，你去除掉他，提頭來見我。\n" NOR);
 		} else
 		if (master->query("shen")<0)
 		{
 			killer->set("shen", killer->query("combat_exp") / 2000);
-			tell_object(me, CYN + master->name() + CYN "对你道：" NOR + HIR
-					 + killer->name() +"("+killer->query("id") +")"+ NOR + CYN "这个所谓大侠屡次"
-					 "和我派作对，\n听说他最近在" + place + "，你"
-					 "去宰了他，提头来见！\n" NOR);
+			tell_object(me, CYN + master->name() + CYN "對你道：" NOR + HIR
+					 + killer->name() +"("+killer->query("id") +")"+ NOR + CYN "這個所謂大俠屢次"
+					 "和我派作對，\n聽說他最近在" + place + "，你"
+					 "去宰了他，提頭來見！\n" NOR);
 		} else
 		{
 			killer->set("shen_type", 0);
 			killer->set("shen", 0);
-			tell_object(me, CYN + master->name() + CYN "对你说道：我早就看"
-					 NOR + HIR + killer->name() +"("+killer->query("id") +")"+ NOR + CYN "不顺眼"
-					 "，\n听说他最近在" + place + "，你去做了他，带他的人头来交差！\n" NOR);
+			tell_object(me, CYN + master->name() + CYN "對你說道：我早就看"
+					 NOR + HIR + killer->name() +"("+killer->query("id") +")"+ NOR + CYN "不順眼"
+					 "，\n聽說他最近在" + place + "，你去做了他，帶他的人頭來交差！\n" NOR);
 		}
                 switch (level)
                 {
                 case 0:
-                        message_vision(CYN "$N" CYN "顿了顿，又对$n" CYN "道：这个"
-                                       "事情容易办得很，你要是还办不成那可不象话。"
+                        message_vision(CYN "$N" CYN "頓了頓，又對$n" CYN "道：這個"
+                                       "事情容易辦得很，你要是還辦不成那可不象話。"
                                        "\n" NOR, master, me);
                         break;
                 case 1:
                         break;
                 case 2:
-                        message_vision(CYN "$N" CYN "看了看$n" CYN "又道：这个事情"
-                                       "很是有些难办，你要是不行我就另找人吧。\n"
+                        message_vision(CYN "$N" CYN "看了看$n" CYN "又道：這個事情"
+                                       "很是有些難辦，你要是不行我就另找人吧。\n"
                                        NOR, master, me);
                         break;
                 case 3:
-                        message_vision(CYN "$N" CYN "叹了口气，郑重的对$n" CYN "道"
-                                       "：这次任务凶险得紧，你不要勉强自己，不行就"
+                        message_vision(CYN "$N" CYN "嘆了口氣，鄭重的對$n" CYN "道"
+                                       "：這次任務兇險得緊，你不要勉強自己，不行就"
                                        "算了。\n" NOR, master, me);
                         break;
                 }
@@ -1062,9 +1062,9 @@ int party_quest_kill(object me)
 	me->set("quest/kill/id", killer->query("id"));
 	me->set("quest/kill/name", killer->name());
 	me->set("quest/kill/place", place);
-	t = time() +4 * ONE_DAY - 1; // 三分钟一个 one day
+	t = time() +4 * ONE_DAY - 1; // 三分鐘一個 one day
 	me->set("quest/kill/time", t );
-	message("vision", WHT + master->name() + WHT "在你耳边悄声说道：你务必要在"
+	message("vision", WHT + master->name() + WHT "在你耳邊悄聲說道：你務必要在"
 	                  NOR + HIY + CHINESE_D->chinese_monthday(((t-1270000000)*365)) + NOR + WHT
 	                          "之前完成！\n" NOR, me);
 	me->delete( "quest/kill/finished" );
@@ -1085,18 +1085,18 @@ int cancle_quest_kill(object who)
         if (! mapp(q = dbase["quest"]["kill"]) ||
             q["master_name"] != me->name())
                 {
-                	message_vision("$N说道：我没给你什么任务啊？mapp(q)="+mapp(q)+"\n",me,who);
+                	message_vision("$N說道：我沒給你什麼任務啊？mapp(q)="+mapp(q)+"\n",me,who);
                 	return 1;
                 }
 
                 if (q["notice"] == "die")
                 {
-                        message_vision(CYN "$N" CYN "点点头，对$n" CYN "道：算了，听说这人"
-                                       "已经被杀了，你不用再辛苦了。\n" NOR, me, who);
+                        message_vision(CYN "$N" CYN "點點頭，對$n" CYN "道：算了，聽說這人"
+                                       "已經被殺了，你不用再辛苦了。\n" NOR, me, who);
                 } else
                 {
-                        message_vision(CYN "$N" CYN "摆摆手，对$n" CYN "道：你干不了就算了"
-                                       "，让别人做吧！\n" NOR, me, who);
+                        message_vision(CYN "$N" CYN "擺擺手，對$n" CYN "道：你幹不了就算了"
+                                       "，讓別人做吧！\n" NOR, me, who);
                         who->delete("quest_num/kill");
                 }
 
@@ -1127,13 +1127,13 @@ int cancle_quest_kill(object who)
                 dbase["weiwang"] -= n;
                 if (dbase["weiwang"] < 0)
                         dbase["weiwang"] = 0;
-                msg = HIR "你的江湖威望受到了损失";
+                msg = HIR "你的江湖威望受到了損失";
 
                 // adjust gongxian
                 dbase["family/gongxian"] -= g;
                 if (dbase["family/gongxian"] < 0)
                         dbase["family/gongxian"] = 0;
-                msg += HIR "，师门对你的信任降低了";
+                msg += HIR "，師門對你的信任降低了";
 
                 // notice place
                 message("vision", msg + "。\n" NOR, who);
@@ -1169,7 +1169,7 @@ int accept_quest_kill(object me, object obj)
 	if (me->query("family/family_name") !=
 		master->query("family/family_name"))
 	{
-		message_vision("$N对着$n说：我不是你的掌门人，你回你们"+me->query("family/family_name")+"去吧。\n", master, me);
+		message_vision("$N對着$n說：我不是你的掌門人，你回你們"+me->query("family/family_name")+"去吧。\n", master, me);
 		return 1;
 	}
 
@@ -1178,7 +1178,7 @@ int accept_quest_kill(object me, object obj)
 
 	if (obj->query("userp") == 1)
 	{
-		message_vision( HIR"$N对着$n说：我叫你杀人，你却去杀玩家！去死吧你！\n"NOR, master, me);
+		message_vision( HIR"$N對着$n說：我叫你殺人，你卻去殺玩家！去死吧你！\n"NOR, master, me);
 		destruct(obj);
 //		quest_failed( me, "thief" );
 		me->delete_temp("quest_num/kill");
@@ -1188,7 +1188,7 @@ int accept_quest_kill(object me, object obj)
 
 	if (obj->query("quest") != "kill" )
 	{
-		message_vision( HIR"$N对着$n说：我叫你杀人，你却滥杀无辜，蒙蔽师长！去死吧你！\n"NOR, master, me);
+		message_vision( HIR"$N對着$n說：我叫你殺人，你卻濫殺無辜，矇蔽師長！去死吧你！\n"NOR, master, me);
 		destruct(obj);
 		quest_failed( me, "kill" );
 //		me->delete_temp("quest_num/kill");
@@ -1205,7 +1205,7 @@ int accept_quest_kill(object me, object obj)
                 if (! stringp(obj->query("owner")))
                 {
                         message_vision(CYN "$N" CYN "捂着鼻子看了看" + obj->name()
-                                       + NOR + CYN "，道：什么臭烘烘的？快给我"
+                                       + NOR + CYN "，道：什麼臭烘烘的？快給我"
                                        "拿走。\n" NOR, master);
                         return 0;
                 }
@@ -1213,38 +1213,38 @@ int accept_quest_kill(object me, object obj)
                 if (obj->query("owner") != me->query("id"))
                         return 0;
 
-                msg = CYN "$N" CYN "接过" + obj->name() + NOR + CYN "，呵呵大笑"
-                      "，对$n" CYN "道：";
+                msg = CYN "$N" CYN "接過" + obj->name() + NOR + CYN "，呵呵大笑"
+                      "，對$n" CYN "道：";
 
                 if (me->query("shen")>0)
                         msg += CYN "又除了一害，很好！";
                 else
                 if (me->query("shen")<0)
-                        msg += CYN "好极了！什么大侠，不堪一击！";
+                        msg += CYN "好極了！什麼大俠，不堪一擊！";
                 else
-                        msg += CYN "干得好，漂亮！";
+                        msg += CYN "幹得好，漂亮！";
                 msg += "\n" NOR;
                 t = time();
                 if (me->query_temp("quest/escape_times"))
                 {
-                        msg += CYN "$N" CYN "赞许道：这次没想到敌人这么强悍，实"
+                        msg += CYN "$N" CYN "讚許道：這次沒想到敵人這麼強悍，實"
                                "在未曾料到，辛苦，辛苦！\n" NOR;
                         timeover = 0;
                 } else
                 if (t > q["time"])
                 {
-                        msg += CYN "$N" CYN "摇摇头，又道：可惜，不是让你" +
-                               CHINESE_D->chinese_monthday(t*60) + "前做完吗？算"
-                               "了，将功补过，你先退下吧。\n" NOR;
+                        msg += CYN "$N" CYN "搖搖頭，又道：可惜，不是讓你" +
+                               CHINESE_D->chinese_monthday(t*60) + "前做完嗎？算"
+                               "了，將功補過，你先退下吧。\n" NOR;
                         timeover = 1;
                 } else
                 {
                         if (t - q["time"] < ONE_DAY)
                         {
-                                msg += CYN "$N" CYN "点点头道：干得不错，这么"
-                                       "快就完成了，好好干！\n" NOR ;
+                                msg += CYN "$N" CYN "點點頭道：幹得不錯，這麼"
+                                       "快就完成了，好好幹！\n" NOR ;
                         } else
-                                msg += CYN "$N" CYN "点点头道：这次不错，辛苦"
+                                msg += CYN "$N" CYN "點點頭道：這次不錯，辛苦"
                                        "了。\n" NOR;
 
                         timeover = 0;
@@ -1254,8 +1254,8 @@ int accept_quest_kill(object me, object obj)
 
               	if (!arrayp(helper) || member_array(me,helper) < 0)
                	{
-               	 msg += CYN "$N" CYN "又对$n" CYN "道：可惜这次"
-               	 	"对方被人先下手杀死，努力一点，就能自己完成了！\n" NOR;
+               	 msg += CYN "$N" CYN "又對$n" CYN "道：可惜這次"
+               	 	"對方被人先下手殺死，努力一點，就能自己完成了！\n" NOR;
 				       	 type = 1;
 				       	}
 				       	else
@@ -1264,10 +1264,10 @@ int accept_quest_kill(object me, object obj)
                 	helper -= ({ 0 });
                 	if (sizeof(helper)>0)
                 	{
-                        msg += CYN "$N" CYN "欣慰的对$n" CYN "道：这次你能够"
+                        msg += CYN "$N" CYN "欣慰的對$n" CYN "道：這次你能夠"
                                "得到" + helper[0]->name() +
-                               NOR + CYN "的帮忙，也属不易！以后彼此要多加照"
-                               "应！\n" NOR;
+                               NOR + CYN "的幫忙，也屬不易！以後彼此要多加照"
+                               "應！\n" NOR;
                 		bonus = 2;
                 	}
                 }
@@ -1285,70 +1285,70 @@ int accept_quest_kill(object me, object obj)
 					       quest_count = me->query("quest_num/kill");
 					       if (type!=1 && (!exp || !pot || !score))
 					       {
-					       	 msg += CYN "$N" CYN "又对$n" CYN "道：只可惜关键时刻，你"
-					       	        "心存胆怯，没有手刃对方，甚是可惜。\n"NOR;
+					       	 msg += CYN "$N" CYN "又對$n" CYN "道：只可惜關鍵時刻，你"
+					       	        "心存膽怯，沒有手刃對方，甚是可惜。\n"NOR;
                    bonus = 2;
 					       }
                 if (quest_count == 100)
                 {
-                        msg += CYN "$N" CYN "哈哈大笑两声道：真有你的，连着上"
-                               "百次任务都完成的漂漂亮亮，很好，很好。\n" NOR;
+                        msg += CYN "$N" CYN "哈哈大笑兩聲道：真有你的，連着上"
+                               "百次任務都完成的漂漂亮亮，很好，很好。\n" NOR;
                         special = 1;
                 } else
                 if (quest_count == 200)
                 {
-                        msg += CYN "$N" CYN "大喜道：不错不错，真是不错，两百"
-                               "次任务干得很好。\n" NOR;
+                        msg += CYN "$N" CYN "大喜道：不錯不錯，真是不錯，兩百"
+                               "次任務乾得很好。\n" NOR;
                         special = 1;
                 } else
                 if (quest_count == 300)
                 {
-                        msg += CYN "$N" CYN "大喜道：不错不错，连续三百个任务"
-                               "都丝毫不出差错，真是漂亮。\n" NOR;
+                        msg += CYN "$N" CYN "大喜道：不錯不錯，連續三百個任務"
+                               "都絲毫不出差錯，真是漂亮。\n" NOR;
                         special = 1;
                 } else
                 if (quest_count == 400)
                 {
-                        msg += CYN "$N" CYN "大喜道：真是不错，竟然连续四百个"
-                               "任务丝毫不出差错，干得好。\n" NOR;
+                        msg += CYN "$N" CYN "大喜道：真是不錯，竟然連續四百個"
+                               "任務絲毫不出差錯，幹得好。\n" NOR;
                         special = 1;
                 } else
                 if (quest_count == 500)
                 {
-                        msg += CYN "$N" CYN "叹道：真是长江后浪推前浪，想不到"
-                               "你接连五百次任务都无一疏漏，真是不错！\n" NOR;
+                        msg += CYN "$N" CYN "嘆道：真是長江後浪推前浪，想不到"
+                               "你接連五百次任務都無一疏漏，真是不錯！\n" NOR;
                         special = 1;
                 } else
                 if (quest_count == 600)
                 {
-                        msg += CYN "$N" CYN "叹道：真是长江后浪推前浪，想不到"
-                               "你接连六百次任务都无一疏漏，漂亮之极！\n" NOR;
+                        msg += CYN "$N" CYN "嘆道：真是長江後浪推前浪，想不到"
+                               "你接連六百次任務都無一疏漏，漂亮之極！\n" NOR;
                         special = 1;
                 } else
                 if (quest_count == 700)
                 {
-                        msg += CYN "$N" CYN "叹道：真是长江后浪推前浪，想不到"
-                               "你七百次任务竟无一疏漏，不易，不易！\n" NOR;
+                        msg += CYN "$N" CYN "嘆道：真是長江後浪推前浪，想不到"
+                               "你七百次任務竟無一疏漏，不易，不易！\n" NOR;
                         special = 1;
                 } else
                 if (quest_count == 800)
                 {
-                        msg += CYN "$N" CYN "叹道：真是长江后浪推前浪，想不到"
-                               "你接连八百次任务都无一疏漏，不易之极！\n" NOR;
+                        msg += CYN "$N" CYN "嘆道：真是長江後浪推前浪，想不到"
+                               "你接連八百次任務都無一疏漏，不易之極！\n" NOR;
                         special = 1;
                 } else
                 if (quest_count == 900)
                 {
-                        msg += CYN "$N" CYN "深深地叹道：想不到你接连九百次任"
-                               "务都无一疏漏，不易之极！不易之极！\n" NOR;
+                        msg += CYN "$N" CYN "深深地嘆道：想不到你接連九百次任"
+                               "務都無一疏漏，不易之極！不易之極！\n" NOR;
                         special = 1;
                 } else
                 if (quest_count == 1000)
                 {
-                        msg += CYN "$N" CYN "深深叹了口气，道：想不到你连着一"
-                               "千次任务无一失手，看来我们" +
+                        msg += CYN "$N" CYN "深深嘆了口氣，道：想不到你連着一"
+                               "千次任務無一失手，看來我們" +
                                me->query("family/family_name") +
-                               "真是后继有人啊！\n" NOR;
+                               "真是後繼有人啊！\n" NOR;
                         special = 1;
                 } else
                 if (quest_count > 1000)
@@ -1357,9 +1357,9 @@ int accept_quest_kill(object me, object obj)
                 } else
                 if ((quest_count % 10) == 0)
                 {
-                        msg += CYN "$N" CYN "喜道：真是不赖，居然连着" +
+                        msg += CYN "$N" CYN "喜道：真是不賴，居然連着" +
                                chinese_number(quest_count) +
-                               "次都没有失手，干的好！\n" NOR;
+                               "次都沒有失手，乾的好！\n" NOR;
                 }
                 message_vision(msg, master, me);
                 me->delete_temp("quest/escape_times");
@@ -1375,7 +1375,7 @@ int accept_quest_kill(object me, object obj)
                 gongxian /= 2;
         } else
         {
-                // 百分之一的几率直接赠送物品奖励
+                // 百分之一的幾率直接贈送物品獎勵
 //                if ((quest_count >= 100 && random(200) == 1) || special)
                 if ( special)
                 {
@@ -1384,10 +1384,10 @@ int accept_quest_kill(object me, object obj)
         }
         if (type==1 || (exp==0 &&pot==0 && score==0))
           return 1;
-        message("vision", sprintf(HIC "通过这次锻炼你获得了%s点经验，"
-                                  "%s点潜能。\n同时还增"
-                                  "长了%s点江湖阅历，及%s点门"
-                                  "派忠诚度。\n" NOR,
+        message("vision", sprintf(HIC "通過這次鍛鍊你獲得了%s點經驗，"
+                                  "%s點潛能。\n同時還增"
+                                  "長了%s點江湖閱歷，及%s點門"
+                                  "派忠誠度。\n" NOR,
                                   chinese_number(exp),
                                   chinese_number(pot),
                                   chinese_number(score),
@@ -1403,8 +1403,8 @@ int accept_reply(object me,object ob,string arg)
 {
 	return "/quest/weixiaobao"->accept_reply(me,ob,arg);
 }
-/////其它部分： 叛师、侠客岛、qiecuo///////
-////下面这段干嘛的 ？？  不知道//
+/////其它部分： 叛師、俠客島、qiecuo///////
+////下面這段幹嘛的 ？？  不知道//
 int accept_betrayer(object ob)
 {
 	if (ob->query("shen") > 0)
@@ -1416,7 +1416,7 @@ int accept_betrayer(object ob)
 			return 1;
 	}
 }
-// 向掌门要求叛师
+// 向掌門要求叛師
 // Added by Constant Jan 12 2001
 int betray(object ob, int depth)
 {
@@ -1440,25 +1440,25 @@ int betray(object ob, int depth)
 	if (ob->query("family/family_name") !=
 		master->query("family/family_name"))
 	{
-		message_vision("$N说道：“贵派之事自有贵派掌门处置，与我无关。”\n", master, ob);
+		message_vision("$N說道：“貴派之事自有貴派掌門處置，與我無關。”\n", master, ob);
 		return 1;
 	}
 	if (ob->query("combat_exp") < 1000000)
 	{
-		message_vision("$N冷笑道：“就凭你这点微末道行，也想到江湖上去闯荡，还不叫人笑掉大牙？”\n", master, ob);
+		message_vision("$N冷笑道：“就憑你這點微末道行，也想到江湖上去闖蕩，還不叫人笑掉大牙？”\n", master, ob);
 		return 1;
 	}
 
 	if (depth == 0)
 	{
-		message_vision(HIR "\n$N眉头一皱，紧紧盯着$n，目光如箭，$n不禁打了个寒战。\n"NOR, master, ob);
+		message_vision(HIR "\n$N眉頭一皺，緊緊盯着$n，目光如箭，$n不禁打了個寒戰。\n"NOR, master, ob);
 		ob->start_busy(10);
 		call_out("betray", 5, ob, depth + 1);
 	}
 	else
 	{
-		message_vision(HIR "\n半晌，$N叹道：“既然你执意离去，我也不便强留。只是你的一身武功，哪里来就还哪里去吧。”\n"NOR, master, ob);
-		message_vision(HIR "说罢，挥掌在$n额头轻轻一击，$n只觉全身劲力被绵绵不绝抽去，大骇之下，晕了过去。\n"NOR, master, ob);
+		message_vision(HIR "\n半晌，$N嘆道：“既然你執意離去，我也不便強留。只是你的一身武功，哪裏來就還哪裏去吧。”\n"NOR, master, ob);
+		message_vision(HIR "說罷，揮掌在$n額頭輕輕一擊，$n只覺全身勁力被綿綿不絕抽去，大駭之下，暈了過去。\n"NOR, master, ob);
 		for (i = 0; i < sizeof(ob_skills); )
 		{
 			skill_name = keys(ob_skills)[i];
@@ -1490,7 +1490,7 @@ int betray(object ob, int depth)
 	}
 	return 1;
 }
-// 掌门弟子可以向掌门人要牌上侠客岛
+// 掌門弟子可以向掌門人要牌上俠客島
 
 int xkd(object me)
 {
@@ -1505,19 +1505,19 @@ int xkd(object me)
 
   if (!me->query("family/family_name"))
    {
-		message_vision("$N对着$n说：这位"+RANK_D->query_respect(me)+"何不加入我"+master->query("family/family_name")+"？\n", master, me);
+		message_vision("$N對着$n說：這位"+RANK_D->query_respect(me)+"何不加入我"+master->query("family/family_name")+"？\n", master, me);
 		return 1;
    	}
 	if (ob->query("family/family_name") !=
 		master->query("family/family_name"))
 	{
-		message_vision("$N对着$n说：我不是你的掌门人，你回你们"+me->query("family/family_name")+"去吧。\n", master, me);
+		message_vision("$N對着$n說：我不是你的掌門人，你回你們"+me->query("family/family_name")+"去吧。\n", master, me);
 		return 1;
 	}
 
 	if (!ob->query("xkd/ling"))
 	{
-		message_vision("$N对着$n说：你还不是掌门大弟子，担不起如此重任。\n", master, me);
+		message_vision("$N對着$n說：你還不是掌門大弟子，擔不起如此重任。\n", master, me);
 		return 1;
 	}
 	dir = explode(base_name(master),"/");
@@ -1528,7 +1528,7 @@ int xkd(object me)
 		destruct(first);
 		if (ob->query("id")!= c_player)
 		{
-			message_vision("$N对着$n说：你不是掌门大弟子，担不起如此重任。\n", master, me);
+			message_vision("$N對着$n說：你不是掌門大弟子，擔不起如此重任。\n", master, me);
 			return 1;
 		}
 	}
@@ -1540,19 +1540,19 @@ int xkd(object me)
 		ling = new( "/d/xiakedao/obj/tongpai2" );
 		ling->set( "own", ob->query("id") );
 		ling->move( ob );
-		message_vision( HIY"$N对$n说道：侠客岛昨日送来赏善罚恶令，邀请为师上岛。\n你是本门掌门弟子，就代为师走一趟吧。\n"NOR, master, ob );
-		message_vision( HIC"说完，$N把两块令牌交到$n手里。\n"NOR, master, ob );
+		message_vision( HIY"$N對$n說道：俠客島昨日送來賞善罰惡令，邀請爲師上島。\n你是本門掌門弟子，就代爲師走一趟吧。\n"NOR, master, ob );
+		message_vision( HIC"說完，$N把兩塊令牌交到$n手裏。\n"NOR, master, ob );
 		ob->set_temp("xkd/ask",1);
 	}
 	else
 	{
-		message_vision("$N对着$n说：你不是已经拿了令牌了吗，还不速速起程。\n", master, me);
+		message_vision("$N對着$n說：你不是已經拿了令牌了嗎，還不速速起程。\n", master, me);
 		return 1;
 	}
 	return 1;
 }
 
-//切磋武学包括师父奖励和特殊perform
+//切磋武學包括師父獎勵和特殊perform
 int do_qiecuo(string arg)
 {
 	object master = this_object();
@@ -1573,35 +1573,35 @@ int do_qiecuo(string arg)
 	if (!living(me)||!living(master)) return 0;
 	if (me->query("family/family_name") !=master->query("family/family_name"))
 	{
-		message_vision("$N对着$n说：我不是你的掌门人，你回你们"+me->query("family/family_name")+"去吧。\n", master, me);
+		message_vision("$N對着$n說：我不是你的掌門人，你回你們"+me->query("family/family_name")+"去吧。\n", master, me);
 		return 1;
 	}
 	if (me->is_busy() || me->is_fighting())
 	{
-		message_vision("$N对着$n说：你忙完了再来吧！\n", master, me);
+		message_vision("$N對着$n說：你忙完了再來吧！\n", master, me);
 		return 1;
 	}
 	if (master->is_fighting())
 	{
-		message_vision("$N对着$n说：我现在正忙着呢！\n", master, me);
+		message_vision("$N對着$n說：我現在正忙着呢！\n", master, me);
 		return 1;
 	}
-      //family_can_qiecuo作为师父奖励和特殊perform切磋的区别
+      //family_can_qiecuo作爲師父獎勵和特殊perform切磋的區別
       	if( !me->query_temp("family_can_qiecuo"))
       	{
 		if (!arg)
 		{
-	     		message_vision("$N对着$n说：你要切磋什么？\n", master, me);
+	     		message_vision("$N對着$n說：你要切磋什麼？\n", master, me);
 	     		return 1;
 		}
 		if( sscanf(arg, "%s.%s", pfmartial, pfarg)!=2 )
 		{
-			message_vision("$N对着$n说：你要切磋什么？\n", master, me);
+			message_vision("$N對着$n說：你要切磋什麼？\n", master, me);
 	     		return 1;
 		}
 		if (fealty_b<learn_b)
 		{
-			message_vision("$N对着$n说：你还是多为本门做点贡献再来吧！\n",master,me);
+			message_vision("$N對着$n說：你還是多爲本門做點貢獻再來吧！\n",master,me);
 			return 1;
 		}
 
@@ -1609,7 +1609,7 @@ int do_qiecuo(string arg)
 		{
 			if (!master->query_skill(pfskill,1))
 			{
-				message_vision("$N对着$n说：这个武功我没练过，你去找其他人吧。\n", master, me);
+				message_vision("$N對着$n說：這個武功我沒練過，你去找其他人吧。\n", master, me);
 				return 1;
 			}
 			perform_actions = get_dir( SKILL_D(pfskill) + "/" );
@@ -1623,18 +1623,18 @@ int do_qiecuo(string arg)
 					pfmsg="perform/"+pfarg;
 					if(sl<10 || bl<10)
 					{
-						message_vision("$N对着$n说：你先打好基础，再来切磋吧！\n", master, me);
+						message_vision("$N對着$n說：你先打好基礎，再來切磋吧！\n", master, me);
 						return 1;
 					}
 					else if(me->query(pfmsg,1)==1)
 					{
-						message_vision("$N对着$n说：你已经领会了这招，还要切磋么？\n", master, me);
+						message_vision("$N對着$n說：你已經領會了這招，還要切磋麼？\n", master, me);
 						return 1;
 					}
 					else
 					{
-						message_vision(HIW"$N哈哈笑道：“好吧，为师就传授你些心得！”。\n"NOR, master, me);
-						write(HIC"你听了指导，瞑思苦想，对"+to_chinese(pfskill)+"的体会又深了一层。\n"NOR);
+						message_vision(HIW"$N哈哈笑道：“好吧，爲師就傳授你些心得！”。\n"NOR, master, me);
+						write(HIC"你聽了指導，瞑思苦想，對"+to_chinese(pfskill)+"的體會又深了一層。\n"NOR);
 						me->set(pfmsg,1);
 						me->add("perform/number",1);
 						fealty_b=fealty_b - learn_b;
@@ -1645,13 +1645,13 @@ int do_qiecuo(string arg)
 				}
 			 }
 			me->start_busy(1);
-			message_vision("$N对着$n说：你要切磋什么？\n", master, me);
+			message_vision("$N對着$n說：你要切磋什麼？\n", master, me);
 	     		return 1;
 		}
 		else
 		{
 			me->start_busy(1);
-			message_vision("$N对着$n说：你要切磋什么？\n", master, me);
+			message_vision("$N對着$n說：你要切磋什麼？\n", master, me);
 	     		return 1;
 		}
 	}
@@ -1659,17 +1659,17 @@ int do_qiecuo(string arg)
 	{
       		if (!arg)
 		{
-			message_vision("$N对着$n说：你要切磋什么？\n", master, me);
+			message_vision("$N對着$n說：你要切磋什麼？\n", master, me);
 	     		return 1;
 		}
       		if (!(special=me->query_skill_mapped(arg)))
 		{
-			message_vision("$N对着$n说：你只能从基本技能中请教特殊技能。\n", master, me);
+			message_vision("$N對着$n說：你只能從基本技能中請教特殊技能。\n", master, me);
 	     		return 1;
 		}
 	  	if(arg=="force")
 		{
-			message_vision("$N对着$n说：内功修为，不是靠切磋能提高的。\n", master, me);
+			message_vision("$N對着$n說：內功修爲，不是靠切磋能提高的。\n", master, me);
 	     		return 1;
 		}
 	  	else if(special=="bixie-jian"
@@ -1684,7 +1684,7 @@ int do_qiecuo(string arg)
 	||(special=="hamagong" && arg=="strike")
 			  )
 		{
-			message_vision("$N对着$n说：此项技能无法通过切磋来提高！\n", master, me);
+			message_vision("$N對着$n說：此項技能無法通過切磋來提高！\n", master, me);
 	     		return 1;
 		}
 	  	else
@@ -1693,14 +1693,14 @@ int do_qiecuo(string arg)
 	   		sl=me->query_skill(special,1);
 		   	if(sl>=bl*3/2)
 		   	{
-				message_vision("$N对着$n说：你先打好基础，再来切磋吧！\n", master, me);
+				message_vision("$N對着$n說：你先打好基礎，再來切磋吧！\n", master, me);
 				return 1;
 			}
 		   	else
 			{       //chinese_number(p_bonus)
-//				tell_object(me,HIM + master->query("name")+"取走了你："	+ chinese_number(learn_b) + "点忠诚度。\n"NOR);
-				message_vision(HIW"$N哈哈笑道：“好吧，为师就传授你些心得！”。\n"NOR, master, me);
-		   		write(HIC"你听了指导，瞑思苦想，对"+to_chinese(special)+"的体会又深了一层。\n"NOR);
+//				tell_object(me,HIM + master->query("name")+"取走了你："	+ chinese_number(learn_b) + "點忠誠度。\n"NOR);
+				message_vision(HIW"$N哈哈笑道：“好吧，爲師就傳授你些心得！”。\n"NOR, master, me);
+		   		write(HIC"你聽了指導，瞑思苦想，對"+to_chinese(special)+"的體會又深了一層。\n"NOR);
 		   		me->set_skill(special,sl+1);
 			   	me->delete_temp("family_can_qiecuo");
 		   		me->start_busy(3);

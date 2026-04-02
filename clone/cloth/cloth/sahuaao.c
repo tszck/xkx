@@ -1,11 +1,11 @@
-// sahuaao.c 桃花撒花袄
+// sahuaao.c 桃花撒花襖
 
 #include <ansi.h>
 #include <armor.h>
 inherit CLOTH;
 void create()
 {				  
-	set_name( RED "桃花撒花袄" NOR, ({ "sahua ao", "cloth" }) );
+	set_name( RED "桃花撒花襖" NOR, ({ "sahua ao", "cloth" }) );
 	set_weight(800);
 	if( clonep() )
 		set_default_object(__FILE__);

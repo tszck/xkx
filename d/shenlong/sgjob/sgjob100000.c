@@ -6,14 +6,14 @@
 inherit F_CLEAN_UP;
 
 mapping *sgjobs = ({
-        ([      "sgjob":          "逍遥三笑散",
-                "sgjob_type":           "寻",
+        ([      "sgjob":          "逍遙三笑散",
+                "sgjob_type":           "尋",
                 "exp_bonus":             100,
                 "score":                 2,
         ]),
 
-        ([      "sgjob":          "铁球",
-                "sgjob_type":           "寻",
+        ([      "sgjob":          "鐵球",
+                "sgjob_type":           "尋",
                 "exp_bonus":             200,
                 "score":                 3,
         ]),

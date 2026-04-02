@@ -7,11 +7,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "川号钱庄");
+	set("short", "川號錢莊");
 	set("long", @LONG
-这里是城里最有名的钱庄：川号钱庄，利息虽低但决不拖欠。听说
-主人是青城俗家弟子，曾经在川中横行数世，流氓土匪一般都不来这找
-麻烦。所以这里一向是生意很好。
+這裏是城裏最有名的錢莊：川號錢莊，利息雖低但決不拖欠。聽說
+主人是青城俗家弟子，曾經在川中橫行數世，流氓土匪一般都不來這找
+麻煩。所以這裏一向是生意很好。
 LONG	);
 	set("exits", ([ 
 		"east" : __DIR__"chunxilu2",
@@ -27,6 +27,6 @@ LONG	);
 
 int valid_leave(object me, string dir)
 {
-	tell_object(this_player(),WHT "你拍了拍口袋，叹了口气，走出了钱庄。\n"NOR,this_player());
+	tell_object(this_player(),WHT "你拍了拍口袋，嘆了口氣，走出了錢莊。\n"NOR,this_player());
 	return 1;
 }

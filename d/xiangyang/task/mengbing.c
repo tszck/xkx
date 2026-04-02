@@ -6,7 +6,7 @@ int do_copy(int maxpot,int type);
 
 void create()
 {
-	set_name("蒙古大汉", ({ "menggu dahan","dahan"}));
+	set_name("蒙古大漢", ({ "menggu dahan","dahan"}));
 	set("gender", "男性");
 	seteuid(getuid());
 	set("age", random(20) + 25);
@@ -30,7 +30,7 @@ int do_go(string arg)
 {
 	if (this_player()->query_condition("guojx_mis"))
 	{
-		write(HIR"蒙古奸细就在眼前，怎可临阵脱逃！\n"NOR);
+		write(HIR"蒙古奸細就在眼前，怎可臨陣脫逃！\n"NOR);
 		return 1;
 	}
 }
@@ -44,7 +44,7 @@ int accept_hit(object who)
 		who->kill_ob(me);
 		return 1;
 	}
-	else return notify_fail(HIY"想对付"HIR"蒙古奸细"HIY"？快去找郭靖大侠！\n"NOR);
+	else return notify_fail(HIY"想對付"HIR"蒙古奸細"HIY"？快去找郭靖大俠！\n"NOR);
 }
 int accept_fight(object who)	{return accept_hit(who);}
 int accept_kill(object who)		{return accept_hit(who);}
@@ -253,11 +253,11 @@ void die()
    { 
 		if (j<=1)
 		{
-			tell_room(environment(ob),HIC"\n一直躲在一旁的蒙古奸细见大势已去，旋即也扑了上来。\n"NOR);
+			tell_room(environment(ob),HIC"\n一直躲在一旁的蒙古奸細見大勢已去，旋即也撲了上來。\n"NOR);
 			ob->set_temp("guojx_mis_flag",3);
 			obj=new(__DIR__"jianxi"); 
 			obj->do_copy( maxexp );
-			obj->set("title",HIR"奸细"NOR);
+			obj->set("title",HIR"奸細"NOR);
 			obj->move(environment(ob));
 			obj->kill_ob(ob);
 			gift=new(__DIR__"mijian");
@@ -266,7 +266,7 @@ void die()
 			obj->call_out("task_over",300,obj,ob);
 		}
    }
-	message_vision("$N扑在地上挣扎了几下，口中喷出几口"HIR"鲜血"NOR"，死了！\n",this_object());
+	message_vision("$N撲在地上掙扎了幾下，口中噴出幾口"HIR"鮮血"NOR"，死了！\n",this_object());
 	destruct(this_object());
 	return;
 }
@@ -278,7 +278,7 @@ void task_over(object obj,object me)
 	
 	team=me->query_team();
 	count=sizeof(team);
-	tell_room(environment(obj),HIC"蒙古兵挥挥手，示意奸细先走。\n奸细匆匆忙忙的离开了。\n"NOR);
+	tell_room(environment(obj),HIC"蒙古兵揮揮手，示意奸細先走。\n奸細匆匆忙忙的離開了。\n"NOR);
 	for(i=0;i<count;i++)
 	{
 		team[i]->delete_temp("guojx_mis_tcount");
@@ -287,7 +287,7 @@ void task_over(object obj,object me)
 		team[i]->delete_temp("guojx_mis_time");
 		team[i]->delete_temp("guojx_mis_max");
 		team[i]->clear_condition("guojx_mis");
-		tell_object(team[i], HIY"\n奸细离开中原了，你们的任务失败了！\n"NOR);
+		tell_object(team[i], HIY"\n奸細離開中原了，你們的任務失敗了！\n"NOR);
 	}
 	destruct(obj);
 	return;

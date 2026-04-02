@@ -8,9 +8,9 @@ void create()
 {
 	set_name("老材", ({ "lao cai","cai" }) );
 	set("gender", "男性" );
-	set("nickname","老财");
+	set("nickname","老財");
 	set("age", 40);
-	set("long", "一个有名的吝啬鬼，好象他整日看守着柴房也能发财似的。\n");
+	set("long", "一個有名的吝嗇鬼，好象他整日看守着柴房也能發財似的。\n");
 	set("shen_type",-1);
 	set("combat_exp", 10000);
 	set("str", 17);
@@ -31,11 +31,11 @@ string inquiry_dao()
 	object ob;
 
 	if (present("chai dao",me))
-		return "老材瞪着眼说：你身上带着一把，还想要！\n";
+		return "老材瞪着眼說：你身上帶着一把，還想要！\n";
 	else
 	{
 		ob=new("/d/baituo/obj/chaidao");
 		ob->move(me);
-		return "老材递给你一把柴刀，嘱咐道说：小心保管！\n";
+		return "老材遞給你一把柴刀，囑咐道說：小心保管！\n";
 	}
 }

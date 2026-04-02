@@ -5,12 +5,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "淮扬赌场");
+	set("short", "淮揚賭場");
 	set("long", @LONG
-这里是淮扬赌场的大院，烟花三月的扬州，怎么能少了这个？院子
-四周是通往各个房间的通道。隐隐可以听到传出来吆五喝六的声音。你
-摇头一笑，想要的正是这个调调儿。南面搏饼厅，也是本潭的网友联谊
-会，联谊会四周是搏饼屋。
+這裏是淮揚賭場的大院，煙花三月的揚州，怎麼能少了這個？院子
+四周是通往各個房間的通道。隱隱可以聽到傳出來吆五喝六的聲音。你
+搖頭一笑，想要的正是這個調調兒。南面搏餅廳，也是本潭的網友聯誼
+會，聯誼會四周是搏餅屋。
 LONG );
 	set("objects", ([
 		CLASS_D("shenlong")+"/pang" : 1,
@@ -33,6 +33,6 @@ LONG );
 int valid_leave(object me, string dir)
 {
         if (dir == "north" && this_player()->query("age")<18)
-                return notify_fail("小毛孩子往这儿瞎凑合什么？\n");
+                return notify_fail("小毛孩子往這兒瞎湊合什麼？\n");
         return ::valid_leave(me, dir);
 }

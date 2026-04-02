@@ -6,8 +6,8 @@ void create()
 {
 	set("short", "城角");
 	set("long", @LONG
-这里是内城的一角, 头上的天空只能见方方的一角. 上面有座漂亮
-的角楼.
+這裏是內城的一角, 頭上的天空只能見方方的一角. 上面有座漂亮
+的角樓.
 LONG
 	);
 	set("outdoors", "huanggong");

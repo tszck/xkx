@@ -1,4 +1,4 @@
-// liuyun.c 流云七剑
+// liuyun.c 流雲七劍
 // Last Modified by Sir on 5/17/2001
 
 #include <ansi.h>
@@ -7,7 +7,7 @@
 #include <combat.h>
 
 inherit F_SSERVER;
-#define PNAME "「流云七剑」"
+#define PNAME "「流雲七劍」"
 int perform(object me, object target)
 {
 	object weapon, ob;
@@ -23,18 +23,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
  
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail(PNAME"开始时必须拿着一把剑！\n");
+		return notify_fail(PNAME"開始時必須拿着一把劍！\n");
 
 	fskill = "baiyun-xinfa";
 	bskill = "sword";
@@ -48,18 +48,18 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够！无法使出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠！無法使出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够熟练！无法使出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠熟練！無法使出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(bskill)+"还不到家，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"還不到家，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 400 )
-		return notify_fail("你的真气不够！\n");
+		return notify_fail("你的真氣不夠！\n");
 
-	msg = HIC "$N运起恒山派行云流水，顺其自然的白云心法，手中"+weapon->query("name")+ HIC"顿时锋芒暴长，剑招连绵不绝涌上心头。瞬息之间，全身便罩在一团白雾之中。\n" NOR;
+	msg = HIC "$N運起恆山派行雲流水，順其自然的白雲心法，手中"+weapon->query("name")+ HIC"頓時鋒芒暴長，劍招連綿不絕湧上心頭。瞬息之間，全身便罩在一團白霧之中。\n" NOR;
 	message_combatd(msg, me);
 
 //	attack_time = 3 + random(5);
@@ -84,12 +84,12 @@ int help(object me)
         write(@HELP
 
         使用功效：
-                行云流水般可连出七招
+                行雲流水般可連出七招
 
         出手要求：
-                白云心法100级
-                恒山剑法100级
-                内力400
+                白雲心法100級
+                恆山劍法100級
+                內力400
 HELP
         );
         return 1;

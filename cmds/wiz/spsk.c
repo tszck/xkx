@@ -6,31 +6,31 @@ inherit F_CLEAN_UP;
 
 
 string *skill_level_desc = ({
-	BLU "初学乍练" NOR,
+	BLU "初學乍練" NOR,
 	HIB "粗通皮毛" NOR,
 	HIB "半生不熟" NOR,
-	HIB "马马虎虎" NOR,
-	HIB "驾轻就熟" NOR,
-	CYN "出类拔萃" NOR,
+	HIB "馬馬虎虎" NOR,
+	HIB "駕輕就熟" NOR,
+	CYN "出類拔萃" NOR,
 	CYN "神乎其技" NOR,
 	CYN "出神入化" NOR,
-	HIC "登峰造极" NOR,
-	HIC "一代宗师" NOR,
-	HIW "深不可测" NOR
+	HIC "登峯造極" NOR,
+	HIC "一代宗師" NOR,
+	HIW "深不可測" NOR
 });
 
 string *knowledge_level_desc = ({
-	BLU "新学乍用" NOR,
-	HIB "初窥门径" NOR,
+	BLU "新學乍用" NOR,
+	HIB "初窺門徑" NOR,
 	HIB "略知一二" NOR,
-	HIB "马马虎虎" NOR,
+	HIB "馬馬虎虎" NOR,
 	HIB "已有小成" NOR,
-	CYN "心领神会" NOR,
-	CYN "了然於胸" NOR,
-	CYN "豁然贯通" NOR,
-	HIC "举世无双" NOR,
-	HIC "震古铄今" NOR,
-	HIW "深不可测" NOR
+	CYN "心領神會" NOR,
+	CYN "瞭然於胸" NOR,
+	CYN "豁然貫通" NOR,
+	HIC "舉世無雙" NOR,
+	HIC "震古鑠今" NOR,
+	HIW "深不可測" NOR
 });
 
 string skill_level(string, int);
@@ -51,15 +51,15 @@ int main(object me, string arg)
 //        if ( ob->query("SPSKILLS",1)  ) return ob->skills();		 
 		if (!ob) ob = find_player(arg);
 		if (!ob) ob = find_living(arg);
-		if (!ob) return notify_fail("你要察看谁的技能？\n");
+		if (!ob) return notify_fail("你要察看誰的技能？\n");
 	}
 
 	skl = ob->query_skills();
 	if(!sizeof(skl)) {
-		write( (ob==me ? "你" : ob->name()) + "目前并没有学会任何技能。\n");
+		write( (ob==me ? "你" : ob->name()) + "目前並沒有學會任何技能。\n");
 		return 1;
 	}
-	write( (ob==me ? "你" : ob->name()) +"目前所学过的技能：\n\n");
+	write( (ob==me ? "你" : ob->name()) +"目前所學過的技能：\n\n");
 	sname  = sort_array( keys(skl), (: strcmp :) );
 	
 	map = ob->query_skill_map();
@@ -113,11 +113,11 @@ int help(object me)
 	write(@HELP
 指令格式 : skills|cha [<某人>]
 
-这个指令可以让你(你)查询所学过的技能。
+這個指令可以讓你(你)查詢所學過的技能。
 
-你也可以指定一个和你有师徒关系的对象，用 skills 可以查知对方的技能状况。
+你也可以指定一個和你有師徒關係的對象，用 skills 可以查知對方的技能狀況。
 
-巫师可以查询任何人或 NPC 的技能状况。
+巫師可以查詢任何人或 NPC 的技能狀況。
 
 HELP
     );

@@ -1,13 +1,13 @@
-// liangongfang.c 练功房
+// liangongfang.c 練功房
 // by Xiang
 
 inherit ROOM;
 
 void create()
 {
-        set("short", "练功房");
+        set("short", "練功房");
         set("long", @LONG
-这里是练功房，地下凌乱地放着几个蒲团，几位武当弟子正盘膝坐
+這裏是練功房，地下凌亂地放着幾個蒲團，幾位武當弟子正盤膝坐
 在上面打坐。
 LONG );
         set("exits", ([
@@ -34,6 +34,6 @@ int valid_leave(object me, string dir)
 		if (inv[i]->query("id") == "zhujian") j++;
 	}
 	if (j > 1)
-                return notify_fail("这位" + RANK_D->query_respect(me) + "别那麽贪心，带走一把竹剑就够啦。\n");
+                return notify_fail("這位" + RANK_D->query_respect(me) + "別那麼貪心，帶走一把竹劍就夠啦。\n");
         return ::valid_leave(me, dir);
 }

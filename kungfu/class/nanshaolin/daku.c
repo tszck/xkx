@@ -10,10 +10,10 @@ int do_zhongcai(string arg);
 
 void create()
 {
-	set_name("大苦大师", ({ "daku dashi", "daku", "dashi"}));
+	set_name("大苦大師", ({ "daku dashi", "daku", "dashi"}));
 	set("long",
-		"他是一位两鬓斑白的老僧，身穿一袭青布镶边袈裟。他身材略高，\n"
-		"太阳穴微凸，双目炯炯有神。\n");
+		"他是一位兩鬢斑白的老僧，身穿一襲青布鑲邊袈裟。他身材略高，\n"
+		"太陽穴微凸，雙目炯炯有神。\n");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");
@@ -71,10 +71,10 @@ void create()
 		(: exert_function, "recover" :),
 	}) );
 
-	create_family("南少林派", 19, "僧监");
+	create_family("南少林派", 19, "僧監");
 	set("inquiry", 
 	([
-		"轮值" : (: ask_me :),
+		"輪值" : (: ask_me :),
 	]));
 	setup();
 	carry_object(WEAPON_DIR+"whip/whip")->wield();
@@ -95,21 +95,21 @@ string ask_me()
 	me=this_object();
 	if(!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "南少林派")
-		return RANK_D->query_respect(ob)+"，你不是本寺弟子，不能轮值！";
+		return RANK_D->query_respect(ob)+"，你不是本寺弟子，不能輪值！";
 	if((string)ob->query("class")!="bonze")
-		return ("俗家弟子不能轮值。");
+		return ("俗家弟子不能輪值。");
 	if(ob->query("combat_exp")>=50000 || 
 		ob->query("potential") > 20000)
-		return("我看你的武功已有相当的功底了，就把轮值的机会让给师弟们吧。\n");
+		return("我看你的武功已有相當的功底了，就把輪值的機會讓給師弟們吧。\n");
 	if(me->query_temp("lunzhi"))
-		return ("现在已有人轮值了，你就等下一次吧。\n");
+		return ("現在已有人輪值了，你就等下一次吧。\n");
 	me->set("lunzhi_name",ob->query("name"));
 	me->set_temp("lunzhi",1);
 	ob->set_temp("lunzhi",1);
 	ob=new(__DIR__"obj/lunzhi-ling");
 	ob->move(this_player());
-	write("大苦大师给你一块轮值令。\n");
-	return "好吧，你就到迎客亭把令交给方通吧，轮值时应当小心防范，防止外敌偷入寺中。";
+	write("大苦大師給你一塊輪值令。\n");
+	return "好吧，你就到迎客亭把令交給方通吧，輪值時應當小心防範，防止外敵偷入寺中。";
 }
 int do_lunzhi(string arg)
 {
@@ -126,10 +126,10 @@ int do_lunzhi(string arg)
 		{
 			command("angry"+ob->query("id"));
 			command("slap"+ob->query("id"));
-			return notify_fail( "大苦大师大怒道："RED"想偷懒，快给我滚回去。\n"NOR);
+			return notify_fail( "大苦大師大怒道："RED"想偷懶，快給我滾回去。\n"NOR);
 		}
 		command("pat "+ob->query("id"));
-		command("say 哈哈，真难为你了，"+RANK_D->query_respect(ob)+"，干得好！");
+		command("say 哈哈，真難爲你了，"+RANK_D->query_respect(ob)+"，幹得好！");
 		ob->add("potential",(int)(ob->query_skill("buddhism",1)/10)+30);
 		ob->add("combat_exp",(int)(ob->query_skill("buddhism",1)/4)+90);
 		me->delete("lunzhi_name");
@@ -138,7 +138,7 @@ int do_lunzhi(string arg)
 		ob->delete_temp("lunzhied");
 		return 1;
 	}
-	return notify_fail("大苦大师苦着脸说：我被杀了，你轮值的记录没有了！\n");
+	return notify_fail("大苦大師苦着臉說：我被殺了，你輪值的記錄沒有了！\n");
 }
 
 int do_zhongcai(string arg)
@@ -146,15 +146,15 @@ int do_zhongcai(string arg)
  object ob=this_player();
 
 	if(!arg || arg != "ok") return 0;
-	if(!ob->query_temp("mark/浇完")) return 0;
+	if(!ob->query_temp("mark/澆完")) return 0;
 	{
 		command("pat "+ob->query("id"));
 		command("say 辛苦了！");
 		ob->add("potential",(int)(ob->query_skill("buddhism",1)/10)+30);
 		ob->add("combat_exp",(int)(ob->query_skill("buddhism",1)/4)+90);
 		ob->delete_temp("job_name");
-		ob->delete_temp("mark/浇完");
+		ob->delete_temp("mark/澆完");
 		return 1;
 	}
-	return notify_fail("方相问道：你刚才进去服侍方丈了？\n");
+	return notify_fail("方相問道：你剛纔進去服侍方丈了？\n");
 }

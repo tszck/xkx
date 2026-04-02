@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set ("short", "山崖顶");
+	set ("short", "山崖頂");
 	set ("long", @LONG
-崖顶是个巨大的平台，积满了皑皑白雪。几块巨大的石头半卧在一
-边，形状千奇百怪，上面有许多洞穿的小孔，风过处，如泣如诉。四边
-的山崖平平如削，几棵矮树就斜长于崖边。
+崖頂是個巨大的平臺，積滿了皚皚白雪。幾塊巨大的石頭半臥在一
+邊，形狀千奇百怪，上面有許多洞穿的小孔，風過處，如泣如訴。四邊
+的山崖平平如削，幾棵矮樹就斜長於崖邊。
 LONG);
 	set("no_clean_up", 0);
 	set("outdoors","mobei");
@@ -30,10 +30,10 @@ int do_jump(string arg)
 	if (arg !="down") return notify_fail("你要跳到那去？\n");
 	if( arg=="down")
 	{
-		write("你纵身跳下了山崖。\n");
-		message("vision", me->name() + "一纵身跳下了山崖。\n", environment(me), ({me}) );
+		write("你縱身跳下了山崖。\n");
+		message("vision", me->name() + "一縱身跳下了山崖。\n", environment(me), ({me}) );
 		me->move(__DIR__"downxuanya");
-		message("vision", me->name() + "从山崖上面跳了下来。\n", environment(me), ({me}) );
+		message("vision", me->name() + "從山崖上面跳了下來。\n", environment(me), ({me}) );
 	}
 	return 1;
 }

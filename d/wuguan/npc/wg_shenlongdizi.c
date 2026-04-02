@@ -3,10 +3,10 @@ inherit NPC;
 
 void create()
 {
-       set_name("神龙教弟子", ({ "shenlong dizi", "dizi" }) );
+       set_name("神龍教弟子", ({ "shenlong dizi", "dizi" }) );
        set("gender", "男性" );
        set("age", 26);
-       set("long", "他是一个满脸瘴气的神龙教弟子。\n");
+       set("long", "他是一個滿臉瘴氣的神龍教弟子。\n");
        set("combat_exp", 25000);
        set("attitude", "friendly");
        setup();
@@ -28,12 +28,12 @@ void greeting(object ob)
 	
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
-		case 0: say("神龙教弟子嘿嘿说道：加入神龙教，心慈手软可不行。这位"+RANK_D->query_respect(ob)
-+"，想通的话，可以看"BRED"(help shenlong)"NOR"。\n");
+		case 0: say("神龍教弟子嘿嘿說道：加入神龍教，心慈手軟可不行。這位"+RANK_D->query_respect(ob)
++"，想通的話，可以看"BRED"(help shenlong)"NOR"。\n");
 			break;
-		case 1: say("神龙教弟子嘿嘿说道：蛇岛奇功，乃天下第一险毒的武功。哈哈哈..........\n");
+		case 1: say("神龍教弟子嘿嘿說道：蛇島奇功，乃天下第一險毒的武功。哈哈哈..........\n");
 			break;	
-		case 2: say("神龙教弟子奸笑道：如果被我们神龙教的化骨绵掌打中，非要哀号数月而死。\n");
+		case 2: say("神龍教弟子奸笑道：如果被我們神龍教的化骨綿掌打中，非要哀號數月而死。\n");
 			break;
 	}
 

@@ -7,12 +7,12 @@ inherit ROOM;
 
 void create ()
 {
-  set ("short", "高昌大门");
+  set ("short", "高昌大門");
   set ("long", @LONG
-    转过了一排树木，只见一座石山上嵌著两扇铁铸的大门,
-  大门看样子重逾千钧，据说是古代高昌国王为了抵御强敌而设计的。
-  门上铁锈斑驳，显是历时已久的旧物。但是门上的门环(huan)
-  似乎可以扭(niu).门上写着：
+    轉過了一排樹木，只見一座石山上嵌著兩扇鐵鑄的大門,
+  大門看樣子重逾千鈞，據說是古代高昌國王爲了抵禦強敵而設計的。
+  門上鐵鏽斑駁，顯是歷時已久的舊物。但是門上的門環(huan)
+  似乎可以扭(niu).門上寫着：
                ****************
                *              *
                *  高 昌 大 殿 *
@@ -45,7 +45,7 @@ if( (int)query("left_trigger")==2
 
    &&   (int)query("right_trigger")==5
    &&   !query("exits/down") ) {
-     message("vision", "铁门忽然发出轧轧的声音，露出一个向下的阶梯。\n", this_object() );
+     message("vision", "鐵門忽然發出軋軋的聲音，露出一個向下的階梯。\n", this_object() );
       if( !(room = find_object(__DIR__"dadian")) )
               room = load_object(__DIR__"dadian");
 
@@ -53,7 +53,7 @@ if( (int)query("left_trigger")==2
            set("exits/down", __DIR__"dadian");
            room->set("exits/up", __FILE__);
         
-          message("vision", "铁门忽然发出轧轧的声音，露出一个向上的阶梯。\n",room );
+          message("vision", "鐵門忽然發出軋軋的聲音，露出一個向上的階梯。\n",room );
 	        if (!me->query("skybook/baima/damen"))
           {
          	 me->set("skybook/baima/damen",1);
@@ -62,10 +62,10 @@ if( (int)query("left_trigger")==2
            score=pot/2;
            me->add("combat_exp",exp);
            me->add("potential",pot);
-           tell_object(me,HIC"你成功打开了通往高昌大殿的铁门！\n在这次历练中你获得了"+
-           	         chinese_number(exp)+"点经验、"+
-                     chinese_number(pot)+"点潜能以及"+
-                     chinese_number(score)+"点江湖阅历。\n\n"NOR);
+           tell_object(me,HIC"你成功打開了通往高昌大殿的鐵門！\n在這次歷練中你獲得了"+
+           	         chinese_number(exp)+"點經驗、"+
+                     chinese_number(pot)+"點潛能以及"+
+                     chinese_number(score)+"點江湖閱歷。\n\n"NOR);
           }
      }
      delete("left_trigger");
@@ -79,11 +79,11 @@ void close_passage()
    object room;
 
    if( !query("exits/down") ) return;
-   message("vision", "铁门忽然发出轧轧的声音，将向下的通道盖住了。\n",
+   message("vision", "鐵門忽然發出軋軋的聲音，將向下的通道蓋住了。\n",
      this_object() );
    if( room = find_object(__DIR__"dadian") ) {
      room->delete("exits/up");
-     message("vision", "铁门忽然发出轧轧的声音，向上的通道又缓缓地被盖住了。\n",
+     message("vision", "鐵門忽然發出軋軋的聲音，向上的通道又緩緩地被蓋住了。\n",
         room );
    }
    delete("exits/down");
@@ -100,26 +100,26 @@ int do_niu(string arg)
    if( !arg || arg=="" ) return 0;
 
    if( arg=="huan" ) {
-     write("你试着扭动门环，似乎可以左右滑动....\n");
+     write("你試着扭動門環，似乎可以左右滑動....\n");
 delete("left_trigger");
 delete("right_trigger");
      return 1;
    }
    if( sscanf(arg, "huan %s", dir)==1 ) {
      if( dir=="right" ) {
-if(query("exits/down")) return notify_fail("铁门已经被扭开了。\n");
-        message_vision("$N将门环往右扭...，忽然「喀」一声铁门又移回原位。\n", me);
+if(query("exits/down")) return notify_fail("鐵門已經被扭開了。\n");
+        message_vision("$N將門環往右扭...，忽然「喀」一聲鐵門又移回原位。\n", me);
         add("right_trigger", 1);
         check_trigger();
         return 1;
      } else if( dir=="left" ) {
-if(query("exits/down")) return notify_fail("铁门已经被扭开了。\n");
-        message_vision("$N将门环往左扭...，忽然「喀」一声铁门又移回原位。\n", me);
+if(query("exits/down")) return notify_fail("鐵門已經被扭開了。\n");
+        message_vision("$N將門環往左扭...，忽然「喀」一聲鐵門又移回原位。\n", me);
         add("left_trigger", 1);
         check_trigger();
         return 1;
      } else {
-        write("你要将门环往哪边扭？\n");
+        write("你要將門環往哪邊扭？\n");
         return 1;
      }
    }
@@ -138,7 +138,7 @@ int valid_leave(object me, string dir)
 {
 if(this_player()->query("combat_exp")<100000)
 {
-  return notify_fail("一股恐怖的氛围从脚底心升起，使你两腿颤抖不止，无法举步。\n");
+  return notify_fail("一股恐怖的氛圍從腳底心升起，使你兩腿顫抖不止，無法舉步。\n");
 }
 
 }

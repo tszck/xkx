@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "南门兜");
+	set("short", "南門兜");
 	set("long", @LONG
-南门兜中央有一株巨大古榕，根繁叶茂，浓荫遮盖树亩，将整个街
-口遮闭严实不漏日光。大榕树下有一小洞(dong)，深藏根下。
+南門兜中央有一株巨大古榕，根繁葉茂，濃蔭遮蓋樹畝，將整個街
+口遮閉嚴實不漏日光。大榕樹下有一小洞(dong)，深藏根下。
 LONG );
 	set("exits", ([ /* sizeof() == 1 */
 	    "north"  : __DIR__"nandajie",
@@ -19,7 +19,7 @@ LONG );
 		__DIR__"npc/wu" : 1,
 	]));
 	set("item_desc", ([
-	    "dong"   : "一个深邃幽暗的洞穴。\n",
+	    "dong"   : "一個深邃幽暗的洞穴。\n",
 	]));
 	set("outdoors", "fuzhou");
 	set("no_clean_up", 0);
@@ -43,17 +43,17 @@ int do_enter(string arg)
         if( !arg || arg=="" ) return 0;
         if( arg=="dong" )
         {
-           if( (fam = me->query("family")) && fam["family_name"] == "丐帮")
+           if( (fam = me->query("family")) && fam["family_name"] == "丐幫")
            {
                message("vision",
-                        me->name() + "运起丐帮缩骨功，一弯腰往洞里钻了进去。\n",
+                        me->name() + "運起丐幫縮骨功，一彎腰往洞裏鑽了進去。\n",
                         environment(me), ({me}) );
                me->move("/d/gaibang/underfz");
                message("vision",
-                        me->name() + "从洞里走了进来。\n",
+                        me->name() + "從洞裏走了進來。\n",
                         environment(me), ({me}) );
                         return 1;
            }
-           else  return notify_fail("这么小的洞，你钻得进去吗？\n");
+           else  return notify_fail("這麼小的洞，你鑽得進去嗎？\n");
        }
 }

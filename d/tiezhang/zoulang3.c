@@ -7,7 +7,7 @@ void create()
 {
 	set("short", "走廊");
 	set("long", @LONG
-你走在一条走廊上。北面传来阵阵饭菜的香味。
+你走在一條走廊上。北面傳來陣陣飯菜的香味。
 LONG );
 	set("exits", ([ /* sizeof() == 2 */
 		"north" : __DIR__"chufang",

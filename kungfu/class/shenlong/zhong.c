@@ -1,4 +1,4 @@
-// bailong shi 白龙使
+// bailong shi 白龍使
 // Last Modified by winder on Jul. 12 2002
 
 #include <ansi.h>
@@ -9,8 +9,8 @@ void apply_gift(object, int);
 
 void create()
 {
-	set_name("钟志灵", ({ "zhong zhiling","bailong shi", "shi","zhong" }));
-	set("long", "魁梧大汉，一看就知是关东人。\n");
+	set_name("鍾志靈", ({ "zhong zhiling","bailong shi", "shi","zhong" }));
+	set("long", "魁梧大漢，一看就知是關東人。\n");
 	set("gender", "男性");
 	set("age", 45);
 	set("attitude", "peaceful");
@@ -46,19 +46,19 @@ void create()
 
 	prepare_skill("strike", "huagu-mianzhang");
 	set("inquiry", ([
-		"洪安通" : "这三个字是你说的吗？",
-		"洪教主" : "洪教主仙福永享，寿与天齐，洪教主神目如电，烛照四方。",
-		"苏荃"   : "没规没矩的。",
-		"神龙岛" : "神龙岛在汝州的东北方向，从塘沽口出海便到。",
-		"神龙教" : "一般人是入不了我神龙教的(join shenlongjiao).\n",
-		"入教"   : "一般人是入不了我神龙教的(join shenlongjiao).\n",
-		"教主"   : "教主脾气不好，要讨他欢心才好。\n",
-		"口号"   : "万年不老！永享仙福！寿与天齐！文武仁圣！\n",
+		"洪安通" : "這三個字是你說的嗎？",
+		"洪教主" : "洪教主仙福永享，壽與天齊，洪教主神目如電，燭照四方。",
+		"蘇荃"   : "沒規沒矩的。",
+		"神龍島" : "神龍島在汝州的東北方向，從塘沽口出海便到。",
+		"神龍教" : "一般人是入不了我神龍教的(join shenlongjiao).\n",
+		"入教"   : "一般人是入不了我神龍教的(join shenlongjiao).\n",
+		"教主"   : "教主脾氣不好，要討他歡心纔好。\n",
+		"口號"   : "萬年不老！永享仙福！壽與天齊！文武仁聖！\n",
 	]));
-	set("party/party_name", HIY"神龙教"NOR);
-	set("party/rank", HIW"白龙门"NOR"掌门使");
+	set("party/party_name", HIY"神龍教"NOR);
+	set("party/rank", HIW"白龍門"NOR"掌門使");
 	set("party/level", 2);
-	create_family("神龙教", 2, "弟子");
+	create_family("神龍教", 2, "弟子");
 
 	setup();
 	carry_object(WEAPON_DIR"hook")->wield();
@@ -95,7 +95,7 @@ void greeting(object ob)
 
 void attempt_apprentice(object ob)
 {
-	command("say 你走开！别烦我！");
+	command("say 你走開！別煩我！");
 	return;
 }
 #include "/kungfu/class/shenlong/shenlong.h"; 

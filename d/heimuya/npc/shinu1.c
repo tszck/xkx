@@ -4,10 +4,10 @@ void greeting(object);
 void init();
 void create()
 {
-	set_name("慌张的侍女", ({ "shi nv","shi","nv" }) );
+	set_name("慌張的侍女", ({ "shi nv","shi","nv" }) );
 	set("gender", "女性" );
 	set("age", 20);
-	set("long", "神情慌张,似乎做了什么事情,总是向堂厅看去。\n");
+	set("long", "神情慌張,似乎做了什麼事情,總是向堂廳看去。\n");
 	set("shen_type", -1);
 	set("combat_exp", 10000);
 	set("str", 20);

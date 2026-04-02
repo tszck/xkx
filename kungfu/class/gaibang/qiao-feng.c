@@ -8,14 +8,14 @@ string ask_me();
 
 void create()
 {
-	set_name("乔峰", ({"qiao feng", "feng", "qiao"}));
-	set("nickname", "北乔峰");
+	set_name("喬峯", ({"qiao feng", "feng", "qiao"}));
+	set("nickname", "北喬峯");
 	set("gender", "男性");
 	set("age", 29);
 	set("long", 
-"他就是丐帮第十任帮主，在江湖上与燕子坞的慕容复并称为「北乔峰，南慕容」。
-他身穿一件普通的粗布褂子，腰间用一条麻绳随便一系。他身高六尺有余，体格
-十分魁梧，长有一张线条粗旷、十分男性化的脸庞，双目如电，炯炯有神。\n");
+"他就是丐幫第十任幫主，在江湖上與燕子塢的慕容復並稱爲「北喬峯，南慕容」。
+他身穿一件普通的粗布褂子，腰間用一條麻繩隨便一系。他身高六尺有餘，體格
+十分魁梧，長有一張線條粗曠、十分男性化的臉龐，雙目如電，炯炯有神。\n");
 	set("attitude", "peaceful");
 	set("class", "beggar");
  	set("beggarlvl", 10);
@@ -37,26 +37,26 @@ void create()
 	set("score", 200000);
 	set("shen", 100000);
 	 
-	set_skill("force", 200);             // 基本内功
-	set_skill("huntian-qigong", 200);    // 混天气功
-	set_skill("unarmed", 200);           // 基本拳脚
-	set_skill("dodge", 200);      	     // 基本躲闪
-	set_skill("xiaoyaoyou", 300);        // 逍遥游
+	set_skill("force", 200);             // 基本內功
+	set_skill("huntian-qigong", 200);    // 混天氣功
+	set_skill("unarmed", 200);           // 基本拳腳
+	set_skill("dodge", 200);      	     // 基本躲閃
+	set_skill("xiaoyaoyou", 300);        // 逍遙遊
 	set_skill("parry", 200);             // 基本招架
 	set_skill("strike", 200);            // 基本掌法
-	set_skill("xianglong-zhang", 300);   // 降龙十八掌
+	set_skill("xianglong-zhang", 300);   // 降龍十八掌
 	set_skill("hand", 200);              // 基本手法
-	set_skill("suohou-hand", 300);       // 锁喉擒拿手
+	set_skill("suohou-hand", 300);       // 鎖喉擒拿手
 	set_skill("blade", 200);             // 基本刀法
 	set_skill("liuhe-blade", 300);       // 四象六合刀
 	set_skill("staff", 200);             // 基本杖法
-	set_skill("fengmo-staff", 300);      // 疯魔杖法
+	set_skill("fengmo-staff", 300);      // 瘋魔杖法
 	set_skill("stick", 200);             // 基本棒法
 	set_skill("dagou-bang", 300);        // 打狗棒法
-	set_skill("begging", 100);           // 叫化绝活
-	set_skill("checking", 100);          // 道听途说
-	set_skill("training", 100);          // 驭兽术
-	set_skill("lianhua-zhang",85); // 莲花掌
+	set_skill("begging", 100);           // 叫化絕活
+	set_skill("checking", 100);          // 道聽途說
+	set_skill("training", 100);          // 馭獸術
+	set_skill("lianhua-zhang",85); // 蓮花掌
 	
 	map_skill("force", "huntian-qigong");
 	map_skill("strike", "xianglong-zhang");
@@ -70,14 +70,14 @@ void create()
 	prepare_skill("strike", "xianglong-zhang");
 
 	set("inquiry",([
-		"秘籍"     : (: ask_me :),
-		"棒法入门" : (: ask_me :),
+		"祕籍"     : (: ask_me :),
+		"棒法入門" : (: ask_me :),
 	]));	
 	set("book_count", 1);
-	set("party/party_name", HIC"丐帮"NOR);
-	set("party/rank", HIR"帮主"NOR);
+	set("party/party_name", HIC"丐幫"NOR);
+	set("party/rank", HIR"幫主"NOR);
 	set("party/level", 10);
-	create_family("丐帮", 10, "帮主");
+	create_family("丐幫", 10, "幫主");
 
 	setup();
 	
@@ -105,9 +105,9 @@ void greeting(object me)
 {
        	mapping myfam;
 	myfam = (mapping)me->query("family");
-	if((myfam["family_name"] == "丐帮")&&(!me->query_skill("huntian-qigong",1))&&(me->query("combat_exp")>500000))
+	if((myfam["family_name"] == "丐幫")&&(!me->query_skill("huntian-qigong",1))&&(me->query("combat_exp")>500000))
         {
-                command("say 你竟敢放弃本门心法！从我这里滚出去吧！");
+                command("say 你竟敢放棄本門心法！從我這裏滾出去吧！");
                 command("expell " + me->query("id"));
         }
         
@@ -117,18 +117,18 @@ void attempt_apprentice(object ob)
 {
 	if ((int)ob->query_str() < 20 || (int)ob->query_con() < 20)
 	{
-		command("say 当叫化子需要能吃苦耐劳，依我看" + RANK_D->query_respect(ob) + "的资质似乎不适合当叫化子？");
+		command("say 當叫化子需要能喫苦耐勞，依我看" + RANK_D->query_respect(ob) + "的資質似乎不適合當叫化子？");
 		return;
 	}
 	if ((string)ob->query("family/family_name") != "" &&
-	    (string)ob->query("family/family_name") != "丐帮")
+	    (string)ob->query("family/family_name") != "丐幫")
 	{
-		command("say " + RANK_D->query_respect(ob) + "既然已有名师指点，何必又来拜我呢？");
+		command("say " + RANK_D->query_respect(ob) + "既然已有名師指點，何必又來拜我呢？");
 		return;
 	}
-	if ((string)ob->query("party/party_name") != HIC"丐帮"NOR)
+	if ((string)ob->query("party/party_name") != HIC"丐幫"NOR)
 	{
-		command("say 我只收本帮弟子为徒。\n");
+		command("say 我只收本幫弟子爲徒。\n");
 		return;
 	}
 	command("recruit "+ob->query("id"));
@@ -140,14 +140,14 @@ string ask_me()
 	object ob;
 	
 	if (!(fam = this_player()->query("family")) ||
-		fam["family_name"] != "丐帮")
-		return RANK_D->query_respect(this_player()) +"与本派毫无瓜葛，我派的武功典籍可不能交给你。";
+		fam["family_name"] != "丐幫")
+		return RANK_D->query_respect(this_player()) +"與本派毫無瓜葛，我派的武功典籍可不能交給你。";
 	if (query("book_count") < 1)
-		return "你来晚了，本派的秘籍不在此处。";
+		return "你來晚了，本派的祕籍不在此處。";
 	add("book_count", -1);
 	ob = new("/clone/book/stick_book.c");
 	ob->move(this_player());
-	command("rumor "+this_player()->query("name")+"拿到棒法入门啦。\n");
-	return "好吧，这本「棒法入门」你拿回去好好钻研。";
+	command("rumor "+this_player()->query("name")+"拿到棒法入門啦。\n");
+	return "好吧，這本「棒法入門」你拿回去好好鑽研。";
 }
 

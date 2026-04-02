@@ -13,7 +13,7 @@ void create()
 	set("age", 20);
 	set("no_get", 1);
 	set("long", 	
-		"他头上包着白布头巾，一袭白袍，没有一丝褶皱。\n");
+		"他頭上包着白布頭巾，一襲白袍，沒有一絲褶皺。\n");
 	set("str", 25);
 	set("dex", 20);
 	set("con", 17);
@@ -33,8 +33,8 @@ void create()
 	set("score",0);
 	set("attitude", "peaceful");
 	set("inquiry", ([
-		"铸棍" : "师傅命我帮助别人铸棍，但到现在也不见一个人影。谁要铸棍呢？\n",
-		"原料" : "铸棍可用寒丝羽竹，海底金母，千年神木，陨星铁石。但效果各不一样。\n",
+		"鑄棍" : "師傅命我幫助別人鑄棍，但到現在也不見一個人影。誰要鑄棍呢？\n",
+		"原料" : "鑄棍可用寒絲羽竹，海底金母，千年神木，隕星鐵石。但效果各不一樣。\n",
 	]) );
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
@@ -45,7 +45,7 @@ int accept_object(object who, object ob)
 {	
 	if(!(who->query_temp("club") ) )
 	{
-		message_vision(HIC"师傅没有同意为你铸棍，您请回吧！\n"NOR, who);
+		message_vision(HIC"師傅沒有同意爲你鑄棍，您請回吧！\n"NOR, who);
 		return 0;
 	}
 	who->delete_temp("club");
@@ -65,12 +65,12 @@ int accept_object(object who, object ob)
 			who->add_temp("ironstone",1);
 			break;
 		default :
-			message("vision","这是什么！师傅说这不能用来打造兵器！\n",who);
+			message("vision","這是什麼！師傅說這不能用來打造兵器！\n",who);
 			return 0;
 	}
-	message("vision", "侍棍低头检视了一下手中的"+(string)ob->query("name")+"点了点头说：\n", who);
-	message("vision","。。。好我们现在就开始铸棍！\n", who);
-	write("请这位"+RANK_D->query_respect(who)+"给棍起名字吧！(zhu 棍的名字 英文代号)\n");
+	message("vision", "侍棍低頭檢視了一下手中的"+(string)ob->query("name")+"點了點頭說：\n", who);
+	message("vision","。。。好我們現在就開始鑄棍！\n", who);
+	write("請這位"+RANK_D->query_respect(who)+"給棍起名字吧！(zhu 棍的名字 英文代號)\n");
 	destruct(ob);
 	return 1;
 }

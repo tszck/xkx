@@ -5,12 +5,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("亲兵", ({ "qin bing", "qin", "bing" }));
+	set_name("親兵", ({ "qin bing", "qin", "bing" }));
 	set("gender", "男性");
 	set("age", random(20) + 30);
 	set("str", 25);
 	set("dex", 16);
-	set("long", "他手握钢刀，目视前方，真是威风凛凛。\n");
+	set("long", "他手握鋼刀，目視前方，真是威風凜凜。\n");
 	set("combat_exp", 75000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");
@@ -46,7 +46,7 @@ void init()
         switch(random(10))
 	{   
 		case 1:
-		message_vision("\n亲兵忽然对$N大喝一声：何方刁民，竟敢在提督衙前此撒野！看刀！\n",this_player());
+		message_vision("\n親兵忽然對$N大喝一聲：何方刁民，竟敢在提督衙前此撒野！看刀！\n",this_player());
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, ob);
 		break;

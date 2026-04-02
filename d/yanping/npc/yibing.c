@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("驿兵", ({ "yi bing", "bing" }));
+	set_name("驛兵", ({ "yi bing", "bing" }));
 	set("age", 22);
 	set("gender", "男性");
-	set("long","他就是管这个马站的兵士。虽然不打战，脾气好，也不能随便招惹哦。\n");
+	set("long","他就是管這個馬站的兵士。雖然不打戰，脾氣好，也不能隨便招惹哦。\n");
 	set("attitude", "peaceful");
 	set("str", 24);
 	set("dex", 16);

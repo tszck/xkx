@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "猩猩滩");
+	set("short", "猩猩灘");
 	set("long", @LONG
-只见一片长滩，山石殷红如血，水流湍急，这便是有名的猩猩滩。
-一叶小舟隐藏在芦苇中，要过对面就要靠这几艘小船了。
+只見一片長灘，山石殷紅如血，水流湍急，這便是有名的猩猩灘。
+一葉小舟隱藏在蘆葦中，要過對面就要靠這幾艘小船了。
 LONG );
 	set("outdoors", "heimuya");
 	set("objects", ([

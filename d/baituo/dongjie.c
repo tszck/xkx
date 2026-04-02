@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "东街");
+	set("short", "東街");
 	set("long", @LONG
-这里是小镇的东街。南边有个打铁铺，里面传来丁丁当当的声音。
-东南方是荒凉的戈壁，东北方有条小路可上山。
+這裏是小鎮的東街。南邊有個打鐵鋪，裏面傳來丁丁當當的聲音。
+東南方是荒涼的戈壁，東北方有條小路可上山。
 LONG	);
 	set("outdoors", "baituo");
 	set("exits", ([

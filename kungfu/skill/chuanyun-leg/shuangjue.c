@@ -1,8 +1,8 @@
-// shuangjue.c  拳腿双绝
+// shuangjue.c  拳腿雙絕
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "「拳腿双绝」"
+#define PNAME "「拳腿雙絕」"
 int perform(object me, object target)
 {
 	int i, j, z, y;
@@ -16,17 +16,17 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("你必须空手使用「拳腿双绝」！\n");
+		return notify_fail("你必須空手使用「拳腿雙絕」！\n");
 		
 	fskill = "xuantian-wuji";
 	bskill = "leg";
@@ -48,29 +48,29 @@ int perform(object me, object target)
 			me->query_skill_prepared("leg") != "chuanyun-leg" ||
 			me->query_skill_mapped("cuff") != "zhentian-cuff" ||
 			me->query_skill_mapped("leg") != "chuanyun-leg")
-			return notify_fail("你现在无法使用"PNAME"进行攻击！\n");
+			return notify_fail("你現在無法使用"PNAME"進行攻擊！\n");
 	}
 	if( (int)me->query_skill(cskill1, 1) < 100 )
-		return notify_fail("你的"+to_chinese(cskill1)+"不够娴熟，无法施展"PNAME"。\n");
+		return notify_fail("你的"+to_chinese(cskill1)+"不夠嫺熟，無法施展"PNAME"。\n");
 	if( (int)me->query_skill(cskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(cskill)+"不够娴熟，无法施展出"PNAME"。\n");
+		return notify_fail("你的"+to_chinese(cskill)+"不夠嫺熟，無法施展出"PNAME"。\n");
 	if( (int)me->query_skill(bskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(bskill)+"不够娴熟，无法施展出"PNAME"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"不夠嫺熟，無法施展出"PNAME"。\n");
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，无法施展"PNAME"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，無法施展"PNAME"。\n");
 	if ((int)me->query_skill(fskill, 1) < 100)
-		return notify_fail("你的"+to_chinese(fskill)+"火候不够，无法施展出"PNAME"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"火候不夠，無法施展出"PNAME"。\n");
 	if( (int)me->query_dex() < 30 )
-		return notify_fail("你的身法欠佳，无法施展出"PNAME"。\n");
+		return notify_fail("你的身法欠佳，無法施展出"PNAME"。\n");
 	if ( (int)me->query("max_neili") < 500)
-		return notify_fail("你的内力不够，无法施展出"PNAME"。\n");
+		return notify_fail("你的內力不夠，無法施展出"PNAME"。\n");
 	if ( (int)me->query("neili") < 400)
-		return notify_fail("你的真气不够，无法施展出"PNAME"。\n");
+		return notify_fail("你的真氣不夠，無法施展出"PNAME"。\n");
 	i = me->query_skill(cskill,1);
 	j = me->query_skill(bskill,1);
 	z = me->query_skill("force",1);
 	y = (i+j+z)/20;
-	message_combatd(RED"$N"RED"一声清啸，拳脚齐施，使出昆仑绝学「拳腿双绝」迅捷无伦地攻向$n"RED"！\n"NOR,me, target);
+	message_combatd(RED"$N"RED"一聲清嘯，拳腳齊施，使出崑崙絕學「拳腿雙絕」迅捷無倫地攻向$n"RED"！\n"NOR,me, target);
 	me->add("neili", -400);
 	me->add_temp("apply/strength", y);
 	me->add_temp("apply/attack", y);
@@ -93,17 +93,17 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		加力连续出手五招
+		加力連續出手五招
 
 	出手要求：
-		玄天无极功100级
-		基本腿法100级
-		基本拳法100级
-		震天拳法100级
-		穿云腿100级
-		后天身法30
-		内力修为500
-		内力400
+		玄天無極功100級
+		基本腿法100級
+		基本拳法100級
+		震天拳法100級
+		穿雲腿100級
+		後天身法30
+		內力修爲500
+		內力400
 HELP
 	);
 	return 1;

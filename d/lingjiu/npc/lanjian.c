@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("兰剑", ({ "lan jian", "lan"}));
+	set_name("蘭劍", ({ "lan jian", "lan"}));
 	set("long",
-		"这是个容貌姣好的女子，瓜子脸蛋，眼如点漆，清秀绝俗。
-你总觉得在哪见过她。\n");
-	set("title", "灵鹫宫第三代弟子");
+		"這是個容貌姣好的女子，瓜子臉蛋，眼如點漆，清秀絕俗。
+你總覺得在哪見過她。\n");
+	set("title", "靈鷲宮第三代弟子");
 	set("gender", "女性");
 	set("class", "dancer");
 	set("age", 18);
@@ -53,7 +53,7 @@ void create()
 	prepare_skill("strike","liuyang-zhang");
 	prepare_skill("hand", "zhemei-shou");
 
-	create_family("灵鹫宫",3,"弟子");
+	create_family("靈鷲宮",3,"弟子");
 	setup();
 	carry_object("/d/lingjiu/obj/qingyi")->wear();
 	carry_object("/d/lingjiu/obj/doupeng")->wear();

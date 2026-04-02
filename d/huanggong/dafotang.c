@@ -6,8 +6,8 @@ void create()
 {
 	set("short", "大佛堂");
 	set("long", @LONG
-这是慈宁宫后的大佛堂。堂里供着一尊如来佛像，佛像前是一张供
-桌。桌上点着盏油灯。
+這是慈寧宮後的大佛堂。堂裏供着一尊如來佛像，佛像前是一張供
+桌。桌上點着盞油燈。
 LONG );
 	set("exits", ([
   		"south" : __DIR__"cininggong",

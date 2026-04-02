@@ -1,16 +1,16 @@
-// shrimp.c 龙井虾仁
+// shrimp.c 龍井蝦仁
 #include <ansi.h>
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-        set_name(RED"龙井虾仁"NOR, ({"shrimp"}));
+        set_name(RED"龍井蝦仁"NOR, ({"shrimp"}));
         set_weight(1300);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "酽酽浓浓的一盘龙井虾仁。\n");
+                set("long", "釅釅濃濃的一盤龍井蝦仁。\n");
                 set("unit", "碗");
                 set("value", 50);
                 set("food_remaining", 5);

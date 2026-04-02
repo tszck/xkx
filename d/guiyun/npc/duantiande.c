@@ -6,10 +6,10 @@ void create()
 {
 	set_name("段天德", ({ "duan tiande", "duan" }));
 	set("gender", "男性");
-	set("title", "大宋兵马指挥使");
+	set("title", "大宋兵馬指揮使");
 	set("age", 45);
 	set("per", 15);
-	set("long", "他是大宋临安兵马指挥使。\n");
+	set("long", "他是大宋臨安兵馬指揮使。\n");
 	set("combat_exp", 4000);
         set_skill("dodge", 20);
         set_skill("unarmed", 20);

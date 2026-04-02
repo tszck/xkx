@@ -1,4 +1,4 @@
-// guiyuan-tunafa.c 铁掌帮 归元吐纳法
+// guiyuan-tunafa.c 鐵掌幫 歸元吐納法
 // Last Modified by winder on Nov. 15 2000
 
 #include <ansi.h>
@@ -19,14 +19,14 @@ int valid_learn(object me)
 	
 	nf = (int)me->query_skill("force", 1);
 	if ( nf < 10)
-		return notify_fail("你的基本内功火候还不够，无法领会归元吐呐法。\n");
+		return notify_fail("你的基本內功火候還不夠，無法領會歸元吐吶法。\n");
 
 	return valid_public(me);
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("归元吐呐法只能用学(learn)的来增加熟练度。\n");
+	return notify_fail("歸元吐吶法只能用學(learn)的來增加熟練度。\n");
 }
 
 string exert_function_file(string func)
@@ -35,13 +35,13 @@ string exert_function_file(string func)
 }
 int help(object me)
 {
-	write(HIM"\n归元吐纳法："NOR"\n");
+	write(HIM"\n歸元吐納法："NOR"\n");
 	write(@HELP
 
-    铁掌帮的内功，具自疗、他疗及运功之用。
+    鐵掌幫的內功，具自療、他療及運功之用。
 
-	学习要求：
-		基本内功10级
+	學習要求：
+		基本內功10級
 HELP
 	);
 	return 1;

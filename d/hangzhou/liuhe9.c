@@ -6,8 +6,8 @@ void create()
 {
         set("short", "六和塔");
         set("long", @LONG
-这里是六和塔的九层。窗(window)外是浓妆淡抹的西子湖，塔
-中玲珑八角，青砖砌地，雕栏飞檐间粘连了些许蛛网。
+這裏是六和塔的九層。窗(window)外是濃妝淡抹的西子湖，塔
+中玲瓏八角，青磚砌地，雕欄飛檐間粘連了些許蛛網。
 LONG);
         set("exits", ([
             "down"  : __DIR__"liuhe8",
@@ -17,7 +17,7 @@ LONG);
             __DIR__"honghua/zhao" :1,
         ]));
         set("item_desc", ([
-            "window": "从窗口望出去，钱江东去。近处农田中，有一农夫正荷锄耕耘。\n",
+            "window": "從窗口望出去，錢江東去。近處農田中，有一農夫正荷鋤耕耘。\n",
         ]));
         set("no_clean_up", 0);
 	set("coor/x", 3890);
@@ -29,6 +29,6 @@ int valid_leave(object me, string dir)
 {
         if (dir == "up" &&
             objectp(present("zhao banshan", environment(me))))
-            return notify_fail("赵半山笑嘻嘻地挡住你的去路：再玩玩才走啦。气得你半死！\n");
+            return notify_fail("趙半山笑嘻嘻地擋住你的去路：再玩玩才走啦。氣得你半死！\n");
         return ::valid_leave(me, dir);
 }

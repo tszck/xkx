@@ -5,22 +5,22 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("陈阿婆", ({ "chen apo", "chen", "apo" }));
-	set("title", "杂货铺老板娘");
+	set_name("陳阿婆", ({ "chen apo", "chen", "apo" }));
+	set("title", "雜貨鋪老闆娘");
 	set("shen_type", 1);
 
 	set("str", 20);
 	set("gender", "女性");
 	set("age", 55);
 	set("long",
-		"陈阿婆久居泉州城，据说她年轻时很有几分风韵，福威镖局\n"
-		"当时的少镖头林震南还追求过她。\n");
+		"陳阿婆久居泉州城，據說她年輕時很有幾分風韻，福威鏢局\n"
+		"當時的少鏢頭林震南還追求過她。\n");
 	set("combat_exp", 800);
 	set("attitude", "friendly");
 	set("inquiry", ([
-		"林震南" : "阿南生着那俊，那会琢一个河南七子婆，唉。\n",
-		"name" : "婆婆我夫家姓陈。陈林半边天嘛。\n",
-		"here" : "泉州是个港口，会行船的人很多。\n",
+		"林震南" : "阿南生着那俊，那會琢一個河南七子婆，唉。\n",
+		"name" : "婆婆我夫家姓陳。陳林半邊天嘛。\n",
+		"here" : "泉州是個港口，會行船的人很多。\n",
 	]));
 	
 	set("vendor_goods", ({
@@ -55,10 +55,10 @@ void greeting(object ob)
 	switch(random(2))
 	{
 		case 0 :
-			say("陈阿婆笑眯眯地说道：人客来坐。\n");
+			say("陳阿婆笑眯眯地說道：人客來坐。\n");
 			break;
 		case 1 :
-			say("陈阿婆说道：可嘴的，你要买什？\n");
+			say("陳阿婆說道：可嘴的，你要買什？\n");
 			break;
 	}
 }

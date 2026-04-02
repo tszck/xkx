@@ -6,7 +6,7 @@ void create ()
 {
 	set ("short", "破祠堂");
 	set ("long", @LONG
-这是一个破败的祠堂。地下满是灰尘，桌椅都是甚是残破。
+這是一個破敗的祠堂。地下滿是灰塵，桌椅都是甚是殘破。
 LONG);
 	set("exits", ([
 		"north" : __DIR__"huayuan",

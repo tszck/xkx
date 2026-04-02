@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("贾人达", ({ "jia renda", "jia", "renda" }));
+	set_name("賈人達", ({ "jia renda", "jia", "renda" }));
 	set("gender", "男性");
 	set("age", 25);
-	set("long", "他就是「青城派」中最为同门不齿、最下达的家伙。\n");
+	set("long", "他就是「青城派」中最爲同門不齒、最下達的傢伙。\n");
 
 	set("combat_exp", 30000);
 	set("shen_type", -1);
@@ -53,8 +53,8 @@ void init()
 void greeting(object ob)
 {
 	if (ob->query("gender")=="女性")
-		say("贾人达嬉皮笑脸道：这位花姑娘身材硬是要得。一张脸蛋嘛，
-却是钉鞋踏烂泥，翻转石榴皮，格老子好一张大麻皮！\n");
-	else say("贾人达白了白眼：格老子的，你这兔儿爷骂谁？\n");
+		say("賈人達嬉皮笑臉道：這位花姑娘身材硬是要得。一張臉蛋嘛，
+卻是釘鞋踏爛泥，翻轉石榴皮，格老子好一張大麻皮！\n");
+	else say("賈人達白了白眼：格老子的，你這兔兒爺罵誰？\n");
 	return;
 }

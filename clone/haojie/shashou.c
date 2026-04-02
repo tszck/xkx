@@ -7,10 +7,10 @@ inherit NPC;
 void create()
 {
  	set("level",0);
-  set_name("七杀门杀手", ({"sha shou", "sha", "shou"}));
+  set_name("七殺門殺手", ({"sha shou", "sha", "shou"}));
 	set("gender", "男性");
 	set("age", 30);
-	set("long", "他是七杀门的杀手。\n");
+	set("long", "他是七殺門的殺手。\n");
 	set("per", 10);
 	set("attitude", "peaceful");
 
@@ -70,7 +70,7 @@ void killing(object ob)
   if (player_exp<=2000) return;
   if (player_exp>=query("min_kill_exp"))
 	{
-	 message_vision("$N对著$n喝道：「"+RANK_D->query_rude(ob)+"！今天不是你死就是我亡！」\n",this_object(),ob);
+	 message_vision("$N對著$n喝道：「"+RANK_D->query_rude(ob)+"！今天不是你死就是我亡！」\n",this_object(),ob);
 	 this_object()->kill_ob(ob);
 	}
   return;
@@ -99,11 +99,11 @@ void die()
     me->add("potential",pot);
   	me->add("score",score);
   	me->add_temp("hj_killer",1);				
-  	message_vision("$N咬牙切齿地对着天空大叫：“贼老天！”\n",ob);
-  	tell_object(me,HIW"你杀敌有功，得到如下奖励：\n");
-  	tell_object(me,chinese_number(exp) +"点实战经验\n" +
-  	chinese_number(pot) + "点潜能\n" +
-  	chinese_number(score)+"点江湖阅历\n"NOR);
+  	message_vision("$N咬牙切齒地對着天空大叫：“賊老天！”\n",ob);
+  	tell_object(me,HIW"你殺敵有功，得到如下獎勵：\n");
+  	tell_object(me,chinese_number(exp) +"點實戰經驗\n" +
+  	chinese_number(pot) + "點潛能\n" +
+  	chinese_number(score)+"點江湖閱歷\n"NOR);
   }
   if (sword=present("long sword",environment(ob)))
   destruct(sword);

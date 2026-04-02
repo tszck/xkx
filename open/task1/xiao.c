@@ -1,12 +1,12 @@
-// xiaoyao.c 逍遥子
+// xiaoyao.c 逍遙子
 
 inherit NPC;
  
 void create()
 {
-	set_name("逍遥子", ({ "xiaoyao  zi", "zi" }));
-	set("nickname", "烟霞神龙");
-	set("long","病夫模样的中年人，衣衫褴褛，咬著一根旱烟管，双目似睁似闭，嘴里慢慢喷出烟雾。\n");
+	set_name("逍遙子", ({ "xiaoyao  zi", "zi" }));
+	set("nickname", "煙霞神龍");
+	set("long","病夫模樣的中年人，衣衫襤褸，咬著一根旱菸管，雙目似睜似閉，嘴裏慢慢噴出煙霧。\n");
 	set("gender", "男性");
 	set("age", random(10) + 45);
 	set("attitude", "peaceful");

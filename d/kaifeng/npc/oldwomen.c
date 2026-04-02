@@ -3,9 +3,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("烧香老太", ({"lao taitai", "lao", "taitai"}));
+	set_name("燒香老太", ({"lao taitai", "lao", "taitai"}));
         set("gender", "女性");
- 	set("long", "见佛烧香的老太太。\n");
+ 	set("long", "見佛燒香的老太太。\n");
         set("combat_exp", 5000);
    	set("age",64);
 
@@ -45,11 +45,11 @@ void greeting(object ob)
  	if (xiang)
 	{
   		message_vision(CYN "$N" CYN "恭敬地向$n" NOR +
-                               CYN "跪倒，嘴里念念有词。\n" NOR,
+                               CYN "跪倒，嘴裏唸唸有詞。\n" NOR,
                                this_object(), xiang);
     		return;
    	}
-  	tell_object(ob, CYN "烧香老太对你道：对菩萨要恭敬，要敬"
+  	tell_object(ob, CYN "燒香老太對你道：對菩薩要恭敬，要敬"
                         "重鬼神。" NOR);
   	return;
 }

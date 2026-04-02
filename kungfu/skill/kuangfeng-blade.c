@@ -1,4 +1,4 @@
-//kuangfeng-blade 狂风刀法
+//kuangfeng-blade 狂風刀法
 // Last Modified by sega on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,45 +7,45 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N手中$w轻挥，一招"+HIW"「风平浪静」"NOR+"，看似平缓实则迅速地向$n的$l撩去",
+([	"action" : "$N手中$w輕揮，一招"+HIW"「風平浪靜」"NOR+"，看似平緩實則迅速地向$n的$l撩去",
 	"lvl" : 0,
-	"skill_name" : "风平浪静",
+	"skill_name" : "風平浪靜",
 ]),
-([	"action" : "$N一招"+HIW"「风起云涌」"NOR+"，右脚一点，$w寒光闪闪，快速涌$n的$l",
+([	"action" : "$N一招"+HIW"「風起雲湧」"NOR+"，右腳一點，$w寒光閃閃，快速湧$n的$l",
 	"lvl" : 10,
-	"skill_name" : "风起云涌",
+	"skill_name" : "風起雲湧",
 ]),
-([	"action" : "$N一招"+HIY"「风卷残云」"NOR+"，手臂一抡，刀锋一卷，自上而下斩向$n",
+([	"action" : "$N一招"+HIY"「風捲殘雲」"NOR+"，手臂一掄，刀鋒一卷，自上而下斬向$n",
 	"lvl" : 20,
-	"skill_name" : "风卷残云",
+	"skill_name" : "風捲殘雲",
 ]),
-([	"action" : "$N一招"+HIC"「风流云散」"NOR+"，侧身而退，$w却在胸前划出一道圆弧，横劈$n的$l",
+([	"action" : "$N一招"+HIC"「風流雲散」"NOR+"，側身而退，$w卻在胸前劃出一道圓弧，橫劈$n的$l",
 	"lvl" : 32,
-	"skill_name" : "风流云散",
+	"skill_name" : "風流雲散",
 ]),
-([	"action" : "$N侧身滑步而上，一招"+HIW"「风声鹤唳」"NOR+"，欺至$n身前，$w猛砍$n的$l",
+([	"action" : "$N側身滑步而上，一招"+HIW"「風聲鶴唳」"NOR+"，欺至$n身前，$w猛砍$n的$l",
 	"lvl" : 45,
-	"skill_name" : "风声鹤唳",
+	"skill_name" : "風聲鶴唳",
 ]),
-([	"action" : "$N快速挥舞$w，使出一招"+RED"「风中残烛」"NOR+"，幻起一片刀花罩向$n的$l",
+([	"action" : "$N快速揮舞$w，使出一招"+RED"「風中殘燭」"NOR+"，幻起一片刀花罩向$n的$l",
 	"lvl" : 58,
-	"skill_name" : "风中残烛",
+	"skill_name" : "風中殘燭",
 ]),
-([	"action" : "$N一招"+HIC"「风刀霜剑」"NOR+"，只见漫天刀光闪烁，重重刀影向$n的全身涌去",
+([	"action" : "$N一招"+HIC"「風刀霜劍」"NOR+"，只見漫天刀光閃爍，重重刀影向$n的全身湧去",
 	"lvl" : 71,
-	"skill_name" : "风刀霜剑",
+	"skill_name" : "風刀霜劍",
 ]),
-([	"action" : "$N使一招"+HIW"「风驰电掣」"NOR+"，$w舞出阵阵光影向$n的$l涌去",
+([	"action" : "$N使一招"+HIW"「風馳電掣」"NOR+"，$w舞出陣陣光影向$n的$l湧去",
 	"lvl" : 86,
-	"skill_name" : "风驰电掣",
+	"skill_name" : "風馳電掣",
 ]),
-([	"action" : "$N一招"+HIB"「风雨飘摇」"NOR+"，$w刀光闪烁不定，似幻似真地逼$n的$l",
+([	"action" : "$N一招"+HIB"「風雨飄搖」"NOR+"，$w刀光閃爍不定，似幻似真地逼$n的$l",
 	"lvl" : 101,
-	"skill_name" : "风雨飘摇",
+	"skill_name" : "風雨飄搖",
 ]),
-([	"action" : "$N挪步小退，一招"+HIC"「风花雪月」"NOR+"，手中$w轻描淡写地挥出一刀，随即又“唰唰”连劈出两刀，后发先至，洒向$n的$l",
+([	"action" : "$N挪步小退，一招"+HIC"「風花雪月」"NOR+"，手中$w輕描淡寫地揮出一刀，隨即又“唰唰”連劈出兩刀，後發先至，灑向$n的$l",
 	"lvl" : 120,
-	"skill_name" : "风花雪月",
+	"skill_name" : "風花雪月",
 ]),
 });
 
@@ -55,13 +55,13 @@ int valid_learn(object me)
 	mapping myfam;
 	myfam = (mapping)me->query("family");
 	if ((int)me->query("max_neili") < 300)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if ((int)me->query_skill("force", 1) < 60)
-		return notify_fail("你的内功心法火候太浅。\n");
+		return notify_fail("你的內功心法火候太淺。\n");
 	if ((int)me->query_skill("dodge", 1) < 60)
-		return notify_fail("你的轻功火候太浅。\n");
+		return notify_fail("你的輕功火候太淺。\n");
 	if ((int)me->query_dex() < 25)
-		return notify_fail("你的身法还不够灵活。\n");
+		return notify_fail("你的身法還不夠靈活。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -70,9 +70,9 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "blade")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if ((int)me->query("qi") < 30)
-		return notify_fail("你的体力不够练狂风刀法。\n");
+		return notify_fail("你的體力不夠練狂風刀法。\n");
 	me->receive_damage("qi", 25);
 	return 1;
 }
@@ -100,17 +100,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : "割伤",
+		"damage_type" : "割傷",
 	]);
 }
 int learn_bonus() { return 30; }
@@ -124,16 +124,16 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIC"\n狂风刀法："NOR"\n");
+	write(HIC"\n狂風刀法："NOR"\n");
 	write(@HELP
 
     田伯光的快刀。
 
-	学习要求：
-		基本内功60级
-		基本轻功60级
-		后天身法25以上
-		内力300
+	學習要求：
+		基本內功60級
+		基本輕功60級
+		後天身法25以上
+		內力300
 HELP
 	);
 	return 1;

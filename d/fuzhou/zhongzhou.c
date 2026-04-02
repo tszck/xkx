@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "中洲桥");
+	set("short", "中洲橋");
 	set("long", @LONG
-中洲桥横越闽江，桥面平整，桥下水花喧闹。中洲为一小岛，尽是
-水上人家。西边是一个码头。
+中洲橋橫越閩江，橋面平整，橋下水花喧鬧。中洲爲一小島，盡是
+水上人家。西邊是一個碼頭。
 LONG );
 	set("exits", ([
 		"west"  : __DIR__"matou",

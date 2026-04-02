@@ -8,15 +8,15 @@ inherit F_MASTER;
 void create()
 {
 	object ob;
-	set_name("白万剑",({"bai wanjian","bai"}));
-	set("nickname", HIC"气寒西北"NOR);
+	set_name("白萬劍",({"bai wanjian","bai"}));
+	set("nickname", HIC"氣寒西北"NOR);
 	set("gender", "男性");
 	set("age", 30);
 	set("long", 
-		"白万剑是雪山派掌门人威德先生白自在的长子，他\n"
-		"们师兄弟均以“万”字排行，他名字居然叫到白万剑，\n"
-		"足见剑法之高。他外号气寒西北，与‘风火神龙’封万\n"
-		"里合称‘雪山双杰’。\n");
+		"白萬劍是雪山派掌門人威德先生白自在的長子，他\n"
+		"們師兄弟均以“萬”字排行，他名字居然叫到白萬劍，\n"
+		"足見劍法之高。他外號氣寒西北，與‘風火神龍’封萬\n"
+		"裏合稱‘雪山雙傑’。\n");
 	set("attitude", "peaceful");
 
 	set("str", 30);
@@ -35,10 +35,10 @@ void create()
 	set("combat_exp", 1500000);
 	set("score", 50000);
 	set("inquiry", ([
-		"白自在" : "老爷子的台讳是你叫的吗！",
-		"老爷子" : "你想拜见老爷子吗？但他闭关面壁，你得找成师叔要到玉牌，才能见到他。",
-		"掌门"   : "你想拜见老爷子吗？但他闭关面壁，你得找成师叔要到玉牌，才能见到他。",
-		"玉牌"   : "寒玉牌乃我门中重宝，只有凭它，才能进入监狱。",
+		"白自在" : "老爺子的臺諱是你叫的嗎！",
+		"老爺子" : "你想拜見老爺子嗎？但他閉關面壁，你得找成師叔要到玉牌，才能見到他。",
+		"掌門"   : "你想拜見老爺子嗎？但他閉關面壁，你得找成師叔要到玉牌，才能見到他。",
+		"玉牌"   : "寒玉牌乃我門中重寶，只有憑它，才能進入監獄。",
 	]));
 	set("shen_type", 1);
 
@@ -91,27 +91,27 @@ void attempt_apprentice(object ob)
 {
 	if (ob->query_int() < 28)
 	{
-		command("say 你这种资质，怎能跟我学剑！");
+		command("say 你這種資質，怎能跟我學劍！");
 		return;
 	}
 	if ((int)ob->query_skill("bingxue-xinfa",1) < 60 )
 	{
-		command("say 你的本门内功心法太低了，还是努努力先提高一下吧！");
+		command("say 你的本門內功心法太低了，還是努努力先提高一下吧！");
 		return;
 	} 
 	if ((int)ob->query_skill("xueshan-sword",1) < 80 )
 	{
-		command("say 你的本门剑法太低了，还是先找你师父提高吧！");
+		command("say 你的本門劍法太低了，還是先找你師父提高吧！");
 		return;
 	}
 	if ((int)ob->query_skill("sword",1) < 80 )
 	{
-		command("say 你的基本剑法太低了，还是先提高基本功吧！");
+		command("say 你的基本劍法太低了，還是先提高基本功吧！");
 		return; 
 	}
 	if ((int)ob->query("shen") < 20000 )
 	{
-		command("say 学剑须先正身，你做到了吗?"); 
+		command("say 學劍須先正身，你做到了嗎?"); 
 		return;
 	} 
 	command("say 很好，很好。");

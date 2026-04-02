@@ -1,4 +1,4 @@
-//kuangfeng-jian 狂风快剑
+//kuangfeng-jian 狂風快劍
 // Last Modified by sir 10.22.2001
 
 #include <ansi.h>
@@ -7,21 +7,21 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N纵身跃起手中$w轻挥，斩向$n后颈",
+([	"action" : "$N縱身躍起手中$w輕揮，斬向$n後頸",
 	"lvl"    : 0,
-	"skill_name" : "风平浪静"
+	"skill_name" : "風平浪靜"
 ]),
-([	"action" : "$N手中$w连话三个弧形，向$n的右臂齐肩斩落",
+([	"action" : "$N手中$w連話三個弧形，向$n的右臂齊肩斬落",
 	"lvl"    : 20,
-	"skill_name" : "风起云涌"
+	"skill_name" : "風起雲湧"
 ]),
-([	"action" : "$N轻吁一声，刷刷刷刷四剑，向$n胸，腹，腰，肩四处连刺",
+([	"action" : "$N輕籲一聲，刷刷刷刷四劍，向$n胸，腹，腰，肩四處連刺",
 	"lvl"    : 40,
-	"skill_name" : "风卷残云"
+	"skill_name" : "風捲殘雲"
 ]),
-([	"action" : "$N仰天一声清啸，斜行向前，$w横削直击，迅捷无比，击向$n的$l",
+([	"action" : "$N仰天一聲清嘯，斜行向前，$w橫削直擊，迅捷無比，擊向$n的$l",
 	"lvl"    : 60,
-	"skill_name" : "风流云散"
+	"skill_name" : "風流雲散"
 ]),
 });
 
@@ -32,13 +32,13 @@ int valid_learn(object me)
 	myfam = (mapping)me->query("family");
 
 	if ((int)me->query("max_neili") < 300)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if ((int)me->query_skill("huashan-neigong", 1) < 60)
-		return notify_fail("你的内功心法火候太浅。\n");
+		return notify_fail("你的內功心法火候太淺。\n");
 	if ((int)me->query_skill("dodge", 1) < 60)
-		return notify_fail("你的轻功火候太浅。\n");
+		return notify_fail("你的輕功火候太淺。\n");
 	if ((int)me->query_dex() < 25)
-		return notify_fail("你的身法还不够灵活。\n");
+		return notify_fail("你的身法還不夠靈活。\n");
 	return 1;
 }
 
@@ -48,9 +48,9 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if( (int)me->query("qi") < 40 || (int)me->query("neili") < 30 )
-		return notify_fail("你的内力或气不够练狂风快剑。\n");
+		return notify_fail("你的內力或氣不夠練狂風快劍。\n");
 	me->receive_damage("qi", 35);
 	me->add("neili", -20);
 	return 1;
@@ -79,17 +79,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "割伤" : "刺伤",
+		"damage_type" : random(2) ? "割傷" : "刺傷",
 	]);
 }
 int learn_bonus() { return 20; }
@@ -103,20 +103,20 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIC"\n狂风快剑："NOR"\n");
+	write(HIC"\n狂風快劍："NOR"\n");
 	write(@HELP
 
-    狂风快剑为华山剑宗的剑法。
-    这套“狂风快剑”，是封不平在中条山隐居十五年而创制出来
-的得意剑法，剑招一剑快似一剑。他胸怀大志，不但要执掌华山一
-派，还想成了华山派掌门人之后，更进而为五岳剑派盟主，所凭持
-的便是这套一百零八式“狂风快剑”。
+    狂風快劍爲華山劍宗的劍法。
+    這套“狂風快劍”，是封不平在中條山隱居十五年而創制出來
+的得意劍法，劍招一劍快似一劍。他胸懷大志，不但要執掌華山一
+派，還想成了華山派掌門人之後，更進而爲五嶽劍派盟主，所憑持
+的便是這套一百零八式“狂風快劍”。
 
-	学习要求：
-		华山内功60级
-		基本轻功60级
-		后天身法25以上
-		内力300
+	學習要求：
+		華山內功60級
+		基本輕功60級
+		後天身法25以上
+		內力300
 HELP
 	);
 	return 1;

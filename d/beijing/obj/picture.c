@@ -11,15 +11,15 @@ void init()
 
 void create()
 {
-        set_name("画", ({"picture",}));
+        set_name("畫", ({"picture",}));
         set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "\n一幅很普通的水墨画。\n");
+                set("long", "\n一幅很普通的水墨畫。\n");
                 set("unit", "幅");
                 set("material", "paper");
-                set("no_get", "\n你试着拿下它，但没有成功。\n");
+                set("no_get", "\n你試着拿下它，但沒有成功。\n");
         }
         setup();
 }
@@ -33,18 +33,18 @@ int do_move(string arg)
         if (!arg||arg=="") return 0;
 	if( arg=="picture" ) {
 		if(!me->query_temp("doorisok"))
-                message_vision("\n$N试著移动画卷，发现它可以左右推动...\n", this_player());
+                message_vision("\n$N試著移動畫卷，發現它可以左右推動...\n", this_player());
 		if(!objectp(present("door", environment(me))))
                 {
 		message_vision(
-		"$N轻轻地挪动画页，突然一扇暗门出现在$N眼前。\n", this_player());
+		"$N輕輕地挪動畫頁，突然一扇暗門出現在$N眼前。\n", this_player());
                 door = new("/d/beijing/obj/door");
                 door->move("/d/beijing/aobai7");
 		}
 	}
 	if( sscanf(arg, "picture %s", dir)==1 ) {
 		if( dir=="left" ) {
-		message_vision("$N将画卷往左移，只听轧轧几声，画卷又移回原位。\n", this_player());
+		message_vision("$N將畫卷往左移，只聽軋軋幾聲，畫卷又移回原位。\n", this_player());
 	        if(!me->query_temp("pushdoor"))
 	        me->set_temp("pushdoor", 1);
 	        else 
@@ -52,7 +52,7 @@ int do_move(string arg)
 		return 1;
         	}
 		if( dir=="right" ) {
-			message_vision("$N将画卷往右移，只听轧轧几声，画卷又移回原位。\n", this_player());
+			message_vision("$N將畫卷往右移，只聽軋軋幾聲，畫卷又移回原位。\n", this_player());
 		if (me->query_temp("pushdoor") )        
         	 	{
 			me->set_temp("doorisok", 1); 
@@ -61,7 +61,7 @@ int do_move(string arg)
                 return 1;
 		}
 		else {
-			write("你要将画卷移向那个方向？\n");
+			write("你要將畫卷移向那個方向？\n");
 			return 1;
 		      }
 	}

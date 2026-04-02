@@ -9,10 +9,10 @@ string ask_for_join();
 string ask_me();
 void create()
 {
-	set_name("定逸师太", ({ "dingyi shitai", "shitai", "dingyi" }) );
+	set_name("定逸師太", ({ "dingyi shitai", "shitai", "dingyi" }) );
 	set("long",
-	"她是恒山派的定逸师太，性格刚猛，为人正直，有巾帼不让须眉之风。\n"
-	"她眼中精光四射，绝无半点老态。\n");
+	"她是恆山派的定逸師太，性格剛猛，爲人正直，有巾幗不讓鬚眉之風。\n"
+	"她眼中精光四射，絕無半點老態。\n");
 	set("gender", "女性");
 	set("class", "bonze");
 	set("age", 45);
@@ -26,9 +26,9 @@ void create()
 		"剃度"  : (: ask_for_join :),
 		"出家"  : (: ask_for_join :),
 		"join"  : (: ask_for_join :),
-		"秘籍"  : (: ask_me :),
+		"祕籍"  : (: ask_me :),
 		"手法精要" : (: ask_me :),
-		"还俗"  : "恒山弟子，不能还俗。",
+		"還俗"  : "恆山弟子，不能還俗。",
 	]));
 	set("env/wimpy", 60);
 
@@ -91,7 +91,7 @@ void create()
 	map_skill("parry", "hengshan-jian");
 	map_skill("dodge", "lingxu-bu");
 
-	create_family("恒山派", 13, "弟子");
+	create_family("恆山派", 13, "弟子");
 	setup();
 
 	carry_object("/clone/weapon/changjian")->wield();
@@ -109,27 +109,27 @@ void attempt_apprentice(object ob)
 
 	if ((string)ob->query("class")!="bonze" )
 	{
-		command ("say 阿弥陀佛！贫尼不收俗家弟子。");
+		command ("say 阿彌陀佛！貧尼不收俗家弟子。");
 		return;
 	}
 
 	if ((int)ob->query_skill("baiyun-xinfa",1) < 90 )
 	{
-		command("say 你的本门内功心法火候不足,难以领略更高深的武功。");
+		command("say 你的本門內功心法火候不足,難以領略更高深的武功。");
 		return;
 	}
 	if ((int)ob->query("shen")<100000)
 	{
-		command( "say 你若能多为侠义之举，当能承我衣钵。\n");
+		command( "say 你若能多爲俠義之舉，當能承我衣鉢。\n");
 		return;
 	}
 
-	command("say 阿弥陀佛，善哉！善哉！好吧，我就收下你了。");
-	command("say 希望你能努力行善，济度众生，以光大我恒山派。");
+	command("say 阿彌陀佛，善哉！善哉！好吧，我就收下你了。");
+	command("say 希望你能努力行善，濟度衆生，以光大我恆山派。");
 	command("recruit " + ob->query("id"));
 	name = ob->query("name");
-	new_name = "仪" + name[1..1];
-	command("say 从今以后你的法名叫做" + new_name + "。");
+	new_name = "儀" + name[1..1];
+	command("say 從今以後你的法名叫做" + new_name + "。");
 	ob->set("name", new_name);
 }
 
@@ -137,14 +137,14 @@ string ask_me()
 {
 	object ob;
 
-	if (this_player()->query("family/family_name")!="恒山派")
+	if (this_player()->query("family/family_name")!="恆山派")
 		return RANK_D->query_respect(this_player()) +
-		"与本派毫无瓜葛，我派的武功典籍可不能交给你。";
+		"與本派毫無瓜葛，我派的武功典籍可不能交給你。";
 	if (query("book_count") < 1)
-		return "你来晚了，本派的秘籍不在此处。";
+		return "你來晚了，本派的祕籍不在此處。";
 	add("book_count", -1);
 	ob = new("/clone/book/basic_hand_book");
 	ob->move(this_player());
 	command("rumor "+this_player()->query("name")+"拿到手法精要啦。\n");
-	return "好吧，这本「手法精要」你拿回去好好钻研。";
+	return "好吧，這本「手法精要」你拿回去好好鑽研。";
 }

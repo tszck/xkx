@@ -7,7 +7,7 @@ void create()
         set_name("小孩",({ "kid" }) );
         set("gender", "男性" );
         set("age", 7);
-        set("long", "这是个农家小孩子\n");
+        set("long", "這是個農家小孩子\n");
         set("combat_exp", 50);
         set("max_qi", 150);
         set("shen_type", 1);

@@ -6,11 +6,11 @@ inherit THROWING;
  
 void create()
 {
-	set_name("铁莲子", ({ "tie lianzi", "lianzi", "zi" }) );
+	set_name("鐵蓮子", ({ "tie lianzi", "lianzi", "zi" }) );
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "精铁打制的莲子状暗器。\n");
+		set("long", "精鐵打製的蓮子狀暗器。\n");
 		set("unit", "把");
 		set("value", 0);
 		set("base_unit", "粒");

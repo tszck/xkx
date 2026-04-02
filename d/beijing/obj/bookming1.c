@@ -11,12 +11,12 @@ void init()
 
 void create()
 {
-        set_name("明史辑略", ({"book ming","book","ming"}));
+        set_name("明史輯略", ({"book ming","book","ming"}));
         set_weight(1500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "一本厚厚的书。\n");
+                set("long", "一本厚厚的書。\n");
                 set("unit", "本");
                 set("gold", 0);
                 set("material", "paper");
@@ -33,7 +33,7 @@ int do_shake(string arg)
   if( !arg || arg=="" ) return 0;
         if( arg=="book"||arg=="ming"||arg=="ming book") 
 	{
-	message("vision","不管怎么抖，再没金叶了。\n",environment(me));
+	message("vision","不管怎麼抖，再沒金葉了。\n",environment(me));
 	return 1;
 	}
 }	

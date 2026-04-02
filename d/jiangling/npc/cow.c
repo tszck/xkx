@@ -1,4 +1,4 @@
-// cow.c 大黄牛
+// cow.c 大黃牛
 
 #include <command.h>
 #include <dbase.h>
@@ -9,8 +9,8 @@ inherit NPC;
 
 void create()
 {
-        set_name(HIY"大黄"NOR, ({ "cow" }));
-        set("long","一头大黄牛。它好象在流眼泪，挺通人性的。\n");
+        set_name(HIY"大黃"NOR, ({ "cow" }));
+        set("long","一頭大黃牛。它好象在流眼淚，挺通人性的。\n");
 	set("race", "走畜");
         set("age", 5);
         set("int", 30);

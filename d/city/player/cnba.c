@@ -7,11 +7,11 @@ void create()
 	set_name("球王", ({ "cnba"}));
 	set("gender", "男性");
         set("long","本潭最早的玩家之一。
-此人性格坚忍，早年乃武当名门弟子，后叛加入丐帮。
-曾在江湖肆意屠戮多年，引发轩然大波。那段杀气弥漫的日子，
-是所有老玩家秋天时一抹寒凉的回忆。其默默练功的执著与坚韧，
-仍是值得称许的武林风范。\n");
-	set("title", HIR"内阁大学士"NOR"丐帮第二十代弟子");
+此人性格堅忍，早年乃武當名門弟子，後叛加入丐幫。
+曾在江湖肆意屠戮多年，引發軒然大波。那段殺氣瀰漫的日子，
+是所有老玩家秋天時一抹寒涼的回憶。其默默練功的執著與堅韌，
+仍是值得稱許的武林風範。\n");
+	set("title", HIR"內閣大學士"NOR"丐幫第二十代弟子");
 	set("age", 61);
 	set("class", "beggar");
 	set("attitude", "friendly");
@@ -88,7 +88,7 @@ void create()
 		"武功"  : (: do_skills :),
 	]));
 
-	create_family("丐帮", 20, "弟子");
+	create_family("丐幫", 20, "弟子");
 	setup();
 	carry_object(CLOTH_DIR"male-cloth")->wear();
         carry_object(CLOTH_DIR"male-shoe")->wear();
@@ -97,41 +97,41 @@ void create()
 
 int do_skills()
 {
-message_vision("$N说： 我所有的基本武功如下：\n"+
-"  基本阵法 (array)                         - 初窥门径  23/    0\n"+
-"  叫化绝活 (begging)                       - 半生不熟  42/    0\n"+
-"  基本刀法 (blade)                         - 初学乍练   5/    0\n"+
-"  道听途说 (checking)                      - 马马虎虎  74/    0\n"+
-"  基本爪法 (claw)                          - 一代宗师 195/    0\n"+
-"  基本棍法 (club)                          - 初学乍练   2/    0\n"+
-"  基本拳法 (cuff)                          - 驾轻就熟  99/    0\n"+
-"  基本轻功 (dodge)                         - 深不可测 250/    0\n"+
-"  基本指法 (finger)                        - 马马虎虎  78/    0\n"+
-"  基本内功 (force)                         - 深不可测 251/    0\n"+
-"  基本手法 (hand)                          - 驾轻就熟  99/    0\n"+
+message_vision("$N說： 我所有的基本武功如下：\n"+
+"  基本陣法 (array)                         - 初窺門徑  23/    0\n"+
+"  叫化絕活 (begging)                       - 半生不熟  42/    0\n"+
+"  基本刀法 (blade)                         - 初學乍練   5/    0\n"+
+"  道聽途說 (checking)                      - 馬馬虎虎  74/    0\n"+
+"  基本爪法 (claw)                          - 一代宗師 195/    0\n"+
+"  基本棍法 (club)                          - 初學乍練   2/    0\n"+
+"  基本拳法 (cuff)                          - 駕輕就熟  99/    0\n"+
+"  基本輕功 (dodge)                         - 深不可測 250/    0\n"+
+"  基本指法 (finger)                        - 馬馬虎虎  78/    0\n"+
+"  基本內功 (force)                         - 深不可測 251/    0\n"+
+"  基本手法 (hand)                          - 駕輕就熟  99/    0\n"+
 "  左右互搏 (hubo)                          - 已有小成  99/    0\n"+
-"□九阴白骨抓 (jiuyin-baiguzhao)            - 登峰造极 174/    0\n"+
-"  空明拳 (kongming-quan)                   - 驾轻就熟  89/    0\n"+
-"  两仪剑法 (liangyi-jian)                  - 初学乍练  10/    0\n"+
-"  凌波微步 (lingboweibu)                   - 初学乍练   5/    0\n"+
-"  读书写字 (literate)                      - 举世无双 170/    0\n"+
-"  基本招架 (parry)                         - 登峰造极 160/    0\n"+
+"□九陰白骨抓 (jiuyin-baiguzhao)            - 登峯造極 174/    0\n"+
+"  空明拳 (kongming-quan)                   - 駕輕就熟  89/    0\n"+
+"  兩儀劍法 (liangyi-jian)                  - 初學乍練  10/    0\n"+
+"  凌波微步 (lingboweibu)                   - 初學乍練   5/    0\n"+
+"  讀書寫字 (literate)                      - 舉世無雙 170/    0\n"+
+"  基本招架 (parry)                         - 登峯造極 160/    0\n"+
 "  乾坤大挪移 (qiankun-danuoyi)             - 粗通皮毛  30/    0\n"+
-"  奇门五行 (qimen-wuxing)                  - 心领神会 100/    0\n"+
-"  身空行 (shenkong-xing)                   - 初学乍练   4/    0\n"+
-"  神行百变 (shenxing-baibian)              - 驾轻就熟  82/    0\n"+
-"  基本杖法 (staff)                         - 初学乍练   4/    0\n"+
-"  妙手空空 (stealing)                      - 驾轻就熟  99/    0\n"+
-"  基本掌法 (strike)                        - 驾轻就熟  99/    0\n"+
-"  基本剑法 (sword)                         - 深不可测 250/    0\n"+
-"□太极剑法 (taiji-jian)                    - 深不可测 247/    0\n"+
-"□太极拳 (taiji-quan)                      - 出类拔萃 106/    0\n"+
-"□太极神功 (taiji-shengong)                - 一代宗师 193/    0\n"+
-"  道学心法 (taoism)                        - 豁然贯通 149/    0\n"+
-"  基本暗器 (throwing)                      - 初学乍练  14/    0\n"+
-"□梯云纵 (tiyunzong)                       - 一代宗师 191/    0\n"+
-"  基本拳脚 (unarmed)                       - 初学乍练   7/    0\n"+
-"  基本鞭法 (whip)                          - 初学乍练   2/    0\n", this_object());   
+"  奇門五行 (qimen-wuxing)                  - 心領神會 100/    0\n"+
+"  身空行 (shenkong-xing)                   - 初學乍練   4/    0\n"+
+"  神行百變 (shenxing-baibian)              - 駕輕就熟  82/    0\n"+
+"  基本杖法 (staff)                         - 初學乍練   4/    0\n"+
+"  妙手空空 (stealing)                      - 駕輕就熟  99/    0\n"+
+"  基本掌法 (strike)                        - 駕輕就熟  99/    0\n"+
+"  基本劍法 (sword)                         - 深不可測 250/    0\n"+
+"□太極劍法 (taiji-jian)                    - 深不可測 247/    0\n"+
+"□太極拳 (taiji-quan)                      - 出類拔萃 106/    0\n"+
+"□太極神功 (taiji-shengong)                - 一代宗師 193/    0\n"+
+"  道學心法 (taoism)                        - 豁然貫通 149/    0\n"+
+"  基本暗器 (throwing)                      - 初學乍練  14/    0\n"+
+"□梯雲縱 (tiyunzong)                       - 一代宗師 191/    0\n"+
+"  基本拳腳 (unarmed)                       - 初學乍練   7/    0\n"+
+"  基本鞭法 (whip)                          - 初學乍練   2/    0\n", this_object());   
 
 	return 1;
 }

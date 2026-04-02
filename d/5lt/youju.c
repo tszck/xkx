@@ -4,9 +4,9 @@ inherit  ROOM;
 
 void  create  ()
 {
-	set  ("short",  "邮局");
+	set  ("short",  "郵局");
 	set  ("long",  @LONG
-这里是一家邮局。时近黄昏，工作人员正忙着完成手上的事情准备下班。
+這裏是一家郵局。時近黃昏，工作人員正忙着完成手上的事情準備下班。
 LONG);
 	set("exits",  ([  //sizeof()  ==  1
 		"east"  :  __DIR__"sroad2",

@@ -1,4 +1,4 @@
-// liehuo-jian.c 烈火剑
+// liehuo-jian.c 烈火劍
 // Last Modified by winder on Sep. 27 2001
 
 #include <ansi.h>
@@ -7,33 +7,33 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N一招「四海云飘」，$w似幻出片片白云，四面八方的罩向$n",
+([	"action" : "$N一招「四海雲飄」，$w似幻出片片白雲，四面八方的罩向$n",
 	"lvl" : 0,
-	"skill_name" : "四海云飘",
+	"skill_name" : "四海雲飄",
 ]),
-([	"action" : "$N一招「四通八达」，剑锋乱指，攻向$n，$n根本不能分辩$w的来路",
+([	"action" : "$N一招「四通八達」，劍鋒亂指，攻向$n，$n根本不能分辯$w的來路",
 	"lvl" : 19,
-	"skill_name" : "四通八达",
+	"skill_name" : "四通八達",
 ]),
-([	"action" : "$N使出「在天一方」，$w幻一条飞练，带着一股寒气划向$n的$l",
+([	"action" : "$N使出「在天一方」，$w幻一條飛練，帶着一股寒氣划向$n的$l",
 	"lvl" : 29,
 	"skill_name" : "在天一方",
 ]),
-([	"action" : "$N身子向上弹起，左手下指，一招「怪蟒翻身」，右手$w带着一团剑花，逼向$n的$l",
+([	"action" : "$N身子向上彈起，左手下指，一招「怪蟒翻身」，右手$w帶着一團劍花，逼向$n的$l",
 	"lvl" : 39,
 	"skill_name" : "怪蟒翻身",
 ]),
-([	"action" : "$N一招「飞瀑倒悬」，左脚跃步落地，右手$w幻成一条雪白的瀑布，扫向$n的$l",
+([	"action" : "$N一招「飛瀑倒懸」，左腳躍步落地，右手$w幻成一條雪白的瀑布，掃向$n的$l",
 	"lvl" : 59,
-	"skill_name" : "飞瀑倒悬",
+	"skill_name" : "飛瀑倒懸",
 ]),
-([	"action" : "$N右腿半屈般蹲，$w平指，一招「无声无色」，剑尖无声无色的慢慢的刺向$n的$l",
+([	"action" : "$N右腿半屈般蹲，$w平指，一招「無聲無色」，劍尖無聲無色的慢慢的刺向$n的$l",
 	"lvl" : 79,
-	"skill_name" : "无声无色",
+	"skill_name" : "無聲無色",
 ]),
-([  "action" : "$N一招「万川归海」，$w在$n的周身飞舞，令$n眼花缭乱，剑身在半空中突然停住刺向$n的$l",
+([  "action" : "$N一招「萬川歸海」，$w在$n的周身飛舞，令$n眼花繚亂，劍身在半空中突然停住刺向$n的$l",
 	"lvl" : 99,
-	"skill_name" : "万川归海",
+	"skill_name" : "萬川歸海",
 ]),
 });
 
@@ -41,9 +41,9 @@ int valid_enable(string usage) { return usage == "sword" || usage == "parry"; }
 int valid_learn(object me)
 {
 	if ((int)me->query("max_neili") < 10)
-		return notify_fail("就这么点内力还想学烈火剑法？\n");
+		return notify_fail("就這麼點內力還想學烈火劍法？\n");
 	if ((int)me->query_skill("jiuyang-shengong", 1) < 10)
-		return notify_fail("你的九阳神功火候不够，学不了烈火剑法！\n");
+		return notify_fail("你的九陽神功火候不夠，學不了烈火劍法！\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -52,9 +52,9 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if( (int)me->query("qi") < 35 )
-		return notify_fail("你的气不够练烈火剑法。\n");
+		return notify_fail("你的氣不夠練烈火劍法。\n");
 	me->receive_damage("qi", 30);
 	return 1;
 }
@@ -75,17 +75,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "劈伤" : "刺伤",
+		"damage_type" : random(2) ? "劈傷" : "刺傷",
 	]);
 }
 int learn_bonus() { return 30; }
@@ -100,14 +100,14 @@ string perform_action_file(string action)
 
 int help(object me)
 {
-	write(HIR"\n烈火剑法："NOR"\n");
+	write(HIR"\n烈火劍法："NOR"\n");
 	write(@HELP
 
-    烈火剑法是明教的剑法。
+    烈火劍法是明教的劍法。
 
-	学习要求：
-		九阳神功10级
-		内力修为10
+	學習要求：
+		九陽神功10級
+		內力修爲10
 HELP
 	);
 	return 1;

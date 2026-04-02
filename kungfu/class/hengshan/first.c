@@ -14,7 +14,7 @@ string zm_apply()
 	object ob = this_player();
 	if (ob->query("gender") != "女性" || ob->query("class")!= "bonze")
 	{
-		return "本派只有女尼才能接任掌门弟子一职！";
+		return "本派只有女尼才能接任掌門弟子一職！";
 	}
 	return ::zm_apply();
 }

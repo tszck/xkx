@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short","前厅");
+	set("short","前廳");
 	set("long",@LONG
-这是归云庄的前厅。平常招待客人都在这里进行。厅中陈设华美，
-雕梁画栋，极穷巧思。
+這是歸雲莊的前廳。平常招待客人都在這裏進行。廳中陳設華美，
+雕樑畫棟，極窮巧思。
 LONG
 );
 	set("objects",([

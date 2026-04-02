@@ -4,16 +4,16 @@ inherit F_UNIQUE;
  
 void create()
 {
-	set_name("「九阳真经」第四卷", ({ "jiuyang zhenjing4","jiuyang4","zhenjing4" }));
+	set_name("「九陽真經」第四卷", ({ "jiuyang zhenjing4","jiuyang4","zhenjing4" }));
 	set_weight(500);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
 		set("long",
-"这是一本薄薄的经书，只因油布包得紧密，虽长期藏在猿腹之中，书页仍然完好无损。
-书面上写著几个弯弯曲曲的文字，他一个也不识得，翻开来一看，四本书中尽是这些怪
-文，但每一行之间，却以蝇头小楷写满了中国文字。\n",
+"這是一本薄薄的經書，只因油布包得緊密，雖長期藏在猿腹之中，書頁仍然完好無損。
+書面上寫著幾個彎彎曲曲的文字，他一個也不識得，翻開來一看，四本書中盡是這些怪
+文，但每一行之間，卻以蠅頭小楷寫滿了中國文字。\n",
 	);
 		set("value", 0);
 		set("material", "paper");

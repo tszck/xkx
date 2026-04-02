@@ -1,4 +1,4 @@
-// duanyanqing.c 段延庆
+// duanyanqing.c 段延慶
 
 #include <ansi.h>
 
@@ -12,18 +12,18 @@ int do_kill(object me, object dest);
 
 void create()
 {
-        set_name("段延庆", ({"duan yanqing", "yanqing", "qing"}));
+        set_name("段延慶", ({"duan yanqing", "yanqing", "qing"}));
         set("gender", "男性");
-        set("nickname",HIR"恶贯满盈"NOR);
+        set("nickname",HIR"惡貫滿盈"NOR);
         set("age", 45);
         set("long",
-                "他就是四大恶人之首，人称恶贯满盈的段延庆。\n"
-                "他本是大理段氏皇子，由于大臣反叛作乱而双腿残废、罹\n"
-                "毒甚深。流落江湖后与叶二娘、南海鳄神、云中鹤和称四\n"
-                "大恶人。在江湖上端的是无恶不作。\n"
-                "他身穿一件青布长袍，身高五尺有余，脸上常年戴一张人\n"
-                "皮面具，喜怒哀乐一丝不露。体格瘦长，双腿齐膝而断，\n"
-                "只能用腋下的两根镔铁拐杖代步，但行走如飞，反比常人\n"
+                "他就是四大惡人之首，人稱惡貫滿盈的段延慶。\n"
+                "他本是大理段氏皇子，由於大臣反叛作亂而雙腿殘廢、罹\n"
+                "毒甚深。流落江湖後與葉二孃、南海鱷神、雲中鶴和稱四\n"
+                "大惡人。在江湖上端的是無惡不作。\n"
+                "他身穿一件青布長袍，身高五尺有餘，臉上常年戴一張人\n"
+                "皮面具，喜怒哀樂一絲不露。體格瘦長，雙腿齊膝而斷，\n"
+                "只能用腋下的兩根鑌鐵柺杖代步，但行走如飛，反比常人\n"
                 "更快！\n");
         set("attitude", "peaceful");
 
@@ -39,8 +39,8 @@ void create()
         }) );
         set("chat_chance", 8);
         set("chat_msg", ({
-                "段延庆叹了口气道：“唉……不知何时才能重登大理宝座！”\n",
-                "段延庆喃喃道：“段正德那厮若知我回来，定会将皇位拱手相让，哈哈哈！盶n",
+                "段延慶嘆了口氣道：“唉……不知何時才能重登大理寶座！”\n",
+                "段延慶喃喃道：“段正德那廝若知我回來，定會將皇位拱手相讓，哈哈哈！盶n",
                 (: random_move :),
         }));
 
@@ -60,7 +60,7 @@ void create()
         set_skill("hand", 120);              // 基本手法
         set_skill("shexing-diaoshou", 120);
         set_skill("dodge", 120);
-        set_skill("xiaoyaoyou", 120);        // 逍遥游
+        set_skill("xiaoyaoyou", 120);        // 逍遙遊
         set_skill("parry", 120);
         set_skill("staff", 120);
         set_skill("tianshan-zhang", 120);
@@ -133,8 +133,8 @@ int do_kill(object me, object dest)
         if( objectp(dest) && present(dest, environment(me))
                  && !environment(me)->query("no_fight"))
         {
-                message_vision(HIR "$N对$n说道：老子一见正派高手就生气。"
-                        +RANK_D->query_rude(dest)+"，纳命来！\n" NOR, me, dest);
+                message_vision(HIR "$N對$n說道：老子一見正派高手就生氣。"
+                        +RANK_D->query_rude(dest)+"，納命來！\n" NOR, me, dest);
                 me->set_leader(dest);
                 me->kill_ob(dest);
                 dest->fight_ob(me);
@@ -198,7 +198,7 @@ int do_back(object me)
 {
 
         me->move("/d/city/xidajie2");
-        message("vision", "段延庆走了过来，嗤地一声冷笑，说道：又除了一个道貌岸然的伪君子。\n",
+        message("vision", "段延慶走了過來，嗤地一聲冷笑，說道：又除了一個道貌岸然的僞君子。\n",
                 environment(), me );
 
         me->set_leader(0);

@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-    set("short", "少林山门");
+    set("short", "少林山門");
     set("long", @LONG
-一个巨大的牌坊横架在两片山壁之间，牌坊正上方刻着三个
-斗大的字：『少林寺』。字迹有些剥落，看上去年代久远。两位
-三十来岁的僧人手持戒刀守在山门两侧。左侧立着一块石碑。
+一個巨大的牌坊橫架在兩片山壁之間，牌坊正上方刻着三個
+斗大的字：『少林寺』。字跡有些剝落，看上去年代久遠。兩位
+三十來歲的僧人手持戒刀守在山門兩側。左側立着一塊石碑。
 LONG );
     set("exits", ([
         "eastup" : __DIR__"shijie8",
@@ -38,13 +38,13 @@ int valid_leave(object me, string dir)
 
     if (me->query("gender") == "女性" && dir == "eastup" ) {
         if(objectp(present("xu tong", environment(me))))
-            return notify_fail("虚通伸手拦住你白眼一翻说道：千年以来，少林向不许"
-                "女流擅入。" + RANK_D->query_respect(me) +"\n请下山去吧，免得"
-                "自讨没趣。\n");
+            return notify_fail("虛通伸手攔住你白眼一翻說道：千年以來，少林向不許"
+                "女流擅入。" + RANK_D->query_respect(me) +"\n請下山去吧，免得"
+                "自討沒趣。\n");
         else if(objectp(present("xu ming", environment(me))))
-            return notify_fail("虚明迈步挡在你身前，双手合什说道：阿弥陀佛，"
-                "这位" + RANK_D->query_respect(me) + "请留步，\n恕小寺不接待女"
-                "客。女施主倘若一心向佛，何妨去峨眉山随喜？\n");
+            return notify_fail("虛明邁步擋在你身前，雙手合什說道：阿彌陀佛，"
+                "這位" + RANK_D->query_respect(me) + "請留步，\n恕小寺不接待女"
+                "客。女施主倘若一心向佛，何妨去峨眉山隨喜？\n");
     }
 
     myfam = (mapping)me->query("family");
@@ -54,14 +54,14 @@ int valid_leave(object me, string dir)
         for(i=sizeof(inv)-1; i>=0; i--)
             if(inv[i]->query("weapon_prop") && (inv[i]->query("equipped")))
                 if(objectp(present("xu tong", environment(me))))
-                    return notify_fail("虚通拦住你说道：这位" +
-                        RANK_D->query_respect(me) + "请放下兵刃。少林千年的"
-                        "规矩，外客\n不得持兵刃上山。\n");
+                    return notify_fail("虛通攔住你說道：這位" +
+                        RANK_D->query_respect(me) + "請放下兵刃。少林千年的"
+                        "規矩，外客\n不得持兵刃上山。\n");
                 else if(objectp(present("xu ming", environment(me))))
-                    return notify_fail("虚明迈步挡在你身前，双手合什说道：阿"
-                        "弥陀佛，这位" + RANK_D->query_respect(me) + "请收起"
-                        "\n兵刃。佛门清静之地，不便随意舞刀弄剑。还请施主鉴"
-                        "谅。\n");
+                    return notify_fail("虛明邁步擋在你身前，雙手合什說道：阿"
+                        "彌陀佛，這位" + RANK_D->query_respect(me) + "請收起"
+                        "\n兵刃。佛門清靜之地，不便隨意舞刀弄劍。還請施主鑑"
+                        "諒。\n");
     }
     return ::valid_leave(me, dir);
 }

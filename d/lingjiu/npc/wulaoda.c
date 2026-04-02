@@ -7,8 +7,8 @@ string ask_me();
 
 void create()
 {
-	set_name("乌老大", ({ "wu laoda", "wu"}));
-	set("long", @LONG 他就是名动江湖的乌老大，由于谋反童姥未遂而被囚禁于此。
+	set_name("烏老大", ({ "wu laoda", "wu"}));
+	set("long", @LONG 他就是名動江湖的烏老大，由於謀反童姥未遂而被囚禁於此。
 LONG );
 	set("gender", "男性");
 	set("age", 40);
@@ -33,11 +33,11 @@ LONG );
 	set("score", 100000);
 
 	set("inquiry", ([
-		"白云熊胆丸" : (: ask_me :),
+		"白雲熊膽丸" : (: ask_me :),
 	]));
 	set("chat_chance", 3);
 	set("chat_msg", ({
-		"乌老大喃喃道：白云熊胆丸可真是好东西！\n",
+		"烏老大喃喃道：白雲熊膽丸可真是好東西！\n",
 	}) );
 	set("wan_count", 1);
 	setup();
@@ -48,13 +48,13 @@ string ask_me()
 	mapping fam; 
 	object ob;
 	
-	if (!(fam=this_player()->query("family")) || fam["family_name"] != "灵鹫宫")
+	if (!(fam=this_player()->query("family")) || fam["family_name"] != "靈鷲宮")
 		return RANK_D->query_respect(this_player()) + 
-		"你怎敢要灵鹫宫之镇派宝物呢？";
+		"你怎敢要靈鷲宮之鎮派寶物呢？";
 	if (query("wan_count") < 1)
-		return "不好意思，已经有人捷足先登了，你下次再来吧。";
+		return "不好意思，已經有人捷足先登了，你下次再來吧。";
 	add("wan_count", -1);
 	ob = new(__DIR__"obj/baiyunwan");
 	ob->move(this_player());
-	return "唉，看在你舍身救我的份上，这颗白云熊胆丸就给你吧。";
+	return "唉，看在你捨身救我的份上，這顆白雲熊膽丸就給你吧。";
 }

@@ -3,9 +3,9 @@
 
 inherit ITEM;
 
-string *name = ({"饲料", "饭团", "面团", "肉块", "肉团"});
+string *name = ({"飼料", "飯糰", "麪糰", "肉塊", "肉團"});
 string *id = ({"si liao", "fan tuan", "mian tuan", "rou kuai", "rou tuan"});
-string *unit = ({"把", "个", "个","块", "个"});
+string *unit = ({"把", "個", "個","塊", "個"});
 string *value = ({200, 400, 400, 800, 1600});
 string *remaining = ({ 5, 3, 4, 3, 2});
 string *supply = ({5, 10, 12, 20, 25});
@@ -21,7 +21,7 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long","一"+unit[i]+"喂养宠物的"+name[i]+"。看起来好象脏乎乎的。\n");
+		set("long","一"+unit[i]+"餵養寵物的"+name[i]+"。看起來好象髒乎乎的。\n");
 		set("unit", unit[i]);
 		set("value", value[i]);
 		set("siliao_remaining", remaining[i]);

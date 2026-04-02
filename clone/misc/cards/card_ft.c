@@ -5,14 +5,14 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIR"新春贺卡"NOR, ({"spring festival card", "card"}));
+        set_name(HIR"新春賀卡"NOR, ({"spring festival card", "card"}));
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "张");
+                set("unit", "張");
                 set("long",
-"这是一张"HIR"新春贺卡"NOR"，送给每位在新春佳节连入飞雪连天
-的玩家。你可以打开(dakai)来看看，会有意外惊喜哦。\n");
+"這是一張"HIR"新春賀卡"NOR"，送給每位在新春佳節連入飛雪連天
+的玩家。你可以打開(dakai)來看看，會有意外驚喜哦。\n");
                 set("value", 0);
                 set_weight(10);
         }
@@ -48,7 +48,7 @@ HIR"\n"+
 "        !!       !!       !!       !!         \n"+
 "        ;;       ;;       ;;       ;;         \n"+
 "\n"+
-HIY"                      「侠客行一百」恭贺    \n"+
+HIY"                      「俠客行一百」恭賀    \n"+
 "\n"NOR);
         }
         return 1;
@@ -63,11 +63,11 @@ int do_chaikai(string arg)
         if (!present(this_object(), this_player()))
                 return 0;
 
-//	return notify_fail("还没到时候呢，别急拆开啊！\n");
+//	return notify_fail("還沒到時候呢，別急拆開啊！\n");
 
         if (arg == "card")
         {
-                message_vision(HIG"$N兴高采烈地拆开了贺卡，突然掉下一个"HIR"红包"HIG"！\n"NOR, me);
+                message_vision(HIG"$N興高采烈地拆開了賀卡，突然掉下一個"HIR"紅包"HIG"！\n"NOR, me);
                 box = new(__DIR__"redbag");
                 newcard = new(__DIR__"card_ft_done");
                 newcard->move(me);

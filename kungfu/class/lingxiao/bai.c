@@ -13,8 +13,8 @@ void create()
 	set("gender", "男性");
 	set("age", 55);
 	set("long", 
-		"他就是雪山剑派的掌门人，习武成性，自认为天下武功第一，\n"
-		"他大约五十多岁，精明能干，嫉恶如仇，性如烈火。\n");
+		"他就是雪山劍派的掌門人，習武成性，自認爲天下武功第一，\n"
+		"他大約五十多歲，精明能幹，嫉惡如仇，性如烈火。\n");
 	set("attitude", "peaceful");
 
 	set("str", 35);
@@ -30,7 +30,7 @@ void create()
 	set("max_qi", 5000);
 	set("jiali", 100);
 	set("inquiry", ([
-		"石中玉" : "如果让我逮到这个小王八蛋，我非剥了他的皮不可。",
+		"石中玉" : "如果讓我逮到這個小王八蛋，我非剝了他的皮不可。",
 	]) );
 
 	set("combat_exp", 3000000);
@@ -65,7 +65,7 @@ void create()
 	map_skill("strike", "snow-strike");
 	map_skill("dodge", "snowstep");
 	prepare_skill("strike", "snow-strike");
-	create_family("凌霄城", 5, "掌门");
+	create_family("凌霄城", 5, "掌門");
 	setup();
 
 	carry_object("/d/lingxiao/obj/icesword")->wield();
@@ -79,12 +79,12 @@ void attempt_apprentice(object ob)
 {
 	if (ob->query_int() < 30)
 	{
-		command("say 你这种资质，也好意思来找我！");
+		command("say 你這種資質，也好意思來找我！");
 		return;
 	}
 	if ((int)ob->query_skill("bingxue-xinfa",1) < 80 )
 	{
-		command("say 你的本门内功心法太低了，还是努努力先提高一下吧！");
+		command("say 你的本門內功心法太低了，還是努努力先提高一下吧！");
 		return;
 	} 
 	if ((int)ob->query("shen") < 50000 )
@@ -94,21 +94,21 @@ void attempt_apprentice(object ob)
 	} 
 	if ((int)ob->query("max_neili") < 800 )
 	{
-		command("say 你内力不足，怎能领悟我神功的精妙。"); 
+		command("say 你內力不足，怎能領悟我神功的精妙。"); 
 		return;
 	}
 	if ((int)ob->query_skill("xueshan-sword",1) < 100 )
 	{ 
-		command("say 你的本门剑法太低了，还是先找你师父提高吧！");
+		command("say 你的本門劍法太低了，還是先找你師父提高吧！");
 		return;
 	}
 	if ((int)ob->query_skill("sword",1) < 100 )
 	{
-		command("say 你的基本剑法太低了，还是先提高基本功吧！");
+		command("say 你的基本劍法太低了，還是先提高基本功吧！");
 		return; 
 	}
 	command("say 很好，很好,老子今天心情好，就收下你吧。");
-	command("say 这个城老子没心情管了，你就先帮我管着吧。");
+	command("say 這個城老子沒心情管了，你就先幫我管着吧。");
 	command("recruit " + ob->query("id"));
 } 
 

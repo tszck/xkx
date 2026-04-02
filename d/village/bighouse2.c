@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "内室");
+        set("short", "內室");
 	set("long", @LONG
-这里是一间寝室，屋子中间有一张大床，床上的被褥居然是绸缎的，
-看来这个土财主对自己并不是十分刻薄。屋里摆着几只木箱子，墙角里有
-一只大柜子(cabinet)。
+這裏是一間寢室，屋子中間有一張大牀，牀上的被褥居然是綢緞的，
+看來這個土財主對自己並不是十分刻薄。屋裏擺着幾隻木箱子，牆角里有
+一隻大櫃子(cabinet)。
 LONG );
         set("exits", ([ /* sizeof() == 1 */
             "west" : __DIR__"bighouse1",

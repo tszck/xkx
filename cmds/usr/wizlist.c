@@ -15,7 +15,7 @@ int main(object me, string arg)
 	int j = 0;
 
 	list = sort_array(SECURITY_D->query_wizlist(), (: level :) );
-	str = HIC+CHINESE_MUD_NAME+NOR +"巫师董事会成员：\n";
+	str = HIC+CHINESE_MUD_NAME+NOR +"巫師董事會成員：\n";
 	str += "--------------------------------------\n";
 	for(int i=0; i<sizeof(list); i++, j++)
 	{
@@ -32,7 +32,7 @@ int main(object me, string arg)
 			( j%7==6 ) ? "\n" : ( i<sizeof(list)-1 && hood ==wizhood(list[i+1]) ) ? ", " : "" );
 	}
 	str += "\n--------------------------------------\n";
-	str += sprintf("目前一共有: %s个巫师\n",chinese_number(sizeof(list)) );
+	str += sprintf("目前一共有: %s個巫師\n",chinese_number(sizeof(list)) );
 	me->start_more(str);
 	return 1;
 }
@@ -42,7 +42,7 @@ string wiz_rank(string hood)
 	switch(hood)
 	{
 		case "(admin)":
-			return HIM "【 天  帝 / 天  后 】" NOR;
+			return HIM "【 天  帝 / 天  後 】" NOR;
 		case "(arch)":
 			return HIY "【 仙  官 / 仙  妃 】" NOR;
 		case "(wizard)":
@@ -66,7 +66,7 @@ int help(object me)
 	write(@HELP
 指令格式 : wizlist
 
-    这个指令会显示这个游戏目前的巫师名单。
+    這個指令會顯示這個遊戲目前的巫師名單。
 
 HELP
 	);

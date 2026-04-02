@@ -1,4 +1,4 @@
-// luoying-shenjian.c 落英神剑
+// luoying-shenjian.c 落英神劍
 // Last Modified by sir 10.22.2001
 
 #include <ansi.h>
@@ -7,32 +7,32 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"skill_name" : "落英缤纷",
-	"action" : "$N使一招"HIW"「落英缤纷」"NOR"，身形向上飘起，手中$w虚虚实实幻出万点剑花纷纷扬扬撒向$n$l",
+([	"skill_name" : "落英繽紛",
+	"action" : "$N使一招"HIW"「落英繽紛」"NOR"，身形向上飄起，手中$w虛虛實實幻出萬點劍花紛紛揚揚撒向$n$l",
 	"lvl"    : 0
 ]),
 ([	"skill_name" : "人面桃花",
-	"action" : "$N舞动$w，一式"MAG"「人面桃花」"NOR"，左手向$n面门一晃，右手$w抖出几朵剑花挟着虎虎剑气刺向$n的$l",
+	"action" : "$N舞動$w，一式"MAG"「人面桃花」"NOR"，左手向$n面門一晃，右手$w抖出幾朵劍花挾着虎虎劍氣刺向$n的$l",
 	"lvl"    : 10
 ]),
-([	"skill_name" : "急风骤雨",
-	"action" : "$N身形绕$n一转，手中$w望空一指，一式"BLU"「急风骤雨」"NOR"幻出满天剑影，向$n$l接连挥出数剑",
+([	"skill_name" : "急風驟雨",
+	"action" : "$N身形繞$n一轉，手中$w望空一指，一式"BLU"「急風驟雨」"NOR"幻出滿天劍影，向$n$l接連揮出數劍",
 	"lvl"    : 20
 ]),
-([	"skill_name" : "江城飞花",
-	"action" : "$N身形飘然而起，在半空中身子一旋，悠然一式"RED"「江城飞花」"NOR"手中$w若有若无淡淡刺向$n的$l",
+([	"skill_name" : "江城飛花",
+	"action" : "$N身形飄然而起，在半空中身子一旋，悠然一式"RED"「江城飛花」"NOR"手中$w若有若無淡淡刺向$n的$l",
 	"lvl"    : 30
 ]),
-([	"skill_name" : "万花齐落",
-	"action" : "$N纵起丈余，一式"HIW"「细云巧翻胸」"NOR"头下脚上，一招"HIR "「万花齐落」"NOR"手中$w舞成一个光球罩向$n的$l",
+([	"skill_name" : "萬花齊落",
+	"action" : "$N縱起丈餘，一式"HIW"「細雲巧翻胸」"NOR"頭下腳上，一招"HIR "「萬花齊落」"NOR"手中$w舞成一個光球罩向$n的$l",
 	"lvl"    : 40
 ]),
 ([	"skill_name" : "漫天花雨",
-	"action" : "$N一声大喝使出"HIM"「漫天花雨」"NOR"，手中$w幻出漫天花瓣，迅若奔雷射向$n的$l",
+	"action" : "$N一聲大喝使出"HIM"「漫天花雨」"NOR"，手中$w幻出漫天花瓣，迅若奔雷射向$n的$l",
 	"lvl"    : 50
 ]),
-([	"skill_name" : "落花无意",
-	"action" : "$N轻叹一声，手中$w怀中一抱，一时"HIB"「落花无意」"NOR"，$w锵然跃出倏的化作几点带露的桃花，飘然飞向$n的$l",
+([	"skill_name" : "落花無意",
+	"action" : "$N輕嘆一聲，手中$w懷中一抱，一時"HIB"「落花無意」"NOR"，$w鏘然躍出倏的化作幾點帶露的桃花，飄然飛向$n的$l",
 	"lvl"    : 60
 ]),
 });
@@ -43,12 +43,12 @@ int valid_learn(object me)
 	object ob;
 
 	if( (int)me->query_skill("bibo-shengong",1) < 30)
-		return notify_fail("你的碧波神功火候还不够。\n"); 
+		return notify_fail("你的碧波神功火候還不夠。\n"); 
 	if( (int)me->query("max_neili") < 100 )
-		return notify_fail("你的内力不够，不能练落英神剑。\n"); 
+		return notify_fail("你的內力不夠，不能練落英神劍。\n"); 
 	if (!objectp(ob = me->query_temp("weapon"))
 	|| (string)ob->query("skill_type") != "sword")
-		return notify_fail("你必须先找一把剑才能学习剑法。\n");
+		return notify_fail("你必須先找一把劍才能學習劍法。\n");
 
 	return 1;
 }
@@ -57,13 +57,13 @@ int practice_skill(object me)
 	object ob;
 
 	if( (int)me->query("qi") < 35 || (int)me->query("neili") < 15 )
-		return notify_fail("你的内力或气不够，没办法练习落英神剑。\n");
+		return notify_fail("你的內力或氣不夠，沒辦法練習落英神劍。\n");
 	if (!objectp(ob = me->query_temp("weapon"))
 		|| (string)ob->query("skill_type") != "sword")
-		return notify_fail("你必须先找一把剑才能习练剑法。\n");
+		return notify_fail("你必須先找一把劍才能習練劍法。\n");
 	me->receive_damage("qi", 35);
 	me->add("neili", -15);
-	write("你按著所学练了一遍落英神剑。\n");
+	write("你按著所學練了一遍落英神劍。\n");
 	return 1;
 }
 string query_skill_name(int level)
@@ -90,17 +90,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "割伤" : "刺伤",
+		"damage_type" : random(2) ? "割傷" : "刺傷",
 	]);
 }
 int learn_bonus() { return 25; }
@@ -110,17 +110,17 @@ int power_point(object me) { return 1.0; }
 
 int help(object me)
 {
-	write(HIC"\n落英神剑："NOR"\n");
+	write(HIC"\n落英神劍："NOR"\n");
 	write(@HELP
 
-    落英神剑为东海桃花岛主黄药师所创。
-    在桃花岛竹林内“积翠亭”两旁，悬着一副对联：“桃花影里
-飞神剑，碧海潮生按玉箫”，隐然黄药师生平两大得意武功。其中
-之一就是落英神剑。
+    落英神劍爲東海桃花島主黃藥師所創。
+    在桃花島竹林內“積翠亭”兩旁，懸着一副對聯：“桃花影裏
+飛神劍，碧海潮生按玉簫”，隱然黃藥師生平兩大得意武功。其中
+之一就是落英神劍。
 
-	学习要求：
-		碧波神功30级
-		内力100
+	學習要求：
+		碧波神功30級
+		內力100
 HELP
 	);
 	return 1;

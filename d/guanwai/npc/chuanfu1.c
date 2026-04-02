@@ -1,4 +1,4 @@
-// chuanfu.c 船夫
+// chuanfu.c 船伕
 
 #include <ansi.h>
 
@@ -7,10 +7,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("船夫", ({ "chuan fu", "fu" }));
+	set_name("船伕", ({ "chuan fu", "fu" }));
 	set("gender", "男性");
 	set("age", 36);
-	set("long","这是一个松花江上的船夫。饱经风霜的脸上透出东北人的豪爽。\n");
+	set("long","這是一個松花江上的船伕。飽經風霜的臉上透出東北人的豪爽。\n");
 
 	set("combat_exp", 10000);
 	set("shen_type", 1);
@@ -32,8 +32,8 @@ int accept_object(object who, object ob)
     
     if (ob->query("money_id") && ob->value() >= 10000)
     {
-		message_vision("船夫对$N说：好！既然这位"+RANK_D->query_respect(who)+"要过江，那我就送你上这条船吧！\n" , who);
-		message_vision("船夫和$N上了船，一声「起锚」船就张帆离岸了......\n", who);
+		message_vision("船伕對$N說：好！既然這位"+RANK_D->query_respect(who)+"要過江，那我就送你上這條船吧！\n" , who);
+		message_vision("船伕和$N上了船，一聲「起錨」船就張帆離岸了......\n", who);
 		who->move("/d/guanwai/songhuajiang");
 		tell_object(who, BLU "你在江上一路漂流.......\n" NOR ) ;
 		call_out("goto_songhua",10,who) ;
@@ -42,7 +42,7 @@ int accept_object(object who, object ob)
     }
     else  
     {
-		message_vision("船夫皱眉对$N说：就这点？你另找高明吧！说完掉头就走了。\n", who);
+		message_vision("船伕皺眉對$N說：就這點？你另找高明吧！說完掉頭就走了。\n", who);
 		destruct(this_object());
 		return 0;
 	}
@@ -50,6 +50,6 @@ int accept_object(object who, object ob)
 
 void goto_songhua(object ob)
 {
-	tell_object(ob , "\n船很快停靠彼岸。你抬脚跨出船来。\n\n" ) ;
+	tell_object(ob , "\n船很快停靠彼岸。你抬腳跨出船來。\n\n" ) ;
 	ob->move ("/d/guanwai/chuanchang") ;
 }

@@ -11,9 +11,9 @@ void create()
 {
 	set("short", "茶房");
 	set("long", @LONG
-这是桃花岛弟子们喝茶休息的地方，满屋的茶香，沁人心脾。屋里
-摆着几张桌子(table)和椅子(chair)，坐着几个正在喝茶聊天的男女弟
-子。屋中有几个哑仆正在忙着为大家上茶。
+這是桃花島弟子們喝茶休息的地方，滿屋的茶香，沁人心脾。屋裏
+擺着幾張桌子(table)和椅子(chair)，坐着幾個正在喝茶聊天的男女弟
+子。屋中有幾個啞僕正在忙着爲大家上茶。
 LONG
 	);
 
@@ -22,8 +22,8 @@ LONG
 	]));
 	
 	set("item_desc", ([
-		"table" : "典雅的桃木小桌，上面放着水果盘和饮茶器具。\n",
-		"chair" : "竹制的坐椅，看上去有些摇摇晃晃。\n",
+		"table" : "典雅的桃木小桌，上面放着水果盤和飲茶器具。\n",
+		"chair" : "竹製的坐椅，看上去有些搖搖晃晃。\n",
 	]));
 	                                
 
@@ -46,7 +46,7 @@ void init()
 int serve_tea(object me)
 {
 	if (!present(me, this_object())) return 0;
-	message_vision("哑仆走过来，给$N端来了一杯茉莉花茶。\n", me);
+	message_vision("啞僕走過來，給$N端來了一杯茉莉花茶。\n", me);
 	
 	new(__DIR__"obj/huacha")->move(me);
 
@@ -66,18 +66,18 @@ int do_sit(string arg)
 
 	if (me->is_busy() || me->is_fighting())	return notify_fail("你正忙着呢！\n");
 	if (arg == "table" || arg == "zhuozi")
-		return notify_fail("你要坐在桌子上？那先把你挤出汁再端上来吧。\n");	
+		return notify_fail("你要坐在桌子上？那先把你擠出汁再端上來吧。\n");	
 
 	if ( !arg || (arg != "chair" && arg != "yizi") )
-		return notify_fail("你要坐在地板上？有个性！可惜的是这会影响桃花岛的形象。\n");	
+		return notify_fail("你要坐在地板上？有個性！可惜的是這會影響桃花島的形象。\n");	
 	
 	if (me->query_temp("marks/sit"))
-		return notify_fail("你已经坐在座位上了。\n");	
+		return notify_fail("你已經坐在座位上了。\n");	
 			
-	message_vision("$N找了个空位座下，等着上茶。\n", me);	
+	message_vision("$N找了個空位座下，等着上茶。\n", me);	
 	if( me->query_temp("marks/tea_served") ) {
-		message_vision("哑仆走过来对$N打手势，表示喝饱了的就别再喝了。\n", me);
-		message_vision("$N发觉众人的眼光都在盯着自己，忙站起身来，尴尬地说：我只是试试这椅子结实不结实。\n", me);
+		message_vision("啞僕走過來對$N打手勢，表示喝飽了的就別再喝了。\n", me);
+		message_vision("$N發覺衆人的眼光都在盯着自己，忙站起身來，尷尬地說：我只是試試這椅子結實不結實。\n", me);
 		return notify_fail("");
 	}
 	me->set_temp("marks/sit", 1);
@@ -91,9 +91,9 @@ int do_stand()
 	object me = this_player();
 
 	if (!me->query_temp("marks/sit"))
-		return notify_fail("你已经站着了，是不是站久了有点发昏啊？\n");	
+		return notify_fail("你已經站着了，是不是站久了有點發昏啊？\n");	
 			
-	message_vision("$N拍拍屁股，站了起来。\n", me);	
+	message_vision("$N拍拍屁股，站了起來。\n", me);	
 	me->delete_temp("marks/sit");
 	return 1;
 }
@@ -101,11 +101,11 @@ int do_stand()
 int valid_leave(object me, string dir)
 {
 	if (me->query_temp("marks/sit"))
-		return notify_fail("你打算连椅子也搬出去？\n");	
+		return notify_fail("你打算連椅子也搬出去？\n");	
 
 	if (dir == "east" && present("moli huacha", me))
 //	if (random(3)) 
-		return notify_fail("哑仆跑过来打手势，表示不能把没喝完的带走。\n");
+		return notify_fail("啞僕跑過來打手勢，表示不能把沒喝完的帶走。\n");
 	
 	return ::valid_leave(me, dir);
 }

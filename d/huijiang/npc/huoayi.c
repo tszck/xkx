@@ -6,7 +6,7 @@ void create()
 {
 	set_name("霍阿伊", ({"huo ayi", "huo", "ayi"}));
 	set("gender","男性");
-	set("long","木卓伦的儿子，在回族中很高的威望！\n");
+	set("long","木卓倫的兒子，在回族中很高的威望！\n");
 	set("combat_exp",40000);
    
 	set("age",29);

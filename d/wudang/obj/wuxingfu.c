@@ -5,7 +5,7 @@ inherit CLOTH;
 void create()
 {
         set_name("五行服", ({ "wuxingfu" }));
-        set("long", "这是五行弟子练功服。\n");
+        set("long", "這是五行弟子練功服。\n");
         set_weight(2000);
         if (clonep())
                 set_default_object(__FILE__);

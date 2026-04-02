@@ -5,9 +5,9 @@
 inherit BLADE;
 
 string *names = ({
-	"长弯刀",
-	"短弯刀",
-	"月牙弯刀",
+	"長彎刀",
+	"短彎刀",
+	"月牙彎刀",
 });
 
 string *ids = ({
@@ -24,7 +24,7 @@ void create()
 	if( clonep() )
 		 set_default_object(__FILE__);
 	else {
-		set("long", "一把弯弯的战刀．\n");
+		set("long", "一把彎彎的戰刀．\n");
 		set("unit", "把");
 		set("value", 400);
 		set("material","metal");

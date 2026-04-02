@@ -5,9 +5,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("木卓伦", ({"mu zhuolun", "mu", "zhuolun"}));
+	set_name("木卓倫", ({"mu zhuolun", "mu", "zhuolun"}));
 	set("gender","男性");
-	set("long","回疆回部族长。\n");
+	set("long","回疆回部族長。\n");
 	set("combat_exp",50000);
 
 	set("age",29);

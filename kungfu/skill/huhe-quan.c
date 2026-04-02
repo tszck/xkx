@@ -1,6 +1,6 @@
-// huhe-quan.c 虎鹤双形拳
+// huhe-quan.c 虎鶴雙形拳
 // Last Modified by Winder on Mar. 10 2000
-// 主要用在没门派的npc身上
+// 主要用在沒門派的npc身上
 
 #include <ansi.h>
 inherit SKILL;
@@ -8,36 +8,36 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N二手合十，一式「起首势」，双拳蓄势而发，击向$n的$l",
+([	"action" : "$N二手合十，一式「起首勢」，雙拳蓄勢而發，擊向$n的$l",
 	"lvl" : 0,
-	"skill_name" : "莲花座"
+	"skill_name" : "蓮花座"
 ]),
-([	"action" : "$N一式「虎形」，双掌轮流下击，拳势如焰，吡啪爆响",
+([	"action" : "$N一式「虎形」，雙掌輪流下擊，拳勢如焰，吡啪爆響",
 	"lvl" : 10,
 	"skill_name" : "虎形"
 ]),
-([	"action" : "$N腾空飞起，一式「鹤形」，双手双腿齐出，令$n无可躲藏",
+([	"action" : "$N騰空飛起，一式「鶴形」，雙手雙腿齊出，令$n無可躲藏",
 	"lvl" : 20,
-	"skill_name" : "鹤形"
+	"skill_name" : "鶴形"
 ]),
-([	"action" : "$N双掌虚含，掌缘下沉，一式「黑虎掏心」，缓缓向$n推出",
+([	"action" : "$N雙掌虛含，掌緣下沉，一式「黑虎掏心」，緩緩向$n推出",
 	"lvl" : 30,
 	"skill_name" : "黑虎掏心"
 ]),
-([	"action" : "$N一臂前伸，一臂后指，一式「鹤度九天」，攻向$n的身前身后",
+([	"action" : "$N一臂前伸，一臂後指，一式「鶴度九天」，攻向$n的身前身後",
 	"lvl" : 40,
-	"skill_name" : "鹤度九天"
+	"skill_name" : "鶴度九天"
 ]),
-([	"action" : "$N一式「白鹤点水」，两手十指虚点$n的全身三十六道要穴",
+([	"action" : "$N一式「白鶴點水」，兩手十指虛點$n的全身三十六道要穴",
 	"lvl" : 48,
-	"skill_name" : "白鹤点水"
+	"skill_name" : "白鶴點水"
 ]),
-([	"action" : "$N两目内视，双手内笼，一式「虎啸龙吟」，四面八方响起震人心魄的
-龙吟",
+([	"action" : "$N兩目內視，雙手內籠，一式「虎嘯龍吟」，四面八方響起震人心魄的
+龍吟",
 	"lvl" : 54,
-	"skill_name" : "虎啸龙吟"
+	"skill_name" : "虎嘯龍吟"
 ]),
-([	"action" : "$N似笑非笑，双拳无形无定，一式「猛虎下山」，骤然击向$n的前胸",
+([	"action" : "$N似笑非笑，雙拳無形無定，一式「猛虎下山」，驟然擊向$n的前胸",
 	"lvl" : 60,
 	"skill_name" : "猛虎下山"
 ])
@@ -47,20 +47,20 @@ int valid_enable(string usage) { return	usage=="cuff" || usage=="parry"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("练虎鹤双形拳必须空手。\n");
+		return notify_fail("練虎鶴雙形拳必須空手。\n");
 	if ((int)me->query_skill("haoran-zhengqi", 1) < 10)
-		return notify_fail("你的浩然正气火候不够，无法学虎鹤双形拳。\n");
+		return notify_fail("你的浩然正氣火候不夠，無法學虎鶴雙形拳。\n");
 	if ((int)me->query("max_neili") < 50)
-		return notify_fail("你的内力太弱，无法练虎鹤双形拳。\n");
+		return notify_fail("你的內力太弱，無法練虎鶴雙形拳。\n");
 	return 1;
 }
 
 int practice_skill(object me)
 {
 	if ((int)me->query("qi") < 30)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("你的内力不够练虎鹤双形拳。\n");
+		return notify_fail("你的內力不夠練虎鶴雙形拳。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -10);
 	return 1;
@@ -87,16 +87,16 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : "瘀伤",
+		"damage_type" : "瘀傷",
 	]);
 }
 int learn_bonus() { return 30; }
@@ -106,13 +106,13 @@ int power_point(object me) { return 1.0; }
 
 int help(object me)
 {
-	write(HIC"\n虎鹤双形拳："NOR"\n");
+	write(HIC"\n虎鶴雙形拳："NOR"\n");
 	write(@HELP
 
-    虎鹤双形拳是云中鹤的成名绝技。
+    虎鶴雙形拳是雲中鶴的成名絕技。
 
-	学习要求：
-		无
+	學習要求：
+		無
 HELP
 	);
 	return 1;

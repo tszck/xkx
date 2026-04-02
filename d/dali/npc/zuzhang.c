@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("族长", ({ "zu zhang", "zhang" }));
+	set_name("族長", ({ "zu zhang", "zhang" }));
 	set("age", 62);
 	set("gender", "女性");
-	set("long", "一位满脸皱纹的老年妇女，正是本村的族长。台夷时处母系氏族，族中权贵皆为妇女。\n");
+	set("long", "一位滿臉皺紋的老年婦女，正是本村的族長。臺夷時處母系氏族，族中權貴皆爲婦女。\n");
 	set("attitude", "peaceful");
 
 	set("str", 24);

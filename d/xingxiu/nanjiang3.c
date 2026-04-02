@@ -7,8 +7,8 @@ void create()
 {
 	set("short", "南疆沙漠");
 	set("long", @LONG
-这就是浩瀚的塔克拉马干大沙漠，一走进来，你仿佛迷失了方向。
-你感到口内十分焦渴，还是快些离开吧。
+這就是浩瀚的塔克拉馬幹大沙漠，一走進來，你彷彿迷失了方向。
+你感到口內十分焦渴，還是快些離開吧。
 LONG );
 	set("outdoors", "xiyu");
 	set("exits", ([
@@ -47,6 +47,6 @@ int valid_leave(object me, string dir)
 		me->set("water",current_water-20);
 	}
 	if (dir=="east" || dir=="south" || dir=="west" || dir=="north") 
-		return notify_fail("你向那边走去，结果发现那是沙漠中的海市蜃楼。\n");
+		return notify_fail("你向那邊走去，結果發現那是沙漠中的海市蜃樓。\n");
 	return ::valid_leave(me, dir);
 }

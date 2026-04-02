@@ -1,4 +1,4 @@
-// xianglong-zhang.c 降龙十八掌之潜龙勿用
+// xianglong-zhang.c 降龍十八掌之潛龍勿用
 // Last Modified by sega on Mar. 10 2000
 
 #include <ansi.h>
@@ -16,12 +16,12 @@ int ttl = 17;
 int seq = 4;
 mapping *action = ({
 	([
-		"action"      : "$N左掌聚成拳状，右掌一招"+(order[random(13)])+"「潜龙勿用」"NOR"缓缓推向$n的$l",
-		"skill_name" : "潜龙勿用",
+		"action"      : "$N左掌聚成拳狀，右掌一招"+(order[random(13)])+"「潛龍勿用」"NOR"緩緩推向$n的$l",
+		"skill_name" : "潛龍勿用",
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
-		"damage_type" : random(2) ? "内伤" : "瘀伤",
+		"damage_type" : random(2) ? "內傷" : "瘀傷",
 	]),
 });
 
@@ -32,28 +32,28 @@ int valid_enable(string usage) { return usage=="strike" ; }
 int valid_learn(object me)
 {
 		if (me->query_skill("xianglong-zhang", 1) > 0)
-				return notify_fail("你已经学全十八掌了，不必再单独学习。\n");
+				return notify_fail("你已經學全十八掌了，不必再單獨學習。\n");
 
     if (!me->query("can_learn/hong/sub-xianglong-zhang"))
-    		return notify_fail("你未得洪七公亲点，领悟不到降龙十八掌的精髓。\n");
+    		return notify_fail("你未得洪七公親點，領悟不到降龍十八掌的精髓。\n");
 
 		if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-				return notify_fail("练降龙十八掌必须空手。\n");
+				return notify_fail("練降龍十八掌必須空手。\n");
 
 		if ((int)me->query("max_neili") < 1000)
-				return notify_fail("你的内力太弱，无法练降龙十八掌。\n");
+				return notify_fail("你的內力太弱，無法練降龍十八掌。\n");
 
 		if ((int)me->query("str") < 25)
-				return notify_fail("你的先天膂力孱弱，难以修炼降龙十八掌。\n");
+				return notify_fail("你的先天膂力孱弱，難以修煉降龍十八掌。\n");
 
 		if ((int)me->query("con") < 20)
-				return notify_fail("你的先天根骨孱弱，难以修炼降龙十八掌。\n");
+				return notify_fail("你的先天根骨孱弱，難以修煉降龍十八掌。\n");
 
 		if ((int)me->query_skill("strike", 1) < 180)
-				return notify_fail("你的基本掌法火候不够，难以修炼降龙十八掌。\n");
+				return notify_fail("你的基本掌法火候不夠，難以修煉降龍十八掌。\n");
 
 		if ((int)me->query_skill("strike", 1) < (int)me->query_skill("qianlong-wuyong", 1))
-				return notify_fail("你的基本掌法水平有限，无法领会更高深的降龙十八掌。\n");
+				return notify_fail("你的基本掌法水平有限，無法領會更高深的降龍十八掌。\n");
 
 	return 1;
 }
@@ -61,11 +61,11 @@ int valid_learn(object me)
 int practice_skill(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("你的必须空手才能练习。\n");
+		return notify_fail("你的必須空手才能練習。\n");
 	if ((int)me->query("qi") < 100)
-		return notify_fail("你的体力太低了。\n");
+		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 40)
-		return notify_fail("你的内力不够练降龙十八掌。\n");
+		return notify_fail("你的內力不夠練降龍十八掌。\n");
 	me->receive_damage("qi", 100);
 	me->add("neili", -40);
 	return 1;
@@ -82,20 +82,20 @@ int learn_bonus() { return 0; }
 int practice_bonus() { return 0; }
 int success() { return 5; }
 int power_point(object me) {
-	if (userp(me)) return 0.5; //因为是半成品 不允许高
+	if (userp(me)) return 0.5; //因爲是半成品 不允許高
   return 1;
 } 
 
 int help(object me)
 {
-	write(HIC"\n降龙十八掌之潜龙勿用："NOR"\n");
+	write(HIC"\n降龍十八掌之潛龍勿用："NOR"\n");
 	write(@HELP
 
-    降龙十八掌是丐帮镇帮之宝，是天下最刚猛的武功。
+    降龍十八掌是丐幫鎮幫之寶，是天下最剛猛的武功。
 
-	学习要求：
-		得到洪七公亲自指点
-		内力1000
+	學習要求：
+		得到洪七公親自指點
+		內力1000
 		先天臂力25
 		先天根骨20
 		基本掌法180

@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "鳌府大门");
+	set("short", "鰲府大門");
 	set("long", @LONG
-一座富丽堂皇的大宅院出现在你的眼前，两头高大的石狮子镇住了
-大门两侧。门额上悬挂一方横匾，写着‘满洲第一勇士鳌拜府’几个大
-字，门外有官兵把守，戒备森严。门上挂着两个灯笼，赫然写着“鳌”
+一座富麗堂皇的大宅院出現在你的眼前，兩頭高大的石獅子鎮住了
+大門兩側。門額上懸掛一方橫匾，寫着‘滿洲第一勇士鰲拜府’幾個大
+字，門外有官兵把守，戒備森嚴。門上掛着兩個燈籠，赫然寫着“鰲”
 字。
 LONG );
 	set("outdoors", "beijing");
@@ -40,14 +40,14 @@ int valid_leave(object me, string dir)
 				(inv[i]->query("equipped")))
 				if(objectp(present("bing", environment(me))) &&
 					living(present("bing",environment(me))))
-					return notify_fail("官兵上前挡住你，朗声说道：这位"+ RANK_D->query_respect(me) + "请放下兵刃。\n你可以进府，但不得手持兵刃。\n");
+					return notify_fail("官兵上前擋住你，朗聲說道：這位"+ RANK_D->query_respect(me) + "請放下兵刃。\n你可以進府，但不得手持兵刃。\n");
 			return ::valid_leave(me, dir);
 		}
 		else
 		{
 			if(objectp(present("guan bing", environment(me))) &&
 				living(present("bing", environment(me))))
-				return notify_fail("官兵拦住你骂道：“你以为你是谁啊？一个寻常百姓，难道还想进府见鳌大人？！\n你这" + RANK_D->query_rude(me) +"快给我滚远点儿，不然别怪我不客气！”\n");
+				return notify_fail("官兵攔住你罵道：“你以爲你是誰啊？一個尋常百姓，難道還想進府見鰲大人？！\n你這" + RANK_D->query_rude(me) +"快給我滾遠點兒，不然別怪我不客氣！”\n");
 		}
 	}	
 	return ::valid_leave(me, dir);

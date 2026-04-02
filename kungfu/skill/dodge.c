@@ -1,4 +1,4 @@
-// dodge.c 基本轻功
+// dodge.c 基本輕功
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -12,11 +12,11 @@ int success() { return 30; }
 int power_point(object me) { return 1; }
 
 string *dodge_msg = ({
-	"但是和$p$l偏了几寸。\n",
-	"但是被$p机灵地躲开了。\n",
-	"但是$n身子一侧，闪了开去。\n",
-	"但是被$p及时避开。\n",
-	"但是$n已有准备，不慌不忙的躲开。\n",
+	"但是和$p$l偏了幾寸。\n",
+	"但是被$p機靈地躲開了。\n",
+	"但是$n身子一側，閃了開去。\n",
+	"但是被$p及時避開。\n",
+	"但是$n已有準備，不慌不忙的躲開。\n",
 });
 
 string query_dodge_msg()
@@ -25,15 +25,15 @@ string query_dodge_msg()
 }
 int help(object me)
 {
-	write(HIC"\n基本轻功："NOR"\n");
+	write(HIC"\n基本輕功："NOR"\n");
 	write(@HELP
 
-    轻功类武技的基本功，并能改善你后天的身法。
-    轻功高到一定程度可以轻易渡河(cross)，练习一些特别的轻功
-将更为容易达到过河条件。
+    輕功類武技的基本功，並能改善你後天的身法。
+    輕功高到一定程度可以輕易渡河(cross)，練習一些特別的輕功
+將更爲容易達到過河條件。
 
-	学习要求：
-		无
+	學習要求：
+		無
 HELP
 	);
 	return 1;

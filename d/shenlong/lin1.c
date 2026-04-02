@@ -14,15 +14,15 @@ void create()
 {
 	set("short", "灌木林");
 	set("long",@LONG
-峰顶北坡是一片阴郁潮湿的灌木林，小路隐没在罐木林中。你对这
-样一个孤岛上竟有这样大一片灌木林(bush)感到非常吃惊。四周的密林
-中长满了不知名的杂草。
+峯頂北坡是一片陰鬱潮溼的灌木林，小路隱沒在罐木林中。你對這
+樣一個孤島上竟有這樣大一片灌木林(bush)感到非常喫驚。四周的密林
+中長滿了不知名的雜草。
 LONG);
 	set("exits", ([
 		"southup" : __DIR__"fengding",
 	]));
 	set("item_desc", ([
-		"bush" : "这片灌木林太深了，要想过去恐怕只有砍出一条路了(kan)。\n",
+		"bush" : "這片灌木林太深了，要想過去恐怕只有砍出一條路了(kan)。\n",
 	]));
 	set("objects", ([
 		__DIR__"npc/dushe" : 1+random(2),
@@ -47,21 +47,21 @@ int do_kan ( string arg )
  object  weapon, me = this_player();
  
 
-	if( !arg || arg !="bush" ) return notify_fail("你要砍什么？\n" ) ;
+	if( !arg || arg !="bush" ) return notify_fail("你要砍什麼？\n" ) ;
 	if (!objectp(weapon = me->query_temp("weapon")))
 		return notify_fail("不用武器恐怕不行吧！\n");
-	message_vision("$N抽出兵刃，对着灌木丛一阵乱砍。\n", me);
+	message_vision("$N抽出兵刃，對着灌木叢一陣亂砍。\n", me);
 	if(me->query("neili")>100)
 	{
 		set("exits/north", __DIR__"lin2");
-		message_vision( "$N累得气喘吁吁，终于砍出一条小路。\n", me);
+		message_vision( "$N累得氣喘吁吁，終於砍出一條小路。\n", me);
 		me->add("neili",-50);
 		remove_call_out("close");
 		call_out("close", 20, this_object());
 	}
 	else	
 	{
-		message_vision("$N累得气喘吁吁，也没砍开一条路来。\n", me);
+		message_vision("$N累得氣喘吁吁，也沒砍開一條路來。\n", me);
 		me->set("neili",0);
 	}
 	return 1;
@@ -69,6 +69,6 @@ int do_kan ( string arg )
 
 void close(object room)
 {
-	message("vision","灌木丛渐渐合拢起来，终于又恢复了原状。\n", room);
+	message("vision","灌木叢漸漸合攏起來，終於又恢復了原狀。\n", room);
 	room->delete("exits/north");
 }

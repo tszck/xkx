@@ -1,10 +1,10 @@
-// ling.c 赵灵珠
+// ling.c 趙靈珠
 
 inherit NPC;
 inherit F_MASTER;
 void create()
 {
-	set_name("赵灵珠", ({ "zhao lingzhu","zhao","lingzhu"}));
+	set_name("趙靈珠", ({ "zhao lingzhu","zhao","lingzhu"}));
 	set("long", "她是峨嵋派的第四代俗家弟子。\n");
 	set("gender", "女性");
 	set("age", 22);
@@ -72,15 +72,15 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("combat_exp") > 10000) {
-		command("say 我峨嵋注重清修，对弟子要求能忍受寂寞。");
-		command("say 在江湖阅历方面，" + RANK_D->query_respect(ob) +
-			"经历丰富，是否能在峨嵋修道？");
+		command("say 我峨嵋注重清修，對弟子要求能忍受寂寞。");
+		command("say 在江湖閱歷方面，" + RANK_D->query_respect(ob) +
+			"經歷豐富，是否能在峨嵋修道？");
 		return;
 	}
 	if ((int)ob->query("shen") < 0) {
-		command("say 我峨嵋乃是堂堂名门正派，对弟子要求极严。");
+		command("say 我峨嵋乃是堂堂名門正派，對弟子要求極嚴。");
 		command("say 在德行方面，" + RANK_D->query_respect(ob) +
-			"是否还做得不够？");
+			"是否還做得不夠？");
 		return;
 	}
 	command("say 好吧，我就收下你了。");

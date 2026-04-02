@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "鼓楼六层");
+	set("short", "鼓樓六層");
 	set("long", @LONG
-沿窗洞吹进一阵阵凌厉的山风，寒意浸人。楼上传来一阵阵沉闷的
-鼓声。
+沿窗洞吹進一陣陣凌厲的山風，寒意浸人。樓上傳來一陣陣沉悶的
+鼓聲。
 LONG );
 	set("exits", ([
 		"up"   : __DIR__"gulou7",

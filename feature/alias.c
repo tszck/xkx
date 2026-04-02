@@ -22,7 +22,7 @@ string process_input(string str)
 	int i, j;
 	object me = this_object();
 
-/* 限制蹩脚机器人
+/* 限制蹩腳機器人
 	if(maxcom == 0) last_check = time();
 	if(maxcom == (MAX_IN_A_ROW - 1) && time() == last_check)
 	{
@@ -33,16 +33,16 @@ string process_input(string str)
 		maxcom++;
 	maxcom = maxcom % MAX_IN_A_ROW ;
 */
-// 限制disable_player后遗症
+// 限制disable_player後遺症
 	if( !interactive(me) ) command("quit");       // 非交互物品
-	if( !query_heart_beat(me) ) command("quit");  // 无心跳
+	if( !query_heart_beat(me) ) command("quit");  // 無心跳
 	if( !living(me)) return "";                   // 不是活物
-	if( me->query_temp("noliving") ) return "";   // 非活动玩家
+	if( me->query_temp("noliving") ) return "";   // 非活動玩家
 	if( !wizardp(me))
 	{
 		if (me->query("jing") < 0 || me->query("qi") < 0)
 		{
-			write("你马上要昏迷了，不能做任何事情。\n");
+			write("你馬上要昏迷了，不能做任何事情。\n");
 			return "";
 		}
 	}
@@ -71,10 +71,10 @@ string process_input(string str)
 		me->add_temp("fuck", 1);
 		if (me->query_temp("fuck") > 1)
 			return "";
-		message("channel:chat", HIC"【闲聊】"+me->name()+"张开大嘴放了个冲天大臭屁，结果一口气没上来，就被自己的大粪给活活憋死了。\n"NOR, users());
+		message("channel:chat", HIC"【閒聊】"+me->name()+"張開大嘴放了個沖天大臭屁，結果一口氣沒上來，就被自己的大糞給活活憋死了。\n"NOR, users());
 		return "";
 	}
-// 限制非法获取的生命数据
+// 限制非法獲取的生命數據
 	if( userp(me) )
 	{
 		if((int)me->query("eff_qi") > (int)me->query("max_qi"))
@@ -88,15 +88,15 @@ string process_input(string str)
 		if((int)me->query("neili") > (int)me->query("max_neili") * 2)
 			me->set("neili", (int)me->query("max_neili") * 2);
 	}
-// 限制频道字符和其他泥巴宣传
+// 限制頻道字符和其他泥巴宣傳
 	if( !wizardp(me) && (strsrch(str, "[") >= 0 || strsrch(str, "%") >= 0 || strsrch(str, "5555") >= 0 || strsrch(str, "8888") >= 0 || strsrch(str, "6666") >= 0 || strsrch(str, "9999") >= 0)) return "";
-// 限制太多的命令输入行
+// 限制太多的命令輸入行
 	if( str==last_input && str != "" )
 	{
 		repeat_cnt++;
 		if( repeat_cnt > MAX_REPEAT )
 		{
-			tell_object(me,"\n天后仙子突然在一阵烟雾中出现：你重复命令太多，最后那些都失效了！！\n\n");
+			tell_object(me,"\n天后仙子突然在一陣煙霧中出現：你重複命令太多，最後那些都失效了！！\n\n");
 //			command("quit");
 			if(!me->is_busy()) me->start_busy(random(10));
 			return "";
@@ -148,7 +148,7 @@ int set_alias(string verb, string replace)
 	} else {
 		if( !mapp(alias) ) alias = ([ verb:replace ]);
 		else if( sizeof(alias) > MAX_ALIASES )
-			return notify_fail("您设定的 alias 太多了，请先删掉一些不常用的。\n");
+			return notify_fail("您設定的 alias 太多了，請先刪掉一些不常用的。\n");
 		else alias[verb] = replace;
 		return 1;
 	}

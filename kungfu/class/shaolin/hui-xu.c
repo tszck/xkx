@@ -7,14 +7,14 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("慧虚尊者", ({
+	set_name("慧虛尊者", ({
 		"huixu zunzhe",
 		"huixu",
 		"zunzhe",
 	}));
 	set("long",
-		"他是一位两鬓斑白的老僧，身穿一袭青布镶边袈裟。他身材略高，\n"
-		"太阳穴微凸，双目炯炯有神。\n"
+		"他是一位兩鬢斑白的老僧，身穿一襲青布鑲邊袈裟。他身材略高，\n"
+		"太陽穴微凸，雙目炯炯有神。\n"
 	);
 
 

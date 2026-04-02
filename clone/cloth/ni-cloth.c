@@ -7,9 +7,9 @@
 inherit CLOTH;
 
 string* clothname = ({
-	HIB"青布缁衣"NOR,
-	HIC"灰布缁衣"NOR,
-	HIY"粗布缁衣"NOR,
+	HIB"青布緇衣"NOR,
+	HIC"灰布緇衣"NOR,
+	HIY"粗布緇衣"NOR,
 });
 string* clothid = ({
 	"zi yi",
@@ -17,9 +17,9 @@ string* clothid = ({
 	"zi yi",
 });
 string* clothlong = ({
-	"这是一件出家人穿的青布缁衣。\n",
-	"这是一件出家人穿的灰布缁衣。\n",
-	"这是一件出家人穿的粗布缁衣。\n",
+	"這是一件出家人穿的青布緇衣。\n",
+	"這是一件出家人穿的灰布緇衣。\n",
+	"這是一件出家人穿的粗布緇衣。\n",
 });
 
 void create()

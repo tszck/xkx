@@ -1,13 +1,13 @@
-//Room: santiangate.c 三天门
+//Room: santiangate.c 三天門
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-      set("short","三天门");
+      set("short","三天門");
       set("long",@LONG
-这里是登山石阶的尽头“三天门”，再往上走就是武当绝顶了。
+這裏是登山石階的盡頭“三天門”，再往上走就是武當絕頂了。
 LONG);
       set("exits",([ /* sizeof() == 1 */
           "northdown": __DIR__"ertiangate",

@@ -11,12 +11,12 @@ void create()
 {
 	string *bc_skills, *weapons;
 	int i, level, exp = 100000 + random(200000);
-	set_name("帮众", ({ "bang zhong", "zhong" }));
+	set_name("幫衆", ({ "bang zhong", "zhong" }));
 	set("gender", "男性");
-	set("party/party_name", HIC"长乐帮"NOR);
+	set("party/party_name", HIC"長樂幫"NOR);
 	set("party/rank", "豹捷堂");
 	set("age", 20 + random(10));
-	set("long", "一名身材高大的壮汉，满脸杀气，一付凶神恶煞的模样。\n");
+	set("long", "一名身材高大的壯漢，滿臉殺氣，一付凶神惡煞的模樣。\n");
 	set("attitude", "heroism");
 	set("shen_type", -1);
 
@@ -71,7 +71,7 @@ int auto_check()
 
 	if( is_busy() || is_fighting() ) return 1;
 
-	message("vision", name() + "急急忙忙地离开了。\n", environment(me), ({me}));
+	message("vision", name() + "急急忙忙地離開了。\n", environment(me), ({me}));
 	destruct(me);
 	return 1;
 }

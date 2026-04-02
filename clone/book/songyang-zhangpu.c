@@ -1,4 +1,4 @@
-// songyang-zhangpu.c 大嵩阳掌谱
+// songyang-zhangpu.c 大嵩陽掌譜
 // Last Modified by Winder on Jul. 15 2001
 
 #include <ansi.h>
@@ -7,13 +7,13 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(RED"大嵩阳掌谱" NOR, ({ "songyang zhangpu","zhangpu", }));
+	set_name(RED"大嵩陽掌譜" NOR, ({ "songyang zhangpu","zhangpu", }));
 	set_weight(1000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit","本");
-		set("long","这是一张麻纸小册，上面好象还有一些小人挥舞拳脚的图形。\n",
+		set("long","這是一張麻紙小冊，上面好象還有一些小人揮舞拳腳的圖形。\n",
 	 );
 	 set("value", 0);
 	 set("material", "paper");

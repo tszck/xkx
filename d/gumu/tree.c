@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIG"树上"NOR);
+	set("short", HIG"樹上"NOR);
 	set("long", @LONG 
-这里是树上，你突然发现树叶中有些动静，哇。。。。。。！！！
-毛骨悚然！一条碗口粗细的巨蟒倒悬在树干上，张开大口，正要向你扑
-来！
+這裏是樹上，你突然發現樹葉中有些動靜，哇。。。。。。！！！
+毛骨悚然！一條碗口粗細的巨蟒倒懸在樹幹上，張開大口，正要向你撲
+來！
 LONG	);
 	set("outdoors", "gumu");
 	set("objects",([

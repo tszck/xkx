@@ -1,15 +1,15 @@
-// linghu.c 令狐冲
+// linghu.c 令狐沖
 
 inherit NPC;
 inherit F_MASTER;
 
 void create()
 {
-	set_name("令狐冲", ({ "linghu chong", "linghu", "chong" }));
-	set("nickname", "大师兄");
+	set_name("令狐沖", ({ "linghu chong", "linghu", "chong" }));
+	set("nickname", "大師兄");
 	set("long", 
-"令狐冲身材较瘦，长的浓眉阔眼，气宇暄昂，他在\n"
-"同门中排行老大，是华山派年轻一代中的顶尖好手。\n");
+"令狐沖身材較瘦，長的濃眉闊眼，氣宇暄昂，他在\n"
+"同門中排行老大，是華山派年輕一代中的頂尖好手。\n");
 	set("gender", "男性");
 	set("age", 28);
 	set("class", "swordsman");
@@ -67,11 +67,11 @@ void create()
 	}) );
 	set("card2_count",1);
 
-	create_family("华山派", 14, "弟子");
+	create_family("華山派", 14, "弟子");
 
 	set("inquiry", ([
-		"风清扬" : "唉，已经很久没有见到他老人家了。你问这干嘛？\n",
-		"任盈盈" : "你真有她的消息吗，说罢，以见他神情激动，好象眼睛红红的！\n",
+		"風清揚" : "唉，已經很久沒有見到他老人家了。你問這幹嘛？\n",
+		"任盈盈" : "你真有她的消息嗎，說罷，以見他神情激動，好象眼睛紅紅的！\n",
 	]));
 	setup();	 	
 	carry_object("/d/heimuya/npc/obj/cloth")->wear();
@@ -93,7 +93,7 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	say("何日才能见到盈盈啊！"+RANK_D->query_respect(ob)+"，你可有她的消息？\n");
+	say("何日才能見到盈盈啊！"+RANK_D->query_respect(ob)+"，你可有她的消息？\n");
 }
 
 
@@ -105,15 +105,15 @@ int accept_object(object who, object ob)
 	if ( !objectp(ob) ) return 0;
 	if (query("card2_count") == 0)
 	{ 
-		say( "令狐冲道: 我已经托人找盈盈去了，多谢你了!\n" );
+		say( "令狐沖道: 我已經託人找盈盈去了，多謝你了!\n" );
 		return 1;
 	}
-	if ( !present(ob, who) ) return notify_fail("你没有这件东西。\n");
+	if ( !present(ob, who) ) return notify_fail("你沒有這件東西。\n");
 
 	if (  (string)ob->query("id") != "qing xin")
-		return notify_fail("令狐冲不需要这件东西。\n");
-	say( "令狐冲双手捧着任盈盈的信，泪如雨下, 这块白虎堂令牌你拿去还给盈盈,
-告诉她我就去找她!\n" );
+		return notify_fail("令狐沖不需要這件東西。\n");
+	say( "令狐沖雙手捧着任盈盈的信，淚如雨下, 這塊白虎堂令牌你拿去還給盈盈,
+告訴她我就去找她!\n" );
 	obn = new("/d/heimuya/npc/obj/card2");
 	obn->move(who);
 	set("card2_count",0);
@@ -129,20 +129,20 @@ void attempt_apprentice(object ob)
 	temp = read_file("/data/FENG", 1, 1);
 	student_num = atoi(temp);
 
-	line = "风清扬现在共有" + temp + "个徒弟。\n";
+	line = "風清揚現在共有" + temp + "個徒弟。\n";
 	write(line);
 
 	if ((int)ob->query("shen") < 0)
 	{
-		command("say 我华山派乃是堂堂名门正派，对弟子要求极严。");
+		command("say 我華山派乃是堂堂名門正派，對弟子要求極嚴。");
 		command("say 在德行方面，" + RANK_D->query_respect(ob) +
-			"是否还做得不够？");
+			"是否還做得不夠？");
 		return;
 	}
 
 	if ((int)ob->query_int() < 25)
 	{
-		command("say 依我看" + RANK_D->query_respect(ob) + "的资质似乎不适合学我华山派武功？");
+		command("say 依我看" + RANK_D->query_respect(ob) + "的資質似乎不適合學我華山派武功？");
 		return;
 	}
 
@@ -150,7 +150,7 @@ void attempt_apprentice(object ob)
 	command("recruit " + ob->query("id"));
 /*
         myfam = (mapping)ob->query("family");
-	if( (myfam["master_id"] == "feng qingyang") || (myfam["master_name"] == "风清扬"))
+	if( (myfam["master_id"] == "feng qingyang") || (myfam["master_name"] == "風清揚"))
 	{
 		temp = read_file("/data/FENG", 1, 1);
 		student_num = atoi(temp);
@@ -158,7 +158,7 @@ void attempt_apprentice(object ob)
 		else if(student_num == 2) temp = "1";
 		else if(student_num == 3) temp = "2";
 		write_file("/data/FENG", temp, 1);
-		line = "风清扬现在共有" + temp + "个徒弟。\n";
+		line = "風清揚現在共有" + temp + "個徒弟。\n";
 		write(line);
 	}
 */

@@ -2,7 +2,7 @@
 //last modified by sega 13/4/2000
 // Modified by Zeratul Jan 5 2001
 
-//修改成不能帮忙杀
+//修改成不能幫忙殺
 #include <dbase.h>
 #include <login.h>
 #include <ansi.h>
@@ -13,16 +13,16 @@ inherit F_UNIQUE;
 int ask_me(object who);
 string * name_msg = ({
 	"流氓",
-	"进香客",
+	"進香客",
 	"挑夫",
 	"家丁",
 	"官兵",
-	"卖花姑娘",
+	"賣花姑娘",
 	"趟子手",
-	"小贩",
+	"小販",
 	"刀客",
-	"剑客",
-	"游方和尚",
+	"劍客",
+	"遊方和尚",
 	"江湖豪客",
 });
 
@@ -53,7 +53,7 @@ void create()
 	  (:call_out,"random_move",0:),
         	}) );
        	set("inquiry", ([
-		"奸细"    : (: ask_me :),
+		"奸細"    : (: ask_me :),
 		"jian xi" : (: ask_me :),
 		"jianxi"  : (: ask_me :),
 	]) );
@@ -79,7 +79,7 @@ int ask_me(object who)
 
 	if( this_object()->query("owner") == me->query("id"))
 	{
-		message_vision(HIY"$N眼中突然闪过惊惧的目光，双眼冒火般瞪着$n，大声喊道："+RANK_D->query_self_rude(ob)+"就是"+ob->query("fname")+"！"+RANK_D->query_rude(me)+"！纳命来吧！\n"NOR, ob, me);		
+		message_vision(HIY"$N眼中突然閃過驚懼的目光，雙眼冒火般瞪着$n，大聲喊道："+RANK_D->query_self_rude(ob)+"就是"+ob->query("fname")+"！"+RANK_D->query_rude(me)+"！納命來吧！\n"NOR, ob, me);		
 		me->start_busy(1);	
     ob->fight_ob(me); 	
 //		me->fight_ob(ob);	
@@ -94,7 +94,7 @@ int ask_me(object who)
       ob->add_temp("apply/dodge",100);
     else 
       ob->add_temp("apply/dodge",50);
-		ob->set("title", ob->query("family_name") + "奸细");
+		ob->set("title", ob->query("family_name") + "奸細");
 		ob->set("name", ob->query("fname"));
 		if ( mapp(map_status = ob->query_skill_map()) ) {
 			mname  = keys(map_status);
@@ -117,7 +117,7 @@ int ask_me(object who)
     ob->set_temp("asked",1);
 	}
 	else
-		message_vision(HIY"$N眼中寒光一闪，马上又变得漠然了，只是奇怪地看着$n。\n"NOR, ob, me);
+		message_vision(HIY"$N眼中寒光一閃，馬上又變得漠然了，只是奇怪地看着$n。\n"NOR, ob, me);
 	return 1;
 }
 
@@ -144,7 +144,7 @@ void init()
 }
 int accept_hit(object me)
 {
-	notify_fail(HIW"不是你要抓的人，凑什么热闹！\n"NOR);
+	notify_fail(HIW"不是你要抓的人，湊什麼熱鬧！\n"NOR);
 	if( this_object()->query("owner") == me->query("id") 
 	&& this_object()->query_temp("asked")) 
 	{
@@ -165,7 +165,7 @@ int do_halt()
 	
 	if ( me->is_fighting(ob)  )
 	{
-		tell_object( me, HIR"奸细未除，怎能临阵退缩？\n"NOR );
+		tell_object( me, HIR"奸細未除，怎能臨陣退縮？\n"NOR );
 		return 1;
 	}
 	return 0;
@@ -173,6 +173,6 @@ int do_halt()
 
 void dest_me(object ob)
 {
-	message_vision("只见$N忽然急转身行，纵身钻进行人中，转眼就踪迹皆无。\n",ob);
+	message_vision("只見$N忽然急轉身行，縱身鑽進行人中，轉眼就蹤跡皆無。\n",ob);
 	destruct(ob);
 }

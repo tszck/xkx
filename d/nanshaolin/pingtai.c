@@ -5,10 +5,10 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short", "平台");
+	set("short", "平臺");
 	set("long", @LONG
-这里是大雄宝殿前的一处平台，乃是全寺的中心点，寺中的重大活
-动多在此举行。东面是紧那罗王殿，西面是六祖殿。
+這裏是大雄寶殿前的一處平臺，乃是全寺的中心點，寺中的重大活
+動多在此舉行。東面是緊那羅王殿，西面是六祖殿。
 LONG );
 	set("exits", ([
 		"north"     : __DIR__"daxiong",

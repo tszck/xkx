@@ -8,7 +8,7 @@ void create()
         set("gender", "男性");
         set("age", 15);
         set("long",
-                "舒奇是岳不群的最小的弟子。\n");
+                "舒奇是嶽不羣的最小的弟子。\n");
         set("attitude", "peaceful");
         set("str", 26);
         set("con", 30);
@@ -50,7 +50,7 @@ void create()
         map_skill("unarmed", "huashan-ken");
         map_skill("dodge", "feiyan-huixiang");
 
-        create_family("华山派", 14, "弟子");
+        create_family("華山派", 14, "弟子");
 
         setup();
 

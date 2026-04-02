@@ -1,4 +1,4 @@
-// xiang-ke.c 进香客
+// xiang-ke.c 進香客
 
 inherit NPC;
 
@@ -8,7 +8,7 @@ void create()
 
 	value = random(10);
 
-	set_name("进香客", ({ "jinxiang ke", "ke", "guest" }));
+	set_name("進香客", ({ "jinxiang ke", "ke", "guest" }));
 	set("gender", "男性");
 	set("age", 14 + value * 3 );
 

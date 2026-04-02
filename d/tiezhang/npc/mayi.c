@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("麻衣长老", ({ "mayi zhanglao", "mayi", "zhanglao"}));
+	set_name("麻衣長老", ({ "mayi zhanglao", "mayi", "zhanglao"}));
 	set("long",
-	"他是一个年约六旬的老者，满头花发，两鬓斑白。\n"
-	"他两侧的太阳穴高高鼓起，微闭的双目中时而闪过凌厉的眼神，似乎身怀绝技。\n");
+	"他是一個年約六旬的老者，滿頭花髮，兩鬢斑白。\n"
+	"他兩側的太陽穴高高鼓起，微閉的雙目中時而閃過凌厲的眼神，似乎身懷絕技。\n");
 	set("gender", "男性");
 	set("attitude", "peaceful");
 
@@ -58,20 +58,20 @@ void init()
 	if (interactive(ob) 
 	&& !environment(ob)->query("no_fight")
 	&& !present("tiezhang ling", ob) 
-	&& ( (fam = ob->query("family")) && fam["family_name"] != "铁掌帮" ) 
+	&& ( (fam = ob->query("family")) && fam["family_name"] != "鐵掌幫" ) 
 	&& (int)ob->query("combat_exp", 1) >= 10000 ) 
 	{
 		if( !ob->query_temp("warned") )
 		{
-			command("say 站住！你不是铁掌帮弟子，不能在此久留！！");
-			command("say 你还是速速离开此地吧，不然老朽可要对你不客气了！！");
+			command("say 站住！你不是鐵掌幫弟子，不能在此久留！！");
+			command("say 你還是速速離開此地吧，不然老朽可要對你不客氣了！！");
 			command("hehe");
 			ob->set_temp("warned", 1);
 		}
 		else if( ob->query_temp("stay") < 3 ) ob->add_temp("stay", 1);
 			else
 			{
-				command("say 你活得不耐烦了，竟敢到铁掌帮来撒野！！！\n");
+				command("say 你活得不耐煩了，竟敢到鐵掌幫來撒野！！！\n");
 				remove_call_out("hiting_ob");
 				call_out("hiting_ob", 1, ob);
 			}

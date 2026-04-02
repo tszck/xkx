@@ -39,8 +39,8 @@ int  main(object  me,  string  arg)
           if  (!ob1)  ob1  =  find_living(id);
           if  (!ob1)  ob1  =  find_object(id);
 
-          if  (!ob1)  return notify_fail  ("本地无此生物:  "+id+"\n");
-          if  (!ob=present(arg,  ob1))  return notify_fail  ("该生物身上无此物件:  "+arg+"\n");
+          if  (!ob1)  return notify_fail  ("本地無此生物:  "+id+"\n");
+          if  (!ob=present(arg,  ob1))  return notify_fail  ("該生物身上無此物件:  "+arg+"\n");
       }
       else  if  (arg  ==  "here")  {
           ob  =  environment(me);
@@ -54,14 +54,14 @@ int  main(object  me,  string  arg)
           if  (!objectp(ob))  ob  =  find_object(arg);
           if  (!objectp(ob))  ob  =  present(arg,  me);
           if  (!objectp(ob))  { ob  =  NPC_D->create_player(arg); mark =1 ;}
-          if(!objectp(ob))  return  notify_fail("Data:  无法找到此物件:  "+arg+"。\n");
+          if(!objectp(ob))  return  notify_fail("Data:  無法找到此物件:  "+arg+"。\n");
       }
 
       list  =  (mapping)ob->query_entire_dbase();
       tlist  =  (mapping)ob->query_entire_temp_dbase();
 			clist  =  (mapping)ob->query_entire_conditions();
       if(  (!list  ||  !mapp(list))  &&  (!tlist  ||  !mapp(tlist)))
-      	        return  notify_fail("Data:  此物件并没有任何的资料。\n");
+      	        return  notify_fail("Data:  此物件並沒有任何的資料。\n");
 
       if  (sizeof(list))
       {
@@ -83,7 +83,7 @@ int  main(object  me,  string  arg)
 //	klist  =  filter_array(klist,  "filter_props",  this_object(),  ob);
 
       if(!klist  ||  !sizeof(klist))
-          return  notify_fail("Data:  此物件并没有储存任何资料。\n");
+          return  notify_fail("Data:  此物件並沒有儲存任何資料。\n");
 
       if  (!spec  ||  spec  ==  "-d")  {
           text  =  "Object  :  "  +  base_name(ob)  +  ".c\n";
@@ -95,7 +95,7 @@ int  main(object  me,  string  arg)
 
                 text  +=sprintf("%O  \n",list[  klist[loop]  ]);
           }
-          text  +=  "\n总共有  "  +  sizeof(klist)  +  "  个储存的资料。\n\n";
+          text  +=  "\n總共有  "  +  sizeof(klist)  +  "  個儲存的資料。\n\n";
       }
       else  text  =  "";
 
@@ -109,7 +109,7 @@ int  main(object  me,  string  arg)
                   text  +=sprintf("%O  \n",tlist[  tlist2[loop]  ]);
           }
 
-          text  +=  "\n总共有  "  +  sizeof(tlist2)  +  "  个暂存的资料。\n\n";
+          text  +=  "\n總共有  "  +  sizeof(tlist2)  +  "  個暫存的資料。\n\n";
       }
 			if (!spec || spec == "-c") {
 
@@ -121,7 +121,7 @@ int  main(object  me,  string  arg)
                   text  +=sprintf("%O  \n",clist[  clist2[loop]  ]);
           }
 
-          text  +=  "\n总共有  "  +  sizeof(clist2)  +  "  个CONDITION的资料。\n\n";
+          text  +=  "\n總共有  "  +  sizeof(clist2)  +  "  個CONDITION的資料。\n\n";
       }
 
 
@@ -129,7 +129,7 @@ int  main(object  me,  string  arg)
       me->start_more(  text  );
       if ((int)mark == 1)
       {
-      	write(ob->name()+"目前不在线上。\n");
+      	write(ob->name()+"目前不在線上。\n");
       	destruct(ob);
       }
       //  tmp  =  explode(text,  "\n");
@@ -155,17 +155,17 @@ int  help(object  me)
 {
     write(  @LONG
 指令格式:  data  [-t|-d]  [玩家|物件|here]  [in  玩家或生物]
-指令范例:  data			<--  看自己的所有  data  base
-	    data  -t		<--  看自己的暂存资料
-	    data  -d		<--  看自己的永久资料
-	    data  -t  here		<--  看所在房间的暂时资料
-	    data  wade		<--  看  wade  这个玩家(或物件)的所有资料
-	    data  board		<--  看版子的资料
-	    data  cloth  in  wade	<--  看  wade  身上的  cloth  的资料
-指令说明:
-	此命令让你可以观看所指定物件的资料，且将会以  more  的方式
-输出，如果没有指定数，则自动以使用者为参数。其中的  -t  选项可以显
-示暂时变数,  -d  选项可以只显示永久变数,  所要看的对象可以是玩家或
+指令範例:  data			<--  看自己的所有  data  base
+	    data  -t		<--  看自己的暫存資料
+	    data  -d		<--  看自己的永久資料
+	    data  -t  here		<--  看所在房間的暫時資料
+	    data  wade		<--  看  wade  這個玩家(或物件)的所有資料
+	    data  board		<--  看版子的資料
+	    data  cloth  in  wade	<--  看  wade  身上的  cloth  的資料
+指令說明:
+	此命令讓你可以觀看所指定物件的資料，且將會以  more  的方式
+輸出，如果沒有指定數，則自動以使用者爲參數。其中的  -t  選項可以顯
+示暫時變數,  -d  選項可以只顯示永久變數,  所要看的對象可以是玩家或
 任何物件.
 LONG);
 

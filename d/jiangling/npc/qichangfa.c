@@ -4,10 +4,10 @@ inherit NPC;
 
 void create ()
 {
-	set_name("戚长发", ({"qi changfa","qi"}));
-	set("nickname", HIB"铁锁横江"NOR);
-	set("long", "一个老头儿，嘴里咬着一根短短的旱烟管。他满头白发、满脸皱
-纹，但眼中神光炯然，凛凛有威。\n");
+	set_name("戚長髮", ({"qi changfa","qi"}));
+	set("nickname", HIB"鐵鎖橫江"NOR);
+	set("long", "一個老頭兒，嘴裏咬着一根短短的旱菸管。他滿頭白髮、滿臉皺
+紋，但眼中神光炯然，凜凜有威。\n");
 	set("gender", "男性");
 	set("age", 48);
 	set("combat_exp", 1000000);

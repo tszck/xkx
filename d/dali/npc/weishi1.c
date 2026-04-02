@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("黄衣卫士", ({ "wei shi", "shi", "wei" }));
+	set_name("黃衣衛士", ({ "wei shi", "shi", "wei" }));
 	set("age", 32);
 	set("gender", "男性");
-	set("long", "这是位黄衣卫士，身着锦衣，手执钢刀，双目精光炯炯，警惕地巡视着四周的情形。\n");
+	set("long", "這是位黃衣衛士，身着錦衣，手執鋼刀，雙目精光炯炯，警惕地巡視着四周的情形。\n");
 	set("attitude", "peaceful");
 
 	set("str", 24);

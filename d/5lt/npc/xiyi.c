@@ -6,14 +6,14 @@ inherit NPC;
 void create()
 {
 	set_name("蜥蜴", ({ "xiyi" }));
-	set("title", "民间工艺品店店主");
+	set("title", "民間工藝品店店主");
 	set("shen_type", 1);
 
 	set("gender", "男性" );
 	set("long", @LONG
-店主是一个文弱书生，他正轻摇折扇，冲你点头微笑。
+店主是一個文弱書生，他正輕搖摺扇，衝你點頭微笑。
 LONG);
-	set("nickname", HIY"爱在蜥元前"NOR);
+	set("nickname", HIY"愛在蜥元前"NOR);
 	set("age", 25);
 	set("per", 30);
 	set("attitude", "friendly");		

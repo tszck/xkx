@@ -9,8 +9,8 @@ void create()
 {
 	set("short", "沙漠");
 	set("long", @LONG
-这是一片没边际的沙漠，到处是近百米高的巨大沙丘。你一走进来
-就仿佛迷了路。
+這是一片沒邊際的沙漠，到處是近百米高的巨大沙丘。你一走進來
+就彷彿迷了路。
 LONG );
 	set("exits", ([
 		"north" : __FILE__,
@@ -32,7 +32,7 @@ void init()
 		ob->set("water", ob->query("water") -10 );
 	else
 		ob->set("water", 0 );
-	message_vision(HIY"满天黄沙，$N感到喉咙冒烟，干渴难熬！\n"NOR, ob);
+	message_vision(HIY"滿天黃沙，$N感到喉嚨冒煙，乾渴難熬！\n"NOR, ob);
 }
 
 int valid_leave(object me, string dir)
@@ -46,13 +46,13 @@ int valid_leave(object me, string dir)
 	{
 		me->move(__DIR__"jingyuan");
 		me->delete_temp("shamo/steps");
-		return notify_fail("你走了半天，终于走出了西夏沙漠。\n");
+		return notify_fail("你走了半天，終於走出了西夏沙漠。\n");
 	}
 	if (me->query_temp("shamo/steps") == - total_steps )
 	{
 		me->move(__DIR__"qingcheng");
 		me->delete_temp("shamo/steps");
-		return notify_fail("你走了半天，终于走出了西夏沙漠。\n");
+		return notify_fail("你走了半天，終於走出了西夏沙漠。\n");
      	}
 	return ::valid_leave(me,dir);
 }

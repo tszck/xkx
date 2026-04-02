@@ -6,17 +6,17 @@ inherit HAMMER;
 
 void create()
 {
-	set_name("犁头", ({"li tou", "plow", "li"}));
+	set_name("犁頭", ({"li tou", "plow", "li"}));
 	set_weight(50000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "把");
-		set("long", "这是一把黑黝黝的犁头，看上去确实只有老牛才拉得动。\n");
+		set("long", "這是一把黑黝黝的犁頭，看上去確實只有老牛才拉得動。\n");
 		set("value", 5000);
 		set("material", "iron");
-		set("wield_msg", "$N横握起$n，发现实在太不适手，干脆抱在怀里。\n");
-		set("unwield_msg", "$N放下手中的$n，累得浑身都是臭汗，就快虚脱了。\n");
+		set("wield_msg", "$N橫握起$n，發現實在太不適手，乾脆抱在懷裏。\n");
+		set("unwield_msg", "$N放下手中的$n，累得渾身都是臭汗，就快虛脫了。\n");
 	}
 
 	init_hammer(30, TWO_HANDED);

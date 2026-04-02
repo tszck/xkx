@@ -1,14 +1,14 @@
-//Room: chaotiangong.c 朝天宫
+//Room: chaotiangong.c 朝天宮
 //Date: Sep 22 1997
 
 inherit ROOM;
 
 void create()
 {
-	set("short","朝天宫");
+	set("short","朝天宮");
 	set("long",@LONG
-这里已近武当绝顶，只见石梯直耸，危蹬高悬，两旁辅以索链、铁
-拦勾连。
+這裏已近武當絕頂，只見石梯直聳，危蹬高懸，兩旁輔以索鏈、鐵
+攔勾連。
 LONG);
 	set("objects", ([
 	     CLASS_D("wudang") +"/qingxu": 1,

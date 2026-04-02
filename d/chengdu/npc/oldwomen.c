@@ -10,7 +10,7 @@ void create()
 	set("gender", "女性" );
 	set("age", 62);
 	set("long",
-		"她是菜场老板，生意红火，因此衣着穿戴还算体面。\n");
+		"她是菜場老闆，生意紅火，因此衣着穿戴還算體面。\n");
 	set("combat_exp", 120);
 	set("attitude", "friendly");
 	set("rank_info/respect", "老大娘");

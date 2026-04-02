@@ -5,8 +5,8 @@ inherit NPC;
 void create()
 {
 	object ob;
-        set_name("岳灵珊", ({ "yue lingshan", "yue", "lingshan" }) );
-        set("nickname", "小师妹");
+        set_name("嶽靈珊", ({ "yue lingshan", "yue", "lingshan" }) );
+        set("nickname", "小師妹");
         set("gender", "女性" );
         set("age", 17);
         set("per", 29);
@@ -24,9 +24,9 @@ void create()
         set("jiali", 80);
         set("combat_exp", 100000);
 
-        set("long",     "岳灵珊是华山派掌门岳不群的独生女儿。\n");
+        set("long",     "嶽靈珊是華山派掌門嶽不羣的獨生女兒。\n");
 
-        create_family("华山派", 14, "弟子");
+        create_family("華山派", 14, "弟子");
 
         set_skill("unarmed", 50);
         set_skill("sword", 50);
@@ -65,6 +65,6 @@ void create()
 
 int accept_fight(object me)
 {
-        command("say 小女子怎会是你的对手?");
+        command("say 小女子怎會是你的對手?");
         return 0;
 }

@@ -8,10 +8,10 @@ void create()
 {
 	set("short", "小溪");
 	set("long", @LONG
-这是一条由后山流下来的溪流，小溪并不宽，纵身一跃似乎就可蹦
-到对岸。溪旁两岸的青草长得极是茂盛，且无杂乱之感，好象经人整理
-过。溪流的水质清澈，可以清晰的看到水底的鹅卵石和来回游动的小鱼。
-小溪对面的空地上有一座两层的小楼。
+這是一條由後山流下來的溪流，小溪並不寬，縱身一躍似乎就可蹦
+到對岸。溪旁兩岸的青草長得極是茂盛，且無雜亂之感，好象經人整理
+過。溪流的水質清澈，可以清晰的看到水底的鵝卵石和來回遊動的小魚。
+小溪對面的空地上有一座兩層的小樓。
 LONG );
 	set("exits", ([
 		"west" : __DIR__"xiaolu4",
@@ -38,16 +38,16 @@ int do_jump(string arg)
 	{
 		if (me->query_skill("dodge", 1) >= 60)
 		{
-			message("vision", me->name() + "吸了口气，纵身向对面跃去。\n", environment(me), ({me}) );
-			write("你吸了口气，纵身向对面跃去。\n");
+			message("vision", me->name() + "吸了口氣，縱身向對面躍去。\n", environment(me), ({me}) );
+			write("你吸了口氣，縱身向對面躍去。\n");
 			me->move(__DIR__"xiaoxi1");
-			message("vision", "只见人影一闪，" + me->name() +  "纵身跃了过来。\n", environment(me), ({me}) );
+			message("vision", "只見人影一閃，" + me->name() +  "縱身躍了過來。\n", environment(me), ({me}) );
 			return 1;
 		}
 		else
 		{
-			message("vision", me->name()+"纵身向对面跃去，只听“扑通”一声，"+me->name()+"摔入溪中，狼狈的爬了回来。\n",environment(me),({me}) );
-			write( "你纵身向对面跃去，只听“扑通”一声，你摔入溪中，狼狈的爬了回来。\n");
+			message("vision", me->name()+"縱身向對面躍去，只聽“撲通”一聲，"+me->name()+"摔入溪中，狼狽的爬了回來。\n",environment(me),({me}) );
+			write( "你縱身向對面躍去，只聽“撲通”一聲，你摔入溪中，狼狽的爬了回來。\n");
                         me->receive_damage("qi",30);
                         return 1;
 		}

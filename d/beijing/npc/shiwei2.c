@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("骁骑营侍卫", ({ "shi wei", "shi", "wei" }));
+	set_name("驍騎營侍衛", ({ "shi wei", "shi", "wei" }));
 	set("age", 32);
 	set("gender", "男性");
-	set("long", "骁骑营侍卫个个都是是紫禁城中的好手，千万别去招惹。\n");
+	set("long", "驍騎營侍衛個個都是是紫禁城中的好手，千萬別去招惹。\n");
 	set("attitude", "peaceful");
 
 	set("str", 30);
@@ -28,7 +28,7 @@ void create()
 
 	set("chat_chance_combat", 10);
 	set("chat_msg_combat", ({
-		"骁骑营侍卫喝道：亡命狂徒，京城之中，岂得由你猖狂？\n",
+		"驍騎營侍衛喝道：亡命狂徒，京城之中，豈得由你猖狂？\n",
 	}));
 	setup();
 	carry_object(WEAPON_DIR"sword")->wield();
@@ -48,7 +48,7 @@ void init()
 
 int accept_fight(object me)
 {
-	command("say 这可是你活腻了自找的，休得怪我无情。\n");
+	command("say 這可是你活膩了自找的，休得怪我無情。\n");
 	me->apply_condition("killer", 500);
 	kill_ob(me);
 	return 1;

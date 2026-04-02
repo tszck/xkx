@@ -9,8 +9,8 @@ void create()
 	if ( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "这双靴子缝制精细，轻便灵巧，武林人士常传这种靴子。\n");
-		set("unit", "双");
+		set("long", "這雙靴子縫製精細，輕便靈巧，武林人士常傳這種靴子。\n");
+		set("unit", "雙");
 		set("value", 200);
 		set("material", "silk");
 		set("armor_prop/armor", 1);

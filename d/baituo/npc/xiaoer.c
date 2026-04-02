@@ -10,7 +10,7 @@ void create()
 	set("gender", "男性" );
 	set("age", 20);
 	set("long",
-		"这位店小二正笑咪咪地忙著招呼客人。\n");
+		"這位店小二正笑咪咪地忙著招呼客人。\n");
 	set("combat_exp", 100);
 	set("attitude", "friendly");
 	set("vendor_goods", ({
@@ -42,10 +42,10 @@ void greeting(object ob)
 	switch( random(2) )
 	{
 		case 0:
-			say( "店小二笑咪咪地说道：这位" + RANK_D->query_respect(ob) + "，进来喝杯酒，歇歇腿吧。\n");
+			say( "店小二笑咪咪地說道：這位" + RANK_D->query_respect(ob) + "，進來喝杯酒，歇歇腿吧。\n");
 			break;
 		case 1:
-			say( "店小二用脖子上的毛巾抹了抹手，说道：这位" + RANK_D->query_respect(ob) + "，请进请进，还有雅座。\n");
+			say( "店小二用脖子上的毛巾抹了抹手，說道：這位" + RANK_D->query_respect(ob) + "，請進請進，還有雅座。\n");
 			break;
 	}
 }

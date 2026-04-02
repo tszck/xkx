@@ -1,17 +1,17 @@
-// cheng-buyou.c  成不忧
+// cheng-buyou.c  成不憂
 inherit NPC;
 inherit F_MASTER;
 #include <ansi.h>
 
 void create()
 {
-        set_name("成不忧", ({ "cheng buyou", "cheng" }) );
+        set_name("成不憂", ({ "cheng buyou", "cheng" }) );
         set("gender", "男性");
         set("class", "swordsman");
-        set("title", "华山剑宗第十三代弟子");
+        set("title", "華山劍宗第十三代弟子");
         set("age", 41);
         set("long",
-                "一个白净面皮的矮子，可也不能小看他。\n");
+                "一個白淨面皮的矮子，可也不能小看他。\n");
         set("attitude", "peaceful");
         set("str", 26);
         set("con", 30);
@@ -55,7 +55,7 @@ void create()
         map_skill("force", "huashan-neigong");        
         map_skill("dodge", "huashan-shenfa");
 
-        create_family("华山派剑宗", 13, "弟子");
+        create_family("華山派劍宗", 13, "弟子");
         setup();
 
         carry_object("/clone/weapon/changjian")->wield();
@@ -77,10 +77,10 @@ void init()
 void greeting(object ob)
 {
         if(ob->query("family/master_id") != "yue buqun")
-              say ("成不忧说：这位"+RANK_D->query_respect(ob) + "，来投我剑宗吧。\n");
+              say ("成不憂說：這位"+RANK_D->query_respect(ob) + "，來投我劍宗吧。\n");
         else
         {
-              message_vision("成不忧一见$N就大怒：我最讨厌伪君子的徒弟了。\n", ob);
+              message_vision("成不憂一見$N就大怒：我最討厭僞君子的徒弟了。\n", ob);
               this_object()->kill_ob(ob);
         }
         return;
@@ -88,6 +88,6 @@ void greeting(object ob)
 
 void attempt_apprentice(object ob)
 {
-        command("say 老夫从不收徒，你找我封师兄好了。");
+        command("say 老夫從不收徒，你找我封師兄好了。");
 }
 

@@ -4,8 +4,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("道明小师父", ({ "daoming","xiaoshifu",}));
-	set("long", "他是峨嵋报国寺楼的小和尚。\n");
+	set_name("道明小師父", ({ "daoming","xiaoshifu",}));
+	set("long", "他是峨嵋報國寺樓的小和尚。\n");
 	set("gender", "男性");
 	set("age", 16);
 	set("attitude", "peaceful");
@@ -54,5 +54,5 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	say( "道明小师父轻声说道：欢迎来保国寺藏经楼。您要读经书吗？\n");
+	say( "道明小師父輕聲說道：歡迎來保國寺藏經樓。您要讀經書嗎？\n");
 }

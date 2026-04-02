@@ -6,8 +6,8 @@ void create()
 {
 	set("short", "小道");
         set("long",@LONG
-一条小道蜿延曲折地通向远方, 两旁是郁郁葱葱的树林，微风吹过，
-树叶发出奚索的声音。
+一條小道蜿延曲折地通向遠方, 兩旁是鬱鬱蔥蔥的樹林，微風吹過，
+樹葉發出奚索的聲音。
 LONG );
 	set("outdoors", "lingjiu");
 	set("exits", ([

@@ -5,9 +5,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "打铁铺");
+	set("short", "打鐵鋪");
 	set("long", @LONG
-这里是一家打铁铺，铁匠忙着打制铁制兵器，卖给江湖侠客。
+這裏是一家打鐵鋪，鐵匠忙着打製鐵製兵器，賣給江湖俠客。
 LONG	);
 	set("exits", ([
 		"north" : __DIR__"dongjie",

@@ -4,11 +4,11 @@ inherit F_VENDOR;
 
 void create()
 {
-        set_name("菜贩子", ({ "cai fan", "cai", "fan" }) );
+        set_name("菜販子", ({ "cai fan", "cai", "fan" }) );
         set("gender", "男性" );
         set("age", 32);
         set("long",
-                "一个老实巴交的农民，卖些新鲜的蔬菜。\n");
+                "一個老實巴交的農民，賣些新鮮的蔬菜。\n");
         set("shen_type", 1);
         set("combat_exp", 10000);
         set("str", 10);
@@ -20,11 +20,11 @@ void create()
         set_skill("unarmed",20);
         set("chat_chance", 10);
         set("chat_msg", ({
-                CYN "菜贩子叫道：卖新鲜的萝卜吆。\n" NOR,
-                CYN "菜贩子叫道：卖新鲜的胡萝卜吆。\n" NOR,
-                CYN "菜贩子叫道：卖新鲜的白菜吆。\n" NOR,
-                CYN "菜贩子叫道：卖新鲜的大葱吆。\n" NOR,
-                CYN "菜贩子叫道：卖新鲜的土豆吆。\n" NOR,
+                CYN "菜販子叫道：賣新鮮的蘿蔔吆。\n" NOR,
+                CYN "菜販子叫道：賣新鮮的胡蘿蔔吆。\n" NOR,
+                CYN "菜販子叫道：賣新鮮的白菜吆。\n" NOR,
+                CYN "菜販子叫道：賣新鮮的大蔥吆。\n" NOR,
+                CYN "菜販子叫道：賣新鮮的土豆吆。\n" NOR,
         }) );       
 
 /*        set("vendor_goods", ({

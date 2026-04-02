@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "兵器库");
+	set("short", "兵器庫");
 	set("long",@LONG
-这里是红花会的兵器库，一捆捆的兵器堆得海了。清兵屡次进犯回
-疆，交战频仍，这里很多兵器都是万里迢迢外的中原麻烦清兵带来的。
+這裏是紅花會的兵器庫，一捆捆的兵器堆得海了。清兵屢次進犯回
+疆，交戰頻仍，這裏很多兵器都是萬裏迢迢外的中原麻煩清兵帶來的。
 LONG );
         set("objects", ([
 		WEAPON_DIR"zhujian"     : random(2)+1,

@@ -1,4 +1,4 @@
-// yijing.c  『孙思邈千金方』
+// yijing.c  『孫思邈千金方』
 // Last Modified by winder on Jul. 12 2002
 
 inherit ITEM;
@@ -7,13 +7,13 @@ void setup()
 
 void create()
 {
-	set_name("孙思邈千金方", ({ "yijing", "book" }));
+	set_name("孫思邈千金方", ({ "yijing", "book" }));
 	set_weight(600);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "这是一本线装书，里面密密麻麻的写满了文字。\n");
+		set("long", "這是一本線裝書，裏面密密麻麻的寫滿了文字。\n");
 		set("value", 300);
 		set("material", "paper");
 	}
@@ -32,42 +32,42 @@ int do_study(string arg)
 
 	if (where->query("pigging"))
 	{
-		write("你还是专心拱猪吧！\n");
+		write("你還是專心拱豬吧！\n");
 		return 1;
 	}
 	if (me->is_busy())
 	{
-		write("你现在正忙着呢。\n");
+		write("你現在正忙着呢。\n");
 		return 1;
 	}
 	if( me->is_fighting() )
 	{
-		write("你无法在战斗中专心下来研读新知！\n");
+		write("你無法在戰鬥中專心下來研讀新知！\n");
 		return 1;
 	}
 	if (!id(arg))
 	{
-		write("你要读什么？\n");
+		write("你要讀什麼？\n");
 		return 1;
 	}
 	if( (int)me->query_skill("literate", 1) < 20 )
 	{
-		write("你识的字不多，读不懂书中的讲解。\n");
+		write("你識的字不多，讀不懂書中的講解。\n");
 		return 1;
 	}
 	if( (int)me->query_skill("medicine", 1) < 60 )
 	{
-		write("你还是先去读一读『十四经发挥』吧。\n");
+		write("你還是先去讀一讀『十四經發揮』吧。\n");
 		return 1;
 	}
 	if( (int)me->query_skill("medicine", 1) > 89 )
 	{
-		write("阁下已熟知各类伤痛治疗方法和药物配制，不必再读『孙思邈千金方』。\n");
+		write("閣下已熟知各類傷痛治療方法和藥物配製，不必再讀『孫思邈千金方』。\n");
 		return 1;
 	}
 	if ( me->query("jing") < 150 )
 	{
-		write("你的精神欠佳，捧着医经连打呵欠。\n");
+		write("你的精神欠佳，捧着醫經連打呵欠。\n");
 		return 1;
 	}
 	cost = 50 + 1000 / (int)me->query("int");
@@ -75,8 +75,8 @@ int do_study(string arg)
 	cost += random(cost / 2);
 
 	me->improve_skill("medicine", random(2 * me->query_int()));
-	me->receive_damage("jing", cost, "心力绞瘁死了");
-	message_vision("$N一会儿翻阅着『孙思邈千金方』，一会儿苦思冥想。\n",me);
+	me->receive_damage("jing", cost, "心力絞瘁死了");
+	message_vision("$N一會兒翻閱着『孫思邈千金方』，一會兒苦思冥想。\n",me);
 
 	return 1;
 }

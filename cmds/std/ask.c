@@ -13,12 +13,12 @@ string filter_color(string arg);
 
 
 string *msg_dunno = ({
-	"$n摇摇头，说道：没听说过。\n",
-	"$n疑惑地看着$N，摇了摇头。\n",
-	"$n睁大眼睛望着$N，显然不知道$P在说什么。\n",
-	"$n耸了耸肩，很抱歉地说：无可奉告。\n",
-	"$n说道：嗯....这我可不清楚，你最好问问别人吧。\n",
-	"$n想了一会儿，说道：对不起，你问的事我实在没有印象。\n"
+	"$n搖搖頭，說道：沒聽說過。\n",
+	"$n疑惑地看着$N，搖了搖頭。\n",
+	"$n睜大眼睛望着$N，顯然不知道$P在說什麼。\n",
+	"$n聳了聳肩，很抱歉地說：無可奉告。\n",
+	"$n說道：嗯....這我可不清楚，你最好問問別人吧。\n",
+	"$n想了一會兒，說道：對不起，你問的事我實在沒有印象。\n"
 });
 
 int main(object me, string arg)
@@ -30,66 +30,66 @@ int main(object me, string arg)
 	seteuid(getuid());
 
 	if( !arg || sscanf(arg, "%s about %s", dest, topic)!=2 )
-		return notify_fail("你要问谁什么事？\n");
+		return notify_fail("你要問誰什麼事？\n");
 
 //	if( !objectp(ob = present(dest, environment(me))) )
 	if( !objectp(ob = i_have(environment(me),dest)) )
-		return notify_fail("这里没有这个人。\n");
+		return notify_fail("這裏沒有這個人。\n");
 
 	if( !ob->is_character() ) {
-		message_vision("$N对着$n自言自语....\n", me, ob);
+		message_vision("$N對着$n自言自語....\n", me, ob);
 		return 1;
 	}
 
 	if( !ob->query("can_speak") )
 	{
-		message_vision("$N向$n打听有关『" + topic + "』的消息，但是$p显然听不懂人话。\n", me, ob);
+		message_vision("$N向$n打聽有關『" + topic + "』的消息，但是$p顯然聽不懂人話。\n", me, ob);
 		return 1;
 	}
 
 	if( !INQUIRY_D->parse_inquiry(me, ob, topic) )
-		message_vision("$N向$n打听有关『" + topic + "』的消息。\n", me, ob);
+		message_vision("$N向$n打聽有關『" + topic + "』的消息。\n", me, ob);
 
 	if( userp(ob) ) return 1;
 	if( !living(ob) || ob->query_temp("noliving") )
 	{
-		message_vision("但是很显然的，$n现在的状况没有办法给$N任何答覆。\n", me, ob);
+		message_vision("但是很顯然的，$n現在的狀況沒有辦法給$N任何答覆。\n", me, ob);
 		return 1;
 	}
-	if (topic == "本门叛徒" && ob->party_quest_betrayer(me))
+	if (topic == "本門叛徒" && ob->party_quest_betrayer(me))
 		return 1;
 
-	if (topic == "别派奸细" && ob->party_quest_thief(me))
+	if (topic == "別派奸細" && ob->party_quest_thief(me))
 		return 1;
 
-	if ((topic == "quest" || topic == "江湖仇杀" ) && ob->party_quest_kill(me))
+	if ((topic == "quest" || topic == "江湖仇殺" ) && ob->party_quest_kill(me))
 		return 1;
 
-	if ( topic == "取消本门叛徒任务" && ob->cancle_quest_betrayer(me) )
+	if ( topic == "取消本門叛徒任務" && ob->cancle_quest_betrayer(me) )
 		return 1;
 
-	if (topic == "取消别派奸细任务" && ob->cancle_quest_thief(me))
+	if (topic == "取消別派奸細任務" && ob->cancle_quest_thief(me))
 		return 1;
 		
 	if (topic == "cancel" && ob->cancle_quest_kill(me))
 		return 1;
 		
-	if (topic == "本门秘籍" && ob->party_quest_book(me))
+	if (topic == "本門祕籍" && ob->party_quest_book(me))
 		return 1;
 
-	// 增加向掌门要求叛师的功能。
+	// 增加向掌門要求叛師的功能。
 	// Added by Constant Jan 12 2001
-	if ( (topic == "叛师" || topic == "开除") && ob->betray(me, 0))
+	if ( (topic == "叛師" || topic == "開除") && ob->betray(me, 0))
 		return 1;
 		
-	//增加掌门弟子向掌门要牌上侠客岛
-	if (topic == "侠客岛" && ob->xkd(me))
+	//增加掌門弟子向掌門要牌上俠客島
+	if (topic == "俠客島" && ob->xkd(me))
 		return 1;
 		
 		
 	if (msg = ob->query("inquiry/" + topic)) {
 		if (stringp(msg)) {
-			message_vision( CYN "$N说道：" + msg + "\n" NOR, ob);
+			message_vision( CYN "$N說道：" + msg + "\n" NOR, ob);
 			return 1;
 		}
 	} else
@@ -156,10 +156,10 @@ int help(object me)
    write( @HELP
 指令格式: ask <someone> about <something>
 
-    这个指令在解谜时很重要，通常必须藉由此一指令才能获得进一步的信息。
-有ｎａｍｅ、ｈｅｒｅ、ｒｕｍｏｒｓ等预设的关键词。（切记：根据场景或
-者金庸书中有关情节而向ＮＰＣ询问相应的问题是破解许多ＱＵＥＳＴ的关键。
-而对于ｎａｍｅ，ｈｅｒｅ，ｒｕｍｏｒｓ这几个预设值，ＮＰＣ都会乐于回
+    這個指令在解謎時很重要，通常必須藉由此一指令才能獲得進一步的信息。
+有ｎａｍｅ、ｈｅｒｅ、ｒｕｍｏｒｓ等預設的關鍵詞。（切記：根據場景或
+者金庸書中有關情節而向ＮＰＣ詢問相應的問題是破解許多ＱＵＥＳＴ的關鍵。
+而對於ｎａｍｅ，ｈｅｒｅ，ｒｕｍｏｒｓ這幾個預設值，ＮＰＣ都會樂於回
 答的。）
 
 HELP

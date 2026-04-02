@@ -6,12 +6,12 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("飞天子", ({ "feitian zi", "feitian", "zi" }) );
+	set_name("飛天子", ({ "feitian zi", "feitian", "zi" }) );
 	set("gender", "男性" );
 	set("nickname", "星宿派七弟子");
 	set("age", 28);
 	set("long", 
-"他绰号飞天，轻功的造诣已经到了很高的地步。\n");
+"他綽號飛天，輕功的造詣已經到了很高的地步。\n");
 	set("env/wimpy", 40);
 	set("str", 20);
 	set("dex", 30);
@@ -65,7 +65,7 @@ void greeting(object me)
 void attempt_apprentice(object ob)
 {
 	command("hehe");
-	command("say 我可没功夫来教你。");
+	command("say 我可沒功夫來教你。");
 	return;
 }
 

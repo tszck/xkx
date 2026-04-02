@@ -1,4 +1,4 @@
-// yunlong-jian.c 云龙剑
+// yunlong-jian.c 雲龍劍
 // Last Modified by sir 10.22.2001
 
 #include <ansi.h>
@@ -7,37 +7,37 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action":"\n$N使一式"GRN"「第一招」"NOR"，手中$w嗡嗡微振，幻成一条白光刺向$n的$l",
+([	"action":"\n$N使一式"GRN"「第一招」"NOR"，手中$w嗡嗡微振，幻成一條白光刺向$n的$l",
 	"lvl" : 0,
 		"dodge"       : -100000,
 		"parry"       : -100000,
 		"force"       : 1,
 		"damage"      : 1,
-	"skill_name" : "悠悠顺自然"
+	"skill_name" : "悠悠順自然"
 ]),
-([	"action" : "$N募的使一招"HIR"「第二招」"NOR"，顿时剑光中几朵血花洒向$n全身",
+([	"action" : "$N募的使一招"HIR"「第二招」"NOR"，頓時劍光中幾朵血花灑向$n全身",
 		"dodge"       : 100000,
 		"parry"       : 100000,
 		"force"       : 1,
 		"damage"      : 1,
 	"lvl" : 0,
-	"skill_name" : "红叶舞秋山"
+	"skill_name" : "紅葉舞秋山"
 ]),
-([	"action" : "$N募的使一招"HIR"「第三招」"NOR"，顿时剑光中几朵血花洒向$n全身",
+([	"action" : "$N募的使一招"HIR"「第三招」"NOR"，頓時劍光中幾朵血花灑向$n全身",
 		"dodge"       : -100000,
 		"parry"       : 100000,
 		"force"       : 1,
 		"damage"      : 1,
 	"lvl" : 0,
-	"skill_name" : "红叶舞秋山"
+	"skill_name" : "紅葉舞秋山"
 ]),
-([	"action" : "$N募的使一招"HIR"「第四招」"NOR"，顿时剑光中几朵血花洒向$n全身",
+([	"action" : "$N募的使一招"HIR"「第四招」"NOR"，頓時劍光中幾朵血花灑向$n全身",
 		"dodge"       : 100000,
 		"parry"       : -100000,
 		"force"       : 1,
 		"damage"      : 1,
 	"lvl" : 0,
-	"skill_name" : "红叶舞秋山"
+	"skill_name" : "紅葉舞秋山"
 ]),
 });
 
@@ -45,13 +45,13 @@ int valid_enable(string usage) { return usage == "sword" || usage == "parry"; }
 int valid_learn(object me)
 {
 	if ((int)me->query("max_neili") < 200)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if ((int)me->query_skill("yunlong-shengong", 1) < 20)
-		return notify_fail("你的云龙神功火候太浅。\n");
+		return notify_fail("你的雲龍神功火候太淺。\n");
 	if ((int)me->query_skill("yunlong-xinfa", 1) < 20)
-		return notify_fail("你的云龙心法火候太浅。\n");
+		return notify_fail("你的雲龍心法火候太淺。\n");
 	if ((int)me->query_skill("force", 1) < 40)
-		return notify_fail("你的基本内功火候太浅。\n");
+		return notify_fail("你的基本內功火候太淺。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -60,11 +60,11 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if ((int)me->query_skill("yunlong-shengong", 1) < 20)
-		return notify_fail("你的云龙神功火候太浅。\n");
+		return notify_fail("你的雲龍神功火候太淺。\n");
 	if( (int)me->query("qi") < 55 || (int)me->query("neili") < 40 )
-		return notify_fail("你的内力或气不够练云龙剑法。\n");
+		return notify_fail("你的內力或氣不夠練雲龍劍法。\n");
 	me->receive_damage("qi", 50);
 	me->add("neili", -35);
 	return 1;
@@ -91,16 +91,16 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIC"\n云龙剑法："NOR"\n");
+	write(HIC"\n雲龍劍法："NOR"\n");
 	write(@HELP
 
-    天地会看家本领，其特殊攻击法威力奇大，堪称武林一绝。
+    天地會看家本領，其特殊攻擊法威力奇大，堪稱武林一絕。
 
-	学习要求：
-		基本内功40级
-		云龙神功20级
-		云龙心法20级
-		内力200
+	學習要求：
+		基本內功40級
+		雲龍神功20級
+		雲龍心法20級
+		內力200
 HELP
 	);
 	return 1;

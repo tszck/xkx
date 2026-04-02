@@ -1,4 +1,4 @@
-// yang.c 杨老板 
+// yang.c 楊老闆 
 
 inherit NPC;
 inherit F_DEALER;
@@ -6,15 +6,15 @@ string ask_mask();
 
 void create()
 {
-	set_name("杨永福", ({ "Yang yongfu", "yang" }));
-	set("title", "杂货铺老板");
+	set_name("楊永福", ({ "Yang yongfu", "yang" }));
+	set("title", "雜貨鋪老闆");
 	set("shen_type", 1);
 
 	set("gender", "男性");
 	set("age", 45);
 	set("long",
-		"杨老板是土生土长的扬州人，做了几十年的小买卖。
-听说他最近得了一样宝物，却不知是什么好东西。\n");
+		"楊老闆是土生土長的揚州人，做了幾十年的小買賣。
+聽說他最近得了一樣寶物，卻不知是什麼好東西。\n");
 	set_skill("unarmed", 50);
 	set_skill("dodge", 50);
 	set_temp("apply/damage", 15);
@@ -22,8 +22,8 @@ void create()
 	set("combat_exp", 40000);
 	set("attitude", "friendly");
 	set("inquiry", ([
-		"宝物" : (: ask_mask :),
-		"宝贝" : (: ask_mask :),
+		"寶物" : (: ask_mask :),
+		"寶貝" : (: ask_mask :),
 		"mask" : (: ask_mask :),
 		"面具" : (: ask_mask :),
 	]));
@@ -73,10 +73,10 @@ string ask_mask()
 	ob = this_object();
 	if (query("count")>0)
 	{
-		message("vision",ob->name()+"在"+me->name()+"耳边嘀咕了几句什么。\n",me,({me}));
-		tell_object(me,ob->name()+"悄悄告诉你：我是有样上古宝贝，给我五百两黄金就转让给你。\n");
+		message("vision",ob->name()+"在"+me->name()+"耳邊嘀咕了幾句什麼。\n",me,({me}));
+		tell_object(me,ob->name()+"悄悄告訴你：我是有樣上古寶貝，給我五百兩黃金就轉讓給你。\n");
 	}
-	return "没有没有，我什么都不知道啊。";
+	return "沒有沒有，我什麼都不知道啊。";
 }
 int accept_object(object who,object ob)
 {
@@ -84,7 +84,7 @@ int accept_object(object who,object ob)
 	
 	if (!query("count") || !ob->query("money_id") || ob->value()<5000000)
 	{
-		message_vision("$N说道：你给我这个做什么？\n",this_object());
+		message_vision("$N說道：你給我這個做什麼？\n",this_object());
 		return 0;
 	}
 	if (query("count")>0)
@@ -92,8 +92,8 @@ int accept_object(object who,object ob)
 		obj = new("/clone/misc/mask1");
 		obj->move(this_player());
 		add("count",-1);
-		message_vision("$N取出一个包裹，交给$n。\n",this_object(),who);
-		tell_object(who,"你急忙打开包裹，竟然是一个精致的人皮面具。\n");
+		message_vision("$N取出一個包裹，交給$n。\n",this_object(),who);
+		tell_object(who,"你急忙打開包裹，竟然是一個精緻的人皮面具。\n");
 		return 1;
 	}
 }

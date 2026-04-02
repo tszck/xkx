@@ -3,10 +3,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "黄土路");
+	set("short", "黃土路");
 	set("long", @LONG
-这是一条黄土路，不时可见江湖中人背着包袱，别着刀剑往南走去。
-地上有许多马车碾过的痕迹。
+這是一條黃土路，不時可見江湖中人揹着包袱，彆着刀劍往南走去。
+地上有許多馬車碾過的痕跡。
 LONG );
 	set("exits", ([
 		"south"     : __DIR__"beimen",

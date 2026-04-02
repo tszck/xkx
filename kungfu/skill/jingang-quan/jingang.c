@@ -1,4 +1,4 @@
-// jingang.c 金刚拳 大金刚神通
+// jingang.c 金剛拳 大金剛神通
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,7 +7,7 @@
 #include <combat.h>
 
 inherit F_SSERVER;
-#define PNAME "「大金刚神通」"
+#define PNAME "「大金剛神通」"
 void remove_effect(object me, int aamount, int damount);
 
 int perform(object me, object target)
@@ -25,14 +25,14 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 //空手兵器均可
 
@@ -48,21 +48,21 @@ int perform(object me, object target)
 	}
 	
 	if( (int)me->query_skill(fskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(fskill)+"的修为不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"的修爲不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(bskill)+"还不到家，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"還不到家，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_temp("zuida") ) 
-		return notify_fail( HIG"你已经在八仙醉打了。\n"NOR);
+		return notify_fail( HIG"你已經在八仙醉打了。\n"NOR);
 
 	if( (int)me->query_temp("powerup"))
-		return notify_fail( HIG"你已经运起内功加力了，没有更多的内力使用大金刚神通。\n"NOR);
+		return notify_fail( HIG"你已經運起內功加力了，沒有更多的內力使用大金剛神通。\n"NOR);
 
 	if( (int)me->query("neili") < 500 )
-		return notify_fail("你的内力还不够！\n");
+		return notify_fail("你的內力還不夠！\n");
 
-	msg = HIY "$N"HIY"使出大金刚拳的绝技「大金刚神通」，臂力陡然增加！\n" NOR;
+	msg = HIY "$N"HIY"使出大金剛拳的絕技「大金剛神通」，臂力陡然增加！\n" NOR;
 	
 	qi = me->query("qi");
 	maxqi = me->query("max_qi");
@@ -73,7 +73,7 @@ int perform(object me, object target)
 	if(qi > (maxqi * 0.4))
 	{
 		if( (int)me->query_temp("jingang") ) 
-	  	return notify_fail( HIG"你已经在运功中了。\n"NOR);
+	  	return notify_fail( HIG"你已經在運功中了。\n"NOR);
 		message_combatd(msg, me, target);
 		
 		me->add_temp("apply/strength", count * 2);	
@@ -85,7 +85,7 @@ int perform(object me, object target)
 	}
 	else
 	{
-		msg =HIR "$N拼尽毕生功力使出了大金刚拳的终极绝技，全身骨骼一阵爆响，欲与敌人同归于尽！\n" NOR;
+		msg =HIR "$N拼盡畢生功力使出了大金剛拳的終極絕技，全身骨骼一陣爆響，欲與敵人同歸於盡！\n" NOR;
 		message_combatd(msg, me, target);
 		me->add_temp("apply/strength", count * 8);
 		me->add_temp("jingang", 1);
@@ -97,7 +97,7 @@ int perform(object me, object target)
 		me->set("neili",0);
 		me->add("max_neili",-10);
 
-		msg=HIR"$N用尽了最后一点气力，喷出一口鲜血，一头栽倒在地！\n"NOR;
+		msg=HIR"$N用盡了最後一點氣力，噴出一口鮮血，一頭栽倒在地！\n"NOR;
 		message_combatd(msg, me, target);
 
 		me->set("jing",0);
@@ -115,7 +115,7 @@ void remove_effect(object me, int aamount, int damount)
 		me->add_temp("apply/strength",-aamount);
 		me->add_temp("apply/dexerity", damount);
 		me->delete_temp("jingang");
-		tell_object(me,HIY"你的大金刚神通运行完毕，将内力收回丹田。\n"NOR);
+		tell_object(me,HIY"你的大金剛神通運行完畢，將內力收回丹田。\n"NOR);
 		me->start_busy(random(4));
 	}
 }
@@ -127,13 +127,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		降低自己的防御力，大力提升自己的攻击力
-		重伤之际更可把攻击力提高到极致，但出招后会晕倒
+		降低自己的防禦力，大力提升自己的攻擊力
+		重傷之際更可把攻擊力提高到極致，但出招後會暈倒
 
 	出手要求：
-		混元一气功60级
-		基本拳法150级
-		内力500
+		混元一氣功60級
+		基本拳法150級
+		內力500
 HELP
 	);
 	return 1;

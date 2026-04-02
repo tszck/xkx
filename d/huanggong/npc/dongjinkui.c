@@ -5,11 +5,11 @@ inherit NPC;
 void create()
 {
 	set_name("董金魁", ({ "dong jinkui", "dong" ,"jinkui"}));
-	set("gender", "无性");
-	set("title", HIC"慈宁宫太监"NOR);
+	set("gender", "無性");
+	set("title", HIC"慈寧宮太監"NOR);
 	set("age", 26);
 	set("per", 20);
-	set("long", "一个壮硕汉子，挺胸凸肚，架势颇为不善。\n");
+	set("long", "一個壯碩漢子，挺胸凸肚，架勢頗爲不善。\n");
 
 	set("combat_exp", 30000);
 	set("shen_type", 0);

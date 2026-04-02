@@ -4,11 +4,11 @@ inherit NPC;
 #include <ansi.h>
 void create ()
 {
-	set_name("言达平", ({"yan daping","yan"}));
+	set_name("言達平", ({"yan daping","yan"}));
 	set("long", "
-这人身形瘦削，双目炯炯有神，服饰极是华丽，一副大财主的模样儿。\n");
+這人身形瘦削，雙目炯炯有神，服飾極是華麗，一副大財主的模樣兒。\n");
 	set("gender", "男性");
-	set("nickname", HIY"陆地神龙"NOR);
+	set("nickname", HIY"陸地神龍"NOR);
 	set("age", 52);
 	set("combat_exp", 1000000);
 	set("str", 25);

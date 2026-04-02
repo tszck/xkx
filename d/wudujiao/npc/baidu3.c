@@ -2,7 +2,7 @@
 inherit NPC;
 #include <ansi.h>
 
-string *first_name = ({"百足", "千节", "大头", "金线"});
+string *first_name = ({"百足", "千節", "大頭", "金線"});
 string *name_words = ({ "蜈蚣"});
 
 void create()
@@ -13,9 +13,9 @@ void create()
 
         set_name(name,({"wu gong"}));
 
-	set("race", "昆虫");
-	set("subrace", "爬虫");
-        set("long", "一条一尺多长，鬼头鬼脑的小蜈蚣。\n");
+	set("race", "昆蟲");
+	set("subrace", "爬蟲");
+        set("long", "一條一尺多長，鬼頭鬼腦的小蜈蚣。\n");
         set("age", 100);
         set("attitude", "peaceful");
 
@@ -53,7 +53,7 @@ int hit_ob(object me, object ob, int damage)
         if ((string)ob->query("family/family_name") != "五毒教") {
                 ob->apply_condition("wugong_poison", 20
               +(int)ob->query_condition("wugong_poison") );
-              tell_object(ob, HIG "你觉得被咬中的地方一阵麻木！\n" NOR );
+              tell_object(ob, HIG "你覺得被咬中的地方一陣麻木！\n" NOR );
         }
 }
 #include "baidu.h";

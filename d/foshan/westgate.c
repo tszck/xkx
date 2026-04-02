@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","佛山西门");
+	set("short","佛山西門");
 	set("long",@LONG
-这里是佛山镇的西门。岭南以西经由广西可至大理。东面一条
-东西向的大街是佛山镇的主要街道。
+這裏是佛山鎮的西門。嶺南以西經由廣西可至大理。東面一條
+東西向的大街是佛山鎮的主要街道。
 LONG);
 	set("outdoors", "foshan");
 	set("exits",([ /* sizeof() == 1 */

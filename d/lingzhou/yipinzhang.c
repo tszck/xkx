@@ -6,10 +6,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "一品堂帐房");
+	set("short", "一品堂帳房");
 	set("long", @LONG
-这里是西夏一品堂的帐房，自愿加入一品堂的江湖高手，都可以领
-到饷银。一个老先生两眼一抹黑在此管帐。
+這裏是西夏一品堂的帳房，自願加入一品堂的江湖高手，都可以領
+到餉銀。一個老先生兩眼一抹黑在此管帳。
 LONG );
 	set("exits", ([
 		"east"  : __DIR__"yipindayuan",

@@ -1,4 +1,4 @@
-// feng-qingyang.c 风清扬
+// feng-qingyang.c 風清揚
 #include <ansi.h>
 inherit NPC;
 inherit F_MASTER;
@@ -6,19 +6,19 @@ string ask_me();
 
 void create()
 {
-set_name("风清扬", ({ "feng qingyang", "qingyang", "feng" }) );
+set_name("風清揚", ({ "feng qingyang", "qingyang", "feng" }) );
         set("gender", "男性");
         set("age", 70);
         set("class", "swordsman");
         set("long",
-"风清扬乃当今武林一位不世出的高人，深得独孤九剑精髓，一柄长剑\n"
-"神出鬼没，罕逢敌手\n");
+"風清揚乃當今武林一位不世出的高人，深得獨孤九劍精髓，一柄長劍\n"
+"神出鬼沒，罕逢敵手\n");
         set("attitude", "peaceful");
         set("combat_exp", 2000000);
         set("score", 200000);
         set("shen_type", 1);
 
-        create_family("华山派", 12, "弟子");
+        create_family("華山派", 12, "弟子");
         assign_apprentice("弟子", 0);
 
         set("str", 30);
@@ -63,7 +63,7 @@ set_name("风清扬", ({ "feng qingyang", "qingyang", "feng" }) );
         map_skill("dodge", "feiyan-huixiang");
 
         set("inquiry", ([
-                "独孤九剑剑谱" : (: ask_me :),
+                "獨孤九劍劍譜" : (: ask_me :),
         ]));
         set("book_count", 1);
         setup();
@@ -85,21 +85,21 @@ void greeting(object ob)
 {
    if ((string)ob->query("family/master_id")==(string)this_object()->query("id"))
    {
-      say( "风清扬微笑道：“乖徒儿，你回来啦！”\n");
+      say( "風清揚微笑道：“乖徒兒，你回來啦！”\n");
       call_out("goway",15,ob);
    }
    else if  ((int)ob->query("marks/feng-qingyang")==2)
        {
-           say( "风清扬一脸笑意：“多谢你救了小徒!”\n");
-           say( "风清扬说道：“如果不嫌弃老夫本事低微，就传你几手如何？”\n");
+           say( "風清揚一臉笑意：“多謝你救了小徒!”\n");
+           say( "風清揚說道：“如果不嫌棄老夫本事低微，就傳你幾手如何？”\n");
            command("recruit " + ob->query("id") );
            ob->delete("marks/feng-qingyang",0);
            call_out("goout",20,ob);
        }
         else
        {
-            say(HIC"风清扬脸现怒容：“老夫生平不见外客，谁让你到这里来的？”\n"NOR);
-            message_vision(HIC"风清扬一袖把$N拂到华山脚下去了。\n"NOR,ob);
+            say(HIC"風清揚臉現怒容：“老夫生平不見外客，誰讓你到這裏來的？”\n"NOR);
+            message_vision(HIC"風清揚一袖把$N拂到華山腳下去了。\n"NOR,ob);
             ob->move("/d/huashan/path1");
         }
 }
@@ -125,7 +125,7 @@ int goway(object ob){
       }
 }
 void goout(object ob){
-    message_vision("风清扬大袖一挥，飘然离$N而去.\n",ob);
+    message_vision("風清揚大袖一揮，飄然離$N而去.\n",ob);
     destruct(this_object());
 }
 
@@ -136,8 +136,8 @@ string ask_me()
     me = this_player();
     if ((string)me->query("family/master_id")==(string)this_object()->query("id"))
     {
-         if (query("book_count") < 1) return "你来晚了，独孤九剑剑谱不在此处。";
-         if ((int)me->query("marks/ls-book")==1) return "你已经取过一本独孤九剑剑谱了。";
+         if (query("book_count") < 1) return "你來晚了，獨孤九劍劍譜不在此處。";
+         if ((int)me->query("marks/ls-book")==1) return "你已經取過一本獨孤九劍劍譜了。";
          switch (random(10))
          {
               case 0:
@@ -145,9 +145,9 @@ string ask_me()
                    add("book_count", -1);
                    ob = new(__DIR__"ls_book");
                    ob->move(me);
-                   return "好吧，这本「独孤九剑剑谱」你拿回去好好钻研。";
+                   return "好吧，這本「獨孤九劍劍譜」你拿回去好好鑽研。";
               default:
-                   return "「独孤九剑剑谱」？这东西失传很久了。";
+                   return "「獨孤九劍劍譜」？這東西失傳很久了。";
          }
     }
     else return RANK_D->query_respect(this_player()) + "不是我的徒弟吧？";

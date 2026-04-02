@@ -11,25 +11,25 @@ int do_join(string arg)
 	ob = this_player () ;
 
 	if( !arg || arg!="shenlongjiao" )
-		return notify_fail("你要加入什么组织？\n"); 
+		return notify_fail("你要加入什麼組織？\n"); 
 
 	if ((int)ob->query("shen") > 0 && !wizardp(ob))
 	{
-		message_vision(HIR"$N对$n大怒道：还想入教？一看你就不是好人！\n"NOR,me,ob);
+		message_vision(HIR"$N對$n大怒道：還想入教？一看你就不是好人！\n"NOR,me,ob);
 		set_leader(this_player());
 		remove_call_out("kill_ob");
 		me->kill_ob(ob); 
 		return 1;
 	}
 
-	if(ob->query("party") && ob->query("party/party_name")!=HIY"神龙教"NOR)
+	if(ob->query("party") && ob->query("party/party_name")!=HIY"神龍教"NOR)
 	{
-		message_vision("$N摇摇头，对$n说道：你已经加入其他帮会了，不能再入我神龙教。\n",me,ob);
+		message_vision("$N搖搖頭，對$n說道：你已經加入其他幫會了，不能再入我神龍教。\n",me,ob);
 		return 1;
 	}
-	if( ob->query("party/party_name") == HIY "神龙教" NOR )
+	if( ob->query("party/party_name") == HIY "神龍教" NOR )
 	{
-		message_vision("$N摇摇头，对$n说道：你已经是我神龙教的人了。\n",me,ob);
+		message_vision("$N搖搖頭，對$n說道：你已經是我神龍教的人了。\n",me,ob);
 		return 1;
 	}
 	if ( (string)ob->query("gender") == "女性" ) men=HIR"赤";
@@ -40,18 +40,18 @@ int do_join(string arg)
 			case 0 : men=HIG"青"; break;
 			case 1 : men=HIW"白"; break;
 			case 2 : men=BLU"黑"; break;
-			default: men=YEL"黄"; break;
+			default: men=YEL"黃"; break;
 		}
 	}
 	party = allocate_mapping(5);
-	party["party_name"] = HIY "神龙教" NOR;
-	party["rank"] = men+"龙门"NOR"教众";
+	party["party_name"] = HIY "神龍教" NOR;
+	party["rank"] = men+"龍門"NOR"教衆";
 	party["level"] = 1;
 	party["tasks"] = 0;
 	party["enter_time"] = time();
 	ob->set("party", party);
 
 	command("smile");
-	message_vision("$N对$n说道：那你就暂时在本教"+men+"龙使" NOR+"座下效力吧！\n", me, ob);
+	message_vision("$N對$n說道：那你就暫時在本教"+men+"龍使" NOR+"座下效力吧！\n", me, ob);
 	return 1;
 }

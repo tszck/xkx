@@ -1,15 +1,15 @@
 // Last Modified by winder on Sep. 12 2001
-// yang.c 杨成协
+// yang.c 楊成協
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("杨成协", ({ "yang chengxie", "yang","chengxie" }));
-	set("title", HIR"红花会"HIG"八当家"NOR);
-	set("nickname", CYN "铁塔" NOR);
-	set("long","他又肥又高，善使钢鞭，鞭身甚是粗重，看模样少说也有三十来斤。\n");
+	set_name("楊成協", ({ "yang chengxie", "yang","chengxie" }));
+	set("title", HIR"紅花會"HIG"八當家"NOR);
+	set("nickname", CYN "鐵塔" NOR);
+	set("long","他又肥又高，善使鋼鞭，鞭身甚是粗重，看模樣少說也有三十來斤。\n");
 	set("gender", "男性");
 	set("class", "fighter");
 	set("age", 26);
@@ -55,7 +55,7 @@ void create()
 		(: exert_function, "regenerate" :),
 		(: exert_function, "recover" :),
 	}) );
-	create_family("红花会", 2, "弟子");
+	create_family("紅花會", 2, "弟子");
 
  	setup();
 	carry_object("/clone/misc/cloth")->wear();

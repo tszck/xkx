@@ -10,10 +10,10 @@ void create()
 {
         set_name("血刀老祖", ({ "xuedao-laozu", "xue dao", "laozu" }));
         set("long",@LONG
-这喇嘛身着黄袍，年纪极老，尖头削耳，脸上都是皱纹。他就是血刀门第四代掌门。
+這喇嘛身着黃袍，年紀極老，尖頭削耳，臉上都是皺紋。他就是血刀門第四代掌門。
 LONG
         );
-        set("title",HIR"血刀门第四代掌门"NOR);
+        set("title",HIR"血刀門第四代掌門"NOR);
         set("gender", "男性");
         set("class", "bonze");
         set("age", 85);
@@ -78,7 +78,7 @@ void greeting(object ob)
 	int i;
 
 	obj = all_inventory(environment(me));
-        command("say 缦胡缨是说他头上所带之缨并不精致，胡乃胡乱之意。");
+        command("say 縵胡纓是說他頭上所帶之纓並不精緻，胡乃胡亂之意。");
 	for(i=0; i<sizeof(obj); i++)
 	{
 		if( obj[i]->query("id")=="jiumo-zhi")

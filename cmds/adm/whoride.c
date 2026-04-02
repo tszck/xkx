@@ -35,7 +35,7 @@ int  help  (object  me)
                 write(@HELP
 指令格式  :  whoride  
   
-可列出目前骑有坐骑的玩家。
+可列出目前騎有坐騎的玩家。
   
   
 HELP

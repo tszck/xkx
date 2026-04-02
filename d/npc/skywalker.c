@@ -1,21 +1,21 @@
-// 天马行空
+// 天馬行空
 #include <ansi.h>
 
 inherit NPC;
 
 string *rnd_say = ({
-        "我天马行空，是名震天下的大英雄，历来好交朋友。这里的人居然都不理我！",
-        "为什麽司马箐箐这小姑娘还没来？又和那个小王八蛋在一起鬼混了？",
-        "有谁可以给我一些钱？无情的一千两银子还我的时候我再还给你吧！",
-        "我想看看天雕的屁股向后平沙落雁式！",
-        "澄天这个老秃驴在这里还不是方丈？真可怜．．．",
-        "那个死木森林牛鼻子为什么不来接我们？",
-        "晓旭这个小混蛋在哪里？",
-        "厦门的美眉听说很漂亮？",
-        "快打酒来！愣什么！",
-        "快把大宝和二宝拉成一堆烂肉！",
-        "老老就是伪君子．．．",
-        "你是狐尾猫？",
+        "我天馬行空，是名震天下的大英雄，歷來好交朋友。這裏的人居然都不理我！",
+        "爲什麼司馬箐箐這小姑娘還沒來？又和那個小王八蛋在一起鬼混了？",
+        "有誰可以給我一些錢？無情的一千兩銀子還我的時候我再還給你吧！",
+        "我想看看天雕的屁股向後平沙落雁式！",
+        "澄天這個老禿驢在這裏還不是方丈？真可憐．．．",
+        "那個死木森林牛鼻子爲什麼不來接我們？",
+        "曉旭這個小混蛋在哪裏？",
+        "廈門的美眉聽說很漂亮？",
+        "快打酒來！愣什麼！",
+        "快把大寶和二寶拉成一堆爛肉！",
+        "老老就是僞君子．．．",
+        "你是狐尾貓？",
         "嗨..",
 });
 
@@ -27,7 +27,7 @@ void create()
 {
         
 
-        set_name("天马行空", ({ "skywalker" }) );
+        set_name("天馬行空", ({ "skywalker" }) );
         set("title", "普通百姓");
         set("gender", "男性");
         set("age", 14);
@@ -49,9 +49,9 @@ void create()
 	set("shen_type", 0);
 	set("thief", 0);
         set("chat_msg", ({
-                "我天马行空，是名震天下的大英雄，历来好交朋友。这里的人居然都不理我！\n",
-                "厦门的美眉听说很漂亮？\n",
-                "快打酒来！愣什么！\n",
+                "我天馬行空，是名震天下的大英雄，歷來好交朋友。這裏的人居然都不理我！\n",
+                "廈門的美眉聽說很漂亮？\n",
+                "快打酒來！愣什麼！\n",
                 (: drool :),
                 (: drool :),
                 (: drool :),
@@ -79,7 +79,7 @@ int add_phrase(string who, string msg)
         msg = replace_string(msg, "!", "");
         msg = replace_string(msg, "！", "");
         msg = replace_string(msg, "啊", "");
-        msg = replace_string(msg, "吗", "");
+        msg = replace_string(msg, "嗎", "");
         msg = replace_string(msg, "耶", "");
         msg = replace_string(msg, "吧", "");
 
@@ -159,7 +159,7 @@ void relay_emote(object ob, string verb)
         case "sigh":
         case "poor":
                 if( random(10)<5 )
-                      command("say 为什麽叹气？");
+                      command("say 爲什麼嘆氣？");
                 else
                       command("laugh " + ob->query("id"));
                 break;
@@ -169,7 +169,7 @@ void relay_emote(object ob, string verb)
         case "foot":
         case "pai":
                 if( random(10)<5 )
-                      command("say 为什麽踢我？会痛耶！");
+                      command("say 爲什麼踢我？會痛耶！");
                 else
                       command(verb + " " + ob->query("id"));
                 break;
@@ -177,7 +177,7 @@ void relay_emote(object ob, string verb)
         case "pig":
         case "zhu":
                 if( random(10)<5 )
-                      command("say 你才是猪呢！");
+                      command("say 你纔是豬呢！");
                 else
                       command(verb + " " + ob->query("id"));
                 break;
@@ -196,7 +196,7 @@ void relay_emote(object ob, string verb)
         case "sing3":
         case "yehua":
                 if( random(10)<5 )
-                      command("say 才睡着就给你吵醒了！");
+                      command("say 才睡着就給你吵醒了！");
                 else
                       command("seal");
                 break;
@@ -207,7 +207,7 @@ void relay_emote(object ob, string verb)
         case "hammer2":
         case "maimai":
                 if( random(10)<5 )
-                      command("say 为什麽打我？会痛耶！");
+                      command("say 爲什麼打我？會痛耶！");
                 else
                       command(verb + " " + ob->query("id"));
                 break;
@@ -236,24 +236,24 @@ varargs void drool(string msg, string who)
         mrh="";
 
         if( strsrch(msg, "混蛋") >=0 ) mrh="小混蛋";
-        else if( strsrch(msg, "浑蛋") >=0 ) mrh="大浑蛋";
-        else if( strsrch(msg, "鸟") >=0 ) mrh="小鸟人";
+        else if( strsrch(msg, "渾蛋") >=0 ) mrh="大渾蛋";
+        else if( strsrch(msg, "鳥") >=0 ) mrh="小鳥人";
         else if( strsrch(msg, "八婆") >=0 ) mrh="三八婆";
-        else if( strsrch(msg, "坏蛋") >=0 ) mrh="大坏蛋";
+        else if( strsrch(msg, "壞蛋") >=0 ) mrh="大壞蛋";
         else if( strsrch(msg, "王八") >=0 ) mrh="小王八";
-        else if( strsrch(msg, "驴") >=0 ) mrh="笨驴子";
+        else if( strsrch(msg, "驢") >=0 ) mrh="笨驢子";
         else if( strsrch(msg, "土人") >=0 ) mrh="小土人";
-        else if( strsrch(msg, "土鳖") >=0 ) mrh="大土鳖";
+        else if( strsrch(msg, "土鱉") >=0 ) mrh="大土鱉";
         else if( strsrch(msg, "兔崽子") >=0 ) mrh="小兔崽子";
         else if( strsrch(msg, "流氓") >=0 ) mrh="大流氓";
-        else if( strsrch(msg, "反动") >=0 ) mrh="反动派";
+        else if( strsrch(msg, "反動") >=0 ) mrh="反動派";
         else if( strsrch(msg, "地主") >=0 ) mrh="小地主";
         else if( strsrch(msg, "妓女") >=0 ) mrh="小妓女";
-        else if( strsrch(msg, "龟公") >=0 ) mrh="小龟公";
+        else if( strsrch(msg, "龜公") >=0 ) mrh="小龜公";
         if (mrh!="") {
               switch(random(20)) {
-              case 0: command("say " + who + "是在说自己吗？"); break;
-              case 1: command("say " + who + "在说自己是" + mrh + "！"); break;
+              case 0: command("say " + who + "是在說自己嗎？"); break;
+              case 1: command("say " + who + "在說自己是" + mrh + "！"); break;
               case 2: command("kick2 " + who); break;
               case 3: command("slap " + who); break;
               case 4: command("hammer " + who); break;
@@ -265,21 +265,21 @@ varargs void drool(string msg, string who)
               case 10: command("foot " + who); break;
               case 11: command("maimai " + who); break;
               case 12: command("pai " + who); break;
-              default: command("say 我们开始讨论有关" + who + "是" + mrh + "的话题好吗？");
+              default: command("say 我們開始討論有關" + who + "是" + mrh + "的話題好嗎？");
               }
         }
-        else if( (strsrch(msg, "为什麽") >= 0) ) {
-                if( sscanf(msg, "%*s为什麽%s", msg)==2 ) msg = "为什麽" + msg;
+        else if( (strsrch(msg, "爲什麼") >= 0) ) {
+                if( sscanf(msg, "%*s爲什麼%s", msg)==2 ) msg = "爲什麼" + msg;
                 switch(random(20)) {
-                case 0: command("say " + who + "，你是在问我吗？"); break;
-                case 1: command("say 关於" + msg + " ... "); break;
+                case 0: command("say " + who + "，你是在問我嗎？"); break;
+                case 1: command("say 關於" + msg + " ... "); break;
                 case 2: command("say 呃 ... "); drool(); break;
-                case 3: command("say 这个问题嘛 ...."); break;
-                case 4: command("say " + who + "，知道这个问题的答案对你那麽重要么？"); break;
+                case 3: command("say 這個問題嘛 ...."); break;
+                case 4: command("say " + who + "，知道這個問題的答案對你那麼重要麼？"); break;
                 case 5: command("say " + msg + "？"); break;
-                case 6: command("say " + who + "你能不能说清楚一点？"); break;
-                case 7: command("say " + who + "，我不懂你问的问题"); break;
-                case 8: command("say " + who + "，小王八蛋别乱问！"); break;
+                case 6: command("say " + who + "你能不能說清楚一點？"); break;
+                case 7: command("say " + who + "，我不懂你問的問題"); break;
+                case 8: command("say " + who + "，小王八蛋別亂問！"); break;
                 default: command("? " + who ); break;
                 }
         }
@@ -291,16 +291,16 @@ varargs void drool(string msg, string who)
                 msg = replace_string(msg, "你", "我");
                 msg = replace_string(msg, "他", "我");
                 switch(random(20)) {
-                case 0: command("say " + who + "，你是说" + msg + "吗？");break;
-                case 1: command("say 你确定" + msg + "？");     break;
-                case 2: command("say " + msg + "跟你有什麽关系？");     break;
-                case 3: command("say 嗯 ... " + who + "说得好"); break;
-                case 4: command("say " + who + "你为什麽对" + msg + "这麽有兴趣？"); break;
-                case 5: command("say 为什麽你认为" + msg + "？"); break;
-                case 6: command("say 换个话题吧"); drool(); break;
-                case 7: command("say 才怪"); break;
+                case 0: command("say " + who + "，你是說" + msg + "嗎？");break;
+                case 1: command("say 你確定" + msg + "？");     break;
+                case 2: command("say " + msg + "跟你有什麼關係？");     break;
+                case 3: command("say 嗯 ... " + who + "說得好"); break;
+                case 4: command("say " + who + "你爲什麼對" + msg + "這麼有興趣？"); break;
+                case 5: command("say 爲什麼你認爲" + msg + "？"); break;
+                case 6: command("say 換個話題吧"); drool(); break;
+                case 7: command("say 纔怪"); break;
                 case 8: command("say 不一定吧？"); break;
-                default: command("say 有这个可能 ...."); break;
+                default: command("say 有這個可能 ...."); break;
                 }
         }
         else if( (strsrch(msg, "我") >= 0)) {
@@ -308,20 +308,20 @@ varargs void drool(string msg, string who)
                 msg = replace_string(msg, "我", "你");
                 msg = replace_string(msg, "?", "");
                 switch(random(20)) {
-                case 0: command("say 你是说" + msg + "吗？"); break;
+                case 0: command("say 你是說" + msg + "嗎？"); break;
                 case 1: command("say 真的？" + msg + "？");     break;
-                case 2: command("say 如果" + msg + "，我能帮你什麽忙吗？");break
+                case 2: command("say 如果" + msg + "，我能幫你什麼忙嗎？");break
 ;
                 case 3: command("hmm"); break;
-                case 4: command("say 你认为" + msg + "？"); break;
+                case 4: command("say 你認爲" + msg + "？"); break;
                 case 5: command("say 我有同感"); break;
-                case 6: command("say 你说的「" + msg + "」我不能苟同"); break;
-                default: command("say 有关「" + msg + "」的话题到此为止好吗？");break;
+                case 6: command("say 你說的「" + msg + "」我不能苟同"); break;
+                default: command("say 有關「" + msg + "」的話題到此爲止好嗎？");break;
                 }
         } else {
                 switch(random(20)) {
-                        case 0: command("say 为什麽说" + msg + "?"); break;
-                        case 1: command("say 「" + msg + "」是什麽意思？"); break;
+                        case 0: command("say 爲什麼說" + msg + "?"); break;
+                        case 1: command("say 「" + msg + "」是什麼意思？"); break;
                         case 2: command("say " + msg + "？"); break;
                         case 3: command("grin"); break;
                         case 4: command("smile"); break;
@@ -329,12 +329,12 @@ varargs void drool(string msg, string who)
                         case 6: command("say ...."); break;
                         case 7: command("hmm"); break;
                         case 8: command("say " + rnd_say[random(sizeof(rnd_say))]); break;
-                        case 9: command("say 你怎麽知道" + msg + "?"); break;
-                        case 10: command("say 刚刚" + who + "不是说了，" + msg);
-                        case 11: command("say 我当然知道，" + msg); break;
+                        case 9: command("say 你怎麼知道" + msg + "?"); break;
+                        case 10: command("say 剛剛" + who + "不是說了，" + msg);
+                        case 11: command("say 我當然知道，" + msg); break;
                         case 12: command("say 然後呢？"); break;
-                        case 13: command("say 真的吗？"); break;
-                        case 14: command("say 我不这麽认为。"); break;
+                        case 13: command("say 真的嗎？"); break;
+                        case 14: command("say 我不這麼認爲。"); break;
                         default: command("say 我可不知道。"); break;
                 }
         }
@@ -370,10 +370,10 @@ void greeting(object ob)
 {
     if ( !ob || environment(ob) != environment() )
           return;
-    say( "天马行空终于看到一位酒友，急忙喊到：快过来和兄弟我喝酒！\n");
+    say( "天馬行空終於看到一位酒友，急忙喊到：快過來和兄弟我喝酒！\n");
     if (!wizardp(ob))
     {
-          message_vision("天马行空冲着$N挤挤鬼脸，一串串酒嗝冲着$N直冒。\n",ob,ob);
+          message_vision("天馬行空衝着$N擠擠鬼臉，一串串酒嗝衝着$N直冒。\n",ob,ob);
           ob->apply_condition("drunk", 20);
     }
 }
@@ -406,9 +406,9 @@ int do_dajia()
     object ob;
 
     ob = this_player();
-    message_vision("天马行空提起老拳将$N一顿臭打！\n",ob);
-    message_vision("$N躺在地上，大叫＂天马行空爷爷，大英雄饶命！＂天马行空一张\n",ob);
-    message_vision("脸顿时露出笑容：＂$N有眼光，还算是个好人，收手不打了！\n",ob);
+    message_vision("天馬行空提起老拳將$N一頓臭打！\n",ob);
+    message_vision("$N躺在地上，大叫＂天馬行空爺爺，大英雄饒命！＂天馬行空一張\n",ob);
+    message_vision("臉頓時露出笑容：＂$N有眼光，還算是個好人，收手不打了！\n",ob);
     ob -> set("qi",10);
     return 1;
 }
@@ -417,9 +417,9 @@ int do_kill()
 {
     object ob;
     ob = this_player();
-    message_vision("天马行空提起老拳将$N往死里打！两手抓住\n",ob);
-    message_vision("$N双脚，嘿地一声低喝，只听得一声惨呼，满地鲜血内脏\n",ob);
-    message_vision("$N竟被活生生撕成两片，动作实在是太快了，别人都救护不了！\n",ob);
+    message_vision("天馬行空提起老拳將$N往死裏打！兩手抓住\n",ob);
+    message_vision("$N雙腳，嘿地一聲低喝，只聽得一聲慘呼，滿地鮮血內臟\n",ob);
+    message_vision("$N竟被活生生撕成兩片，動作實在是太快了，別人都救護不了！\n",ob);
     ob->die();
     return 1;
 }

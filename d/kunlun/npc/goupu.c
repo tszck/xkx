@@ -1,11 +1,11 @@
-// Npc: /d/kunlun/npc/goupu.c 狗仆
+// Npc: /d/kunlun/npc/goupu.c 狗僕
 // Last Modified by winder on Jun. 29 2001
 
 inherit NPC;
 
 void create()
 {
-	set_name("狗仆", ({ "gou pu", "pu" }));
+	set_name("狗僕", ({ "gou pu", "pu" }));
 	set("gender", "男性");
 	set("age", 35);
 

@@ -12,11 +12,11 @@ void create()
 {
 	set("short", "空地");
 	set("long", @LONG
-这是大厅前的空地，旁边放了些兵器架、沙袋以及几个木桩。地上
-铺满了飘落的树叶和干草。四周装点着青青翠竹，错落有致。旁边有一
-口水井、一把水瓢，井水清澈，散发着阵阵凉气。西边是武器库。东边
-有一间储藏室，房门(door)关闭着。北边是『白驼山庄』的大厅。南边
-就是大门了。
+這是大廳前的空地，旁邊放了些兵器架、沙袋以及幾個木樁。地上
+鋪滿了飄落的樹葉和乾草。四周裝點着青青翠竹，錯落有致。旁邊有一
+口水井、一把水瓢，井水清澈，散發着陣陣涼氣。西邊是武器庫。東邊
+有一間儲藏室，房門(door)關閉着。北邊是『白駝山莊』的大廳。南邊
+就是大門了。
 LONG);
 	set("resource/water", 1);
 	set("exits", ([
@@ -48,8 +48,8 @@ void init()
 
 string look_gate()
 {
-	if (query_temp("lock") == 0) return "门上的铁锁被打开了。\n";
-	return "这扇门被铁锁牢牢锁住。\n";
+	if (query_temp("lock") == 0) return "門上的鐵鎖被打開了。\n";
+	return "這扇門被鐵鎖牢牢鎖住。\n";
 }
 
 int do_open(string arg)
@@ -58,9 +58,9 @@ int do_open(string arg)
 	object *inv;
 	int j;
 
-	if(!arg || arg!="door") return notify_fail("你要开什么？\n");
+	if(!arg || arg!="door") return notify_fail("你要開什麼？\n");
 	if( query_temp("lock") == 1 && !present("key", me) )
-		return notify_fail("钥匙都没有，怎么开门？\n");
+		return notify_fail("鑰匙都沒有，怎麼開門？\n");
 	if(!( room = find_object(__DIR__"storeroom")) )
 		room = load_object(__DIR__"storeroom");
 	inv = all_inventory(me);
@@ -68,7 +68,7 @@ int do_open(string arg)
             {
               if (inv[j]->is_character())
                   {
-                   return notify_fail("屋子里位置有限，挤不下那么多人。\n");
+                   return notify_fail("屋子裏位置有限，擠不下那麼多人。\n");
                     }
              }
 	if(!objectp(room))
@@ -76,11 +76,11 @@ int do_open(string arg)
 	if(query_temp("lock") == 1 && present("key", me))
 	{
 		set_temp("lock", 0);
-		message_vision("$N把钥匙插进锁孔，只听见‘卡嗒’一声，锁开了。\n", me);
-		message("vision","外面传来一阵开锁的声音，只听见‘卡嗒’一声，锁开了。\n",room);
+		message_vision("$N把鑰匙插進鎖孔，只聽見‘卡嗒’一聲，鎖開了。\n", me);
+		message("vision","外面傳來一陣開鎖的聲音，只聽見‘卡嗒’一聲，鎖開了。\n",room);
 	}
-	message_vision("$N轻轻推开门，走了进去，随手把门掩了起来。\n",me);
-	message("vision", "有人走了进来，随手把门掩上了。\n",room);
+	message_vision("$N輕輕推開門，走了進去，隨手把門掩了起來。\n",me);
+	message("vision", "有人走了進來，隨手把門掩上了。\n",room);
 	me->move(room);
 	return 1;
 }
@@ -90,18 +90,18 @@ int do_lock(string arg)
 	object me=this_player();
 	object room;
 
-	if(!arg ||  arg!="door") return notify_fail("你要锁什么？\n");
+	if(!arg ||  arg!="door") return notify_fail("你要鎖什麼？\n");
 	if( !present("key",me))
-		return notify_fail("钥匙都没有，怎么锁门？\n");
+		return notify_fail("鑰匙都沒有，怎麼鎖門？\n");
 	if(!( room = find_object(__DIR__"storeroom")) )
 		room = load_object(__DIR__"storeroom");
 	if(!objectp(room))
 		return notify_fail("ERROR:not found 'storeroom.c' \n");
 	if(query_temp("lock") == 1)
-		return notify_fail("门已经锁好了。\n");
+		return notify_fail("門已經鎖好了。\n");
 	set_temp("lock",1);
-	message_vision("$N把钥匙插进锁孔，只听见‘卡嗒’一声，锁被锁上。\n",me);
-	message("vision","外面传来一阵锁铁锁的声音，只听见‘卡嗒’一声，锁被锁上了。 \n",room);
+	message_vision("$N把鑰匙插進鎖孔，只聽見‘卡嗒’一聲，鎖被鎖上。\n",me);
+	message("vision","外面傳來一陣鎖鐵鎖的聲音，只聽見‘卡嗒’一聲，鎖被鎖上了。 \n",room);
 	return 1;
 }
 
@@ -110,8 +110,8 @@ int valid_leave(object me, string dir)
 	mapping myfam;
 	myfam = (mapping)me->query("family");
 
-	if ((!myfam || myfam["family_name"] != "白驼山派") && dir == "west")
-		return notify_fail("此处乃本派禁地，请止步。\n");
+	if ((!myfam || myfam["family_name"] != "白駝山派") && dir == "west")
+		return notify_fail("此處乃本派禁地，請止步。\n");
 	return ::valid_leave(me, dir);
 }
 
@@ -130,9 +130,9 @@ int do_drink(string arg)
 		message("vision", me->name()+"用水瓢舀了一口井水喝。\n", environment(me), ({me}) );
 		if ( lvl < 30 && lvl*lvl*lvl/10 < exp)
 			me->improve_skill("force", me->query("int"));
-		write("你喝了一口清清的井水，虽身处炎热的大漠，也感到一丝凉意。\n");
+		write("你喝了一口清清的井水，雖身處炎熱的大漠，也感到一絲涼意。\n");
 	}
-	else write("你已经喝不下了。\n");
+	else write("你已經喝不下了。\n");
 
 	return 1;
 }

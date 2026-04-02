@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("包万叶",({"bao wanye","bao"}));
+	set_name("包萬葉",({"bao wanye","bao"}));
 	set("gender", "男性");
 	set("age", 20);
-	set("long", "他是凌霄城第六代弟子包万叶。\n");
+	set("long", "他是凌霄城第六代弟子包萬葉。\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);

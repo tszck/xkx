@@ -9,10 +9,10 @@ void create()
         set("gender", "男性");
         set("age", 34);
         set("class", "quanzhen");
-        set("nickname",HIG"广宁子"NOR);
+        set("nickname",HIG"廣寧子"NOR);
         set("long",
-                "他就是全真七子中的郝大通郝真人。他身材微胖，象个富翁模\n"
-                "样，身上穿的道袍双袖皆无。\n" );
+                "他就是全真七子中的郝大通郝真人。他身材微胖，象個富翁模\n"
+                "樣，身上穿的道袍雙袖皆無。\n" );
         set("attitude", "peaceful");
         set("shen_type",1);
         set("str", 30);
@@ -45,9 +45,9 @@ void create()
 
         set_skill("array", 80);
         set_skill("force", 130);
-        set_skill("xiantian-qigong", 130);    //先天气功
+        set_skill("xiantian-qigong", 130);    //先天氣功
         set_skill("sword", 130);
-        set_skill("quanzhen-jian",130);  //全真剑
+        set_skill("quanzhen-jian",130);  //全真劍
         set_skill("dodge", 110);
         set_skill("jinyan-gong", 120);   //金雁功
         set_skill("parry", 140);
@@ -55,7 +55,7 @@ void create()
         set_skill("strike", 120);
         set_skill("haotian-zhang", 150);    //昊天掌
         set_skill("cuff", 120);
-        set_skill("chunyang-quan", 150);    //纯阳拳
+        set_skill("chunyang-quan", 150);    //純陽拳
         set_skill("literate", 100);
         set_skill("taoism", 100);
 
@@ -72,7 +72,7 @@ void create()
 
         set("book_count",1);
         set("inquiry", ([
-                "全真教" :  "我全真教是天下道家玄门正宗。\n",
+                "全真教" :  "我全真教是天下道家玄門正宗。\n",
         ]) );
 
         setup();

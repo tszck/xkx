@@ -1,14 +1,14 @@
-// qing.c 青龙门弟子
+// qing.c 青龍門弟子
 // Last Modified by winder on Jul. 12 2002
 
 inherit NPC;
 
 void create()
 {
-	set_name("青龙门弟子", ({ "qinglong dizi","dizi" }) );
+	set_name("青龍門弟子", ({ "qinglong dizi","dizi" }) );
 	set("gender", "男性");
 	set("age", 15+random(10));
-	set("long", "这是青龙门弟子，年纪都很小，似乎不谙世事。\n");
+	set("long", "這是青龍門弟子，年紀都很小，似乎不諳世事。\n");
 	set("combat_exp", 2000+random(20000));
 	set("shen_type", -1);
 	set("attitude", "heroism");
@@ -18,10 +18,10 @@ void create()
 
 	set("chat_chance", 5);
 	set("chat_msg", ({
-		"弟子说道：洪教主身通护佑，众弟子勇气百倍，以一当百，以百当万。\n",
-		"弟子说道：洪教主神目如电，烛照四方。\n",
-		"弟子说道：我弟子杀敌护教，洪教主亲加提拔，升任圣职。\n",
-		"弟子说道：我教弟子护教而死，同升天堂。\n",
+		"弟子說道：洪教主身通護佑，衆弟子勇氣百倍，以一當百，以百當萬。\n",
+		"弟子說道：洪教主神目如電，燭照四方。\n",
+		"弟子說道：我弟子殺敵護教，洪教主親加提拔，升任聖職。\n",
+		"弟子說道：我教弟子護教而死，同升天堂。\n",
 	}) );
 
 	set_skill("sword", 15+random(50));
@@ -29,7 +29,7 @@ void create()
 	set_skill("parry", 15+random(50));
 	set_skill("dodge", 15+random(50));
 	set_skill("strike", 15+random(50));
-	create_family("神龙教", 4, "弟子");
+	create_family("神龍教", 4, "弟子");
 
 	setup();
 	switch( random(5) )

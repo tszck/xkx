@@ -1,5 +1,5 @@
 string *food_name = ({
-"翡翠烧卖", "鸭菜包子", "千层油糕", "芝麻包子", 
+"翡翠燒賣", "鴨菜包子", "千層油糕", "芝麻包子", 
 });
 
 string ask_secret()
@@ -8,9 +8,9 @@ string ask_secret()
     command( "en" );
     command( "think" );
     command( "tell " + (string)this_player()->query( "id" ) + 
-        " 你帮我买个" + food );
+        " 你幫我買個" + food );
     this_player()->set_temp( "kid_ask/" + query( "id" ), food );
-    return "怎么样？帮我买了，我就告诉你！\n";
+    return "怎麼樣？幫我買了，我就告訴你！\n";
 }
 
 int accept_object( object me, object ob)
@@ -20,7 +20,7 @@ int accept_object( object me, object ob)
     if ( food && food == ob->name() )
     {
         command( "grin " + id );
-        command( "tell " + id + " 我的秘密是：我老爸叫" 
+        command( "tell " + id + " 我的祕密是：我老爸叫" 
         + query( "papa_name" ) + "。" );
         command( "laugh1 " + id );
         me->delete_temp( "kid_ask/" + query( "id" ) );

@@ -1,12 +1,12 @@
-// quan.c 全二风
+// quan.c 全二風
  
 inherit NPC;
  
 void create()
 {
-	set_name("全二风", ({ "quan  erfeng"}));
+	set_name("全二風", ({ "quan  erfeng"}));
 //	set("nickname", "");
-	set("long","昆仑派的叛徒，曾一度投靠朝廷，有着一张黑漆漆的脸，面目可憎。\n");
+	set("long","崑崙派的叛徒，曾一度投靠朝廷，有着一張黑漆漆的臉，面目可憎。\n");
 	set("gender", "男性");
 	set("age", 45);
 	set("attitude", "peaceful");

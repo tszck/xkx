@@ -6,16 +6,16 @@ inherit HAMMER;
 
 void create()
 {
-        set_name("瑶琴", ({ "yao qin" }) );
+        set_name("瑤琴", ({ "yao qin" }) );
         set_weight(5000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
                 set("unit", "把");
-                set("long", "这是一把歌女用的瑶琴，制做得相当精巧细腻。\n");
+                set("long", "這是一把歌女用的瑤琴，製做得相當精巧細膩。\n");
                 set("value", 300);
                 set("material", "iron");
-                set("wield_msg", "$N从背上解下一把$n，然後横在手中。\n");
+                set("wield_msg", "$N從背上解下一把$n，然後橫在手中。\n");
                 set("unwield_msg", "$N放下手中的$n。\n");
         }
         init_hammer(5);

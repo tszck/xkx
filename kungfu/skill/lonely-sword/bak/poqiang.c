@@ -1,4 +1,4 @@
-// poqiang.c 「破枪式」
+// poqiang.c 「破槍式」
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -12,7 +12,7 @@ int perform(object me)
 	int skill, ap, dp, damage;
 
 	if(me->query("family/master_id") != "feng qingyang")
-	   return notify_fail("你不是风清扬的弟子，不能使用绝招！\n");
+	   return notify_fail("你不是風清揚的弟子，不能使用絕招！\n");
 
 	me->clean_up_enemy();
 	target = me->select_opponent();
@@ -20,25 +20,25 @@ int perform(object me)
 	skill = me->query_skill("lonely-sword",1);
 
 	if( !(me->is_fighting() ))
-	    return notify_fail("「破枪式」只能对战斗中的对手使用。\n");
+	    return notify_fail("「破槍式」只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "sword")
-	    return notify_fail("你使用的武器不对。\n");
+	    return notify_fail("你使用的武器不對。\n");
 
 	if (!objectp(weapon2 = target->query_temp("weapon")) ||
 	    ((string)weapon2->query("skill_type") != "spear" &&
 	     (string)weapon2->query("skill_type") != "club" &&
 	     (string)weapon2->query("skill_type") != "staff"))
-	    return notify_fail("对方没有使枪棒，你用不了「破枪式」。\n");
+	    return notify_fail("對方沒有使槍棒，你用不了「破槍式」。\n");
 
 	if( skill < 50)
-	    return notify_fail("你的独孤九剑等级不够, 不能使用「破枪式」！\n");
+	    return notify_fail("你的獨孤九劍等級不夠, 不能使用「破槍式」！\n");
 
 	if( me->query("neili") < 50 )
-	    return notify_fail("你的内力不够，无法运用「破枪式」！\n");
+	    return notify_fail("你的內力不夠，無法運用「破槍式」！\n");
 
-	msg = HIC "$N一式独孤九剑「破枪式」，剑势灵巧地顺着"+weapon2->name()
+	msg = HIC "$N一式獨孤九劍「破槍式」，劍勢靈巧地順着"+weapon2->name()
 +"削落，划向$n的五指。\n";
 	message_combatd(msg, me, target);
 	damage = 10 + random(skill / 2);
@@ -54,9 +54,9 @@ int perform(object me)
 	{
 	    if(userp(me))
 		 me->add("neili",-50);
-	    msg = "$N运起「破枪式」, $n顿时大惊，为保手指，手中";
+	    msg = "$N運起「破槍式」, $n頓時大驚，爲保手指，手中";
 	    msg += weapon2->name();
-	    msg += "撒手丢出！\n" NOR;
+	    msg += "撒手丟出！\n" NOR;
 
 	    me->start_busy(random(2));
 	    target->receive_damage("qi", damage);
@@ -67,8 +67,8 @@ int perform(object me)
 	{
 	    if(userp(me))
 		 me->add("neili",-30);
-	    msg = "可是$n看破了$N的剑路，舍命将手中" + weapon2->name()+
-"向前急刺，迫使$N收回攻势！\n"NOR;
+	    msg = "可是$n看破了$N的劍路，捨命將手中" + weapon2->name()+
+"向前急刺，迫使$N收回攻勢！\n"NOR;
 	    me->start_busy(4);
 	}
 	message_combatd(msg, me, target);
@@ -77,16 +77,16 @@ int perform(object me)
 }
 int help(object me)
 {
-	write(WHT"\n独孤九剑之破枪式："NOR"\n");
+	write(WHT"\n獨孤九劍之破槍式："NOR"\n");
 	write(@HELP
 
 	使用功效：
-		破解且可击落手持枪类兵器的敌手之兵器，并伤敌气血
+		破解且可擊落手持槍類兵器的敵手之兵器，並傷敵氣血
 
 	出手要求：
-		身为风清扬嫡传弟子
-		独孤九剑50级
-		内力50
+		身爲風清揚嫡傳弟子
+		獨孤九劍50級
+		內力50
 HELP
 	);
 	return 1;

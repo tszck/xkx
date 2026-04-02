@@ -10,11 +10,11 @@ void reset();
 
 void create()
 {
-	set("short", "试剑台");
+	set("short", "試劍臺");
 	set("long",@LONG
-玉石栏杆围成的一座石台，慕容世家的弟子经常在此切磋武技，台
-角放着刀枪剑戟等十八般兵器。栏杆外水面上东一簇，西一簇的立着一
-些木桩(muzhuang)。
+玉石欄杆圍成的一座石臺，慕容世家的弟子經常在此切磋武技，臺
+角放着刀槍劍戟等十八般兵器。欄杆外水面上東一簇，西一簇的立着一
+些木樁(muzhuang)。
 LONG );
 	set("outdoors", "yanziwu");
 	set("exits", ([
@@ -32,9 +32,9 @@ LONG );
 
 string look_muzhuang()
 {
-return  "你定睛看来，看似平淡无奇的一簇木桩，却内涵八卦五行之变。\n"
-	"再多看一会儿，你觉得头晕目眩起来。原来这是慕容世家子弟用\n"
-	"来练习轻功的地方，你是不是要跳上去(jump)一试身手呢。\n";
+return  "你定睛看來，看似平淡無奇的一簇木樁，卻內涵八卦五行之變。\n"
+	"再多看一會兒，你覺得頭暈目眩起來。原來這是慕容世家子弟用\n"
+	"來練習輕功的地方，你是不是要跳上去(jump)一試身手呢。\n";
 }
 
 void init()
@@ -52,16 +52,16 @@ int do_jump ()
 	if( room = find_object(__DIR__"muzhuang") )
 	if((int)room->query_temp("mu_trigger")==1 )
 	{
-		message_vision("$N一个纵身飞向木桩，身形甚是潇洒...猛然$N又飞了回来，真怪。", me) ;
+		message_vision("$N一個縱身飛向木樁，身形甚是瀟灑...猛然$N又飛了回來，真怪。", me) ;
 		me -> move( __DIR__"muzhuang");
 		me -> move( __DIR__"shijian");
-		tell_object(me,"原来是你突然发现有个人影在木桩上晃动，急中生智，空中\n硬生生一个回身，飞了回来。");
+		tell_object(me,"原來是你突然發現有個人影在木樁上晃動，急中生智，空中\n硬生生一個回身，飛了回來。");
 		return 1 ;
 	}
 	room->set_temp("mu_trigger", 1);
-	message_vision("$N一跃身飞上木桩，真是帅呆酷毙了。\n", me );
+	message_vision("$N一躍身飛上木樁，真是帥呆酷斃了。\n", me );
 	me->move(room) ;
-	tell_object(me,"\n你一踏上木桩，豪气勃发，脚下倒踩七星步，口中长啸作龙吟:\n“沧海笑，滔滔两岸潮...”\n"  ) ;
+	tell_object(me,"\n你一踏上木樁，豪氣勃發，腳下倒踩七星步，口中長嘯作龍吟:\n“滄海笑，滔滔兩岸潮...”\n"  ) ;
 	call_out("back", 6 , me );
 	room->delete_temp("mu_trigger");
 	return 1 ;
@@ -71,7 +71,7 @@ void back( object me )
 {
 	int c_exp,c_skill;
 	me->move(__DIR__"shijian");
-	message_vision("$N一式飞身飞上台来，把周围的人都吓了一跳。\n",me);
+	message_vision("$N一式飛身飛上臺來，把周圍的人都嚇了一跳。\n",me);
 	c_exp=me->query("combat_exp");
 	c_skill=me->query_skill("dodge",1);
 	me->add("qi",-10);
@@ -79,7 +79,7 @@ void back( object me )
 	if (((c_skill*c_skill*c_skill/10)< c_exp) && (c_skill<101))
 	{
 		me->improve_skill("dodge", 2*(int)me->query_skill("dodge", 1));
-		tell_object(me,"你的基本轻功进步了!\n");
+		tell_object(me,"你的基本輕功進步了!\n");
 	}
 }
 

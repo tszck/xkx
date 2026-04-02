@@ -7,19 +7,19 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("澄灵", ({
+	set_name("澄靈", ({
 		"chengling luohan",
 		"chengling",
 		"riyue",
 		"luohan",
 	}));
 	set("long",
-		"他是一位须发花白的老僧，身穿一袭金边黑布袈裟。他身材瘦高，\n"
-		"太阳穴高高鼓起，似乎身怀绝世武功。\n"
+		"他是一位鬚髮花白的老僧，身穿一襲金邊黑布袈裟。他身材瘦高，\n"
+		"太陽穴高高鼓起，似乎身懷絕世武功。\n"
 	);
 
 
-	set("nickname", "日月罗汉");
+	set("nickname", "日月羅漢");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");

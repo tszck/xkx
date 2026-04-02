@@ -6,12 +6,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIG"龙湖翠"NOR,({"long hucui", "long", "tea"}));
+	set_name(HIG"龍湖翠"NOR,({"long hucui", "long", "tea"}));
 	set_weight(50);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "这是一杯散发着清香的龙湖翠。\n");
+		set("long", "這是一杯散發着清香的龍湖翠。\n");
 		set("unit", "杯");
 		set("value", 1000);
 		set("remaining", 2);

@@ -9,8 +9,8 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "块");
-		set("long", "这是一块用于通行少林寺的铁铸令牌。 由方丈签发，邀各路英雄入寺观礼。\n");
+		set("unit", "塊");
+		set("long", "這是一塊用於通行少林寺的鐵鑄令牌。 由方丈簽發，邀各路英雄入寺觀禮。\n");
 		set("value", 100);
 		set("material", "iron");
 	}

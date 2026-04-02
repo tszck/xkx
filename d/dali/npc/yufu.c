@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("渔夫", ({ "yu fu", "yu", "fu" }));
+	set_name("漁夫", ({ "yu fu", "yu", "fu" }));
 	set("age", 22);
 	set("gender", "男性");
-	set("long", "一位台夷族的渔夫，扛这两条竹桨，提着一个鱼篓。\n");
+	set("long", "一位臺夷族的漁夫，扛這兩條竹槳，提着一個魚簍。\n");
 	set("attitude", "peaceful");
 
 	set("str", 24);

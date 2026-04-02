@@ -6,10 +6,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "灵州南门");
+	set("short", "靈州南門");
 	set("long", @LONG
-这是南城门，城门正上方刻得有几个西夏文字。城墙上贴着几张官
-府告示。一条大路往南通向黄羊滩。
+這是南城門，城門正上方刻得有幾個西夏文字。城牆上貼着幾張官
+府告示。一條大路往南通向黃羊灘。
 LONG );
 	set("exits", ([
 		"south" : __DIR__"huangyangtan",

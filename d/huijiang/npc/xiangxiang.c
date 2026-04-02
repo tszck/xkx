@@ -6,7 +6,7 @@ void create()
 {
 	set_name("香香公主",({"xiangxiang gongzhu", "gongzhu"}));
 	set("gender","女性");
-	set("long","木卓伦的小女儿，自幼体有异香。\n");
+	set("long","木卓倫的小女兒，自幼體有異香。\n");
 	set("combat_exp",40000);
 	set("age",17);
 	set("per", 40);

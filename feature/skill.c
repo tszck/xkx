@@ -178,7 +178,7 @@ varargs void improve_skill(string skill, int amount, int weak_mode)
 {
 	int spi;
 
-//只有玩家和好学的npc才能学习。比如宠物或玩家小孩等。
+//只有玩家和好學的npc才能學習。比如寵物或玩家小孩等。
 	if (!userp(this_object()) && !this_object()->query("curiousness"))
 		return; 
 	if( !find_object(SKILL_D(skill)) &&
@@ -205,7 +205,7 @@ varargs void improve_skill(string skill, int amount, int weak_mode)
 	{
 		skills[skill]++;
 		learned[skill] = 0;
-		tell_object(this_object(), HIC"你的「" + to_chinese(skill) + "」进步了！\n" NOR);
+		tell_object(this_object(), HIC"你的「" + to_chinese(skill) + "」進步了！\n" NOR);
 		SKILL_D(skill)->skill_improved(this_object());
 	}
 }

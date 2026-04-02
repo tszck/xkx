@@ -5,13 +5,13 @@
 inherit SWORD;
 void create()
 {
-	set_name(HIW "苍穹神剑" NOR, ({ "cang qiong" }) );
+	set_name(HIW "蒼穹神劍" NOR, ({ "cang qiong" }) );
 	set_weight(10000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "柄");
-		set("long", "一柄没有剑头的长剑\n");
+		set("long", "一柄沒有劍頭的長劍\n");
 		set("value", 50000);
 		set("rigidity",2000);	
 		set("material", "steel");

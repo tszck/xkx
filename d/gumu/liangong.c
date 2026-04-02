@@ -1,15 +1,15 @@
-// liangong.c 练功室
+// liangong.c 練功室
 // Java Oct.10 1998
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "练功室");
+	set("short", "練功室");
 	set("long", @LONG
-这座石室形状甚是奇特，前窄後宽，成为梯形，东边半圆，西边却
-作三角形状，原来这是以前重阳祖师的练功室，前窄练掌，后宽使拳，
-东圆研剑，西角发镖。
+這座石室形狀甚是奇特，前窄後寬，成爲梯形，東邊半圓，西邊卻
+作三角形狀，原來這是以前重陽祖師的練功室，前窄練掌，後寬使拳，
+東圓研劍，西角發鏢。
 LONG	);
 	set("exits", ([
 		"northeast" : __DIR__"mudao03",

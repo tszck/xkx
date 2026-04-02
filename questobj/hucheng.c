@@ -4,9 +4,9 @@ inherit ITEM;
 #include <ansi.h>
 void create()
 {
-	set_name(HIY"虎撑"NOR, ({"hu cheng", "cheng"}));
+	set_name(HIY"虎撐"NOR, ({"hu cheng", "cheng"}));
 	set("unit", "把");
 	set("taskobj", 1);
-	set("long", "这是一把郎中走街串巷摇着的虎撑。\n");
+	set("long", "這是一把郎中走街串巷搖着的虎撐。\n");
 	setup();
 }

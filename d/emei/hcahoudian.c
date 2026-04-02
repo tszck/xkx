@@ -1,4 +1,4 @@
-//Room: hcahoudian.c 华藏庵后殿
+//Room: hcahoudian.c 華藏庵後殿
 //Date: Oct. 2 1997 by That
 
 inherit ROOM;
@@ -6,11 +6,11 @@ void do_chat();
 
 void create()
 {
-      set("short","华藏庵后殿");
+      set("short","華藏庵後殿");
       set("long",@LONG
-这是峨嵋山华藏庵的后殿。是峨嵋派掌门人传教弟子功夫的地方。这里
-供有一尊普贤菩萨像。两旁靠墙放着几张太师椅，地上放着几个蒲团。掌门
-人正在向几个女弟子传授武功。
+這是峨嵋山華藏庵的後殿。是峨嵋派掌門人傳教弟子功夫的地方。這裏
+供有一尊普賢菩薩像。兩旁靠牆放着幾張太師椅，地上放着幾個蒲團。掌門
+人正在向幾個女弟子傳授武功。
 LONG);
       set("objects", ([
            CLASS_D("emei") + "/miejue" : 1,

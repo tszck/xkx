@@ -1,15 +1,15 @@
-// gaoyao.c 膏药
+// gaoyao.c 膏藥
 
 inherit ITEM;
 #include <ansi.h>
 void create()
 {
-	set_name(RED"膏"BLK"药"NOR, ({ "gaoyao" }) );
+	set_name(RED"膏"BLK"藥"NOR, ({ "gaoyao" }) );
         set_weight(100);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-		set("long", "看上去很奇怪的一副膏药，半边红半边黑。\n");
+		set("long", "看上去很奇怪的一副膏藥，半邊紅半邊黑。\n");
 		set("unit", "副");
 		set("value", 500);
         }
@@ -26,7 +26,7 @@ void init()
 int do_use(string arg)
 {
 	if (!id(arg))
-		return notify_fail("\n你要用什么药？\n");
-	return notify_fail("\n你撕开药封来，只见一张纸上有个明目，曰:\n"
-        +"“去清复明膏药”。此外什么也没有。\n");
+		return notify_fail("\n你要用什麼藥？\n");
+	return notify_fail("\n你撕開藥封來，只見一張紙上有個明目，曰:\n"
+        +"“去清復明膏藥”。此外什麼也沒有。\n");
 }

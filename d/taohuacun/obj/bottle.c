@@ -11,7 +11,7 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "尊");
-                set("long", "一尊玛瑙花瓶。瓶上雕刻着一枝富贵牡丹。\n");
+                set("long", "一尊瑪瑙花瓶。瓶上雕刻着一枝富貴牡丹。\n");
                 set("value", 0);
         }
 }

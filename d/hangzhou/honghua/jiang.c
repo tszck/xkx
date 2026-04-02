@@ -1,4 +1,4 @@
-// jiang.c 蒋四根
+// jiang.c 蔣四根
 
 #include <ansi.h>
 
@@ -7,11 +7,11 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("蒋四根", ({ "jiang sigen", "jiang","sigen" }));
-	set("title", HIR "红花会"HIG"十三当家" NOR);
-	set("nickname", HIY "铜头鳄鱼" NOR);
+	set_name("蔣四根", ({ "jiang sigen", "jiang","sigen" }));
+	set("title", HIR "紅花會"HIG"十三當家" NOR);
+	set("nickname", HIY "銅頭鱷魚" NOR);
 	set("long", 
-"铜头鳄鱼蒋四根在会中坐第十三把交椅，兵器是铁桨。\n");
+"銅頭鱷魚蔣四根在會中坐第十三把交椅，兵器是鐵槳。\n");
 	set("gender", "男性");
 	set("class", "fighter");
 	set("age", 21);

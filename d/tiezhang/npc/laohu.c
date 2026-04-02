@@ -6,9 +6,9 @@ inherit NPC;
 void create()
 {
 	set_name("老虎", ({ "lao hu", "hu" }) );
-	set("race", "走兽");
+	set("race", "走獸");
 	set("age", 5);
-	set("long", "一只凶猛的大老虎。\n");
+	set("long", "一隻兇猛的大老虎。\n");
 	set("combat_exp", 100000);
 
       	set("chat_chance", 6);
@@ -33,7 +33,7 @@ void init()
 void die()
 {
 	object ob;
-	message_vision("$N惨嚎一声，死了！\n", this_object());
+	message_vision("$N慘嚎一聲，死了！\n", this_object());
 	ob = new("/d/tiezhang/obj/hupi");
 	ob->move(environment(this_object()));
 	destruct(this_object());

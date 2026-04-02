@@ -5,16 +5,16 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "劈空栏");
+	set("short", "劈空欄");
 	set("long", @LONG
-这是一个里面廊窗的小阁。透过窗缝，可以看到南面的试剑峰。东
-面望去，是白浪滔滔的大海，海面上白鸥自由飞来飞去，真是“天高任
-鸟飞”啊。栏的一端摆着一张长桌，桌上放着一列烛台，点着一排的蜡
-烛(lazhu)。
+這是一個裏面廊窗的小閣。透過窗縫，可以看到南面的試劍峯。東
+面望去，是白浪滔滔的大海，海面上白鷗自由飛來飛去，真是“天高任
+鳥飛”啊。欄的一端擺着一張長桌，桌上放着一列燭臺，點着一排的蠟
+燭(lazhu)。
 LONG
 	);
         set("item_desc", ([ 
-		"lazhu" : "蜡烛在海风中摇曳着一点昏黄的光，好象举手一拍(pai)就会灭的样子。\n",
+		"lazhu" : "蠟燭在海風中搖曳着一點昏黃的光，好象舉手一拍(pai)就會滅的樣子。\n",
 	]));
         set("exits", ([ 
 		"north" : __DIR__"zoulang4",
@@ -36,21 +36,21 @@ int do_pai(string arg)
 	object me = this_player();
 
 	if (arg != "lazhu")
-		return notify_fail("你拍什么拍？拍蚊子啊？\n");
+		return notify_fail("你拍什麼拍？拍蚊子啊？\n");
 	if (!living(me)) return 0;
-	if (!(fam = me->query("family")) || fam["family_name"] != "桃花岛")
-		return notify_fail("你非本岛弟子，不能在此练功！\n");
+	if (!(fam = me->query("family")) || fam["family_name"] != "桃花島")
+		return notify_fail("你非本島弟子，不能在此練功！\n");
 
 	if ( (int)me->query_skill("strike", 1) > 100)
-		return notify_fail("你挥掌向着烛台虚劈，嗤的一声，烛火应手而灭。\n");
+		return notify_fail("你揮掌向着燭臺虛劈，嗤的一聲，燭火應手而滅。\n");
 	if((int)me->query("qi")<30)
 	{
 		me->receive_damage("qi",10);
-		write("挥掌向着烛台虚劈，结果烛火连晃都没晃一晃！\n");
+		write("揮掌向着燭臺虛劈，結果燭火連晃都沒晃一晃！\n");
 		return 1;
 	}
 	me->receive_damage("qi", random(40));
 	me->improve_skill("strike", me->query("int"));
-	write( "挥掌向着烛台虚劈，嗤的一声，烛火摇摇晃晃居然没灭！\n");
+	write( "揮掌向着燭臺虛劈，嗤的一聲，燭火搖搖晃晃居然沒滅！\n");
 	return 1;
 }

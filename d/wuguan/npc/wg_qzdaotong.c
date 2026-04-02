@@ -8,7 +8,7 @@ void create()
        set("gender", "男性" );
        set("age", 16);
        set("long",
-               "他是一个十七八岁的小道童，一幅天真的样子。\n");
+               "他是一個十七八歲的小道童，一幅天真的樣子。\n");
        set("combat_exp", 2500);
        set("attitude", "friendly");
  
@@ -32,15 +32,15 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "全真道童含笑道：这位" + RANK_D->query_respect(ob)
-          + "，想加入全真教的话，可以看"BRED"(help quanzhen)"NOR"。\n");
+			say( "全真道童含笑道：這位" + RANK_D->query_respect(ob)
+          + "，想加入全真教的話，可以看"BRED"(help quanzhen)"NOR"。\n");
 			break;
 		case 1:
-			say( "全真道童得意地说道：祖师王重阳，又号「中神通」，首次华山
-论剑，连败东邪、西毒、南帝、北丐，夺得武功天下第一的称号。\n");
+			say( "全真道童得意地說道：祖師王重陽，又號「中神通」，首次華山
+論劍，連敗東邪、西毒、南帝、北丐，奪得武功天下第一的稱號。\n");
 			break;
 		case 2:			
-			say( "全真道童喃喃自语道：修习先天功后，练得玄门定阳丹可以长内力，妙用无穷哦。\n");			
+			say( "全真道童喃喃自語道：修習先天功後，練得玄門定陽丹可以長內力，妙用無窮哦。\n");			
 			break;	
 	}
 

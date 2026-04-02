@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "打铁屋");
+	set("short", "打鐵屋");
 	set("long", @LONG
-这里是树林深处的一间小石屋，看来是打造兵器的，屋子中有个大
-火炉好烫的呢，屋中还有一张石几，上面摆放着一些早就已经打造好的
+這裏是樹林深處的一間小石屋，看來是打造兵器的，屋子中有個大
+火爐好燙的呢，屋中還有一張石几，上面擺放着一些早就已經打造好的
 兵器。
 LONG );
 	set("exits", ([
@@ -36,6 +36,6 @@ int valid_leave(object me, string dir)
 		if (inv[i]->query("id") == "blade") j++;
 	}
 	if (j > 1)
-                return notify_fail("这位" + RANK_D->query_respect(me) + "别那麽贪心，带走一口钢刀就够啦。\n");
+                return notify_fail("這位" + RANK_D->query_respect(me) + "別那麼貪心，帶走一口鋼刀就夠啦。\n");
         return ::valid_leave(me, dir);
 }

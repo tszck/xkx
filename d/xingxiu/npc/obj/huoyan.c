@@ -9,7 +9,7 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long",HIR"火焰高约尺，色作纯碧，鬼气森森，和寻常火焰大异。\n"NOR );
+		set("long",HIR"火焰高約尺，色作純碧，鬼氣森森，和尋常火焰大異。\n"NOR );
 		set("no_get", 1);
 		set("value", 1);
 		set("unit", "堆");
@@ -33,7 +33,7 @@ string *fire_msg = ({BLU"火焰"NOR,RED"火焰"NOR,WHT"火焰"NOR,GRN"火焰"NOR
 void change()
 {
 	string msg = fire_msg[random(sizeof(fire_msg))];
-	tell_room(environment(this_object()),this_object()->name()+ HIR"豁然一暗，接着火光爆长，竟然变了颜色，看起来怪异无比！\n"NOR);    
+	tell_room(environment(this_object()),this_object()->name()+ HIR"豁然一暗，接着火光爆長，竟然變了顏色，看起來怪異無比！\n"NOR);    
 	this_object()->set("name", msg);    
 	remove_call_out("change");
 	call_out("change", 50);  
@@ -41,6 +41,6 @@ void change()
  
 void dest()
 {
-	tell_room(environment(this_object()),HIR"火焰渐渐地熄灭了。\n"NOR);
+	tell_room(environment(this_object()),HIR"火焰漸漸地熄滅了。\n"NOR);
 	destruct(this_object());
 }

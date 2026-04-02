@@ -1,4 +1,4 @@
-// yan.c 俞岱岩
+// yan.c 俞岱巖
 
 #include <ansi.h>
 
@@ -9,9 +9,9 @@ string ask_yao2();
 
 void create()
 {
-	set_name("俞岱岩", ({ "yu daiyan", "yu" }));
-	set("nickname", "武当三侠");
-	set("long","他就是张三丰的弟子、武当七侠之三的俞岱岩。\n身穿一件干干净净的青布长衫。\n他不过三十出头年纪，双腿残废，张真人命他主持真武剑阵。\n");
+	set_name("俞岱巖", ({ "yu daiyan", "yu" }));
+	set("nickname", "武當三俠");
+	set("long","他就是張三豐的弟子、武當七俠之三的俞岱巖。\n身穿一件乾乾淨淨的青布長衫。\n他不過三十出頭年紀，雙腿殘廢，張真人命他主持真武劍陣。\n");
 	set("gender", "男性");
 	set("age", 31);
 	set("attitude", "peaceful");
@@ -64,11 +64,11 @@ void create()
 	}) );
 	set("inquiry", ([
 		"延年聚精丹" : (: ask_yao1 :),
-		"九转结气丸" : (: ask_yao2 :),
+		"九轉結氣丸" : (: ask_yao2 :),
 	]));
 	set("yao1_count", 1);
 	set("yao2_count", 1);
-	create_family("武当派", 2, "弟子");
+	create_family("武當派", 2, "弟子");
 
 	setup();
 	carry_object(WEAPON_DIR"changjian")->wield();
@@ -91,20 +91,20 @@ void greeting(object ob)
 	int i;
 	if (((int)ob->query_skill("taiji-shengong", 1) == 0))
 	{
-		message_vision( CYN"十三弟子对$N齐声喝道：你这个邪魔外道，敢来真武剑阵？\n\n"NOR,ob);
+		message_vision( CYN"十三弟子對$N齊聲喝道：你這個邪魔外道，敢來真武劍陣？\n\n"NOR,ob);
 		ob->set("qi",30);
 		if ((int)ob->query("combat_exp") <2000) ob->set("combat_exp",1);
 		else ob->add("combat_exp",0);
-		message_vision( CYN"真武剑阵顿时启动，高台上剑气纵横，把$N围在中央。\n"NOR,ob);
-		message_vision( CYN"十三口长剑齐出，在$N身上划出了十三道口子，鲜血淋漓。\n"NOR,ob);
-		message_vision("俞岱岩居高临下，起手一掌把$N劈落高台。\n\n\n"NOR,ob);
+		message_vision( CYN"真武劍陣頓時啓動，高臺上劍氣縱橫，把$N圍在中央。\n"NOR,ob);
+		message_vision( CYN"十三口長劍齊出，在$N身上劃出了十三道口子，鮮血淋漓。\n"NOR,ob);
+		message_vision("俞岱巖居高臨下，起手一掌把$N劈落高臺。\n\n\n"NOR,ob);
 		ob->move("/d/wudang/nanyangong");
 	}
 }
 
 void attempt_apprentice(object me)
 {
-	command("say " + RANK_D->query_respect(me) + "，我是个废人了，怎么能收徒呢？");
+	command("say " + RANK_D->query_respect(me) + "，我是個廢人了，怎麼能收徒呢？");
 	return;
 }
 
@@ -114,16 +114,16 @@ string ask_yao1()
 	object ob;
 
 	if (!(fam = this_player()->query("family")) ||
-		fam["family_name"] != "武当派")
-		return RANK_D->query_respect(this_player()) +"与本派素无来往，不知此话从何谈起？";
+		fam["family_name"] != "武當派")
+		return RANK_D->query_respect(this_player()) +"與本派素無來往，不知此話從何談起？";
 	if (ob = present("jujing dan", this_player()))
-		return "你身上不是带着本门延年聚精丹？！";
+		return "你身上不是帶着本門延年聚精丹？！";
 	if (query("yao1_count") < 1)
-		return "你来晚了，本门延年聚精丹已尽数给了本派弟子。";
+		return "你來晚了，本門延年聚精丹已盡數給了本派弟子。";
 	add("yao1_count", -1);
 	ob = new("/clone/medicine/nostrum/jujingdan");
 	ob->move(this_player());
-	return "我这里有本门延年聚精丹，你拿去吧。";
+	return "我這裏有本門延年聚精丹，你拿去吧。";
 }
 
 string ask_yao2()
@@ -132,16 +132,16 @@ string ask_yao2()
 	object ob;
 
 	if (!(fam = this_player()->query("family")) ||
-		fam["family_name"] != "武当派")
+		fam["family_name"] != "武當派")
 		return RANK_D->query_respect(this_player()) +
-		"与本派素无来往，不知此话从何谈起？";
+		"與本派素無來往，不知此話從何談起？";
 	if (ob = present("jieqi wan", this_player()))
-		return "你身上不是带着本门九转结气丸？！";
+		return "你身上不是帶着本門九轉結氣丸？！";
 	if (query("yao2_count") < 1)
-		return "你来晚了，本门九转结气丸已尽数给了本派弟子。";
+		return "你來晚了，本門九轉結氣丸已盡數給了本派弟子。";
 	add("yao2_count", -1);
 	ob = new("/clone/medicine/nostrum/jieqiwan");
 	ob->move(this_player());
-	return "我这里有本门九转结气丸，你拿去吧。";
+	return "我這裏有本門九轉結氣丸，你拿去吧。";
 }
 

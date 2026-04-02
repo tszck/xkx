@@ -7,7 +7,7 @@ void create()
 	set_name("巨蟒", ({ "ju mang", "mang" }) );
 	set("race", "爬蛇");
 	set("age", 70);
-	set("long", "一条五丈来长的蟒！！！\n");
+	set("long", "一條五丈來長的蟒！！！\n");
 	set("attitude", "aggressive");
 	set("str", 150);
 	set("con", 150);
@@ -22,7 +22,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$N垂死挣扎了几下就不动了。\n", this_object());
+	message_vision("$N垂死掙扎了幾下就不動了。\n", this_object());
 	ob = new("/d/baituo/obj/shepi");
 	ob->move(environment(this_object()));
 	destruct(this_object());

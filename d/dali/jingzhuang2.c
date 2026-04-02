@@ -4,10 +4,10 @@
 inherit ROOM;
 void create()
 {
-	set("short","第二层");
+	set("short","第二層");
 	set("long",@LONG
-为四神坐像，各有表情，衣褶隆起，筋节毕现，肌肉暴起，极富
-立体感。
+爲四神坐像，各有表情，衣褶隆起，筋節畢現，肌肉暴起，極富
+立體感。
 LONG);
 	set("exits",([ /* sizeof() == 1 */
 	    "up"    : __DIR__"jingzhuang3",

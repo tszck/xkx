@@ -7,8 +7,8 @@ void create()
 {
 	set("short","走廊");
 	set("long",@LONG
-这是从中厅通向练武场的走廊。长长的走廊曲曲折折，雕栏画柱，
-彩绘镂空，满目绿意，两旁种满了花树。
+這是從中廳通向練武場的走廊。長長的走廊曲曲折折，雕欄畫柱，
+彩繪鏤空，滿目綠意，兩旁種滿了花樹。
 LONG );
 	set("exits",([
 		"north" : __DIR__"zoulang5",
@@ -23,12 +23,12 @@ LONG );
 
 int valid_leave(object me, string dir)
 {
-	if (dir == "south" && me->query("family/family_name") != "桃花岛")
+	if (dir == "south" && me->query("family/family_name") != "桃花島")
 		if (present("zhuang ding", this_object()))
-			return notify_fail("一位庄丁拦住了你，恭恭敬敬地说：“这位贵客请留步，那面是本庄弟子的练武场。”\n");
+			return notify_fail("一位莊丁攔住了你，恭恭敬敬地說：“這位貴客請留步，那面是本莊弟子的練武場。”\n");
 /*
 		else
-			return notify_fail("一位庄丁忽然从花丛里钻了出来，拦住了你，恭恭敬敬地说：“这位贵客请留步，那面是本庄弟子的练武场。”\n看你停步不动了，那位庄丁一拱手，又退回了隐身处。\n");
+			return notify_fail("一位莊丁忽然從花叢裏鑽了出來，攔住了你，恭恭敬敬地說：“這位貴客請留步，那面是本莊弟子的練武場。”\n看你停步不動了，那位莊丁一拱手，又退回了隱身處。\n");
 	
 */
 	return ::valid_leave(me, dir);

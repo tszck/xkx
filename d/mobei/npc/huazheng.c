@@ -4,9 +4,9 @@
 inherit NPC;
 void create()
 {
-	set_name("华筝公主",({"huazheng gongzhu","huazheng","gongzhu"}));
+	set_name("華箏公主",({"huazheng gongzhu","huazheng","gongzhu"}));
 	set("gender","女性");
-	set("long","铁木真的小女儿，郭靖的未婚妻子。\n");
+	set("long","鐵木真的小女兒，郭靖的未婚妻子。\n");
 	set("combat_exp", 20000);
 	set("age",16);
 	set("qi",900);

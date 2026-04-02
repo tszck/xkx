@@ -10,9 +10,9 @@ void create()
 		"lama",
 	}));
 	set("long",
-                "这是血刀老祖座前的小喇嘛，一脸的稚气，看来刚入门不久。\n"
+                "這是血刀老祖座前的小喇嘛，一臉的稚氣，看來剛入門不久。\n"
 	);
-	set("title", HIR"血刀门第六代弟子"NOR);
+	set("title", HIR"血刀門第六代弟子"NOR);
 	set("gender", "男性");
 	set("attitude", "peaceful");
 	set("class", "bonze");

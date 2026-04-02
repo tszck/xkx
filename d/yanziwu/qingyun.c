@@ -5,12 +5,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "青云庄");
+	set("short", "青雲莊");
 	set("long", @LONG
-这里是青云庄。庄上是慕容世家练功之所。自慕容博创下“以彼之
-道，还施彼身”的绝学，立下“南慕容、北乔峰”之名后。慕容世家隐
+這裏是青雲莊。莊上是慕容世家練功之所。自慕容博創下“以彼之
+道，還施彼身”的絕學，立下“南慕容、北喬峯”之名後。慕容世家隱
 然是江南武林泰斗了。
-    庄外湖面正系着一尾小舟(zhou)。
+    莊外湖面正繫着一尾小舟(zhou)。
 LONG );
 	set("outdoors", "yanziwu");
 	set("exits", ([
@@ -20,7 +20,7 @@ LONG );
 		CLASS_D("murong")+"/deng" : 1,
 	]));
 	set("item_desc", ([
-		"zhou" : "这是青云庄和外界联系的小舟。舟上一个绿衫少女。岛上的客人只要\n登舟(enter)就可以离开了。\n",
+		"zhou" : "這是青雲莊和外界聯繫的小舟。舟上一個綠衫少女。島上的客人只要\n登舟(enter)就可以離開了。\n",
 	]));
 	set("coor/x", 950);
 	set("coor/y", -1500);
@@ -41,15 +41,15 @@ int do_enter(string arg)
 	 	return 1 ;
 	}
 	ob = this_player();
-message_vision("船上一个秀美温柔的江南少女看到$N登舟，竹篙轻点，舟已
-离岸，青云庄渐渐在视野里远去。\n", ob);
+message_vision("船上一個秀美溫柔的江南少女看到$N登舟，竹篙輕點，舟已
+離岸，青雲莊漸漸在視野裏遠去。\n", ob);
 	ob ->move(__DIR__"taihu") ;
-	tell_object(ob, HIG "你在湖上飘流，四周看不尽的江南美景。\n" NOR ) ;
+	tell_object(ob, HIG "你在湖上飄流，四周看不盡的江南美景。\n" NOR ) ;
 	call_out("home", 10 , ob );
 	return 1 ;
 }
 void home( object ob )
 {
-	tell_object(ob , "小舟终于恋恋不舍地靠岸了。你走下小舟来。少女挥手依依道别。\n" ) ;
+	tell_object(ob , "小舟終於戀戀不捨地靠岸了。你走下小舟來。少女揮手依依道別。\n" ) ;
 	ob->move (__DIR__"muti") ;
 }

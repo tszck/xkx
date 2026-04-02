@@ -1,14 +1,14 @@
-//      guangchang.c 广场
+//      guangchang.c 廣場
 
 inherit ROOM;
 
 void create()
 {
-        set("short","广场");
+        set("short","廣場");
         set("long",@LONG
-这里是雪山寺内的广场。广场石埕铺就，黄土垫砌，平整而坚实。
-广场的北面就是依山而建的雪山寺大殿。往西是块练武场，南面是山门。
-寺内有一些手持僧棍的僧兵在巡逻。
+這裏是雪山寺內的廣場。廣場石埕鋪就，黃土墊砌，平整而堅實。
+廣場的北面就是依山而建的雪山寺大殿。往西是塊練武場，南面是山門。
+寺內有一些手持僧棍的僧兵在巡邏。
 LONG );
         set("outdoors","xueshansi");
         set("exits",([

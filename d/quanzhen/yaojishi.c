@@ -1,4 +1,4 @@
-// yaojishi.c 药剂室
+// yaojishi.c 藥劑室
 // Winder Oct.10 1998
 
 inherit ROOM;
@@ -6,12 +6,12 @@ int do_pullout(string arg);
 
 void create()
 {
-        set("short", "药剂室");
+        set("short", "藥劑室");
         set("long", @LONG
-这里是全真教制药、配药的地方。这间房间本来很大，只是
-被前后左右堆放的药柜药箱挤的显得小多了。药柜已经很陈旧了，
-不过是用上好的南海沉香木做成的，据说用这种木材做成的柜子
-用来储藏东西不会遭虫蛀。药柜上面有个抽屉(drawer)。
+這裏是全真教製藥、配藥的地方。這間房間本來很大，只是
+被前後左右堆放的藥櫃藥箱擠的顯得小多了。藥櫃已經很陳舊了，
+不過是用上好的南海沉香木做成的，據說用這種木材做成的櫃子
+用來儲藏東西不會遭蟲蛀。藥櫃上面有個抽屜(drawer)。
 LONG
         );
         set("sleep_room",1);
@@ -24,7 +24,7 @@ LONG
         ]));
 
         set("item_desc", ([
-        "drawer": "一个抽屉，不知道是因为粗心还是什么原因，没有上锁。\n"
+        "drawer": "一個抽屜，不知道是因爲粗心還是什麼原因，沒有上鎖。\n"
         ]) );
 
         set("count",1);
@@ -46,21 +46,21 @@ int do_pullout(string arg)
         object ob;
 
         if( !arg || arg != "drawer" ) {
-                return notify_fail("你要拉开什么？\n");
+                return notify_fail("你要拉開什麼？\n");
         }
 
         if (query("count")>0) {
-        message_vision("$N趁着掌药道长转过身去，飞快地把抽屉拉开，里面好象有什么东西，\n",this_player());
-        message_vision("还没来得及看，掌药道长又转过身来。只吓得$N一把抓起抽屉里的东西\n", this_player());
-        message_vision("塞进怀里，然后装作抬头看药柜的木质，做出一副若无其事的样子。哈\n",this_player());
-        message_vision("哈，掌药道长居然没发觉，$N长出了一口气，把无辜的表情收了回来。\n",this_player());
+        message_vision("$N趁着掌藥道長轉過身去，飛快地把抽屜拉開，裏面好象有什麼東西，\n",this_player());
+        message_vision("還沒來得及看，掌藥道長又轉過身來。只嚇得$N一把抓起抽屜裏的東西\n", this_player());
+        message_vision("塞進懷裏，然後裝作抬頭看藥櫃的木質，做出一副若無其事的樣子。哈\n",this_player());
+        message_vision("哈，掌藥道長居然沒發覺，$N長出了一口氣，把無辜的表情收了回來。\n",this_player());
         add("count",-1);
         ob=new("/clone/medicine/vegetable/tianqi");
         ob->move(me);
         }
         else {
-        message_vision("$N趁着掌药道长转过身去，飞快地把抽屉拉开，里面空空如也，原本在\n",this_player());
-        message_vision("里面的东西好象已经被人取走了。\n", this_player());
+        message_vision("$N趁着掌藥道長轉過身去，飛快地把抽屜拉開，裏面空空如也，原本在\n",this_player());
+        message_vision("裏面的東西好象已經被人取走了。\n", this_player());
         }
 
         return 1;

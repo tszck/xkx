@@ -4,11 +4,11 @@ inherit NPC;
 void create()
 {
         set_name("高根明", ({ "gao genming","gao","genming" }) );
-        set("nickname", "市井豪杰");
+        set("nickname", "市井豪傑");
         set("gender", "男性");
         set("age", 24);
         set("long",
-                "高根明是岳不群的第五位弟子。\n");
+                "高根明是嶽不羣的第五位弟子。\n");
         set("attitude", "peaceful");
 
         set("str", 26);
@@ -47,7 +47,7 @@ void create()
         map_skill("unarmed", "huashan-ken");
         map_skill("dodge", "feiyan-huixiang");
 
-        create_family("华山派", 14, "弟子");
+        create_family("華山派", 14, "弟子");
         setup();
 
         carry_object("/clone/weapon/changjian")->wield();

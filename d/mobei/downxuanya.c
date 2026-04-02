@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "悬崖下");
+	set("short", "懸崖下");
 	set("long", @LONG
-陡峭的山崖壁立，漠北苦寒的风沙侵蚀，山崖更是光滑险峻。几柱
-矮树平平从山石中伸出，铁灰色的山石愈行愈高，直与天空中的白云相
-接。两头白色的大雕围绕着山崖边的一株松树鸣叫。
+陡峭的山崖壁立，漠北苦寒的風沙侵蝕，山崖更是光滑險峻。幾柱
+矮樹平平從山石中伸出，鐵灰色的山石愈行愈高，直與天空中的白雲相
+接。兩頭白色的大雕圍繞着山崖邊的一株松樹鳴叫。
 LONG);
 	set("outdoors","mobei");
 	set("objects", ([ /* sizeof() == 1 */
@@ -37,9 +37,9 @@ int do_climb(string arg)
 	if( !arg || arg=="" ) return 0;
 	if( arg=="ya")
 	{
-		message("vision", me->name() + "吭吃吭吃向悬崖上爬去。\n", environment(me), ({me}) );
+		message("vision", me->name() + "吭喫吭喫向懸崖上爬去。\n", environment(me), ({me}) );
 		me->move(__DIR__"yading");
-		message("vision", me->name() + "从悬崖下爬了上来，粘了一身泥。\n", environment(me), me );
+		message("vision", me->name() + "從懸崖下爬了上來，粘了一身泥。\n", environment(me), me );
 		return 1;
 	}
 }

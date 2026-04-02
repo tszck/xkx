@@ -4,9 +4,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("药店掌柜", ({ "zhang gui", "boss"}));
+	set_name("藥店掌櫃", ({ "zhang gui", "boss"}));
 	set("gender", "男性");
-	set("long", "他看上去是个风雅之人，不知道医术如何。\n");
+	set("long", "他看上去是個風雅之人，不知道醫術如何。\n");
 	set("age", 45);
 
 	set("int", 30);

@@ -9,22 +9,22 @@ inherit NPC;
 //inherit F_CLEAN_UP;
 inherit F_UNIQUE;
 string * name_msg = ({
-        "恶霸",
+        "惡霸",
         "小偷",
-        "恶僧",
-        "小毛贼",
-        "醉汉",
-        "山贼",
-        "蛮兵",
-        "恶奴",
+        "惡僧",
+        "小毛賊",
+        "醉漢",
+        "山賊",
+        "蠻兵",
+        "惡奴",
         "土匪",
         "小混混",
-        "采花贼",
+        "採花賊",
         "蒙面人",
-        "恶丐",
-        "恶商",
+        "惡丐",
+        "惡商",
         "刀客",
-        "剑客",
+        "劍客",
 });
 string * long_id = ({
         "e ba",
@@ -101,7 +101,7 @@ void init()
 		{	 
 			command("kao " + ob->query("id"));
 			ob->start_busy(1+random(3));
-			command("say 你这个混蛋，没事跑来巡城？敢管大爷闲事！");
+			command("say 你這個混蛋，沒事跑來巡城？敢管大爺閒事！");
 			command("kick "+ ob->query("id"));						}
          add_action("do_hit","hit");
          add_action("do_hit","kill");    
@@ -123,7 +123,7 @@ int do_look(string arg)
 
         else
         {
-          message_vision( ob->query("name") + "大喝到：看什么看，快滚！\n",me);
+          message_vision( ob->query("name") + "大喝到：看什麼看，快滾！\n",me);
           return 1;
         }
 
@@ -141,7 +141,7 @@ int do_hit(string arg)
         {
                 if (userp(me) )
                 {
-                        tell_object(me,HIW"不是你要抓的人，凑什么热闹！\n"NOR);
+                        tell_object(me,HIW"不是你要抓的人，湊什麼熱鬧！\n"NOR);
                         return 1;
                 }
                 else return 0;
@@ -156,7 +156,7 @@ int do_halt()
         
         if ( me->is_fighting(ob))
         {
-                message_vision(HIW"$N喝道：“嘿嘿，想打架？不分出个高下怎么行！”\n"NOR, ob, me);
+                message_vision(HIW"$N喝道：“嘿嘿，想打架？不分出個高下怎麼行！”\n"NOR, ob, me);
                 return 1;
         }
         return 0;

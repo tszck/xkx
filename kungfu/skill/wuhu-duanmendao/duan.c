@@ -7,7 +7,7 @@
 #include <combat.h>
 
 inherit F_SSERVER;
-#define PNAME "「断」字决"
+#define PNAME "「斷」字決"
 int perform(object me, object target)
 {
 	object weapon, ob;
@@ -23,18 +23,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "blade")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 		
 
 	fskill = "yunlong-shengong";
@@ -49,18 +49,18 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"还不到家，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"還不到家，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(sskill)+"还不到家，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"還不到家，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(bskill)+"还不到家，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"還不到家，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 200 )
-		return notify_fail("你的真气不够！\n");
+		return notify_fail("你的真氣不夠！\n");
 
-	msg = HIY"$N猛然伏地，使出地堂刀断字决，顿时一片白光直向前滚去！\n" NOR;
+	msg = HIY"$N猛然伏地，使出地堂刀斷字決，頓時一片白光直向前滾去！\n" NOR;
 	message_combatd(msg, me);
 	
 	for (count=0;count<3;count++)
@@ -84,13 +84,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		连续出手三刀
+		連續出手三刀
 
 	出手要求：
-		五虎断门刀60级
-		基本刀法60级
-		云龙神功50级
-		内力200
+		五虎斷門刀60級
+		基本刀法60級
+		雲龍神功50級
+		內力200
 HELP
 	);
 	return 1;

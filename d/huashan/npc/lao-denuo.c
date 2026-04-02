@@ -5,12 +5,12 @@ inherit NPC;
 
 void create()
 {
-        set_name("劳德诺", ({ "lao denuo","lao","denuo" }) );
+        set_name("勞德諾", ({ "lao denuo","lao","denuo" }) );
         set("nickname", "老好人");
         set("gender", "男性");
         set("age", 61);
         set("long",
-                "劳德诺是岳不群的二弟子。\n");
+                "勞德諾是嶽不羣的二弟子。\n");
         set("attitude", "peaceful");
 
         set("str", 26);
@@ -48,7 +48,7 @@ void create()
         map_skill("unarmed", "huashan-ken");
         map_skill("dodge", "feiyan-huixiang");
 
-        create_family("华山派", 14, "弟子");
+        create_family("華山派", 14, "弟子");
         setup();
 
         carry_object("/clone/weapon/changjian")->wield();

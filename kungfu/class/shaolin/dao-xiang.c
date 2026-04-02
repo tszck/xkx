@@ -8,14 +8,14 @@ string ask_me_2(string name);
 
 void create()
 {
-	set_name("道相禅师", ({
+	set_name("道相禪師", ({
 		"daoxiang chanshi",
 		"daoxiang",
 		"chanshi",
 	}));
 	set("long",
-		"他是一位身材高大的中年僧人，两臂粗壮，膀阔腰圆。他手持兵\n"
-		"刃，身穿一袭灰布镶边袈裟，似乎有一身武艺。\n"
+		"他是一位身材高大的中年僧人，兩臂粗壯，膀闊腰圓。他手持兵\n"
+		"刃，身穿一襲灰布鑲邊袈裟，似乎有一身武藝。\n"
 	);
 
 	set("gender", "男性");
@@ -59,13 +59,13 @@ void create()
 	create_family("少林派", 39, "弟子");
 
         set("inquiry", ([
-		"铁护腕" : (: ask_me_1, "huwan" :),
-		"铁护腰" : (: ask_me_1, "huyao" :),
+		"鐵護腕" : (: ask_me_1, "huwan" :),
+		"鐵護腰" : (: ask_me_1, "huyao" :),
 		"皮手套" : (: ask_me_1, "shoutao" :),
-		"皮围脖" : (: ask_me_1, "weibo" :),
-		"铁指套" : (: ask_me_1, "zhitao" :),
+		"皮圍脖" : (: ask_me_1, "weibo" :),
+		"鐵指套" : (: ask_me_1, "zhitao" :),
 		"僧鞋"   : (: ask_me_1, "sengxie" :),
-                "铁背心" : (: ask_me_2, "beixin" :)
+                "鐵背心" : (: ask_me_2, "beixin" :)
         ]));
 
 	set("huju_count", 50);
@@ -84,23 +84,23 @@ string ask_me_1(string name)
 	
 	if (!(fam = this_player()->query("family")) || fam["family_name"] != "少林派")
 		return RANK_D->query_respect(this_player()) + 
-		"与本派素无来往，不知此话从何谈起？";
+		"與本派素無來往，不知此話從何談起？";
 
 	if (  present(name, this_player()) )
 		return RANK_D->query_respect(this_player()) + 
-		"你现在身上不是有这样防具吗，怎麽又来要了？ 真是贪得无餍！";
+		"你現在身上不是有這樣防具嗎，怎麼又來要了？ 真是貪得無饜！";
 
 	if (query("huju_count") < 1)
-		return "抱歉，你来得不是时候，防具已经发完了。";
+		return "抱歉，你來得不是時候，防具已經發完了。";
 
 	ob = new("/d/shaolin/obj/" + name);
 	ob->move(this_player());
 
 	add("huju_count", -1);
 
-	message_vision("道相给$N一件" + ob->query("name") + "。\n", this_player());
+	message_vision("道相給$N一件" + ob->query("name") + "。\n", this_player());
 
-	return "拿去吧。不过要记住，防具只可防身练武，不可凭此妨害他人。";
+	return "拿去吧。不過要記住，防具只可防身練武，不可憑此妨害他人。";
 }
 
 string ask_me_2(string name)
@@ -110,17 +110,17 @@ string ask_me_2(string name)
 	
 	if (!(fam = this_player()->query("family")) || fam["family_name"] != "少林派")
 		return RANK_D->query_respect(this_player()) + 
-		"与本派素无来往，不知此话从何谈起？";
+		"與本派素無來往，不知此話從何談起？";
 
 	if (query("beixin_count") < 1)
-		return "抱歉，你来得不是时候，武器已经发完了。";
+		return "抱歉，你來得不是時候，武器已經發完了。";
 
 	ob = new("/d/shaolin/obj/" + name);
 	ob->move(this_player());
 
 	add("beixin_count", -1);
 
-	message_vision("道相给$N一件" + ob->query("name") + "。\n", this_player());
+	message_vision("道相給$N一件" + ob->query("name") + "。\n", this_player());
 
-	return "拿去吧。不过要记住，铁背心乃是防身宝物，不可凭此妨害他人。";
+	return "拿去吧。不過要記住，鐵背心乃是防身寶物，不可憑此妨害他人。";
 }

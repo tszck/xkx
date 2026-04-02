@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("苏州少女",({ "girl" }) );
+	set_name("蘇州少女",({ "girl" }) );
         set("gender", "女性" );
         set("age", 21);
         set("long", 
-"她一脸聪明乖巧，满口伶牙俐齿。见有人稍微示意，便过去加茶倒水。\n");
+"她一臉聰明乖巧，滿口伶牙俐齒。見有人稍微示意，便過去加茶倒水。\n");
         set_temp("apply/defense", 5);
 	set("combat_exp", 70);
 //        set("shen", 100);

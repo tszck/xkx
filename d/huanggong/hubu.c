@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "户部公署");
+	set("short", "戶部公署");
 	set("long", @LONG
-这里是六部之二--户部官员候朝的朝房.
+這裏是六部之二--戶部官員候朝的朝房.
 LONG
 	);
 	set("no_clean_up", 0);

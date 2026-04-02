@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "战船");
+	set("short", "戰船");
 	set("long", @LONG
-这是一艘大渔船，船上的人白天打鱼，晚上就干些没本钱的买卖，
-接济沿湖的百姓。
+這是一艘大漁船，船上的人白天打魚，晚上就幹些沒本錢的買賣，
+接濟沿湖的百姓。
 LONG );
 	set("outdoors", "guiyun");
 	set("no_clean_up", 0);

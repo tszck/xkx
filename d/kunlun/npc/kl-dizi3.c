@@ -4,9 +4,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("昆仑派女弟子", ({ "dizi"}));
+	set_name("崑崙派女弟子", ({ "dizi"}));
 	set("long",
-		"她看起来容貌俏丽，似乎练过一点武功。\n");
+		"她看起來容貌俏麗，似乎練過一點武功。\n");
 	set("gender", "女性");
 	set("age", 25);
 	set("attitude", "heroism");
@@ -34,7 +34,7 @@ void create()
 	map_skill("force", "xuantian-wuji");
 	map_skill("dodge", "taxue-wuhen");
 
-	create_family("昆仑派", 6, "弟子");
+	create_family("崑崙派", 6, "弟子");
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();
 	carry_object("/d/kunlun/obj/pao3")->wear();

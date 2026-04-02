@@ -3,7 +3,7 @@
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "唱仙法之唱字决"
+#define PNAME "唱仙法之唱字決"
 int perform(object me, object target)
 {
 	int skill;
@@ -18,14 +18,14 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 /*
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 */		
 	fskill = "dulong-dafa";
 	bskill = "staff";
@@ -39,20 +39,20 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不会使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 300 )
-		return notify_fail("你已经唱得精疲力竭，内力不够了。\n");
+		return notify_fail("你已經唱得精疲力竭，內力不夠了。\n");
 
 	if( (int)me->query_temp("chang") == 50 )
-		return notify_fail("你已经唱得太久了,唱不下去了。\n");
+		return notify_fail("你已經唱得太久了,唱不下去了。\n");
 
 	me->add("neili", -200);
 
-	message_combatd(HIR "只听$N口中念念有词，顷刻之间武功大进！\n" NOR, me);
+	message_combatd(HIR "只聽$N口中唸唸有詞，頃刻之間武功大進！\n" NOR, me);
 
 	me->add_temp("apply/attack", 1);
 	me->add_temp("apply/dodge", 1);
@@ -69,13 +69,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		耗费自己的内力
-		增加自己的攻击力、防御力
+		耗費自己的內力
+		增加自己的攻擊力、防禦力
 
 	出手要求：
-		毒龙大法50级
-		神龙杖法60级
-		内力300
+		毒龍大法50級
+		神龍杖法60級
+		內力300
 HELP
 	);
 	return 1;

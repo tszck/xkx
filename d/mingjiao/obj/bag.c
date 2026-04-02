@@ -9,8 +9,8 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "个");
-		set("long", "这是一个油布包裹。\n");
+		set("unit", "個");
+		set("long", "這是一個油布包裹。\n");
 		set("value", 500);
 		set("material", "cloth");
 	}
@@ -34,19 +34,19 @@ int do_open(string arg)
 
 	if ( !id(arg) )
 	{
-		return notify_fail("什么？\n");
+		return notify_fail("什麼？\n");
 	}
 	if ( query("book_count") < 1)
 	{
-		return notify_fail("油布包里面什么也没有了。\n");
+		return notify_fail("油布包裏面什麼也沒有了。\n");
 	}
 
 	me = this_player();
 		where = environment(me);
-message("channel:rumor", MAG"【谣言】某人："+this_player()->query("name")+"找到九阳真经啦。\n"NOR, users());
+message("channel:rumor", MAG"【謠言】某人："+this_player()->query("name")+"找到九陽真經啦。\n"NOR, users());
 		message_vision(
-"$N轻轻地把油布包来看时，里面原来是四本薄薄的经书，只因油布包得紧密，虽
-长期藏在猿腹之中，书页仍然完好无损。\n", me);
+"$N輕輕地把油布包來看時，裏面原來是四本薄薄的經書，只因油布包得緊密，雖
+長期藏在猿腹之中，書頁仍然完好無損。\n", me);
 		book = new("/clone/book/jiuyang1");
 		book->move(file_name(where));
 		book = new("/clone/book/jiuyang2");

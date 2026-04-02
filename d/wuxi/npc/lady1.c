@@ -8,7 +8,7 @@ void create()
 	set("gender", "女性" );
 	set("age", 16);
 	set("long", 
-"这是个十六、七岁的江南少女，清丽如水，温婉依人。\n");
+"這是個十六、七歲的江南少女，清麗如水，溫婉依人。\n");
 	set_temp("apply/defense", 5);
 	set("combat_exp", 500);
 //	set("shen", 100);

@@ -5,9 +5,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "绳床");
+	set("short", "繩牀");
 	set("long", @LONG
-一条挂在侧厢中的细麻绳。
+一條掛在側廂中的細麻繩。
 LONG );
 	set("no_clean_up", 0);
 	set("coor/x", -3180);

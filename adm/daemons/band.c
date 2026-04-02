@@ -59,19 +59,19 @@ void load_sites()
 	return;
 }
 
-// 先匹配解禁列表，后匹配封禁列表，以允许正则表达式的过滤
+// 先匹配解禁列表，後匹配封禁列表，以允許正則表達式的過濾
 // 例如：ban 210.34.4	allow 210.34.4.168
 int is_banned(string site)
 {
 	int i;
 	
-	// 先判断是否在解禁列表中
+	// 先判斷是否在解禁列表中
         for (i = 0; i < sizeof(keys(OKSites)); i++)	
                 if (site == keys(OKSites)[i] && values(OKSites)[i] != -1
 		    || strsrch(site, keys(OKSites)[i]) != -1 && values(OKSites)[i] == -1)
                         return 0;
 	
-	// 再判断是否在封禁列表中
+	// 再判斷是否在封禁列表中
 	for (i = 0; i < sizeof(keys(Sites)); i++) {
 		if (site == keys(Sites)[i] && values(Sites)[i] == 0
 		    || strsrch(site, keys(Sites)[i]) != -1 && values(Sites)[i] == -1 )
@@ -126,7 +126,7 @@ void add(string site, mixed num)
 
 	if ((i = member_array(site, keys(Sites))) != -1)
 		if (values(Sites)[i] == num) {
-			tell_object(this_player(), "这个地址已经被封禁了。\n");
+			tell_object(this_player(), "這個地址已經被封禁了。\n");
 			return;
 		} else if (values(Sites)[i] != -1) {
 			Sites[keys(Sites)[i]] = num;
@@ -135,7 +135,7 @@ void add(string site, mixed num)
 
 	if (match_sites(Sites, site) && !check)
 		if (i = member_array(site, keys(OKSites)) == -1) {
-			tell_object(this_player(), "这个地址已经被封禁了。\n");
+			tell_object(this_player(), "這個地址已經被封禁了。\n");
 			return;
 		} else if (!num) {
 			map_delete(OKSites, site);
@@ -144,7 +144,7 @@ void add(string site, mixed num)
 			record_list(OKSites, ALLOWED_SITES);
 			return;
 		} else {
-			tell_object(this_player(), "这个地址已经被封禁了。\n");
+			tell_object(this_player(), "這個地址已經被封禁了。\n");
 			return;
 		}
 
@@ -192,13 +192,13 @@ void delete(string site, mixed num)
 
 	if (member_array(site, keys(OKSites)) != -1) {
 		if (values(OKSites)[i] == num) {
-			tell_object(this_player(), "该地址已在解禁之列。\n");
+			tell_object(this_player(), "該地址已在解禁之列。\n");
 			return;
 		} else  OKSites[keys(OKSites)[i]] = num;
 	}
 	
 	if (match_sites(OKSites, site)) {
-			tell_object(this_player(), "该地址已在解禁之列。\n");
+			tell_object(this_player(), "該地址已在解禁之列。\n");
 			return;
 	}
 

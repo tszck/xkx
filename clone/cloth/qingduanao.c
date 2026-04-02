@@ -7,7 +7,7 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(HIC"青缎袄"NOR, ({"qingduan ao", "ao", "cloth"}));
+	set_name(HIC"青緞襖"NOR, ({"qingduan ao", "ao", "cloth"}));
 	set_weight(3000);
 	if( clonep() )
 		set_default_object(__FILE__);

@@ -5,12 +5,12 @@ inherit NPC;
 int shang_ya();
 void create()
 {
-	set_name("张乘风", ({"zhang chengfeng", "zhang", "chengfeng"}));
+	set_name("張乘風", ({"zhang chengfeng", "zhang", "chengfeng"}));
 	set("nickname", HIY "金猴神魔" NOR );
 	set("gender", "男性");
 	set("age", 42);
 	set("shen_type", -1);
-	set("long", "他是日月神教前辈长老。\n");
+	set("long", "他是日月神教前輩長老。\n");
 	set("attitude", "peaceful");
 	set("env/wimpy", 40);
 
@@ -32,9 +32,9 @@ void create()
 	set("score", 0);
 	set("inquiry", ([
 		"黑木崖"   : "黑木崖弟子或持教主令牌方能“上崖”！\n",
-		"日月神教" : "你想加入我日月神教，就得找四大堂长老。",
-		"黑木令"   : "那是本教教主令牌，见牌如见教主亲临！\n",
-		"入教"     : "你想加入我日月神教，就得找四大堂长老。",
+		"日月神教" : "你想加入我日月神教，就得找四大堂長老。",
+		"黑木令"   : "那是本教教主令牌，見牌如見教主親臨！\n",
+		"入教"     : "你想加入我日月神教，就得找四大堂長老。",
 		"上崖"     : (: shang_ya :),
 	]) );
 
@@ -55,7 +55,7 @@ void create()
 	map_skill("dodge", "lingxu-bu");
 
 	set("party/party_name", HIB"日月神教"NOR);
-	set("party/rank", HIR"前辈长老"NOR);
+	set("party/rank", HIR"前輩長老"NOR);
 	create_family("黑木崖", 4, "弟子");
 
 	setup();
@@ -69,15 +69,15 @@ int shang_ya()
 	ob = this_player ( ) ;
 	if (ob->query("family/family_name") == "黑木崖")
 	{
-		message_vision("张乘风一招手，崖上落下一个大吊篮。\n",ob);
-		message_vision("$N一弯腰进了吊篮，吊篮缓缓地铰上崖去......\n",ob);
+		message_vision("張乘風一招手，崖上落下一個大吊籃。\n",ob);
+		message_vision("$N一彎腰進了吊籃，吊籃緩緩地鉸上崖去......\n",ob);
 		myenv = environment (ob) ;
 		ob->move ("/d/heimuya/basket");
 		call_out("goto_heimuya", 10, ob) ;
 	   	return 1;
 	}
 	else  
-		message_vision("张乘风上上下下打量了$N一下：什么！上崖？你的黑木令呢？！\n",ob);
+		message_vision("張乘風上上下下打量了$N一下：什麼！上崖？你的黑木令呢？！\n",ob);
 	return 1;
 }
 
@@ -86,9 +86,9 @@ int accept_object(object who, object ob)
 	object myenv ;
 	if (ob->query("id") == "heimu ling")
 	{
-		message_vision("张乘风对$N说：好！这位" + RANK_D->query_respect(who) + "不错，那就请吧！\n" , who);
-		message_vision("张乘风一招手，崖上落下一个大吊篮。\n", who);
-		message_vision("$N一弯腰进了吊篮，吊篮缓缓地铰上崖去......\n", who);
+		message_vision("張乘風對$N說：好！這位" + RANK_D->query_respect(who) + "不錯，那就請吧！\n" , who);
+		message_vision("張乘風一招手，崖上落下一個大吊籃。\n", who);
+		message_vision("$N一彎腰進了吊籃，吊籃緩緩地鉸上崖去......\n", who);
 		myenv = environment (who) ;
 		who->move ("/d/heimuya/basket");
 		call_out("goto_heimuya",10,who) ;
@@ -96,7 +96,7 @@ int accept_object(object who, object ob)
 	}
 	else  
 	{
-		message_vision("张乘风对$N说：你敢耍我？！\n", who);
+		message_vision("張乘風對$N說：你敢耍我？！\n", who);
 		this_object()->kill_ob(who);
 	}
 	return 0;
@@ -104,7 +104,7 @@ int accept_object(object who, object ob)
 
 void goto_heimuya (object ob)
 {
-	tell_object(ob , "你眼前一亮，一幢幢白色建筑屹立眼前，霎是辉煌。\n");
+	tell_object(ob , "你眼前一亮，一幢幢白色建築屹立眼前，霎是輝煌。\n");
 	ob->move ("/d/heimuya/chengdedian") ;
 }
 

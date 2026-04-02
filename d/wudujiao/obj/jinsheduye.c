@@ -16,9 +16,9 @@ void create()
                set_name("金蛇毒液", ({"jinshe duye" ,"duye"}));
 
                 set("unit", "瓶");
-                set("long", "这是一瓶剧毒的金蛇毒液。\n");
+                set("long", "這是一瓶劇毒的金蛇毒液。\n");
                 set("value", 100);
-//            set("no_drop", "这样东西不能离开你。\n");
+//            set("no_drop", "這樣東西不能離開你。\n");
               set_weight(100);
 
 
@@ -31,6 +31,6 @@ int do_eat(string arg)
     object ob = this_object();
     if (!id(arg))
     return 0;
-    tell_object(me,  "你想死啊，用suicide比较快一点。\n" );
+    tell_object(me,  "你想死啊，用suicide比較快一點。\n" );
     return 1;
 }

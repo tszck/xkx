@@ -5,14 +5,14 @@ inherit ITEM;
 inherit F_EQUIP;
 void create()
 {
-        set_name( HIW"手绢"NOR, ({ "shou juan", "piece"}) );
+        set_name( HIW"手絹"NOR, ({ "shou juan", "piece"}) );
         set_weight(200);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
                 set("unit", "方");
                 set("material", "cloth");
-                set("long", "这是一方雪白的手绢。\n");               
+                set("long", "這是一方雪白的手絹。\n");               
                 set("armor_type", "bandage");
                 set("armor_prop/attack", -10);
                 set("armor_prop/defense", -10);
@@ -38,24 +38,24 @@ int do_look(string arg)
         if(id(arg)){
         if(query("blood_soaked") >= 2 && random(me->query("kar")) < 10 && !query("blooded"))
            {
-            message_vision("$N正拿着张手绢仔细地端详着。\n", me);
+            message_vision("$N正拿着張手絹仔細地端詳着。\n", me);
             if(!query_temp("blooded")){            
-                 tell_object(me, HIY "\n你突然发现这张手绢有点奇怪，被染过血的地方有了点变化！\n\n"NOR);
+                 tell_object(me, HIY "\n你突然發現這張手絹有點奇怪，被染過血的地方有了點變化！\n\n"NOR);
                  set_temp("blooded", 1);
                  return 1;
                  }
             else if(query_temp("blooded") < 3){
-                 tell_object(me, HIY "\n这张手绢被染过血的地方开始出现了点变化！\n"NOR);
+                 tell_object(me, HIY "\n這張手絹被染過血的地方開始出現了點變化！\n"NOR);
                  add_temp("blooded", 1);
                  return 1;
                  }
             else {                 
-                 tell_object(me, HIY "\n你仔细研究了一下，才发现这是张地图，被血浸了后才慢慢现出图案来！\n\n"NOR);
+                 tell_object(me, HIY "\n你仔細研究了一下，才發現這是張地圖，被血浸了後才慢慢現出圖案來！\n\n"NOR);
                  set("blooded", 1);
                  delete_temp("blooded");
                  if (query("owner")==me->query("id"))
                    me->set_temp("li_meet",2);
-                 set("long", "这是一张被血染红了的手绢，上面的图象有些奇怪，好象是张地图。\n");
+                 set("long", "這是一張被血染紅了的手絹，上面的圖象有些奇怪，好象是張地圖。\n");
                  return 1;
                 }
             }
@@ -71,35 +71,35 @@ int do_bandage(string arg)
 {
         object ob;
         if( (int)query("blood_soaked") >= 2 )
-                return notify_fail( name() + "已经被鲜血浸透，不能再用了。\n");
+                return notify_fail( name() + "已經被鮮血浸透，不能再用了。\n");
 
         if( query("equipped") )
-                return notify_fail( name() + "已经裹在你的伤口上了，如果你要用来包扎别人，请你先把它除下来。\n");
+                return notify_fail( name() + "已經裹在你的傷口上了，如果你要用來包紮別人，請你先把它除下來。\n");
 
         if( !arg ) ob = this_player();
         else {
                 ob = present(arg, environment(this_player()));
                 if( !ob || !userp(ob))
-                        return notify_fail("你要替谁裹伤？\n");
+                        return notify_fail("你要替誰裹傷？\n");
         }
 
         if( this_player()->is_fighting()
         ||      ob->is_fighting() )
-                return notify_fail("战斗中不能裹伤。\n");
+                return notify_fail("戰鬥中不能裹傷。\n");
 
         if( (int)ob->query("eff_qi") == (int)ob->query("max_qi") )
                 return notify_fail( (ob==this_player()? "你" : ob->name())
-                        + "并没有受到任何外伤。\n");
+                        + "並沒有受到任何外傷。\n");
 
         if( ob->query_temp("armor/bandage") )
-                return notify_fail( ob->name() + "身上的伤已经裹著其他东西了。\n");
+                return notify_fail( ob->name() + "身上的傷已經裹著其他東西了。\n");
 
         if( !move(ob) ) return 0;
 
         if( ob==this_player() )
-                message_vision("$N用" + name() + "替自己裹伤。\n", this_player());
+                message_vision("$N用" + name() + "替自己裹傷。\n", this_player());
         else
-                message_vision("$N用" + name() + "替$n裹伤。\n", this_player(), ob);
+                message_vision("$N用" + name() + "替$n裹傷。\n", this_player(), ob);
         ::wear();
         ob->apply_condition("bandaged", 40);
         add("blood_soaked", 1);

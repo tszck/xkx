@@ -1,14 +1,14 @@
-// south.c 南家陈圆圆
+// south.c 南家陳圓圓
 
 inherit NPC;
 
 void create()
 {
-	set_name("陈圆圆", ({ "chenyuanyuan"}));
+	set_name("陳圓圓", ({ "chenyuanyuan"}));
 	set("age", 40);
 	set("gender", "女性");
 	set("title", "南家");
-	set("long","她就是陈圆圆。虽然后世认为丢了大明江山也有她的一点点干系，但她砌长城的本事却也不小。\n");
+	set("long","她就是陳圓圓。雖然後世認爲丟了大明江山也有她的一點點幹係，但她砌長城的本事卻也不小。\n");
 	set("attitude", "peaceful");
 	set("str", 24);
 	set("dex", 16);

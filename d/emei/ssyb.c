@@ -1,13 +1,13 @@
-//Room: ssyb.c 舍身崖壁
+//Room: ssyb.c 捨身崖壁
 //Date: Oct. 21 1997 by That
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-	set("short","舍身崖壁");
+	set("short","捨身崖壁");
 	set("long",@LONG
-你终于游到崖壁。抬头上望，微见天光。壁面潮湿，裂缝中微有水渗
-出。脚下是污浊的臭水，四周的景物都看不清。向东就是你来时的水潭。
+你終於游到崖壁。抬頭上望，微見天光。壁面潮溼，裂縫中微有水滲
+出。腳下是污濁的臭水，四周的景物都看不清。向東就是你來時的水潭。
 LONG);
 	set("outdoors","emei");
 	set("objects", ([
@@ -32,9 +32,9 @@ void init()
 int do_climb()
 {
 	object me = this_player();
-	message("vision", me->name()+"使劲爬上去，花了九牛二虎之力。\n", environment(me), ({me}) );
+	message("vision", me->name()+"使勁爬上去，花了九牛二虎之力。\n", environment(me), ({me}) );
 	me->move(__DIR__"gudelin1");
-	message("vision", me->name()+"花了九牛二虎之力，到了这个地方，却不知道在哪里？\n", environment(me), ({me}) );
+	message("vision", me->name()+"花了九牛二虎之力，到了這個地方，卻不知道在哪裏？\n", environment(me), ({me}) );
 	return 1;
 }
 int do_dig()
@@ -43,7 +43,7 @@ int do_dig()
 
 	if (query("sword_count") <1)
 	{
-		message_vision("这里什么也没有了，$N深深叹了口气。\n",me);
+		message_vision("這裏什麼也沒有了，$N深深嘆了口氣。\n",me);
 		return 1;
 	}
 
@@ -57,24 +57,24 @@ int do_dig()
 			if ( ob->violate_unique() )
 			{
 				destruct( ob );
-				message_vision("这里什么也没有了，$N深深叹了口气。\n",me);
+				message_vision("這裏什麼也沒有了，$N深深嘆了口氣。\n",me);
 				return 1;
 			}
-			message_vision("$N忽然挖到个硬的东西。捡起来抹了土看看，高兴的大笑起来。\n", me);
-			write("梦寐以求的倚天剑啊！\n");
+			message_vision("$N忽然挖到個硬的東西。撿起來抹了土看看，高興的大笑起來。\n", me);
+			write("夢寐以求的倚天劍啊！\n");
 			ob->move(me);
-			message("channel:rumor", MAG"【谣言】某人："+me->query("name")+"拿到倚天剑啦。\n"NOR, users());
+			message("channel:rumor", MAG"【謠言】某人："+me->query("name")+"拿到倚天劍啦。\n"NOR, users());
 		}
 		else
 		{
 			me->receive_damage("qi", 20);
-			message_vision("$N使劲往石壁上挖，手都挖出血了。真是白忙了。\n", me);
+			message_vision("$N使勁往石壁上挖，手都挖出血了。真是白忙了。\n", me);
 		}
 		return 1;
 	} 
 	else
 	{
-		message_vision("$N使劲往石壁上挖，手都挖出血了。挖啥呢？\n",me);
+		message_vision("$N使勁往石壁上挖，手都挖出血了。挖啥呢？\n",me);
 		return 1;
 	}
 }

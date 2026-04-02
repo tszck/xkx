@@ -6,7 +6,7 @@ void create()
 {
         set("short", "牌局室");
         set("long", @LONG
-这里是牌局室。
+這裏是牌局室。
 LONG );
         set("exits", ([ /* sizeof() == 1 */
             "south" : __DIR__"zoulang1",

@@ -6,7 +6,7 @@ string ask_me(object who);
 
 void create()
 {
-	set_name("蓝凤凰", ({ "lan fenghuang", "lan" }));
+	set_name("藍鳳凰", ({ "lan fenghuang", "lan" }));
 	set("shen_type", 0);
 
 	set("str", 20);
@@ -14,7 +14,7 @@ void create()
 	set("dex", 22);
 	set("gender", "女性");
 	set("age", 20);
-	set("long","她就是云南五毒教教主蓝凤凰，一生守身如玉，从来不对任何男子假以辞色。\n");
+	set("long","她就是雲南五毒教教主藍鳳凰，一生守身如玉，從來不對任何男子假以辭色。\n");
 	set("combat_exp", 30000);
 	set("max_qi", 500);
 	set("max_jing", 500);
@@ -32,10 +32,10 @@ void create()
 
 	set("attitude", "friendly");
 	set("inquiry", ([
-		"五毒教" : "哼！就凭你也来打听本教？\n",
-		"蓝凤凰" : "你瞎了眼啦？\n",
-		"药方" : "我五毒教祖传众多古怪药方，但向来秘而不宣。\n",
-		"五仙药酒" : (: ask_me :),
+		"五毒教" : "哼！就憑你也來打聽本教？\n",
+		"藍鳳凰" : "你瞎了眼啦？\n",
+		"藥方" : "我五毒教祖傳衆多古怪藥方，但向來祕而不宣。\n",
+		"五仙藥酒" : (: ask_me :),
 	]));
 
 	setup();
@@ -52,20 +52,20 @@ string ask_me(object who)
 	if( me->query("combat_exp") < 100000 ) {
 		command("laugh " + myid);
 		command("kick " + myid);
-		return "还不快滚！本教主不杀无名小卒。\n";
+		return "還不快滾！本教主不殺無名小卒。\n";
 	}
-	say("蓝凤凰顿时脸色一变，怒斥道：这五仙大补药酒，乃当世最神奇的补药，岂能落在你辈手中！\n");
+	say("藍鳳凰頓時臉色一變，怒斥道：這五仙大補藥酒，乃當世最神奇的補藥，豈能落在你輩手中！\n");
 	set("attitude", "aggressive");
 	kill_ob(me);
-	return "蓝凤凰大喝一声，叫道：“本教主今天豁出去，跟你拼了。”\n";
+	return "藍鳳凰大喝一聲，叫道：“本教主今天豁出去，跟你拼了。”\n";
 }
 
 void unconcious()
 {
 	object ob;
 
-	say("\n突然蓝凤凰一声长叹，掏出一瓶药酒扔入舟外。\n");
-	say("随即惨淡一笑，正欲再摸出什么物事，但终究无力动弹不得。\n");
+	say("\n突然藍鳳凰一聲長嘆，掏出一瓶藥酒扔入舟外。\n");
+	say("隨即慘淡一笑，正欲再摸出什麼物事，但終究無力動彈不得。\n");
 	ob = new("/d/shenlong/obj/yaofang");
 	ob->move(this_object());
 	::unconcious();
@@ -75,7 +75,7 @@ void die()
 {
 	object ob;
 
-	say("\n突然，只见船身一晃，蓝凤凰一脚踩空掉入河里。\n");
+	say("\n突然，只見船身一晃，藍鳳凰一腳踩空掉入河裏。\n");
 	if( ob = present("yaofang", this_object()) ) destruct(ob);
 	destruct(this_object());
 }

@@ -7,13 +7,13 @@ void create()
 {
 	set_name("侯通海", ({ "hou tonghai", "hou", "tonghai" }));
 	set("gender", "男性");
-	set("nickname", HIC"三头蛟"NOR);
+	set("nickname", HIC"三頭蛟"NOR);
 	set("age", 43);
 	set("str", 25);
 	set("dex", 16);
 	set("per", 11);
-	set("long", "侯通海是个青脸瘦子，面颊极长，额角上肿起了三个大肉瘤，非
-常难看。\n");
+	set("long", "侯通海是個青臉瘦子，面頰極長，額角上腫起了三個大肉瘤，非
+常難看。\n");
 	set("combat_exp", 100000);
 	set("shen_type", -1);
 	set("attitude", "peaceful");

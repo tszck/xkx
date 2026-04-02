@@ -7,7 +7,7 @@ void create()
 	set_name("胖商人", ({ "pang shangren", "pang" }));
 	set("gender", "男性");
 	set("age", 43);
-	set("long", "他肥肥胖胖的，一脸富贵相。\n");
+	set("long", "他肥肥胖胖的，一臉富貴相。\n");
 	set("combat_exp", 2000);
         set_skill("dodge", 20);
         set_skill("unarmed", 20);

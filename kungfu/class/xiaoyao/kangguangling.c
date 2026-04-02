@@ -1,4 +1,4 @@
-// kangguangling.c 康广陵
+// kangguangling.c 康廣陵
 // Modified by Winder June 25. 2000
 inherit NPC;
 inherit F_MASTER;
@@ -7,9 +7,9 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("康广陵", ({ "kang guangling", "kang" }));
-	set("long","只见他高额凸颡，容貌奇古，笑眯眯的脸色极为和谟，手中抱着一具瑶琴。\n");
-	set("nickname","“函谷八友”琴颠");
+	set_name("康廣陵", ({ "kang guangling", "kang" }));
+	set("long","只見他高額凸顙，容貌奇古，笑眯眯的臉色極爲和謨，手中抱着一具瑤琴。\n");
+	set("nickname","“函谷八友”琴顛");
 	set("gender", "男性");
 	set("age", 50);
 	set("attitude", "friendly");
@@ -55,7 +55,7 @@ void create()
 	}) );
 	set("book_count", 1);
 
-	create_family("逍遥派", 3, "弟子");
+	create_family("逍遙派", 3, "弟子");
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
 	carry_object("/clone/weapon/gangdao")->wield();
@@ -64,6 +64,6 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say 好吧，我就收下你了，以后要多为逍遥派出力啊。");
+	command("say 好吧，我就收下你了，以後要多爲逍遙派出力啊。");
 	command("recruit " + ob->query("id"));
 }

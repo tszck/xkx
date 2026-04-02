@@ -8,8 +8,8 @@ int do_join(string arg);
 
 void create()
 {
-	set_name("殷锦", ({ "yin jin", "yin"}));
-	set("long", "细眼尖脸，八成是个马屁精。\n");
+	set_name("殷錦", ({ "yin jin", "yin"}));
+	set("long", "細眼尖臉，八成是個馬屁精。\n");
 	set("gender", "男性");
 	set("age", 44);
 	set("str", 35);
@@ -43,23 +43,23 @@ void create()
 	prepare_skill("leg", "jueming-leg");
 	set("env/wimpy", 60);
 
-	set("party/party_name", HIY"神龙教"NOR);
-	set("party/rank", YEL"黄龙门"NOR"掌门使");
+	set("party/party_name", HIY"神龍教"NOR);
+	set("party/rank", YEL"黃龍門"NOR"掌門使");
 	set("party/level", 2);
-	create_family("神龙教", 2, "弟子");
+	create_family("神龍教", 2, "弟子");
 
 	set("neili", 1000); 
 	set("max_neili", 1000);
 	set("jiali", 100);
 	set("inquiry", ([
-		"洪安通" : "这三个字是你说的吗？",
-		"洪教主" : "洪教主仙福永享，寿与天齐，洪教主神目如电，烛照四方。",
-		"苏荃"   : "没规没矩的。",
-		"神龙岛" : "神龙岛在汝州的东北方向，从塘沽口出海便到。",
-		"神龙教" : "一般人是入不了我神龙教的(join shenlongjiao)。\n",
-		"入教"   : "一般人是入不了我神龙教的(join shenlongjiao)。\n",
-		"教主"   : "教主脾气不好，要讨他欢心才好。\n",
-		"口号"   : "万年不老！永享仙福！寿与天齐！文武仁圣！\n",
+		"洪安通" : "這三個字是你說的嗎？",
+		"洪教主" : "洪教主仙福永享，壽與天齊，洪教主神目如電，燭照四方。",
+		"蘇荃"   : "沒規沒矩的。",
+		"神龍島" : "神龍島在汝州的東北方向，從塘沽口出海便到。",
+		"神龍教" : "一般人是入不了我神龍教的(join shenlongjiao)。\n",
+		"入教"   : "一般人是入不了我神龍教的(join shenlongjiao)。\n",
+		"教主"   : "教主脾氣不好，要討他歡心纔好。\n",
+		"口號"   : "萬年不老！永享仙福！壽與天齊！文武仁聖！\n",
 	]) );
 	setup();
 	carry_object(CLOTH_DIR"cloth")->wear();

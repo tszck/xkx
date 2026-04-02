@@ -24,9 +24,9 @@ int main(object me, string arg)
   string msg;
 
 	all=0;
-	if (!arg) return notify_fail("你要捡起什么东西？\n");
+	if (!arg) return notify_fail("你要撿起什麼東西？\n");
 	if (me->is_busy())
-		return notify_fail("你上一个动作还没有完成！\n");
+		return notify_fail("你上一個動作還沒有完成！\n");
 	if (sscanf(arg, "%s from %s", arg, from) == 2)
 	{
 	//	env = present(from, me);
@@ -34,24 +34,24 @@ int main(object me, string arg)
 //		if (!env) env = present(from, environment(me));
 		if (!env) env = i_have(environment(me),from);
 		if (!env)
-			return notify_fail("你找不到 "+from+" 这样东西。\n");
+			return notify_fail("你找不到 "+from+" 這樣東西。\n");
 		if ((env->query("no_get_from") ||
 			living(env) && !env->query_temp("noliving/unconcious")) 
 			&& (wiz_level(me) <= wiz_level(env)))
-			return notify_fail("你的巫师等级必须比对方高，才能搜身。\n");
+			return notify_fail("你的巫師等級必須比對方高，才能搜身。\n");
 	} else env = environment(me);
 
 	if (sscanf(arg, "%d %s", amount, item) == 2)
 	{
 	//	if (!objectp(obj = present(item, env)))
 		if( !objectp(obj = i_have( env,item )) ) // env have item	
-			return notify_fail("这里没有这样东西。\n");
+			return notify_fail("這裏沒有這樣東西。\n");
 		if (!obj->query_amount())
-			return notify_fail(obj->name() + "不能被分开拿走。\n");
+			return notify_fail(obj->name() + "不能被分開拿走。\n");
 		if (amount < 1)
-			return notify_fail("东西的个数至少是一个。\n");
+			return notify_fail("東西的個數至少是一個。\n");
 		if (amount > obj->query_amount())
-			return notify_fail("这里没那么多的"+obj->name()+"。\n");
+			return notify_fail("這裏沒那麼多的"+obj->name()+"。\n");
 		else
 			if(amount == (int)obj->query_amount())
 				return do_get(me, obj);
@@ -70,17 +70,17 @@ int main(object me, string arg)
 	if (arg=="all")
 	{
 		if (me->is_fighting())
-			return notify_fail("你还在战斗中！只能一次拿一样。\n");
+			return notify_fail("你還在戰鬥中！只能一次拿一樣。\n");
 		if (!env->query_max_encumbrance())
 			return notify_fail("那不是容器。\n");
    	if (env->is_tree())
-   		return notify_fail("这是给新手活命用的，还是不要太贪心了吧n");
+   		return notify_fail("這是給新手活命用的，還是不要太貪心了吧n");
 		inv = all_inventory(env);
 		if (!sizeof(inv))
 		{
    		if (env->is_tree())
-         		return notify_fail("树上什么也没有了。\n");
-			return notify_fail("那里面没有任何东西。\n");
+         		return notify_fail("樹上什麼也沒有了。\n");
+			return notify_fail("那裏面沒有任何東西。\n");
    	}        	
     if (sizeof(inv)>=20) all=1;
 		for (i = 0; i < sizeof(inv); i ++)
@@ -94,39 +94,39 @@ int main(object me, string arg)
 			do_get(me, inv[i]);
 		}
     if (env->is_character())
-        msg = "$N从" + env->name() + "身上搜出了一堆东西。\n";
+        msg = "$N從" + env->name() + "身上搜出了一堆東西。\n";
     else
      if (env == environment(me))
-        msg = "$N把地上的东西都拣了起来。\n";
+        msg = "$N把地上的東西都揀了起來。\n";
      else
-        msg = "$N把" + env->name() + "里面的东西都拿了出来。\n";
+        msg = "$N把" + env->name() + "裏面的東西都拿了出來。\n";
  
 		if (all!=1)
-		write("捡好了。\n");
+		write("撿好了。\n");
 	  else
 	   message_vision(msg,me);
 		return 1;
 	}
 //	if (!objectp(obj = present(arg, env)))
 	if( !objectp(obj = i_have( env,arg )) ) // me have item	
-		return notify_fail("你附近没有这样东西。\n");
+		return notify_fail("你附近沒有這樣東西。\n");
 	else
 		if( userp(obj))
 		{
 			if(!obj->query_temp("noliving/unconcious") )
-				return notify_fail("你附近没有这样东西。\n");
+				return notify_fail("你附近沒有這樣東西。\n");
 		}
 		else
 		{
 			if(living(obj))
-				return notify_fail("你附近没有这样东西。\n");
+				return notify_fail("你附近沒有這樣東西。\n");
 		}
 
 	if (obj->query("no_get"))
 	  if (stringp(obj->query("no_get")))
       return notify_fail(obj->query("no_get"));
     else
-  		return notify_fail("这个东西拿不起来。\n");
+  		return notify_fail("這個東西拿不起來。\n");
 	return do_get(me, obj);
 }
 
@@ -142,9 +142,9 @@ int do_get(object me, object obj)
 	if (obj->query("no_get")) return 0;
 	if (obj->query_temp("is_rided_by")) return 0;
         if (userp(obj) && obj->query_temp("LAST_PKER_TIME"))
-                 return notify_fail("此人刚杀过人，你还是少惹为妙!\n");
+                 return notify_fail("此人剛殺過人，你還是少惹爲妙!\n");
         if (userp(obj) && obj->is_ghost() && !wizardp(obj))
-                 return notify_fail("这东西拿不起来!\n");
+                 return notify_fail("這東西拿不起來!\n");
 
         if (obj->is_character())
 	{
@@ -168,39 +168,39 @@ int do_get(object me, object obj)
 		if (me->is_fighting()) me->start_busy(1);
 		if (all!=1 )
 		if (obj->is_character())
-			message_vision("$N将$n扶了起来背在背上。\n", me, obj);
+			message_vision("$N將$n扶了起來背在背上。\n", me, obj);
 		else
 		{
 			msg += "$N";
 			if (old_env == environment(me))
-				msg += "捡起";
+				msg += "撿起";
 			else if (old_env->is_character())
-				msg += "从" + old_env->name() + "身上" + (equipped?"除下":"搜出"); 
+				msg += "從" + old_env->name() + "身上" + (equipped?"除下":"搜出"); 
 				else if (old_env->is_tree())
-					msg += "从" + old_env->name() + "摘下";
+					msg += "從" + old_env->name() + "摘下";
 					else
-					msg += "从" + old_env->name() + "拿出";
+					msg += "從" + old_env->name() + "拿出";
 			msg += "一" + obj->query("unit");
 			msg += "$n。\n";
 
 			message_vision(msg, me, obj);
-			// 原先写法可读性较差，改为上面的写法。
+			// 原先寫法可讀性較差，改爲上面的寫法。
 			// Added by Constant Jan 6 2001
 /*
 			message_vision(sprintf("$N%s一%s$n。\n",
 					old_env==environment(me)?
-						"捡起"
+						"撿起"
 					:(old_env->is_character()?
-					  	"从" + old_env->name() + "身上" + (equipped?"除下":"搜出")
+					  	"從" + old_env->name() + "身上" + (equipped?"除下":"搜出")
 					:(old_env->is_tree()?
-					  	"从" + old_env->name() + "上摘下"
-					:"从" + old_env->name() + "中拿出")),
+					  	"從" + old_env->name() + "上摘下"
+					:"從" + old_env->name() + "中拿出")),
 					obj->query("unit")), 
 					me, obj);
 */
 		}
 		
-		// 增加任务物品的信息显示。
+		// 增加任務物品的信息顯示。
 		// Added by Constant Jan 6 2001		
 		if (quest = obj->query("dynamic_quest"))
 		{
@@ -211,13 +211,13 @@ int do_get(object me, object obj)
 				obj->set("owner", me->query("id"));
 				if (!objectp(owner=find_object(quest["owner_name"])))
 					owner=load_object(quest["owner_name"]);
-					message("channel:snow", HIY"【风闻】"HIG + me->query("name") + "找到" + owner->query("name") + HIG"的"NOR + obj->query("name") + HIG"啦！\n"NOR, users());
+					message("channel:snow", HIY"【風聞】"HIG + me->query("name") + "找到" + owner->query("name") + HIG"的"NOR + obj->query("name") + HIG"啦！\n"NOR, users());
 			}
 		}
 		return 1;
 	}
 //	else return 0;
-	else return notify_fail(obj->query("name")+"对你而言太重了。\n");
+	else return notify_fail(obj->query("name")+"對你而言太重了。\n");
 }
 object i_have(object env,string name)
 {
@@ -273,12 +273,12 @@ string filter_color(string arg)
 int help(object me)
 {
 	write(@HELP
-指令格式 : get <物品名称> [from <容器名>]
-           get <物品名称>
+指令格式 : get <物品名稱> [from <容器名>]
+           get <物品名稱>
            get all
 
-    这个指令可以让你捡起地上或容器内的某样物品。ａｌｌ参数将会把能捡
-的物品全捡起来。
+    這個指令可以讓你撿起地上或容器內的某樣物品。ａｌｌ參數將會把能撿
+的物品全撿起來。
 
 HELP
     );

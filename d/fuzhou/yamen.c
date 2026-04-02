@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "提督衙门");
+	set("short", "提督衙門");
 	set("long", @LONG
-这里是衙门大门，两扇朱木大门紧紧关闭着。“肃静”“回避”的
-牌子分放两头石狮子的旁边。前面有一个大鼓，几名戈什哈站在门前。
+這裏是衙門大門，兩扇朱木大門緊緊關閉着。“肅靜”“迴避”的
+牌子分放兩頭石獅子的旁邊。前面有一個大鼓，幾名戈什哈站在門前。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"nandajie",
@@ -27,6 +27,6 @@ LONG );
 int valid_leave(object me, string dir)
 {
 	if (!wizardp(me) && objectp(present("geshiha", environment(me))) && dir != "east")
-		return notify_fail("戈什哈喝道：“施大人已去校场阅兵，你来何干？”\n");
+		return notify_fail("戈什哈喝道：“施大人已去校場閱兵，你來何干？”\n");
 	return ::valid_leave(me, dir);
 }

@@ -1,16 +1,16 @@
-// 天山折梅手法图
+// 天山折梅手法圖
 
 inherit ITEM;
 
 void create()
 {
-	set_name( "天山折梅手法图下卷", ({ "shoufa tu2", "tu2" }));
+	set_name( "天山折梅手法圖下卷", ({ "shoufa tu2", "tu2" }));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "幅");
-		set("long", "这是一幅天山折梅手法图，上面画着一些纷繁复杂的招式。\n");
+		set("long", "這是一幅天山折梅手法圖，上面畫着一些紛繁複雜的招式。\n");
 		set("value", 500);
 		set("no_put", 1);
 		set("material", "paper");

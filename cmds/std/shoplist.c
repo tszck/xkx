@@ -12,7 +12,7 @@ nosave mapping *all_shop = ({
                 "dealer_place":   "/d/beijing/dangpu",
         ]),
         ([
-                "id":             "扬州",
+                "id":             "揚州",
                 "dealer_id":      "tang nan",
                 "dealer_place":   "/d/city/dangpu",
         ]),
@@ -32,17 +32,17 @@ nosave mapping *all_shop = ({
                 "dealer_place":   "/d/lingxiao/sell",
         ]),
         ([
-                "id":             "苏州",
+                "id":             "蘇州",
                 "dealer_id":      "wang heji",
                 "dealer_place":   "/d/suzhou/dangpu",
         ]),
         ([
-                "id":             "无锡",
+                "id":             "無錫",
                 "dealer_id":      "feng hu",
                 "dealer_place":   "/d/wuxi/dangpu",
         ]),
         ([
-                "id":             "襄阳",
+                "id":             "襄陽",
                 "dealer_id":      "qiu hang",
                 "dealer_place":   "/d/xiangyang/dangpu",
         ]),
@@ -54,7 +54,7 @@ nosave mapping *all_shop = ({
                 "dealer_place": 	SHOP_DIR"beijing_shop",
         ]),
         ([
-                "id": 						"长安",
+                "id": 						"長安",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"changan_shop",
         ]),
@@ -64,12 +64,12 @@ nosave mapping *all_shop = ({
                 "dealer_place": 	SHOP_DIR"chengdu_shop",
         ]),
         ([
-                "id": 						"扬州",
+                "id": 						"揚州",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"yangzhou_shop",
         ]),
         ([
-                "id": 						"苏州",
+                "id": 						"蘇州",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"suzhou_shop",
         ]),
@@ -84,12 +84,12 @@ nosave mapping *all_shop = ({
                 "dealer_place": 	SHOP_DIR"fuzhou_shop",
         ]),
         ([
-                "id": 						"无锡",
+                "id": 						"無錫",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"wuxi_shop",
         ]),
         ([
-                "id": 						"开封",
+                "id": 						"開封",
                 "dealer_id": 			"huo ji",
                 "dealer_place": 	SHOP_DIR"kaifeng_shop",
         ]),
@@ -121,9 +121,9 @@ int main(object me, string arg)
   string msg="";
   mapping shop;
   int i;
-  if (!arg) return notify_fail("你要查什么东西?\n");
+  if (!arg) return notify_fail("你要查什麼東西?\n");
   if (time()-me->query("last/query_sell")<10 && !wizardp(me))
-    return notify_fail("系统忙，请稍后再试。\n");
+    return notify_fail("系統忙，請稍後再試。\n");
   seteuid(getuid());
   for (i=0;i<sizeof(all_shop);i++)
   {
@@ -136,7 +136,7 @@ int main(object me, string arg)
     msg+=query_sell(me,dealer,arg,i);
   }
   if (!msg || msg== "")
-  return notify_fail("没有任何当铺卖这样东西。\n");
+  return notify_fail("沒有任何當鋪賣這樣東西。\n");
   me->set("last/query_sell",time());
   tell_object(me,msg);
   return 1;
@@ -155,8 +155,8 @@ string query_sell(object me,object seller,string arg,int shop_number)
         string *invstr;
         string *gk;
         int discount;
-// 先获取符合条件的货物列表
-//处理当铺
+// 先獲取符合條件的貨物列表
+//處理當鋪
    invstr=({});
    ob=({});
    count=({});
@@ -192,15 +192,15 @@ string query_sell(object me,object seller,string arg,int shop_number)
    }
 */  msg = HIW+"\n"+all_shop[shop_number]["id"];
   msg+= environment(seller)->query("short");
-//  msg+= "情况如下：\n"NOR;
+//  msg+= "情況如下：\n"NOR;
   msg += "：\n"NOR;
   for (j=0 ;j<sizeof(ob);j++)
-  msg += sprintf("%30-s%s数量：%3-i %s\n", 
+  msg += sprintf("%30-s%s數量：%3-i %s\n", 
         ob[j]->short(),
         makeup_space(ob[j]->short()), count[j],
         MONEY_D->price_str(ob[j]->query("value") * 6 / 5));
  }
- else  //处理店铺
+ else  //處理店鋪
  {
  	 room = environment(seller);
  	 if (! room->query("shop_type"))  return "";
@@ -247,10 +247,10 @@ string query_sell(object me,object seller,string arg,int shop_number)
   if (sizeof(ob)<=0) return "";
   msg = HIW+"\n"+all_shop[shop_number]["id"];
   msg+= environment(seller)->query("short");
-//  msg+= "情况如下：\n"NOR;
+//  msg+= "情況如下：\n"NOR;
   msg += "：\n"NOR;
   for (j=0;j<sizeof(ob);j++)
-  msg += sprintf("%30-s%s数量：%3-i %s\n", 
+  msg += sprintf("%30-s%s數量：%3-i %s\n", 
         ob[j]->short(),
         makeup_space(ob[j]->short()), count[j],
         MONEY_D->price_str(gk[j] ));
@@ -330,9 +330,9 @@ int help(object me)
 指令格式：shoplist <物品id 或 物品中文名>
 
           例如 shoplist ren shen
-               shoplist 人参
+               shoplist 人蔘
                     
-    这个指令让你能查找到指定物品是否在当铺中销售。
+    這個指令讓你能查找到指定物品是否在當鋪中銷售。
  
 HELP
   );

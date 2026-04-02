@@ -1,4 +1,4 @@
-// yiwei-dujiang.c 南少林身法一苇渡江
+// yiwei-dujiang.c 南少林身法一葦渡江
 
 #include <ansi.h>
 inherit SKILL;
@@ -6,14 +6,14 @@ string type() { return "martial"; }
 string martialtype() { return "dodge"; }
 
 string *dodge_msg = ({
-"$n一式"HIW"「一苇渡江」"NOR"，前后脚脚尖脚跟相靠，身体如行云流水般滑出丈余。\n",
-"$n一式"BLU"「雨燕掠波」"NOR"，双臂前伸，全身贴地平飞，顿时闪过了$N的凌厉攻势。\n",
-"$n一式"HIG"「移步换形」"NOR"，足不动，手不抬，一转眼间便绕到了$N的身后。\n",
-"$n一式"HIC"「分身化影」"NOR"，一转身间，四面八方飘动着无数个$n的身影，令$N手无足措。\n",
-"$n一式"HIY"「孤骛落日」"NOR"，全身笔直，拔地而起，在半空中一转，已落到几丈远的地方。\n",
-"$n一式"GRN"「鸿雁双飞」"NOR"，两臂鹏举如翼，在剌剌风声中，从$N头顶横跃而过。\n",
-"$n一式"HIY"「苍龙出水」"NOR"，双脚点地，全身化为一道白影，急速绕着$N打了几转。\n",
-"$n一式"HIG"「稚凤归巢」"NOR"，身体如陀螺般急转，气流形成一个个漩涡，令$N陷身其间，动弹不得。\n",
+"$n一式"HIW"「一葦渡江」"NOR"，前後腳腳尖腳跟相靠，身體如行雲流水般滑出丈餘。\n",
+"$n一式"BLU"「雨燕掠波」"NOR"，雙臂前伸，全身貼地平飛，頓時閃過了$N的凌厲攻勢。\n",
+"$n一式"HIG"「移步換形」"NOR"，足不動，手不抬，一轉眼間便繞到了$N的身後。\n",
+"$n一式"HIC"「分身化影」"NOR"，一轉身間，四面八方飄動着無數個$n的身影，令$N手無足措。\n",
+"$n一式"HIY"「孤騖落日」"NOR"，全身筆直，拔地而起，在半空中一轉，已落到幾丈遠的地方。\n",
+"$n一式"GRN"「鴻雁雙飛」"NOR"，兩臂鵬舉如翼，在剌剌風聲中，從$N頭頂橫躍而過。\n",
+"$n一式"HIY"「蒼龍出水」"NOR"，雙腳點地，全身化爲一道白影，急速繞着$N打了幾轉。\n",
+"$n一式"HIG"「稚鳳歸巢」"NOR"，身體如陀螺般急轉，氣流形成一個個漩渦，令$N陷身其間，動彈不得。\n",
 });
 
 
@@ -21,14 +21,14 @@ int valid_enable(string usage) { return (usage=="dodge") || (usage=="move"); }
 int valid_learn(object me) 
 {      	
 	if( (int)me->query_skill("zhanzhuang-gong", 1) < 10 )
-	return notify_fail("你的四平大马站桩功不够精熟，无法领会一苇渡江。\n");
+	return notify_fail("你的四平大馬站樁功不夠精熟，無法領會一葦渡江。\n");
 	return 1;
 }
 
 int practice_skill(object me)
 {
 	if( (int)me->query("qi") < 30 || (int)me->query("neili") < 6 )
-		return notify_fail("你的体力太差了，无法练习一苇渡江。\n");
+		return notify_fail("你的體力太差了，無法練習一葦渡江。\n");
 	me->receive_damage("qi", 30);
 	me->add("neili", -6);
 	return 1;
@@ -43,19 +43,19 @@ int learn_bonus() { return 15; }
 int practice_bonus() { return 15; }
 int success() { return 15; }
 int power_point(object me) { return 1.3; }
-int river_point() {return 2;} // 过河比普通容易 越高越好
-string river_go_msg() {	return HIW"$N捡起一段芦苇抛入水中，紧跟着飞身跃上芦苇，长袖飘飘，渡过了水面。\n"NOR;}
-string river_come_msg() {	return HIW"只见$N踩着一段芦苇从对岸过来，姿态潇洒地落在岸边。\n"NOR;}
+int river_point() {return 2;} // 過河比普通容易 越高越好
+string river_go_msg() {	return HIW"$N撿起一段蘆葦拋入水中，緊跟着飛身躍上蘆葦，長袖飄飄，渡過了水面。\n"NOR;}
+string river_come_msg() {	return HIW"只見$N踩着一段蘆葦從對岸過來，姿態瀟灑地落在岸邊。\n"NOR;}
 
 int help(object me)
 {
-	write(HIC"\n一苇渡江："NOR"\n");
+	write(HIC"\n一葦渡江："NOR"\n");
 	write(@HELP
 
-    南少林身法一苇渡江
+    南少林身法一葦渡江
 
-	学习要求：
-	   四平大马站桩功10级
+	學習要求：
+	   四平大馬站樁功10級
 HELP
 	);
 	return 1;

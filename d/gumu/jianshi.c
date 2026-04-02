@@ -6,12 +6,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIC"剑室"NOR);
+	set("short", HIC"劍室"NOR);
 	set("long", @LONG
-一间摆满兵器的石室，很多种剑都整齐地堆放在地上。周围的火把
-照的整个石室灯火通明，几个古墓弟子正站在室中仔细挑选自己合手的
-兵刃。墙角放着一个木制的护具架，上面挂着些古墓弟子平时防身用的
-护具。
+一間擺滿兵器的石室，很多種劍都整齊地堆放在地上。周圍的火把
+照的整個石室燈火通明，幾個古墓弟子正站在室中仔細挑選自己合手的
+兵刃。牆角放着一個木製的護具架，上面掛着些古墓弟子平時防身用的
+護具。
 LONG	);
 	set("exits", ([
 		"south" : __DIR__"mudao07",
@@ -37,7 +37,7 @@ int valid_leave(object ob, string dir)
 	while (i--)
 		if (member_array(base_name(sword[i]), jian) != -1) count++;
 	if (count > 1)
-		return notify_fail("你一下子拿这么多剑，别人不要用了吗？\n");
+		return notify_fail("你一下子拿這麼多劍，別人不要用了嗎？\n");
 	return ::valid_leave(ob, dir);
 }
 

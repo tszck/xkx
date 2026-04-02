@@ -7,27 +7,27 @@ string type() { return "martial"; }
 string martialtype() { return "dodge"; }
 
 string *dodge_msg = ({
-	"却不料$n身形一转，一个"HIY"「藏形匿迹」"NOR"突然转到了$N的身后。\n",
-	"$n足尖在地面一点，身形拔地而起，"HIC"「飞灵八方」"NOR"躲开了这一招。\n",
-	"$n随着$N攻来的招式一个"HIW"「乘虚御空」"NOR"飘了起来，就如一片微风中的柳絮一般。\n",
-	"$n使出"HIY"「解行遁变」"NOR"，身形左一晃、右一闪，不知怎么的，从攻击的间隙中钻了出来。\n",
-	"$n使出"HIM"「回神转玄」"NOR"，足不点地地围绕$N连绕三个大圈，把$N这一招避了开去。\n",
-	"$n连旋数个大圈，跟着又是一个大圈，运起金雁功的"HIC"「弃厄飞霄」"NOR"，身形高高地拔了起来。\n",
-	"$n身形流转，衣袖飘拂，绕场团走，正是金雁功的"HIB"「隐景舞天」"NOR"，形态缦妙已极。\n",
-	"$n身形飘浮，长袖翻卷，一势"HIW"「出有入无」"NOR"，轻松自如地避开了$N的攻势。\n",
+	"卻不料$n身形一轉，一個"HIY"「藏形匿跡」"NOR"突然轉到了$N的身後。\n",
+	"$n足尖在地面一點，身形拔地而起，"HIC"「飛靈八方」"NOR"躲開了這一招。\n",
+	"$n隨着$N攻來的招式一個"HIW"「乘虛御空」"NOR"飄了起來，就如一片微風中的柳絮一般。\n",
+	"$n使出"HIY"「解行遁變」"NOR"，身形左一晃、右一閃，不知怎麼的，從攻擊的間隙中鑽了出來。\n",
+	"$n使出"HIM"「回神轉玄」"NOR"，足不點地地圍繞$N連繞三個大圈，把$N這一招避了開去。\n",
+	"$n連旋數個大圈，跟着又是一個大圈，運起金雁功的"HIC"「棄厄飛霄」"NOR"，身形高高地拔了起來。\n",
+	"$n身形流轉，衣袖飄拂，繞場團走，正是金雁功的"HIB"「隱景舞天」"NOR"，形態縵妙已極。\n",
+	"$n身形飄浮，長袖翻卷，一勢"HIW"「出有入無」"NOR"，輕鬆自如地避開了$N的攻勢。\n",
 });
 
 int valid_enable(string usage) { return usage=="dodge" || usage=="move"; }
 int valid_learn(object me) 
 {      	
 	if( (int)me->query_skill("xiantian-qigong", 1) < 10 )
-	return notify_fail("你的先天功不够精熟，无法领会金雁功。\n");
+	return notify_fail("你的先天功不夠精熟，無法領會金雁功。\n");
 	return 1;
 }
 int practice_skill(object me)
 {
 	if( (int)me->query("qi") < 20|| (int)me->query("neili") < 4 )
-		return notify_fail("你的体力太差了，不能练金雁功。\n");
+		return notify_fail("你的體力太差了，不能練金雁功。\n");
 	me->receive_damage("qi", 20);
 	me->add("neili", -4);	
 	return 1;
@@ -46,10 +46,10 @@ int help(object me)
 	write(HIC"\n金雁功："NOR"\n");
 	write(@HELP
 
-    金雁功为全真派本门轻功。
+    金雁功爲全真派本門輕功。
 
-	学习要求：
-	  先天功10级
+	學習要求：
+	  先天功10級
 HELP
 	);
 	return 1;

@@ -6,7 +6,7 @@ inherit NPC;
 void create()
 {
 	set_name("道士", ({"dao shi", "shi"}));
-	set("long", "他是一位中年道人，是青羊宫中清修之士。\n");
+	set("long", "他是一位中年道人，是青羊宮中清修之士。\n");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "taoist");

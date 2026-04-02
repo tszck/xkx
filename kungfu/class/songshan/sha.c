@@ -6,8 +6,8 @@ inherit F_MASTER;
 void create()
 {
 	set_name("沙天江", ({ "sha tianjiang", "tianjiang", "sha" }) );
-	set("long", "他是一个秃头老者。嵩山派掌门人的师弟。\n");
-	set("nickname", WHT"秃鹰"NOR);
+	set("long", "他是一個禿頭老者。嵩山派掌門人的師弟。\n");
+	set("nickname", WHT"禿鷹"NOR);
 	set("gender", "男性");
 	set("class", "swordsman");
 	set("age", 53);

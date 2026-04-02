@@ -1,4 +1,4 @@
-// heima.c 黑马
+// heima.c 黑馬
 
 #include <command.h>
 #include <dbase.h>
@@ -8,8 +8,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("黑马", ({ "hei ma" }));
-	set("long","一匹骏马，全身漆黑，无一根杂毛。\n");
+	set_name("黑馬", ({ "hei ma" }));
+	set("long","一匹駿馬，全身漆黑，無一根雜毛。\n");
 	set("race", "走畜");
 	set("age", 5);
 	set("attitude","heroism");

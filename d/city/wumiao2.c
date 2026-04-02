@@ -10,12 +10,12 @@ string look_shu();
 
 void create()
 {
-	set("short", "武庙二楼");
+	set("short", "武廟二樓");
 	set("long", @LONG
-这里是岳王庙的二楼，这里供的是岳飞的长子岳云和义子张宪，两
-尊塑像金盔银铠，英气勃勃。楼上是本泥潭的名人堂。
-    进门口有一个小案桌，上面垒着一堆书 (shu)，记录了侠客行一百
-老玩家们写的这个泥潭过去的一些故事。你可以依号阅读(yuedu)。
+這裏是嶽王廟的二樓，這裏供的是嶽飛的長子嶽雲和義子張憲，兩
+尊塑像金盔銀鎧，英氣勃勃。樓上是本泥潭的名人堂。
+    進門口有一個小案桌，上面壘着一堆書 (shu)，記錄了俠客行一百
+老玩家們寫的這個泥潭過去的一些故事。你可以依號閱讀(yuedu)。
 LONG );
 
 	set("no_fight", "1");
@@ -55,7 +55,7 @@ int do_read(string arg)
 {
         object me=this_player();
         if (arg == "" || file_size(BOARD_DIR + arg) <= 0)
-                return notify_fail("好象没有这条公告耶。\n");
+                return notify_fail("好象沒有這條公告耶。\n");
 
         log_file("LIBRARY", sprintf("%s read %s.\n", me->query("name"), arg));
         me->start_more(read_file(BOARD_DIR + arg));

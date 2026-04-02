@@ -1,78 +1,78 @@
-发信人: coolm (闪光伯爵), 信区: Games_MUD 
-标  题: 【合集】关于变量 
-发信站: 鼓浪听涛 (2003年06月30日19:16:38 星期一), 站内信件 
+發信人: coolm (閃光伯爵), 信區: Games_MUD 
+標  題: 【合集】關於變量 
+發信站: 鼓浪聽濤 (2003年06月30日19:16:38 星期一), 站內信件 
   
 ☆──────────────────────────────────────☆ 
-     qxsds (许族长司马副官) 于 Fri Jun  6 20:58:52 2003 提到： 
+     qxsds (許族長司馬副官) 於 Fri Jun  6 20:58:52 2003 提到： 
   
 如果要#if {@a<20或@b<20} {....} 
-这个"或"应该怎么表示??? 
+這個"或"應該怎麼表示??? 
   
   
 ☆──────────────────────────────────────☆ 
-     orangejam (桔子果酱) 于 2003年06月06日22:18:43 星期五 提到： 
+     orangejam (桔子果醬) 於 2003年06月06日22:18:43 星期五 提到： 
   
-   这样可以吗？ 
+   這樣可以嗎？ 
   
    #if {@a<20} {#if {@b<20} {....}} 
   
-【 在 qxsds (许族长司马副官) 的大作中提到: 】 
+【 在 qxsds (許族長司馬副官) 的大作中提到: 】 
 : 如果要#if {@a<20或@b<20} {....} 
-: 这个"或"应该怎么表示??? 
+: 這個"或"應該怎麼表示??? 
   
   
 ☆──────────────────────────────────────☆ 
-     sister (sister) 于 2003年06月06日22:21:29 星期五 提到： 
+     sister (sister) 於 2003年06月06日22:21:29 星期五 提到： 
   
-#If {@id=qunshan|@name=群山} {qunshan=pig} 
+#If {@id=qunshan|@name=羣山} {qunshan=pig} 
 escape 
-【 在 qxsds (许族长司马副官) 的大作中提到: 】 
+【 在 qxsds (許族長司馬副官) 的大作中提到: 】 
 : 如果要#if {@a<20或@b<20} {....} 
-: 这个"或"应该怎么表示??? 
+: 這個"或"應該怎麼表示??? 
   
 ☆──────────────────────────────────────☆ 
-     xmmy (便宜卖了) 于 2003年06月06日22:28:52 星期五 提到： 
+     xmmy (便宜賣了) 於 2003年06月06日22:28:52 星期五 提到： 
   
-nod,就是这样 
-#If {@id=qunshan or @name=群山} {qunshan=pig}  也行 
+nod,就是這樣 
+#If {@id=qunshan or @name=羣山} {qunshan=pig}  也行 
   
   
 【 在 sister (sister) 的大作中提到: 】 
-: #If {@id=qunshan|@name=群山} {qunshan=pig} 
+: #If {@id=qunshan|@name=羣山} {qunshan=pig} 
 : escape 
-: 【 在 qxsds (许族长司马副官) 的大作中提到: 】 
+: 【 在 qxsds (許族長司馬副官) 的大作中提到: 】 
 : : 如果要#if {@a<20或@b<20} {....} 
-: : 这个"或"应该怎么表示??? 
+: : 這個"或"應該怎麼表示??? 
   
 ☆──────────────────────────────────────☆ 
-     orangejam (桔子果酱) 于 2003年06月06日22:33:10 星期五 提到： 
+     orangejam (桔子果醬) 於 2003年06月06日22:33:10 星期五 提到： 
   
-  这样不是吧qunshan作为变量了吗？ 
-  应该 #AL [qunshan] [pig] 
+  這樣不是吧qunshan作爲變量了嗎？ 
+  應該 #AL [qunshan] [pig] 
    或者 
-     #If {@id=qunshan|@name=群山} {id=pig} 
+     #If {@id=qunshan|@name=羣山} {id=pig} 
 吧.... 
   
-【 在 xmmy (便宜卖了) 的大作中提到: 】 
-: nod,就是这样 
-: #If {@id=qunshan or @name=群山} {qunshan=pig}  也行 
+【 在 xmmy (便宜賣了) 的大作中提到: 】 
+: nod,就是這樣 
+: #If {@id=qunshan or @name=羣山} {qunshan=pig}  也行 
 : 【 在 sister (sister) 的大作中提到: 】 
-: : #If {@id=qunshan|@name=群山} {qunshan=pig} 
+: : #If {@id=qunshan|@name=羣山} {qunshan=pig} 
 : : escape 
   
   
 ☆──────────────────────────────────────☆ 
-     qxsds (许族长司马副官) 于 Fri Jun  6 22:37:00 2003 提到： 
+     qxsds (許族長司馬副官) 於 Fri Jun  6 22:37:00 2003 提到： 
   
 
-#If {@id=qunshan&@name=群山} {id=pig;chat @name=@id;} 
+#If {@id=qunshan&@name=羣山} {id=pig;chat @name=@id;} 
 【 在 orangejam 的大作中提到: 】 
-:   这样不是吧qunshan作为变量了吗？ 
-:   应该 #AL [qunshan] [pig] 
+:   這樣不是吧qunshan作爲變量了嗎？ 
+:   應該 #AL [qunshan] [pig] 
 :    或者 
-:      #If {@id=qunshan|@name=群山} {id=pig} 
+:      #If {@id=qunshan|@name=羣山} {id=pig} 
 : 吧.... 
-: 【 在 xmmy (便宜卖了) 的大作中提到: 】 
-: : nod,就是这样 
-: : #If {@id=qunshan or @name=群山} {qunshan=pig}  也行 
+: 【 在 xmmy (便宜賣了) 的大作中提到: 】 
+: : nod,就是這樣 
+: : #If {@id=qunshan or @name=羣山} {qunshan=pig}  也行 
   

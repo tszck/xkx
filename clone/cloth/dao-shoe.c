@@ -19,10 +19,10 @@ string* shoeid = ({
 	"cao xie",
 });
 string* shoelong = ({
-	"这是一双发白的灰布鞋。\n",
-	"这是一双道家修行的青布鞋。\n",
-	"这是一双出家修行人常穿的麻鞋。\n",
-	"这是一双出家修行人的草鞋。\n",
+	"這是一雙發白的灰布鞋。\n",
+	"這是一雙道家修行的青布鞋。\n",
+	"這是一雙出家修行人常穿的麻鞋。\n",
+	"這是一雙出家修行人的草鞋。\n",
 });
 
 void create()
@@ -35,7 +35,7 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "双");
+		set("unit", "雙");
 //		set("long", shoelong[i]);
         	set("value", 0);
 		set("material", "boots");

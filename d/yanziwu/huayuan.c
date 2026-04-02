@@ -3,10 +3,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short","花园");
+	set("short","花園");
 	set("long",@LONG
-这个花园虽然不大，但整理的井井有条，看的出主人下了一番功夫，
-丫环常来这里嬉戏。沿着弯弯曲曲的花径，可以同向各处。
+這個花園雖然不大，但整理的井井有條，看的出主人下了一番功夫，
+丫環常來這裏嬉戲。沿着彎彎曲曲的花徑，可以同向各處。
 LONG );
 	set("outdoors", "yanziwu");
 	set("exits",([

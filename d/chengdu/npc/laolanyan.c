@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("老烂眼", ({ "lao lanyan", "lao"}));
+	set_name("老爛眼", ({ "lao lanyan", "lao"}));
 	set("gender", "男性");
 	set("age", 25);
-	set("long", "他这群小烂眼的头目，看来在小烂眼心目中还有点威信。\n");
+	set("long", "他這羣小爛眼的頭目，看來在小爛眼心目中還有點威信。\n");
 	
 	set("combat_exp", 10000);
 	set("shen_type", -1);

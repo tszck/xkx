@@ -2,10 +2,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "康府内堂");
+	set("short", "康府內堂");
 	set("long", @LONG
-这里是康府内堂，一个仆役正在和丫环们聊天。南边是康府
-后院，北边是书房，西边是一座佛堂。
+這裏是康府內堂，一個僕役正在和丫環們聊天。南邊是康府
+後院，北邊是書房，西邊是一座佛堂。
 LONG );
 	set("exits", ([
   		"west"  : __DIR__"fotang",

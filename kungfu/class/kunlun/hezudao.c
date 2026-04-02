@@ -8,12 +8,12 @@ void create()
 {
 	object ob;
 	set_name("何足道", ({ "he zudao", "he" }));
-	set("title", "昆仑派开山祖师");
-	set("nickname", "昆仑三圣");
+	set("title", "崑崙派開山祖師");
+	set("nickname", "崑崙三聖");
 	set("class", "taoist");
 	set("long",
-		"他就是昆仑派开山祖师，号称琴剑棋三绝的“昆仑三圣”。\n"
-		"长脸深目，瘦骨棱棱，约莫三十岁左右年纪。\n");
+		"他就是崑崙派開山祖師，號稱琴劍棋三絕的“崑崙三聖”。\n"
+		"長臉深目，瘦骨棱棱，約莫三十歲左右年紀。\n");
 	set("gender", "男性");
 	set("age", 35);
 	set("per", 20);
@@ -71,7 +71,7 @@ void create()
 	map_skill("throwing", "mantian-huayu");
 	prepare_skill("strike", "kunlun-strike");
 
-	create_family("昆仑派", 1, "开山祖师");
+	create_family("崑崙派", 1, "開山祖師");
 	setup();
 	if (clonep())
 	{
@@ -92,23 +92,23 @@ void attempt_apprentice(object ob)
 
 	if(ob->query_int() < 32 )
 	{
-		command("say 弹琴下棋需要灵性极高的人才可以领悟其真谛，不致与武功背道而驰。");
-		command("say "+RANK_D->query_respect(ob)+"还是先回去多读点书吧。");
+		command("say 彈琴下棋需要靈性極高的人纔可以領悟其真諦，不致與武功背道而馳。");
+		command("say "+RANK_D->query_respect(ob)+"還是先回去多讀點書吧。");
 		return;
 	}
 	if ((int)ob->query_skill("xuantian-wuji", 1) < 85)
 	{
-		command("say 琴棋书画虽为小技，但也需内力融入其中。");
+		command("say 琴棋書畫雖爲小技，但也需內力融入其中。");
 		command("say " + RANK_D->query_respect(ob) +
-			"是否还应该先在玄天无极功上多下点功夫？");
+			"是否還應該先在玄天無極功上多下點功夫？");
 		return;
 	}
 
 	if ((int)ob->query("max_neili", 1) < 500)
 	{
-		command("say 内力不够，一心二用则极容易走火入魔。");
+		command("say 內力不夠，一心二用則極容易走火入魔。");
 		command("say " + RANK_D->query_respect(ob) +
-			"是否还应该先好好修炼内力？");
+			"是否還應該先好好修煉內力？");
 		return;
 	}
 
@@ -133,7 +133,7 @@ void attempt_apprentice(object ob)
 	{
 		ob->set("appren_hezudao", 1);
 //	ob->add("int", 1);
-  	command("say 看来你也是性情中人，我就教你一些琴剑棋的知识吧。");
+  	command("say 看來你也是性情中人，我就教你一些琴劍棋的知識吧。");
 	  ob->set_skill("luteplaying", ob->query_skill("xuantian-wuji", 1));
 	  ob->set_skill("goplaying", ob->query_skill("xuantian-wuji", 1));
 //	ob->set_skill("literate", 10 + ob->query_skill("literate", 1));

@@ -22,30 +22,30 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 /*
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 */
 	if (!objectp(weapon = me->query_temp("weapon")) || 
 	(string)weapon->query("skill_type") != "club")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 
 	if( (int)me->query_temp("jingang") ) 
-		return notify_fail("你已经在运大金刚神通了。\n");
+		return notify_fail("你已經在運大金剛神通了。\n");
 
 	if( (int)me->query_temp("zuida") ) 
-		return notify_fail("你已经在运功中了。\n");
+		return notify_fail("你已經在運功中了。\n");
 
 	if( (int)me->query_temp("powerup"))
-		return notify_fail(HIG "你已经运起内功加力了，没有更多的内力使用八仙醉打。\n"NOR);
+		return notify_fail(HIG "你已經運起內功加力了，沒有更多的內力使用八仙醉打。\n"NOR);
 
 	if( (int)me->query_str() < 25 )
-		return notify_fail("你的臂力不够，目前不能使用此绝技！\n");
+		return notify_fail("你的臂力不夠，目前不能使用此絕技！\n");
 		
 	fskill = "hunyuan-yiqi";
 	bskill = "club";
@@ -59,22 +59,22 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不够，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 90 )
-		return notify_fail("你的"+to_chinese(sskill)+"还不够娴熟，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"還不夠嫺熟，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 90 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为不够，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 500 )
-		return notify_fail("你的真气不足！\n");
+		return notify_fail("你的真氣不足！\n");
 
 	cnt =(int)( (int)me->query_condition("drunk") / 3 );
 	if( cnt < 2 )
-		return notify_fail("你的醉意不足激发醉打！\n");
+		return notify_fail("你的醉意不足激發醉打！\n");
 
-	msg = HIY"$N使出少林醉棍的绝技「八仙醉打」，臂力陡然增加, 身法陡然加快！\n" NOR;
+	msg = HIY"$N使出少林醉棍的絕技「八仙醉打」，臂力陡然增加, 身法陡然加快！\n" NOR;
 	
    	message_combatd(msg, me, target);
 	skill = me->query_skill("club", 1);
@@ -105,7 +105,7 @@ void remove_effect(object me, int amount, int amount1)
 		me->add_temp("apply/strength",-amount);
 		me->add_temp("apply/dexerity",-amount1);
 		me->delete_temp("zuida");
-		tell_object(me, HIY "你的八仙醉打运功完毕，将内力收回丹田。\n" NOR);
+		tell_object(me, HIY "你的八仙醉打運功完畢，將內力收回丹田。\n" NOR);
 		me->start_busy(4);
 	}
 }
@@ -117,14 +117,14 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		增强自己的攻击力和防护力
+		增強自己的攻擊力和防護力
 
 	出手要求：
-		混元一气功60级
-		少林醉棍90级
-		基本棍法90级
-		内力500
-		后天膂力25
+		混元一氣功60級
+		少林醉棍90級
+		基本棍法90級
+		內力500
+		後天膂力25
 		喝醉
 HELP
 	);

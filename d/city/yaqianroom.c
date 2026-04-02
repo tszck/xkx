@@ -12,40 +12,40 @@ int random2 (int i)
 }
 
 mapping qians = ([
-	"dqq" : "大乾签",
-	"dkq" : "大坤签",
-	"xqq" : "小乾签",
-	"xkq" : "小坤签",
-	"qq"  : "乾签",
-	"kq"  : "坤签",
+	"dqq" : "大乾籤",
+	"dkq" : "大坤籤",
+	"xqq" : "小乾籤",
+	"xkq" : "小坤籤",
+	"qq"  : "乾籤",
+	"kq"  : "坤籤",
 ]);
 
 void create()
 {
-	set("short", "押签房");
+	set("short", "押籤房");
 	set("long", @LONG
-一群人围着紫檀木大桌而坐，首席座着一位精瘦的签客，正在一本
-正经地从镶金黑盒里慢悠悠一根一根往外抽出乾坤签，码在桌面上。
+一羣人圍着紫檀木大桌而坐，首席座着一位精瘦的籤客，正在一本
+正經地從鑲金黑盒裏慢悠悠一根一根往外抽出乾坤籤，碼在桌面上。
 
-    墙上有一匾写着：
-        大乾签（全部五根皆为乾签）：一赢三十二
-        大坤签（全部五根皆为坤签）：一赢三十二
-        小乾签（连续四根皆为乾签）：一赢十六
-        小坤签（连续四根皆为坤签）：一赢十六
-          乾签（任意三根皆为乾签）：一赢二
-          坤签（任意三根皆为坤签）：一赢二
+    牆上有一匾寫着：
+        大乾籤（全部五根皆爲乾籤）：一贏三十二
+        大坤籤（全部五根皆爲坤籤）：一贏三十二
+        小乾籤（連續四根皆爲乾籤）：一贏十六
+        小坤籤（連續四根皆爲坤籤）：一贏十六
+          乾籤（任意三根皆爲乾籤）：一贏二
+          坤籤（任意三根皆爲坤籤）：一贏二
 
-    匾角有一个牌子(paizi)。
+    匾角有一個牌子(paizi)。
 LONG);
 
 	set("item_desc",([
-		"paizi" : "押大乾签：  qian dqq <amount> <money>\n"+  
-			"押大坤签：  qian dkq <amount> <money>\n"+  
-			"押小乾签：  qian xqq <amount> <money>\n"+  
-			"押小坤签：  qian xkq <amount> <money>\n"+  
-			"押乾签：     qian qq <amount> <money>\n"+  
-			"押坤签：     qian kq <amount> <money>\n\n"+
-			"为免破产跳楼  限押一两黄金\n",
+		"paizi" : "押大乾籤：  qian dqq <amount> <money>\n"+  
+			"押大坤籤：  qian dkq <amount> <money>\n"+  
+			"押小乾籤：  qian xqq <amount> <money>\n"+  
+			"押小坤籤：  qian xkq <amount> <money>\n"+  
+			"押乾籤：     qian qq <amount> <money>\n"+  
+			"押坤籤：     qian kq <amount> <money>\n\n"+
+			"爲免破產跳樓  限押一兩黃金\n",
 	]));
 	set("exits",  ([  /*  sizeof()  ==  1  */
 		"north" : __DIR__"youxiting",
@@ -85,21 +85,21 @@ int do_qian(string arg)
 	object ob;
 
 	if (!arg || sscanf(arg,"%s %d %s",what,amount,money) != 3)
-		return notify_fail("请使用：  qian <押签种类> <数目> <货币>\n");
+		return notify_fail("請使用：  qian <押籤種類> <數目> <貨幣>\n");
 	if (what != "dqq" && what != "dkq" && what != "xqq" &&
 		what != "xkq" && what != "qq" && what != "kq")
-		return notify_fail("你要押什么签？\n");
+		return notify_fail("你要押什麼籤？\n");
 	ob = present(money+"_money", me);
-	if (! ob) return notify_fail("你身上没有这种货币。\n");
-	if (amount < 1) return notify_fail("请多押一些钱。\n");
+	if (! ob) return notify_fail("你身上沒有這種貨幣。\n");
+	if (amount < 1) return notify_fail("請多押一些錢。\n");
 	if (amount > ob->query_amount())
-		return notify_fail("你身上的钱不够押。\n");
+		return notify_fail("你身上的錢不夠押。\n");
 	if (amount * (ob->query("base_value")) > 10000 )
-		return notify_fail("你想豪赌啊，拜托！官兵就进来了。\n");
+		return notify_fail("你想豪賭啊，拜託！官兵就進來了。\n");
 	if (me->query_temp("gamble_qian/amount") > 0)
-		return notify_fail("你已经押过了。\n");
+		return notify_fail("你已經押過了。\n");
 	if (room_status > 1)
-		return notify_fail("现在正在赌呢，稍等片刻。\n");
+		return notify_fail("現在正在賭呢，稍等片刻。\n");
 
 	me->set_temp("gamble_qian/kind",what);
 	me->set_temp("gamble_qian/amount",amount);
@@ -116,7 +116,7 @@ int valid_leave(object me, string dir)
 	if (dir == "north")
 	{
 		if(me->query_temp("gamble_qian/amount") > 0)
-			message_vision("$N扔下押签的钱。\n",me);
+			message_vision("$N扔下押籤的錢。\n",me);
 		me->delete_temp("gamble_qian");
 	}
 	return ::valid_leave(me,dir);
@@ -128,8 +128,8 @@ void gamble_prepare()
 	object *inv;
 	int i;
 
-	tell_room(room,"签客将一大束签在桌上哗啦啦地迅速洗了一遍。\n");
-	tell_room(room,"洗签之后，签客啪地一声将签装入镶金黑盒，叫道：开押！\n");
+	tell_room(room,"籤客將一大束簽在桌上嘩啦啦地迅速洗了一遍。\n");
+	tell_room(room,"洗籤之後，籤客啪地一聲將籤裝入鑲金黑盒，叫道：開押！\n");
 
 	inv=all_inventory();
 	i=sizeof(inv);
@@ -149,8 +149,8 @@ void gamble_prepare()
 void gamble_start()
 {
 	object room = this_object();
-	tell_room(room,"签客喊声：停押！\n");
-	tell_room(room,"然后闭上眼睛，将镶金黑盒打开从里开始往外抽签。\n");
+	tell_room(room,"籤客喊聲：停押！\n");
+	tell_room(room,"然後閉上眼睛，將鑲金黑盒打開從裏開始往外抽籤。\n");
 	room_status = 2;
 	call_out("gamble_perform",3,0);
 	call_out("gamble_perform",6,1);
@@ -168,13 +168,13 @@ void gamble_perform(int i)
 	{
 		case 0:
 		{
-			tell_room(room,"\n□□    坤    签    □□\n");
+			tell_room(room,"\n□□    坤    籤    □□\n");
 			res[i] = 0;
 			break;
 		}
 		case 1:
 		{
-			tell_room(room,"\n□□    乾    签    □□\n");
+			tell_room(room,"\n□□    乾    籤    □□\n");
 			res[i] = 1;
 			break;
 		}
@@ -187,7 +187,7 @@ void player_wins(object who, int total)
 	int amount = who->query_temp("gamble_qian/amount");
 	total = total * amount;
 	money->set_amount(total);
-	message_vision(sprintf("$N赢了%s%s%s！\n", chinese_number(total), money->query("base_unit"), money->query("name")), who);
+	message_vision(sprintf("$N贏了%s%s%s！\n", chinese_number(total), money->query("base_unit"), money->query("name")), who);
 	money->move(who);
 }
 
@@ -195,7 +195,7 @@ void player_loses(object who, int total)
 {
 	object money =new("/clone/money/"+who->query_temp("gamble_qian/money"));
 	total = who->query_temp("gamble_qian/amount");
-	message_vision(sprintf("签客将$N押在盘中的%s%s%s收走。\n", chinese_number(total), money->query("base_unit"), money->query("name")), who);
+	message_vision(sprintf("籤客將$N押在盤中的%s%s%s收走。\n", chinese_number(total), money->query("base_unit"), money->query("name")), who);
 	destruct(money);
 }
 
@@ -235,7 +235,7 @@ void gamble_finish()
 		if (r >= 3) win = "qq";
 		else win = "kq";
 	}
-	tell_room(room,"\n签客睁开眼睛，迅速看一眼桌面，叫道："+qians[win]+"！\n");
+	tell_room(room,"\n籤客睜開眼睛，迅速看一眼桌面，叫道："+qians[win]+"！\n");
 	i = sizeof(list);
 	while (i--)
 	{

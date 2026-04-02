@@ -5,10 +5,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "云阁卧波");
+	set("short", "雲閣臥波");
 	set("long", @LONG
-过完栈道，就到云阁虹桥。前往恒山主峰见性峰，都要在这里跨过
-唐峪河。拱桥卧波，水天亮丽，倍觉胸襟舒畅。
+過完棧道，就到雲閣虹橋。前往恆山主峯見性峯，都要在這裏跨過
+唐峪河。拱橋臥波，水天亮麗，倍覺胸襟舒暢。
 LONG);
 	set("exits", ([ /* sizeof() == 4 */
 		"east"      : __DIR__"daziling",

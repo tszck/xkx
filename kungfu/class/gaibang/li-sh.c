@@ -10,7 +10,7 @@ void create()
 	set("gender", "男性");
 	set("age", 38);
 	set("long", 
-		"这是位生性刚直，嫉恶如仇的丐帮八袋弟子。\n");
+		"這是位生性剛直，嫉惡如仇的丐幫八袋弟子。\n");
 	set("attitude", "peaceful");
 	set("class", "beggar");
  	set("beggarlvl", 8);
@@ -51,10 +51,10 @@ void create()
 	map_skill("dodge", "xiaoyaoyou");
 	prepare_skill("strike", "xianglong-zhang");
 
-	set("party/party_name", HIC"丐帮"NOR);
-	set("party/rank", HIG"八袋护法"NOR);
+	set("party/party_name", HIC"丐幫"NOR);
+	set("party/rank", HIG"八袋護法"NOR);
 	set("party/level", 8);
-	create_family("丐帮", 19, "弟子");
+	create_family("丐幫", 19, "弟子");
 	setup();
 
 	carry_object(__DIR__"obj/cloth")->wear();
@@ -63,7 +63,7 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if( ob->query("shen") < 0 ) return;
-	command("say 好，有你这样一等一的人才做我徒弟，我欢喜还来不及呢！");
+	command("say 好，有你這樣一等一的人才做我徒弟，我歡喜還來不及呢！");
 	command("recruit " + ob->query("id"));
 }
 #include "/kungfu/class/gaibang/gaibang.h"

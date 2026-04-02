@@ -2,9 +2,9 @@
 inherit ROOM;
 void create()
 {
-	set("short", "闭关室大门");
+	set("short", "閉關室大門");
 	set("long",
-"这是闭关室南边，北面有一扇大门。\n"
+"這是閉關室南邊，北面有一扇大門。\n"
 );
 	set("exits", ([
 		"north" : __DIR__"biguan",
@@ -22,9 +22,9 @@ void create()
 int valid_leave(object me, string dir)
 {
 	if ( (dir == "north") &&
-		((string)me->query("family/family_name") != "逍遥派") &&
-		((string)me->query("family/family_name") != "灵鹫宫") &&
+		((string)me->query("family/family_name") != "逍遙派") &&
+		((string)me->query("family/family_name") != "靈鷲宮") &&
 		objectp(present("shi sao", environment(me))) )
-		return notify_fail("石嫂伸手拦住你，说道：“对不起，本门重地，请回！”\n");
+		return notify_fail("石嫂伸手攔住你，說道：“對不起，本門重地，請回！”\n");
 	return ::valid_leave(me, dir);
 }

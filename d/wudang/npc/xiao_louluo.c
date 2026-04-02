@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("小喽罗", ({"xiao louluo", "louluo"}) );
+        set_name("小嘍羅", ({"xiao louluo", "louluo"}) );
         set("gender", "男性" );
         set("age", 18);
-        set("long", "这是一个年纪不大的小喽罗，象是第一次出来做这无本生意。\n");
+        set("long", "這是一個年紀不大的小嘍羅，象是第一次出來做這無本生意。\n");
 
         set_temp("apply/attack", 10);
         set_temp("apply/defense", 10);

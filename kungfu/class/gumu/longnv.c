@@ -1,5 +1,5 @@
 // Last Modified by winder on Feb. 28 2001
-// longnv.c 小龙女
+// longnv.c 小龍女
 
 #include <ansi.h>
 inherit F_MASTER;
@@ -11,14 +11,14 @@ string ask_me();
 
 void create()
 {
-	set_name("小龙女", ({"long nv", "long"}));
+	set_name("小龍女", ({"long nv", "long"}));
 	set("gender", "女性");
 	set("age", 18);
 	set("long",
-	"盈盈而站着一位秀美绝俗的女子，肌肤间少了一层血色，显得苍白异常。\n"
-	"披著一袭轻纱般的白衣，犹似身在烟中雾里。\n"
-	"当真如风拂玉树，雪裹琼苞，兼之生性清冷，\n"
-	"实当得起“冷浸溶溶月”的形容。\n");
+	"盈盈而站着一位秀美絕俗的女子，肌膚間少了一層血色，顯得蒼白異常。\n"
+	"披著一襲輕紗般的白衣，猶似身在煙中霧裏。\n"
+	"當真如風拂玉樹，雪裹瓊苞，兼之生性清冷，\n"
+	"實當得起“冷浸溶溶月”的形容。\n");
 	set("attitude", "friendly");
 
 	set("per", 30);
@@ -33,9 +33,9 @@ void create()
 	}) );
 	set("chat_chance", 1);
 	set("chat_msg", ({
-		"小龙女幽幽地道：“不知过儿现在在哪里？可有看到我刺在玉蜂翅上的字？”\n", 
-		"小龙女喃喃道：“玉女剑与全真剑合壁，是可天下无敌。可是...哪里去找这一个人呢？”\n",
-		"小龙女深深地叹了口气，转过头去。\n",
+		"小龍女幽幽地道：“不知過兒現在在哪裏？可有看到我刺在玉蜂翅上的字？”\n", 
+		"小龍女喃喃道：“玉女劍與全真劍合壁，是可天下無敵。可是...哪裏去找這一個人呢？”\n",
+		"小龍女深深地嘆了口氣，轉過頭去。\n",
 		(: perform_action, "sword.he" :),
 		(: perform_action, "sword.he" :),
 		(: perform_action, "sword.he" :),
@@ -55,16 +55,16 @@ void create()
 	set_skill("force", 150);
 	set_skill("yunv-xinfa", 150);    //玉女心法
 	set_skill("sword", 150);
-	set_skill("yunv-jian", 225);     //玉女剑
-	set_skill("quanzhen-jian",220);  //全真剑
+	set_skill("yunv-jian", 225);     //玉女劍
+	set_skill("quanzhen-jian",220);  //全真劍
 	set_skill("dodge", 160);
 	set_skill("yunv-shenfa", 220);   //玉女身法
 	set_skill("parry", 150);
-	set_skill("hubo", 120);	  //双手互搏
+	set_skill("hubo", 120);	  //雙手互搏
 	set_skill("unarmed",150);
 	set_skill("meinv-quan", 225);    //美女拳法
 	set_skill("literate",120);
-	set_skill("qufeng",200);	 //驱蜂之术
+	set_skill("qufeng",200);	 //驅蜂之術
 
 	map_skill("force", "yunv-xinfa");
 	map_skill("sword", "yunv-jian");
@@ -78,11 +78,11 @@ void create()
 	set("count",1);
 
 	set("inquiry", ([
-		"过儿"    : (: ask_me :),
-		"杨过"    :  "你知道我过儿的下落？\n",
-		"玉女剑法": "玉女剑法和全真剑法合壁，天下无敌！\n",
-		"古墓派"  : "我的林祖师爷爷本来和重阳先师是一对璧人，可是...\n",
-		"玉女心经": (: ask_yunv :),
+		"過兒"    : (: ask_me :),
+		"楊過"    :  "你知道我過兒的下落？\n",
+		"玉女劍法": "玉女劍法和全真劍法合壁，天下無敵！\n",
+		"古墓派"  : "我的林祖師爺爺本來和重陽先師是一對璧人，可是...\n",
+		"玉女心經": (: ask_yunv :),
 	]) );
 
 	set("env/wimpy", 40);	
@@ -95,11 +95,11 @@ void attempt_apprentice(object ob)
 {
 	if(ob->query("per") < 20)
 	{
-		command("say 尊容实在不敢恭维，恐怕学不了玉女心法。\n");
+		command("say 尊容實在不敢恭維，恐怕學不了玉女心法。\n");
 	}
 	else
 	{
-		command("say 好吧，我就收下你这个徒弟了。\n");
+		command("say 好吧，我就收下你這個徒弟了。\n");
 		command("recruit " + ob->query("id"));
 	}
 }
@@ -112,27 +112,27 @@ string ask_yunv()
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "古墓派")
 		return RANK_D->query_respect(this_player()) +
-		"与本派毫无瓜葛，何以问起本派的心经？";
+		"與本派毫無瓜葛，何以問起本派的心經？";
 	if (query("book_count") < 1)
-		return "你来晚了，本派的玉女心经已经被人取走了。";
+		return "你來晚了，本派的玉女心經已經被人取走了。";
 	add("book_count", -1);
 	ob = new("/clone/book/yunvjing1");
 	ob->move(this_player());
-	return "好吧，这本「玉女心经」你拿回去好好研读。";
+	return "好吧，這本「玉女心經」你拿回去好好研讀。";
 }
 
 string ask_me()
 {
 	object ob;
 
-	if(query("count") < 1 || this_player()->query_temp("mark/杨"))
-		return "你知道过儿的下落？";
+	if(query("count") < 1 || this_player()->query_temp("mark/楊"))
+		return "你知道過兒的下落？";
 
 	add("count", -1);
 	ob=new(__DIR__"obj/junzijian");
 	ob->move(this_player());
-	this_player()->delete_temp("mark/杨");
-	return "这柄君子剑送给你做个信物，见到过儿的时候请交给他。";
+	this_player()->delete_temp("mark/楊");
+	return "這柄君子劍送給你做個信物，見到過兒的時候請交給他。";
 }
 
 int recognize_apprentice(object ob)
@@ -140,11 +140,11 @@ int recognize_apprentice(object ob)
 	mapping myfam;
 	myfam = (mapping)ob->query("family");
 	if ( myfam["family_name"] == "古墓派") return 1 ;
-	if ((int)ob->query_temp("tmark/龙") == 1 )
-	message_vision("小龙女叹了口气，看看$N，说道：咱们的缘分已经尽了，\n我也没什么东西可教你的了。\n", ob);
-	if (!(int)ob->query_temp("tmark/龙"))
+	if ((int)ob->query_temp("tmark/龍") == 1 )
+	message_vision("小龍女嘆了口氣，看看$N，說道：咱們的緣分已經盡了，\n我也沒什麼東西可教你的了。\n", ob);
+	if (!(int)ob->query_temp("tmark/龍"))
 		return 0;
-	ob->add_temp("tmark/龙", -1);
+	ob->add_temp("tmark/龍", -1);
 	return 1;
 }
 
@@ -154,17 +154,17 @@ int accept_object(object who, object ob)
 	{
 		remove_call_out("destroying");
 		call_out("destroying", 1, this_object(), ob);
-		if (!(int)who->query_temp("tmark/龙"))
-			who->set_temp("tmark/龙",0);
-		message_vision("小龙女捧着玉蜂，幽幽地叹了口气，说道：难得你还有心找到\n了我的玉蜂送回来，你可以从我这里学点功夫。\n", who);
-		who->add_temp("tmark/龙", 80);
+		if (!(int)who->query_temp("tmark/龍"))
+			who->set_temp("tmark/龍",0);
+		message_vision("小龍女捧着玉蜂，幽幽地嘆了口氣，說道：難得你還有心找到\n了我的玉蜂送回來，你可以從我這裏學點功夫。\n", who);
+		who->add_temp("tmark/龍", 80);
 		//ob->die();
 		return 1;
 	}
 	if ( (string) ob->query("id") =="long xin" )
 	{
-		message_vision("小龙女捧着书信，泪流满面：过儿，我终于盼到你了。他在哪里？快带我去！\n", who);
-		who->set_temp("marks/小龙女", 1);
+		message_vision("小龍女捧着書信，淚流滿面：過兒，我終於盼到你了。他在哪裏？快帶我去！\n", who);
+		who->set_temp("marks/小龍女", 1);
 		set_leader(who);
 		return 1;
 	}

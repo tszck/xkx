@@ -17,13 +17,13 @@ int main(object me, string arg)
 
         if (!arg)
         {
-         	 write("你现在体重是"+me->query_weight()+"负重"+me->query_encumbrance()+"。\n");
+         	 write("你現在體重是"+me->query_weight()+"負重"+me->query_encumbrance()+"。\n");
            return 1;
         }
         else if (arg=="-1")
         {
          	me->set_weight(40000+(me->query("str") - 10)*2000);
-          write("你的体重恢复到原来的"+me->query_weight()+"。\n");
+          write("你的體重恢復到原來的"+me->query_weight()+"。\n");
           return 1;
         }
         else if (sscanf(arg,"%d",origin)==1)
@@ -31,7 +31,7 @@ int main(object me, string arg)
         	if ( origin < 200)
         	 origin=200;
          	me->set_weight(origin);
-          write("你把体重调整为"+me->query_weight()+"。\n");
+          write("你把體重調整爲"+me->query_weight()+"。\n");
           return 1;
         }
         else
@@ -42,9 +42,9 @@ int main(object me, string arg)
 int help(object me)
 {
         write(@HELP
-指令格式 : wieght [数值| -1]
+指令格式 : wieght [數值| -1]
  
-这个指令会使你的重量变化。如果参数是-1就恢复原来的体重。
+這個指令會使你的重量變化。如果參數是-1就恢復原來的體重。
  
 HELP );
     return 1;

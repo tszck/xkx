@@ -9,9 +9,9 @@ void create()
 	set("gender", "女性" );
 	set("age", 18);
 	set("long", "
-一个身披白袍、颈围貂裘、体态婀娜、笑容冶艳的西域美貌少女，
-肤色白晰，身材高大，高鼻深目，果然和中土女子大不相同。但容
-貌艳丽，姿态妖媚，亦自动人。\n");
+一個身披白袍、頸圍貂裘、體態婀娜、笑容冶豔的西域美貌少女，
+膚色白晰，身材高大，高鼻深目，果然和中土女子大不相同。但容
+貌豔麗，姿態妖媚，亦自動人。\n");
 	set("shen_type", -1);
 	set("combat_exp", 1000);
 	set("str", 20);
@@ -39,7 +39,7 @@ void create()
 	map_skill("dodge", "chanchu-bufa");
 	map_skill("parry", "hamaquan");
 	prepare_skill("cuff", "hamaquan");
-	create_family("白驼山派", 3, "弟子");
+	create_family("白駝山派", 3, "弟子");
 	setup();
 	carry_object("/d/baituo/obj/baipao")->wear();
 	carry_object("/d/baituo/obj/diaoqiu")->wear();

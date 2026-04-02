@@ -17,12 +17,12 @@ int main(object me, string arg)
         seteuid(getuid());
 
         if (! arg)
-                return notify_fail("你要连接哪里？\n");
+                return notify_fail("你要連接哪裏？\n");
 
         if (mapp(minfo = DNS_MASTER->query_mud_info(arg)))
         {
                 arg = minfo["HOSTADDRESS"] + " " + minfo["PORT"];
-                write("连接" + minfo["NAME"] + "(" + arg + ")\n");
+                write("連接" + minfo["NAME"] + "(" + arg + ")\n");
         } else
         if (sscanf(arg, "%*s %*s") != 2)
                 arg += " 23";
@@ -30,7 +30,7 @@ int main(object me, string arg)
         tob = new("/shadow/telnet");
         if (tob->do_shadow(me, 1) != me)
         {
-                write("系统错误，映射失败。\n");
+                write("系統錯誤，映射失敗。\n");
                 return 1;
         }
 
@@ -41,11 +41,11 @@ int main(object me, string arg)
 int help(object me)
 {
         write(@HELP
-指令格式: telnet <MUD> | <主机地址> [<目的端口>]
+指令格式: telnet <MUD> | <主機地址> [<目的端口>]
 
-这个指令让你可以连接另外一个服务器。
+這個指令讓你可以連接另外一個服務器。
 
-连接时输入 CLOSE 命令可以终止连接。
+連接時輸入 CLOSE 命令可以終止連接。
 
 HELP );
         return 1;

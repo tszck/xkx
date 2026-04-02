@@ -16,9 +16,9 @@ void create()
                 set("base_weight", 300);
                 set("base_value", 0);
                 set("material", "iron");
-                set("long", HIG"毒蒺藜是淬毒暗器，寸许大小，发出诡异的光。\n"NOR);
-                set("wield_msg", HIC"$N迅速地从身上摸出一些毒蒺藜，捏在手中就待发出！\n"NOR);
-                set("unwield_msg",HIC"$N将手里剩下的毒蒺藜一抖就不见了。\n"NOR);
+                set("long", HIG"毒蒺藜是淬毒暗器，寸許大小，發出詭異的光。\n"NOR);
+                set("wield_msg", HIC"$N迅速地從身上摸出一些毒蒺藜，捏在手中就待發出！\n"NOR);
+                set("unwield_msg",HIC"$N將手裏剩下的毒蒺藜一抖就不見了。\n"NOR);
         }
         set_amount(50);
         init_throwing(50);

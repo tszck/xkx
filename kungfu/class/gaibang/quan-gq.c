@@ -10,7 +10,7 @@ void create()
 	set("gender", "男性");
 	set("nickname", "十方秀才");
 	set("age", 35);
-	set("long","这是位沉默寡言却颇有心计的阴毒的丐帮八袋弟子。他为人足智多谋，武功高强，但身材高瘦，相貌也甚是清秀。\n");
+	set("long","這是位沉默寡言卻頗有心計的陰毒的丐幫八袋弟子。他爲人足智多謀，武功高強，但身材高瘦，相貌也甚是清秀。\n");
 	set("attitude", "peaceful");
 	set("class", "beggar");
  	set("beggarlvl", 8);
@@ -50,10 +50,10 @@ void create()
 	map_skill("staff", "fengmo-staff");
 	map_skill("dodge", "xiaoyaoyou");
 	
-	set("party/party_name", HIC"丐帮"NOR);
+	set("party/party_name", HIC"丐幫"NOR);
 	set("party/rank", HIG"大智分舵"HIY"八袋舵主"NOR);
 	set("party/level", 8);
-	create_family("丐帮", 11, "弟子");
+	create_family("丐幫", 11, "弟子");
 
 	setup();
 
@@ -64,7 +64,7 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if( ob->query("con") < 20 ) return;
-	command("say 你拜我为师，可要做好吃苦的准备，好好做个丐帮弟子！");
+	command("say 你拜我爲師，可要做好喫苦的準備，好好做個丐幫弟子！");
 	command("recruit " + ob->query("id"));
 }
 #include "/kungfu/class/gaibang/gaibang.h"

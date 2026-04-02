@@ -1,10 +1,10 @@
-// cui.c 崔员外
+// cui.c 崔員外
 
 inherit NPC;
 
 void create()
 {
-	set_name("崔员外", ({ "cui yuanwai", "cui" }));
+	set_name("崔員外", ({ "cui yuanwai", "cui" }));
 	set("gender", "男性");
 	set("age", 55);
 

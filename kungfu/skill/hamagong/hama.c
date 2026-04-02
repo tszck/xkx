@@ -1,5 +1,5 @@
 // Last Modified by winder on May. 15 2001
-// hama.c 蛤蟆功绝招
+// hama.c 蛤蟆功絕招
 
 #include <ansi.h>
 #define PNAME "「蛤蟆功」"
@@ -21,17 +21,17 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if( me->query_temp("weapon") )
-		return notify_fail("你必须空手才能使用「蛤蟆功」！\n");
+		return notify_fail("你必須空手才能使用「蛤蟆功」！\n");
 
 	fskill = "hamagong";
 	bskill = "strike";
@@ -44,19 +44,19 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够熟练，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠熟練，不能使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够熟练，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠熟練，不能使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 	if( (int)me->query("max_neili") < 2000 )
-		return notify_fail("你现在内力修为不足，使不出蛤蟆功绝招！\n");
+		return notify_fail("你現在內力修爲不足，使不出蛤蟆功絕招！\n");
 	if( (int)me->query("neili") < 1200 )
-		return notify_fail("你现在内力不足，使不出蛤蟆功的绝招！\n");
+		return notify_fail("你現在內力不足，使不出蛤蟆功的絕招！\n");
 	if( me->query_temp("hmg_hama") )
-		return notify_fail("你刚使完「蛤蟆功」绝招，目前气血翻涌，无法再次运用！\n");
+		return notify_fail("你剛使完「蛤蟆功」絕招，目前氣血翻湧，無法再次運用！\n");
 
-	msg = BLU"\n$N"BLU"身子蹲下，左掌平推而出，使的正是$N"BLU"生平最得意的「蛤蟆功」绝招，掌风直逼$n"BLU"而去！\n"NOR;	
+	msg = BLU"\n$N"BLU"身子蹲下，左掌平推而出，使的正是$N"BLU"生平最得意的「蛤蟆功」絕招，掌風直逼$n"BLU"而去！\n"NOR;	
 	me->set_temp("hmg_hama", 1);
 	if (random(me->query_skill("force")) > target->query_skill("force") /4 )
 	{
@@ -70,7 +70,7 @@ int perform(object me, object target)
 		target->receive_damage("qi", damage,me);
 		target->receive_wound("qi", damage/2,me);
 		p = (int)target->query("qi")*100/(int)target->query("max_qi");
-		msg += damage_msg(damage, "内伤");
+		msg += damage_msg(damage, "內傷");
 		msg += "( $n"+eff_status_msg(p)+" )\n";
 		call_out("perform2", 0, me, target, p);
 	} 
@@ -79,7 +79,7 @@ int perform(object me, object target)
 		me->start_busy(2);
 		target->start_busy(1);
 		me->add("neili", -300);
-		tell_object(target, HIY"你但觉一股微风扑面而来，风势虽然不劲，然已逼得自己呼吸不畅，知道不妙，连忙跃开数尺。\n" NOR);
+		tell_object(target, HIY"你但覺一股微風撲面而來，風勢雖然不勁，然已逼得自己呼吸不暢，知道不妙，連忙躍開數尺。\n" NOR);
 		dodge_skill = target->query_skill_mapped("dodge");
 		if( !dodge_skill ) dodge_skill = "dodge";
 		msg += SKILL_D(dodge_skill)->query_dodge_msg(target, 1);
@@ -107,14 +107,14 @@ int perform2(object me, object target, int p)
 	if( !living(target) || target->query_temp("noliving") )
 	{
   	call_out("remove_effect", me->query_con()/6, me);
-		return notify_fail("对手已经不能再战斗了。\n");
+		return notify_fail("對手已經不能再戰鬥了。\n");
 	}
 	if( (int)me->query("neili", 1) < 500 )
 	{
 		call_out("remove_effect", me->query_con()/6, me);
-		return notify_fail("你待要再发一掌，却发现自己内力不够了！\n");
+		return notify_fail("你待要再發一掌，卻發現自己內力不夠了！\n");
 	}
-	msg = BLU"\n$N左掌劲力未消，右掌也跟着推出，功力相叠，「蛤蟆功」掌风排山倒海般涌向$n！\n"NOR;	
+	msg = BLU"\n$N左掌勁力未消，右掌也跟着推出，功力相疊，「蛤蟆功」掌風排山倒海般湧向$n！\n"NOR;	
 	if(random(me->query_skill("force")) > target->query_skill("force")/4 &&
 		me->query_skill(bskill, 1) > 150 )
 	{
@@ -129,7 +129,7 @@ int perform2(object me, object target, int p)
 		target->receive_damage("qi", damage,me);
 		target->receive_wound("qi", damage/2,me);
 		p = (int)target->query("qi")*100/(int)target->query("eff_qi");
-		msg += damage_msg(damage, "内伤");
+		msg += damage_msg(damage, "內傷");
 		msg += "( $n"+eff_status_msg(p)+" )\n";		
 		call_out("perform3", 0, me, target, p);
 	} 
@@ -137,7 +137,7 @@ int perform2(object me, object target, int p)
 	{
 		me->start_busy(2);
 		me->add("neili", -200);
-		tell_object(target, HIY"你喘息未定，又觉一股劲风扑面而来，连忙跃开数尺，狼狈地避开。\n" NOR);
+		tell_object(target, HIY"你喘息未定，又覺一股勁風撲面而來，連忙躍開數尺，狼狽地避開。\n" NOR);
 		dodge_skill = target->query_skill_mapped("dodge");
 		if( !dodge_skill ) dodge_skill = "dodge";
 		msg += SKILL_D(dodge_skill)->query_dodge_msg(target, 1);
@@ -165,14 +165,14 @@ int perform3(object me, object target, int p)
 	if( !living(target) || target->query_temp("noliving") )
 	{
 	call_out("remove_effect", me->query_con()/4, me);
-	return notify_fail("对手已经不能再战斗了。\n");
+	return notify_fail("對手已經不能再戰鬥了。\n");
 	}
 	if( (int)me->query("neili", 1) < 700 )
 	{		
 		call_out("remove_effect", me->query_con()/4, me);
-		return notify_fail("你待要再发一掌，却发现自己内力不够了！\n");
+		return notify_fail("你待要再發一掌，卻發現自己內力不夠了！\n");
 	}
-	msg = BLU"\n$N双腿一登，双掌相并向前猛力推出，$n连同身前方圆三丈全在「蛤蟆功」劲力笼罩之下！\n"NOR;	
+	msg = BLU"\n$N雙腿一登，雙掌相併向前猛力推出，$n連同身前方圓三丈全在「蛤蟆功」勁力籠罩之下！\n"NOR;	
 	if(random(me->query_skill("force")) > target->query_skill("force")/4 &&
 		me->query_skill(bskill, 1) > 199 )
 	{
@@ -187,7 +187,7 @@ int perform3(object me, object target, int p)
 		target->receive_damage("qi", damage,me);
 		target->receive_wound("qi", damage/2,me);
 		p = (int)target->query("qi")*100/(int)target->query("eff_qi");
-		msg += damage_msg(damage, "瘀伤");
+		msg += damage_msg(damage, "瘀傷");
 		msg += "( $n"+eff_status_msg(p)+" )\n";
 	}
 	else 
@@ -196,7 +196,7 @@ int perform3(object me, object target, int p)
 		target->start_busy(1);
 		me->add("neili", -300);
 		target->add("jing", -100);
-		tell_object(target, HIY"你用尽全身力量向右一纵一滚，摇摇欲倒地站了起来，但总算躲开了这致命的一击！\n" NOR);
+		tell_object(target, HIY"你用盡全身力量向右一縱一滾，搖搖欲倒地站了起來，但總算躲開了這致命的一擊！\n" NOR);
 		dodge_skill = target->query_skill_mapped("dodge");
 		if( !dodge_skill ) dodge_skill = "dodge";
 		msg += SKILL_D(dodge_skill)->query_dodge_msg(target, 1);
@@ -210,7 +210,7 @@ void remove_effect(object me)
 {
 	if (!me) return;
 	me->delete_temp("hmg_hama");
-	tell_object(me, HIC"\n你经过一段时间调气养息，又可以使用「蛤蟆功」绝招了。\n"NOR); 
+	tell_object(me, HIC"\n你經過一段時間調氣養息，又可以使用「蛤蟆功」絕招了。\n"NOR); 
 }
 
 string name() {return replace_string(replace_string(PNAME,"「",""),"」","");}
@@ -221,13 +221,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		刚猛无俦的连续三掌
+		剛猛無儔的連續三掌
 
 	出手要求：
-		蛤蟆功150级
-		基本掌法100级
-		内力修为2000
-		内力1200
+		蛤蟆功150級
+		基本掌法100級
+		內力修爲2000
+		內力1200
 HELP
 	);
 	return 1;

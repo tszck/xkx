@@ -6,12 +6,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("孙万年",({"sun wannian","sun"}));
+	set_name("孫萬年",({"sun wannian","sun"}));
 	set("gender", "男性");
 	set("age", 20);
 	set("long", 
-		"他是凌宵城第六代弟子孙万年，生得獐头鼠目。\n"
-		"因为品行不端，被关在这里思过。\n");
+		"他是凌宵城第六代弟子孫萬年，生得獐頭鼠目。\n"
+		"因爲品行不端，被關在這裏思過。\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);

@@ -1,11 +1,11 @@
-// ji.c 太极拳「挤」字诀
+// ji.c 太極拳「擠」字訣
 // Last Modified by winder on Aug. 18 2002
 
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME "「挤」字诀"
-string *taiji_msg = ({"揽雀尾","单鞭","提手上势","白鹤亮翅","搂膝勾步","白蛇吐信","高探马","伏虎式","揽月势","金鸡独立","玉女穿梭","进步七星","弯弓射虎","抱虎归山",});
+#define PNAME "「擠」字訣"
+string *taiji_msg = ({"攬雀尾","單鞭","提手上勢","白鶴亮翅","摟膝勾步","白蛇吐信","高探馬","伏虎式","攬月勢","金雞獨立","玉女穿梭","進步七星","彎弓射虎","抱虎歸山",});
 
 int perform(object me, object target)
 {
@@ -21,17 +21,17 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if( me->query_temp("weapon"))
-		return notify_fail("你先放下手中的武器再说吧？！\n");     
+		return notify_fail("你先放下手中的武器再說吧？！\n");     
 		
 	fskill = "taiji-shengong";
 	bskill = "unarmed";
@@ -45,19 +45,19 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够高，不能用来挤伤敌。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠高，不能用來擠傷敵。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 
 	if( (int)me->query("neili", 1) < 500 )
-		return notify_fail("你现在真气不够，强行使用「挤」是发挥不了它的威力的！\n");
+		return notify_fail("你現在真氣不夠，強行使用「擠」是發揮不了它的威力的！\n");
 
 	if( (int)me->query("jing", 1) < 100 )
-		return notify_fail("你现在精气不够，强行使用「挤」是发挥不了它的威力的！\n");		     
+		return notify_fail("你現在精氣不夠，強行使用「擠」是發揮不了它的威力的！\n");		     
 		
 	limbs = target->query("limbs");
-	msg = CYN"\n$N使一招太极拳「"+taiji_msg[random(sizeof(taiji_msg))]+"」，右脚实，左脚虚，运起"RED"「挤」"CYN"字诀，粘连粘随，右掌已搭住$p"+limbs[random(sizeof(limbs))]+"！\n"NOR;
+	msg = CYN"\n$N使一招太極拳「"+taiji_msg[random(sizeof(taiji_msg))]+"」，右腳實，左腳虛，運起"RED"「擠」"CYN"字訣，粘連粘隨，右掌已搭住$p"+limbs[random(sizeof(limbs))]+"！\n"NOR;
 	
 	force = me->query_skill("force", 1) + target->query_skill("force", 1);
 
@@ -79,13 +79,13 @@ int perform(object me, object target)
 		target->receive_wound("qi", damage/2,me);
 		me->add("neili", -(damage/4));
 		me->add("jing", -50);
-		msg += HIR "跟着$P横劲发出，$p给这么一挤，身子被自己的劲力带得不由主的向前一冲，跨出数步！\n"NOR;       
+		msg += HIR "跟着$P橫勁發出，$p給這麼一擠，身子被自己的勁力帶得不由主的向前一衝，跨出數步！\n"NOR;       
 		} 
 	else{
 		me->start_busy(3);
 		me->add("jing", -25);
 		me->add("neili", -150);
-		msg += HIY"$p见此情景，一声惊噫，连忙收回自己的劲力，闪身避让！\n"NOR;
+		msg += HIY"$p見此情景，一聲驚噫，連忙收回自己的勁力，閃身避讓！\n"NOR;
 	    }
 	message_combatd(msg, me, target);
 	return 1;
@@ -98,13 +98,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
-		自身内力修为越高伤害度越高
+		損傷對方氣血
+		自身內力修爲越高傷害度越高
 
 	出手要求：
-		太极神功100级
-		太极拳100级
-		内力500
+		太極神功100級
+		太極拳100級
+		內力500
 HELP
 	);
 	return 1;

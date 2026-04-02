@@ -3,9 +3,9 @@
 inherit NPC;
 void create()
 {
-       set_name("陈达海", ({ "chen dahai", "chen", "dahai" }) );
-       set("title", "镖师");
-       set("nickname", "青蟒剑");
+       set_name("陳達海", ({ "chen dahai", "chen", "dahai" }) );
+       set("title", "鏢師");
+       set("nickname", "青蟒劍");
        set("gender", "男性" );
        set("shen", -2500);
        set("age", 43);
@@ -15,8 +15,8 @@ void create()
        set("dex", 22);
        set("env/wimpy", 60);
        set("long","
-一个身穿羊皮袄的高大汉子，虬髯满腮，说的哈萨克语很不纯正，
-但目光炯炯，腰间挂著一柄长剑。他是霍元龙手下的镖师之一。\n" );
+一個身穿羊皮襖的高大漢子，虯髯滿腮，說的哈薩克語很不純正，
+但目光炯炯，腰間掛著一柄長劍。他是霍元龍手下的鏢師之一。\n" );
        set("combat_exp", 250000);
        set("attitude", "heroism");
         set("chat_chance", 30);

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "玉门");
+	set("short", "玉門");
 	set("long", @LONG
-这里是西北的一处调兵站，北对蒙古，西卫青海，尤其是在汉代，
-玉门是中原和西域间的一大要塞。北方是哈拉湖，西方是玉门关。
+這裏是西北的一處調兵站，北對蒙古，西衛青海，尤其是在漢代，
+玉門是中原和西域間的一大要塞。北方是哈拉湖，西方是玉門關。
 LONG );
 	set("outdoors", "qilian");
 	set("no_clean_up", 0);

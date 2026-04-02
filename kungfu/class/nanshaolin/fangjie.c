@@ -9,8 +9,8 @@ void create()
 {
 	set_name("方戒", ({ "fang jie", "fang", "jie"}));
 	set("long",
-		"他是一位精神抖擞的中年和尚，身穿一袭青布镶边袈裟。身材略高，\n"
-		"太阳穴微凸，双目炯炯有神。\n"
+		"他是一位精神抖擻的中年和尚，身穿一襲青布鑲邊袈裟。身材略高，\n"
+		"太陽穴微凸，雙目炯炯有神。\n"
 	);
 
 	set("gender", "男性");
@@ -72,18 +72,18 @@ mixed carry_water()
 		if (present("liao kao", me))
 		{
 			destruct(present("liao kao", me));
-			return "你的活已经干完了，我帮你解开镣铐。";
+			return "你的活已經幹完了，我幫你解開鐐銬。";
 		}
 		else
-			return RANK_D->query_respect(me) + "不是开玩笑吧？";
+			return RANK_D->query_respect(me) + "不是開玩笑吧？";
 	if (present("tie tong", me))
-		return "你不是拿着铁桶吗？快去干活吧。";
+		return "你不是拿着鐵桶嗎？快去幹活吧。";
 	if (present("tie tong", environment()))
-		return "铁桶不是在地上放着吗？拿去干活吧。";
+		return "鐵桶不是在地上放着嗎？拿去幹活吧。";
 	command("buddhi");
 	new("/d/nanshaolin/obj/tie-tong")->move(environment());
-	command("say 这是干活的家什，拿去用吧。");
-	message_vision("$N从身后拿出一对大铁桶放在地上。\n", ob);
+	command("say 這是幹活的傢什，拿去用吧。");
+	message_vision("$N從身後拿出一對大鐵桶放在地上。\n", ob);
 	return 1;
 }
 

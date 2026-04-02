@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "学堂");
+        set("short", "學堂");
         set("long", @LONG
-这里是一座简陋的学堂，似乎是用祠堂改成的,正中供桌上还供着一
-些牌位，上面落满了灰尘。几个八.九岁的农家小孩正跟着先生在念书。
+這裏是一座簡陋的學堂，似乎是用祠堂改成的,正中供桌上還供着一
+些牌位，上面落滿了灰塵。幾個八.九歲的農家小孩正跟着先生在唸書。
 LONG
         );
 
@@ -19,7 +19,7 @@ LONG
                 __DIR__"npc/xiansheng": 1,
         ]));
         set("item_desc", ([
-                "供桌": "一个陈旧的供桌，上面搭着黑糊糊的台布一直垂到地面。\n"
+                "供桌": "一個陳舊的供桌，上面搭着黑糊糊的檯布一直垂到地面。\n"
         ]) );
 
 	set("coor/x", -44930);
@@ -38,9 +38,9 @@ int do_enter(string arg)
 
         if( !arg || arg=="" ) return 0;
         if( arg=="供桌" ) {
-                message("vision",me->name() + "一弯腰往供桌下面钻了进去。\n",environment(me), ({me}) );
+                message("vision",me->name() + "一彎腰往供桌下面鑽了進去。\n",environment(me), ({me}) );
                 me->move(__DIR__"minju9.c");
-                message("vision",me->name() + "从外面钻了进来。\n",environment(me), ({me}) );
+                message("vision",me->name() + "從外面鑽了進來。\n",environment(me), ({me}) );
                 return 1;
         }
 }

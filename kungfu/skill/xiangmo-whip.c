@@ -7,23 +7,23 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action": "$N跃起三丈，身在半空，招式陡变，$w如惊涛骇浪，向$n电擎而落",
+([	"action": "$N躍起三丈，身在半空，招式陡變，$w如驚濤駭浪，向$n電擎而落",
 	"lvl" : 0,
-	"skill_name" : "惊涛拍岸",
+	"skill_name" : "驚濤拍岸",
 ]),
-([	"action": "$N鞭式一变，手中的$w宛如一条怪蟒，上下翻腾的袭向$n的$l",
+([	"action": "$N鞭式一變，手中的$w宛如一條怪蟒，上下翻騰的襲向$n的$l",
 	"lvl" : 20,
-	"skill_name" : "万里腾云",
+	"skill_name" : "萬裏騰雲",
 ]),
-([	"action": "$N手中$w前后舞动，一招「灵鹫展翅」，鞭鞭皆打向$n的$l！",
+([	"action": "$N手中$w前後舞動，一招「靈鷲展翅」，鞭鞭皆打向$n的$l！",
 	"lvl" : 60,
-	"skill_name" : "灵鹫展翅",
+	"skill_name" : "靈鷲展翅",
 ]),
-([	"action": "$N手中$w抡动，鞭风汹涌，去式似游龙，或横扫直击，或盘旋翻卷，倾刻间已将$n全身裹住",
+([	"action": "$N手中$w掄動，鞭風洶湧，去式似遊龍，或橫掃直擊，或盤旋翻卷，傾刻間已將$n全身裹住",
 	"lvl" : 90,
-	"skill_name" : "漫天飞雪",
+	"skill_name" : "漫天飛雪",
 ]),
-([	"action": "$N手中$w圈圈点点，鞭式连绵，忽地使出一招「降魔式」，$w上风声大作，漫天鞭影从四面八方向$n周身要害击到",
+([	"action": "$N手中$w圈圈點點，鞭式連綿，忽地使出一招「降魔式」，$w上風聲大作，漫天鞭影從四面八方向$n周身要害擊到",
 	"lvl" : 120,
 	"skill_name" : "降魔式",
 ]),
@@ -35,11 +35,11 @@ int valid_learn(object me)
 	object weapon;
 
 	if ((int)me->query("max_neili") < 500)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 50)
-		return notify_fail("你的站桩功火候太浅。\n");
+		return notify_fail("你的站樁功火候太淺。\n");
 	if ((int)me->query_skill("jiujie-whip",1) < 20)
-		return notify_fail("你的九节鞭修为不足，没有办法练降魔鞭。\n");
+		return notify_fail("你的九節鞭修爲不足，沒有辦法練降魔鞭。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -47,9 +47,9 @@ int practice_skill(object me)
 	object weapon;
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "whip")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if( (int)me->query("qi") < 30 || (int)me->query("neili") < 30 )
-		return notify_fail("你的体力不够练九节鞭法。\n");
+		return notify_fail("你的體力不夠練九節鞭法。\n");
 	me->receive_damage("qi", 25);
 	me->add("neili", -25);
 	return 1;
@@ -77,17 +77,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : random(2) ? "淤伤" : "刺伤",
+		"damage_type" : random(2) ? "淤傷" : "刺傷",
 	]);
 }
 
@@ -101,12 +101,12 @@ int help(object me)
 	write(HIC"\n降魔鞭："NOR"\n");
 	write(@HELP
 
-    降魔鞭是南少林高级鞭法。
+    降魔鞭是南少林高級鞭法。
 
-	学习要求：
-		站桩功50级
-		九节鞭20级
-		内力修为500
+	學習要求：
+		站樁功50級
+		九節鞭20級
+		內力修爲500
 HELP
 	);
 	return 1;

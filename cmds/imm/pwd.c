@@ -16,8 +16,8 @@ int help(object me)
 write(@HELP
 指令格式 : pwd
  
-这个指令会显示出你目前的工作目录 (cwd) 及工作档案 (cwf).
-'update' 不加参数时便会更新你的 cwf.
+這個指令會顯示出你目前的工作目錄 (cwd) 及工作檔案 (cwf).
+'update' 不加參數時便會更新你的 cwf.
  
 HELP
     );

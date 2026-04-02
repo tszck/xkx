@@ -7,10 +7,10 @@ inherit F_UNIQUE;
 void create()
 {
 	object ob;
-	set_name("庄铮", ({ "zhuang zheng", "zhuang", "zheng", }));
+	set_name("莊錚", ({ "zhuang zheng", "zhuang", "zheng", }));
 	set("long",
-	"他是一位高大魁伟的中年男子，身穿一件白布长袍。\n"
-	"他天生神力，手中的两头狼牙棒有万夫不当之勇，真是一条威风凛凛的汉子。\n"
+	"他是一位高大魁偉的中年男子，身穿一件白布長袍。\n"
+	"他天生神力，手中的兩頭狼牙棒有萬夫不當之勇，真是一條威風凜凜的漢子。\n"
 	);
 
 	set("gender", "男性");
@@ -51,7 +51,7 @@ void create()
 	prepare_skill("cuff", "jingang-quan");
 
 	set("party/party_name",HIG"明教"NOR);
-	set("party/rank",HIW "锐金旗" NOR "掌旗使");
+	set("party/rank",HIW "銳金旗" NOR "掌旗使");
 	create_family("明教", 35, "弟子");
 
 	setup();

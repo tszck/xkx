@@ -1,13 +1,13 @@
-// guo.c 过三拳
+// guo.c 過三拳
  
 inherit NPC;
  
 void create()
 {
-	set_name("过三拳", ({ "guo  sanquan"}));
-	set("nickname", "神拳门主");
+	set_name("過三拳", ({ "guo  sanquan"}));
+	set("nickname", "神拳門主");
 	set("long", 
-	"神拳门的门主，一身拳法小有名声。\n");
+	"神拳門的門主，一身拳法小有名聲。\n");
 	set("gender", "男性");
 	set("age", 28);
 	set("attitude", "peaceful");

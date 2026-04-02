@@ -4,7 +4,7 @@
 #include <ansi.h>
 #include <combat.h>
 inherit F_SSERVER;
-#define PNAME "［双剑合璧］"
+#define PNAME "［雙劍合璧］"
 int perform(object me, object target)
 {
 	string msg;
@@ -20,21 +20,21 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
- 		return notify_fail("你使用的武器不对。\n");
+ 		return notify_fail("你使用的武器不對。\n");
 
         if(me->query("neili")<400)
-                return notify_fail("你的内力不够使用双剑合璧！\n");
+                return notify_fail("你的內力不夠使用雙劍合璧！\n");
 
 	fskill = "yunv-xinfa";
 	bskill = "sword";
@@ -50,10 +50,10 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够娴熟，不能用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠嫺熟，不能用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，不能用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不能用"+PNAME+"。\n");
 
 	if(pointerp(obs=me->query_team()) )
 	{
@@ -83,17 +83,17 @@ int perform(object me, object target)
 	if(FLAG)
 	{
 //		if(target->query("owner"))
-//			return notify_fail("本门任务怎可假别人之手完成。\n");
+//			return notify_fail("本門任務怎可假別人之手完成。\n");
 		if(obs[0]==me) you=obs[1]; else you=obs[0];
 	  if(me->query("gender")!="女性" || you->query("gender")!="男性")
-		return notify_fail("双剑合璧必须女使玉女剑法，同时男使全真剑法方能激发。\n");
+		return notify_fail("雙劍合璧必須女使玉女劍法，同時男使全真劍法方能激發。\n");
   	if(!userp(target))
 		if (!target->accept_hit(me) || !target->accept_hit(you))
-			return notify_fail("本门任务怎可假别人之手完成。\n");
+			return notify_fail("本門任務怎可假別人之手完成。\n");
 		skl_you=(int)you->query_skill("sword");
 		extra_you=(int)you->query_temp("apply/damage")+(int)you->query_str()*(int)you->query_str();
-		msg = HIY + "$N施展出玉女剑法的险恶家数，" + HIG + you->name()+"施展出全真剑法的厉害剑招，\n" + HIR +
-		 "双剑合璧，威力立时大得惊人，$n无法齐挡双剑击刺，向後急退，嗤嗤两声，身上两剑齐中！\n"NOR;
+		msg = HIY + "$N施展出玉女劍法的險惡家數，" + HIG + you->name()+"施展出全真劍法的厲害劍招，\n" + HIR +
+		 "雙劍合璧，威力立時大得驚人，$n無法齊擋雙劍擊刺，向後急退，嗤嗤兩聲，身上兩劍齊中！\n"NOR;
 
 		message_combatd(msg, me, target);
 		me->add_temp("apply/attack",(skl_you+skl_me)/5);
@@ -113,37 +113,37 @@ int perform(object me, object target)
 		you->start_busy(2+random(2));
     if (target->query("qi") > 0 && target->query("jing") > 0)
     {
-    	msg = HIC"亏得$n闪避得宜，剑锋从两胁掠过，只划破了他衣服，但已吓出了一身冷汗。\n"NOR;
+    	msg = HIC"虧得$n閃避得宜，劍鋒從兩脅掠過，只劃破了他衣服，但已嚇出了一身冷汗。\n"NOR;
 			message_combatd(msg, me, target);
 		}
 	}
 	else
 	{
 		if( (int)me->query("neili") < 350 )
-			return notify_fail("你的真气不足，无法使出双剑合壁。\n");
+			return notify_fail("你的真氣不足，無法使出雙劍合壁。\n");
 		if( (int)me->query_skill(pskill, 1) < 100 )
-			return notify_fail("你的全真剑法不够娴熟，不能使用双剑合璧。\n");
+			return notify_fail("你的全真劍法不夠嫺熟，不能使用雙劍合璧。\n");
 		if( (int)me->query_skill("hubo", 1) < 100 )
-			return notify_fail("你的双手互搏不够娴熟，不能一人独使双剑合璧。\n");
-		msg = HIY "$N左手带以全真剑法剑意，右手"+weapon->name()+HIY"化玉女剑法剑式，双式合璧同时刺出。\n"NOR;
+			return notify_fail("你的雙手互搏不夠嫺熟，不能一人獨使雙劍合璧。\n");
+		msg = HIY "$N左手帶以全真劍法劍意，右手"+weapon->name()+HIY"化玉女劍法劍式，雙式合璧同時刺出。\n"NOR;
 		if (random(me->query_skill("force")) > target->query_skill("force")/2 )
 		{
 			damage = (int)me->query_skill("yunv-jian", 1) + (int)me->query_skill("quanzhen-jian",1);
 			damage = damage + (int)me->query_skill("force",1) ;
-			//(玉女剑法+全真剑法级别+基本内功)
+			//(玉女劍法+全真劍法級別+基本內功)
 			damage = damage/2 + random(damage);
 			target->receive_wound("qi", damage);
 			target->start_busy(random(4));
 			me->start_busy(2+random(2));
 			me->add("neili", -350);
 
-			msg += HIR "$n"HIR"看到$N"HIR"剑招飞舞，招式中所有破绽都为另一剑招补去，竟不知如何是好！\n"NOR;
-			msg += HIR "一呆之下，$N"HIR"的剑招已经破式而入！\n"NOR;
+			msg += HIR "$n"HIR"看到$N"HIR"劍招飛舞，招式中所有破綻都爲另一劍招補去，竟不知如何是好！\n"NOR;
+			msg += HIR "一呆之下，$N"HIR"的劍招已經破式而入！\n"NOR;
 		}
 		else
 		{
 			me->start_busy(3);
-			msg += CYN"可是$p看破了$P的企图，将自己的全身上下护得密不透风，令$P无计可施。\n"NOR;
+			msg += CYN"可是$p看破了$P的企圖，將自己的全身上下護得密不透風，令$P無計可施。\n"NOR;
 		}
 		message_combatd(msg, me, target);
 	}	
@@ -157,19 +157,19 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		大增己方攻击力和防御力，共同出手一招
-		如果没有伙伴，则需100级左右互搏方能出招
+		大增己方攻擊力和防禦力，共同出手一招
+		如果沒有夥伴，則需100級左右互搏方能出招
 
 	出手要求：
 		女性
-		玉女心法100级
-		玉女剑法100级
-		内力100
-	伙伴要求：
+		玉女心法100級
+		玉女劍法100級
+		內力100
+	夥伴要求：
 		男性
-		先天气功100级
-		全真剑法100级
-		内力100
+		先天氣功100級
+		全真劍法100級
+		內力100
 HELP
 	);
 	return 1;

@@ -11,7 +11,7 @@ void create()
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "一罐玉蜂酿成的蜜。\n");
+                set("long", "一罐玉蜂釀成的蜜。\n");
                 set("unit", "罐");
                 set("value", 20);
                 set("max_liquid", 12);

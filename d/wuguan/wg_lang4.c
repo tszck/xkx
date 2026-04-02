@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "长廊");
+	set("short", "長廊");
 	set("long", @LONG
-这是个长廊，东面是武馆内的物品房，要在武馆做杂事的人都得去
-物品房领工具，西边是南练武场。
+這是個長廊，東面是武館內的物品房，要在武館做雜事的人都得去
+物品房領工具，西邊是南練武場。
 LONG);
 	set("exits", ([
 		"east" : __DIR__"wg_wupinfang",

@@ -12,12 +12,12 @@ int exert(object me, object target)
   !me->query("perform/jingsuck") &&
   !me->query("can_perform/huagong-dafa/jingsuck") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("你所使用的内功中没有这种功能。");
+   return notify_fail("你所使用的內功中沒有這種功能。");
 
 	if ( target == me ) target = offensive_target(me);
 
 	if( environment(me)->query("no_fight") )
-		return notify_fail("在这里不能攻击他人。\n");
+		return notify_fail("在這裏不能攻擊他人。\n");
 
 	if( !objectp(target) ||
 		target->query("id") == "gongping zi" ||
@@ -28,34 +28,34 @@ int exert(object me, object target)
 		target->query("id") == "xiangpi ren" ||
 		target->query("id") == "jin ren" ||
 		target->query("id") == "du jiangshi")
-		return notify_fail("你要吸取谁的精气？\n");
+		return notify_fail("你要吸取誰的精氣？\n");
 
-	notify_fail("不是你要抓的人，凑什么热闹！\n");
+	notify_fail("不是你要抓的人，湊什麼熱鬧！\n");
 	if (!userp(target) && !target->accept_hit(me)) return 0;
 
-	if (target->query("race") != "人类")
-		return notify_fail("搞错了！只有人才能有精气！\n");
+	if (target->query("race") != "人類")
+		return notify_fail("搞錯了！只有人纔能有精氣！\n");
 
 	if ( me->query_temp("sucked") )
-		return notify_fail("你刚刚吸取过精气！\n");
+		return notify_fail("你剛剛吸取過精氣！\n");
 
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("你必须空手才能施用化功大法吸人精气！\n");
+		return notify_fail("你必須空手才能施用化功大法吸人精氣！\n");
 
 //	if( !me->is_fighting() || !target->is_fighting())
 
 	if( (int)me->query_skill("huagong-dafa",1) < 45 )
-		return notify_fail("你的化功大法功力不够，不能吸取对方的精气。\n");
+		return notify_fail("你的化功大法功力不夠，不能吸取對方的精氣。\n");
 
 	if( (int)me->query("neili",1) < 10 )
-		return notify_fail("你的内力不够，不能使用化功大法。\n");
+		return notify_fail("你的內力不夠，不能使用化功大法。\n");
 
 	if( (int)target->query("jing") < 45 )
 		return notify_fail( target->name() +
-			"已经精气涣散，你已经无法从他体内吸取精气了！\n");
+			"已經精氣渙散，你已經無法從他體內吸取精氣了！\n");
 
 	message_combatd(
-		HIR "$N突然神秘的一笑，双掌一前一後对准$n的太阳穴拍了过来！\n\n" NOR, me, target );
+		HIR "$N突然神祕的一笑，雙掌一前一後對準$n的太陽穴拍了過來！\n\n" NOR, me, target );
 
         if ( living(target) && !target->query_temp("noliving") )
 	{
@@ -70,8 +70,8 @@ int exert(object me, object target)
 	if (( random(sp) > random(dp) ) ||
 		!living(target) || target->query_temp("noliving") )
 	{
-		tell_object(target, HIR"你猛觉额角两侧如针刺般剧痛，神志迷困，头脑中一片空白！\n" NOR);
-		tell_object(me, HIG"你觉得" + target->name() + "的精气自手掌源源不绝地流了进来。\n" NOR);
+		tell_object(target, HIR"你猛覺額角兩側如針刺般劇痛，神志迷困，頭腦中一片空白！\n" NOR);
+		tell_object(me, HIG"你覺得" + target->name() + "的精氣自手掌源源不絕地流了進來。\n" NOR);
 
 		target->receive_damage("jing", (int)me->query_skill("huagong-dafa", 1) );
 		me->add("jing", (int)me->query_skill("huagong-dafa", 1) );
@@ -92,7 +92,7 @@ int exert(object me, object target)
 	}
 	else
 	{	
-		message_combatd(HIY"可是$p看破了$P的企图，内力猛地一震，借势溜了开去。\n" NOR, me, target);
+		message_combatd(HIY"可是$p看破了$P的企圖，內力猛地一震，借勢溜了開去。\n" NOR, me, target);
 		me->start_busy(3);
 		call_out("del_sucked", 4, me);
 	}
@@ -107,16 +107,16 @@ void del_sucked(object me)
 }
 int help(object me)
 {
-	write(WHT"\n化功大法之吸取精气："NOR"\n");
+	write(WHT"\n化功大法之吸取精氣："NOR"\n");
 	write(@HELP
 
 	使用功效：
-		吸取对方精气
-		增强自己精气
+		吸取對方精氣
+		增強自己精氣
 
 	出手要求：
-		化功大法45级
-		内力10
+		化功大法45級
+		內力10
 HELP
 	);
 	return 1;

@@ -5,19 +5,19 @@ inherit ROOM;
 
 void create()
 {
-	set("short","云山阁");
+	set("short","雲山閣");
 	set("long",@LONG
-云山阁，面南五楹，阁高于地面不及一丈，中间设台阶上下，外中
-柱悬挂书魏嘉瑛联(lian)。
+雲山閣，面南五楹，閣高於地面不及一丈，中間設臺階上下，外中
+柱懸掛書魏嘉瑛聯(lian)。
 LONG );
 	set("item_desc", ([
 		"lian" : HIG"
-        槛        阁
+        檻        閣
         前        外
         春        秋
-        色        声
-        长        蜀
-        堤        岭
+        色        聲
+        長        蜀
+        堤        嶺
         柳        松
 \n"NOR,
 	]));

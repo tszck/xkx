@@ -8,12 +8,12 @@ void init()
 
 void create()
 {
-	set_name("蛇胆膏", ({"shedan gao", "gao"}));
+	set_name("蛇膽膏", ({"shedan gao", "gao"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "块");
-		set("long", "这是珍贵补品『蛇胆膏』。\n");
+		set("unit", "塊");
+		set("long", "這是珍貴補品『蛇膽膏』。\n");
 		set("value", 1000);
 	}
 	setup();
@@ -22,14 +22,14 @@ void create()
 int do_eat(string arg)
 {
 	object me = this_player();
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
+	if(!id(arg)) return notify_fail("你要喫什麼？\n");
 	if(!present(this_object(), me))
-		return notify_fail("你要吃什么？\n");
+		return notify_fail("你要喫什麼？\n");
 	if( me->is_busy() )
-		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
+		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
 	if((me->query("max_jing")>=200)||(me->query("max_qi")>=200))
-		return notify_fail("你吃『蛇胆膏』已无效用！\n");
+		return notify_fail("你喫『蛇膽膏』已無效用！\n");
 	if(me->query("max_jing")<180)
 	{
 		me->add("max_jing", 10);
@@ -44,7 +44,7 @@ int do_eat(string arg)
 		me->add("max_qi",2);
 		me->add("qi",2);
 	}
-	message_vision( "$N吃下一块蛇胆膏，顿觉一股浩荡真气直涌上来，精，气大增...\n" , me);
+	message_vision( "$N喫下一塊蛇膽膏，頓覺一股浩蕩真氣直湧上來，精，氣大增...\n" , me);
 	destruct(this_object());
 	return 1;
 }

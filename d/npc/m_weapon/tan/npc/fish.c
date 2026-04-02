@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("噬人鱼", ({ "fish", "yu" }) );
-	set("race", "游鱼");
+	set_name("噬人魚", ({ "fish", "yu" }) );
+	set("race", "遊魚");
 	set("age", 3);
-	set("long", "这是一只身形并不很大的鱼，浑身覆满绚丽的鳞片，\n"
-	    "一口锋利的牙齿，正虎视耽耽的看着你\n");
+	set("long", "這是一隻身形並不很大的魚，渾身覆滿絢麗的鱗片，\n"
+	    "一口鋒利的牙齒，正虎視耽耽的看着你\n");
 	set("attitude", "aggressive");
 
         set("max_qi",1000);
@@ -27,7 +27,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$N口中吐出一颗夜明珠，肚皮往上一翻，$N死了。\n", this_object());
+	message_vision("$N口中吐出一顆夜明珠，肚皮往上一翻，$N死了。\n", this_object());
 	ob = new("/d/npc/m_weapon/tan/item/zhenzhu");
 	ob->move(environment(this_object()));
 	destruct(this_object());

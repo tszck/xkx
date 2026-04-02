@@ -15,15 +15,15 @@ void init()
 
 void create()
 {
-	set_name("暗门", ({"door",}));
+	set_name("暗門", ({"door",}));
 	set_weight(500);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一个很小的暗门。\n");
-		set("unit", "个");
+		set("long", "一個很小的暗門。\n");
+		set("unit", "個");
 		set("material", "wood");
-		set("no_get", "穷疯啦，门也要？\n");
+		set("no_get", "窮瘋啦，門也要？\n");
 	}
 	setup();
 }
@@ -39,13 +39,13 @@ int do_enter(string arg)
 	if (me->query_temp("doorisok") ) 
 	{
 		me->delete_temp("doorisok"); 
-		message("vision","现在可以往北走.\n",environment(me));
+		message("vision","現在可以往北走.\n",environment(me));
 		return 1;
 	}
 	if( arg=="door" ) 
 	{
-		message_vision("$N触动了机关！\n", this_player());
-		message("vision","突然，暗门砰的一下弹开了，正巧撞在"+me->name()+"的头上\n",environment(me));
+		message_vision("$N觸動了機關！\n", this_player());
+		message("vision","突然，暗門砰的一下彈開了，正巧撞在"+me->name()+"的頭上\n",environment(me));
 		i = (int)me->query_skill("dodge", 0);
 		ging_cost = 700 / (int)me->query("int");
 		qi_cost = 500 / (int)me->query("int");
@@ -58,7 +58,7 @@ int do_enter(string arg)
 
 void dest()
 {
-	message("vision","画卷突然自动移回，又把暗门掩上了。\n","/d/beijing/aobai7");
+	message("vision","畫卷突然自動移回，又把暗門掩上了。\n","/d/beijing/aobai7");
 	destruct(this_object());
 }
 

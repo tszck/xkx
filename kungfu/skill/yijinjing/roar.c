@@ -1,4 +1,4 @@
-// roar.c 佛门狮子吼
+// roar.c 佛門獅子吼
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -14,13 +14,13 @@ int exert(object me, object target)
   !me->query("perform/roar") &&
   !me->query("can_perform/yijinjing/roar") && 
   !me->query_temp("murong/xingyi"))
-   return notify_fail("你所使用的内功中没有这种功能。");
+   return notify_fail("你所使用的內功中沒有這種功能。");
 
 	if( ((int)me->query("neili") < 600 ) || ((int)me->query("max_neili") < 600 ) || ( (int)me->query_skill("yijinjing" ,1) < 100) )
-		return notify_fail("你鼓足真气＂喵＂的吼了一声, 结果吓走了几只老鼠。\n");
+		return notify_fail("你鼓足真氣＂喵＂的吼了一聲, 結果嚇走了幾隻老鼠。\n");
 
 	if( environment(me)->query("no_fight") )
-		return notify_fail("在这里不能攻击他人。\n");
+		return notify_fail("在這裏不能攻擊他人。\n");
 
 	skill = me->query_skill("force");
 
@@ -29,7 +29,7 @@ int exert(object me, object target)
 
 	me->start_busy(5);
 	message_combatd(
-		HIY "$N深深地吸一囗气，真力迸发，运起佛门狮子吼，发出一声惊天动地的巨吼ⅵ\n" NOR, me);
+		HIY "$N深深地吸一囗氣，真力迸發，運起佛門獅子吼，發出一聲驚天動地的巨吼ⅵ\n" NOR, me);
 
 	ob = all_inventory(environment(me));
 	for(i=0; i<sizeof(ob); i++)
@@ -45,7 +45,7 @@ int exert(object me, object target)
 			ob[i]->receive_damage("jing", damage * 2 );
 			if( (int)ob[i]->query("neili") < skill * 2 )
 				ob[i]->receive_wound("jing", damage);
-			tell_object(ob[i], "你觉得眼前一阵金星乱冒，耳朵痛得像是要裂开一样！\n");
+			tell_object(ob[i], "你覺得眼前一陣金星亂冒，耳朵痛得像是要裂開一樣！\n");
 		}
 
 		if( userp(ob[i]) ) ob[i]->fight_ob(me);
@@ -56,15 +56,15 @@ int exert(object me, object target)
 
 int help(object me)
 {
-	write(WHT"\n易筋经神功之佛门狮子吼："NOR"\n");
+	write(WHT"\n易筋經神功之佛門獅子吼："NOR"\n");
 	write(@HELP
 
 	使用功效：
-		伤害自己周围的所有生物的精气
+		傷害自己周圍的所有生物的精氣
 
 	出手要求：
-		易筋经神功100级
-	        内力600
+		易筋經神功100級
+	        內力600
 HELP
 	);
 	return 1;

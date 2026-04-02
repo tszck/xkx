@@ -6,12 +6,12 @@ inherit ROOM;
 string look_gaoshi();
 void create()
 {
-	set("short", "莲蓉门");
+	set("short", "蓮蓉門");
 	set("long", @LONG
-北城门叫莲蓉门，从此向北去是就江阴的长江要塞，官府为此将大
-道一直修到了江边。因为在要塞处的江面上禁止通船，所以从这里出城
-的普通百姓少，和南边热热闹闹的景象组成了明显的反差。城墙上有一
-张白纸黑字的官府告示(gaoshi)。
+北城門叫蓮蓉門，從此向北去是就江陰的長江要塞，官府爲此將大
+道一直修到了江邊。因爲在要塞處的江面上禁止通船，所以從這裏出城
+的普通百姓少，和南邊熱熱鬧鬧的景象組成了明顯的反差。城牆上有一
+張白紙黑字的官府告示(gaoshi)。
 LONG );
 	set("outdoors", "wuxi");
 	set("no_clean_up", 0);
@@ -34,5 +34,5 @@ LONG );
 
 string look_gaoshi()
 {
-	return FINGER_D->get_killer() + "\n无锡知府\n晨宜\n";
+	return FINGER_D->get_killer() + "\n無錫知府\n晨宜\n";
 }

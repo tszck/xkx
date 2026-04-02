@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "宝和记");
+	set("short", "寶和記");
 	set("long", @LONG
-这是一家以买卖公平著称苏州的当铺，一个五尺高的柜台挡在你的
-面前，柜台上摆着一个牌子(sign)，柜台后坐着位老板，一双精明的眼
+這是一家以買賣公平著稱蘇州的當鋪，一個五尺高的櫃檯擋在你的
+面前，櫃檯上擺着一個牌子(sign)，櫃檯後坐着位老闆，一雙精明的眼
 睛上上下下打量着你。
 LONG );
 	set("no_fight", 1);
@@ -20,9 +20,9 @@ LONG );
 	]));
 	set("item_desc", ([
 		"sign" : "公平交易\n
-sell        卖 
-buy         买
-value       估价
+sell        賣 
+buy         買
+value       估價
 ",
 	]));
 	set("objects", ([

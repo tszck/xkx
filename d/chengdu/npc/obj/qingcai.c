@@ -11,7 +11,7 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一棵绿油油的青菜。\n");
+		set("long", "一棵綠油油的青菜。\n");
 		set("unit", "棵");
 		set("value", 30);
 		set("food_remaining", 2);

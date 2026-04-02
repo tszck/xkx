@@ -10,15 +10,15 @@ int update_condition(object me, int duration)
   if (me->is_ghost()) return 1;
 	if( !living(me) || me->query_temp("noliving") )
 	{
-		message("vision", HIW+me->name()+"瑟瑟发抖，全身结上一层薄薄的白霜。\n"NOR, environment(me), me);
+		message("vision", HIW+me->name()+"瑟瑟發抖，全身結上一層薄薄的白霜。\n"NOR, environment(me), me);
 	}
 	else {
-		tell_object(me, HIW"忽然一股寒气优似冰箭，循着手臂，迅速无伦的射入胸膛，你中的寒毒发作了！\n"NOR);
-		message("vision", HIW+me->name()+"全身发颤，牙关格格直响，过得片刻，嘴唇也紫了，脸色渐渐由青而白。\n"NOR, environment(me), me);
+		tell_object(me, HIW"忽然一股寒氣優似冰箭，循着手臂，迅速無倫的射入胸膛，你中的寒毒發作了！\n"NOR);
+		message("vision", HIW+me->name()+"全身發顫，牙關格格直響，過得片刻，嘴脣也紫了，臉色漸漸由青而白。\n"NOR, environment(me), me);
 	}
-	me->receive_damage("qi", 35,"体内寒毒发作");
-	if(userp(me)) me->receive_wound("jing", 20,"体内寒毒发作");
-	else me->receive_wound("jing", 40,"体内寒毒发作");
+	me->receive_damage("qi", 35,"體內寒毒發作");
+	if(userp(me)) me->receive_wound("jing", 20,"體內寒毒發作");
+	else me->receive_wound("jing", 40,"體內寒毒發作");
 	if(!me->is_busy()) me->start_busy(2);
 	if ((int)me->query("eff_jing")<0 || (int)me->query("eff_qi")<0) return 0;
 	me->apply_condition("cold_poison", duration - 1);

@@ -4,12 +4,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIR"胡萝卜"NOR,({"carrot","huluobo"}));
+	set_name(HIR"胡蘿蔔"NOR,({"carrot","huluobo"}));
 	set_weight(300);
 	if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "一篮胡萝卜。\n");
-                set("unit", "篮");
+                set("long", "一籃胡蘿蔔。\n");
+                set("unit", "籃");
         }
 }

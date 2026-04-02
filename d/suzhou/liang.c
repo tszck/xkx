@@ -11,9 +11,9 @@ void init()
 
 void create()
 {
-	set("short", "梁上");
+	set("short", "樑上");
 	set("long",@long
-这是碧水亭上的房梁，上面画满了希奇古怪的字画。
+這是碧水亭上的房梁，上面畫滿了希奇古怪的字畫。
 long
         );
 	set("outdoors","suzhou");
@@ -31,25 +31,25 @@ int lingwu(string arg)
 	int bl,sl;
 
 	if (!living(me)) return 0;
-	if (!arg) return notify_fail("你要领悟什么？\n");
+	if (!arg) return notify_fail("你要領悟什麼？\n");
 	if (!find_object(SKILL_D(arg)))
 // 	if (!find_object(SKILL_D(arg)))
-		return notify_fail("没有这种技能。\n");
+		return notify_fail("沒有這種技能。\n");
 	if (!me->query_skill(arg,1))
-		return notify_fail("你不会这种技能。\n");
+		return notify_fail("你不會這種技能。\n");
 	if (!(special=me->query_skill_mapped(arg)))
-		return notify_fail("你只能从特殊技能中领悟。\n");
+		return notify_fail("你只能從特殊技能中領悟。\n");
 	bl=me->query_skill(arg,1);
 	if (bl > me->query("jing") ||
 		me->query("jing")*100/me->query("max_jing") < 20)
 	{
 		me->receive_damage("jing",bl/2);
-		return notify_fail("你没办法集中精神。\n");
+		return notify_fail("你沒辦法集中精神。\n");
 	}
 	sl=me->query_skill(special,1);
 	if (bl > sl)
-		return notify_fail("你的"+CHINESE_D->chinese(special)+"造诣不够，无法领悟更深一层的"+CHINESE_D->chinese(arg)+"。\n");
-	write("你对着字画瞑思苦想，对"+CHINESE_D->chinese(arg)+"的体会又深了一层。\n");
+		return notify_fail("你的"+CHINESE_D->chinese(special)+"造詣不夠，無法領悟更深一層的"+CHINESE_D->chinese(arg)+"。\n");
+	write("你對着字畫瞑思苦想，對"+CHINESE_D->chinese(arg)+"的體會又深了一層。\n");
 	me->receive_damage("jing",bl/2);
 	me->improve_skill(arg,sl/5+1);
 	return 1;
@@ -61,10 +61,10 @@ int do_jump(string arg)
 	if (arg !="down") return notify_fail("你要到那去？\n");
 	if( arg=="down")
 	{
-		write("你纵身跳下了房梁。\n");
-		message("vision", me->name() + "一纵身跳下了房梁。\n", environment(me), ({me}) );
+		write("你縱身跳下了房梁。\n");
+		message("vision", me->name() + "一縱身跳下了房梁。\n", environment(me), ({me}) );
 		me->move(__DIR__"bishuiting");
-		message("vision", me->name() + "从上面跳了下来。\n", environment(me), ({me}) );
+		message("vision", me->name() + "從上面跳了下來。\n", environment(me), ({me}) );
 	}
 	return 1;
 }

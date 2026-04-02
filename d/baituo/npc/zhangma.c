@@ -6,10 +6,10 @@ string inquiry_hua();
 
 void create()
 {
-	set_name("张妈", ({ "zhang ma","zhang","ma"}) );
+	set_name("張媽", ({ "zhang ma","zhang","ma"}) );
 	set("gender", "女性" );
 	set("age", 50);
-	set("long", "一个历经沧桑的老婆婆。\n");
+	set("long", "一個歷經滄桑的老婆婆。\n");
 	set("shen_type", 1);
 	set("combat_exp", 500);
 	set("str", 16);
@@ -19,9 +19,9 @@ void create()
 	set("attitude", "friendly");
 	set("chat_chance",60);
 	set("chat_msg",({
-		"张妈念叨着：我苦命的『金花』哟，你现在在那里哟￣\n",
-		"张妈暗暗抹了把眼泪。\n",
-		"张妈独自说道：我的『金花』呀，你怎能撇下我自个儿走了￣\n"
+		"張媽唸叨着：我苦命的『金花』喲，你現在在那裏喲￣\n",
+		"張媽暗暗抹了把眼淚。\n",
+		"張媽獨自說道：我的『金花』呀，你怎能撇下我自個兒走了￣\n"
 	}) );
 	set("inquiry",([
 		"金花" : (: inquiry_hua :),
@@ -35,15 +35,15 @@ string inquiry_hua()
 {
 	object me=this_player();
 	object obn;
-	message_vision("张妈说道：这位"+ RANK_D->query_respect(me)+"，『金花』是我的亲闺女，\n甭提多孝顺了！\n可惜去年上山割草就一去不会，也不知是死是活。唉！\n", me );
+	message_vision("張媽說道：這位"+ RANK_D->query_respect(me)+"，『金花』是我的親閨女，\n甭提多孝順了！\n可惜去年上山割草就一去不會，也不知是死是活。唉！\n", me );
 	if(query_temp("shoe")==0)
 	{
-		message_vision("张妈又说道：这位"+ RANK_D->query_respect(me)+"，我已经托\n人去寻找了，也不知道怎么样了。\n",me);
+		message_vision("張媽又說道：這位"+ RANK_D->query_respect(me)+"，我已經託\n人去尋找了，也不知道怎麼樣了。\n",me);
 		return "";
 	}
-	message_vision("张妈又说道：这位"+ RANK_D->query_respect(me)+"，我这里有她落在草丛里的一只「绣花鞋」，\n你要是找到『金花』，就把鞋交给她，她会明白的。\n我女儿『金花』的命运，就托给你了。\n" , me);
+	message_vision("張媽又說道：這位"+ RANK_D->query_respect(me)+"，我這裏有她落在草叢裏的一隻「繡花鞋」，\n你要是找到『金花』，就把鞋交給她，她會明白的。\n我女兒『金花』的命運，就託給你了。\n" , me);
 	obn=new("/d/baituo/obj/shoe");
 	obn->move(me);
 	set_temp("shoe",0);
-	return "张妈从怀里摸出一只「绣花鞋」，交给你。\n";
+	return "張媽從懷裏摸出一隻「繡花鞋」，交給你。\n";
 }

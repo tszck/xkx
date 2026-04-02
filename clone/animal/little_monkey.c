@@ -6,10 +6,10 @@ inherit NPC;
 void create()
 {
 	set_name("小猴",({ "little monkey", "monkey"}) );
-	set("race", "走兽");
+	set("race", "走獸");
 	set("gender", "雄性" );
 	set("age", 7);
-	set("long", "这是一只调皮的小猴子，虽是畜牲，却喜欢模仿人样。\n");
+	set("long", "這是一隻調皮的小猴子，雖是畜牲，卻喜歡模仿人樣。\n");
 	set("combat_exp", 50);
 	set("shen_type", -1);
 	set("str", 11);

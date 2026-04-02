@@ -7,7 +7,7 @@ void create()
 	set_name("祭司", ({ "ji si", "si" }));
 	set("age", 62);
 	set("gender", "女性");
-	set("long", "一位满脸皱纹的老年妇女，是本村的大祭司，常年司守祭台。台夷时处母系氏族，祭司要职皆为妇女。\n");
+	set("long", "一位滿臉皺紋的老年婦女，是本村的大祭司，常年司守祭臺。臺夷時處母系氏族，祭司要職皆爲婦女。\n");
 	set("attitude", "peaceful");
 
 	set("str", 20);

@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "铁枪庙下");
+	set("short", "鐵槍廟下");
 	set("long", @LONG
-这是嘉兴铁枪庙下的小洞。里面破破烂烂的，丢满了各种杂物，还
-有丐帮弟子收集的破铜烂铁等。从这里通往丐帮的秘密通道。
+這是嘉興鐵槍廟下的小洞。裏面破破爛爛的，丟滿了各種雜物，還
+有丐幫弟子收集的破銅爛鐵等。從這裏通往丐幫的祕密通道。
 LONG );
 	set("exits", ([
 		"out"       : "/d/jiaxing/tieqiang",

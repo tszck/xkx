@@ -6,7 +6,7 @@ inherit SURCOAT;
 
 void create()
 {
-	set_name("披风", ({ "surcoat", "pi feng" }) );
+	set_name("披風", ({ "surcoat", "pi feng" }) );
 	set_weight(1600);
 	if( clonep() )
 		set_default_object(__FILE__);

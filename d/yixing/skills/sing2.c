@@ -20,32 +20,32 @@ int exert(object me, object target)
 		return notify_fail("you are busy now.\n");
 	if( !objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("id") != "lubo" )
-		return notify_fail("你未执法器，不能凝神梵唱。\n");
+		return notify_fail("你未執法器，不能凝神梵唱。\n");
 
 	if( !objectp(obj = present("kulou guan", me)) ||
 		!obj->query("equipped") )
-		return notify_fail("你未顶骷髅冠，不能凝神梵唱。\n");
+		return notify_fail("你未頂骷髏冠，不能凝神梵唱。\n");
 	if( !objectp(obj = present("rentou lian", me)) ||
 		!obj->query("equipped") )
-		return notify_fail("你未戴人头链，不能凝神梵唱。\n");
-	if( !living(target)) return notify_fail("看清楚一点，那并不是活物。\n");
-	if( target->query("race") != "人类" )
-		return notify_fail(target->query("name")+"听不懂你的咒语！\n");
+		return notify_fail("你未戴人頭鏈，不能凝神梵唱。\n");
+	if( !living(target)) return notify_fail("看清楚一點，那並不是活物。\n");
+	if( target->query("race") != "人類" )
+		return notify_fail(target->query("name")+"聽不懂你的咒語！\n");
 
 	if( (int)me->query("neili") < 300 )
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 
 	if( (int)me->query_skill("necromancy", 1) < 30 )
-		return notify_fail("你的降伏法功力不够！\n");
+		return notify_fail("你的降伏法功力不夠！\n");
 
 	if( (int)me->query_skill("lamaism", 1) < 30 )
-		return notify_fail("你的密宗心法功力不够！\n");
+		return notify_fail("你的密宗心法功力不夠！\n");
 
 	if( (int)me->query_skill("longxiang-banruo", 1) < 30 )
-		return notify_fail("你的龙象般若功功力不够！\n");
+		return notify_fail("你的龍象般若功功力不夠！\n");
 
 	if( environment(me)->query("no_fight") )
-		return notify_fail("在这里不能唱。\n");
+		return notify_fail("在這裏不能唱。\n");
 
 	if( target->query_temp("cursed", 1) ||
 		target->query_temp("block_msg/all", 1))
@@ -57,8 +57,8 @@ int exert(object me, object target)
 	me->add("neili", -50);
 	me->receive_damage("qi", 50);
 
-	message_vision( BLU "$N摇头晃脑，口中背诵大乘佛经，夹杂以密宗六字咒。声音阴阳顿挫，有起有伏，暗含音律。\n" NOR, me);
-	tell_object(target, "你觉得那密咒比鬼哭还难听，脑袋里一团絮乱，眼前一堆鬼影在乱跳，胸气阻塞，四肢无力，混然欲睡。\n");
+	message_vision( BLU "$N搖頭晃腦，口中背誦大乘佛經，夾雜以密宗六字咒。聲音陰陽頓挫，有起有伏，暗含音律。\n" NOR, me);
+	tell_object(target, "你覺得那密咒比鬼哭還難聽，腦袋裏一團絮亂，眼前一堆鬼影在亂跳，胸氣阻塞，四肢無力，混然欲睡。\n");
 		
 	ap = (int)me->query("neili") + (int)me->query("max_neili") +
 		(int)me->query_skill("necromancy", 1) * 10 +
@@ -69,7 +69,7 @@ int exert(object me, object target)
 	dp *= (int)target->query("combat_exp")/1000 + 1;
 
 	if( random(ap + dp) > dp ) {
-		tell_object(target, HIR"\n你只觉得眼前的一切离你慢慢远去，你的魂魄似要出窍，不再由你主宰。\n"NOR);
+		tell_object(target, HIR"\n你只覺得眼前的一切離你慢慢遠去，你的魂魄似要出竅，不再由你主宰。\n"NOR);
 
 		target->start_busy(2 + random(2));
 		target->set_temp("cursed", 1);
@@ -77,7 +77,7 @@ int exert(object me, object target)
 //		target->set_temp("block_msg/all", 1);
 		me->set_temp("curser", 1);
 
-		message_vision(HIR"\n$N突然开始两眼发直，呆呆地望着前方。\n"NOR, target);
+		message_vision(HIR"\n$N突然開始兩眼發直，呆呆地望着前方。\n"NOR, target);
 
 		remove_call_out("del_sung");
 		call_out("del_sung", 3 + random(3), me, target);
@@ -102,7 +102,7 @@ void del_sung(object me, object target)
 	if( target->query_temp("yield") )
 		target->delete_temp("yield");
 
-	message_vision("$N慢慢地清醒过来，魂魄又回到了自己身体上。\n", target);
+	message_vision("$N慢慢地清醒過來，魂魄又回到了自己身體上。\n", target);
 	}
 
 	if( me ) {

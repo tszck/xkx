@@ -6,13 +6,13 @@ inherit CLOTH;
 
 void create()
 {
-	set_name("渌水罗衣", ({"luo yi", "fancy skirt", "skirt"}));
+	set_name("淥水羅衣", ({"luo yi", "fancy skirt", "skirt"}));
 	set_weight(2000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "件");
-		set("long","这是件看起来非常典雅的长裙，却不知是什么制成。\n");
+		set("long","這是件看起來非常典雅的長裙，卻不知是什麼製成。\n");
 		set("value", 1500);
 		set("material", "cloth");
 		set("armor_prop/armor", 10);

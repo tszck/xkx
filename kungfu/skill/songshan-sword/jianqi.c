@@ -3,7 +3,7 @@
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "「剑气」"
+#define PNAME "「劍氣」"
 int perform(object me, object target)
 {
 	object weapon;
@@ -18,24 +18,24 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 /*
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 */
 	if( !objectp(weapon = me->query_temp("weapon")) ||
 		weapon->query("skill_type") != "sword" )
-		return notify_fail("你手中无剑，怎能运用「剑气」？！\n");
+		return notify_fail("你手中無劍，怎能運用「劍氣」？！\n");
 		
 	if (weapon->query("unique") )
-		return notify_fail("你手中之剑已是锋利之极，使用「剑气」没有什么作用！\n");
+		return notify_fail("你手中之劍已是鋒利之極，使用「劍氣」沒有什麼作用！\n");
 
 	if( me->query_temp("ss_jianqi") )
-		return notify_fail("你刚使完「剑气」，目前气血翻涌，无法再次运用！\n");
+		return notify_fail("你剛使完「劍氣」，目前氣血翻湧，無法再次運用！\n");
 
 	fskill = "hanbing-zhenqi";
 	bskill = "sword";
@@ -49,30 +49,30 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为火候未到，施展只会伤及自身！\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲火候未到，施展只會傷及自身！\n");
 
 	if( (int)me->query_skill(sskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为还不够，还未能领悟"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲還不夠，還未能領悟"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(bskill)+"修为还不够，还未能领悟"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"修爲還不夠，還未能領悟"+PNAME+"。\n");
 
 	if( (int)me->query_str() < 30 )
-		return notify_fail("你的臂力不够高，无法使用"+PNAME+"。\n");
+		return notify_fail("你的臂力不夠高，無法使用"+PNAME+"。\n");
 
 	if( !me->query_temp("murong/xingyi") )
 	{
 		if( me->query_skill_mapped("force") != fskill )
-			return notify_fail("你所用的内功与「剑气」心法相悖！\n");
+			return notify_fail("你所用的內功與「劍氣」心法相悖！\n");
 	}
 
 	if( me->query("max_neili") <= 2000 )
-		return notify_fail("你的内力修为不足，劲力不足以施展「剑气」！\n");
+		return notify_fail("你的內力修爲不足，勁力不足以施展「劍氣」！\n");
 
 	if( me->query("neili") <= 600 )
-		return notify_fail("你的内力不够，劲力不足以施展「剑气」！\n");
+		return notify_fail("你的內力不夠，勁力不足以施展「劍氣」！\n");
 
-	message_combatd(GRN "\n刷的一声响，$N潜运内力将"+weapon->name()+GRN"一抖。这一下使得剑气纵横，竟然声震山谷。不明其理之人，无不骇异！\n\n" NOR, me);
+	message_combatd(GRN "\n刷的一聲響，$N潛運內力將"+weapon->name()+GRN"一抖。這一下使得劍氣縱橫，竟然聲震山谷。不明其理之人，無不駭異！\n\n" NOR, me);
 
 	damage = me->query_skill(bskill, 1);
 	damage = damage/6;
@@ -107,11 +107,11 @@ void remove_effect1(object me, object weapon, int damage)
 		return;
 	}
 	me->add_temp("apply/damage", -damage);
-	message_combatd("\n$N一套「嵩山剑法」使完，手中"+weapon->name()+"上的光芒渐渐也消失了。\n", me);		
+	message_combatd("\n$N一套「嵩山劍法」使完，手中"+weapon->name()+"上的光芒漸漸也消失了。\n", me);		
 	weapon->add("jianqi", 1);
 	if (weapon && weapon->query("jianqi") >= (3+weapon->query("rigidity")))
 	{
-		message_combatd(HIW"\n只听“嚓”的一声，$N手中的$n"HIW"被内力冲击，裂成了碎片！\n"NOR,me,weapon);
+		message_combatd(HIW"\n只聽“嚓”的一聲，$N手中的$n"HIW"被內力衝擊，裂成了碎片！\n"NOR,me,weapon);
 		weapon->unequip();
       	seteuid(getuid());
       	piece = new("/clone/misc/piece");
@@ -127,7 +127,7 @@ void remove_effect2(object me)
 {
 	if (!me) return;
 	me->delete_temp("ss_jianqi");
-	tell_object(me, HIG"\n你经过一段时间调气养息，又可以使用「剑气」了。\n"NOR); 
+	tell_object(me, HIG"\n你經過一段時間調氣養息，又可以使用「劍氣」了。\n"NOR); 
 }
 
 string name() {return replace_string(replace_string(PNAME,"「",""),"」","");}
@@ -138,15 +138,15 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		内力灌注兵器增加杀伤力
+		內力灌注兵器增加殺傷力
 
 	出手要求：
-		寒冰真气150级
-		嵩山剑法150级
-		基本剑法150级
-		后天膂力30
-		内力修为2000
-		内力600
+		寒冰真氣150級
+		嵩山劍法150級
+		基本劍法150級
+		後天膂力30
+		內力修爲2000
+		內力600
 HELP
 	);
 	return 1;

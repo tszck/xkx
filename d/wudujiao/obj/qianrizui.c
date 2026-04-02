@@ -10,10 +10,10 @@ void create()
 {
                set_name("千日醉", ({"qianri zui","zui" }));
 
-                set("unit", "颗");
-                set("long", "这是一颗核桃大小的果实，散发着一股浓郁的酒香。\n");
+                set("unit", "顆");
+                set("long", "這是一顆核桃大小的果實，散發着一股濃鬱的酒香。\n");
                 set("value", 200);
-//            set("no_drop", "这样东西不能离开你。\n");
+//            set("no_drop", "這樣東西不能離開你。\n");
               set_weight(50);
 
 

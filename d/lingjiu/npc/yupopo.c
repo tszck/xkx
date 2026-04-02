@@ -6,11 +6,11 @@ inherit NPC;
 string ask_me();
 void create()
 {
-	set_name("余婆婆", ({ "yu popo", "yu", "popo" }));
+	set_name("餘婆婆", ({ "yu popo", "yu", "popo" }));
 	set("long",
-		"她是「灵鹫宫」九天九部中昊天部的首领。
-她跟随童姥多年，出生入死，饱经风霜。\n");
-	set("title", "灵鹫宫昊天部首领");
+		"她是「靈鷲宮」九天九部中昊天部的首領。
+她跟隨童姥多年，出生入死，飽經風霜。\n");
+	set("title", "靈鷲宮昊天部首領");
 	set("gender", "女性");
 	set("class", "dancer");
 	set("age", 60);
@@ -51,10 +51,10 @@ void create()
 	map_skill("sword", "tianyu-qijian");
 	prepare_skill("strike","liuyang-zhang");
 	prepare_skill("hand", "zhemei-shou");
-	create_family("灵鹫宫",2,"弟子");
+	create_family("靈鷲宮",2,"弟子");
 	set("inquiry", ([
-		"灵鹫宫" : (: ask_me :),
-		"拜师"   : (: ask_me :),
+		"靈鷲宮" : (: ask_me :),
+		"拜師"   : (: ask_me :),
 	]));
 	setup();
 	carry_object("/d/lingjiu/obj/qingyi")->wear();
@@ -65,9 +65,9 @@ void create()
 
 void die()
 {
-	message("vision", HIW"\n余婆婆叹道：“唉，主人，没想到老身不能守住百丈涧！哼，让你们也过不去！”\n"NOR,"/d/lingjiu/jian");
-	message("vision", HIW"余婆婆挥动长剑，只听见“乒”的一声，碗口粗的铁索断断成了两截。\n"NOR,"/d/lingjiu/jian");
-//	message_vision("$N惨叫一声，死了！\n", this_object());
+	message("vision", HIW"\n餘婆婆嘆道：“唉，主人，沒想到老身不能守住百丈澗！哼，讓你們也過不去！”\n"NOR,"/d/lingjiu/jian");
+	message("vision", HIW"餘婆婆揮動長劍，只聽見“乒”的一聲，碗口粗的鐵索斷斷成了兩截。\n"NOR,"/d/lingjiu/jian");
+//	message_vision("$N慘叫一聲，死了！\n", this_object());
 	::die();
 }
 string ask_me()
@@ -79,17 +79,17 @@ string ask_me()
 	{
 		if ((string)ob->query("gender")=="女性")
 		{
-			message_vision("余婆婆冲着$N微笑说：你是来拜师的吧，我送你进去。\n",ob);
-			message_vision("余婆婆长袖一拂，$N只觉得一阵狂风吹来，慢慢被吹到山涧对面去。\n",ob);
+			message_vision("餘婆婆衝着$N微笑說：你是來拜師的吧，我送你進去。\n",ob);
+			message_vision("餘婆婆長袖一拂，$N只覺得一陣狂風吹來，慢慢被吹到山澗對面去。\n",ob);
 			ob->move(room);
-			return "灵鹫宫的将来有希望了。\n";
-		} else return "无耻奸徒打听我灵鹫宫有何居心！\n";
+			return "靈鷲宮的將來有希望了。\n";
+		} else return "無恥奸徒打聽我靈鷲宮有何居心！\n";
 	}
-	if ((string)ob->query("family/family_name")=="灵鹫宫")
+	if ((string)ob->query("family/family_name")=="靈鷲宮")
 	{
-		message_vision("余婆婆冲着$N点点头，微微笑了笑。\n",ob);
-		return "诸位灵鹫宫弟子辛苦了。\n";
+		message_vision("餘婆婆衝着$N點點頭，微微笑了笑。\n",ob);
+		return "諸位靈鷲宮弟子辛苦了。\n";
 	}
-	return  "老身奉主人之命守卫百丈涧，非灵鹫宫弟子请回！";
+	return  "老身奉主人之命守衛百丈澗，非靈鷲宮弟子請回！";
 }
 

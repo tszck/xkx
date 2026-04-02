@@ -1,4 +1,4 @@
-// shashou.c 杀手
+// shashou.c 殺手
 #include <ansi.h>
 #include "init.h";
 inherit NPC;
@@ -22,9 +22,9 @@ void create()
 			break;
 	}
 	set_name(name["name"],({name["id"]}));
-	set("title","一品堂杀手");
+	set("title","一品堂殺手");
 	set("long",
-		"这是一位满身黑衣的人，跟普通人完全没什么两样。\n");
+		"這是一位滿身黑衣的人，跟普通人完全沒什麼兩樣。\n");
 	set("age", 20 + random(25) );
 	set("attitude", "heroism");
 	set("str", 20 + random(11));	// 膂力
@@ -32,7 +32,7 @@ void create()
 	set("int", 20 + random(11));	// 悟性
 	set("con", 20 + random(11));	// 根骨
         set("dex", 100 + random(11)); 	// 身法
-	set("kar", 20 + random(11));	// 福缘
+	set("kar", 20 + random(11));	// 福緣
 	set("shen", -10);
 	set("demogorgon",1);
 	set("no_suck",1);

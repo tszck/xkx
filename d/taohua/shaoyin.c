@@ -10,10 +10,10 @@ int do_save();
 
 void create()
 {
-	set("short", "少阴");
+	set("short", "少陰");
 	set("long", @LONG
-这里是四象层的少阴。少阴是阳中之阴。东方对应四灵兽中的青龙，
-青龙之形，尚青。以方位入五行，有一道铁梯直通下方的东方甲乙木。
+這裏是四象層的少陰。少陰是陽中之陰。東方對應四靈獸中的青龍，
+青龍之形，尚青。以方位入五行，有一道鐵梯直通下方的東方甲乙木。
 LONG
 	);
 	set("exits", ([ 
@@ -46,12 +46,12 @@ void init()
 
 int do_save()
 {
-	write("这里不准存盘！\n");
+	write("這裏不準存盤！\n");
 	return 1;
 }
 
 int do_quit()
 {
-	write("这里不准退出！\n");
+	write("這裏不準退出！\n");
 	return 1;
 }

@@ -7,11 +7,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "前厅");
+	set("short", "前廳");
 	set("long",@long
-这里是座大厅，高檐大瓦，十分的简朴而壮阔，厅内摆几张高背方
-椅，一张八仙桌，看来是接待客人的地方，西面和东面也是客厅，供客
-人歇息，北面一条长廊通向后面。
+這裏是座大廳，高檐大瓦，十分的簡樸而壯闊，廳內擺幾張高背方
+椅，一張八仙桌，看來是接待客人的地方，西面和東面也是客廳，供客
+人歇息，北面一條長廊通向後面。
 long);
 	set("exits",([
 		"south" : __DIR__"pingfeng",
@@ -35,9 +35,9 @@ int valid_leave(object me, string dir)
 	mapping fam;
 	fam = (mapping)me->query("family");
 
-	if ((!fam || fam["family_name"] != "昆仑派") && dir == "north" &&
+	if ((!fam || fam["family_name"] != "崑崙派") && dir == "north" &&
 		objectp(present("xi huazi", environment(me))))
-		return notify_fail("西华子拦住你，说道：这里是昆仑派的地盘，不要随意乱闯！\n");
+		return notify_fail("西華子攔住你，說道：這裏是崑崙派的地盤，不要隨意亂闖！\n");
 
 	return ::valid_leave(me, dir);
 }

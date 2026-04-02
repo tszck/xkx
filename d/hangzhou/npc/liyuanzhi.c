@@ -10,7 +10,7 @@ void create()
 	set("gender", "女性");
 	set("age", 16);
 	set("long",
-		"她是杭州提督李可秀的千金，武当名宿陆菲青的入室弟子。\n");
+		"她是杭州提督李可秀的千金，武當名宿陸菲青的入室弟子。\n");
 	set("combat_exp", 200000);
         set("shen_type", 1);
         set("max_neili", 1000);
@@ -40,7 +40,7 @@ void create()
 	map_skill("sword", "taiji-jian");
 	map_skill("unarmed", "taiji-quan");
 	map_skill("parry", "taiji-jian");
-        create_family("武当派", 14, "弟子");
+        create_family("武當派", 14, "弟子");
 
 	setup();
 

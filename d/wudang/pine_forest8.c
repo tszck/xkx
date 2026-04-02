@@ -8,9 +8,9 @@ void create()
 {
 	set("short", "松林");
 	set("long", @LONG
-这是松林深处，暗无天日，朦胧中只感觉到左右前后到处都是树影。
-地上有一两个死人骷髅，发着绿荧荧的磷光。你惊骇之间，一脚踩在钢
-针般的松针上！
+這是松林深處，暗無天日，朦朧中只感覺到左右前後到處都是樹影。
+地上有一兩個死人骷髏，發着綠熒熒的磷光。你驚駭之間，一腳踩在鋼
+針般的松針上！
 LONG
 	);
 	
@@ -53,7 +53,7 @@ void init()
 	object me = this_player();
 	
 	if ( !objectp(me->query_temp("armor/boots")) )
-		me->receive_damage("qi", 10, "被松针扎死了");  
+		me->receive_damage("qi", 10, "被松針扎死了");  
 
 }
 

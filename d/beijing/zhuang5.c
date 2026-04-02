@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "庄府大厅");
+	set("short", "莊府大廳");
 	set("long", @LONG
-这是一间大厅。通往各个房间，东边的屋里有女子啼哭之声隐隐传
-来。
+這是一間大廳。通往各個房間，東邊的屋裏有女子啼哭之聲隱隱傳
+來。
 LONG );
 	set("exits", ([
 		"east"  : __DIR__"zhuang6",

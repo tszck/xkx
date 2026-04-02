@@ -7,19 +7,19 @@ int do_climb(string arg);
 
 void create()
 {
-	set("short", "庄府大门");
+	set("short", "莊府大門");
 	set("long", @LONG
-这里就是文士庄允城的旧居。自从他被朝廷抓走后，这里好象就没
-有人住了。一扇大门 (men)紧锁着，周围是高高的围墙(wall)。一切都
-很干净，并没有积多少灰尘。
+這裏就是文士莊允城的舊居。自從他被朝廷抓走後，這裏好象就沒
+有人住了。一扇大門 (men)緊鎖着，周圍是高高的圍牆(wall)。一切都
+很乾淨，並沒有積多少灰塵。
 LONG );
 	set("outdoors", "huabei");
 	set("exits", ([
 		"south" : __DIR__"zhuang2",
 	]));
 	set("item_desc", ([
-		"men" : "这扇门是锁着的，除非你打破(break)它。\n",
-		"wall" : "墙很高，可能翻不过去(climb)。\n",
+		"men" : "這扇門是鎖着的，除非你打破(break)它。\n",
+		"wall" : "牆很高，可能翻不過去(climb)。\n",
 	]) );
 	set("no_clean_up", 0);
 	set("coor/x", 100);
@@ -42,13 +42,13 @@ int do_break(string arg)
 	n = me->query("neili");
 	if( !arg || arg!="men" )
 	{
-		write("不要随便打碎别人的东西！\n");
+		write("不要隨便打碎別人的東西！\n");
 		return 1;
 	}
-	message_vision("$N走到门前，深吸一口气，双掌同时拍出。\n", me);
+	message_vision("$N走到門前，深吸一口氣，雙掌同時拍出。\n", me);
 	if (n>=200)
 	{
-		message_vision("$N只听一声轰响，$N把门震开了！\n", me);
+		message_vision("$N只聽一聲轟響，$N把門震開了！\n", me);
 		set("exits/north", __DIR__"zhuang4");
 		me->set("neili",n-200);
 		remove_call_out("close");
@@ -56,7 +56,7 @@ int do_break(string arg)
 	}
 	else
 	{
-		message_vision("$N大吼一声“开！”，结果什么也没发生。看来$N的内力不够强。\n", me);
+		message_vision("$N大吼一聲“開！”，結果什麼也沒發生。看來$N的內力不夠強。\n", me);
 		me->set("neili",0);
 	}
 	return 1;
@@ -70,30 +70,30 @@ int do_climb(string arg)
 	n = me->query_skill("dodge");
 	if( !arg || arg!="wall" )
 	{
-		write("不要到处乱爬！\n");
+		write("不要到處亂爬！\n");
 		return 1;
 	}
-	message_vision("$N在墙前站定，深吸一口气，猛然跃起。\n", me);
+	message_vision("$N在牆前站定，深吸一口氣，猛然躍起。\n", me);
 	if (n>=80)
 	{
-		message_vision("只见$N足尖在墙上一点，已悠然飘落院中。\n", me);
+		message_vision("只見$N足尖在牆上一點，已悠然飄落院中。\n", me);
 		me->move(__DIR__"zhuang4");
 	}
 	else
 		if (n>=50)
 		{
-			message_vision("只见$N双手在墙上一攀，勉强翻过围墙，跌落院中。\n", me);
+			message_vision("只見$N雙手在牆上一攀，勉強翻過圍牆，跌落院中。\n", me);
 			me->move(__DIR__"zhuang4");
 		}
 		else
 		{
-			message_vision("$N高高跃起，可还差一大截呢，看来是轻功不够好。\n", me);
+			message_vision("$N高高躍起，可還差一大截呢，看來是輕功不夠好。\n", me);
 		}
 		return 1;
 }
 
 void close(object room)
 {
-	message("vision","门吱呀一声又合上了,好象有鬼。\n", room);
+	message("vision","門吱呀一聲又合上了,好象有鬼。\n", room);
 	room->delete("exits/north");
 }

@@ -9,7 +9,7 @@ void create()
 	set("race", "爬蛇");
 	set("age", 2);
 	set("long", @LONG
-这毒蛇身上隐隐闪着金光，头顶生有肉角，形状十分怪异。
+這毒蛇身上隱隱閃着金光，頭頂生有肉角，形狀十分怪異。
 LONG
 );
 	set("attitude", "peaceful");
@@ -40,7 +40,7 @@ void init()
 void die()
 {
 	object ob;
-	message_vision("$N「嘶嘶」地叫了几声，断成两截，死了！\n", this_object());
+	message_vision("$N「嘶嘶」地叫了幾聲，斷成兩截，死了！\n", this_object());
 	if(uptime() > 300)
 	{
 		ob = new("/clone/medicine/nostrum/guaishedan");
@@ -56,6 +56,6 @@ int hit_ob(object me, object ob, int damage)
 		&& (int)ob->query_condition("snake_poison") < 10 )
 	{
 		ob->apply_condition("snake_poison", 20);
-		tell_object(ob, HIG "你觉得被咬中的地方一阵麻木！\n" NOR );
+		tell_object(ob, HIG "你覺得被咬中的地方一陣麻木！\n" NOR );
 	}
 }

@@ -8,14 +8,14 @@ void create()
 {
 	set("short", "石室");
 	set("long", @LONG
-这是一个石头砌成的房间，因为好久没有人来过，散发着一些很难
-闻的气味，房间中到处可以看到蛛丝和虫迹。
+這是一個石頭砌成的房間，因爲好久沒有人來過，散發着一些很難
+聞的氣味，房間中到處可以看到蛛絲和蟲跡。
 LONG );
 	set("exits", ([
 		"north" : __DIR__"shiji3",
 		"west" : __DIR__"shiji2",
 	]));
-	create_door("north", "石门", "south", DOOR_CLOSED);
+	create_door("north", "石門", "south", DOOR_CLOSED);
 	set("no_clean_up", 0);
 	set("coor/x", -50000);
 	set("coor/y", -21040);

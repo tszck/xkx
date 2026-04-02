@@ -19,18 +19,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "blade")
-		return notify_fail(RED"装备刀才能使用"PNAME"？\n"NOR);
+		return notify_fail(RED"裝備刀才能使用"PNAME"？\n"NOR);
 
 	fskill = "longxiang";
 	bskill = "blade";
@@ -44,19 +44,19 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(fskill)+"火候不够，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"火候不夠，使不出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"不够娴熟，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 
 	if ((int)me->query("max_neili") < 600)
-		return notify_fail(RED"你内力修为不足，无法运足内力。\n"NOR);
+		return notify_fail(RED"你內力修爲不足，無法運足內力。\n"NOR);
 
 	if ((int)me->query("neili") < 600)
-		return notify_fail(HIC"你现在内力不够，没能将「祭血神刀」使完！\n"NOR);
+		return notify_fail(HIC"你現在內力不夠，沒能將「祭血神刀」使完！\n"NOR);
 
-	msg = HIR"$N右手持刀向左肩一勒，一阵血珠溅满刀面，紧接着右臂抡出，一片
-血光裹住刀影向$n当头劈落，\n"NOR;
+	msg = HIR"$N右手持刀向左肩一勒，一陣血珠濺滿刀面，緊接着右臂掄出，一片
+血光裹住刀影向$n當頭劈落，\n"NOR;
 	if ( random(me->query("combat_exp")) > (int)target->query("combat_exp")/3 )
 	{
 		if ((int)me->query("shen") <= -100000) power = -100000;
@@ -72,13 +72,13 @@ int perform(object me, object target)
 		target->start_busy(random(3));
 		target->receive_damage("qi", damage,me);
 		target->receive_wound("qi", damage/2,me);
-msg += HIR"$n疾忙侧身避让，但血刀疾闪，只觉眼前一阵血红，刀刃劈面而下，鲜血飞
-溅，惨声大嚎！\n"NOR;
+msg += HIR"$n疾忙側身避讓，但血刀疾閃，只覺眼前一陣血紅，刀刃劈面而下，鮮血飛
+濺，慘聲大嚎！\n"NOR;
 	} else
 	{
 		me->start_busy(2);
 		me->receive_wound("qi", me->query("qi")/20);
-msg += HIY"可是$n侧身避让，不慌不忙，躲过了$N的血刀。\n"NOR;
+msg += HIY"可是$n側身避讓，不慌不忙，躲過了$N的血刀。\n"NOR;
 		me->add("neili", -200);
 	}
 	message_combatd(msg, me, target);
@@ -93,13 +93,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		先伤己，再伤人
-		损伤对方气血
+		先傷己，再傷人
+		損傷對方氣血
 
 	出手要求：
-		龙象般若功60级
-		血刀刀法100级
-		内力600
+		龍象般若功60級
+		血刀刀法100級
+		內力600
 HELP
 	);
 	return 1;

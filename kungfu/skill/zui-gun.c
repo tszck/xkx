@@ -7,37 +7,37 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action":""BLU"「蓝采和，提篮劝酒醉朦胧」"NOR"，$N手中$w半提，缓缓划向$n的$l",	
+([	"action":""BLU"「藍採和，提籃勸酒醉朦朧」"NOR"，$N手中$w半提，緩緩划向$n的$l",	
 	"lvl" : 0,
-	"skill_name" : "蓝采和，提篮劝酒醉朦胧"
+	"skill_name" : "藍採和，提籃勸酒醉朦朧"
 ]),
-([	"action":""HIM"「何仙姑，拦腰敬酒醉仙步」"NOR"，$N左掌护胸，右臂挟棍猛地扫向$n的腰间",
+([	"action":""HIM"「何仙姑，攔腰敬酒醉仙步」"NOR"，$N左掌護胸，右臂挾棍猛地掃向$n的腰間",
 	"lvl" : 10,
-	"skill_name" : "何仙姑，拦腰敬酒醉仙步"
+	"skill_name" : "何仙姑，攔腰敬酒醉仙步"
 ]),
-([	"action":""CYN"「曹国舅，千杯不醉倒金盅」"NOR"，$N倒竖$w，指天打地，向$n的$l劈去",
+([	"action":""CYN"「曹國舅，千杯不醉倒金盅」"NOR"，$N倒豎$w，指天打地，向$n的$l劈去",
 	"lvl" : 20,
-	"skill_name" : "曹国舅，千杯不醉倒金盅"
+	"skill_name" : "曹國舅，千杯不醉倒金盅"
 ]),
-([	"action":""HIG"「韩湘子，铁棍提胸醉拔萧」"NOR"，$N横提$w，棍端划了个半圈，击向$n的$l",
+([	"action":""HIG"「韓湘子，鐵棍提胸醉拔蕭」"NOR"，$N橫提$w，棍端劃了個半圈，擊向$n的$l",
 	"lvl" : 30,
-	"skill_name" : "韩湘子，铁棍提胸醉拔萧"
+	"skill_name" : "韓湘子，鐵棍提胸醉拔蕭"
 ]),
-([	"action":""YEL"「汉钟离，跌步翻身醉盘龙」"NOR"，$N手中棍花团团，疾风般向卷向$n",
+([	"action":""YEL"「漢鍾離，跌步翻身醉盤龍」"NOR"，$N手中棍花團團，疾風般向卷向$n",
 	"lvl" : 40,
-	"skill_name" : "汉钟离，跌步翻身醉盘龙"
+	"skill_name" : "漢鍾離，跌步翻身醉盤龍"
 ]),
-([	"action":""HIY"「铁拐李，踢倒金山醉玉池」"NOR"，$N单腿支地，一腿一棍齐齐击向$n的$l",
+([	"action":""HIY"「鐵柺李，踢倒金山醉玉池」"NOR"，$N單腿支地，一腿一棍齊齊擊向$n的$l",
 	"lvl" : 50,
-	"skill_name" : "铁拐李，踢倒金山醉玉池"
+	"skill_name" : "鐵柺李，踢倒金山醉玉池"
 ]),
-([	"action":""RED"「张果老，醉酒抛杯倒骑驴」"NOR"，$N扭身反背，$w从胯底钻出，戳向$n的胸口",
+([	"action":""RED"「張果老，醉酒拋杯倒騎驢」"NOR"，$N扭身反背，$w從胯底鑽出，戳向$n的胸口",
 	"lvl" : 60,
-	"skill_name" : "张果老，醉酒抛杯倒骑驴"
+	"skill_name" : "張果老，醉酒拋杯倒騎驢"
 ]),
-([	"action":""HIW"「吕洞宾，酒醉提壶力千钧」"NOR"，$N腾空而起，如山棍影，疾疾压向$n",
+([	"action":""HIW"「呂洞賓，酒醉提壺力千鈞」"NOR"，$N騰空而起，如山棍影，疾疾壓向$n",
 	"lvl" : 70,
-	"skill_name" : "吕洞宾，酒醉提壶力千钧"
+	"skill_name" : "呂洞賓，酒醉提壺力千鈞"
 ]),
 });
 
@@ -45,9 +45,9 @@ int valid_enable(string usage) { return usage == "club" || usage == "parry"; }
 int valid_learn(object me)
 {
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 	if ((int)me->query_skill("hunyuan-yiqi", 1) < 20)
-		return notify_fail("你的混元一气功火候太浅。\n");
+		return notify_fail("你的混元一氣功火候太淺。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -56,9 +56,9 @@ int practice_skill(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "club")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 	if( (int)me->query("qi") < 50 || (int)me->query("neili") < 50 )
-		return notify_fail("你的内力或气不够练少林醉棍。\n");
+		return notify_fail("你的內力或氣不夠練少林醉棍。\n");
 	me->receive_damage("qi", 25);
 	me->add("neili", -15);
 	return 1;
@@ -87,17 +87,17 @@ mapping query_action(object me, object weapon)
 	for(i = ttl; i > 0; i--)
 		if(lvl > action[i-1]["lvl"])
 		{
-			seq = i; /* 获得招数序号上限 */
+			seq = i; /* 獲得招數序號上限 */
 			break;
 		}
-	seq = random(seq);       /* 选择出手招数序号 */
+	seq = random(seq);       /* 選擇出手招數序號 */
 	return ([
 		"action"      : action[seq]["action"],
 		"dodge"       : d_e1 + (d_e2 - d_e1) * seq / ttl,
 		"parry"       : p_e1 + (p_e2 - p_e1) * seq / ttl,
 		"force"       : f_e1 + (f_e2 - f_e1) * seq / ttl,
 		"damage"      : m_e1 + (m_e2 - m_e1) * seq / ttl,
-		"damage_type" : "挫伤",
+		"damage_type" : "挫傷",
 	]);
 }
 int learn_bonus() { return 10; }
@@ -115,11 +115,11 @@ int help(object me)
 	write(HIC"\n少林醉棍："NOR"\n");
 	write(@HELP
 
-    少林醉棍为少林七十二绝技之一。
+    少林醉棍爲少林七十二絕技之一。
 
-	学习要求：
-		混元一气功20级
-		内力100
+	學習要求：
+		混元一氣功20級
+		內力100
 HELP
 	);
 	return 1;

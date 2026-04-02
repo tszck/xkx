@@ -1,9 +1,9 @@
-// sanqing.c  一剑化三清
+// sanqing.c  一劍化三清
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
 
-#define PNAME "「群魔乱舞」"
+#define PNAME "「羣魔亂舞」"
 inherit F_SSERVER;
  
 int perform(object me, object target)
@@ -22,18 +22,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
   if (!objectp(weapon = me->query_temp("weapon")) ||
     (string)weapon->query("skill_type") != "sword")
-    return notify_fail(PNAME"必须拿着剑才能出！\n");
-  if (!userp(me)) return notify_fail("npc不在这里使用这招。\n");
+    return notify_fail(PNAME"必須拿着劍才能出！\n");
+  if (!userp(me)) return notify_fail("npc不在這裏使用這招。\n");
 	fskill = "kuihua-xinfa";
 	bskill = "sword";
 	if (SCBORN_D->valid_perform(me,sskill,pfname))
@@ -45,13 +45,13 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"火候不够，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"火候不夠，使不出"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"还不到家，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"還不到家，無法使用"+PNAME+"。\n");
   if( (int)me->query("neili") < 100 )
-    return notify_fail("你的真气不够！\n");
-  msg =  HIM "$N" HIM "默运葵花心法，身形变得奇快无比，接连向$n"
-              HIM "攻出数招！\n" NOR;
+    return notify_fail("你的真氣不夠！\n");
+  msg =  HIM "$N" HIM "默運葵花心法，身形變得奇快無比，接連向$n"
+              HIM "攻出數招！\n" NOR;
   message_combatd(msg, me,target);
 
 	sword_lvl = me->query_skill(sskill,1)/15; 
@@ -84,12 +84,12 @@ int help(object me)
   write(@HELP
 
 	使用功效：
-		连续出手
+		連續出手
 
 	出手要求：
-		葵花心法100级
-		辟邪剑法101级
-		内力100
+		葵花心法100級
+		辟邪劍法101級
+		內力100
 HELP
   );
   return 1;

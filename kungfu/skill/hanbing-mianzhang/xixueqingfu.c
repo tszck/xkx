@@ -20,17 +20,17 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n"); 
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n"); 
 
 //	if (me->query("family/family_name") != "明教")
-//		return notify_fail("非明教弟子，无法无法运用「吸血青蝠」。\n");
+//		return notify_fail("非明教弟子，無法無法運用「吸血青蝠」。\n");
 
 	if (objectp(weapon = me->query_temp("weapon")))
 		return notify_fail("你使用了武器。\n");
@@ -46,18 +46,18 @@ int perform(object me,object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"不够，无法运用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"不夠，無法運用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(sskill)+"等级不够, 不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"等級不夠, 不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(bskill)+"不够，无法运用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"不夠，無法運用"+PNAME+"。\n");
 
 	if( me->query("neili") < 200 )
-		return notify_fail("你的内力不够，无法运用「吸血青蝠」！\n");
+		return notify_fail("你的內力不夠，無法運用「吸血青蝠」！\n");
 
-	msg = HIC "$N"HIC"突然如同「吸血青蝠」，欺近$n"HIC"的身前，张嘴便向$n"HIC"的咽喉咬去。\n"NOR;
+	msg = HIC "$N"HIC"突然如同「吸血青蝠」，欺近$n"HIC"的身前，張嘴便向$n"HIC"的咽喉咬去。\n"NOR;
 	message_combatd(msg, me, target);
  
 	ap = me->query("combat_exp") + skill * 400;
@@ -68,7 +68,7 @@ int perform(object me,object target)
 		if(userp(me))
 			me->add("neili",-100);
 
-		msg = HIG "$n"HIG"只觉得咽喉一阵剧痛，$N"HIG"正在狂吸$n"HIG"的鲜血！\n"NOR;
+		msg = HIG "$n"HIG"只覺得咽喉一陣劇痛，$N"HIG"正在狂吸$n"HIG"的鮮血！\n"NOR;
 		neili_wound = 100 + random(skill);
 
 		qi_wound = neili_wound * 2;
@@ -85,7 +85,7 @@ int perform(object me,object target)
 	}
 	else
 	{
-		msg = HIG "只见$n"HIG"不慌不忙，轻轻一闪，躲过了$N"HIG"的利齿！\n"NOR;
+		msg = HIG "只見$n"HIG"不慌不忙，輕輕一閃，躲過了$N"HIG"的利齒！\n"NOR;
 		if(userp(me)) me->add("neili",-100);
 		me->start_busy(4);
 	}
@@ -102,14 +102,14 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损伤对方气血
-		减低对方内力
+		損傷對方氣血
+		減低對方內力
 
 	出手要求：
-		九阳神功50级
-		寒冰绵掌60级
-		基本轻功150级
-		内力200
+		九陽神功50級
+		寒冰綿掌60級
+		基本輕功150級
+		內力200
 HELP
 	);
 	return 1;

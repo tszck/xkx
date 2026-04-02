@@ -4,9 +4,9 @@
 inherit NPC;
 void create()
 {
-	set_name("了禅石人", ({ "liaochan shiren", "liaochan", "shiren" }));
-	set("long", "年代久远已无法看清他当年之相貌，\n"
-		"他生的平凡之极，混入众生中立刻便会人迹难寻。\n");
+	set_name("了禪石人", ({ "liaochan shiren", "liaochan", "shiren" }));
+	set("long", "年代久遠已無法看清他當年之相貌，\n"
+		"他生的平凡之極，混入衆生中立刻便會人跡難尋。\n");
 	set("gender", "男性");
 	set("attitude", "friendly");
 	set("class", "bonze");

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "天游小路");
+	set("short", "天遊小路");
 	set("long", @LONG
-这是天游峰后山的一条小路。路面是丹崖石板铺就的，两边都是密
-密层层的松柏。东上就是天游峰了，西下直指桃源洞。
+這是天遊峯後山的一條小路。路面是丹崖石板鋪就的，兩邊都是密
+密層層的松柏。東上就是天遊峯了，西下直指桃源洞。
 LONG );
 	set("outdoors", "wuyi");
 	set("no_clean_up", 0);

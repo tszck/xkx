@@ -1,14 +1,14 @@
-// Room: /d/jiaxing/Yanyu3.c  烟雨楼顶
+// Room: /d/jiaxing/Yanyu3.c  煙雨樓頂
 // Last Modified by winder on Nov. 17 2000
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "烟雨楼顶");
+	set("short", "煙雨樓頂");
 	set("long", @LONG
-这里是烟雨楼的楼顶，放眼一片空阔，东西两湖如鸳鸯交颈，轻烟
-拂渚，微雨欲来，晓霭迷蒙，正是历代文人骚客把酒凭栏、吊古吟咏的
+這裏是煙雨樓的樓頂，放眼一片空闊，東西兩湖如鴛鴦交頸，輕煙
+拂渚，微雨欲來，曉靄迷濛，正是歷代文人騷客把酒憑欄、弔古吟詠的
 好所在。
 LONG );
 	set("no_sleep_room",1);

@@ -6,12 +6,12 @@ inherit F_MASTER;
 #include <ansi.h>
 void create()
 {
-	set_name("归辛树", ({ "gui xinshu", "gui" }));
-	set("nickname", HIR"神拳无敌"NOR);
+	set_name("歸辛樹", ({ "gui xinshu", "gui" }));
+	set("nickname", HIR"神拳無敵"NOR);
 	set("long", 
-"神拳无敌归辛树乃华山掌门“神剑仙猿”穆人清的\n"
-"二弟子，在江湖早已成名多年，但是近年来极少在\n"
-"江湖上走动。\n");
+"神拳無敵歸辛樹乃華山掌門“神劍仙猿”穆人清的\n"
+"二弟子，在江湖早已成名多年，但是近年來極少在\n"
+"江湖上走動。\n");
 	set("gender", "男性");
 	set("age", 78);
 	set("attitude", "peaceful");
@@ -50,7 +50,7 @@ void create()
 	prepare_skill("strike", "hunyuan-zhang");
 	prepare_skill("cuff", "poyu-quan");
 
-	create_family("华山派", 31, "弟子");
+	create_family("華山派", 31, "弟子");
 
 	set("chat_chance_combat", 60);
 	set("chat_msg_combat", ({

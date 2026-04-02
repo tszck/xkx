@@ -16,9 +16,9 @@ mapping spe_skill = ([
 	"damage" : ({"10"}),
 	"dodge" : ({"10"}),
 	"parry": ({"10"}),
-	"damage_type" : ({"瘀伤"}),
+	"damage_type" : ({"瘀傷"}),
 	"lvl" : ({"10"}),
-	"skill_name" : ({"横空出世"}),
+	"skill_name" : ({"橫空出世"}),
 	"skill_total_num" : ({"0"}),
 	"skill_en_name" : ({" "}),
 	"skill_ch_name" : ({" "}),
@@ -28,27 +28,27 @@ string spe_skill_name;
 string spe_skill_basename;
 string spe_skill_help;
 string oldfile;
-//检查是否是3－12位的英文id
+//檢查是否是3－12位的英文id
 int check_legal_id(string id);
-//检查是否是1－5个中文字
+//檢查是否是1－5箇中文字
 int check_legal_name(string name);
-// 检查是否是允许的基本武功
+// 檢查是否是允許的基本武功
 int check_legal_basename(string name);
 void skill_init_header(string skill_en_name,string skill_ch_name);
-// 提示用户输入当前招式中文名
+// 提示用戶輸入當前招式中文名
 void get_zhaoshi_ch_name(string yn, object ob);
-// 提示用户输入当前招式描述
+// 提示用戶輸入當前招式描述
 void get_zhaoshi_ch_action(string yn, object ob);
-// 提示用户输入该武功的帮助文件
+// 提示用戶輸入該武功的幫助文件
 void get_skill_help(string yn,object ob);
-// 检查玩家是否可以创建第skill_num招 返回skill_num
+// 檢查玩家是否可以創建第skill_num招 返回skill_num
 int check_skillnum_exist(object me,string skill_en_name,int skill_num);
 void finish_write_skill(object ob);
-// 检查玩家是否可以改动skill_en_name这个文件
+// 檢查玩家是否可以改動skill_en_name這個文件
 int check_owner_skill(object me,string skill_en_name);
-// 从文件中读取这个武功的中文名
+// 從文件中讀取這個武功的中文名
 string get_header_skillchname(string file);
-// 从文件中读取这个武功的基本武功名
+// 從文件中讀取這個武功的基本武功名
 string get_header_skillbasename(string file);
 int main(object me, string arg)
 {
@@ -64,13 +64,13 @@ int main(object me, string arg)
 
 	seteuid(getuid());
 	if(!arg)
-		return notify_fail(WHT"指令格式：editskill 基本技能 武功英文名字 武功中文名字 第几招\n"NOR);
+		return notify_fail(WHT"指令格式：editskill 基本技能 武功英文名字 武功中文名字 第幾招\n"NOR);
 	if( sscanf(arg, "%s %s %s %d", skill_base_name,skill_en_name,skill_ch_name,skill_num)!=4)
-		return notify_fail(WHT"指令格式：editskill 基本技能 武功英文名字 武功中文名字 第几招\n"NOR);
+		return notify_fail(WHT"指令格式：editskill 基本技能 武功英文名字 武功中文名字 第幾招\n"NOR);
 	skill_en_name=lower_case(skill_en_name);
 	spe_skill_basename=skill_base_name;
 	if(check_legal_basename(skill_base_name)==0)
-		return notify_fail(RED"你输入的基本技能不存在。\n"NOR);
+		return notify_fail(RED"你輸入的基本技能不存在。\n"NOR);
 	if(check_legal_id(skill_en_name)==0)
 		return 1;
 	spe_skill["skill_en_name"]=skill_en_name+"-"+skill_base_name+".c";
@@ -78,33 +78,33 @@ int main(object me, string arg)
 	if(check_legal_name(skill_ch_name)==0) return 1;
 	spe_skill["skill_ch_name"]=skill_ch_name;
 	if( skill_num!=1 && get_header_skillchname(spe_skill["skill_en_name"])!=skill_ch_name)
-		return notify_fail( HIR"你输入的中文武功名称和所选的英文武功代号有矛盾。\n"NOR);
+		return notify_fail( HIR"你輸入的中文武功名稱和所選的英文武功代號有矛盾。\n"NOR);
 	if( skill_num!=1 && get_header_skillbasename(spe_skill["skill_en_name"])!=skill_base_name)
-		return notify_fail( HIR"你输入的基本技能名和所选的英文武功代号有矛盾。\n"NOR);
+		return notify_fail( HIR"你輸入的基本技能名和所選的英文武功代號有矛盾。\n"NOR);
 	if(mapp(me->query("skillmaxim")) &&
 		sizeof(me->query("skillmaxim")) >3 )
-		return notify_fail(HIR"你最多只能自创三种武功。\n"NOR);
+		return notify_fail(HIR"你最多隻能自創三種武功。\n"NOR);
 	switch(check_owner_skill(me,spe_skill["skill_en_name"]))
 	{
 		case 2:
-			return notify_fail( HIR"此功夫已存在，无法创新。\n"NOR);
+			return notify_fail( HIR"此功夫已存在，無法創新。\n"NOR);
 			break;
 		case 0:
 			break;
 		case 1:
-			return notify_fail( HIR"你目前只能针对这个基本技能创建一个功夫。\n"NOR);
+			return notify_fail( HIR"你目前只能針對這個基本技能創建一個功夫。\n"NOR);
 		default:
-			return notify_fail( HIR"所创功夫不对，请看帮助。\n"NOR);
+			return notify_fail( HIR"所創功夫不對，請看幫助。\n"NOR);
 	}
 	if(skill_num < 1)
-		return notify_fail(HIR"你需要从第一招开始创建。\n"NOR);
+		return notify_fail(HIR"你需要從第一招開始創建。\n"NOR);
 	if((int)me->query("combat_exp") < (skill_num)*1000000+9000000)
-		return notify_fail(HIR"你的经验还不够，不能自创武功了。\n"NOR);
+		return notify_fail(HIR"你的經驗還不夠，不能自創武功了。\n"NOR);
 	if((int)me->query("score") < 20000)
-		return notify_fail(HIR"你的江湖阅历还不够，不能自创武功了。\n"NOR);
+		return notify_fail(HIR"你的江湖閱歷還不夠，不能自創武功了。\n"NOR);
 	if(//(int)me->query_skill(spe_skill_name,1)!=0  &&
 		(int)me->query_skill(spe_skill_name,1) < (skill_num-1)*20)
-		return notify_fail( HIR"你的招式还不够熟练，先提高一下，然后在想新招吧。\n"NOR);
+		return notify_fail( HIR"你的招式還不夠熟練，先提高一下，然後在想新招吧。\n"NOR);
 	spe_skillnum=skill_num;
 	skill_num_result=(check_skillnum_exist(me,spe_skill["skill_en_name"],skill_num));
 	if (file_size(SKILL_D(spe_skill["skill_en_name"])))
@@ -112,21 +112,21 @@ int main(object me, string arg)
 	switch(skill_num_result)
 	{
 		case -1 :
-			//无法取得已经创的招式总数
-			return notify_fail(HIR"你的所要创建的武功有错，请通知巫师解决。\n"NOR);
+			//無法取得已經創的招式總數
+			return notify_fail(HIR"你的所要創建的武功有錯，請通知巫師解決。\n"NOR);
 		case 0 :
-			return notify_fail( HIR"你只能创建新招或者修改最近创建的招式，请重新尝试。\n"NOR);
+			return notify_fail( HIR"你只能創建新招或者修改最近創建的招式，請重新嘗試。\n"NOR);
 		case 1 :
-			// 如果创或改第一招的话 那么一切重来
+			// 如果創或改第一招的話 那麼一切重來
 //			rm(SKILL_D(spe_skill["skill_en_name"]));
 			skill_init_header(spe_skill["skill_en_name"],skill_ch_name);
-			write( HIG"你现在开始创建"+skill_ch_name+"("+spe_skill_name+")"HIG"。\n"NOR);
-			write( HIW"给这个武功写一个简介，以后会在帮助文档中体现，换行用$代替。\n"NOR);
+			write( HIG"你現在開始創建"+skill_ch_name+"("+spe_skill_name+")"HIG"。\n"NOR);
+			write( HIW"給這個武功寫一個簡介，以後會在幫助文檔中體現，換行用$代替。\n"NOR);
 			input_to( (: get_skill_help :) ,this_player());
 			return 1;
 		default:
 		//如果在原有招式上增加新的招式
-			write(HIW"\r给招式起个名字（不要此时断线，否则永远无法再正确创建）："NOR);
+			write(HIW"\r給招式起個名字（不要此時斷線，否則永遠無法再正確創建）："NOR);
 			input_to( (: get_zhaoshi_ch_name :), this_player() );
 			return 1;
 	}
@@ -136,13 +136,13 @@ void get_skill_help(string yn,object ob)
 {
 	if (yn=="")
 	{
-		write( HIW"给这个武功写一个简介，将会在帮助文档中体现。\n"NOR);
-		write( HIW"换行可以用$代替\n"NOR);
+		write( HIW"給這個武功寫一個簡介，將會在幫助文檔中體現。\n"NOR);
+		write( HIW"換行可以用$代替\n"NOR);
 		input_to( (:get_skill_help:) ,ob);
 		return;
 	}
 	spe_skill_help = "\n\t"+yn;
-	write(HIW"\r给招式起个名字（不要此时断线，否则永远无法再正确创建）："NOR);
+	write(HIW"\r給招式起個名字（不要此時斷線，否則永遠無法再正確創建）："NOR);
 	input_to( (: get_zhaoshi_ch_name :), this_player() );
 	return;
 }
@@ -188,7 +188,7 @@ void skill_init_header(string skill_en_name,string skill_ch_name)
 	result="";
 	header="";
 
-	header="// 这是玩家自创武功程序。\n";		//list[0]
+	header="// 這是玩家自創武功程序。\n";		//list[0]
 	header+="// "+geteuid(me)+"\n";			//list[1]
 	header+="// "+me->query("name")+"\n";		//list[2]
 	header+="// "+me->query("title")+"\n";		//list[3]
@@ -202,28 +202,28 @@ void skill_init_header(string skill_en_name,string skill_ch_name)
 	header+="string martialtype() { return \"skill\"; }\n";
 	header+="string owner() {return \""+geteuid(me)+"\";}\n";
 	header+="\nmapping *action = ({\n});\n";
-	header+="// ZHAOSHI :0";			//注意：最后没有用\n
+	header+="// ZHAOSHI :0";			//注意：最後沒有用\n
 	write_file(SKILL_D(skill_en_name),header,1);
 }
 void get_zhaoshi_ch_name(string yn, object ob)
 {
 	if( yn=="" )
 	{
-		write(HIW"\r请给招式起个名字（不要此时断线，否则永远无法在正确创建）："NOR);
+		write(HIW"\r請給招式起個名字（不要此時斷線，否則永遠無法在正確創建）："NOR);
 		input_to( (: get_zhaoshi_ch_name :), ob );
 		return;
 	}
 	if( !check_legal_name(yn) )
 	{
-		write(HIW"\r请给招式起个名字（不要此时断线，否则永远无法在正确创建）："NOR);
+		write(HIW"\r請給招式起個名字（不要此時斷線，否則永遠無法在正確創建）："NOR);
 		input_to( (: get_zhaoshi_ch_name :), ob );
 		return;
 	}
 	spe_skill["skill_name"]=yn;
-	write(WHT"\n想象一下你和某人的战斗，指南：必须要有["+HIR+"你、某人、某部位"NOR+WHT"]的字样出现！");
-	write("\n如果是sword或blade请加入["HIR"武器"NOR+WHT"]字样。以下是举例。");
-	write( HIG"\n拳法示例："NOR+WHT"你前腿踢出，后腿脚尖点地，一式「出世」，二掌直出，攻向某人的某部位\n");
-	write( HIG"武器类例："NOR+WHT"你纵身一跃，手中武器一招「金光泻地」对准的某部位斜斜刺出一剑\n"NOR);
+	write(WHT"\n想象一下你和某人的戰鬥，指南：必須要有["+HIR+"你、某人、某部位"NOR+WHT"]的字樣出現！");
+	write("\n如果是sword或blade請加入["HIR"武器"NOR+WHT"]字樣。以下是舉例。");
+	write( HIG"\n拳法示例："NOR+WHT"你前腿踢出，後腿腳尖點地，一式「出世」，二掌直出，攻向某人的某部位\n");
+	write( HIG"武器類例："NOR+WHT"你縱身一躍，手中武器一招「金光瀉地」對準的某部位斜斜刺出一劍\n"NOR);
 	input_to( (: get_zhaoshi_ch_action :), ob);
 }
 void get_zhaoshi_ch_action(string yn, object ob)
@@ -233,10 +233,10 @@ void get_zhaoshi_ch_action(string yn, object ob)
 
 	if( yn=="" )
 	{
-		write(WHT"\n想象一下你和某人的战斗，指南：最好要有["+HIR+"你、某人、某部位"NOR+WHT"]的字样出现!");
-		write( "\n如果是sword或blade请加入["HIR"武器"NOR+WHT"]字样。以下是举例。");
-		write( HIG"\n拳法示例："NOR+WHT"你前腿踢出，后腿脚尖点地，一式「出世」，二掌直出，攻向某人的某部位\n");
-		write( HIG"武器类例："NOR+WHT"你纵身一跃，手中武器一招「金光泻地」对准的某部位斜斜刺出一剑\n"NOR);
+		write(WHT"\n想象一下你和某人的戰鬥，指南：最好要有["+HIR+"你、某人、某部位"NOR+WHT"]的字樣出現!");
+		write( "\n如果是sword或blade請加入["HIR"武器"NOR+WHT"]字樣。以下是舉例。");
+		write( HIG"\n拳法示例："NOR+WHT"你前腿踢出，後腿腳尖點地，一式「出世」，二掌直出，攻向某人的某部位\n");
+		write( HIG"武器類例："NOR+WHT"你縱身一躍，手中武器一招「金光瀉地」對準的某部位斜斜刺出一劍\n"NOR);
 		input_to( (: get_zhaoshi_ch_action :), ob );
 		return;
 	}
@@ -257,9 +257,9 @@ void get_zhaoshi_ch_action(string yn, object ob)
 		err = catch(call_other(file,"???"));
 		if (stringp(err))
 		{
-			log_file("CREATESKILL","失败，错误描述："+err);
-			message("channel:sys",HIR"【系统】自创武功编辑出错。\n"NOR,users());
-			write("创建武功失败，请联系当值巫师解决。\n");
+			log_file("CREATESKILL","失敗，錯誤描述："+err);
+			message("channel:sys",HIR"【系統】自創武功編輯出錯。\n"NOR,users());
+			write("創建武功失敗，請聯繫當值巫師解決。\n");
 			if (stringp(oldfile))
 			{
 				write_file(file,oldfile,1);
@@ -324,11 +324,11 @@ void finish_write_skill(object ob)
 	file=read_file(SKILL_D(spe_skill["skill_en_name"]));
 	if ((int)file==0)
 	{
-		write(HIR"可能出现异常了，请联系巫师解决。\n"NOR);
+		write(HIR"可能出現異常了，請聯繫巫師解決。\n"NOR);
 		return;
 	}
 	list = explode(file, "\n");
-// 帮助文档
+// 幫助文檔
 	for(i=0;i<sizeof(list);i++)
 	{
 		if (list[i]=="	write(@HELP")	x=i;
@@ -339,13 +339,13 @@ void finish_write_skill(object ob)
 		if (intp(x) && intp(y))
 		spe_skill_help = implode(list[x+1..y-1],"\n");
 		else
-		spe_skill_help = this_player()->query("name")+"的自创武功。\n";
+		spe_skill_help = this_player()->query("name")+"的自創武功。\n";
 	}
 	spe_skill_help = replace_string(spe_skill_help,"\"","");
 	spe_skill_help = replace_string(spe_skill_help,"$","\n");
-// 帮助文档结束
+// 幫助文檔結束
 /*
-参考
+參考
 string *spe_skill_lvl=({ "0","12","20","30","40","50","60","80","100",});
 string *spe_skill_force=({ "50","80","100","130","150","180","200","220", });
 string *spe_skill_unarmeddodge=({ "10","-10","-20","-30","-50","-60","-80","-90","-100", });
@@ -420,7 +420,7 @@ string *spe_skill_weaponparry=({ "20","20","10","10","5","5","5","5","5", });
 	}
 	if (!flag)
 	{
-		write(HIR"可能出现异常了，请看帮助解决。\n"NOR);
+		write(HIR"可能出現異常了，請看幫助解決。\n"NOR);
 		return;
 	}
 	if( before_skillnum==spe_skillnum)
@@ -436,7 +436,7 @@ string *spe_skill_weaponparry=({ "20","20","10","10","5","5","5","5","5", });
 		}
 		if (!flag)
 		{
-			write(HIR"可能出现异常情况了，请联系巫师解决。\n"NOR);
+			write(HIR"可能出現異常情況了，請聯繫巫師解決。\n"NOR);
 			return;
 		}
 		content = implode(list[0..i],"\n");
@@ -465,13 +465,13 @@ int check_legal_id(string id)
 	i = strwidth(id);
 	if( (strwidth(id) < 3) || (strwidth(id) > 12 ) )
 	{
-		write("你的武功代号必须是 3 到 12 个英文字母。\n");
+		write("你的武功代號必須是 3 到 12 個英文字母。\n");
 		return 0;
 	}
 	while(i--)
 		if( id[i]<'a' || id[i]>'z' )
 		{
-			write("你的武功代号只能用英文字母。\n");
+			write("你的武功代號只能用英文字母。\n");
 			return 0;
 		}
         return 1;
@@ -482,7 +482,7 @@ int check_legal_name(string name)
 	i = strwidth(name);
 	if( (strwidth(name) < 2) || (strwidth(name) > 12 ) )
 	{
-		write("武功的中文名称必须是 1 到 6 个中文字。\n");
+		write("武功的中文名稱必須是 1 到 6 箇中文字。\n");
 		return 0;
 	}
 	while(i--)
@@ -500,7 +500,7 @@ int check_legal_name(string name)
 	}
 	if( member_array(name,banned_name)!=-1 )
 	{
-		write("你的武功中文名称会造成其他人的困扰。\n");
+		write("你的武功中文名稱會造成其他人的困擾。\n");
 		return 0;
 	}
 	return 1;
@@ -521,7 +521,7 @@ int check_skillnum_exist(object me,string skill_en_name,int skill_num)
 	else list = explode(file, "\n");
 
 	playername=geteuid(me);
-	if(list[0]!="// 这是玩家自创武功程序。")
+	if(list[0]!="// 這是玩家自創武功程序。")
 		return 0;
 	if(list[1]!="// "+playername)
 		return 0;
@@ -558,39 +558,39 @@ int check_owner_skill(object me,string skill_en_name)
 	else list = explode(file, "\n");
 	playername=geteuid(me);
 	if(list[1]!="// "+playername) return 2;
-	if(list[0]!="// 这是玩家自创武功程序。") return 2;
+	if(list[0]!="// 這是玩家自創武功程序。") return 2;
 	else return 0;
 }
 
 int help (object me)
 {
 	write(@HELP
-指令格式：editskill 武功基本技能 武功英文名字 武功中文名字 第几招
-例如：editskill unarmed jueqin 绝情拳 1
+指令格式：editskill 武功基本技能 武功英文名字 武功中文名字 第幾招
+例如：editskill unarmed jueqin 絕情拳 1
 
-    这是用来创建自己风格武功的指令，随着经验值的增长，可以实现的招式
-越来越多，招式的威力也越来越大。每创造一种武功，必须要有两万点江湖阅
-历。
-    玩家增加招式的熟练程度的方式是使用个专用指令：
-    mylian，用practice也可以，但是难度会加大。
+    這是用來創建自己風格武功的指令，隨着經驗值的增長，可以實現的招式
+越來越多，招式的威力也越來越大。每創造一種武功，必須要有兩萬點江湖閱
+歷。
+    玩家增加招式的熟練程度的方式是使用個專用指令：
+    mylian，用practice也可以，但是難度會加大。
 
-    由于是自己摸索招式，所以难度要大些。玩家只能修改当前的招式，对以
-前的招式无法改动。所以玩家要事先规划好总共要创几招，边练边修改，以免
-到时侯无法改动以前的基本招式。
+    由於是自己摸索招式，所以難度要大些。玩家只能修改當前的招式，對以
+前的招式無法改動。所以玩家要事先規劃好總共要創幾招，邊練邊修改，以免
+到時侯無法改動以前的基本招式。
 
     可以利用的基本功夫有：
 	unarmed,
 	sword,
 	blade,
 注意:
-    招式的英文名称后面将被加上基本技能的几个标识，玩家要事先想好，一
-旦开始创建则无法随意改动英文名称，如上例将会得到名为jueqin-unarmed的
-一项武功。招式描述中不要加入控制字符。玩家最多只能创建三种高级功夫。
+    招式的英文名稱後面將被加上基本技能的幾個標識，玩家要事先想好，一
+旦開始創建則無法隨意改動英文名稱，如上例將會得到名爲jueqin-unarmed的
+一項武功。招式描述中不要加入控制字符。玩家最多隻能創建三種高級功夫。
     招式描述中的：
-    某人，你，某部位，武器带有普遍性，将来可以用来对付各种不同敌人。
+    某人，你，某部位，武器帶有普遍性，將來可以用來對付各種不同敵人。
 
-    招式的描述不要带有对自己或对手状态的描写，不要不负责的乱写。巫师
-将检查玩家所创建的功夫，如不符合规定，将被删除。
+    招式的描述不要帶有對自己或對手狀態的描寫，不要不負責的亂寫。巫師
+將檢查玩家所創建的功夫，如不符合規定，將被刪除。
 HELP);
 	return 1;
 }

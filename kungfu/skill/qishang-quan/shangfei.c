@@ -1,10 +1,10 @@
-// shangfei.c 伤肺诀
+// shangfei.c 傷肺訣
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
 
 inherit F_SSERVER;
-#define PNAME "「" HIR "伤肺诀" NOR "」"
+#define PNAME "「" HIR "傷肺訣" NOR "」"
 int perform(object me,object target)
 {
 	string msg;
@@ -20,17 +20,17 @@ int perform(object me,object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname))
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (objectp(weapon = me->query_temp("weapon")))
-		return notify_fail("你必须空手才能使用「伤肺诀」。\n");
+		return notify_fail("你必須空手才能使用「傷肺訣」。\n");
 		
 	fskill = "jiuyang-shengong";
 	bskill = "cuff";
@@ -43,20 +43,20 @@ int perform(object me,object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为不足，不能随便使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲不足，不能隨便使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(sskill)+"的修为不够，不能够体会"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"的修爲不夠，不能夠體會"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(bskill)+"还不到家，无法体现七伤拳的"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"還不到家，無法體現七傷拳的"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 600 )
-		return notify_fail("你的内力还不够高！\n");
+		return notify_fail("你的內力還不夠高！\n");
 
 	skill = me->query_skill(bskill,1) + me->query_skill("force",1);
 
-	msg = HIY"$N凝神定气，使出七伤拳总诀中的「" HIR "伤肺诀" HIY "」，双拳势如雷霆，向$n击去。\n"NOR;
+	msg = HIY"$N凝神定氣，使出七傷拳總訣中的「" HIR "傷肺訣" HIY "」，雙拳勢如雷霆，向$n擊去。\n"NOR;
 	message_combatd(msg, me, target);
 
 	ap = me->query("combat_exp") + skill * 500;
@@ -66,7 +66,7 @@ int perform(object me,object target)
 	{
 		if(userp(me)) me->add("neili",-500);
 
-		msg = HIG"$N的拳风隐含风雷，“澎”的一声打在$n身上！\n$n只觉得呼吸不顺，顿时脚步慢了许多！\n"NOR;
+		msg = HIG"$N的拳風隱含風雷，“澎”的一聲打在$n身上！\n$n只覺得呼吸不順，頓時腳步慢了許多！\n"NOR;
 		dodge_decrease = (int)target->query("apply/dodge") ;
 		if ( dodge_decrease > 0 )
 		target->add_temp("apply/dodge", -dodge_decrease);
@@ -75,7 +75,7 @@ int perform(object me,object target)
 	}
 	else
 	{
-		msg = HIG"只见$n不慌不忙，轻轻一闪，躲过了$N的攻击！\n"NOR;
+		msg = HIG"只見$n不慌不忙，輕輕一閃，躲過了$N的攻擊！\n"NOR;
 		if(userp(me)) me->add("neili",-200);
 		me->start_busy(4);
 	}
@@ -92,13 +92,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		损害对手闪避能力
+		損害對手閃避能力
 
 	出手要求：
-		九阳神功60级
-		基本拳法60级
-		七伤拳60级
-		内力600
+		九陽神功60級
+		基本拳法60級
+		七傷拳60級
+		內力600
 HELP
 	);
 	return 1;

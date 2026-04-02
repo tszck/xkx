@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("台夷猎人", ({ "lie ren", "lie" }));
+	set_name("臺夷獵人", ({ "lie ren", "lie" }));
 	set("age", 32);
 	set("gender", "男性");
-	set("long", "一位台夷族的猎手，擅用短弩，射飞鸟。\n");
+	set("long", "一位臺夷族的獵手，擅用短弩，射飛鳥。\n");
 	set("attitude", "peaceful");
 
 	set("str", 24);

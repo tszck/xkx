@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "日观峰");
+	set("short", "日觀峯");
 	set("long", @LONG
-日观峰位于玉皇顶东南，古称介丘岩，因可观日出而名。相传在峰
-巅西可望秦，南可望越，故又称秦观峰、越观峰。这里怪石攒簇，最高
-的地方一石卓立，名为君子峰。往东走便是通往泰山东天门的山路。
+日觀峯位於玉皇頂東南，古稱介丘巖，因可觀日出而名。相傳在峯
+巔西可望秦，南可望越，故又稱秦觀峯、越觀峯。這裏怪石攢簇，最高
+的地方一石卓立，名爲君子峯。往東走便是通往泰山東天門的山路。
 LONG );
 	set("exits", ([
 		"south"     : __DIR__"aishen",
@@ -36,7 +36,7 @@ int valid_leave(object me, string dir)
 		present("tianmen daoren", environment(me)) &&
 		living(present("tianmen daoren", environment(me))))
 	{
-		return notify_fail("天门道人喝道：后面是本派重地，这位" + RANK_D->query_respect(me) + "请止步。\n");
+		return notify_fail("天門道人喝道：後面是本派重地，這位" + RANK_D->query_respect(me) + "請止步。\n");
 	}
 	else return ::valid_leave(me, dir);
 

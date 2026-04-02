@@ -1,8 +1,8 @@
-// yuyin.c 余音绕梁
+// yuyin.c 餘音繞樑
 // Last Modified by winder on Aug. 13 2000
 
 #include <ansi.h>
-#define PNAME "「余音绕梁」"
+#define PNAME "「餘音繞樑」"
 inherit F_SSERVER;
 int perform(object me, object target)
 {
@@ -18,21 +18,21 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "sword")
-		return notify_fail("你使用的武器不对。\n");
+		return notify_fail("你使用的武器不對。\n");
 		
 	if( target->is_busy() )
-		return notify_fail(target->name()+"目前正自顾不暇，放胆攻击吧！\n");
+		return notify_fail(target->name()+"目前正自顧不暇，放膽攻擊吧！\n");
 
 	fskill = "baiyun-xinfa";
 	bskill = "sword";
@@ -46,24 +46,24 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 140 )
-		return notify_fail("你的"+to_chinese(fskill)+"火候不够，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"火候不夠，使不出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 140 )
-		return notify_fail("你的"+to_chinese(sskill)+"不娴熟，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"不嫺熟，使不出"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 300 )
-		return notify_fail("你的内力不够，不能使用"PNAME"。\n");
+		return notify_fail("你的內力不夠，不能使用"PNAME"。\n");
 
-	msg = HIG"$N"HIG"使出「余音绕梁」，将手中剑搭在$n"HIG"兵刃上，剑随意转，连绵不绝，使$n"HIG"一时无法变招。\n";
+	msg = HIG"$N"HIG"使出「餘音繞樑」，將手中劍搭在$n"HIG"兵刃上，劍隨意轉，連綿不絕，使$n"HIG"一時無法變招。\n";
 
 	me->add("neili", -200);
 
 	if(random(me->query("combat_exp")) > (int)target->query("combat_exp")/3)
 	{
-		msg += HIR "结果$p被$P闹个手忙脚乱，惊慌失措，呆在当场，不知如何应对！\n" NOR;
+		msg += HIR "結果$p被$P鬧個手忙腳亂，驚慌失措，呆在當場，不知如何應對！\n" NOR;
 		target->start_busy((int)me->query_skill(bskill, 1)/30);
 	} else {
-		msg +=HIY"可是$p看破了$P的企图，镇定逾恒，一振振开了$P的剑，全神应对自如。\n" NOR;
+		msg +=HIY"可是$p看破了$P的企圖，鎮定逾恆，一振振開了$P的劍，全神應對自如。\n" NOR;
 		me->start_busy(1);
 	}
 	message_combatd(msg, me, target);
@@ -79,12 +79,12 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		迟滞对方出手
+		遲滯對方出手
 
 	出手要求：
-		白云心法50级
-		恒山剑法40级
-		内力300
+		白雲心法50級
+		恆山劍法40級
+		內力300
 HELP
 	);
 	return 1;

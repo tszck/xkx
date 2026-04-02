@@ -2,9 +2,9 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "斗母宫");
+        set("short", "鬥母宮");
         set("long",@LONG
-这是给进香客们休息的地方。四周围放着一溜檀木红漆椅。几个进香
+這是給進香客們休息的地方。四周圍放着一溜檀木紅漆椅。幾個進香
 客坐在上面休息。
 LONG );
         set("exits", ([

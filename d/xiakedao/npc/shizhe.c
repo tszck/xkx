@@ -10,10 +10,10 @@ int ask_for_xkd();
 
 void create()
 {
-	set_name("黄衣使者", ( { "shi zhe", "zhe" }) );
+	set_name("黃衣使者", ( { "shi zhe", "zhe" }) );
 	set("gender", "男性" );
 	set("age", 30);
-	set("long", "这是个身着黄衣的三十几岁汉子，手持木浆，面无表情。\n");
+	set("long", "這是個身着黃衣的三十幾歲漢子，手持木漿，面無表情。\n");
 	set("attitude", "friendly");
 	set("no_get", 1);
 	set("shen_type", 1);
@@ -40,11 +40,11 @@ void create()
 	set_temp("apply/damage", 50);
 	set_temp("apply/armor", 50);
 
-	create_family("侠客岛", 2, "弟子");
+	create_family("俠客島", 2, "弟子");
 
 	set("inquiry", ([
-		"侠客岛" : (: ask_for_xkd :),
-		"出海"   : "南边还有几艘船，你自己看看去吧！\n",
+		"俠客島" : (: ask_for_xkd :),
+		"出海"   : "南邊還有幾艘船，你自己看看去吧！\n",
 	]));
 	setup();
 }
@@ -66,7 +66,7 @@ void greeting(object ob)
 {
 
 	if( !ob || environment(ob) != environment() ) return;
-	say("黄衣使者说道：这位" + RANK_D->query_respect(ob) + "你把我叫过来，有什么事吗。\n");
+	say("黃衣使者說道：這位" + RANK_D->query_respect(ob) + "你把我叫過來，有什麼事嗎。\n");
 	return;
 }
 
@@ -78,12 +78,12 @@ void greeting(object ob)
  
 	if( !who || environment(who) != environment() ) return 0;
 	if ( !objectp(ob) ) return 0;
-	if ( !present(ob, who) ) return notify_fail("你没有这件东西。\n");
+	if ( !present(ob, who) ) return notify_fail("你沒有這件東西。\n");
 
 	if ( (string)ob->query("id") != "shan pai"
 		&& (string)ob->query("id") !="e pai" )
 	{
-		return notify_fail("我不需要这件东西。\n");
+		return notify_fail("我不需要這件東西。\n");
 	}
 	
 	if ( query_temp("times")==0 )
@@ -93,7 +93,7 @@ void greeting(object ob)
 
 	if ( !who->query("xkd/ling") )
 	{
-		tell_object( who, "黄衣使者说道：侠客岛只邀请成名武术家上岛，这位" + RANK_D->query_respect(who) + "还是请回吧。\n" );
+		tell_object( who, "黃衣使者說道：俠客島只邀請成名武術家上島，這位" + RANK_D->query_respect(who) + "還是請回吧。\n" );
 		return 0;
 	}
 	
@@ -101,12 +101,12 @@ void greeting(object ob)
 	{
 		if ( (string)ob->query("own") != (string)who->query("id") )
 		{
-			message_vision("这不是你的牌子。你这样欺骗我，不是想害我家破人亡吗？\n",who);
+			message_vision("這不是你的牌子。你這樣欺騙我，不是想害我家破人亡嗎？\n",who);
 			return 0;
 		}
 		if (query_temp("ling")==2)
 		{
-			message_vision("使者一看是赏善铜牌，满脸歉意地对$N说：上岛的铜牌共两块，你还缺一块罚恶铜牌。\n",who);
+			message_vision("使者一看是賞善銅牌，滿臉歉意地對$N說：上島的銅牌共兩塊，你還缺一塊罰惡銅牌。\n",who);
 			return 0;
 		}
 		add_temp("ling",2);
@@ -118,7 +118,7 @@ void greeting(object ob)
 	
 		if( query_temp("ling")==2 )
 		{ 
-			message_vision("使者一看是赏善铜牌，满脸欣喜地对$N说：你还有一块罚恶铜牌吗？\n",who);
+			message_vision("使者一看是賞善銅牌，滿臉欣喜地對$N說：你還有一塊罰惡銅牌嗎？\n",who);
 			return 1;
 		}
 	}
@@ -127,12 +127,12 @@ void greeting(object ob)
 	{
 		if ( (string)ob->query("own") != (string)who->query("id") )
 		{
-			message_vision("这不是你的牌子。你这样欺骗我，不是想害我家破人亡吗？\n",who);
+			message_vision("這不是你的牌子。你這樣欺騙我，不是想害我家破人亡嗎？\n",who);
 			return 0;
 		}
 		if(query_temp("ling")==1)
 		{
-			message_vision("使者一看是罚恶铜牌，满脸遗憾地对$N说：本岛铜牌一共两块，你还缺赏善铜牌。\n",who);
+			message_vision("使者一看是罰惡銅牌，滿臉遺憾地對$N說：本島銅牌一共兩塊，你還缺賞善銅牌。\n",who);
 			return 0;
 		}
 		add_temp("ling",1);
@@ -143,14 +143,14 @@ void greeting(object ob)
 	
 		if( query_temp("ling")==1 )
 		{
-			message_vision("使者一看是罚恶铜牌，满脸欣喜地对$N说：你还有赏善铜牌吗？\n",who);
+			message_vision("使者一看是罰惡銅牌，滿臉欣喜地對$N說：你還有賞善銅牌嗎？\n",who);
 			destruct( ob );
 			return 1;
 		}
 	}
 
 	command("smile "+(string)who->query("id"));
-	tell_object( who, HIG"原来是侠客岛的贵宾，这就随我上岛去吧。\n"NOR );
+	tell_object( who, HIG"原來是俠客島的貴賓，這就隨我上島去吧。\n"NOR );
 	ling1 = new("/d/xiakedao/obj/tongpai1");
 	ling1->set_temp("own",who->query("id"));
 	ling1->move(who);
@@ -161,7 +161,7 @@ void greeting(object ob)
 //	add_temp("times",-1);
 	myenv = environment (who) ;
 	who->move("/d/xiakedao/duchuan");
-	tell_room(myenv, "黄衣使者招了招手，一只小舟靠岸，"+who->query("name")+"跨步上船。\n");
+	tell_room(myenv, "黃衣使者招了招手，一隻小舟靠岸，"+who->query("name")+"跨步上船。\n");
 	call_out("goto_xiake",10,who) ;
 	return 1;
 }*/
@@ -179,21 +179,21 @@ int ask_for_xkd()
 //	if ( !who->query("xkd/ling") || time() > who->query("xkd/time") )
 	if ( !who->query("xkd/ling") )
 	{
-		message_vision("黄衣使者说道：小人在这活了一辈子，还从没听说过。\n", who );
+		message_vision("黃衣使者說道：小人在這活了一輩子，還從沒聽說過。\n", who );
 		return 1;
 	}
 		/*
 	if ( !objectp( ling1 = present( "shan pai", who ) ) ||
 		!objectp( ling2 = present( "e pai", who ) ) )
 	{
-		message_vision( "黄衣使者说道：上侠客岛要有赏善罚恶令，这位" + RANK_D->query_respect(who) + "还是请回吧！\n", who );
+		message_vision( "黃衣使者說道：上俠客島要有賞善罰惡令，這位" + RANK_D->query_respect(who) + "還是請回吧！\n", who );
 		return 1;
 	}
 	
 	if ( ling1->query("own") != who->query("id") ||
 		ling2->query("own") != who->query("id") )
 	{
-		message_vision( "黄衣使者说道：" + RANK_D->query_respect(who) + "拿的不是自己的牌子。这样欺骗我，不是想害我家破人亡吗？\n", who );
+		message_vision( "黃衣使者說道：" + RANK_D->query_respect(who) + "拿的不是自己的牌子。這樣欺騙我，不是想害我家破人亡嗎？\n", who );
 		return 1;
 	}
 */	
@@ -201,22 +201,22 @@ int ask_for_xkd()
 	for(i=0; i<sizeof(inv); i++)
 		if ( userp(inv[i]) )
 		{
-			message_vision( "黄衣使者说道：岛主颁下严令，只能迎接" + RANK_D->query_respect(who)+ "一人前往。\n若是多载一人，小舟固须倾覆，小人也是首级不保。\n", who );
+			message_vision( "黃衣使者說道：島主頒下嚴令，只能迎接" + RANK_D->query_respect(who)+ "一人前往。\n若是多載一人，小舟固須傾覆，小人也是首級不保。\n", who );
 			return 1;
 		}
 		
 	command("smile "+(string)who->query("id"));
-	tell_object( who, HIG"原来是侠客岛的贵宾，这就随我上岛去吧。\n"NOR );
+	tell_object( who, HIG"原來是俠客島的貴賓，這就隨我上島去吧。\n"NOR );
 	myenv = environment (who) ;	
 	who->move("/d/xiakedao/duchuan");
-	tell_room(myenv, "黄衣使者招了招手，一只小舟靠岸，"+who->query("name")+"跨步上船。\n");
+	tell_room(myenv, "黃衣使者招了招手，一隻小舟靠岸，"+who->query("name")+"跨步上船。\n");
 	call_out("goto_xiake",10,who) ;	
 	return 1;
 }
 
 void goto_xiake(object ob)
 {
-	tell_object(ob, HIB"你在海上航行了三天三夜，大船终于停在了一个小岛边。你走下船来。\n" ) ;
+	tell_object(ob, HIB"你在海上航行了三天三夜，大船終於停在了一個小島邊。你走下船來。\n" ) ;
 	ob->move ("/d/xiakedao/haitan") ;
 }
 

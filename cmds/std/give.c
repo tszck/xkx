@@ -18,30 +18,30 @@ int main(object me, string arg)
 	object obj, who, *inv, obj2;
 	int i, amount;
 
-	if(!arg) return notify_fail("你要给谁什么东西？\n");
-	if( me->is_busy() ) return notify_fail("你上一个动作还没有完成！\n");
+	if(!arg) return notify_fail("你要給誰什麼東西？\n");
+	if( me->is_busy() ) return notify_fail("你上一個動作還沒有完成！\n");
 	if( sscanf(arg, "%s to %s", item, target)==2 ||
 		sscanf(arg, "%s %s", target, item)==2 );
-	else return notify_fail("你要给谁什么东西？\n");
+	else return notify_fail("你要給誰什麼東西？\n");
 //	if(!objectp(who = present(target, environment(me))) ||
 	if(!objectp(who = i_have( environment(me),target )) ||
 		!living(who) || who->query_temp("noliving") )
-		return notify_fail("这里没有这个活人。\n");
+		return notify_fail("這裏沒有這個活人。\n");
 	if( who->query("env/no_accept") )
-		return notify_fail("人家现在不想要什么东西。\n");
+		return notify_fail("人家現在不想要什麼東西。\n");
 	if(sscanf(item, "%d %s", amount, item)==2)
 	{
 	//	if( !objectp(obj = present(item, me)) )	
 		if( !objectp(obj = i_have( me,item )) ) // me have item	
-			return notify_fail("你身上没有这样东西。\n");
+			return notify_fail("你身上沒有這樣東西。\n");
 		if( obj->query("no_drop") )
-			return notify_fail("这样东西不能随便给人。\n");
+			return notify_fail("這樣東西不能隨便給人。\n");
 		if( !obj->query_amount() )	
-			return notify_fail( obj->name() + "不能被分开给人。\n");
+			return notify_fail( obj->name() + "不能被分開給人。\n");
 		if( amount < 1 )
-			return notify_fail("东西的数量至少是一个。\n");
+			return notify_fail("東西的數量至少是一個。\n");
 		if( amount > obj->query_amount() ) 
-			return notify_fail("你没有那么多的"+obj->name()+"。\n");
+			return notify_fail("你沒有那麼多的"+obj->name()+"。\n");
 		else if( amount == (int)obj->query_amount() )
 			return do_give(me, obj, who);
 		else
@@ -64,12 +64,12 @@ int main(object me, string arg)
 		{
 			do_give(me, inv[i], who);
 		}
-		write("给好了。\n");
+		write("給好了。\n");
 		return 1;
 	}
 //	if(!objectp(obj = present(item, me)))
 	if(!objectp(obj = i_have( me,item)))
-		return notify_fail("你身上没有这样东西。\n");
+		return notify_fail("你身上沒有這樣東西。\n");
 	return do_give(me, obj, who);
 }
 
@@ -77,15 +77,15 @@ int do_give(object me, object obj, object who)
 {
 
 	if( obj->query("no_drop") )
-		return notify_fail("这样东西不能随便给人。\n");
+		return notify_fail("這樣東西不能隨便給人。\n");
 	if( obj->query_temp("is_rided_by") )
-		return notify_fail("把坐骑给别人，你不就掉地上了？\n");
+		return notify_fail("把坐騎給別人，你不就掉地上了？\n");
 	if( userp(obj) )
-		return notify_fail("你只能卖玩家。\n");
-	// 增加对任务物品奖励的判断。
+		return notify_fail("你只能賣玩家。\n");
+	// 增加對任務物品獎勵的判斷。
 	// Added by Constant Jan 5 2001
 	if (obj->query("owner") != me->query("id") && (obj->query("taskobj")))
-		return notify_fail("任务必须自己完成。\n");
+		return notify_fail("任務必須自己完成。\n");
 	if (obj->query("dynamic_quest") && TASK_D->quest_reward(me, who, obj))
 		return 1;
 	if ((strsrch(obj->query("name"), me->query("quest/betrayer/name")) >= 0)
@@ -101,19 +101,19 @@ int do_give(object me, object obj, object who)
 		&& who->accept_quest_kill(me, obj))
 		return 1;
 	if( !interactive(who) && !who->accept_object(me, obj) )
-		return notify_fail("对方不想接受这样东西。\n");
+		return notify_fail("對方不想接受這樣東西。\n");
 	if (!objectp(obj)) return 1;
 	if (obj->query("id") == "bao wu")
 	{
 		destruct(obj);
 		return 1;
 	}
-// 入帮会的投名状
+// 入幫會的投名狀
 	if( obj->query("id") == "head")
 		who->set_temp("party/toumingzhuang", me->query("id"));
 	if( !userp(who) && obj->value() )
 	{
-		message_vision("$N拿出" + obj->short() + "给$n。\n", me, who);
+		message_vision("$N拿出" + obj->short() + "給$n。\n", me, who);
 		destruct(obj);
         	me->save();
 	        if (userp(who)) who->save();
@@ -121,9 +121,9 @@ int do_give(object me, object obj, object who)
 	}
 	else if( obj->move(who) )
 		{
-			printf("你给%s一%s%s。\n", who->name(), obj->query("unit"), obj->name());
-			message("vision", sprintf("%s给你一%s%s。\n", me->name(), obj->query("unit"), obj->name()), who );
-			message("vision", sprintf("%s给%s一%s%s。\n", me->name(), who->name(),
+			printf("你給%s一%s%s。\n", who->name(), obj->query("unit"), obj->name());
+			message("vision", sprintf("%s給你一%s%s。\n", me->name(), obj->query("unit"), obj->name()), who );
+			message("vision", sprintf("%s給%s一%s%s。\n", me->name(), who->name(),
 			obj->query("unit"), obj->name()), environment(me), ({me, who}) );
 			me->save();
 			if (userp(who)) who->save();
@@ -186,10 +186,10 @@ int help(object me)
 {
 write(@HELP
 
-指令格式 : give <物品名称> to <某人>
-      或 : give <某人> <物品名称>
+指令格式 : give <物品名稱> to <某人>
+      或 : give <某人> <物品名稱>
  
-    这个指令可以让你将某样物品给别人，当然，首先你要拥有这样物品。
+    這個指令可以讓你將某樣物品給別人，當然，首先你要擁有這樣物品。
  
 HELP
     );

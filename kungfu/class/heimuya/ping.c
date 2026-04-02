@@ -20,9 +20,9 @@ int is_member(string arg);
 void create()
 {
 	set_name("平一指", ({ "ping yizhi", "ping", "yizhi" }));
-	set("title", "药铺老板");
+	set("title", "藥鋪老闆");
 	set("gender", "男性");
-	set("long", "他就是医术高超的「杀人神医」平一指。可是他性格古怪，不是什么人都医的。听说江湖中人有想向他学些济世之术的，也不知他肯不肯传授。\n");
+	set("long", "他就是醫術高超的「殺人神醫」平一指。可是他性格古怪，不是什麼人都醫的。聽說江湖中人有想向他學些濟世之術的，也不知他肯不肯傳授。\n");
 	set("age", 65);
 
 	set("int", 30);
@@ -45,22 +45,22 @@ void create()
 	set("shouwu_count", 2);
 	set("count", 30);
 	set("inquiry", ([
-		"何首乌" : (: ask_wu :),
-		"疗伤"   : (: ask_me :),
-		"神药"   : (: ask_me1 :),
+		"何首烏" : (: ask_wu :),
+		"療傷"   : (: ask_me :),
+		"神藥"   : (: ask_me1 :),
 		"大力丸" : (: ask_me1 :),
-		"潜能丹" : (: ask_me1 :),
+		"潛能丹" : (: ask_me1 :),
 		"治病"   : (: ask_heal :),
 		"解毒"   : (: ask_poison :),
 		"work"   : (: ask_working :),
 		"工作"   : (: ask_working :),
-		"分药"   : (: ask_working :),
-		"报酬"   : (: ask_over :),
-		"工资"   : (: ask_over :),
+		"分藥"   : (: ask_working :),
+		"報酬"   : (: ask_over :),
+		"工資"   : (: ask_over :),
 		"over"   : (: ask_over :),
-		"针灸"   : (: ask_work :),
-		"银针"   : (: ask_work :),
-		"行医"   : (: ask_work :),
+		"鍼灸"   : (: ask_work :),
+		"銀針"   : (: ask_work :),
+		"行醫"   : (: ask_work :),
 	]));
 	set("party/party_name", HIB"日月神教"NOR);
 	set("party/rank", HIW"第八代弟子"NOR);
@@ -90,14 +90,14 @@ void greeting(object ob)
 
 	if (!ob || environment(ob)!=environment(this_object()))
 		return ;
-	tell_object(ob, "\n平一指抬头看了你几眼。\n");
+	tell_object(ob, "\n平一指抬頭看了你幾眼。\n");
 	if (ob->query_condition("drunk"))
 	{
-		message_vision("平一指对$N说道：这位"+RANK_D->query_respect(ob)+"，看你脸红红的，一定是喝醉了！\n",ob);
+		message_vision("平一指對$N說道：這位"+RANK_D->query_respect(ob)+"，看你臉紅紅的，一定是喝醉了！\n",ob);
 	}
 	if (ob->query_condition("killer"))
 	{
-		message_vision("平一指对$N说道：这位"+RANK_D->query_respect(ob)+"，官府正通缉你呢，你还是快走吧！！\n",ob);
+		message_vision("平一指對$N說道：這位"+RANK_D->query_respect(ob)+"，官府正通緝你呢，你還是快走吧！！\n",ob);
 		return;
 	}
 
@@ -109,11 +109,11 @@ void greeting(object ob)
 	else hurt = 0;
 	switch(hurt)
 	{
-		case 1 : message_vision("平一指满脸关切地对$N说道：这位"+RANK_D->query_respect(ob)+"看来受了点轻伤，我这儿有上好的丹药，不知是否要买些？\n",ob);
+		case 1 : message_vision("平一指滿臉關切地對$N說道：這位"+RANK_D->query_respect(ob)+"看來受了點輕傷，我這兒有上好的丹藥，不知是否要買些？\n",ob);
 			break;
-		case 2 : message_vision("平一指对$N说道：这位"+RANK_D->query_respect(ob)+"看来受伤不轻，买些丹药回去吧！\n",ob);
+		case 2 : message_vision("平一指對$N說道：這位"+RANK_D->query_respect(ob)+"看來受傷不輕，買些丹藥回去吧！\n",ob);
 			break;
-		case 3 : message_vision("平一指冷冷地对$N说道：这位"+RANK_D->query_respect(ob)+"伤重垂危，命不久矣，嘿嘿！\n",ob);
+		case 3 : message_vision("平一指冷冷地對$N說道：這位"+RANK_D->query_respect(ob)+"傷重垂危，命不久矣，嘿嘿！\n",ob);
 			break;
 		default: command("look "+ob->query("id"));
 			break;
@@ -121,52 +121,52 @@ void greeting(object ob)
 	if(!ob->query_temp("fengyaobegin") &&
 		ob->query("combat_exp")>MIN_EXP &&
 		ob->query("combat_exp")<MAX_EXP)
-		say( "平一指又抬了抬眼皮，说道：小店正缺人手，这位" + RANK_D->query_respect(ob) + "有意的话，可以"CYN" 〖"HIR"ask ping about work"NOR CYN"〗\n"NOR);
+		say( "平一指又抬了抬眼皮，說道：小店正缺人手，這位" + RANK_D->query_respect(ob) + "有意的話，可以"CYN" 〖"HIR"ask ping about work"NOR CYN"〗\n"NOR);
 }
 
 string value_string(int value)
 {
 	if( value < 1 ) value = 1;
-	else if( value < 100 ) return chinese_number(value) + "文钱";
-	else if( value < 10000 ) return chinese_number(value/100) + "两白银" + (value%100? "又" + chinese_number(value%100) + "文钱": "");
-	else return chinese_number(value/10000) + "两黄金" +( (value%10000)/100 ? chinese_number((value%10000)/100) + "两白银" : "") +( (value%10000)%100 ? "又" + chinese_number((value%10000)%100) + "文钱": "");
+	else if( value < 100 ) return chinese_number(value) + "文錢";
+	else if( value < 10000 ) return chinese_number(value/100) + "兩白銀" + (value%100? "又" + chinese_number(value%100) + "文錢": "");
+	else return chinese_number(value/10000) + "兩黃金" +( (value%10000)/100 ? chinese_number((value%10000)/100) + "兩白銀" : "") +( (value%10000)%100 ? "又" + chinese_number((value%10000)%100) + "文錢": "");
 }
 
 int ask_wu()
 {
 	object ob = this_player ( ) ;
 
-message_vision("平一指上上下下打量了$N一下：什么！何首乌？拿十两黄金来！\n",ob);
-	ob->set_temp ("何首乌" , 1 );
+message_vision("平一指上上下下打量了$N一下：什麼！何首烏？拿十兩黃金來！\n",ob);
+	ob->set_temp ("何首烏" , 1 );
 	return 1;
 }
 
 int accept_object(object who, object ob)
 {
 	object obj ;
-	if (!(int)who->query_temp("何首乌"))
+	if (!(int)who->query_temp("何首烏"))
 	{
 		if (!(int)who->query_temp("mark/平"))
 			who->set_temp("mark/平", 0);
 		if (ob->query("money_id") && ob->value() >= 1000)
 		{
-			message_vision("平一指看来有点想指点$N一些关于济世之术的问题的意思。\n", who);
+			message_vision("平一指看來有點想指點$N一些關於濟世之術的問題的意思。\n", who);
 			who->add_temp("mark/平", ob->value() / 500);
 		}
 		else
-			message_vision("平一指对$N说：医一人，杀一人，老夫就不收钱！\n", who);
+			message_vision("平一指對$N說：醫一人，殺一人，老夫就不收錢！\n", who);
 		return 1;
 	}
 	if (query("shouwu_count") < 1)
 	{
-		message_vision("平一指对$N道：你来晚了。本店缺货！\n", who);
+		message_vision("平一指對$N道：你來晚了。本店缺貨！\n", who);
 		return 0;
 	}
 	if (ob->query("money_id") && ob->value() >= 100000)
 	{
-		message_vision("平一指给了$N何首乌！\n" , who);
+		message_vision("平一指給了$N何首烏！\n" , who);
 		add("shouwu_count", -1);
-		this_player()->delete_temp("何首乌" );
+		this_player()->delete_temp("何首烏" );
 		obj=new("/clone/medicine/vegetable/heshouwu");
 		obj->move(this_player());
 	}
@@ -188,22 +188,22 @@ int ask_me()
 
 	if(me->is_fighting() || me->query_temp("busy"))
 	{
-		command("say 我现在没空！");
+		command("say 我現在沒空！");
 		return 1;
 	}
 	if(me->query("count") < 1)
 	{
-		command("say 伤药都用完了，我还没来得及配，你一会再来吧。");
+		command("say 傷藥都用完了，我還沒來得及配，你一會再來吧。");
 		return 1;
 	}
 	if(ob->query("shen")>0)
 	{
-		command("say 你们这些正派中人，我可不敢高攀！");
+		command("say 你們這些正派中人，我可不敢高攀！");
 		return 1;
 	}
 	if(ob->query("score")<300&&ob->query("combat_exp")>100500)
 	{
-		command("say 你这点江湖阅历，也想让我为你疗伤？");
+		command("say 你這點江湖閱歷，也想讓我爲你療傷？");
 		return 1;
 	}
 
@@ -211,12 +211,12 @@ int ask_me()
 	  && (int)ob->query("eff_jing") == (int)ob->query("max_jing"))
 	{
 		command("? "+ob->query("id"));
-		command("say 你没有受任何伤啊？");
+		command("say 你沒有受任何傷啊？");
 		return 1;
 	}
 	else
 	{
-		message_vision("平一指喂$N服下一颗药丸，然后盘膝坐下，双掌贴着$N的背心。\n", ob);
+		message_vision("平一指喂$N服下一顆藥丸，然後盤膝坐下，雙掌貼着$N的背心。\n", ob);
 		if (ob->query("combat_exp")>100500)
 		{
 			if (ob->query("family/family_name") != "黑木崖")
@@ -244,8 +244,8 @@ int recover(object ob)
 	this_object()->delete_temp("busy");
 	ob->set("eff_qi", (int)ob->query("max_qi"));
 	ob->set("eff_jing", (int)ob->query("max_jing"));
-	message_vision("大约过了一盅茶的时分，平一指慢慢地站了起来。\n",ob);
-	command("say 你的伤势已经全好了,可以走啦。");
+	message_vision("大約過了一盅茶的時分，平一指慢慢地站了起來。\n",ob);
+	command("say 你的傷勢已經全好了,可以走啦。");
 	return 1;
 }
 int newyao(object me)
@@ -265,18 +265,18 @@ int ask_heal()
 
         if(me->is_fighting() || me->query_temp("busy"))
         {
-		command("say 我现在没空！");
+		command("say 我現在沒空！");
 		return 1;
 	}
 
 	if(ob->query("shen")>0)
 	{
-		command("say 你们这些正派中人，我可不敢高攀！");
+		command("say 你們這些正派中人，我可不敢高攀！");
 		return 1;
 	}
 	if(ob->query("score")<300&&ob->query("combat_exp")>100000)
 	{
-		command("say 你这点江湖阅历，也想让我为你治病？");
+		command("say 你這點江湖閱歷，也想讓我爲你治病？");
 		return 1;
 	}
 
@@ -286,7 +286,7 @@ int ask_heal()
 		ob->query_condition("ill_dongshang") ||
 		ob->query_condition("ill_fashao"))
 	{
-		message_vision("平一指轻扣$N脉门，略一思索，随后转身从药篓里取出几味草药，开始为$N熬药。\n", ob);
+		message_vision("平一指輕釦$N脈門，略一思索，隨後轉身從藥簍裏取出幾味草藥，開始爲$N熬藥。\n", ob);
 		if (ob->query("combat_exp")>100000)
 		{
 		if (ob->query("family/family_name") != "黑木崖")
@@ -304,7 +304,7 @@ int ask_heal()
 	else
 	{
 		command("? "+ob->query("id"));
-		command("say 看你的气色，并没有生病啊？");
+		command("say 看你的氣色，並沒有生病啊？");
 		return 1;
 	}
 
@@ -322,8 +322,8 @@ int recover_II(object ob)
 		ob->clear_condition("ill_dongshang",0);
 	if (ob->query_condition("ill_fashao"))
 		ob->clear_condition("ill_fashao",0);
-	message_vision("大约一柱香过后，平一指让你喝下一碗刚熬好的热气腾腾的中药。\n",ob);
-	command("say 你的身体已无大碍,可以走啦。");
+	message_vision("大約一柱香過後，平一指讓你喝下一碗剛熬好的熱氣騰騰的中藥。\n",ob);
+	command("say 你的身體已無大礙,可以走啦。");
 	return 1;
 }
 
@@ -335,18 +335,18 @@ int ask_poison()
 
         if(me->is_fighting() || me->query_temp("busy"))
 	{
-		command("say 我现在没空！");
+		command("say 我現在沒空！");
 		return 1;
 	}
 
 	if(ob->query("shen")>0)
 	{
-		command("say 你们这些正派中人，我可不敢高攀！");
+		command("say 你們這些正派中人，我可不敢高攀！");
 		return 1;
 	}
 	if(ob->query("score")<500&&ob->query("combat_exp")>100000)
 	{
-		command("say 你这点江湖阅历，也想让我为你解毒？");
+		command("say 你這點江湖閱歷，也想讓我爲你解毒？");
 		return 1;
 	}
 
@@ -367,7 +367,7 @@ int ask_poison()
 		ob->query_condition("zhua_poison") ||
 		ob->query_condition("ice_sting"))
 	{
-		message_vision("平一指轻扣$N脉门，双眉深锁，随后喂$N服下一颗药丸，盘膝坐下，双掌贴着$N的背心，开始为$N解毒。\n", ob);
+		message_vision("平一指輕釦$N脈門，雙眉深鎖，隨後喂$N服下一顆藥丸，盤膝坐下，雙掌貼着$N的背心，開始爲$N解毒。\n", ob);
 		if (ob->query("combat_exp")>100000)
 		{
 			if (ob->query("family/family_name") != "黑木崖")
@@ -384,7 +384,7 @@ int ask_poison()
 	else
 	{
 		command("? "+ob->query("id"));
-		command("say 看来我帮不了你什么忙了！");
+		command("say 看來我幫不了你什麼忙了！");
 		return 1;
 	}
 }
@@ -423,8 +423,8 @@ int recover_III(object ob)
 		ob->clear_condition("zhua_poison",0);
 	if (ob->query_condition("ice_sting"))
 		ob->clear_condition("ice_sting", 0);
-	message_vision("大约一柱香过后，$N吐出一口紫血，平一指慢慢地站了起来。\n",ob);
-	command("say 你体内毒素已清，可以走啦。");
+	message_vision("大約一柱香過後，$N吐出一口紫血，平一指慢慢地站了起來。\n",ob);
+	command("say 你體內毒素已清，可以走啦。");
 	return 1;
 }
 
@@ -436,7 +436,7 @@ int ask_over()
 	kar = me->query("kar");
 	if (!me->query_temp("fengyaoover"))
 	{
-		message_vision("平一指惊讶的对$N说道：“哦！你在开什么玩笑，我这可不是养老院啊！”\n",me);
+		message_vision("平一指驚訝的對$N說道：“哦！你在開什麼玩笑，我這可不是養老院啊！”\n",me);
 		return 1;
 	}
 	me->delete_temp("fengyaoover");
@@ -444,19 +444,19 @@ int ask_over()
 	{
 		if(random(kar)>=11)
 		{
-			message_vision("平一指哼了一声，对$N说：“你是怎么搞的，乱分药，是想砸我的招牌吗？\n看在你还努力的份上还是赏你点钱吧。”\n",me);
+			message_vision("平一指哼了一聲，對$N說：“你是怎麼搞的，亂分藥，是想砸我的招牌嗎？\n看在你還努力的份上還是賞你點錢吧。”\n",me);
 			exp = 10 + random(10);
 			mon = new("/clone/money/silver");
 			mon->set_amount(exp/10);
-			tell_object(me,HIW"平一指给了你" + chinese_number(exp) + "两白银。 \n"NOR);
+			tell_object(me,HIW"平一指給了你" + chinese_number(exp) + "兩白銀。 \n"NOR);
 			mon->move(me);
 			me->delete_temp("fengyaow");
 			return 1;
 		}
-		message_vision("平一指哼了一声，对$N说：你是怎么搞的，乱分药，是想砸我的招牌吗？\n",me);
+		message_vision("平一指哼了一聲，對$N說：你是怎麼搞的，亂分藥，是想砸我的招牌嗎？\n",me);
 		return 1;
 	}
-	message_vision("平一指笑着对$N说：“你还不错嘛，可以可以，这是你应该得的。”\n",me);
+	message_vision("平一指笑着對$N說：“你還不錯嘛，可以可以，這是你應該得的。”\n",me);
 	exp = 10 + random(80);
 	pot = 10 + random(40);
 	bonus = (int) me->query("combat_exp");
@@ -470,7 +470,7 @@ int ask_over()
 	mon->set_amount(exp/10);
 	mon->move(me);
 	me->start_busy(3);
-	tell_object(me,"你被奖励了："HIR+chinese_number(exp)+NOR"点经验，"HIR+chinese_number(pot)+NOR"点潜能和"HIW+chinese_number(exp)+NOR"两白银。\n");
+	tell_object(me,"你被獎勵了："HIR+chinese_number(exp)+NOR"點經驗，"HIR+chinese_number(pot)+NOR"點潛能和"HIW+chinese_number(exp)+NOR"兩白銀。\n");
 	bonus=(int) me->query("potential");
 	if (me->query("combat_exp")>=MAX_EXP)
 	{
@@ -486,22 +486,22 @@ int ask_working()
 	if((int)(me->query("combat_exp")) > MAX_EXP ||
 		(int)(me->query("combat_exp")) < MIN_EXP)
 	{
-		message_vision("平一指对$N说道：“阁下如此身手，小店劳烦不起。呵。。。呵。。。”\n",me);
+		message_vision("平一指對$N說道：“閣下如此身手，小店勞煩不起。呵。。。呵。。。”\n",me);
 		return 1;
 	}
 	if ( me->query("fenyao_over") || is_member(me->query("id") ))
 	{
-		message_vision("平一指对$N说道：“我记得以前你在这里打过工，怎么又来了！”\n",me);
+		message_vision("平一指對$N說道：“我記得以前你在這裏打過工，怎麼又來了！”\n",me);
 		return 1;
 	}
 	if (me->query_temp("fengyaobegin"))
 	{
-		message_vision("平一指对$N说道：“你不是已经要了工作了，还不去干！”\n",me);
+		message_vision("平一指對$N說道：“你不是已經要了工作了，還不去幹！”\n",me);
 		return 1;
 	}
 	if ((int)(me->query("qi")) < random(30))
 	{
-		message_vision("平一指对$N说道：“算了吧你，都这样了还想工作，把药分错了会出人命的。”\n",me);
+		message_vision("平一指對$N說道：“算了吧你，都這樣了還想工作，把藥分錯了會出人命的。”\n",me);
 		return 1;
 	}
 	//add from here//
@@ -514,27 +514,27 @@ int ask_working()
                               query_ip_number($1) == query_ip_number($(me)) :));
    		if (sizeof(obs) > 0)
         {
-        	message_vision("平一指对$N说道：“现在已经有" + obs[0]->name() + "干活呢，你歇着吧。”\n",me);
+        	message_vision("平一指對$N說道：“現在已經有" + obs[0]->name() + "幹活呢，你歇着吧。”\n",me);
 					return 1;
 				}
 		}
 		else
 		{
-			message_vision("平一指对$N说道：“你先去药室看一下药品全了没，然后再过来问我。”\n",me);
+			message_vision("平一指對$N說道：“你先去藥室看一下藥品全了沒，然後再過來問我。”\n",me);
 			return 1;
 			}
 	//add end//
 	if (me->query_temp("fengyaoover"))
 	{
-		message_vision("平一指对$N说道：“哦？ 你连自己的工资也不要。”\n",me);
-		message_vision("平一指对$N说道：“好吧，既然这样我也就不勉强你了。”\n",me);
-		message_vision("平一指对$N说道：“那你就到内室去帮我再分次药吧。”\n",me);
+		message_vision("平一指對$N說道：“哦？ 你連自己的工資也不要。”\n",me);
+		message_vision("平一指對$N說道：“好吧，既然這樣我也就不勉強你了。”\n",me);
+		message_vision("平一指對$N說道：“那你就到內室去幫我再分次藥吧。”\n",me);
 		me->delete_temp("fengyaow");
 		me->delete_temp("fengyaoover");
 		me->set_temp("fengyaobegin",1);
 		return 1;
 	}
-	message_vision("平一指对$N说道：“好吧，那你就到内室去帮我分分药吧。”\n",me);
+	message_vision("平一指對$N說道：“好吧，那你就到內室去幫我分分藥吧。”\n",me);
 	me->set_temp("fengyaobegin",1);
 	return 1;
 }
@@ -549,24 +549,24 @@ string ask_work()
 	object ob, me = this_player();
 
 	if (present("yin zhen", me))
-		return "你不是有银针了么？还来找我干嘛？";
+		return "你不是有銀針了麼？還來找我幹嘛？";
 	if (query("zhen_count") < 1)
-		return "你来晚了，我的银针已经送人了。";
+		return "你來晚了，我的銀針已經送人了。";
 	if (me->query_skill("medicine", 1) < 50)
-		return "你也想行医？那也得看是不是那块料啊。";
+		return "你也想行醫？那也得看是不是那塊料啊。";
 	if (me->query("medicine_count") < 50)
-		return "你想行医，先得把药熬好，熟能生巧，磨刀不误砍柴功，这个道理你也知道，别贪多勿得的。";
+		return "你想行醫，先得把藥熬好，熟能生巧，磨刀不誤砍柴功，這個道理你也知道，別貪多勿得的。";
 	ob = new("/clone/misc/yinzhen");
 	ob->move(me);
 	add("zhen_count", -1);
 	if (me->query_skill("acupuncture",1) > 0)
 	{
-		return "想行医？这针你先拿去用吧。可别辱没了我“医一人杀一人”的名头。";
+		return "想行醫？這針你先拿去用吧。可別辱沒了我“醫一人殺一人”的名頭。";
 	}
 	else
 	{
 		me->set_skill("acupuncture", 1);
-		return "初次行医吧？我来教你点针灸术吧。这样你就可以带针上路了。";
+		return "初次行醫吧？我來教你點鍼灸術吧。這樣你就可以帶針上路了。";
 	}
 }
 int add_member(string arg)
@@ -579,7 +579,7 @@ int is_member(string arg)
 	string *recs;
 	if (!file=read_file(PING_FILE))
 	{
-		// tell_object(find_player("qingyun"),"读取失败。\n");
+		// tell_object(find_player("qingyun"),"讀取失敗。\n");
 		return 0;
 	}
 	recs=explode(file,"\n");

@@ -3,7 +3,7 @@
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "孤注一掷"
+#define PNAME "孤注一擲"
 int perform(object me, object target)
 {
 	int i,s;
@@ -20,18 +20,18 @@ int perform(object me, object target)
    !me->query("can_perform/"+sskill+"/"+pfname) &&
    !me->query_temp("murong/xingyi") &&
    !SCBORN_D->valid_perform(me,sskill,pfname) )
-   return notify_fail("你所使用的外功中没有这种功能。\n");
+   return notify_fail("你所使用的外功中沒有這種功能。\n");
 */
 	if( !objectp(target) ) {flag =1;target = offensive_target(me);}
 	
 	if( !target || !target->is_character() || target == me ||	
 	  	!me->is_fighting(target) ||
   	!living(target) || target->query_temp("noliving") )
-		return notify_fail(PNAME"只能对战斗中的对手使用。\n");
+		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 		
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "throwing")
-		return notify_fail("你必须先有暗器。\n");
+		return notify_fail("你必須先有暗器。\n");
 
 	fskill = "honghua-shengong";
 	bskill = "throwing";
@@ -45,29 +45,29 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(fskill)+"修为太浅，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修爲太淺，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(sskill)+"修为太浅，无法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修爲太淺，無法使用"+PNAME+"。\n");
 
 	if( me->query("max_neili") < 300)
-		return notify_fail("你的内力修为太浅。\n");
+		return notify_fail("你的內力修爲太淺。\n");
 
 	if( me->query("neili") < 200)
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("你的內力不夠。\n");
 
 	s = me->query_skill(bskill, 1);
 
-	msg = CYN "$N"CYN"孤注一掷，发出所有暗器攻向$n"CYN"！"NOR;
+	msg = CYN "$N"CYN"孤注一擲，發出所有暗器攻向$n"CYN"！"NOR;
 	me->start_busy(2);
 	if(random(me->query("combat_exp"))>(int)target->query("combat_exp")/2)
 	{
-		msg += "结果$p被$P攻了个措手不及！\n" NOR;
+		msg += "結果$p被$P攻了個措手不及！\n" NOR;
 		target->receive_wound("qi", random(s)*2,me);
 	}
 	else
 	{
-		msg += "可是$p躲过了$P的最后一击。\n" NOR;
+		msg += "可是$p躲過了$P的最後一擊。\n" NOR;
 	}
 	message_combatd(msg, me, target);
 	ob = all_inventory(me);	 //use out all throwing
@@ -88,13 +88,13 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		投掷身上所有暗器，损伤对方气血
+		投擲身上所有暗器，損傷對方氣血
 
 	出手要求：
-		红花神功60级
-		寒星八打60级
-		内力修为300
-		内力200
+		紅花神功60級
+		寒星八打60級
+		內力修爲300
+		內力200
 HELP
 	);
 	return 1;

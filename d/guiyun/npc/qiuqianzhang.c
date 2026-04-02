@@ -5,12 +5,12 @@ inherit NPC;
 void create()
 {
 	set_name("裘千丈", ({ "qiu qianzhang", "qiu" }));
-	set("nickname", "肉掌水底钻");
+	set("nickname", "肉掌水底鑽");
 	set("gender", "男性");
 	set("age", 65);
-	set("long", "他有个弟弟叫裘千仞，他还有个妹妹叫裘千尺。他自己，虽然比弟弟
-多了三千尺，比妹妹更是多了九千尺，手上的功夫呢却比他们稀松至
-少九万尺。\n"); 
+	set("long", "他有個弟弟叫裘千仞，他還有個妹妹叫裘千尺。他自己，雖然比弟弟
+多了三千尺，比妹妹更是多了九千尺，手上的功夫呢卻比他們稀鬆至
+少九萬尺。\n"); 
 	set("per",14);
 	set("combat_exp", 50000);
 	set_skill("dodge", 50);

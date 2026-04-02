@@ -4,14 +4,14 @@ inherit F_UNIQUE;
 #include <ansi.h>
 void create()
 {
-	set_name("鳌拜", ({ "ao bai", "ao", "bai"}));
+	set_name("鰲拜", ({ "ao bai", "ao", "bai"}));
 	set("long",
-		"他就是满洲第一勇士，身穿一袭金边锦缎。他身材魁梧，\n"
-		"相貌狰狞，太阳穴高高鼓起，似乎身怀绝世武功。\n"
+		"他就是滿洲第一勇士，身穿一襲金邊錦緞。他身材魁梧，\n"
+		"相貌猙獰，太陽穴高高鼓起，似乎身懷絕世武功。\n"
 	);
 
-	set("nickname", "满洲第一勇士");
-	set("title", HIC"少保"HIR"一等超武公"HIY"镶黄旗旗主"NOR);
+	set("nickname", "滿洲第一勇士");
+	set("title", HIC"少保"HIR"一等超武公"HIY"鑲黃旗旗主"NOR);
 	set("gender", "男性");
 	set("attitude", "aggressive");
 
@@ -47,8 +47,8 @@ void create()
 
         set("chat_chance_combat", 10);  
         set("chat_msg_combat", ({
-                " 鳌拜怒道：你敢不让我睡觉，老子宰了你 ！\n",
-                (: command("say 老子宰了你这" + RANK_D->query_rude(this_player())+"!\n") :),
+                " 鰲拜怒道：你敢不讓我睡覺，老子宰了你 ！\n",
+                (: command("say 老子宰了你這" + RANK_D->query_rude(this_player())+"!\n") :),
 		(: command("pain") :),
                       }) );
         setup();
@@ -61,9 +61,9 @@ void create()
 
 void die()
 {
-        message("vision","\n鳌拜狂叫道：想不到我一世威名竟然毁于你手！\n","/d/beijing/aobai6");        	 
-        message("vision","鳌拜顿了一顿，叹道：唉，只可惜我的那么多宝贝啊！\n","/d/beijing/aobai6");        	 
-        message_vision("$N哀嚎一声，死了！\n", this_object());
+        message("vision","\n鰲拜狂叫道：想不到我一世威名竟然毀於你手！\n","/d/beijing/aobai6");        	 
+        message("vision","鰲拜頓了一頓，嘆道：唉，只可惜我的那麼多寶貝啊！\n","/d/beijing/aobai6");        	 
+        message_vision("$N哀嚎一聲，死了！\n", this_object());
         ::die();
 }
 

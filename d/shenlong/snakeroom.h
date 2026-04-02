@@ -28,7 +28,7 @@ void showup()
 
 	snake = new(snakefile);
 
-	message("vision", HIR"突然一条" + snake->query("name") + "从不知什么地方游了出来！！！\n" NOR, this_object());
+	message("vision", HIR"突然一條" + snake->query("name") + "從不知什麼地方遊了出來！！！\n" NOR, this_object());
 	snake->move(this_object());
 
 	remove_call_out("disappear");
@@ -46,7 +46,7 @@ void disappear(object snake)
 		return;
 	}
 
-	message_vision("只见$N飞快地游走了。\n", snake);
+	message_vision("只見$N飛快地遊走了。\n", snake);
 	destruct(snake);
 }
 

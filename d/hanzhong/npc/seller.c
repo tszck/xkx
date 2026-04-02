@@ -7,11 +7,11 @@ string ask_me();
 
 void create()
 {
-	set_name("小贩", ({ "seller" }) );
+	set_name("小販", ({ "seller" }) );
 	set("gender", "男性" );
 	set("age", 32);
 	set("long",
-		"这是个小贩，别看他长的老老实实，可你别想从他那儿掏便宜。\n");
+		"這是個小販，別看他長的老老實實，可你別想從他那兒掏便宜。\n");
 	set("combat_exp", 300);
 	set("str", 17);
 	set("dex", 20);
@@ -26,8 +26,8 @@ void create()
 		"/d/xingxiu/obj/fire",
 	}) );
 	set("inquiry", ([
-		"药" : (: ask_me :),
-		"药材" : (: ask_me :),
+		"藥" : (: ask_me :),
+		"藥材" : (: ask_me :),
 	]) );
 	setup();
 	carry_object(CLOTH_DIR"cloth")->wear();
@@ -44,14 +44,14 @@ void init()
 string ask_me()
 {
 	object me=this_player();
-	if ( me->query_temp("tmark/药")) {
-		return "我走南闯北，没见过你这么罗嗦的人！\n";
+	if ( me->query_temp("tmark/藥")) {
+		return "我走南闖北，沒見過你這麼羅嗦的人！\n";
 	}
 	else
 	{
-		me->set_temp("tmark/药",1);
-		return "当年我到极北森林中采药，还真遇到了一些好药材，要买得先交
-钱。\n";
+		me->set_temp("tmark/藥",1);
+		return "當年我到極北森林中採藥，還真遇到了一些好藥材，要買得先交
+錢。\n";
 	}
 }
 
@@ -61,28 +61,28 @@ int accept_object(object who, object ob)
 
 	if(this_object()->query("count") < 0)
 	{
-		write("小贩说道：“既然您出得起价钱，还愁没地买？我这是没了。”\n");
+		write("小販說道：“既然您出得起價錢，還愁沒地買？我這是沒了。”\n");
 		return 1;
 	}
 	if ((ob->query("money_id")) && (ob->value() >= 10000) &&
-		(who->query_temp("tmark/药")))
+		(who->query_temp("tmark/藥")))
 	{
 		obj = new(VEGETABLE_DIR"heshouwu");
 		obj->move(who);
-		who->add_temp("tmark/药",0);
-		write("小贩说道：“既然您出得起价钱，这味药可就归您了。”\n");
+		who->add_temp("tmark/藥",0);
+		write("小販說道：“既然您出得起價錢，這味藥可就歸您了。”\n");
 		add("count", -1);
 		return 1;
 	}
 	else
 		if (ob->query("money_id"))
 		{
-			write("小贩阴笑一声，说道：“嘿嘿，给我这么多钱哪。”\n");
+			write("小販陰笑一聲，說道：“嘿嘿，給我這麼多錢哪。”\n");
 			return 1;
 		}
 		else
 		{
-			return notify_fail("小贩诧异地说道：“给我这个干什么？”\n");
+			return notify_fail("小販詫異地說道：“給我這個幹什麼？”\n");
 		}
 }
 

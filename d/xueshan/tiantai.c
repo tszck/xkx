@@ -6,8 +6,8 @@ void create()
 {
         set("short","天台");
         set("long",@LONG
-这里是雪山寺的高处。北边可见雄伟的大雪山，南边可以俯瞰美丽
-如镜的圣湖。
+這裏是雪山寺的高處。北邊可見雄偉的大雪山，南邊可以俯瞰美麗
+如鏡的聖湖。
 LONG );
 	set("outdoors", "xueshansi");
         set("exits",([

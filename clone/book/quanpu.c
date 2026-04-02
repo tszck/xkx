@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name( "拳谱总诀",({ "shu","book"}));
+	set_name( "拳譜總訣",({ "shu","book"}));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-                set("long","这是一本拳谱总诀。\n");
+                set("long","這是一本拳譜總訣。\n");
 		set("value", 500);
 		set("material", "paper");
 		set("skill", ([

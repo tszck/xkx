@@ -6,7 +6,7 @@ void create()
 	set_name("蕊初", ({ "lei chu", "lei", "chu"}) );
 	set("gender", "女性" );
 	set("age", 14);
-	set("long", "这是一个小宫女,容貌很清秀,看来挺能干.\n");
+	set("long", "這是一個小宮女,容貌很清秀,看來挺能幹.\n");
 	set("shen_type", 1);
 	set("combat_exp", 3000);
 	set("per", 24);
