@@ -39,7 +39,7 @@ mapping *action = ({
 	"lvl" :	105,
 	"skill_name" : "斷雲",
 ]),
-([	"action" : "$N輕輕躍起，一招"HIB"「遮月」"NOR"，$w在半空中化爲一圈銀芒，落向$n的$l",
+([	"action" : "$N輕輕躍起，一招"HIB"「遮月」"NOR"，$w在半空中化為一圈銀芒，落向$n的$l",
 	"lvl" :	110,
 	"skill_name" : "遮月",
 ]),
@@ -130,7 +130,7 @@ int help(object me)
 	write(HIC"\n斷雲鞭法："NOR"\n");
 	write(@HELP
 
-    斷雲鞭法爲全真掌教馬鈺的獨門武功。
+    斷雲鞭法為全真掌教馬鈺的獨門武功。
 
 	學習要求：
 		先天氣功40級

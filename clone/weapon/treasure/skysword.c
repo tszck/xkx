@@ -21,7 +21,7 @@ void create()
 		set("no_put", "珍惜它吧。\n");
 		set("value",100);
 		set("wield_msg", CYN "倚天劍如靈蛇般躍出劍鞘，落在$N手中，放射出
-璀璨的毫光，天地爲之變色。\n" NOR);
+璀璨的毫光，天地為之變色。\n" NOR);
 		set("unwield_msg", CYN "$N手中劍光漸漸暗淡，天幕漸漸煥出光芒。\n" NOR);
        }
        init_sword(300);

@@ -131,7 +131,7 @@ void bash_weapon(object me, object victim, object weapon, int damage)
 
 		if( wap > 5 * wdp)
 		{
-			message_vision(HIM"只聽見「啪」地一聲，$N手中的"+ob->name()+HIM"已經斷爲兩截！\n"NOR,victim);
+			message_vision(HIM"只聽見「啪」地一聲，$N手中的"+ob->name()+HIM"已經斷為兩截！\n"NOR,victim);
 			ob->unequip();
 			ob->move(environment(victim));
 			ob->set("name","斷掉的"+ob->query("name"));
@@ -175,7 +175,7 @@ void slash_weapon(object me, object victim, object weapon, int damage)
 		if( wp > 0 && wp > (wp1 + wp2) * 5 &&
 			random(me->query("str")) > victim->query("str")/2)
 		{
-			message_vision(WHT "只聽見「哐」地一聲輕響，$N手中的"+weapon1->name()+WHT"已經被"+weapon->name()+WHT"削爲兩截！\n"NOR, victim );
+			message_vision(WHT "只聽見「哐」地一聲輕響，$N手中的"+weapon1->name()+WHT"已經被"+weapon->name()+WHT"削為兩截！\n"NOR, victim );
 			weapon1->unequip();
 			weapon1->move(environment(victim));
 			weapon1->set("name", "斷掉的"+weapon1->query("name"));

@@ -49,9 +49,9 @@ int perform(object me, object target)
 	if( (int)me->query_skill(sskill, 1) < 100 )
 		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 	if(me->query("max_neili") < 400)
-		return notify_fail("你的內力修爲不夠，不會使用"PNAME"。\n");
+		return notify_fail("你的內力修為不夠，不會使用"PNAME"。\n");
 	if(me->query("neili") < 300)
-		return notify_fail("你的內力修爲不夠，不會使用"PNAME"。\n");
+		return notify_fail("你的內力修為不夠，不會使用"PNAME"。\n");
 	msg = HIG"$N"HIG"使出打狗棒法「纏」字訣，棒頭在地下連點，連綿不絕地挑向$n"HIG"的小腿和腳踝。\n";
 
 	me->start_busy(1);
@@ -81,7 +81,7 @@ int help(object me)
 	出手要求：
 		混天氣功100級
 		打狗棒法100級
-		內力修爲400
+		內力修為400
 		內力300
 HELP
 	);

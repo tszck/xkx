@@ -144,15 +144,15 @@ int do_du(string arg)
         if( me->query_skill("bixie-jian", 1) > 59)
             if( me->query("rank_info/respect") != "公公") {
 		write("你現在需要正式加入(join)東廠才能繼續深造辟邪劍法。\n");
-		write("鍵入join你便成爲東廠的一位太監。這將不影響你的師承，\n");
-		write("而且大家都將尊稱你爲公公。\n");
+		write("鍵入join你便成為東廠的一位太監。這將不影響你的師承，\n");
+		write("而且大家都將尊稱你為公公。\n");
 		me->set_temp("pending/join",1);
                 return 1;
         }
 
 
         if( me->query_skill("bixie-jian", 1) > 199){
-                write("你研讀了一會兒，但是發現上面所說的對你而言都太淺了，沒有學到任何東西。\n");
+                write("你研讀了一會兒，但是發現上面所説的對你而言都太淺了，沒有學到任何東西。\n");
                 return 1;
         }
 
@@ -160,19 +160,19 @@ int do_du(string arg)
 	me->set("neili",(int)me->query("neili")-neili_lost);
         if( !me->query_skill("bixie-jian", 1) ) {
                 me->set_skill("bixie-jian", 0);
-write("                   《葵花寶典》閱讀指南\n"
+write("                   《葵花寶典》閲讀指南\n"
 "\n    恭喜你開始研習武林第一功夫－－－－辟邪劍法！\n"
 "注意事項：\n"
 "一．研習辟邪劍法必先自宮，如你不想讓別人發現這個天大的祕密，你必須\n"
-"    找一無人所在之處閱讀，且當有別的玩家在場時不要使用辟邪劍法戰鬥，\n"
-"    因爲當你閱讀或使用辟邪劍法時會出現一些陰柔的舉動，使別人產生懷\n"
-"    疑。切記不可收徒或拜別的玩家爲師，以免被人檢查你的技能。\n\n"
+"    找一無人所在之處閲讀，且當有別的玩家在場時不要使用辟邪劍法戰鬥，\n"
+"    因為當你閲讀或使用辟邪劍法時會出現一些陰柔的舉動，使別人產生懷\n"
+"    疑。切記不可收徒或拜別的玩家為師，以免被人檢查你的技能。\n\n"
 "二．辟邪劍法功力極強，既可作劍法，又可作騰挪之法。\n\n"
 "三．《葵花寶典》不可送人，出售，丟棄，撿拾，唯一的獲取方法是你使用\n"
 "    你得到的密碼去密室尋找。\n\n"
 "四．辟邪劍法不可通過拜師或自己鍛鍊來長進，只能通過研習《葵花寶典》\n"
 "    來提高。\n\n"
-"         祝你早日成爲武林第一高手，稱霸天下！\n");
+"         祝你早日成為武林第一高手，稱霸天下！\n");
         }
         me->improve_skill("bixie-jian", (int)me->query_skill("literate", 1)/3+1);
         write("你研讀《葵花寶典》，頗有心得。\n");
@@ -192,7 +192,7 @@ int do_join()
 
 	this_player()->set("rank_info/respect", "公公");
 	this_player()->set("rank_info/rude","閹賊");
-        write("恭喜你成爲朝廷最重要的機關東廠的一員！\n");
+        write("恭喜你成為朝廷最重要的機關東廠的一員！\n");
 	this_player()->delete_temp("pending/join");
 	return 1;
 }

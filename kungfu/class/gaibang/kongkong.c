@@ -63,7 +63,7 @@ void create()
 
 	set("chat_chance", 20);
 	set("chat_msg", ({
-		"空空兒說道：好心的大爺哪～ 賞我要飯的幾個銅板吧～\n",
+		"空空兒説道：好心的大爺哪～ 賞我要飯的幾個銅板吧～\n",
 		"空空兒懶洋洋地打了個哈欠。\n",
 		"空空兒伸手捉住了身上的蝨子，罵道：老子身上沒幾兩肉，全叫你們給咬糜了。 \n",
 		(: random_move :)
@@ -79,7 +79,7 @@ void create()
 void attempt_apprentice(object ob)
 {
 	command("say 好吧，希望" + RANK_D->query_respect(ob) +
-		"能好好學習本門武功，將來在江湖中闖出一番作爲。");
+		"能好好學習本門武功，將來在江湖中闖出一番作為。");
 	command("recruit " + ob->query("id"));
 }
 

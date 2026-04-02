@@ -9,7 +9,7 @@ void create()
 	set("title","書局老闆");
 	set("gender", "男性" );
 	set("age", 38);
-	set("long", "馮老闆小名老狗，可你一看就知道他是個清心寡慾之人，一世賣書販畫爲生，也頗爲自得。\n");
+	set("long", "馮老闆小名老狗，可你一看就知道他是個清心寡慾之人，一世賣書販畫為生，也頗為自得。\n");
 	set("attitude","friendly");
 	set("inquiry",([
 		"書"   : "我這裏什麼書都有，你想買什麼？\n",

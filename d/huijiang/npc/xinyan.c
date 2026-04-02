@@ -17,7 +17,7 @@ void create()
 	set("kar", 25);
 	set("con", 23);
 	set("dex", 23);
-	set("long","他也是紅花會總舵主陳家洛的書童，看上去一副極爲精明能幹的模樣，\n紅花會中大大小小的瑣碎事務全歸他管。\n");
+	set("long","他也是紅花會總舵主陳家洛的書童，看上去一副極為精明能幹的模樣，\n紅花會中大大小小的瑣碎事務全歸他管。\n");
 	set("combat_exp", 30000);
 	set("attitude", "friendly");
 	set("env/wimpy", 30);

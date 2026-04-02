@@ -132,7 +132,7 @@ int help(object me)
 	write(HIC"\n恆山劍法："NOR"\n");
 	write(@HELP
 
-    恆山劍法爲恆山武功。
+    恆山劍法為恆山武功。
 
 	學習要求：
 		身具白雲心法的女性

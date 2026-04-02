@@ -35,9 +35,9 @@ int give_tools()
 	ob = this_player();
 
 	if(ob->query_temp("mark/工具"))
-		return notify_fail("老李說：你已經領了工具了，怎麼沒還又來領了？");
+		return notify_fail("老李説：你已經領了工具了，怎麼沒還又來領了？");
 	if(ob->query_temp("mark/還了"))
-		return notify_fail("老李說：你還沒覆命領新活吧，跑來要什麼工具。");
+		return notify_fail("老李説：你還沒覆命領新活吧，跑來要什麼工具。");
 
 	if(!((ob->query_temp("job_name")=="鋸木頭" ) ||
 		(ob->query_temp("job_name")=="鋤草" ) ||
@@ -45,7 +45,7 @@ int give_tools()
 		(ob->query_temp("job_name")=="劈柴" ) ||
 		(ob->query_temp("job_name")=="挑水" ) ||
 		(ob->query_temp("job_name")=="打掃馬房")))
-		return notify_fail("老李說：你沒跟張總管領活吧，跑來要什麼工具。");
+		return notify_fail("老李説：你沒跟張總管領活吧，跑來要什麼工具。");
  
 	if(ob->query_temp("job_name")=="鋤草")
 		tools = new((__DIR__"obj/wg_chutou"));

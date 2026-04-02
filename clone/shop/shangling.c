@@ -39,7 +39,7 @@ int do_stock(string arg)
 	if (! me->query("is_vendor"))
 		return notify_fail("只有從事商業的人才能擺攤。\n");
 	if (! present("shang ling", me))
-		return notify_fail("你未帶商令！如今世道亂，小心爲妙。\n");
+		return notify_fail("你未帶商令！如今世道亂，小心為妙。\n");
 	if (! me->query_temp("on_baitan"))
 		return notify_fail("你必須先擺個攤位(baitan)才能兜售貨物。\n");
 	if (! arg) return notify_fail("指令格式：stock <貨物> <原值倍數>\n");
@@ -97,7 +97,7 @@ int do_stock(string arg)
 
 	all_goods[file_name(goods)] = value;
 	me->set("vendor_goods", all_goods);
-	message_vision(HIW "$N" HIW "將"+ goods->name(1) + HIW "定爲" + beishu + HIW "擺上攤子開始出售。\n" NOR, me);
+	message_vision(HIW "$N" HIW "將"+ goods->name(1) + HIW "定為" + beishu + HIW "擺上攤子開始出售。\n" NOR, me);
 	return 1;
 }
 

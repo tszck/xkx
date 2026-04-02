@@ -11,7 +11,7 @@ mapping *action = ({
 	"skill_name": "雲裏乾坤",
 	"lvl": 0,
 ]),
-([	"action":  "$N左拳突然張開，拳開變掌，直擊化爲橫掃，一招"HIC"「霧裏看花」"NOR"便往$n的$l招呼過去",
+([	"action":  "$N左拳突然張開，拳開變掌，直擊化為橫掃，一招"HIC"「霧裏看花」"NOR"便往$n的$l招呼過去",
 	"skill_name": "霧裏看花",
 	"lvl": 10,
 ]),
@@ -83,7 +83,7 @@ int help(object me)
 	write(HIC"\n華山拳法："NOR"\n");
 	write(@HELP
 
-    華山拳法爲華山氣宗拳法。
+    華山拳法為華山氣宗拳法。
 
 	學習要求：
 	   紫霞10級

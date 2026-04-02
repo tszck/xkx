@@ -54,7 +54,7 @@ int valid_learn(object me)
 {
 	if ((int)me->query_skill("ranmu-blade",1) > 1 ||
 		(int)me->query_skill("riyue-whip",1) > 1 )
-		return notify_fail("你如果有達摩老祖的修爲，方可同時學習少林三絕技。\n"); 
+		return notify_fail("你如果有達摩老祖的修為，方可同時學習少林三絕技。\n"); 
 	if ((int)me->query("max_neili") < 1500)
 		return notify_fail("你的內力不夠。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 150)
@@ -135,14 +135,14 @@ int help(object me)
 	write(@HELP
 
     韋陀杵是南少林頂級棍法。
-    韋陀杵、日月鞭法和燃木刀法並列爲南少林三絕技。
+    韋陀杵、日月鞭法和燃木刀法並列為南少林三絕技。
     三絕技不能同時修習。
 
 	學習要求：
 		易筋經150級
 		站樁功150級
 		少林醉棍150級
-		內力修爲1500
+		內力修為1500
 HELP
 	);
 	return 1;

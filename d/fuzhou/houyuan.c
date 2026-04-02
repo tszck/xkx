@@ -93,7 +93,7 @@ int look_tai(string arg)
           write("ＧＯ　ＡＨＥＡＤ，　ＡＮＤ　ＭＡＫＥ　ＭＹ　ＤＡＹ！\n");
           break;
         case 7:
-          write("我雖生爲男身，可我好想當女人呦！\n");
+          write("我雖生為男身，可我好想當女人呦！\n");
           break;
         case 8:
           write("ｆｕｃｋ　ｙｏｕ，　ｍａｎ！\n");
@@ -102,7 +102,7 @@ int look_tai(string arg)
           write("井裏黑乎乎的，又沒火照明，正好讓我跟"+this_player()->name()+"快活快活！\n");
           break;
         case 10:
-          write("說我下流，流到你家炕上了？！\n");
+          write("説我下流，流到你家炕上了？！\n");
           break;
         case 11:
           write(this_player()->name()+"和翠花兩個人瞎搞！\n");

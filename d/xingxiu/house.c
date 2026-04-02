@@ -33,6 +33,6 @@ int valid_leave(object me, string dir)
 	if (!wizardp(me) &&
 		objectp(present("bayi", environment(me))) && 
 		dir == "east")
-		return notify_fail("巴依說：我把阿凡提關在我的客廳裏了，誰也不許進去。\n");
+		return notify_fail("巴依説：我把阿凡提關在我的客廳裏了，誰也不許進去。\n");
 	return ::valid_leave(me, dir);
 }

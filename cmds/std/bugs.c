@@ -43,7 +43,7 @@ int main(object me, string arg)
                         ob->add("bug_count",bug);
                         ob->save();
                         sp = sprintf("用戶 " WHT "%s" NOR " 的報告點數"
-                                     "增加了 " WHT "%d" NOR " 點，現爲"
+                                     "增加了 " WHT "%d" NOR " 點，現為"
                                      WHT " %d " NOR "點。\n", arg, bug,
                                      ob->query("bug", 1));
 
@@ -96,7 +96,7 @@ int main(object me, string arg)
                          MUD_NAME + NOR "中尚無報告過任何錯誤。\n");
         else
                 sp = ((ob == me ? "你" : ob->name()) + "在" +
-                         MUD_NAME + NOR "中的錯誤報告積累點數爲"
+                         MUD_NAME + NOR "中的錯誤報告積累點數為"
                          HIC + bug +"/"+ob->query("bug_count")+ NOR "點。\n");
 
         tell_object(me, sp);
@@ -112,7 +112,7 @@ int help(object me)
            bugs       [<對象名稱> <點數>]      (巫師專用)
 
 這個指令可以顯示你在遊戲中的錯誤報告積累點數。玩家可通過
-此點數獲得一些獎勵。如果有巫師在線，可直接在公衆頻道彙報
+此點數獲得一些獎勵。如果有巫師在線，可直接在公眾頻道彙報
 錯誤，這時巫師可視 BUG大小給玩家增加報告點數。如遊戲中無
 巫師在線，請用正式ID留言到巫師會客室或BUG留言室，我們會
 在第一時間內修復 BUG及給此ID增加報告點數。（注意，只有匯

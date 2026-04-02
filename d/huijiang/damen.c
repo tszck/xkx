@@ -38,7 +38,7 @@ void init()
 	else
 		if ( present("honghua ling",me) &&
 			!(present("honghua ling",me))->query("zizhi")) 
-			message_vision(HIG"兩個大漢躬身向你行了個禮,說道：令主好！\n"NOR,me);
+			message_vision(HIG"兩個大漢躬身向你行了個禮,説道：令主好！\n"NOR,me);
 }
 
 int valid_leave(object me, string dir)
@@ -47,6 +47,6 @@ int valid_leave(object me, string dir)
 		((string)me->query("family/family_name") != "紅花會") &&
 		objectp(present("wen tailai", environment(me))) &&
 		(!present("honghua ling", me)))
-		return notify_fail("文泰來攔住你說：非本會弟兄，不能進去！\n");
+		return notify_fail("文泰來攔住你説：非本會弟兄，不能進去！\n");
 	return ::valid_leave(me, dir);
 }

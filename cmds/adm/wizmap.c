@@ -71,7 +71,7 @@ int main(object me, string arg)
 				tmp+="        ";
 			else
 			{
-				//如果此項爲空，並且此時j爲偶數列，則輸出空格
+				//如果此項為空，並且此時j為偶數列，則輸出空格
 				if(m[j][i]==" "&&!(j%2))
 					tmp+="  ";
 				else

@@ -65,8 +65,8 @@ int main(object me, string arg)
 	dp = (int)victim->query("jing");
 
 	tell_object(me, "你裝出可憐巴巴的樣子，慢慢地向" + victim->name() + "走過去，伸出雙手，想要" + ob->query("unit") + ob->name() +"...\n\n");
-	tell_object(victim, me->name() + "可憐巴巴地向你慢慢走過來，伸出手，說道：" + RANK_D->query_respect(victim) + "行行好，給我" + ob->query("unit") + ob->name() + "吧 ...！\n\n");
-	message("vision", "只見" + me->name() + "裝出可憐巴巴的樣子，慢慢地向" + victim->name() + "走過去，\n伸出雙手，說道：" + RANK_D->query_respect(victim) + "，行行好吧 ...\n\n", environment(me), ({ me, victim}) );
+	tell_object(victim, me->name() + "可憐巴巴地向你慢慢走過來，伸出手，説道：" + RANK_D->query_respect(victim) + "行行好，給我" + ob->query("unit") + ob->name() + "吧 ...！\n\n");
+	message("vision", "只見" + me->name() + "裝出可憐巴巴的樣子，慢慢地向" + victim->name() + "走過去，\n伸出雙手，説道：" + RANK_D->query_respect(victim) + "，行行好吧 ...\n\n", environment(me), ({ me, victim}) );
 	me->start_busy(4);
 	me->set_temp("begging", 1);
 	call_out( "compelete_beg", 3, me, victim, ob, sp, dp);

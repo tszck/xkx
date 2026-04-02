@@ -60,13 +60,13 @@ int perform(object me, object target)
 		return notify_fail("你的內力不足，不能種生死符。\n");
 
 	if( me->query("max_neili") < 500 )
-		return notify_fail("你的內力修爲不足，不能種生死符。\n");
+		return notify_fail("你的內力修為不足，不能種生死符。\n");
 	
 	if( userp(me) && ((me->query("spi")) + (me->query("cps"))) > 40)
                 return notify_fail("你的天賦不適合種生死符。\n");
 
 	if (!objectp(obj=present("jiudai", me)))
-		return notify_fail("你身上沒有酒袋，不能化水爲冰。\n");
+		return notify_fail("你身上沒有酒袋，不能化水為冰。\n");
 		
 	if (me->query("owner")) return notify_fail("任務npc不能使用生死符。\n");
 
@@ -77,7 +77,7 @@ int perform(object me, object target)
 	me->add("neili", -400);
 	if((random( (int)me->query_skill("strike", 1))*1.5) > random(target->query_skill("dodge") ) )
 	{
-// 有個想法： 每次中的穴位都是不固定的，解毒的時候需要找對正確的穴位纔行
+// 有個想法： 每次中的穴位都是不固定的，解毒的時候需要找對正確的穴位才行
 //            當然中生死府的穴位可以累加，
 //            如果我中毒在 缺盆穴 志室穴 兩處穴道
 //            那麼如果解毒的人不知道穴位亂解，反而有損身體

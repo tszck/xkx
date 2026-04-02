@@ -47,7 +47,7 @@ void init()
 	if (ob->query_temp("step_count") > 99) {
 		ob->delete_temp("step_count");
 		write("你在陣中累得精疲力盡，終因體力不支而昏了過去！\n");
-		write("迷迷胡胡中似乎有人把你擡出了陣，彷彿有個威嚴的聲音喝道：“扔到海里去”。\n");
+		write("迷迷胡胡中似乎有人把你抬出了陣，彷彿有個威嚴的聲音喝道：“扔到海里去”。\n");
 		ob->unconcious();
 		ob->move(__DIR__"shore", 1);
 		message("vision", "忽然一個大潮湧了過來，將一個被水泡得半死的傢伙衝到了岸邊。\n", environment(ob), ob);

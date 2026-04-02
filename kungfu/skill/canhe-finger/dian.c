@@ -50,15 +50,15 @@ int perform(object me, object target)
 	if( (int)me->query_skill(fskill, 1) < 100 )
 		return notify_fail("你的"+to_chinese(fskill)+"功力不夠，不能使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，不能"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不夠，不能"+PNAME+"。\n");
 	if( (int)me->query_skill(bskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(bskill)+"修爲不夠，還不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"修為不夠，還不能使用"+PNAME+"。\n");
 
 	if((int)me->query("neili") < 300)
 		return notify_fail("你內力現在不夠，不能使用"PNAME"！\n");
 	if( target->is_busy() )
 		return notify_fail(target->name() +"目前正自顧不暇，放膽攻擊吧！\n");
-	msg = HIY"$N"HIY"伸出食指，凌虛向$n"HIY"點了過去。指風尖銳如刀，帶出細長的嘯聲。\n";
+	msg = HIY"$N"HIY"伸出食指，凌虛向$n"HIY"點了過去。指風尖鋭如刀，帶出細長的嘯聲。\n";
 
 	if(random(me->query("combat_exp")) > (int)target->query("combat_exp")/4)
 	{

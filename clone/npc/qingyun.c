@@ -92,7 +92,7 @@ int do_changename(string arg)
 		write(link->set("name",arg)+"\n");
 		write(me->set("name",arg)+"\n");
 		if (link->save() && me->save())
-		write("成功修改名字爲"+arg+"\n");
+		write("成功修改名字為"+arg+"\n");
 		return 1;
 	}
 	return notify_fail("你不能在這裏修改名字。\n");
@@ -111,12 +111,12 @@ mixed give_prize1(object who)
 	if (!who->query_temp("debug"))
 	{
 		if (!who->query_temp("can_give_prize") || !who->query_temp("prize_exp"))
-		 	return "爲啥要給你獎勵哩？給我個理由先！";
+		 	return "為啥要給你獎勵哩？給我個理由先！";
 		if (who->query_temp("prize_answer"))
 			return "你還沒回答我的上一個問題呢。";
 	}
 	who->delete_temp("can_give_prize");
-	message_vision("$N對$n說道：可是我的獎勵只給活人哩，你如果能回答我的問題，我就給你獎勵。\n",me,who);
+	message_vision("$N對$n説道：可是我的獎勵只給活人哩，你如果能回答我的問題，我就給你獎勵。\n",me,who);
 	give_quest(who);
 	who->set_temp("pend_answer",1);
 	return 1;
@@ -250,9 +250,9 @@ void give_place(object ob)
 		shorts = rshorts(room);
 		n1 = shorts[0];
 		shorts -= ({ n1 });
-		tell_object(ob,this_object()->name()+"說道：從"HIW+to_chinese(dir)+NOR"的"HIW+room->query("short")+NOR+
+		tell_object(ob,this_object()->name()+"説道：從"HIW+to_chinese(dir)+NOR"的"HIW+room->query("short")+NOR+
 		"可能走到"+HIW+implode(shorts,NOR"、"HIW)+NOR"和"HIW+n1+NOR+"。\n");
-		tell_object(ob,this_object()->name()+"說道：其中"HIW+keys(exits)[k]+NOR"方向是走到哪裏？\n");
+		tell_object(ob,this_object()->name()+"説道：其中"HIW+keys(exits)[k]+NOR"方向是走到哪裏？\n");
 		room = room->query("exits")[keys(exits)[k]];
 		ob ->set_temp("prize_answer",filter_color(room->query("short")));
 		return;
@@ -288,7 +288,7 @@ int do_answer(string arg)
 			who->add("combat_exp",-1*exp);
 			who->add("gift/qpot",-1*pot);
 			who->add("gift/qexp",-1*exp);
-			message_vision("$N說道：沒關係，你還有一次機會。\n",this_object());
+			message_vision("$N説道：沒關係，你還有一次機會。\n",this_object());
 			who->set_temp("can_give_prize",1);
 			s=give_prize1(who);
 			if (stringp(s))
@@ -495,7 +495,7 @@ void give_number(object who)
 		str += "\n";
 		j+= ({i});
 	}
-	str +=	HIC+this_object()->name()+"說道：上面是四個數字或字母，請問它們是什麼。\n"+NOR+SAVEC;
+	str +=	HIC+this_object()->name()+"説道：上面是四個數字或字母，請問它們是什麼。\n"+NOR+SAVEC;
 /*	for (i=0;i<sizeof(sts);i++)
 	{
 		tell_object(find_player("qingyun"),"sts["+i+"]="+sts[i]+"\n");

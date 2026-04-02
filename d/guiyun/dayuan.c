@@ -15,7 +15,7 @@ LONG );
 	set("no_clean_up", 0);
 	set("valid_startroom", 1);
 /*
-右首有一對白雕(diao)。原來這裏是桃花島爲方便弟子回島的。
+右首有一對白雕(diao)。原來這裏是桃花島為方便弟子回島的。
 	set("item_desc", ([
 		"diao" : "一對白雕正展翅欲飛。如果是桃花島的弟子，\n"
 		"騎上(ride)就可以飛回桃花島。\n",

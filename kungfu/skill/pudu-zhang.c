@@ -31,9 +31,9 @@ mapping *action = ({
 	"lvl" : 45,
 	"skill_name" : "大蟒翻身"
 ]),
-([	"action":"$N雙手和十，躬身一招"HIY"「胡僧託鉢」"NOR"，$w自肘彎飛出，攔腰向$n撞去。",
+([	"action":"$N雙手和十，躬身一招"HIY"「胡僧託缽」"NOR"，$w自肘彎飛出，攔腰向$n撞去。",
 	"lvl" : 53,
-	"skill_name" : "胡僧託鉢"
+	"skill_name" : "胡僧託缽"
 ]),
 ([	"action":"$N一招"CYN"「慈航普渡」"NOR"，$w如飛龍般自掌中躍出，直向$n的胸口穿入。",
 	"lvl" : 60,
@@ -110,7 +110,7 @@ int help(object me)
 	write(HIC"\n普渡杖法："NOR"\n");
 	write(@HELP
 
-    普渡杖法爲少林七十二絕技之一。
+    普渡杖法為少林七十二絕技之一。
 
 	學習要求：
 		混元一氣功20級

@@ -45,7 +45,7 @@ void greeting(object ob)
 {
 	if( ob->query_temp("fuwei_ready"))
 	{
-		say( this_object()->query("name")+"笑咪咪地對"+ob->query("name")+"說道：這位" + RANK_D->query_respect(ob) + "，是來交鏢的吧。你的鏢隊和鏢車都齊全吧？\n");
+		say( this_object()->query("name")+"笑咪咪地對"+ob->query("name")+"説道：這位" + RANK_D->query_respect(ob) + "，是來交鏢的吧。你的鏢隊和鏢車都齊全吧？\n");
 	}
 }
 

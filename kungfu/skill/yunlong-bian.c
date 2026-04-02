@@ -120,7 +120,7 @@ int help(object me)
 	write(HIC"\n雲龍鞭法："NOR"\n");
 	write(@HELP
 
-    雲龍鞭法爲天地會雲龍門武功。
+    雲龍鞭法為天地會雲龍門武功。
 
 	學習要求：
 		雲龍神功40級

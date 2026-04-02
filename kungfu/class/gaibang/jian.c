@@ -99,9 +99,9 @@ void saying(object ob)
 {
 	if (!ob || environment(ob) != environment()) return;
 
-	message_vision("\n簡長老看了$N一眼，冷冷地說到：“洪幫主他老人家說我不該"
+	message_vision("\n簡長老看了$N一眼，冷冷地説到：“洪幫主他老人家説我不該"
 	    "隨意責打丐幫弟子，\n你又不屬我丐幫，我打你總可以吧？”\n"
-	    "說完右腿一抬，$N順勢應了一招青城派的「屁股向後，平沙落雁式」"
+	    "説完右腿一抬，$N順勢應了一招青城派的「屁股向後，平沙落雁式」"
 	    "－－叭嘰\n\n", ob);
 	remove_call_out("kicking");
 	call_out("kicking", 1, ob);
@@ -163,7 +163,7 @@ int accept_object(object ob, object obj)
 	}
 	if ( ob->query_temp("have_cloth") && present("po bu", ob) )
 	{
-		command("say 既然升袋，就當牢記幫規，爲民除害！");
+		command("say 既然升袋，就當牢記幫規，為民除害！");
 		message_vision("$N把破布釘在$n的破衣服上，儼然一個新口袋。\n", me, ob);
 		ob->delete_temp("have_cloth");
 		newtitle=ob->query("title");
@@ -266,7 +266,7 @@ int do_decide()
 他身後屬下九名弟子齊聲應道：“是！”每人從背後布袋中取出一個黃布包
 袱，打開包袱，取出一柄短刀。九柄精光燦然的短刀並列在一起，一樣的長
 短大小，火光照耀之下，刀刃上閃出藍森森的光采。一名執法弟子捧過一段
-樹木，九人同時將九柄短刀插入了木中，隨手而入，足見九刀鋒銳異常。九
+樹木，九人同時將九柄短刀插入了木中，隨手而入，足見九刀鋒鋭異常。九
 人齊聲叫道：“法刀齊集，驗明無誤。”\n
 $n押低嗓子，啞聲道：“行刑！”
 "HIR"九名執法弟子法刀如疾電般閃過，$N只覺得劇痛如九線大潮，沛然而至，眼

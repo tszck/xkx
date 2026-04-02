@@ -31,6 +31,6 @@ int valid_leave(object me, string dir)
 	if (  (dir == "north") && ((int)me->query("shen") > 300) &&
 		objectp(present("men wei", environment(me))) &&
 		living(present("men wei", environment(me))))
-		return notify_fail("門衛把手一攔：你這種正派人物，老子一看就噁心，快滾！\n");
+		return notify_fail("門衞把手一攔：你這種正派人物，老子一看就噁心，快滾！\n");
 	return ::valid_leave(me, dir);
 }

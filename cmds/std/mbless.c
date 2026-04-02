@@ -216,7 +216,7 @@ void show_flower(string name1, string name2)
 	string str;
 	str = "天空中突然閃出一道絢麗的火花，一個巨大的圖案逐漸\n顯現：\n";
 	str += color1[random(sizeof(color1))]+pic[random(sizeof(pic))]+NOR;
-	str += YEL"四下裏隱隱傳來衆人深沉的祝福聲：\n     “"HIM+name1+YEL"和"HIM+name2+YEL"永遠幸福...\n                                           永遠幸福！！”\n\n\n";
+	str += YEL"四下裏隱隱傳來眾人深沉的祝福聲：\n     “"HIM+name1+YEL"和"HIM+name2+YEL"永遠幸福...\n                                           永遠幸福！！”\n\n\n";
 	message("vision", str, users());
 	if ( random( 2) )
 		call_out( "show_flower",2 + random ( 3 ),name1,name2 );

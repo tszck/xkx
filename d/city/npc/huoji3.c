@@ -50,7 +50,7 @@ int do_full_flower()
 	tell_room(environment(), "“嗨！含翠姑娘，給你送鮮花來了。”帶頭的那個花匠對柳含翠打招呼。\n");
 	tell_room(environment(), "含翠喜聲道：“謝謝花匠叔叔，放在後面的花室裏吧。”\n");
 	tell_room(environment(), "花匠們走過去將花放置好。\n");
-	tell_room(environment(), "花匠們走了出來對含翠說道：“花放好了，我們下次再來。”\n");
+	tell_room(environment(), "花匠們走了出來對含翠説道：“花放好了，我們下次再來。”\n");
 	tell_room(environment(), "花匠們走了出去。\n");
 	set("vendor_goods", ([
 		"/clone/flower/red_rose":99,
@@ -116,15 +116,15 @@ int do_buy(string what)
 	string *name, last = "";
 	amount=1;
 	val_factor=10;
-	if( !what ) return notify_fail("含翠說：你想買什麼？\n");
+	if( !what ) return notify_fail("含翠説：你想買什麼？\n");
 	if( sscanf(what, "%d %s", amount, what)!=2 )
 	{
 		amount = 1;
 	}
-	if( amount < 1 ) return notify_fail("含翠說：您想買多少？\n");
-	if( amount > 10 ) return notify_fail("含翠說：我這一次最多買十朵。\n");
+	if( amount < 1 ) return notify_fail("含翠説：您想買多少？\n");
+	if( amount > 10 ) return notify_fail("含翠説：我這一次最多買十朵。\n");
 	if( !mapp(goods = query("vendor_goods")) )
-		return notify_fail("含翠說：這兒的東西全賣光了。\n");
+		return notify_fail("含翠説：這兒的東西全賣光了。\n");
 	if(this_player()->is_busy())
 		return notify_fail("你現在正忙着呢。\n");
 	name = keys(goods);
@@ -135,29 +135,29 @@ int do_buy(string what)
 			if( stringp(ob_file = name[i]) )
 			{
 				if(goods[name[i]]<amount)
-					return notify_fail("含翠說：我這裏沒有這麼多你要買的這種花了。\n");
+					return notify_fail("含翠説：我這裏沒有這麼多你要買的這種花了。\n");
 				ob = new(ob_file);
 				if(goods[name[i]]<10)
 				{
 					val_factor=30;
-					tell_object(this_player(), "含翠說：現在這"+ob->query("name")+"只剩下很少了，價格上漲兩倍，合"+MONEY_D->price_str(ob->query("value")*val_factor/10)+"一"+name[i]->query("unit")+"。\n");
+					tell_object(this_player(), "含翠説：現在這"+ob->query("name")+"只剩下很少了，價格上漲兩倍，合"+MONEY_D->price_str(ob->query("value")*val_factor/10)+"一"+name[i]->query("unit")+"。\n");
 				}
 				else if(goods[name[i]]<20)
 				{
 					val_factor=20;
-					tell_object(this_player(), "含翠說：現在這"+ob->query("name")+"太走俏了，價格上漲一倍，合"+MONEY_D->price_str(ob->query("value")*val_factor/10)+"一"+name[i]->query("unit")+"。\n");
+					tell_object(this_player(), "含翠説：現在這"+ob->query("name")+"太走俏了，價格上漲一倍，合"+MONEY_D->price_str(ob->query("value")*val_factor/10)+"一"+name[i]->query("unit")+"。\n");
 				}
 				else if(goods[name[i]]<50)
 				{
 					val_factor=15;
-					tell_object(this_player(), "含翠說：現在這"+ob->query("name")+"喜歡的人很多，價格上漲一半，合"+MONEY_D->price_str(ob->query("value")*val_factor/10)+"一"+name[i]->query("unit")+"。\n");
+					tell_object(this_player(), "含翠説：現在這"+ob->query("name")+"喜歡的人很多，價格上漲一半，合"+MONEY_D->price_str(ob->query("value")*val_factor/10)+"一"+name[i]->query("unit")+"。\n");
 				}
 				switch (MONEY_D->player_pay(me, ob->query("value")*amount*val_factor/10))
 				{
 					case 0: destruct(ob);
-						return notify_fail("含翠說：窮光蛋，一邊待著去！\n");
+						return notify_fail("含翠説：窮光蛋，一邊待著去！\n");
 					case 2: destruct(ob);
-						return notify_fail("含翠說：您的零錢不夠了，銀票又沒人找得開。\n");
+						return notify_fail("含翠説：您的零錢不夠了，銀票又沒人找得開。\n");
 				}
 				ob->set_amount(amount);
 				if (ob->move(me))
@@ -235,7 +235,7 @@ int do_check_flower()
 }
 int ask_send()
 {
-	write( "含翠欠身說道：“感謝客官光臨小店，您先在這裏將花買好，\n然後告訴小女要送給誰，小女一定爲您送到。\n(send flower_name to playername)”\n我們花店收費規則是：送花費用最低十兩紋銀。\n每一朵花收取一兩紋銀的送花費。\n");
+	write( "含翠欠身説道：“感謝客官光臨小店，您先在這裏將花買好，\n然後告訴小女要送給誰，小女一定為您送到。\n(send flower_name to playername)”\n我們花店收費規則是：送花費用最低十兩紋銀。\n每一朵花收取一兩紋銀的送花費。\n");
 	return 1;
 }
 int do_send(string arg)
@@ -246,9 +246,9 @@ int do_send(string arg)
 	string flower_name, who;
 
 	if( !arg || sscanf(arg, "%s to %s", flower_name, who)!=2 )
-		return notify_fail("含翠說道：你要送什麼花給誰？\n");
+		return notify_fail("含翠説道：你要送什麼花給誰？\n");
 	if(!FINGER_D->acquire_login_ob(who))
-		return notify_fail("含翠說道：這裏有這個人嗎？\n");
+		return notify_fail("含翠説道：這裏有這個人嗎？\n");
 	ob_flower=present(flower_name,me);
 	if(!ob_flower) return notify_fail("含翠道：你身上好像並沒有這種花？\n");
 	if(!ob_flower->query("flower"))
@@ -280,7 +280,7 @@ int do_send(string arg)
 		case 2: destruct(send_flower);
 			return notify_fail("含翠道：您的零錢不夠了，銀票又沒人找得開。\n");
 	}
-	message_vision("$N對$n說道：“送花共收您"+price_string(money_amount*100)+"”。\n",this_object(), me);
+	message_vision("$N對$n説道：“送花共收您"+price_string(money_amount*100)+"”。\n",this_object(), me);
 
 	send_flower->set("flowername",ob_flower->query("name"));
 	send_flower->set("flower_id",ob_flower->query("id"));
@@ -302,7 +302,7 @@ int do_send(string arg)
 	me->start_busy(1);
 
 	message_vision("$n將身上的"+flower["flowername"]+"拿出交給$N。\n",this_object(), me);
-	message_vision("$N對$n說道：“好吧，小女子定會將花送到。”\n",this_object(), me);
+	message_vision("$N對$n説道：“好吧，小女子定會將花送到。”\n",this_object(), me);
 
 	remove_call_out("do_check_flower");
 	call_out("do_check_flower", 10+random(10) );
@@ -372,21 +372,21 @@ int do_send(string arg)
 	object obj, flower, me = this_player();
 	string target, item;
 
-	if(!arg) return notify_fail("花店夥計說：你要給誰什麼東西？\n");
+	if(!arg) return notify_fail("花店夥計説：你要給誰什麼東西？\n");
 	if( me->is_busy() )
 		return notify_fail("你上一個動作還沒有完成！\n");
 	if( sscanf(arg, "%s to %s", item, target) !=2)
-		return notify_fail("花店夥計說：你要給誰什麼東西？\n");
+		return notify_fail("花店夥計説：你要給誰什麼東西？\n");
 	obj = find_player(target);
 		if(!obj || !me->visible(obj))
-			return notify_fail("花店夥計說：此人現在不在。沒法幫你送花。\n");
+			return notify_fail("花店夥計説：此人現在不在。沒法幫你送花。\n");
 
 	if( !living(obj))
-		return notify_fail("花店夥計說：抱歉，現在沒法幫你送花。\n");
+		return notify_fail("花店夥計説：抱歉，現在沒法幫你送花。\n");
 	if( !objectp(flower = present(item, me)) )	
-		return notify_fail("花店夥計說：你身上沒有這種花。\n");
+		return notify_fail("花店夥計説：你身上沒有這種花。\n");
 	if( !flower->query("flower"))
-		return notify_fail("花店夥計說：你只能讓我幫你送花。\n");
+		return notify_fail("花店夥計説：你只能讓我幫你送花。\n");
 	if( flower->query("no_drop") )
 		return notify_fail("這樣東西不能隨便給人。\n");
 
@@ -394,7 +394,7 @@ int do_send(string arg)
 	me->save();
 	obj->save();
 	tell_object(me, HIC"花店夥計笑了笑道：“這位"+RANK_D->query_respect(me)+"稍候，這就給你送到"+obj->query("name")+"手上。”轉身出門去了。\n" NOR );
-	tell_object(obj, HIC"花店夥計走過來遞給你一"+flower->query("unit")+flower->query("name")+HIC"，輕輕說道：“這是"+me->query("name")+"送給你的。”轉身笑了笑就走了。\n" NOR );
+	tell_object(obj, HIC"花店夥計走過來遞給你一"+flower->query("unit")+flower->query("name")+HIC"，輕輕説道：“這是"+me->query("name")+"送給你的。”轉身笑了笑就走了。\n" NOR );
 	tell_object(me, HIC"花店夥計片刻後回來笑道：“放心吧，送到了。”\n" NOR );
 	return 1;
 }

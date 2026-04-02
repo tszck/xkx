@@ -143,7 +143,7 @@ void init()
 
 void halt()
 {
-	command("say 好吧，大家住手！ 看這傢伙有什麼話要說！");
+	command("say 好吧，大家住手！ 看這傢伙有什麼話要説！");
 	command("halt");
 }
 

@@ -48,14 +48,14 @@ public mixed teach_perform(object me,object master,mapping args)
            )
                 return 0;
 
-        // 判斷所屬門派，如爲公共傳授，應添加 free 參數
+        // 判斷所屬門派，如為公共傳授，應添加 free 參數
         if (! intp(free = args["free"]) || free <= 0)
         {
                 family = master->query("family/family_name");
 
                 if (me->query("family/family_name") != family)
                         return RANK_D->query_respect(me) + "與我" +
-                               family + "素無淵源，不知此話從何說起。";
+                               family + "素無淵源，不知此話從何説起。";
         }
 
         // 如果已經學會，則返回
@@ -73,9 +73,9 @@ public mixed teach_perform(object me,object master,mapping args)
         // 判斷門派貢獻的要求
         if (intp(gongxian = args["gongxian"])
            && me->query("family/fealty") < gongxian)
-           return "你還是多爲本門作一些貢獻再來吧。";
+           return "你還是多為本門作一些貢獻再來吧。";
 
-        // 判斷特定的武功需求，其中 sk1 應爲主 skills 
+        // 判斷特定的武功需求，其中 sk1 應為主 skills 
          if (!me->query_skill(sk1,1))
             return "你連" + to_chinese(sk1) + "都沒學過，還問什麼絕招？";
          if (intp(lv1= args["lv1"]) && me->query_skill(sk1,1) < lv1)
@@ -96,7 +96,7 @@ public mixed teach_perform(object me,object master,mapping args)
 
         // 判斷絕招對內力上限的要求
         if (intp(neili = args["neili"]) && me->query("max_neili") < neili)
-                return "你的內力修爲還不夠，學不了這招！";
+                return "你的內力修為還不夠，學不了這招！";
 
         // 給予學習絕招的描述信息
         if (stringp(msg1 = args["msg1"]))
@@ -116,8 +116,8 @@ public mixed teach_perform(object me,object master,mapping args)
                         break;
 
                 case 1 :
-                        msg = "$N凝視了$n" HIY "許久，方纔微微點"
-                              "了點頭，說道：“我給你演示一遍，可"
+                        msg = "$N凝視了$n" HIY "許久，方才微微點"
+                              "了點頭，説道：“我給你演示一遍，可"
                               "看清楚了。”$N話音剛落，隨即起身而"
                               "立拉開架勢，慢慢的演示開" +
                               to_chinese(sk1) + "的招式。$n" HIY
@@ -126,11 +126,11 @@ public mixed teach_perform(object me,object master,mapping args)
                         break;
 
                 case 2 :
-                        msg = "$N看了看$n" HIY "，頗爲讚許的說道"
+                        msg = "$N看了看$n" HIY "，頗為讚許的説道"
                               "：“想不到你的" + to_chinese(sk1) +
                               "進展如此神速，已達此般境界。不易，"
                               "不易。今日我便傳你這招，可記清楚了"
-                              "。”說完$N便將$n" HIY "招至跟前，"
+                              "。”説完$N便將$n" HIY "招至跟前，"
                               "耐心講述" + name + "的諸多精要，$n"
                               HIY "一邊聽一邊不住的點頭。";
                         break;
@@ -139,8 +139,8 @@ public mixed teach_perform(object me,object master,mapping args)
                         msg = "$N哈哈一笑，對$n" HIY "讚道：“不"
                               "錯，不錯。依照你現在" +
                               to_chinese(sk1) + "的造詣，我便傳授"
-                              "你" + name + "又有何妨？”說完便只"
-                              "見$N從懷中摸出一本頗爲古舊的小冊子"
+                              "你" + name + "又有何妨？”説完便只"
+                              "見$N從懷中摸出一本頗為古舊的小冊子"
                               "，指着其中一段對$n" HIY "仔細講解"
                               "。$n" HIY "聽後沉思良久，若有所悟。";
                         break;
@@ -182,13 +182,13 @@ public mixed teach_perform(object me,object master,mapping args)
                 switch (random(5))
                 {
                 case 0 :
-                        msg = "剛纔的招式，你明白了多少？";
+                        msg = "剛才的招式，你明白了多少？";
                         break;
                 case 1 :
                         msg = "招式便是如此，你自己下去領悟吧。";
                         break;
                 case 2 :
-                        msg = "剛纔我所傳授的全是該招的精意，可記牢了。";
+                        msg = "剛才我所傳授的全是該招的精意，可記牢了。";
                         break;
                 case 3 :
                         msg = "這招你下去後需勤加練習，方能運用自如。";

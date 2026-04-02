@@ -64,40 +64,40 @@ int join_competition(object ob)
         int exp;
         if (state == STARTING )
         {
-        	tell_object(ob,"公平子對你說道：“現在華山之顛正在舉行活動，你還是等等再說吧。”\n");
+        	tell_object(ob,"公平子對你説道：“現在華山之顛正在舉行活動，你還是等等再説吧。”\n");
                 return 1;
         }
         if (state == SLEEPING )
         {
-        	tell_object(ob,"公平子對你說道：“舉行華山論劍的日子還沒到呢，你還是等等再說吧。”\n");
+        	tell_object(ob,"公平子對你説道：“舉行華山論劍的日子還沒到呢，你還是等等再説吧。”\n");
                 return 1;
         }
        
         if (ob->query_condition())
         {
-        	tell_object(ob,"公平子對你說道：“你現在狀態不佳，還是別進去了。”\n");
+        	tell_object(ob,"公平子對你説道：“你現在狀態不佳，還是別進去了。”\n");
                 return 1;
         }               
         if (present("mian ju", ob) )
         {
-        	tell_object(ob,"公平子對你說道：“不能帶面具入內！”\n");
+        	tell_object(ob,"公平子對你説道：“不能帶面具入內！”\n");
                 return 1;
         } 
     	if (present("helan huoqiang", ob) )
     	{
-        	tell_object(ob,"公平子對你說道：“不能帶火槍入內！”\n");
+        	tell_object(ob,"公平子對你説道：“不能帶火槍入內！”\n");
                 return 1;
         }
         exp = ob->query("combat_exp");
         if (exp < tlist[0]["minexp"][selected])
         {
-        	tell_object(ob,"公平子對你說道：“閣下還是先提高點經驗再來參加論劍吧。”\n");
+        	tell_object(ob,"公平子對你説道：“閣下還是先提高點經驗再來參加論劍吧。”\n");
                 return 1;
         }                
 
         if (exp > tlist[0]["maxexp"][selected])
         {
-        	tell_object(ob,"公平子對你說道：“哦…您武功如此高強，這次還是別和小輩們爭了。”\n");
+        	tell_object(ob,"公平子對你説道：“哦…您武功如此高強，這次還是別和小輩們爭了。”\n");
                 return 1;
         }                   
        
@@ -174,7 +174,7 @@ void change_state(int new_state)
         case GET_READY:              
                 kickout_players();
                 ready_time = time();
-                message("channel:snow", HIM"【謠言】"+"聽說一年一度的" + tlist[0]["name"][selected] + "馬上就要舉行了，不知道今年的第一是誰？\n"NOR, users());
+                message("channel:snow", HIM"【謠言】"+"聽説一年一度的" + tlist[0]["name"][selected] + "馬上就要舉行了，不知道今年的第一是誰？\n"NOR, users());
 //                set_heart_beat(5);
                 send_invite_message();
                 break;
@@ -182,12 +182,12 @@ void change_state(int new_state)
         case STARTING:
                 if (! (n = start_competition()))
                 {
-                       message("channel:snow", HIM"【謠言】"+"聽說今年的" + tlist[0]["name"][selected] + "因故取消了，真是沒勁。\n"NOR, users());
+                       message("channel:snow", HIM"【謠言】"+"聽説今年的" + tlist[0]["name"][selected] + "因故取消了，真是沒勁。\n"NOR, users());
                        kickout_players();
                        new_state = SLEEPING;
                 } else
                 {
-                       message("channel:snow", HIM"【謠言】"+"聽說今年的" + tlist[0]["name"][selected] + "吸引了" + chinese_number(n) +"名高手！走...看看熱鬧去。\n"NOR, users());      
+                       message("channel:snow", HIM"【謠言】"+"聽説今年的" + tlist[0]["name"][selected] + "吸引了" + chinese_number(n) +"名高手！走...看看熱鬧去。\n"NOR, users());      
 //                        set_heart_beat(5);
                 }
                 break;
@@ -466,12 +466,12 @@ int start_competition()
     for (i=0;i<sizeof(obs);i++)
     {
       obs[i]->move(ENTRY_ROOM);
-      message("vision", HIG "本次華山論劍因爲參加英雄太少取消了！\n", obs[i]);
+      message("vision", HIG "本次華山論劍因為參加英雄太少取消了！\n", obs[i]);
     }
     return 0;
   }
    	
-  message("vision", "公平子向大家一揮手，說到：＂華山論劍現在開始！”\n", env);
+  message("vision", "公平子向大家一揮手，説到：＂華山論劍現在開始！”\n", env);
       
   for (i = 0; i < sizeof(obs); i++)
   {
@@ -532,13 +532,13 @@ void auto_check()
 
   if ( user_num < 1)        
 	{
-		message("channel:snow", HIC"【謠言】"+"聽說華山頂上參加"+tlist[0]["name"][selected]+"的高手死的死，逃的逃，現在一個人都沒有啦！\n"NOR, users());
+		message("channel:snow", HIC"【謠言】"+"聽説華山頂上參加"+tlist[0]["name"][selected]+"的高手死的死，逃的逃，現在一個人都沒有啦！\n"NOR, users());
 		kickout_players();
 		change_state(SLEEPING);
 	}
   else if ( user_num == 1)
   {
-    message("channel:snow", HIC"【華山論劍】"+"公平子：本次"+tlist[0]["name"][selected]+"圓滿結束，" + ob->query("name") + "成爲第一高手！\n"NOR, users());                
+    message("channel:snow", HIC"【華山論劍】"+"公平子：本次"+tlist[0]["name"][selected]+"圓滿結束，" + ob->query("name") + "成為第一高手！\n"NOR, users());                
     give_bouns(ob);
     change_state(SLEEPING);
     kickout_players();
@@ -582,7 +582,7 @@ void give_bouns(object me)
         tell_object(me,HIW"你獲得本次比賽的最後勝利，得到如下獎勵：\n");
         tell_object(me,chinese_number(exp) +"點實戰經驗\n" +
         chinese_number(pot) + "點潛能。\n"+
-        chinese_number(score) + "點江湖閱歷。\n"NOR);  
+        chinese_number(score) + "點江湖閲歷。\n"NOR);  
 }
 
 // 比賽開始前，對符合條件的玩家發出邀請

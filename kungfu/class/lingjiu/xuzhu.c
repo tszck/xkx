@@ -11,7 +11,7 @@ void create()
 	set_name("虛竹", ({ "xu zhu", "xu", "zhu" }));
 	set("long",
 		"這是一個二十五六歲的年輕人，濃眉大眼，大大的鼻子扁平下塌，容貌
-頗爲醜陋。身穿一件華貴雅緻的長袍，倒使他更顯幾分精神。
+頗為醜陋。身穿一件華貴雅緻的長袍，倒使他更顯幾分精神。
 他就是天山童姥的救命恩人。\n");
 	set("title", "靈鷲宮第二代掌門人");
 	set("gender", "男性");
@@ -97,13 +97,13 @@ void attempt_apprentice(object ob)
 	{
   	      command("nod");
   	      command("say 今日小僧…在下就收下你，以後你要多做好事。");
-  	      command("say 另外，以後若遇到了少林寺的大師，可千萬不能和他們爲難。");
+  	      command("say 另外，以後若遇到了少林寺的大師，可千萬不能和他們為難。");
 		command("recruit " + ob->query("id"));
 		return;
 	}
 	else
 	{
-		message_vision("虛竹瞪着你看了半天,說道：“閣下不會是想來搶我的生意吧?”\n",ob);
+		message_vision("虛竹瞪着你看了半天,説道：“閣下不會是想來搶我的生意吧?”\n",ob);
 		return;
 	}
 }

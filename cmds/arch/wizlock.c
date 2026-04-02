@@ -27,7 +27,7 @@ int help (object me)
 指令格式: wizlock <巫師等級>
  
 限制某個等級以下的使用者進入遊戲。
-其中巫師等級分別爲 (immortal) (wizard) (arch) (admin), 若要取
+其中巫師等級分別為 (immortal) (wizard) (arch) (admin), 若要取
 消限制, 則輸入 (player).
  
 HELP

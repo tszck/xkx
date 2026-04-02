@@ -10,7 +10,7 @@ void create()
 千餘年來少林寺執中原武林之牛耳，自達摩老祖以下，歷代人材輩
 出。其中有不少高僧遺著留存，彙集至今，終成名震天下的少林七十二
 絕藝。福建下院轉抄本院典籍，是故，少林精華，盡集於此。二樓四面
-開窗，確保通風。中間排列着五排大書架。四周則陳列矮几，以供閱讀。
+開窗，確保通風。中間排列着五排大書架。四周則陳列矮几，以供閲讀。
 幾位老僧手執經卷，正在閉目凝思。
 LONG );
 	set("exits", ([
@@ -39,7 +39,7 @@ int valid_leave(object me, string dir)
 		i = sizeof(ob);
 		while (i--)
 			if (ob[i]->id("shaolin wuji"))
-				return notify_fail("方戈說道: 武功祕籍只許在藏經閣內研習，不得攜帶外出！\n");
+				return notify_fail("方戈説道: 武功祕籍只許在藏經閣內研習，不得攜帶外出！\n");
 	}
 	return ::valid_leave(me, dir);
 }

@@ -141,7 +141,7 @@ int recognize_apprentice(object ob)
 	myfam = (mapping)ob->query("family");
 	if ( myfam["family_name"] == "古墓派") return 1 ;
 	if ((int)ob->query_temp("tmark/龍") == 1 )
-	message_vision("小龍女嘆了口氣，看看$N，說道：咱們的緣分已經盡了，\n我也沒什麼東西可教你的了。\n", ob);
+	message_vision("小龍女嘆了口氣，看看$N，説道：咱們的緣分已經盡了，\n我也沒什麼東西可教你的了。\n", ob);
 	if (!(int)ob->query_temp("tmark/龍"))
 		return 0;
 	ob->add_temp("tmark/龍", -1);
@@ -156,7 +156,7 @@ int accept_object(object who, object ob)
 		call_out("destroying", 1, this_object(), ob);
 		if (!(int)who->query_temp("tmark/龍"))
 			who->set_temp("tmark/龍",0);
-		message_vision("小龍女捧着玉蜂，幽幽地嘆了口氣，說道：難得你還有心找到\n了我的玉蜂送回來，你可以從我這裏學點功夫。\n", who);
+		message_vision("小龍女捧着玉蜂，幽幽地嘆了口氣，説道：難得你還有心找到\n了我的玉蜂送回來，你可以從我這裏學點功夫。\n", who);
 		who->add_temp("tmark/龍", 80);
 		//ob->die();
 		return 1;

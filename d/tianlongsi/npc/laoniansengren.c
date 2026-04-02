@@ -39,7 +39,7 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	say( "老年僧人笑咪咪地說道：這位" + RANK_D->query_respect(ob)
+	say( "老年僧人笑咪咪地説道：這位" + RANK_D->query_respect(ob)
 				+ "，買柱香吧。\n");
 }
 
@@ -51,5 +51,5 @@ string ask_me()
 		me->set_temp("marks/ask_temp3",1);
 		return "“失竊的那天晚上我看見一個黑影往後面跑了。\n";
 	}
-	else return "“你胡說八道什麼？”\n";
+	else return "“你胡説八道什麼？”\n";
 }

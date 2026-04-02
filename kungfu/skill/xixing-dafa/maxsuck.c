@@ -36,7 +36,7 @@ int exert(object me, object target)
 	if (!userp(target) && !target->accept_hit(me)) return 0;
 
 	if (target->query("race") != "人類")
-		return notify_fail("搞錯了！只有人纔能有丹元！\n");
+		return notify_fail("搞錯了！只有人才能有丹元！\n");
 
         my_max = me->query("max_neili");
         tg_max = target->query("max_neili");
@@ -69,7 +69,7 @@ int exert(object me, object target)
 
         if( (int)target->query("max_neili") < (int)me->query("max_neili")/10 )
 		return notify_fail( target->name() +
-			"的內功修爲遠不如你，你無法從他體內吸取丹元！\n");
+			"的內功修為遠不如你，你無法從他體內吸取丹元！\n");
 
 	message_combatd(
 		HIY"$N手臂猛地長出正抓在$n右手腕上。突然之間，$n猛覺右腕“內關”“外關”兩處穴道中內力源源外泄！\n\n" NOR, me, target );

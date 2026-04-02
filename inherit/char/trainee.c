@@ -214,7 +214,7 @@ int do_fang()
 		me->set_leader(0);
 		if (me->query("rider") == ob) me->delete("rider");
 		if (ob->query("rided") == me) ob->delete("rided");
-		message_vision("$N在$n耳邊輕聲說了幾句，$n垂首走開了。\n", ob, me);
+		message_vision("$N在$n耳邊輕聲説了幾句，$n垂首走開了。\n", ob, me);
 		me->set_temp("prelord",ob->query("id"));
 		return 1;
 	}

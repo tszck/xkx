@@ -169,7 +169,7 @@ int accept_fight(object ob)
         
         if ( ob->query("score") <30000 )		
 //	 return notify_fail("哼，想挑戰武林盟主，回去再歷練幾年吧！\n");
-	 return notify_fail("等你的江湖閱歷湊夠了三萬，再來找我吧。\n");
+	 return notify_fail("等你的江湖閲歷湊夠了三萬，再來找我吧。\n");
 	if ( me->query("winner") == ob->query("id") ) 
 	{
 		return notify_fail("你跟你自己打什麼架？！\n");
@@ -212,9 +212,9 @@ int checking(object me, object ob)
 	if ( !present(ob, environment()) ) return 1; 
 
 	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 ) {
-		command("say 果然厲害，恭喜你成爲當今武林盟主！\n");
+		command("say 果然厲害，恭喜你成為當今武林盟主！\n");
 		command("chat 哈哈哈，到底是長江後浪推前浪，一代新人換舊人！\n");
-		command("chat 恭喜" + ob->query("name") + "被推舉爲當今武林盟主！\n");
+		command("chat 恭喜" + ob->query("name") + "被推舉為當今武林盟主！\n");
 		if ( !ob->query("xkd/ling") )
 		{
 			ling = new( "/d/xiakedao/obj/tongpai1" );
@@ -551,8 +551,8 @@ string ask_me()
 			return "“你身上背了個誰？這樣是不能去見大宗師的。”\n";
 		}
 	if ( me->query("score") <30000 )		
-	return ("哼，就這點江湖閱歷，大宗師是不會見你的！\n");
+	return ("哼，就這點江湖閲歷，大宗師是不會見你的！\n");
 	me->move("/d/taishan/duzunju");
-	tell_object(me, HIC"\n"+obj->query("name")+"告訴你說：好吧，我就送你過去。"+obj->query("name")+"回手拉開身後的小門，把你一把推了進去。\n"NOR);
+	tell_object(me, HIC"\n"+obj->query("name")+"告訴你説：好吧，我就送你過去。"+obj->query("name")+"回手拉開身後的小門，把你一把推了進去。\n"NOR);
 	return "好吧，我就送你過去。"+obj->query("name")+"回手拉開身後的小門，把"+me->query("name")+"一把推了進去。\n";
 }

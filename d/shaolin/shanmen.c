@@ -38,11 +38,11 @@ int valid_leave(object me, string dir)
 
     if (me->query("gender") == "女性" && dir == "eastup" ) {
         if(objectp(present("xu tong", environment(me))))
-            return notify_fail("虛通伸手攔住你白眼一翻說道：千年以來，少林向不許"
+            return notify_fail("虛通伸手攔住你白眼一翻説道：千年以來，少林向不許"
                 "女流擅入。" + RANK_D->query_respect(me) +"\n請下山去吧，免得"
                 "自討沒趣。\n");
         else if(objectp(present("xu ming", environment(me))))
-            return notify_fail("虛明邁步擋在你身前，雙手合什說道：阿彌陀佛，"
+            return notify_fail("虛明邁步擋在你身前，雙手合什説道：阿彌陀佛，"
                 "這位" + RANK_D->query_respect(me) + "請留步，\n恕小寺不接待女"
                 "客。女施主倘若一心向佛，何妨去峨眉山隨喜？\n");
     }
@@ -54,11 +54,11 @@ int valid_leave(object me, string dir)
         for(i=sizeof(inv)-1; i>=0; i--)
             if(inv[i]->query("weapon_prop") && (inv[i]->query("equipped")))
                 if(objectp(present("xu tong", environment(me))))
-                    return notify_fail("虛通攔住你說道：這位" +
+                    return notify_fail("虛通攔住你説道：這位" +
                         RANK_D->query_respect(me) + "請放下兵刃。少林千年的"
                         "規矩，外客\n不得持兵刃上山。\n");
                 else if(objectp(present("xu ming", environment(me))))
-                    return notify_fail("虛明邁步擋在你身前，雙手合什說道：阿"
+                    return notify_fail("虛明邁步擋在你身前，雙手合什説道：阿"
                         "彌陀佛，這位" + RANK_D->query_respect(me) + "請收起"
                         "\n兵刃。佛門清靜之地，不便隨意舞刀弄劍。還請施主鑑"
                         "諒。\n");

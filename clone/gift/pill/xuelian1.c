@@ -15,7 +15,7 @@ void create()
                 set("pill_skill", "dodge");
                 set("pill_point", 20000);
                 set("force_point", 3);
-                set("pill_msg1", HIW "你只感到清涼之意散佈全身，說不出的舒服受用。\n" NOR);
+                set("pill_msg1", HIW "你只感到清涼之意散佈全身，説不出的舒服受用。\n" NOR);
                 set("pill_msg2", HIC "你只覺靈臺處清欣無比，精力得到了完全的補充。\n" NOR);
         }
         setup();

@@ -15,7 +15,7 @@ void create ()
 LONG);
 	set("item_desc",  ([
 		"tie" :
-HIY"  指  令        例          子              說    明"HIC"
+HIY"  指  令        例          子              説    明"HIC"
 ┌----------------------------------------------------┐
 │sit          ----------                    坐下入局 │
 │look  l mj或.看自己牌,l 1p或.1看玩家1的牌           │
@@ -40,8 +40,8 @@ HIY"  指  令        例          子              說    明"HIC"
 例子1: setmj peng 1w    設定會自動碰1w 當別人打出一萬時會自動碰一萬。
        setmj gang 1w    設定會自動槓1w 當別人打出一萬時會自動槓一萬。
        setmj tin 1w     設定會自動聽1w 當別人打出一萬時會自動胡一萬。
-例子2: setmj show 代碼  設定爲只顯示代碼。
-       setmj show color 設定爲彩色顯示。
+例子2: setmj show 代碼  設定為只顯示代碼。
+       setmj show color 設定為彩色顯示。
 例子3: setmj tin none   取消會自動胡牌設定。
        setmj gang none  取消會自動槓牌設定。
        setmj peng none  取消會自動碰牌設定。

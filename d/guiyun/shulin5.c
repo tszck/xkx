@@ -13,7 +13,7 @@ void create()
 	set("short", "樹林深處");
 	set("long",@LONG
 這是一片小樹林的深處。地面上綠草如蔭，茂密地生長着。四周安
-靜得令人毛骨悚然，看來還是趕緊離開這裏的爲妙。樹叢中有一棵老樹
+靜得令人毛骨悚然，看來還是趕緊離開這裏的為妙。樹叢中有一棵老樹
 (tree)，相對於其它樹顯得十分的粗壯，樹上的樹葉(leaf)非常茂密，
 有幾隻不知名的小鳥在其中竄來竄去。
 LONG
@@ -63,7 +63,7 @@ int do_zhai(string arg)
 	if (arg != "leaf" && arg != "shuye" && arg != "ye")
 		return notify_fail("你要摘什麼？\n");
 
-	message_vision("$N伸手去夠樹上的葉子，發現手臂需要再長幾十尺纔行！\n", me);
+	message_vision("$N伸手去夠樹上的葉子，發現手臂需要再長幾十尺才行！\n", me);
 	return 1;
 }
 
@@ -125,7 +125,7 @@ int do_sling(string arg)
 	}
 	if (level < 30)
 	{
-		write("你掏出一顆" + weapon_name + "，對準樹葉彈去，卻因爲指勁太弱而沒有彈到。\n");
+		write("你掏出一顆" + weapon_name + "，對準樹葉彈去，卻因為指勁太弱而沒有彈到。\n");
 		WEAPON_D->throw_weapon(me, me, weapon, 0);
 		return 1;
 	}

@@ -47,9 +47,9 @@ string ask_me1()
 {
 	object me=this_player();
 	if(me->query_temp("marks/ask_temp1"))
-		return "“那是本寺的鎮寺之寶，當年不知爲何丟失了。”\n";
+		return "“那是本寺的鎮寺之寶，當年不知為何丟失了。”\n";
 	else
-		return "“你胡說八道什麼？”\n";
+		return "“你胡説八道什麼？”\n";
 }
 
 string ask_me2()
@@ -61,6 +61,6 @@ string ask_me2()
 		return "“那天晚上我只看見一個黑影從塔上飛下，往後寺跑了。\n";
 		}
 	else
-		return "“你胡說八道什麼？”\n";
+		return "“你胡説八道什麼？”\n";
 }
 

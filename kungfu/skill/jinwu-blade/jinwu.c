@@ -2,7 +2,7 @@
 // jinwu.c 金烏墮地
 
 /*
-由於劈斷對方武器的功能是這個perform最大的威力，但爲了保持獨孤九劍在
+由於劈斷對方武器的功能是這個perform最大的威力，但為了保持獨孤九劍在
 這一方面的第一地位，特地對發揮這一威力的條件，在程序中做了如下限制
 希望以後的巫師不要更改這些設定，畢竟在weapon武功中，不能超越lonely-sword的地位。
 */
@@ -60,7 +60,7 @@ int perform(object me,object target)
 		return notify_fail("你的"+to_chinese(sskill)+"等級不夠, 不能使用"+PNAME+"。\n");
 
 	if( me->query("max_neili") < 1000 )
-		return notify_fail("你的內力修爲不夠，無法運用「"+HIR"金烏墮地"NOR+"」！\n");
+		return notify_fail("你的內力修為不夠，無法運用「"+HIR"金烏墮地"NOR+"」！\n");
 
 	if( me->query("neili") < 400 )
 		return notify_fail("你的內力不夠，無法運用「"+HIR"金烏墮地"NOR+"」！\n");
@@ -157,10 +157,10 @@ int help(object me)
 		擊落手持兵器的敵手之兵器
 
 	出手要求：
-		身爲白自在嫡傳弟子
+		身為白自在嫡傳弟子
 		金烏刀法100級
 		冰雪心法100級
-		內力修爲1000
+		內力修為1000
 		內力400
 HELP
         );

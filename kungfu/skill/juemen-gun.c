@@ -105,7 +105,7 @@ int help(object me)
 	write(HIC"\n絕門棍："NOR"\n");
 	write(@HELP
 
-    絕門棍爲少林七十二絕技之一。
+    絕門棍為少林七十二絕技之一。
 
 	學習要求：
 		混元一氣功20級

@@ -10,7 +10,7 @@ void create()
 {
  set_name("馮阿三", ({ "feng asan", "feng" }));
  set("nickname","“函谷八友”巧匠");
- set("long","據說他就是魯班的後人，本來是木匠出身。他在精於土木工藝之學，當代的第一巧匠，設計機關的能手。\n");
+ set("long","據説他就是魯班的後人，本來是木匠出身。他在精於土木工藝之學，當代的第一巧匠，設計機關的能手。\n");
  set("gender", "男性");
  set("age", 35);
  set("attitude", "friendly");
@@ -72,7 +72,7 @@ init()
 }
 void attempt_apprentice(object ob)
 {
- command("say 好吧，我就收下你了，以後要多爲逍遙派出力啊。");
+ command("say 好吧，我就收下你了，以後要多為逍遙派出力啊。");
  command("recruit " + ob->query("id"));
 }
 

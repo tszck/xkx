@@ -13,7 +13,7 @@ void create()
 	set("class", "taoist");
 	set("long",
 		"他就是崑崙派開山祖師，號稱琴劍棋三絕的“崑崙三聖”。\n"
-		"長臉深目，瘦骨棱棱，約莫三十歲左右年紀。\n");
+		"長臉深目，瘦骨稜稜，約莫三十歲左右年紀。\n");
 	set("gender", "男性");
 	set("age", 35);
 	set("per", 20);
@@ -92,13 +92,13 @@ void attempt_apprentice(object ob)
 
 	if(ob->query_int() < 32 )
 	{
-		command("say 彈琴下棋需要靈性極高的人纔可以領悟其真諦，不致與武功背道而馳。");
+		command("say 彈琴下棋需要靈性極高的人才可以領悟其真諦，不致與武功背道而馳。");
 		command("say "+RANK_D->query_respect(ob)+"還是先回去多讀點書吧。");
 		return;
 	}
 	if ((int)ob->query_skill("xuantian-wuji", 1) < 85)
 	{
-		command("say 琴棋書畫雖爲小技，但也需內力融入其中。");
+		command("say 琴棋書畫雖為小技，但也需內力融入其中。");
 		command("say " + RANK_D->query_respect(ob) +
 			"是否還應該先在玄天無極功上多下點功夫？");
 		return;

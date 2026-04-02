@@ -50,7 +50,7 @@ int perform(object me, object target)
 		return notify_fail("你的"+to_chinese(sskill)+"火候不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(bskill)+"修爲不夠，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"修為不夠，使不出"+PNAME+"。\n");
 
 	if((int)me->query("neili") < 800)
 		return notify_fail("你內力現在不夠, 不能使用驚魔一指! \n");

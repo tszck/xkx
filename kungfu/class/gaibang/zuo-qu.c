@@ -62,7 +62,7 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if( ob->query("gender") != "男性") return;
-	command("say 好吧，希望你能好好學習本門武功，將來爲丐幫爭一口氣！。");
+	command("say 好吧，希望你能好好學習本門武功，將來為丐幫爭一口氣！。");
 	command("recruit " + ob->query("id"));
 }
 #include "/kungfu/class/gaibang/gaibang.h"

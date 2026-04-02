@@ -22,7 +22,7 @@ mapping valid_types = ([
         "force":        "內功",
         "hammer":       "錘法",
         "hand":         "手法",
-        "hook":         "鉤法",
+        "hook":         "鈎法",
         "leg":          "腿法",
         "magic":        "法術",
         "parry":        "招架",

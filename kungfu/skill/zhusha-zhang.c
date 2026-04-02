@@ -117,7 +117,7 @@ int help(object me)
 
 	學習要求：
 		歸元吐納法10級
-		內力修爲20
+		內力修為20
 HELP
 	);
 	return 1;

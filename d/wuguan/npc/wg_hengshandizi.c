@@ -31,15 +31,15 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "衡山派弟子說道：這位" + RANK_D->query_respect(ob)
+			say( "衡山派弟子説道：這位" + RANK_D->query_respect(ob)
             + "想加入衡山派嗎，可以看"BRED"(help henshan)"NOR"。\n");
 			break;
 		case 1:
-			say( "衡山派弟子說道：若能修習衡山派最高深的絕學--百變千幻衡山雲霧十三式，一旦有日
+			say( "衡山派弟子説道：若能修習衡山派最高深的絕學--百變千幻衡山雲霧十三式，一旦有日
 練成此絕技，則笑傲武林的夢想不遠矣！\n");
 			break;
 		case 2:
-			say( "衡山派弟子說道：我們衡山劍法精妙絕倫，莫大掌門更是武林泰斗。\n");
+			say( "衡山派弟子説道：我們衡山劍法精妙絕倫，莫大掌門更是武林泰斗。\n");
 			break;
 	}
 

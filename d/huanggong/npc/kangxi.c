@@ -68,7 +68,7 @@ LONG NOR
 	set("jiali", 80);
 
 	set("inquiry", ([
-		"韋小寶" : "\n小寶是我的心腹,我讓他爲我收集各大官員的消息.\n",
+		"韋小寶" : "\n小寶是我的心腹,我讓他為我收集各大官員的消息.\n",
 		"鰲拜": "\n鰲拜雖是開朝元老,但太驕橫跋負了,終是我的心腹大患.\n",
 		"官職" : (:ask_officer:),
 		"職務" : (:ask_officer:),
@@ -77,10 +77,10 @@ LONG NOR
         set("chat_chance", 3);
         set("chat_msg", ({
     "康熙往匾額上看了看。\n",
-		"康熙說道：普天之下，莫非王土；率土之濱，莫非王臣。\n",
-		"康熙說道：天下取士，非賢積德。我朝馬上得天下，不能馬上治天下。 \n",
-		"康熙說道：想要官職，當然問朕了。\n",
-		"康熙說道：收齊四十二章經者，朕重重有賞。\n",
+		"康熙説道：普天之下，莫非王土；率土之濱，莫非王臣。\n",
+		"康熙説道：天下取士，非賢積德。我朝馬上得天下，不能馬上治天下。 \n",
+		"康熙説道：想要官職，當然問朕了。\n",
+		"康熙説道：收齊四十二章經者，朕重重有賞。\n",
         }) );
 	setup();
 	carry_object(__DIR__"obj/jinduan")->wear();
@@ -204,7 +204,7 @@ int accept_object(object me, object ob)
      	tell_object(me,HIC"你成功得到了康熙的信任！\n在這次歷練中你獲得了"+
      	         chinese_number(exp)+"點經驗、"+
                chinese_number(pot)+"點潛能以及"+
-               chinese_number(score)+"點江湖閱歷。\n\n"NOR);
+               chinese_number(score)+"點江湖閲歷。\n\n"NOR);
 		}
 		
 	}

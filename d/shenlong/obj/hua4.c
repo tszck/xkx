@@ -12,7 +12,7 @@ void create()
 {
 	set_name(HIC "翡翠蘭" NOR, ({"hua4", "feicui"}));
 	set("unit", "朵");
-	set("long", "這是一朵千年難得一見的翡翠蘭，據說能解百毒。\n");
+	set("long", "這是一朵千年難得一見的翡翠蘭，據説能解百毒。\n");
 	setup();
 }
 

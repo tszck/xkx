@@ -34,7 +34,7 @@ int accept_fight(object who)
 			command("say 哼！出招吧！\n");
 			break;
 		default:
-			command("say 想倚多爲勝，這不是欺人太甚嗎！\n");
+			command("say 想倚多為勝，這不是欺人太甚嗎！\n");
 			return 0;
 	}
 
@@ -70,7 +70,7 @@ int accept_hit(object who)
 /*
 
 如果取消這個註釋 那麼hit可能導致kill
-因爲木人要經常hit 加上去木人就打不了了
+因為木人要經常hit 加上去木人就打不了了
         int t;
         string att;
         int perqi;

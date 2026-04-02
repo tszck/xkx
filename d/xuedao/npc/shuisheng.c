@@ -63,5 +63,5 @@ string ask_me()
 	add("chang_count", -1);
 	ob = new("/d/xuedao/obj/dachang");
 	ob->move(this_player());
-	return "狄大哥還好嗎？我在這一直等着他。麻煩你，把這領大氅交給他吧。\n說着，遞給你一領鳥羽大氅。";
+	return "狄大哥還好嗎？我在這一直等着他。麻煩你，把這領大氅交給他吧。\n説着，遞給你一領鳥羽大氅。";
 }

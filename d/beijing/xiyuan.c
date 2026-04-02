@@ -5,7 +5,7 @@ void create()
 	set("short", "長安戲院");
 	set("long", @LONG
 這裏就是著名的長安戲院，幾個戲子在臺上 (stage)唱戲。臺下黑
-壓壓的一片都是人。唱到妙處，觀衆們禁不住大聲喝采。東邊是後臺。
+壓壓的一片都是人。唱到妙處，觀眾們禁不住大聲喝采。東邊是後臺。
 LONG );
 	set("exits", ([
 		"up"    : __DIR__"stage",
@@ -36,7 +36,7 @@ int valid_leave(object me, string dir)
 			me->set_temp("hastryup",1);
 			if((int)me->query("meili")>=40)
 			{
-				message_vision("只聽嘩啦啦一片掌聲，觀衆們一起鼓掌。有人大聲說道：\n靜一靜，請看這位"+RANK_D->query_respect(me)+ "表演。\n",me);
+				message_vision("只聽嘩啦啦一片掌聲，觀眾們一起鼓掌。有人大聲説道：\n靜一靜，請看這位"+RANK_D->query_respect(me)+ "表演。\n",me);
 				return ::valid_leave(me, dir);
 			}
 			else
@@ -44,7 +44,7 @@ int valid_leave(object me, string dir)
 				if(query("guanzhong") > 0)
 				{
 					add("guanzhong", -1);
-					message_vision("\n突然觀衆一擁而上，對$N大叫道：憑你也敢上臺鬧事？老子宰了你這"+RANK_D->query_rude(me) + "！\n",me);
+					message_vision("\n突然觀眾一擁而上，對$N大叫道：憑你也敢上臺鬧事？老子宰了你這"+RANK_D->query_rude(me) + "！\n",me);
 					if(!present("jia", environment(me)))
 					{
 						man=new(__DIR__"npc/guanzhong1");
@@ -81,9 +81,9 @@ int valid_leave(object me, string dir)
 						}
 					}
 				}
-				return notify_fail("觀衆們一陣倒彩。\n");
+				return notify_fail("觀眾們一陣倒彩。\n");
 			}
-			return notify_fail("觀衆們拼死也不讓你上臺。\n");
+			return notify_fail("觀眾們拼死也不讓你上臺。\n");
 		}
 		message_vision("$N拼死衝上臺去。\n",this_player());
 		return ::valid_leave(me, dir);

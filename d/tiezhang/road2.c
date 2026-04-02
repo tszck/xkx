@@ -8,7 +8,7 @@ void create()
 	set("short", "黃土路");
 	set("long", @LONG
 你走在一條塵土飛揚的黃土路上，兩旁是陰森森的樹林。這裏是川
-湘交界，據說經常有土匪出沒，不可久留。
+湘交界，據説經常有土匪出沒，不可久留。
 LONG );
 	set("exits", ([ /* sizeof() == 2 */
 		"west"      : __DIR__"road3",

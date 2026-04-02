@@ -53,10 +53,10 @@ void greeting(object ob)
 	if( !ob || environment(ob) != environment() ) return;
 	switch( random(2) ) {
 		case 0:
-			say( "店小二笑眯眯地說道：這位" + RANK_D->query_respect(ob) + "，歡迎光臨悅華酒樓。\n");
+			say( "店小二笑眯眯地説道：這位" + RANK_D->query_respect(ob) + "，歡迎光臨悅華酒樓。\n");
 			break;
 		case 1:
-			say( "店小二用脖子上的毛巾抹了抹手，說道：這位" + RANK_D->query_respect(ob) + "，請進請進。\n");
+			say( "店小二用脖子上的毛巾抹了抹手，説道：這位" + RANK_D->query_respect(ob) + "，請進請進。\n");
 			break;
 	}
 }

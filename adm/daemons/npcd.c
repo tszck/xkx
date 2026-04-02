@@ -9,7 +9,7 @@ object create_player(string arg);                //返回restore後的玩家 注
 varargs int top_skill(object who,int l);         //最高武功  帶參數不包含知識技能
 varargs int up_skill(object who);                //頂經驗武功
 int check_level(object ob);                      //按經驗確定需要的等級
-void init_npc_skill(object ob, int lvl);         //設定ob的所有武功爲lvl級
+void init_npc_skill(object ob, int lvl);         //設定ob的所有武功為lvl級
 varargs void set_from_me(object tob, object fob, object thief_master, int scale);
 int set_perform(object who);
 int check_place(string file,string dir);

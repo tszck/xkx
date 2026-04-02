@@ -48,7 +48,7 @@ void create()
 	prepare_skill("strike", "chousui-zhang");
 	prepare_skill("claw", "sanyin-wugongzhao");
 	set("inquiry", ([
-		"星宿派" : "可惜老仙不准我收徒, 否則你可拜我爲師。",
+		"星宿派" : "可惜老仙不准我收徒, 否則你可拜我為師。",
 		"深澗"   : "問阿紫吧。",
 		"吹捧"   : "小師妹最討老仙喜歡, 你去問她吧。",
 		"蕭峯"   : "要不是那廝, 我早逮住了小師妹。",
@@ -66,5 +66,5 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say 我纔不想收徒呢。");
+	command("say 我才不想收徒呢。");
 }

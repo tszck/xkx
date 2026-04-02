@@ -15,7 +15,7 @@ void create()
 	set("age", 35);
 	set("long", "一個衣着光鮮的老朝奉。\n");
 	set("no_get_from", 1);
-//以下爲防止玩家運用特殊方法將當鋪老闆搬走。
+//以下為防止玩家運用特殊方法將當鋪老闆搬走。
 	set("no_get", "1");
 
 	set_skill("unarmed", 60);

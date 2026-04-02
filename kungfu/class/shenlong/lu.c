@@ -12,7 +12,7 @@ void create()
 {
 	set_name("陸高軒", ({ "lu gaoxuan", "lu" ,"gaoxuan"}));
 	set("nickname",HIC "神機妙算" NOR);
-	set("long","他四十來歲年紀，文士打扮，天庭飽滿，地闊方圓，容貌頗爲英俊，神情和藹可親。然而滿面愁容，恰似頃刻間便有殺身之禍一般。\n" );
+	set("long","他四十來歲年紀，文士打扮，天庭飽滿，地闊方圓，容貌頗為英俊，神情和藹可親。然而滿面愁容，恰似頃刻間便有殺身之禍一般。\n" );
 	set("gender", "男性");
 	set("age", 37);
 	set("str", 35);
@@ -55,13 +55,13 @@ void create()
 	set("max_neili", 1000);
 	set("jiali", 100);
 	set("inquiry", ([
-		"洪安通" : "這三個字是你說的嗎？",
+		"洪安通" : "這三個字是你説的嗎？",
 		"洪教主" : "洪教主仙福永享，壽與天齊，洪教主神目如電，燭照四方。",
 		"蘇荃"   : "沒規沒矩的。",
 		"神龍島" : "神龍島在汝州的東北方向，從塘沽口出海便到。",
 		"神龍教" : "一般人是入不了我神龍教的(join shenlongjiao)。\n",
 		"入教"   : "一般人是入不了我神龍教的(join shenlongjiao)。\n",
-		"教主"   : "教主脾氣不好，要討他歡心纔好。\n",
+		"教主"   : "教主脾氣不好，要討他歡心才好。\n",
 		"口號"   : "萬年不老！永享仙福！壽與天齊！文武仁聖！\n",
 		"祕籍"   : (: ask_me :),
 		"book"   : (: ask_me :),
@@ -82,7 +82,7 @@ void init()
 void attempt_apprentice(object ob)
 {
 	if (ob->query("party/party_name") != HIY "神龍教" NOR ) {
-		command("say 你不是本教教衆，想來找死啊！");
+		command("say 你不是本教教眾，想來找死啊！");
 		return;
 	}
 	if ((int)ob->query_skill("literate",1) < 40 ) {

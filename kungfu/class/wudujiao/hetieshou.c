@@ -217,7 +217,7 @@ string ask_ling()
 	int i, count, here = 0;
 
 	if (query("ling_count") < 1)
-		return "你來晚了，五毒令別的教衆正在用呢。\n";
+		return "你來晚了，五毒令別的教眾正在用呢。\n";
 	if (!(fam = me->query("family")) || fam["family_name"] != "五毒教")
 		return RANK_D->query_respect(me) + "與本派素無來往，不知此話從何談起？";
 

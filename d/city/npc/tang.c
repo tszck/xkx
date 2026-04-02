@@ -21,10 +21,10 @@ void create()
 	set("max_qi", 1000);
 	set("max_jing", 1000);
 	set("max_qi", 1000);
-	set("long", "據說唐楠是四川唐家的後代。\n");
+	set("long", "據説唐楠是四川唐家的後代。\n");
 	set("no_get_from", 1);
 
-//以下爲防止玩家運用特殊方法將當鋪老闆搬走。
+//以下為防止玩家運用特殊方法將當鋪老闆搬走。
 	set("no_get", "1");
 
 	set_skill("unarmed", 60);
@@ -71,7 +71,7 @@ int do_redeem(string target)
 			dest = all[i];
 	}
 	if( !dest || !this_player()->visible(dest))
-		return notify_fail("唐楠說道：你說的人現在不在遊戲中，你過會再來吧。\n");
+		return notify_fail("唐楠説道：你説的人現在不在遊戲中，你過會再來吧。\n");
 	else if( !dest->query_temp("selled"))
 		return notify_fail("唐楠急道：你可別誣陷好人，我怎麼會非法扣押玩家呢！\n");
 

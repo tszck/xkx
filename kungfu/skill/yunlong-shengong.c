@@ -25,7 +25,7 @@ int valid_learn(object me)
 		return notify_fail("你無根無性，陰陽不調，難以領會高深的雲龍神功。\n");
 
   if ( nb < 100 && nb <= nh )
-		return notify_fail("你的雲龍心法修爲不夠，無法領會更高深的雲龍神功。\n");
+		return notify_fail("你的雲龍心法修為不夠，無法領會更高深的雲龍神功。\n");
 
 	if ( nf < 10)
 		return notify_fail("你的基本內功火候還不夠，無法領會雲龍神功。\n");

@@ -1182,7 +1182,7 @@ void do_check()
 		}
 	}
 
-	if( check ) message_vision("$N說道"+HIG"“將軍！！”\n"NOR,this_player() );
+	if( check ) message_vision("$N説道"+HIG"“將軍！！”\n"NOR,this_player() );
 }
 
 int do_save()

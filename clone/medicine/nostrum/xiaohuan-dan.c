@@ -50,7 +50,7 @@ int do_eat(string arg)
 		me->query_skill_mapped("force") != "zhanzhuang-gong" )
 	{
 		me->set("neili", 0);
-		message_vision(HIR "$N喫下一顆小還丹，只覺得五臟欲裂，原來所練內功不符，反而大損修爲！\n" NOR, me);
+		message_vision(HIR "$N喫下一顆小還丹，只覺得五臟欲裂，原來所練內功不符，反而大損修為！\n" NOR, me);
 //		me->unconcious();
 		me->start_busy(10);
 	}

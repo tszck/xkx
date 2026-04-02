@@ -78,7 +78,7 @@ void greeting(object ob)
 	int i;
 
 	obj = all_inventory(environment(me));
-        command("say 縵胡纓是說他頭上所帶之纓並不精緻，胡乃胡亂之意。");
+        command("say 縵胡纓是説他頭上所帶之纓並不精緻，胡乃胡亂之意。");
 	for(i=0; i<sizeof(obj); i++)
 	{
 		if( obj[i]->query("id")=="jiumo-zhi")

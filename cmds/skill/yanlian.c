@@ -24,7 +24,7 @@ int main(object me, string arg)
                 return notify_fail("你想演練什麼？\n");
 
         if (file_size(SKILL_D(arg) + ".c") <= 0)
-                return notify_fail("沒聽說過有這種武功。\n");
+                return notify_fail("沒聽説過有這種武功。\n");
 
         if (! mapp(SKILL_D(arg)->query_sub_skills()))
                 return notify_fail("這種武功無需演練，還是勤加練習吧。\n");
@@ -90,7 +90,7 @@ int practicing(object me)
                 cost = action["force"] * 8 / sizeof(sub_skills);
                 if (me->query("neili") < cost)
                 {
-                        write("你剛欲出招，忽然間丹田真氣不繼，難以施爲。\n");
+                        write("你剛欲出招，忽然間丹田真氣不繼，難以施為。\n");
                         return 0;
                 }
                 me->add("neili", -cost);
@@ -155,9 +155,9 @@ int help(object me)
         write(@HELP
 指令格式 : yanlian <技能>
 
-這個指令可以讓你將某些武功合而爲一，成爲一種強大得多的新技能。比如降龍
+這個指令可以讓你將某些武功合而為一，成為一種強大得多的新技能。比如降龍
 十八掌。當你把十八掌一一學全後，你就可以演練降龍十八掌(xianglong-zhang)，
-一旦成功，你將領悟到一種全新的技能。演練將耗費精、氣、內力。如果因爲這
+一旦成功，你將領悟到一種全新的技能。演練將耗費精、氣、內力。如果因為這
 些因素不能滿足，演練將失敗。
 HELP
         );

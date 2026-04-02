@@ -27,7 +27,7 @@ int main(object me, string arg)
 
 	if( userp(obj) && (object)obj->query_temp("pending/fight")!=me )
 	{
-		message_vision("\n$N對着$n說道：" + RANK_D->query_self(me) + me->name() + "，領教" + RANK_D->query_respect(obj) + "的高招！\n", me, obj);
+		message_vision("\n$N對着$n説道：" + RANK_D->query_self(me) + me->name() + "，領教" + RANK_D->query_respect(obj) + "的高招！\n", me, obj);
 		if( objectp(old_target = me->query_temp("pending/fight")) )
 			tell_object(old_target, YEL + me->name() + "取消了和你比試的念頭。\n" NOR);
 		me->set_temp("pending/fight", obj);
@@ -37,7 +37,7 @@ int main(object me, string arg)
 	}
 	if( obj->query("can_speak") )
 	{
-		message_vision("\n$N對着$n說道：" + RANK_D->query_self(me) + me->name() + "，領教" + RANK_D->query_respect(obj) + "的高招！\n", me, obj);
+		message_vision("\n$N對着$n説道：" + RANK_D->query_self(me) + me->name() + "，領教" + RANK_D->query_respect(obj) + "的高招！\n", me, obj);
 		notify_fail("看起來" + obj->name() + "並不想跟你較量。\n");
 		if( !userp(obj) && !obj->accept_fight(me) ) return 0;
 
@@ -57,11 +57,11 @@ int help(object me)
 指令格式 : fight <人物>
 
     這個指令讓你向一個人物“討教”或者是“切磋武藝”，這種形式的戰鬥
-純粹是點到爲止，直到有一方的氣降低到一半爲止，因此只會消耗體力，不會
+純粹是點到為止，直到有一方的氣降低到一半為止，因此只會消耗體力，不會
 真的受傷，但是並不是所有的ＮＰＣ都喜歡打架，因此有許多狀況下你的比武
 要求會被拒絕。如果對方不願意接受你的挑戰，你仍然可以強行用ｈｉｔ或者
 ｋｉｌｌ等等指令開始戰鬥（甚至ｓｔｅａｌ指令，如果行竊失敗也會導致戰
-鬥）。要注意的是動物，因爲不通人言，所以它們會對任何攻擊施以死亡性報
+鬥）。要注意的是動物，因為不通人言，所以它們會對任何攻擊施以死亡性報
 復，而且許多動物是攻擊性的，會見人就殺。
  
 其他相關指令: kill, hit

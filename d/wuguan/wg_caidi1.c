@@ -58,7 +58,7 @@ int do_chu(string arg)
 		present("caiyuan guanshi", environment(me)))
 	{
 		me->set_temp("mark/鋤完了",1);
-		message_vision(RED"菜園管事對$N說：乾的不錯，好了，你可以回去覆命(job ok)了。"NOR, me);
+		message_vision(RED"菜園管事對$N説：乾的不錯，好了，你可以回去覆命(job ok)了。"NOR, me);
 		return 1;
 	}
 	message_vision("$N揮起鋤頭，對着地上的雜草鋤了起來。\n", me);

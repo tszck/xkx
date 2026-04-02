@@ -8,7 +8,7 @@ void create()
 {
 	set("short", "東廠暗道");
 	set("long", @LONG
-這是一條暗道，是專爲鰲拜從鰲府直接到東廠用的。
+這是一條暗道，是專為鰲拜從鰲府直接到東廠用的。
 LONG );
 	set("exits", ([
 		"southwest" : __DIR__"aobai11",

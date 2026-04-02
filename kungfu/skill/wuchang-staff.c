@@ -31,7 +31,7 @@ mapping *action = ({
 	"lvl" : 30,
 	"skill_name" : "行屍走肉"
 ]),
-([	"action": "$N面帶戚色，一招"GRN"「飲恨吞聲」"NOR"，趁$n說話間，一杖向$n張大的嘴巴捅了過去",
+([	"action": "$N面帶戚色，一招"GRN"「飲恨吞聲」"NOR"，趁$n説話間，一杖向$n張大的嘴巴捅了過去",
 	"lvl" : 35,
 	"skill_name" : "飲恨吞聲"
 ]),
@@ -133,7 +133,7 @@ int help(object me)
 	學習要求：
 		站樁功50級
 		普渡杖法20級
-		內力修爲500
+		內力修為500
 HELP
 	);
 	return 1;

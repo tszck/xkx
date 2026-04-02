@@ -23,7 +23,7 @@ void create()
 		set("vegetable", 11);
 		set("nostrum", 22);
 		set("level", 130);
-		set("long","這是一包淡綠晶瑩的玉露清新散。據說乃慕容世家的珍藥，提高功力，靈效無比。\n");
+		set("long","這是一包淡綠晶瑩的玉露清新散。據説乃慕容世家的珍藥，提高功力，靈效無比。\n");
 		set("value", 10000);
 		set("no_drop", "這樣東西不能離開你。\n");
 	}

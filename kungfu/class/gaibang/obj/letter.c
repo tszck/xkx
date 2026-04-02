@@ -105,13 +105,13 @@ int do_send(string arg)
 	if(me->query_temp("songxin_target_name") != t_name) 
 		return notify_fail(t_name+"道：這封信不是給我的，你是不是送錯了？");
 
-	message_vision(HIY"$N擦了一把額頭的汗，從懷中掏出信交給$n說道，這是丐幫魯長老讓在下送給您的信，請您收好。\n"NOR, me, target);
+	message_vision(HIY"$N擦了一把額頭的汗，從懷中掏出信交給$n説道，這是丐幫魯長老讓在下送給您的信，請您收好。\n"NOR, me, target);
 	message_vision("$N交給了$n一封信。\n",me, target);
-	message_vision(t_name+"點了點頭說道：辛苦你了,這辛苦費你就收下吧! \n",me);
+	message_vision(t_name+"點了點頭説道：辛苦你了,這辛苦費你就收下吧! \n",me);
 	target->add_money("silver",(int)(target->query_skill("force",1)/5)+1);
 	command("give "+me->query("id")+" "+((int)(target->query_skill("force",1)/5)+1)+" silver");
 
-	message_vision(HIY "$N接過信看了看，點了點頭說道：這位"+RANK_D->query_respect(me)+"辛苦你了。\n"NOR, target, me);
+	message_vision(HIY "$N接過信看了看，點了點頭説道：這位"+RANK_D->query_respect(me)+"辛苦你了。\n"NOR, target, me);
  
 
 	if ((int)me->query("combat_exp")<=5000)
@@ -186,9 +186,9 @@ int do_send(string arg)
 		chinese_number(exp) + "點實戰經驗\n" +
 		chinese_number(pot) + "點潛能\n"+
 		chinese_number(score) + "點忠誠度\n"+
-		chinese_number(s_bonus) + "點江湖閱歷\n" +
+		chinese_number(s_bonus) + "點江湖閲歷\n" +
 		chinese_number(i)+"兩白銀\n"+
-		"你爲丐幫做了"+me->query("gb_job")+"次工作。\n"NOR);
+		"你為丐幫做了"+me->query("gb_job")+"次工作。\n"NOR);
 		me->apply_condition("gb_songxin", me->query_condition("gb_songxin")/2);
 		me->delete_temp("gb_songxin");
 		me->delete_temp("songxin_time");

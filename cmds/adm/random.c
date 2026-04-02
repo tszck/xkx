@@ -25,7 +25,7 @@ int main(object me, string arg)
 		}	
 		
 	}
-	for (j=0;j<10;j++) printf("%d : 個數爲 %d\n",j,a[j]);
+	for (j=0;j<10;j++) printf("%d : 個數為 %d\n",j,a[j]);
 	return 1;
 }
 

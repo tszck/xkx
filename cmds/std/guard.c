@@ -62,7 +62,7 @@ int main(object me, string arg)
 	if( ob )
 	{
 		if( ob==me )
-			return notify_fail("守衛自己？不用說你也會，對吧。\n");
+			return notify_fail("守衞自己？不用説你也會，對吧。\n");
 		me->delete_temp("guardto", ob);
 		me->set_temp("guardfor", ob);
 	}
@@ -157,7 +157,7 @@ int help(object me)
 
 guard <某人>      保護<某人>，當他／她受到攻擊時，保護者會自動加入戰鬥，並且
                   受攻擊的順位會排在被保護者前面，由於只有攻擊順位前四個目標
-                  纔會受到攻擊，因此理論上如果有四個人  guard 你，你就不會受
+                  才會受到攻擊，因此理論上如果有四個人  guard 你，你就不會受
                   到任何攻擊。
 
 guard <地上某物>  守住放在地上的某件東西，防止別人來拿，只要你還在這個房間，

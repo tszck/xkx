@@ -49,7 +49,7 @@ void create()
         set("inquiry", ([
             "女兒香" : "這「女兒香」珍貴得很，連宋大俠的兒子也不能隨便喝着．\n"
                	+ "不過如果你能從西面茶園老張那裏弄些「女兒香」茶葉來，\n"
-                + "我倒是可以爲你沏一壺。他見你從我這兒去，大概不會難爲你\n"
+                + "我倒是可以為你沏一壺。他見你從我這兒去，大概不會難為你\n"
         ]));
 
         setup();
@@ -72,7 +72,7 @@ void init()
 void greeting(object ob)
 {
 	if ( !ob || (environment(ob) != environment()) ) return;
-	say("小翠笑吟吟地說道：這位" + RANK_D->query_respect(ob) 
+	say("小翠笑吟吟地説道：這位" + RANK_D->query_respect(ob) 
 		+ "請先入座，我這就給您上茶。\n");
 }
 

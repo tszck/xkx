@@ -49,13 +49,13 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲火候未到，施展只會傷及自身！\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為火候未到，施展只會傷及自身！\n");
 
 	if( (int)me->query_skill(sskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲還不夠，還未能領悟"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為還不夠，還未能領悟"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(bskill)+"修爲還不夠，還未能領悟"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"修為還不夠，還未能領悟"+PNAME+"。\n");
 
 	if( (int)me->query_str() < 30 )
 		return notify_fail("你的臂力不夠高，無法使用"+PNAME+"。\n");
@@ -67,7 +67,7 @@ int perform(object me, object target)
 	}
 
 	if( me->query("max_neili") <= 2000 )
-		return notify_fail("你的內力修爲不足，勁力不足以施展「劍氣」！\n");
+		return notify_fail("你的內力修為不足，勁力不足以施展「劍氣」！\n");
 
 	if( me->query("neili") <= 600 )
 		return notify_fail("你的內力不夠，勁力不足以施展「劍氣」！\n");
@@ -145,7 +145,7 @@ int help(object me)
 		嵩山劍法150級
 		基本劍法150級
 		後天膂力30
-		內力修爲2000
+		內力修為2000
 		內力600
 HELP
 	);

@@ -17,7 +17,7 @@ LONG
 		"west" : __DIR__"huayuan3",
 	]));
 	set("item_desc",([
-	    "picture":"只見畫中少女手持鋼鉤，含笑而立。恍惚間你似乎覺得有無數道劍氣撲面而來。\n這裏面似乎隱含着某種奧祕，你可以照着畫中的姿勢比劃(bihua)一下看看\n\n",
+	    "picture":"只見畫中少女手持鋼鈎，含笑而立。恍惚間你似乎覺得有無數道劍氣撲面而來。\n這裏面似乎隱含着某種奧祕，你可以照着畫中的姿勢比劃(bihua)一下看看\n\n",
 ]));
 	set("coor/x", -44890);
 	set("coor/y", -81040);
@@ -43,7 +43,7 @@ int do_bihua(string arg)
 		return notify_fail("再練下去你會累死的！\n");
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "hook")
-		return notify_fail("不拿鉤劍你亂比劃什麼？\n");
+		return notify_fail("不拿鈎劍你亂比劃什麼？\n");
 	if (!((string)me->query("family/family_name")=="五毒教"))
 	{
 		message_vision("$N照着壁上的畫練了幾次，累了一身臭汗。\n", me);
@@ -59,7 +59,7 @@ int do_bihua(string arg)
 		if (hookskill < 150)
 		{
 			me->improve_skill("hook", random((int)(me->query("int") +me->query_skill("literate"))));
-			tell_object(me, "你從中領悟出一些基本鉤法方面的竅門。\n");
+			tell_object(me, "你從中領悟出一些基本鈎法方面的竅門。\n");
 		}
 		else
 		{

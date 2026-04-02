@@ -5,7 +5,7 @@ string ask_me();
 
 void create()
 {
-	set_name("觀衆戊", ({ "wu" }));
+	set_name("觀眾戊", ({ "wu" }));
 	set("long", 
 		"此人相貌奇醜，獅鼻闊口，一望而知不是中土人士。\n");
 	set("gender", "男性");

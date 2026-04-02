@@ -55,7 +55,7 @@ int accept_object(object me, object ob)
 	object obj;
 	if ( !me->query_temp("heersu") )
 	{
-		message_vision("赫爾蘇惶恐地對$N說：我不敢要您老的錢。\n", me);
+		message_vision("赫爾蘇惶恐地對$N説：我不敢要您老的錢。\n", me);
 		return 0 ;
 	}
 	if (ob->query("money_id") && ob->value() >= 50000)
@@ -64,28 +64,28 @@ int accept_object(object me, object ob)
 		{
 			if (query("item_count")>0)
 			{
-			message_vision("赫爾蘇對$N說：好！既然這位"+RANK_D->query_respect(me)+"如此看得起我老頭子，\n這棵首烏我留了很久了，就送給你吧！\n",me);
+			message_vision("赫爾蘇對$N説：好！既然這位"+RANK_D->query_respect(me)+"如此看得起我老頭子，\n這棵首烏我留了很久了，就送給你吧！\n",me);
 				me->delete_temp("heersu");
 				obj = new("/clone/medicine/vegetable/heshouwu");
 				obj -> move(me);
 				add("item_count", -1);
 			}
-			else message_vision("赫爾蘇對$N說：錢我先收着，有首烏時再說吧！\n", me);
+			else message_vision("赫爾蘇對$N説：錢我先收着，有首烏時再説吧！\n", me);
 		}
 		else
 		{
 			if (query("item_count")>0)
 			{
-			message_vision("赫爾蘇對$N說：好！既然這位"+RANK_D->query_respect(me)+"如此看得起我老頭子，\n這棵參我留了很久了，就送給你吧！\n",me);
+			message_vision("赫爾蘇對$N説：好！既然這位"+RANK_D->query_respect(me)+"如此看得起我老頭子，\n這棵參我留了很久了，就送給你吧！\n",me);
 				me->delete_temp("heersu");
 				obj = new("/clone/medicine/vegetable/renshen");
 				obj -> move(me);
 				add("item_count", -1);
 			}
-			else message_vision("赫爾蘇對$N說：錢我先收着，我一定找個最大的老山參給您！\n", me);
+			else message_vision("赫爾蘇對$N説：錢我先收着，我一定找個最大的老山參給您！\n", me);
 		}
 	}
-	else message_vision("赫爾蘇皺眉對$N說：您給的也太少了吧？\n", me);
+	else message_vision("赫爾蘇皺眉對$N説：您給的也太少了吧？\n", me);
 	return 1;
 }
 

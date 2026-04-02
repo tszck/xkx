@@ -61,7 +61,7 @@ int perform(object me, object target)
 		if( (int)me->query_skill("xingyi-strike",1) < 100 )
 			return notify_fail("你的星移掌不夠精通！無法使出「刀影掌」！\n");
 		if( (int)me->query_skill("strike",1) < 100 )
-			return notify_fail("你的基本掌法修爲不夠！無法使出「刀影掌」！\n");
+			return notify_fail("你的基本掌法修為不夠！無法使出「刀影掌」！\n");
 	}
 
 	if( (int)me->query("neili") < 100 )

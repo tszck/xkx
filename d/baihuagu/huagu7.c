@@ -9,7 +9,7 @@ void create()
 	set("short", RED"百花谷"NOR);
 	set("long", 
 HIC"又轉了幾個彎，迎面兩面山壁夾峙三株大松樹沖天而起，擋在
-山壁間。成爲兩道天然的屏障。\n"NOR);
+山壁間。成為兩道天然的屏障。\n"NOR);
 	set("exits", ([ /* sizeof() == 1 */
 		"west" : __DIR__"huagu6",
 	]));

@@ -8,7 +8,7 @@ void create()
 {
 	set("short", "石階");
 	set("long", @LONG
-這是登向城頭的石階，因爲城牆很高，所以很陡。石階兩
+這是登向城頭的石階，因為城牆很高，所以很陡。石階兩
 側有可供拉車上下的斜坡道。
 LONG );
         set("outdoors", "xiangyang");

@@ -8,7 +8,7 @@ void create()
 	set("short", "石門");
 	set("long", @LONG
 洞穴愈來愈窄，須得弓身而行方能通過，洞中到處是千年不化的尖
-冰，有些處所的冰條如刀劍般鋒銳突出。有時頭頂撞上了堅冰尖角，隱
+冰，有些處所的冰條如刀劍般鋒鋭突出。有時頭頂撞上了堅冰尖角，隱
 隱生疼。通道盡頭，只見一塊圓形巨巖疊在另一塊圓巖上，兩塊巨巖封
 住了去路，儼然一座石門。兩巖(yan)之間都是堅冰(bing)凝結。
 LONG );
@@ -48,7 +48,7 @@ int do_burn(string arg)
 	if (!objectp(ob = present("mu chai", me))) return 0;
 	if( arg=="yan" )
 	{
-		message_vision("$N點起木柴，去燒二巖之間的堅冰。\n火焰越燒越大，冰化爲水，只聽得叮釘之聲不絕，一塊塊碎冰落在地下。\n", me);
+		message_vision("$N點起木柴，去燒二巖之間的堅冰。\n火焰越燒越大，冰化為水，只聽得叮釘之聲不絕，一塊塊碎冰落在地下。\n", me);
 		destruct(ob);
 		if (me->query("neili",1) > 1000)
 		{

@@ -7,7 +7,7 @@ int accept_object(object ob, object obj)
 	if (obj->query("id")=="quanzhen xin2" && ob->query_temp("have_letter") )
 	{
 		ob->set_temp("apprentice_ok",1);
-	        command("say 好，"+ob->query("name")+"，你願意拜我爲師嗎？");
+	        command("say 好，"+ob->query("name")+"，你願意拜我為師嗎？");
 		remove_call_out("destroying");
 		call_out("destroying", 1, me, obj);
 		return 1;
@@ -39,16 +39,16 @@ void attempt_apprentice(object ob)
 		return;
 	}
 	if ((int)ob->query("shen") < 10000) {
-		command( "say 行俠仗義是我輩本份，你若能多做些俠義之事，我一定收你爲徒。\n");
+		command( "say 行俠仗義是我輩本份，你若能多做些俠義之事，我一定收你為徒。\n");
 		return;
 	}
         if (ob->query("gender")=="男性" && me->query("gender")=="女性") {
-                command("say 我不收男徒，你還是去拜我幾位師兄爲師吧。\n");
+                command("say 我不收男徒，你還是去拜我幾位師兄為師吧。\n");
                 return;
         }
 	if(!(ob_fam = ob->query("family")) || ob_fam["family_name"] != "全真教")
 	{
-		command("say 我教爲玄門正宗，" + RANK_D->query_respect(ob) + "若要學藝，還是先找本門四代弟子吧。");
+		command("say 我教為玄門正宗，" + RANK_D->query_respect(ob) + "若要學藝，還是先找本門四代弟子吧。");
 		return;
 	}
 	if ( ob_fam["generation"] == 0 )

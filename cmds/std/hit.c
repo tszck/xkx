@@ -15,7 +15,7 @@ int main(object me, string arg)
 	if(!arg || !objectp(obj = present(arg, environment(me))))
 		return notify_fail("你想攻擊誰？\n");
 	if(me->query("id") != obj->query_temp("bt_ownname") && me->query_temp("bt/working"))
-		return notify_fail("你身爲捕快，執行公務，可不能殺良冒功！\n");
+		return notify_fail("你身為捕快，執行公務，可不能殺良冒功！\n");
 //  if ( userp(me) && obj->query("owner") && me->query("id") != obj->query("owner"))
 //    return notify_fail("不是你要抓的人，湊什麼熱鬧！\n");
 //  if( obj->query("jianxi") && !obj->query_temp("asked") )
@@ -38,9 +38,9 @@ int main(object me, string arg)
 	if(obj==me) return notify_fail("打自己？別這麼想不開。\n");
 
 	if((int)obj->query("age") <= 15 && userp(obj))
-		return notify_fail("爲了世界更美好，放過小孩子吧。\n");
+		return notify_fail("為了世界更美好，放過小孩子吧。\n");
 
-	notify_fail("此人來頭不小，還是少惹爲妙。\n");
+	notify_fail("此人來頭不小，還是少惹為妙。\n");
 	if (!userp(obj) && !obj->accept_hit(me)) return 0;
 
 	if( userp(obj) ) {
@@ -81,8 +81,8 @@ int help(object me)
 指令格式 : hit <人物>
  
     這個指令讓你直接向一個人物「進招」。這種形式的戰鬥是即時的，只要
-玩家一敲這個命令，戰鬥就會開始，直到某一方受傷50% 以上爲止。這個指令
-對那些不喜歡fight的NPC很有用，因爲很多時候你的比武要求會被拒絕。
+玩家一敲這個命令，戰鬥就會開始，直到某一方受傷50% 以上為止。這個指令
+對那些不喜歡fight的NPC很有用，因為很多時候你的比武要求會被拒絕。
  
     其他相關指令: fight, kill
 

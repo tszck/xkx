@@ -79,7 +79,7 @@ string ask_me()
 	{
 		if ((string)ob->query("gender")=="女性")
 		{
-			message_vision("餘婆婆衝着$N微笑說：你是來拜師的吧，我送你進去。\n",ob);
+			message_vision("餘婆婆衝着$N微笑説：你是來拜師的吧，我送你進去。\n",ob);
 			message_vision("餘婆婆長袖一拂，$N只覺得一陣狂風吹來，慢慢被吹到山澗對面去。\n",ob);
 			ob->move(room);
 			return "靈鷲宮的將來有希望了。\n";
@@ -90,6 +90,6 @@ string ask_me()
 		message_vision("餘婆婆衝着$N點點頭，微微笑了笑。\n",ob);
 		return "諸位靈鷲宮弟子辛苦了。\n";
 	}
-	return  "老身奉主人之命守衛百丈澗，非靈鷲宮弟子請回！";
+	return  "老身奉主人之命守衞百丈澗，非靈鷲宮弟子請回！";
 }
 

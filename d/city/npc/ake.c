@@ -9,7 +9,7 @@ void create()
 {
 	set_name("阿珂", ({ "a ke", "ke" }) );
 	set("gender", "女性" );
-	set("long", "阿珂爲李自成與陳圓圓之女。
+	set("long", "阿珂為李自成與陳圓圓之女。
 她容色麗都，冠絕當代，五根手指細長嬌嫩，真如用白玉雕
 成，手背上手指盡處，有五個小小的圓渦。
 當年韋小寶一見這少女，不過十六七歲，胸口宛如被一個無
@@ -151,7 +151,7 @@ int do_pawn(string arg)
 	me->save();
 	message_vision("$N把身上的" + ob->query("name") + "拿出來典當了"
 		+ value_string(value * 25 / 100) + "。\n", this_player());
-	message_vision("阿珂提筆寫道：“今押到"+ ob->query("name")+"一，殘缺破爛，當" + value_string(value * 25 / 100)+"整。年息二分，憑票取贖。蟲蟻鼠咬，兵火損失，各安天命，不得爭論。三年爲期，不贖斷當。”遞給了$N。\n", this_player());
+	message_vision("阿珂提筆寫道：“今押到"+ ob->query("name")+"一，殘缺破爛，當" + value_string(value * 25 / 100)+"整。年息二分，憑票取贖。蟲蟻鼠咬，兵火損失，各安天命，不得爭論。三年為期，不贖斷當。”遞給了$N。\n", this_player());
 	pay_player(this_player(), value * 25 / 100 );
 	destruct(ob);
 

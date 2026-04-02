@@ -32,7 +32,7 @@ int do_xiaohui(string arg)
 		return notify_fail("這件事好像和你沒關係吧？\n");
 	if (!present("mi jian",me) )
 		return notify_fail("你身上沒有密件。\n"); 
-	message_vision("$N從懷中掏出一隻火折點燃了密件。\n"+HIR"只聽「轟」的一聲，密件在火中慢慢化爲灰燼。\n"NOR, me);
+	message_vision("$N從懷中掏出一隻火折點燃了密件。\n"+HIR"只聽「轟」的一聲，密件在火中慢慢化為灰燼。\n"NOR, me);
 	count=me->query_temp("guojx_mis_tcount");
 	if (count<2) count=2;	
 	base_exp=300;

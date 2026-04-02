@@ -56,7 +56,7 @@ void greeting(object ob)
 	if( (myfam["master_id"] == "yideng dashi") &&
 		! environment(this_object())->query("exits/out"))
 	{
-message_vision(HIY"小沙彌對$N說：“你回來了。去見師父吧。”說着打開後門。\n"NOR, ob);
+message_vision(HIY"小沙彌對$N説：“你回來了。去見師父吧。”説着打開後門。\n"NOR, ob);
 		environment(this_object())->set("exits/out","/d/heizhao/zhulin1");
 	}
 	return;

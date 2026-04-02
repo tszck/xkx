@@ -10,8 +10,8 @@ int ask_me();
 void create()
 {
 	set_name("古篤誠", ({ "gu ducheng", "gu" }));
-	set("title",  "大理護衛" );
-	set("long", "他是大理國四大護衛之一。\n");
+	set("title",  "大理護衞" );
+	set("long", "他是大理國四大護衞之一。\n");
 	set("gender", "男性");
 	set("age", 40);
 	set("class", "officer");
@@ -65,6 +65,6 @@ void create()
 	carry_object("/kungfu/class/dali/obj/axe")->wield();
 	add_money("silver", 10);
 
-	create_family("大理段家",19,"護衛");
+	create_family("大理段家",19,"護衞");
 }
 #include "/kungfu/class/dali/weishi.h"; 

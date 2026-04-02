@@ -101,7 +101,7 @@ void attempt_apprentice(object ob)
 				(int)ob->query("betrayer") > (int)ob->query("K_betrayer"))
 			{
 				command("heng");
-				command("say 象你這樣不守門規，三心二意。我怎能再收你爲徒。");
+				command("say 象你這樣不守門規，三心二意。我怎能再收你為徒。");
 				return;
 			}
 			if ((int)ob->query("per") < 22 )
@@ -116,7 +116,7 @@ void attempt_apprentice(object ob)
 				command("say 不過尚大有潛力，還是先回去磨練磨練。");
 				return ;
 			}
-			command("say" + ob->query("name") + "看你這麼可憐，勉爲其難收下你吧。\n");
+			command("say" + ob->query("name") + "看你這麼可憐，勉為其難收下你吧。\n");
 			command("recruit " + ob->query("id"));
 			ob->delete_temp("marks/宋夫人");
 		} 

@@ -92,7 +92,7 @@ int shengle(object me)
 		me->set_temp("is_bearing",1);
 		me->start(100);
 		obj->start(100);
-		message_vision(HIY "\n$N忽覺腹中一陣顫動，趕緊拉住$n的手，柔聲說道：要生了! \n" NOR, me,obj);
+		message_vision(HIY "\n$N忽覺腹中一陣顫動，趕緊拉住$n的手，柔聲説道：要生了! \n" NOR, me,obj);
 		call_out("birth1",15,me,obj);
 	 }
    me->clear_condition("huaiyun");

@@ -93,19 +93,19 @@ int ask_bijian()
 	}
 	if(query("bihua") < 0)
 	{
-		message_vision("$N躬身說道：“晚輩今日有幸拜見任老前輩，還望多加指教。”\n$n冷笑道：“江南四狗怎麼不敢進來見我？！”\n", me, ob );
+		message_vision("$N躬身説道：“晚輩今日有幸拜見任老前輩，還望多加指教。”\n$n冷笑道：“江南四狗怎麼不敢進來見我？！”\n", me, ob );
 		return 1;
 	}
 	add("bihua", -1);
-	message_vision("$N躬身說道：“晚輩今日有幸拜見任老前輩，還望多加指教。”\n$n笑道：“不用客氣，你來解我寂寞，可多謝你啦。”\n", me, ob );
-	message_vision("$N道：“不敢。”\n$n點了點頭，說道：“我只想瞧瞧你的劍法，並非真的過招，再說，我也未必能勝得了你。”\n\n", me, ob);
+	message_vision("$N躬身説道：“晚輩今日有幸拜見任老前輩，還望多加指教。”\n$n笑道：“不用客氣，你來解我寂寞，可多謝你啦。”\n", me, ob );
+	message_vision("$N道：“不敢。”\n$n點了點頭，説道：“我只想瞧瞧你的劍法，並非真的過招，再説，我也未必能勝得了你。”\n\n", me, ob);
         command("xkx 老子劍法天下第一，找我比劍？找死!");
 	command("enable sword damo-jian");
 	say(HIR"任我行大喝一聲：“少林劍法！”"NOR);
 	COMBAT_D->do_attack(ob, me, query_temp("weapon"));
 	if( (int)me->query("qi") < 0 || !present(me, environment()))
 	{
-		say("任我行嘆了口氣，說道：“才一招。”\n");
+		say("任我行嘆了口氣，説道：“才一招。”\n");
 		return 1;
 	}
 	command("enable sword taiji-jian");
@@ -113,7 +113,7 @@ int ask_bijian()
 	COMBAT_D->do_attack(ob, me, query_temp("weapon"));
 	if( (int)me->query("qi") < 0 || !present(me, environment()))
 	{
-		say("任我行嘆了口氣，說道：“才兩招。”\n");
+		say("任我行嘆了口氣，説道：“才兩招。”\n");
 		return 1;
 	}
 	command("enable sword huifeng-jian");
@@ -121,7 +121,7 @@ int ask_bijian()
 	COMBAT_D->do_attack(ob, me, query_temp("weapon"));
 	if( (int)me->query("qi") < 0 || !present(me, environment()))
 	{
-		say("任我行嘆了口氣，說道：“才三招。”\n");
+		say("任我行嘆了口氣，説道：“才三招。”\n");
 		return 1;
 	}
 	command("enable sword songshan-sword");
@@ -129,7 +129,7 @@ int ask_bijian()
 	COMBAT_D->do_attack(ob, me, query_temp("weapon"));
 	if( (int)me->query("qi") < 0 || !present(me, environment()))
 	{
-		say("任我行嘆了口氣，說道：“才四招。”\n");
+		say("任我行嘆了口氣，説道：“才四招。”\n");
 		return 1;
 	}
 	command("enable sword taishan-sword");
@@ -137,7 +137,7 @@ int ask_bijian()
 	COMBAT_D->do_attack(ob, me, query_temp("weapon"));
 	if( (int)me->query("qi") < 0 || !present(me, environment()))
 	{
-		say("任我行嘆了口氣，說道：“才五招。”\n");
+		say("任我行嘆了口氣，説道：“才五招。”\n");
 		return 1;
 	}
 	command("enable sword huashan-sword");
@@ -145,7 +145,7 @@ int ask_bijian()
 	COMBAT_D->do_attack(ob, me, query_temp("weapon"));
 	if( (int)me->query("qi") < 0 || !present(me, environment()))
 	{
-		say("任我行嘆了口氣，說道：“才六招。”\n");
+		say("任我行嘆了口氣，説道：“才六招。”\n");
 		return 1;
 	}
 	command("enable sword hengshan-sword");
@@ -153,7 +153,7 @@ int ask_bijian()
 	COMBAT_D->do_attack(ob, me, query_temp("weapon"));
 	if( (int)me->query("qi") < 0 || !present(me, environment()))
 	{
-		say("任我行嘆了口氣，說道：“才七招。”\n");
+		say("任我行嘆了口氣，説道：“才七招。”\n");
 		return 1;
 	}
 	command("enable sword hengshan-jian");
@@ -161,14 +161,14 @@ int ask_bijian()
 	COMBAT_D->do_attack(ob, me, query_temp("weapon"));
 	if( (int)me->query("qi") < 0 || !present(me, environment()))
 	{
-		say("任我行嘆了口氣，說道：“還是沒過八招。”\n");
+		say("任我行嘆了口氣，説道：“還是沒過八招。”\n");
 		return 1;
 	}
 
 	obj = new("/d/heimuya/obj/heimu-ling");
 	obj -> move(me);
 	me -> set_temp("renwoxing/bijian", 1);
-	say("任我行說道：“這位" + RANK_D->query_respect(me)+"不錯，我就送你一塊黑木令吧。”\n");
+	say("任我行説道：“這位" + RANK_D->query_respect(me)+"不錯，我就送你一塊黑木令吧。”\n");
 	return 1;
 }
 
@@ -204,11 +204,11 @@ void attempt_apprentice(object ob)
 		{
 			message_vision(
 "$N拍着胸膛道：“任老先生，你一世英雄了得，何苦在這地牢之中和腐
-土同朽？只須你答允收我爲徒，在下言出如山，自當助你脫困。我想老
+土同朽？只須你答允收我為徒，在下言出如山，自當助你脫困。我想老
 先生經過一番比劍，當年的豪情勝概，不免在心中又活了起來罷？外邊
 天地多麼廣闊，你老爺子出得黑牢，普天下的男女老幼，你要殺哪一個
 便殺哪一個，無人敢與老爺子違抗，豈不痛快之極？”\n", ob);
-			command("say 哼，我纔不上你的當呢。");
+			command("say 哼，我才不上你的當呢。");
 		}
 	}
 	else

@@ -12,7 +12,7 @@ int main(object me, string arg)
 	if( !ob ) return 0;
 	while( ob && ob->is_character() ) ob = ob->query_temp("link_ob");
 
-	write("爲了安全起見，請先輸入您原來的密碼：");
+	write("為了安全起見，請先輸入您原來的密碼：");
 	input_to("get_old_pass", 1, ob);
 	return 1;
 }

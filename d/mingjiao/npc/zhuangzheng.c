@@ -51,7 +51,7 @@ void create()
 	prepare_skill("cuff", "jingang-quan");
 
 	set("party/party_name",HIG"明教"NOR);
-	set("party/rank",HIW "銳金旗" NOR "掌旗使");
+	set("party/rank",HIW "鋭金旗" NOR "掌旗使");
 	create_family("明教", 35, "弟子");
 
 	setup();

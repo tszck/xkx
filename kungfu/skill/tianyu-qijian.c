@@ -123,7 +123,7 @@ int help(object me)
 	write(HIC"\n天羽奇劍："NOR"\n");
 	write(@HELP
 
-    天羽奇劍爲天山靈鷲宮劍法。
+    天羽奇劍為天山靈鷲宮劍法。
 
 	學習要求：
 		八荒六合惟我獨尊功20級

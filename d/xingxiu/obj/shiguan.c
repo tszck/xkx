@@ -80,7 +80,7 @@ int do_liandu()
 		return notify_fail("煉毒時需要雙手的配合，所以你最好還是不要拿武器。\n");
 
 	write(BLU"你開始凝神運氣，將化功大法功力滿布全身。\n"NOR);
-	tell_room(environment(me), BLU+me->name()+"臉色忽然變爲紫青，雙目閃爍出陰陰的藍光。\n"NOR, ({ me }));
+	tell_room(environment(me), BLU+me->name()+"臉色忽然變為紫青，雙目閃爍出陰陰的藍光。\n"NOR, ({ me }));
 	
 	neili_lost = (int)me->query_skill("force")/10 + me->query_skill("poison")/4;
 	times = (int)me->query("neili")/(int)neili_lost;

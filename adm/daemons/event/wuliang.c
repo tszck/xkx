@@ -46,7 +46,7 @@ private void do_bonus(object room)
                                	obs[i]->set_skill("dodge", lvl + 1);
                           
                 }
-                message("channel:rumor", HIM"【謠言】"+"聽說大理無量山又出仙人劍舞，仙影玄奇，令人匪夷所思。\n"NOR, users());        
+                message("channel:rumor", HIM"【謠言】"+"聽説大理無量山又出仙人劍舞，仙影玄奇，令人匪夷所思。\n"NOR, users());        
         } else
         if (r < 60)        
         {	

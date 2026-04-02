@@ -12,8 +12,8 @@ string ask_cancle();
 void create()
 {
 	set_name("朱丹臣", ({ "zhu danchen", "zhu" }));
-	set("title",  "大理護衛" );
-	set("long", "他是大理國四大護衛之一。一副書生酸溜溜的打扮行頭。\n");
+	set("title",  "大理護衞" );
+	set("long", "他是大理國四大護衞之一。一副書生酸溜溜的打扮行頭。\n");
 	set("gender", "男性");
 	set("age", 40);
 	set("class", "officer");
@@ -70,7 +70,7 @@ void create()
 	carry_object("/clone/weapon/changjian")->wield();
 	add_money("silver", 10);
 
-	create_family("大理段家",19,"護衛");
+	create_family("大理段家",19,"護衞");
 }
 void init()
 {
@@ -270,7 +270,7 @@ string ask_job()
 	call_out("new_give_job",420,me);
 	if (!wizardp(ob)) ob->delete_temp("dali_xc");
 	ob->apply_condition("dali_xuncheng",random(6)+15);
-	return "好吧，最近大理城內治安混亂，你就在代我四處查看一下，巡城時應當留心體察民情，爲民除害！";
+	return "好吧，最近大理城內治安混亂，你就在代我四處查看一下，巡城時應當留心體察民情，為民除害！";
 }
 
 string ask_cancle()
@@ -345,7 +345,7 @@ int do_task(string arg)
 	if(arg=="ok")
 	{
 		command("pat "+ob->query("id"));
-		command("say 哈哈，真難爲你了，"+RANK_D->query_respect(ob)+"，你做得好！");
+		command("say 哈哈，真難為你了，"+RANK_D->query_respect(ob)+"，你做得好！");
 
                 num=(int)ob->query("perform/number")+1;
                 if (num<4) times=num;
@@ -375,11 +375,11 @@ int do_task(string arg)
 		t = HIW" 你被獎勵了：\n" + 
 			chinese_number(exp) + "點實戰經驗\n" +
 			chinese_number(pot) + "點潛能\n"+
-			chinese_number(score)+"點江湖閱歷\n";
+			chinese_number(score)+"點江湖閲歷\n";
 		if (ob->query("family/family_name")==this_object()->query("family/family_name"))
 		t += chinese_number(s_bonus)+"點忠誠度\n";
 		t += chinese_number(sil)+"兩白銀\n"+
-			"你爲鎮南王府做了"+ob->query("dali_job")+"次工作。\n"NOR;
+			"你為鎮南王府做了"+ob->query("dali_job")+"次工作。\n"NOR;
 		tell_object(ob,t);
 		return 1;
 	}
@@ -394,7 +394,7 @@ int new_give_job()
                 for(i=0; i<sizeof(ob_list); i++) 
 		if(environment(ob_list[i]))
 		{
-			message_vision("$N說道：大爺還有事要忙，沒空陪你啦！\n",ob_list[i]);
+			message_vision("$N説道：大爺還有事要忙，沒空陪你啦！\n",ob_list[i]);
 			destruct(ob_list[i]);
                 }
    	this_object()->delete("xuncheng_star", 1);

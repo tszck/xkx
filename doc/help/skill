@@ -4,8 +4,8 @@
     武技是玩家在遊戲中所能學到的武功和技能。
 
     武功分空手拳腳和兵器。
-    一般來說，長兵器武功攻擊範圍大，敵手不容易閃避，卻容易招架；而
-短兵器的功夫靈巧近身，敵手不易招架到，多選擇閃避。兵器有鋒銳與否以
+    一般來説，長兵器武功攻擊範圍大，敵手不容易閃避，卻容易招架；而
+短兵器的功夫靈巧近身，敵手不易招架到，多選擇閃避。兵器有鋒鋭與否以
 及沉重與否的分別，這也影響到對敵手的傷害程度以及敵手所採取的剋制招
 數的選擇。
 
@@ -22,7 +22,7 @@
     技能是除了武功以外，你在俠客行一百里還可以學到的其他東西。在這
 裏，武功的學習是受你的經驗限制的。但是技能不受經驗限制，限制技能學
 習的，主要是你的天賦、門派限制以及相互衝突的其他技能的限制。這些技
-能中，對每個玩家來說，讀書寫字(literate)是必須學的。
+能中，對每個玩家來説，讀書寫字(literate)是必須學的。
 
         〖combine   〗  武功互備列表
         〖knowledge 〗  技能詳解列表
@@ -30,8 +30,8 @@
         〖neigong   〗  內功功用
 
                              技能列表
-基本陣法   array        鍼灸之術   acupuncture  叫化絕活   begging
-禪宗心法   buddhism     道聽途說   checking     城字十八破 chengzi18po
+基本陣法   array        針灸之術   acupuncture  叫化絕活   begging
+禪宗心法   buddhism     道聽途説   checking     城字十八破 chengzi18po
 土木機關   construction 烹飪手藝   cookery      陰陽八卦   count
 掘地術     digging      梨園舊藝   dramaturgy   五毒毒技   five-poison
 基本賭技   gambling     紋枰手談   goplaying    園藝蒔花   horticulture
@@ -170,8 +170,8 @@
 神龍八式     神龍   shenlong-bashi    蛇行刁手     白駝   shexing-diaoshou
 鎖喉擒拿手   丐幫   suohou-hand       天山折梅手   逍遙   zhemei-shou
 
-                              鉤法(hook)
-如意鉤法     神龍   ruyi-hook         五毒鉤法     五毒   wudu-goufa
+                              鈎法(hook)
+如意鈎法     神龍   ruyi-hook         五毒鈎法     五毒   wudu-goufa
 
                               腿法(leg)
 穿雲腿法     崑崙   chuanyun-leg      絕命腿       神龍   jueming-leg

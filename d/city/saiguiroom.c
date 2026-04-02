@@ -145,7 +145,7 @@ void gamble_prepare()
 		bl_gui->set("name","不老龜");
 		bl_gui->move(room);
 	}
-	tell_room(room,"青鬏龜童說：請各位大人賞押，一贏三。\n");
+	tell_room(room,"青鬏龜童説：請各位大人賞押，一贏三。\n");
 	room_status = 1;
 	call_out("gamble_start",20);
 }
@@ -153,7 +153,7 @@ void gamble_prepare()
 void gamble_start()
 {
 	object room = this_object();
-	tell_room(room,"青鬏龜童說：各位大人停押。\n");
+	tell_room(room,"青鬏龜童説：各位大人停押。\n");
 	tell_room(room,"然後用兔毛撣將三隻賽龜推入龜臺內。\n");
 	room_status = 2;
 	res[0] = 0;
@@ -325,7 +325,7 @@ int do_bian(string arg)
 	if (ob == cs_gui || ob == qn_gui || ob == bl_gui)
 	{
 		message_vision("$N擠到龜中間想把自己變成龜。\n",who);
-		message_vision("青鬏龜童對$N說道：大人，俗話說好漢不和龜賽。\n",who);
+		message_vision("青鬏龜童對$N説道：大人，俗話説好漢不和龜賽。\n",who);
 		return 1;
 	}
 	return 0;
@@ -343,7 +343,7 @@ int do_fight(string arg)
 	if (ob == cs_gui || ob == qn_gui || ob == bl_gui)
 	{
 		message_vision("$N要與龜比武。\n",who);
-		message_vision("青鬏龜童對$N說道：大人，俗話說好漢不和龜鬥。\n",who);
+		message_vision("青鬏龜童對$N説道：大人，俗話説好漢不和龜鬥。\n",who);
 		return 1;
 	}
 	return 0;
@@ -355,7 +355,7 @@ int do_steal(string arg)
  
 
 	message_vision("$N想偷龜。\n",who);
-	message_vision("青鬏龜童對$N說道：大人竊龜也不羞臉。\n",who);
+	message_vision("青鬏龜童對$N説道：大人竊龜也不羞臉。\n",who);
 	return 1;
 }
 
@@ -371,7 +371,7 @@ int do_kill(string arg)
 	if (ob == cs_gui || ob == qn_gui || ob == bl_gui)
 	{
 		message_vision("$N想殺死龜。\n",who);
-		message_vision("青鬏龜童對$N說道：大人切莫殺生。\n",who);
+		message_vision("青鬏龜童對$N説道：大人切莫殺生。\n",who);
 		return 1;
 	}
 	return 0;
@@ -383,7 +383,7 @@ int do_exert(string arg)
  
 
 	message_vision("$N想借龜施功。\n",who);
-	message_vision("青鬏龜童對$N說道：大人在這裏練功會損了您的龜壽。\n",who);
+	message_vision("青鬏龜童對$N説道：大人在這裏練功會損了您的龜壽。\n",who);
 	return 1;
 }
 
@@ -393,6 +393,6 @@ int do_perform(string arg)
  
 
 	message_vision("$N想借龜施功。\n",who);
-	message_vision("青鬏龜童對$N說道：大人在這裏練功會損了您的龜壽。\n",who);
+	message_vision("青鬏龜童對$N説道：大人在這裏練功會損了您的龜壽。\n",who);
 	return 1;
 }

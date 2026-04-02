@@ -30,7 +30,7 @@ int exert(object me, object target)
 		return notify_fail("你已經受傷過重，只怕一運真氣便有生命危險！\n");
 
 	if ((int)me->query_skill("xiantian-qigong", 1) < 80)
-		return notify_fail("你的先天氣功修爲還不夠。\n");
+		return notify_fail("你的先天氣功修為還不夠。\n");
 
 	message("vision", 
 	HIY+me->name()+"盤膝坐下，緩引真氣，運功逼毒。只見一團"HIW"白霧"HIY"漸漸籠住"+me->name()+"的面目。\n良久，一滴"HIM"紫血"HIY"從"+me->name()+"的右手小指尖緩緩滴了下來。\n" NOR,

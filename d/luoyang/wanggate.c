@@ -27,6 +27,6 @@ LONG);
 int valid_leave(object me, string dir)
 {
         if ( objectp(present("zhuang han", environment(me))) && dir == "enter")
-           return notify_fail("壯漢攔住你說：你來洛陽金刀門撒野？快出去！\n");
+           return notify_fail("壯漢攔住你説：你來洛陽金刀門撒野？快出去！\n");
         return ::valid_leave(me, dir);
 }

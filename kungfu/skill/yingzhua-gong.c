@@ -110,7 +110,7 @@ int help(object me)
 	write(HIC"\n鷹爪功："NOR"\n");
 	write(@HELP
 
-    鷹爪功爲少林七十二絕技之一。
+    鷹爪功為少林七十二絕技之一。
     可與風雲手互備。
 
 	學習要求：

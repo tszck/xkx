@@ -19,7 +19,7 @@ string *order = ({""HIY"", ""HIG"", ""RED"", ""MAG"", ""YEL"", ""HIC"", ""HIW"",
 
 string *parry_msg = ({
 	"卻見$n踏前一步，劍式斜指你的右臂，想要使$P閃身而退。\n",
-	"$n以攻爲守，以進爲退，凝神運氣向$P猛攻快打地揮出方位大異的泰山"+(order[random(13)])+"「快活三」"NOR"三劍。\n",
+	"$n以攻為守，以進為退，凝神運氣向$P猛攻快打地揮出方位大異的泰山"+(order[random(13)])+"「快活三」"NOR"三劍。\n",
 	"$n劍法突變，劍勢伸縮不定，奔騰矯夭，逆使嵩山劍法的"+(order[random(13)])+"「天外玉龍」"NOR"企圖迫使$P變招。\n",
 	"$n突然一劍點向$P的$l，雖一劍卻暗藏無數後着，$P手足無措，攻勢不由自主停了下來！\n",
 	"$n不閃不避，舉劍閃電般使出"+(order[random(13)])+"「疊翠浮青」"NOR"反削$P的$l，想擋過你此招。\n",
@@ -46,7 +46,7 @@ mapping *action = ({
 	"lvl" : 20,
 	"skill_name" : "玉女十九劍"
 ]),
-([	"action" : "$N劍勢忽緩而不疏，劍意有餘而不盡，化恆山劍法爲一劍，向$n慢慢
+([	"action" : "$N劍勢忽緩而不疏，劍意有餘而不盡，化恆山劍法為一劍，向$n慢慢
 推去！",
 	"lvl" : 30,
 	"skill_name" : "恆山劍法"
@@ -60,7 +60,7 @@ $l！",
 	"lvl" : 50,
 	"skill_name" : "獨劈華山"
 ]),
-([	"action" : "$N含笑抱劍，氣勢莊嚴，$w輕揮，盡融"+(order[random(13)])+"「達摩劍」"NOR"爲一式，閒舒地刺
+([	"action" : "$N含笑抱劍，氣勢莊嚴，$w輕揮，盡融"+(order[random(13)])+"「達摩劍」"NOR"為一式，閒舒地刺
 向$n！",
 	"lvl" : 60,
 	"skill_name" : "達摩劍"
@@ -116,7 +116,7 @@ $l！",
 	"skill_name" : "莫明其妙"
 ]),
 ([	"action" : "卻見$N身隨劍走，左邊一拐，右邊一彎，劍招也是越轉越加狠辣，竟
-化"+(order[random(13)])+"「泰山十八盤」"NOR"爲一劍攻向$n！",
+化"+(order[random(13)])+"「泰山十八盤」"NOR"為一劍攻向$n！",
 	"lvl" : 160,
 	"post_action" : (: action_damage :),
 	"skill_name" : "泰山十八盤"
@@ -134,7 +134,7 @@ $l！",
 	"skill_name" : "突現笑容"
 ]),
 ([	"action" : "$N手中$w越轉越快，使的居然是衡山的"+(order[random(13)])+"「百變千幻雲霧十三式」"NOR"，劍
-式有如雲卷霧湧，旁觀者不由得目爲之眩！",
+式有如雲卷霧湧，旁觀者不由得目為之眩！",
 	"lvl" : 190,
 	"post_action" : (: action_dodge :),
 	"skill_name" : "百變千幻雲霧十三式"
@@ -297,7 +297,7 @@ int action_damage(object me, object victim, object weapon, int damage)
 
 int action_po(object me, object victim, object weapon, int damage)
 {
-	// 破對方武功、內功  爲終極效果
+	// 破對方武功、內功  為終極效果
 	      int skill= me->query_skill("lonely-sword", 1);
         string v_force = victim->query_skill_mapped("force");
         int jiali;
@@ -327,7 +327,7 @@ int action_po(object me, object victim, object weapon, int damage)
             else
                victim->set("neili",0);
           message_combatd(HIC "\n$N一劍得手，劍招源源而出，欲將$n團團困住！\n",me,victim);
-          message_combatd(HIM "$n急運內力，使出渾身解數，方纔脫出劍圈！\n"NOR , me, victim);
+          message_combatd(HIM "$n急運內力，使出渾身解數，方才脫出劍圈！\n"NOR , me, victim);
           return 1;
           }        
 	      }
@@ -550,7 +550,7 @@ int help(object me)
 功夫盡數包括內在。第八招“破箭式”這個“箭”字，則總羅諸般
 暗器，練這一劍時，須得先學聽風辨器之術，不但要能以一柄長劍
 擊開敵人發射來的種種暗器，還須借力反打，以敵人射來的暗器反
-射傷敵。第九劍“破氣式”，是爲對付身具上乘內功的敵人而用，
+射傷敵。第九劍“破氣式”，是為對付身具上乘內功的敵人而用，
 神而明之，存乎一心。
 
 	學習要求：

@@ -17,7 +17,7 @@ void create()
 	set_weight(30000);
 	set("long", "這是一張椅子。\n" );
 	set("no_sell", "這樣東西不能隨便買賣");
-	set("no_get","公子說了,躺椅是公家的財產,任何人都不能拿走");
+	set("no_get","公子説了,躺椅是公家的財產,任何人都不能拿走");
 	if( clonep() )
 		set_default_object(__FILE__);
 	else

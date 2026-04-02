@@ -77,8 +77,8 @@ void create()
 		"rumors"  : "我被那個臭東邪關在這裏十幾年，每天就是一個啞僕來送飯。",
 		"東邪"    : "是黃藥師這個無恥的傢伙，騙了我的九....去看。",
 		"黃藥師"  : "這個無恥的傢伙，騙了我的九....去看。",
-		"中神通"  :"我的師兄是天下武功最高的，第一次華山論劍時公推爲第一高手。",
-		"王重陽"  :"我的師兄是天下武功最高的，第一次華山論劍時公推爲第一高手。",
+		"中神通"  :"我的師兄是天下武功最高的，第一次華山論劍時公推為第一高手。",
+		"王重陽"  :"我的師兄是天下武功最高的，第一次華山論劍時公推為第一高手。",
 		"周伯通"  : "找我有什麼事嗎？",
 		"瑛姑"    : "四張機，鴛鴦織就欲雙飛....",
 		"劉瑛"    : "四張機，鴛鴦織就欲雙飛....",
@@ -129,7 +129,7 @@ void init()
 	if (ob->query("family/family_name") == "全真教")
 	{
 		command("angry " + ob->query("id"));
-		command("say 怎麼你到今天才來找我？！明天我就去和處機說讓他打你屁股。");
+		command("say 怎麼你到今天才來找我？！明天我就去和處機説讓他打你屁股。");
 	}
 }
 
@@ -195,16 +195,16 @@ int ask_jieyi()
 	command("nod " + ob->query("id"));
 	if (ob->query("gender") == "男性")
 	{
-		command("say 好吧，你我就結拜爲兄弟吧。");
+		command("say 好吧，你我就結拜為兄弟吧。");
 	}
 	else if (ob->query("gender") == "女性")
 		{
 		if (ob->query("age") > 48) 
-			command("say 好吧，你我就結拜爲姐弟吧。");
+			command("say 好吧，你我就結拜為姐弟吧。");
 		else
-			command("say 好吧，你我就結拜爲兄妹吧。");
+			command("say 好吧，你我就結拜為兄妹吧。");
 		}
-	message_vision("周伯通與$N並肩而跪，朗聲說道：“老頑童周伯通，今日與" + ob->name()+"義結金蘭，日後有福共享，有難共當。若是違此盟誓，教我武功全失，連小狗小貓也打不過。”\n", ob);
+	message_vision("周伯通與$N並肩而跪，朗聲説道：“老頑童周伯通，今日與" + ob->name()+"義結金蘭，日後有福共享，有難共當。若是違此盟誓，教我武功全失，連小狗小貓也打不過。”\n", ob);
 	ob->set("zhou/jieyi", 1);
 	return 1;
 }
@@ -245,10 +245,10 @@ int ask_hubo()
 		ob->query("max_neili") < 500 ||
 		ob->query("combat_exp") < 10000)
 	{
-		command("say 你還是先打好武學基礎再說吧。");
+		command("say 你還是先打好武學基礎再説吧。");
 		return 1;
 	}
-	command("say 這門功夫是我在洞中無聊之時想出來的玩意兒，說難是難到極處，說容易也容易之至。有的人一學便會，有的人一輩子也學不了，越是聰明，越是不成。");
+	command("say 這門功夫是我在洞中無聊之時想出來的玩意兒，説難是難到極處，説容易也容易之至。有的人一學便會，有的人一輩子也學不了，越是聰明，越是不成。");
 	command("say 你先練練這第一課：左手畫方(fang)，右手畫圓(yuan)。");
 	ob->set_temp("zuoyou_hubo", 1);
 	return 1;
@@ -287,7 +287,7 @@ int do_fangyuan()
 			ob->delete_temp("zuoyou_hubo");
 			if (ob->query_skill("force") < 100 ||
 				ob->query("max_neili") < 500)
-				message_vision("可惜$N因爲內功修爲有限，終於還是沒能理解。\n", ob);
+				message_vision("可惜$N因為內功修為有限，終於還是沒能理解。\n", ob);
 			else
 			ob->set("double_attack", 1);;
 			return 1;
@@ -334,7 +334,7 @@ int do_learn(string arg)
 	}
 	if( !living(ob) )
 	{
-		write("嗯....你得先把" + ob->name() + "弄醒再說。\n");
+		write("嗯....你得先把" + ob->name() + "弄醒再説。\n");
 		return 1;
 	}
 	if( !me->query("zhou/jieyi"))
@@ -384,7 +384,7 @@ int do_learn(string arg)
 	{
 		if(skill == "kongming-quan")
 		{
-			write( "周伯通念道：老子《道德經》裏有句話道：“埏植以爲器，當其無，有器之用。鑿戶牖以爲室，當其無，有室之用。”\n");
+			write( "周伯通念道：老子《道德經》裏有句話道：“埏植以為器，當其無，有器之用。鑿戶牖以為室，當其無，有室之用。”\n");
 			write("周伯通吟口訣道：大成若缺，其用不弊，大盈若衝，其用不窮。\n");
 		}
 		else
@@ -458,9 +458,9 @@ string ask_skill1()
 	                              "free"		: 1, 						//free=1不需要同一門派
   	                            "shen"		: 50000,					//需要的shen
 	                            "msg1"		: HIY "$N" HIY "抓了抓頭，滿不情願的嘀咕了兩句，這"
-                     "才說道：“小子，我把口訣說給你聽，然後你就自己下去"
-                     "練，別再來煩我了。”說完便一把將$n" HIY "楸到身邊"
-                     "，在$n" HIY "耳旁唧唧咕咕說了半天。" NOR,
+                     "才説道：“小子，我把口訣説給你聽，然後你就自己下去"
+                     "練，別再來煩我了。”説完便一把將$n" HIY "楸到身邊"
+                     "，在$n" HIY "耳旁唧唧咕咕説了半天。" NOR,
 	                            "msg2"		: "好了，好了，你快走吧。",
 										
 																]));

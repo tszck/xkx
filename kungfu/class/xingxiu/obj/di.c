@@ -54,14 +54,14 @@ int set_task(string arg)
 	if(!(where)->query("outdoors")) 
 		return notify_fail("你在屋裏吹笛子，笛聲怎麼可能傳得遠呢？\n");
 	if(me->query_condition("gb_songxin") )
-		return notify_fail("老仙最討厭臭叫化子，先扔掉你的丐幫幫務再說！\n");
+		return notify_fail("老仙最討厭臭叫化子，先扔掉你的丐幫幫務再説！\n");
 	if(me->query_temp("xx/id")) 
 		return notify_fail("你現在正在執行任務中。\n");  
 	if(me->query_condition("job_busy")) 
 		return notify_fail("你剛要完任務，先等等吧。\n");           
 	if(me->query_condition("wait_xx_task")) 
 		return notify_fail("上次搞砸了，這次你就等等吧。\n");      
-	tell_room(environment(me), HIY+me->name()+"拿起一隻"+this_object()->query("name")+HIY"放到口邊，輕輕一吹，發出一股塵銳的哨聲。本來笛聲清揚激越，\n但這根玉笛中發出來的聲音卻十分淒厲，全非樂調。\n"NOR, ({ me }));
+	tell_room(environment(me), HIY+me->name()+"拿起一隻"+this_object()->query("name")+HIY"放到口邊，輕輕一吹，發出一股塵鋭的哨聲。本來笛聲清揚激越，\n但這根玉笛中發出來的聲音卻十分淒厲，全非樂調。\n"NOR, ({ me }));
 	tell_object(me,HIY"你拿起"+this_object()->query("name")+HIY"放到口邊，輕輕吹了起來。\n"NOR);
 	if((where)->query("outdoors") != "xingxiu" &&
 		(where)->query("outdoors") != "xiyu")

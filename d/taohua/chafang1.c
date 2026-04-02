@@ -13,7 +13,7 @@ void create()
 	set("long", @LONG
 這是桃花島弟子們喝茶休息的地方，滿屋的茶香，沁人心脾。屋裏
 擺着幾張桌子(table)和椅子(chair)，坐着幾個正在喝茶聊天的男女弟
-子。屋中有幾個啞僕正在忙着爲大家上茶。
+子。屋中有幾個啞僕正在忙着為大家上茶。
 LONG
 	);
 
@@ -77,7 +77,7 @@ int do_sit(string arg)
 	message_vision("$N找了個空位座下，等着上茶。\n", me);	
 	if( me->query_temp("marks/tea_served") ) {
 		message_vision("啞僕走過來對$N打手勢，表示喝飽了的就別再喝了。\n", me);
-		message_vision("$N發覺衆人的眼光都在盯着自己，忙站起身來，尷尬地說：我只是試試這椅子結實不結實。\n", me);
+		message_vision("$N發覺眾人的眼光都在盯着自己，忙站起身來，尷尬地説：我只是試試這椅子結實不結實。\n", me);
 		return notify_fail("");
 	}
 	me->set_temp("marks/sit", 1);

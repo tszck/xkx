@@ -177,7 +177,7 @@ void juedou()
   ob = new("/clone/haojie/zhanshu.c");
   ob->move(lead);
   message_vision(HIY"一張戰書飄到了$N的面前。\n"NOR,lead);
-  message("channel:snow",HIM"【謠言】"+"聽說"+lead->name()+HIM"得到了一張七殺門首領天殺星的挑戰書。\n"NOR, users());
+  message("channel:snow",HIM"【謠言】"+"聽説"+lead->name()+HIM"得到了一張七殺門首領天殺星的挑戰書。\n"NOR, users());
   exp = lead->query("combat_exp");
   skill = lead->query_skill("parry",1);
   ob = new("/clone/haojie/tianshaxing.c");
@@ -210,7 +210,7 @@ void verdict_time()
   else 
    limit=2400;
 
-//設置浩劫的期限爲30分鐘(1800秒)
+//設置浩劫的期限為30分鐘(1800秒)
   if( (time()-hj_startT) < limit )
   {
     sum += query_children("/clone/haojie/pker9.c");
@@ -267,63 +267,63 @@ void verdict_time()
   for(i=0; i<sizeof(ob_list); i++) 
     if(environment(ob_list[i]))
     {
-      message_vision("$N說道：哈哈，弟兄們，撤！\n",ob_list[i]);
+      message_vision("$N説道：哈哈，弟兄們，撤！\n",ob_list[i]);
       destruct(ob_list[i]);
     }
   ob_list = children("/clone/haojie/pker2");
   for(i=0; i<sizeof(ob_list); i++) 
     if(environment(ob_list[i]))
     {
-      message_vision("$N說道：哈哈，弟兄們，撤！\n",ob_list[i]);
+      message_vision("$N説道：哈哈，弟兄們，撤！\n",ob_list[i]);
       destruct(ob_list[i]);
      }     
   ob_list = children("/clone/haojie/pker3");
   for(i=0; i<sizeof(ob_list); i++) 
     if(environment(ob_list[i]))
     {
-      message_vision("$N說道：哈哈，弟兄們，撤！\n",ob_list[i]);
+      message_vision("$N説道：哈哈，弟兄們，撤！\n",ob_list[i]);
       destruct(ob_list[i]);
     }
   ob_list = children("/clone/haojie/pker4");
   for(i=0; i<sizeof(ob_list); i++) 
     if(environment(ob_list[i]))
     {
-      message_vision("$N說道：哈哈，弟兄們，撤！\n",ob_list[i]);
+      message_vision("$N説道：哈哈，弟兄們，撤！\n",ob_list[i]);
       destruct(ob_list[i]);
     }  
    ob_list = children("/clone/haojie/pker5");
    for(i=0; i<sizeof(ob_list); i++) 
     if(environment(ob_list[i]))
     {
-      message_vision("$N說道：哈哈，弟兄們，撤！\n",ob_list[i]);
+      message_vision("$N説道：哈哈，弟兄們，撤！\n",ob_list[i]);
       destruct(ob_list[i]);
     }    
    ob_list = children("/clone/haojie/pker6");
    for(i=0; i<sizeof(ob_list); i++) 
     if(environment(ob_list[i]))
     {
-      message_vision("$N說道：哈哈，弟兄們，撤！\n",ob_list[i]);
+      message_vision("$N説道：哈哈，弟兄們，撤！\n",ob_list[i]);
       destruct(ob_list[i]);
     } 
    ob_list = children("/clone/haojie/pker7");
    for(i=0; i<sizeof(ob_list); i++) 
     if(environment(ob_list[i]))
     {
-      message_vision("$N說道：哈哈，弟兄們，撤！\n",ob_list[i]);
+      message_vision("$N説道：哈哈，弟兄們，撤！\n",ob_list[i]);
       destruct(ob_list[i]);
     }     
    ob_list = children("/clone/haojie/pker8");
    for(i=0; i<sizeof(ob_list); i++) 
     if(environment(ob_list[i]))
     {
-      message_vision("$N說道：哈哈，弟兄們，撤！\n",ob_list[i]);
+      message_vision("$N説道：哈哈，弟兄們，撤！\n",ob_list[i]);
       destruct(ob_list[i]);
     }  
    ob_list = children("/clone/haojie/pker9");
    for(i=0; i<sizeof(ob_list); i++) 
     if(environment(ob_list[i]))
     {
-      message_vision("$N說道：哈哈，弟兄們，撤！\n",ob_list[i]);
+      message_vision("$N説道：哈哈，弟兄們，撤！\n",ob_list[i]);
       destruct(ob_list[i]);
     }                            
 

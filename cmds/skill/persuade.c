@@ -50,16 +50,16 @@ int main(object me, string arg)
 		return notify_fail("玩家不能勸巫師罷鬥。\n");
 
 	if( me->is_fighting() )
-		return notify_fail("一邊打架一邊勸別人罷鬥？你真是虛僞到家了！\n");
+		return notify_fail("一邊打架一邊勸別人罷鬥？你真是虛偽到家了！\n");
 
 	sp = (int)me->query_skill("persuading",1) + (int)me->query("kar") * 5;
 	if( sp < 1 ) sp = 1;
 	dp = (int)victim->query("jing");
 
 	tell_object(me,"你搖搖了頭，慢慢地向"+victim->name()+"走過去，雙手合十，開始唸誦佛經......\n\n");
-	tell_object(victim, me->name() + "搖搖了頭向你慢慢走過來，雙手合十，說道：我佛慈悲普度渡衆生, 還請" + RANK_D->query_respect(victim) + "罷鬥, 免增罪孽吧 ...！\n\n");
+	tell_object(victim, me->name() + "搖搖了頭向你慢慢走過來，雙手合十，説道：我佛慈悲普度渡眾生, 還請" + RANK_D->query_respect(victim) + "罷鬥, 免增罪孽吧 ...！\n\n");
 
-	message("vision", "只見"+me->name()+"搖搖了頭，慢慢地向"+victim->name()+"走過去，\n出雙手合十，說道：請"+RANK_D->query_respect(victim)+"，停手吧......\n\n", environment(me), ({ me, victim }) );
+	message("vision", "只見"+me->name()+"搖搖了頭，慢慢地向"+victim->name()+"走過去，\n出雙手合十，説道：請"+RANK_D->query_respect(victim)+"，停手吧......\n\n", environment(me), ({ me, victim }) );
 
 	me->set_temp("dushi", 1);
         me->start_busy(random(3)+1);

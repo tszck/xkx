@@ -32,7 +32,7 @@ void create()
 	set_skill("parry", 100);
 
 	set("party/party_name", HIB"日月神教"NOR);
-	set("party/rank", HIW"教衆"NOR);
+	set("party/rank", HIW"教眾"NOR);
 	create_family("黑木崖", 10, "弟子");
 
 	setup();

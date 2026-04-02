@@ -17,13 +17,13 @@ int main(object me, string arg)
 	if( !ob || !ob->is_character() )
 		return notify_fail("你要對誰耳語？\n");
 
-	write( GRN "你在" + ob->name() + "的耳邊悄聲說道：" + msg + "\n" NOR);
+	write( GRN "你在" + ob->name() + "的耳邊悄聲説道：" + msg + "\n" NOR);
 	tell_room( environment(me), me->name() + "在" + ob->name()
-		+ "耳邊小聲地說了些話。\n", ({ me, ob }) );
+		+ "耳邊小聲地説了些話。\n", ({ me, ob }) );
 	if( !userp(ob) ) ob->relay_whisper(me, msg);
 	else
-		tell_object( ob, GRN + me->name() + "在你的耳邊悄聲說道：" + msg + "\n" NOR);
-	message("channel:snp", HIB"【監聽】"+me->query("name")+"在"+ob->query("name")+"的耳邊悄聲說道："+msg+"\n"NOR, users());
+		tell_object( ob, GRN + me->name() + "在你的耳邊悄聲説道：" + msg + "\n" NOR);
+	message("channel:snp", HIB"【監聽】"+me->query("name")+"在"+ob->query("name")+"的耳邊悄聲説道："+msg+"\n"NOR, users());
 	return 1;
 }
 

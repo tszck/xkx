@@ -58,7 +58,7 @@ int perform(object me,object target)
 		return notify_fail("你的內力不夠，無法運功！\n");
 
 	if( me->query("max_neili") < 1000 )
-		return notify_fail("你的內力修爲不夠，無法運功！\n");
+		return notify_fail("你的內力修為不夠，無法運功！\n");
 
 	skill = me->query_skill(bskill,1);
  

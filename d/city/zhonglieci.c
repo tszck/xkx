@@ -1,8 +1,8 @@
 // /d/city/zhonglieci.c  忠烈祠
 //modified by sega 1/10/99
-//修改a_time爲120,並添加newjob的一些信息,以防一些人一直flood
-//修改a_time爲300，一些老玩家建議我們延長這個時間。
-//修改了2次保鏢間隔爲5分鐘
+//修改a_time為120,並添加newjob的一些信息,以防一些人一直flood
+//修改a_time為300，一些老玩家建議我們延長這個時間。
+//修改了2次保鏢間隔為5分鐘
 #include <ansi.h>
 #define A_TIME 300 
 inherit ROOM;

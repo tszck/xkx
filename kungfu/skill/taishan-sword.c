@@ -47,14 +47,14 @@ int valid_learn(object me)
 {
 	object ob;
 	if( (int)me->query("max_neili") < 20 )
-		return notify_fail("你的內力修爲不夠，沒有辦法練泰山劍法。\n");
+		return notify_fail("你的內力修為不夠，沒有辦法練泰山劍法。\n");
 	if( (string)me->query_skill_mapped("force")!= "panshi-shengong")
 		return notify_fail("泰山劍法必須配合磐石神功才能練。\n");
 	if( me->query_skill("panshi-shengong", 1) < 20)
-		return notify_fail("你的磐石神功修爲不夠。\n");
+		return notify_fail("你的磐石神功修為不夠。\n");
 //	if( me->query("family/generation") > 12 &&
 //		me->query_skill("taishan-sword",1) > 150)
-//		return notify_fail("你要修習更高的泰山劍法，必須拜十二代長老爲師。\n");
+//		return notify_fail("你要修習更高的泰山劍法，必須拜十二代長老為師。\n");
 	if( !(ob = me->query_temp("weapon"))
 		|| (string)ob->query("skill_type") != "sword" )
 		return notify_fail("你必須先找一把劍才能練劍法。\n");
@@ -128,11 +128,11 @@ int help(object me)
 	write(HIC"\n泰山劍法："NOR"\n");
 	write(@HELP
 
-    泰山劍法爲泰山本門劍法。
+    泰山劍法為泰山本門劍法。
 
 	學習要求：
 		磐石神功20級
-		內力修爲20
+		內力修為20
 HELP
 	);
 	return 1;

@@ -44,12 +44,12 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 180 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，無法使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 180 )
 		return notify_fail("你的"+to_chinese(sskill)+"還不夠嫺熟，無法使用"+PNAME+"。\n");
 
 	if((int)me->query("max_neili") < 500)
-		return notify_fail(HIY "你的內力修爲還不夠火候。\n" NOR);
+		return notify_fail(HIY "你的內力修為還不夠火候。\n" NOR);
 	if((int)me->query("neili") < 500)
 		return notify_fail(HIY "你現在真氣不足。\n" NOR);
 	skill = me->query_skill(bskill,1);
@@ -100,7 +100,7 @@ int help(object me)
 	出手要求：
 		混天氣功180級
 		打狗棒法180級
-		內力修爲500
+		內力修為500
 		內力500
 HELP
 	);

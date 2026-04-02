@@ -14,7 +14,7 @@ void create()
 	set("long", @LONG
 這是歸雲莊弟子們喝茶休息的地方，滿屋的茶香，沁人心脾。屋裏
 擺着幾張桌子(table)和椅子(chair)，坐着幾個正在喝茶聊天的男女弟
-子。屋中有幾個丫鬟正在忙着爲大家上茶。
+子。屋中有幾個丫鬟正在忙着為大家上茶。
 LONG );
 	set("exits", ([
 		"east" : __DIR__"fanting",
@@ -69,8 +69,8 @@ int do_sit(string arg)
 			
 	message_vision("$N找了個空位座下，等着上茶。\n", me);	
 	if( me->query_temp("marks/tea_served") ) {
-		message_vision("丫鬟走過來對$N說：喝飽了的就出去吧，別佔着地方！\n", me);
-		message_vision("$N發覺衆人的眼光都在盯着自己，忙站起身來，尷尬地說：我只是試試這椅子結實不結實。\n", me);
+		message_vision("丫鬟走過來對$N説：喝飽了的就出去吧，別佔着地方！\n", me);
+		message_vision("$N發覺眾人的眼光都在盯着自己，忙站起身來，尷尬地説：我只是試試這椅子結實不結實。\n", me);
 		return notify_fail("");
 	}
 	me->set_temp("marks/sit", 1);
@@ -98,7 +98,7 @@ int valid_leave(object me, string dir)
 
 	if (dir == "east" && present("moli huacha", me))
 //	if (random(3)) 
-		return notify_fail("丫鬟跑過來說：沒喝完的也別帶走啊，考慮一下別人嘛。\n");
+		return notify_fail("丫鬟跑過來説：沒喝完的也別帶走啊，考慮一下別人嘛。\n");
 	
 	return ::valid_leave(me, dir);
 }

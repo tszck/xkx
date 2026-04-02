@@ -159,7 +159,7 @@ int do_squat()
 string look_zhuang()
 {
 	if (this_player()->query_temp("thd_zhuang"))
-		return "你往腳下的木樁看去，覺得有點暈眩，剛纔在地上看時好象沒有這麼高！\n";
+		return "你往腳下的木樁看去，覺得有點暈眩，剛才在地上看時好象沒有這麼高！\n";
 	else
 		return "木樁離地大概一米左右，普通人難以跳上去。\n";
 }
@@ -167,7 +167,7 @@ string look_zhuang()
 int valid_leave(object me, string dir)
 {
 	if (me->query_temp("thd_zhuang"))
-		return notify_fail("先從木樁上跳下來(down)再說吧！\n");
+		return notify_fail("先從木樁上跳下來(down)再説吧！\n");
 
 	if (dir == "west" && me->query("gender") != "男性")
 		return notify_fail("你打開門正要往裏走，忽然發現裏面都是光膀子的男弟子，你趕忙捂着臉退了出來。\n");

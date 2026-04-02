@@ -32,7 +32,7 @@ void create()
 	set_temp("apply/armor", 10);
 	create_family("白駝山派", 3, "弟子");
 	set("inquiry" ,([
-		"儲藏室" : "管家警惕地盯着你，說：你想偷東西嗎？\n",
+		"儲藏室" : "管家警惕地盯着你，説：你想偷東西嗎？\n",
 	]));
 	setup();
 	carry_object("/d/baituo/obj/baipao")->wear();

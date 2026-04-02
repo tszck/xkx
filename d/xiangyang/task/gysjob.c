@@ -72,7 +72,7 @@ int ask_job()
 	ob->apply_condition("guoys_mis",30);    
 	ob->set_temp("guoys_mis_target", target);
 	call_out("begin_kill",10,ob,target);
-	tell_object(ob,CYN "郭靖點了點頭，對你說道：蒙古人收買了一批武林敗類，好象要暗殺"+target+"，你去保護他一下。\n"NOR);
+	tell_object(ob,CYN "郭靖點了點頭，對你説道：蒙古人收買了一批武林敗類，好象要暗殺"+target+"，你去保護他一下。\n"NOR);
 	message_vision("郭靖叮囑道：“一路上危險重重，務必多加小心。”\n",me);
 	message("channel:qst", HIR"【保護義士】"+ob->query("name")+"申請保護"+ob->query_temp("guoys_mis_target")+"任務。\n"NOR, users());
 	return 1;
@@ -97,7 +97,7 @@ int ask_job()
 	if (ob->query_temp("must_killby")!= who->query("id") ||
 			ob->query("victim_user")||who->query_temp("guoys_mis_given") )
 		{
-			tell_object(who,"郭靖嘆了口氣，說道：“閣下好像殺錯人了吧？”\n");
+			tell_object(who,"郭靖嘆了口氣，説道：“閣下好像殺錯人了吧？”\n");
 			return 0;
 		} 
 	who->set_temp("guoys_mis_given",1);

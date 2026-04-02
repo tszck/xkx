@@ -10,7 +10,7 @@ void create()
 	set("long", @LONG
 這裏是中條山的一個隱祕山谷。四周是高可及天的山峯，雲深林密，
 一徑小溪潺潺流過，濺入坡下塘中。溪畔有一漢子舞劍正酣。不打擾的
-爲妙。
+為妙。
 LONG );
 	set("exits", ([ /* sizeof() == 4 */
 		"south"     : __DIR__"pingdi",

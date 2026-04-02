@@ -49,10 +49,10 @@ int perform(object me, object target)
 		return notify_fail("你的"+to_chinese(fskill)+"的功力不夠不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，目前還不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不夠，目前還不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(bskill)+"修爲不夠，目前還不能使用用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"修為不夠，目前還不能使用用"+PNAME+"。\n");
 
 	if((int)me->query("neili") < 500)
 		return notify_fail("你內力現在不夠，不能使用拈花拂穴！\n");
@@ -68,7 +68,7 @@ int perform(object me, object target)
 	{
 		if (target->query_temp("hmg_dzjm"))
 		{
-			msg +=HIY"$p不思避閃，反而搶身迎上，任$P一指點在要穴上，行動卻絲毫不爲之受阻。\n"NOR;
+			msg +=HIY"$p不思避閃，反而搶身迎上，任$P一指點在要穴上，行動卻絲毫不為之受阻。\n"NOR;
 			me->start_busy(4);
 			me->add("neili", -100);
 		} else {

@@ -134,7 +134,7 @@ void do_wait()
 		}
 		else
 		{
-			message_vision("$N自言自語地說道：看來人質不會從這裏來了，我還是回去吧。\n$N滿面無奈地向遠處走了開去。\n",this_object());
+			message_vision("$N自言自語地説道：看來人質不會從這裏來了，我還是回去吧。\n$N滿面無奈地向遠處走了開去。\n",this_object());
 			destruct(me);
 		}
 	}
@@ -146,7 +146,7 @@ void killed_enemy(object victim)
 
 	if (victim->query("id") == "ren zhi")
 	{
-		message_vision("$N仰天狂笑一聲：哈哈，終於得手了！說罷，幾個起落，身形消失在遠處的屋檐角。\n",me);
+		message_vision("$N仰天狂笑一聲：哈哈，終於得手了！説罷，幾個起落，身形消失在遠處的屋檐角。\n",me);
 		destruct(me);
 	}
 }

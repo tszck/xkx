@@ -6,13 +6,13 @@ inherit F_SAVE;
 
 // 全局變量，即儲存玩家押注的所有數據
 mapping *all_biao;
-// 全局變量，此處爲目前數量
+// 全局變量，此處為目前數量
 int num;
-// 全局變量，此處爲最終結杲
+// 全局變量，此處為最終結杲
 mapping *end_biao;
 int jieguo;
 
-// 以下七行爲函數聲明
+// 以下七行為函數聲明
 int do_read(string);
 int do_post(string);
 int do_ya(string);
@@ -104,7 +104,7 @@ int do_ya(string arg)
 				return notify_fail("你只能給冠軍下一次注！\n");
 			if(codetoteam(c) == "未知國名")
 				return notify_fail("先看好國家代碼再來！\n");
-			message_vision("$N想了半天大聲喊道：“我認爲"HIR+codetoteam(c)+NOR"隊能拿到冠軍！押 "HIY+chinese_number(i)+NOR" 兩黃金！”\n",me);
+			message_vision("$N想了半天大聲喊道：“我認為"HIR+codetoteam(c)+NOR"隊能拿到冠軍！押 "HIY+chinese_number(i)+NOR" 兩黃金！”\n",me);
 // 在玩家身上設下押的結果
 			me->set("fifa2002/1", c);
 // 押的黃金數
@@ -124,7 +124,7 @@ int do_ya(string arg)
 				return notify_fail("你只能給亞軍下一次注！\n");
 			if(codetoteam(c) == "未知國名")
 				return notify_fail("先看好國家代碼再來！\n");
-			message_vision("$N想了半天大聲喊道：“我認爲"HIR+codetoteam(c)+NOR"隊能拿到亞軍！押 "HIY+chinese_number(i)+NOR" 兩黃金！”\n",me);
+			message_vision("$N想了半天大聲喊道：“我認為"HIR+codetoteam(c)+NOR"隊能拿到亞軍！押 "HIY+chinese_number(i)+NOR" 兩黃金！”\n",me);
 // 在玩家身上設下押的結果
 			me->set("fifa2002/2", c);
 // 押的黃金數
@@ -153,7 +153,7 @@ int do_ya(string arg)
 			if(codetoteam(c4) == "未知國名")
 				return notify_fail("沒有"HIR+c4+NOR"這國家代碼！\n");
 			c=ordercode(c, 4);
-			message_vision("$N想了半天大聲喊道：“我認爲"HIR+codetoteam(c1)+"、"+codetoteam(c2)+"、"+codetoteam(c3)+"、"+codetoteam(c4)+NOR"隊能進入四強！押 "HIY+chinese_number(i)+NOR" 兩黃金！”\n",me);
+			message_vision("$N想了半天大聲喊道：“我認為"HIR+codetoteam(c1)+"、"+codetoteam(c2)+"、"+codetoteam(c3)+"、"+codetoteam(c4)+NOR"隊能進入四強！押 "HIY+chinese_number(i)+NOR" 兩黃金！”\n",me);
 // 在玩家身上設下押的結果
 			me->set("fifa2002/4", c);
 // 押的黃金數
@@ -190,7 +190,7 @@ int do_ya(string arg)
 			if(codetoteam(c8) == "未知國名")
 				return notify_fail("沒有"HIR+c8+NOR"這國家代碼！\n");
 			c=ordercode(c, 8);
-			message_vision("$N想了半天大聲喊道：“我認爲"HIR+codetoteam(c1)+"、"+codetoteam(c2)+"、"+codetoteam(c3)+"、"+codetoteam(c4)+"、"+codetoteam(c5)+"、"+codetoteam(c6)+"、"+codetoteam(c7)+"、"+codetoteam(c8)+NOR"隊能進入八強！押 "HIY+chinese_number(i)+NOR" 兩黃金！”\n",me);
+			message_vision("$N想了半天大聲喊道：“我認為"HIR+codetoteam(c1)+"、"+codetoteam(c2)+"、"+codetoteam(c3)+"、"+codetoteam(c4)+"、"+codetoteam(c5)+"、"+codetoteam(c6)+"、"+codetoteam(c7)+"、"+codetoteam(c8)+NOR"隊能進入八強！押 "HIY+chinese_number(i)+NOR" 兩黃金！”\n",me);
 // 在玩家身上設下押的結果
 			me->set("fifa2002/8", c);
 // 押的黃金數
@@ -311,14 +311,14 @@ int do_read(string arg)
 //這個規則根據每次巫師設計的定
 		write("
     世界盃的冠軍、亞軍、四強、八強分別誰屬？歡迎在此押注：
-押注者以黃金爲單位，最高可押一千黃金，最少也要押一兩黃金。現金
+押注者以黃金為單位，最高可押一千黃金，最少也要押一兩黃金。現金
 不收，必須先存進錢莊。押賭後錢莊直接扣錢。押賭時間到六月十日截
 止。押對八強的一賠二十，四強的一賠十，冠亞軍的一賠八，比賽揭曉，
 押中者按倍數返還黃金，不中者則罷。
     想好了後就 "HIR"ya <類別> <國名編號> <多少兩黃金> "NOR"。
     例如：
-    想壓一千黃金給阿根廷爲冠軍，則ya 1 AR 1000。
-    如果認爲四強是阿根廷、法國、巴西、德國，而且想押五百黃金的
+    想壓一千黃金給阿根廷為冠軍，則ya 1 AR 1000。
+    如果認為四強是阿根廷、法國、巴西、德國，而且想押五百黃金的
 話，則ya 4 AR-BR-DE-FR 500。當然，順序是無所謂的。
     當然每個ID只能押一次，押過不許後悔！\n
 

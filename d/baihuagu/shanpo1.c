@@ -7,7 +7,7 @@ void create()
 {
 	set("short", HIY"山坡"NOR);
 	set("long", 
-"這是一面山坡，山勢甚爲平坦。山坡上有幾間茅屋。\n");
+"這是一面山坡，山勢甚為平坦。山坡上有幾間茅屋。\n");
 	set("outdoors", "baihuagu");
 	set("count", 3);
 	set("exits", ([

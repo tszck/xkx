@@ -5,7 +5,7 @@ void create()
 	set("short", "地安門西大街");
 	set("long", @LONG
 這是一條東西走向的大道。東邊通往地安門。西邊通往西四。不知
-道爲什麼，這裏總是冷冷清清，見不到幾個行人。
+道為什麼，這裏總是冷冷清清，見不到幾個行人。
 LONG );
         set("outdoors", "beijing");
 	set("exits", ([

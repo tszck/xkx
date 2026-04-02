@@ -7,7 +7,7 @@ void create()
         set("short", "大廳");
         set("long", @LONG
 這裏是個寬廣的大廳，高大的盤龍柱一人都合抱不過來。這裏是平日教
-主召集教衆們議事的地方，大廳正中供奉着五聖--毒蛇，蜘蛛，蜈蚣，蠍子
+主召集教眾們議事的地方，大廳正中供奉着五聖--毒蛇，蜘蛛，蜈蚣，蠍子
 蟾蜍的畫像。幾位長老正坐在廳中議事 。
 LONG
         );
@@ -42,7 +42,7 @@ int valid_leave(object me, string dir)
         {
               if ((string)me->query("family/family_name")!="五毒教"
                  & objectp(present("qi yunao", environment(me))))
-              return notify_fail("齊雲敖身形一晃，忽然擋住你，厲聲說道：這位" +
+              return notify_fail("齊雲敖身形一晃，忽然擋住你，厲聲説道：這位" +
               RANK_D->query_respect(me) + "不是本教弟子，不得進入本教禁地。\n");
         }
         return ::valid_leave(me, dir);

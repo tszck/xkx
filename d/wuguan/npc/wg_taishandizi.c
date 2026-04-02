@@ -31,14 +31,14 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "泰山派弟子說道：這位" + RANK_D->query_respect(ob)
+			say( "泰山派弟子説道：這位" + RANK_D->query_respect(ob)
             + "想加入泰山派嗎，可以看"BRED"(help taishan)"NOR"。\n");
 			break;
 		case 1:
-			say( "泰山派弟子說道：入我泰山方可習得江湖中唯一百發百中的絕招“岱宗如何”。\n");
+			say( "泰山派弟子説道：入我泰山方可習得江湖中唯一百發百中的絕招“岱宗如何”。\n");
 			break;
 		case 2:
-			say( "泰山派弟子說道：泰山派自百年前東靈祖師立派以來，代有才人，功夫自可傲立江湖。\n");
+			say( "泰山派弟子説道：泰山派自百年前東靈祖師立派以來，代有才人，功夫自可傲立江湖。\n");
 			break;
 	}
 

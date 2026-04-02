@@ -139,7 +139,7 @@ string *whichpart =
 	HIY"第一榜    十大高手排行榜  ------ 經    驗 ----  B1"NOR,
 	HIY"第二榜    十大財主排行榜  ------ 存    款 ----  B2"NOR,
 	HIY"第三榜    十大壽星排行榜  ------ 年    齡 ----  B3"NOR,
-	HIY"第四榜    十大內功高手    ------ 內力修爲 ----  B4"NOR,
+	HIY"第四榜    十大內功高手    ------ 內力修為 ----  B4"NOR,
 	HIY"第五榜    十大博學鴻儒    ------ 讀書技能 ----  B5"NOR,
 	HIY"第六榜    江湖十大冷血    ------ ＰＫ人數 ----  B6"NOR,
 	HIY"第七榜    江湖十大殺手    ------ 實戰業績 ----  B7"NOR,
@@ -167,7 +167,7 @@ void create()
 	set_name(HIY"俠客行英雄榜"NOR, ({ "hero board", "board" }));
 	set_weight(800);
 	set("unit", "幅");
-	set("long","這是記載俠客行一百英雄座次排行情況的金榜。你可以用(READ)來查閱。\n");
+	set("long","這是記載俠客行一百英雄座次排行情況的金榜。你可以用(READ)來查閲。\n");
 	set("value", 1600);
 	set("no_get", 1);
 	set("no_steal", 1);
@@ -233,7 +233,7 @@ int do_read( string arg )
 				write( "    "+whichpart[i]+"\n" );
 			write( "--------------------------------------------------------\n" );
 			write( "                          ----"+printdate+"公告\n" );
-			write( "你要閱讀第幾榜？\n" );
+			write( "你要閲讀第幾榜？\n" );
 			break;
 		case "B1":
 		case "b1":

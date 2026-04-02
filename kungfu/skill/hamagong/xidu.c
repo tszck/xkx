@@ -18,7 +18,7 @@ int exert(object me,object target)
 
 
 	if ( !living(target) || target == me )
-		return notify_fail("你要爲誰吸毒？\n");
+		return notify_fail("你要為誰吸毒？\n");
 		
 	notify_fail("不是你要抓的人，湊什麼熱鬧！\n");
 	if (!userp(target) && !target->accept_hit(me)) return 0;
@@ -39,10 +39,10 @@ int exert(object me,object target)
 		return notify_fail("你已經受傷過重，只怕一運真氣便有生命危險！\n");
 
 	if ((int)me->query_skill("hamagong", 1) < 50)
-		return notify_fail("你的蛤蟆功修爲還不夠。\n");
+		return notify_fail("你的蛤蟆功修為還不夠。\n");
 
 	if ((int)me->query_skill("xidu-poison", 1) < 50)
-		return notify_fail("你的西毒毒技修爲還不夠。\n");
+		return notify_fail("你的西毒毒技修為還不夠。\n");
 
 	if ( con1 > 0 ) {
 		if ( (int)me->query("neili") < 100 )
@@ -63,7 +63,7 @@ int exert(object me,object target)
 	}			 
 	else if ( con3 > 0 ) {
 		if ( (int)me->query_skill("hamagong", 1) < 70 )
-			return notify_fail("你的蛤蟆功修爲不夠。\n");
+			return notify_fail("你的蛤蟆功修為不夠。\n");
 		if ( (int)me->query("neili") < 150 )
 			return notify_fail("你的真氣不夠。\n");
 		con = ( ( me->query_skill("hamagong", 1) / 50 ) >= con3 ? con3 : me->query_skill("hamagong", 1) / 50 );
@@ -91,7 +91,7 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		爲中毒的他人吸出毒素，對下列毒有效：
+		為中毒的他人吸出毒素，對下列毒有效：
 		蛇毒、星宿毒
 
 	出手要求：

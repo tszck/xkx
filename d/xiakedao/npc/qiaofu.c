@@ -8,7 +8,7 @@ void create()
         set_name("樵夫", ({ "qiao fu","fu" }) );
         set("gender", "男性" );
         set("age", 50);
-        set("long", "一個一輩子以砍材爲生的老樵夫，由於飽受風霜，顯出與年齡不相稱的衰老。\n");
+        set("long", "一個一輩子以砍材為生的老樵夫，由於飽受風霜，顯出與年齡不相稱的衰老。\n");
         set("shen_type",1);
         set("combat_exp", 10000);
         set("str", 17);

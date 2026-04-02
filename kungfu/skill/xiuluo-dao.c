@@ -123,7 +123,7 @@ int help(object me)
 	write(HIC"\n修羅刀："NOR"\n");
 	write(@HELP
 
-    修羅刀爲少林七十二絕技之一。
+    修羅刀為少林七十二絕技之一。
 
 	學習要求：
 		混元一氣功10級

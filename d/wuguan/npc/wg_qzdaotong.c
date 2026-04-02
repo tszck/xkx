@@ -36,7 +36,7 @@ void greeting(object ob)
           + "，想加入全真教的話，可以看"BRED"(help quanzhen)"NOR"。\n");
 			break;
 		case 1:
-			say( "全真道童得意地說道：祖師王重陽，又號「中神通」，首次華山
+			say( "全真道童得意地説道：祖師王重陽，又號「中神通」，首次華山
 論劍，連敗東邪、西毒、南帝、北丐，奪得武功天下第一的稱號。\n");
 			break;
 		case 2:			

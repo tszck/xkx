@@ -40,14 +40,14 @@ int valid_leave(object me, string dir)
 				(inv[i]->query("equipped")))
 				if(objectp(present("bing", environment(me))) &&
 					living(present("bing",environment(me))))
-					return notify_fail("官兵上前擋住你，朗聲說道：這位"+ RANK_D->query_respect(me) + "請放下兵刃。\n你可以進府，但不得手持兵刃。\n");
+					return notify_fail("官兵上前擋住你，朗聲説道：這位"+ RANK_D->query_respect(me) + "請放下兵刃。\n你可以進府，但不得手持兵刃。\n");
 			return ::valid_leave(me, dir);
 		}
 		else
 		{
 			if(objectp(present("guan bing", environment(me))) &&
 				living(present("bing", environment(me))))
-				return notify_fail("官兵攔住你罵道：“你以爲你是誰啊？一個尋常百姓，難道還想進府見鰲大人？！\n你這" + RANK_D->query_rude(me) +"快給我滾遠點兒，不然別怪我不客氣！”\n");
+				return notify_fail("官兵攔住你罵道：“你以為你是誰啊？一個尋常百姓，難道還想進府見鰲大人？！\n你這" + RANK_D->query_rude(me) +"快給我滾遠點兒，不然別怪我不客氣！”\n");
 		}
 	}	
 	return ::valid_leave(me, dir);

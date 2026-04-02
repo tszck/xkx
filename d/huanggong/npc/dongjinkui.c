@@ -9,7 +9,7 @@ void create()
 	set("title", HIC"慈寧宮太監"NOR);
 	set("age", 26);
 	set("per", 20);
-	set("long", "一個壯碩漢子，挺胸凸肚，架勢頗爲不善。\n");
+	set("long", "一個壯碩漢子，挺胸凸肚，架勢頗為不善。\n");
 
 	set("combat_exp", 30000);
 	set("shen_type", 0);

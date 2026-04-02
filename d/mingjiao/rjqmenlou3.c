@@ -8,7 +8,7 @@ void create()
 	set("long", @LONG
 這裏是一間大石室，中央擺放着石桌(zhuo)石椅(chair) ，石桌上
 刻有縱橫交錯的圖案，仔細看，原來是一棋局，棋盤上兩黑(heizi)、
-一白(bai zi)，正該白方落子了。卻不知對弈的棋士爲何沒有下完。
+一白(bai zi)，正該白方落子了。卻不知對弈的棋士為何沒有下完。
 LONG );
 	set("exits", ([
 		"down" : __DIR__"rjqmenlou2",

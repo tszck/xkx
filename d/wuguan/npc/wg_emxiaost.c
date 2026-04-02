@@ -32,11 +32,11 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "小師太微微笑着說道：善哉，善哉，這位" + RANK_D->query_respect(ob)
+			say( "小師太微微笑着説道：善哉，善哉，這位" + RANK_D->query_respect(ob)
           + "，若想入峨嵋清修，可以看"BRED"(help emei)"NOR"。\n");
 			break;
 		case 1:
-			say( "小師太微笑道：峨嵋功夫清秀獨特，臨濟十二莊爲內功中的絕學。
+			say( "小師太微笑道：峨嵋功夫清秀獨特，臨濟十二莊為內功中的絕學。
  雁行刀，迴風拂柳劍，各各威力無窮。\n");
 			break;
 		case 2:

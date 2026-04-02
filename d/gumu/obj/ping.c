@@ -60,7 +60,7 @@ int do_qufeng(string arg)
         obforce = obj -> query_skill("force" ) ;
 
         if ( mylev <= 0 )
-                return notify_fail("你不會驅蜂之術，不能驅使玉蜂爲你攻擊敵人！\n");
+                return notify_fail("你不會驅蜂之術，不能驅使玉蜂為你攻擊敵人！\n");
 
         myexp = 30 * objexp / myexp ;
         if ( myexp < 30 ) myexp = 30 ;

@@ -14,7 +14,7 @@ void create()
         else {
                 set("jiasha/neili", 0);
                 set("long", HIW"這是一件喇嘛穿的袈裟，上面繡着些梵文，看似普通但卻是大輪寺開寺始祖終身所穿的袈裟。
-可能是因爲它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力(longxiang)。\n"NOR);
+可能是因為它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力(longxiang)。\n"NOR);
                 set("material", "silk");
                 set("unit", "件");
                 set("unique", 1);
@@ -57,7 +57,7 @@ int do_add(string arg)
                 return notify_fail("袈裟中已經充滿了內力，你再也無法注入了！\n");
 
         if (me->query_skill_mapped("force") != "longxiang" ) {
-        message_vision(CYN"$N潛運內功，努力把內力注入十三龍象袈裟，最後雖然成功但因爲不是龍象內力而多花了點力氣。\n"NOR, me);
+        message_vision(CYN"$N潛運內功，努力把內力注入十三龍象袈裟，最後雖然成功但因為不是龍象內力而多花了點力氣。\n"NOR, me);
         me->receive_damage("neili", 1000+random(500));
         } else {
         message_vision(MAG"$N臉上泛起一層隱隱的紫氣，雙手虛按十三龍象袈裟，把龍象內力注入袈裟之中。\n"NOR, me);
@@ -67,37 +67,37 @@ int do_add(string arg)
         if(query("jiasha/neili") >= 13) {
         set_name(MAG"十三龍象袈裟"NOR, ({ "shisan longxiang", "jiasha", "longxiang jiasha" }));
         set("long", MAG"這是一件喇嘛穿的袈裟，上面繡着些梵文，看似普通但卻是大輪寺開寺始祖終身所穿的袈裟。
-可能是因爲它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
+可能是因為它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
 袈裟之上已經注有"+ chinese_number(neili) +"道內力！\n"NOR);}
         else if(query("jiasha/neili") == 11 || query("jiasha/neili") == 12) {
         set_name(HIM"十三龍象袈裟"NOR, ({ "shisan longxiang", "jiasha", "longxiang jiasha" }));
         set("long", HIM"這是一件喇嘛穿的袈裟，上面繡着些梵文，看似普通但卻是大輪寺開寺始祖終身所穿的袈裟。
-可能是因爲它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
+可能是因為它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
 袈裟之上已經注有"+ chinese_number(neili) +"道內力！\n"NOR);}
         else if(query("jiasha/neili") == 9 || query("jiasha/neili") == 10) {
         set_name(BLU"十三龍象袈裟"NOR, ({ "shisan longxiang", "jiasha", "longxiang jiasha" }));
         set("long", BLU"這是一件喇嘛穿的袈裟，上面繡着些梵文，看似普通但卻是大輪寺開寺始祖終身所穿的袈裟。
-可能是因爲它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
+可能是因為它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
 袈裟之上已經注有"+ chinese_number(neili) +"道內力！\n"NOR);}
         else if(query("jiasha/neili") == 7 || query("jiasha/neili") == 8) {
         set_name(HIB"十三龍象袈裟"NOR, ({ "shisan longxiang", "jiasha", "longxiang jiasha" }));
         set("long", HIB"這是一件喇嘛穿的袈裟，上面繡着些梵文，看似普通但卻是大輪寺開寺始祖終身所穿的袈裟。
-可能是因爲它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
+可能是因為它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
 袈裟之上已經注有"+ chinese_number(neili) +"道內力！\n"NOR);}
         else if(query("jiasha/neili") == 5 || query("jiasha/neili") == 6) {
         set_name(HIC"十三龍象袈裟"NOR, ({ "shisan longxiang", "jiasha", "longxiang jiasha" }));
         set("long", HIC"這是一件喇嘛穿的袈裟，上面繡着些梵文，看似普通但卻是大輪寺開寺始祖終身所穿的袈裟。
-可能是因爲它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
+可能是因為它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
 袈裟之上已經注有"+ chinese_number(neili) +"道內力！\n"NOR);}
         else if(query("jiasha/neili") == 3 || query("jiasha/neili") == 4) {
         set_name(CYN"十三龍象袈裟"NOR, ({ "shisan longxiang", "jiasha", "longxiang jiasha" }));
         set("long", CYN"這是一件喇嘛穿的袈裟，上面繡着些梵文，看似普通但卻是大輪寺開寺始祖終身所穿的袈裟。
-可能是因爲它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
+可能是因為它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
 袈裟之上已經注有"+ chinese_number(neili) +"道內力！\n"NOR);}
         else if(query("jiasha/neili") == 1 || query("jiasha/neili") == 2) {
         set_name(HIW"十三龍象袈裟"NOR, ({ "shisan longxiang", "jiasha", "longxiang jiasha" }));
         set("long", HIW"這是一件喇嘛穿的袈裟，上面繡着些梵文，看似普通但卻是大輪寺開寺始祖終身所穿的袈裟。
-可能是因爲它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
+可能是因為它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
 袈裟之上已經注有"+ chinese_number(neili) +"道內力！\n"NOR);}
         return 1;
 }
@@ -127,42 +127,42 @@ int ob_hit(object ob, object me, int damage)
         if(query("jiasha/neili") >= 13) {
         set_name(MAG"十三龍象袈裟"NOR, ({ "shisan longxiang", "jiasha", "longxiang jiasha" }));
         set("long", MAG"這是一件喇嘛穿的袈裟，上面繡着些梵文，看似普通但卻是大輪寺開寺始祖終身所穿的袈裟。
-可能是因爲它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
+可能是因為它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
 袈裟之上已經注有"+ chinese_number(neili) +"道內力！\n"NOR);}
         else if(query("jiasha/neili") == 11 || query("jiasha/neili") == 12) {
         set_name(HIM"十三龍象袈裟"NOR, ({ "shisan longxiang", "jiasha", "longxiang jiasha" }));
         set("long", HIM"這是一件喇嘛穿的袈裟，上面繡着些梵文，看似普通但卻是大輪寺開寺始祖終身所穿的袈裟。
-可能是因爲它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
+可能是因為它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
 袈裟之上已經注有"+ chinese_number(neili) +"道內力！\n"NOR);}
         else if(query("jiasha/neili") == 9 || query("jiasha/neili") == 10) {
         set_name(BLU"十三龍象袈裟"NOR, ({ "shisan longxiang", "jiasha", "longxiang jiasha" }));
         set("long", BLU"這是一件喇嘛穿的袈裟，上面繡着些梵文，看似普通但卻是大輪寺開寺始祖終身所穿的袈裟。
-可能是因爲它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
+可能是因為它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
 袈裟之上已經注有"+ chinese_number(neili) +"道內力！\n"NOR);}
         else if(query("jiasha/neili") == 7 || query("jiasha/neili") == 8) {
         set_name(HIB"十三龍象袈裟"NOR, ({ "shisan longxiang", "jiasha", "longxiang jiasha" }));
         set("long", HIB"這是一件喇嘛穿的袈裟，上面繡着些梵文，看似普通但卻是大輪寺開寺始祖終身所穿的袈裟。
-可能是因爲它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
+可能是因為它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
 袈裟之上已經注有"+ chinese_number(neili) +"道內力！\n"NOR);}
         else if(query("jiasha/neili") == 5 || query("jiasha/neili") == 6) {
         set_name(HIC"十三龍象袈裟"NOR, ({ "shisan longxiang", "jiasha", "longxiang jiasha" }));
         set("long", HIC"這是一件喇嘛穿的袈裟，上面繡着些梵文，看似普通但卻是大輪寺開寺始祖終身所穿的袈裟。
-可能是因爲它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
+可能是因為它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
 袈裟之上已經注有"+ chinese_number(neili) +"道內力！\n"NOR);}
         else if(query("jiasha/neili") == 3 || query("jiasha/neili") == 4) {
         set_name(CYN"十三龍象袈裟"NOR, ({ "shisan longxiang", "jiasha", "longxiang jiasha" }));
         set("long", CYN"這是一件喇嘛穿的袈裟，上面繡着些梵文，看似普通但卻是大輪寺開寺始祖終身所穿的袈裟。
-可能是因爲它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
+可能是因為它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
 袈裟之上已經注有"+ chinese_number(neili) +"道內力！\n"NOR);}
         else if(query("jiasha/neili") == 1 || query("jiasha/neili") == 2) {
         set_name(HIW"十三龍象袈裟"NOR, ({ "shisan longxiang", "jiasha", "longxiang jiasha" }));
         set("long", HIW"這是一件喇嘛穿的袈裟，上面繡着些梵文，看似普通但卻是大輪寺開寺始祖終身所穿的袈裟。
-可能是因爲它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
+可能是因為它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。
 袈裟之上已經注有"+ chinese_number(neili) +"道內力！\n"NOR);}
         else if(query("jiasha/neili") <= 0) {
         set_name(HIW"十三龍象袈裟"NOR, ({ "shisan longxiang", "jiasha", "longxiang jiasha" }));
         set("long", HIW"這是一件喇嘛穿的袈裟，上面繡着些梵文，看似普通但卻是大輪寺開寺始祖終身所穿的袈裟。
-可能是因爲它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。\n"NOR);}
+可能是因為它長時間被龍象內力籠罩，所以也似乎有了儲存內力的功效。你可以試試注入內力。你可以試試注入內力(longxiang)。\n"NOR);}
    return -(300+random(600));
    } else {
    return 0;}

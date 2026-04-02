@@ -26,6 +26,6 @@ int valid_leave(object me, string dir)
 {
 	if ((dir == "east")&& present("mian", this_player())
 	&& objectp(present("xiao er", environment(me)))&&living(present("xiao", environment(me))))
-	 return notify_fail("\n小二追出來說道：這位客官，喫麪還想連碗端走啊？\n");
+	 return notify_fail("\n小二追出來説道：這位客官，喫麪還想連碗端走啊？\n");
 return ::valid_leave(me,dir);
 }

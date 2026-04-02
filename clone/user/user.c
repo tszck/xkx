@@ -19,7 +19,7 @@ void create()
 void terminal_type(string term_type)
 {
 	set_temp("terminal_type", term_type);
-	message("system", "終端機型態設定爲 "+term_type+"。\n", this_object());
+	message("system", "終端機型態設定為 "+term_type+"。\n", this_object());
 }
 
 void reset()
@@ -94,7 +94,7 @@ private void user_dump(int type)
 			tell_object( this_object(), "對不起，您已經發呆超過 " 
 				+ IDLE_TIMEOUT/60 + " 分鐘了，請下次再來。\n");
 			tell_room( environment(), "一陣風吹來，將發呆中的" + query("name")
-				+ "化爲一堆飛灰，消失了。\n",({this_object()}));
+				+ "化為一堆飛灰，消失了。\n",({this_object()}));
 //			command("quit");
 			"/cmds/usr/exit"->savequit(this_object());
 			}

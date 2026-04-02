@@ -60,7 +60,7 @@ int valid_learn(object me)
 			return notify_fail("你的相關功夫火候不夠，無法練崑崙掌。\n");
 	}
 	if ((int)me->query("max_neili") < 800)
-		return notify_fail("你的內力修爲不夠，無法練崑崙掌。\n");
+		return notify_fail("你的內力修為不夠，無法練崑崙掌。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -127,7 +127,7 @@ int help(object me)
 	write(HIC"\n崑崙掌法："NOR"\n");
 	write(@HELP
 
-    崑崙掌法爲崑崙派上乘絕技。
+    崑崙掌法為崑崙派上乘絕技。
 
 	學習要求：
 		玄天無極功120級

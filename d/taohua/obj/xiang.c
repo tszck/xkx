@@ -55,7 +55,7 @@ int do_array(string arg)
         return notify_fail("你不會奇門五行之術，不能佈陣！\n");
     
     if (me->query("family/family_name")!="桃花島")
-        return notify_fail("佈陣箱只有桃花島弟子纔會用！\n");
+        return notify_fail("佈陣箱只有桃花島弟子才會用！\n");
 
 
     myexp = 30 * objexp / myexp ;

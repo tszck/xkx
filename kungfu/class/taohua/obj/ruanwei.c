@@ -14,7 +14,7 @@ void create()
 	else
 	{
 		set("unit", "件");
-        	set("long", "一件輕飄飄的、生滿尖銳倒刺的護甲。\n");
+        	set("long", "一件輕飄飄的、生滿尖鋭倒刺的護甲。\n");
 		set("material", "copper");
 	        set("value",20000);
 	        set("no_drop", "這樣東西不能離開你。\n");

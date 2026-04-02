@@ -174,7 +174,7 @@ void create()
 這是太湖邊的一家小酒館。你一走進來，就聞到一股酒菜的香味，
 勾人食涎。廳內擺着幾張八仙桌(table)， 桌上整齊地擺放着碗筷，四
 周放着些椅子(chair)。 一個酒保正在忙個不停。你要想打聽江湖掌故
-和謠言，這裏是個好所在。櫃檯上立着一個價目表(sign)。
+和謠言，這裏是個好所在。櫃枱上立着一個價目表(sign)。
 LONG
 	);
 
@@ -232,7 +232,7 @@ void kick_all()
 				message_vision("酒保對$N喝道：“付帳走人！”\n", ob[i]);
 				if (!ob[i]->query_temp("to_pay"))
 				{
-					message_vision("酒保把$N從座位上拽了起來，拉到櫃檯前。\n", ob[i]);
+					message_vision("酒保把$N從座位上拽了起來，拉到櫃枱前。\n", ob[i]);
 					message_vision("掌櫃翻出菜單，撥打了一陣算盤後告訴$N：“一共" + chinese_number(pay) + "文錢。”\n", ob[i]);
 					ob[i]->delete_temp("marks/sit");
 					ob[i]->set_temp("to_pay", 1);
@@ -290,7 +290,7 @@ void quarter_pass()
 			paytime++;
 			if (paytime == 6 && ob[i]->query_temp("total_pay")) {
 				message_vision("酒保對$N大喝一聲：“怎麼還不付帳？！想喫霸王餐啊！”\n", ob[i]);
-				message_vision("酒保叫來幾個大漢，指着$N說：“給我打！”\n", ob[i]);
+				message_vision("酒保叫來幾個大漢，指着$N説：“給我打！”\n", ob[i]);
 				message_vision("大漢們圍住$N，亂拳齊下。\n", ob[i]);
 				ob[i]->delete_temp("total_pay");
 				ob[i]->delete_temp("to_pay");
@@ -301,7 +301,7 @@ void quarter_pass()
 				ob[i]->delete_temp("cai_4");
 				ob[i]->delete_temp("cai_5");
 				ob[i]->unconcious();
-				message_vision("酒保撇撇嘴，說：“丟出去！”\n", ob[i]);
+				message_vision("酒保撇撇嘴，説：“丟出去！”\n", ob[i]);
 				message_vision("大漢們抬起$N，扔出了店門。\n", ob[i]);
 				ob[i]->move(KICK_TO);
 				tell_room(KICK_TO, "只見酒館大門一開，幾個大漢將一個昏迷不醒的傢伙丟了出來。\n", ({ob[i]}));
@@ -330,7 +330,7 @@ int do_sit(string arg)
 	message_vision("$N找了個空位座下，準備喫飯。\n", me);	
 	if (query_temp("serve") == "無")
 	{
-		message_vision("酒保走過來對$N說：“對不起您哪，現在不是用餐時間。”\n", me);	
+		message_vision("酒保走過來對$N説：“對不起您哪，現在不是用餐時間。”\n", me);	
 		message_vision("$N無奈地又站了起來。\n", me);	
 		return 1;
 	}
@@ -362,7 +362,7 @@ int do_order(string arg)
 	if (!me->query_temp("marks/sit"))
 		return notify_fail("酒保用好象瞧見一個怪物一樣的眼神打量着你：“站着喫喝？有位子不坐，您不嫌累呀？”\n");
 	if (!arg)
-		return notify_fail("酒保不耐煩地說：“你究竟要什麼啊？”\n");
+		return notify_fail("酒保不耐煩地説：“你究竟要什麼啊？”\n");
 			
 	serve = query_temp("serve");
 	if (serve == "無")
@@ -377,7 +377,7 @@ int do_order(string arg)
 			message_vision("$N衝酒保喊道：“來" + food[i]["unit"] + food[i]["name"] +"。”\n", me);
 			if (me->query_temp("cai_count") >= 5)
 			{
-				message_vision("酒保奇怪地問$N：“您打算開宴呀？！先把桌上的喫完了再說！”\n", me);
+				message_vision("酒保奇怪地問$N：“您打算開宴呀？！先把桌上的喫完了再説！”\n", me);
 				return notify_fail("");
 			}
 			message_vision("酒保喊着：“來～啦～”，給$N端來了" + food[i]["unit"] + food[i]["name"] +"。\n", me);
@@ -399,7 +399,7 @@ int do_order(string arg)
 			message_vision("$N衝酒保喊道：“來" + liquid[i]["unit"] + liquid[i]["name"] +"。”\n", me);
 			if (me->query_temp("cai_count") >= 5)
 			{
-				message_vision("酒保奇怪地問$N：“您打算開宴呀？！先把桌上的喫完了再說！”\n", me);
+				message_vision("酒保奇怪地問$N：“您打算開宴呀？！先把桌上的喫完了再説！”\n", me);
 				return notify_fail("");
 			}
 			message_vision("酒保喊着：“來～啦～”，給$N端來了" + liquid[i]["unit"] + liquid[i]["name"] +"。\n", me);
@@ -413,7 +413,7 @@ int do_order(string arg)
 			me->set_temp("cai_"+count+"/type", "liquid");
 			return 1;
 		}
-	return notify_fail("酒保不耐煩地說：“沒這樣菜！”\n");
+	return notify_fail("酒保不耐煩地説：“沒這樣菜！”\n");
 }
 
 int do_eat(string arg)
@@ -533,14 +533,14 @@ int do_pay()
 		return notify_fail("掌櫃賠笑道：“您是來做善事是嗎？不喫也付帳？”\n");
 	if (me->query_temp("marks/sit"))
 	{
-		message_vision("$N站起身來，走到櫃檯前結帳。\n", me);
+		message_vision("$N站起身來，走到櫃枱前結帳。\n", me);
 		message_vision("掌櫃翻出菜單，撥打了一陣算盤後告訴$N：“一共" + MONEY_D->price_str(pay) + "。”\n", me);
 		message_vision("掌櫃衝着酒保嚷道：把這位客官桌子上的剩菜收拾乾淨。\n", me);
 	}
 	else
 	{
 		message_vision("$N向掌櫃問道：“還差多少？”\n", me);
-		message_vision("掌櫃翻了翻白眼，說道：“還差" + MONEY_D->price_str(pay) + "。”\n", me);
+		message_vision("掌櫃翻了翻白眼，説道：“還差" + MONEY_D->price_str(pay) + "。”\n", me);
 	}
 	me->delete_temp("marks/sit");
 	me->delete_temp("cai_count");
@@ -550,7 +550,7 @@ int do_pay()
 
 int do_buy()
 {
-	write("酒保說道：“本店不外賣，請坐下來(sit)點菜(order)。”\n");
+	write("酒保説道：“本店不外賣，請坐下來(sit)點菜(order)。”\n");
 	return 1;
 }
 
@@ -626,7 +626,7 @@ int valid_leave(object me, string dir)
 	if (me->query_temp("marks/sit"))
 		return notify_fail("你打算連椅子也搬出去？\n");	
 	if (me->query_temp("total_pay"))
-		return notify_fail("酒保攔住你說：“不付錢就想溜？找扁啊！”\n");	
+		return notify_fail("酒保攔住你説：“不付錢就想溜？找扁啊！”\n");	
 	me->delete_temp("cai_count");
 	me->delete_temp("cai_1");
 	me->delete_temp("cai_2");

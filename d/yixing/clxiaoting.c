@@ -64,7 +64,7 @@ int valid_leave(object me, string dir)
 			if( userp(leader) &&
 			(string)leader->query_temp("bangs/beauty") == beauty )
 			{
-				tell_object(leader, ob->name() + "說道：好！好！好！"+ob->query("party/party_name") + "上上下下幾千人中數你最討幫主的歡心！\n");
+				tell_object(leader, ob->name() + "説道：好！好！好！"+ob->query("party/party_name") + "上上下下幾千人中數你最討幫主的歡心！\n");
 				leader->delete_temp("bangs/beauty");
 				bonus = bonus * 25000 / (100000 + (int)leader->query("combat_exp"));
 				record = bonus + random(bonus);

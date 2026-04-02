@@ -34,7 +34,7 @@ int valid_learn(object me)
 	if ((int)(me->query_skill("poison",1) > 1))
 		return notify_fail( "哈哈！"+RANK_D->query_respect(me)+"已經學了邪魔外道的毒技，怎麼卻來學道學心法？\n");
 	if (me->query_skill("taoism", 1) >= 150)
-		return notify_fail("限於資質，你對道學心法的理解也就到此爲止了。\n");
+		return notify_fail("限於資質，你對道學心法的理解也就到此為止了。\n");
 
 	return 1;
 }
@@ -50,7 +50,7 @@ int help(object me)
         write(@HELP
 
     太上道祖傳下的道德真言五千字中蘊涵的博大精深的心法。
-    可尋找道德經閱讀。
+    可尋找道德經閲讀。
 
         學習要求：
                 與禪宗心法、密宗心法、紫氳吟、正氣訣和基本毒技不能兼學

@@ -1,6 +1,6 @@
 // mailbox.c
 // Last Modified by sir on 5.5.2002
-// 限制玩家收信總數爲100封 wiz不受此限制
+// 限制玩家收信總數為100封 wiz不受此限制
 
 #include <ansi.h>
 #define MAX_MAIL 20 //玩家收信總數
@@ -20,7 +20,7 @@ void create()
 		"mailto  <某人>            寄信給別人。\n"
 		"forward <信件編號> <某人> 將某封信轉寄給別人。\n"
 		"from                      查看信箱中的信件。\n"
-		"read    <信件編號>        閱讀某一封信件。\n"
+		"read    <信件編號>        閲讀某一封信件。\n"
 		"discard <信件編號>        丟棄一封信件。\n"
 	);
 	set("unit", "個");
@@ -214,7 +214,7 @@ int do_from()
 	write("您的信箱中現在共有 " + sizeof(mails) + " 封信件：\n\n");
 	for(i=0; i<sizeof(mails); i++)
 		printf("%4s %2d %-40s "HIY"來自"NOR"：%-20s\n",
-			mails[i]["read"] == "N" ? HIR"未閱"NOR : HIG"已閱"NOR,
+			mails[i]["read"] == "N" ? HIR"未閲"NOR : HIG"已閲"NOR,
 			i+1, mails[i]["title"], mails[i]["from"]);
 	write("\n");
 

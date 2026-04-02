@@ -9,7 +9,7 @@ void create()
 	set("long", @LONG
 這是一條黑暗、骯髒的小巷，空氣中彷彿飄揚着一股罪惡的氣息，
 幾個賊眉鼠眼地盯着你的腰包，看來會馬上撲上來。北面是一條小巷，
-名爲“生死巷”。
+名為“生死巷”。
 LONG );
 	set("outdoors", "suzhou");
 	set("no_clean_up", 0);

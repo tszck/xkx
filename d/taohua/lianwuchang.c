@@ -113,7 +113,7 @@ string look_zhuang()
 int valid_leave(object me, string dir)
 {
 	if (me->query_temp("thd_zhuang"))
-		return notify_fail("先從木樁上跳下來(down)再說吧！\n");
+		return notify_fail("先從木樁上跳下來(down)再説吧！\n");
 
 	return ::valid_leave(me, dir);
 }

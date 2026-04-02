@@ -15,7 +15,7 @@ LONG );
 	set("outdoors", "binghuo");
 	set("no_clean_up", 0);
 	set("item_desc", ([
-		"dong" : "這個原來是熊窩的石洞被人清潔後成爲島上最好的居所。\n",
+		"dong" : "這個原來是熊窩的石洞被人清潔後成為島上最好的居所。\n",
 	]));
 	set("exits", ([
 		"southeast" : __DIR__"shulin3",

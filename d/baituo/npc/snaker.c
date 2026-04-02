@@ -83,7 +83,7 @@ void greeting(object ob)
 			return;
 		}
 	}
-	say("舞蛇人殷勤地說：這位"+RANK_D->query_respect(ob)+"，買我的蛇膽粉吧，包您滿意。\n");
+	say("舞蛇人殷勤地説：這位"+RANK_D->query_respect(ob)+"，買我的蛇膽粉吧，包您滿意。\n");
 	return;
 }
 

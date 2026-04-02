@@ -59,7 +59,7 @@ int do_lingwu(string arg)
 		if ((int)me->query_skill("force", 1) < 30)
 		{
 			message_vision(HIM "$N看着美女圖形開始氣血上湧，目光直勾勾，竟出現猥褻之意。\n"NOR, me);
-			write(HIR"你定力不夠，這樣的圖畫還是少看爲妙。\n"NOR);
+			write(HIR"你定力不夠，這樣的圖畫還是少看為妙。\n"NOR);
 			message_vision(HIR"$N忽然搖晃起來，驀地噴出口鮮血。\n"NOR, me);
 			me->receive_wound("qi", 10);
 			me->unconcious();

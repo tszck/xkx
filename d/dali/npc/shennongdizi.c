@@ -7,7 +7,7 @@ void create()
 	set_name("神農幫弟子", ({ "shennong dizi", "dizi" }));
 	set("age", 32);
 	set("gender", "男性");
-	set("long", "這是一個神農幫的幫衆，身穿黃衣，肩懸藥囊，手持一柄藥鋤。\n");
+	set("long", "這是一個神農幫的幫眾，身穿黃衣，肩懸藥囊，手持一柄藥鋤。\n");
 	set("attitude", "peaceful");
 
 	set("str", 24);

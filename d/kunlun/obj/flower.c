@@ -17,7 +17,7 @@ void create()
 		set("material", "plant");
 		set("long", "這是一朵青陀羅花。\n"
 			"這花汁原有腥臭之氣，本身並無毒性, \n"
-			"但一經和鮮血混和，卻生劇毒，同時腥臭轉爲清香。\n");
+			"但一經和鮮血混和，卻生劇毒，同時腥臭轉為清香。\n");
 		set("wear_msg", "");
 		set("unequip_msg", "$N摘下胸前的$n。\n");
 		set("armor_prop/armor", 0);

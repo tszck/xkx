@@ -16,7 +16,7 @@ void create()
                 set("skill_mapped", 1);
                 set("pill_point", 30000);
                 set("force_point", 5);
-                set("pill_msg1", HIR "你只覺一股暖氣散佈全身，說不出的舒服受用。\n" NOR);
+                set("pill_msg1", HIR "你只覺一股暖氣散佈全身，説不出的舒服受用。\n" NOR);
                 set("pill_msg2", HIY "你只覺一股熱流湧上，內息得到了完全的補充。\n" NOR);
         }
         setup();

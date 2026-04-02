@@ -68,7 +68,7 @@ int do_study(string arg)
 	}
 	if( (int)me->query("sg/exp") < 1000 && !me->query_temp("sgbook_poison"))
 	{
-		message_vision("$N伸食指在口中一舔，蘸了些唾液翻閱起書來。\n", me);
+		message_vision("$N伸食指在口中一舔，蘸了些唾液翻閲起書來。\n", me);
 		me->set_temp("sgbook_poison", 1);
 		call_out("poison", 5, me);
 	}
@@ -78,7 +78,7 @@ int do_study(string arg)
 
 	me->improve_skill("medicine", random(2 * me->query_int()));
 	me->receive_damage("jing", cost, "心力絞瘁死了");
-	message_vision("$N一會兒翻閱着『黃帝內經』，一會兒苦思冥想。\n", me);
+	message_vision("$N一會兒翻閲着『黃帝內經』，一會兒苦思冥想。\n", me);
 	return 1;
 }
 

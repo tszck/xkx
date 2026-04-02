@@ -47,7 +47,7 @@ void create()
 	prepare_skill("cuff", "jingang-quan");
 
 	set("party/party_name",HIG"明教"NOR);
-	set("party/rank", HIC "天市堂" NOR "教衆");
+	set("party/rank", HIC "天市堂" NOR "教眾");
 	setup();
 
 	carry_object("/d/mingjiao/obj/baipao")->wear();

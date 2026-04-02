@@ -144,7 +144,7 @@ void do_wait()
 		}
 		else
 		{
-			message_vision("$N自言自語地說道：看來鏢車不會從這裏來了，我還是回去吧。\n$N滿面無奈地向遠處走了開去。\n",this_object());
+			message_vision("$N自言自語地説道：看來鏢車不會從這裏來了，我還是回去吧。\n$N滿面無奈地向遠處走了開去。\n",this_object());
 			destruct(me);
 		}
 	}

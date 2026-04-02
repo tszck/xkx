@@ -91,10 +91,10 @@ int do_cook( string arg )
 
 	sklvl = me->query_skill("cookery",1);
 	if ( cooker != "" && cooker != me->query("id") )
-		return notify_fail( "大師傅說道：已經有人在做菜了，你得等一會兒。\n" );
+		return notify_fail( "大師傅説道：已經有人在做菜了，你得等一會兒。\n" );
 	if ( cooker == me->query("id") )
-		return notify_fail( "大師傅說道：你已經在做菜了。\n" );
-	if ( !stringp( arg ) ) return notify_fail("大師傅說道：你要煮什麼？\n");
+		return notify_fail( "大師傅説道：你已經在做菜了。\n" );
+	if ( !stringp( arg ) ) return notify_fail("大師傅説道：你要煮什麼？\n");
 	for ( i = 0; i < sizeof( query("menus") ); i ++ )
 	{
 		ob = new( __DIR__"npc/obj/" + keys( query( "menus" ) )[i] );
@@ -105,13 +105,13 @@ int do_cook( string arg )
 	if ( i >= sizeof( query( "menus" ) ) )
 	{
 		if ( objectp(ob) ) destruct(ob);
-		return notify_fail( "大師傅搖了搖頭，說道：你不會做這道菜。\n");
+		return notify_fail( "大師傅搖了搖頭，説道：你不會做這道菜。\n");
 	}
 	str = values( query( "menus" ) )[i];
 	if ( sizeof( str ) * 20 > sklvl )
 	{
 		destruct(ob);
-		return notify_fail( "大師傅說道：你目前的手藝做不好這道菜。\n");
+		return notify_fail( "大師傅説道：你目前的手藝做不好這道菜。\n");
 	}
 	for ( i = 0; i < sizeof( str ); i++ )
 	{
@@ -121,7 +121,7 @@ int do_cook( string arg )
                		ob_name   = ob->query("name");
                		if ( objectp(ob) ) destruct(ob);
                		destruct(obj);
-		        return notify_fail( "大師傅笑着說道：沒有" + base_name + "怎麼做" + ob_name + "？\n" );
+		        return notify_fail( "大師傅笑着説道：沒有" + base_name + "怎麼做" + ob_name + "？\n" );
 		}
 		objs += ({obj});
 	}

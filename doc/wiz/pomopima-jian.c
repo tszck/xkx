@@ -40,7 +40,7 @@ int valid_learn(object me)
 	if ((int)me->query_skill("kuihua-xinfa", 1) < 80)
 		return notify_fail("你的葵花心法火候不夠。\n");
 	if(me->query("max_neili")<50)
-		return notify_fail("你的內力修爲不夠。\n");
+		return notify_fail("你的內力修為不夠。\n");
 	return 1;
 }
 

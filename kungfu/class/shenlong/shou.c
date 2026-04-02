@@ -67,13 +67,13 @@ void create()
 	set("max_neili", 1000);
 	set("jiali", 100);
 	set("inquiry", ([
-		"洪安通" : "這三個字是你說的嗎？",
+		"洪安通" : "這三個字是你説的嗎？",
 		"洪教主" : "洪教主仙福永享，壽與天齊，洪教主神目如電，燭照四方。",
 		"蘇荃"   : "沒規沒矩的。",
 		"神龍島" : "神龍島在汝州的東北方向，從塘沽口出海便到。",
 		"神龍教" : "一般人是入不了我神龍教的(join shenlongjiao)。\n",
 		"入教"   : "一般人是入不了我神龍教的(join shenlongjiao)。\n",
-		"教主"   : "教主脾氣不好，要討他歡心纔好。\n",
+		"教主"   : "教主脾氣不好，要討他歡心才好。\n",
 		"口號"   : "萬年不老！永享仙福！壽與天齊！文武仁聖！\n",
 	]) );
 	setup();
@@ -90,7 +90,7 @@ void init()
 void attempt_apprentice(object ob)
 {
 	if (ob->query("party/party_name") != HIY "神龍教" NOR ) {
-		command("say 你不是本教教衆， 想來找死啊！");
+		command("say 你不是本教教眾， 想來找死啊！");
 		return;
 	}
 	if ((int)ob->query("shen") > 0 ) {

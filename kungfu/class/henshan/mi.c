@@ -1,11 +1,11 @@
-// mi.c 米爲義
+// mi.c 米為義
 // Last Modified by ahda on Sep.1 2001
 inherit NPC;
 inherit F_MASTER;
 #include <ansi.h>
 void create()
 {
-	set_name("米爲義", ({ "mi weiyi", "mi", "weiyi" }) );
+	set_name("米為義", ({ "mi weiyi", "mi", "weiyi" }) );
 	set("gender", "男性");
 	set("class", "swordsman");
 	set("age", 25);

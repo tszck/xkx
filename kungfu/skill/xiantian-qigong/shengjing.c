@@ -19,7 +19,7 @@ int exert(object me, object target)
 	if(me->query_condition("quanzhen_drug")>0)
 		return notify_fail("你剛接觸丹藥不久，不宜再煉。\n");
 	if((int)me->query_skill("xiantian-qigong", 1) < 80)
-		return notify_fail("你的先天氣功修爲還不夠。\n");
+		return notify_fail("你的先天氣功修為還不夠。\n");
 	if((int)me->query("neili") < 300) 
 		return notify_fail("你的真氣不夠。\n");
 	if( (int)me->query("eff_qi") < (int)me->query("max_qi") / 2)
@@ -66,7 +66,7 @@ int help(object me)
 	出手要求：
 		先天氣功80級
 		內力300
-		身爲全真門下道士
+		身為全真門下道士
 HELP
 	);
 	return 1;

@@ -55,7 +55,7 @@ int do_pour(string arg)
 	if (!arg || arg != "gang") return 0;
 	if (base_name(environment(me)) != "/d/nanshaolin/houdian")
 	{
-		write("要到後殿纔有水缸讓你倒水。\n");
+		write("要到後殿才有水缸讓你倒水。\n");
 		return 1;
 	}
 	if (!query("liquid/remaining"))

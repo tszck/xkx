@@ -78,11 +78,11 @@ int ask_kiss()
 //				add("combat_exp",2000);
 			}
 			else 
-				say(query("name")+ "啊的一聲，一下子跳將開去，說：不嘛，不要。\n");
+				say(query("name")+ "啊的一聲，一下子跳將開去，説：不嘛，不要。\n");
 			return 1;
 		}
 	}
-	say(query("name")+"說道：呸，我不幹。\n");
+	say(query("name")+"説道：呸，我不幹。\n");
 	return 1;
 }
 
@@ -97,12 +97,12 @@ int ask_go()
 		sscanf(query("id"),"%s's shuang er",host_id);
 		if(query("id")==host_id)
 		{
-			say(query("name")+"睜大眼睛看了看"+me->query("name")+"，說：當然願意啦，我都聽你的。\n");
+			say(query("name")+"睜大眼睛看了看"+me->query("name")+"，説：當然願意啦，我都聽你的。\n");
 			return 1;
 		}
 		if(me->query("id")!=host_id)
 		{
-			say(query("name")+"睜大眼睛看了看"+me->query("name")+"，說：不行的，我得聽我主人的。\n");
+			say(query("name")+"睜大眼睛看了看"+me->query("name")+"，説：不行的，我得聽我主人的。\n");
 			return 1;
 		}
 	}
@@ -129,11 +129,11 @@ int ask_go()
      	tell_object(me,HIC"你成功得到了莊夫人的信任！\n在這次歷練中你獲得了"+
      	         chinese_number(exp)+"點經驗、"+
                chinese_number(pot)+"點潛能以及"+
-               chinese_number(score)+"點江湖閱歷。\n\n"NOR);
+               chinese_number(score)+"點江湖閲歷。\n\n"NOR);
      	}
 	}
 	else say(query("name")+"睜大眼睛看着"+
-		me->query("name")+"，說：不行的，夫人沒有同意。\n");
+		me->query("name")+"，説：不行的，夫人沒有同意。\n");
 	return 1;
 }
 
@@ -152,12 +152,12 @@ int do_attack(string arg)
 	if(!arg||!objectp(ob=present(arg,environment(me))))
 		return notify_fail("雙兒傻傻地望着你，不明白你的意思。\n");
 	if(!living(ob)) 
-		return notify_fail("雙兒說:"
+		return notify_fail("雙兒説:"
 			+ob->query("name")+"已經這樣啦你還要...？！\n");
 	if(ob->query("age")< 16 ) 
-		return notify_fail("雙兒說:"
+		return notify_fail("雙兒説:"
 			+ob->query("name")+"還是個小孩子，算了吧。\n");
-	notify_fail("此人來頭不小，還是少惹爲妙。\n");
+	notify_fail("此人來頭不小，還是少惹為妙。\n");
 	if (!userp(ob) && !ob->accept_hit(me)) return 0;
 	if(!environment(ob)->query("no_fight"))
 	{
@@ -191,7 +191,7 @@ int do_send(string arg)
 		return notify_fail("你要把雙兒送給誰？\n");
 	if(!living(ob)) 
 		return notify_fail("你只能把雙兒給活人！\n");
-message_vision("雙兒眼淚汪汪地望着主人$N，說：主人待我好，是我命好；主人待我不好，是我命苦罷了。\n",me);
+message_vision("雙兒眼淚汪汪地望着主人$N，説：主人待我好，是我命好；主人待我不好，是我命苦罷了。\n",me);
 	set_leader(ob);
 	new_name = ob->query("name")+"的丫環雙兒";
 	set("long","這是"+new_name+"。\n她是一個十分清秀的少女，大約十四五歲年紀；\n一張雪白的臉龐，眉彎嘴小，卻象是剛受人欺負，眼淚汪汪地看着你。\n");
@@ -210,14 +210,14 @@ int do_sha(string arg)
  
 	me = this_object();
 	if(!arg||!objectp(ob=present(arg,environment(me))))
-		return notify_fail("雙兒說: 主人你要雙兒殺誰？\n");
+		return notify_fail("雙兒説: 主人你要雙兒殺誰？\n");
 	if(ob->query("age")< 16 ) 
-		return notify_fail("雙兒說:"+ob->query("name")+"還是個小孩子，算了吧...！\n");
-	notify_fail("此人來頭不小，還是少惹爲妙。\n");
+		return notify_fail("雙兒説:"+ob->query("name")+"還是個小孩子，算了吧...！\n");
+	notify_fail("此人來頭不小，還是少惹為妙。\n");
 	if (!userp(ob) && !ob->accept_kill(me)) return 0;
 	if(!environment(ob)->query("no_fight"))
 	{
-		message_vision("雙兒對$N點頭說道: 嗯，好的。\n",me);
+		message_vision("雙兒對$N點頭説道: 嗯，好的。\n",me);
 		command("say 哼，主人要我殺了你！");
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, ob); 

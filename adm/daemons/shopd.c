@@ -297,7 +297,7 @@ public int close_all(object me)
         return 1;
 }
 
-// 關閉店鋪是修改店鋪的 shop_type 爲 0
+// 關閉店鋪是修改店鋪的 shop_type 為 0
 public int close_shop(object me, string arg)
 {
         int i, have_it;
@@ -350,7 +350,7 @@ public int open_all(object me)
         return 1;
 }
 
-// 開放店鋪是修改店鋪的 shop_type 爲 1
+// 開放店鋪是修改店鋪的 shop_type 為 1
 public int open_shop(object me, string arg)
 {
         int i, have_it;
@@ -420,7 +420,7 @@ public int reset_all(object me)
 
 // 初始化店鋪包括：
 // 關閉店鋪
-// 設置店鋪和夥計的主人爲空值
+// 設置店鋪和夥計的主人為空值
 // 清除夥計的貨物以及夥計的存款
 // 清除夥計的貴賓和黑戶
 public int reset_shop(object me, string arg)
@@ -580,7 +580,7 @@ public string do_modify(object obj, object me, string arg)
                 return "對不起，該店鋪目前已經被巫師關閉。\n";
 
         if (! arg || sscanf(arg,"%s %s", item, msg) != 2)
-                return "設定格式爲：modify <項目> <內容>\n";
+                return "設定格式為：modify <項目> <內容>\n";
 
         if (CHINESE_D->check_control(msg))
                 return "描述不可有控制符。\n";
@@ -619,7 +619,7 @@ public string do_modify(object obj, object me, string arg)
                 room->set("waiter/long", msg + NOR "\n");
 
                 room->save();
-                return WHT "你爲店鋪夥計設定好了描述。\n" NOR;
+                return WHT "你為店鋪夥計設定好了描述。\n" NOR;
 
         case "nickname" :
                 if (CHINESE_D->check_length(msg) > 20)
@@ -629,7 +629,7 @@ public string do_modify(object obj, object me, string arg)
                 room->set("waiter/nickname", msg + NOR);
 
                 room->save();
-                return WHT "你爲店鋪夥計設定好了綽號。\n" NOR;
+                return WHT "你為店鋪夥計設定好了綽號。\n" NOR;
 
         case "title" :
                 if (CHINESE_D->check_length(msg) > 20)
@@ -639,7 +639,7 @@ public string do_modify(object obj, object me, string arg)
                 room->set("waiter/title", msg + NOR);
 
                 room->save();
-                return WHT "你爲店鋪夥計設定好了頭銜。\n" NOR;
+                return WHT "你為店鋪夥計設定好了頭銜。\n" NOR;
 
         case "name" :
                 if (CHINESE_D->check_length(msg) > 10)
@@ -654,7 +654,7 @@ public string do_modify(object obj, object me, string arg)
                 room->set("waiter/name", msg);
 
                 room->save();
-                return WHT "你爲店鋪夥計設定好了名字。\n" NOR;
+                return WHT "你為店鋪夥計設定好了名字。\n" NOR;
         }
         return "你要修改什麼？\n";
 }
@@ -924,7 +924,7 @@ public int do_buy(object obj, object me, string arg)
 
         if(me->is_busy())
         {
-                tell_object(me, "什麼事都得等你忙完再說吧！\n");
+                tell_object(me, "什麼事都得等你忙完再説吧！\n");
                 return 1;
         }
 
@@ -1147,7 +1147,7 @@ public string do_jiezhang(object ob, object me)
        tell_object(me, HIY"您不在線時共有"+MONEY_D->price_str(amount)+HIY"的收入，現已全部轉入您的銀號。\n"NOR);
        room->set("balance", 0);
        room->save();
-       return "結帳完畢，請即時覈對數目。\n";
+       return "結帳完畢，請即時核對數目。\n";
 }
 
 public string list_invite(object ob, object me)
@@ -1200,7 +1200,7 @@ public string do_invite(object ob, object me, string arg)
         if (num == 10)
         {
                 if (! room->query("invite/" + arg))
-                        return CYN + ob->name(1) + NOR + CYN "對你說道：老闆，那 " + arg + " 本來就不是我們店的貴賓啊。\n" NOR;
+                        return CYN + ob->name(1) + NOR + CYN "對你説道：老闆，那 " + arg + " 本來就不是我們店的貴賓啊。\n" NOR;
 
                 room->delete("invite/" + arg);
                 room->save();
@@ -1213,7 +1213,7 @@ public string do_invite(object ob, object me, string arg)
         room->set("invite/" + arg, num);
         room->save();
 
-        return CYN + ob->name(1) + NOR + CYN "翻開帳簿邊寫邊說道：老闆，已經按照你的吩咐對 " WHT + arg + CYN " 實行" + HIY + chinese_number(num) + "折" + NOR + CYN "優惠。\n" NOR;
+        return CYN + ob->name(1) + NOR + CYN "翻開帳簿邊寫邊説道：老闆，已經按照你的吩咐對 " WHT + arg + CYN " 實行" + HIY + chinese_number(num) + "折" + NOR + CYN "優惠。\n" NOR;
 }
 
 public string list_ban(object ob, object me)
@@ -1263,7 +1263,7 @@ public string do_ban(object ob, object me, string arg)
         if (sscanf(arg, "%s %s", type, the_id) == 2 && type == "-")
         {
                 if (member_array(the_id, ban) == -1)
-                        return CYN + ob->name(1) + NOR + CYN "對你說道：老闆，那 " + arg + " 本來就不是我們店的黑戶啊。\n" NOR;
+                        return CYN + ob->name(1) + NOR + CYN "對你説道：老闆，那 " + arg + " 本來就不是我們店的黑戶啊。\n" NOR;
 
                 ban -= ({ the_id });
                 room->set("ban", ban);
@@ -1272,7 +1272,7 @@ public string do_ban(object ob, object me, string arg)
         }
 
         if (member_array(arg, ban) != -1)
-                return CYN + ob->name(1) + NOR + CYN "奸笑着道：老闆，您忘記了？那" + arg + "早已被列爲黑戶啦。\n" NOR;
+                return CYN + ob->name(1) + NOR + CYN "奸笑着道：老闆，您忘記了？那" + arg + "早已被列為黑戶啦。\n" NOR;
 
         if (sizeof(ob->query("ban")) >= 30)
                 return "您已經設定了三十個黑戶，還是先劃掉一些吧。\n";
@@ -1280,7 +1280,7 @@ public string do_ban(object ob, object me, string arg)
         ban += ({ arg });
         room->set("ban", ban);
         room->save();
-        return CYN + ob->name(1) + NOR + CYN "翻開帳簿邊寫邊說道：老闆，已經按照你的吩咐將 " WHT + arg + CYN " 列爲了黑戶。\n"NOR;
+        return CYN + ob->name(1) + NOR + CYN "翻開帳簿邊寫邊説道：老闆，已經按照你的吩咐將 " WHT + arg + CYN " 列為了黑戶。\n"NOR;
 }
 public string do_order(object ob,object me,string arg)
 {

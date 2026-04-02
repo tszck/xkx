@@ -31,7 +31,7 @@ int perform(object me, object target)
 		return notify_fail(PNAME"只能對戰鬥中的對手使用。\n");
 
 	if( me->query_temp("weapon"))
-		return notify_fail("你先放下手中的武器再說吧？！\n");     
+		return notify_fail("你先放下手中的武器再説吧？！\n");     
 		
 	fskill = "taiji-shengong";
 	bskill = "unarmed";
@@ -99,7 +99,7 @@ int help(object me)
 
 	使用功效：
 		損傷對方氣血
-		自身內力修爲越高傷害度越高
+		自身內力修為越高傷害度越高
 
 	出手要求：
 		太極神功100級

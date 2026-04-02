@@ -66,7 +66,7 @@ int do_xxdazuo(string arg)
 	return notify_fail("你必須先用 enable 選擇你要用的特殊內功。\n");
 
 	      if ((me->query_skill("force")*8 +  me->query("combat_exp",1)/1000 ) <= me->query("max_neili") )
-	      return notify_fail("這裏已經無助於你的修爲了。\n");
+	      return notify_fail("這裏已經無助於你的修為了。\n");
 
 	if( !arg || !sscanf(arg, "%d", xxdazuo_cost))
 		return notify_fail("你要花多少氣練功？\n");
@@ -111,13 +111,13 @@ int xxdazuo(object me)
 	if ((int)me->query("neili") < (int)me->query("max_neili") * 2)
 		return 0;
      if ((me->query_skill("force")*8 +  me->query("combat_exp",1)/1000 ) <= me->query("max_neili") ){
-		write("你的內力修爲已經達到了此地所能幫助你的極限。\n"); 
+		write("你的內力修為已經達到了此地所能幫助你的極限。\n"); 
 		me->set("neili", (int)me->query("max_neili"));
 		return 0;
 	}
 	me->add("max_neili", 1);
 	me->set("neili", (int)me->query("max_neili"));
-	write("你的內力修爲增加了！！\n");   
+	write("你的內力修為增加了！！\n");   
 	return 0;
 }
 

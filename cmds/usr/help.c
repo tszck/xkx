@@ -22,7 +22,7 @@ mapping valid_type = ([
         "force":        "內功",
         "hammer":       "錘法",
         "hand":         "手法",
-        "hook":         "鉤法",
+        "hook":         "鈎法",
         "leg":          "腿法",
         "magic":        "法術",
         "parry":        "招架",
@@ -52,15 +52,15 @@ int main(object me, string arg)
 		me->start_more(read_file(HELP_DIR + "help/topics"));
 		return 1;
 	}
-// 參數爲here，顯示本地所在地址的幫助
+// 參數為here，顯示本地所在地址的幫助
 	if( arg == "here")
 	{
 		file = file_name(environment(me));
 		if( sscanf(file, "/d/%s/%s", here, here1) != 2)
-			return notify_fail("這個地方沒有幫助說明。\n");
+			return notify_fail("這個地方沒有幫助説明。\n");
 		else
 		{
-// 揚州目錄爲city，特別列出
+// 揚州目錄為city，特別列出
 			if( here == "city") arg = "yangzhou";
 			else arg = here;
 		}
@@ -131,14 +131,14 @@ int main(object me, string arg)
 			}
 		}
 		write("\n");
-		write(HIY"請用help <命令名> 查看詳細說明。\n"NOR);
+		write(HIY"請用help <命令名> 查看詳細説明。\n"NOR);
 		return 1;
 	}
 // Else, try if a command name is specified.
 	seteuid(getuid());
 	if( stringp(file = me->find_command(arg)) )
 	{
-		notify_fail("有這個指令存在，但是並沒有詳細的說明文件。\n");
+		notify_fail("有這個指令存在，但是並沒有詳細的説明文件。\n");
 		return file->help(me);
 	}
 
@@ -170,7 +170,7 @@ int main(object me, string arg)
 // 武功幫助文件
 	sscanf(arg, "%s.%s", arg, str);
 	if(file_size(SKILL_D(arg)+".c") < 1)
-		return notify_fail("沒有針對這項主題的說明文件。\n");
+		return notify_fail("沒有針對這項主題的説明文件。\n");
 
 // 武功絕招幫助文件
 	if( stringp(str) )
@@ -178,21 +178,21 @@ int main(object me, string arg)
 		if( stringp(exert = SKILL_D(arg)->exert_function_file("")) &&
 			file_size(exert + str +".c") > 0)
 		{
-			notify_fail("對不起，"+to_chinese(arg)+"內功方面的「"+str+"」功能沒有詳細的說明。\n");
+			notify_fail("對不起，"+to_chinese(arg)+"內功方面的「"+str+"」功能沒有詳細的説明。\n");
 			return (exert + str)->help(me);
 		}
 		else
 		if( stringp(exert = SKILL_D(arg)->perform_action_file("")) &&
 			file_size(exert + str +".c") > 0)
 		{
-			notify_fail("對不起，"+to_chinese(arg)+"外功方面的「"+str+"」功能沒有詳細的說明。\n");
+			notify_fail("對不起，"+to_chinese(arg)+"外功方面的「"+str+"」功能沒有詳細的説明。\n");
 			return (exert + str)->help(me);
 		}
 		return notify_fail("對不起，"+to_chinese(arg)+"沒有「"+str+"」這項功能。\n");
 	}
 	if(!SKILL_D(arg)->help(me))
 	{
-		write(HIY"\n指定武技沒有詳細幫助說明。\n"NOR);
+		write(HIY"\n指定武技沒有詳細幫助説明。\n"NOR);
 	}
 
 	lrn = me->query_learned();
@@ -352,7 +352,7 @@ int help(object me)
           help <函數名稱>()        例如：> help call_out()
           help here                顯示所在地域的介紹
 
-    這個指令提供你針對某一主題的詳細說明文件，若是不指定主題，
+    這個指令提供你針對某一主題的詳細説明文件，若是不指定主題，
 則提供你有關主題的文件。
 
 HELP

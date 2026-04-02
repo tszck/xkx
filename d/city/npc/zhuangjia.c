@@ -84,11 +84,11 @@ int do_ya(string arg)
 		return notify_fail(
 "ya tc <數量> <coin|silver|gold> 押頭彩(兩數順序及點數均正確)       一賠卅五\n"
 "ya dc <數量> <coin|silver|gold> 押大彩(兩數點數正確)               一賠十七\n"
-"ya sd <數量> <coin|silver|gold> 押雙對(兩數相同且均爲偶數)         一賠十一\n"
-"ya kp <數量> <coin|silver|gold> 押空盤(兩數不同且均爲偶數)         一賠五\n"
-"ya qx <數量> <coin|silver|gold> 押七星(兩數之和爲七)               一賠五\n"
-"ya dd <數量> <coin|silver|gold> 押單對(兩數均爲奇數)               一賠三\n"
-"ya sx <數量> <coin|silver|gold> 押散星(兩數之和爲三、五、九、十一) 一賠二\n"
+"ya sd <數量> <coin|silver|gold> 押雙對(兩數相同且均為偶數)         一賠十一\n"
+"ya kp <數量> <coin|silver|gold> 押空盤(兩數不同且均為偶數)         一賠五\n"
+"ya qx <數量> <coin|silver|gold> 押七星(兩數之和為七)               一賠五\n"
+"ya dd <數量> <coin|silver|gold> 押單對(兩數均為奇數)               一賠三\n"
+"ya sx <數量> <coin|silver|gold> 押散星(兩數之和為三、五、九、十一) 一賠二\n"
 "每盤按從上到下的順序只出現一種點型(頭彩和大彩可同時出現)，其他情況都算莊家贏。\n");
 	if (undefinedp(t[type])) return notify_fail("您要押什麼？\n");
 	if (mount < 1) return notify_fail("你要押多少錢？\n");
@@ -104,7 +104,7 @@ int do_ya(string arg)
 	if (mount > 100000) return notify_fail("您押的數目太大了。\n");
 	if (mount > me->query("balance"))
 		return notify_fail("您沒有這麼多存款。\n");
-	if (mount % 10) return notify_fail("必須以十個銅錢爲基數下注。\n");
+	if (mount % 10) return notify_fail("必須以十個銅錢為基數下注。\n");
 	if (!in_bet) return notify_fail("賭局還沒開始呢。\n");
 	if (in_bet > 1) return notify_fail("賭局已經開始了，等下一輪吧。\n");
 	uid = me->query("id");

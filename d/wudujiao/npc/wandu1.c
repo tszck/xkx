@@ -7,7 +7,7 @@ void create()
         set_name("騰蛇",({"du she"}));
 
 	set("race", "爬蛇");
-        set("long", "一條十丈多長一人來粗的大蛇，據說騰蛇萬年可以化龍飛去。\n");
+        set("long", "一條十丈多長一人來粗的大蛇，據説騰蛇萬年可以化龍飛去。\n");
         set("age", 10000);
         set("attitude", "peaceful");
 

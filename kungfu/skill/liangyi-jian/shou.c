@@ -46,7 +46,7 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(fskill)+"的修爲不夠，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"的修為不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 120 )
 		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
@@ -96,7 +96,7 @@ int help(object me)
 
 	使用功效：
 		拼卻一死，求得與對手偕亡
-		使用者是死定了，慎用。需搏得一個高手方爲上算
+		使用者是死定了，慎用。需搏得一個高手方為上算
 
 	出手要求：
 		兩儀劍法120級

@@ -72,7 +72,7 @@ int do_knock(string arg)
 	if(objectp(room))
 	{
 		set("exits/north", __DIR__"gchang-1");
-		message_vision("$N輕輕地敲了敲門，只聽吱地一聲，一位壯年僧人應聲打開大門，\n他用銳利的目光上上下下打量着$N。\n", this_player());
+		message_vision("$N輕輕地敲了敲門，只聽吱地一聲，一位壯年僧人應聲打開大門，\n他用鋭利的目光上上下下打量着$N。\n", this_player());
 		room->set("exits/south", __FILE__);
 		message("vision","外面傳來一陣敲門聲，壯年僧人應聲上前把大門開。\n", room);
 		remove_call_out("close_gate");
@@ -93,7 +93,7 @@ int valid_leave(object me, string dir)
 		if (((int)me->query("guilty") == 0) &&
 			((int)me->query("K_record") == ((int)me->query("PKS") + (int)me->query("MKS"))))
 		{
-			message_vision("壯年僧人側身讓開，說道：師兄辛苦了，請進。\n", me);
+			message_vision("壯年僧人側身讓開，説道：師兄辛苦了，請進。\n", me);
 			return 1;
 		}
 		else
@@ -107,13 +107,13 @@ int valid_leave(object me, string dir)
 				me->set("K_record", me->query("PKS") + me->query("MKS"));
 				me->set("shen_record", me->query("shen"));
 			}
-			write("壯年僧人沉下臉來，說道：戒律院主持大癲大師請師兄\n火速去戒律院陳述此行過犯。\n");
+			write("壯年僧人沉下臉來，説道：戒律院主持大癲大師請師兄\n火速去戒律院陳述此行過犯。\n");
 			return 1;
 		}
 	}
 	else if( present("yingxiong ling", me) )
 		{
-			message_vision("壯年僧人合十爲禮，側身讓開，說道：原來是貴客駕到，請進請進！\n", me);
+			message_vision("壯年僧人合十為禮，側身讓開，説道：原來是貴客駕到，請進請進！\n", me);
 			return 1;
 		}
     
@@ -121,15 +121,15 @@ int valid_leave(object me, string dir)
 	{
 		if (me->query("gender") == "女性")
 		{
-			return notify_fail("壯年僧人說道：這位女施主還是請回罷，本寺從不接待女客。\n");
+			return notify_fail("壯年僧人説道：這位女施主還是請回罷，本寺從不接待女客。\n");
 		}
 		else
 		{
-			return notify_fail("壯年僧人說道：這位施主請回罷，本寺不接待俗人。\n");
+			return notify_fail("壯年僧人説道：這位施主請回罷，本寺不接待俗人。\n");
 		}
 	}
 
-	return notify_fail("壯年僧人立時從身畔摯出一把雪亮的戒刀來，把明晃晃的\n刀尖對準你的胸口，橫眉怒目地說道：你等邪魔外道，還不給我滾開！\n以後再敢走近少林一步，我立時就斬斷你們的狗腿！\n");
+	return notify_fail("壯年僧人立時從身畔摯出一把雪亮的戒刀來，把明晃晃的\n刀尖對準你的胸口，橫眉怒目地説道：你等邪魔外道，還不給我滾開！\n以後再敢走近少林一步，我立時就斬斷你們的狗腿！\n");
 }
 
 string look_gate()

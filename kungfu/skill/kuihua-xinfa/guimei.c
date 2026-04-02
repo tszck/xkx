@@ -25,7 +25,7 @@ int exert(object me, object target)
 	if( !me->query_temp("murong/xingyi") )
 	{
 		if((int)me->query_skill("kuihua-xinfa", 1) < 100)
-			return notify_fail(HIY "你的葵花心法修爲不夠。\n" NOR);
+			return notify_fail(HIY "你的葵花心法修為不夠。\n" NOR);
 		if((int)me->query_skill("bixie-jian", 1) < 120)
 			return notify_fail(HIY "你的辟邪劍法不夠熟練。\n" NOR);
 	}

@@ -30,7 +30,7 @@ int exert(object me, object target)
 
 	if((int)me->query_skill("force",1) < 50 ||
 		(int)me->query_skill("wudu-shengong",1) < 50 )
-		return notify_fail("你的內功修爲不夠，不能有效施展碧血箭！\n");
+		return notify_fail("你的內功修為不夠，不能有效施展碧血箭！\n");
 
 	if((int)me->query("combat_exp") < (int)target->query("combat_exp")/10)
 		return notify_fail("對方武功強你十倍，不會有用的，還是快跑吧！\n");

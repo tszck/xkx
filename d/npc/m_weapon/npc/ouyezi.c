@@ -86,7 +86,7 @@ int accept_object(object who, object ob)
 		case "辟邪劍譜":
 			if( (who->query_temp("condition")) != (string)ob->query("name") )
 			{
-				message_vision(HIC "歐冶子一愣：我對你說過我要這樣東西麼？\n" NOR, who);
+				message_vision(HIC "歐冶子一愣：我對你説過我要這樣東西麼？\n" NOR, who);
 				return 0;
 			}
 			else
@@ -126,7 +126,7 @@ int accept_object(object who, object ob)
 			message("vision","這是什麼！這不能用來打造兵器！",who);
 			return 0;
 	}
-	message("vision", "歐冶子低頭檢視了一下手中的"+(string)ob->query("name")+"點了點頭說：\n",who);
+	message("vision", "歐冶子低頭檢視了一下手中的"+(string)ob->query("name")+"點了點頭説：\n",who);
 	write("我這兒可以打造以下兵器：\n"+
 		"     劍(sword)\n"+
 		"     刀(blade)\n"+
@@ -135,7 +135,7 @@ int accept_object(object who, object ob)
 		"     棒(stick)\n"+
 		"     杖(staff)\n"+
 		"     錘(hammer)\n"+
-		"     鉤(hook)\n"+
+		"     鈎(hook)\n"+
 		"     斧(axe)\n"+
 		"     鞭(whip)\n");	  	
 	say("這位"+RANK_D->query_respect(who)+"要造什麼兵器？決定了告訴我(answer)。\n");
@@ -159,7 +159,7 @@ int do_answer(string arg)
 		return 0;
 	}
 
-	message("vision",me->name()+"對歐冶子輕聲說了幾句。\n",environment(me), ({me}) );
+	message("vision",me->name()+"對歐冶子輕聲説了幾句。\n",environment(me), ({me}) );
 	switch (arg)
 	{
 		case "sword" :
@@ -204,7 +204,7 @@ int do_answer(string arg)
 			break;
 		case "hook" :
 			me->add_temp("hook",1);
-			write("帶着原料去找侍鉤吧！\n");
+			write("帶着原料去找侍鈎吧！\n");
 			message("vision","去吧！"+me->name()+"！\n",me);
 			break;
 		case "whip" :
@@ -214,7 +214,7 @@ int do_answer(string arg)
 			break;
 		default :
 			message_vision(HIC"歐冶子一臉狐疑：什麼兵器？\n"NOR,me);
-			return notify_fail("歐冶子仔細的說：此事不可兒戲，請慎重！！\n");
+			return notify_fail("歐冶子仔細的説：此事不可兒戲，請慎重！！\n");
 	}
 	switch ( me->query_temp("or") )
 	{
@@ -273,7 +273,7 @@ int do_weapon()
 	if( !(me->query_temp("condition_ok")) )
 	{
 		message_vision(HIY"這位"+RANK_D->query_respect(me)+"想要重新得到兵器？這不難。不過......\n" NOR, me);
-		message_vision(HIY"歐冶子沉吟了一下說：你得找到我要的東西。\n" NOR, me);
+		message_vision(HIY"歐冶子沉吟了一下説：你得找到我要的東西。\n" NOR, me);
 		switch( random(5) )
 		{
 			case 0:
@@ -327,7 +327,7 @@ int do_give_weapon(object me)
 				  env_name = env->query("short");				
 			  if (!userp(env))
 			    env_name = area +"的" + env_name;
-			  message_vision("$N說道：你的"+obs[i]->query("name")+
+			  message_vision("$N説道：你的"+obs[i]->query("name")+
 			  "在"+ env_name+"，快去找吧。\n",this_object());
 			  return 1;
 			}
@@ -370,7 +370,7 @@ object creat_weapon()
 		case "錘":
 			weapon = new("/d/npc/m_weapon/weapon/m_hammer",1);
 			return weapon;
-		case "鉤":
+		case "鈎":
 			weapon = new("/d/npc/m_weapon/weapon/m_hook",1);
 			return weapon;
 		case "鞭":

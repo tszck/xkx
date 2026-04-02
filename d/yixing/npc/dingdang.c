@@ -116,7 +116,7 @@ string ask_wine()
 	add_action("do_pretty", "pretty");
 	command("say 一定是爺爺派你來勸我回去的是不是？原來他已經知道我偷了他的寶貝。");
 	command("sigh");
-	command("say 天哥以前風流涕淌，對人家老是油腔滑調的，可是最近不知道怎麼變傻了，連哄人家的話也不會說了。");
+	command("say 天哥以前風流涕淌，對人家老是油腔滑調的，可是最近不知道怎麼變傻了，連哄人家的話也不會説了。");
 	command("disapp");
 	me->set_temp("pretty/ding", 1);
 	return "我真寧願他是以前那個會哄人家開心的天哥。";

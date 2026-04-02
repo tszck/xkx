@@ -64,7 +64,7 @@ int main(object me, string arg)
 				me->add("learned_points", 1);
 
 // 研究速度 = 後天悟性的一半，加武功學習補償的一半。
-// 未定義學習補償的技能，默認學習補償爲10。
+// 未定義學習補償的技能，默認學習補償為10。
 				improve_points=(int) (me->query_int()/2);
 				if(SKILL_D(skill)->learn_bonus())
 					improve_points += (int)SKILL_D(skill)->learn_bonus()/2;

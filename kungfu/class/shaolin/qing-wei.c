@@ -7,7 +7,7 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("清爲比丘", ({
+	set_name("清為比丘", ({
 		"qingwei biqiu",
 		"qingwei",
 		"biqiu",

@@ -10,7 +10,7 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "封");
-                set("long","這是一封壇主爲你寫的推薦信，憑此可去見接引使者。\n");
+                set("long","這是一封壇主為你寫的推薦信，憑此可去見接引使者。\n");
                 set("material", "paper");
         }
 }

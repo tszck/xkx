@@ -22,18 +22,18 @@ int main(object me, string arg)
 	{
 		old_app = me->query_temp("pending/apprentice");
 		if( !objectp(old_app) )
-			return notify_fail("你現在並無拜任何人爲師的意思。\n");
-		write("你改變主意不想拜" + old_app->name() + "爲師了。\n");
-		tell_object(old_app, me->name() + "改變主意不想拜你爲師了。\n");
+			return notify_fail("你現在並無拜任何人為師的意思。\n");
+		write("你改變主意不想拜" + old_app->name() + "為師了。\n");
+		tell_object(old_app, me->name() + "改變主意不想拜你為師了。\n");
 		me->delete_temp("pending/apprentice");
 		return 1;
 	}
 	if( !(ob = present(arg, environment(me))) || !ob->is_character() )
-		return notify_fail("你想拜誰爲師？\n");
+		return notify_fail("你想拜誰為師？\n");
 	if( !living(ob) || ob->query_temp("noliving") )
 		return notify_fail("你必須先把" + ob->name() + "弄醒。\n");
 	if( ob==me ) 
-		return notify_fail("拜自己爲師？好主意....不過沒有用。\n");
+		return notify_fail("拜自己為師？好主意....不過沒有用。\n");
 	if( me->is_apprentice_of(ob) )
 	{
 		message_vision("$N恭恭敬敬地向$n磕頭請安，叫道：「師父！」\n", me, ob);
@@ -69,7 +69,7 @@ int main(object me, string arg)
 			me->add("betrayer", 1);
 		}
 		else 
-		message_vision("$N決定拜$n爲師。\n\n$N跪了下來向$n恭恭敬敬地磕了四個響頭，叫道：「師父！」\n\n", me, ob);
+		message_vision("$N決定拜$n為師。\n\n$N跪了下來向$n恭恭敬敬地磕了四個響頭，叫道：「師父！」\n\n", me, ob);
 		if ((string)me->query("family/master_id")=="feng qingyang")
 		{
 			room = find_object("/d/huashan/xiaofang");
@@ -90,7 +90,7 @@ int main(object me, string arg)
 
 		tell_object(ob, "恭喜你新收了一名弟子！\n");
 		family = me->query("family");
-		printf("恭喜您成爲%s的第%s代弟子。\n", me->query("family/family_name"), chinese_number( me->query("family/generation")));
+		printf("恭喜您成為%s的第%s代弟子。\n", me->query("family/family_name"), chinese_number( me->query("family/generation")));
 		fealty=(int)(me->query_temp("fealty_temp"));
 		me->set("family/fealty",fealty);
 		me->delete_temp("fealty_temp");
@@ -103,19 +103,19 @@ int main(object me, string arg)
 		me->set_temp("fealty_temp",fealty);
 		old_app = me->query_temp("pending/apprentice");
 		if( ob==old_app )
-			return notify_fail("你想拜" + ob->name() + "爲師，但是對方還沒有答應。\n");
+			return notify_fail("你想拜" + ob->name() + "為師，但是對方還沒有答應。\n");
 		else
 			if( objectp(old_app) )
 			{
-				write("你改變主意不想拜" + old_app->name() + "爲師了。\n");
-				tell_object(old_app, me->name() + "改變主意不想拜你爲師了。\n");
+				write("你改變主意不想拜" + old_app->name() + "為師了。\n");
+				tell_object(old_app, me->name() + "改變主意不想拜你為師了。\n");
 			}
 
-		message_vision("$N想要拜$n爲師。\n", me, ob);
+		message_vision("$N想要拜$n為師。\n", me, ob);
 		me->set_temp("pending/apprentice", ob );
 		if( userp(ob) )
 		{
-			tell_object(ob, YEL "如果你願意收" + me->name() + "爲弟子，用 recruit 指令。\n" NOR);
+			tell_object(ob, YEL "如果你願意收" + me->name() + "為弟子，用 recruit 指令。\n" NOR);
 		}
 		else ob->attempt_apprentice(me);
 		//fealty=(int)(me->query_temp("fealty_temp"));
@@ -132,13 +132,13 @@ int help(object me)
 	write(@HELP
 指令格式 : apprentice|bai [cancel]|<對象>
  
-    這個指令能讓你拜某人爲師，如果對方也答應要收你爲徒的話，就會立即
-行拜師之禮，但要等到對方用ｒｅｃｒｕｉｔ或ｓｈｏｕ指令收你爲弟子才能
+    這個指令能讓你拜某人為師，如果對方也答應要收你為徒的話，就會立即
+行拜師之禮，但要等到對方用ｒｅｃｒｕｉｔ或ｓｈｏｕ指令收你為弟子才能
 正式拜師。請注意你已經有了師父，又背叛師門投入別人門下，江湖名譽會受
 到影響，叛師對你以後的學習和前途都會造成影響。
 
     如果對你的師父使用這個指令，會變成向師父請安。
-    如果使用的參數ｃａｎｃｅｌ則可以取消你剛纔的拜師之念（要在對方答
+    如果使用的參數ｃａｎｃｅｌ則可以取消你剛才的拜師之念（要在對方答
 應之前實行哦；）。
 
     許多ＮＰＣ只接受平民百姓和本派弟子，而不接受別派弟子，叛師是有懲

@@ -102,7 +102,7 @@ int do_da()
                 tell_object(me,HIW"你得到了:"
                             + chinese_number(add_exp) + "點實戰經驗，"
                             + chinese_number(add_pot) + "點潛能，"
-                            + chinese_number(add_score) + "點江湖閱歷。\n"NOR);
+                            + chinese_number(add_score) + "點江湖閲歷。\n"NOR);
 
              }                   
          me->receive_damage("qi", 5);

@@ -58,7 +58,7 @@ int perform(object me, object target)
 		return notify_fail("你先天根骨不夠高，難以施展" PNAME "。\n");
 		
 	if (me->query("max_neili") < 3000)
-		return notify_fail("你的內力修爲不足，難以施展" PNAME "。\n");
+		return notify_fail("你的內力修為不足，難以施展" PNAME "。\n");
 
 	if (me->query_skill_mapped("force") != fskill)
 		return notify_fail("你沒有激發八荒六合唯我獨尊功，難以施展" PNAME "。\n");

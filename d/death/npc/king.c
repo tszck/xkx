@@ -17,7 +17,7 @@ void create()
 {
 	set_name(HIW "酆都冥府大帝" NOR, ({ "ming king","king" }) );
 	set("long",HIW @LONG
-岱泰山乃天帝之孫，羣靈之府，主世界人民官職生死貴賤等事，定生死簿，轄天下衆
+岱泰山乃天帝之孫，羣靈之府，主世界人民官職生死貴賤等事，定生死簿，轄天下眾
 生，馭冥府羣鬼。
 LONG NOR);
 	set("gender","男性");

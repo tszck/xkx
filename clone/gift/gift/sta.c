@@ -7,7 +7,7 @@ void create()
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", WHT "這是一顆耐力丹，據說喫了可以增強耐力。\n" NOR);
+                set("long", WHT "這是一顆耐力丹，據説喫了可以增強耐力。\n" NOR);
                 set("unit", "顆");
                 set("value", 10000);
                 set("weight", 50);

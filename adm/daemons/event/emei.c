@@ -50,7 +50,7 @@ private void do_bonus(object room)
                 }
 
                 message("vision", msg, obs);
-		message("channel:rumor", HIM"【謠言】"+"聽說峨嵋金頂佛光出現，令人歎爲觀止，讚歎不已。\n"NOR, users());
+		message("channel:rumor", HIM"【謠言】"+"聽説峨嵋金頂佛光出現，令人歎為觀止，讚歎不已。\n"NOR, users());
                
         } else
         if (r < 250)

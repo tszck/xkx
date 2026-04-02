@@ -33,6 +33,6 @@ int valid_leave(object me, string dir)
 	if (!me->query("jqg_pass") &&
 		present("gongsun zhi", environment(me)) &&
 		(dir =="south" || dir =="north" || dir=="southeast"))
-		return notify_fail("公孫止怒斥到，你以爲你是小龍女啊，在我絕情谷裏亂跑？！\n");
+		return notify_fail("公孫止怒斥到，你以為你是小龍女啊，在我絕情谷裏亂跑？！\n");
 	return ::valid_leave(me, dir);
 }

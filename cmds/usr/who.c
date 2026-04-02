@@ -68,7 +68,7 @@ mixed main(object me, string arg, int remote)
                                 case "-p": opt_party = 1;       break;
                                 case "-a": opt_age = 1;         break;
   //                              case "-e": opt_exp = 1;         break;
-                                //如果不帶以上幾種參數，則爲who + player_id情況
+                                //如果不帶以上幾種參數，則為who + player_id情況
                                 default:
 
                                        if(option[i][0]=='@' ) {

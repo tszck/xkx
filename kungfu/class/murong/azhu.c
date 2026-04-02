@@ -46,7 +46,7 @@ void create()
 
 	set("combat_exp", 10000);
 	set("inquiry",([
-		"曼陀山莊" : "我纔不敢去曼陀山莊，王夫人太霸道了！\n",
+		"曼陀山莊" : "我才不敢去曼陀山莊，王夫人太霸道了！\n",
 		"王語嫣" : "哎，只有她才配得上我們公子，也不知她現在怎樣了！\n",
 		"阿碧" : "那小丫頭也不只跑哪兒去了。\n",
 		"彈琴" : ( : inquiry_tanqin : ),
@@ -55,7 +55,7 @@ void create()
 		"王夫人"   : "就是公子爺的舅媽，曼陀山莊的莊主！\n",
 		"鄧百川"   : "你問鄧大哥啊？他在他青風莊上呢。\n",
 		"公冶乾"   : "公冶二哥把信鴿傳書一編碼，就沒幾個人讀得懂了。\n",
-		"包不同"   : "包三哥最愛擡槓了，你見了他還是閉嘴的好。\n",
+		"包不同"   : "包三哥最愛抬槓了，你見了他還是閉嘴的好。\n",
 		"風波惡"   : "風四哥最是豪爽了，他從不與人計較什麼。\n",
 	]) );
 	create_family("姑蘇慕容", 33, "弟子");
@@ -71,9 +71,9 @@ void create()
 int inquiry_tanqin()
 {
 	object me=this_player();
-message_vision("阿朱說道：這位"+ RANK_D->query_respect(me)+"這麼有雅興，那我就爲你彈奏一曲?\n只聽琴聲繁複清亮，你不由的癡了。\n", me );
+message_vision("阿朱説道：這位"+ RANK_D->query_respect(me)+"這麼有雅興，那我就為你彈奏一曲?\n只聽琴聲繁複清亮，你不由的癡了。\n", me );
 //	細細品來，竟是張信哲的<<愛如潮水>>!!!\n 
-	message_vision("阿朱一曲終了，道個萬福，說道：現醜了。\n", me );
+	message_vision("阿朱一曲終了，道個萬福，説道：現醜了。\n", me );
 	return 1;
 }
 void attempt_apprentice(object ob)
@@ -81,9 +81,9 @@ void attempt_apprentice(object ob)
 	if ((int)ob->query("betrayer") > 0)
 	{
 		command("say 這位" + RANK_D->query_respect(ob) +
-			"，我慕容家復國乃至爲要事，你心志不堅，無緣我門。");
+			"，我慕容家復國乃至為要事，你心志不堅，無緣我門。");
 		return;
 	}
-	command("say 好吧我就收你爲徒吧。");
+	command("say 好吧我就收你為徒吧。");
 	command("recruit " + ob->query("id"));
 }

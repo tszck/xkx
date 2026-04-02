@@ -47,7 +47,7 @@ int perform(object me, object target)
 	if( (int)me->query_skill(sskill, 1) < 100 )
 		return notify_fail("你的"+to_chinese(sskill)+"不夠熟練，不會使用"+PNAME+"。\n");
 	if((int)me->query("max_neili") < 500)
-		return notify_fail(HIY "你的內力修爲還不夠火候。\n" HIY);
+		return notify_fail(HIY "你的內力修為還不夠火候。\n" HIY);
 	if((int)me->query("neili") < 300)
 		return notify_fail(HIY "你現在真氣不足。\n" HIY);
 	if (target->query_temp("bixie/cizu"))

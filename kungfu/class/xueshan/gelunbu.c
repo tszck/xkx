@@ -94,14 +94,14 @@ void greeting(object ob)
 message_vision("葛倫布急急忙忙吩咐小喇嘛們往祭壇裏填柴，倒酥油。\n\n", ob);
 message_vision(HIR"$N點燃了祭壇中的木柴與酥油，熊熊烈火沖天而起。\n", ob);
 message_vision(HIB"一絲魂魄升出祭壇，冉冉而起。魂魄受$N佛法感召，徘徊不去。\n", ob);
-message_vision(RED"$N端起顱鉢吸進一口水，「噗」的一聲猛地朝那熊熊火焰噴將過去。\n", ob);
+message_vision(RED"$N端起顱缽吸進一口水，「噗」的一聲猛地朝那熊熊火焰噴將過去。\n", ob);
 message_vision(HIC"$N盤腿打坐，神光內蘊，口中念念有辭，漸漸有一絲魂魄在$N面前凝聚成形。\n", ob);
 message_vision(HIG"魂魄越聚越多，竟然呈出人形！$N手指人形，口唸真言，指引往生之路。\n", ob);
 message_vision(HIW"$N手持法鈴，邊走變搖，高聲誦讀密傳經咒。突然大喝一聲。聲似雷霆。\n", ob);
 message_vision(HIY"大院裏光芒四起，一聲巨響過後，又恢復了平靜。超度完畢。\n"NOR, ob);
 		if (ob->query_temp("作法事") > ob->query("combat_exp"))
 		{
-//〖 超度對象的經驗高過你，纔能有所收益。對象若是玩家，收益十倍計。〗
+//〖 超度對象的經驗高過你，才能有所收益。對象若是玩家，收益十倍計。〗
 //			bonus=(ob->query_temp("作法事") - ob->query("combat_exp")) * ob->query_skill("lamaism",1) / 200;
 			bonus= ob->query_skill("lamaism",1) / 4;
 			exp_bonus= ob->query("combat_exp") * 2 * bonus /10000;
@@ -151,19 +151,19 @@ int accept_object(object who, object ob)
  
 	if (ob->query("money_id") && ob->value() >= 100)
 	{
-		message_vision("葛倫布笑着對$N說：好！這位"+RANK_D->query_respect(who) + "要見活佛就請進吧。\n", who);
+		message_vision("葛倫布笑着對$N説：好！這位"+RANK_D->query_respect(who) + "要見活佛就請進吧。\n", who);
 		this_player()->set_temp("marks/xueshangate",1);
  	      	return 1;
 	}
 	if (!(int)who->query_temp("法事"))
 	{
-		message_vision("葛倫布笑着對$N說：這種臭東西給我有什麼用，您還是自己留着吧！\n", who);
+		message_vision("葛倫布笑着對$N説：這種臭東西給我有什麼用，您還是自己留着吧！\n", who);
 		return 0 ;
 	}
 	who->delete_temp("法事");
 	if (ob->query("id") == "corpse")
 	{
-		message_vision("葛倫布笑着對$N說：那我們去祭壇吧！\n", who);
+		message_vision("葛倫布笑着對$N説：那我們去祭壇吧！\n", who);
 		who->set_temp("作法事", ob->query("combat_exp"));
 		if ((int)ob->query("userp"))
 			who->set_temp("玩家法事", 1);
@@ -176,7 +176,7 @@ int accept_object(object who, object ob)
 		return 1;
 	}
 	else  
-		message_vision("葛倫布對$N說：這種東西還能做法事？直接埋了省事。\n", who);
+		message_vision("葛倫布對$N説：這種東西還能做法事？直接埋了省事。\n", who);
 	return 0;
 }
 int recruit_apprentice(object ob)

@@ -13,9 +13,9 @@ int main(object me, string arg)
 	if(me->is_busy())
 		return notify_fail("你正忙着呢！\n");
 	if((int)me->query_skill("xixing-dafa", 1) < 100)
-		return notify_fail("你的吸星大法修爲還不夠。\n");
+		return notify_fail("你的吸星大法修為還不夠。\n");
 	if((int)me->query_skill("kuihua-xinfa", 1) < 100)
-		return notify_fail("你的葵花心法修爲太低。\n");
+		return notify_fail("你的葵花心法修為太低。\n");
 	if((int)me->query("qi") < 300) 
 		return notify_fail("你的氣不夠。\n");
 	if((int)me->query("neili") < 400) 

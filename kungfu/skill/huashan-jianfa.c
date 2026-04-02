@@ -106,7 +106,7 @@ int help(object me)
 	write(HIC"\n華山劍法："NOR"\n");
 	write(@HELP
 
-    華山劍法爲華山氣宗劍法。
+    華山劍法為華山氣宗劍法。
 
 	學習要求：
 		紫霞神功

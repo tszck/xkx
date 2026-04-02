@@ -40,7 +40,7 @@ void  init()
 
 void  refuse_message  (object  me,  object  who)
 {
-    message_vision  ("$N說：人鬥人？還是看雞鬥雞有趣些吧。\n",me,who);
+    message_vision  ("$N説：人鬥人？還是看雞鬥雞有趣些吧。\n",me,who);
 }
 
 int  do_fight(string  arg)

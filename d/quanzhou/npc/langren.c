@@ -40,6 +40,6 @@ void init()
 void greeting(object ob)
 {
 	if( environment(ob) != environment() ) return;
-	say("日本浪人輕蔑地瞪了你一眼，說道：中國人都象你這般沒用吧，哈哈哈！\n");
+	say("日本浪人輕蔑地瞪了你一眼，説道：中國人都象你這般沒用吧，哈哈哈！\n");
 }
 

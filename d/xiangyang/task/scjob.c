@@ -13,7 +13,7 @@ int ask_shoucheng()
 
 	if( ob->query("shoucheng_start") )
 	{
-		tell_object(me,"郭靖對你說道：“剛纔救援的英雄已去城門，你看去幫幫忙如何？”\n");
+		tell_object(me,"郭靖對你説道：“剛才救援的英雄已去城門，你看去幫幫忙如何？”\n");
 		return 1;
 	}
 	if(!me->query("family/family_name"))
@@ -23,17 +23,17 @@ int ask_shoucheng()
 	}
 	if((int)me->query_temp("guosc_mis_flag") > 0 )
 	{
-		tell_object(me,"郭靖說道：“你不是已有任務了嗎？”\n");
+		tell_object(me,"郭靖説道：“你不是已有任務了嗎？”\n");
 		return 1;
 	}
 	if ((int)me->query("combat_exp")<100000)
 	{
-		tell_object(me,"郭靖笑道：“你手無縛雞之力，還是別領任務的爲好！”\n");
+		tell_object(me,"郭靖笑道：“你手無縛雞之力，還是別領任務的為好！”\n");
 		return 1;
 	}
 	if ( (int)me->query_skill("force") < 50 )
 	{
-		tell_object(me,"郭靖笑道：“守城是件危險工作，我看你的基本內功修爲不足，不宜冒險！”\n");
+		tell_object(me,"郭靖笑道：“守城是件危險工作，我看你的基本內功修為不足，不宜冒險！”\n");
 		return 1;
 	}
 	if ((int)me->query_condition("guosc_mis")>1)
@@ -75,7 +75,7 @@ int ask_shoucheng()
 			tell_object(me,"郭靖對你叮囑道：“現在蒙古靼子侵犯中原，請閣下速去白虎內門幫助宋軍守城吧！”\n");
 			break;
 	}
-	message("channel:sys", HIR"【守衛襄陽城】"+me->query("name")+"申請守衛"+me->query_temp("guosc_mis_where")+"任務。\n"NOR, users());
+	message("channel:sys", HIR"【守衞襄陽城】"+me->query("name")+"申請守衞"+me->query_temp("guosc_mis_where")+"任務。\n"NOR, users());
 	return 1;
 }
 
@@ -154,7 +154,7 @@ int job_over(string arg)
 	}
 	if(me->query_temp("guosc_mis_flag")==3)
 	{
-		tell_object(me,"郭靖拍了拍你的肩膀說道：“爲國殺敵，不錯不錯！”\n");
+		tell_object(me,"郭靖拍了拍你的肩膀説道：“為國殺敵，不錯不錯！”\n");
 		job_exp=((int)me->query_temp("guosc_mis_num"))*150;
 		job_pot=job_exp*1/3;
 		job_exp=job_exp;

@@ -37,7 +37,7 @@ int main(object me, string arg)
 		return notify_fail("你對"+ob->name() + "行使懾心術可不成。\n");
 	if (userp(me) && ob->query("owner") && me->query("id") != ob->query("owner"))
 			return notify_fail("不是你要抓的人，湊什麼熱鬧！\n");						
-	notify_fail("此人來頭不小，還是少惹爲妙。\n");
+	notify_fail("此人來頭不小，還是少惹為妙。\n");
 	if (!userp(ob) && !ob->accept_hit(me)) return 0;		
 
 	if( ob->query("no_get") || ob->query("no_get_from") )
@@ -96,7 +96,7 @@ int help(object me)
     shexin sb to go <dir>
 
     利用懾心術誘惑某人做把身上的東西給你, 或往那裏離開，或者
-跟着你。當然你必須是雪山派弟子，且有相當的降伏法修爲。
+跟着你。當然你必須是雪山派弟子，且有相當的降伏法修為。
     對方如果內功深厚，而你學藝不精，必然也會招致以牙還牙。當
 心！
 HELP

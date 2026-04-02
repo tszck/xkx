@@ -34,5 +34,5 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	say("何員外奇怪地對你說道：“你這人怎麼隨隨便便地就跑到我的園子裏來？”\n");
+	say("何員外奇怪地對你説道：“你這人怎麼隨隨便便地就跑到我的園子裏來？”\n");
 }

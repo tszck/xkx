@@ -100,32 +100,32 @@ void attempt_apprentice(object ob)
 	{
 		if (ob->query_int() < 40)
 		{
-			message_vision("楊過看了看$N說道：看你笨頭笨腦的，還是先去讀點書吧。\n", ob);
+			message_vision("楊過看了看$N説道：看你笨頭笨腦的，還是先去讀點書吧。\n", ob);
 			return;
 		}
 		if (ob->query_skill("yunv-xinfa",1) < 150)
 		{
-			message_vision("楊過看了看$N說道：你的本門心法還差點火候，再努力一把吧。\n", ob);
+			message_vision("楊過看了看$N説道：你的本門心法還差點火候，再努力一把吧。\n", ob);
 			return;
 		}
 		if (ob->query_skill("yunv-jian",1) < 150)
 		{
-			message_vision("楊過看了看$N說道：你的本門劍法還差點火候，再努力一把吧。\n", ob);
+			message_vision("楊過看了看$N説道：你的本門劍法還差點火候，再努力一把吧。\n", ob);
 			return;
 		}
 		if (ob->query_skill("quanzhen-jian",1) < 150)
 		{
-			message_vision("楊過看了看$N說道：你的全真劍法還差點火候，再努力一把吧。\n", ob);
+			message_vision("楊過看了看$N説道：你的全真劍法還差點火候，再努力一把吧。\n", ob);
 			return;
 		}
-//message_vision("楊過嘆了口氣，看看$N，說道：你沒找到我的龍兒麼？\n", ob);
+//message_vision("楊過嘆了口氣，看看$N，説道：你沒找到我的龍兒麼？\n", ob);
 		command("say 好吧，我就收下你這個徒弟了。\n");
 		command("recruit " + ob->query("id"));
 		return;
 	}
 	else
 	{
-		message_vision("楊過嘆了口氣，看看$N，說道：你沒找到我的龍兒麼？\n", ob);
+		message_vision("楊過嘆了口氣，看看$N，説道：你沒找到我的龍兒麼？\n", ob);
 		return;
 	}
 }
@@ -135,10 +135,10 @@ int accept_object(object me, object ob)
 	object obn;
 	if ( (string) ob->query("id") =="junzi jian" )
 	{
-		message_vision("楊過說道：這位"+ RANK_D->query_respect(me)+"，我實在高興你帶來我的龍兒的信物，她現在好嗎？\n",me);
+		message_vision("楊過説道：這位"+ RANK_D->query_respect(me)+"，我實在高興你帶來我的龍兒的信物，她現在好嗎？\n",me);
 		if(query("letter_count") > 0)
 		{
-			message_vision("楊過又對$N說道：麻煩你幫我把信交給她，告訴她我等她等了十六年了，帶她來我這裏。\n" , me);
+			message_vision("楊過又對$N説道：麻煩你幫我把信交給她，告訴她我等她等了十六年了，帶她來我這裏。\n" , me);
 			obn=new("/d/gumu/npc/obj/letter");
 			obn->move(me);
 			add("letter_count", -1);

@@ -32,7 +32,7 @@ int accept_object(object who, object ob)
     
     if (ob->query("money_id") && ob->value() >= 10000)
     {
-		message_vision("船伕對$N說：好！既然這位"+RANK_D->query_respect(who)+"要過江，那我就送你上這條船吧！\n" , who);
+		message_vision("船伕對$N説：好！既然這位"+RANK_D->query_respect(who)+"要過江，那我就送你上這條船吧！\n" , who);
 		message_vision("船伕和$N上了船，一聲「起錨」船就張帆離岸了......\n", who);
 		who->move("/d/guanwai/songhuajiang");
 		tell_object(who, BLU "你在江上一路漂流.......\n" NOR ) ;
@@ -42,7 +42,7 @@ int accept_object(object who, object ob)
     }
     else  
     {
-		message_vision("船伕皺眉對$N說：就這點？你另找高明吧！說完掉頭就走了。\n", who);
+		message_vision("船伕皺眉對$N説：就這點？你另找高明吧！説完掉頭就走了。\n", who);
 		destruct(this_object());
 		return 0;
 	}

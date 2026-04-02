@@ -16,7 +16,7 @@ void create()
 	set("rank_info/respect", "老大");
 	set("inquiry", ([
 		"name"  : "我就是這裏的老大，他們都叫我小馬哥。",
-		"rumors": "聽說以前有一艘紅毛鬼子的船遇難後漂流到這裏，唯一的船員就死在那邊的小店裏。",
+		"rumors": "聽説以前有一艘紅毛鬼子的船遇難後漂流到這裏，唯一的船員就死在那邊的小店裏。",
 		"here"  : "這裏是附近唯一的出海漁港了。",
 		"chuhai": "客官您要啓航去哪裏啊？難道是桃花...",
 		"出海"  : "客官您要啓航去哪裏啊？難道是桃花...",
@@ -37,14 +37,14 @@ int ask_thd()
 
 	if (ob->query("thd/x"))
 	{
-		say("船老大瞪大了眼睛，喫驚地說：客官要去那個鬼地方麼？聽說以前去的人都沒有回來過。\n如果您真的要去的話，這個價錢嘛...\n" );
+		say("船老大瞪大了眼睛，喫驚地説：客官要去那個鬼地方麼？聽説以前去的人都沒有回來過。\n如果您真的要去的話，這個價錢嘛...\n" );
 		if (ob->query("family/family_name") != "桃花島")
 			ob->set_temp("thd_temp",1);
 		else
 		{
 			message_vision("$N大喝一聲：“我就是桃花島弟子，你也敢要錢？！”\n", ob);
 			command("fear " + ob->query("id"));
-			message_vision("船老大苦着臉對$N說：“客官息怒，小的這就找船家來。”\n", ob);
+			message_vision("船老大苦着臉對$N説：“客官息怒，小的這就找船家來。”\n", ob);
 			if ("/d/taohua/boat"->query_temp("busy"))
 			 {
 				command("say 小船已經出海了，客官您先稍等一會兒。\n");
@@ -59,7 +59,7 @@ int ask_thd()
 			}
 		}
 	}
-	else say("船老大搖搖頭，說道：我們只聽說過桃花島，可誰也不知道在哪裏。\n");
+	else say("船老大搖搖頭，説道：我們只聽説過桃花島，可誰也不知道在哪裏。\n");
 	return 1;
 }
 
@@ -72,7 +72,7 @@ int ask_price()
 		money = (ob->query("age") - 13) * 1000;
 	if (ob->query_temp("thd_temp"))
 	{
-		say("船老大似笑非笑地說道：我看客官面善，就收您" + MONEY_D->price_str(money) + "吧。\n" );
+		say("船老大似笑非笑地説道：我看客官面善，就收您" + MONEY_D->price_str(money) + "吧。\n" );
 		command("hehe laoda");
 		ob->set_temp("thd_temp",2);
 	}
@@ -91,7 +91,7 @@ int accept_object(object who, object ob)
 		money = (who->query("age") - 13) * 1000;
 	if (ob->query("money_id") && ob->value() >= money)  {
 		if (who->query_temp("thd_temp") < 2) 
-			say("船老大樂了，說道：您老是有錢沒處花麼？\n");
+			say("船老大樂了，説道：您老是有錢沒處花麼？\n");
 		else {
 			if ("/d/taohua/boat"->query_temp("busy"))  {
 				command("say 小船已經出海了，客官您先稍等一會兒。\n");
@@ -99,7 +99,7 @@ int accept_object(object who, object ob)
 				who->set_temp("thd_temp",3);
 			}
 			else {
-				command("say 船老大說道：好了您哪。\n");
+				command("say 船老大説道：好了您哪。\n");
 				say("船老大一招手，喊過一個艄公來：載這位客官去桃花島。\n");
 				who->set_temp("thd_target", "thd");
 				who->delete_temp("thd_temp");
@@ -121,7 +121,7 @@ int ask_qihang()
 		if ("/d/taohua/boat"->query_temp("busy")) 
 			command("say 小船已經出海了，客官您再等一會兒。\n");
 		else {
-			command("say 船老大說道：好了您哪。\n");
+			command("say 船老大説道：好了您哪。\n");
 			say("船老大一招手，喊過一個艄公來：載這位客官去桃花島。\n");
 			ob->set_temp("thd_target", "thd");
 			ob->delete_temp("thd_temp");

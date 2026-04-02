@@ -46,26 +46,26 @@ int do_send(string arg)
 	object obj, flower, me = this_player();
 	string target, item;
 
-	if(!arg) return notify_fail("老闆娘說：你要給誰什麼東西？\n");
+	if(!arg) return notify_fail("老闆娘説：你要給誰什麼東西？\n");
 
 	if( me->is_busy() )
 		return notify_fail("你上一個動作還沒有完成！\n");
 
 	if( sscanf(arg, "%s to %s", item, target) !=2)
-		return notify_fail("老闆娘說：你要給誰什麼東西？\n");
+		return notify_fail("老闆娘説：你要給誰什麼東西？\n");
 
 	obj = find_player(target);
 		if(!obj || !me->visible(obj))
-			return notify_fail("老闆娘說：此人現在不在。沒法幫你送花。\n");
+			return notify_fail("老闆娘説：此人現在不在。沒法幫你送花。\n");
 
 	if( !living(obj))
-		return notify_fail("老闆娘說：抱歉，現在沒法幫你送花。\n");
+		return notify_fail("老闆娘説：抱歉，現在沒法幫你送花。\n");
 
 	if( !objectp(flower = present(item, me)) )	
-		return notify_fail("老闆娘說：你身上沒有這種花。\n");
+		return notify_fail("老闆娘説：你身上沒有這種花。\n");
 
 	if( !flower->query("flower"))
-		return notify_fail("老闆娘說：你只能讓我幫你送花。\n");
+		return notify_fail("老闆娘説：你只能讓我幫你送花。\n");
 
 	if( flower->query("no_drop") )
 		return notify_fail("這樣東西不能隨便給人。\n");
@@ -74,7 +74,7 @@ int do_send(string arg)
 	me->save();
 	obj->save();
 	tell_object(me, HIC"花店老闆娘笑了笑道：“這位"+RANK_D->query_respect(me)+"稍候，這就給你送到"+obj->query("name")+"手上。”轉身出門去了。\n" NOR );
-	tell_object(obj, HIC"花店老闆娘走過來遞給你一"+flower->query("unit")+flower->query("name")+HIC"，輕輕說道：“這是"+me->query("name")+"送給你的。”轉身笑了笑就走了。\n" NOR );
+	tell_object(obj, HIC"花店老闆娘走過來遞給你一"+flower->query("unit")+flower->query("name")+HIC"，輕輕説道：“這是"+me->query("name")+"送給你的。”轉身笑了笑就走了。\n" NOR );
 	tell_object(me, HIC"花店老闆娘片刻後回來笑道：“放心吧，送到了。”\n" NOR );
 	return 1;
 }

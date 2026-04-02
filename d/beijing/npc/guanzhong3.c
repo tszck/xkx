@@ -5,7 +5,7 @@ void consider();
 
 void create()
 {
-	set_name("觀衆丙", ({"bing"}));
+	set_name("觀眾丙", ({"bing"}));
 	set("gender", "女性");
 	set("age", 18);
 	set("long", "這是一位小姑娘。\n");

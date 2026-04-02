@@ -45,7 +45,7 @@ int perform(object me,object target)
 	if( (int)me->query_skill(sskill, 1) < 100 )
 		return notify_fail("你的"+to_chinese(sskill)+"不夠熟練，不會使用"+PNAME+"。\n");
 	if( (int)me->query_skill(bskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠, 使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不夠, 使不出"+PNAME+"。\n");
 	if(target->is_busy())
 		return notify_fail(target->name() +"目前正自顧不暇，放膽攻擊吧！\n");
 	if( me->query("neili") < 100 )

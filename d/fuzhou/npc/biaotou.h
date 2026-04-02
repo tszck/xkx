@@ -25,17 +25,17 @@ int ask_jiaobiao()
 	}
 	if (cart->query("guarded") != me->query("id"))
 	{
-		message_vision("$N看了看鏢車，對$n說道：“這鏢車不是你押的。你把鏢車丟哪去了？”\n",ob,me);
+		message_vision("$N看了看鏢車，對$n説道：“這鏢車不是你押的。你把鏢車丟哪去了？”\n",ob,me);
 		return 1;
 	}
 	if (biaotou->query("leader_name") != me->query("id"))
 	{
-		message_vision("$N指着$n說道：“我不是和他一路的，我不認識他。”\n",biaotou, me);
+		message_vision("$N指着$n説道：“我不是和他一路的，我不認識他。”\n",biaotou, me);
 		return 1;
 	}
 	tell_object(me,HIW+ob->query("name")+"笑道：恭喜你成功將鏢車送到目的地，完成了這項任務！\n\n"NOR);
 
-        message("channel:chat", HIM"【謠言】聽說"+cart->query("guardby")+"成功將鏢車送到目的地了！\n"NOR,users());
+        message("channel:chat", HIM"【謠言】聽説"+cart->query("guardby")+"成功將鏢車送到目的地了！\n"NOR,users());
 
 	i = 0;
 	give_exp = lay_exp * biaotou->query("total_steps");
@@ -60,7 +60,7 @@ int ask_jiaobiao()
 	money->set_amount(40);
 	money->move(me);
 
-	tell_object(me, sprintf(HIR+ob->query("name")+"對"+me->query("name")+"稱許道：“你被獎勵了！得到%s點經驗和%s點潛能和%s點江湖閱歷。鏢局發給你四十兩黃金做你的薪金和補償你的押金。”\n"NOR, chinese_number(give_exp),chinese_number(give_pot),chinese_number(give_score) ) + NOR);
+	tell_object(me, sprintf(HIR+ob->query("name")+"對"+me->query("name")+"稱許道：“你被獎勵了！得到%s點經驗和%s點潛能和%s點江湖閲歷。鏢局發給你四十兩黃金做你的薪金和補償你的押金。”\n"NOR, chinese_number(give_exp),chinese_number(give_pot),chinese_number(give_score) ) + NOR);
 	message_vision("$N給$n一些"YEL"黃金"NOR"。\n"NOR, ob, me);
 	log_file("mission/ms_biaoche",sprintf("%20s做運送鏢車任務，得到：%4i點EXP和%4i點潛能。\n",
        me->query("name")+"("+getuid(me)+")",give_exp,give_pot));

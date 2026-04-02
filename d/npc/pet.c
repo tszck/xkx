@@ -50,7 +50,7 @@ void die()
 {
 	int exp;
 
-	message("channel:rumor", HIM"【謠言】某人：聽說"+query_temp("ownername")+"的"+name()+"死了，等級下降了。真是可惜。\n"NOR, users());
+	message("channel:rumor", HIM"【謠言】某人：聽説"+query_temp("ownername")+"的"+name()+"死了，等級下降了。真是可惜。\n"NOR, users());
 
 	exp = (int) query("combat_exp");
 	set("combat_exp", exp/10 * 9);

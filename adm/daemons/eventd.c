@@ -80,7 +80,7 @@ void heart_beat()
         	if (  month == lt[LT_MON] && day == lt[LT_MDAY] && hour == lt[LT_HOUR])
       	  		{
         		    if (start == 1)
-        		    message("channel:rumor", HIM"【謠言】"+"聽說"+event_list[i]["cname"]+"蔚爲奇觀，不少江湖人士紛紛前往觀賞。\n"NOR, users());
+        		    message("channel:rumor", HIM"【謠言】"+"聽説"+event_list[i]["cname"]+"蔚為奇觀，不少江湖人士紛紛前往觀賞。\n"NOR, users());
         		    else
         		    {
         		    	eob = new (EVENT_DIR + event_list[i]["ename"]);

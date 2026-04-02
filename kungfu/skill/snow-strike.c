@@ -40,9 +40,9 @@ int valid_learn(object me)
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
 		return notify_fail("練飛雪映梅掌必須空手。\n");
 	if ((int)me->query_skill("bingxue-xinfa", 1) < 10)
-		return notify_fail("你的冰雪心法修爲太弱，無法練習。\n");
+		return notify_fail("你的冰雪心法修為太弱，無法練習。\n");
 	if ((int)me->query("max_neili") < 10)
-		return notify_fail("你的內力修爲太弱，無法練習。\n");
+		return notify_fail("你的內力修為太弱，無法練習。\n");
 	return 1;
 }
 int practice_skill(object me)

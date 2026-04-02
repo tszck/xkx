@@ -76,7 +76,7 @@ void attempt_apprentice(object ob)
 	}
 	if ((int)ob->query("combat_exp") > 10000) {
 		command("say 我峨嵋注重清修，對弟子要求能忍受寂寞。");
-		command("say 在江湖閱歷方面，" + RANK_D->query_respect(ob) +
+		command("say 在江湖閲歷方面，" + RANK_D->query_respect(ob) +
 			"經歷豐富，是否能在峨嵋修道？");
 		return;
 	}

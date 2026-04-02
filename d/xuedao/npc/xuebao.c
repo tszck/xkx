@@ -9,7 +9,7 @@ void create()
         set("gender", "雌性");
         set("age", 5);
         set("long", @LONG
-這是一隻有“雪域之王”美稱的雪豹，它的毛皮極爲潔白、厚實。
+這是一隻有“雪域之王”美稱的雪豹，它的毛皮極為潔白、厚實。
 LONG);
         set("attitude", "aggressive");
         set("shen_type", -1);

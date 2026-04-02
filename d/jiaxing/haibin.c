@@ -77,7 +77,7 @@ int do_jump(string arg)
 		return notify_fail("你試圖跳進海潮裏，卻總覺得力不從心。\n");
 
 	if (me->query_skill("dodge") < 80)
-		return notify_fail("你試圖跳進海潮裏，卻發現自己的輕功修爲還沒有達到這麼高的境界。\n");
+		return notify_fail("你試圖跳進海潮裏，卻發現自己的輕功修為還沒有達到這麼高的境界。\n");
 	message_vision("$N聳身一躍，跳進了海潮中！\n", me);
 	me->move("/d/taohua/tide");
 	return 1;

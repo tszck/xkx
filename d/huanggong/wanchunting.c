@@ -7,7 +7,7 @@ void create()
 	set("short", "萬春亭");
 	set("long", @LONG
 萬春亭, 始建於嘉靖十二年. 亭上圓下方, 抱廈四出, 上層傘狀圓
-頂與下層衆多進出的檐角, 組織得極其巧妙. 
+頂與下層眾多進出的檐角, 組織得極其巧妙. 
 LONG
 );
 	set("outdoors", "huanggong");

@@ -26,7 +26,7 @@ int exert(object me, object target)
         me->receive_damage("qi",0);
 
         message_combatd(
-HIW"$N突然一聲長吟，極快的念出了一首詩來，旁人細聽之下不由大驚!!!!!\n原來這居然竟是傳說中的天下奇功【白首太玄經】！\n" NOR, me);
+HIW"$N突然一聲長吟，極快的念出了一首詩來，旁人細聽之下不由大驚!!!!!\n原來這居然竟是傳説中的天下奇功【白首太玄經】！\n" NOR, me);
         me->add_temp("apply/attack", skill/3);
         tell_object(me,HIR"你的攻擊力提高了!\n"NOR);
         me->add_temp("apply/dodge", skill/3);

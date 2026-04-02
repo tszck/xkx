@@ -51,5 +51,5 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	message_vision("樊老闆笑嘻嘻地迎上前來，說道：“客官，您來啦？”\n",ob);
+	message_vision("樊老闆笑嘻嘻地迎上前來，説道：“客官，您來啦？”\n",ob);
 }

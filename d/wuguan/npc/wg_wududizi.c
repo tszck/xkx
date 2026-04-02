@@ -28,12 +28,12 @@ void greeting(object ob)
 	
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
-		case 0: say("五毒教弟子嘿嘿說道：加入五毒，心慈手軟可不行。這位"+RANK_D->query_respect(ob)
+		case 0: say("五毒教弟子嘿嘿説道：加入五毒，心慈手軟可不行。這位"+RANK_D->query_respect(ob)
 +"，想通的話，可以看"BRED"(help wudujiao)"NOR"。\n");
 			break;
-		case 1: say("五毒教弟子嘿嘿說道：本門毒藥毒蟲，防不勝防，乃天下第一險毒的門派。哈哈哈..........\n");
+		case 1: say("五毒教弟子嘿嘿説道：本門毒藥毒蟲，防不勝防，乃天下第一險毒的門派。哈哈哈..........\n");
 			break;	
-		case 2: say("星宿弟子奸笑道：聽說萬毒窟某處藏有五毒教的寶物。\n");
+		case 2: say("星宿弟子奸笑道：聽説萬毒窟某處藏有五毒教的寶物。\n");
 			break;
 	}
 

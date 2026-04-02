@@ -27,6 +27,6 @@ LONG );
 int valid_leave(object me, string dir)
 {
 	if (!wizardp(me) && objectp(present("geshiha", environment(me))) && dir != "east")
-		return notify_fail("戈什哈喝道：“施大人已去校場閱兵，你來何干？”\n");
+		return notify_fail("戈什哈喝道：“施大人已去校場閲兵，你來何干？”\n");
 	return ::valid_leave(me, dir);
 }

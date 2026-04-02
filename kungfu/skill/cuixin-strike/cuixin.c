@@ -48,7 +48,7 @@ int perform(object me, object target)
 	if( (int)me->query_skill(sskill, 1) < 100 )
 		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 	if ((int)me->query("neili")<400 || (int)me->query("max_neili")<400)
-		return notify_fail(RED"你內力修爲不足，無法運足內力。\n"NOR);
+		return notify_fail(RED"你內力修為不足，無法運足內力。\n"NOR);
 	msg = HIG "$N"HIG"猛地一個側身一閃，轉到$n"HIG"身後，右掌往$n"HIG"後心印了下去，\n"NOR;
 
 	if(random(me->query("combat_exp")) > (int)target->query("combat_exp")/4)

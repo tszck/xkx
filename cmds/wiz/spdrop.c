@@ -80,7 +80,7 @@ int do_drop(object me, object obj)
 			message_vision( sprintf("$N丟下一%s$n。\n",	obj->query("unit")), me, obj );
 		if (obj->query("no_value")) obj->set("value",0);
 		if( !obj->query("value") && !obj->value() )
-				write( "因爲這樣東西並不值錢，所以人們並不會注意到它的存在。\n");
+				write( "因為這樣東西並不值錢，所以人們並不會注意到它的存在。\n");
       }
     }		
 	if( !obj->query("value") && !obj->value() && !obj->is_character() )

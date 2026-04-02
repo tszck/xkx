@@ -11,7 +11,7 @@ void create()
 	set("age", 33);
 	set("str", 25);
 	set("dex", 16);
-	set("long", "史青山曾經是武當山的俗家弟子，不知爲何喫上了朝廷飯。\n");
+	set("long", "史青山曾經是武當山的俗家弟子，不知為何喫上了朝廷飯。\n");
 	set("combat_exp", 200000);
 	set("shen_type", 1);
 	set("attitude", "heroism");

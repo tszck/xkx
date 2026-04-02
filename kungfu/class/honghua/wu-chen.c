@@ -78,7 +78,7 @@ void attempt_apprentice(object ob)
 	if ((int)ob->query("shen") < 10000)
 	{
 		command("say 哼！");
-		command("say 這位" + RANK_D->query_respect(ob) + "爲人之道似乎不怎麼樣！");
+		command("say 這位" + RANK_D->query_respect(ob) + "為人之道似乎不怎麼樣！");
 		return;
 	}
 	command("say 不錯，不錯，我就收下你了！");

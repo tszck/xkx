@@ -113,7 +113,7 @@ int help(object me)
 	write(HIC"\n穿雲手："NOR"\n");
 	write(@HELP
 
-    穿雲手爲恆山派武功。
+    穿雲手為恆山派武功。
     可與天長掌互備。
 
 	學習要求：

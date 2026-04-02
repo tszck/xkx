@@ -1,4 +1,4 @@
-// Modified by Zeratul 4.12 2001 匕首和寶甲修改爲唯一物品
+// Modified by Zeratul 4.12 2001 匕首和寶甲修改為唯一物品
 #include <room.h>
 inherit ROOM;
 

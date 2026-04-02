@@ -9,10 +9,10 @@ void fainting(object me, object ob);
 string look_stone();
 
 /* (move stone) 豬舍石塊下埋着奄奄一息的喬三槐。告訴你
-金剛伏魔圈前半段的走法(western)，說完頭一歪，死了。如玩家
+金剛伏魔圈前半段的走法(western)，説完頭一歪，死了。如玩家
 學過內功，可用所學內功中(life heal)之法延續喬三槐一口氣，
-令其說出後半段走法(news)，並且告知出迷宮走法藏在廚房莫處，
-未及說完何處就死了。玩家自己找出何處（竈頭裏，可以鑽進去，
+令其説出後半段走法(news)，並且告知出迷宮走法藏在廚房莫處，
+未及説完何處就死了。玩家自己找出何處（竈頭裏，可以鑽進去，
 裏面有一塊磚，上刻出迷宮走法）。*/
 
 void create()
@@ -60,10 +60,10 @@ int do_move(string arg)
 
 	ob = this_player();	
 
-	message_vision("老人斷斷續續地說道: 我是喬三槐，快...，快往北山上走...，
+	message_vision("老人斷斷續續地説道: 我是喬三槐，快...，快往北山上走...，
 進了松林...，往南...，往東...，往西...，往東...，再往北......\n\n", ob);
 
-	message_vision("喬三槐嘴脣動了動，似乎還想說些什麼，卻因傷重難支，昏死了過去。\n", ob);
+	message_vision("喬三槐嘴脣動了動，似乎還想説些什麼，卻因傷重難支，昏死了過去。\n", ob);
 
 	me->unconcious();
 
@@ -78,13 +78,13 @@ void fainting(object me, object ob)
 
 	if ( (int)me->query("qi") <= 50 ) 
 	{
-		message_vision("喬三槐緩緩甦醒了過來，說道: 謝...謝......。\n",ob);
+		message_vision("喬三槐緩緩甦醒了過來，説道: 謝...謝......。\n",ob);
 		me->die();
 	}
 	else
 	{
-		message_vision("\n喬三槐醒了過來，說道: 再往北，往東，往西，南......出路在磚......\n\n",ob);
-		message_vision("說罷腦袋便軟軟地垂了下去......",ob);
+		message_vision("\n喬三槐醒了過來，説道: 再往北，往東，往西，南......出路在磚......\n\n",ob);
+		message_vision("説罷腦袋便軟軟地垂了下去......",ob);
 		me->die();
 	}
 

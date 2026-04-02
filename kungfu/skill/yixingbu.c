@@ -47,7 +47,7 @@ int help(object me)
 	write(HIC"\n意形步法："NOR"\n");
 	write(@HELP
 
-    意形步法爲神龍島獨門輕功身法。
+    意形步法為神龍島獨門輕功身法。
 
 	學習要求：
 	  毒龍大法10級

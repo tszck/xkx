@@ -33,7 +33,7 @@ int valid_leave(object me, string dir)
 	{
 		if (dir == "up" )
 		{
-			return notify_fail("大癡大師說道: 你未經許可，不能上二樓。\n");
+			return notify_fail("大癡大師説道: 你未經許可，不能上二樓。\n");
 		}
 	}
 	return ::valid_leave(me, dir);

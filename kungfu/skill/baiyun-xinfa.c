@@ -33,7 +33,7 @@ int valid_learn(object me)
 		return notify_fail("你的基本內功火候還不夠。\n");
 
 	if ( nb < 100 && nb <= ny )
-		return notify_fail("你的禪宗心法修爲不夠，無法領會更高深的白雲心法。\n");
+		return notify_fail("你的禪宗心法修為不夠，無法領會更高深的白雲心法。\n");
 	if ( ns > 0 ) 
 		return notify_fail("你屢犯僧家數戒，無法領會更高深的白雲心法。\n");
 	return valid_public(me);

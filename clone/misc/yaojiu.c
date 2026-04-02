@@ -153,5 +153,5 @@ int do_putout()
 		}
 		return 1;
 	}
-	else return notify_fail("可能是因爲配方不太對，這次熬藥沒成功！\n");
+	else return notify_fail("可能是因為配方不太對，這次熬藥沒成功！\n");
 }

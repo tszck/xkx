@@ -59,7 +59,7 @@ int perform(object me)
 	skill = me->query_skill(bskill, 1);
 
 	msg = HIC "$N"HIC"手中"YEL"金蛇劍"HIC"畫出一道金光，斜刺一拉，「鎖劍訣」！
-"YEL"金蛇劍"HIC"劍尖倒鉤正好掛在$n"HIC"的"+weapon2->name()+"上。\n";
+"YEL"金蛇劍"HIC"劍尖倒鈎正好掛在$n"HIC"的"+weapon2->name()+"上。\n";
 	message_combatd(msg, me, target);
 
 	damage = 10 + random(skill / 2);

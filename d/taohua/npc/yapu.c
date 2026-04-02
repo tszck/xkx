@@ -9,7 +9,7 @@ void create()
         set("gender", "男性");
         set("long",
 "這是一個桃花島的啞僕。他們全是十惡不赦的混蛋，黃藥師刺啞他們，\n
-充爲下御。\n");
+充為下御。\n");
         set("attitude", "peaceful");
         set("str", 24);
         set("dex", 16);

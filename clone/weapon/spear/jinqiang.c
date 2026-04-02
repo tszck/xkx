@@ -15,7 +15,7 @@ void create()
 		set("unit", "杆");
 		set("value", 10000);
 		set("material", "gold");
-		set("long", "此槍以黃金爲頭銅爲杆。\n");
+		set("long", "此槍以黃金為頭銅為杆。\n");
 		set("wield_msg", "$N抄起一杆$n，順手抖了個槍花。\n");
 	}
 	init_spear(60);

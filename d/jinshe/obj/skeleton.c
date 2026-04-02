@@ -31,7 +31,7 @@ int do_mai(string arg)
                 if (n > 200 && query("small_count") == 1)
                 {
                         message_vision(
-"$N又向地下挖掘，這次泥土較堅，時時出現山石，挖掘遠爲費力。
+"$N又向地下挖掘，這次泥土較堅，時時出現山石，挖掘遠為費力。
 堪堪又將挖了三尺，忽然叮的一聲，鋤頭又碰到一物，撥開泥土，
 居然又是一隻鐵盒。\n", me);
                         ob = new(__DIR__"smallbox");

@@ -177,7 +177,7 @@ void check_me(object me)
 	if( unread )
 		{
       if (!me->query_temp("news"))
-			tell_object(me,HIY"在你離線期間俠客行一百有過更新消息，請仔細閱讀以下內容。\n\n"NOR);
+			tell_object(me,HIY"在你離線期間俠客行一百有過更新消息，請仔細閲讀以下內容。\n\n"NOR);
       me->set_temp("news",1);
       seteuid(ROOT_UID);
       me->force_me("news new");
@@ -317,10 +317,10 @@ int help(object me)
 	write(@HELP
 指令格式 : news [next] | [<新聞編號>] | new | all
 
-這條指令讓你你可以閱讀遊戲中的新聞。所有的更新和消息都是通過
+這條指令讓你你可以閲讀遊戲中的新聞。所有的更新和消息都是通過
 新聞發佈的。
 
-使用 new 參數可以讓你閱讀還沒有讀過的新聞。
+使用 new 參數可以讓你閲讀還沒有讀過的新聞。
 使用 all 參數可以讓你查看系統目前所有的新聞。
 
 巫師可以通過news post <標題>來發布新聞。

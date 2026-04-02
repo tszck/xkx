@@ -6,12 +6,12 @@ inherit F_SAVE;
 
 // 全局變量，即儲存玩家押注的所有數據
 mapping *all_biao;
-// 全局變量，此處爲目前數量
+// 全局變量，此處為目前數量
 int num;
-// 全局變量，此處爲最終結杲
+// 全局變量，此處為最終結杲
 int jieguo;
 
-// 以下四行爲函數聲明
+// 以下四行為函數聲明
 int do_read(string);
 int do_post(string);
 int do_ya(string);
@@ -78,7 +78,7 @@ int do_ya(string arg)
 	if((int)j>me->query("balance")/10000)
 // 錢莊的存款不夠押的錢
 		return notify_fail("這裏不收現金！到錢莊存夠了錢再來！”\n");
-	message_vision("$N想了半天大聲喊道：“我認爲中國隊能拿到 "+i+" 分！押 "+j+" 兩黃金！”\n",me);
+	message_vision("$N想了半天大聲喊道：“我認為中國隊能拿到 "+i+" 分！押 "+j+" 兩黃金！”\n",me);
 	me->add("balance",-j*10000);
 	tell_object(me,"錢莊已經扣除了你押下的"+j+"兩黃金。請等候結果吧！\n");
 // 在玩家身上設下押的結果
@@ -116,7 +116,7 @@ int do_post(string arg)
 // num是全程變量
 		if( i > num )
 		{
-			message("channel:sys", HIM"【謠言】"HIR"某人：聽說競猜版中國隊當前得分由 "+num+" 更新爲 "+i+" 分！\n"NOR, users());
+			message("channel:sys", HIM"【謠言】"HIR"某人：聽説競猜版中國隊當前得分由 "+num+" 更新為 "+i+" 分！\n"NOR, users());
 // 更新
 			num = i;
 			save();
@@ -129,7 +129,7 @@ int do_post(string arg)
 	{
 		if( i >= num )
 		{
-			message("channel:sys", HIM"【謠言】"HIR"某人：聽說競猜版最終結果公佈，是 "+jieguo+" 分！押對的快去兌獎啊！\n"NOR, users());
+			message("channel:sys", HIM"【謠言】"HIR"某人：聽説競猜版最終結果公佈，是 "+jieguo+" 分！押對的快去兌獎啊！\n"NOR, users());
 // 更新
 			jieguo = i;
 			save();
@@ -161,7 +161,7 @@ int do_read(string arg)
 //這個規則根據每次巫師設計的定
 		write("
     世界盃外圍賽亞洲十強賽Ｂ組，中國隊能拿幾分？歡迎在此押注：
-押注者以黃金爲單位，最高可押一千黃金，最少也要押一兩黃金。現金
+押注者以黃金為單位，最高可押一千黃金，最少也要押一兩黃金。現金
 不收，必須先存進錢莊。押賭後錢莊直接扣錢。押賭時間到十月十二日
 截止。押小於十三分的數字一賠十二，押十三至二十之間的數字是一賠
 六，二十以上的數字是一賠十五，比賽結束，押中者按倍數返還黃金，
@@ -197,7 +197,7 @@ int do_read(string arg)
 			if(!(int)all_biao[i]["dui"])
 			{
 				str2 += sprintf("%-18s    %-5d  %-5d%s",name,(int)all_biao[i]["win"],(int)all_biao[i]["gold"],j%2?"\n":HIG"｜"HIC,);
-// j和下面的k都是爲了兩個一行，分行用的j%2就是除2剩下的餘數，爲0就換行
+// j和下面的k都是為了兩個一行，分行用的j%2就是除2剩下的餘數，為0就換行
 				j++;
 			}
 // 有dui參數的，記入str1

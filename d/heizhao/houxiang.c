@@ -57,6 +57,6 @@ return notify_fail("老和尚道：喫完了再拿，別浪費食物。\n");
 int valid_leave(object me,string dir)
 {
         if(dir=="south" && (present("mifang", me) || present("qingtang", me))) 
-             return notify_fail("老和尚說道：喫了就別帶走。\n");
+             return notify_fail("老和尚説道：喫了就別帶走。\n");
         return ::valid_leave(me,dir);
 }

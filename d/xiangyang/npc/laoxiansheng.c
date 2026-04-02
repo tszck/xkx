@@ -10,7 +10,7 @@ void create()
         set_name("老先生", ({ "lao xiansheng", "lao", "xiansheng"}));
         set("long",
 "這位老先生曾中過狀元，做過大官，現因年老回老家襄陽頤養天年，經
-安撫使呂文德的再三邀請，在這兒爲秀才們講課。\n");
+安撫使呂文德的再三邀請，在這兒為秀才們講課。\n");
         set("gender", "男性");
         set("age", 65);
         set("no_get", 1);

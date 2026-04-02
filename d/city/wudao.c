@@ -154,14 +154,14 @@ int do_heal(string arg)
 	ob = LOGIN_D->find_body(arg);
 	if (!ob) return notify_fail("沒這個人耶。\n");
 
-	tell_object(me, HIG"你爲"+ob->name()+"恢復比武狀態。\n"NOR);
+	tell_object(me, HIG"你為"+ob->name()+"恢復比武狀態。\n"NOR);
 	ob->set("eff_jing", ob->query("max_jing"));
 	ob->set("jing", ob->query("max_jing"));
 	ob->set("eff_qi", ob->query("max_qi"));
 	ob->set("qi", ob->query("max_qi"));
 	ob->set("neili", ob->query("max_neili"));
 	ob->clear_condition();
-	tell_object(ob,HIR"\n爲你恢復了比武狀態。可以出手了。\n"NOR);
+	tell_object(ob,HIR"\n為你恢復了比武狀態。可以出手了。\n"NOR);
 	return 1;
 }
 int do_titles(string arg)

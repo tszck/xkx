@@ -36,7 +36,7 @@ int valid_learn(object me)
 		return notify_fail("你非童男之體，不能練習混元一氣功。\n");
 
 	if ( nb < 100 && nb <= nh )
-		return notify_fail("你的禪宗心法修爲不夠，無法領會更高深的混元一氣功。\n");
+		return notify_fail("你的禪宗心法修為不夠，無法領會更高深的混元一氣功。\n");
 
 	if ( nf < 10)
 		return notify_fail("你的基本內功火候還不夠，無法領會混元一氣功。\n");
@@ -61,12 +61,12 @@ int help(object me)
 	write(HIC"\n混元一氣功："NOR"\n");
 	write(@HELP
 
-    混元一氣功爲少林派本門內功。
+    混元一氣功為少林派本門內功。
 
 	學習要求：
 		基本內功10級
 		不能破色戒的童男之身
-		禪宗心法修爲不低於混元一氣功
+		禪宗心法修為不低於混元一氣功
 		不犯其它戒律
 HELP
 	);

@@ -55,7 +55,7 @@ int help(object me)
 	write(HIC"\n毒龍大法："NOR"\n");
 	write(@HELP
 
-    毒龍大法爲神龍教本門內功。
+    毒龍大法為神龍教本門內功。
 
 	學習要求：
 		基本內功10級

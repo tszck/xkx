@@ -27,7 +27,7 @@ int main(object me, string arg)
 	if (me->query("betrayer") > 0)
 		return notify_fail("別派叛徒，如何習練我峨嵋絕頂心法？\n");
 	if (me->query("mud_age") - me->query("jingzuo_time") < 180)
-		return notify_fail("你剛纔靜坐過，現在頭腦一片空白。\n");
+		return notify_fail("你剛才靜坐過，現在頭腦一片空白。\n");
 	if (me->query_skill("mahayana",1) < 40)
 		return notify_fail("你的大乘般涅磐功還太淺薄了，沒法靜心靜坐。\n");
 	if (me->query_skill("linji-zhuang",1) < 40)

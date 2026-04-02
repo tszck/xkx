@@ -10,7 +10,7 @@ int ask_poison();
 void create()
 {
 	set_name("薛慕華", ({ "xue muhua", "xue" }));
-	set("long", "他就是號稱閻王敵的神醫——薛慕華，據說他精通醫理，可以起死回生。\n");
+	set("long", "他就是號稱閻王敵的神醫——薛慕華，據説他精通醫理，可以起死回生。\n");
 	set("gender", "男性");
 	set("nickname","“函谷八友”神醫");
 	set("age", 37);
@@ -58,7 +58,7 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say 好吧，我就收下你了，以後要多爲逍遙派出力啊。");
+	command("say 好吧，我就收下你了，以後要多為逍遙派出力啊。");
 	command("recruit " + ob->query("id"));
 }
 
@@ -80,12 +80,12 @@ int ask_me()
 	}
         if(ob->query("shen")<0)
 	{       
-		command("say 你心術不正，我可不敢爲你療傷！");
+		command("say 你心術不正，我可不敢為你療傷！");
 		return 1;
 	}
 	if(ob->query("score")<300&&ob->query("combat_exp")>100500)
 	{       
-		command("say 你這點江湖閱歷，也想讓我爲你療傷？");
+		command("say 你這點江湖閲歷，也想讓我為你療傷？");
 		return 1;
 	}	
 	if ((int)ob->query("eff_qi") == (int)ob->query("max_qi")
@@ -152,12 +152,12 @@ int ask_heal()
 
 	if(ob->query("shen")<0)
 	{       
-		command("say 你心術不正，我可不敢爲你治病！");
+		command("say 你心術不正，我可不敢為你治病！");
 		return 1;
 	}
 	if(ob->query("score")<300&&ob->query("combat_exp")>100000)
 	{       
-		command("say 你這點江湖閱歷，也想讓我爲你治病？");
+		command("say 你這點江湖閲歷，也想讓我為你治病？");
 		return 1;
 	}
 		
@@ -167,7 +167,7 @@ int ask_heal()
 	    ||ob->query_condition("ill_dongshang")
 	    ||ob->query_condition("ill_fashao"))
 	{
-		message_vision("薛慕華輕釦$N脈門，略一思索，隨後轉身從藥簍裏取出幾味草藥，開始爲$N熬藥。\n", ob);
+		message_vision("薛慕華輕釦$N脈門，略一思索，隨後轉身從藥簍裏取出幾味草藥，開始為$N熬藥。\n", ob);
 		if (ob->query("combat_exp")>100000)
 		{
 		if (ob->query("family/family_name") != "逍遙派")
@@ -223,12 +223,12 @@ int ask_poison()
 
 	if(ob->query("shen")<0)
 	{       
-		command("say 你心術不正，我可不敢爲你解毒！");
+		command("say 你心術不正，我可不敢為你解毒！");
 		return 1;
 	}
 	if(ob->query("score")<500&&ob->query("combat_exp")>100000)
 	{       
-		command("say 你這點江湖閱歷，也想讓我爲你解毒？");
+		command("say 你這點江湖閲歷，也想讓我為你解毒？");
 		return 1;
 	}
 		
@@ -249,7 +249,7 @@ int ask_poison()
 	    || ob->query_condition("zhua_poison")
 	    ||ob->query_condition("ice_sting"))
 	{
-		message_vision("薛慕華輕釦$N脈門，雙眉深鎖，隨後喂$N服下一顆藥丸，盤膝坐下，雙掌貼着$N的背心，開始爲$N解毒。\n", ob);
+		message_vision("薛慕華輕釦$N脈門，雙眉深鎖，隨後喂$N服下一顆藥丸，盤膝坐下，雙掌貼着$N的背心，開始為$N解毒。\n", ob);
 		if (ob->query("combat_exp")>100000)
 		{
 		if (ob->query("family/family_name") != "逍遙派")

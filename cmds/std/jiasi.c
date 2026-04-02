@@ -17,7 +17,7 @@ int main(object me, string arg)
 		return notify_fail("沒受什麼傷就想裝假死，傻子也看得出來。\n");
 	if(me->query_temp("jiasi"))
 			return 1;
-//		return notify_fail("你正在爲假死做準備。\n");
+//		return notify_fail("你正在為假死做準備。\n");
 //	if(me->query_temp("sleepd")) 
 //		return notify_fail("你現在沒辦法假死。\n");
 	me->set_temp("jiasi",1);

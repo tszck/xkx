@@ -51,7 +51,7 @@ int do_du(string arg)
 	else
 	{
 		me->add("int", 1);
-		write(HIY"你隨手翻閱，但見一字一句之間，無不闡明臨陣對敵的妙法，不禁大聲讚歎！\n"NOR);
+		write(HIY"你隨手翻閲，但見一字一句之間，無不闡明臨陣對敵的妙法，不禁大聲讚歎！\n"NOR);
 		write(HIR"你的悟性提高了！\n"NOR);
 		this_player()->set("mark/+int", 1); 
 	}

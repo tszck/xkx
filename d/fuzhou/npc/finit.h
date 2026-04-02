@@ -61,7 +61,7 @@ void do_wait()
 	}
 	else
 	{
-		message_vision("$N說道：風緊！風緊！大爺先走了！\n$N一陣哄向遠處逃了開去。\n",this_object());
+		message_vision("$N説道：風緊！風緊！大爺先走了！\n$N一陣哄向遠處逃了開去。\n",this_object());
 		destruct(me);
 	}
 }
@@ -93,7 +93,7 @@ void do_sha()
 		}
 		else
 		{
-			message_vision("$N說道：大功告成！大爺先走了！\n$N一陣大哄向遠處飛馳而去。\n",me);
+			message_vision("$N説道：大功告成！大爺先走了！\n$N一陣大哄向遠處飛馳而去。\n",me);
 			if ( cart = present("cart",environment(me)))
                         destruct(cart);         
                         destruct(me);

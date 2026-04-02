@@ -127,10 +127,10 @@ int do_kaifa(string arg)
 	if( me->query("CITY_KAIFA/name")!=ob->query("city_name") )
 		return notify_fail("你要協助開發的城市好象不是這裏吧？\n");
 */
-//江湖閱歷小於1000就不讓繼續開發
+//江湖閲歷小於1000就不讓繼續開發
 
 	if (me_score<1000)
-	        return notify_fail("你的江湖閱歷不夠，還是多積累點閱歷再來吧!\n");
+	        return notify_fail("你的江湖閲歷不夠，還是多積累點閲歷再來吧!\n");
 //存款小於100 gold 就不讓繼續開發
 	if(me_balance<1000000)
 	        return notify_fail("你的存款不夠，無法滿足開發所需要的資金要求!\n");
@@ -284,7 +284,7 @@ int do_kaifa(string arg)
 
 	        }
 	   }
-//每次執行開發指令，都要考慮到城市稅率對本輪開發的影響 這樣感覺纔有點動態性 呵呵
+//每次執行開發指令，都要考慮到城市稅率對本輪開發的影響 這樣感覺才有點動態性 呵呵
 //         0-15  之間   非常滿意 增加人口 增加民忠
 //         15-30 之間    滿意    增加人口 民忠不變
 //      30-40 之間   微有怨言 人口不變  減低民忠 農業,治安受到破壞
@@ -323,7 +323,7 @@ int do_kaifa(string arg)
                       pro_num = (int)pro_num-random(100);
                       ob->set("peace_pro",pro_num);
                     }
-               message_vision( CYN"城中的一些人認爲官府的稅率定的不太合理，微有怨言，有人在城裏發現小偷和一些不願種田的農民。\n"NOR,me);
+               message_vision( CYN"城中的一些人認為官府的稅率定的不太合理，微有怨言，有人在城裏發現小偷和一些不願種田的農民。\n"NOR,me);
                }
         else if( ob_taxrate>=41&&ob_taxrate<=60)
              {
@@ -347,7 +347,7 @@ int do_kaifa(string arg)
                       pro_num = (int)pro_num-random(100);
                       ob->set("business_pro",pro_num);
                      }
-             	message_vision( YEL"城中百姓怨聲載道，大部分商人也認爲官府收的稅太高了，有人在城中搞起小破壞，來抱怨對官府的不滿。\n"NOR,me);
+             	message_vision( YEL"城中百姓怨聲載道，大部分商人也認為官府收的稅太高了，有人在城中搞起小破壞，來抱怨對官府的不滿。\n"NOR,me);
              	}
          else if( ob_taxrate>=61&&ob_taxrate<=80)
              {
@@ -363,7 +363,7 @@ int do_kaifa(string arg)
              	     ob->add("technology",-1);
              	if ((int)ob->query("peace")> 5&& random(2)==1)
              	     ob->add("peace",-1);
-             	message_vision( BLU"城中民怨沸騰，百姓一致認爲官府收的稅太高了，並逐漸對這裏的地方官員失去信心。\n"NOR,me);
+             	message_vision( BLU"城中民怨沸騰，百姓一致認為官府收的稅太高了，並逐漸對這裏的地方官員失去信心。\n"NOR,me);
              }
         else
              {
@@ -381,7 +381,7 @@ int do_kaifa(string arg)
              	     ob->add("peace",-2);
              	message_vision( RED"苛政猛於虎，城中百姓無法忍受官府的盤剝，紛紛背井離鄉。\n"NOR,me);
              	}
-// 每次執行指令消耗50的江湖閱歷 和一定的存款（與本城的稅率有關 如果稅率達100就不花錢）
+// 每次執行指令消耗50的江湖閲歷 和一定的存款（與本城的稅率有關 如果稅率達100就不花錢）
         me_score = me_score-50;
         me_balance = me_balance-2000*(100-ob_taxrate);
         me->set("score",me_score);
@@ -406,7 +406,7 @@ int do_tax(string arg)
 	return notify_fail("有人剛下過開發命令，稍候........\n");
    if( !arg
         ||      !sscanf(arg, "%d", taxrate) )
-      return notify_fail("你想將稅率定爲多少？\n");
+      return notify_fail("你想將稅率定為多少？\n");
    if(taxrate>100||taxrate<0)
       return notify_fail("稅率只能在0到100之間！\n");
    ob_taxrate=taxrate;

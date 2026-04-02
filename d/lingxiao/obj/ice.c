@@ -16,7 +16,7 @@ void create()
 		set_default_object(__FILE__); 
 	else { 
 		set("unit", "柄"); 
-		set("long","這是一片長長的冰柱，看起來晶瑩剔透，鋒銳無比，不知道能不能喫。\n");
+		set("long","這是一片長長的冰柱，看起來晶瑩剔透，鋒鋭無比，不知道能不能喫。\n");
 		set("unit", "片" ); 
 		set("value", 8); 
 		set("wield_msg", "$N「唰」的一聲抽出一柄$n握在手中。\n"); 
@@ -41,7 +41,7 @@ void melt()
 //a player or a NPC.
 		if( (int)env->query_skill("bingxue-xinfa", 1) < 20 )
 		{
-			message_vision("$N覺得身上涼涼的，溼溼的，原來是冰柱化了。\n", env);
+			message_vision("$N覺得身上涼涼的，濕濕的，原來是冰柱化了。\n", env);
 			destruct(this_object());
 			return;
 		}

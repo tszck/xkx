@@ -125,7 +125,7 @@ void greeting(object ob)
 			case 2:command("love "+(string)ob->query("id"));break;
 		}
 	}
-	else say("歐陽克嘆了一口氣說：這位"+RANK_D->query_respect(ob)+",你要是能給我弄一個女人來就好了。\n");
+	else say("歐陽克嘆了一口氣説：這位"+RANK_D->query_respect(ob)+",你要是能給我弄一個女人來就好了。\n");
 	return;
 }
 
@@ -143,9 +143,9 @@ void attempt_apprentice(object ob)
 		return;
 	}
 	if ((string)ob->query("gender") == "女性")
-		message_vision("歐陽克動情地說道：這位" + RANK_D->query_respect(ob) + "真乃我的紅顏知己，\n我現在還不能收你，只能送你上白駝山。\n",ob);
+		message_vision("歐陽克動情地説道：這位" + RANK_D->query_respect(ob) + "真乃我的紅顏知己，\n我現在還不能收你，只能送你上白駝山。\n",ob);
 	else
-		message_vision("歐陽克笑笑說：這位"+RANK_D->query_respect(ob) + "，我現在還不能收你，只能送你上白駝山。\n",ob);
+		message_vision("歐陽克笑笑説：這位"+RANK_D->query_respect(ob) + "，我現在還不能收你，只能送你上白駝山。\n",ob);
 	write(HIY "只見歐陽克把紙扇往你眼前一晃，\n
 	你覺得眼前一閃，身體輕飄飄地飛了出去￣￣\n" NOR);
 	ob->move("/d/baituo/liangong");
@@ -155,7 +155,7 @@ int accept_fight(object ob)
 {
 	if ((string)ob->query("gender") == "女性")
 	{
-		message_vision("歐陽克擺擺手說道：這位"+RANK_D->query_respect(ob)+ "，我怎能欺負女孩子呢！\n", ob);
+		message_vision("歐陽克擺擺手説道：這位"+RANK_D->query_respect(ob)+ "，我怎能欺負女孩子呢！\n", ob);
 		return 0;
 	}
 	if ((string)ob->query("family/family_name") == "白駝山派")
@@ -163,7 +163,7 @@ int accept_fight(object ob)
 		if((int)ob->query("combat_exp")<100000)
 			return notify_fail("歐陽克笑道：你的經驗太低了，再練幾年吧。！\n");
 	}
-	message_vision("歐陽克一拱手說道：這位"+RANK_D->query_respect(ob)+ "，在下領教了。\n", ob);
+	message_vision("歐陽克一拱手説道：這位"+RANK_D->query_respect(ob)+ "，在下領教了。\n", ob);
 	return 1;
 }
  
@@ -262,7 +262,7 @@ int do_give(string arg)
   obn=new("/clone/money/silver");
 	obn->set_amount(30+amount);
 	obn->move(who);
-	message_vision("歐陽克一把把"+ob->query("name")+ "攬在懷裏，對$N說這點銀子是你的辛苦費，咱回頭見。\n說完，就攜着"+ob->query("name")+"往麗春院奔去...\n",who);
+	message_vision("歐陽克一把把"+ob->query("name")+ "攬在懷裏，對$N説這點銀子是你的辛苦費，咱回頭見。\n説完，就攜着"+ob->query("name")+"往麗春院奔去...\n",who);
 	move("/d/city/lichunyuan",1);
   ob->move("/d/city/lichunyuan",1);
   message_vision("$N抱着昏迷不醒的$n走了進來。\n", this_object(), ob);

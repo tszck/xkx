@@ -6,7 +6,11 @@ from opencc import OpenCC
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CC = OpenCC("s2t")
+CC = OpenCC("s2hk")  # Hong Kong Traditional Chinese conversion
+EXCLUDE_DIRS = {
+    ".venv", ".git", ".github", "node_modules", "dist", "build",
+    "__pycache__", ".pytest_cache", "*.egg-info", ".tox",
+}
 TEXT_EXTENSIONS = {
     ".c",
     ".h",
@@ -45,7 +49,17 @@ def decode_text(data: bytes) -> tuple[str, str, bool] | tuple[None, None, None]:
     return None, None, None
 
 
+def is_excluded(path: Path) -> bool:
+    """Check if path or any parent is in the exclusion list."""
+    for part in path.parts:
+        if part in EXCLUDE_DIRS:
+            return True
+    return False
+
+
 def is_candidate(path: Path) -> bool:
+    if is_excluded(path):
+        return False
     if path.suffix.lower() in TEXT_EXTENSIONS:
         return True
     return path.name in EXTRA_TEXT_NAMES

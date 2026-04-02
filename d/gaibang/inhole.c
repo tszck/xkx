@@ -36,7 +36,7 @@ int do_say(string arg)
 //      if( !arg || arg=="" ) return 0;
         if( arg=="天堂有路你不走呀" ||  arg=="地獄無門你進來啊") 
         {
-		write("只聽裏面有人說了聲：是本幫兄弟吧？請進來吧。\n");
+		write("只聽裏面有人説了聲：是本幫兄弟吧？請進來吧。\n");
 		message("vision", "樹洞邊上一堵牆緩緩移了開來，原來是道小木門。\n", this_player());
 		set("exits/down", __DIR__"undertre");
 		remove_call_out("close");

@@ -148,7 +148,7 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
 // 門派頻道
   if( channels[verb]["family_only"] &&
     !me->query("family/family_name") )
-    return notify_fail("你還是先加入一個門派再說吧。\n");
+    return notify_fail("你還是先加入一個門派再説吧。\n");
   if( channels[verb]["family_only"] )
   {
     family = me->query("family/family_name");
@@ -159,7 +159,7 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
 // 幫會頻道
   if( channels[verb]["party_only"] &&
     !me->query("party/party_name") )
-    return notify_fail("你還是先加入一個幫會再說吧。\n");
+    return notify_fail("你還是先加入一個幫會再説吧。\n");
   if( channels[verb]["party_only"] )
   {
     party = me->query("party/party_name");
@@ -204,9 +204,9 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
       if(time()==me->query("channel/last_chat")&&!wizardp(me))
       {
         me->set("channel/chat_block",time()+180);
-        message("system",HIR"【警告】"HIY"演若達多大吼一聲: “ｗａｋａｏ, Ｉ服了ｙｏｕ! 這麼能叫喚, 你先歇會兒吧。”, 說着拿了塊烤鴨屁股把"+me->query("name") +"的嘴塞了個嚴嚴實實。\n"NOR, users() );
+        message("system",HIR"【警告】"HIY"演若達多大吼一聲: “ｗａｋａｏ, Ｉ服了ｙｏｕ! 這麼能叫喚, 你先歇會兒吧。”, 説着拿了塊烤鴨屁股把"+me->query("name") +"的嘴塞了個嚴嚴實實。\n"NOR, users() );
         me->set("channel/last_chat",time());
-        return notify_fail("因爲實在太羅嗦，你的交談頻道被暫時關閉了。\n");
+        return notify_fail("因為實在太羅嗦，你的交談頻道被暫時關閉了。\n");
       }
       me->set("channel/last_chat",time());
     }
@@ -216,11 +216,11 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
       arg==(string)me->query_temp("last_channel_msg2") ||
       arg==(string)me->query_temp("last_channel_msg3") ||
       arg==(string)me->query_temp("last_channel_msg4")) )
-      return notify_fail("用交談頻道說話請不要重複相同的訊息。\n");
+      return notify_fail("用交談頻道説話請不要重複相同的訊息。\n");
     if( channels[verb]["age_limit"] && wiz_level(me) < 1 )
     {
       if( me->query("mud_age") < NEW_PERIOD )
-        return notify_fail("你剛剛立足江湖，說話還沒那麼響亮。\n");
+        return notify_fail("你剛剛立足江湖，説話還沒那麼響亮。\n");
     }
 
 // If we speaks something in this channel, then must tune it in.
@@ -265,7 +265,7 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
 //emote now ok //
 //  tf(sprintf("after emote:\n是否是emote?\t%s\narg=%s\n ",emote,arg));
 // Make the identity of speaker.
-//   是誰說的話
+//   是誰説的話
   if( channels[verb]["anonymous"] )
   {
     who = channels[verb]["anonymous"];
@@ -286,7 +286,7 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
    if (!stringp(who))
      do_channel(this_object(),"sys","err when get names who use channel\n");
 // Ok, now send the message to those people listening us.
-// 說給誰聽
+// 説給誰聽
   ob = filter_array( users(), "filter_listener", this_object(), channels[verb] );
 //  返回users()經過this_object()->filter_listener(channels[verb])過濾後的結果
   if( !arg ) arg = "我好寂寞啊，誰來陪我聊天？";

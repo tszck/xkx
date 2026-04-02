@@ -71,7 +71,7 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say 好吧，我就收下你了，以後要多爲逍遙派出力啊。");
+	command("say 好吧，我就收下你了，以後要多為逍遙派出力啊。");
 	command("recruit " + ob->query("id"));
 }
 

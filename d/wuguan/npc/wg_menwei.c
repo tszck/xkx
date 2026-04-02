@@ -4,7 +4,7 @@ inherit NPC;
 void create()
 {
 	int age = 20 + random(20);
-	set_name("武館門衛", ({ "men wei", "menwei", "wei" }));
+	set_name("武館門衞", ({ "men wei", "menwei", "wei" }));
 	set("gender", "男性");
 	set("age", age);
 	set_skill("unarmed", 80);

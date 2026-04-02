@@ -609,9 +609,9 @@ void  create  ()
 {
     set  ("short",  "拱豬房");
     set  ("long",  @LONG
-這間房子是專門爲了拱豬用而設的，整間屋子都是用不去皮的松樹
+這間房子是專門為了拱豬用而設的，整間屋子都是用不去皮的松樹
 搭成。一張石桌 (table)周圍擺着四個石礅，桌面鑲了一塊大理石，摸
-上去極爲光滑。四壁掛着長明燈，把屋子照得有如白晝。牆角里燒了一
+上去極為光滑。四壁掛着長明燈，把屋子照得有如白晝。牆角里燒了一
 爐不知名的香，似乎頗有提神之效。香爐旁邊掛着張告示(gaoshi)，上
 面寫着這裏的規矩；桌上有張小紙條(note)，上面草草的記着拱豬成績。
 LONG);
@@ -1066,7 +1066,7 @@ int  do_deal(string  arg)
         if  (TABLE[dir]["status"]  !=  "filled"  ||  TABLE["cond"]  !=  "等發牌")
 	return  notify_fail("對不起，現在不是發牌的時候。\n");
         TABLE[dir]["status"]="asked_for_deal";
-        message_vision("$N說道：我準備好了，發牌吧。\n",  me);
+        message_vision("$N説道：我準備好了，發牌吧。\n",  me);
         if  (all_have("req_deal"))
         {
 	message_vision("\n大家都準備好了，由$N負責發牌。\n\n",  me);
@@ -1136,7 +1136,7 @@ int  do_claim(string  arg)
 		return  notify_fail("已經有人發出要求了，請先否決。\n");
 	        CLAIM[dir]="yes";
 	        CLAIM["claimer"]  =  dir;
-	        str  =  "$N認爲自己手中的牌都大了：\n";
+	        str  =  "$N認為自己手中的牌都大了：\n";
 	        str  +=  display_suit(dir,  "spade");
 	        str  +=  display_suit(dir,  "heart");
 	        str  +=  display_suit(dir,  "diamond");
@@ -1207,7 +1207,7 @@ int  do_pass(string  arg)
         if  (TABLE[dir]["status"]=="passed")
 	return  notify_fail("你已經決定停賣了。\n");
         TABLE[dir]["status"]="passed";
-        message_vision("$N說道：我停賣。\n",  me);
+        message_vision("$N説道：我停賣。\n",  me);
         if  (all_have("pass"))
         {
 	TABLE["cond"]="出牌";

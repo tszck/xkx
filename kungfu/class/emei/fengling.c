@@ -114,7 +114,7 @@ void attempt_apprentice(object ob)
 	if ((int)ob->query_skill("mahayana",1)<120||
 		(int)ob->query_skill("linji-zhuang",1)<120)
 	{
-		command("say 你本門的功夫修爲還太低。");
+		command("say 你本門的功夫修為還太低。");
 		return;
 	}
 	if ((int)ob->query("shen") < 500000)
@@ -127,10 +127,10 @@ void attempt_apprentice(object ob)
 		name = ob->query("name");
 		new_name = "滅" + name[1..1];
 		ob->set("name", new_name);
-		command("say 從今以後你的法名叫做" + new_name + "，恭喜你成爲峨嵋第三代弟子!");
+		command("say 從今以後你的法名叫做" + new_name + "，恭喜你成為峨嵋第三代弟子!");
 	}
 
 	command("say 阿彌陀佛，善哉！善哉！好吧，我就收下你了。");
-	command("say 希望你能以慈悲之心，以智慧之力，努力行善，濟度衆生。");
+	command("say 希望你能以慈悲之心，以智慧之力，努力行善，濟度眾生。");
 	command("recruit " + ob->query("id"));
 }

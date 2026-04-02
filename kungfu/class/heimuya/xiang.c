@@ -8,7 +8,7 @@ void create()
 	set_name("向問天", ({ "xiang wentian", "xiang"}));
 	set("nickname", HIR "天王老子" NOR );
 	set("gender", "男性");
-	set("long", "他就是日月神教的光明左使。爲人極爲豪爽。只見他容貌清癯，頦下疏疏朗朗一叢花白長鬚，垂在胸前。\n");
+	set("long", "他就是日月神教的光明左使。為人極為豪爽。只見他容貌清癯，頦下疏疏朗朗一叢花白長鬚，垂在胸前。\n");
 	set("age", 45);
 	set("shen_type", 1);
 	set("env/wimpy", 40);
@@ -84,7 +84,7 @@ int ask_kill()
 	if (query("count")>0)
 	{
 		add("count",-1);
-	  message_vision(HIC "向問天對$N點了點頭說：我助你一臂之力。\n" NOR,this_player());
+	  message_vision(HIC "向問天對$N點了點頭説：我助你一臂之力。\n" NOR,this_player());
 	  ob=new("/d/heimuya/npc/obj/card4");
 	  ob->move(me);
 	  tell_object(me,"向問天從懷裏摸出一塊令牌塞到你的手上。\n");

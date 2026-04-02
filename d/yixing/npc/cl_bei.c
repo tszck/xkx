@@ -17,7 +17,7 @@ void create()
 	set("party/party_name", HIC"長樂幫"NOR);
 	set("party/rank", "總管");
 	set("long", 
-		"他是一個身穿黃衫的老人，看上去臉色蒼白，說話有氣無力，\n"
+		"他是一個身穿黃衫的老人，看上去臉色蒼白，説話有氣無力，\n"
 		"還不停的咳嗽着，便似身患重病一般。\n");
 	set("gender", "男性");
 	set("age", 50);
@@ -58,7 +58,7 @@ void create()
 		"幫務" : (: ask_job :),
 		"job"   : (: ask_job :),
 		"武功" : "幫主老人家的武功比我強多了，你還是向幫主學吧。",
-		"香主" : "各位香主的任命由幫主老人家說了算。",
+		"香主" : "各位香主的任命由幫主老人家説了算。",
 		"司徒橫" : "我對我們幫主老人家的景仰之情，有如滔滔江水連綿不絕。",
 		"幫主" : "我家幫主司徒大爺乃威鎮江南的“東霸天”也。",
 		"療傷" : (: ask_cure :),
@@ -91,7 +91,7 @@ string ask_cure()
 		return RANK_D->query_rude(me) + "竟連自己的幫令都管不住！";
 
 	if( (int)ling->query("score") < 10 )
-		return RANK_D->query_rude(me) + "不爲幫中出力，光知道撈好處。";
+		return RANK_D->query_rude(me) + "不為幫中出力，光知道撈好處。";
 
 	if( (int)me->query("eff_qi") * 10 > (int)me->query("max_qi") * 8 )
 		return "傷不重的話，挨兩天就自愈了。";
@@ -100,7 +100,7 @@ string ask_cure()
 	ling->add("score", -2);
 	me->set("bangs/curetime", time());
 	message_vision("$N將一一包金創藥遞給$n。\n", this_object(), me);
-	message_vision("$N小心翼翼地把一包金創藥敷在傷口上，只覺傷勢大爲好轉，氣色看起來好多了。\n", me);
+	message_vision("$N小心翼翼地把一包金創藥敷在傷口上，只覺傷勢大為好轉，氣色看起來好多了。\n", me);
 	me->receive_curing("qi", 50);
 	return "服一包金創藥就沒事了。";
 }

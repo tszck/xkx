@@ -26,7 +26,7 @@ int valid_leave(object me, string dir)
 	int i;
 	if(dir=="down")
 	{
-		message_vision("\n$N一曲唱罷，一揖作禮，身子平飛，從臺上躍出，雙手兀自\n抱拳向觀衆行禮，姿態美妙，衆人齊聲喝采。\n", me);
+		message_vision("\n$N一曲唱罷，一揖作禮，身子平飛，從臺上躍出，雙手兀自\n抱拳向觀眾行禮，姿態美妙，眾人齊聲喝采。\n", me);
 		i= me->query("meili");
 		if(i<20) 
 		{

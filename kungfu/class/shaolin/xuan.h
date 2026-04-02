@@ -17,7 +17,7 @@ int accept_object(object ob, object obj)
 	&& ob->query_temp("have_letter") )
 	{
 		ob->set_temp("apprentice_ok",1);
-	        command("say 好，" + ob->query("name") + "，你願意拜我爲師嗎？");
+	        command("say 好，" + ob->query("name") + "，你願意拜我為師嗎？");
 		remove_call_out("destroying");
 		call_out("destroying", 1, me, obj);
 		return 1;
@@ -82,7 +82,7 @@ void attempt_apprentice(object ob)
 			new_name = "澄" + name[1..1];
 			ob->set("name", new_name);
 
-			command("say 從今以後你的法名叫做" + new_name + "，恭喜你榮升爲少林派澄字輩弟子 !");
+			command("say 從今以後你的法名叫做" + new_name + "，恭喜你榮升為少林派澄字輩弟子 !");
 			command("recruit " + ob->query("id"));
 		}
 		else

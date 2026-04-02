@@ -125,7 +125,7 @@ string do_finish()
 		tell_object(me,HIW"你得到了:"
 			+ chinese_number(add_exp) + "點實戰經驗，"
 			+ chinese_number(add_pot) + "點潛能，"
-			+ chinese_number(add_score) + "點江湖閱歷。\n"NOR);
+			+ chinese_number(add_score) + "點江湖閲歷。\n"NOR);
 		return("“嗯，這位"+RANK_D->query_respect(me)+"幹得真是不錯，這是你的工錢，請收好了。”");
 	}
 }

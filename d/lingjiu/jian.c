@@ -50,7 +50,7 @@ int do_zou(string arg)
 		if ((string)me->query("family/family_name")!="逍遙派"
 		&& (string)me->query("family/family_name")!="靈鷲宮"
 		)
-			message_vision("餘婆婆伸手攔住$N，說道：“老身奉主人之命守衛百丈澗，\n非靈鷲宮弟子請回！”\n",me);
+			message_vision("餘婆婆伸手攔住$N，説道：“老身奉主人之命守衞百丈澗，\n非靈鷲宮弟子請回！”\n",me);
 		else
 		{
 			message_vision(HIW"$N輕輕躍起踩上鐵索，瀟灑地向對面走去。\n\n"NOR,me);

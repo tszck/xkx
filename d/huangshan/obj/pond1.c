@@ -14,7 +14,7 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "個");
-                set("long", HIR"一個水色爲赤的池潭。\n"NOR);
+                set("long", HIR"一個水色為赤的池潭。\n"NOR);
                 set("value", 1);
         }
 }

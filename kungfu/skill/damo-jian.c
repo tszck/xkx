@@ -117,7 +117,7 @@ int help(object me)
 	write(HIC"\n達摩劍："NOR"\n");
 	write(@HELP
 
-    達摩劍爲少林七十二絕技之一。
+    達摩劍為少林七十二絕技之一。
 
 	學習要求：
 		混元一氣功20級

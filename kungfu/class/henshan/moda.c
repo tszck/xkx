@@ -145,7 +145,7 @@ mixed ask_jian()
         if (me->query("shen")<0)
         {
                 if (me->query("family/family_name") == "衡山派")
-                        message_vision(CYN "$N" CYN "大怒，對$n" CYN "道：“你身爲衡山弟子，"
+                        message_vision(CYN "$N" CYN "大怒，對$n" CYN "道：“你身為衡山弟子，"
                                        "反而誤入魔道，還不快快醒轉？”\n" NOR,
                                        this_object(), me);
                 else

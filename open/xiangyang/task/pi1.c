@@ -55,7 +55,7 @@ void greeting(object ob)
 	}	
 	else if(ob->query_temp("mark/job_shadi")==1)
 	{
-		say("裨將拱手說道：這位" + RANK_D->query_respect(ob) + "，你來得正是時候，蒙古靼子已經快攻上城了。\n");
+		say("裨將拱手説道：這位" + RANK_D->query_respect(ob) + "，你來得正是時候，蒙古靼子已經快攻上城了。\n");
 		ob->apply_condition("jobshadi_limit", 5+random(5));
 		ob->set_temp("start_job",1);
 		ob->set_temp("where",environment(ob));
@@ -64,7 +64,7 @@ void greeting(object ob)
 	}
 	if(ob->query_temp("job_over")==1)
 	{
-		say("裨將拱手說道：這位" + RANK_D->query_respect(ob) + "，你已經可以回去覆命了。\n");
+		say("裨將拱手説道：這位" + RANK_D->query_respect(ob) + "，你已經可以回去覆命了。\n");
 		return;
 	}
 }

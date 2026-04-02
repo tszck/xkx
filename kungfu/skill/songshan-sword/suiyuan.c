@@ -61,13 +61,13 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲還不夠高，無法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為還不夠高，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 50 )
 		return notify_fail("你的"+to_chinese(sskill)+"還不夠高，無法使用"+PNAME+"。\n");
 
 	if(me->query("max_neili") < 100)
-		return notify_fail("你的內力修爲不夠，無法使「隨緣三劍」。\n");
+		return notify_fail("你的內力修為不夠，無法使「隨緣三劍」。\n");
 
 	if(me->query("neili") < 50)
 		return notify_fail("你的內力不夠，無法使「隨緣三劍」。\n");
@@ -112,7 +112,7 @@ int help(object me)
 	出手要求：
 		寒冰真氣60級
 		嵩山劍法50級
-		內力修爲100
+		內力修為100
 		內力50
 HELP
 	);

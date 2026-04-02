@@ -26,9 +26,9 @@ void create()
 	set("attitude", "heroism");
 	set("chat_chance_combat", 15);
 	set("chat_msg_combat", ({
-		"王五說道: 你當真喫了豹子膽啦 ? 敢跟大爺較量 ! \n",
+		"王五説道: 你當真喫了豹子膽啦 ? 敢跟大爺較量 ! \n",
 		"王五忽然揮出一刀，招數精奇，但刀到中途卻又急忙收招。\n",
-		"王五說道: 快滾 ! 算我輸了還不行 ?....\n"
+		"王五説道: 快滾 ! 算我輸了還不行 ?....\n"
 	}) );
 
 	set("inquiry", ([
@@ -73,9 +73,9 @@ string ask_me(object who)
 	set("title", HIR "鬼刀" NOR);
 
 	message("vision",
-		HIY "王五眼中突然放出異樣的光芒，顫聲說道，看來...你都知道了？\n"
+		HIY "王五眼中突然放出異樣的光芒，顫聲説道，看來...你都知道了？\n"
 		"王五大喝一聲，叫道，既然如此，老子今天反正豁出去，跟你拼了。\n"
-		"王五使開單刀，招數精奇，沉猛狠辣，和剛纔的醉鬼簡直判若兩人。\n" NOR,
+		"王五使開單刀，招數精奇，沉猛狠辣，和剛才的醉鬼簡直判若兩人。\n" NOR,
 		environment(), this_object() );
 
 	set("pursuer", 1);

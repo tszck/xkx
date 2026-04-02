@@ -75,7 +75,7 @@ int respirating(object me)
 		if ((int)me->query("max_jingli") > 
                     ((int)me->query_skill("taoism",1) * 10))
 		{
-			write("你的精力修爲似乎已經達到了瓶頸。\n");
+			write("你的精力修為似乎已經達到了瓶頸。\n");
 			me->set("jingli", (int)me->query("max_jingli"));
 			return 0;
 		}

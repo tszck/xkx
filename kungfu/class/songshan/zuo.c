@@ -85,7 +85,7 @@ void init()
 }
 void attempt_apprentice(object ob)
 {
-	command("say 我派爲五嶽盟主！入我門來，定須光大我嵩山一派。");
+	command("say 我派為五嶽盟主！入我門來，定須光大我嵩山一派。");
 	command("recruit " + ob->query("id"));
 }
 

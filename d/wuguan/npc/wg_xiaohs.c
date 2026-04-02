@@ -32,7 +32,7 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(2) ) {
 		case 0:
-			say( "少林小和尚笑嘻嘻地說道：這位" + RANK_D->query_respect(ob)
+			say( "少林小和尚笑嘻嘻地説道：這位" + RANK_D->query_respect(ob)
            + "，想加入少林的話，可以看"BRED"(help shaolin)"NOR"。\n");
 			break;
 		case 1:

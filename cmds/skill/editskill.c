@@ -101,7 +101,7 @@ int main(object me, string arg)
 	if((int)me->query("combat_exp") < (skill_num)*1000000+9000000)
 		return notify_fail(HIR"你的經驗還不夠，不能自創武功了。\n"NOR);
 	if((int)me->query("score") < 20000)
-		return notify_fail(HIR"你的江湖閱歷還不夠，不能自創武功了。\n"NOR);
+		return notify_fail(HIR"你的江湖閲歷還不夠，不能自創武功了。\n"NOR);
 	if(//(int)me->query_skill(spe_skill_name,1)!=0  &&
 		(int)me->query_skill(spe_skill_name,1) < (skill_num-1)*20)
 		return notify_fail( HIR"你的招式還不夠熟練，先提高一下，然後在想新招吧。\n"NOR);
@@ -569,7 +569,7 @@ int help (object me)
 例如：editskill unarmed jueqin 絕情拳 1
 
     這是用來創建自己風格武功的指令，隨着經驗值的增長，可以實現的招式
-越來越多，招式的威力也越來越大。每創造一種武功，必須要有兩萬點江湖閱
+越來越多，招式的威力也越來越大。每創造一種武功，必須要有兩萬點江湖閲
 歷。
     玩家增加招式的熟練程度的方式是使用個專用指令：
     mylian，用practice也可以，但是難度會加大。
@@ -584,7 +584,7 @@ int help (object me)
 	blade,
 注意:
     招式的英文名稱後面將被加上基本技能的幾個標識，玩家要事先想好，一
-旦開始創建則無法隨意改動英文名稱，如上例將會得到名爲jueqin-unarmed的
+旦開始創建則無法隨意改動英文名稱，如上例將會得到名為jueqin-unarmed的
 一項武功。招式描述中不要加入控制字符。玩家最多隻能創建三種高級功夫。
     招式描述中的：
     某人，你，某部位，武器帶有普遍性，將來可以用來對付各種不同敵人。

@@ -28,7 +28,7 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	say( "尼姑施了一禮說道：這位" + RANK_D->query_respect(ob) + "，佛家人慈善爲本，捐一點銀兩吧。\n");
+	say( "尼姑施了一禮説道：這位" + RANK_D->query_respect(ob) + "，佛家人慈善為本，捐一點銀兩吧。\n");
 	return;
 }
 

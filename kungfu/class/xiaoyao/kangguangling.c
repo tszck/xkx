@@ -8,7 +8,7 @@ inherit F_MASTER;
 void create()
 {
 	set_name("康廣陵", ({ "kang guangling", "kang" }));
-	set("long","只見他高額凸顙，容貌奇古，笑眯眯的臉色極爲和謨，手中抱着一具瑤琴。\n");
+	set("long","只見他高額凸顙，容貌奇古，笑眯眯的臉色極為和謨，手中抱着一具瑤琴。\n");
 	set("nickname","“函谷八友”琴顛");
 	set("gender", "男性");
 	set("age", 50);
@@ -64,6 +64,6 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say 好吧，我就收下你了，以後要多爲逍遙派出力啊。");
+	command("say 好吧，我就收下你了，以後要多為逍遙派出力啊。");
 	command("recruit " + ob->query("id"));
 }

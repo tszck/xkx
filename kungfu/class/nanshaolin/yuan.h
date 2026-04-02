@@ -8,7 +8,7 @@ void attempt_apprentice(object ob)
 
 	if(!mapp(fam = ob->query("family")) || fam["family_name"]!="南少林派")
 	{
-		command("say 我只收本派弟子爲徒。\n");
+		command("say 我只收本派弟子為徒。\n");
 		return;
 	}
 	if(fam["generation"] < 21)
@@ -17,7 +17,7 @@ void attempt_apprentice(object ob)
 		return;
 	}
 	ob->set_temp("wait_nod", 1);
-	command("say 依照南少林寺歷代規矩，"+RANK_D->query_respect(ob)+"你必須接下我三招，我才能收你爲徒。你願意麼？那就點個頭吧(nod)。");
+	command("say 依照南少林寺歷代規矩，"+RANK_D->query_respect(ob)+"你必須接下我三招，我才能收你為徒。你願意麼？那就點個頭吧(nod)。");
 }
 int do_nod()
 {

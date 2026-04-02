@@ -149,9 +149,9 @@ int checking(object me, object ob)
 	if ( !present(ob, environment()) ) return 1;
 
 	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 ) {
-		command("say 果然厲害，恭喜你成爲當今武林盟主！\n");
+		command("say 果然厲害，恭喜你成為當今武林盟主！\n");
 		command("chat 哈哈哈，到底是長江後浪推前浪，一代新人換舊人！\n");
-		command("chat 恭喜" + ob->query("name") + "被推舉爲當今武林盟主！\n");
+		command("chat 恭喜" + ob->query("name") + "被推舉為當今武林盟主！\n");
 		remove_call_out("do_copy");
 		call_out("do_copy", 1, me, ob);
 		return 1;

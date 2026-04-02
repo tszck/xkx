@@ -45,9 +45,9 @@ int perform(object me,object target)
 	if( me->query_temp("wudu_suck") )
 		return notify_fail("你正在修煉中！\n"); 
 	if( my_skill > 100 && my_skill < 160 && tg_age < 999 )
-		return notify_fail(target->query("name")+"的毒力對你來說已經太輕微了！\n");
+		return notify_fail(target->query("name")+"的毒力對你來説已經太輕微了！\n");
 	if( my_skill > 159 && tg_age < 9999 )
-		return notify_fail(target->query("name")+"的毒力對你來說已經太輕微了！\n");
+		return notify_fail(target->query("name")+"的毒力對你來説已經太輕微了！\n");
 	if( (int)me->query("neili") < 200 )
 		return notify_fail("你的內力不夠，不足以對抗毒氣，別把小命送掉。\n");
 	if( (int)target->query("qi") < 50 )

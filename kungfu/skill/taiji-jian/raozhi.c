@@ -54,10 +54,10 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 180 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲火候未足，無法以內力逼彎劍刃！\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為火候未足，無法以內力逼彎劍刃！\n");
 
 	if( (int)me->query_skill(sskill, 1) < 180 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲還不夠，難以施展"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為還不夠，難以施展"+PNAME+"。\n");
 
 	if( me->query_skill_mapped("force") != fskill )
 			return notify_fail("你所用的內功與「繞指柔劍」心法相悖！\n");
@@ -193,7 +193,7 @@ int help(object me)
 		太極神功180級
 		太極劍法180級
 		激發太極神功和太極劍法
-		內力修爲1500
+		內力修為1500
 		內力500
 		氣血400
 		需機緣學得

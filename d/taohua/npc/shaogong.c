@@ -18,7 +18,7 @@ void create()
 	set("inquiry", ([
 		"name": (: ask_name :),
 		"rumors": (: ask_rumors :),
-		"here": "這裏叫做東海，傳說四海龍王裏的東海王就住在水底。",
+		"here": "這裏叫做東海，傳説四海龍王裏的東海王就住在水底。",
 		"位置": (: ask_location :),
 		"taohuadao": (: ask_thd :),
 		"桃花島": (: ask_thd :),
@@ -36,7 +36,7 @@ int ask_location()
 {
 	object ob=this_player();
 
-	say("艄公看了看海圖，說道：我們現在的位置是(" + ob->query_temp("thd_locx") + "," + ob->query_temp("thd_locy") + ")。\n");
+	say("艄公看了看海圖，説道：我們現在的位置是(" + ob->query_temp("thd_locx") + "," + ob->query_temp("thd_locy") + ")。\n");
 	return 1;
 }
 
@@ -55,9 +55,9 @@ string ask_rumors()
 	object ob=this_player();
 
 	if (ob->query_temp("thd_target") == "thd")
-		return "聽說桃花島上住着一個惡魔，唉，要不是爲了這每趟五兩銀子的辛苦費，\n老漢是說什麼也不會去的。\n";
+		return "聽説桃花島上住着一個惡魔，唉，要不是為了這每趟五兩銀子的辛苦費，\n老漢是説什麼也不會去的。\n";
 	if (ob->query_temp("thd_target") == "bay")
-		return "老漢長居桃花島，沒聽說過什麼流言。\n";
+		return "老漢長居桃花島，沒聽説過什麼流言。\n";
 }
 
 string ask_thd()
@@ -65,7 +65,7 @@ string ask_thd()
 	object ob=this_player();
 
 	if (ob->query_temp("thd_target") == "thd")
-		return "聽說桃花島上住着一個惡魔，唉，要不是爲了這每趟20兩銀子的辛苦費，\n老漢是說什麼也不會去的。\n";
+		return "聽説桃花島上住着一個惡魔，唉，要不是為了這每趟20兩銀子的辛苦費，\n老漢是説什麼也不會去的。\n";
 	if (ob->query_temp("thd_target") == "bay")
 		return "老漢長居桃花島，黃島主待我們很好。\n";
 }

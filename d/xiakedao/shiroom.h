@@ -5,7 +5,7 @@ int do_study(string arg)
 {
 	string *skill_name = ({
                "strike",          //趙客縵胡纓
-               "sword",           //吳鉤霜雪明
+               "sword",           //吳鈎霜雪明
                "dodge",           //銀鞍照白馬
                "throwing",        //颯沓如流星
                "hook",            //十步殺一人 sword
@@ -17,7 +17,7 @@ int do_study(string arg)
                "parry",           //將炙啖朱亥
                "blade",           //持觴勸侯嬴
                "axe",             //三杯吐然諾 force 暫時先axe吧
-               "cuff",            //五獄倒爲輕 cuff or strike or unarmed
+               "cuff",            //五獄倒為輕 cuff or strike or unarmed
                "staff",           //眼花耳熱後   魯達禪杖
                "claw",            //競氣素霓生 cuff or strike or unarmed
                "hammer",          //救趙揮金錘 sword
@@ -47,7 +47,7 @@ int do_study(string arg)
 	if ((int)me->query("combat_exp")<50000)
 		return notify_fail("你的經驗太低, 沒法領悟石壁內容。\n");
         if ((int)me->query("score")<1000)
-		return notify_fail("你的閱歷太低, 沒法領悟石壁內容。\n");
+		return notify_fail("你的閲歷太低, 沒法領悟石壁內容。\n");
 	if ((int)me->query_skill("literate",1)<1)
 		return notify_fail("你暈了吧! 還是先去學點文化吧。\n");
 	jing_cost = 30 + random(me->query_int());
@@ -109,12 +109,12 @@ int do_study(string arg)
 		learn_pot = (int)(me->query("combat_exp")/10000) + random(me->query("int")) - (int)(me->query_skill("literate",1)/2);
 		if (me->query_skill(skill_name[item],1)<200 && item != 23)
 		{
-			write("你望着石壁冥思苦想了一會，發覺上面的東西對你來說太深奧了。\n");
+			write("你望着石壁冥思苦想了一會，發覺上面的東西對你來説太深奧了。\n");
 			return 1;
 		}
 		if (me->query_skill(skill_name[item],1)>=300)
 		{
-			write("你望着石壁冥思苦想了一會，發覺上面的東西對你來說太淺薄了。\n");
+			write("你望着石壁冥思苦想了一會，發覺上面的東西對你來説太淺薄了。\n");
 			return 1;
 		}
 /*

@@ -15,21 +15,21 @@ int main(object me, string arg)
 	if( !obj->is_character() || obj->is_corpse())
 		return notify_fail("看清楚一點，那並不是生物。\n");
 	if(me->query("id") != obj->query_temp("bt_ownname") && me->query_temp("bt/working"))
-		return notify_fail("你身爲捕快，執行公務，可不能殺良冒功！\n");
+		return notify_fail("你身為捕快，執行公務，可不能殺良冒功！\n");
 	if( obj->is_fighting(me) )
 		return notify_fail("你已經在戰鬥中了，還想偷襲？\n");
 	if( !living(obj) || obj->query_temp("noliving") )
 		return notify_fail(obj->name() + "都已經暈菜了，你還用得着偷襲嗎？\n"); 
 
 	if((int)obj->query("age") <= 15 && userp(obj))
-		return notify_fail("爲了世界更美好，放過小孩子吧。\n");
+		return notify_fail("為了世界更美好，放過小孩子吧。\n");
 	if (userp(me) && obj->query("owner") && me->query("id") != obj->query("owner"))
 			return notify_fail("不是你要抓的人，湊什麼熱鬧！\n");
 
 	if(obj==me) return notify_fail("偷襲自己？別這麼想不開。\n");
 	if( me->is_busy() )
 		return notify_fail("你的動作還沒有完成，不能偷襲。\n");
-	notify_fail("此人來頭不小，還是少惹爲妙。\n");
+	notify_fail("此人來頭不小，還是少惹為妙。\n");
 	if (!userp(obj) && !obj->accept_touxi(me) )	return 0;
 	me->delete("env/combatd");
 	obj->delete("env/combatd");

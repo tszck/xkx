@@ -8,7 +8,7 @@ int exert(object me, object target)
 	if( (int)target->query("eff_qi")*5 > (int)target->query("max_qi")*4 )
 		return notify_fail("no need now.\n");
 	if( userp(me) ) return notify_fail("only used by lamas.\n");
-	if( !target ) return notify_fail("你要用真氣爲誰療傷？\n");
+	if( !target ) return notify_fail("你要用真氣為誰療傷？\n");
 	if( !living(target) )
 		return notify_fail("太遲了，你要治療的人已經死了！\n");
 

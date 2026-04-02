@@ -47,7 +47,7 @@ int perform(object me,object target)
 	if( (int)me->query_skill(sskill, 1) < 60 )
 		return notify_fail("你的"+to_chinese(sskill)+"等級不夠，不能使用"+PNAME+"。\n");
 	if( me->query("max_neili") < 200 )
-		return notify_fail("你的內力修爲不夠，無法使"PNAME"！\n");
+		return notify_fail("你的內力修為不夠，無法使"PNAME"！\n");
 	if( me->query("neili") < 150 )
 		return notify_fail("你的內力不夠，無法運用"PNAME"！\n");
  
@@ -97,7 +97,7 @@ int help(object me)
 	出手要求：
 		紅花神功60級
 		奔雷手60級
-		內力修爲200
+		內力修為200
 		內力150
 HELP
 	);

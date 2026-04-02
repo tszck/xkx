@@ -37,7 +37,7 @@ int help(object me)
 	write(HIC"\n華山內功："NOR"\n");
 	write(@HELP
 
-    華山內功爲華山劍宗本門內功心法。
+    華山內功為華山劍宗本門內功心法。
 
 	學習要求：
 		紫霞神功10級

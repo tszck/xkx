@@ -40,7 +40,7 @@ int valid_leave(object me, string dir)
 		return notify_fail("店小二一下擋在樓梯前，白眼一翻：怎麼着，想白住啊！\n");
 
 	if ( me->query_temp("rent_paid") && dir == "west" )
-		return notify_fail("店小二跑到門邊攔住：客官已經付了銀子，怎麼不住店就走了呢！旁人還以爲小店伺候不周呢！\n");
+		return notify_fail("店小二跑到門邊攔住：客官已經付了銀子，怎麼不住店就走了呢！旁人還以為小店伺候不周呢！\n");
 
 	return ::valid_leave(me, dir);
 }

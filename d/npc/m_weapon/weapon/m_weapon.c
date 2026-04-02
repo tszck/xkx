@@ -100,14 +100,14 @@ void copyto(object me)
 			upmsg=HIY"錘身忽的一亮，一道金光隱入$N的"+w_name+HIY"體，不見了！\n"NOR;
 			break;
 
-		case "鉤":
+		case "鈎":
 			set("unit","柄");
 			set("wield_msg", "$N「唰」的一聲抽出一把"+w_name+"握在手中。\n");
 			set("unwield_msg", "$N將手中的"+w_name+"一抖，白光一閃，轉眼間"+w_name+"已然不見蹤影。\n");
 			init_hook(damage + 2);
 			QI="兵器";
-			JI="捏鉤尖";
-			upmsg=HIY"鉤身忽的一亮，一道金光隱入$N的"+w_name+HIY"，不見了！\n"NOR;
+			JI="捏鈎尖";
+			upmsg=HIY"鈎身忽的一亮，一道金光隱入$N的"+w_name+HIY"，不見了！\n"NOR;
 			break;
 
 		case "槍":
@@ -215,7 +215,7 @@ int do_duanlian(object weapon)
 	w_level = (int)me->query("weapon/lv");
 
 	if (me->query("max_neili") < 100 )
-		return notify_fail("你內力修爲不夠，無法鍛鍊兵器。\n");
+		return notify_fail("你內力修為不夠，無法鍛鍊兵器。\n");
 	if (me->is_busy()) return notify_fail("你現在正忙着呢。\n");
 
 	if ( me->is_fighter()) return notify_fail("戰鬥中無法鍛鍊！\n");
@@ -293,7 +293,7 @@ int do_hui(string weapon)
 	if( !weapon || !id(weapon)|| query("owner")!=me->query("id"))
 		return 0;
 //		return notify_fail("你要摧毀什麼？\n");
-	message_vision(HIR"$N大喝一聲，一掌擎"+me->query("weapon/type")+"，一掌猛力擊下。結果轟隆一聲巨響"+w_name+HIR"斷爲兩截！\n"NOR,me);
+	message_vision(HIR"$N大喝一聲，一掌擎"+me->query("weapon/type")+"，一掌猛力擊下。結果轟隆一聲巨響"+w_name+HIR"斷為兩截！\n"NOR,me);
 	me->set("weapon/make",0);
 //	me->delete("weapon");
 	me->save();

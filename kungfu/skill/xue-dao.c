@@ -58,7 +58,7 @@ int practice_skill(object me)
 	object weapon;
 
 	if(!me->query_skill("longxiang",1) && !me->query_skill("xiaowuxiang",1))
-		return notify_fail("練血刀必須要有雪山派的內功作爲根基。\n");
+		return notify_fail("練血刀必須要有雪山派的內功作為根基。\n");
 	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "blade")
 		return notify_fail("你使用的武器不對。\n"); 
@@ -119,7 +119,7 @@ int help(object me)
 	write(HIR"\n血刀："NOR"\n");
 	write(@HELP
 
-    血刀是藏邊血刀門血刀老祖所傳功夫。爲雪山寺旁門功夫。
+    血刀是藏邊血刀門血刀老祖所傳功夫。為雪山寺旁門功夫。
 
 	學習要求：
 		龍象般若功或小無相功20級

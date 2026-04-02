@@ -14,7 +14,7 @@ void create()
 	set("gender", "女性");
 	set("age", 25);
 	set("long",
-		"阿慶嫂是揚州城裏有名的大美人，因爲爺兒們總喜歡往她這兒逛，\n"
+		"阿慶嫂是揚州城裏有名的大美人，因為爺兒們總喜歡往她這兒逛，\n"
 		"所以她對城裏的一舉一動都瞭如指掌。\n");
 	set("combat_exp", 500);
 	set("attitude", "friendly");
@@ -51,11 +51,11 @@ void greeting(object ob)
 		return;
 	switch(random(2)) {
 	case 0 :
-		say("阿慶嫂笑眯眯地說道：這位" + RANK_D->query_respect(ob) +
+		say("阿慶嫂笑眯眯地説道：這位" + RANK_D->query_respect(ob) +
 			"，快請進來喝杯熱茶。\n");
 		break;
 	case 1 :
-		say("阿慶嫂說道：喲！這位" + RANK_D->query_respect(ob) + 
+		say("阿慶嫂説道：喲！這位" + RANK_D->query_respect(ob) + 
 			"您來了啊！本店有剛炸好的五香花生出售。\n");
 		break;
 	}

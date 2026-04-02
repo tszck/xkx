@@ -17,8 +17,8 @@ LONG 	);
  	set("item_desc", ([ 
 		"bian" : "\n養正毓德\n\n",
 		"lian" : "
-立身以至誠爲本
-讀書以明理爲先\n\n",
+立身以至誠為本
+讀書以明理為先\n\n",
  	]));
 	set("objects", ([
 		__DIR__"npc/kangxi" : 1,

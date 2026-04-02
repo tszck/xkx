@@ -117,7 +117,7 @@ int help(object me)
 	write(HIC"\n震天拳法："NOR"\n");
 	write(@HELP
 
-    震天拳法爲崑崙派側重男弟子的武技。
+    震天拳法為崑崙派側重男弟子的武技。
 
 	學習要求：
 		玄天無極功25級

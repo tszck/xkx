@@ -6,7 +6,7 @@ void create()
 {
 	set_name("窩闊臺",({"wo kuotai","wo","kuotai"}));
 	set("gender","男性");
-	set("long","鐵木真的三兒子，他爲人寬厚，甚得人心。\n");
+	set("long","鐵木真的三兒子，他為人寬厚，甚得人心。\n");
 	set("combat_exp",150000);
 	set("age",29);
 	set("qi",1200);

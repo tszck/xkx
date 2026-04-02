@@ -25,7 +25,7 @@ int main(object me, string arg)
                 inv = all_inventory(env);
 
                 if (! inv)
-                        return notify_fail("請到bug留言室留言說明。\n");
+                        return notify_fail("請到bug留言室留言説明。\n");
 
                 msg = HIC "現在這裏的臨時小販有："
                       HIY "\n----------------------------\n" NOR;

@@ -84,7 +84,7 @@ string remote_tell(string cname, string from, string mud, string to, string msg)
 			ob->query("name")+"現在不想聽你嘰嘰歪歪。";
 		if(!living(ob) || ob->query_temp("noliving") ||
 			ob->query_temp("netdead")) 
-			return ob->query("name")+"現在聽不見你說的話。\n";
+			return ob->query("name")+"現在聽不見你説的話。\n";
 		if( cname )
 			tell_object(ob, sprintf(HIG "%s(%s@%s)告訴你：%s\n" NOR, cname, capitalize(from), mud, msg ));
 		else
@@ -100,7 +100,7 @@ int help(object me)
 	write(@HELP
 指令格式：tell <某人> <訊息>
 
-    你可以用這個指令和其他地方的使用者說話。
+    你可以用這個指令和其他地方的使用者説話。
 
 其他相關指令：reply
 HELP

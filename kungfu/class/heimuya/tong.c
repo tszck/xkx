@@ -58,7 +58,7 @@ void create()
 	set("chat_chance", 3);
 	set("chat_msg", ({
 		 "童百熊怒瞪雙眼道: “我沒錯, 我沒有叛教! 東方兄弟你不能冤枉我呀! ”\n",
-	         "童百熊嘆了一口氣說：“我和東方兄弟出生入死, 共歷患難的時候, 你們還沒生下來哪!”\n"
+	         "童百熊嘆了一口氣説：“我和東方兄弟出生入死, 共歷患難的時候, 你們還沒生下來哪!”\n"
         }) );
 	setup();
         carry_object("/d/heimuya/npc/obj/zijinchui")->wield();

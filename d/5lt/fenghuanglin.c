@@ -6,7 +6,7 @@ void create()
 {
 	set("short", "鳳凰林");
 	set("long", @LONG
-這裏就是傳說中的鳳凰林。
+這裏就是傳説中的鳳凰林。
 LONG);
 	set("exits", ([
 		"eastdown" : __DIR__"fanshudi",

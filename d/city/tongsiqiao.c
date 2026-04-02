@@ -19,7 +19,7 @@ LONG );
 		"east"  : __DIR__"shilijie4",
 	]));
 	set("item_desc", ([
-		"saoyao" : "揚州以盛產芍藥而名聞天下，其中又以「金帶圍」最爲名貴。\n",
+		"saoyao" : "揚州以盛產芍藥而名聞天下，其中又以「金帶圍」最為名貴。\n",
 	]));
 	set("objects", ([
 		__DIR__"npc/liuyan" : 1,

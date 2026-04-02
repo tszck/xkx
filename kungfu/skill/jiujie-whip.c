@@ -35,7 +35,7 @@ int valid_learn(object me)
 	object weapon;
 
 	if( (int)me->query("max_neili") < 100 )
-		return notify_fail("你的內力修爲不足，沒有辦法練九節鞭法。\n");
+		return notify_fail("你的內力修為不足，沒有辦法練九節鞭法。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 20)
 		return notify_fail("你的站樁功火候太淺。\n");
 	if ( !objectp(weapon = me->query_temp("weapon")) ||
@@ -107,7 +107,7 @@ int help(object me)
 
 	學習要求：
 		站樁功50級
-		內力修爲100
+		內力修為100
 HELP
 	);
 	return 1;

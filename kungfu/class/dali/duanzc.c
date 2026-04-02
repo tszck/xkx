@@ -114,7 +114,7 @@ void attempt_apprentice(object ob)
 	}
 	if (strsrch(ob->query("guard"), "鎮南王府") >= 0) 
 	{
-		command("say 很好，既然入我門來就得忠心爲主。");
+		command("say 很好，既然入我門來就得忠心為主。");
 		command("recruit " + ob->query("id"));
 	}
 	else

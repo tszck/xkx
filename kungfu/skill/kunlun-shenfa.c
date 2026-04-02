@@ -56,7 +56,7 @@ int help(object me)
 	write(HIC"\n崑崙身法："NOR"\n");
 	write(@HELP
 
-    崑崙身法爲崑崙高級輕功。
+    崑崙身法為崑崙高級輕功。
 
 	學習要求：
 		相當的琴棋技藝的造詣

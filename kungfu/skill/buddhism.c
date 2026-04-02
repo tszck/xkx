@@ -24,7 +24,7 @@ int valid_learn(object me)
 	if (me->query("class") != "bonze")
 		return notify_fail("你凡心重，不出家，怎麼能修煉禪宗心法。\n");
 	if (me->query_skill("buddhism", 1) >= 150)
-		return notify_fail("限於資質，你對禪宗心法的理解也就到此爲止了。\n");
+		return notify_fail("限於資質，你對禪宗心法的理解也就到此為止了。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -38,7 +38,7 @@ int help(object me)
 	write(@HELP
 
     少林弟子的必修課。少林派創派祖師達摩乃是天竺禪宗大師，
-又是東土禪宗第一祖，少林弟子自應以修習禪宗，精研佛法爲任。
+又是東土禪宗第一祖，少林弟子自應以修習禪宗，精研佛法為任。
 配合混元一氣功可以長精，精增加的程度取決於混元一氣功和禪宗
 心法等級的高低。
 

@@ -112,7 +112,7 @@ int help(object me)
 	write(HIC"\n武當劍法："NOR"\n");
 	write(@HELP
 
-    武當劍法爲武當派入門劍法。
+    武當劍法為武當派入門劍法。
 
 	學習要求：
 		太極神功10級

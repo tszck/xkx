@@ -23,8 +23,8 @@ void create()
 	set("chat_msg", ({
 		"沈萬福道：這裏就是揚州城啦，您家沒有來過麼？\n",
 		"沈萬福道：啊，這位客官，聽您的口音是……北方……南方……西邊……到底是哪兒的人啊？\n",
-		"沈萬福道：客官，咱這白衣，哎，沒的說，您找不到比這更好的啦，來一件吧，啊？\n",
-		"沈萬福道：客官，您瞧瞧，這件白衣您穿上多精神哪！人靠衣服馬靠鞍嘛，您說是不是這個理兒？\n",
+		"沈萬福道：客官，咱這白衣，哎，沒的説，您找不到比這更好的啦，來一件吧，啊？\n",
+		"沈萬福道：客官，您瞧瞧，這件白衣您穿上多精神哪！人靠衣服馬靠鞍嘛，您説是不是這個理兒？\n",
 	}));
 	set("inquiry", ([
 		"白衣" : "要買白衣，您到我這兒就找對地方了，絕對沒錯！\n",
@@ -78,7 +78,7 @@ int do_gongzuo()
 		tell_object(me,"快去把布匹熨好後交給我吧。\n");
 		return 1;
 	}
-	message_vision(CYN"沈萬福對$N說道：現在熨好的布匹不夠用了，你就到後面的庫房裏去熨些布來。\n"NOR,me); 
+	message_vision(CYN"沈萬福對$N説道：現在熨好的布匹不夠用了，你就到後面的庫房裏去熨些布來。\n"NOR,me); 
 	me->set_temp("gongzuo/yunbu", 1);
 	return 1;
 }
@@ -100,7 +100,7 @@ int accept_object(object me, object ob)
 	}
 	else
 	{
-		message_vision(CYN"沈萬福對$N說道：辛苦了，這是你的工錢。\n"NOR,me);
+		message_vision(CYN"沈萬福對$N説道：辛苦了，這是你的工錢。\n"NOR,me);
 		message_vision(CYN"沈萬福遞給$N一些銀子。\n"NOR,me);
 
 		me->delete_temp("gongzuo/yunbu");
@@ -118,7 +118,7 @@ int accept_object(object me, object ob)
 		tell_object(me,HIW"你得到了:"
 			+ chinese_number(add_exp) + "點實戰經驗，"
 			+ chinese_number(add_pot) + "點潛能，"
-			+ chinese_number(add_score) + "點江湖閱歷。\n"NOR);				
+			+ chinese_number(add_score) + "點江湖閲歷。\n"NOR);				
 		call_out("destroying", 1, this_object(), ob);
 		return 1;
 	}
@@ -147,6 +147,6 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	message_vision("沈老闆笑呵呵的說道：“客官，您瞧瞧咱家的白衣怎麼樣？”\n",ob);
+	message_vision("沈老闆笑呵呵的説道：“客官，您瞧瞧咱家的白衣怎麼樣？”\n",ob);
 	return;
 }

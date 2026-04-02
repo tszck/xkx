@@ -13,7 +13,7 @@ void create()
 	set("gender", "女性");
 	set("age", 55);
 	set("long",
-		"陳阿婆久居泉州城，據說她年輕時很有幾分風韻，福威鏢局\n"
+		"陳阿婆久居泉州城，據説她年輕時很有幾分風韻，福威鏢局\n"
 		"當時的少鏢頭林震南還追求過她。\n");
 	set("combat_exp", 800);
 	set("attitude", "friendly");
@@ -55,10 +55,10 @@ void greeting(object ob)
 	switch(random(2))
 	{
 		case 0 :
-			say("陳阿婆笑眯眯地說道：人客來坐。\n");
+			say("陳阿婆笑眯眯地説道：人客來坐。\n");
 			break;
 		case 1 :
-			say("陳阿婆說道：可嘴的，你要買什？\n");
+			say("陳阿婆説道：可嘴的，你要買什？\n");
 			break;
 	}
 }

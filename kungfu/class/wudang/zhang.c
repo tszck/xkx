@@ -103,7 +103,7 @@ void init()
 		if (ob->query("family/master_id") == "zhang sanfeng" &&
 			ob->query("shen") < -100 )
 		{
-			command("say "+RANK_D->query_rude(ob)+ "膽敢瞞着我在外胡作非爲！\n");
+			command("say "+RANK_D->query_rude(ob)+ "膽敢瞞着我在外胡作非為！\n");
 			command("expell " + ob->query("id"));
 			add_action("do_qiecuo","qiecuo");
 			return;
@@ -149,7 +149,7 @@ void attempt_apprentice(object ob)
 	}
 	if ((int)ob->query("shen") < 200000)
 	{
-		command( "say 學武之人，德義爲先，功夫的高低倒還在其次，未練武，要先學做人。");
+		command( "say 學武之人，德義為先，功夫的高低倒還在其次，未練武，要先學做人。");
 		command("say 在德行方面，" + RANK_D->query_respect(ob) + "是否還做得不夠？");
 		return;
 	}

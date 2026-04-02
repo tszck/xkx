@@ -117,18 +117,18 @@ int valid_leave(object me, string dir)
     {
         if (me->query("class") != "quanzhen")
         {
-            return notify_fail("道童說道：對不起，俗家弟子不得入宮修行。\n");
+            return notify_fail("道童説道：對不起，俗家弟子不得入宮修行。\n");
         }
-        write("道童側身讓開，說道：師兄辛苦了，請進。\n");
+        write("道童側身讓開，説道：師兄辛苦了，請進。\n");
         return 1;
     }
     else if( present("chongyang ling", me) )
     {
-        write("道童打個稽首，側身讓開，說道：原來是貴客駕到，請進請進！\n");
+        write("道童打個稽首，側身讓開，説道：原來是貴客駕到，請進請進！\n");
         return 1;
     }
     if (me->query("shen") >= 0)
-         return notify_fail("道童說道：這位施主請回罷，重陽宮不接待俗人。\n");
-    return notify_fail("道童說道：你等邪魔外道，重陽宮向不接納，請了！\n");
+         return notify_fail("道童説道：這位施主請回罷，重陽宮不接待俗人。\n");
+    return notify_fail("道童説道：你等邪魔外道，重陽宮向不接納，請了！\n");
 
 }

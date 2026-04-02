@@ -15,10 +15,10 @@ void create()
 								set("unit", "課");
                 set("value", 10000);
                 set("weight", 300);
-                //增加的技能名爲force  
-                //如果不爲force 那後面的force_point表示增加精力
+                //增加的技能名為force  
+                //如果不為force 那後面的force_point表示增加精力
                 set("pill_skill", "force");
-                // 是否爲特殊武功
+                // 是否為特殊武功
                 set("skill_mapped", 1);
 
                 //增加武功多少技能點
@@ -28,7 +28,7 @@ void create()
                 set("force_point", 1);
 								
 								//加武功成功的描述
-                set("pill_msg1", HIR "你只覺一股暖氣散佈全身，說不出的舒服受用。\n" NOR);
+                set("pill_msg1", HIR "你只覺一股暖氣散佈全身，説不出的舒服受用。\n" NOR);
                 //加武功失敗的描述  這兩項僅當pill_point定義時
                 set("pill_msg2", HIY "你只覺一股熱流湧上，內息得到了完全的補充。\n" NOR);
                 
@@ -78,7 +78,7 @@ int do_eat(string arg)
         // 如果該藥物有增加技能的功能，則加之
   if (query("pill_skill") && query("pill_point"))
     {
-       // 判斷增加的技能是否爲特殊技能
+       // 判斷增加的技能是否為特殊技能
          if (query("skill_mapped") >= 1)
             skill = me->query_skill_mapped(query("pill_skill"));
          else

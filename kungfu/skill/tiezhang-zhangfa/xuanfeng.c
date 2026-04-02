@@ -46,7 +46,7 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
 		return notify_fail("你的"+to_chinese(sskill)+"還不到家，無法使用"+PNAME+"。\n");
@@ -55,7 +55,7 @@ int perform(object me, object target)
 		return notify_fail("你的真氣不夠！\n");
 
 	if( (int)me->query("max_neili") < 300 )
-		return notify_fail("你的內力修爲不夠！\n");
+		return notify_fail("你的內力修為不夠！\n");
 
 	msg = HIY "$N"HIY"使出鐵掌的絕技「旋風快掌」，出手陡然加快！\n" NOR;
 	message_combatd(msg, me);
@@ -86,7 +86,7 @@ int help(object me)
 	出手要求：
 		歸元吐納法50級
 		鐵掌掌法100級
-		內力修爲400
+		內力修為400
 		內力300
 HELP
 	);

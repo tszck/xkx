@@ -136,13 +136,13 @@ string ask_murenxiang()
 	if (me->query("muren_winner") && !wizardp(me)) 
 		return RANK_D->query_respect(me) + "不是已經闖過木人巷了麼，可不要拿老衲開這等玩笑。";
 	if (me->query("combat_exp", 1) < 10000)
-		return RANK_D->query_respect(me) + "的功力不夠，還是不要進木人巷爲好！";
+		return RANK_D->query_respect(me) + "的功力不夠，還是不要進木人巷為好！";
 //	if (me->query("score") < 10000)
-//	        return RANK_D->query_respect(me) + "閱歷不夠，還是不要進木人巷爲好！"; 
+//	        return RANK_D->query_respect(me) + "閲歷不夠，還是不要進木人巷為好！"; 
 	command("look " + this_player()->query("id"));
 	command("nod");
 	me->set_temp("ask_muren", 1);
-	say(HIC"天鏡大師沉聲說道：木人巷乃我少林最爲兇險的去處之一，其中遍佈手持利器的木人，\n闖陣者只能向前走，並無返回之路，且在一處不要停留太長時間。\n"NOR);
+	say(HIC"天鏡大師沉聲説道：木人巷乃我少林最為兇險的去處之一，其中遍佈手持利器的木人，\n闖陣者只能向前走，並無返回之路，且在一處不要停留太長時間。\n"NOR);
 	return "你如決心已定，就告訴我(yes)！\n";
 }
 

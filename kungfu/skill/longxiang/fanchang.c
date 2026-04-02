@@ -57,7 +57,7 @@ int exert(object me, object target)
 	}
 	else
 	{	
-		message_combatd(HIY "可是$p不爲$P歌聲所動，定力果然不同凡響！\n" NOR, me, target);
+		message_combatd(HIY "可是$p不為$P歌聲所動，定力果然不同凡響！\n" NOR, me, target);
 		me->start_busy(4);
 	}
 

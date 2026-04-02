@@ -47,7 +47,7 @@ int help(object me)
 	write(HIC"\n踏雪無痕："NOR"\n");
 	write(@HELP
 
-    踏雪無痕爲崑崙派本門輕功。
+    踏雪無痕為崑崙派本門輕功。
 
 	學習要求：
 	  玄天無極功10級

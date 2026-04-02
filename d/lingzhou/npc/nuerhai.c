@@ -62,7 +62,7 @@ int do_join(string arg)
 	if( !arg || arg!="yipintang" )
 		return notify_fail("努兒海問道：“你要加入什麼組織？”\n"); 
    	if( (int)ob->query("yipin/joined") )
-		return notify_fail("努兒海奇怪地說道：“你開什麼玩笑？你已經是堂中人了。”\n"); 
+		return notify_fail("努兒海奇怪地説道：“你開什麼玩笑？你已經是堂中人了。”\n"); 
    	if( (int)ob->query("combat_exp") < 1000 )
 		return notify_fail("努兒海哈的一聲大笑起來：“我們只要江湖中的成名英雄。你算什麼材料？”\n"); 
 	command("gongxi "+ob->query("id"));

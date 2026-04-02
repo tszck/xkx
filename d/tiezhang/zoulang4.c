@@ -9,7 +9,7 @@ void create()
 	set("short", "走廊");
 	set("long", @LONG
 你走在一條走廊上。北面似乎有個黑暗的小屋，還隱隱傳來一些酣
-聲。東面是鐵掌幫衆的練功場。
+聲。東面是鐵掌幫眾的練功場。
 LONG );
 	set("exits", ([ 
 		"west" : __DIR__"zoulang1",

@@ -8,7 +8,7 @@ void create()
 	set_name("任盈盈", ({ "ren ying ying","ren","ying"}) );
 	set("gender", "女性" );
 	set("age", 20);
-	set("long", "她身材豐腴，體態優雅，雖看上去不好接近，但無論怎樣都不失爲一可人的妙人。\n");
+	set("long", "她身材豐腴，體態優雅，雖看上去不好接近，但無論怎樣都不失為一可人的妙人。\n");
 	set("shen_type", 1);
 	set("combat_exp", 500000);
 	set("str", 16);
@@ -39,11 +39,11 @@ string inquiry_linghuchong()
  message_vision("去年上華山一去就再無音信,他不會忘記我吧......\n"
 	 , me );
  if(query_temp("letter")==0)
- {  message_vision("任盈盈又說道：這位"+ RANK_D->query_respect(me)+"，我已經派
+ {  message_vision("任盈盈又説道：這位"+ RANK_D->query_respect(me)+"，我已經派
        藍鳳凰去尋找了，也不知道怎麼樣了。\n",me);
    return "";
  }
-   message_vision("任盈盈又說道：這位"+ RANK_D->query_respect(me)+"，我這裏有
+   message_vision("任盈盈又説道：這位"+ RANK_D->query_respect(me)+"，我這裏有
        信, 你要是找到『阿衝』，就把信交給她，她會明白的。\n" , me);
    obn=new("/d/heimuya/npc/obj/letter");
    obn->move(me);

@@ -57,7 +57,7 @@ int do_wancheng(string arg)
 	gfjob_times=(int)me->query("gf_job");
 	if (gfjob_times < 1) gfjob_times = 1;
 	message_vision(HIW "$N冷笑一聲，從懷中掏出文書看了看，微運內勁將文書向空中飛射出去。\n但見文書化做片片雪片，飛落在$n身上。\n"NOR, me, target);
-	write(WHT "很好！你成功地完成了任務。目前你已經爲官府做了"+chinese_number(gfjob_times)+"次貢獻。\n"NOR);
+	write(WHT "很好！你成功地完成了任務。目前你已經為官府做了"+chinese_number(gfjob_times)+"次貢獻。\n"NOR);
 	target->set("long", target->query("long")+"上面飛落着許多紙片。\n");
         target->set_temp("mark/dune1",1);
 //	if(me->query("potential") > me->query("max_pot")) 

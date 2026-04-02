@@ -44,7 +44,7 @@ void create()
 	prepare_skill("strike", "huagu-mianzhang");
 
 	set("party/party_name", HIY"神龍教"NOR);
-	set("party/rank", HIR"赤龍門"NOR"教衆");
+	set("party/rank", HIR"赤龍門"NOR"教眾");
 	set("party/level", 1);
 	create_family("神龍教", 3, "弟子");
 

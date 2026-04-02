@@ -65,7 +65,7 @@ int accept_object(object who, object ob)
 	object obj;
 	if (ob->query("id") != "da chang")
 		return notify_fail("給我這東西有什麼用？");
-	message_vision("狄雲笑着說道：“謝謝你！這位" + RANK_D->query_respect(ob) +"，辛苦你了。”\n", who);
+	message_vision("狄雲笑着説道：“謝謝你！這位" + RANK_D->query_respect(ob) +"，辛苦你了。”\n", who);
 	if (!who->query_temp("marks/wucan"))
 	{
 		return 1;
@@ -77,7 +77,7 @@ int accept_object(object who, object ob)
 		destruct( obj );
 		return 1;
 	}
-	message_vision("狄雲對$N說道：“這件烏蠶衣也不算是什麼寶貝，聊表心意吧！”狄雲從懷裏掏出一團不起眼的東西，遞到$N的手上。\n", who);
+	message_vision("狄雲對$N説道：“這件烏蠶衣也不算是什麼寶貝，聊表心意吧！”狄雲從懷裏掏出一團不起眼的東西，遞到$N的手上。\n", who);
 	obj->move(this_player());
 	return 1;
 }

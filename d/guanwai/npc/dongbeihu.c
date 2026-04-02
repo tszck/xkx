@@ -57,7 +57,7 @@ void greeting(object ob)
 		message_vision( "只見發起一陣狂風。
 只聽得亂樹背後撲地一聲響，跳出一隻吊睛白額大蟲來。
 那大蟲又餓，又渴，把兩隻爪在地上略按一按，和身望你一撲，從半空裏攛將下來。\n",ob);
-		message_vision("$N這一下沒有躲開，爲虎所傷暈了過去。\n\n",ob);
+		message_vision("$N這一下沒有躲開，為虎所傷暈了過去。\n\n",ob);
 		ob->receive_wound("qi",30);
 		ob->receive_damage("qi",30);
 		ob->start_busy(2);

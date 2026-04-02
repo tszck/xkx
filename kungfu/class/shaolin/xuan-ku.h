@@ -33,12 +33,12 @@ string ask_me()
 	if (fighter->query("score") < 10000 && mapp(fam = fighter->query("family"))
 	&& fam["family_name"] != "少林派")
 	        return RANK_D->query_respect(fighter) +
-		"閱歷不足，不夠資格闖羅漢大陣。";
+		"閲歷不足，不夠資格闖羅漢大陣。";
 
 	if (fighter->query("score") < 5000 && mapp(fam = fighter->query("family"))
 	&& fam["family_name"] == "少林派")
 	        return RANK_D->query_respect(fighter) +
-		"閱歷不足，不夠資格闖羅漢大陣。";
+		"閲歷不足，不夠資格闖羅漢大陣。";
 
 	sname  = keys(skl);
 	for(i=0; i<sizeof(skl); i++) {
@@ -66,7 +66,7 @@ string ask_me()
 
 	fighter->set_temp("xuanku-asked", 1);
 
-	say("\n玄苦說道：好吧，我來召集羅漢堂長老們於東練武場集合，我稍候在中央練武場上等你。\n");
+	say("\n玄苦説道：好吧，我來召集羅漢堂長老們於東練武場集合，我稍候在中央練武場上等你。\n");
 
 	me->set("assigned_fighter", fighter->query("id"));
 
@@ -89,7 +89,7 @@ string ask_me()
 			return "真是對不起，羅漢堂中有人不在，無法舉行羅漢大陣。\n";
 		}
 
-                message("vision", "\n玄苦大師走了過來，跟" + monk->query("name") + "俯耳輕聲說了幾句。\n", room, monk);
+                message("vision", "\n玄苦大師走了過來，跟" + monk->query("name") + "俯耳輕聲説了幾句。\n", room, monk);
 
                 monk->move("/d/shaolin/wuchang2");
                 message("vision", monk->query("name") + "羅漢點了點頭，快步走了出去。\n", room, monk);
@@ -109,7 +109,7 @@ int waiting(object me)
 
 	if( wait_time == 300 )
 	{
-		say( "玄苦說道：看來他不會來了，我們回去罷！\n\n");
+		say( "玄苦説道：看來他不會來了，我們回去罷！\n\n");
 		call_out("do_back", 0, me);
 		fighter->add("score",-2500);
 	}
@@ -122,7 +122,7 @@ int waiting(object me)
 	else if( !present("xuannan dashi", environment(me)) || !fighter->query_temp("xuannan-asked") )
 	{
 		if( random(10) == 0 )
-		say("\n玄苦說道：" + RANK_D->query_respect(fighter) + "去請了玄難大師沒有？ 照理他現在該到了罷？\n");
+		say("\n玄苦説道：" + RANK_D->query_respect(fighter) + "去請了玄難大師沒有？ 照理他現在該到了罷？\n");
 
 		wait_time++;
 		call_out("waiting", 1, me);
@@ -150,7 +150,7 @@ int preparing(object me, object fighter)
 	room = load_object("/d/shaolin/wuchang");
 
 	monk = present("daojue chanshi", room);
-	message("vision", "玄苦大師跟道覺禪師俯耳輕聲說了幾句。\n", room, monk );
+	message("vision", "玄苦大師跟道覺禪師俯耳輕聲説了幾句。\n", room, monk );
 	monk->move("/d/shaolin/houdian");
 	message("vision", monk->query("name") + "禪師點了點頭，快步往北離開。\n", room);
 
@@ -203,7 +203,7 @@ int fighting(object me, object fighter, int count)
 		}
 		monk1->move(room1);
 
-		say( "玄苦搖了搖頭，說道：想不到 ... 唉！\n\n");
+		say( "玄苦搖了搖頭，説道：想不到 ... 唉！\n\n");
 		command("sigh");
 		call_out("do_back", 5, me );
 		fighter->add("score",-2500);
@@ -240,13 +240,13 @@ int do_recruit(object me, object fighter)
 	if (!(ft_fam = fighter->query("family")) || ft_fam["family_name"] != "少林派")
 	{
 		command("bow");
-		say("玄苦說道：" + RANK_D->query_respect(fighter) + "此番過陣，當對本身修行大有助益，百尺竿頭，更進一步，老衲就此別過！\n");
+		say("玄苦説道：" + RANK_D->query_respect(fighter) + "此番過陣，當對本身修行大有助益，百尺竿頭，更進一步，老衲就此別過！\n");
 
 		call_out("do_back", 5, me );
 	}
 	else
 	{
-		say("\n玄苦說道：恭喜你闖過了十八羅漢大陣！ 本寺有此等傑出弟子，屆時必當爲武林放一異彩！\n");
+		say("\n玄苦説道：恭喜你闖過了十八羅漢大陣！ 本寺有此等傑出弟子，屆時必當為武林放一異彩！\n");
 		call_out("do_back", 30, me );
 	}
 
@@ -338,7 +338,7 @@ void attempt_apprentice(object ob)
 			new_name = "澄" + name[1..1];
 			ob->set("name", new_name);
 
-			command("say 從今以後你的法名叫做" + new_name + "，恭喜你榮升爲少林派澄字輩羅漢之一 !");
+			command("say 從今以後你的法名叫做" + new_name + "，恭喜你榮升為少林派澄字輩羅漢之一 !");
 			command("recruit " + ob->query("id"));
 		}
 		else

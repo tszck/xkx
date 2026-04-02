@@ -96,7 +96,7 @@ int accept_object(object who, object ob)
 		if(!query("qk_trigger"))
 		{
 			qkbook = new("/clone/book/qiankun_book");
-			say("謝遜說道：謝謝你終於讓我知道了陽教主的下落，我無以酬謝，這張羊皮就聊表謝意吧。\n謝遜把" + qkbook->query("name") + "交給了" + who->query("name") + "。\n");
+			say("謝遜説道：謝謝你終於讓我知道了陽教主的下落，我無以酬謝，這張羊皮就聊表謝意吧。\n謝遜把" + qkbook->query("name") + "交給了" + who->query("name") + "。\n");
 			qkbook->move(who);
 			command("rumor "+who->query("name")+"拿到乾坤大挪移心法了。\n");
 			set("qk_trigger", 1);

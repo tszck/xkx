@@ -5,7 +5,7 @@ inherit NPC;
 void create()
 {
 	set_name("楊蓮亭", ({ "yang lianting", "yang" }));
-	set("long","他身形魁梧，滿臉虯髯，形貌極爲雄健。\n");
+	set("long","他身形魁梧，滿臉虯髯，形貌極為雄健。\n");
         set("gender", "男性");
 	set("age", 40);
 	set("per", 29);

@@ -59,9 +59,9 @@ int valid_leave(object me, string dir)
 	if (me->query("gender") == "女性" && dir == "northup" )
 	{
 		if(objectp(present("fang tong", environment(me))))
-			return notify_fail("方通伸手攔住你白眼一翻說道：千年以來，少林向不許女流擅入。"+RANK_D->query_respect(me) +"\n請下山去吧，免得自討沒趣。\n");
+			return notify_fail("方通伸手攔住你白眼一翻説道：千年以來，少林向不許女流擅入。"+RANK_D->query_respect(me) +"\n請下山去吧，免得自討沒趣。\n");
 		if(objectp(present("fang kong", environment(me))))
-			return notify_fail("方空邁步擋在你身前，雙手合什說道：阿彌陀佛，這位" + RANK_D->query_respect(me) +"請留步，\n恕小寺不接待女客。女施主倘若一心向佛，何妨去峨眉山隨喜？\n");
+			return notify_fail("方空邁步擋在你身前，雙手合什説道：阿彌陀佛，這位" + RANK_D->query_respect(me) +"請留步，\n恕小寺不接待女客。女施主倘若一心向佛，何妨去峨眉山隨喜？\n");
 	}
 	if((!myfam ||
 		myfam["family_name"] != "少林派" &&
@@ -74,9 +74,9 @@ int valid_leave(object me, string dir)
 				(inv[i]->query("equipped")))
 			{
 				if(objectp(present("fang tong",environment(me))))
-					return notify_fail("方通攔住你說道：這位"+RANK_D->query_respect(me) +"請放下兵刃。少林千年的規矩，外客\n不得持兵刃上山。\n");
+					return notify_fail("方通攔住你説道：這位"+RANK_D->query_respect(me) +"請放下兵刃。少林千年的規矩，外客\n不得持兵刃上山。\n");
 				if(objectp(present("fang kong", environment(me))))
-					return notify_fail("方空邁步擋在你身前，雙手合什說道：阿彌陀佛，這位"+RANK_D->query_respect(me) +"請收起\n兵刃。佛門清靜之地，不便隨意舞刀弄劍。還請施主鑑諒。\n");
+					return notify_fail("方空邁步擋在你身前，雙手合什説道：阿彌陀佛，這位"+RANK_D->query_respect(me) +"請收起\n兵刃。佛門清靜之地，不便隨意舞刀弄劍。還請施主鑑諒。\n");
 			}
 	}
 	if (!me->query("muren_winner") && mapp(myfam) &&
@@ -84,9 +84,9 @@ int valid_leave(object me, string dir)
 		dir == "east" ) 
 	{
 		if(objectp(present("fang tong", environment(me))))
-			return notify_fail("方通伸手攔住你躬身說道：這位師兄武功還未練好，不能下山，免得折了咱們南少林的名聲！\n");
+			return notify_fail("方通伸手攔住你躬身説道：這位師兄武功還未練好，不能下山，免得折了咱們南少林的名聲！\n");
 		if(objectp(present("fang kong", environment(me))))
-			return notify_fail("方空伸手攔住你躬身說道：這位師兄武功還未練好，不能下山，免得折了咱們少林的名聲！\n");
+			return notify_fail("方空伸手攔住你躬身説道：這位師兄武功還未練好，不能下山，免得折了咱們少林的名聲！\n");
 	}
 
 	if (me->query_condition("sl_lunzhi")>0)

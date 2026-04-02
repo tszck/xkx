@@ -16,7 +16,7 @@ void create()
                 set("unit", "件");
 		set("long", 
 			"這是件白布長袍，雖不奢華，卻洗得一塵不染，在袍襟上繡了一團血紅的火焰，\n"
-			"頗爲鮮豔。\n");
+			"頗為鮮豔。\n");
                 set("material", "cloth");
                 set("armor_prop/armor", 1);
         }

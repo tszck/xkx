@@ -52,7 +52,7 @@ int perform(object me, object target)
 		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query("max_neili") < 800 )
-		return notify_fail("你的內力修爲不夠，不能使用絕招。\n");
+		return notify_fail("你的內力修為不夠，不能使用絕招。\n");
 
 	if( (int)me->query("neili") < 500 )
 		return notify_fail("你的內力不夠，不能使用絕招。\n");
@@ -130,13 +130,13 @@ int help(object me)
 	出手要求：
 		紅花神功100級
 		秋歌七刀100級
-		內力修爲800
+		內力修為800
 		內力500
 		必須有夥伴組隊配合
 	夥伴要求：
 		紅花神功100級
 		落花十三劍100級
-		內力修爲800
+		內力修為800
 		內力500
 HELP
 	);

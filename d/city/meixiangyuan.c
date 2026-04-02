@@ -40,12 +40,12 @@ int valid_leave(object me, string dir)
 		{
 			if( (strsrch(time, "巳時") >= 0) || (strsrch(time, "午時") >= 0) || (strsrch(time, "醜時") >= 0) || (strsrch(time, "申時") >= 0)) 
 			{
-				message_vision("常翔欄住了$N說道：“現在小姐在休息呢，請以後再來吧吧。”\n", me);
+				message_vision("常翔欄住了$N説道：“現在小姐在休息呢，請以後再來吧吧。”\n", me);
 				return notify_fail( "你被常翔攔住了去路。\n" );
 			}
 			if ( random(2) || me->query_temp( "chang_block" ) )
 			{
-				message_vision("常翔攔住了$N說道：“現在小姐不見客，請回吧。”\n", me);
+				message_vision("常翔攔住了$N説道：“現在小姐不見客，請回吧。”\n", me);
 				me->set_temp("chang_block", 1);
 				remove_call_out("chang_dest");
 				call_out("chang_dest", 1, me);

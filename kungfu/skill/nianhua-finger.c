@@ -7,7 +7,7 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N側身抬臂，右指鉤了個半圈，一式"HIB"「優婆離式」"NOR"輕輕一彈，擊向$n的$l",
+([	"action" : "$N側身抬臂，右指鈎了個半圈，一式"HIB"「優婆離式」"NOR"輕輕一彈，擊向$n的$l",
 	"lvl"    : 0,
 	"skill_name" : "優婆離式"
 ]),
@@ -130,7 +130,7 @@ int help(object me)
 		站樁功60級
 		大金剛神掌50級
 		多羅葉指50級
-		內力修爲600
+		內力修為600
 HELP
 	);
 	return 1;

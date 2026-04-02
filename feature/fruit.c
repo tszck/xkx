@@ -76,7 +76,7 @@ int do_eat(string arg)
 //原來的獎勵可以喫到30 30 35 35 的天賦 進行了限制
 //-- qingyun 2004.10.13
 //這個東西是別的mud的吧
-//原本是建立在不能迅速降食物基礎上，因爲俠客行有沙漠
+//原本是建立在不能迅速降食物基礎上，因為俠客行有沙漠
 //這個東西等同於送天賦給知道的人 
 					if (me->query(list[i])>=30 )
 						sign = 0;
@@ -101,7 +101,7 @@ int do_eat(string arg)
 	{
 //喫到最後一口就變成個水果核
 		if ( msg = query ("end_msg" ) ) message_vision( msg , me, ob );
-		else message_vision(RED"$N喫完最後一口$n，心滿意足的說：真不錯。\n", me,ob);
+		else message_vision(RED"$N喫完最後一口$n，心滿意足的説：真不錯。\n", me,ob);
 		if ( query("core") )
 		{
 			core = new( "/clone/misc/core.c" );

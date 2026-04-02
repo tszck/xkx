@@ -32,7 +32,7 @@ int accept_object(object who, object ob)
 
 	if (ob->query("money_id") && ob->value() >= 1000) 
 	{
-		tell_object(who, "獄卒說道：下水道里老鼠真多，替我去打幾隻，可別乘機溜了呵！\n\n");
+		tell_object(who, "獄卒説道：下水道里老鼠真多，替我去打幾隻，可別乘機溜了呵！\n\n");
 		message_vision("獄卒左右張望了一下，偷偷替$N打開通往南邊的小門。\n", who);
 
 		if(!( room = find_object("d/shaolin/jianyu1")) )

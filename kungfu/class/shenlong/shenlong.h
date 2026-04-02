@@ -24,12 +24,12 @@ int do_join(string arg)
 
 	if(ob->query("party") && ob->query("party/party_name")!=HIY"神龍教"NOR)
 	{
-		message_vision("$N搖搖頭，對$n說道：你已經加入其他幫會了，不能再入我神龍教。\n",me,ob);
+		message_vision("$N搖搖頭，對$n説道：你已經加入其他幫會了，不能再入我神龍教。\n",me,ob);
 		return 1;
 	}
 	if( ob->query("party/party_name") == HIY "神龍教" NOR )
 	{
-		message_vision("$N搖搖頭，對$n說道：你已經是我神龍教的人了。\n",me,ob);
+		message_vision("$N搖搖頭，對$n説道：你已經是我神龍教的人了。\n",me,ob);
 		return 1;
 	}
 	if ( (string)ob->query("gender") == "女性" ) men=HIR"赤";
@@ -45,13 +45,13 @@ int do_join(string arg)
 	}
 	party = allocate_mapping(5);
 	party["party_name"] = HIY "神龍教" NOR;
-	party["rank"] = men+"龍門"NOR"教衆";
+	party["rank"] = men+"龍門"NOR"教眾";
 	party["level"] = 1;
 	party["tasks"] = 0;
 	party["enter_time"] = time();
 	ob->set("party", party);
 
 	command("smile");
-	message_vision("$N對$n說道：那你就暫時在本教"+men+"龍使" NOR+"座下效力吧！\n", me, ob);
+	message_vision("$N對$n説道：那你就暫時在本教"+men+"龍使" NOR+"座下效力吧！\n", me, ob);
 	return 1;
 }

@@ -64,7 +64,7 @@ int do_jiao(string arg)
 		present("caiyuan guanshi", environment(me)))
 	{
 		me->set_temp("mark/澆完了",1);
-		message_vision(RED"菜園管事對$N說：乾的不錯，好了，你可以回去覆命(job ok)了。"NOR, me);
+		message_vision(RED"菜園管事對$N説：乾的不錯，好了，你可以回去覆命(job ok)了。"NOR, me);
 		return 1;
 	}
 	message_vision("$N用瓢從缸裏舀起水，在菜地裏澆起水來。 \n", me);

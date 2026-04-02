@@ -20,7 +20,7 @@ mapping *action = ({
 	"lvl" : 20
 ]),
 ([	"skill_name" : "織女穿梭",
-	"action":  "$N一聲嬌喝，祭出"HIW"「織女穿梭」"NOR"，手中$w化爲一道弧光，射向$n的$l",
+	"action":  "$N一聲嬌喝，祭出"HIW"「織女穿梭」"NOR"，手中$w化為一道弧光，射向$n的$l",
 	"lvl" : 30
 ]),
 ([	"skill_name" :  "小鳥依人",

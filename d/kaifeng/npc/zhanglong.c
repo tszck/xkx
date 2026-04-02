@@ -134,7 +134,7 @@ void catch_ob(object ob)
 
         message_vision(HIW "$N拖着$n" HIW "走了過來，幾個獄卒迎了上"
                        "來，把$n" HIW "押進大牢去了。\n" NOR, this_object(), ob);
-        CHANNEL_D->do_channel(this_object(), "rumor", "聽說" +
+        CHANNEL_D->do_channel(this_object(), "rumor", "聽説" +
                             ob->name(1) + HIM "被開封府總捕頭" + name() +
                             "緝拿歸案，押入大牢。");
         ob->get_into_prison(0, "/d/changan/prison", 30);

@@ -16,7 +16,7 @@ void create()
 	set("age", 35);
 	set("str", 100);
 	set("no_get_from", 1);
-//以下爲防止玩家運用特殊方法將當鋪老闆搬走。
+//以下為防止玩家運用特殊方法將當鋪老闆搬走。
 	set("no_get", "1");
 
 	set_skill("unarmed", 60);

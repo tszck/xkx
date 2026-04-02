@@ -31,6 +31,6 @@ int valid_leave(object me, string dir)
 	  if (!me->query("jqg_pass")&&
 	  present("pu ren", environment(me)) &&
 	  (dir=="north"))
-	  return notify_fail("僕人攔住你說道，丹房沒經谷主同意，不能隨便進入。\n");
+	  return notify_fail("僕人攔住你説道，丹房沒經谷主同意，不能隨便進入。\n");
 	  return ::valid_leave(me, dir);
 }

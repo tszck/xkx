@@ -43,14 +43,14 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 70 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠高，無法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠高，無法使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 70 )
 		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 	if( (int)me->query("neili") < 300 )
 		return notify_fail("你現在內力太弱，不能使用"PNAME"。\n");
 			
 	if( (int)me->query("max_neili") < 300 )
-		return notify_fail("你內力修爲太弱，不能使用"PNAME"。\n");
+		return notify_fail("你內力修為太弱，不能使用"PNAME"。\n");
 			
 	msg = CYN "$N"CYN"一躍而起，手腕一抖，挽出一個美麗的劍花，飛向$n"CYN"。\n"NOR;
 

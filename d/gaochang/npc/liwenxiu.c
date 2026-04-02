@@ -49,7 +49,7 @@ void create()
 
 int ask_supu()
 {
-	say("李文秀黯然的說：他是我兒時的夥伴，他現在和阿曼在一起了，\n");
+	say("李文秀黯然的説：他是我兒時的夥伴，他現在和阿曼在一起了，\n");
 	this_player()->set_temp("marks/李1", 1);
 	return 1;
 }
@@ -60,13 +60,13 @@ int ask_parent()
 	object me = this_player(); 
 	if ((int)this_player()->query_temp("marks/李1"))
 	{
-		say("李文秀哽咽的說道：我的父母是被奸人害死的，奸人覬覦我們家的高昌地圖。\n我一定要手刃仇人，爲我父母報仇。\n");
+		say("李文秀哽咽的説道：我的父母是被奸人害死的，奸人覬覦我們家的高昌地圖。\n我一定要手刃仇人，為我父母報仇。\n");
 		me->set_temp("marks/李2", 1);
 		return 1;
 	}
 	else
 	{
-		say("李文秀說道：父母之仇，不共戴天。\n");
+		say("李文秀説道：父母之仇，不共戴天。\n");
 		return 1;
 	}
 }
@@ -77,16 +77,16 @@ int ask_gaochang()
  
 	if (query("map_count") < 1)
 	{
-		say("李文秀一愣，忙道：地圖？我沒說過什麼地圖啊。\n");	
+		say("李文秀一愣，忙道：地圖？我沒説過什麼地圖啊。\n");	
 		return 1;
 	}
 	if ((int)me->query_temp("marks/李2"))
 	{
-//		say( "李文秀一驚，說道：你怎麼知道的？噢，我剛纔說露嘴了。\n那我就把地圖送給你吧。你看看高昌迷宮到底有什麼？\n");
+//		say( "李文秀一驚，説道：你怎麼知道的？噢，我剛才説露嘴了。\n那我就把地圖送給你吧。你看看高昌迷宮到底有什麼？\n");
 //  	map=new("/d/gaochang/obj/map");
 //		map->move(me);
 //		add("map_count", -1);
-		say( "李文秀一驚，說道：你怎麼知道的？噢，我剛纔說露嘴了。\n我把高昌地圖給蘇普了，你去找他吧。\n");
+		say( "李文秀一驚，説道：你怎麼知道的？噢，我剛才説露嘴了。\n我把高昌地圖給蘇普了，你去找他吧。\n");
     me->set_temp("marks/李3",1);
 	}
 	else
@@ -106,7 +106,7 @@ int accept_object(object me,object ob)
 	if (!me->query_temp("marks/李3"))
 	{
 		command("shake");
-		command("say 計爺爺說不能別人的貪圖財物。");
+		command("say 計爺爺説不能別人的貪圖財物。");
     return 0;
 	}
   if (ob->query("id")=="shou juan"&& ob->query("blood_soaked")>=2)
@@ -137,7 +137,7 @@ int accept_object(object me,object ob)
      	tell_object(me,HIC"你成功得到了高昌地圖！\n在這次歷練中你獲得了"+
      	         chinese_number(exp)+"點經驗、"+
                chinese_number(pot)+"點潛能以及"+
-               chinese_number(score)+"點江湖閱歷。\n\n"NOR);
+               chinese_number(score)+"點江湖閲歷。\n\n"NOR);
   	}	
   	return 1;
   }

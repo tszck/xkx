@@ -11,7 +11,7 @@ void create()
 {
         set("short",HIC"武場"NOR);
 	set("long", @LONG
-這是一片平地，樹着些練功器具。鐵掌幫衆正在熱火朝天地練功。
+這是一片平地，樹着些練功器具。鐵掌幫眾正在熱火朝天地練功。
 LONG
 	);
         set("exits", ([ 
@@ -48,7 +48,7 @@ int do_chazhi(string arg)
 		return notify_fail("你非本幫弟子，不能在此練功！\n");
 
 	if ( (int)me->query_skill("strike", 1) > 100)
-		return notify_fail("你將雙手插入鑊中，發現鐵沙的溫度對你來說太低，已毫無意義了。\n");
+		return notify_fail("你將雙手插入鑊中，發現鐵沙的溫度對你來説太低，已毫無意義了。\n");
  
 	if((int)me->query("qi")<30)
 	{

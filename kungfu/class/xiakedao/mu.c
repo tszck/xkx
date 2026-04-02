@@ -47,8 +47,8 @@ void create()
 
         set("chat_chance", 3);
         set("chat_msg", ({
-            "木島主忽然一怕腦袋，說：臘八粥可是好東西哇！\n",
-            "木島主說道：怎麼這麼多的英雄也不能領悟太玄經呢。\n",
+            "木島主忽然一怕腦袋，説：臘八粥可是好東西哇！\n",
+            "木島主説道：怎麼這麼多的英雄也不能領悟太玄經呢。\n",
         }) );
         set("inquiry", ([
             "臘八粥" : (: ask_zhou :),
@@ -77,15 +77,15 @@ void init()
 void greeting(object ob)
 {
         if(ob->query_skill("literate",1)>50)
-              say ("木島主看着你搖了搖頭，說道：讀書太多。\n");
+              say ("木島主看着你搖了搖頭，説道：讀書太多。\n");
         return;
 }
 
 int ask_zhou()
 {
         say(
-"\n木島主對你說：這是本島特有的東西，它主要由一味'斷腸蝕骨腐心草'構成，\n"
-"要開花後效力方著，但這種草每十年纔開一次花，所以臘八粥很名貴，\n"
+"\n木島主對你説：這是本島特有的東西，它主要由一味'斷腸蝕骨腐心草'構成，\n"
+"要開花後效力方著，但這種草每十年才開一次花，所以臘八粥很名貴，\n"
 "一般人很難得到的，小兄弟想要就要看你的緣分了！\n");
         return 1;
 }
@@ -204,7 +204,7 @@ int accept_fight(object ob)
            }
         if( ob->query_temp("pending/fight") ) {
         ob->delete_temp("pending/fight");
-        message_vision(CYN"$n對$N說：好吧，讓我看看你是否有資格學太玄神功。\n"NOR, ob, me);
+        message_vision(CYN"$n對$N説：好吧，讓我看看你是否有資格學太玄神功。\n"NOR, ob, me);
         remove_call_out("checking");
         call_out("checking", 1, me, ob);
         if (!ob->is_busy())

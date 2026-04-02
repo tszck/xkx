@@ -153,7 +153,7 @@ int do_visit(string arg)
 	}
 
 	if( !living(ob) ) {
-		write("你還是等此人醒來再說吧。\n");
+		write("你還是等此人醒來再説吧。\n");
 		return 1;
 	}
 
@@ -162,13 +162,13 @@ int do_visit(string arg)
 		return 1;
 	}
 
-	message_vision("$N向$n躬身作了個揖，郎聲說道：弊幫幫主差" + RANK_D->query_self_rude(me) + "送一份大禮給" + RANK_D->query_respect(ob) + "。\n", me, ob);
+	message_vision("$N向$n躬身作了個揖，郎聲説道：弊幫幫主差" + RANK_D->query_self_rude(me) + "送一份大禮給" + RANK_D->query_respect(ob) + "。\n", me, ob);
 	message_vision("$N將" + name() + "雙手奉給$n。\n", me, ob);
 	move(ob);
 	remove_call_out("do_destroy");
 	call_out("do_destroy", 1, this_object());
 
-	message_vision("$N還了一個禮，說道：" + RANK_D->query_respect(me) + "辛苦了。回去後代我向你幫主問個安。\n", ob);
+	message_vision("$N還了一個禮，説道：" + RANK_D->query_respect(me) + "辛苦了。回去後代我向你幫主問個安。\n", ob);
 
 	bonus = (int)job["bonus"] * 400000 / (200000 + me->query("combat_exp"));
 	record = bonus + random(bonus);
@@ -198,10 +198,10 @@ int do_giveup()
 
 	if( ob = present("bang zhong", environment(this_player())) ) {
 		if( base_name(ob) == BANGZHONG2 && living(ob) ) {
-		message_vision("$N滿含失望地長嘆一聲，說道：既然如此，也就罷了！\n", this_player());
+		message_vision("$N滿含失望地長嘆一聲，説道：既然如此，也就罷了！\n", this_player());
 		message_vision("$N將彩禮送給$n。\n", this_player(), ob);
 		message("vision",
-		ob->name() + "說道：算你識時務，我就饒你一命。說完便揚長而去。\n",
+		ob->name() + "説道：算你識時務，我就饒你一命。説完便揚長而去。\n",
 		environment(ob), ({ob}));
 		destruct(ob);
 		destruct(this_object());

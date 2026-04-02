@@ -32,16 +32,16 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "天龍寺弟子說道：這位" + RANK_D->query_respect(ob)
+			say( "天龍寺弟子説道：這位" + RANK_D->query_respect(ob)
           + "加入大理天龍寺的話，可以看"BRED"(help dali)"NOR"。\n");
 			break;
 		case 1:
-			say( "天龍寺弟子說道：一陽指，枯榮禪功可是佛門絕學，你要是再能學到六脈神劍的話，
+			say( "天龍寺弟子説道：一陽指，枯榮禪功可是佛門絕學，你要是再能學到六脈神劍的話，
   必能傲視羣雄。\n");
 			break;
 		case 2:
-			say( "天龍寺弟子說道：大理茶花天下聞名，練功之餘去茶花園賞賞花、品品茶，倒也不失
-爲一件樂事。\n");
+			say( "天龍寺弟子説道：大理茶花天下聞名，練功之餘去茶花園賞賞花、品品茶，倒也不失
+為一件樂事。\n");
 			break;	
 	}
 }

@@ -19,7 +19,7 @@ mapping *action = ({
 	"lvl"    : 60,
 	"skill_name" : "舍利佛刺",
 ]),
-([	"action" : "$N勁走螺旋，一式"BLU"「富樓那刺」"NOR"，$w在$n眼前上圈下鉤，左旋右轉，連變了數種招式，忽然從$n$l處倒捲上來",
+([	"action" : "$N勁走螺旋，一式"BLU"「富樓那刺」"NOR"，$w在$n眼前上圈下鈎，左旋右轉，連變了數種招式，忽然從$n$l處倒捲上來",
 	"lvl"    : 90,
 	"skill_name" : "富樓那刺",
 ]),
@@ -38,9 +38,9 @@ int valid_learn(object me)
 {
 	if ((int)me->query_skill("ranmu-blade",1) > 1 ||
 		(int)me->query_skill("weituo-chu",1)>1)
-		return notify_fail("你如果有達摩老祖的修爲，方可同時學習南少林三絕技。\n");
+		return notify_fail("你如果有達摩老祖的修為，方可同時學習南少林三絕技。\n");
 	if ((int)me->query("max_neili") < 1500)
-		return notify_fail("你的內力修爲不足，沒有辦法練日月鞭法。\n");
+		return notify_fail("你的內力修為不足，沒有辦法練日月鞭法。\n");
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 150)
 		return notify_fail("你的站樁功火候太淺。\n");
 	if ((int)me->query_skill("yijinjing", 1) < 150)
@@ -116,14 +116,14 @@ int help(object me)
         write(@HELP
 
     日月鞭法是南少林頂級鞭法。
-    韋陀杵、日月鞭法和燃木刀法並列爲南少林三絕技。
+    韋陀杵、日月鞭法和燃木刀法並列為南少林三絕技。
     三絕技不能同時修習。
 
         學習要求：
                 易筋經150級
                 站樁功150級
                 降魔鞭150級
-                內力修爲1500
+                內力修為1500
 HELP
         );
         return 1;

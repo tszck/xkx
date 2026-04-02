@@ -14,7 +14,7 @@ void create()
 一面在罡風中招展的大旗，上面寫着三個大字："HIW"
 		      凌霄城"NOR"
     城門前有一張厚厚的吊橋（bridge），正緊緊關閉着。如果想要進
-入的話，必須要請人開（open）纔行。\n"
+入的話，必須要請人開（open）才行。\n"
 );
 	set("outdoors", "lingxiao");
 	set("exits",([ /* sizeof() == 1 */
@@ -44,7 +44,7 @@ int do_open(string arg)
 		return notify_fail("你亂叫什麼？\n");
 	}
 	message_vision("$N運足力氣，大叫一聲：“開門呀！”，\n",this_player());
-	message_vision("只聽得城上有人說道：“有人來了，放吊橋吧。”\n只聽得軋軋聲響，吊橋緩緩放下，露出一個方方正正的城門來。\n", this_player());
+	message_vision("只聽得城上有人説道：“有人來了，放吊橋吧。”\n只聽得軋軋聲響，吊橋緩緩放下，露出一個方方正正的城門來。\n", this_player());
 	set("exits/north", __DIR__"gate");
 	remove_call_out("close");
 	call_out("close", 10, this_object());

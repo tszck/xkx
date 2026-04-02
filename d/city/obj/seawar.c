@@ -457,7 +457,7 @@ int do_view(string arg)
 	{
 		if(!arg) return notify_fail("你都不玩啊！\n");
 		if(!is_visitor(this_player(),arg))
-			return notify_fail("你不能夠看"+arg+"的棋，可以使用[visit "+arg+"]命令成爲"+arg+"的觀衆。\n");
+			return notify_fail("你不能夠看"+arg+"的棋，可以使用[visit "+arg+"]命令成為"+arg+"的觀眾。\n");
 	}
 	if(!arg) arg = this_player()->query("id");
 	if(!view_board(this_player(),arg)) return notify_fail("？？？\n");
@@ -911,7 +911,7 @@ int do_visitor(string arg)
 		ob = get_player(key);
 		if(!ob)
 			return notify_fail("沒有這個玩家在玩啊？\n");
-		msg(me,ob,"$N希望成爲$n的觀戰者。\n");
+		msg(me,ob,"$N希望成為$n的觀戰者。\n");
 		tell_object(ob,"接受使用[visit "+me->query("id")+"]。\n");
 	}
 	return 1;
@@ -981,7 +981,7 @@ int do_help(string arg)
 
 ——[遊戲規則]———————————————
 該遊戲是兩人遊戲。
-分爲準備和戰鬥階段兩個階段。
+分為準備和戰鬥階段兩個階段。
 
 在準備階段，各人把自己的船放置於自己的
 棋盤上。當各人都準備好以後，進入戰鬥階
@@ -997,7 +997,7 @@ int do_help(string arg)
 如此循環，直到一方的船全部被擊毀。
 
 遊戲開始時候，每人有10艘船。
-最後誰的船最先被全部消滅掉，誰爲輸者。
+最後誰的船最先被全部消滅掉，誰為輸者。
 
 ——————————————————————
 HELP

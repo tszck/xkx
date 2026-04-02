@@ -153,8 +153,8 @@ void do_join()
 
 			qi = me->query("title")[11..30];
 
-	        	command("say 恭喜你榮升爲明教"+qi+"教衆！");
-			new_rank = qi + "教衆";
+	        	command("say 恭喜你榮升為明教"+qi+"教眾！");
+			new_rank = qi + "教眾";
                         ob->set(ob_party["rank"],new_rank);
 		}
 		else

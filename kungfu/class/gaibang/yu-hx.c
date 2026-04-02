@@ -66,8 +66,8 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if( ob->query("int") < 25 ) return;
-	command("say 唉，本幫誠信爲本，只有七公他老人家和我才特別收些聰明徒兒，");
-	command("say 大家都要爲長遠着想啊！");
+	command("say 唉，本幫誠信為本，只有七公他老人家和我才特別收些聰明徒兒，");
+	command("say 大家都要為長遠着想啊！");
 	command("recruit " + ob->query("id"));
 }
 #include "/kungfu/class/gaibang/gaibang.h"

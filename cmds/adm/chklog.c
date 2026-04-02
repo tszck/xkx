@@ -67,7 +67,7 @@ int main(object me, string arg)
                 }
                 wf_line = explode(wfile, "\n"); //wrong file lines
 
-            } //否則接着修改剛纔的文件，以免重複打開修改存盤同一文件
+            } //否則接着修改剛才的文件，以免重複打開修改存盤同一文件
             unusedvar += "┏" + filename + " @line=" + line_n + ", Unused variable=" + argv_name + "\n";
 
             while (line_n > 0)
@@ -104,7 +104,7 @@ int main(object me, string arg)
                 }
                 wf_line = explode(wfile, "\n"); //wrong file lines
 
-            } //否則接着修改剛纔的文件，以免重複打開修改存盤同一文件
+            } //否則接着修改剛才的文件，以免重複打開修改存盤同一文件
             unusedvar += "┏" + filename + " @line=" + line_n + ", Cannot #include=" + argv_name + "\n";
 
             while (line_n > 0)
@@ -180,7 +180,7 @@ int check(int s) //對這一行詳細分析, 是否有未使用變量並修改
             {                                            //write("right argv_name is "+argv_name +" c2 is "+c2+"\n");
                 if (c2 == ";" || c2 == "/" || c2 == ",") //一定要結束
                 {
-                    if (strsrch(argv_name, ",") == -1) //變量左邊沒有逗號，說明是第一個變量，需要消除後面的，
+                    if (strsrch(argv_name, ",") == -1) //變量左邊沒有逗號，説明是第一個變量，需要消除後面的，
                         if (c2 == ",")
                             argv_name = argv_name + c2;
                     break;
@@ -214,7 +214,7 @@ int check1() //檢查同目錄下、include/net/下是否有這個include文件
     else //當前目錄下有這個文件
     {
         unusedvar += "┣the wrong is " + "@line" + (line_n + 1) + "【" + wf_line[line_n] + "】\n";
-        wf_line[line_n] = replace_string(wf_line[line_n], "<" + argv_name + ">", "\"" + argv_name + "\"", 1); //改爲include 本目錄下文件
+        wf_line[line_n] = replace_string(wf_line[line_n], "<" + argv_name + ">", "\"" + argv_name + "\"", 1); //改為include 本目錄下文件
         unusedvar += "┗the corrected line" + (line_n + 1) + "〖" + wf_line[line_n] + "〗\n";
         return 1;
     }
@@ -224,7 +224,7 @@ int check1() //檢查同目錄下、include/net/下是否有這個include文件
     else //include/net目錄下有這個文件
     {
         unusedvar += "┣the wrong is " + "@line" + (line_n + 1) + "【" + wf_line[line_n] + "】\n";
-        wf_line[line_n] = replace_string(wf_line[line_n], argv_name, "net/" + argv_name, 1); //改爲include/net 目錄下文件
+        wf_line[line_n] = replace_string(wf_line[line_n], argv_name, "net/" + argv_name, 1); //改為include/net 目錄下文件
         unusedvar += "┗the corrected line" + (line_n + 1) + "〖" + wf_line[line_n] + "〗\n";
     }
     return 1;
@@ -307,17 +307,17 @@ int help(object me)
 {
     write(@HELP
     自動註釋掉源文件中所有mudos或fluffos發現的未使用的變量，
-修改 #include <本目錄下文件>  爲  #include "本目錄下文件";
+修改 #include <本目錄下文件>  為  #include "本目錄下文件";
 以節約內存，註釋後的文件記錄會從log文件中刪除，以減小log文
 件，其它不認識的錯誤會寫回原log文件.以方便巫師查錯。
-    已經註釋的文件另給一個記錄，默認文件名爲/log/log.var
+    已經註釋的文件另給一個記錄，默認文件名為/log/log.var
 前面是log文件本身，後面是修改情況正常情況開始會形成三行封閉
 的製表符，以方便判斷是否註釋正確。
     若代碼不能正確處理，請在各個wiz羣聯繫胖得爬不上樹的精靈
 雖然我可能也忘了代碼。
 
 指令格式：chklog [logfile]
-沒有 logfile，則logfile默認爲 log/log
+沒有 logfile，則logfile默認為 log/log
 HELP
     );
     return 1;

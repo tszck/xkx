@@ -16,7 +16,7 @@ varargs int receive_damage(string type, int damage, mixed reason)
 	int val;
   	int imp;
 
-	if( damage < 0 ) error("F_DAMAGE: 傷害值爲負值。\n");
+	if( damage < 0 ) error("F_DAMAGE: 傷害值為負值。\n");
 	if( type!="jing" && type!="qi" )
 		error("F_DAMAGE: 傷害種類錯誤( 只能是 jing, qi 其中之一 )。\n");
 
@@ -44,7 +44,7 @@ varargs int receive_wound(string type, int damage, mixed reason)
 	int val;
 	int imp;
 
-	if( damage < 0 ) error("F_DAMAGE: 傷害值爲負值。\n");
+	if( damage < 0 ) error("F_DAMAGE: 傷害值為負值。\n");
 	if( type!="jing" && type!="qi" )
 		error("F_DAMAGE: 傷害種類錯誤( 只能是 jing, qi 其中之一 )。\n");
 
@@ -76,7 +76,7 @@ int receive_heal(string type, int heal)
 {
 	int val;
 
-	if( heal < 0 ) error("F_DAMAGE: 恢復值爲負值。\n");
+	if( heal < 0 ) error("F_DAMAGE: 恢復值為負值。\n");
 	if( type!="jing" && type!="qi" )
 		error("F_DAMAGE: 恢復種類錯誤( 只能是 jing, qi 其中之一 )。\n");
 
@@ -92,7 +92,7 @@ int receive_curing(string type, int heal)
 {
 	int max, val;
 
-	if( heal < 0 ) error("F_DAMAGE: 恢復值爲負值。\n");
+	if( heal < 0 ) error("F_DAMAGE: 恢復值為負值。\n");
 	if( type!="jing" && type!="qi" )
 		error("F_DAMAGE: 恢復種類錯誤( 只能是 jing, qi 其中之一 )。\n");
 
@@ -275,7 +275,7 @@ message("channel:chat", HIC"【華山論劍】公平子："+this_object()->query
 			    this_object()->set("last_die_msg",reason);
 			else if (stringp(reason=this_object()->query_temp("last_damage_from")))
 			    this_object()->set("last_die_msg",reason+"死了");
-			message("channel:rumor", HIM"【謠言】"+"聽說"+this_object()->name()+ HIM"死了，而且死得很離奇。\n"NOR, users());
+			message("channel:rumor", HIM"【謠言】"+"聽説"+this_object()->name()+ HIM"死了，而且死得很離奇。\n"NOR, users());
 
 			this_object()->delete("last_die_by_name");
 			this_object()->delete("last_die_by_id");

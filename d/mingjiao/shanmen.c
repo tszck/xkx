@@ -40,7 +40,7 @@ int valid_leave(object me, string dir)
 		for(i=sizeof(inv)-1; i>=0; i--)
 			if(inv[i]->query("weapon_prop") && ((string)inv[i]->query("equipped")=="wielded"))
 				if(objectp(present("da han", environment(me))))
-					return notify_fail("大漢攔住你說道：這位" +
+					return notify_fail("大漢攔住你説道：這位" +
 					RANK_D->query_respect(me) + "請放下兵刃。我教教規嚴"
 					"厲，外客不\n得持兵刃上山。請見諒。\n");
 	}

@@ -103,7 +103,7 @@ void attempt_apprentice(object ob)
 		return;
 	}
 	command("say 阿彌陀佛，善哉！善哉！好吧，我就收下你了。");
-	command("say 希望你能以慈悲之心，以智慧之力，努力行善，濟度衆生。");
+	command("say 希望你能以慈悲之心，以智慧之力，努力行善，濟度眾生。");
 	command("recruit " + ob->query("id"));
 }
 #include "emei.h"

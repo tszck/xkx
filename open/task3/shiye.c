@@ -20,13 +20,13 @@ void create()
 
 	set("inquiry", ([
 		"叫化雞" : (: ask_me :),
-		"揚州府":"只要加入官府(join guanfu)，就可以爲朝廷出力。\n",
-		"官府":"只要加入官府(join guanfu)，就可以爲朝廷出力。\n",
-		"當官":"只要加入官府(join guanfu)，就可以爲朝廷出力。\n",
-		"捕快":"只要加入官府(join guanfu)，就可以爲朝廷出力。\n",
-		"任務":"只要加入官府(join guanfu)，就可以爲朝廷出力。\n",
-		"task":"只要加入官府(join guanfu)，就可以爲朝廷出力。\n",
-		"quest":"只要加入官府(join guanfu)，就可以爲朝廷出力。\n"
+		"揚州府":"只要加入官府(join guanfu)，就可以為朝廷出力。\n",
+		"官府":"只要加入官府(join guanfu)，就可以為朝廷出力。\n",
+		"當官":"只要加入官府(join guanfu)，就可以為朝廷出力。\n",
+		"捕快":"只要加入官府(join guanfu)，就可以為朝廷出力。\n",
+		"任務":"只要加入官府(join guanfu)，就可以為朝廷出力。\n",
+		"task":"只要加入官府(join guanfu)，就可以為朝廷出力。\n",
+		"quest":"只要加入官府(join guanfu)，就可以為朝廷出力。\n"
 	]));
 	set("chat_chance", 3);
 	set("chat_msg", ({
@@ -50,7 +50,7 @@ int do_join(string arg)
 	if(!arg || arg!="guanfu") return notify_fail("譚友紀道：你要加入什麼組織？\n");
 	if(ob->query("officerlvl") > 0)
 	{
-		message_vision(HIC"譚友紀說道：你已經是揚州府捕快了。\n"NOR,ob);
+		message_vision(HIC"譚友紀説道：你已經是揚州府捕快了。\n"NOR,ob);
 		return 1;
 	}
 	if (ob->query("combat_exp")<20000)

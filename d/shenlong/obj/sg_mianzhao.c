@@ -21,7 +21,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "個");
-		set("long", "這是個神龍教特有的黑布頭套，能把整個腦袋套起來，只露出兩個眼睛。\n你每次爲神龍教辦案後，務必在屍體上寫下(sign)“逆神龍教者殺！”。\n");
+		set("long", "這是個神龍教特有的黑布頭套，能把整個腦袋套起來，只露出兩個眼睛。\n你每次為神龍教辦案後，務必在屍體上寫下(sign)“逆神龍教者殺！”。\n");
 		set("material", "cloth");
 		set("armor_prop/armor", 1);
 		set("value", 10);

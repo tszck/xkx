@@ -1,6 +1,6 @@
 // qudu.c
 // Last Modified by winder on Mar. 10 2000
-/* 下列爲本泥巴的毒：
+/* 下列為本泥巴的毒：
 白駝派：bt_poison 怪蛇毒
 	cold_poison 寒毒
 	hot_poison 熱毒
@@ -53,7 +53,7 @@ int exert(object me, object target)
 	if ((int)me->query_skill("xidu-poison", 1) < 50)
 		return notify_fail("你對“西毒毒技”還不是很精通。\n");
 	if ((int)me->query_skill("hamagong", 1) < 50)
-		return notify_fail("你的蛤蟆功修爲還不夠。\n");
+		return notify_fail("你的蛤蟆功修為還不夠。\n");
 
 	if ((int)me->query_condition("bt_poison") > 0 ||
 		me->query_condition("cold_poison") > 0 ||

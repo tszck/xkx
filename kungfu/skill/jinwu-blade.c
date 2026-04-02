@@ -58,9 +58,9 @@ int valid_learn(object me)
 	if( (int)me->query("max_neili") < 500 )
 		return notify_fail("你的內力不夠，沒有辦法練金烏刀法。\n"); 
 	if( (int)me->query_skill("xueshan-sword",1) < 80)
-		return notify_fail("金烏刀法必須有雪山劍法爲根底才能練習。\n");
+		return notify_fail("金烏刀法必須有雪山劍法為根底才能練習。\n");
 	if( (int)me->query_skill("bingxue-xinfa",1) < 50)
-		return notify_fail("金烏刀法必須有冰雪心法爲根底才能練習。\n");
+		return notify_fail("金烏刀法必須有冰雪心法為根底才能練習。\n");
 	if( !(ob = me->query_temp("weapon")) ||
 		(string)ob->query("skill_type") != "blade" )
 	return notify_fail("你必須先找一把刀才能練刀法。\n");
@@ -128,10 +128,10 @@ int help(object me)
         write(HIC"\n金烏刀法："NOR"\n");
         write(@HELP
 
-    金烏刀法爲雪山派掌門夫人史小翠所創。史小翠與其夫白自在
-鬥氣，創此刀法專爲剋制雪山劍法，並傳授給石破天，試圖籍石破
+    金烏刀法為雪山派掌門夫人史小翠所創。史小翠與其夫白自在
+鬥氣，創此刀法專為剋制雪山劍法，並傳授給石破天，試圖籍石破
 天打敗白萬劍之勢，以壓過乃夫的氣焰，出一口自己數十年被欺壓
-的悶氣。此刀法專爲剋制雪山劍法而創，與雪山劍法聯手，卻能盡
+的悶氣。此刀法專為剋制雪山劍法而創，與雪山劍法聯手，卻能盡
 補其漏失，威力無儔。
 
         學習要求：

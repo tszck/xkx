@@ -3,7 +3,7 @@ inherit NPC;
 
 void create()
 {
-	set_name("觀衆丁", ({ "ding" }));
+	set_name("觀眾丁", ({ "ding" }));
 	set("long", "此人身材瘦小，卻是氣宇暄昂, 似乎身懷驚人藝業。\n");
 	set("gender", "男性");
 	set("age", 25);

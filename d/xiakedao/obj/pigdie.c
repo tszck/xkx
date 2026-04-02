@@ -11,7 +11,7 @@ void create()
 {
 	set_name("死豬", ({ "pig", "pigdie" }) );
 	set("long", "這是一隻死去的野豬，頭部(zhutou)、前腿(forleg)、後腿(backleg)都
-長得極爲粗壯。\n");
+長得極為粗壯。\n");
 	set_temp("zhutou", 1);
 	set_temp("forleg", 1);
 	set_temp("backleg", 1);

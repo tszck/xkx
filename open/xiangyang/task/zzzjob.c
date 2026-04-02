@@ -30,7 +30,7 @@ string ask_job()
 	me=this_object();
 	exp=ob->query("combat_exp");
 /*
-	myfam = me->query("family/family_name");//同一門派的纔給他job,把這四
+	myfam = me->query("family/family_name");//同一門派的才給他job,把這四
 	obfam = ob->query("family/family_name");//行去掉後就沒有門派限制
 	if(!myfam ||!obfam||myfam != obfam) 
 	return "你不是本門弟子，我不能給你工作！";
@@ -51,7 +51,7 @@ string ask_job()
 		target = names[1][random(sizeof(names[1]))];
 		ob->apply_condition("zzz_mission",30);    
 		ob->set_temp("zzz_job_target", target);
-		message_vision(CYN "$N點了點頭，對$n說道：蒙古人收買了一批武林敗類，好象要暗殺"+target+"，你去保護他一下。\n"NOR , me,ob);
+		message_vision(CYN "$N點了點頭，對$n説道：蒙古人收買了一批武林敗類，好象要暗殺"+target+"，你去保護他一下。\n"NOR , me,ob);
 		call_out("begin_kill",30,ob,target);
 		return "多加小心。";
 	}
@@ -194,6 +194,6 @@ string ask_gonglao(object who)
 	me = this_player();
 	if(!me->query("zzz_job_count")) i=0;
 	else i =(int)me->query("zzz_job_count"); 
-	message_vision( CYN"$N對$n說道：你已經完成了" + chinese_number(i) + "次任務。\n"NOR,who,me);
+	message_vision( CYN"$N對$n説道：你已經完成了" + chinese_number(i) + "次任務。\n"NOR,who,me);
 	return "繼續努力吧！";
 }

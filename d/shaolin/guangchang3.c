@@ -40,7 +40,7 @@ int valid_leave(object me, string dir)
 		if( me->query("guilty") == 0 
 		&&  me->query("id") != "seng bing" )
 		{
-			return notify_fail("僧兵擋住說道：你未經許可，不能進入戒律院。\n");
+			return notify_fail("僧兵擋住説道：你未經許可，不能進入戒律院。\n");
 		}
 	}
 

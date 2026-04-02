@@ -34,7 +34,7 @@ int do_clap()
 	c_exp=me->query("combat_exp");
 	c_skill=me->query_skill("strike",1);
 	write("池內忽然有蛙大鳴一聲，接着羣蛙次第相合，最後又是一蛙大鳴，羣蛙便嘎然\n");
-	write("而止，其數正好爲八。\n");
+	write("而止，其數正好為八。\n");
 	if ( me->query("qi") < 10 )
 		 me->unconcious();
 	else

@@ -12,7 +12,7 @@ void create()
         set("nickname",HIY"長真子"NOR);
         set("long",
                 "他就是全真次徒譚處端譚真人，他身材魁梧，濃眉大眼，嗓音\n"
-                "洪亮，拜重陽真人爲師前本是山東鐵匠出身。\n");
+                "洪亮，拜重陽真人為師前本是山東鐵匠出身。\n");
         set("attitude", "peaceful");
         set("shen_type",1);
         set("str", 34);

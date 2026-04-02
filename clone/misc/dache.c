@@ -292,7 +292,7 @@ int do_go(string arg)
 				case 2:
 					return notify_fail("有零錢嗎？\n");
 			}
-			message_vision("\n$N登上了大車，一揚手丟了" + chinese_number(sign[i]["value"]/100) + "兩銀子給車伕，說了聲：“去" +sign[i]["name"]+ "。”\n$N說完掀開簾子，一哈腰鑽進車去。\n\n", ob);
+			message_vision("\n$N登上了大車，一揚手丟了" + chinese_number(sign[i]["value"]/100) + "兩銀子給車伕，説了聲：“去" +sign[i]["name"]+ "。”\n$N説完掀開簾子，一哈腰鑽進車去。\n\n", ob);
 			write(HIC"大車內"NOR" -
     車裏乾乾淨淨，放了兩張舒服的大椅子。窗簾半拉了下來，陽光從
 縫隙中透進來，窗外看不盡的景緻，有的壯觀，有的也無趣。於是昏昏

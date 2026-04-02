@@ -18,7 +18,7 @@ void create()
 	set("chat_chance",1);
 	set("chat_msg",({
 	    "溫儀靜靜地坐着,雙眼無神地望着窗外。\n",
-	    "溫儀自言自語地說：郎君啊，你爲什麼要誤會我啊？——\n",
+	    "溫儀自言自語地説：郎君啊，你為什麼要誤會我啊？——\n",
 	    "溫儀黯然淚下，無語地望着手中的手帕。\n",
             "突然間，溫儀的臉色變得蒼白起來：那...那..那碗蓮子羹......\n"
 	   }) );
@@ -37,14 +37,14 @@ string inquiry_shoupa()
 {
  object me=this_player();
  object obn;
- message_vision("溫儀說道：這位"+ RANK_D->query_respect(me)+"，你能幫我個忙嗎？我只是想讓郎君知道我的心意。\n", me );
+ message_vision("溫儀説道：這位"+ RANK_D->query_respect(me)+"，你能幫我個忙嗎？我只是想讓郎君知道我的心意。\n", me );
  if(query_temp("shoupa")==0)
- {  message_vision("溫儀又說道：這位"+ RANK_D->query_respect(me)+"，我已經託人幫我帶了，就不麻煩你了。\n",me);
+ {  message_vision("溫儀又説道：這位"+ RANK_D->query_respect(me)+"，我已經託人幫我帶了，就不麻煩你了。\n",me);
    return "";
  }
-   message_vision("溫儀說道：這位"+ RANK_D->query_respect(me)+"，這是我和郎君的信物，看見它，他就知道我的心意了。\n" , me);
+   message_vision("溫儀説道：這位"+ RANK_D->query_respect(me)+"，這是我和郎君的信物，看見它，他就知道我的心意了。\n" , me);
    obn=new("/d/shiliang/npc/obj/shoupa");
    obn->move(me);
    set_temp("shoupa",0);
-   return "請你一定交到他的手上，他就在莊西的山洞中。說完，溫儀給你一張繡花的手帕。\n";
+   return "請你一定交到他的手上，他就在莊西的山洞中。説完，溫儀給你一張繡花的手帕。\n";
 }

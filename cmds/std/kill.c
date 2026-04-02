@@ -50,10 +50,10 @@ int main(object me, string arg)
 
 	if(me->query("id") != obj->query_temp("bt_ownname") &&
 		me->query_temp("bt/working"))
-		return notify_fail("你身爲捕快，執行公務，可不能殺良冒功！\n");
+		return notify_fail("你身為捕快，執行公務，可不能殺良冒功！\n");
 	if(obj==me) return notify_fail("用 suicide 指令會比較快:P。\n");
 	if((int)obj->query("age") <= 15 && userp(obj))
-		return notify_fail("爲了世界更美好，放過小孩子吧.\n");
+		return notify_fail("為了世界更美好，放過小孩子吧.\n");
 
 //限制大米pk  
   if( userp(obj) && obj->query_temp("noliving") && 
@@ -66,7 +66,7 @@ int main(object me, string arg)
       obj->query("combat_exp")>1000000)
 			return notify_fail("就憑你這點實力，還是少惹點事吧。")  ;       
 
-	notify_fail("此人來頭不小，還是少惹爲妙。\n");
+	notify_fail("此人來頭不小，還是少惹為妙。\n");
 	if (!userp(obj) && !obj->accept_kill(me)) return 0;		
 
 	callname = RANK_D->query_rude(obj);
@@ -89,7 +89,7 @@ int main(object me, string arg)
 		(string)obj->query("family/family_name") == (string)me->query("family/family_name"))
 		{
 			if (living(obj) && !obj->query_temp("noliving"))
-			message_vision(HIC"$n厲聲對$N道：你我本同門，卻爲何想相害於我！\n"NOR,me,obj);
+			message_vision(HIC"$n厲聲對$N道：你我本同門，卻為何想相害於我！\n"NOR,me,obj);
 			me->delete("family/fealty");
 			"/cmds/skill/expell"->main(obj,me->query("id"));
 		}
@@ -109,7 +109,7 @@ int help(object me)
 指令格式 : kill <人物>
  
     這個指令讓你主動開始攻擊一個人物，並且試圖殺死對方，kill 和 fight 
-最大的不同在於雙方將會真刀實槍地打鬥，也就是說，會真的受傷。由於 kill 
+最大的不同在於雙方將會真刀實槍地打鬥，也就是説，會真的受傷。由於 kill 
 只需單方面一廂情願就可以成立，因此你對任何人使用 kill 指令都會開始戰鬥，
 通常如果對方是 NPC 的話，他們也會同樣對你使用 kill。
 

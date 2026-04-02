@@ -110,7 +110,7 @@ int help(object me)
 	write(HIC"\n慕容劍法："NOR"\n");
 	write(@HELP
 
-    慕容劍法爲江南姑蘇慕容祖傳劍法。
+    慕容劍法為江南姑蘇慕容祖傳劍法。
 
 	學習要求：
 		神元功20級

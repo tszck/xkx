@@ -64,7 +64,7 @@ int help(object me)
 
 指令格式： loadall [dir]
 比如      loadall /d/city/
-沒有 dir，則dir默認爲 / ，文件太多可能會卡一會。
+沒有 dir，則dir默認為 / ，文件太多可能會卡一會。
 
 HELP );
     return 1;

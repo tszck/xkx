@@ -31,14 +31,14 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "南少林弟子說道：這位" + RANK_D->query_respect(ob)
+			say( "南少林弟子説道：這位" + RANK_D->query_respect(ob)
             + "想加入南少林嗎，可以看"BRED"(help nanshaolin)"NOR"。\n");
 			break;
 		case 1:
-			say( "南少林弟子說道：《易筋》，《洗髓》二經向爲少林鎮寺之寶，相傳爲達摩祖師所創。\n");
+			say( "南少林弟子説道：《易筋》，《洗髓》二經向為少林鎮寺之寶，相傳為達摩祖師所創。\n");
 			break;
 		case 2:
-			say( "南少林弟子說道：南少林武功博大精深，你如能學得一二，就能出人頭地了。\n");
+			say( "南少林弟子説道：南少林武功博大精深，你如能學得一二，就能出人頭地了。\n");
 			break;
 	}
 

@@ -38,7 +38,7 @@ int main(object me, string arg)
 		if( !(ob = present(arg, environment(me))) ||
 			!living(ob) || ob->query_temp("noliving") ||
 			!ob->is_character() || ob==me )
-			return notify_fail("你想和誰成爲夥伴？\n");
+			return notify_fail("你想和誰成為夥伴？\n");
 
 		if( !pointerp(me->query_team()) || me->is_team_leader() )
 		{
@@ -72,7 +72,7 @@ int main(object me, string arg)
 		if( !pointerp(t=me->query_team()) )
 			return notify_fail("你現在並沒有和別人組成隊伍。\n");
 		message("team", CYN "【隊伍】" + me->name(1) + "：" + arg + "\n" NOR, t);
-		message("channel:snp", HIB"【監聽】隊伍" + me->name() + "說道：" + arg + "\n"NOR, users());
+		message("channel:snp", HIB"【監聽】隊伍" + me->name() + "説道：" + arg + "\n"NOR, users());
 		return 1;
 	}
 	if( sscanf(arg, "form %s", arg)==1 )
@@ -90,7 +90,7 @@ int help(object me)
 	write( @HELP
 隊伍指令使用方法:
 
-team with <某人> - 跟某人組成隊伍。必須要雙方都同意加入纔會生效。
+team with <某人> - 跟某人組成隊伍。必須要雙方都同意加入才會生效。
 team dismiss     - 離開隊伍。若下此指令的是領隊，則整個隊伍會解散。
 team talk <訊息> - 跟隊伍裏其他的人談話，可以用 tt <訊息> 替代。
 team form <陣法> - 如果隊伍的領隊學過陣法的話，可以將隊伍中的成員組織成

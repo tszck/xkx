@@ -114,7 +114,7 @@ int help(object me)
 		站樁功50級
 		波羅蜜手50級
 		摩訶指50級
-		內力修爲500
+		內力修為500
 HELP
 	);
 	return 1;

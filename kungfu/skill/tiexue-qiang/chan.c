@@ -50,7 +50,7 @@ int perform(object me, object target)
 		return notify_fail("你的"+to_chinese(sskill)+"火候不夠，使不出"+PNAME+"。\n");
 
 	if (me->query("max_neili") < 300 )
-		return notify_fail("你的內力修爲不足，使不出「纏繞」訣。\n");
+		return notify_fail("你的內力修為不足，使不出「纏繞」訣。\n");
 
 	if (me->query("neili") < 200 )
 		return notify_fail("你的內力不足，使不出「纏繞」訣。\n");
@@ -86,7 +86,7 @@ int help(object me)
 	出手要求：
 		歸元吐納法50級
 		鐵血槍法50級
-		內力修爲300
+		內力修為300
 		內力200
 HELP
 	);

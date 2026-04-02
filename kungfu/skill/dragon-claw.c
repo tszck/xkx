@@ -7,7 +7,7 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "在呼呼風聲中，$N使一招"CYN"「捕風式」"NOR"，雙手如鉤如戢，緊隨$n，插向$p的$l",
+([	"action" : "在呼呼風聲中，$N使一招"CYN"「捕風式」"NOR"，雙手如鈎如戢，緊隨$n，插向$p的$l",
 	"lvl"    : 0,
 	"skill_name" : "捕風式" ,		
 ]),
@@ -35,7 +35,7 @@ mapping *action = ({
 	"lvl"    : 60,
 	"skill_name" : "抱殘式" ,		
 ]),
-([	"action" : "$N兩手胸前環抱，腋下含空，一爪而出，五指如鉤，一招"HIM"「守缺式」"NOR"插向$n的頂門",
+([	"action" : "$N兩手胸前環抱，腋下含空，一爪而出，五指如鈎，一招"HIM"「守缺式」"NOR"插向$n的頂門",
 	"lvl"    : 70,
 	"skill_name" : "守缺式" ,		
 ]),
@@ -138,7 +138,7 @@ int help(object me)
 		站樁功80級
 		拈花指50級
 		鷹爪功50級
-		內力修爲800
+		內力修為800
 HELP
 	);
 	return 1;

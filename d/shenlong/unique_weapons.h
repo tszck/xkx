@@ -9,7 +9,7 @@ mapping unique_weapons  = ([
 	"幹將劍"   : "/clone/weapon/treasure/ganjiang-jian.c",
 	"碧水劍"   : "/clone/weapon/treasure/greenwater-sword.c",
 	"五毒剪"   : "/clone/weapon/treasure/jiandao.c",
-	"金鳳鉤"   : "/clone/weapon/treasure/jinfenggou.c",
+	"金鳳鈎"   : "/clone/weapon/treasure/jinfenggou.c",
 	"奪命金花" : "/clone/weapon/treasure/jinhua.c",
 	"金輪"     : "/clone/weapon/treasure/jinlun.c",
 	"金蛇劍"   : "/clone/weapon/treasure/jinshe-jian.c",

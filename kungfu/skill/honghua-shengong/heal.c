@@ -18,7 +18,7 @@ int exert(object me, object target)
 		return notify_fail("你現在正忙着呢，哪有空運功？\n");
 
 	if( (int)me->query_skill("honghua-shengong", 1) < 20)
-		return notify_fail("你的紅花神功修爲還不夠。\n");
+		return notify_fail("你的紅花神功修為還不夠。\n");
 
 	if( (int)me->query("neili") < 50 )
 		return notify_fail("你的真氣不夠。\n");
@@ -46,7 +46,7 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		爲自己療傷
+		為自己療傷
 
 	出手要求：
 		紅花神功20級

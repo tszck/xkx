@@ -138,7 +138,7 @@ string for_other_msg(object who)
 		ob = get_player(last_player);
 		if(ob)
 		{
-			m = sprintf("%s\n%s(%s)猜骰子數爲：%d個%d\n",m,ob->query("name"),ob->query("id"),cur_amount,cur_point);
+			m = sprintf("%s\n%s(%s)猜骰子數為：%d個%d\n",m,ob->query("name"),ob->query("id"),cur_amount,cur_point);
 			if(ob!=who)
 				m = m + "如果你不相信，可以拆穿大話("HIY"dahua "+ob->query("id")+NOR")\n";
 		}
@@ -487,9 +487,9 @@ int do_next(string arg)
 	}
 
 	if(me!=ob)
-		msg(me,ob,"$N對$n說道：到你了。\n");
+		msg(me,ob,"$N對$n説道：到你了。\n");
 	else
-		msg(me,0,"對自己說道：到我啦！\n");
+		msg(me,0,"對自己説道：到我啦！\n");
 	tell_object(ob,for_guess_msg());
 	return 1;
 }
@@ -545,7 +545,7 @@ int do_guess(string arg)
 
 	cur_player = player_follow[last_player];
 
-	msg(me,0,sprintf("$N(%s)說道：%d個%d\n",me->query("id"),n,p));
+	msg(me,0,sprintf("$N(%s)説道：%d個%d\n",me->query("id"),n,p));
 	if(history)
 		history = history + ({ sprintf("%-20s：%d個%d",me->query("name")+"("+me->query("id")+")",n,p) });
 	else
@@ -659,7 +659,7 @@ int do_dahua(string arg)
 	if(last_player!=arg)
 		return notify_fail("不是他最後猜骰子了。\n");
 
-	msg(me,ob,HIC "\n$N對$n說道：我不相信！！！\n" NOR);
+	msg(me,ob,HIC "\n$N對$n説道：我不相信！！！\n" NOR);
 	show_all_se(me);
 	return 1;
 }
@@ -688,7 +688,7 @@ int do_finish(string arg)
 		if(!cur_player)cur_player = me->query("id");
 		if(ob = get_cur_player())
 		{
-			msg(ob,0,"$N說道：由我先猜！！！\n");
+			msg(ob,0,"$N説道：由我先猜！！！\n");
 			tell_object(ob,for_guess_msg());
 		}
 		else
@@ -781,7 +781,7 @@ int do_visitor(string arg)
 		ob = get_player(key);
 		if(!ob)
 			return notify_fail("沒有這個玩家在玩啊？\n");
-		msg(me,ob,"$N希望成爲$n的觀戰者。\n");
+		msg(me,ob,"$N希望成為$n的觀戰者。\n");
 		tell_object(ob,"接受使用[visit "+me->query("id")+"]。\n");
 	}
 	return 1;

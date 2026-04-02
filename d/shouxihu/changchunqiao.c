@@ -8,7 +8,7 @@ void create()
 	set("short","長春橋");
 	set("long",@LONG
 長春橋以青石塊堆砌，橋身亞於大虹橋，而形制相似，距虹橋約裏
-許，置短板立柱橋欄。二橋南北相望，爲陸行上蜀岡要道。
+許，置短板立柱橋欄。二橋南北相望，為陸行上蜀岡要道。
 LONG );
 	set("outdoors", "shouxihu");
 	set("exits", ([

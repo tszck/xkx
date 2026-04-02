@@ -245,7 +245,7 @@ void event_morning()
 	}
 	yinshi->move(room);
 	CHANNEL_D->do_channel(yinshi, "sys",yinshi->query("name")+"在"+room->query("short")+"(/d/"+dir[i]+"/"+file[j]+")。\n");	        				
-        message("channel:snow", HIY"【江湖傳聞】"HIC + "聽說在"+ to_chinese(dir[i]) + "一帶隱居着一位武林前輩，江湖人士紛紛前往尋訪！\n"NOR,users() );
+        message("channel:snow", HIY"【江湖傳聞】"HIC + "聽説在"+ to_chinese(dir[i]) + "一帶隱居着一位武林前輩，江湖人士紛紛前往尋訪！\n"NOR,users() );
 //還原標識
 	thief_yinshi=3;              
 }

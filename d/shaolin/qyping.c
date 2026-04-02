@@ -29,7 +29,7 @@ int valid_leave(object me, string dir)
 	if ( dir == "enter" )
 	if ( present("fumo dao", me) || present("jingang zhao", me) 
 	  || present("fumo dao", environment(me)) || present("jingang zhao", environment(me)) )
-		return notify_fail("只聽裏面有人說道: 大俠上回已來過此處，此刻身攜重寶，不便進入，\n恕老衲等失禮了。\n");
+		return notify_fail("只聽裏面有人説道: 大俠上回已來過此處，此刻身攜重寶，不便進入，\n恕老衲等失禮了。\n");
 
 	return ::valid_leave(me, dir);
 }

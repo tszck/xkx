@@ -49,7 +49,7 @@ int perform(object me, object target)
 		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 
 	if ((int)me->query("neili")<400 || (int)me->query("max_neili")<400)
-		return notify_fail(RED"你內力修爲不足，無法運足內力。\n"NOR);
+		return notify_fail(RED"你內力修為不足，無法運足內力。\n"NOR);
 
 	msg = BLU "$N"BLU"面無表情，驀然遊身而上，繞着$n"BLU"疾轉數圈，猛地身形一縮，轉到$n"BLU"身前，右手劃出一道光圈，往$n"BLU"丹田印了下去！\n"NOR;
 

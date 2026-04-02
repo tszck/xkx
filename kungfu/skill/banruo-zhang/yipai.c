@@ -51,7 +51,7 @@ int perform(object me, object target)
 	if( (int)me->query_skill(fskill, 1) < 120 )
 		return notify_fail("你的"+to_chinese(fskill)+"還不夠熟練，不能使用"PNAME"絕招對敵！\n");
 	if( (int)me->query("max_neili", 1) < 1500 )
-		return notify_fail("你內力修爲不足，使不出"+to_chinese(sskill)+"的絕招！\n");
+		return notify_fail("你內力修為不足，使不出"+to_chinese(sskill)+"的絕招！\n");
 	if( (int)me->query("neili", 1) < 1000 )
 		return notify_fail("你現在內力不足，使不出"+to_chinese(sskill)+"的絕招！\n");
 
@@ -115,7 +115,7 @@ int help(object me)
 		般若掌120級
 		基本掌法120級
 		內力1000
-		內力修爲1500
+		內力修為1500
 HELP
 	);
 	return 1;

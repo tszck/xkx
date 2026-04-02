@@ -64,12 +64,12 @@ int main(object me, string arg)
       {
        lvl = me->query_skill("hubo", 1);
        if (! lvl)
-       		return notify_fail("你要幹什麼？以爲自己有三頭六臂啊！\n");
+       		return notify_fail("你要幹什麼？以為自己有三頭六臂啊！\n");
 
        if (me->query_skill("qimen-wuxing", 1))
           return notify_fail("你雜學太多，心頭煩亂，難以分心二用。\n");
        if (lvl <= 100)
-          return notify_fail("你的左右互搏修爲太淺，難以分心二用。\n");
+          return notify_fail("你的左右互搏修為太淺，難以分心二用。\n");
        if (! me->is_fighting())
           return notify_fail("只有戰鬥中才能施展左右互搏。\n");
        if (lvl < 250 && random(lvl) < 70)
@@ -174,7 +174,7 @@ private int do_perform(object me, string arg)
 		}		
 	}*/
 	if (!stringp(me->query_skill_mapped("force")))
-		return notify_fail("沒有任何內功做爲基礎，是發揮不出招式威力的。\n");
+		return notify_fail("沒有任何內功做為基礎，是發揮不出招式威力的。\n");
 	if( martial == "parry" && arg != "xingyi")
 		return notify_fail( "不能用基本招架出手外功。\n");
 	if( !me->query_temp("weapon") && martial!="unarmed" &&
@@ -217,7 +217,7 @@ private int do_perform(object me, string arg)
 		}
 		return notify_fail("請先用 enable 指令選擇你要使用的外功。\n");
 	}
-/* 以下爲鬥轉星移 */
+/* 以下為鬥轉星移 */
 	else
 	{
 		me->clean_up_enemy();
@@ -257,7 +257,7 @@ private int do_perform(object me, string arg)
 			else
 			{
 				if( me->query_skill(sktype,1) < 120) 
-					return notify_fail(HIR"你的"+to_chinese(sktype)+"修爲太淺，沒法使用「星移」。\n"NOR); 
+					return notify_fail(HIR"你的"+to_chinese(sktype)+"修為太淺，沒法使用「星移」。\n"NOR); 
 				skname = target->query_skill_mapped(sktype);
 				if( skname == "murong-sword" ||
 					skname == "murong-blade")
@@ -310,7 +310,7 @@ private int do_perform(object me, string arg)
   			else sktype = keys(pre_skl)[random(sizeof(pre_skl))];
 				
 				if( me->query_skill(sktype, 1) < 120) 
-					return notify_fail(HIR"你的"+to_chinese(sktype)+"修爲太淺，沒法使用「星移」。\n"NOR); 
+					return notify_fail(HIR"你的"+to_chinese(sktype)+"修為太淺，沒法使用「星移」。\n"NOR); 
 
 				skname = target->query_skill_mapped(sktype);
 				if( skname == "xingyi-strike" ||
@@ -382,7 +382,7 @@ int help (object me)
 式或招式，可以用這個指令來使用，你必須先用 enable 指令指定你使
 用的武功，不指定武功種類時，空手的外功是指你的拳腳功夫，使用武
 器時則是兵刃的武功。空手外功的施展，必須先準備好 （prepare）你
-的技能。有的特別的外功可以激發相應技能爲parry來施展。
+的技能。有的特別的外功可以激發相應技能為parry來施展。
 
     若是你的外功中有種類不同，但是招式名稱相同的，或者不屬於拳
 腳跟武器技能的武功(如輕功)，可以用 <武功>.<招式>  的方式指定，
@@ -391,9 +391,9 @@ int help (object me)
     perform sword.chan
     perform sword.chan and sword.lian
 
-    換句話說，只要是 enable 中的武功有特殊招式的，都可以用這個
+    換句話説，只要是 enable 中的武功有特殊招式的，都可以用這個
 指令使用。很多武功的特殊攻擊法都非常凌厲，一旦使用，將招致對方
-的拼死反擊，就是說，被攻擊方將自動開始ｋｉｌｌ你。所以要謹慎使
+的拼死反擊，就是説，被攻擊方將自動開始ｋｉｌｌ你。所以要謹慎使
 用哦:)。
 
 如果你精通左右互搏，可以同時使用兩個招式攻擊同一對手或則分別

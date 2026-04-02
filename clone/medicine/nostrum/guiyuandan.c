@@ -13,7 +13,7 @@ void create()
 	else {
 		set("unit", "粒");
 		set("long", "歸元丹是峨嵋弟子一身精血所化，珍貴無比，有生死
-肉骨之功，爲武林至寶。\n");
+肉骨之功，為武林至寶。\n");
 		set("value", 0);
 	}
 	set("pour_type", "1");

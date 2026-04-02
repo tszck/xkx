@@ -51,17 +51,17 @@ int ask_me()
         me = this_player();
         if (PK_D->is_pking())
         {
-        	tell_object(me,"公平子對你說道：“現在華山論劍正在舉行呢，你想幹什麼？”\n");
+        	tell_object(me,"公平子對你説道：“現在華山論劍正在舉行呢，你想幹什麼？”\n");
 		return 1;
 	}
         else if (PK_D->is_ready())
         {
-        	tell_object(me,"公平子對你說道：“很好，現在華山論劍正要開始，你要報名(sign)麼？”\n");
+        	tell_object(me,"公平子對你説道：“很好，現在華山論劍正要開始，你要報名(sign)麼？”\n");
 		return 1;
 	}
 	else
 	{
-        	tell_object(me,"公平子對你說道：“華山論劍？你慢慢等着吧。要是無聊，現在要是想進去玩玩(join)也行。”\n");
+        	tell_object(me,"公平子對你説道：“華山論劍？你慢慢等着吧。要是無聊，現在要是想進去玩玩(join)也行。”\n");
 		return 1;
 	}
 }
@@ -77,12 +77,12 @@ int do_sign()
         
         if (stringp(msg = PK_D->reject_join(me)))
         {
-		tell_object(me,"公平子對你說道：“"+msg+"”\n");
+		tell_object(me,"公平子對你説道：“"+msg+"”\n");
                 return 1;
         }
         
 	me->set_temp("bwdh_join",1);
-       	tell_object(me,"公平子對你說道：“華山論劍馬上就要開始了，閣下做好準備就趕快加入吧（join）！”\n");
+       	tell_object(me,"公平子對你説道：“華山論劍馬上就要開始了，閣下做好準備就趕快加入吧（join）！”\n");
         return 1;
 }
 
@@ -95,13 +95,13 @@ int do_join()
         me=this_player();
         if (PK_D->is_pking())
         {
-        	tell_object(me,"公平子對你說道：“現在華山論劍正在進行中，你還是等等吧。”\n");
+        	tell_object(me,"公平子對你説道：“現在華山論劍正在進行中，你還是等等吧。”\n");
 		return 1;
 	}
 	
 	if (PK_D->is_ready() && !me->query_temp("bwdh_join") )
         {
-        	tell_object(me,"公平子對你說道：“想要參加論劍的趕緊先報名（sign）吧，其他人還是等等吧。”\n");
+        	tell_object(me,"公平子對你説道：“想要參加論劍的趕緊先報名（sign）吧，其他人還是等等吧。”\n");
 		return 1;
 	}
 	
@@ -110,7 +110,7 @@ int do_join()
         {
                 if (obs[i]->is_character())
                 {
-                        tell_object(me,"公平子對你說道：“閣下身上揹着誰呢？還是先放下再來吧！”\n");
+                        tell_object(me,"公平子對你説道：“閣下身上揹着誰呢？還是先放下再來吧！”\n");
                         return 1;
                 }
         }
@@ -124,7 +124,7 @@ int do_join()
         }
         else
         {
-        	tell_object(me,"公平子對你說道：“閣下還是改日再來參加華山論劍吧！”\n");
+        	tell_object(me,"公平子對你説道：“閣下還是改日再來參加華山論劍吧！”\n");
                 return 1;
         }
         	      

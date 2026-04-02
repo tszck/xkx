@@ -6,8 +6,8 @@ void create()
 {
 	set_name("本塵", ({ "ben chen","chen"}) );
 	set("gender", "男性" );
-	set("long", "他就是天南爲帝的大理保定帝段正明。大理歷代國主均遜位
-天龍寺出家爲僧，保定帝亦不例外。\n" );
+	set("long", "他就是天南為帝的大理保定帝段正明。大理歷代國主均遜位
+天龍寺出家為僧，保定帝亦不例外。\n" );
 	set("title", "天龍寺第十七代僧人");
 	set("class", "bonze");
 	set("age", 45);

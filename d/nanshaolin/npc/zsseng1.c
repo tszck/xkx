@@ -60,7 +60,7 @@ string ask_me()
 		return (RANK_D->query_respect(fighter) + "輩份不合，不夠資格入堂修行。");
 	if ( (int)fighter->query("guilty") > 0 )
 		return (RANK_D->query_respect(fighter) + "你累犯數戒，身帶重罪，還是先回去懺悔吧！\n");
-	say("\n執事僧說道：好吧，我來啓動石陣機關，你決定好就化地爲局(huadi)準備入陣吧。\n");
+	say("\n執事僧説道：好吧，我來啓動石陣機關，你決定好就化地為局(huadi)準備入陣吧。\n");
 	me->set("assigned_fighter", fighter->query("id")); 		
 	message_vision("\n執事僧急步離開。\n\n", fighter);
 	for(j=1; j<8; j++) 
@@ -91,7 +91,7 @@ void waiting(object me)
 
 	if( wait_time == 300 )
 	{
-		say( "執事僧說道：你比豬還慢，不等你了！\n\n");
+		say( "執事僧説道：你比豬還慢，不等你了！\n\n");
 		call_out("do_back", 0, me);		
 	}
 
@@ -103,7 +103,7 @@ void waiting(object me)
 	else if(!fighter->query_temp("huadi") )
 	{
 		if( random(10) == 0 ) 
-		say("\n執事僧說道："+ RANK_D->query_respect(fighter) + "你化地爲局了嗎？快點吧！\n");
+		say("\n執事僧説道："+ RANK_D->query_respect(fighter) + "你化地為局了嗎？快點吧！\n");
 		wait_time++;
 		call_out("waiting", 1, me);
 	}
@@ -161,7 +161,7 @@ int fighting(object me, object fighter, int count)
 			fighter->delete_temp("beat_count");
 		}
 		monk1->move(room1);
-		say("執事僧搖了搖頭，說道：我說不可輕試吧！\n\n");
+		say("執事僧搖了搖頭，説道：我説不可輕試吧！\n\n");
 		command("sigh");
 		command("chat"+ "*"+ "disapp");
 		call_out("do_back", 5, me );
@@ -192,7 +192,7 @@ int do_recruit(object me, object fighter)
 	fighter->delete_temp("fighting");
 	fighter->add("combat_exp", 30000);
 	fighter->set("pass_xin", 1);
-	say("\n執事僧說道：恭喜你闖過了心禪大陣！心禪堂又多一高僧！\n");
+	say("\n執事僧説道：恭喜你闖過了心禪大陣！心禪堂又多一高僧！\n");
 	command("chat 恭喜本派弟子"+fighter->query("name")+"入值心禪堂！\n");	
 	call_out("do_back", 5, me );
 	return 1;

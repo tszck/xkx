@@ -31,7 +31,7 @@ int main(object me, string arg)
         	if ( origin < 200)
         	 origin=200;
          	me->set_weight(origin);
-          write("你把體重調整爲"+me->query_weight()+"。\n");
+          write("你把體重調整為"+me->query_weight()+"。\n");
           return 1;
         }
         else

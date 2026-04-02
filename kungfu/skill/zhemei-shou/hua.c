@@ -59,7 +59,7 @@ int perform(object me, object target)
 		return notify_fail("你先天身法不夠靈活，難以施展" PNAME "。\n");
 		
 	if (me->query("max_neili") < 4000)
-		return notify_fail("你的內力修爲不足，難以施展" PNAME "。\n");
+		return notify_fail("你的內力修為不足，難以施展" PNAME "。\n");
 
 	if (me->query_skill_mapped("force") != fskill)
 		return notify_fail("你沒有激發北冥神功，難以施展" PNAME "。\n");
@@ -84,7 +84,7 @@ int perform(object me, object target)
 		{
 			msg += HIM "只聽$n" HIM "一聲尖嘯，$N" HIM "的七色掌"
 			       "勁已盡數注入$p" HIM "體內，頓時將$p" HIM "化"
-			       "爲一灘血水。\n" NOR ;
+			       "為一灘血水。\n" NOR ;
 			msg += "( $n" + eff_status_msg(0) + " )\n";
 
 		 target->receive_wound("jing",target->query("eff_jing"),me);

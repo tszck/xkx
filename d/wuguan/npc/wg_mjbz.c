@@ -4,7 +4,7 @@ inherit NPC;
 
 void create()
 {
-       set_name("明教幫衆", ({ "mingjiao bangzhong", "bangzhong" }) );
+       set_name("明教幫眾", ({ "mingjiao bangzhong", "bangzhong" }) );
        set("gender", "男性" );
        set("age", 26);
        set("long",
@@ -32,14 +32,14 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "明教幫衆說道：天下第一教, 就是我們明教。。這位" + RANK_D->query_respect(ob)
+			say( "明教幫眾説道：天下第一教, 就是我們明教。。這位" + RANK_D->query_respect(ob)
               + "，若想入明教，可以看"BRED"(help mingjiao)"NOR"。\n");
 			break;
 		case 1:
-			say( "明教幫衆說道：乾坤大挪移，聖火令神功可是獨步武林的絕學啊。\n");
+			say( "明教幫眾説道：乾坤大挪移，聖火令神功可是獨步武林的絕學啊。\n");
 			break;
 		case 2:
-			say( "明教幫衆說道：本教四大護教法王各有一種護身絕技！\n");
+			say( "明教幫眾説道：本教四大護教法王各有一種護身絕技！\n");
 			break;	
 	}
 

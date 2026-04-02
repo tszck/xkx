@@ -47,7 +47,7 @@ int perform(object me, object target)
 	if( (int)me->query_skill(sskill, 1) < 180 )
 		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 	if ((int)me->query("max_neili") < 1000)
-		return notify_fail(RED"你內力修爲不足，無法運足內力。\n"NOR);
+		return notify_fail(RED"你內力修為不足，無法運足內力。\n"NOR);
 	if ((int)me->query("neili") < 600)
 		return notify_fail("你現在內力不夠，沒能將"PNAME"使完！\n");
 
@@ -85,7 +85,7 @@ int help(object me)
 
 	使用功效：
 		施招刺對方的心口
-		此招爲辟邪劍法招勢之最，陰險毒辣
+		此招為辟邪劍法招勢之最，陰險毒辣
 		損傷對方氣血和精氣
 
 	出手要求：

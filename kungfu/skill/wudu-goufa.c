@@ -1,4 +1,4 @@
-// wudu-goufa.c 五毒鉤法
+// wudu-goufa.c 五毒鈎法
 // Last Modified by sir 10.22.2001
 
 #include <ansi.h>
@@ -36,7 +36,7 @@ mapping *action = ({
 	"lvl" : 70,
 	"skill_name" : "神蟾九變"
 ]),
-([	"action":"$N深吸一口起，雙手握鉤，招演"GRN"「萬毒至尊」"NOR"，$w尖端透出一條強勁的黑氣，閃電般的襲向$n",
+([	"action":"$N深吸一口起，雙手握鈎，招演"GRN"「萬毒至尊」"NOR"，$w尖端透出一條強勁的黑氣，閃電般的襲向$n",
 	"lvl" : 80,
 	"skill_name" : "萬毒至尊"
 ]),
@@ -61,7 +61,7 @@ int practice_skill(object me)
 		|| (string)weapon->query("skill_type") != "hook")
 		return notify_fail("你使用的武器不對。\n");
 	if( (int)me->query("qi") < 50 || (int)me->query("neili") < 50 )
-		return notify_fail("你的內力或氣不夠練五毒鉤法。\n");
+		return notify_fail("你的內力或氣不夠練五毒鈎法。\n");
 	me->receive_damage("qi", 40);
 	me->add("neili", -40);
 	return 1;
@@ -144,10 +144,10 @@ string perform_action_file(string action)
 }
 int help(object me)
 {
-	write(HIC"\n五毒鉤法："NOR"\n");
+	write(HIC"\n五毒鈎法："NOR"\n");
 	write(@HELP
 
-    五毒鉤法是五毒教的鉤法。
+    五毒鈎法是五毒教的鈎法。
 
 	學習要求：
 		基本內功20級

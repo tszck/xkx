@@ -25,7 +25,7 @@ void create()
 	set("chat_chance", 15);
 	set("chat_msg", ({
 		"阿拉伯商人對你擠了一下眼睛。\n",
-		"阿拉伯商人對你說：阿薩蘭馬離貢，穆罕默德瑞素阿拉。你沒聽懂。\n",
+		"阿拉伯商人對你説：阿薩蘭馬離貢，穆罕默德瑞素阿拉。你沒聽懂。\n",
 		(: random_move :)
 	}) );
 	carry_object("/clone/weapon/blade/wandao")->wield();

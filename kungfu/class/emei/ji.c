@@ -88,7 +88,7 @@ void attempt_apprentice(object ob)
 	}
 	if ((int)ob->query("combat_exp") > 100) {
 		command("say 我峨嵋注重清修，對弟子要求能忍受寂寞。");
-		command("say 在江湖閱歷方面，" + RANK_D->query_respect(ob) +
+		command("say 在江湖閲歷方面，" + RANK_D->query_respect(ob) +
 			"經歷豐富，是否能在峨嵋修道？");
 		return;
 	}
@@ -101,7 +101,7 @@ int ask_jian()
 	ob->set("marks/ji",0);
 	ob->set("marks/skysword",1);
 	say( "紀曉芙微微嘆了口氣：“倚天劍就在捨身崖下。”\n");
-	tell_object(ob,"說完，她飄然躍下捨身崖去。衣袂飄動，白雲蕩處，傷感頓生。\n");
+	tell_object(ob,"説完，她飄然躍下捨身崖去。衣袂飄動，白雲蕩處，傷感頓生。\n");
 	call_out("goway",2);
 	return 1;
 }

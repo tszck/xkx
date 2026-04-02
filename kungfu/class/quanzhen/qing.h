@@ -97,7 +97,7 @@ string ask_for_join()
 		return "無量壽佛！玄門清修之士，應自小開始修行。\n";
 
 	if( me->query("betrayer") > 0)
-		return "無量壽佛！你生性反覆無常，非我玄門清修之士之所爲。\n";
+		return "無量壽佛！你生性反覆無常，非我玄門清修之士之所為。\n";
 
 	me->set_temp("pending/join_quanzhen", 1);
 	return "無量壽佛！施主若真心皈依我全真教門，請跪下(kneel)受戒。\n";
@@ -134,12 +134,12 @@ void attempt_apprentice(object ob)
 	mapping my_fam = me->query("family");
 
 	if ((int)ob->query("shen") < 0) {
-		command( "say 行俠仗義是我輩學武人的基本品質，你已快入魔道，我豈能收你爲徒。\n");
+		command( "say 行俠仗義是我輩學武人的基本品質，你已快入魔道，我豈能收你為徒。\n");
 		return;
 	}
 	if (ob->query("gender")=="男性" && me->query("gender")=="女性")
 	{
-		command("say 我不收男徒，你還是去拜我幾位師兄爲師吧。\n");
+		command("say 我不收男徒，你還是去拜我幾位師兄為師吧。\n");
                 return;
 	}
 
@@ -158,7 +158,7 @@ void attempt_apprentice(object ob)
 	}
 	else
 	{
-		command ("say 無量壽佛！貧道就收你爲全真教正式弟子。");
+		command ("say 無量壽佛！貧道就收你為全真教正式弟子。");
 	}
 	command("recruit " + ob->query("id"));
 }

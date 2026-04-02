@@ -99,7 +99,7 @@ int help(object me)
 	write(HIC"\n一指禪："NOR"\n");
 	write(@HELP
 
-    一指禪爲少林七十二絕技之一。
+    一指禪為少林七十二絕技之一。
     可與般若掌互備。
 
 	學習要求：

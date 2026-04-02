@@ -32,6 +32,6 @@ int valid_leave(object me, string dir)
 
         if (objectp(present("rong ziju", environment(me))) &&
 		dir == "northup")
-           return notify_fail("容子矩攔住你說：神農幫肆虐，你是何人？難保不是奸細，不得上山！\n");
+           return notify_fail("容子矩攔住你説：神農幫肆虐，你是何人？難保不是奸細，不得上山！\n");
         return ::valid_leave(me, dir);
 }

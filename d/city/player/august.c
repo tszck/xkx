@@ -6,7 +6,7 @@ void create()
 {       set_name("葉竹雪", ({ "august"}));
 	set("gender", "男性");
 	set("class", "fighter");
-	set("title", HIG"進士明教"NOR"天字門教衆"HIR"明教使者"NOR);
+	set("title", HIG"進士明教"NOR"天字門教眾"HIR"明教使者"NOR);
 	set("nickname", HIM"痞子二人組之痞子耍☆痞"NOR);
 	set("age", 17);
 	set("attitude", "friendly");

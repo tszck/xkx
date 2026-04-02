@@ -11,8 +11,8 @@ int ask_me();
 void create()
 {
 	set_name("傅思歸", ({ "fu sigui", "fu" }));
-	set("title",  "大理護衛" );
-	set("long", "他是大理國四大護衛之一。\n");
+	set("title",  "大理護衞" );
+	set("long", "他是大理國四大護衞之一。\n");
 	set("gender", "男性");
 	set("age", 40);
 	set("class", "officer");
@@ -69,7 +69,7 @@ void create()
 	carry_object("/clone/weapon/changjian")->wield();
 	add_money("silver", 10);
 
-	create_family("大理段家",19,"護衛");
+	create_family("大理段家",19,"護衞");
 }
 string ask_join()
 {
@@ -88,6 +88,6 @@ string ask_join()
 	else
 	       ob->set_temp("apply/short", ({HIY"大理國鎮南王府隨從"NOR+" "+ob->name()+"("+ob->query("id")+")"}));       
 	command("look "+ob->query("id"));
-	return "好，不錯，這位兄弟可以爲本王府工作了。";
+	return "好，不錯，這位兄弟可以為本王府工作了。";
 }
 #include "/kungfu/class/dali/weishi.h"; 

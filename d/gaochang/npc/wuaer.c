@@ -31,7 +31,7 @@ void create()
 		"寶藏" : (: ask_baozang :),
 		"回去" : (: ask_back :),
 		"瓦耳拉齊" : (: ask_wuaer :),
-		"李文秀" : "瓦耳拉齊說道：這是一個好姑娘。何時能再見到她。\n",
+		"李文秀" : "瓦耳拉齊説道：這是一個好姑娘。何時能再見到她。\n",
 	]) );
 
 
@@ -50,7 +50,7 @@ int ask_back()
 	object me=this_player();
 	if ( present("map", me))
 	{
-		say("瓦耳拉齊說道：好吧，這次我送你回去，高昌迷宮你以後再也不要來了。下次來我就要殺了你。\n");
+		say("瓦耳拉齊説道：好吧，這次我送你回去，高昌迷宮你以後再也不要來了。下次來我就要殺了你。\n");
 		me->move("/d/gaochang/entrance");
 		return 1;
 	}
@@ -64,7 +64,7 @@ int ask_back()
 
 int ask_baozang()
 {
-	say("瓦耳拉齊說道：高昌迷宮一無所有，這一個房間是我住的。說完閃身讓出一條路。\n");
+	say("瓦耳拉齊説道：高昌迷宮一無所有，這一個房間是我住的。説完閃身讓出一條路。\n");
 	return 1;
 }    
 int ask_wuaer()

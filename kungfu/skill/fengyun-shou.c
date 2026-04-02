@@ -7,7 +7,7 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N一式"HIC"「風滿長空」"NOR"，以掌化爪，五指如鉤，直逼$n的膻中要穴",
+([	"action" : "$N一式"HIC"「風滿長空」"NOR"，以掌化爪，五指如鈎，直逼$n的膻中要穴",
 	"lvl" : 0,
 	"skill_name" : "風滿長空"
 ]),
@@ -113,7 +113,7 @@ int help(object me)
 	write(HIC"\n風雲手："NOR"\n");
 	write(@HELP
 
-    風雲手爲少林七十二絕技之一。
+    風雲手為少林七十二絕技之一。
     可與鷹爪功互備。
 
 	學習要求：

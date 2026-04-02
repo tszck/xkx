@@ -10,7 +10,7 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "這是一碗苦丁茶。青城出的苦丁茶入口微苦，回味則甜，且甜味綿長，實爲上品。\n");
+		set("long", "這是一碗苦丁茶。青城出的苦丁茶入口微苦，回味則甜，且甜味綿長，實為上品。\n");
 		set("unit", "個");
 		set("value", 0);
 		set("max_liquid", 60);

@@ -91,8 +91,8 @@ string ask_me()
 	command("chat 現在, 天下第一的候選人是"+this_object()->query("candidate")->query("name")+"!\n");
 	command("chat 大家可以自由挑戰。\n任何人連勝五場或者無人再向其挑戰即可獲得天下第一的稱號。\n");
 	command("chat 任何戰敗或中途棄權者均只能爭奪下一稱號.\n");
-	return("你可以用setname somebody 指定某人爲當前勝者。\n"+
-            "也可以用setcan somebody 指定某人爲當前候選人。\n");
+	return("你可以用setname somebody 指定某人為當前勝者。\n"+
+            "也可以用setcan somebody 指定某人為當前候選人。\n");
 }
 
 void do_clear()
@@ -142,7 +142,7 @@ int do_bihua(string arg)
 	if (ob1->query_temp("lose")*5>query("win_times"))    return notify_fail("你已經輸過一次了,只能向下一候選人挑戰。\n");
 
 	if( userp(ob2) && (object)ob2->query_temp("pending/fight") !=ob1 ) {
-		message_vision("\n$N對着$n說道" 
+		message_vision("\n$N對着$n説道" 
 			+ RANK_D->query_self(ob1) 
 			+ ob1->name() + "領教"
 			+ RANK_D->query_respect(ob2) + "的高招ⅵ\n\n", ob1, ob2);
@@ -252,18 +252,18 @@ int observe(object ob1,object ob2)
 
 		if(query("win_times")<5)
 		{	
-		command("chat " + ob1->query("name")+ "成爲天下第一之候選人！\n");
+		command("chat " + ob1->query("name")+ "成為天下第一之候選人！\n");
 		set("win_times",0);
 		}
 		else 
 		if(query("win_times")<10)
 		{
-		command("chat " + ob1->query("name")+ "成爲天下第二之候選人！\n");
+		command("chat " + ob1->query("name")+ "成為天下第二之候選人！\n");
 		set("win_times",5);
 		}
 		else 
 		{
-		command("chat " + ob1->query("name") + "成爲天下第三之候選人！\n");
+		command("chat " + ob1->query("name") + "成為天下第三之候選人！\n");
 		set("win_times",10);
 		}
 		set("candidate",ob1);
@@ -321,18 +321,18 @@ int observe(object ob1,object ob2)
 			+ "比武戰勝" + ob2->query("name") + "！\n");
 		if(query("win_times")<5)
 		{	
-		command("chat " + ob1->query("name")+ "成爲天下第一之候選人！\n");
+		command("chat " + ob1->query("name")+ "成為天下第一之候選人！\n");
 		set("win_times",0);
 		}
 		else 
 		if(query("win_times")<10)
 		{
-		command("chat " + ob1->query("name")+ "成爲天下第二之候選人！\n");
+		command("chat " + ob1->query("name")+ "成為天下第二之候選人！\n");
 		set("win_times",5);
 		}
 		else 
 		{
-		command("chat " + ob1->query("name") + "成爲天下第三之候選人！\n");
+		command("chat " + ob1->query("name") + "成為天下第三之候選人！\n");
 		set("win_times",10);
 		}
 		set("candidate",ob1);
@@ -351,18 +351,18 @@ int observe(object ob1,object ob2)
 			+ "比武戰勝" + ob2->query("name") + "！\n");
 		if(query("win_times")<5)
 		{	
-		command("chat " + ob1->query("name")+ "成爲天下第一之候選人！\n");
+		command("chat " + ob1->query("name")+ "成為天下第一之候選人！\n");
 		set("win_times",0);
 		}
 		else 
 		if(query("win_times")<10)
 		{
-		command("chat " + ob1->query("name")+ "成爲天下第二之候選人！\n");
+		command("chat " + ob1->query("name")+ "成為天下第二之候選人！\n");
 		set("win_times",5);
 		}
 		else 
 		{
-		command("chat " + ob1->query("name") + "成爲天下第三之候選人！\n");
+		command("chat " + ob1->query("name") + "成為天下第三之候選人！\n");
 		set("win_times",10);
 		}
 		set("candidate",ob1);
@@ -423,7 +423,7 @@ int do_setcan(string arg)
  object ob;
  if(!wizardp(this_player())) return notify_fail("你無權設定候選人!\n");
  if(!arg||!objectp(ob=present(arg,environment(this_player()))))
- return notify_fail("公平子說:對不起,此人不在這裏。\n");
+ return notify_fail("公平子説:對不起,此人不在這裏。\n");
  set("candidate",ob);
  command("nod");
  command("chat 當前候選人是"+query("candidate")->query("name")+"。\n");
@@ -491,9 +491,9 @@ int do_setname(string arg)
 			dest = all[i];
 	}
 	if( !dest )
-		return notify_fail("公平子說：對不起，此玩家不在這裏。\n");
+		return notify_fail("公平子説：對不起，此玩家不在這裏。\n");
 	if (dest->is_ghost())
-		return notify_fail("公平子說：對不起，此人已經死了。\n");
+		return notify_fail("公平子説：對不起，此人已經死了。\n");
 	if(this_object()->query("win_times")==10)
                 {
 		command("chat " + dest->query("name") 

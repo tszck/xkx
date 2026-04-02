@@ -22,7 +22,7 @@ int parse_inquiry(object me, object ob, string topic)
 			return 1;
 		case "rumors":
 			message_vision(CYN "$N向$n問道：這位" + RANK_D->query_respect(ob)
-				+ "，不知最近有沒有聽說什麼消息？\n" NOR, me, ob);
+				+ "，不知最近有沒有聽説什麼消息？\n" NOR, me, ob);
 			return 1;
 		default:
 			return 0;

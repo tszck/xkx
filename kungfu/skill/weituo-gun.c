@@ -117,7 +117,7 @@ int help(object me)
 	write(HIC"\n韋陀棍："NOR"\n");
 	write(@HELP
 
-    韋陀棍爲少林七十二絕技之一。
+    韋陀棍為少林七十二絕技之一。
 
 	學習要求：
 		混元一氣功20級

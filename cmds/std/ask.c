@@ -13,12 +13,12 @@ string filter_color(string arg);
 
 
 string *msg_dunno = ({
-	"$n搖搖頭，說道：沒聽說過。\n",
+	"$n搖搖頭，説道：沒聽説過。\n",
 	"$n疑惑地看着$N，搖了搖頭。\n",
-	"$n睜大眼睛望着$N，顯然不知道$P在說什麼。\n",
-	"$n聳了聳肩，很抱歉地說：無可奉告。\n",
-	"$n說道：嗯....這我可不清楚，你最好問問別人吧。\n",
-	"$n想了一會兒，說道：對不起，你問的事我實在沒有印象。\n"
+	"$n睜大眼睛望着$N，顯然不知道$P在説什麼。\n",
+	"$n聳了聳肩，很抱歉地説：無可奉告。\n",
+	"$n説道：嗯....這我可不清楚，你最好問問別人吧。\n",
+	"$n想了一會兒，説道：對不起，你問的事我實在沒有印象。\n"
 });
 
 int main(object me, string arg)
@@ -89,7 +89,7 @@ int main(object me, string arg)
 		
 	if (msg = ob->query("inquiry/" + topic)) {
 		if (stringp(msg)) {
-			message_vision( CYN "$N說道：" + msg + "\n" NOR, ob);
+			message_vision( CYN "$N説道：" + msg + "\n" NOR, ob);
 			return 1;
 		}
 	} else

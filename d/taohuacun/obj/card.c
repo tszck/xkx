@@ -17,7 +17,7 @@ void create()
 ┃  │  bedname : 設定牀鋪名稱。            │  ┃
 ┃  │  beddesc : 設定牀鋪描述。            │  ┃
 ┃  │  findbaby: 找你們的小孩。            │  ┃
-┃  │  gosleep : 上牀睡覺。這樣纔會有baby。│  ┃
+┃  │  gosleep : 上牀睡覺。這樣才會有baby。│  ┃
 ┃  │  sleep <sb>: 創造愛的結晶。          │  ┃
 ┃  │                                      │  ┃
 ┃  │                    俠客行一百恭賀    │  ┃

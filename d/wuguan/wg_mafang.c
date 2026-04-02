@@ -61,7 +61,7 @@ int do_sao(string arg)
 		present("mafang guanshi", environment(me)))
 	{
 		me->set_temp("mark/掃完了",1);
-		message_vision(RED"馬房管事對$N說：乾的不錯，好了，你可以回去覆命(task ok)了。\n"NOR, me);
+		message_vision(RED"馬房管事對$N説：乾的不錯，好了，你可以回去覆命(task ok)了。\n"NOR, me);
 		return 1;
 	}
 	message_vision("$N找了個地方開始掃了起來，真夠臭的，你不由閉緊了呼吸。\n", me);

@@ -1,9 +1,9 @@
-// weizun.c  五嶽爲尊
+// weizun.c  五嶽為尊
 // Last Modified by winder on Aug. 25 2001
 
 #include <ansi.h>
 inherit F_SSERVER;
-#define PNAME "「五嶽爲尊」"
+#define PNAME "「五嶽為尊」"
 int perform(object me,object target)
 {
 	string msg;
@@ -44,19 +44,19 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠, 不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠, 不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠, 不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不夠, 不能使用"+PNAME+"。\n");
 
 	if( me->query("neili") < 300 )
-		return notify_fail("你的內力不夠，無法運用五嶽爲尊！\n");
+		return notify_fail("你的內力不夠，無法運用五嶽為尊！\n");
 
 	if( me->query("max_neili") < 400 )
-		return notify_fail("你的內力修爲不夠，無法運用五嶽爲尊！\n");
+		return notify_fail("你的內力修為不夠，無法運用五嶽為尊！\n");
 
 	skill = me->query_skill(bskill,1);
-	message_combatd(HIW"$N使出泰山劍法的「五嶽爲尊」，身法陡然加快，劍鋒一轉，從五個方向連出數劍！\n" NOR, me, target);
+	message_combatd(HIW"$N使出泰山劍法的「五嶽為尊」，身法陡然加快，劍鋒一轉，從五個方向連出數劍！\n" NOR, me, target);
 
 	me->add("neili", -100);
 	attack_time = 3 + random(3);
@@ -82,7 +82,7 @@ int help(object me)
 	出手要求：
 		磐石神功50級
 		泰山劍法60級
-		內力修爲400
+		內力修為400
 		內力300
 HELP
 	);

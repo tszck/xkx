@@ -37,8 +37,8 @@ void create()
 
 int ask_me()
 {
-	say( "老者臉色大變：這麼說你都知道了？我求你千萬別告訴別人。我告訴你怎麼過河。\n");
-	write("老者說道：水下有暗樁，jump river即可過河。\n");
+	say( "老者臉色大變：這麼説你都知道了？我求你千萬別告訴別人。我告訴你怎麼過河。\n");
+	write("老者説道：水下有暗樁，jump river即可過河。\n");
 	say("老者急急忙忙地離開了。\n");
 	this_player()->set_temp("guiyun_river", 1);
 	destruct(this_object());

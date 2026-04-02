@@ -45,7 +45,7 @@ int accept_object(object who, object ob)
 {	
 	if(!(who->query_temp("whip") ) )
 	{
-		message_vision(HIC"師傅沒有同意爲你造鞭，您請回吧！\n"NOR, who);
+		message_vision(HIC"師傅沒有同意為你造鞭，您請回吧！\n"NOR, who);
 		return 0;
 	}
 	who->delete_temp("whip");
@@ -55,10 +55,10 @@ int accept_object(object who, object ob)
 		case "han zhu": 
 			break;
 		default :
-			message("vision","這是什麼！師傅說這不能用來打造長鞭！\n",who);
+			message("vision","這是什麼！師傅説這不能用來打造長鞭！\n",who);
 			return 0;
 	}
-	message("vision", "侍鞭低頭檢視了一下手中的"+(string)ob->query("name")+"點了點頭說：\n", who);
+	message("vision", "侍鞭低頭檢視了一下手中的"+(string)ob->query("name")+"點了點頭説：\n", who);
 	message("vision","。。。好我們現在就開始造鞭！\n", who);
 	write("請這位"+RANK_D->query_respect(who)+"給鞭起名字吧！(zhu 鞭的名字 英文代號)\n");
 	destruct(ob);

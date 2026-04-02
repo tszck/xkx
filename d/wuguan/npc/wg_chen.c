@@ -11,7 +11,7 @@ void create()
 	set("age", 50);
 	set("str", 30);
 	set("dex", 26);
-	set("long", "這人紫金臉龐，面帶威嚴，威武有力，站在那裏就象是一座鐵塔。\n他好像最近在爲各個門派新人分發推薦令。\n");
+	set("long", "這人紫金臉龐，面帶威嚴，威武有力，站在那裏就象是一座鐵塔。\n他好像最近在為各個門派新人分發推薦令。\n");
 	set("combat_exp", 1000000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");
@@ -65,19 +65,19 @@ int accept_object(object who, object ob)
 {
     if (who->query("combat_exp")>= 100000)
     {
-        message_vision("陳有德望着$N說：你的武功應該歷練江湖才能再長進，不能埋沒
+        message_vision("陳有德望着$N説：你的武功應該歷練江湖才能再長進，不能埋沒
 在這裏了。\n", who);
         return 0;
     }
     if (ob->query("money_id") && ob->value() >= 500)
     {
         who->set_temp("marks/yangzhou_paied",1);
-        message_vision("陳有德對$N說：好！這位" + RANK_D->query_respect(who) 
+        message_vision("陳有德對$N説：好！這位" + RANK_D->query_respect(who) 
 + "想學什麼呢？\n" , who);
         return 1;
     }
     else
-        message_vision("陳有德皺眉對$N說：錢我不在乎。可你也給的也太少了點兒吧？\n", who);
+        message_vision("陳有德皺眉對$N説：錢我不在乎。可你也給的也太少了點兒吧？\n", who);
         return 0;
 }
 
@@ -94,13 +94,13 @@ string do_getling()
 	if (!ob->query("family"))
 		return "這位"+RANK_D->query_respect(ob)+"還沒選好去哪裏學藝吧，留在武館學一些基本功也好。";
 	if (ob->query("combat_exp")<20000)
-		return "這位"+RANK_D->query_respect(ob)+"似乎太柔弱了些，還是多修煉一段時日再說。";
+		return "這位"+RANK_D->query_respect(ob)+"似乎太柔弱了些，還是多修煉一段時日再説。";
 	if (ob->query("combat_exp")>800000)
 		return "大俠您到我們這裏寫回憶錄來了？";
 	if (present("ling", ob))
 		return "你身上不是有個令了嗎。";
 	if (ob->query_temp("getling"))
-		return "我剛剛不是纔給過你推薦令了。";
+		return "我剛剛不是才給過你推薦令了。";
 	if (ob->query("teachwg/force")>=100 && ob->query("teachwg/dodge")>=100 && ob->query("teachwg/parry")>=100)
 		return "我看這推薦令給你也沒用，還是算了吧。";
 	command("smile");

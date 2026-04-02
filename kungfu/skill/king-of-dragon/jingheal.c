@@ -9,7 +9,7 @@ int exert(object me, object target)
 		return notify_fail("你無權進行精的治療！\n");
 
 	if( !target )
-		return notify_fail("你要用真氣爲誰療傷？\n");
+		return notify_fail("你要用真氣為誰療傷？\n");
 
 	message_combatd(
 		HIY "$N坐了下來運起內功，將手掌貼在$n背心，緩緩地將真氣輸入$n體內....\n\n"

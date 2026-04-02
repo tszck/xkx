@@ -28,7 +28,7 @@ int vote(object me, object victim)
 
   if ((reason = (int)victim->query("vote/reason"))>0 && (reason!=V_CHBLK))
   {
-  	return notify_fail("要把當前的表決完成以後纔可以提新的動議。\n");
+  	return notify_fail("要把當前的表決完成以後才可以提新的動議。\n");
   }
 
   if( base_name(environment(victim)) == JAIL) 

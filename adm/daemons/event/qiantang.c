@@ -16,7 +16,7 @@ private void do_bonus(object room)
                 return;
 	
 	msg = HIW "【自然奇觀】錢塘江潮信\n"NOR;
-	msg += HIC "每年八月十八錢塘江漲潮，非常準時，故稱之爲潮信。 \n"
+	msg += HIC "每年八月十八錢塘江漲潮，非常準時，故稱之為潮信。 \n"
 	          "每次潮水來臨時波濤洶湧，氣勢逼人，十分壯觀。\n";NOR;
         msg += HIC "只聽“隆隆”一陣雷鳴響過，潮水如湧一般的向岸邊捲來。\n"
                   "剎那間，漫江沸騰，波濤萬頃，潮高丈餘，萬馬奔騰，真有\n"
@@ -28,7 +28,7 @@ private void do_bonus(object room)
         msg += HIG "你望着洶湧的潮水，若有所悟，對武功又有了新的體會。\n" NOR;
         message("vision", msg, obs);
 
-	message("channel:rumor", HIM"【謠言】"+"八月十八又到了，聽說不少人前往錢塘江觀潮。\n"NOR, users()); 
+	message("channel:rumor", HIM"【謠言】"+"八月十八又到了，聽説不少人前往錢塘江觀潮。\n"NOR, users()); 
 	        
         for ( i = 0 ; i < sizeof(obs); i++)  // 增加潛能基本內功及潛能
                 {

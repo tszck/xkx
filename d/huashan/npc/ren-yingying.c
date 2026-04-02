@@ -70,7 +70,7 @@ void greeting(object ob)
       say( "任盈盈微微嘆了口氣：“不知道我的令狐大哥在何方?”\n");
       if ( ((int)ob->query_dex()>=25) && ((int)ob->query_int()>=25) )
       {
-           tell_object(ob,"任盈盈說道：請你務必找到我令狐大哥.\n");
+           tell_object(ob,"任盈盈説道：請你務必找到我令狐大哥.\n");
            ob->set("marks/feng-qingyang",1);
       }
       tell_object(ob,"任盈盈所完這句話，飄然隱去.\n");

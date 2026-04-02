@@ -47,7 +47,7 @@ int perform(object me, object target)
 		pskill = "douzhuan-xingyi";
 	}
 	if( (int)me->query_skill(fskill, 1) < 140 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，無法使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 140 )
 		return notify_fail("你的"+to_chinese(sskill)+"還不夠嫺熟，無法使用"+PNAME+"。\n");
 	if( (int)me->query_skill(pskill, 1) < 110 )
@@ -208,7 +208,7 @@ int help(object me)
 		化功大法140級
 		抽髓掌140級
 		基本毒技110級
-		內力修爲1200
+		內力修為1200
 		內力900
 		周圍有火堆
 HELP

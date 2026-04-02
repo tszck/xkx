@@ -49,8 +49,8 @@ void create()
 	set("attitude", "friendly");
 	set("chat_chance", 1);
 	set("chat_msg", ({
-		"關安基忽然說：本堂的香主誰來當，還輪不到我說話。\n",
-		"關安基忽然說：唉，我的脾氣不大好，大家可要小心了。\n",
+		"關安基忽然説：本堂的香主誰來當，還輪不到我説話。\n",
+		"關安基忽然説：唉，我的脾氣不大好，大家可要小心了。\n",
 	}));
 	set("inquiry", ([
 		"陳近南" : "想見總舵主可不容易啊。\n",
@@ -61,7 +61,7 @@ void create()
 		"江湖威望" : (: ask_weiwang :),
 	]) );
 	set("party/party_name", HIR"天地會"NOR);
-	set("party/rank", HIG"青木堂"NOR"會衆");
+	set("party/rank", HIG"青木堂"NOR"會眾");
 	create_family("雲龍門", 2, "弟子");
 
 	setup();
@@ -87,15 +87,15 @@ void init()
 
 void die()
 {
-	message_vision("\n$N大怒道：“你敢砍老子！兄弟們會替我報仇的！”說完倒地死了。\n", this_object());
+	message_vision("\n$N大怒道：“你敢砍老子！兄弟們會替我報仇的！”説完倒地死了。\n", this_object());
 	::die();
 }
 
 int ask_weiwang()
 {
 	command("tell "+this_player()->query("id")+" 你現在的江湖威望是 " +(string)(this_player()->query("weiwang")));
-	say( "\n關安基說：如果你威望值很高，有些人見了你不但不會殺你，還會教你武功，送你寶貝。\n而且你還可以加入幫會，率領會衆去攻打目標，就連去錢莊取錢也會有利息。。。。。\n");
-	say("關安基又說：殺某些壞人或救某些好人可以提高江湖威望。\n");
+	say( "\n關安基説：如果你威望值很高，有些人見了你不但不會殺你，還會教你武功，送你寶貝。\n而且你還可以加入幫會，率領會眾去攻打目標，就連去錢莊取錢也會有利息。。。。。\n");
+	say("關安基又説：殺某些壞人或救某些好人可以提高江湖威望。\n");
 	return 1;
 }
 #include "tiandihui.h";

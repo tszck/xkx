@@ -89,8 +89,8 @@ void create()
 	create_family("星宿派", 2, "弟子");
 	set("attitude", "peaceful");
 	set("inquiry", ([
-		"星宿派" : "你想加入，就拜我爲師。",
-		"星宿海" : "去星宿海幹什麼？拜我爲師就夠你學的了。",
+		"星宿派" : "你想加入，就拜我為師。",
+		"星宿海" : "去星宿海幹什麼？拜我為師就夠你學的了。",
 		"丁春秋" : "丁春秋是你叫的嗎？沒大沒小的。以後叫老仙！",
 		"截殺" : (: ask_job :),
 		"搶劫" : (: ask_job :),
@@ -120,7 +120,7 @@ int accept_object(object me, object obj)
        }
    if(!me->query_condition("xx_task2")){
        command("shake "+(string)me->query("id"));
-       command("say 這麼久纔回來，我還不如找別人來幹！");
+       command("say 這麼久才回來，我還不如找別人來幹！");
        return 0;
        }
    if(obj->query("id") == "prize" && obj->query("owner") == me->query("id")){
@@ -153,7 +153,7 @@ void destroying(object obj, object ob, object me)
       return;
       }
    command("pat "+me->query("id"));
-   message_vision(HIY"$N對$n說道：你這次做得極爲出色，這是你該得的部分，拿去吧！\n"NOR,ob, me);
+   message_vision(HIY"$N對$n説道：你這次做得極為出色，這是你該得的部分，拿去吧！\n"NOR,ob, me);
    n_money = new("/clone/money/gold");
    n_money->move(me); 
    n_money->add_amount(1);
@@ -203,7 +203,7 @@ string ask_job()
   
     me->set_temp("xx_job2", 1);
     me->delete_temp("biaoshi");
-    message_vision(CYN"\n$N陰陰一笑，說道：這兩天會有一隊駱駝商隊經過，你夠膽就和我一起去看看吧。\n"NOR, ob, me);
+    message_vision(CYN"\n$N陰陰一笑，説道：這兩天會有一隊駱駝商隊經過，你夠膽就和我一起去看看吧。\n"NOR, ob, me);
     ob->set_temp("job_asked", me->query("id"));
     ob->set_temp("dest", aquest["name"]);
     ob->set_temp("start_place", aquest["start"]);
@@ -270,7 +270,7 @@ int wait_target(object ob, object me)
 	object obj;
 	if(!objectp(present(me, environment(ob))))
 	{
-		message_vision("$N說道：耶？那傢伙怎麼不見了？\n", ob);
+		message_vision("$N説道：耶？那傢伙怎麼不見了？\n", ob);
 		remove_call_out("do_back");
 		do_back(ob);
 		return 1;
@@ -290,7 +290,7 @@ int wait_target(object ob, object me)
 	message_vision(HIY"\n只聽一陣駱駝風鈴聲傳來，一隻駱駝商隊出現在眼前！\n\n"NOR, ob);
 	tell_object(me,"獵物終於出現了！\n"); 
 	message_vision(HIY"$N對着$n大聲命令道：你快搶(qiang)商隊，我來對付其他人！\n"NOR, ob, me); 
-	message_vision("說完$N就衝上前去，和幾個護鏢鏢師打鬥追逐開了。\n", ob);
+	message_vision("説完$N就衝上前去，和幾個護鏢鏢師打鬥追逐開了。\n", ob);
 	remove_call_out("do_back");
 	do_back(ob);
 	me->delete_temp("wait_target");

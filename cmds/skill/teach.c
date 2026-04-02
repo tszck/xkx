@@ -44,7 +44,7 @@ int main(object me, string arg)
 		return notify_fail("你們夫妻太長時間沒有交流，感情生疏了，教什麼也學不會。\n");
 
 	if( !living(ob) || ob->query_temp("noliving") )
-		return notify_fail("嗯....你得先把" + ob->name() + "弄醒再說。\n");
+		return notify_fail("嗯....你得先把" + ob->name() + "弄醒再説。\n");
 
 	if (ob->is_busy())
 		return notify_fail(ob->name() + "現在正忙着呢。\n");
@@ -124,7 +124,7 @@ int main(object me, string arg)
 			ob->add("learned_points", 1);
 			
 // 學習速度 = 雙方先天悟性的和的一半，加武功學習補償。
-// 未定義學習補償的技能，默認學習補償爲10。
+// 未定義學習補償的技能，默認學習補償為10。
 			improve_points = (me->query("int")+ob->query("int"))/2;
 			if(SKILL_D(skill)->learn_bonus())
 				improve_points += SKILL_D(skill)->learn_bonus();
@@ -156,8 +156,8 @@ int help(object me)
  
     這個指令可以讓你向你的伴侶解釋有關某一種技能的疑難問題，當
 然，你的伴侶在這項技能上的造詣必須比你低，而你的伴侶經由這種方
-式學習得來的技能也不可能高於你，然而因爲這種傳授方式相當於一種
-「經驗的傳承」，因此這可以說是熟悉一種新技能較快的方法。
+式學習得來的技能也不可能高於你，然而因為這種傳授方式相當於一種
+「經驗的傳承」，因此這可以説是熟悉一種新技能較快的方法。
 
     此外學習也需要消耗一些精氣，而消耗的精氣跟你自己、與你的伴
 侶的悟性，以及二

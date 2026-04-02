@@ -8,7 +8,7 @@ void create()
         set("short", "流雲坪");
         set("long", @LONG
 每逢雨霽，在後山深壑中升騰起來的雲山霧海，湧過南天門山脊，
-向前山傾瀉，直如銀河飛瀉，蔚爲壯觀，這就是南天門的流雲奇景。
+向前山傾瀉，直如銀河飛瀉，蔚為壯觀，這就是南天門的流雲奇景。
 LONG);
         set("exits", ([ /* sizeof() == 4 */
            "westdown"  : __DIR__"nantian",

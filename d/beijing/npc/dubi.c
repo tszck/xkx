@@ -42,7 +42,7 @@ void create()
 	set("max_neili", 1500);
 	set("jiali", 100);
         set("inquiry", ([
-                "阿珂" : "神尼嘆了一口氣，說道：她是我的得意弟子，\n人長得挺美，唉，只可惜被韋小寶騙去了。\n",
+                "阿珂" : "神尼嘆了一口氣，説道：她是我的得意弟子，\n人長得挺美，唉，只可惜被韋小寶騙去了。\n",
         ]) );
 	create_family("鐵劍門", 3, "弟子");
 	setup();
@@ -67,7 +67,7 @@ int recognize_apprentice(object ob)
 	if ((ob->query("weiwang")+ob->query("meili"))<60)
 	{
 		message_vision("$N搖了搖頭。\n",this_object());
-		command("tell "+ob->query("id")+"你我素不相識，爲什麼我一定要教你呢？ \n"); 
+		command("tell "+ob->query("id")+"你我素不相識，為什麼我一定要教你呢？ \n"); 
 		return 0;
 	}
 	return 1;	
@@ -82,7 +82,7 @@ int do_skills(string arg)
 	if (ob->query("weiwang")<60)
 	{
 		message_vision("$N搖了搖頭。\n",this_object());
-		write("白衣女尼說道：你怎麼能看我的武功呢？\n");
+		write("白衣女尼説道：你怎麼能看我的武功呢？\n");
 		return 1;
 	}
 	command("tell "+ob->query("id")+" 我所有的武功如下：\n"+
@@ -112,7 +112,7 @@ void greeting(object ob)
 		message_vision(HIC "$N踏進屋來，只見地上屍體橫陳，一個女尼喘息不止。\n" NOR,ob);		
 		ob->delete_temp("hastrystab");
 		ob->delete_temp("warned2");
-		message_vision("\n白衣女尼對$N說道：“多謝這位"+RANK_D->query_respect(ob)+ "拔刀相助，貧尼感激不盡，無以爲報。\n這裏有一套神行百變身法，你若願學，貧尼定傾囊以授。”\n",ob);
+		message_vision("\n白衣女尼對$N説道：“多謝這位"+RANK_D->query_respect(ob)+ "拔刀相助，貧尼感激不盡，無以為報。\n這裏有一套神行百變身法，你若願學，貧尼定傾囊以授。”\n",ob);
 	  if (!me->query("skybook/luding/dubi"))
   	{
   	 me->set("skybook/luding/dubi",1);
@@ -124,7 +124,7 @@ void greeting(object ob)
      	tell_object(me,HIC"你成功得到了獨臂神尼的信任！\n在這次歷練中你獲得了"+
      	         chinese_number(exp)+"點經驗、"+
                chinese_number(pot)+"點潛能以及"+
-               chinese_number(score)+"點江湖閱歷。\n\n"NOR);
+               chinese_number(score)+"點江湖閲歷。\n\n"NOR);
 
   	}
 		if(ob->query("weiwang")<60)

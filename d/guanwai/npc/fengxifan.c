@@ -11,7 +11,7 @@ void create()
         set("class", "swordsman");
         set("age", 45);
         set("long",
-                "馮錫範是延平王府衛隊長，武夷派第一高手，一張白湛湛的麪皮。\n");
+                "馮錫範是延平王府衞隊長，武夷派第一高手，一張白湛湛的麪皮。\n");
         set("attitude", "peaceful");
         set("str", 26);
         set("con", 30);

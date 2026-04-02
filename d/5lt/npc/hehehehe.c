@@ -12,7 +12,7 @@ void create()
 	set("shen_type", 1);
 
 	set("gender", "男性" );
-	set("nickname", HIW"電視臺熱心觀衆"NOR);
+	set("nickname", HIW"電視臺熱心觀眾"NOR);
 	set("age", 20);
 	set("per", 30);
 	set("attitude", "friendly");		

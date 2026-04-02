@@ -10,7 +10,7 @@ void create()
 	set_name("王誠", ({ "wang cheng","wang"}) );
 	set("gender", "男性" );
 	set("age", 65);
-	set("long", "此人身材矮胖，滿臉堆笑，其實爲人十分狠毒。\n");
+	set("long", "此人身材矮胖，滿臉堆笑，其實為人十分狠毒。\n");
 	set("attitude", "friendly");
 	set("shen_type", -1);
 	set("env/wimpy", 40);

@@ -5,7 +5,7 @@ inherit NPC;
 
 void create()
 {
-	set_name("托鉢僧", ({"tuobo seng","seng"}));
+	set_name("托缽僧", ({"tuobo seng","seng"}));
 	set("title", "少林弟子");
 	set("long",
 		"他是一位未通世故的青年和尚，臉上掛着孩兒般的微笑。\n"
@@ -32,7 +32,7 @@ void create()
 	set("chat_chance", 30);
 
 	set("chat_msg", ({
-		"托鉢僧說道: 請這位施主化幾兩銀子給貧僧，積點陰德，造福衆生。\n",
+		"托缽僧説道: 請這位施主化幾兩銀子給貧僧，積點陰德，造福眾生。\n",
 		(: random_move :)
 	}) );
 
@@ -71,7 +71,7 @@ int accept_object(object me, object ob)
 
 		ling=new("/d/shaolin/obj/tie-ling");
 		ling->move(me);
-		message_vision("托鉢僧給$N一塊鐵鑄令牌。\n", me);
+		message_vision("托缽僧給$N一塊鐵鑄令牌。\n", me);
 
 		command("say 此牌限時一日，逾時失效，請於限時前離寺，否則多有不便，切記切記！"); 
 		return 1;

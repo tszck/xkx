@@ -7,7 +7,7 @@ void create()
 	set_name("歌女",({ "ge nu", "girl" }) );
         set("gender", "女性" );
         set("age", 17);
-        set("long", "她是一個賣唱爲生的歌女。\n");
+        set("long", "她是一個賣唱為生的歌女。\n");
  	set_temp("apply/defense", 5);
 	set("combat_exp", 700);
 	set("shen_type", 1);

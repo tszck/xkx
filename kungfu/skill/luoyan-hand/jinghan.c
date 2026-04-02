@@ -41,13 +41,13 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 30 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query("max_neili")< 300 )
-		return notify_fail("你的內力修爲不夠。\n"); 
+		return notify_fail("你的內力修為不夠。\n"); 
 
 	if( (int)me->query("neili")< 200 )
 		return notify_fail("你的內力不夠。\n"); 
@@ -90,7 +90,7 @@ int help(object me)
 	出手要求：
 		回雁心法50級
 		大落雁手30級
-		內力修爲300
+		內力修為300
 		內力200
 HELP
 	);

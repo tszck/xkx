@@ -37,7 +37,7 @@ int do_study(string arg)
 	if (me->is_busy()) return notify_fail("你現在正忙着呢。\n");
 	if (me->query("family")==0||me->query("family")["family_name"]!="逍遙派") 
 		return notify_fail("想學更高深的北冥神功，必須加入我逍遙派。\n");
-	if ( me->is_fighter()) return notify_fail("戰鬥中無法閱讀新知！\n");
+	if ( me->is_fighter()) return notify_fail("戰鬥中無法閲讀新知！\n");
 
 	if ( (int)me->query_skill("beiming-shengong",1) >= 20 &&
 		(int)me->query_skill("beiming-shengong",1) <= 100 )
@@ -45,7 +45,7 @@ int do_study(string arg)
 	    if ((int)me->query("jing")>cost)
 	       	{ myskill=(int)me->query_skill("beiming-shengong",1);
                	  if (myskill*myskill*myskill/10>(int)me->query("combat_exp") )
-                   {  return notify_fail("也許是缺乏實戰經驗，你對帛捲上所說的東西總是無法領會!\n");
+                   {  return notify_fail("也許是缺乏實戰經驗，你對帛捲上所説的東西總是無法領會!\n");
                     }
               	  else  
                       { me->receive_damage("jing", 20);

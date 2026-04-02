@@ -4,7 +4,7 @@ inherit NPC;
 void create ()
 {
 	set_name("戚芳", ({"qi fang","qi"}));
-	set("long", "一位容色秀麗的少婦，圓圓的臉蛋，一雙大眼黑溜溜的，臉上不施脂粉，容色頗爲憔悴。\n");
+	set("long", "一位容色秀麗的少婦，圓圓的臉蛋，一雙大眼黑溜溜的，臉上不施脂粉，容色頗為憔悴。\n");
 	set("gender", "女性");
 	set("age", 20);
 	set("combat_exp", 100000);

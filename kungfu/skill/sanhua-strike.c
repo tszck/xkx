@@ -104,7 +104,7 @@ int help(object me)
 	學習要求：
 		站樁功30級
 		韋陀掌30級
-		內力修爲200
+		內力修為200
 HELP
 	);
 	return 1;

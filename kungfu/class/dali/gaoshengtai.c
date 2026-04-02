@@ -89,7 +89,7 @@ void attempt_apprentice(object ob)
 	}
 	if (strsrch(ob->query("guard"), "鎮南王府") >= 0) 
 	{
-		command("say 很好，既然入我門來就得終身爲奴供我驅使。");
+		command("say 很好，既然入我門來就得終身為奴供我驅使。");
 		command("recruit " + ob->query("id"));
 	}
 	else
@@ -109,7 +109,7 @@ int ask_me()
 		command("say 你的武功恐怕是不能勝任武將的薪俸，再練幾年功夫吧。\n");
 		return 1;
 	}
-	if (ob->query("guard") == "鎮南王府衛士")
+	if (ob->query("guard") == "鎮南王府衞士")
 	{
 		ob->set_temp("fight_ok",1);
 		command("say 好，既然如此想切磋，那就看你的本事如何了。\n");
@@ -117,7 +117,7 @@ int ask_me()
 	}
 	else
 	{
-		command("say 只有衛士才能升武將。\n");
+		command("say 只有衞士才能升武將。\n");
 		return 1;
 	}
 }
@@ -173,9 +173,9 @@ void upgrade_title(object ob,string arg)
 /*
 string clear_title(string arg)
 {
-	if (strsrch(arg, "大理鎮南王府衛士") >= 0)
+	if (strsrch(arg, "大理鎮南王府衞士") >= 0)
 	{
-		arg = replace_string(arg, "大理鎮南王府衛士","");
+		arg = replace_string(arg, "大理鎮南王府衞士","");
 	}
 	return arg;
 }

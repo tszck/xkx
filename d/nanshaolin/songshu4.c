@@ -40,7 +40,7 @@ int valid_leave(object me, string dir)
 		if( me->query("guilty") == 0 || !userp(me) &&
 			me->query("id") != "seng bing" )
 		{
-			return notify_fail("只聽院內傳來一個渾厚的聲音說道：你未經許可，不能進入戒律院。\n");
+			return notify_fail("只聽院內傳來一個渾厚的聲音説道：你未經許可，不能進入戒律院。\n");
 		}
 	}
 	return ::valid_leave(me, dir);

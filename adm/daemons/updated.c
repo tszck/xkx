@@ -93,7 +93,7 @@ void check_user(object ob)
 	{
 		ob->apply_condition("linji_daxiao", 1);
 	}
-// 不允許自制兵器名爲corpse, 九陰白骨抓需corpse才能練
+// 不允許自制兵器名為corpse, 九陰白骨抓需corpse才能練
 	if( (ob->query("weapon/id")== "corpse") )
 	{
 		ob->set("weapon/id","shiti");
@@ -103,12 +103,12 @@ void check_user(object ob)
 	{
 		ob->set("weiwang", 80 + 20*ob->query("officerlvl"));
 	}
-// 登錄時記錄經驗和潛能, 以及登錄時間, 爲離線信息預留
+// 登錄時記錄經驗和潛能, 以及登錄時間, 為離線信息預留
 // 轉移到logind.c
 //	ob->set_temp("nowexp", ob->query("combat_exp"));
 //	ob->set_temp("nowpot", ob->query("potential"));
 //	ob->set_temp("nowtime", time());
-// 潛能上限100000 神上限百萬 江湖閱歷上限 10萬
+// 潛能上限100000 神上限百萬 江湖閲歷上限 10萬
 // 以下轉移到chard.c 斷線不會消去多餘潛能
 /*
 	if ((ob->query("potential")-ob->query("learned_points"))>100000) 

@@ -47,7 +47,7 @@ nod,就是這樣
 ☆──────────────────────────────────────☆ 
      orangejam (桔子果醬) 於 2003年06月06日22:33:10 星期五 提到： 
   
-  這樣不是吧qunshan作爲變量了嗎？ 
+  這樣不是吧qunshan作為變量了嗎？ 
   應該 #AL [qunshan] [pig] 
    或者 
      #If {@id=qunshan|@name=羣山} {id=pig} 
@@ -67,7 +67,7 @@ nod,就是這樣
 
 #If {@id=qunshan&@name=羣山} {id=pig;chat @name=@id;} 
 【 在 orangejam 的大作中提到: 】 
-:   這樣不是吧qunshan作爲變量了嗎？ 
+:   這樣不是吧qunshan作為變量了嗎？ 
 :   應該 #AL [qunshan] [pig] 
 :    或者 
 :      #If {@id=qunshan|@name=羣山} {id=pig} 

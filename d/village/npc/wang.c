@@ -49,9 +49,9 @@ int ask_me()
 		return 1;
 	} else {
 	say(
-"王小二看了" + this_player()->name() + "一眼，滿不在乎的說道：\n"
+"王小二看了" + this_player()->name() + "一眼，滿不在乎的説道：\n"
 "不錯，雞是我偷的，你要怎麼樣?! 看你也是出來闖江湖的，難道\n" 
-"不知江湖上誰的拳頭大誰說話?! 你不服氣? 那好，咱倆練幾招，\n"
+"不知江湖上誰的拳頭大誰説話?! 你不服氣? 那好，咱倆練幾招，\n"
 "要是你贏了，我馬上按雙倍價賠給老太太。而且我還另外送你點\n"
 "東西。你要輸了，就給我爬着出去。怎麼着，敢不敢比劃(bihua)幾下?\n");
 	this_player()->set_temp("marks/王2", 1);
@@ -75,7 +75,7 @@ int do_bihua()
 	book = new("/clone/book/sword_book");
 	current_qi = (int)me->query("qi");
 
-	say(obj->name() + "對王小二說：好吧，那" + RANK_D->query_self_rude(obj) + 
+	say(obj->name() + "對王小二説：好吧，那" + RANK_D->query_self_rude(obj) + 
 "就同你練幾招。\n");
         if( obj->query_temp("marks/王2") ) {
                 obj->set_temp("marks/王2", 0);
@@ -85,7 +85,7 @@ int do_bihua()
                         COMBAT_D->do_attack(obj, me, obj->query_temp("weapon"));
 			if (((int)me->query("qi")*100/current_qi)< 50) {
 				say(
-"王小二對" + obj->name() + "說道：今兒您贏了我，您說什麼我都得聽着，我這就把\n"
+"王小二對" + obj->name() + "説道：今兒您贏了我，您説什麼我都得聽着，我這就把\n"
 "錢給老太太送去。另外，這本書也是您的了。這是前些日子華山派從這\n"
 "路過，在廟裏歇腳時落下的。\n"
 				);
@@ -99,7 +99,7 @@ message("channel:rumor", MAG"【謠言】某人："+this_player()->query("name")
 	                 COMBAT_D->do_attack(me, obj);
 		}
 		say(
-"王小二衝着" + obj->name() + "撇了撇嘴，說道：就你這點本事還來\n"
+"王小二衝着" + obj->name() + "撇了撇嘴，説道：就你這點本事還來\n"
 "充英雄?!給我乖乖的爬出去吧!\n"
 		);
                 message("vision",
@@ -109,7 +109,7 @@ obj->name() + "乖乖的趴在地上，從洞裏爬了出去。\n", environment(
 obj->name() + "從洞裏爬了出來。\n", environment(obj), ({obj}) );
                 return 1;
 	}
-	say("王小二不耐煩的對" + obj->name() + "說道：要打就動手，羅嗦什麼!\n"
+	say("王小二不耐煩的對" + obj->name() + "説道：要打就動手，羅嗦什麼!\n"
 	);
 	return 1;
 }

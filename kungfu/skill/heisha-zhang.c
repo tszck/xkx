@@ -27,7 +27,7 @@ mapping *action = ({
 	"lvl"    : 80,
 	"skill_name"  : "油錘灌頂"
 ]),
-([	"action" : "$N突然身形一頓，掌爲腿先，掌腿相扣，正是"HIB"「沸鼎熬渣」"NOR"",
+([	"action" : "$N突然身形一頓，掌為腿先，掌腿相扣，正是"HIB"「沸鼎熬渣」"NOR"",
 	"lvl"    : 100,
 	"skill_name"  : "沸鼎熬渣"
 ]),
@@ -109,7 +109,7 @@ int help(object me)
 
 	學習要求：
 		紅花神功10級
-		內力修爲20
+		內力修為20
 HELP
 	);
 	return 1;

@@ -45,13 +45,13 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲太淺，無法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為太淺，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲太淺，無法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為太淺，無法使用"+PNAME+"。\n");
 
 	if( me->query("max_neili") < 300)
-		return notify_fail("你的內力修爲太淺。\n");
+		return notify_fail("你的內力修為太淺。\n");
 
 	if( me->query("neili") < 200)
 		return notify_fail("你的內力不夠。\n");
@@ -93,7 +93,7 @@ int help(object me)
 	出手要求：
 		紅花神功60級
 		寒星八打60級
-		內力修爲300
+		內力修為300
 		內力200
 HELP
 	);

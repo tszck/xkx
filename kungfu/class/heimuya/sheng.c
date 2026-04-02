@@ -71,7 +71,7 @@ void attempt_apprentice(object ob)
 	}
 	if ((int)ob->query("shen") < 0)
 	{
-		command("say 本教雖不是什麼名門正派，但在梅莊，擇徒也極爲嚴格。");
+		command("say 本教雖不是什麼名門正派，但在梅莊，擇徒也極為嚴格。");
 		command("say 在品行方面，" + RANK_D->query_respect(ob) +
 			"是否還做得不夠？");
 		return;

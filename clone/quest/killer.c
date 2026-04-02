@@ -192,7 +192,7 @@ void die()
 				tell_object(obs[i],HIW"經過這番歷練，你被獎勵了：");
 				tell_object(obs[i],chinese_number(exp) +"點實戰經驗、" +
 				chinese_number(pot) + "點潛能、"+
-				chinese_number(score)+"點江湖閱歷。\n"NOR);
+				chinese_number(score)+"點江湖閲歷。\n"NOR);
 			}
 		}
 	}

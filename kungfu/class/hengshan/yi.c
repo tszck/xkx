@@ -11,7 +11,7 @@ void create()
 {
 	set_name("定逸師太", ({ "dingyi shitai", "shitai", "dingyi" }) );
 	set("long",
-	"她是恆山派的定逸師太，性格剛猛，爲人正直，有巾幗不讓鬚眉之風。\n"
+	"她是恆山派的定逸師太，性格剛猛，為人正直，有巾幗不讓鬚眉之風。\n"
 	"她眼中精光四射，絕無半點老態。\n");
 	set("gender", "女性");
 	set("class", "bonze");
@@ -120,12 +120,12 @@ void attempt_apprentice(object ob)
 	}
 	if ((int)ob->query("shen")<100000)
 	{
-		command( "say 你若能多爲俠義之舉，當能承我衣鉢。\n");
+		command( "say 你若能多為俠義之舉，當能承我衣缽。\n");
 		return;
 	}
 
 	command("say 阿彌陀佛，善哉！善哉！好吧，我就收下你了。");
-	command("say 希望你能努力行善，濟度衆生，以光大我恆山派。");
+	command("say 希望你能努力行善，濟度眾生，以光大我恆山派。");
 	command("recruit " + ob->query("id"));
 	name = ob->query("name");
 	new_name = "儀" + name[1..1];

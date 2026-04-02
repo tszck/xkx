@@ -50,7 +50,7 @@ int do_jump(string arg)
 		return notify_fail("你身上負重太多，無法跳過去。\n");
  
 	if((int)me->query_skill("dodge",1) < 100 )  
-		return notify_fail("以你目前的輕功修爲，無法跳過去。\n"); 
+		return notify_fail("以你目前的輕功修為，無法跳過去。\n"); 
 	message_vision("$N縱身向前面的峭壁跳了過去。\n", me);
 	me->move(__DIR__"qiaobi");
 	tell_room(environment(me), me->name()+"從斷腸崖跳了過來。\n", ({ me }));

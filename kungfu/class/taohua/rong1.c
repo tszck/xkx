@@ -76,10 +76,10 @@ void saying(object ob)
     if (!ob || environment(ob) != environment())
         return;
     if ((string)ob->query("gender") == "男性")
-        message_vision("\n黃蓉面現驚奇之色，打量了$N一眼，說到：“你是什麼人，"
+        message_vision("\n黃蓉面現驚奇之色，打量了$N一眼，説到：“你是什麼人，"
         "竟敢亂闖我的閨房？\n再不滾出去，看我怎麼整你！”\n", ob);
     else
-        message_vision("\n黃蓉看了看$N，說到：“好久每生人來過了，"
+        message_vision("\n黃蓉看了看$N，説到：“好久每生人來過了，"
         "不知這位姐姐可有我靖哥哥的消息？\n", ob);
 }
 

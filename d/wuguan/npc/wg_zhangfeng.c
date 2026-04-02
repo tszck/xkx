@@ -17,7 +17,7 @@ void create()
 	set("int", 20);
 	set("con", 20);
 	set("per", 16);
-	set("long", "這人相貌和藹，笑呵呵的，一手拿個旱菸袋。\n");
+	set("long", "這人相貌和藹，笑呵呵的，一手拿個旱煙袋。\n");
 	set("combat_exp", 700000);
 	set("shen_type", 1);
 	set("attitude", "friendly");

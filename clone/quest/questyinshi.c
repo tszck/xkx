@@ -9,22 +9,22 @@ inherit NPC;
 inherit F_UNIQUE;
 int ask_me(object who);
 string *msg_dunno = ({
-        "$n搖搖頭，說道：沒聽說過。\n",
+        "$n搖搖頭，説道：沒聽説過。\n",
         "$n疑惑地看着$N，搖了搖頭。\n",
-        "$n睜大眼睛望着$N，顯然不知道$P在說什麼。\n",
-        "$n聳了聳肩，很抱歉地說：無可奉告。\n",
-        "$n說道：嗯....這我可不清楚，你最好問問別人吧。\n",
-        "$n想了一會兒，說道：對不起，你問的事我實在沒有印象。\n"
+        "$n睜大眼睛望着$N，顯然不知道$P在説什麼。\n",
+        "$n聳了聳肩，很抱歉地説：無可奉告。\n",
+        "$n説道：嗯....這我可不清楚，你最好問問別人吧。\n",
+        "$n想了一會兒，説道：對不起，你問的事我實在沒有印象。\n"
 });
 string *reject_msg = ({
-        "說道：您太客氣了，這怎麼敢當？\n",
-        "像是受寵若驚一樣，說道：請教？這怎麼敢當？\n",
-        "笑着說道：您見笑了，我這點雕蟲小技怎夠資格「指點」您什麼？\n"
+        "説道：您太客氣了，這怎麼敢當？\n",
+        "像是受寵若驚一樣，説道：請教？這怎麼敢當？\n",
+        "笑着説道：您見笑了，我這點雕蟲小技怎夠資格「指點」您什麼？\n"
 });
 string *name_msg = ({
         "書生",
         "客商",
-        "錦衣衛士",
+        "錦衣衞士",
         "採藥人",
         "江湖藝人",
         "進香客",
@@ -176,7 +176,7 @@ int ask_me(object who)
 			ob->set_skill(sname[i], skilllvl);
 		}
 		
-                message_vision(HIC"$N嘆了口氣，說道：“我已歸隱多年，你卻還要苦苦相逼？”\n"NOR, ob, me);       
+                message_vision(HIC"$N嘆了口氣，説道：“我已歸隱多年，你卻還要苦苦相逼？”\n"NOR, ob, me);       
                 message_vision(HIY"$N眼中突然閃過一道寒光，憤怒地瞪着$n，大聲喝道："+RANK_D->query_self_rude(ob)+"就是"+ob->query("fname")+"！"+RANK_D->query_rude(me)+"！納命來吧！\n"NOR, ob, me);            
                 me->start_busy(1);      
                 ob->add_temp("apply/dodge",150);
@@ -208,8 +208,8 @@ int ask_me(object who)
         }
         else if(ob->query("ask_time")>=3 && ob->query("family_name") == me->query("family/family_name")
                 && ob->query("owner")==me->query("id"))
-                message_vision(HIG"$N嘆了口氣，看着$n笑道：“原來是同門後輩，你這麼辛苦地找我，所爲何事？”。\n"NOR, ob, me);
-        else message_vision(HIG"$N嘆了口氣，看着$n苦笑道：“你這麼辛苦地找我，所爲何事？”。\n"NOR, ob, me);
+                message_vision(HIG"$N嘆了口氣，看着$n笑道：“原來是同門後輩，你這麼辛苦地找我，所為何事？”。\n"NOR, ob, me);
+        else message_vision(HIG"$N嘆了口氣，看着$n苦笑道：“你這麼辛苦地找我，所為何事？”。\n"NOR, ob, me);
         return 1;
 }
 
@@ -305,7 +305,7 @@ int do_qingjiao(string arg)
             }
            me->add("score",1000+random(500));
            me->start_busy(1);
-           message_vision(HIG"$N嘆了口氣，說道：“你我若是有緣，來日自會再聚，時候不早了，我先走一步!”。\n"NOR, ob, me);
+           message_vision(HIG"$N嘆了口氣，説道：“你我若是有緣，來日自會再聚，時候不早了，我先走一步!”。\n"NOR, ob, me);
            destruct(ob);
         }
 } 
@@ -393,7 +393,7 @@ void die()
               tell_object(me,HIW"你在尋訪過程中得到如下獎勵：\n");
               tell_object(me,chinese_number(exp) +"點實戰經驗\n" +
               chinese_number(pot) + "點潛能\n" +
-              chinese_number(score)+"點江湖閱歷\n"NOR);
+              chinese_number(score)+"點江湖閲歷\n"NOR);
               }
          ::die();    
 }

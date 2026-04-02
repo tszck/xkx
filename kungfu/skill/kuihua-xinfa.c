@@ -44,7 +44,7 @@ int help(object me)
 	write(HIC"\n葵花心法："NOR"\n");
 	write(@HELP
 
-    葵花心法爲日月神教黑木崖本門內功心法。
+    葵花心法為日月神教黑木崖本門內功心法。
 
 	學習要求：
 		基本內功10級

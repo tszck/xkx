@@ -99,7 +99,7 @@ void die()
 	object shu;
 	me = query("pk_target");
 	shu = present("zhan shu",me);
-	message_vision("$N說道：“哎,看來我命該如此啊！”說完兩眼一閉倒地死了。\n", this_object());
+	message_vision("$N説道：“哎,看來我命該如此啊！”説完兩眼一閉倒地死了。\n", this_object());
   if (userp(me) &&  environment(me)==environment(this_object()) &&
    objectp(shu) &&  shu->is_zhanshu())
 	{

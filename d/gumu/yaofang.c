@@ -55,7 +55,7 @@ int do_make(string arg)
 		score=2+random(5);
 		me->add("score",score);
 		call_out("destroying", 1, ob);
-		tell_object(me,HIW"因爲勞作，你增長了：" + chinese_number(exp) + "點實戰經驗" + chinese_number(pot) + "點潛能" + chinese_number(score) + "點江湖閱歷。\n"NOR); 
+		tell_object(me,HIW"因為勞作，你增長了：" + chinese_number(exp) + "點實戰經驗" + chinese_number(pot) + "點潛能" + chinese_number(score) + "點江湖閲歷。\n"NOR); 
 		return 1;
 	}
 	return notify_fail("你想把蜂蜜製成什麼啊？\n");

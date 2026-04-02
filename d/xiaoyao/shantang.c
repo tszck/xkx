@@ -52,6 +52,6 @@ int valid_leave(object me,string dir)
 {
 	me=this_player();
         if(dir=="north" && (present("bowl",this_player()) || present("rice",this_player()))) 
-             return notify_fail("小二說道：真抱歉，我們這裏沒有打包服務。\n");
+             return notify_fail("小二説道：真抱歉，我們這裏沒有打包服務。\n");
         return ::valid_leave(me,dir);
 }

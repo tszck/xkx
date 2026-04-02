@@ -9,7 +9,7 @@ void create()
 	set_name("漁夫", ({ "yu fu","fu" }) );
 	set("gender", "男性");
 	set("age", 35);
-	set("long", "島上以打魚爲生的漁夫。\n");
+	set("long", "島上以打魚為生的漁夫。\n");
 	set("combat_exp", 8800);
 	set("shen_type", 0);
 	set("attitude", "friendly");
@@ -35,7 +35,7 @@ string ask_shenlong()
 		fam["family_name"] != "神龍教")
 	{
 		this_player()->set_temp("marks/shenlong", 1);
-		write("漁夫對你說：神龍島可是個好去處，你想去就喊小人一聲。\n");
+		write("漁夫對你説：神龍島可是個好去處，你想去就喊小人一聲。\n");
 		return "快上船，走吧。\n";
 	}
 	else

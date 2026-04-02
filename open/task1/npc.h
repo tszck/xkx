@@ -132,19 +132,19 @@ void init()
 					ob->set_temp("guanf_huida1", me->query("name"));
 					break;
 				case 1:
-					message_vision( HIR"$n陰笑一聲說道，這麼多不怕死的？再來十個大爺我也不怕！\n隨即眼睛一瞪，向着$N就衝了過去！\n"NOR,ob,me);
+					message_vision( HIR"$n陰笑一聲説道，這麼多不怕死的？再來十個大爺我也不怕！\n隨即眼睛一瞪，向着$N就衝了過去！\n"NOR,ob,me);
 					me->set_leader(ob);
 					remove_call_out("kill_ob");
 					call_out("kill_ob", 1, ob);
 					ob->delete_temp("mark/gkill1");
 					break;
 				case 2:
-					message_vision( WHT"$n待$N走到近前，冷冷一笑，說道，你千里追到這裏，我看你又能奈我何！\n"NOR,ob,me);
+					message_vision( WHT"$n待$N走到近前，冷冷一笑，説道，你千里追到這裏，我看你又能奈我何！\n"NOR,ob,me);
 					write(WHT"你感到一股無形的殺氣，心中不由一顫。\n"NOR);
 					ob->delete_temp("mark/gkill1");
 					break;
 				case 3:
-					message_vision("$n忽然淚流滿面，一幅可憐的神情對$N說道，小人上有老下有小，而且完全是官府被\n陷害才落此地步，望你老明察秋毫，網開一面，我今生一定感激不盡。\n",ob,me);
+					message_vision("$n忽然淚流滿面，一幅可憐的神情對$N説道，小人上有老下有小，而且完全是官府被\n陷害才落此地步，望你老明察秋毫，網開一面，我今生一定感激不盡。\n",ob,me);
 					ob->delete_temp("mark/gkill1");
 			}
 		}
@@ -245,7 +245,7 @@ int do_yes()
 	}
 	if ((int)ob->query("shen") < 1 && ob->query("combat_exp",1) > 500000)
 	{
-		command( "say 您老人家功夫如此出衆，小的實在想不出拿什麼孝敬您老，回頭我想起在說吧。\n");
+		command( "say 您老人家功夫如此出眾，小的實在想不出拿什麼孝敬您老，回頭我想起在説吧。\n");
 		message_vision("$N嘿嘿一笑，轉身離開，一眨眼就消失不見了。\n",me);
 		destruct(me);
 		return 1;
@@ -320,7 +320,7 @@ void die()
 		!me->query_temp("mark/gkill2") &&
 		(string)ob->query("id") == me->query_temp("guanfu_target"))
 	{
-		message_vision(WHT"$N深吸口氣，冷笑道，好身手！說完強忍傷痛縱身向「"+dizhis["cdizhi"]+"」處逃走。\n"NOR,ob,me);
+		message_vision(WHT"$N深吸口氣，冷笑道，好身手！説完強忍傷痛縱身向「"+dizhis["cdizhi"]+"」處逃走。\n"NOR,ob,me);
 		me->set_temp("mark/gkill2",1);
 //		message_vision(WHT"「"+ob->query_temp("guanfu_targetnm")+"」好象往「"+dizhis["cdizhi"]+"」的方向逃去了。\n"NOR);
 		new(me->query_temp("path_rooms"))->move(dizhis["weizhi2"]);
@@ -330,7 +330,7 @@ void die()
 	if (me->query_temp("mark/gkill2") &&
 		(string)ob->query("id") == me->query_temp("guanfu_target"))
 	{
-		message_vision(WHT"$N冷笑一聲，說道，好俊的功夫！說完縱身向「"+dizhis["cdizhi"]+"」處逃走。\n"NOR,ob,me);
+		message_vision(WHT"$N冷笑一聲，説道，好俊的功夫！説完縱身向「"+dizhis["cdizhi"]+"」處逃走。\n"NOR,ob,me);
 		me->delete_temp("mark/gkill2");
 		me->set_temp("mark/gkill3",1);
 //		message_vision(WHT"「"+ob->query_temp("guanfu_targetnm")+"」好象往「"+dizhis["cdizhi"]+"」的方向逃去了。\n"NOR);

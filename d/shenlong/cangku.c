@@ -86,7 +86,7 @@ void refresh_stuff()
 						"/cmds/std/wear"->do_wear(keeper, inv[i]); 
 					}
 
-					message("channel:snow",HIM"【謠言】某人："+sprintf( "聽說%s"+HIM+"好象落在%s的%s"+HIM+"手裏了！"NOR,
+					message("channel:snow",HIM"【謠言】某人："+sprintf( "聽説%s"+HIM+"好象落在%s的%s"+HIM+"手裏了！"NOR,
 					inv[i]->name(),
 					to_chinese(explode(base_name(environment(keeper)), "/")[1]),
 					keeper->name())+"\n",users());

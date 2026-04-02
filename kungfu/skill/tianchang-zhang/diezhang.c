@@ -56,10 +56,10 @@ int perform(object me, object target)
 	arg =(int)(me->query_skill(bskill, 1) / 30);
 
 	if( arg <= 1 )
-		return notify_fail("至少要有兩招纔可組成「天長疊掌」。\n");
+		return notify_fail("至少要有兩招才可組成「天長疊掌」。\n");
 
 	if( (int)me->query("max_neili", 1) < 1500 )
-		return notify_fail("你內力修爲不夠，不能使用「天長疊掌」。\n");
+		return notify_fail("你內力修為不夠，不能使用「天長疊掌」。\n");
 
 	if( (int)me->query("neili", 1) < 200 )
 		return notify_fail("你現在內力太弱，不能使用「天長疊掌」。\n");

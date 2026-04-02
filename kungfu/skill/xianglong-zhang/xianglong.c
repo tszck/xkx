@@ -51,10 +51,10 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲還不夠使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為還不夠使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 80 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲還不夠使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為還不夠使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 300  ) 
 		return notify_fail("你的內力不夠。\n");

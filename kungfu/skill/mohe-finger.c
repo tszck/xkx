@@ -11,7 +11,7 @@ mapping *action = ({
 	"lvl"   : 0,
 	"skill_name" : "以"
 ]),
-([	"action" : "$N左手食指緩緩畫了個"HIM"「慈」"NOR"字，跟着手指微曲，以字爲中心，對着$n一彈",
+([	"action" : "$N左手食指緩緩畫了個"HIM"「慈」"NOR"字，跟着手指微曲，以字為中心，對着$n一彈",
 	"lvl"   : 20,
 	"skill_name" : "慈"
 ]),
@@ -120,7 +120,7 @@ int help(object me)
 	學習要求：
 		站樁功30級
 		韋陀掌30級
-		內力修爲200
+		內力修為200
 HELP
 	);
 	return 1;

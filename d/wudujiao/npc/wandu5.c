@@ -7,7 +7,7 @@ void create()
         set_name("三足金蟾",({"chan chu"}));
 
         set("race", "野獸");
-        set("long", "一隻拳頭大小通身金黃的小蟾蜍，據說只有月宮纔有。\n");
+        set("long", "一隻拳頭大小通身金黃的小蟾蜍，據説只有月宮才有。\n");
         set("age", 10000);
         set("attitude", "peaceful");
 

@@ -26,8 +26,8 @@ void create()
         set("attitude", "friendly");
         set("rank_info/respect", "歐冶師傅");
         set("inquiry", ([
-            "造劍": "造劍，好說，十兩黃金，款到交貨！",
-            "鑄劍": "造劍，好說，十兩黃金，款到交貨！",
+            "造劍": "造劍，好説，十兩黃金，款到交貨！",
+            "鑄劍": "造劍，好説，十兩黃金，款到交貨！",
             "價格": "這個價格嘛...!嘿嘿,一律十兩黃金起價，一分錢一分貨麼。",
          ]) );
         setup();
@@ -76,7 +76,7 @@ int do_name(string arg,object ownsword)
         if( !arg ) return notify_fail
          ("歐冶子問道：寶劍有名方能傳，你的寶劍該什麼名(name)？可以問(ask)嘛！\n");
         if( strwidth(arg) > 20 )
-        return notify_fail("歐冶子說：哇拷！這麼長怎麼寫得下，想個短一點的吧！\n");
+        return notify_fail("歐冶子説：哇拷！這麼長怎麼寫得下，想個短一點的吧！\n");
 
         arg = replace_string(arg, "$BLK$", BLK);
         arg = replace_string(arg, "$RED$", RED);
@@ -102,7 +102,7 @@ int do_name(string arg,object ownsword)
         tell_object(me,
 "龍飛鳳舞的細字，直把你看得目瞪口呆。\n\n");
         command("smile");
-        command("say 成了。" + me->query("name") +"，拿去吧！說完便遞了一把劍
+        command("say 成了。" + me->query("name") +"，拿去吧！説完便遞了一把劍
 過來..\n\n");
         ownsword->move(me);
         write("你拿着劍端詳一下，寶劍暗紋浮動，真是絕世無雙的手藝。\n\n");
@@ -120,9 +120,9 @@ int do_ask(object me)
            return notify_fail("歐冶子道：你想鑄寶劍嗎？\n");
        }
        write(@HELP
-歐冶子說道:我這門手藝叫做刻字( name <名稱> ),
+歐冶子説道:我這門手藝叫做刻字( name <名稱> ),
 可以在寶劍上刻字，如果你想在你的兵器上刻下帶色的字，劍以名傳麼。
-那就要採用某種特殊工藝，你且聽我慢慢說來:
+那就要採用某種特殊工藝，你且聽我慢慢説來:
 
 $BLK$ - 黑色            $NOR$ - 恢復正常顏色
 $RED$ - 紅色            $HIR$ - 亮紅色

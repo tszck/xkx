@@ -19,12 +19,12 @@ void attempt_apprentice(object ob)
 	}
 	if( ob->query_skill("force", 1) < 60)
 	{
-		command("say "+RANK_D->query_respect(ob)+"，你的基本內功還需要磨練。貧僧到時再收你爲徒。");
+		command("say "+RANK_D->query_respect(ob)+"，你的基本內功還需要磨練。貧僧到時再收你為徒。");
 		return;
 	}
 	if( ob->query_skill("zhanzhuang-gong", 1) < 60)
 	{
-		command("say "+RANK_D->query_respect(ob)+"，你的站樁功還需要磨練。貧僧到時再收你爲徒。");
+		command("say "+RANK_D->query_respect(ob)+"，你的站樁功還需要磨練。貧僧到時再收你為徒。");
 		return;
 	}
 	if( ob_fam["generation"]==(my_fam["generation"]+1) )

@@ -44,7 +44,7 @@ int do_tiao(string arg)
 	if ( !living(me)) return notify_fail("你發瘋了？\n");
 
 	if ( !arg || arg != "shakeng" )
-		return notify_fail("你在場子裏蹦蹦跳跳了半天，別人還以爲你發神經！\n");
+		return notify_fail("你在場子裏蹦蹦跳跳了半天，別人還以為你發神經！\n");
 	costj = random((int)me->query("con"))+1;
 	costq = random((int)me->query("str"))+1;
 

@@ -11,7 +11,7 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "只");
-                set("long", "這是傳說中馬良用過的神筆。\n");
+                set("long", "這是傳説中馬良用過的神筆。\n");
                 set("value", 2000);
                 set("material", "steel");
                 set("wield_msg", "$N「唰」的一聲從懷中掏出一隻$n握在手中。\n");

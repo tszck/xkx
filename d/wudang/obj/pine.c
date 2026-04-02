@@ -47,7 +47,7 @@ int do_chop(string arg)
 			(string)weapon->query("skill_type") != "axe" )
 		{
 			message_vision(HIW"$N揮起手中" + weapon->name() + HIW"朝松樹一陣猛砍。\n"NOR, me);
-			message_vision(HIW"結果「啪」地一聲，$N手中的" + weapon->name() + HIW"已經斷爲兩截！\n"NOR , me );
+			message_vision(HIW"結果「啪」地一聲，$N手中的" + weapon->name() + HIW"已經斷為兩截！\n"NOR , me );
 
 			weapon->unequip();
 			seteuid(getuid());

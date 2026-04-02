@@ -52,10 +52,10 @@ void greeting(object ob)
 	switch( random(2) )
 	{
 		case 0:
-			say( "知客僧雙手合什說道：這位施主，你來進香？\n");
+			say( "知客僧雙手合什説道：這位施主，你來進香？\n");
 			break;
 		case 1:
-			say( "知客僧摸了摸自己的光頭，說道：這位" + RANK_D->query_respect(ob) + "，請進請進。\n");
+			say( "知客僧摸了摸自己的光頭，説道：這位" + RANK_D->query_respect(ob) + "，請進請進。\n");
 			break;
 	}
 }

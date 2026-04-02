@@ -42,7 +42,7 @@ int valid_leave(object me, string dir)
 		default:
 			write(HIG"唉……你既然心意已決，那就去吧……\n\n"NOR);
 	}
-	write(HIB"去吧……去吧……一個聲音輕輕地說道。\n\n\n\n"NOR);
+	write(HIB"去吧……去吧……一個聲音輕輕地説道。\n\n\n\n"NOR);
 	write(HIY"你腳下忽然升起一朵祥雲，你一踏上去，就慢慢向下飄去了，……\n\n\n\n"NOR);
 	me->reincarnate();
 /*

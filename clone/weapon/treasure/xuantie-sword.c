@@ -14,7 +14,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "柄");
-		set("long", "此劍由天上隕鐵打就，十分沉重，爲天下第二神兵。\n");
+		set("long", "此劍由天上隕鐵打就，十分沉重，為天下第二神兵。\n");
 		set("material", "steel");
 		set("value", 100000);
 		set("wield_msg",HIB"一團黑氣猛地撲面而來，玄鐵劍已握在$N手中。\n" NOR);

@@ -17,7 +17,7 @@ void create()
 	set("long", 
 		"\n這是一個文士打扮的中年書生，神色和藹。\n"
 		"他就是天下聞名的天地會總舵主陳近南，\n"
-		"據說十八般武藝，樣樣精通。\n"
+		"據説十八般武藝，樣樣精通。\n"
 		"偶爾向這邊看過來，頓覺他目光如電，英氣逼人。\n");
 	set("gender", "男性");
 	set("class", "scholar");
@@ -193,13 +193,13 @@ void attempt_apprentice(object ob)
 	}
 	if ((int)ob->query("weiwang") <60)
 	{
-		command("say 我雲龍門武功天下無敵，凡入我門，\n必闖蕩江湖，行俠仗義，爲天下蒼生謀福利。\n"); 
+		command("say 我雲龍門武功天下無敵，凡入我門，\n必闖蕩江湖，行俠仗義，為天下蒼生謀福利。\n"); 
 		command("say " + RANK_D->query_respect(ob) + 
 			"是否應該先出去闖一闖，做幾件驚天動地的大事？");
 		return ;
 	}
 	if ((int)ob->query("shen") >0&&(int)ob->query("shen") < 5000) {
-		command("say 學武之人，德義爲先，功夫的高低倒還在其次，未練武，要先學做人。");
+		command("say 學武之人，德義為先，功夫的高低倒還在其次，未練武，要先學做人。");
 		command("say 在德行方面，" + RANK_D->query_respect(ob) +
 			"是否還做得不夠？");
 		return ;
@@ -208,7 +208,7 @@ void attempt_apprentice(object ob)
 	{
 		if((int)ob->query("shen")<0)
  command("say "+ RANK_D->query_respect(ob) +"雖然是邪派中人，但也還做了些好事。\n");
-		command("chat 我天地會所作所爲，無一不是前人所未行之事。\n");
+		command("chat 我天地會所作所為，無一不是前人所未行之事。\n");
 		command("chat 萬事開創在我，駭人聽聞，物議沸然，又何足論？\n");
 		command("chat 今天就收了你吧！！\n");
 		command("chat 想不到我一身驚人藝業，今日終於有了傳人，哈哈哈哈！！！！\n");
@@ -262,9 +262,9 @@ int do_skills(string arg)
 int ask_weiwang()
 {
 	command("tell "+this_player()->query("id")+" 你現在的江湖威望是 " +(string)(this_player()->query("weiwang")));
-	say("\n陳近南說道：如果你威望值很高，有些人見了你不但不會殺你，還會教你武功，送你寶貝。\n"
-	+"而且你還可以加入幫會，率領會衆去攻打目標，就連去錢莊取錢也會有利息 。。。。。\n");
-	say("陳近南又說：殺某些壞人或救某些好人可以提高江湖威望。\n");
+	say("\n陳近南説道：如果你威望值很高，有些人見了你不但不會殺你，還會教你武功，送你寶貝。\n"
+	+"而且你還可以加入幫會，率領會眾去攻打目標，就連去錢莊取錢也會有利息 。。。。。\n");
+	say("陳近南又説：殺某些壞人或救某些好人可以提高江湖威望。\n");
 	return 1;
 }
 int ask_tuihui()
@@ -274,12 +274,12 @@ int ask_tuihui()
 
 	if(ob->query("party/party_name") != HIR "天地會" NOR )
 	{
-message_vision("陳近南笑了笑，對$N說道：你還沒加入我天地會呢，退什麼退？\n", ob);
+message_vision("陳近南笑了笑，對$N説道：你還沒加入我天地會呢，退什麼退？\n", ob);
 		return 1;
 	}
 	if(ob->query("family/family_name") == "雲龍門" )
 	{
-message_vision("陳近南板着臉對$N說道：你已經是我雲龍門弟子，如何能退會？\n", ob);
+message_vision("陳近南板着臉對$N説道：你已經是我雲龍門弟子，如何能退會？\n", ob);
 		return 1;
 	}
 	command("look "+ob->query("id"));

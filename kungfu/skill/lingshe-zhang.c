@@ -133,7 +133,7 @@ int help(object me)
 
 	學習要求：
 		蛤蟆功20級
-		內力修爲70
+		內力修為70
 HELP
 	);
 	return 1;

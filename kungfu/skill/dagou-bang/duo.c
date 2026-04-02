@@ -57,7 +57,7 @@ int perform(object me,object target)
 			return notify_fail("你混天氣功火候不夠，使不出獒口奪杖。\n");
 	}
 	if(me->query("max_neili") < 300)
-		return notify_fail("你的內力修爲不夠，不會使用獒口奪杖。\n");
+		return notify_fail("你的內力修為不夠，不會使用獒口奪杖。\n");
 	if(me->query("neili") < 200 )
 		return notify_fail("你的內力不夠，無法獒口奪杖！\n");
  
@@ -69,7 +69,7 @@ int perform(object me,object target)
 	if( random(skill) > dp )
 	{
 		if(userp(me)) me->add("neili", -150);
-		msg = HIG"$n"HIG"斗然見$N"HIG"猶似飛將軍從天而降，猛喫一驚，舉起"+weapon2->query("name")+HIG"待擊，\n$N"HIG"右手食中二指倏取$n"HIG"的雙目，同時左足翻起，已將"+weapon2->query("name")+HIG"壓住！\n$n"HIG"爲保眼珠，只好撒手。\n" NOR;
+		msg = HIG"$n"HIG"斗然見$N"HIG"猶似飛將軍從天而降，猛喫一驚，舉起"+weapon2->query("name")+HIG"待擊，\n$N"HIG"右手食中二指倏取$n"HIG"的雙目，同時左足翻起，已將"+weapon2->query("name")+HIG"壓住！\n$n"HIG"為保眼珠，只好撒手。\n" NOR;
 		target->start_busy(2);
 		weapon2->move(me);
 		if(weapon2->query("ownmake")==1||weapon2->query("no_get"))
@@ -101,7 +101,7 @@ int help(object me)
 	出手要求：
 		混天氣功50級
 		打狗棒法50級
-		內力修爲300
+		內力修為300
 		內力200
 HELP
 	);

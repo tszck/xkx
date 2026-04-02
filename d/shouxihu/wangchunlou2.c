@@ -7,7 +7,7 @@ void create()
 {
 	set("short","望春樓");
 	set("long",@LONG
-望春樓樓上均爲活動門窗，卸去則成露臺，爲賞月佳處。上懸鄭板
+望春樓樓上均為活動門窗，卸去則成露臺，為賞月佳處。上懸鄭板
 橋墨跡“望春樓”匾，兩柱懸掛張九齡李白集句楹聯(lian)。
 LONG );
 	set("outdoors", "shouxihu");

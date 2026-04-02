@@ -16,7 +16,7 @@ int main(object me, string arg)
 	name1 = (string)me->query("name");
 	name2 = (string)ob->query("name");
 	tell_room(environment(me),
-	name1+"高舉雙手大喝：去死吧！只見天上一道閃電不偏不倚地擊中"+name2+"， 將之化爲一堆灰燼。\n", 
+	name1+"高舉雙手大喝：去死吧！只見天上一道閃電不偏不倚地擊中"+name2+"， 將之化為一堆灰燼。\n", 
 	({me, ob}));
 	tell_object(ob, name1+"高舉雙手大喝：去死吧！只見天上一道閃電不偏不倚地擊中你。\n");
 	

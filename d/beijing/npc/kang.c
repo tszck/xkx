@@ -15,7 +15,7 @@ void create()
 	set("str", 25);
 	set("dex", 20);
 	set("long", "\n只見他一身錦衣，笑容滿面，任誰見了他都生不起氣來。\n"+
-		"此人深諳爲官之道，極善察言觀色、溜鬚拍馬，頗得皇帝歡心。\n");
+		"此人深諳為官之道，極善察言觀色、溜鬚拍馬，頗得皇帝歡心。\n");
 	set("combat_exp", 50000);
 	set("score", 5000);
 	set("shen_type", -1);
@@ -52,7 +52,7 @@ int ask_meili()
 {
 	command("tell "+this_player()->query("id")+" 你現在的魅力值是 " +(string)(this_player()->query("meili")));
 	say("\n康親王笑道：要想當官魅力不高可不行啊。\n");
-	say("康親王又說：多跟達官顯貴們交往，魅力自然會提高的。\n");
+	say("康親王又説：多跟達官顯貴們交往，魅力自然會提高的。\n");
 	return 1;
 }
 
@@ -77,7 +77,7 @@ void greeting(object ob)
 			message_vision("\n康親王一見$N, 頓時勃然大怒，叫道：“來人啊！將這廝給我拿下！”\n",ob);
 			if(!present("shi wei", environment(ob)))
 			{
-				message_vision("登時門外衝進幾個侍衛，揮刀向$N直撲過來。\n",ob);
+				message_vision("登時門外衝進幾個侍衞，揮刀向$N直撲過來。\n",ob);
 				man=new("/d/huanggong/npc/shiwei");
 				man->move(environment(ob));
 				man=new("/d/huanggong/npc/shiwei");

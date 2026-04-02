@@ -136,9 +136,9 @@ int do_flatter(string arg)
 {
 	if( !this_player()->query_temp("pending/flatter") )
 		return 0;
-	if( !arg ) return notify_fail("你說我什麼？\n");
+	if( !arg ) return notify_fail("你説我什麼？\n");
 	this_player()->set_temp("pending/flatter", 0);
-	message_vision("$N大聲說道：" + arg + "\n", this_player());
+	message_vision("$N大聲説道：" + arg + "\n", this_player());
 	if( strsrch(arg, "萬年不老") >=0 && (strsrch(arg, "永享仙福") >=0 ||
 		strsrch(arg, "壽與天齊") >=0 || strsrch(arg, "文武仁聖") >=0 ))
 	{
@@ -161,7 +161,7 @@ int do_flatter(string arg)
 
 void die()
 {
-	message_vision("\n$N奇道：“咦，居然有人能殺了我，....”說完睜着兩眼倒地死了。\n", this_object());
+	message_vision("\n$N奇道：“咦，居然有人能殺了我，....”説完睜着兩眼倒地死了。\n", this_object());
 	::die();
 }
 
@@ -198,7 +198,7 @@ void attempt_apprentice(object ob)
 {
 	if (ob->query("party/party_name") != HIY "神龍教" NOR )
 	{
-		command("say 你不是本教教衆，想來找死啊！");
+		command("say 你不是本教教眾，想來找死啊！");
 		return;
 	}
 	if ((int)ob->query_skill("dulong-dafa",1) < 60 )

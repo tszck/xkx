@@ -11,7 +11,7 @@ void create()
 	set("short", "峭壁");
 	set("long", @LONG
 這裏是一塊較平坦的岩石，只能一兩個人容身。巖壁上模模糊糊有
-幾行字(zi)，似乎是利器劃刻上去的，大概是因爲時間久遠，只能勉強
+幾行字(zi)，似乎是利器劃刻上去的，大概是因為時間久遠，只能勉強
 認得。下望是霧氣瀰漫的深谷谷底。
 LONG
 	);
@@ -40,7 +40,7 @@ int do_pa(string arg)
 		return notify_fail("你身上負重太多，爬不下去。\n");
  
 	if((int)me->query_skill("dodge",1) < 100 )  
-	return notify_fail("以你目前的輕功修爲，很難爬下去。\n"); 
+	return notify_fail("以你目前的輕功修為，很難爬下去。\n"); 
 	message_vision("$N扒住岩石，小心的爬了下去。\n", me);
 	me->move(__DIR__"gudi1");
 	tell_room(environment(me), me->name() + "從上面爬了下來。\n", ({ me }));
@@ -60,7 +60,7 @@ int do_jump(string arg)
 	return notify_fail("你身上負重太多，無法跳過去。\n");
  
 	if((int)me->query_skill("dodge",1) < 100 )  
-		return notify_fail("以你目前的輕功修爲，無法跳過去。\n"); 
+		return notify_fail("以你目前的輕功修為，無法跳過去。\n"); 
 	message_vision("$N縱身向上面的斷腸崖跳過去。\n", me);
 	me->move(__DIR__"duanchangya");
 	tell_room(environment(me), me->name() + "從峭壁跳了過來。\n", ({ me }));

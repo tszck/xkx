@@ -25,7 +25,7 @@ int exert(object me, object target)
 		return notify_fail("你的內力不夠。\n");
 
 	if( (int)me->query_skill("xiaowuxiang",1) < 40  ) 
-		return notify_fail("你的小無相功修爲不夠。\n");
+		return notify_fail("你的小無相功修為不夠。\n");
 
 	if( (int)me->query_temp("shield") ) 
 		return notify_fail("你已經在運功中了。\n");

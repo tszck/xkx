@@ -47,7 +47,7 @@ int help(object me)
 	write(HIC"\n梯雲縱："NOR"\n");
 	write(@HELP
 
-    梯雲縱爲武當最高輕功心法。
+    梯雲縱為武當最高輕功心法。
 
 	學習要求：
 	  太極神功10級

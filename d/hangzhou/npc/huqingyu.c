@@ -18,7 +18,7 @@ void create()
 	]) );
 	set("chat_chance", 30);
 	set("chat_msg",({
-		"胡慶餘淡淡說道：“改個名，就是新人了。”\n",
+		"胡慶餘淡淡説道：“改個名，就是新人了。”\n",
 	}));
 	setup();
 }
@@ -40,7 +40,7 @@ int accept_object(object me, object ob)
 				return 0;
 			}
 			command("nod");
-			command("say 好吧，"+me->query("name")+"，你說個章程！\n");
+			command("say 好吧，"+me->query("name")+"，你説個章程！\n");
 			me->set_temp("marks/huqingyu",1);
 			return 1;
 		}

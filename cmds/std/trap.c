@@ -1,4 +1,4 @@
-// trap.c 掘地爲牢
+// trap.c 掘地為牢
 // Last Modified by winder on Jul. 12 2002
 inherit F_CLEAN_UP;
 
@@ -44,7 +44,7 @@ int main(object me, string arg)
 	if( me->query("shen") >= 0 && !wizardp(me))
 		return notify_fail("你出身正派，竟敢打這種歪門邪道的主意？！\n");
 	if( me->query("combat_exp") >= 100000 && !wizardp(me))
-		return notify_fail("如此下三爛的把戲，象你這樣的高手不屑爲之吧？！\n");
+		return notify_fail("如此下三爛的把戲，象你這樣的高手不屑為之吧？！\n");
 	if( me->query_skill("digging", 1) <= 30)
 		return notify_fail("你這點本事都沒學全，如何會挖掘陷阱？\n");
 	if( me->is_fighting() )

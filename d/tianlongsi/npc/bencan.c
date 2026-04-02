@@ -7,7 +7,7 @@ void create()
 {
 	set_name("本參", ({ "ben can","can"}) );
 	set("gender", "男性" );
-	set("long", "他身材魁偉，爲本因方丈的師兄。\n" );
+	set("long", "他身材魁偉，為本因方丈的師兄。\n" );
 	set("title", "天龍寺第十七代僧人");
 	set("class", "bonze");
 	set("age", 49);

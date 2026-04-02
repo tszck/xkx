@@ -73,12 +73,12 @@ void greeting(object ob)
 	if( !ob || environment(ob) != environment() ) return;
 	if(random(2)==1)
 	{
-		say("小青笑吟吟地說道：這位" + RANK_D->query_respect(ob) + "請進，見到你真高興。\n");
+		say("小青笑吟吟地説道：這位" + RANK_D->query_respect(ob) + "請進，見到你真高興。\n");
 		return;
 	}
 	else
 	{
-		say("小青笑了笑說道：這位" + RANK_D->query_respect(ob) + "快請進吧。 \n");
+		say("小青笑了笑説道：這位" + RANK_D->query_respect(ob) + "快請進吧。 \n");
 		return;
 	}
 }
@@ -89,7 +89,7 @@ string inquiry_gao()
 	if(query_temp("dan")==3) return "你沒見我已經作好了嘛！\n";
 	if(query_temp("times")==0)
 		return "師傅現在已經不叫我做『蛇膽膏』了！\n";
-	say("這位"+RANK_D->query_respect(ob)+"不瞞您說。師傅讓我作『蛇膽膏』，\n可我",ob);
+	say("這位"+RANK_D->query_respect(ob)+"不瞞您説。師傅讓我作『蛇膽膏』，\n可我",ob);
 	switch (query_temp("dan"))
 	{
 		case 0: write(HIY "差一隻青蛇膽，一隻金蛇膽。\n" NOR);
@@ -119,13 +119,13 @@ int accept_object(object who, object ob)
 	{
 		if (query_temp("dan")==2)
 		{
-			message_vision("小青一看是金蛇膽，滿臉遺憾地對$N說：我還差青蛇膽，不缺金蛇膽。\n",who);
+			message_vision("小青一看是金蛇膽，滿臉遺憾地對$N説：我還差青蛇膽，不缺金蛇膽。\n",who);
 			return 0;
 		}
 		add_temp("dan",2);
 		if (query_temp("dan")==2)
 		{
-			message_vision("小青看到金蛇膽，高興得跳了起來。摟着$N的脖子說：還差青蛇膽就大功告成了！\n",who);
+			message_vision("小青看到金蛇膽，高興得跳了起來。摟着$N的脖子説：還差青蛇膽就大功告成了！\n",who);
 			return 1;
 		}
 	}
@@ -133,19 +133,19 @@ int accept_object(object who, object ob)
 	{
 		if (query_temp("dan")==1)
 		{
-			message_vision("小青一看是，滿臉遺憾地對$N說：我還差金蛇膽，不缺青蛇膽。\n",who);
+			message_vision("小青一看是，滿臉遺憾地對$N説：我還差金蛇膽，不缺青蛇膽。\n",who);
 			return 0;
 		}
 		add_temp("dan",1);
 		if (query_temp("dan")==1)
 		{
-			message_vision("小青看到青蛇膽，高興得跳了起來。摟着$N的脖子說：還差就金蛇膽大功告成了！\n",who);
+			message_vision("小青看到青蛇膽，高興得跳了起來。摟着$N的脖子説：還差就金蛇膽大功告成了！\n",who);
 			return 1;
 		}
 	}
 	command("kiss "+(string)who->query("id"));
 	write( HIY "只見小青手腳麻利地把兩隻蛇膽投入藥罐中，又加入一些不\n知是什麼的藥粉，然後把稀里嘩啦一搖，嘿！『蛇膽膏』做\n成了。\n" NOR );
-	message_vision("小青很神祕地湊近$N悄悄說了些什麼。\n", who);
+	message_vision("小青很神祕地湊近$N悄悄説了些什麼。\n", who);
 	tell_object(who,"“我偷偷拿了一點『蛇膽膏』送給你，師傅不會發現的。”\n");
 	message_vision("小青深情地望了$N一眼，臉紅了。\n",who);
 	obn = new("/clone/medicine/nostrum/shedangao");

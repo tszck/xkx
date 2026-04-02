@@ -49,7 +49,7 @@ int ask_join()
 	message_vision("$N重重地拍了一下$n的肩膀，喝道：好樣的！從今以後跟兄弟們有難同當！\n", this_object(), ob);
 
 	ob->set_temp("apply/short",
-		({ HIR + myfam + "幫衆"NOR + ob->query("name")+"("+capitalize(ob->query("id"))+")" }));
+		({ HIR + myfam + "幫眾"NOR + ob->query("name")+"("+capitalize(ob->query("id"))+")" }));
 	ob->delete("party");
 	ob->set("party/party_name", myfam);
 	ob->set("party/entertime", time());
@@ -257,7 +257,7 @@ string ask_job()
 		ob->set("helper", me);
 		command("nod");
 		call_out("do_start", 1, this_object(), ob);
-		return "說道：我最近身體不適，你護送我至" + region_names[mydest] + "。\n";
+		return "説道：我最近身體不適，你護送我至" + region_names[mydest] + "。\n";
 	}
 
 	command("shake");
@@ -349,7 +349,7 @@ string ask_skills()
 		return RANK_D->query_rude(me) + "竟連自己的幫令都管不住！";
 
 	if( (amount = (int)ling->query("score")) < 10 )
-		return RANK_D->query_rude(me) + "再加把勁，幫主纔會指點你一下！";
+		return RANK_D->query_rude(me) + "再加把勁，幫主才會指點你一下！";
 
 	if( amount > 100 ) {
 		me->set_temp("bangs/skills_asked", 100);

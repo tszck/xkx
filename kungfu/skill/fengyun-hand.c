@@ -7,7 +7,7 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N一式"CYN"「風滿長空」"NOR"，雙手以掌化爪，五指如鉤，挾着風聲直逼$n的膻中要穴",
+([	"action" : "$N一式"CYN"「風滿長空」"NOR"，雙手以掌化爪，五指如鈎，挾着風聲直逼$n的膻中要穴",
 	"limb" : "膻中穴",
 	"lvl" : 0,
 	"skill_name" : "風滿長空"
@@ -124,7 +124,7 @@ int help(object me)
 	學習要求：
 		站樁功10級
 		少林南拳10級
-		內力修爲10
+		內力修為10
 HELP
 	);
 	return 1;

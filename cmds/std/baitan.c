@@ -13,7 +13,7 @@ int main(object me, string arg)
 	if (! me->query("is_vendor"))
 		return notify_fail("只有從事商業的人才能擺攤。\n");
 	if (! present("shang ling", me))
-		return notify_fail("你未帶商令！如今世道亂，小心爲妙。\n");
+		return notify_fail("你未帶商令！如今世道亂，小心為妙。\n");
 
 	if (me->is_fighting())
 		return notify_fail("你還是好好打你的架吧。\n");
@@ -48,7 +48,7 @@ int baitan(object me)
 	switch (random(15))
 	{
 		case 0:
-			message_vision(CYN"$N"CYN"環顧了一下四周，笑眯眯地招呼着衆人。\n"NOR, me);
+			message_vision(CYN"$N"CYN"環顧了一下四周，笑眯眯地招呼着眾人。\n"NOR, me);
 			break;
 		case 1:
 			message_vision(CYN"$N"CYN"吆喝道：走過路過不要錯過，大家快來看看貨。\n"NOR, me);

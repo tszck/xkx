@@ -10,7 +10,7 @@ void create()
 	set("long", @LONG
 這是海澄公府的大廳，大廳不大，裝飾也不華麗，很難想象這裏竟
 然是一等公爵的居所。此時大廳內外一片嘈雜，擠滿了上門來尋事的御
-前侍衛。
+前侍衞。
 LONG );
 	set("exits", ([
 		"north" : __DIR__"hai_dayuan",

@@ -36,7 +36,7 @@ int do_parry()
 	me->add("qi",-10);
 	me->add("eff_qi",-2); 
 	if (skilllvl < 50)
-		return notify_fail("你出手想擋，可是來不及啦，浪頭蓋下，澆你個一頭溼。\n");
+		return notify_fail("你出手想擋，可是來不及啦，浪頭蓋下，澆你個一頭濕。\n");
 	if (skilllvl > 150)
 		return notify_fail("擋什麼擋！這點小浪有什麼可怕的？\n");
         if (!objectp(weapon = me->query_temp("weapon")))

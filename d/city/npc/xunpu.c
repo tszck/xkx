@@ -55,16 +55,16 @@ LONG );
      set("attitude", "heroism");
      set("chat_chance_combat", 40);
      set("chat_msg_combat", ({
-                            "巡捕說道：你想幹什麼? 還不跟我去府衙受審!?\n",
-                            "巡捕說道：大膽! 居然敢當街拒捕! 想造反？\n",
+                            "巡捕説道：你想幹什麼? 還不跟我去府衙受審!?\n",
+                            "巡捕説道：大膽! 居然敢當街拒捕! 想造反？\n",
                             "巡捕手中的刀越砍越快，讓你應接不暇。\n",
-                            "巡捕說道：別胡鬧了，還是乖乖的跟我走吧。\n"
+                            "巡捕説道：別胡鬧了，還是乖乖的跟我走吧。\n"
                             }) );
      set ("inquiry",([
-          "bribery":"說哪裏話來，府太爺清貧廉正，我們作手下的豈能辱沒他的名聲？\n"+
+          "bribery":"説哪裏話來，府太爺清貧廉正，我們作手下的豈能辱沒他的名聲？\n"+
                     "收起你的錢吧！\n",
           "salary" : "哎，老爺俸銀微薄，我們的年餉自然更少了......\n",
-          "money"  : "說實在的，我也想要錢。但要是讓老爺知道了我收受賄賂(bribery)，\n不死也得扒層皮。\n",
+          "money"  : "説實在的，我也想要錢。但要是讓老爺知道了我收受賄賂(bribery)，\n不死也得扒層皮。\n",
      ]));
      set ("chat_chance",99);
      set ("chat_msg", ({
@@ -134,7 +134,7 @@ void init()
             if (you->query_condition("killer")&&random(10)<9)
             {
                message_vision("$N對着$n喝道：光天化日之下，你居然也敢行兇殺人？還不與我回去喫板子！\n"
-                +"說罷，$N解下鐵鏈套在$n的脖子上。\n",this_object(),you);
+                +"説罷，$N解下鐵鏈套在$n的脖子上。\n",this_object(),you);
                         you->add("crime_lv",ROBBER);
 //                        you->add("marks/強盜",-1);
 //                        if (!you->query("marks/強盜")) you->delete("marks/強盜");

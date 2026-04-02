@@ -54,10 +54,10 @@ int do_canwu(string arg)
     return notify_fail("你在戰鬥哦？！小心，來了！！！\n");
 
   if ((int)me->query_skill("force", 1) < 300)
-    return notify_fail("你的內功修爲不夠，無法貫通石壁上的絕學！\n");
+    return notify_fail("你的內功修為不夠，無法貫通石壁上的絕學！\n");
 
   if ((int)me->query("max_neili") < 3000)
-    return notify_fail("你的內力修爲不足，無法貫通石壁上的絕學！\n");
+    return notify_fail("你的內力修為不足，無法貫通石壁上的絕學！\n");
 
   if ((int)me->query("jing") < 100)
     return notify_fail("你的精力無法集中，無法領悟石壁上的絕學！\n");
@@ -132,7 +132,7 @@ int do_study(string arg)
 	}
 	else 	if (me->query_skill("taixuan-gong",1)>=200)
 	{
-		write("你望着石壁冥思苦想了一會，發覺上面的東西對你來說太淺薄了。\n");
+		write("你望着石壁冥思苦想了一會，發覺上面的東西對你來説太淺薄了。\n");
 		return 1;
 	}
 	learn_pot = (int)(me->query("combat_exp")/10000) + random(me->query("int")) - (int)(me->query_skill("literate",1)/2);

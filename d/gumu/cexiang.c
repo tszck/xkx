@@ -59,7 +59,7 @@ int do_sleep(string arg)
 		message_vision("$N輕輕縱起，發現繩上有人，只好飛身下地。\n",me);
 		return 1;
 	}
-	message_vision("$N輕輕縱起，橫臥繩上，以繩爲牀，睡起覺來。\n", me);
+	message_vision("$N輕輕縱起，橫臥繩上，以繩為牀，睡起覺來。\n", me);
 	me->move(room) ;
 	call_out("back", 6 , me);
 	return 1 ;

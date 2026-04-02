@@ -81,9 +81,9 @@ void create()
 		"武功" : (: ask_skills :),
 		"skills" : (: ask_skills :),
 		"長樂幫" : "長樂幫威震江湖，指日可待！哈！哈！哈！",
-		"貝先生" : "貝先生勞苦功高，所以我任命他爲總管。",
-		"貝大夫" : "貝先生勞苦功高，所以我任命他爲總管。",
-		"貝海石" : "貝先生勞苦功高，所以我任命他爲總管。",
+		"貝先生" : "貝先生勞苦功高，所以我任命他為總管。",
+		"貝大夫" : "貝先生勞苦功高，所以我任命他為總管。",
+		"貝海石" : "貝先生勞苦功高，所以我任命他為總管。",
 		"香主" : (: ask_position :),
 		"position" : (: ask_position :),
 		"生活" : (: ask_life :),
@@ -128,7 +128,7 @@ string ask_position()
 	if( stringp(pos = me->query_temp("bangs/pos")) ) {
 		period = uptime() - (int)me->query_temp("bangs/pos_time");
 		if( period < 1800 )
-			return "你在這麼短的時間內不可能有多大作爲，以後再讓幫主巡視" + pos + "吧。";
+			return "你在這麼短的時間內不可能有多大作為，以後再讓幫主巡視" + pos + "吧。";
 
 		score = (int)ling->query("score");
 		bonus = score - (int)me->query_temp("bangs/pos_score");
@@ -187,7 +187,7 @@ string ask_position()
    ({ HIR + myfam + pos + "香主"NOR + me->query("name")+"("+capitalize(me->query("id"))+")" }));
 	log_file("test/BangPos", sprintf("%s於%s時當上%s%s香主\n", me->query("name"), ctime(time()), myfam, pos));
 	command("congra");
-	return "我把" + pos + "託付給你，你可要不負衆望。";
+	return "我把" + pos + "託付給你，你可要不負眾望。";
 }
 
 string ask_life()
@@ -227,10 +227,10 @@ int accept_object(object who, object ob)
 		return notify_fail(name() + "大怒道：大膽！想謀害本幫主？！\n");
 
 	if( !(room = environment()) )
-		return notify_fail(name() + "大怒道：等我回總舵再說吧！\n");
+		return notify_fail(name() + "大怒道：等我回總舵再説吧！\n");
 
 	if( base_name(room) != OFFICE )
-		return notify_fail(name() + "大怒道：等我回總舵再說吧！\n");
+		return notify_fail(name() + "大怒道：等我回總舵再説吧！\n");
 
 	if( !stringp(beauty = who->query_temp("bangs/beauty")) )
 		return notify_fail(name() + "大怒道：滾！老夫的私事不用你操心！\n");
@@ -266,7 +266,7 @@ int accept_object(object who, object ob)
 			ling->add("score", bonus + random(bonus));
 	}
 
-	message_vision("$N說道：好！好！好！" + myfam + "上上下下幾千人中數你最討幫主的歡心！",this_object());
+	message_vision("$N説道：好！好！好！" + myfam + "上上下下幾千人中數你最討幫主的歡心！",this_object());
 	return 1;
 }       
 

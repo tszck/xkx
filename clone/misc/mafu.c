@@ -287,7 +287,7 @@ void greeting(object ob)
 	chance = random(10);		
 	if( !ob || environment(ob) != environment() ) return;
 	ob->set_temp("ridechance",chance);	
-	say( "馬伕點頭哈腰地說道：這位客官，是想到這裏挑一匹好馬吧？\n");
+	say( "馬伕點頭哈腰地説道：這位客官，是想到這裏挑一匹好馬吧？\n");
 }
 
 int accept_object(object who, object ob)
@@ -297,17 +297,17 @@ int accept_object(object who, object ob)
 	{
 		if ((int)who->query_temp("ridechance")<=2)
 		{
-			message_vision("馬伕驚慌地對$N說：對不起這位"+RANK_D->query_respect(who) + "，最近道上不太平，小的可不敢擔這個險。\n", who); 
+			message_vision("馬伕驚慌地對$N説：對不起這位"+RANK_D->query_respect(who) + "，最近道上不太平，小的可不敢擔這個險。\n", who); 
 			return 0;
 		}
 		else  
 		{     
-			message_vision("馬伕對$N說：好！這位"+RANK_D->query_respect(who) + "現在就出發嗎？那就上馬吧。\n", who);
+			message_vision("馬伕對$N説：好！這位"+RANK_D->query_respect(who) + "現在就出發嗎？那就上馬吧。\n", who);
 			who->set_temp("marks/horserent",1);		
 			return 1;
 		}
 	}
-	else message_vision("馬伕皺眉對$N說：您給得也太少了吧？\n", who);
+	else message_vision("馬伕皺眉對$N説：您給得也太少了吧？\n", who);
 	return 1;
 }
 
@@ -343,7 +343,7 @@ int do_ride(string arg)
 	{
 		if(ob->query_temp("shout"))
 		{
-			message_vision("馬伕對$N說：這位"+RANK_D->query_respect(ob) + "，驛馬需要付錢的。\n", ob);
+			message_vision("馬伕對$N説：這位"+RANK_D->query_respect(ob) + "，驛馬需要付錢的。\n", ob);
 			return 0;
 		}
 		command("chat 來人啦！"+ob->query("name")+"這個"+RANK_D->query_rude(ob)+"想偷馬！\n");
@@ -370,7 +370,7 @@ int do_ride(string arg)
 	}
 	if (direct == 0)
 	{
-		message_vision("馬伕對$N說：這位" +RANK_D->query_respect(ob)+"，看看牌子吧，這裏沒有去那兒的直達驛馬。\n", ob);
+		message_vision("馬伕對$N説：這位" +RANK_D->query_respect(ob)+"，看看牌子吧，這裏沒有去那兒的直達驛馬。\n", ob);
 		return 0;
 	}
 	horse = hname[random(sizeof(hname))];

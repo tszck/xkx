@@ -6,7 +6,7 @@
 inherit F_CLEAN_UP;
 
 mapping *sgjobs = ({
-        ([      "sgjob":          "藍玉鉢",
+        ([      "sgjob":          "藍玉缽",
                 "sgjob_type":           "尋",
                 "exp_bonus":             500,
                 "score":                 10,

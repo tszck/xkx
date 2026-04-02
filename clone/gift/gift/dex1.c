@@ -7,7 +7,7 @@ void create()
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", HIC "這是一塊製作精緻的糕點，據說喫了可以增強身法。\n" NOR);
+                set("long", HIC "這是一塊製作精緻的糕點，據説喫了可以增強身法。\n" NOR);
                 set("unit", "塊");
                 set("value", 10000);
                 set("weight", 50);

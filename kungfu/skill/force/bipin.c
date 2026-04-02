@@ -39,16 +39,16 @@ int exert(object me, string arg)
 	taneili = target->query("neili");
 
 	if(me->query_skill("force", 1) < 50 )
-		return notify_fail("你的內功修爲不足，無法和對手較量內力。\n");
+		return notify_fail("你的內功修為不足，無法和對手較量內力。\n");
 
 	if(myneili < 500 )
 		return notify_fail("你的真氣太弱，無法和對手較量內力。\n");
 
 	if(myneili*2/3 >= taneili)
-		return notify_fail("對手的內功修爲遠不如你，還用比拼什麼內力呢？\n");
+		return notify_fail("對手的內功修為遠不如你，還用比拼什麼內力呢？\n");
 
 	if((int)me->query("max_neili") < 500 )
-		return notify_fail("你的內力修爲太弱，無法和對手較量內力。\n");
+		return notify_fail("你的內力修為太弱，無法和對手較量內力。\n");
 
 	if(me->query_temp("neili/bipin")) 
 		return notify_fail("你正在和人比拼內力。\n");
@@ -270,7 +270,7 @@ int help(object me)
 
 	出手要求：
 		基本內功50級
-		內力修爲500
+		內力修為500
 		內力500
 HELP
 	);

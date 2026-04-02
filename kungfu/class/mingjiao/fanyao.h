@@ -31,7 +31,7 @@ string ask_me()
 		"功力不夠，不夠資格闖光明聖火陣。";
 	if (fighter->query("score") < 10000)
 	        return RANK_D->query_respect(fighter) + 
-		"閱歷不足，不夠資格闖光明聖火陣。";
+		"閲歷不足，不夠資格闖光明聖火陣。";
 	sname = keys(skl);
 	for(i=0; i<sizeof(skl); i++) {
 		if (skl[sname[i]] < 80) 
@@ -53,7 +53,7 @@ string ask_me()
 
 	fighter->set_temp("fanyao-asked", 1);
 
-	say("\n範遙說道：好吧，我和教主召集龍王、鷹王和五散人在西側殿集
+	say("\n範遙説道：好吧，我和教主召集龍王、鷹王和五散人在西側殿集
 合，你稍候到前邊找我。\n");
 
 	me->set("assigned_fighter", fighter->query("id")); 		
@@ -74,7 +74,7 @@ string ask_me()
 			message_vision("\n範遙走了過來。\n\n", fighter);
 			return "真是對不起，五散人中有人不在，無法舉行光明聖火陣。\n";
 		}
-		message("vision", "\n範遙走了過來，跟" + monk->query("name") + "俯耳輕聲說了幾句。\n", room, monk);
+		message("vision", "\n範遙走了過來，跟" + monk->query("name") + "俯耳輕聲説了幾句。\n", room, monk);
 		monk->move("/d/mingjiao/westdian");
 		message("vision", monk->query("name") + "點了點頭，快步走了出去。\n", room, monk);
 	}
@@ -88,7 +88,7 @@ string ask_me()
 		message_vision("\n範遙走了過來。\n\n", fighter);
 		return "真是對不起，五散人中有人不在，無法舉行光明聖火陣。\n";
 	}
-	message("vision", "\n範遙走了過來，跟" + monk->query("name") + "俯耳輕聲說了幾句。\n", room, monk);
+	message("vision", "\n範遙走了過來，跟" + monk->query("name") + "俯耳輕聲説了幾句。\n", room, monk);
 	monk->move("/d/mingjiao/westdian");
 	message("vision", monk->query("name") + "點了點頭，快步走了出去。\n", room, monk);
 // 6.
@@ -101,7 +101,7 @@ string ask_me()
 		message_vision("\n範遙走了過來。\n\n", fighter);
 		return "真是對不起，白眉鷹王不在，無法舉行光明聖火陣。\n";
 	}
-	message("vision", "\n範遙走了過來，跟" + monk->query("name") + "俯耳輕聲說了幾句。\n", room, monk);
+	message("vision", "\n範遙走了過來，跟" + monk->query("name") + "俯耳輕聲説了幾句。\n", room, monk);
 	monk->move("/d/mingjiao/westdian");
 	message("vision", monk->query("name") + "點了點頭，快步走了出去。\n", room, monk);
 // 7.
@@ -114,7 +114,7 @@ string ask_me()
 		message_vision("\n範遙走了過來。\n\n", fighter);
 		return "真是對不起，紫衫龍王不在，無法舉行光明聖火陣。\n";
 	}
-	message("vision", "\n範遙走了過來，跟" + monk->query("name") + "俯耳輕聲說了幾句。\n", room, monk);
+	message("vision", "\n範遙走了過來，跟" + monk->query("name") + "俯耳輕聲説了幾句。\n", room, monk);
 	monk->move("/d/mingjiao/westdian");
 	message("vision", monk->query("name") + "點了點頭，快步走了出去。\n", room, monk);
 
@@ -128,7 +128,7 @@ string ask_me()
 		message_vision("\n範遙走了過來。\n\n", fighter);
 		return "真是對不起，張教主不在，無法舉行光明聖火陣。\n";
 	}
-	message("vision", "\n範遙走了過來，跟" + monk->query("name") + "俯耳輕聲說了幾句。\n", room, monk);
+	message("vision", "\n範遙走了過來，跟" + monk->query("name") + "俯耳輕聲説了幾句。\n", room, monk);
 	monk->move("/d/mingjiao/westdian");
 	message("vision", monk->query("name") + "點了點頭，快步走了出去。\n", room, monk);
 
@@ -144,7 +144,7 @@ int waiting(object me)
 
 	if( wait_time == 100 )
 	{
-		say( "範遙說道：看來他不會來了，我們回去罷！\n\n");
+		say( "範遙説道：看來他不會來了，我們回去罷！\n\n");
 		call_out("do_back", 0, me);
 		fighter->add("score",-2500);		
 	}
@@ -157,7 +157,7 @@ int waiting(object me)
 	else if( !present("yang xiao", environment(me)) || !fighter->query_temp("yangxiao-asked") )
 	{
 		if( random(10) == 0 ) 
-			say("\n範遙說道：" + RANK_D->query_respect(fighter) + "去請了楊左使沒有？ 照理他現在該到了罷？\n");
+			say("\n範遙説道：" + RANK_D->query_respect(fighter) + "去請了楊左使沒有？ 照理他現在該到了罷？\n");
 
 		wait_time++;
 		call_out("waiting", 1, me);
@@ -173,7 +173,7 @@ int preparing(object me, object fighter)
 	if(!( room = find_object("/d/mingjiao/qiandian")) )
 	room = load_object("/d/mingjiao/qiandian");
 
-	say( "範遙說道：不相干的人，如不欲現場觀摩光明聖火陣，請即刻離開此處。\n");
+	say( "範遙説道：不相干的人，如不欲現場觀摩光明聖火陣，請即刻離開此處。\n");
 
 	message("vision", HIY "\n範遙大聲宣佈：西光明聖火陣合圍！\n\n" NOR, room);
 	message("channel:snow", HIR"【闖陣】範遙[Fan yao]:" + fighter->query("title") + HIR + fighter->query("name") + "(" + fighter->query("id") + ")" + "於今日" + NATURE_D->game_time() + "挑戰明教光明聖火陣！\n"NOR, users());
@@ -220,7 +220,7 @@ int fighting(object me, object fighter, int count)
 		}
 		monk1->move(room1);
 
-		say( "範遙說道：是啊，可惜呀 ... 唉！\n\n");
+		say( "範遙説道：是啊，可惜呀 ... 唉！\n\n");
 		command("sigh");
 		call_out("do_back", 5, me );
 		fighter->add("score",-2500);
@@ -257,12 +257,12 @@ int do_recruit(object me, object fighter)
 	{
 		command("smile");
 	message("channel:snow", HIR"【闖陣】範遙[Fan yao]:" + RANK_D->query_respect(fighter) + "武功卓絕，兼又手下留情，品德更是過人一籌，範遙不勝佩服之至！\n"NOR,users());
-//		say("範遙說道：" + RANK_D->query_respect(fighter) + "武功卓絕，兼又手下留情，品德更是過人一籌，範遙不勝佩服之至！\n");
+//		say("範遙説道：" + RANK_D->query_respect(fighter) + "武功卓絕，兼又手下留情，品德更是過人一籌，範遙不勝佩服之至！\n");
 		call_out("do_back", 5, me );
 	}
 	else
 	{
-		say("\n範遙說道：好，好，好！" + fighter->query("name") + "，沒想到教中出了你這樣一個人才？\n");
+		say("\n範遙説道：好，好，好！" + fighter->query("name") + "，沒想到教中出了你這樣一個人才？\n");
 		call_out("do_back", 5, me );
 	}
 	return 1;

@@ -32,7 +32,7 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "武當道童笑嘻嘻地說道：這位" + RANK_D->query_respect(ob)
+			say( "武當道童笑嘻嘻地説道：這位" + RANK_D->query_respect(ob)
           + "，想加入武當的話，可以看"BRED"(help wudang)"NOR"。\n");          
 			break;
 		case 1:
@@ -40,7 +40,7 @@ void greeting(object ob)
  武功境界更加深不可測了，江湖誰不對武當派刮目向待呢。\n");
 			break;
 		case 2:
-			say( "武當道童得意地說道：我武當派的人蔘果是萬木之祖，喫了對內力修爲大有好處。\n");
+			say( "武當道童得意地説道：我武當派的人蔘果是萬木之祖，喫了對內力修為大有好處。\n");
 			break;	
 	
 	}

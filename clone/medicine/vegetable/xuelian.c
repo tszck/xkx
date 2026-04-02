@@ -22,7 +22,7 @@ void create()
 		set("unit", "株");
 		set("vegetable", 32);
 		set("nostrum", 4);
-		set("long", "這是一株只有在寒冷的地方纔能生長的雪蓮。\n");
+		set("long", "這是一株只有在寒冷的地方才能生長的雪蓮。\n");
 		set("value", 100);
 	}
 	set("pour_type", "1");

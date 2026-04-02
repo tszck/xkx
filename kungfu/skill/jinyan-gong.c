@@ -46,7 +46,7 @@ int help(object me)
 	write(HIC"\n金雁功："NOR"\n");
 	write(@HELP
 
-    金雁功爲全真派本門輕功。
+    金雁功為全真派本門輕功。
 
 	學習要求：
 	  先天功10級

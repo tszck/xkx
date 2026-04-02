@@ -42,13 +42,13 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query("max_neili")< 600 )
-		return notify_fail("你的內力修爲不夠。\n"); 
+		return notify_fail("你的內力修為不夠。\n"); 
 
 	if( (int)me->query("neili")< 400 )
 		return notify_fail("你的內力不夠。\n"); 
@@ -70,7 +70,7 @@ int perform(object me, object target)
 	  } 
 	  else
 	  {
-			msg += HIB"這一陰一陽兩股掌力打在$n身上，$n體內真氣自然而然生出相應之力，護住心脈內臟，不受損傷。但霎時間全身劇震，說不出的難受。\n"NOR;
+			msg += HIB"這一陰一陽兩股掌力打在$n身上，$n體內真氣自然而然生出相應之力，護住心脈內臟，不受損傷。但霎時間全身劇震，説不出的難受。\n"NOR;
 			target->receive_damage("qi", (int)(damage/2),me);
 			target->receive_damage("jing", damage,me);
 			me->start_busy(2);
@@ -100,7 +100,7 @@ int help(object me)
 	出手要求：
 		寒冰真氣120級
 		大嵩陽掌120級
-		內力修爲600
+		內力修為600
 		內力400
 HELP
 	);

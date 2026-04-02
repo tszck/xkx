@@ -78,17 +78,17 @@ int do_marry(string arg) {
         if(obj==me)     return notify_fail("你不能和自己締結婚約。\n");
 
         if( userp(obj) && !((object)obj->query("marks/"+me->name(1)))){
-                message_vision(MAG "\n$N對著$n說道："
+                message_vision(MAG "\n$N對著$n説道："
                     + RANK_D->query_self(me)
                     + me->name() + "，願意和"
                + RANK_D->query_respect(obj) +
-                "結爲夫婦\n\n"NOR, me,obj);
+                "結為夫婦\n\n"NOR, me,obj);
                  me->set("marks/"+obj->name(1), 1);
-           tell_object(obj, MAG "如果你願意和對方結爲夫婦，請你也對"
+           tell_object(obj, MAG "如果你願意和對方結為夫婦，請你也對"
                         +me->name() + "("+(string)me->query("id")+
                         ")"+ "下一次 marry 指令。\n" NOR);
                 write(MAG
-                        "現在你急切盼望着你的心上人說同意……\n" NOR);
+                        "現在你急切盼望着你的心上人説同意……\n" NOR);
                 return 1;
         }
 
@@ -168,7 +168,7 @@ int do_unmarry(string arg)
 
         if( userp(couple_ob) && !((object)couple_ob->query("marks/"
                 + "unmarry" +me->name(1))) ) {
-                message_vision(MAG "\n$N對著$n說道："
+                message_vision(MAG "\n$N對著$n説道："
                         + RANK_D->query_self(me)
                         + me->name() + "，咱們解除婚約吧!好嗎?\n\n"
                         NOR, me, couple_ob);

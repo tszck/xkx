@@ -28,7 +28,7 @@ int main(object me, string arg)
 	if( !(SECURITY_D->set_status(ob, new_status)) )
 		return notify_fail("修改失敗。\n");
 
-	message_vision("$N將$n的權限從 " + old_status + " 改爲 " + new_status + " 。\n", me, ob);
+	message_vision("$N將$n的權限從 " + old_status + " 改為 " + new_status + " 。\n", me, ob);
 	seteuid(getuid());
 	ob->setup();
 

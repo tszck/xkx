@@ -60,7 +60,7 @@ int do_pi(string arg)
 		present("mufang guanshi", environment(me)))
 	{
 		me->set_temp("mark/鋸完了",1);
-		message_vision(RED"木房管事對$N說：乾的不錯，好了，你可以去張總管那覆命(job ok)了。"NOR, me);
+		message_vision(RED"木房管事對$N説：乾的不錯，好了，你可以去張總管那覆命(job ok)了。"NOR, me);
 		return 1;
 	}
 	message_vision("$N擺正一根木頭，慢慢鋸了起來。\n", me);

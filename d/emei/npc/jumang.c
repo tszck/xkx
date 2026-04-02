@@ -8,7 +8,7 @@ void create()
 	set_name(HIG"碧睛巨蟒"NOR, ({ "ju man", "snake" }) );
 	set("race", "爬蛇");
 	set("age", 20);
-	set("long", "一隻龐然大物，它眼中噴火，朱冠厲齒，忠心守衛這個果園，
+	set("long", "一隻龐然大物，它眼中噴火，朱冠厲齒，忠心守衞這個果園，
 好象要一口把你吞下。\n");
 	set("attitude", "aggressive");
         set("qi", 5000);

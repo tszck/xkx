@@ -94,7 +94,7 @@ int help(object me)
 	write(HIC"\n散花掌："NOR"\n");
 	write(@HELP
 
-    散花掌爲少林七十二絕技之一。
+    散花掌為少林七十二絕技之一。
     可與拈花指互備。
 
 	學習要求：

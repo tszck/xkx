@@ -48,8 +48,8 @@ void create()
 	
 	create_family("星宿派", 2, "弟子");
 	set("inquiry", ([
-		"星宿派" : "你想加入，就拜我爲師。",
-		"星宿海" : "去星宿海幹什麼？拜我爲師就夠你學的了。",
+		"星宿派" : "你想加入，就拜我為師。",
+		"星宿海" : "去星宿海幹什麼？拜我為師就夠你學的了。",
 		"丁春秋" : "丁春秋是你叫的嗎？沒大沒小的。以後叫老仙！",
 		"煉毒"   : (: ask_job :),
 		"毒"     : (: ask_job :),
@@ -80,7 +80,7 @@ string ask_job()
 	if(me->query_condition("wait_xx_task"))
 		return "你好象把師兄的事情搞砸了吧？這次你就好好等着。";  
 	if(me->query_condition("xx_task") || me->query_condition("xx_task2"))
-		return "你還在爲其他師兄弟們做事呢，等完成了再來我這裏吧。";   
+		return "你還在為其他師兄弟們做事呢，等完成了再來我這裏吧。";   
 	if(interactive(me) && me->query_temp("xx_job"))
 		return "你怎麼還在這裏發呆？";
 
@@ -139,7 +139,7 @@ int accept_object(object who, object ob,object me)
 	{
 		command("stare " + who->query("id"));
 		command("say 竟敢來這裏欺騙我，給我滾出去！");
-		message_vision("\n說完$N雙掌前推，一股內勁拂出，就將$n震出洞外！\n\n", this_object(), who);
+		message_vision("\n説完$N雙掌前推，一股內勁拂出，就將$n震出洞外！\n\n", this_object(), who);
 		kicking(who);
 		return 0;
 	}
@@ -158,14 +158,14 @@ int accept_object(object who, object ob,object me)
 		(!ob->query("victim_user") &&
 		ob->query("victim_exp") < who->query("combat_exp")))
 	{
-		command("say 嘿嘿，我早就說過太弱的屍體沒用，你另找一具吧。");
+		command("say 嘿嘿，我早就説過太弱的屍體沒用，你另找一具吧。");
 		return 0;
 	}
 	if (interactive(who) && (who->query_condition("xx_task") ||
 		who->query_condition("xx_task2")))
 	{
 		command("pat "+ who->query("id"));
-		command("say 你還在爲其他師兄弟們做事呢，等完成了再來我這裏吧。");
+		command("say 你還在為其他師兄弟們做事呢，等完成了再來我這裏吧。");
 		return 0; 
 	}
 	call_out("put_in", 4, ob, this_object(), who, obj);

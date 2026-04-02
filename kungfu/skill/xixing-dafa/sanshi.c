@@ -17,9 +17,9 @@ int exert(object me, object target)
 	if(me->is_busy())
 		return notify_fail("你正忙着呢！\n");
 	if((int)me->query_skill("xixing-dafa", 1) < 100)
-		return notify_fail("你的吸星大法修爲還不夠。\n");
+		return notify_fail("你的吸星大法修為還不夠。\n");
 	if((int)me->query_skill("kuihua-xinfa", 1) < 100)
-		return notify_fail("你的葵花心法修爲太低。\n");
+		return notify_fail("你的葵花心法修為太低。\n");
 	if((int)me->query("qi") < 300) 
 		return notify_fail("你的氣不夠。\n");
 	if((int)me->query("neili") < 400) 
@@ -65,7 +65,7 @@ int help(object me)
 
 	使用功效：
 		煉製三尸腦神丹
-		吸星大法煉製的三尸腦神丹，爲天下第一毒藥，中毒者
+		吸星大法煉製的三尸腦神丹，為天下第一毒藥，中毒者
 		的生死，就完全操在煉丹者是否催發的一念間。
 		請help cuifa
 
@@ -74,7 +74,7 @@ int help(object me)
 		吸星大法100級
 		內力400
 		氣血300
-		身爲任我行的嫡傳弟子
+		身為任我行的嫡傳弟子
 HELP
 	);
 	return 1;

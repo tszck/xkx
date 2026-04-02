@@ -11,7 +11,7 @@ int liandan();
 void create()
 {
 	set_name("靜虛師太", ({ "jingxu shitai","jingxu","shitai"}));
-	set("long", "她是峨嵋派二師姐，峨嵋門下多年，一套峨嵋掌法名動江湖。據說
+	set("long", "她是峨嵋派二師姐，峨嵋門下多年，一套峨嵋掌法名動江湖。據説
 對配藥和煉製霹靂彈頗有造詣。\n");
 	set("gender", "女性");
 	set("age", 43);
@@ -109,11 +109,11 @@ void attempt_apprentice(object ob)
 	}
 	if ((int)ob->query_skill("mahayana",1) <50)
 	{
-		command("say 你大乘佛法的修爲還要提高些。");
+		command("say 你大乘佛法的修為還要提高些。");
 		return;
 	}
 	command("say 阿彌陀佛，善哉！善哉！好吧，我就收下你了。");
-	command("say 希望你能以慈悲之心，以智慧之力，努力行善，濟度衆生。");
+	command("say 希望你能以慈悲之心，以智慧之力，努力行善，濟度眾生。");
 	command("recruit " + ob->query("id"));
 }
 

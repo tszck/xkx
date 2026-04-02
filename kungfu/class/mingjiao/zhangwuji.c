@@ -13,7 +13,7 @@ void create()
 	object ob;
 	seteuid(getuid());
 	set_name("張無忌", ({ "zhang wuji", "zhang", "wuji" }));
-	set("long", "明教教主張無忌，統領天下十萬教衆，豪氣幹雲，叱吒千秋，\n"
+	set("long", "明教教主張無忌，統領天下十萬教眾，豪氣幹雲，叱吒千秋，\n"
 		+"「九陽神功」、「乾坤大挪移」獨步天下，是江湖中不世出的\n"
 		+"少年英雄。\n");
 	set("gender", "男性");
@@ -82,9 +82,9 @@ void create()
 	}) );
 	set("chat_chance",2);
 	set("chat_msg",({
-"張無忌憤然說道：“大丈夫當以國爲家，捐軀沙場，抗元大業未成，同輩仍需努力！”\n",
+"張無忌憤然説道：“大丈夫當以國為家，捐軀沙場，抗元大業未成，同輩仍需努力！”\n",
 "張無忌嘆道：“人生失一知己，生亦何歡，死亦何憂，敏兒，你在哪裏？”\n",
-"張無忌道：“我教兄弟聽了：生於亂世，當克己爲公，行俠仗義，蕩寇驅魔！”\n",
+"張無忌道：“我教兄弟聽了：生於亂世，當克己為公，行俠仗義，蕩寇驅魔！”\n",
 	}));
 
 	set("inquiry",([
@@ -154,7 +154,7 @@ void greeting(object ob)
 	}
 	else if((int)ob->query("shen")>10000)
 	{
-		command("say 大俠在上，受無忌一禮，大俠它日必爲武林翹楚。");
+		command("say 大俠在上，受無忌一禮，大俠它日必為武林翹楚。");
 	}
 	return;
 }
@@ -188,7 +188,7 @@ int accept_fight(object ob)
 		message_vision("武林中人最忌爭強鬥狠，你不是我的對手，回去吧。\n",ob);
 		return 0;
 	}
-	message_vision("張無忌一拱手說道：這位"+RANK_D->query_respect(ob)+
+	message_vision("張無忌一拱手説道：這位"+RANK_D->query_respect(ob)+
 	"，在下領教了。\n", ob);
 	return 1;
 }

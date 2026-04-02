@@ -119,7 +119,7 @@ int help(object me)
 	write(HIC"\n如來千葉手："NOR"\n");
 	write(@HELP
 
-    如來千葉手爲少林七十二絕技之一。
+    如來千葉手為少林七十二絕技之一。
     可與龍爪功互備。
 
 	學習要求：

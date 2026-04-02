@@ -46,10 +46,10 @@ int perform(object me,object target)
 		return notify_fail("你的"+to_chinese(fskill)+"不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 80 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠, 不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不夠, 不能使用"+PNAME+"。\n");
 
 	if( me->query("max_neili") < 400 )
-		return notify_fail("你的內力修爲不夠，無法運用「"+HIW"萬梅飄零"NOR+"」！\n");
+		return notify_fail("你的內力修為不夠，無法運用「"+HIW"萬梅飄零"NOR+"」！\n");
 
 	if( me->query("neili") < 300 )
 		return notify_fail("你的內力不夠，無法運用「"+HIW"萬梅飄零"NOR+"」！\n");
@@ -95,7 +95,7 @@ int help(object me)
 	出手要求：
 		冰雪心法80級
 		雪山劍法80級
-		內力修爲400
+		內力修為400
 		內力300
 HELP
         );

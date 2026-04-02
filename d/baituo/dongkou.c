@@ -9,7 +9,7 @@ void create()
 	set("long", @LONG
 山賊的老窩的洞口藏在藤蔓之下，看起來有點陰森。洞口有一條石
 砌就的門面，鋪上木板，勉強算個門。往常時光，都有兩個賊夥持刀護
-衛，守備森嚴。
+衞，守備森嚴。
 LONG	);
 	set("outdoors", "baituo");
 	set("exits", ([

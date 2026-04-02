@@ -3,7 +3,7 @@ inherit NPC;
 
 void create()
 {
-	set_name("觀衆乙", ({ "yi"}) );
+	set_name("觀眾乙", ({ "yi"}) );
 	set("gender", "男性");
 	set("age", 30);
 	set("long",

@@ -38,7 +38,7 @@ void create ()
 "丁典喃喃道：就算是生了病，也會叫人來換花啊！\n",
 }) );
 	set("inquiry", ([
-		"凌霜華" : "“唉……”，然後指了指牢外那座小樓的窗口，啥也不說了。\n",
+		"凌霜華" : "“唉……”，然後指了指牢外那座小樓的窗口，啥也不説了。\n",
 		"喚醒"   : (: ask_skill1 :),
 		"療精"   : (: ask_skill2 :),
 	]));
@@ -83,7 +83,7 @@ int ask_skill1()
 	}
 	command("sign");
 	command("say 不知你學得神照經是福是禍了。也罷，隨你去吧。");
-	tell_object(who,HIC"丁典在你耳邊悄悄說了幾句運功的口訣，你急忙用心一一記下。\n"NOR);
+	tell_object(who,HIC"丁典在你耳邊悄悄説了幾句運功的口訣，你急忙用心一一記下。\n"NOR);
 	tell_object(who,HIC "你學會了「喚醒」。\n" NOR);
 	who->set("can_perform/shenzhao-jing/wakeup",1);
 	return 1;
@@ -103,7 +103,7 @@ int ask_skill2()
 	}
 	command("sign");
 	command("say 不知你學得神照經是福是禍了。也罷，隨你去吧。");
-	tell_object(who,HIC"丁典在你耳邊悄悄說了幾句運功的口訣，你急忙用心一一記下。\n"NOR);
+	tell_object(who,HIC"丁典在你耳邊悄悄説了幾句運功的口訣，你急忙用心一一記下。\n"NOR);
 	tell_object(who,HIC "你學會了「療精」。\n" NOR);
 	who->set("can_perform/shenzhao-jing/jingheal",1);
 	return 1;

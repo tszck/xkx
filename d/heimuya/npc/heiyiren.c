@@ -14,6 +14,6 @@ void create()
 	set("combat_exp", 30000);
 	set("shen_type", -1);
 	set("party/party_name", HIB"日月神教"NOR);
-	set("party/rank", HIC"風雷堂教衆"NOR);
+	set("party/rank", HIC"風雷堂教眾"NOR);
 	setup();
 }	

@@ -33,7 +33,7 @@ string *guard_msg = ({
 string *catch_hunt_msg = ({
 	HIW "$N和$n仇人相見分外眼紅，立刻打了起來！\n" NOR,
 	HIW "$N對着$n大喝：「可惡，又是你！」\n" NOR,
-	HIW "$N和$n一碰面，二話不說就打了起來！\n" NOR,
+	HIW "$N和$n一碰面，二話不説就打了起來！\n" NOR,
 	HIW "$N一眼瞥見$n，「哼」的一聲衝了過來！\n" NOR,
 	HIW "$N一見到$n，愣了一愣，大叫：「我宰了你！」\n" NOR,
 	HIW "$N喝道：「$n，我們的帳還沒算完，看招！」\n" NOR,
@@ -41,17 +41,17 @@ string *catch_hunt_msg = ({
 	HIW "$N喝道：「$n，看招！」\n" NOR,});
 
 string *winner_msg = ({
-	CYN "\n$N哈哈大笑，說道：承讓了！\n\n" NOR,
-	CYN "\n$N雙手一拱，笑着說道：承讓！\n\n" NOR,
+	CYN "\n$N哈哈大笑，説道：承讓了！\n\n" NOR,
+	CYN "\n$N雙手一拱，笑着説道：承讓！\n\n" NOR,
 	CYN "\n$N勝了這招，向後躍開三尺，笑道：承讓！\n\n" NOR,
-	CYN "\n$N雙手一拱，笑着說道：知道我的利害了吧！\n\n" NOR,
-	CYN "\n$n向後退了幾步，說道：這場比試算我輸了，下回看我怎麼收拾你！\n\n" NOR,
-	CYN "\n$n向後一縱，恨恨地說道：君子報仇，十年不晚！\n\n" NOR,
-	CYN "\n$n臉色一寒，說道：算了算了，就當是我讓你吧！\n\n" NOR,
+	CYN "\n$N雙手一拱，笑着説道：知道我的利害了吧！\n\n" NOR,
+	CYN "\n$n向後退了幾步，説道：這場比試算我輸了，下回看我怎麼收拾你！\n\n" NOR,
+	CYN "\n$n向後一縱，恨恨地説道：君子報仇，十年不晚！\n\n" NOR,
+	CYN "\n$n臉色一寒，説道：算了算了，就當是我讓你吧！\n\n" NOR,
 	CYN "\n$n縱聲而笑，叫道：“你運氣好！你運氣好！”一面身子向後跳開。\n\n" NOR,
-	CYN "\n$n臉色微變，說道：佩服，佩服！\n\n" NOR,
-	CYN "\n$n向後退了幾步，說道：這場比試算我輸了，佩服，佩服！\n\n" NOR,
-	CYN "\n$n向後一縱，躬身做揖說道：閣下武藝不凡，果然高明！\n\n" NOR,
+	CYN "\n$n臉色微變，説道：佩服，佩服！\n\n" NOR,
+	CYN "\n$n向後退了幾步，説道：這場比試算我輸了，佩服，佩服！\n\n" NOR,
+	CYN "\n$n向後一縱，躬身做揖説道：閣下武藝不凡，果然高明！\n\n" NOR,
 });
 
 void create()
@@ -123,7 +123,7 @@ string damage_msg(int damage, string type)
 		else if( damage < 20 ) str = "結果造成輕微的";
 		else if( damage < 30 ) str = "結果造成一處";
 		else if( damage < 50 ) str = "結果造成一處嚴重";
-		else if( damage < 80 ) str = "結果造成頗爲嚴重的";
+		else if( damage < 80 ) str = "結果造成頗為嚴重的";
 		else if( damage < 120 ) str = "結果造成相當嚴重的";
 		else if( damage < 170 ) str = "結果造成十分嚴重的";
 		else if( damage < 230 ) str = "結果造成極其嚴重的";
@@ -213,7 +213,7 @@ varargs int skill_power(object ob, string skill, int usage)
 		case SKILL_USAGE_DEFENSE:
 			level += ob->query_temp("apply/defense");
 
-/* 不同輕功有不同的威力。威力(power_point)範圍爲1到1.5之間。嚴禁超標 */
+/* 不同輕功有不同的威力。威力(power_point)範圍為1到1.5之間。嚴禁超標 */
 			dskill = ob->query_skill_mapped("dodge");
 			if( dskill )
 			{
@@ -319,7 +319,7 @@ varargs int do_attack(object me, object victim, object weapon, int attack_type, 
 	limbs = victim->query("limbs");
 	limb = limbs[random(sizeof(limbs))];
 
-	// 自己先出招，對手纔可能進行相應的防禦或者躲閃 //by qingyun
+	// 自己先出招，對手才可能進行相應的防禦或者躲閃 //by qingyun
 	result = replace_string(result, "$l", limb);
 	/* 招架的兵器 體現在parry.c中 */
 	if (victim->query_temp("weapon"))
@@ -485,7 +485,7 @@ varargs int do_attack(object me, object victim, object weapon, int attack_type, 
 				//				damage += action["damage"] * damage / 100;
 				//減弱威力
 				damage += action["damage"] * damage / 200;
-			// 惟有兵器有damage，拳腳命中永遠爲0
+			// 惟有兵器有damage，拳腳命中永遠為0
 
 			// 讓護甲可以抵消部分兵器的傷害
 			// 減弱護甲作用 因damage不高 shield就顯得超強
@@ -1255,7 +1255,7 @@ void killer_reward(object killer, object victim)
 			bonus -= score;
 		killer->set("shen", bonus);
 */
-		tell_object(killer,HIW"經過你的努力拼殺，你增長了" + chinese_number(exp) + "點實戰經驗，"+ chinese_number(pot) + "點潛能和" + chinese_number(score)+"點江湖閱歷。\n" NOR);
+		tell_object(killer,HIW"經過你的努力拼殺，你增長了" + chinese_number(exp) + "點實戰經驗，"+ chinese_number(pot) + "點潛能和" + chinese_number(score)+"點江湖閲歷。\n" NOR);
 		quest_finished( killer, quest_master );
 	}
 }

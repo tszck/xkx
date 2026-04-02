@@ -15,7 +15,7 @@ string query_personal(string gender,int per)
 			case 36: return HIG"現在面如美玉，粉妝玉琢，骨格清奇，俊美不凡。\n"NOR;
 			case 35: return HIG"現在丰神如玉，目似朗星，令人過目難忘。\n"NOR;
 			case 34: return HIY"現在粉面朱脣，身姿俊俏，舉止風流無限。\n"NOR;
-			case 33: return HIY"現在雙目如星，眉梢傳情，所見者無不爲之心動。\n"NOR;
+			case 33: return HIY"現在雙目如星，眉梢傳情，所見者無不為之心動。\n"NOR;
 			case 32: return HIY"現在舉動如行雲游水，獨蘊風情，吸引所有異性目光。\n"NOR;
 			case 31: return HIY"現在雙眼光華瑩潤，透出攝人心魄的光芒。\n"NOR;
 			case 30: return HIY"生得英俊瀟灑，氣宇軒昂，風度翩翩，風流倜儻。\n"NOR;
@@ -23,7 +23,7 @@ string query_personal(string gender,int per)
 			case 28: return MAG"生得面若秋月，儒雅斯文，舉止適度，儀表堂堂。\n"NOR;
 			case 27: return MAG"生得劍眉星目，英姿勃勃，儀表不凡。\n"NOR;
 			case 26: return MAG"生得滿面濃髯，環眼豹鼻，威風凜凜，讓人傾倒。\n"NOR;
-			case 25: return MAG"生得眉如雙劍，眼如明星，英挺出衆。\n"NOR;
+			case 25: return MAG"生得眉如雙劍，眼如明星，英挺出眾。\n"NOR;
 			case 24: return CYN"生得虎背熊腰，壯健有力，英姿勃發。\n"NOR;
 			case 23: return CYN"生得膚色白皙，紅脣墨髮，斯文有禮。\n"NOR;
 			case 22: return CYN"生得濃眉大眼，高大挺拔，氣宇軒昂。\n"NOR;

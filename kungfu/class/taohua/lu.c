@@ -55,7 +55,7 @@ void create()
            "桃花陣":   "你若不是本派弟子，上桃花島就要過桃花陣。",
            "東邪":     "家師人稱東邪！呵呵。",
            "西毒":     "歐陽鋒是與家師並世齊名的高手，人稱老毒物。",
-           "南帝":     "聽家師說段王爺現在出家當了和尚，法名一燈。",
+           "南帝":     "聽家師説段王爺現在出家當了和尚，法名一燈。",
            "北丐":     "北丐洪七公是丐幫幫主，現在揚州城外。",
            "黃蓉":     "她是師父的愛女。",
            "黃藥師":   "你要拜訪家師？",
@@ -117,7 +117,7 @@ int accept_object(object who, object ob)
 	}
 	if (ob->query("userp") == 1)
 	{
-		message_vision("$N對着$n說：我叫你殺金狗，你卻去殺玩家！去死吧你！\n", this_object() , who);
+		message_vision("$N對着$n説：我叫你殺金狗，你卻去殺玩家！去死吧你！\n", this_object() , who);
 		this_object()->kill_ob(who);
 		return 1;
 	}
@@ -151,7 +151,7 @@ int accept_object(object who, object ob)
 	who->add("potential",pot);
 	who->add("score", score);		
 	add("jinbing", -1);
-	tell_object(who,HIW"你獲得了"+chinese_number(exp)+"點實戰經驗和"+chinese_number(pot)+"點潛能和"+chinese_number(score)+"點江湖閱歷。\n"NOR);
+	tell_object(who,HIW"你獲得了"+chinese_number(exp)+"點實戰經驗和"+chinese_number(pot)+"點潛能和"+chinese_number(score)+"點江湖閲歷。\n"NOR);
 	return 1;
 }
 string ask_yao()

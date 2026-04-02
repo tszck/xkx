@@ -135,9 +135,9 @@ int main(object me, string arg)
 	line += " 飲水：" + tribar_graph(my["water"], ob->max_water_capacity(), ob->max_water_capacity(), CYN) + "\n";
       }
 
-	line += sprintf("\n 你到目前爲止總共殺了 %d 個人，其中有 %d 個是其他玩家。\n",
+	line += sprintf("\n 你到目前為止總共殺了 %d 個人，其中有 %d 個是其他玩家。\n",
 		my["MKS"] + my["PKS"], my["PKS"]);
-	line += sprintf(" 你到目前爲止總共死了 %d 次了，其中有 %d 次是非正常死亡。\n\n",
+	line += sprintf(" 你到目前為止總共死了 %d 次了，其中有 %d 次是非正常死亡。\n\n",
 		my["dietimes"] + my["normal_die"], my["dietimes"]);
 
 //	line += sprintf("     　神： " RED "%d\n" NOR, ob->query("shen") );
@@ -151,7 +151,7 @@ int main(object me, string arg)
 		(1 + (int)ob->query("learned_points")) * 100 / (1 + (int)ob->query("potential")) );
 	line += sprintf(" 實戰經驗： " HIM "%8d\n" NOR, ob->query("combat_exp") );
 	line += sprintf(" 魅    力： " HIC "%8d\t" NOR, ob->query("meili") );
-	line += sprintf(" 江湖閱歷： " HIC "%8d\t" NOR, ob->query("score") );
+	line += sprintf(" 江湖閲歷： " HIC "%8d\t" NOR, ob->query("score") );
 	line += sprintf(" 江湖威望： " HIC "%8d\n" NOR, ob->query("weiwang") );
 
 	write(line);
@@ -200,7 +200,7 @@ int help(object me)
            score <對象名稱>                   (巫師專用)
 
 這個指令可以顯示你(你)或指定對象(含怪物)的基本資料。
-基本資料的設定請參閱 'help setup'。
+基本資料的設定請參閲 'help setup'。
 
 see also : hp
 HELP

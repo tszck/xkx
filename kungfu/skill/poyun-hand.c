@@ -111,7 +111,7 @@ int help(object me)
 	write(HIC"\n破雲手："NOR"\n");
 	write(@HELP
 
-    破雲手爲嵩山派手法。可與大嵩陽掌互備。
+    破雲手為嵩山派手法。可與大嵩陽掌互備。
 
 	學習要求：
 		寒冰真氣10級

@@ -49,7 +49,7 @@ void create()
         set("chat_chance", 10);
         set("chat_msg", ({
 	"傻姑唱道：搖搖搖，搖到外婆橋，外婆叫我好寶寶....\n",
-	"傻姑唸叨說：師公說道，左三掌，右三叉，壞人打我就打他。\n",
+	"傻姑唸叨説：師公説道，左三掌，右三叉，壞人打我就打他。\n",
 	"傻姑忽然指着你的鼻子哈哈大笑，你覺得莫名其妙。\n",
 	"傻姑喊道：楊家兄弟，不是我害的你，你可別來找我。\n",
 	"傻姑靠在牆角，發出了陣陣的鼾聲。\n",
@@ -75,7 +75,7 @@ int accept_object(object who, object ob)
 			}
 			else {
 				tell_object(who, "傻姑接過圖解，倒着看了半天，不明所以，只好又還了給你。\n");
-				tell_object(who, "傻姑說道：還不如我這個亮晶晶好玩呢！你看看。\n");
+				tell_object(who, "傻姑説道：還不如我這個亮晶晶好玩呢！你看看。\n");
 				tell_object(who, "傻姑給你一些銀子。\n");
 				money = new("/clone/money/silver.c");
 				money->set_amount(15);

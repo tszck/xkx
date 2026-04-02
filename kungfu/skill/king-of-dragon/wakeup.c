@@ -12,10 +12,10 @@ int exert(object me, object target)
 		return notify_fail("戰鬥中無法運功救人！\n");
 */
 	if(target == me)
-		return notify_fail("你不能爲自己救醒自己！\n");
+		return notify_fail("你不能為自己救醒自己！\n");
 
 	if( (int)me->query("max_neili") < 1000 )
-		return notify_fail("你的內力修爲不夠。\n");
+		return notify_fail("你的內力修為不夠。\n");
 
 	if( (int)me->query("neili") < 1000 )
 		return notify_fail("你的真氣不夠。\n");

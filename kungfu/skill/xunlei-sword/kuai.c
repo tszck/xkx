@@ -47,16 +47,16 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲火候未到，施展"+PNAME+"只會傷及自身。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為火候未到，施展"+PNAME+"只會傷及自身。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲還不夠，還未領悟"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為還不夠，還未領悟"+PNAME+"。\n");
 
 	if( me->query_skill_mapped("force") != fskill)
 		return notify_fail("你所用內功與「快劍」心法相悖！\n");
 
 	if( me->query("max_neili") <= 1500 )
-		return notify_fail("你的內力修爲不足，勁力不足以施展「快劍」！\n");
+		return notify_fail("你的內力修為不足，勁力不足以施展「快劍」！\n");
 
 	if( me->query("neili") <= 700 )
 		return notify_fail("你的內力不夠，勁力不足以施展「快劍」！\n");
@@ -85,7 +85,7 @@ int perform(object me, object target)
 	}
 	else
 	{
-		message_combatd(HIW"可$n"HIW"鎮定自若，絲毫不爲所動！\n"NOR, me, target);
+		message_combatd(HIW"可$n"HIW"鎮定自若，絲毫不為所動！\n"NOR, me, target);
 		me->start_busy(1);
 		me->add("neili", -200);
 		me->add("qi", -100);

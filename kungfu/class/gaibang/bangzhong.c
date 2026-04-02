@@ -7,7 +7,7 @@ void create()
 {
 	int level;
 	level = random(7)+1;
-	set_name("丐幫幫衆", ({"gaibang bangzhong", "bangzhong"}));
+	set_name("丐幫幫眾", ({"gaibang bangzhong", "bangzhong"}));
 	set("gender", "男性");
 	set("age", 15+level*5);
 	set("attitude", "peaceful");

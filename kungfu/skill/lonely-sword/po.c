@@ -8,7 +8,7 @@
 砍刀、斬馬刀種種刀法。
 第四招“破槍式”，包括破解長槍、大戟、蛇矛、齊眉棍、狼牙
 棒、白蠟杆、禪杖、方便鏟種種長兵刃之法。
-第五招“破鞭式”，用以破解鋼鞭、鐵鐧、點穴橛、柺子、蛾眉
+第五招“破鞭式”，用以破解鋼鞭、鐵鐧、點穴橛、枴子、蛾眉
 刺、匕首、板斧、鐵牌、八角槌、鐵椎等等短兵刃。
 第六招“破索式”，破解的是長索、軟鞭、三節棍、鏈子槍、鐵
 鏈、漁網、飛錘流星等等軟兵刃。
@@ -18,7 +18,7 @@
 風辨器之術，不但要能以一柄長劍擊開敵人發射來的種種暗器，
 還須借力反打，以敵人射來的暗器反射傷敵。
 三述八招歸於po中。
-第九劍“破氣式”，是爲對付身具上乘內功的敵人而用，神而明
+第九劍“破氣式”，是為對付身具上乘內功的敵人而用，神而明
 之，存乎一心。用poqi來實現。
 pozhong 一招，是“破箭式”的變招。
 */
@@ -64,7 +64,7 @@ int perform(object me)
 		return notify_fail("你的獨孤九劍等級不夠，不能使用攻招！\n");
 		
 	if( me->query("max_neili") < 500 )
-		return notify_fail("你的內力修爲不夠，無法運用攻招！\n");
+		return notify_fail("你的內力修為不夠，無法運用攻招！\n");
 
 	if( me->query("neili") < 250 )
 		return notify_fail("你的內力不夠，無法運用攻招！\n");
@@ -84,7 +84,7 @@ int perform(object me)
 			(string)weapon2->query("skill_type")=="axe" || //斧
 			(string)weapon2->query("skill_type")=="dagger" || //匕
 			(string)weapon2->query("skill_type")=="hammer" || //錘
-			(string)weapon2->query("skill_type")=="hook") sk=5; //鉤
+			(string)weapon2->query("skill_type")=="hook") sk=5; //鈎
 		if((string)weapon2->query("skill_type")=="whip") sk=6; //軟鞭
 		if((string)weapon2->query("skill_type")=="throwing") sk=7;//暗器
 	}
@@ -134,7 +134,7 @@ int perform(object me)
 				msg = HIY"$n肩頭劇痛，雙手使不出力道，手中"+weapon2->name()+HIY"“噹啷”一聲掉在地上。\n"NOR;
 				break;
 			case 4:
-				msg = HIY"$n頓時大驚，爲保手指，忙把手中"+weapon2->name()+HIY"撒手拋出！\n"NOR;
+				msg = HIY"$n頓時大驚，為保手指，忙把手中"+weapon2->name()+HIY"撒手拋出！\n"NOR;
 				break;
 			case 5:
 				msg = HIY"$n頓覺手心猛地劇痛，手中"+weapon2->name()+HIY"被絞得脫手飛出！\n"NOR;
@@ -193,9 +193,9 @@ int help(object me)
 		攻擊未持兵器的敵手，傷敵氣血
 
 	出手要求：
-		身爲風清揚嫡傳弟子
+		身為風清揚嫡傳弟子
 		獨孤九劍50級
-		內力修爲500
+		內力修為500
 		內力250
 HELP
 	);

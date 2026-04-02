@@ -14,7 +14,7 @@ int do_destroy(object);
 
 void create()
 {
-	set_name("幫衆", ({ "bangzhong" }));
+	set_name("幫眾", ({ "bangzhong" }));
 	set("gender", "男性");
 	set("party/party_name", HIC"長樂幫"NOR);
 	set("party/rank", "豹捷堂");
@@ -80,7 +80,7 @@ int auto_check()
 		message("vision", me->name() + "走了過來。\n", dest, ({me}));
 
 		me->set_leader(ob);
-		message_vision("$N誠惶誠恐地說道：望幫主恕罪！\n", me);
+		message_vision("$N誠惶誠恐地説道：望幫主恕罪！\n", me);
 		return 1;
 	}
 

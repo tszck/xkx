@@ -6,7 +6,7 @@ void create()
 {
         set("short","湖邊小路");
         set("long",@LONG
-這是聖湖邊的小路。路側的湖水極爲清澈。陽光下映着白頂雪山顯
+這是聖湖邊的小路。路側的湖水極為清澈。陽光下映着白頂雪山顯
 出一片藍幽幽的寧靜。
 LONG );
         set("outdoors","xueshan");

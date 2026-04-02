@@ -124,11 +124,11 @@ void attempt_apprentice(object ob)
 	}
 	if ((int)ob->query("shen")<100000)
 	{
-		command( "say 你若能多爲俠義之舉，當能承我衣鉢。\n");
+		command( "say 你若能多為俠義之舉，當能承我衣缽。\n");
 		return;
 	}
 	command("say 阿彌陀佛，善哉！善哉！好吧，我就收下你了。");
-	command("say 希望你能努力行善，濟度衆生，以光大我恆山派。");
+	command("say 希望你能努力行善，濟度眾生，以光大我恆山派。");
 	command("recruit " + ob->query("id"));
 	name = ob->query("name");
 	new_name = "儀" + name[1..1];

@@ -7,7 +7,7 @@ void create()
 	set("short","王府大門");
 	set("long",@LONG
 你正站在一座豪華的府門前，門前有兩隻極大的石獅子，門上高
-懸一塊橫匾，上書「鎮南王府」四個金字。門口站着兩排侍衛，身着
+懸一塊橫匾，上書「鎮南王府」四個金字。門口站着兩排侍衞，身着
 錦衣，手執鋼刀，氣宇軒昂。
 LONG);
 	set("objects", ([
@@ -36,7 +36,7 @@ int valid_leave(object me, string dir)
 
         if ((!myfam || myfam["family_name"] != "大理段家") && dir == "enter" &&
                 objectp(present("zhu wanli", environment(me))))
-           return notify_fail("褚萬裏攔住你說：閒雜人等，別到處亂竄。\n");
+           return notify_fail("褚萬裏攔住你説：閒雜人等，別到處亂竄。\n");
 
         return ::valid_leave(me, dir);
 }

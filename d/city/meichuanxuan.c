@@ -26,11 +26,11 @@ LONG );
 	set("item_desc", ([
 		"lian" : @LONG
                   花         約
-                  爲         作
+                  為         作
                   四         主
                   壁         人
                   船         梅
-                  爲         作
+                  為         作
                   家         客
 LONG,
 	]));

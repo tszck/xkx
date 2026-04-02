@@ -6,7 +6,7 @@ void create()
 {       set_name("懶蟲", ({ "wrong"}));
 	set("gender", "女性");
 	set("class", "swordman");
-	set("title", GRN"狀元"HIG"明教地字門教衆"NOR"華山派第十三代弟子");	
+	set("title", GRN"狀元"HIG"明教地字門教眾"NOR"華山派第十三代弟子");	
 	set("age", 34);
 	set("attitude", "friendly");
 

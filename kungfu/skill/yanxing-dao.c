@@ -131,7 +131,7 @@ int help(object me)
 	write(HIC"\n雁行刀法："NOR"\n");
 	write(@HELP
 
-    雁行刀法爲峨嵋派刀法。
+    雁行刀法為峨嵋派刀法。
 
 	學習要求：
 		基本刀法等級不能低於雁行刀法等級

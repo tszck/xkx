@@ -1,4 +1,4 @@
-// shiweishi.c 事爲室
+// shiweishi.c 事為室
 // Winder Oct.10 1998
 
 #include <ansi.h>
@@ -6,7 +6,7 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "事爲室");
+        set("short", "事為室");
         set("long", @LONG
 這裏是全真七子之首馬鈺的居室。房間很小，只擺放了一張牀、
 一張書桌和一把椅子。書桌上放着一本‘老子’，只看了一半，牀上

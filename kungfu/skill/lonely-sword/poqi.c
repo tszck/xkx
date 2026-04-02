@@ -31,7 +31,7 @@ int perform(object me)
 	if( skill < 100)
 		return notify_fail("你的獨孤九劍等級不夠, 不能使用破氣式！\n");
 	if( me->query("max_neili") < 500 )
-		return notify_fail("你的內力修爲不夠，無法運用「破氣式」！\n");
+		return notify_fail("你的內力修為不夠，無法運用「破氣式」！\n");
 	if( me->query("neili") < 250 )
 		return notify_fail("你的內力不夠，無法運用「破氣式」！\n");
 	msg = HIC "$N潛運獨孤九劍「破氣式」，運氣貫劍使其由利返鈍，毫無花俏地直
@@ -75,9 +75,9 @@ int help(object me)
 		破解身具高深內功的敵手之武功，並傷敵氣血
 
 	出手要求：
-		身爲風清揚嫡傳弟子
+		身為風清揚嫡傳弟子
 		獨孤九劍100級
-		內力修爲500
+		內力修為500
 		內力250
 HELP
 	);

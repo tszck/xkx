@@ -13,7 +13,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "本");
-		set("long", "這是一本線裝書，裏面有各式圖譜和詳細說明。\n");
+		set("long", "這是一本線裝書，裏面有各式圖譜和詳細説明。\n");
 		set("value", 300);
 		set("material", "paper");
 	}
@@ -76,7 +76,7 @@ int do_study(string arg)
 
 	me->improve_skill("medicine", random(2 * me->query_int()));
 	me->receive_damage("jing", cost, "心力絞瘁死了");
-	message_vision("$N一會兒翻閱着『十四經發揮』，一會兒苦思冥想。\n", me);
+	message_vision("$N一會兒翻閲着『十四經發揮』，一會兒苦思冥想。\n", me);
 
 	return 1;
 }

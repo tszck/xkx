@@ -23,7 +23,7 @@ LONG );
 	]));
 
 	set("item_desc", ([
-	"valley" : "深澗有三丈多寬，不過因爲這邊地勢高，應該不難跳(jump)過去。\n"
+	"valley" : "深澗有三丈多寬，不過因為這邊地勢高，應該不難跳(jump)過去。\n"
 	]) );
 //	set("no_clean_up", 0);
 	set("outdoors", "xingxiu");

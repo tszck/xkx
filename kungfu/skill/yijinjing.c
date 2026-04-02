@@ -38,7 +38,7 @@ int valid_learn(object me)
 		return notify_fail("你非童男之體，不能練習易筋經神功。\n");
 
 	if ( nb < 100 && nb <= nh )
-		return notify_fail("你的禪宗心法修爲不夠，無法領會更高深的易筋經神功。\n");
+		return notify_fail("你的禪宗心法修為不夠，無法領會更高深的易筋經神功。\n");
 
 	if ( nf < 10)
 		return notify_fail("你的基本內功火候還不夠，無法領會易筋經神功。\n");
@@ -93,7 +93,7 @@ int help(object me)
 	write(HIC"\n易筋經神功："NOR"\n");
 	write(@HELP
 
-    《易筋》，《洗髓》二經向爲少林鎮寺之寶，相傳爲達摩祖師
+    《易筋》，《洗髓》二經向為少林鎮寺之寶，相傳為達摩祖師
 所創，載有不少天竺高僧的瑜伽祕術，但由於其習練艱難，須得勘
 破“我相，人相”，心中不存修習武功之念，故歷代弟子罕有練成
 者。

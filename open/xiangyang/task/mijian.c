@@ -33,7 +33,7 @@ int do_xiaohui(string arg)
 	if (!present("mi jian",me) )
 		return notify_fail("你身上沒有密件。\n"); 
 //check ok
-	message_vision("$N從懷中掏出一隻火折點燃了密件。\n"+HIR"只聽「轟」的一聲，密件在火中慢慢化爲灰燼。\n"NOR, me);
+	message_vision("$N從懷中掏出一隻火折點燃了密件。\n"+HIR"只聽「轟」的一聲，密件在火中慢慢化為灰燼。\n"NOR, me);
 	count=me->query_temp("team_count");
 	if (count<2) count=2;	
 	base_exp=1500/count;

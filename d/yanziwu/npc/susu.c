@@ -58,7 +58,7 @@ void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
 
-	say("素素笑吟吟地說道：這位" + RANK_D->query_respect(ob)
+	say("素素笑吟吟地説道：這位" + RANK_D->query_respect(ob)
 	     + "請先入座，" + "我這就給您上茶。\n");
 }
 

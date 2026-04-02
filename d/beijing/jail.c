@@ -17,7 +17,7 @@ LONG );
         set("no_fight",1);
         set("no_sleep_room",1);
         set("item_desc", ([
-		"window": "太陽啊，我爲什麼感覺不到你的溫暖？\n",
+		"window": "太陽啊，我為什麼感覺不到你的溫暖？\n",
         ]));
         set("objects", ([
                 __DIR__"npc/yuzu" : 1,

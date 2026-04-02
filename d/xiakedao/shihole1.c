@@ -37,7 +37,7 @@ int valid_leave(object me, string dir)
         if(dir!="out")
         {
            if( me->query("score")<30000 )
-           return notify_fail("你就這點江湖閱歷，回去歷練幾年再來吧！\n");
+           return notify_fail("你就這點江湖閲歷，回去歷練幾年再來吧！\n");
            if( me->query("weiwang")>=20 )
            {
                 inv = all_inventory(me);
@@ -45,7 +45,7 @@ int valid_leave(object me, string dir)
                    if(inv[i]->query("weapon_prop") && ((string)inv[i]->query("equipped")=="wielded"))
                        if(objectp(present("wang", environment(me))) &&
                            living(present("wang", environment(me))))
-                         return notify_fail("王五上前擋住你，朗聲說道：這位" +
+                         return notify_fail("王五上前擋住你，朗聲説道：這位" +
                              RANK_D->query_respect(me) + "裏面是本島重地，不準比試武功。你可以進去，但不得手持兵刃。\n");
                 return ::valid_leave(me, dir);
            }
@@ -53,7 +53,7 @@ int valid_leave(object me, string dir)
            {
                    if(objectp(present("wang wu", environment(me)))&&
                    living(present("wang", environment(me))))
-                     return notify_fail("王五攔住你說道：裏面是本島重地，只有各派掌門及著名的俠客才能進去。\n" + RANK_D->query_rude(me) +"你還是回去吧。\n");
+                     return notify_fail("王五攔住你説道：裏面是本島重地，只有各派掌門及著名的俠客才能進去。\n" + RANK_D->query_rude(me) +"你還是回去吧。\n");
            }
         }
         return ::valid_leave(me, dir);

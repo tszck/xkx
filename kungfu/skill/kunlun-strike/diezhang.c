@@ -45,7 +45,7 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 140 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
 		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
@@ -64,10 +64,10 @@ int perform(object me, object target)
 	arg = (int)(me->query_skill(bskill, 1) / 30);
 
 	if( arg <= 1 )
-		return notify_fail("至少要有兩招纔可組成"PNAME"。\n");
+		return notify_fail("至少要有兩招才可組成"PNAME"。\n");
 
 	if( (int)me->query("max_neili", 1) < 1500 )
-		return notify_fail("你內力修爲不夠，不能使用"PNAME"。\n");
+		return notify_fail("你內力修為不夠，不能使用"PNAME"。\n");
 
 	if( (int)me->query("neili", 1) < 200 )
 		return notify_fail("你現在內力太弱，不能使用"PNAME"。\n");
@@ -122,8 +122,8 @@ int help(object me)
 		玄天無極140級
 		後天膂力26
 		內力1500
-		激發崑崙掌法爲招架技能
-		激發崑崙掌法爲掌法技能
+		激發崑崙掌法為招架技能
+		激發崑崙掌法為掌法技能
 		指定掌法技能(prepare)
 HELP
 	);

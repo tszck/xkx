@@ -7,7 +7,7 @@ void create()
 {
 	set_name("大漢", ({ "da han", "han" }));
 	set("gender", "男性");
-	set("title", HIY"黃河幫幫衆"NOR);
+	set("title", HIY"黃河幫幫眾"NOR);
 	set("age", 22);
 	set("str", 25);
 	set("per", 15);

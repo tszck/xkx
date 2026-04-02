@@ -76,7 +76,7 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，不會使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
 		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
@@ -88,7 +88,7 @@ int perform(object me, object target)
 		return notify_fail("你的內力不夠！\n");
 
 	if( me->query("max_neili") <= 700 )
-		return notify_fail("你的內力修爲不夠！\n");
+		return notify_fail("你的內力修為不夠！\n");
 
 	cost = me->query_skill(bskill, 1)/2;
 	me->add("neili", -cost);
@@ -246,7 +246,7 @@ int help(object me)
 		太極神功100級
 		太極劍法100級
 		內力500
-		內力修爲700
+		內力修為700
 HELP
 	);
 	return 1;

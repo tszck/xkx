@@ -139,7 +139,7 @@ int main(object me, string arg)
 					else skill_type=(keys(pmap))[1];
 				}
 	attack_points = COMBAT_D->skill_power(ob,skill_type,SKILL_USAGE_ATTACK);
-// 按combatd.c爲標準算parry point
+// 按combatd.c為標準算parry point
   if (ob->query_temp("weapon"))
   parry_points = COMBAT_D->skill_power(ob, "parry", SKILL_USAGE_DEFENSE);
   else
@@ -250,7 +250,7 @@ if(ob->query("shen") >= 0)
 		line += sprintf("%s"HIR"%-19d"NOR"%s%-46s┃\n", "┃正    氣：    ", ob->query("shen"), "<精>： ",tribar_graph(my["jing"], my["eff_jing"], my["max_jing"],GRN));
 	else
 		line += sprintf("%s"HIG"%-19d"NOR"%s%-46s┃\n", "┃戾    氣：    ", ob->query("shen"), "<精>： ",tribar_graph(my["jing"], my["eff_jing"], my["max_jing"],GRN));
-	line += sprintf("%s"HIC"%-19d"NOR"%s%-45s┃\n", "┃江湖閱歷：    ", ob->query("score"), "<氣>： ", tribar_graph(my["qi"], my["eff_qi"], my["max_qi"], HIR));
+	line += sprintf("%s"HIC"%-19d"NOR"%s%-45s┃\n", "┃江湖閲歷：    ", ob->query("score"), "<氣>： ", tribar_graph(my["qi"], my["eff_qi"], my["max_qi"], HIR));
 	line += sprintf("%s%-19d%s%-25d┃\n","┃江湖威望：    ", my["weiwang"], "江湖魅力：    ", my["meili"]);
 
 	if (wizardp(me))

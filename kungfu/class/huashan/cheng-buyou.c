@@ -77,10 +77,10 @@ void init()
 void greeting(object ob)
 {
         if(ob->query("family/master_id") != "yue buqun")
-              say ("成不憂說：這位"+RANK_D->query_respect(ob) + "，來投我劍宗吧。\n");
+              say ("成不憂説：這位"+RANK_D->query_respect(ob) + "，來投我劍宗吧。\n");
         else
         {
-              message_vision("成不憂一見$N就大怒：我最討厭僞君子的徒弟了。\n", ob);
+              message_vision("成不憂一見$N就大怒：我最討厭偽君子的徒弟了。\n", ob);
               this_object()->kill_ob(ob);
         }
         return;

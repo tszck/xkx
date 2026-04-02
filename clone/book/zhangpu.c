@@ -90,7 +90,7 @@ int do_du(string arg)
 	}
 	if (me->query("family/family_name") != "鐵掌幫") {
 		me->delete_skill("tiezhang-zhangfa");
-		write("你研讀了一會，發現上面所說的對你而言太深了。\n");
+		write("你研讀了一會，發現上面所説的對你而言太深了。\n");
 		return 1;
 	}
 
@@ -111,7 +111,7 @@ int do_du(string arg)
 	}
 	if( me->query_skill("tiezhang-zhangfa", 1) > 120)
 	{
-		write( "你研讀了一會兒，但是發現上面所說的對你而言都太淺了，沒有學到任何東西。\n");
+		write( "你研讀了一會兒，但是發現上面所説的對你而言都太淺了，沒有學到任何東西。\n");
 		return 1;
 	}
 	me->receive_damage("jing", 15);

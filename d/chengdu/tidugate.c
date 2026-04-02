@@ -26,6 +26,6 @@ LONG );
 int valid_leave(object me, string dir)
 {
 	if ((dir=="north") && (objectp(present("qin bing", environment(me)))))
-		return notify_fail("親兵上前擋住你，朗聲說道：這位" + RANK_D->query_respect(me) + "請回吧。老爺不見客。\n");
+		return notify_fail("親兵上前擋住你，朗聲説道：這位" + RANK_D->query_respect(me) + "請回吧。老爺不見客。\n");
 	return ::valid_leave(me, dir);
 }

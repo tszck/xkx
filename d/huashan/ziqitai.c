@@ -7,7 +7,7 @@ void create()
 {
 	set("short", "紫氣臺");
 	set("long", @LONG
-紫氣臺終年雲遮霧掩，迷濛不見天日，更爲怪異的是：每逢下雨天，
+紫氣臺終年雲遮霧掩，迷濛不見天日，更為怪異的是：每逢下雨天，
 山谷之中就隱隱有紫氣出現。
 LONG);
 	set("outdoors", "huashan");

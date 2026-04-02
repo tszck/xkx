@@ -71,28 +71,28 @@ int do_sit(string arg)
 	message_vision("$N找了個空位座下，等着喫飯。\n", me);	
 	local = localtime(time() * 60);
 	if (local[2] < 6) {
-		message_vision("僕役走過來對$N說：大半夜的您讓小的去哪裏弄喫的啊？\n", me);
+		message_vision("僕役走過來對$N説：大半夜的您讓小的去哪裏弄喫的啊？\n", me);
 		message_vision("$N無奈地又站了起來。\n", me);	
 		return notify_fail("");
 	}
 	else if (local[2] > 8 && local[2] < 11) {
-		message_vision("僕役走過來對$N說：過了早飯時間啦，中午再來吧。\n", me);
+		message_vision("僕役走過來對$N説：過了早飯時間啦，中午再來吧。\n", me);
 		message_vision("$N無奈地又站了起來。\n", me);	
 		return notify_fail("");
 	}
 	else if (local[2] > 13 && local[2] < 17) {
-		message_vision("僕役走過來對$N說：過了午飯時間啦，晚上再來吧。\n", me);
+		message_vision("僕役走過來對$N説：過了午飯時間啦，晚上再來吧。\n", me);
 		message_vision("$N無奈地又站了起來。\n", me);	
 		return notify_fail("");
 	}
 	else if (local[2] > 20) {
-		message_vision("僕役走過來對$N說：過了晚飯時間啦，您就忍一宿吧。\n", me);
+		message_vision("僕役走過來對$N説：過了晚飯時間啦，您就忍一宿吧。\n", me);
 		message_vision("$N無奈地又站了起來。\n", me);	
 		return notify_fail("");
 	}
 	if( me->query_temp("marks/food_served") ) {
-		message_vision("僕役走過來對$N說：喫飽了的就出去吧，別佔着地方！\n", me);
-		message_vision("$N發覺衆人的眼光都在盯着自己，忙站起身來，尷尬地說：我只是試試這椅子結實不結實。\n", me);
+		message_vision("僕役走過來對$N説：喫飽了的就出去吧，別佔着地方！\n", me);
+		message_vision("$N發覺眾人的眼光都在盯着自己，忙站起身來，尷尬地説：我只是試試這椅子結實不結實。\n", me);
 		return notify_fail("");
 	}
 	me->set_temp("marks/sit", 1);
@@ -120,7 +120,7 @@ int valid_leave(object me, string dir)
 
 	if ((dir == "north") && present("dami fan", me))
 //	if (random(3)) 
-		return notify_fail("僕役跑過來說：沒喫完的也別帶走啊，考慮一下別人嘛。\n");
+		return notify_fail("僕役跑過來説：沒喫完的也別帶走啊，考慮一下別人嘛。\n");
 	
 	return ::valid_leave(me, dir);
 }

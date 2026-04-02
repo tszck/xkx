@@ -87,7 +87,7 @@ int help(object me)
 	write(HIC"\n鎖喉擒拿手："NOR"\n");
 	write(@HELP
 
-    鎖喉擒拿手爲丐幫的武技。
+    鎖喉擒拿手為丐幫的武技。
     可與蓮花手互備。
 
 	學習要求：

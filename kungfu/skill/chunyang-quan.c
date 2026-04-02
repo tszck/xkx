@@ -126,7 +126,7 @@ int help(object me)
 	write(HIC"\n純陽拳："NOR"\n");
 	write(@HELP
 
-    純陽拳爲王重陽所創的全真派拳法。
+    純陽拳為王重陽所創的全真派拳法。
     可與昊天掌互備。
 
 	學習要求：

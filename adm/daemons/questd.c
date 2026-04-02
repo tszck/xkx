@@ -56,7 +56,7 @@ int quest_reward(object me, object who,object quest_item)
 	tell_object(me,HIW"你被獎勵了：\n" +
         	    chinese_number(exp) + "點實戰經驗\n"+
         	    chinese_number(pot) + "點潛能\n" +
-        	    chinese_number(score)+"點江湖閱歷\n"NOR);
+        	    chinese_number(score)+"點江湖閲歷\n"NOR);
 	me->add("TASK",1);
 	if ( !undefinedp(quest["fin_func"]))
 		call_other(this_object(), quest["fin_func"], me, who, quest_item);

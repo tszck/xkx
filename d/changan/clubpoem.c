@@ -29,7 +29,7 @@ void  create  ()
     set  ("short",  "樂府詩社");
     set  ("long",  @LONG
 高樓之上，滿城繁華盡收眼底。文人騷客都喜歡在這裏品茶吟詩，
-談古論今，你瞧，不知誰在茶桌上剛剛寫好一首詩(poem)。裏邊櫃檯上
+談古論今，你瞧，不知誰在茶桌上剛剛寫好一首詩(poem)。裏邊櫃枱上
 新貼了張啓事(qishi)，你不由得走過去看了幾眼。
 LONG);
 
@@ -94,7 +94,7 @@ int  do_answer(string  arg)
         if(objectp(ob=present("cha  boshi",this_object()))
               &&  living(ob))  {
         switch(random(2))  {
-          case  0:  message_vision("$N說道：是．．．"+arg+"？\n",me);
+          case  0:  message_vision("$N説道：是．．．"+arg+"？\n",me);
                           break;
           case  1:  message_vision("$N答道："+arg+"？\n",me);
                           break;
@@ -268,7 +268,7 @@ int  do_look(string  arg)
         }  else  if(arg=="qishi")  {
             write("\n"+@LONG
                       本社新增猜詩遊戲，由茶博士將一句詩詞的若干字
-              顛倒次序，寫在牆上。能準確答出(answer)原句者爲勝。
+              顛倒次序，寫在牆上。能準確答出(answer)原句者為勝。
 
               例如：茶博士提筆在牆上寫道：離離原上草一榮一枯歲
               你應該回答：answer  離離原上草一歲一枯榮

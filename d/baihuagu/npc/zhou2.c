@@ -80,7 +80,7 @@ int accept_object(object who, object ob)
 	{
 		if(who->query_temp("marks/mihave") && (int)who->query("marks/mi_age")<=121 )
 		{
-			message_vision("老頑童接過蜂蜜，高興地說道：好，好，好。\n\n",who);
+			message_vision("老頑童接過蜂蜜，高興地説道：好，好，好。\n\n",who);
 			if(who->query("combat_exp") < 100000)
 			{
 				tell_object(who,HIW"你的經驗上升了！\n你的潛能上升了！\n" NOR);

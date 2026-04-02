@@ -1,8 +1,8 @@
-//table.c 梳妝檯
+//table.c 梳妝枱
 inherit ITEM;
 void create()
 {
-        set_name("梳妝檯", ({ "table" , "shuzhuang tai", "tai"}) );
+        set_name("梳妝枱", ({ "table" , "shuzhuang tai", "tai"}) );
         set_weight(5000);
         set_max_encumbrance(8000000);
         set("no_shown", 1);
@@ -11,7 +11,7 @@ void create()
         else {
                 set("unit", "張");
                 set("no_get", 1);
-                set("long", "這是一張梳妝檯，楠木雕就，金絲綹邊，臺上一面晶亮的水晶鏡子。\n");
+                set("long", "這是一張梳妝枱，楠木雕就，金絲綹邊，臺上一面晶亮的水晶鏡子。\n");
                 set("value", 0);
         }
 }

@@ -44,19 +44,19 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 180 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(bskill)+"修爲不夠，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"修為不夠，使不出"+PNAME+"。\n");
 
 	if( me->query("neili") < 250 )
 		return notify_fail("你的內力不夠，無法運用岱宗如何！\n");
 
 	if( me->query("max_neili") < 500 )
-		return notify_fail("你的內力修爲不夠，無法運用岱宗如何！\n");
+		return notify_fail("你的內力修為不夠，無法運用岱宗如何！\n");
 
 	message_combatd( HIY"$N右手"+weapon->name()+HIY"斜指而下，左手五指正在屈指而數，從一數到五，握而成拳，又將拇指伸出，次而食指，終至五指全展，跟着又屈拇指而屈食指，再屈中指，然後手中"+weapon->name()+HIY"劍光暴長，向$n疾刺而去。\n"NOR,me,target);
 
@@ -94,7 +94,7 @@ int help(object me)
 		磐石神功150級
 		泰山劍法180級
 		基本劍法120級
-		內力修爲500
+		內力修為500
 		內力250
 HELP
 	);

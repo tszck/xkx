@@ -69,7 +69,7 @@ int perform(object me, object target)
 
 	spforce = forces[skill];
 	if( (int)me->query_skill(spforce, 1) < 80 ) {
-		tell_object(me, "你的" + to_chinese(spforce) + "修爲不夠，不會使用「纏」字訣。\n");
+		tell_object(me, "你的" + to_chinese(spforce) + "修為不夠，不會使用「纏」字訣。\n");
 		return 1;
 	}
 

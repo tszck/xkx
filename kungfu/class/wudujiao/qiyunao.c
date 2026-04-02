@@ -143,7 +143,7 @@ int accept_object(object who, object ob)
 //	destruct(ob);
 	obn=new("/d/wudujiao/npc/obj/jinsheduye");
 	obn->move(who);
-	message_vision("\n齊雲敖說道：本長老不能白收你的東西，這是一瓶金蛇毒液，送給你吧！\n",who);
+	message_vision("\n齊雲敖説道：本長老不能白收你的東西，這是一瓶金蛇毒液，送給你吧！\n",who);
 	return 1;
 }
 

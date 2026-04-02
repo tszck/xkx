@@ -1,5 +1,5 @@
 // /d/xiakedao/npc/zhangsan.c 張三 賞善使者
-// Modified by Zeratul Jan 11 2001 改爲給豬腿換玄冰酒
+// Modified by Zeratul Jan 11 2001 改為給豬腿換玄冰酒
 
 inherit NPC;
 int inquiry_jiu();
@@ -41,7 +41,7 @@ void create()
 	set("chat_msg",({
 	    "張三大聲稱讚着：好酒，真是好酒，真是盡興！\n",
 	    "張三咂咂嘴：可惜無肉下酒，不知有沒有地方弄點肉來？\n",
-	    "張三滿臉堆笑地對你說道：你站在這幹麼呢？是不是想和兄弟我喝兩杯？\n"
+	    "張三滿臉堆笑地對你説道：你站在這幹麼呢？是不是想和兄弟我喝兩杯？\n"
 
 	}) );
 	set("inquiry",([
@@ -82,7 +82,7 @@ int inquiry_jiu()
 	}
 	else
 	{
-		message_vision( "張三嘆着氣說：這位"+RANK_D->query_respect(me)+"，你爲什麼一定要喝這酒呢，這對你可未必有好處。\n好吧，既然你要，就給你吧，不過你要小心啊！\n",me);
+		message_vision( "張三嘆着氣説：這位"+RANK_D->query_respect(me)+"，你為什麼一定要喝這酒呢，這對你可未必有好處。\n好吧，既然你要，就給你吧，不過你要小心啊！\n",me);
 //張三從腰間解下一個硃紅色的葫蘆，遞了給你。\n" , me);
 		obn = new( "/clone/medicine/nostrum/binghuojiu" );
 		obn->move( me );

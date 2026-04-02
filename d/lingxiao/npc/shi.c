@@ -9,7 +9,7 @@ void create()
 	set_name("時萬年",({"shi wannian","shi",}));
 	set("gender", "男性");
 	set("age", 20);
-	set("long", "他是凌霄城第六代弟子時萬年，在此守衛監獄。\n");
+	set("long", "他是凌霄城第六代弟子時萬年，在此守衞監獄。\n");
 	set("attitude", "peaceful");
 
 	set("no_get", 1);
@@ -35,7 +35,7 @@ void create()
 	}) );
 	set("chat_chance", 5);
 	set("chat_msg", ({
-	"時萬年恨恨說道：老瘋子不知道又怎麼了，把自己關在裏面弄死不肯出來。\n", 
+	"時萬年恨恨説道：老瘋子不知道又怎麼了，把自己關在裏面弄死不肯出來。\n", 
 	"時萬年把劍一彈，傲然道：有我守在這，誰都別想把老瘋子放出來。\n", 
 	}) );
 	set_skill("strike", 120);

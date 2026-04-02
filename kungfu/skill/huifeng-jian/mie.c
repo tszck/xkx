@@ -50,14 +50,14 @@ int perform(object me, object target)
 		return notify_fail("你的"+to_chinese(sskill)+"劍法不夠嫺熟，還使不出"+PNAME+"。\n");
 
 	if ((int)me->query("max_neili") < 400)
-		return notify_fail(RED"你的內力修爲不足，無法運足"PNAME"的內力。\n"NOR);
+		return notify_fail(RED"你的內力修為不足，無法運足"PNAME"的內力。\n"NOR);
 
 	if ((int)me->query("neili")<400)
 		return notify_fail(HIC"你現在內力不夠，沒能將"PNAME"使完！\n"NOR);
 
 	msg = HIC "$N手中"+weapon->query("name")+HIC+"劍芒躍動，劍光暴長，幻出死亡的色彩，劍尖漸\n"NOR;
 	msg += HIC"漸逼近$n"HIC"，$n"HIC"看到漫天劍光，抽身後躍，只這一剎，漫天劍\n"NOR;
-	msg += HIC"影化爲一劍直刺$n"HIC"前胸，快捷無倫，只有一劍！\n"NOR;
+	msg += HIC"影化為一劍直刺$n"HIC"前胸，快捷無倫，只有一劍！\n"NOR;
 	if (random(me->query_skill("force"))>target->query_skill("force")/2 || 
 		random(me->query("combat_exp"))>target->query("combat_exp")/3)
 	{

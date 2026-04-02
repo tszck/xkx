@@ -51,7 +51,7 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	say("小沙彌躬身說道：這位"+RANK_D->query_respect(ob)+"請先入座。\n");
+	say("小沙彌躬身説道：這位"+RANK_D->query_respect(ob)+"請先入座。\n");
 }
 
 void serve_food(object who)

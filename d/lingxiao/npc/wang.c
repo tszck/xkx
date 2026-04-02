@@ -11,7 +11,7 @@ void create()
 	set("age", 20);
 	set("long", 
 	       "他是凌霄城第六代弟子王萬仞，專門負責接送新入門的弟子上山。\n"
-	       "他本是凌霄城中傑出弟子，只是好酒貪杯，才被罰到此守衛。\n");
+	       "他本是凌霄城中傑出弟子，只是好酒貪杯，才被罰到此守衞。\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);
@@ -30,7 +30,7 @@ void create()
 	set("chat_chance", 10);
 	set("chat_msg", ({
 "王萬仞打了個噴嚏，嘆了一聲：在這鬼地方，真夠冷的，要是有點酒喝就暖和多了。\n", 
-"王萬仞說道，你要能給我點酒，我就讓你進密道去，山腰小店就有賣的。\n", 
+"王萬仞説道，你要能給我點酒，我就讓你進密道去，山腰小店就有賣的。\n", 
 	}) );
 	set("inquiry", ([
 		"暗道"   : "那是隻有我們凌霄弟子才能走的。",
@@ -85,7 +85,7 @@ int accept_object(object me, object ob)
 	}
 	else
 	{
-		command("say 這位"+RANK_D->query_respect(me) + "你太好了！\n多謝了，我這就送你進密道去，不過你千萬不要說是我放你進去的哦。\n");
+		command("say 這位"+RANK_D->query_respect(me) + "你太好了！\n多謝了，我這就送你進密道去，不過你千萬不要説是我放你進去的哦。\n");
 		me->move("/d/lingxiao/andao");
 		return 1;
 	}

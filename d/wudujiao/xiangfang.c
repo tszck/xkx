@@ -97,12 +97,12 @@ int do_qu (string arg)
 		if(obj[i]->query("host_id") == me->query("id") )
 		{
 			if(environment(obj[i]) == me )
-				return notify_fail(ob->name()+ "說道：你不是正騎在它身上麼？\n");
+				return notify_fail(ob->name()+ "説道：你不是正騎在它身上麼？\n");
 			else
 				if(environment(obj[i]) != environment(me) )
-					return notify_fail("白髯老者說道：它在"+(environment(obj[i])->query("outdoors") ? to_chinese(environment(obj[i])->query("outdoors")) : "哪裏")+"的"+environment(obj[i])->query("short")+"，趕快去找吧。\n");
+					return notify_fail("白髯老者説道：它在"+(environment(obj[i])->query("outdoors") ? to_chinese(environment(obj[i])->query("outdoors")) : "哪裏")+"的"+environment(obj[i])->query("short")+"，趕快去找吧。\n");
 				else
-					return notify_fail("白髯老者說道：它不是就在你旁邊麼？\n");
+					return notify_fail("白髯老者説道：它不是就在你旁邊麼？\n");
 			return 1;
 		}
 	}

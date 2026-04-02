@@ -7,7 +7,7 @@ void create()
 {
 	set("short","密道");
 	set("long", @LONG
-這裏是漆黑的密道，當年白駝山弟子爲了直達中原而挖鑿的。
+這裏是漆黑的密道，當年白駝山弟子為了直達中原而挖鑿的。
 LONG	);
 	set("exits" , ([
 		"east" : "/d/city/ganquanjie",

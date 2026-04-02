@@ -33,7 +33,7 @@ int exert(object me, object target)
 	notify_fail("不是你要抓的人，湊什麼熱鬧！\n");
 	if (!userp(target) && !target->accept_hit(me)) return 0;
 	if (target->query("race") != "人類")
-		return notify_fail("搞錯了！只有人纔能有丹元！\n");
+		return notify_fail("搞錯了！只有人才能有丹元！\n");
        
 	my_max = me->query("max_neili");
 	tg_max = target->query("max_neili");
@@ -62,7 +62,7 @@ int exert(object me, object target)
 		return notify_fail( target->name() + "丹元渙散，功力未聚，你無法從他體內吸取任何東西！\n");
 
 	if( (int)target->query("max_neili") < (int)me->query("max_neili")/10 )
-		return notify_fail( target->name() + "的內功修爲遠不如你，你無法從他體內吸取丹元！\n");
+		return notify_fail( target->name() + "的內功修為遠不如你，你無法從他體內吸取丹元！\n");
 
 	message_combatd(HIG"$N全身一振，伸出右手，輕輕握在$n的手臂上。\n\n" NOR,me,target);
 

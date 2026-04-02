@@ -65,7 +65,7 @@ int take_match(string arg)
 		}
 		else {
 			message_vision(HIW +"沒有竹籤了，$N贏了。\n"+ NOR, me);
-			message_vision(obname+"看了看手裏的竹籤又看了看$N，說道：是你瞎貓碰着死耗子，便宜你了。\n\n", me);
+			message_vision(obname+"看了看手裏的竹籤又看了看$N，説道：是你瞎貓碰着死耗子，便宜你了。\n\n", me);
 			me->set_temp("match_game/win", 1);
 			me->delete_temp("match_game/playing");
 			return 1;

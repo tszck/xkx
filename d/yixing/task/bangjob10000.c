@@ -204,7 +204,7 @@ mapping *bangjobs = ({
                 "score" :  3,
         ]),
 
-        ([      "name"  :  "藍玉鉢",
+        ([      "name"  :  "藍玉缽",
                 "file"  :  "/d/xingxiu/obj/lanyubo",
                 "type"  :  "尋",
                 "bonus" :  10,

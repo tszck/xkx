@@ -13,7 +13,7 @@ void create()
 手筆。可你不仔細看怎麼也看不清楚。
 LONG	);
 	set("item_desc", ([
-		"zi": "秋水爲神玉爲骨    芙蓉如面柳如眉\n"
+		"zi": "秋水為神玉為骨    芙蓉如面柳如眉\n"
 	]));
 	set("exits", ([
 		"west"  : __DIR__"mudao02",

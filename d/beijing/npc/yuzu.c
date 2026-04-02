@@ -5,7 +5,7 @@ inherit NPC;
 void create()
 {
 	set_name("刑部獄卒", ({ "yu zu","zu" }) );
-	set("title", HIR"八品"HIB"帶刀侍衛"NOR);
+	set("title", HIR"八品"HIB"帶刀侍衞"NOR);
 	set("gender", "男性" );
 	set("age", 32);
 	set("str", 22);
@@ -76,7 +76,7 @@ void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
 	if( !wizardp(ob))
-	command("rumor 江洋大盜" + ob->query("name") + "已被刑部錦衣衛籍拿歸案！\n");
+	command("rumor 江洋大盜" + ob->query("name") + "已被刑部錦衣衞籍拿歸案！\n");
 	ob->set("startroom","/d/beijing/jail");
 }
 

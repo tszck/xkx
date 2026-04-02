@@ -46,11 +46,11 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(fskill)+"的修爲不夠, 不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"的修為不夠, 不能使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 135 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，目前不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不夠，目前不能使用"+PNAME+"。\n");
 	if( (int)me->query_skill(bskill, 1) < 135 )
-		return notify_fail("你的"+to_chinese(bskill)+"修爲不夠, 不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"修為不夠, 不能使用"+PNAME+"。\n");
 	if( (int)me->query("neili") < 500 )
 		return notify_fail("你的真氣不夠！\n");
 

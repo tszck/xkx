@@ -50,6 +50,6 @@ void init()
 void greeting(object ob)
 {
 
-        say ("卓瑪合什爲禮，說道：阿弭佗佛！"+RANK_D->query_respect(ob) + "，貧尼這廂有禮了。\n");
+        say ("卓瑪合什為禮，説道：阿弭佗佛！"+RANK_D->query_respect(ob) + "，貧尼這廂有禮了。\n");
         return;
 }

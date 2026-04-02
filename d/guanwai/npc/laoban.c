@@ -53,10 +53,10 @@ void greeting(object ob)
 	if( !ob || environment(ob) != environment() ) return;
 	switch( random(2) ) {
 		case 0:
-			say( "酒館老闆得意的說道：這麼冷的天，喝碗狗肉湯是最能暖和身子的！\n");
+			say( "酒館老闆得意的説道：這麼冷的天，喝碗狗肉湯是最能暖和身子的！\n");
 			break;
 		case 1:
-			say( "酒館老闆搓了搓手，說道：這位" + RANK_D->query_respect(ob)
+			say( "酒館老闆搓了搓手，説道：這位" + RANK_D->query_respect(ob)
 				+ "，狗肉大補啊，嚐嚐吧。\n");
 			break;
 	}

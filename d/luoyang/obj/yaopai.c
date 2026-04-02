@@ -10,14 +10,14 @@ void create()
 	set_name("腰牌", ({ "yao pai", "yaopai" }));
 	set("long", "這是一塊幫會的腰牌。\n"+
 "    憑此腰牌，可以提升(tisheng) 和降黜(jiangchu)本幫會內所有
-下屬人衆，甚至將其驅逐(quzhu) 出幫會。被驅逐者損失一定存款和
-閱歷。如果對本幫會十分失望，可以自行退出(tuichu)所屬幫會，代
-價一定的存款和閱歷。
-     幫(門、教)主無法退會。但可以讓位(rangwei) 給本幫會衆，
+下屬人眾，甚至將其驅逐(quzhu) 出幫會。被驅逐者損失一定存款和
+閲歷。如果對本幫會十分失望，可以自行退出(tuichu)所屬幫會，代
+價一定的存款和閲歷。
+     幫(門、教)主無法退會。但可以讓位(rangwei) 給本幫會眾，
 功成身退。對於違命背叛的下屬，可以限時派出本幫會刑堂的執法弟
 子前往懲處(chengchu)。
-    如果想提升一位非本幫會人員成爲本幫一般人衆，被提升者爲表
-示忠誠之決心，必須先割一個腦袋瓜來作爲加盟投名狀。
+    如果想提升一位非本幫會人員成為本幫一般人眾，被提升者為表
+示忠誠之決心，必須先割一個腦袋瓜來作為加盟投名狀。
     所有入會人等均能獲得一塊腰牌，並按自己的權限憑腰牌行使上
 述權力。
       教(幫、門)主    提升 降黜 懲處 驅逐 任命 創立 讓位
@@ -25,9 +25,9 @@ void create()
       長老            提升 降黜 懲處 退出
       香主            提升 降黜 退出
       旗主            退出
-      一般人衆        退出
+      一般人眾        退出
 其中第三、四、五階層人等可以任命(renming)專名。如傳功長老、
-紅旗香主、風雲旗主等等。任何人等均可用party命令查閱本幫會名
+紅旗香主、風雲旗主等等。任何人等均可用party命令查閲本幫會名
 單。
     如果不幸丟失本腰牌，可以到關林對着關夫子像猛磕頭(ketou)，
 好好思過。
@@ -92,7 +92,7 @@ int do_tisheng(string arg)
 		if(me->query_temp("party/toumingzhuang") != ob->query("id"))
 			return notify_fail("對方要先給你個人頭作投名狀，然後你才能接引人家。\n");
 		ob->set("party/party_name", partynm);
-		ob->set("party/rank", "一般人衆");
+		ob->set("party/rank", "一般人眾");
 		ob->set("party/player", 1);
 		ob->set("party/level", 6);
 		ob->set("party/enter_time", time());
@@ -109,7 +109,7 @@ int do_tisheng(string arg)
 	if(oblvl <= mylvl)
 		return notify_fail(ob->query("name")+"的職司不比你低，你忙乎個啥勁呀！\n");
 	if(oblvl - mylvl == 1)
-		return notify_fail("只能提升對方成爲你的下屬。\n");
+		return notify_fail("只能提升對方成為你的下屬。\n");
 
 	ob->set("party/level", oblvl - 1);
 	switch (oblvl)
@@ -120,7 +120,7 @@ int do_tisheng(string arg)
 		case 6: ob->set("party/rank", "旗主"); break;
 	}
 	message_vision("$N衝着關帝像俯身下去，恭恭敬敬磕了三響頭！\n", ob);
-	message("channel:chat", HIR"【通告】"HIY+ob->query("name")+"於"+NATURE_D->game_time()+"被"HIG+me->query("party/rank")+me->query("name")+HIY"提升爲"+partynm+ob->query("party/rank")+"！\n"NOR, users());
+	message("channel:chat", HIR"【通告】"HIY+ob->query("name")+"於"+NATURE_D->game_time()+"被"HIG+me->query("party/rank")+me->query("name")+HIY"提升為"+partynm+ob->query("party/rank")+"！\n"NOR, users());
 	return 1;
 }
 
@@ -160,9 +160,9 @@ int do_jiangchu(string arg)
 		case 2: ob->set("party/rank", "長老"); break;
 		case 3: ob->set("party/rank", "香主"); break;
 		case 4: ob->set("party/rank", "旗主"); break;
-		case 5: ob->set("party/rank", "一般人衆"); break;
+		case 5: ob->set("party/rank", "一般人眾"); break;
 	}
-	message("channel:chat", HIR"【通告】"HIY+ob->query("name")+"於"+NATURE_D->game_time()+"被"HIG+me->query("party/rank")+me->query("name")+HIY"降黜爲"+partynm+ob->query("party/rank")+"！\n"NOR, users());
+	message("channel:chat", HIR"【通告】"HIY+ob->query("name")+"於"+NATURE_D->game_time()+"被"HIG+me->query("party/rank")+me->query("name")+HIY"降黜為"+partynm+ob->query("party/rank")+"！\n"NOR, users());
 	return 1;
 }
 
@@ -222,7 +222,7 @@ int do_renming(string arg)
 		default: return notify_fail(ob->query("name")+"的職司不能任命專名！\n");
 	}
 	message_vision("$N衝着關帝像俯身下去，恭恭敬敬磕了三響頭！\n", ob);
-	message("channel:chat", HIR"【通告】"HIY+ob->query("name")+"於"+NATURE_D->game_time()+"被"+me->query("name")+"任命爲"+partynm+ob->query("party/rank")+"！\n"NOR, users());
+	message("channel:chat", HIR"【通告】"HIY+ob->query("name")+"於"+NATURE_D->game_time()+"被"+me->query("name")+"任命為"+partynm+ob->query("party/rank")+"！\n"NOR, users());
 	return 1;
 }
 
@@ -266,7 +266,7 @@ int do_quzhu(string arg)
 	   ob->set("balance",ob->query("balance")*99/100);
 	ob->set("score", ob->query("score")*99/100);
 	message_vision("$N從$n身上收回一塊腰牌！\n", me, ob);
-	message("channel:chat", HIR"【通告】"HIY+ob->query("name")+"於"+NATURE_D->game_time()+"被"HIG+me->query("party/rank")+me->query("name")+HIY"驅逐出"+partynm+"！以後此人所爲，與"+partynm+"無涉！\n"NOR, users());
+	message("channel:chat", HIR"【通告】"HIY+ob->query("name")+"於"+NATURE_D->game_time()+"被"HIG+me->query("party/rank")+me->query("name")+HIY"驅逐出"+partynm+"！以後此人所為，與"+partynm+"無涉！\n"NOR, users());
 	return 1;
 }
 
@@ -292,7 +292,7 @@ int do_tuichu()
 	   me->set("balance",me->query("balance")*98/100);
 	me->set("score", (int)me->query("score")*98/100);
 	message_vision("$N取出腰牌，狠狠砸碎在地上，以示決裂！\n", me);
-	message("channel:chat", HIR"【通告】"HIY+me->query("name")+"："+RANK_D->query_self_rude(me)+"已於"+NATURE_D->game_time()+"自願退出"+partynm+"！以後"+partynm+"一切所爲，與"+RANK_D->query_self_rude(me)+"一概無涉！\n"NOR, users());
+	message("channel:chat", HIR"【通告】"HIY+me->query("name")+"："+RANK_D->query_self_rude(me)+"已於"+NATURE_D->game_time()+"自願退出"+partynm+"！以後"+partynm+"一切所為，與"+RANK_D->query_self_rude(me)+"一概無涉！\n"NOR, users());
 	destruct(this_object());
 	return 1;
 }

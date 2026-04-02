@@ -128,9 +128,9 @@ int scborn(object me,string arg)
 	{
 		case 0:
 			if (!arg)
-				return notify_fail("第一次轉生格式爲：suicide -r 武功 絕招\n");
+				return notify_fail("第一次轉生格式為：suicide -r 武功 絕招\n");
 			if (sscanf(arg,"%s %s",skill,pfm)!=2)
-				return notify_fail("第一次轉生格式爲：suicide -r 武功 絕招\n");
+				return notify_fail("第一次轉生格式為：suicide -r 武功 絕招\n");
 			//檢查武功
 			if (!me->query_skill(skill))
 				return notify_fail("你並不會這個武功。\n");
@@ -159,9 +159,9 @@ int scborn(object me,string arg)
 			break;
 		case 1:
 			if (!arg)
-				return notify_fail("轉生格式爲：suicide -r 武功 知識技能\n");
+				return notify_fail("轉生格式為：suicide -r 武功 知識技能\n");
 			if (sscanf(arg,"%s %s",skill,lskill)!=2)
-				return notify_fail("轉生格式爲：suicide -r 武功 知識技能\n");
+				return notify_fail("轉生格式為：suicide -r 武功 知識技能\n");
 			//檢查武功
 			if (!me->query_skill(skill))
 				return notify_fail("你並不會這個"+skill+"武功。\n");
@@ -199,9 +199,9 @@ int scborn(object me,string arg)
 			break;
 		case 2:
 			if (!arg)
-				return notify_fail("轉生格式爲：suicide -r 武功 內功\n");
+				return notify_fail("轉生格式為：suicide -r 武功 內功\n");
 			if (sscanf(arg,"%s %s",skill,fskill)!=2)
-				return notify_fail("轉生格式爲：suicide -r 武功 內功\n");
+				return notify_fail("轉生格式為：suicide -r 武功 內功\n");
 			//檢查武功
 			if (!me->query_skill(skill))
 				return notify_fail("你並不會"+skill+"這個武功。\n");
@@ -220,9 +220,9 @@ int scborn(object me,string arg)
 			break;
 		case 3:
 			if (!arg)
-				return notify_fail("轉生格式爲：suicide -r 武功 武功\n");
+				return notify_fail("轉生格式為：suicide -r 武功 武功\n");
 			if (sscanf(arg,"%s %s",skill,skill2)!=2)
-				return notify_fail("轉生格式爲：suicide -r 武功 武功\n");
+				return notify_fail("轉生格式為：suicide -r 武功 武功\n");
 			//檢查武功1
 			if (!me->query_skill(skill))
 				return notify_fail("你並不會"+skill+"這項技能。\n");
@@ -243,9 +243,9 @@ int scborn(object me,string arg)
 			break;
 		case 4:
 			if (!arg)
-				return notify_fail("轉生格式爲：suicide -r 武功 武功\n");
+				return notify_fail("轉生格式為：suicide -r 武功 武功\n");
 			if (sscanf(arg,"%s.%s %s",skill,skill2,skill3)!=3)
-				return notify_fail("轉生格式爲：suicide -r 武功 武功\n");
+				return notify_fail("轉生格式為：suicide -r 武功 武功\n");
 			//檢查武功1
 			if (!me->query_skill(skill))
 				return notify_fail("你並不會"+skill+"這項技能。\n");
@@ -343,7 +343,7 @@ int help (object me)
 	write(@HELP
 指令格式: suicide [-f|-r]
 
-    如果因爲某種原因你不想活了，你可以選擇自殺來永遠除去資料。系統會
+    如果因為某種原因你不想活了，你可以選擇自殺來永遠除去資料。系統會
 要求你輸入密碼以確認身份。
 
 suicide -r : 重新投胎

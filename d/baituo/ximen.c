@@ -30,10 +30,10 @@ int valid_leave(object me, string dir)
 {
 	if( (dir == "east") && ((int)me->query("shen")>300) &&
 		objectp(present("men wei", environment(me))) )
-		return notify_fail("門衛把手一攔：你不能進去！\n");
+		return notify_fail("門衞把手一攔：你不能進去！\n");
 	if( (dir == "west") &&((int)me->query("combat_exp") < 300) &&
 		objectp(present("men wei", environment(me))) )
-		return notify_fail("門衛把手一攔：你的經驗太低，會被毒蛇咬死的！還是不要亂闖的好。\n");
+		return notify_fail("門衞把手一攔：你的經驗太低，會被毒蛇咬死的！還是不要亂闖的好。\n");
 	return ::valid_leave(me, dir);
 }
 

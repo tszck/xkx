@@ -35,6 +35,6 @@ void create()
     set("no_drop",1);
     set("no_sell",1);
   }
-  set("long", "一金碗天上纔有的仙餚珍饈－－"+names[i]+"。\n");
+  set("long", "一金碗天上才有的仙餚珍饈－－"+names[i]+"。\n");
 }
 

@@ -116,7 +116,7 @@ int help(object me)
 	write(HIC"\n迴風拂柳劍："NOR"\n");
 	write(@HELP
 
-    迴風拂柳劍爲峨嵋派武功。
+    迴風拂柳劍為峨嵋派武功。
 
 	學習要求：
 		臨濟十二莊20級

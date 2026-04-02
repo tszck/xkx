@@ -12,12 +12,12 @@ mixed out_master(mixed arg)
    me = this_player();
    if( (string)me->query("family/family_name")!="華山派")
    {
-         tell_object(me,"嶽夫人疑惑地對你說:我好象在哪見過你似的!\n");
+         tell_object(me,"嶽夫人疑惑地對你説:我好象在哪見過你似的!\n");
          return 1;
    }
    if(me->query("gender")!="女性")
    {
-         tell_object(me,"這位小兄弟,你是我丈夫的徒弟,想出師當去找他纔是!\n");
+         tell_object(me,"這位小兄弟,你是我丈夫的徒弟,想出師當去找他才是!\n");
          return 1;
    }
    if(me->query("combat_exp") <= 100000) 
@@ -25,7 +25,7 @@ mixed out_master(mixed arg)
          tell_object(me,"嶽夫人對"+me->query("name")+"笑道:小姑娘,功夫還沒學到家就想出去丟臉.\n");
          return 1;
    }
-   tell_object(me,"嶽夫人沉吟了一會,對"+me->query("name")+"說道:要想出師,
+   tell_object(me,"嶽夫人沉吟了一會,對"+me->query("name")+"説道:要想出師,
           你必須接我三招不死(accept test).\n");
    add_action("do_accept","accept");
    return 1;
@@ -37,11 +37,11 @@ int do_accept(string arg)
 
    if( arg== "test" ) 
    {
-          say("\n嶽夫人點了點頭，說道：很好，小心了　，這是第一招....\n\n");
+          say("\n嶽夫人點了點頭，説道：很好，小心了　，這是第一招....\n\n");
           COMBAT_D->do_attack(this_object(), this_player(), query_temp("weapon"));
           if( (int)this_player()->query("kee") < 0 || !present(this_player(), environment()))
           {
-               say("嶽夫人嘆了口氣，說道:連第一招都撐不過，真是自不量力....\n");
+               say("嶽夫人嘆了口氣，説道:連第一招都撐不過，真是自不量力....\n");
                return 1;
           }
           say("\n嶽夫人道：第二招....\n\n");
@@ -58,8 +58,8 @@ int do_accept(string arg)
                say("嶽夫人嘆道:唉,就差一點點了,繼續努力吧!.\n");
                return 1;
           }
-          say("\n嶽夫人微笑着道：恭喜,你出師了.你我師徒一場，爲師沒什麼好送的 .
-          \n就送你八字真言吧:天外有天,人外有人!徒兒,喔,不...大俠你好自爲知.\n\n");
+          say("\n嶽夫人微笑着道：恭喜,你出師了.你我師徒一場，為師沒什麼好送的 .
+          \n就送你八字真言吧:天外有天,人外有人!徒兒,喔,不...大俠你好自為知.\n\n");
           this_player()->set("betrayer",this_player()->query("betrayer")-1);
           this_player()->set("title","隱士");
           this_player()->set("family/family_name","華山派");
@@ -187,7 +187,7 @@ string ask_skill1()
 	object me = this_player();
 
         	if (me->query("family/master_id")!=this_object()->query("id"))
-        		return "你非我門下弟子，何故有此一說。";
+        		return "你非我門下弟子，何故有此一説。";
                 return teach_perform(me, this_object(),
                         ([ "perform" : "wushuang",
                            "name"    : "無雙無對",

@@ -120,7 +120,7 @@ int help(object me)
 	學習要求：
 		站樁功40級
 		散花掌40級
-		內力修爲400。
+		內力修為400。
 HELP
 	);
 	return 1;

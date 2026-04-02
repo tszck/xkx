@@ -57,7 +57,7 @@ void init()
         object ob;
         ::init();
         if( interactive(ob = this_player()) ) {
-        message_vision("鍾靈對$N說道：快去救木姐姐，木姐姐被關在後面的石屋裏！\n",ob);
+        message_vision("鍾靈對$N説道：快去救木姐姐，木姐姐被關在後面的石屋裏！\n",ob);
         }
 }
 
@@ -69,15 +69,15 @@ int accept_object(object who, object ob)
         inv = all_inventory(this_object());
 
         if (ob->name() == "閃電貂") {
-            tell_object(who,"鍾靈說道：謝謝你幫我找回了閃電貂！\n");
-            tell_object(who,"鍾靈說道：下次你見到段譽時，告訴他我已經回家了。\n");
+            tell_object(who,"鍾靈説道：謝謝你幫我找回了閃電貂！\n");
+            tell_object(who,"鍾靈説道：下次你見到段譽時，告訴他我已經回家了。\n");
             if(!sizeof(inv) )
                 for ( i=0; i< sizeof(inv); i++ )
                     if ( inv[i]->name() == "繡花鞋" ) {
                         destruct(inv[i]);
                         tell_object("who, 鍾靈脫下一雙繡花鞋。\n");
                         sh = new("/t/wanjiegu/npc/obj/shoes2");
-                        tell_object(who, "鍾靈說道：這是我的一雙繡花鞋，請你帶給段譽。\n");
+                        tell_object(who, "鍾靈説道：這是我的一雙繡花鞋，請你帶給段譽。\n");
                         sh->move(who);
                         return 1;
                     }
@@ -93,7 +93,7 @@ void die()
 
         if(objectp(killer = query_temp("last_damage_from")))
             killer->set("marks/murder_zhongling", 1);
-        message_vision("鍾靈無力地說道：原來你和他們是一夥的！\n", killer);
+        message_vision("鍾靈無力地説道：原來你和他們是一夥的！\n", killer);
 
         ::die();
 }

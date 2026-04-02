@@ -8,7 +8,7 @@ void create()
 	set_name("漁夫", ({ "yu fu","fu" }) );
 	set("gender", "男性");
 	set("age", 35);
-	set("long", "島上以打魚爲生的漁夫。\n");
+	set("long", "島上以打魚為生的漁夫。\n");
 	set("combat_exp", 8800);
 	set("shen_type", 0);
 	set("attitude", "friendly");

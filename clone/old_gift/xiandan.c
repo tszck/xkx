@@ -12,7 +12,7 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "一顆園園的仙丹，據說喫了可以增強智力。\n");
+		set("long", "一顆園園的仙丹，據説喫了可以增強智力。\n");
 		set("value", 10000);
 		set("unit", "顆");
 	}

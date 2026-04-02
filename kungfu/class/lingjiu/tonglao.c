@@ -93,7 +93,7 @@ void attempt_apprentice(object ob)
 	}
 	if (ob->query_con() < 30) 
 	{
-		command("say 本門功法極爲難練，你的根骨似乎不夠。");
+		command("say 本門功法極為難練，你的根骨似乎不夠。");
 		return;
 	}
 	command("recruit " + ob->query("id"));

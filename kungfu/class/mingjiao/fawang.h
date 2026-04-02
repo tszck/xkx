@@ -21,7 +21,7 @@ int recruit_apprentice(object ob)
 {
         if( ::recruit_apprentice(ob) )
 		       {
-		       	command("say 恭喜你榮升爲明教護法！");
+		       	command("say 恭喜你榮升為明教護法！");
  				    ob->set("title", HIR"明教護法"NOR);
  				  }
 }

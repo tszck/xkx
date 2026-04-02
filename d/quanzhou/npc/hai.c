@@ -88,7 +88,7 @@ string ask_for_zigong()
                 return "這位好漢過於粗壯，自宮有礙觀瞻，不妥，不妥。\n";
 
         if ((int)me->query("mud_age") < 600)
-                return "這位小兄弟纔出孃胎，就要自宮，好可憐見的。\n";
+                return "這位小兄弟才出孃胎，就要自宮，好可憐見的。\n";
 
         me->set_temp("pending/zigong", 1);
         return "自宮？這位公子相貌堂堂，何必... 我真希望能有你的那個。自宮之後，
@@ -124,7 +124,7 @@ int ask_for_gongzi()
         if( (string)me->query("gender")!="無性" ) return 0;
         if ( me->query_skill("bixie-jian",1) < 60)
         {
-                tell_object(me,"海公公道：下等使役太監哪有工資？進東廠再說！\n");
+                tell_object(me,"海公公道：下等使役太監哪有工資？進東廠再説！\n");
                	return 1;
         }
         paytimes = (int)(me->query("mud_age")/7200);

@@ -13,7 +13,7 @@ void create()
 	set("short", "三清殿");
 	set("long", @LONG
 這裏是凌霄宮的三清殿，是武當派會客的地點。供着元始天尊、太
-上道君和天上老君的神像，香案(an)上香菸繚繞。靠牆放着幾張太師椅，
+上道君和天上老君的神像，香案(an)上香煙繚繞。靠牆放着幾張太師椅，
 地上放着幾個蒲團。東西兩側是走廊，北邊是練武的廣場，南邊是後院。
 LONG );
 	set("valid_startroom", 1);
@@ -88,13 +88,13 @@ string look_an()
 			return(HIC"香案上供奉着新上的香火，芬芳滿堂。\n"NOR);
 			break;
 		case 1:
-			return(HIC"香案上香菸繚繞，香火燒得正旺。\n"NOR);
+			return(HIC"香案上香煙繚繞，香火燒得正旺。\n"NOR);
 			break;
 		case 2:
 			return(HIC"香案上的香火已經燒了大半，幾縷餘煙，奄奄欲息。\n"NOR);
 			break;
 		default:
-			return(HIY"香案上只剩下一堆菸灰，等着有人敬(jing)奉香火！！\n"NOR);
+			return(HIY"香案上只剩下一堆煙灰，等着有人敬(jing)奉香火！！\n"NOR);
 			break;
 	}
 }  // end of look_an

@@ -31,9 +31,9 @@ TEXT );
 
         set("chat_chance", 7);
         set("chat_msg", ({
-        "程英微笑著說道：我們桃花島景色優美，歡迎來作客！\n",
-        "程英高興的說：有幸見到您真高興！\n",
-        "程英微笑著說道：您餓不餓？我桃花島的烹調功夫可算天下第一呀。\n",
+        "程英微笑著説道：我們桃花島景色優美，歡迎來作客！\n",
+        "程英高興的説：有幸見到您真高興！\n",
+        "程英微笑著説道：您餓不餓？我桃花島的烹調功夫可算天下第一呀。\n",
         }) );
         create_family("桃花島", 3, "弟子");
 
@@ -58,12 +58,12 @@ void greeting(object ob)
         if( !ob || environment(ob)!=environment() )
                 return;
         if ( ob->query_temp("taohua/茶飯") )
-                say("程英微笑着說： 這位"
+                say("程英微笑着説： 這位"
                     +RANK_D->query_respect(ob)+"，你好！歡迎來到桃花島！\n");
         else
         {
                 tell_room(environment(this_object()),
-                        "程英奉上茶飯，微笑着說道：這位" + RANK_D->query_respect(ob)
+                        "程英奉上茶飯，微笑着説道：這位" + RANK_D->query_respect(ob)
                         + "，你好！歡迎來到桃花島。請用飯！\n");
                 teatp = new("/d/taohua/obj/cha");
                 teatp ->move(ob);

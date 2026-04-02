@@ -44,16 +44,16 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 70 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，使不出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 80 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不夠，使不出"+PNAME+"。\n");
 
 	if( me->query("neili") < 300 )
 		return notify_fail("你的內力不夠，無法運用泰山十八盤！\n");
 
 	if( me->query("max_neili") < 400 )
-		return notify_fail("你的內力修爲不夠，無法運用泰山十八盤！\n");
+		return notify_fail("你的內力修為不夠，無法運用泰山十八盤！\n");
 
 	if( target->is_busy() )
 		return notify_fail(target->name()+"已經自顧不暇了，放膽攻擊吧！\n");
@@ -89,7 +89,7 @@ int help(object me)
 	出手要求：
 		磐石神功70級
 		泰山劍法80級
-		內力修爲400
+		內力修為400
 		內力300
 HELP
 	);

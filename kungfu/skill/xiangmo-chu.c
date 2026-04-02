@@ -19,8 +19,8 @@ mapping *action = ({
 	"skill_name" : "金剛宣法",
 	"lvl" : 16
 ]),
-([	"action" : "$N使出一招"HIY"「引趣衆生」"NOR"，雙手舉棍撩向$n的襠部",
-	"skill_name" : "引趣衆生",
+([	"action" : "$N使出一招"HIY"「引趣眾生」"NOR"，雙手舉棍撩向$n的襠部",
+	"skill_name" : "引趣眾生",
 	"lvl" : 24
 ]),
 ([	"action" : "$N舞動手中$w，使出"HIY"「歌舞閻羅」"NOR"，頓時罩住$n的全身",
@@ -114,7 +114,7 @@ int help(object me)
 	write(HIC"\n金剛降魔杵："NOR"\n");
 	write(@HELP
 
-    金剛降魔杵爲雪山寺器械武功。
+    金剛降魔杵為雪山寺器械武功。
 
 	學習要求：
 		龍象般若功或小無相功20級

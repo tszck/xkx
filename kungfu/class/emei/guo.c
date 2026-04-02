@@ -50,7 +50,7 @@ void create()
 		"郭襄低聲吟道：「橫汾路，寂寞當年簫鼓。荒煙依舊平楚。」\n",
 		"郭襄低聲吟道：「招魂些何嗟及，山鬼自啼風雨。」\n",
 		"郭襄低聲吟道：「天也妒，未信與，鶯兒燕子俱黃土。」\n",
-		"郭襄低聲吟道：「千秋萬古，爲留待騷人，狂歌痛飲，來訪雁丘處。」\n",
+		"郭襄低聲吟道：「千秋萬古，為留待騷人，狂歌痛飲，來訪雁丘處。」\n",
 		(: random_move :)
 	}) );
 
@@ -120,7 +120,7 @@ void attempt_apprentice(object ob)
 	if ((int)ob->query_skill("mahayana",1)<150||
 		(int)ob->query_skill("linji-zhuang",1)<150)
 	{
-		command("say 你本門的功夫修爲還太低。");
+		command("say 你本門的功夫修為還太低。");
 		return;
 	}
 	if ((int)ob->query("shen") < 500000)
@@ -133,7 +133,7 @@ void attempt_apprentice(object ob)
 		name = ob->query("name");
 		new_name = "風" + name[1..1];
 		ob->set("name", new_name);
-		command("say 從今以後你的法名叫做" + new_name + "，恭喜你成爲峨嵋第三代弟子!");
+		command("say 從今以後你的法名叫做" + new_name + "，恭喜你成為峨嵋第三代弟子!");
 	}
 	command("recruit " + ob->query("id"));
 }

@@ -94,14 +94,14 @@ void come_attacker()
 	}
 
 	if( !(helper = query("helper")) ) {
-		say(name() + "自言自語道：此地不可久留，三十六計走爲上！\n");
+		say(name() + "自言自語道：此地不可久留，三十六計走為上！\n");
 		say(name() + "急急忙忙地離開了。\n");
 		destruct(me);
 		return;
 	}
 
 	if( room != environment(helper) ) {
-		say(name() + "自言自語道：此地不可久留，三十六計走爲上！\n");
+		say(name() + "自言自語道：此地不可久留，三十六計走為上！\n");
 		say(name() + "急急忙忙地離開了。\n");
 		destruct(me);
 		return;
@@ -120,7 +120,7 @@ void come_attacker()
 			obj->add("score", bonus);
 			obj->delete("job");
 		}
-		say(name() + "雙手一抱拳道：幫主養傷要化一段時間，你好自爲之吧！\n");
+		say(name() + "雙手一抱拳道：幫主養傷要化一段時間，你好自為之吧！\n");
 		say(name() + "揚長而去。\n");
 		destruct(me);
 		return;

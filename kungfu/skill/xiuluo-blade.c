@@ -130,7 +130,7 @@ int help(object me)
 	學習要求：
 		站樁功50級
 		慈悲刀20級
-		內力修爲500
+		內力修為500
 HELP
 	);
 	return 1;

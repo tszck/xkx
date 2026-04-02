@@ -21,7 +21,7 @@ int do_zhu(string arg)
 		return 2;
 	}
 	if( !arg )
-		return notify_fail(ob->query("name")+"認真的說：想好名稱及代號後再對我說。\n");
+		return notify_fail(ob->query("name")+"認真的説：想好名稱及代號後再對我説。\n");
 
 	sscanf(arg ,"%s %s" ,w_name ,id);
 	if(!w_name||!id)
@@ -51,8 +51,8 @@ int do_zhu(string arg)
 	w_name = replace_string(w_name, "$n", "");
 	w_name = replace_string(w_name, "\"", "");
 	w_name += NOR;
-	message_vision("$N說道：準備要鑄叫做 "+w_name+"("+id+")"+" 的"+type+"。\n",ob);
-	message_vision("$N說道：你準備好了嗎？(answer y)。\n",ob);
+	message_vision("$N説道：準備要鑄叫做 "+w_name+"("+id+")"+" 的"+type+"。\n",ob);
+	message_vision("$N説道：你準備好了嗎？(answer y)。\n",ob);
 	me->set_temp("m_check",1);
 	me->set_temp("m_w/name",w_name);
 	me->set_temp("m_w/id",id);
@@ -67,7 +67,7 @@ int do_answer(string arg)
 	object weapon;
 	if (!me->query_temp("m_check")) return 0;
 	me->delete_temp("m_check");
-	if (arg != "y" && arg != "Y") return notify_fail(ob->query("name")+"說道：好吧，你再考慮清楚一下。\n");
+	if (arg != "y" && arg != "Y") return notify_fail(ob->query("name")+"説道：好吧，你再考慮清楚一下。\n");
 // 開始生成武器
 	me->delete_temp("m_make");
 	me->delete_temp("get_orc");
@@ -79,8 +79,8 @@ int do_answer(string arg)
 	w_name = me->query_temp("m_w/name");
 	id = me->query_temp("m_w/id");
 	make_time=NATURE_D->game_time();
-	message_vision("$N沉吟了一會，對$n悄聲說了幾句話。$n點了點頭。說：好吧！\n",me,ob);
-	message_vision("\n$n回過身，轉向身後的一個巨大的火爐，鼓動真氣燃起了熊熊的大火。說：開始！\n",me,ob );
+	message_vision("$N沉吟了一會，對$n悄聲説了幾句話。$n點了點頭。説：好吧！\n",me,ob);
+	message_vision("\n$n回過身，轉向身後的一個巨大的火爐，鼓動真氣燃起了熊熊的大火。説：開始！\n",me,ob );
 	message_vision(BLU "$N雙手握住一個巨大的鐵錘，猛的向爐中漸漸紅熱起來的"+o_name+"揮去！\n" NOR,me);
 	message_vision(RED "只聽得棚的一聲巨響，錘頭和"+o_name+"粘在了一起。\n" NOR,me );
 	message_vision(YEL "$N只覺得掌心一熱，渾身的血液似乎都沸騰了起來！\n" NOR,me);
@@ -117,8 +117,8 @@ int do_answer(string arg)
 
 	weapon = new("/d/npc/m_weapon/weapon/m_weapon",1);
 	weapon->move(this_player());
-	message_vision("$n摸起地上，帶着斑斑血跡還有些燙手的巨"+type+"，說：\n"+type+"。。已。。成。。，$n的任務。。。也就完成了。。。。\n",me ,ob );
-	message_vision("$n艱難的說：棒。。您。。收好，我該走了。。。\n",me,ob);
+	message_vision("$n摸起地上，帶着斑斑血跡還有些燙手的巨"+type+"，説：\n"+type+"。。已。。成。。，$n的任務。。。也就完成了。。。。\n",me ,ob );
+	message_vision("$n艱難的説：棒。。您。。收好，我該走了。。。\n",me,ob);
 	ob->die();
 // 生成武器完畢
   return 1;

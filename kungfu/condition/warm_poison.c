@@ -14,8 +14,8 @@ int update_condition(object me, int duration)
 	}
 	else
 	{
-		tell_object(me, RED"你只覺渾身燥熱難耐，似乎被放在火爐中一樣，極爲難受！\n" NOR );
-		message("vision", RED+me->name()+"突然面色一紅，渾身一抖，自頭部到手臂隱約可見斑斑紅點，極爲恐怖。\n"NOR, environment(me), me);
+		tell_object(me, RED"你只覺渾身燥熱難耐，似乎被放在火爐中一樣，極為難受！\n" NOR );
+		message("vision", RED+me->name()+"突然面色一紅，渾身一抖，自頭部到手臂隱約可見斑斑紅點，極為恐怖。\n"NOR, environment(me), me);
 	}
 	me->receive_damage("qi", 25,"硃砂掌毒發作");
 	me->receive_wound("jing", 20,"硃砂掌毒發作");

@@ -53,7 +53,7 @@ int main(object me, string arg)
 		if( SKILL_D(skillname)->practice_skill(me) )
 		{
 // 練習速度 = 基本武功的平方除本武功再除5，加武功練習補償。
-// 未定義練習補償的技能，默認爲10。
+// 未定義練習補償的技能，默認為10。
 			improve_points = (skill_basic*skill_basic)/( skill+1);
 			improve_points = random( improve_points / 5 ) + 1;
 			if(SKILL_D(skillname)->practice_bonus())
@@ -76,7 +76,7 @@ int help(object me)
 這個指令讓你練習某個種類的技能，這個技能必須是經過 enable 的專業技能。
 
 如果你對這方面的基本技能夠高，可以經由練習直接升級，而且升級的上限只跟
-你基本技能的等級有關，換句話說，勤加練習是使你的所學「青出於藍勝於藍」
+你基本技能的等級有關，換句話説，勤加練習是使你的所學「青出於藍勝於藍」
 的唯一途徑，當然，在這之前你必須從實際運用中獲得足夠的經驗以提升你的基
 本技能。
 TEXT

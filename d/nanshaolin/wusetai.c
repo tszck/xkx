@@ -33,7 +33,7 @@ int do_study(string arg)
         message("vision", me->name()+"正在專心的學習靈案上的書法。\n", environment(me), ({me}) );
 	if (lvl < 30)
 	{
-		write(HIR"你看着案上的書法，心中似有所悟，但畢竟拳法修爲尚淺，什麼也沒領悟到。\n"NOR);
+		write(HIR"你看着案上的書法，心中似有所悟，但畢竟拳法修為尚淺，什麼也沒領悟到。\n"NOR);
 		return 1;
 	}
 	if (lvl * lvl * lvl / 10 < exp)

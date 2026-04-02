@@ -30,7 +30,7 @@ int valid_leave(object me, string dir)
 {
 	if (  (dir == "northeast") && (!present("jinpai",me)) &&
 		objectp(present("shi wei", environment(me))) )
-		return notify_fail("仕衛把手一攔：你沒有「金令牌」，不能進去！\n");
+		return notify_fail("仕衞把手一攔：你沒有「金令牌」，不能進去！\n");
 	return ::valid_leave(me, dir);
 }
 

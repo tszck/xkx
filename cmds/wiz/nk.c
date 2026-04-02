@@ -23,8 +23,8 @@ int main(object me, string arg)
 		return notify_fail("看清楚一點，那並不是活物。\n");
  	if( !living(obj) || !living(dest) )
 		return notify_fail("已經有人不能戰鬥了。\n");
- 	message_vision(CYN "$N對$n說道："+RANK_D->query_self(obj) + obj->query("name") + "，領教" + RANK_D->query_respect(dest) + "的高招！\n"NOR, obj,dest);
-	message_vision(CYN"$N一拱手，說道："+RANK_D->query_self(dest) +"領教了。\n"NOR, dest);
+ 	message_vision(CYN "$N對$n説道："+RANK_D->query_self(obj) + obj->query("name") + "，領教" + RANK_D->query_respect(dest) + "的高招！\n"NOR, obj,dest);
+	message_vision(CYN"$N一拱手，説道："+RANK_D->query_self(dest) +"領教了。\n"NOR, dest);
  	obj->delete_temp("halted");
 	dest->delete_temp("halted");
  	remove_call_out("check");

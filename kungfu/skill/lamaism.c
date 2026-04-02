@@ -21,11 +21,11 @@ int valid_learn(object me)
 		return notify_fail("你學了牛鼻子的心法，無法修煉密宗心法。\n");
 	if ((me->query_skill("ziyunyin",1) > 1) ||
 		(me->query_skill("zhengqijue",1) > 1))
-		return notify_fail("哈哈！"+RANK_D->query_respect(me)+ "已經學了僞君子的心法，怎麼卻來學密宗心法？\n");
+		return notify_fail("哈哈！"+RANK_D->query_respect(me)+ "已經學了偽君子的心法，怎麼卻來學密宗心法？\n");
 	if ((me->query_skill("poison",1) > 1))
 		return notify_fail("哈哈！"+RANK_D->query_respect(me)+ "已經學了邪魔外道的毒技，怎麼卻來學密宗心法？\n");
 	if (me->query_skill("lamaism", 1) >= 150)
-		return notify_fail("限於資質，你對密宗心法的理解也就到此爲止了。\n");
+		return notify_fail("限於資質，你對密宗心法的理解也就到此為止了。\n");
 	return 1;
 }
 

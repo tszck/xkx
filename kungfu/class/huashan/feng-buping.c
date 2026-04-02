@@ -91,7 +91,7 @@ void attempt_apprentice(object ob)
 void do_recruit(object ob)
 {
         if( (int)ob->query("int") < 20 )
-                command("say 我華山派以劍法爲主，依我看"+RANK_D->query_respect(ob)+"不適合於學劍法。");
+                command("say 我華山派以劍法為主，依我看"+RANK_D->query_respect(ob)+"不適合於學劍法。");
         else {
                 command("say 好，好，好，很好。");
                 command("recruit " + ob->query("id") );

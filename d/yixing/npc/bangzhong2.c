@@ -11,7 +11,7 @@ void create()
 {
 	string *bc_skills, *weapons;
 	int i, level, exp = 100000 + random(200000);
-	set_name("幫衆", ({ "bang zhong", "zhong" }));
+	set_name("幫眾", ({ "bang zhong", "zhong" }));
 	set("gender", "男性");
 	set("party/party_name", HIC"長樂幫"NOR);
 	set("party/rank", "豹捷堂");

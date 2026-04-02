@@ -8,7 +8,7 @@ void create()
 {
 	set_name("詹春", ({ "zhan chun", "zhan", "chun" }));
 	set("long",
-		"她是何太沖最喜歡的弟子，長得倒也頗爲俏麗。\n");
+		"她是何太沖最喜歡的弟子，長得倒也頗為俏麗。\n");
 	set("gender", "女性");
 	set("age", 24);
 	set("attitude", "friendly");

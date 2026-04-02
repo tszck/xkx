@@ -35,7 +35,7 @@ int do_ban(string arg);		        // 取消|恢復 玩家拍賣資格
 int finish_auction(string arg);		// 結束拍賣
 void heart_beat();			// 心跳線，手工拍賣守護進程
 object check_operator();		// 檢查主持巫師狀態函數
-int do_autoauction();			// 將手工進程轉爲自動進程
+int do_autoauction();			// 將手工進程轉為自動進程
 int last_time = 0;	                // 最後一次手工操作的時間
 object operator;		        // 本變量記錄拍賣主持者
 
@@ -172,7 +172,7 @@ int do_start(string arg)
                 {
                         CHANNEL_D->do_channel(ob, "sys", "店鋪拍賣系統由" + me->name(1) + "成功啓動。運行模式：自動。");
 
-                        // 拍賣設置爲自動運行
+                        // 拍賣設置為自動運行
                         ob->set("operator", "situ heng");
 
                         msg += HIR "您選擇了通過" HIW "自動運行" HIR "的方式來啓動拍賣進程。\n\n" NOR;
@@ -187,11 +187,11 @@ int do_start(string arg)
                 {
                         CHANNEL_D->do_channel(ob, "sys", "店鋪拍賣系統由" + me->name(1) + "成功啓動，運行模式：人工。");
 
-		        // 拍賣設置爲手工運行
+		        // 拍賣設置為手工運行
                         ob->set("operator", me->query("id"));
 
                         msg += HIR "您選擇了通過" HIW "人工操作" HIR "的方式來啓動拍賣進程。\n\n" NOR;
-                        msg += WHT "拍賣的指令爲(" HIY "auction <店鋪ID>" NOR + WHT ")。\n" NOR;
+                        msg += WHT "拍賣的指令為(" HIY "auction <店鋪ID>" NOR + WHT ")。\n" NOR;
                         msg += WHT "您可以用(" HIY "auto" NOR + WHT ")指令來將拍賣進程轉成自動運行。\n" NOR;
                         write(msg);
 
@@ -295,7 +295,7 @@ int do_auction(string arg)
         CHANNEL_D->do_channel(ob, "sys", "現在開始拍賣" + now_shop + "店鋪。");
 
 //        message_vision(
-        shout(HIY "【行商】" WHT+ operator->name()+ WHT "大聲道：現在開始拍賣『" HIC + now_shop + HIC "店鋪" WHT "』底價爲" + chinese_number(now_price) + "兩黃金，有意者請舉牌。\n" NOR);
+        shout(HIY "【行商】" WHT+ operator->name()+ WHT "大聲道：現在開始拍賣『" HIC + now_shop + HIC "店鋪" WHT "』底價為" + chinese_number(now_price) + "兩黃金，有意者請舉牌。\n" NOR);
       //  , operator);
 
         // 自動拍賣
@@ -336,7 +336,7 @@ int begin_auction()
         {
         case 0:
 
-                message_vision(CYN "\n$N" CYN "接着道：正在開始拍賣" HIC + now_shop + NOR + CYN "店鋪。報價爲" YEL + chinese_number(now_price) + "兩黃金" CYN "第" + chinese_number(m) + "次。\n" NOR, operator);
+                message_vision(CYN "\n$N" CYN "接着道：正在開始拍賣" HIC + now_shop + NOR + CYN "店鋪。報價為" YEL + chinese_number(now_price) + "兩黃金" CYN "第" + chinese_number(m) + "次。\n" NOR, operator);
                 break;
 
         case 1:
@@ -344,7 +344,7 @@ int begin_auction()
                 break;
 
         default:
-                message_vision(CYN "\n$N" CYN "乾咳兩聲，大聲道：現在爲" YEL + chinese_number(now_price) + "兩黃金" CYN "第" + chinese_number(m) + "次，拍賣" + HIC + now_shop + NOR + CYN "店鋪，欲購" "者從速。\n" NOR, operator);
+                message_vision(CYN "\n$N" CYN "乾咳兩聲，大聲道：現在為" YEL + chinese_number(now_price) + "兩黃金" CYN "第" + chinese_number(m) + "次，拍賣" + HIC + now_shop + NOR + CYN "店鋪，欲購" "者從速。\n" NOR, operator);
                 break;
         }
 
@@ -352,11 +352,11 @@ int begin_auction()
         {
         case 0:
 
-                message_vision(CYN"$N" CYN "環顧了一下四周，接着說道：請有意者舉牌(" HIY "jupai" NOR + CYN ")。\n" NOR, operator);
+                message_vision(CYN"$N" CYN "環顧了一下四周，接着説道：請有意者舉牌(" HIY "jupai" NOR + CYN ")。\n" NOR, operator);
                 break;
 
         case 1:
-                message_vision(CYN"$N" CYN "皺了皺眉頭，說道：有人願意購買麼？請即時舉牌(" HIY "jupai" NOR + CYN ")。\n" NOR, operator);
+                message_vision(CYN"$N" CYN "皺了皺眉頭，説道：有人願意購買麼？請即時舉牌(" HIY "jupai" NOR + CYN ")。\n" NOR, operator);
                 break;
 
         case 2:
@@ -364,7 +364,7 @@ int begin_auction()
                 break;
 
         default:
-                message_vision(CYN "$N" CYN "清了清嗓子，繼續說道：拍賣正在" "進行，請各位舉牌(" HIY "jupai" NOR + CYN ")示" "意。\n" NOR, operator);
+                message_vision(CYN "$N" CYN "清了清嗓子，繼續説道：拍賣正在" "進行，請各位舉牌(" HIY "jupai" NOR + CYN ")示" "意。\n" NOR, operator);
                 break;
         }
 
@@ -564,7 +564,7 @@ int do_jupai(string arg)
         if (! query("auction_start"))
                 return notify_fail("現在拍賣還沒有開始，不必心急。\n");
 
-	//  手工拍賣，檢查執行巫師是否還在，如果不在則進程轉爲自動
+	//  手工拍賣，檢查執行巫師是否還在，如果不在則進程轉為自動
         if (operator != ob) operator = check_operator();
         if (! query("now_shop"))
                return notify_fail(operator->name(1) +"還沒有宣佈要拍賣哪家店鋪，你急個啥？\n");
@@ -613,7 +613,7 @@ int do_jupai(string arg)
         {
         case 0:
 
-                message_vision(CYN"$N" CYN "環顧了一下四周，接着說道：有意者可繼續舉牌(" HIY "jupai" NOR + CYN ")認購。\n" NOR, operator);
+                message_vision(CYN"$N" CYN "環顧了一下四周，接着説道：有意者可繼續舉牌(" HIY "jupai" NOR + CYN ")認購。\n" NOR, operator);
                 break;
 
         case 1:
@@ -657,15 +657,15 @@ int go_jupai()
         switch (random(3))
         {
         case 0:
-                message_vision(CYN "\n$N" CYN "接着道：現在正在拍賣" HIC + now_shop + NOR + CYN "店鋪。報價爲" + YEL + chinese_number(now_price) + "兩黃金" CYN "第" + chinese_number(m) + "次。\n" NOR, operator);
+                message_vision(CYN "\n$N" CYN "接着道：現在正在拍賣" HIC + now_shop + NOR + CYN "店鋪。報價為" + YEL + chinese_number(now_price) + "兩黃金" CYN "第" + chinese_number(m) + "次。\n" NOR, operator);
                 break;
 
         case 1:
-                message_vision(CYN "\n$N" CYN "環顧四周大聲道：現在報價爲" YEL + chinese_number(now_price) + "兩黃金" CYN "第" + chinese_number(m) + "次，拍賣" + HIC + now_shop + NOR + CYN "店鋪。\n" NOR, operator);
+                message_vision(CYN "\n$N" CYN "環顧四周大聲道：現在報價為" YEL + chinese_number(now_price) + "兩黃金" CYN "第" + chinese_number(m) + "次，拍賣" + HIC + now_shop + NOR + CYN "店鋪。\n" NOR, operator);
                 break;
 
         default:
-                message_vision(CYN "\n$N" CYN "乾咳兩聲，大聲道：現在爲" YEL + chinese_number(now_price) + "兩黃金" CYN "第" + chinese_number(m) + "次，拍賣" + HIC + now_shop + NOR + CYN "店鋪，欲購" "者從速。\n" NOR, operator);
+                message_vision(CYN "\n$N" CYN "乾咳兩聲，大聲道：現在為" YEL + chinese_number(now_price) + "兩黃金" CYN "第" + chinese_number(m) + "次，拍賣" + HIC + now_shop + NOR + CYN "店鋪，欲購" "者從速。\n" NOR, operator);
                 break;
         }
 
@@ -673,7 +673,7 @@ int go_jupai()
         {
         case 0:
 
-                message_vision(CYN"$N" CYN "環顧了一下四周，接着說道：有意者可繼續舉牌(" HIY "jupai" NOR + CYN ")認購。\n" NOR, operator);
+                message_vision(CYN"$N" CYN "環顧了一下四周，接着説道：有意者可繼續舉牌(" HIY "jupai" NOR + CYN ")認購。\n" NOR, operator);
                 break;
 
         case 1:
@@ -814,8 +814,8 @@ int do_ban(string arg)
                 msg += WHT "總共" + sizeof(ban) + "位玩家給取消拍賣資格。\n" NOR;
 
                 msg += HIC "\n指令格式：ban [id] [1|0]\n"
-                       "其中參數id缺省表示查詢，如果參數爲1或是"
-                       "缺省表示添加，爲0表示刪除。\n" NOR;
+                       "其中參數id缺省表示查詢，如果參數為1或是"
+                       "缺省表示添加，為0表示刪除。\n" NOR;
 
                 tell_object(this_player(), msg);
                 return 1;
@@ -894,7 +894,7 @@ int finish_auction(string arg)
 }
 
 // 心跳線 -- 用於檢查啓動拍賣進程的巫師是否狀態正常
-// 如果狀態不正常，則轉爲自動運行模式，並且關閉心跳線
+// 如果狀態不正常，則轉為自動運行模式，並且關閉心跳線
 void heart_beat()
 {
         int m;
@@ -988,7 +988,7 @@ int do_autoauction()
         operator = this_object();
         set_heart_beat(0);
 
-        message_vision(CYN "$N" CYN "招手將$n" CYN "叫上來，說道：我有點其它事，這裏就你來處理吧。\n" NOR, me, ob);
+        message_vision(CYN "$N" CYN "招手將$n" CYN "叫上來，説道：我有點其它事，這裏就你來處理吧。\n" NOR, me, ob);
         message_vision(CYN "$N" CYN "連忙朝$n" CYN "賠笑道：您老人家忙您的，這裏就交給我吧。\n" NOR, ob, me);
 
         CHANNEL_D->do_channel(ob, "sys", me->query("id") + "將拍賣進程轉入自動模式！");

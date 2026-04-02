@@ -67,7 +67,7 @@ void init()
 				tell_room(environment(ob), "卻見花影閃爍，樹叢忽然現出一個缺口，" + ob->name() + "閃身而出。\n", ({ob}));
 				return;
 			}
-			write("你發現剛纔走過的路徑暗合八卦，心中若有所悟！\n");
+			write("你發現剛才走過的路徑暗合八卦，心中若有所悟！\n");
 			ob->add_temp("bagua_step", 1);
 		}
 		else {

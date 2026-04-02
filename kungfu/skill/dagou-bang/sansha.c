@@ -48,7 +48,7 @@ int perform(object me, object target)
 	if( (int)me->query_skill(sskill, 1) < 200 )
 		return notify_fail("你的"+to_chinese(sskill)+"還不到家，無法使用"+PNAME+"。\n");
 	if( (int)me->query("max_neili") < 800 )
-		return notify_fail("你的內力修爲不夠！\n");
+		return notify_fail("你的內力修為不夠！\n");
 	if( (int)me->query("neili") < 600 )
 		return notify_fail("你的真氣不夠！\n");
 	msg = HIY "$N"HIY"一聲低吼，連續使出打狗棒法「三記殺招」！\n" NOR;
@@ -87,7 +87,7 @@ int help(object me)
 	出手要求：
 		混天氣功200級
 		打狗棒法200級
-		內力修爲800
+		內力修為800
 		內力600
 HELP
 	);

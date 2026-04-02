@@ -10,7 +10,7 @@ void create()
         set("gender", "男性");
         set("age", 20);
         set("long", "他是凌霄城第六代弟子褚萬春，和孫萬年一樣，賊眉鼠眼。\n"
-		"也因爲行止不端，被關在這裏。\n");
+		"也因為行止不端，被關在這裏。\n");
         set("attitude", "peaceful");
 
         set("str", 25);

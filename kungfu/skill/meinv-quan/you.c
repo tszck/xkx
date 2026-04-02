@@ -70,7 +70,7 @@ int perform(object me, object target)
 		else if( damage < 55 )
 			msg += HIY"結果$n"HIY"被$N"HIY"以袍袖一拂，「騰騰」地退出幾步。\n"NOR;
 		else if( damage < 80 )
-			msg +=RED"結果$n"HIY"被$N"HIY"以袍袖一拂，胸口有如受到一記重錘，氣血爲之一窒！\n"NOR;
+			msg +=RED"結果$n"HIY"被$N"HIY"以袍袖一拂，胸口有如受到一記重錘，氣血為之一窒！\n"NOR;
 		else
 			msg +=HIR"結果$n"HIY"被$N"HIY"的袍袖一拂，眼前一黑，渾身氣血翻騰，竟如身入洪爐一般！\n"NOR;
 	}

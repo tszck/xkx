@@ -60,7 +60,7 @@ void create()
 		"江湖威望" : (: ask_weiwang :),
 	]) );
 	set("party/party_name", HIR"天地會"NOR);
-	set("party/rank", HIG"青木堂"NOR"會衆");
+	set("party/rank", HIG"青木堂"NOR"會眾");
 	create_family("雲龍門", 2, "弟子");
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
@@ -70,8 +70,8 @@ void create()
 int ask_weiwang()
 {
 	command("tell "+this_player()->query("id")+" 你現在的江湖威望是 " +(string)(this_player()->query("weiwang")));
-	say("\n高彥超說道：如果你威望值很高，有些人見了你不但不會殺你，還會教你武功，送你寶貝。\n而且你還可以加入幫會，率領會衆去攻打目標，就連去錢莊取錢也會有利息 。。。。。\n");
-	say("高彥超又說：殺某些壞人或救某些好人可以提高江湖威望。\n");
+	say("\n高彥超説道：如果你威望值很高，有些人見了你不但不會殺你，還會教你武功，送你寶貝。\n而且你還可以加入幫會，率領會眾去攻打目標，就連去錢莊取錢也會有利息 。。。。。\n");
+	say("高彥超又説：殺某些壞人或救某些好人可以提高江湖威望。\n");
 	return 1;
 }
 

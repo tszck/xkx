@@ -13,11 +13,11 @@ mixed out_master(mixed arg)
 	me = this_player();
 	if( (string)me->query("family/family_name")!="華山派")
 	{
-		tell_object(me,"嶽不羣疑惑地對你說:哇拷!有沒有搞錯啊!\n");
+		tell_object(me,"嶽不羣疑惑地對你説:哇拷!有沒有搞錯啊!\n");
 		return 1;
 	}
 	if(me->query("gender")=="女性"){
-		tell_object(me,"這位小姑娘,你是我內人的徒弟,你該出找她出師纔是!\n");
+		tell_object(me,"這位小姑娘,你是我內人的徒弟,你該出找她出師才是!\n");
 		return 1;
 	}
 	if(me->query("combat_exp") <= 100000) {
@@ -26,7 +26,7 @@ mixed out_master(mixed arg)
 		return 1;
 	}
 
-	tell_object(me,"嶽不羣沉吟了一會,對"+me->query("name")+"說道:要想出師,
+	tell_object(me,"嶽不羣沉吟了一會,對"+me->query("name")+"説道:要想出師,
 		你必須接我三招不死(accept test).\n");
 	add_action("do_accept","accept");
 	return 1;
@@ -37,12 +37,12 @@ int do_accept(string arg)
 
         if( arg== "test" ) {
 
-		say("\n嶽不羣點了點頭，說道：很好，小心了　，這是第一招....\n\n");
+		say("\n嶽不羣點了點頭，説道：很好，小心了　，這是第一招....\n\n");
 		COMBAT_D->do_attack(this_object(), this_player(), query_temp("weapon"));
 		if( (int)this_player()->query("kee") < 0
 			|| !present(this_player(), environment()))
 		{
-		say("嶽不羣嘆了口氣，說道：嘻嘻，連第一招都撐不過，真是自不量力....\n");
+		say("嶽不羣嘆了口氣，説道：嘻嘻，連第一招都撐不過，真是自不量力....\n");
                        return 1;
                 }
                 say("\n嶽不羣喝道：第二招....\n\n");
@@ -60,7 +60,7 @@ int do_accept(string arg)
                         return 1;
 	}
 	say("\n嶽不羣冷笑道：恭喜,你出師了.你我師徒一場，師傅沒什麼好送的 .
-	\n爲師送你八字真言:天外有天,人外有人!徒兒,喔,不...大俠你好自爲知.\n\n");
+	\n為師送你八字真言:天外有天,人外有人!徒兒,喔,不...大俠你好自為知.\n\n");
 	this_player()->set("betrayer",this_player()->query("betrayer")-1);
 	this_player()->set("title","隱士");
 	this_player()->set("family/family_name","華山派");
@@ -177,7 +177,7 @@ void attempt_apprentice(object ob)
 void do_recruit(object ob)
 {
         if( (int)ob->query("int") < 20 )
-                command("say 我華山派以劍法爲主，依我看"+RANK_D->query_respect(ob)+"不適合於學劍法。");
+                command("say 我華山派以劍法為主，依我看"+RANK_D->query_respect(ob)+"不適合於學劍法。");
         else {
                 command("say 好，好，好，很好。");
                 command("recruit " + ob->query("id") );
@@ -209,35 +209,35 @@ int do_xunshan()
         {
                if (!me->query_temp("xunshan/chaoyang"))
                {
-                      message_vision("$N對着$n說：你朝陽峯沒去看看？這算巡的什麼山？\n", this_object(), me);
+                      message_vision("$N對着$n説：你朝陽峯沒去看看？這算巡的什麼山？\n", this_object(), me);
                       return 1;
                }
                if (!me->query_temp("xunshan/lianhua"))
                {
-                      message_vision("$N對着$n說：你蓮花峯沒去看看？這算巡的什麼山？\n", this_object(), me);
+                      message_vision("$N對着$n説：你蓮花峯沒去看看？這算巡的什麼山？\n", this_object(), me);
                       return 1;
                }
                if (!me->query_temp("xunshan/yuntai"))
                {
-                      message_vision("$N對着$n說：你雲臺峯沒去看看？這算巡的什麼山？\n", this_object(), me);
+                      message_vision("$N對着$n説：你雲臺峯沒去看看？這算巡的什麼山？\n", this_object(), me);
                       return 1;
                }
                if (!me->query_temp("xunshan/sheshen"))
                {
-                      message_vision("$N對着$n說：你怎麼沒去捨身崖？這算巡的什麼山？\n", this_object(), me);
+                      message_vision("$N對着$n説：你怎麼沒去捨身崖？這算巡的什麼山？\n", this_object(), me);
                       return 1;
                }
                if (!me->query_temp("xunshan/siguo"))
                {
-                      message_vision("$N對着$n說：你到了思過崖去了？這算巡的什麼山？\n", this_object(), me);
+                      message_vision("$N對着$n説：你到了思過崖去了？這算巡的什麼山？\n", this_object(), me);
                       return 1;
                }
                if (!me->query_temp("xunshan/yunu"))
                {
-                      message_vision("$N對着$n說：你到玉女峯後面華山小築去看過了？這算巡的什麼山？\n", this_object(), me);
+                      message_vision("$N對着$n説：你到玉女峯後面華山小築去看過了？這算巡的什麼山？\n", this_object(), me);
                       return 1;
                }              
-               message_vision("$N對着$n說：不錯，辛苦了。你這就去休息去吧。\n", this_object(), me);
+               message_vision("$N對着$n説：不錯，辛苦了。你這就去休息去吧。\n", this_object(), me);
                me->delete_temp("xunshan");                      
                
                num=(int)me->query("perform/number")+1;
@@ -264,7 +264,7 @@ int do_xunshan()
         {
                if ( query("xunshan") < 1)
                {
-                      message_vision("$N對着$n說：今天已經有人巡山去了。你明天再來吧。\n", this_object(), me);
+                      message_vision("$N對着$n説：今天已經有人巡山去了。你明天再來吧。\n", this_object(), me);
                       return 1;
                }
                if( me->query("family/family_name") != "華山派")
@@ -276,7 +276,7 @@ int do_xunshan()
                else
                {
                       add("xunshan", -1);
-                      message_vision("$N對着$n說：本派弟子例當巡山。你，很好，很好！這就去吧。\n", this_object(), me);
+                      message_vision("$N對着$n説：本派弟子例當巡山。你，很好，很好！這就去吧。\n", this_object(), me);
                       me->set_temp("xunshan/start", 1);
                       me->set_temp("xunshan/time", time());
                       return 1;

@@ -136,7 +136,7 @@ mapping *names=({
        "where" :              "明教",]),
       (["name":                "周顛",
        "where" :              "明教",]),
-      (["name":                "說不得",
+      (["name":                "説不得",
        "where" :              "明教",]),
       (["name":                "張中",
        "where" :              "明教",]),
@@ -198,7 +198,7 @@ void create()
 	set("age", 45);
 	set("long", 
 		"魯有腳雖然武功算不得頂尖高手，可是在江湖上卻頗有聲望。\n"
-		"因爲他在丐幫中有仁有義，行事光明磊落，深得洪七公的器重。\n");
+		"因為他在丐幫中有仁有義，行事光明磊落，深得洪七公的器重。\n");
 	set("attitude", "peaceful");
 	set("class", "beggar");
  	set("beggarlvl", 9);
@@ -265,12 +265,12 @@ void attempt_apprentice(object ob)
 {
 	if ( (int)ob->query("int") >= 25 )
 	{
-		command("say 我們丐幫的武藝一向以剛猛爲主，" + 
+		command("say 我們丐幫的武藝一向以剛猛為主，" + 
 		RANK_D->query_respect(ob) + "聰慧過人，似乎不宜學丐幫的功夫？");
 		return;
 	}
 	command("say 好吧，希望" + RANK_D->query_respect(ob) +
-		"能好好學習本門武功，將來在江湖中闖出一番作爲。");
+		"能好好學習本門武功，將來在江湖中闖出一番作為。");
 	command("recruit " + ob->query("id"));
 }
 
@@ -284,7 +284,7 @@ string ask_job()
 	me=this_object();
 /*
 	if (!(fam = me->query("family")) || fam["family_name"] != "丐幫")
-		return RANK_D->query_respect(me) + "與丐幫素無來往，此話從何說起？";
+		return RANK_D->query_respect(me) + "與丐幫素無來往，此話從何説起？";
 */
 	if (ob->query_temp("gb_songxin")&&present("secret letter", this_player()))
 		return ("你不是已經領了送信的任務嗎？還不快去做。\n");
@@ -321,20 +321,20 @@ string ask_job()
 	switch(random(3))
 	{
 		case 0:
-			message_vision("$N悄悄把$n拉到一旁，低聲說道，你把這封密函火速送到「"+ob->query_temp("songxin_where")+"」"
+			message_vision("$N悄悄把$n拉到一旁，低聲説道，你把這封密函火速送到「"+ob->query_temp("songxin_where")+"」"
 "的「"+ob->query_temp("songxin_target_name")+"」手上。\n",me,ob);
 			message_vision("$N交給$n一封密函。\n",me,ob);
 			ob=new(__DIR__"obj/letter");
 			ob->set_temp("no_get", 1);  
 			break;
 		case 1:
-	        message_vision("$N點了點頭，說道，我這裏正好有封信，你去把它送到「"+ob->query_temp("songxin_where")+"」\n的「"+ob->query_temp("songxin_target_name")+"」手上。\n",me,ob);
+	        message_vision("$N點了點頭，説道，我這裏正好有封信，你去把它送到「"+ob->query_temp("songxin_where")+"」\n的「"+ob->query_temp("songxin_target_name")+"」手上。\n",me,ob);
 			message_vision("$N交給$n一封信。\n",me,ob);
 			ob=new(__DIR__"obj/letter");
 			ob->set_temp("no_get", 1);
 			break;
 		case 2:
-			message_vision("$N微微一笑，從懷中掏出一封信，說道，你趕緊把它送到「"+ob->query_temp("songxin_where")+"」\n的「"+ob->query_temp("songxin_target_name")+"」手上。\n",me,ob);
+			message_vision("$N微微一笑，從懷中掏出一封信，説道，你趕緊把它送到「"+ob->query_temp("songxin_where")+"」\n的「"+ob->query_temp("songxin_target_name")+"」手上。\n",me,ob);
 			message_vision("$N交給$n一封信。\n",me,ob);
 			ob=new(__DIR__"obj/letter");
 			ob->set_temp("no_get", 1);

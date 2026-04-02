@@ -25,14 +25,14 @@ int study(object me, string arg)
     if ((int)me->query("combat_exp") < 50000)
         return notify_fail("你的實戰經驗不足，不能學獨孤九劍。\n");
     if (myskill>299)
-        return notify_fail("你研讀了一會兒，發現上面所說的對你而言都太淺了。\n");
+        return notify_fail("你研讀了一會兒，發現上面所説的對你而言都太淺了。\n");
     if (myskill<75)
         return notify_fail("你讀了一會書,可是卻毫無收穫。\n");
     if ((int)me->query("jing")>cost )
     {
        if (myskill*myskill*myskill/10>(int)me->query("combat_exp") )
        {
-          printf("也許是缺乏實戰經驗，你對獨孤九劍劍譜面所說的東西總是無法領會。\n");
+          printf("也許是缺乏實戰經驗，你對獨孤九劍劍譜面所説的東西總是無法領會。\n");
        }
        else
        {

@@ -21,7 +21,7 @@ void create()
 		set("unit", "包");
 		set("vegetable", 32);
 		set("nostrum", 1);
-		set("long", "這是一包雄黃，據說可驅百毒。\n");
+		set("long", "這是一包雄黃，據説可驅百毒。\n");
 		set("value", 1000);
 	}
 	set("pour_type", "1");

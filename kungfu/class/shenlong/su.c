@@ -54,12 +54,12 @@ void create()
 	create_family("神龍教", 2, "弟子");
 
 	set("inquiry", ([
-		"洪安通" : "這三個字是你說的嗎？",
+		"洪安通" : "這三個字是你説的嗎？",
 		"洪教主" : "洪教主仙福永享，壽與天齊，洪教主神目如電，燭照四方。",
 		"蘇荃"   : "沒規沒矩的。",
 		"神龍島" : "神龍島在汝州的東北方向，從塘沽口出海便到。",
 		"神龍教" : "一般人是入不了我神龍教的(join shenlongjiao)。\n",
-		"教主"   : "教主脾氣不好，要討他歡心纔好。\n",
+		"教主"   : "教主脾氣不好，要討他歡心才好。\n",
 		"口號"   : "萬年不老！永享仙福！壽與天齊！文武仁聖！\n",
 		"入教"   : "一般人是入不了我神龍教的(join shenlongjiao)。\n",
 		"退教"   : (: ask_tuijiao :),
@@ -116,7 +116,7 @@ void greeting(object ob)
 void attempt_apprentice(object ob)
 {
 	if (ob->query("party/party_name") != HIY "神龍教" NOR ) {
-		command("say 你不是本教教衆，想來找死啊！");
+		command("say 你不是本教教眾，想來找死啊！");
 		return;
 	}
 	if ((int)ob->query_skill("dulong-dafa",1) < 60 ) {
@@ -138,12 +138,12 @@ int ask_tuijiao()
 
 	if(ob->query("party/party_name") != HIY "神龍教" NOR )
 	{
-	message_vision("蘇荃莞爾一笑，對$N說道：你還沒加入我神龍教呢，就想退教？\n",ob);
+	message_vision("蘇荃莞爾一笑，對$N説道：你還沒加入我神龍教呢，就想退教？\n",ob);
 		return 1;
 	}
 	if(ob->query("family/family_name") == "神龍教" )
 	{
-		message_vision("蘇荃板起俏臉對$N說道：你已經是我神龍弟子，如何能退教？\n", ob);
+		message_vision("蘇荃板起俏臉對$N説道：你已經是我神龍弟子，如何能退教？\n", ob);
 		return 1;
 	}
 	command("look "+ob->query("id"));

@@ -49,8 +49,8 @@ int main(object me, string arg)
 		return notify_fail("這種情況你還用得着偷嗎？\n"); 
 	if(me->query("id") != victim->query_temp("bt_ownname") &&
 		me->query_temp("bt/working"))
-		return notify_fail("你身爲捕快，執行公務，豈能知法犯法！\n");
-	notify_fail("此人來頭不小，還是少惹爲妙。\n");
+		return notify_fail("你身為捕快，執行公務，豈能知法犯法！\n");
+	notify_fail("此人來頭不小，還是少惹為妙。\n");
 	if (!userp(victim) && !victim->accept_hit(me)) return 0;
 
 	if( !ob = present(what, victim) )

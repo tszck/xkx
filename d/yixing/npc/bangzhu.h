@@ -30,12 +30,12 @@ void checking(object ob)
 	if( environment() != environment(ob) ) return;
 	if( ob->query("party/party_name") == query("party/party_name") )
 	{
-		message_vision("$N拍了拍$n的頭說道：加油！長樂幫發了自有你的好處！\n", me, ob);
+		message_vision("$N拍了拍$n的頭説道：加油！長樂幫發了自有你的好處！\n", me, ob);
 		return;
 	}
 	if( !random(2) )
-		message_vision("$N雙手抱拳，牛裏牛氣地說道：見到本幫主，難道沒有任何表示嗎？\n", me);
-	else message_vision("$N說道：還不趕快加入" + query("party/party_name") + "！！！\n", me);
+		message_vision("$N雙手抱拳，牛裏牛氣地説道：見到本幫主，難道沒有任何表示嗎？\n", me);
+	else message_vision("$N説道：還不趕快加入" + query("party/party_name") + "！！！\n", me);
 }
 
 int do_check(string arg)
@@ -73,7 +73,7 @@ int ask_join()
 
 	if( ob_fam == "桃花島" )
 	{
-		say(name() + "說道：貴派祖師黃藥師一向不與江湖人士往來，我怎麼能隨便收容他老人家的門下！\n");
+		say(name() + "説道：貴派祖師黃藥師一向不與江湖人士往來，我怎麼能隨便收容他老人家的門下！\n");
 		return 1;
 	}
 
@@ -101,10 +101,10 @@ int ask_join()
 	}
 	message_vision("$N重重地拍了一下$n的肩膀，喝道：好樣的！從今以後跟兄弟們有難同當！\n", this_object(), ob);
 
-	ob->set_temp("apply/short", ({ HIR + myfam + "幫衆"NOR + ob->query("name")+"("+capitalize(ob->query("id"))+")" }));
+	ob->set_temp("apply/short", ({ HIR + myfam + "幫眾"NOR + ob->query("name")+"("+capitalize(ob->query("id"))+")" }));
 	ob->delete("party");
 	ob->set("party/party_name", myfam);
-	ob->set("party/rank", "幫衆");
+	ob->set("party/rank", "幫眾");
 	ob->set("party/enter_time", time());
 	if( obj = present("bang ling", ob) ) destruct(obj);
 
@@ -139,7 +139,7 @@ string ask_skills()
 		return RANK_D->query_rude(me) + "竟連自己的幫令都管不住！";
 
 	if( (amount = (int)ling->query("score")) < 10 )
-		return RANK_D->query_rude(me)+"再加把勁，幫主纔會指點你一下！";
+		return RANK_D->query_rude(me)+"再加把勁，幫主才會指點你一下！";
 
 	if( amount > 100 )
 	{

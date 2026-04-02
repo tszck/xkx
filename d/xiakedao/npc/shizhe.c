@@ -66,7 +66,7 @@ void greeting(object ob)
 {
 
 	if( !ob || environment(ob) != environment() ) return;
-	say("黃衣使者說道：這位" + RANK_D->query_respect(ob) + "你把我叫過來，有什麼事嗎。\n");
+	say("黃衣使者説道：這位" + RANK_D->query_respect(ob) + "你把我叫過來，有什麼事嗎。\n");
 	return;
 }
 
@@ -93,7 +93,7 @@ void greeting(object ob)
 
 	if ( !who->query("xkd/ling") )
 	{
-		tell_object( who, "黃衣使者說道：俠客島只邀請成名武術家上島，這位" + RANK_D->query_respect(who) + "還是請回吧。\n" );
+		tell_object( who, "黃衣使者説道：俠客島只邀請成名武術家上島，這位" + RANK_D->query_respect(who) + "還是請回吧。\n" );
 		return 0;
 	}
 	
@@ -106,7 +106,7 @@ void greeting(object ob)
 		}
 		if (query_temp("ling")==2)
 		{
-			message_vision("使者一看是賞善銅牌，滿臉歉意地對$N說：上島的銅牌共兩塊，你還缺一塊罰惡銅牌。\n",who);
+			message_vision("使者一看是賞善銅牌，滿臉歉意地對$N説：上島的銅牌共兩塊，你還缺一塊罰惡銅牌。\n",who);
 			return 0;
 		}
 		add_temp("ling",2);
@@ -118,7 +118,7 @@ void greeting(object ob)
 	
 		if( query_temp("ling")==2 )
 		{ 
-			message_vision("使者一看是賞善銅牌，滿臉欣喜地對$N說：你還有一塊罰惡銅牌嗎？\n",who);
+			message_vision("使者一看是賞善銅牌，滿臉欣喜地對$N説：你還有一塊罰惡銅牌嗎？\n",who);
 			return 1;
 		}
 	}
@@ -132,7 +132,7 @@ void greeting(object ob)
 		}
 		if(query_temp("ling")==1)
 		{
-			message_vision("使者一看是罰惡銅牌，滿臉遺憾地對$N說：本島銅牌一共兩塊，你還缺賞善銅牌。\n",who);
+			message_vision("使者一看是罰惡銅牌，滿臉遺憾地對$N説：本島銅牌一共兩塊，你還缺賞善銅牌。\n",who);
 			return 0;
 		}
 		add_temp("ling",1);
@@ -143,7 +143,7 @@ void greeting(object ob)
 	
 		if( query_temp("ling")==1 )
 		{
-			message_vision("使者一看是罰惡銅牌，滿臉欣喜地對$N說：你還有賞善銅牌嗎？\n",who);
+			message_vision("使者一看是罰惡銅牌，滿臉欣喜地對$N説：你還有賞善銅牌嗎？\n",who);
 			destruct( ob );
 			return 1;
 		}
@@ -179,21 +179,21 @@ int ask_for_xkd()
 //	if ( !who->query("xkd/ling") || time() > who->query("xkd/time") )
 	if ( !who->query("xkd/ling") )
 	{
-		message_vision("黃衣使者說道：小人在這活了一輩子，還從沒聽說過。\n", who );
+		message_vision("黃衣使者説道：小人在這活了一輩子，還從沒聽説過。\n", who );
 		return 1;
 	}
 		/*
 	if ( !objectp( ling1 = present( "shan pai", who ) ) ||
 		!objectp( ling2 = present( "e pai", who ) ) )
 	{
-		message_vision( "黃衣使者說道：上俠客島要有賞善罰惡令，這位" + RANK_D->query_respect(who) + "還是請回吧！\n", who );
+		message_vision( "黃衣使者説道：上俠客島要有賞善罰惡令，這位" + RANK_D->query_respect(who) + "還是請回吧！\n", who );
 		return 1;
 	}
 	
 	if ( ling1->query("own") != who->query("id") ||
 		ling2->query("own") != who->query("id") )
 	{
-		message_vision( "黃衣使者說道：" + RANK_D->query_respect(who) + "拿的不是自己的牌子。這樣欺騙我，不是想害我家破人亡嗎？\n", who );
+		message_vision( "黃衣使者説道：" + RANK_D->query_respect(who) + "拿的不是自己的牌子。這樣欺騙我，不是想害我家破人亡嗎？\n", who );
 		return 1;
 	}
 */	
@@ -201,7 +201,7 @@ int ask_for_xkd()
 	for(i=0; i<sizeof(inv); i++)
 		if ( userp(inv[i]) )
 		{
-			message_vision( "黃衣使者說道：島主頒下嚴令，只能迎接" + RANK_D->query_respect(who)+ "一人前往。\n若是多載一人，小舟固須傾覆，小人也是首級不保。\n", who );
+			message_vision( "黃衣使者説道：島主頒下嚴令，只能迎接" + RANK_D->query_respect(who)+ "一人前往。\n若是多載一人，小舟固須傾覆，小人也是首級不保。\n", who );
 			return 1;
 		}
 		

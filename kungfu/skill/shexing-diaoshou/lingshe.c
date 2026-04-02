@@ -50,7 +50,7 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，目前還不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，目前還不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
 		return notify_fail("你的"+to_chinese(sskill)+"的功力不夠不能使用"+PNAME+"。\n");

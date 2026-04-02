@@ -126,7 +126,7 @@ int help(object me)
 	write(HIC"\n"+"玄冥神掌"+"："NOR"\n");
 	write(@HELP
 
-	玄冥神掌爲西域絕學之一，至陰至寒，威力極大。
+	玄冥神掌為西域絕學之一，至陰至寒，威力極大。
 HELP
 	);
 	return 1;

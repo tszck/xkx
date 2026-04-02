@@ -74,7 +74,7 @@ int do_unwield(string arg)
 		return notify_fail("你身上沒有這樣東西。\n");
 
 	if( (string)ob->query("equipped")!="wielded" )
-		return notify_fail("你並沒有裝備這樣東西作爲武器。\n");
+		return notify_fail("你並沒有裝備這樣東西作為武器。\n");
 
 	if( ob->unequip() ) {
 		if( !stringp(str = ob->query("unwield_msg")) )

@@ -17,7 +17,7 @@ void create()
 	else 
 	{
 		set("unit", "顆");
-		set("long", "一顆金色的仙丹，傳說是太上老君精心修煉的靈丹妙藥。\n");
+		set("long", "一顆金色的仙丹，傳説是太上老君精心修煉的靈丹妙藥。\n");
 		set("no_get", 1);
 		set("no_drop", 1);
 		set("no_put", 1);

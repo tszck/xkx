@@ -99,7 +99,7 @@ int help(object me)
 	write(HIC"\n武當長拳："NOR"\n");
 	write(@HELP
 
-    武當長拳爲武當派入門拳法。
+    武當長拳為武當派入門拳法。
 
 	學習要求：
 		太極神功1級

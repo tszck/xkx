@@ -16,7 +16,7 @@ int do_join(string arg)
 	if ((int)ob->query("weiwang") < 20)
 	{
 	command("tell "+this_player()->query("id")+" 你現在的江湖威望是 "+(string)(this_player()->query("weiwang")));
-		message_vision( HIR"$N對$n道：想入會？你的江湖威望太低，天地會都是敢作敢爲的好漢! \n"NOR,me,ob);
+		message_vision( HIR"$N對$n道：想入會？你的江湖威望太低，天地會都是敢作敢為的好漢! \n"NOR,me,ob);
 		return 1;
 	}
 	if ((int)ob->query("shen") < 0)
@@ -30,12 +30,12 @@ int do_join(string arg)
 	if( ob->query("party") &&
 		ob->query("party/party_name") != HIR "天地會" NOR )
 	{
-		message_vision("$N搖搖頭，對$n說道：你已經加入其他幫會了，不能再入我天地會。\n",me,ob);
+		message_vision("$N搖搖頭，對$n説道：你已經加入其他幫會了，不能再入我天地會。\n",me,ob);
 		return 1;
 	}
 	if( ob->query("party/party_name") == HIR "天地會" NOR )
 	{
-		message_vision("$N搖搖頭，對$n說道：你已經是我天地會的人了。\n",me,ob);
+		message_vision("$N搖搖頭，對$n説道：你已經是我天地會的人了。\n",me,ob);
 		return 1;
 	}
 	switch (random(10))
@@ -53,14 +53,14 @@ int do_join(string arg)
 	}
 	party = allocate_mapping(5);
 	party["party_name"] = HIR "天地會" NOR;
-	party["rank"] = tang+NOR"會衆";
+	party["rank"] = tang+NOR"會眾";
 	party["level"] = 1;
 	party["tasks"] = 0;
 	party["enter_time"] = time();
 	ob->set("party", party);
 
 	command("smile");
-	message_vision("$N對$n說道：你就暫時在"+tang+NOR+"效力吧！\n", me, ob);
+	message_vision("$N對$n説道：你就暫時在"+tang+NOR+"效力吧！\n", me, ob);
 	if(ob->query("weiwang")<50)
 	{
 		ob->set("weiwang",50);

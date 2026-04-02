@@ -6,7 +6,7 @@ void greeting(object me, object ob)
 	if ( ob->query("party/party_name") == HIG "明教" NOR )
 	{
 	if ( ob->query("party/level") < me->query("level"))
-		message_vision("$N對$n躬身行禮，說道："+me->query("title")+me->query("name")
+		message_vision("$N對$n躬身行禮，説道："+me->query("title")+me->query("name")
 			+"，參見"+ob->query("party")["rank"]+ob->query("name")+"！\n", me, ob );
 	}
 

@@ -39,7 +39,7 @@ int valid_learn(object me)
 	if ((int)me->query_skill("zhanzhuang-gong", 1) < 50)
 		return notify_fail("你的站樁功火候太淺。\n");
 	if ((int)me->query_skill("jiujie-whip",1) < 20)
-		return notify_fail("你的九節鞭修爲不足，沒有辦法練降魔鞭。\n");
+		return notify_fail("你的九節鞭修為不足，沒有辦法練降魔鞭。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -106,7 +106,7 @@ int help(object me)
 	學習要求：
 		站樁功50級
 		九節鞭20級
-		內力修爲500
+		內力修為500
 HELP
 	);
 	return 1;

@@ -61,7 +61,7 @@ mixed weapon_hit_ob(object me, object victim, int damage_bonus)
                 if (! victim->is_busy())
                 {
                 	victim->start_busy(me->query_skill("sword") / 100 + 1);
-                  return WHT "$N" WHT "一聲斷喝，單手猛然拂過手中焦尾琴，焦尾琴頓時發出一股尖銳的"
+                  return WHT "$N" WHT "一聲斷喝，單手猛然拂過手中焦尾琴，焦尾琴頓時發出一股尖鋭的"
                        "琴音，$n" WHT "只覺頭暈目眩，幾欲昏厥！\n" NOR;
                 }
         case 1:
@@ -69,7 +69,7 @@ mixed weapon_hit_ob(object me, object victim, int damage_bonus)
                 victim->receive_damage("qi", n * 3 / 4, me);
                 victim->receive_wound("qi", n * 3 / 4, me);
                 return WHT "$N" WHT "一聲冷哼，手中焦尾琴一振，霎時龍吟驟起，一道劍氣攜着尖"
-                       "銳的琴音直射$n" WHT "而去！\n" NOR;
+                       "鋭的琴音直射$n" WHT "而去！\n" NOR;
         }
         return damage_bonus;
 }

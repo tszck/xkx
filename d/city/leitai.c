@@ -9,7 +9,7 @@ void create()
 	set("short", "擂臺");
 	set("long", @LONG
 這是一個四丈見方的擂臺。粗壯結實的木柱撐起一片平臺，四角的
-支柱上高掛着四副對聯，四面的觀衆都能清楚地看到臺上的手起腳落。
+支柱上高掛着四副對聯，四面的觀眾都能清楚地看到臺上的手起腳落。
 擂臺角上有個兵器架(shelf) ，刀劍鞭棒樣樣俱全。
 LONG );
         set("outdoors", "yangzhouw");
@@ -46,7 +46,7 @@ string look_shelf()
                  鋼杖(staff)    長鞭(whip)
                  鐵錘(hammer)   長棍(club)
                  鐵棒(stick)    板斧(axe)
-                 鋼鉤(hook)     短兵(dagger)
+                 鋼鈎(hook)     短兵(dagger)
                  暗器(throwing) 鋼甲(armor)
                  長槍(spear)
                  
@@ -196,7 +196,7 @@ int do_take(string arg)
 		case "hook":
 			obj = new("/clone/weapon/hook1");
 			obj -> move(ob);
-			message_vision("$N從兵器架上取下一柄鋼鉤。\n",ob);
+			message_vision("$N從兵器架上取下一柄鋼鈎。\n",ob);
 			break;
                 case "spear":
 			obj = new("/clone/weapon/changqiang1");

@@ -71,7 +71,7 @@ int do_ao(string arg)
 		me->add("combat_exp",(int)(me->query_skill("buddhism",1)/5)+60);
 		me->delete_temp("job_name");
 		me->delete_temp("mark");
-		return notify_fail(RED "侍粥僧說道：多謝你來幫我的忙，還是快回去吧！！！\n"NOR);
+		return notify_fail(RED "侍粥僧説道：多謝你來幫我的忙，還是快回去吧！！！\n"NOR);
 	}
 	me->start_busy(1);
 	message_vision("$N身形一抖，雙腳勾住房梁，倒懸在空中，接過鐵勺用力攪拌粥鍋。\n", me);

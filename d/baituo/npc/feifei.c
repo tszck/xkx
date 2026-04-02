@@ -39,14 +39,14 @@ void greeting(object ob)
 	if(((string)ob->query("family/family_name")=="白駝山派") &&
 		(random(3)==1))
 	{
-		say("肥肥笑吟吟地說道：這位" + RANK_D->query_respect(ob) + "您餓了吧，請用餐。\n");
+		say("肥肥笑吟吟地説道：這位" + RANK_D->query_respect(ob) + "您餓了吧，請用餐。\n");
 //		obn=new("/d/baituo/obj/cake");
 //		obn->move(environment(ob));
 //		obn=new("/d/baituo/obj/doujiang");
 //		obn->move(environment(ob));
 	}
 	else 
-		say("肥肥小眼一眨，笑吟吟地說道：這位" + RANK_D->query_respect(ob) + "，歡迎來參觀，可不要偷喫喲。\n");
+		say("肥肥小眼一眨，笑吟吟地説道：這位" + RANK_D->query_respect(ob) + "，歡迎來參觀，可不要偷喫喲。\n");
 	return;
 }
 int accept_object(object who, object ob)

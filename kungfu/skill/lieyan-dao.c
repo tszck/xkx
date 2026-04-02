@@ -116,7 +116,7 @@ int help(object me)
 
 	學習要求：
 		九陽神功20級
-		內力修爲10
+		內力修為10
 HELP
 	);
 	return 1;

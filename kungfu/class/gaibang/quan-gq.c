@@ -10,7 +10,7 @@ void create()
 	set("gender", "男性");
 	set("nickname", "十方秀才");
 	set("age", 35);
-	set("long","這是位沉默寡言卻頗有心計的陰毒的丐幫八袋弟子。他爲人足智多謀，武功高強，但身材高瘦，相貌也甚是清秀。\n");
+	set("long","這是位沉默寡言卻頗有心計的陰毒的丐幫八袋弟子。他為人足智多謀，武功高強，但身材高瘦，相貌也甚是清秀。\n");
 	set("attitude", "peaceful");
 	set("class", "beggar");
  	set("beggarlvl", 8);
@@ -64,7 +64,7 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if( ob->query("con") < 20 ) return;
-	command("say 你拜我爲師，可要做好喫苦的準備，好好做個丐幫弟子！");
+	command("say 你拜我為師，可要做好喫苦的準備，好好做個丐幫弟子！");
 	command("recruit " + ob->query("id"));
 }
 #include "/kungfu/class/gaibang/gaibang.h"

@@ -1,4 +1,4 @@
-// /d/yixing/npc/cl_bangzhong3.c  幫衆
+// /d/yixing/npc/cl_bangzhong3.c  幫眾
 // Last Modified by winder on Jul. 12 2002
 
 #include <ansi.h>
@@ -8,10 +8,10 @@ string ask_food();
 
 void create()
 {
-	set_name("幫衆", ({ "changle bangzhong", "bangzhong" }));
+	set_name("幫眾", ({ "changle bangzhong", "bangzhong" }));
 	set("party/party_name", HIC"長樂幫"NOR);
 	set("party/rank", "豹捷堂");
-	set("long","這是一個慣於爲非作歹的長樂幫衆。\n他眼珠亂轉，似乎正在想什麼壞主意。\n");
+	set("long","這是一個慣於為非作歹的長樂幫眾。\n他眼珠亂轉，似乎正在想什麼壞主意。\n");
 	set("gender", "男性");
 	set("age", 25);
 	set("attitude", "friendly");
@@ -39,7 +39,7 @@ void create()
 		"豹捷堂" : "自從展香主蒙冤後，豹捷堂就每況愈下。",
 		"展香主" : "他被關在石室。",
 		"展飛" : "他被關在石室。",
-		"香主" : "各位香主的任命由幫主老人家說了算。",
+		"香主" : "各位香主的任命由幫主老人家説了算。",
 		"貝海石" : "貝大夫在弊幫勞苦功高，頗得幫主信任。",
 		"幫主" : "我家幫主司徒大爺乃威鎮江南的“東霸天”也。",
 		"食物" : (: ask_food :),

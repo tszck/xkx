@@ -31,7 +31,7 @@ mapping *bangjobs = ({
                 "score" :  5,
         ]),
 
-        ([      "name"  :  "天鷹教衆",
+        ([      "name"  :  "天鷹教眾",
                 "file"  :  "/d/hangzhou/npc/tyjz",
                 "area"  :  "杭州灣海神廟",
                 "type"  :  "殺",

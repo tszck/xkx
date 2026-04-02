@@ -31,11 +31,11 @@ string inquiry_dao()
 	object ob;
 
 	if (present("chai dao",me))
-		return "老材瞪着眼說：你身上帶着一把，還想要！\n";
+		return "老材瞪着眼説：你身上帶着一把，還想要！\n";
 	else
 	{
 		ob=new("/d/baituo/obj/chaidao");
 		ob->move(me);
-		return "老材遞給你一把柴刀，囑咐道說：小心保管！\n";
+		return "老材遞給你一把柴刀，囑咐道説：小心保管！\n";
 	}
 }

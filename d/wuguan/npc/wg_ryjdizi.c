@@ -31,11 +31,11 @@ void greeting(object ob)
 	if (!ob || !present(ob, environment())) return;
 	switch( random(3) ) {
 		case 0:
-			say( "日月神教弟子說道：這位" + RANK_D->query_respect(ob)
+			say( "日月神教弟子説道：這位" + RANK_D->query_respect(ob)
             + "想加入日月神教嗎，可以看"BRED"(help riyuejiao)"NOR"。\n");
 			break;
 		case 1:
-			say( "日月神教弟子得意地說道：東方教主的武功天下間無人能及。\n");
+			say( "日月神教弟子得意地説道：東方教主的武功天下間無人能及。\n");
 			break;
 		case 2:
 			say( "日月神教弟子高喊道：東方教主，千秋萬載，一統江湖。\n");

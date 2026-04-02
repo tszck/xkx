@@ -1,6 +1,6 @@
 // Room: /d/taishan/duzunju.c
 // Last Modified by Winder on Aug. 25 2001
-// Modified by Zeratul Jan 11 2001 江湖閱歷低於10000不能見盟主
+// Modified by Zeratul Jan 11 2001 江湖閲歷低於10000不能見盟主
 
 #include <ansi.h>
 inherit ROOM;

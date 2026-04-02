@@ -63,12 +63,12 @@ int do_kan(string arg)
                 ob = new("/clone/money/silver");
                 ob->set_amount(10);
                 ob->move(me);
-                message_vision("結果木柴應聲被劈成兩半。火工道人笑着對$N說，你工
+                message_vision("結果木柴應聲被劈成兩半。火工道人笑着對$N説，你工
 作的不錯呀，這是你的酬勞。\n",me);
                 message_vision("火工道人給$N一些銀子。\n",me);
         }
         return 1;
         }
         else
-                return notify_fail("老闆都不見了，你爲誰白乾啊？\n");
+                return notify_fail("老闆都不見了，你為誰白乾啊？\n");
 }

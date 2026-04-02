@@ -23,7 +23,7 @@ void create()
 		"阿根"   : "小時候的好夥伴了，我現在來到這裏，他卻還留在大理。",
 		"鐵鏟"   : "嘿嘿，要鐵鏟做什麼？難不成你也想盜墓？",
 		"盜墓"   : "那是以前乾的勾當啦。幹這種活需要好工具呀，普通的鐵鏟什麼的可不順手！",
-		"工具"   : "我這裏沒有啦，阿根那裏可能還有。不過聽說他在大理當了大官，不會再幹這個了。如果我寫封信去，他也許還會賣我這個老臉。",
+		"工具"   : "我這裏沒有啦，阿根那裏可能還有。不過聽説他在大理當了大官，不會再幹這個了。如果我寫封信去，他也許還會賣我這個老臉。",
 		"信"     : (: ask_letter :),
 	]) );
 	setup();
@@ -38,7 +38,7 @@ void init()
 int ask_letter()
 {
 	this_player()->set_temp("axiang_letter", 1);
-	say( "農夫說道：“要我寫信也成，不過你得先告訴(answer)我碑後面那八個字的意思。”\n");
+	say( "農夫説道：“要我寫信也成，不過你得先告訴(answer)我碑後面那八個字的意思。”\n");
 	return 1;
 }
 
@@ -51,17 +51,17 @@ int do_answer(string arg)
 	if (!arg) return notify_fail("你要回答什麼？\n");
 	if (arg == "絕妙好辭")
 	{
-		write( "你說道：“這不過是隱語罷了。‘黃絹’是顏色之絲，乃‘絕’字；‘幼婦’者，少女也，乃‘妙’字；‘外孫’，女之子，乃‘好’字；‘齏臼’，受五辛之器，是爲‘辭’字。所以意思是‘絕妙好辭’。”\n");
+		write( "你説道：“這不過是隱語罷了。‘黃絹’是顏色之絲，乃‘絕’字；‘幼婦’者，少女也，乃‘妙’字；‘外孫’，女之子，乃‘好’字；‘齏臼’，受五辛之器，是為‘辭’字。所以意思是‘絕妙好辭’。”\n");
 		tell_room(environment(), me->name() + "對着農夫侃侃而談。\n", ({me}));
 		if (flag == 2)
 		{
 			command("kick " + me->query("id"));
-			message_vision("$N罵道：“你不是說過一遍了嗎？怎麼又來羅嗦！”\n", this_object());
+			message_vision("$N罵道：“你不是説過一遍了嗎？怎麼又來羅嗦！”\n", this_object());
 		}
 		else
 		{
 			message_vision("$N一拍大腿：“我怎麼沒有想到呀！”\n", this_object());
-			write("阿祥說：“好吧，我就寫封信給阿根。”\n");
+			write("阿祥説：“好吧，我就寫封信給阿根。”\n");
 			me->set_temp("axiang_letter", 2);
 			ob = new(__DIR__"obj/axiang_xin");
 			ob->move(me);
@@ -71,7 +71,7 @@ int do_answer(string arg)
 	{
 		message_vision("$N道：“容易！不就是" + arg + "的意思嘛。”\n", me);
 		command("laugh " + me->query("id"));
-		message_vision("農夫對$N說道：“我本以爲自己是天底下最沒文化的，現在看來只能排第二了。”\n", me);
+		message_vision("農夫對$N説道：“我本以為自己是天底下最沒文化的，現在看來只能排第二了。”\n", me);
 	}
 	return 1;
 }

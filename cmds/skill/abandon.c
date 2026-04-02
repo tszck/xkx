@@ -47,7 +47,7 @@ int main(object me, string arg)
 		return notify_fail(to_chinese(skill)+"如附骨之蛆，讓你無法放棄！\n");
 	skill_lvl = me->query_skill(skill,1);
 	if( lvl <0 )
-		return notify_fail("技能級別不能爲負。\n");
+		return notify_fail("技能級別不能為負。\n");
 	if( lvl == skill_lvl && lvl>0)
 		return notify_fail("你有問題啊。你不就是這級別麼？\n");
 	if( lvl > skill_lvl || lvl > 800)

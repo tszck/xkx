@@ -137,7 +137,7 @@ int perform(object me, object target)
 			me->start_busy(2+random(2));
 			me->add("neili", -350);
 
-			msg += HIR "$n"HIR"看到$N"HIR"劍招飛舞，招式中所有破綻都爲另一劍招補去，竟不知如何是好！\n"NOR;
+			msg += HIR "$n"HIR"看到$N"HIR"劍招飛舞，招式中所有破綻都為另一劍招補去，竟不知如何是好！\n"NOR;
 			msg += HIR "一呆之下，$N"HIR"的劍招已經破式而入！\n"NOR;
 		}
 		else

@@ -8,7 +8,7 @@ void create()
 	set("race", "走畜");
         set("age", 4);
         set("long", 
-"這是一隻兇猛的野豬，長得極爲粗壯，嘴裏還不斷髮出可怕的哄聲。\n");
+"這是一隻兇猛的野豬，長得極為粗壯，嘴裏還不斷髮出可怕的哄聲。\n");
         set("attitude", "peaceful");
 
         set("str", 26);

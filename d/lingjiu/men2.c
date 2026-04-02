@@ -33,6 +33,6 @@ int valid_leave(object me, string dir)
 		((string)me->query("family/family_name") != "逍遙派") &&
 		((string)me->query("family/family_name") != "靈鷲宮") &&
 		objectp(present("zhu jian", environment(me))) )
-		return notify_fail("竹劍伸手攔住你，說道：“對不起，本門重地，請回！”\n");
+		return notify_fail("竹劍伸手攔住你，説道：“對不起，本門重地，請回！”\n");
 	return ::valid_leave(me, dir);
 }

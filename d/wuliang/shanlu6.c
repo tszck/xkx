@@ -34,6 +34,6 @@ int valid_leave(object me, string dir)
 	myfam = (mapping)me->query("family");
 
 	if (objectp(present("sikong xuan", environment(me))))
-		return notify_fail("司空玄攔住你說：既來此處，必與無量派有關，奉童姥之命，殺無\n赦，你還想走？\n");
+		return notify_fail("司空玄攔住你説：既來此處，必與無量派有關，奉童姥之命，殺無\n赦，你還想走？\n");
 	return ::valid_leave(me, dir);
 }

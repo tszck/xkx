@@ -44,7 +44,7 @@ void create()
 int accept_object(object who, object ob)
 {	
 	if(!(who->query_temp("hammer") ) ){
-		message_vision(HIC"師傅沒有同意爲你鑄錘，您請回吧！\n"NOR, who);
+		message_vision(HIC"師傅沒有同意為你鑄錘，您請回吧！\n"NOR, who);
 		return 0;
 	}
 	who->delete_temp("hammer");
@@ -61,10 +61,10 @@ int accept_object(object who, object ob)
 			who->add_temp("ironstone",1);
 			break;
 		default :
-			message("vision","這是什麼！師傅說這不能用來打造兵器！\n",who);
+			message("vision","這是什麼！師傅説這不能用來打造兵器！\n",who);
 			return 0;
 	}
-	message("vision", "侍錘低頭檢視了一下手中的"+(string)ob->query("name")+"點了點頭說：\n", who);
+	message("vision", "侍錘低頭檢視了一下手中的"+(string)ob->query("name")+"點了點頭説：\n", who);
 	message("vision","。。。好我們現在就開始鑄錘。\n", who);
 	write("請這位"+RANK_D->query_respect(who)+"給錘起名字吧！(zhu 錘的名字 英文代號)\n");
 	destruct(ob);

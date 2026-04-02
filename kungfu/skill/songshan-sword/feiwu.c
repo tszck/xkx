@@ -52,7 +52,7 @@ int perform(object me, object target)
 		return notify_fail("你的"+to_chinese(bskill)+"功力太淺，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query("max_neili") < 1500 )
-		return notify_fail("你的內力修爲太淺，無法飛舞攻擊。\n");
+		return notify_fail("你的內力修為太淺，無法飛舞攻擊。\n");
 
 	if( (int)me->query("neili") < 500 )
 		return notify_fail("你的真氣不夠，無法飛舞攻擊。\n");
@@ -101,7 +101,7 @@ int help(object me)
 		寒冰真氣120級
 		嵩山劍法120級
 		基本劍法120級
-		內力修爲1500
+		內力修為1500
 		內力500
 HELP
 	);

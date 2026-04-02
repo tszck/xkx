@@ -97,7 +97,7 @@ void create()
 	    "小昭低聲吟道：四女同舟何所望 東西永隔如參商\n",
 	    "小昭低聲吟道：刀劍齊失人云亡 冤蒙不白愁欲狂\n",
 	    "小昭低聲吟道：簫長琴短衣流黃 新婦素手裂紅裳\n",
-	    "小昭低聲吟道：屠獅有會孰爲殃 夭矯三松鬱青蒼\n",
+	    "小昭低聲吟道：屠獅有會孰為殃 夭矯三松鬱青蒼\n",
 	    "小昭低聲吟道：天下英雄莫能當 君子可欺之以方\n",
 	    "小昭低聲吟道：祕笈兵書此中藏 不識張郎是張郎\n",
 	}) );
@@ -117,12 +117,12 @@ int ask_tuijiao()
 
 	if(ob->query("party/party_name") != HIG "明教" NOR )
 	{
-		message_vision("小昭莞爾一笑，對$N說道：你還沒加入我明教呢，就想退教？\n",ob);
+		message_vision("小昭莞爾一笑，對$N説道：你還沒加入我明教呢，就想退教？\n",ob);
 		return 1;
 	}
 	if(ob->query("family/family_name") == "明教" )
 	{
-		message_vision("小昭抬起俏臉對$N說道：你已經是我聖教弟子，如何能退教？\n", ob);
+		message_vision("小昭抬起俏臉對$N説道：你已經是我聖教弟子，如何能退教？\n", ob);
 		return 1;
 	}
 
@@ -138,7 +138,7 @@ int ask_tuijiao()
 int ask_wuji()
 {
 	command("sigh "+this_player()->query("id"));
-	say("小昭幽幽地說：天涯思君不可忘，東西永隔如參商。\n");
+	say("小昭幽幽地説：天涯思君不可忘，東西永隔如參商。\n");
 	return 1;
 }
 
@@ -179,7 +179,7 @@ int ask_qiankun()
 	if (me->query_temp("mark/qiankun") &&
 		me->query("party/party_name") == HIG "明教" NOR)
 	{
-		message_vision( CYN"小昭莞爾一笑，對$N說道：乾坤大挪移心法在本教密道里，我們去取吧。\n"NOR,me);
+		message_vision( CYN"小昭莞爾一笑，對$N説道：乾坤大挪移心法在本教密道里，我們去取吧。\n"NOR,me);
 		set_leader(me);
 		me->delete_temp("mark/qiankun", 1);
 	}

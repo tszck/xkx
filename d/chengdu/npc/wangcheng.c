@@ -8,7 +8,7 @@ void create()
 	set_name("王誠", ({ "wang cheng", "wang", "cheng" }));
 	set("gender", "男性");
 	set("age", 21);
-	set("long", "張寶林的大弟子，爲人老實誠懇，被視爲青年的楷模。\n");
+	set("long", "張寶林的大弟子，為人老實誠懇，被視為青年的楷模。\n");
 	set("combat_exp", 2000);
 	set("shen_type", -1);
 

@@ -34,7 +34,7 @@ int exert(object me, object target)
 	if (!userp(target) && !target->accept_hit(me)) return 0;
 	
 	if (target->query("race") != "人類")
-		return notify_fail("搞錯了！只有人纔能有精力！\n");
+		return notify_fail("搞錯了！只有人才能有精力！\n");
 
 	my_max = me->query("max_jingli");
 	tg_max = target->query("max_jingli");
@@ -59,7 +59,7 @@ int exert(object me, object target)
 
 	if( (int)target->query("max_jingli") < (int)me->query("max_jingli")/10 )
 		return notify_fail( target->name() +
-			"的內功修爲遠不如你，你無法從他體內吸取精力！\n");
+			"的內功修為遠不如你，你無法從他體內吸取精力！\n");
 
 	message_combatd(
 		HIR "$N全身骨節爆響，雙臂暴長數尺，掌緣猛地向$n的天靈拍了下去！\n\n" NOR,

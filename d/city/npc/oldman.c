@@ -257,7 +257,7 @@ int do_return()
 	}
 	if( i == sizeof(ob) )
 		return notify_fail("老頭奇怪地看了你一眼：“你的寵物沒帶來，那你怎麼還給我啊？”\n");
-	message_vision("$N一把抱起地上的$n，遞過櫃檯還給老頭。\n", me, ob[i]);
+	message_vision("$N一把抱起地上的$n，遞過櫃枱還給老頭。\n", me, ob[i]);
 	me->delete("Pet");
 	destruct(ob[i]);
 	me->start_busy(1);
@@ -283,12 +283,12 @@ int do_lingqu()
 			obj[i]->query("curiousness"))
 		{
 			if(environment(obj[i]) == me )
-				return notify_fail(ob->name()+ "說道：你不是正騎在你的寵物身上麼？\n");
+				return notify_fail(ob->name()+ "説道：你不是正騎在你的寵物身上麼？\n");
 			else
 				if(environment(obj[i]) != environment(me) )
-					return notify_fail(ob->name()+"說道：你的寵物在"+(environment(obj[i])->query("outdoors") ? to_chinese(environment(obj[i])->query("outdoors")) : "哪裏")+"的"+environment(obj[i])->query("short")+"，趕快去找吧。\n");
+					return notify_fail(ob->name()+"説道：你的寵物在"+(environment(obj[i])->query("outdoors") ? to_chinese(environment(obj[i])->query("outdoors")) : "哪裏")+"的"+environment(obj[i])->query("short")+"，趕快去找吧。\n");
 				else
-					return notify_fail(ob->name()+ "說道：你的寵物不是就在你旁邊麼？\n");
+					return notify_fail(ob->name()+ "説道：你的寵物不是就在你旁邊麼？\n");
 			return 1;
 		}
 	}
@@ -416,7 +416,7 @@ int do_zancun()
 // 取消跟隨狀態
 	me->delete_temp("comedby");
 
-	message_vision("$N一把抱起地上的$n，遞過櫃檯給老頭暫存。\n", me, ob[i]);
+	message_vision("$N一把抱起地上的$n，遞過櫃枱給老頭暫存。\n", me, ob[i]);
 	destruct(ob[i]);
 	me->start_busy(1);
 	return 1;

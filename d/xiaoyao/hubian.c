@@ -14,7 +14,7 @@ void create()
 無法攀緣而上。
 LONG );
 	set ("item_desc", ([
-		"stone" : "四面都是岩石。。。。不過，好象有一塊有點與衆不同。\n"
+		"stone" : "四面都是岩石。。。。不過，好象有一塊有點與眾不同。\n"
 	])  ) ;
 	set("exits", ([ /* sizeof() == 2 */
 		"east" : __DIR__"gudi",

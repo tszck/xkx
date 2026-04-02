@@ -7,7 +7,7 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N一式"HIC"「江邊斜雁」"NOR"，以掌化爪，五指如鉤，直逼$n的膻中要穴",
+([	"action" : "$N一式"HIC"「江邊斜雁」"NOR"，以掌化爪，五指如鈎，直逼$n的膻中要穴",
 	"lvl" : 0,
 	"skill_name" : "江邊斜雁"
 ]),
@@ -117,7 +117,7 @@ int help(object me)
 	write(HIC"\n大落雁手："NOR"\n");
 	write(@HELP
 
-    大落雁手爲衡山派絕技之一。
+    大落雁手為衡山派絕技之一。
     可與碧羅掌互備。
     
 	學習要求：

@@ -87,7 +87,7 @@ int do_kill(object me, object dest)
 	if( objectp(dest) && present(dest, environment(me))
 		 && !environment(me)->query("no_fight"))
 	{
-		message_vision(HIR "$N對$n說道："+me->query("owner")+"指認你犯上做亂，"+RANK_D->query_rude(dest)+"，認命吧！\n" NOR, me, dest);
+		message_vision(HIR "$N對$n説道："+me->query("owner")+"指認你犯上做亂，"+RANK_D->query_rude(dest)+"，認命吧！\n" NOR, me, dest);
 		me->set_leader(dest);
 		me->kill_ob(dest);
 		dest->fight_ob(me);

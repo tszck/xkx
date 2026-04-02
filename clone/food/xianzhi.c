@@ -40,7 +40,7 @@ void create()
         "remaining": 5000,
         "drunk_apply": 10,
      ]));
-  set("long", "一玉壺天上纔有的仙汁真酒－－"+names[i]+"。\n");
+  set("long", "一玉壺天上才有的仙汁真酒－－"+names[i]+"。\n");
   setup();
 }
 

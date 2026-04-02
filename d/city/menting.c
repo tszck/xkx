@@ -32,7 +32,7 @@ int valid_leave(object me, string dir)
 		&& objectp( ob = present ( "jia ding", environment( me )  ) )
 		&& living(ob) )
 	{
-		message_vision("家丁對$N說道：未經老爺邀請，你不能進去。\n",me);
+		message_vision("家丁對$N説道：未經老爺邀請，你不能進去。\n",me);
 		return notify_fail("你被家丁攔住了去路。\n");
 	}
 	return ::valid_leave(me, dir);

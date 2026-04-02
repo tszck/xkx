@@ -187,7 +187,7 @@ void die()
 		tell_object(me,HIW"你殺敵有功，得到如下獎勵：\n");
 		tell_object(me,chinese_number(exp) +"點實戰經驗\n" +
 		chinese_number(pot) + "點潛能\n" +
-		chinese_number(score)+"點江湖閱歷\n"NOR);
+		chinese_number(score)+"點江湖閲歷\n"NOR);
 		return ::die(); 
 	}
 }

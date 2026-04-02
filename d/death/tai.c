@@ -33,7 +33,7 @@ void init()
 int do_string(object ob)
 {
 	if( !ob || environment(ob) != this_object() ) return 0;
-	write(BLU "    一個聲音在你耳邊說道：“汝已身入冥府，該當在此於前世一刀兩斷，\n速速去登西方極樂世界爲妙，"+RED "切不可再縱身於塵世情色之中......\n\n" NOR);
+	write(BLU "    一個聲音在你耳邊説道：“汝已身入冥府，該當在此於前世一刀兩斷，\n速速去登西方極樂世界為妙，"+RED "切不可再縱身於塵世情色之中......\n\n" NOR);
 	ob->unconcious();
 	return 1;
 }

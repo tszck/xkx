@@ -23,7 +23,7 @@ void create()
 		"大惡人。在江湖上端的是無惡不作。\n"
 		"他身穿一件青布長袍，身高五尺有餘，臉上常年戴一張人\n"
 		"皮面具，喜怒哀樂一絲不露。體格瘦長，雙腿齊膝而斷，\n"
-		"只能用腋下的兩根鑌鐵柺杖代步，但行走如飛，反比常人\n"
+		"只能用腋下的兩根鑌鐵枴杖代步，但行走如飛，反比常人\n"
 		"更快！\n");
 	set("attitude", "peaceful");
 	
@@ -130,7 +130,7 @@ int do_kill(object me, object dest)
 	if( objectp(dest) && present(dest, environment(me))
 		 && !environment(me)->query("no_fight"))
 	{
-		message_vision(HIR "$N對$n說道：老子一見正派高手就生氣。"
+		message_vision(HIR "$N對$n説道：老子一見正派高手就生氣。"
 			+RANK_D->query_rude(dest)+"，納命來！\n" NOR, me, dest);
 		me->set_leader(dest);
 		me->kill_ob(dest);
@@ -195,7 +195,7 @@ int do_back(object me)
 {
 
 	me->move("/d/city/xidajie2");
-	message("vision", "段延慶走了過來，嗤地一聲冷笑，說道：又除了一個道貌岸然的僞君子。\n", 
+	message("vision", "段延慶走了過來，嗤地一聲冷笑，説道：又除了一個道貌岸然的偽君子。\n", 
 		environment(), me );
 
 	me->set_leader(0);

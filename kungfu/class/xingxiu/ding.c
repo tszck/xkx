@@ -198,7 +198,7 @@ int do_flatter(string arg)
 	if( !me->query_temp("pending/flatter") )
 		return 0;
 */
-	if( !arg ) return notify_fail("你說老仙什麼？\n");
+	if( !arg ) return notify_fail("你説老仙什麼？\n");
 //	ob->set_temp("pending/flatter", 0);
 	switch(random(5))
 	{
@@ -208,7 +208,7 @@ int do_flatter(string arg)
 		case 3: message_vision("$N對$n大聲讚道：日月無老仙之明，天地無老仙之大，自盤古氏開天闢地以來，更無第二人能有老仙的威德！\n", me,ob); break;
 		case 4: message_vision("$N對$n大聲讚道：老仙神功蓋世，天下第一，戰無不勝，功無不克！\n", me,ob); break;
 	}
-	message_vision("$N大聲說道：" + arg + "\n", me);
+	message_vision("$N大聲説道：" + arg + "\n", me);
 	if( strsrch(arg, "星宿老仙") >=0 && (strsrch(arg, "德配天地") >=0 ||
 		strsrch(arg, "威震寰宇") >=0 || strsrch(arg, "古今無比") >=0 ))
 	{
@@ -355,14 +355,14 @@ string ask_job()
 	if(!me->query("family") || me->query("family/family_name") != "星宿派")
 		return "看你對老仙態度恭敬，何不加入我星宿派呢？";
 	if(me->query("combat_exp") < 100000) 
-		return "哈哈哈，你再加把力練功，很快就可以爲老仙我分憂了。";
+		return "哈哈哈，你再加把力練功，很快就可以為老仙我分憂了。";
 	if(me->query("shen") >= 0 ||
 		me->query("shen") > -(me->query("combat_exp")/10)) 
 		return "徒兒，看來你的心腸還不夠黑啊，有些事你不問也罷。";
 	if(interactive(me) && me->query_temp("job_busy")) 
-		return "你說要替老仙分憂，怎麼還在這裏發呆？";
+		return "你説要替老仙分憂，怎麼還在這裏發呆？";
 	if(interactive(me) && me->query_condition("wait_xx_task")) 
-		return "老仙現在心情還好，不用你來爲我分憂。";
+		return "老仙現在心情還好，不用你來為我分憂。";
 	if(query("di_count") < 1) 
 		return "老仙現在心情還好，再來煩我就別怪老仙心情不好了。";
 
@@ -374,7 +374,7 @@ string ask_job()
 	ob->set("xx_user", getuid(me));
 	me->set_temp("xx_job", 1);
 	message_vision("$N拿出一隻玉製短笛，交給$n。\n", this_object(), me);
-	return "老仙我最近心情不佳，徒兒你要多多爲我分憂纔是！\n";    
+	return "老仙我最近心情不佳，徒兒你要多多為我分憂才是！\n";    
 }
 
 int do_xian(string arg)
@@ -412,7 +412,7 @@ int do_xian(string arg)
 	{
 		command("stare " + who->query("id"));
 		"/cmds/std/say"->main(this_object(),"竟敢用假貨來欺騙本老仙，給我滾出去！");
-		message_vision("\n說完$N長袖一揮，一股內勁拂出，就將$n掃出洞外！\n\n", me, who);
+		message_vision("\n説完$N長袖一揮，一股內勁拂出，就將$n掃出洞外！\n\n", me, who);
 		who->move("/d/xingxiu/riyuedong1");
 		message("vision","只聽“呼”地一聲，緊接着"+who->query("name")+"從日月洞裏直飛了出來，摔了個四腳朝天！\n", environment(who), who);
 		who->receive_wound("jing", 200);
@@ -455,7 +455,7 @@ void done(object me)
 		if(poison < 150 && SKILL_D("poison")->valid_learn(me))
 			me->improve_skill("poison", me->query("xx_points")*5);
 		me->add("xx_points", 1);          
-		tell_object(me, "你目前已經爲老仙分擔了"+chinese_number(me->query("xx_points"))+"次憂愁。\n");
+		tell_object(me, "你目前已經為老仙分擔了"+chinese_number(me->query("xx_points"))+"次憂愁。\n");
 		me->add("family/fealty",me->query("xx_points"));
 		tell_object(me, "你的門派忠誠度上升了。\n");
 	}
@@ -513,7 +513,7 @@ string ask_yinlinfen()
       if (owner->query("family/family_name") == "星宿派")
            return ob->query("name")+"現在在本派" + owner->query("name") +"手中，你要用就去找他吧。";
       else
-           return "我正爲此事擔憂呢，"+ob->query("name")+"現在落入了" + owner->query("name") +"之手，你快去把他殺了，把東西取回來！";
+           return "我正為此事擔憂呢，"+ob->query("name")+"現在落入了" + owner->query("name") +"之手，你快去把他殺了，把東西取回來！";
      }
   }
 	command("nod");
@@ -549,7 +549,7 @@ string ask_duchongfen()
       if (owner->query("family/family_name") == "星宿派")
            return ob->query("name")+"現在在本派" + owner->query("name") +"手中，你要用就去找他吧。";
       else
-           return "我正爲此事擔憂呢，"+ob->query("name")+"現在落入了" + owner->query("name") +"之手，你快去把他殺了，把東西取回來！";
+           return "我正為此事擔憂呢，"+ob->query("name")+"現在落入了" + owner->query("name") +"之手，你快去把他殺了，把東西取回來！";
      }
   }
 	command("nod");
@@ -585,7 +585,7 @@ string ask_honglinfen()
       if (owner->query("family/family_name") == "星宿派")
            return ob->query("name")+"現在在本派" + owner->query("name") +"手中，你要用就去找他吧。";
       else
-           return "我正爲此事擔憂呢，"+ob->query("name")+"現在落入了" + owner->query("name") +"之手，你快去把他殺了，把東西取回來！";
+           return "我正為此事擔憂呢，"+ob->query("name")+"現在落入了" + owner->query("name") +"之手，你快去把他殺了，把東西取回來！";
      }
   }
 	command("nod");
@@ -621,7 +621,7 @@ string ask_bingpofen()
       if (owner->query("family/family_name") == "星宿派")
            return ob->query("name")+"現在在本派" + owner->query("name") +"手中，你要用就去找他吧。";
       else
-           return "我正爲此事擔憂呢，"+ob->query("name")+"現在落入了" + owner->query("name") +"之手，你快去把他殺了，把東西取回來！";
+           return "我正為此事擔憂呢，"+ob->query("name")+"現在落入了" + owner->query("name") +"之手，你快去把他殺了，把東西取回來！";
      }
   }
 	command("nod");

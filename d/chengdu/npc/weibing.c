@@ -5,9 +5,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("衛兵", ({ "wei bing", "bing" }) );
+	set_name("衞兵", ({ "wei bing", "bing" }) );
 	set("long",
-"這是個正在執行巡邏任務的衛兵，誰也不輕易地招惹他們。\n"
+"這是個正在執行巡邏任務的衞兵，誰也不輕易地招惹他們。\n"
 "你最好也不要招惹他們。 \n");
 	set("attitude", "heroism");
 	set("pursuer", 1);
@@ -18,8 +18,8 @@ void create()
 	set("combat_exp", 100000+random(1000000));
 	set("chat_chance_combat", 15);
 	set("chat_msg_combat", ({
-		"衛兵喝道：龜兒子，還不快給老子放下武器束手就縛？\n",
-		"衛兵喝道：你娃竟敢拒捕？反了！反了！\n"
+		"衞兵喝道：龜兒子，還不快給老子放下武器束手就縛？\n",
+		"衞兵喝道：你娃竟敢拒捕？反了！反了！\n"
 	}) );
 
 	set_skill("unarmed", 60);
@@ -46,12 +46,12 @@ int accept_object(object who, object ob)
 {
 	if( (int)ob->value() >= 500000 )
 	{
-		say("衛兵呵呵的笑道：客氣啥子嘛，好說，好說...\n");
+		say("衞兵呵呵的笑道：客氣啥子嘛，好説，好説...\n");
 		who->set("vendetta/authority", 0);
 		who->remove_all_killer();
 		return 1;
 	} else {
-		say("衛兵說道：楞個點錢還不夠老子喝酒的呢！\n");
+		say("衞兵説道：楞個點錢還不夠老子喝酒的呢！\n");
 		return 0;
 	}
 	return 0;

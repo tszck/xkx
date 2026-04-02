@@ -44,7 +44,7 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法運功傷敵。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，無法運功傷敵。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 150 )
 		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
@@ -59,7 +59,7 @@ int perform(object me, object target)
 	}
 	
 	if( (int)me->query("max_neili") < 2000 )
-		return notify_fail("你的內力修爲不夠，無法運功傷敵。\n");
+		return notify_fail("你的內力修為不夠，無法運功傷敵。\n");
 
 	if( (int)me->query("neili") < 200 )
 		return notify_fail("你現在的內力太弱，無法運功傷敵。\n");
@@ -238,7 +238,7 @@ int help(object me)
 		太極神功150級
 		太極拳150級
 		經驗500000
-		內力修爲2000
+		內力修為2000
 		內力200
 		氣血200
 		精氣200

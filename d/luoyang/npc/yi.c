@@ -47,7 +47,7 @@ void create()
 int ask_lvzhuweng()
 {
 	object me = this_player();
-	message_vision(CYN"易師爺猛地睜圓眯眯眼，對$N說道：你也想去見識他的琴簫？那我們一起去吧。\n"NOR,me);
+	message_vision(CYN"易師爺猛地睜圓眯眯眼，對$N説道：你也想去見識他的琴簫？那我們一起去吧。\n"NOR,me);
 	set_leader(me);
 	return 1;
 }

@@ -6,10 +6,10 @@ inherit NPC;
 void create()
 {
 	set_name("阿勝", ({ "sheng" }));
-	set("title", HIY"神農幫幫衆"NOR);
+	set("title", HIY"神農幫幫眾"NOR);
 	set("age", 32);
 	set("gender", "男性");
-	set("long", "這是一個神農幫的幫衆，身穿黃衣，肩懸藥囊，手持一柄藥鋤。\n");
+	set("long", "這是一個神農幫的幫眾，身穿黃衣，肩懸藥囊，手持一柄藥鋤。\n");
 	set("attitude", "peaceful");
 
 	set("str", 24);

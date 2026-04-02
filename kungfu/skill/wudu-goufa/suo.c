@@ -1,4 +1,4 @@
-// suo.c 金鉤鎖魂
+// suo.c 金鈎鎖魂
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
@@ -7,7 +7,7 @@
 #include <combat.h>
 
 inherit F_SSERVER;
-#define PNAME "金鉤鎖魂"
+#define PNAME "金鈎鎖魂"
 int perform(object me, object target)
 {
 	object ob,weapon,myweapon;
@@ -34,7 +34,7 @@ int perform(object me, object target)
 		
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "hook")
-		return notify_fail(PNAME"開始時必須拿着一把鉤！\n");
+		return notify_fail(PNAME"開始時必須拿着一把鈎！\n");
 
 	if (!objectp(weapon = target->query_temp("weapon")))
 		return notify_fail("對方手中並沒有兵器！\n");
@@ -64,7 +64,7 @@ int perform(object me, object target)
 
 	weapon=target->query_temp("weapon");
 	myweapon=me->query_temp("weapon");
-	message_combatd(HIR"\n$N虛晃一招，手中"+myweapon->query("name")+HIR"忽的一聲，鉤尖已搭在$n的"+weapon->query("name")+HIR"上！\n" NOR,me,target);
+	message_combatd(HIR"\n$N虛晃一招，手中"+myweapon->query("name")+HIR"忽的一聲，鈎尖已搭在$n的"+weapon->query("name")+HIR"上！\n" NOR,me,target);
 	skill = target->query_skill("parry", 1);
 	myskill = me->query_skill(bskill, 1);
 	if(random(myskill) < random(skill)||me->query("max_neili") <random(target->query("max_neili")))
@@ -98,15 +98,15 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		連續出手五鉤
+		連續出手五鈎
 		擊落對方兵刃
 
 	出手要求：
 		五毒神功50級
-		基本鉤法50級
-		五毒鉤法50級
+		基本鈎法50級
+		五毒鈎法50級
 		內力500
-		使用五毒教的鉤
+		使用五毒教的鈎
 HELP
 	);
 	return 1;

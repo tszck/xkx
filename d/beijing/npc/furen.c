@@ -55,7 +55,7 @@ void init()
 	ob = this_player();
 
 	if( interactive(ob) && !is_fighting() ) 
-	say( "莊夫人說道：很久沒有人來了,\n這位" + RANK_D->query_respect(ob)
+	say( "莊夫人説道：很久沒有人來了,\n這位" + RANK_D->query_respect(ob)
 				+ "，可知道我相公的下落嗎?\n");
 }
 
@@ -79,18 +79,18 @@ int accept_object(object me, object ob)
 	}
          if(this_player()->query("weiwang")>=70)
 	 {
-	 write(HIC "\n莊夫人說道：這位" + RANK_D->query_respect(ob)+",如此大恩大德,妾身實不知何以爲報.\n");
+	 write(HIC "\n莊夫人説道：這位" + RANK_D->query_respect(ob)+",如此大恩大德,妾身實不知何以為報.\n");
 	 write(HIC "我想送恩公一件禮物,務請勿卻是幸.\n");
 	 }
         }		
 	if ( (string)ob->query("name") == "明史輯略") 
 	{
-	 write(HIC "\n莊夫人說道：這位" + RANK_D->query_respect(ob)+",多謝了.\n");
+	 write(HIC "\n莊夫人説道：這位" + RANK_D->query_respect(ob)+",多謝了.\n");
 	 write(HIC "唉,你要能幫我找到吳之榮這狗賊就好了.\n");
         }		
 	if ( (string)ob->query("name") == "莊允城") 
 	{
-	 write(HIC "\n莊夫人說道：這位" + RANK_D->query_respect(ob)+",多謝了.\n");
+	 write(HIC "\n莊夫人説道：這位" + RANK_D->query_respect(ob)+",多謝了.\n");
 	 write(HIC "唉,你要能幫我找到吳之榮這狗賊就好了.\n");
         }		
  return 1;

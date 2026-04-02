@@ -13,7 +13,7 @@ void create()
 	set("long", "一塊切好了的哈蜜瓜。\n");
 	set("unit", "塊");
 	set("life", 2);
-//	set("value", 800);//因爲是從外國運了幾個月才運到的。
+//	set("value", 800);//因為是從外國運了幾個月才運到的。
 	set("fruit_remaining", 3); //可以喫5口
 	set("food_supply", 30);   //每口加5的food
 	set("water_supply", 70);  //每口可以加5的water

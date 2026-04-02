@@ -82,7 +82,7 @@ int learn_bonus() { return 0; }
 int practice_bonus() { return 0; }
 int success() { return 5; }
 int power_point(object me) {
-	if (userp(me)) return 0.5; //因爲是半成品 不允許高
+	if (userp(me)) return 0.5; //因為是半成品 不允許高
   return 1;
 } 
 

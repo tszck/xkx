@@ -154,7 +154,7 @@ string ask_ding()
 			"與本派素無來往，不知此話從何談起？";
 		
 	if(this_player()->query_skill("mantian-huayu",1) < 60)
-		return "你如此自願爲師門效力，不枉我平時一番栽培，速速去吧！";
+		return "你如此自願為師門效力，不枉我平時一番栽培，速速去吧！";
 
 	if ( present("sangmen ding", this_player()) )
 		return RANK_D->query_respect(this_player()) + 
@@ -165,7 +165,7 @@ string ask_ding()
 	this_player()->set_temp("kunlun/ding",1);
 	ob = new("/d/kunlun/obj/sangmending");
 	ob->move(this_player());
-	return "你如此自願爲師門效力，不枉我平時一番栽培，這把喪門釘你就拿去吧。";
+	return "你如此自願為師門效力，不枉我平時一番栽培，這把喪門釘你就拿去吧。";
 }
 string ask_su()
 {

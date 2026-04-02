@@ -40,7 +40,7 @@ void create()
 	set("short", "鎮淮門城樓");
 	set("long", @LONG
 沿着城門邊上的的石階拾級而上，上得城牆。城牆上建一座城樓，
-飛檐高挑，極爲雄偉，邊上是敵樓，幾個士兵在警戒。城樓上有幾個遊
+飛檐高挑，極為雄偉，邊上是敵樓，幾個士兵在警戒。城樓上有幾個遊
 人，有的在俯視整個揚州城，有的遠眺北面的平山堂。
 LONG );
 	set("exits", ([
@@ -51,7 +51,7 @@ LONG );
         "yangzhou" : (: look_yangzhou :),
         "city" : (: look_yangzhou :),
         "揚州城" : (: look_yangzhou :),
-        "平山堂" : "平山堂籠罩在雲煙之中，據說知州常在那裏飲酒作樂。\n"
+        "平山堂" : "平山堂籠罩在雲煙之中，據説知州常在那裏飲酒作樂。\n"
 	]));
 	set("no_clean_up", 0);
 	set("outdoors", "yangzhouw");

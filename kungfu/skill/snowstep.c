@@ -13,7 +13,7 @@ string *dodge_msg = ({
 	"$n隨意轉身，一招"+(order[random(13)]) +"「檀板金樽」"NOR"，如舞樂般飄身而上，避過了這招。\n",
 	"只見$n身形一旋，撥身而起，使出"+(order[random(13)]) +"「梅月黃昏」"NOR"，整個人都失去了蹤影，令$N撲了個空。\n",
 	"卻見$n伸手往地上遙遙一拍，一式"+(order[random(13)]) +"「梅飄九宵」"NOR"，如柳絮般輕輕飄起，躲過了這招。\n",
-	"$n長笑一聲，一式"+(order[random(13)]) +"「寒梅傲雪」"NOR"，長身而起，一時四面八方都是$n的影子，虛虛實實，不知哪個纔是真的。\n",
+	"$n長笑一聲，一式"+(order[random(13)]) +"「寒梅傲雪」"NOR"，長身而起，一時四面八方都是$n的影子，虛虛實實，不知哪個才是真的。\n",
 });
 
 int valid_enable(string usage) { return (usage=="dodge") || (usage=="move"); }

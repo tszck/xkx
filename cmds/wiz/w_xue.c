@@ -9,9 +9,9 @@ inherit F_CLEAN_UP;
 
 
 string *reject_msg = ({
-	"說道：您太客氣了，這怎麼敢當？\n",
-	"像是受寵若驚一樣，說道：請教？這怎麼敢當？\n",
-	"笑着說道：您見笑了，我這點雕蟲小技怎夠資格「指點」您什麼？\n",
+	"説道：您太客氣了，這怎麼敢當？\n",
+	"像是受寵若驚一樣，説道：請教？這怎麼敢當？\n",
+	"笑着説道：您見笑了，我這點雕蟲小技怎夠資格「指點」您什麼？\n",
 });
 
 void create() { seteuid(getuid()); }
@@ -34,7 +34,7 @@ int main(object me, string arg)
 	if( !(ob = present(teacher, environment(me))) || !ob->is_character())
 		return notify_fail("你要向誰求教？\n");
 	if( !living(ob) )
-		return notify_fail("嗯....你得先把"+ob->name()+"弄醒再說。\n");
+		return notify_fail("嗯....你得先把"+ob->name()+"弄醒再説。\n");
 	if( !me->is_apprentice_of(ob) && !(ob->recognize_apprentice(me)) )
 	{
 		return	notify_fail( ob ->name() + reject_msg[random(sizeof(reject_msg))] );
@@ -95,7 +95,7 @@ int main(object me, string arg)
 			{
 				me->add("learned_points", 1);
 // 學習速度 = 後天悟性加上先天悟性的和的一半，加武功學習補償。
-// 未定義學習補償的技能，默認學習補償爲10。
+// 未定義學習補償的技能，默認學習補償為10。
 				improve_points = (me->query_int()+me->query("int"))/2;
 				if(SKILL_D(skill)->learn_bonus())
 					improve_points += SKILL_D(skill)->learn_bonus();
@@ -126,11 +126,11 @@ int help(object me)
 
 這個指令可以讓你向別人請教有關某一種技能的疑難問題，當然，你請教的對象在這
 項技能上的造詣必須比你高，而你經由這種方式學習得來的技能也不可能高於你所請
-教的人，然而因爲這種學習方式相當於一種「經驗的傳承」，因此學習可以說是熟悉
+教的人，然而因為這種學習方式相當於一種「經驗的傳承」，因此學習可以説是熟悉
 一種新技能最快的方法。
 
 通常，一個人剛學到一種新技能是不會有什麼疑難問題的，而是經由實際上的應用中
-遭遇問題，這些問題對於學習一種新技能的過程是很重要的，尤其是各種作爲其他技
+遭遇問題，這些問題對於學習一種新技能的過程是很重要的，尤其是各種作為其他技
 能基礎的基本技能，更需要經由「發現問題—解決問題」的過程才能得到較好的效果
 因此我們將這種發現問題的過程用「潛能」的觀念表示，一個人能夠自己發現某些問
 題，表示他(她)有解決這項問題的潛能，當你具有這樣的潛能時就可以利用這個指令

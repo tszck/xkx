@@ -14,7 +14,7 @@ void create()
 	set( "attribute", "heroism" );
 	set( "long", @LONG
 一個高大威猛的漢子，鬱悶的一人坐在一旁。看他的樣子是該笑傲江湖的
-人，不知爲何要在此幹這等差事。
+人，不知為何要在此幹這等差事。
 LONG
 	);
 	set( "max_qi", 500 );
@@ -54,7 +54,7 @@ int accept_object(object me, object ob)
 	if ( val > 0 )
 	{
 		command( "look " + me->query("id") );
-		write("常翔面無表情的說道：我告訴過你要交多少錢的。\n");
+		write("常翔面無表情的説道：我告訴過你要交多少錢的。\n");
 	}
 	return 0;
 }

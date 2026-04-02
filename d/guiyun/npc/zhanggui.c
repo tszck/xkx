@@ -13,11 +13,11 @@ void create()
 	set("combat_exp", 2000);
 	set("attitude", "friendly");
 	set("inquiry", ([
-		"name" : "不瞞客官說，小老兒的小名實在難聽，叫做趙阿狗。",
+		"name" : "不瞞客官説，小老兒的小名實在難聽，叫做趙阿狗。",
 		"rumors" : "歸雲莊的弟子們總來這裏，有時候談到桃花島，都流露出嚮往的神情。",
 		"here" : "這裏是太湖邊，往北走就可以看到歸雲莊了。",
-		"桃花島": "聽說是東海上的小島，往杭州的東南走，到海邊看能不能僱船吧？",
-		"生意" : "因爲歸雲莊的弟子們總來照顧小店的生意，所以還算不錯。",
+		"桃花島": "聽説是東海上的小島，往杭州的東南走，到海邊看能不能僱船吧？",
+		"生意" : "因為歸雲莊的弟子們總來照顧小店的生意，所以還算不錯。",
 		"歸雲莊" : "向北走就能看到。那裏的莊主姓陸，平時難得見到。",
 	]) );
 	setup();
@@ -37,7 +37,7 @@ int accept_object(object who, object ob)
 			return 0;
 		}
 		if (!who->query_temp("to_pay")) {
-			tell_object(who, "掌櫃說道：“客官您先結帳(pay)再付款。”\n");
+			tell_object(who, "掌櫃説道：“客官您先結帳(pay)再付款。”\n");
 			return 0;
 		}
 		value = ob->value();
@@ -50,7 +50,7 @@ int accept_object(object who, object ob)
 		}
 		else {
 			pay -= value;	
-			message_vision("掌櫃對着$N說道：“不夠！還差" + chinese_number(pay) + "文。”\n", who);
+			message_vision("掌櫃對着$N説道：“不夠！還差" + chinese_number(pay) + "文。”\n", who);
 			who->set_temp("total_pay", pay);
 			return 1;
 		}
@@ -62,13 +62,13 @@ void kill_ob(object ob)
 {
 	ob->remove_killer(this_object());
 	remove_killer(ob);
-	message_vision("$N沮喪地發現掌櫃站在高高的櫃檯後面，夠不到。\n", ob);
+	message_vision("$N沮喪地發現掌櫃站在高高的櫃枱後面，夠不到。\n", ob);
 }
 
 void unconcious()
 {
 	say( "掌櫃大喊一聲：“我不行了，快來接班！”\n");
-	say( "結果從櫃檯後面又鑽出一個掌櫃來，說：“沒問題，交給我吧。”\n");
+	say( "結果從櫃枱後面又鑽出一個掌櫃來，説：“沒問題，交給我吧。”\n");
 	say( "前一個掌櫃呲牙咧嘴地離開了。\n");
 	reincarnate();
 	set("eff_qi", query("max_qi"));

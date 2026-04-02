@@ -61,7 +61,7 @@ int perform(object me, object target)
 	if( (int)me->query_str() < 35 )
 		return notify_fail("你的膂力不夠強，不能使用"PNAME"！\n");
 	if( (int)me->query("max_neili") < 1200 )
-		return notify_fail("你的內力修爲太弱，不能使用"PNAME"！\n");
+		return notify_fail("你的內力修為太弱，不能使用"PNAME"！\n");
 	if( (int)me->query("neili") < 800 )
 		return notify_fail("你的內力太少了，無法使用出"PNAME"！\n");
 	if( (int)target->query_condition("dashouyin"))
@@ -134,7 +134,7 @@ int help(object me)
 		基本手法120級
 		後天膂力35
 		內力800
-		內力修爲1200
+		內力修為1200
 HELP
         );
         return 1;

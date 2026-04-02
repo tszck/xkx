@@ -15,7 +15,7 @@ LONG );
 	set("outdoors", "wudang");
 	set("item_desc", ([
 		"tree" : 
-"這是一株人蔘果樹，上面結着人蔘果，據說摘下喫了對武功進益很有好處。\n"
+"這是一株人蔘果樹，上面結着人蔘果，據説摘下喫了對武功進益很有好處。\n"
 	]));
 	set("exits", ([
 		"west" : __DIR__"gyroad1",

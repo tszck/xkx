@@ -6,7 +6,7 @@ void create()
 {       set_name("展昭", ({ "wpp"}));
 	set("gender", "男性");
 	set("class", "taoist");
-	set("title", HIW"聖人"HIG"明教風字門教衆"NOR"武林泰斗武當派掌門大師兄");
+	set("title", HIW"聖人"HIG"明教風字門教眾"NOR"武林泰斗武當派掌門大師兄");
 	set("nickname", HIW"玉貓"HIR"南俠"NOR);
 	set("age", 51);
 	set("attitude", "friendly");

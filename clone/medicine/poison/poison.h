@@ -53,7 +53,7 @@ int do_tu(string arg)
 	if( !ob ) return notify_fail("你身上沒有" + what + "這樣東西。\n");
 	if( !ob->query("weapon_prop")) return notify_fail("只能塗在武器上。\n");
 
-	else return notify_fail("你要先將藥粉點燃纔行。\n");
+	else return notify_fail("你要先將藥粉點燃才行。\n");
 
 	return 0;	
 }

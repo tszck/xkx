@@ -47,7 +47,7 @@ int perform(object me, object target)
 		return notify_fail("你的"+to_chinese(sskill)+"不夠熟練，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query("max_neili") < 500 )
-		return notify_fail("你的內力修爲還不夠高。\n");
+		return notify_fail("你的內力修為還不夠高。\n");
 
 	if( (int)me->query("neili") < 400 )
 		return notify_fail("你的內力不夠。\n");
@@ -86,7 +86,7 @@ int help(object me)
         出手要求：
                 冰雪心法50級
                 飛雪映梅掌50級
-                內力修爲500
+                內力修為500
                 內力400
 HELP
         );

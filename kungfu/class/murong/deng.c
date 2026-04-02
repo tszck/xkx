@@ -68,7 +68,7 @@ void create()
 		"王夫人"   : "就是公子爺的舅媽，曼陀山莊的莊主！\n",
 		"鄧百川"   : "那就是我。找我有事？\n",
 		"公冶乾"   : "公冶二弟把信鴿傳書一編碼，就沒幾個人讀得懂了。\n",
-		"包不同"   : "包三弟最愛擡槓了，你見了他還是閉嘴的好。\n",
+		"包不同"   : "包三弟最愛抬槓了，你見了他還是閉嘴的好。\n",
 		"風波惡"   : "風四弟最是豪爽了，他從不與人計較什麼。\n",
 	]) );
 	create_family("姑蘇慕容", 33, "弟子");
@@ -82,15 +82,15 @@ void attempt_apprentice(object ob)
 	if ((int)ob->query("betrayer") > 0)
 	{
 		command("say 這位" + RANK_D->query_respect(ob) +
-			"，我慕容家復國乃至爲要事，你心志不堅，無緣我門。");
+			"，我慕容家復國乃至為要事，你心志不堅，無緣我門。");
 		return;
 	}
 	if ((int)ob->query_skill("shenyuan-gong", 1) < 50)
 	{
-		command("say 姑蘇慕容家武功，以內功爲根基。");
+		command("say 姑蘇慕容家武功，以內功為根基。");
 		command("say "+RANK_D->query_respect(ob)+"還應該多加努力！");
 		return;
 	}
-	command("say 好吧我就收你爲徒吧。");
+	command("say 好吧我就收你為徒吧。");
 	command("recruit " + ob->query("id"));
 }

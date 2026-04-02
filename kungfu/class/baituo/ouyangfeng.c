@@ -120,7 +120,7 @@ int ask_help()
 		me->query_condition("ice_sting") &&
 		me->query_condition("ice_sting") < 10)
 	{
-		message_vision(HIG"歐陽鋒說道：“好，救你不難，但是你須答應(accept)叫我一聲爸爸。”\n"NOR, me);
+		message_vision(HIG"歐陽鋒説道：“好，救你不難，但是你須答應(accept)叫我一聲爸爸。”\n"NOR, me);
 		me->set_temp("helpme", 1);
 		return 1;
 	}

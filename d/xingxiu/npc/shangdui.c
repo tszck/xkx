@@ -41,7 +41,7 @@ int do_rob()
 	if(!me->query_temp("xx_job2") || !me->query_temp("rob_start")) 
 		return notify_fail("你這奸賊，竟敢光天化日之下攔截商隊，不怕被打入天牢嗎？\n");
 	if(objectp(present("hubiao biaoshi", environment(me))))
-		return notify_fail("護鏢鏢師看來武功不弱，你還是先打發了面前這個再說吧！\n");  
+		return notify_fail("護鏢鏢師看來武功不弱，你還是先打發了面前這個再説吧！\n");  
 	message_vision(HIY "$N對着$n大吼一聲：星宿"+me->name()+"在此！留下你們的錢財來！\n"NOR, me, ob);
 	me->set_temp("xx_rob", 1);
 	if(!ob->query("going"))

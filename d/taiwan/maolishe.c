@@ -9,7 +9,7 @@ void create()
 	set("short", "貓里社");
 	set("long", @LONG
 貓里社位於竹塹西南。清朝初年，此地的漢人還很少，居住在這裏
-的主要是泰雅族人，他們以漁獵爲生。
+的主要是泰雅族人，他們以漁獵為生。
 LONG );
 	set("exits", ([
 		"eastup"    : __DIR__"dabajianshan",

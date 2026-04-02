@@ -9,7 +9,7 @@ void create()
 	set("gender", "女性" );
 	set("age", 22);
 	set("long",
-		"這位老闆娘正笑咪咪地坐在櫃檯後面，向着門外張望。\n");
+		"這位老闆娘正笑咪咪地坐在櫃枱後面，向着門外張望。\n");
 	set("combat_exp", 100000);
 	set("attitude", "friendly");
 	set("rank_info/respect", "母夜叉");
@@ -47,10 +47,10 @@ void greeting(object ob)
 	switch( random(2) )
 	{
 		case 0:
-			say("孫二孃笑咪咪地說道：這位"+RANK_D->query_respect(ob) + "，進來喝杯茶，歇歇腿吧。\n");
+			say("孫二孃笑咪咪地説道：這位"+RANK_D->query_respect(ob) + "，進來喝杯茶，歇歇腿吧。\n");
 			break;
 		case 1:
-			say("孫二孃用脖子上的毛巾抹了抹手，說道：這位" +RANK_D->query_respect(ob)+"，請進請進。\n");
+			say("孫二孃用脖子上的毛巾抹了抹手，説道：這位" +RANK_D->query_respect(ob)+"，請進請進。\n");
 			break;
 	}
 }

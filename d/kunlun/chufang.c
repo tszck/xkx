@@ -61,7 +61,7 @@ int do_tap(string arg)
 
 	 if( me->query_temp("marks/served") )
 	 {
-		  message_vision("僕人不耐煩地對$N說道：剛給你上過茶你接着就要，"+
+		  message_vision("僕人不耐煩地對$N説道：剛給你上過茶你接着就要，"+
 				"你不累可我累啊！\n", me);
 		  return notify_fail("");
 	 }

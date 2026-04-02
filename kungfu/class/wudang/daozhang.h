@@ -55,7 +55,7 @@ void attempt_apprentice(object ob)
 		&& ob->query("family/family_name") != "武當派" )
  	{
 		command("say 我武當之所以能在武林中興不衰，全靠各弟子自覺效力。");
-		command("say 入門習武以前，" + RANK_D->query_respect(ob) + "是否願意爲武當主動做些事情？");
+		command("say 入門習武以前，" + RANK_D->query_respect(ob) + "是否願意為武當主動做些事情？");
 		tell_object(ob, HIY"如果你答應的話，鍵入＂願意＂二字。\n"NOR);
 		add_action("do_yes", "願意");
 		return;
@@ -63,7 +63,7 @@ void attempt_apprentice(object ob)
 	else
 		if ((int)ob->query("wudang/offerring") < (int)ob->query("age")-11)
 		{
-			command("say 未練武，先學做人。在爲武當自覺效力方面，");
+			command("say 未練武，先學做人。在為武當自覺效力方面，");
 			command("say " + RANK_D->query_respect(ob) + "是否還不夠勤勉？");
 			ob->delete_temp("pending/apprentice");
 			return;
@@ -72,7 +72,7 @@ void attempt_apprentice(object ob)
 		command("say 你我本是同門，貧道就收下你了！");
 	else
 	{	
-		command( "say 精誠所至，玉石爲開！你爲武當勤勉效力，衆道長早已是有口皆碑！");
+		command( "say 精誠所至，玉石為開！你為武當勤勉效力，眾道長早已是有口皆碑！");
 		command( "say "+RANK_D->query_respect(ob)+"實乃我輩中人也！");
 	}
 
@@ -88,7 +88,7 @@ int do_yes()
 	ob = this_player();
 	
 	ob->set("wudang/offerring", 1);
-	message_vision("$N大聲說道：願意！\n", ob);
+	message_vision("$N大聲説道：願意！\n", ob);
 	ob->set("title", "武當道童");
 	ob->delete_temp("pending/apprentice");
 	command("haha "); 

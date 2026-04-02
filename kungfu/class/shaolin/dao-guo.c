@@ -144,7 +144,7 @@ int repairing_4(object me, object ob)
 		message_vision(GRN "\n木人的身體吱吱地扭動了幾下，恢復了正常站立的姿態。\n\n" NOR, me);
 	}
 	else 
-		message_vision(GRN "\n道果禪師嘆了口氣，說道：看來不行，這木人損壞得太厲害了，沒法子修了！\n" NOR, me);
+		message_vision(GRN "\n道果禪師嘆了口氣，説道：看來不行，這木人損壞得太厲害了，沒法子修了！\n" NOR, me);
 
 	command("say 好，那我走了！");
 	command("wave");

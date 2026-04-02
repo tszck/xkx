@@ -38,7 +38,7 @@ int accept_object(object who, object ob)
  
 	if(who->query_temp("fuwei_diubiao_ask")&&(ob->query("money_id") && ob->value() >= 100000))
     {
-		message_vision(HIY"黃老先生對$N說：好吧！就再給你一次機會了！\n"NOR , who);
+		message_vision(HIY"黃老先生對$N説：好吧！就再給你一次機會了！\n"NOR , who);
 	    who->delete_temp("fuwei_destm");
 	    who->delete_temp("fuwei_dest");
 	    who->delete_temp("fuwei_diubiao_ask");
@@ -48,24 +48,24 @@ int accept_object(object who, object ob)
          }
 	if(who->query_temp("fuwei_ready"))
 	{
-		message_vision(HIY"黃老先生對$N說：又給我錢？好！好！留着我喝老酒！\n"NOR , who);
+		message_vision(HIY"黃老先生對$N説：又給我錢？好！好！留着我喝老酒！\n"NOR , who);
 		return 1;
 	}
 	if(!who->query_temp("fuwei_prepare"))
 	{
-		message_vision(HIY"黃老先生對$N說：要押鏢，該先去找總鏢頭！\n"NOR, who);
+		message_vision(HIY"黃老先生對$N説：要押鏢，該先去找總鏢頭！\n"NOR, who);
 		return 1;
 	}
 	if ( wizardp(who) || (ob->query("money_id") && ob->value() >= 200000))
 	{
-		message_vision(HIY "黃老先生對$N說：鏢車準備好了，在院子裏呢。趕快接鏢(jiebiao)吧！\n丟了鏢押金就賠償給鏢主！\n"NOR , who);
+		message_vision(HIY "黃老先生對$N説：鏢車準備好了，在院子裏呢。趕快接鏢(jiebiao)吧！\n丟了鏢押金就賠償給鏢主！\n"NOR , who);
 		who->set_temp("fuwei_ready",1);
 		who->delete_temp("fuwei_prepare",1);
 		return 1;
 	}
 	else
 	{
-		message_vision(HIR"黃老先生皺着眉對$N說：就這點？你還保什麼鏢？出去出去！\n"NOR, who);
+		message_vision(HIR"黃老先生皺着眉對$N説：就這點？你還保什麼鏢？出去出去！\n"NOR, who);
 		return 0;
 	}
 }
@@ -75,7 +75,7 @@ int ask_diubiao()
 	object me = this_player();
 	if (me->query_temp("fuwei_dest"))
 	{
-message_vision(HIR"黃老先生皺着眉對$N說：那上面可是有好幾萬鏢銀啊！你要還想繼續保鏢就先交十兩黃金來吧！\n"NOR, me);
+message_vision(HIR"黃老先生皺着眉對$N説：那上面可是有好幾萬鏢銀啊！你要還想繼續保鏢就先交十兩黃金來吧！\n"NOR, me);
         me->set_temp("fuwei_diubiao_ask",1);
         return 1;
 	}

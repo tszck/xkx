@@ -23,7 +23,7 @@ void create()
 	set("shen_type", -1);
 
 	set("inquiry", ([
-		"僞造" : (: do_forge :),
+		"偽造" : (: do_forge :),
 		"weizao" : (: do_forge :),
 		"forge" : (: do_forge :),
 	]) );
@@ -55,7 +55,7 @@ int accept_object(object who, object ob)
 	if( ob->value() >= 10000 && who->query_temp("cbs_落第/b") )
 	{
 		who->delete_temp("cbs_落第");
-		say("落第秀才笑嘻嘻說道：這幅頌詞保證錯不了。\n");
+		say("落第秀才笑嘻嘻説道：這幅頌詞保證錯不了。\n");
 
 		obj = new("/d/shenlong/obj/songci");
 		obj->move(who);

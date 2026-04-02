@@ -10,7 +10,7 @@ void create()
 	set("title", "酒樓老闆" );
 	set("age", 42);
 	set("long",
-"鳳七是鳳天南的遠房祖弟，在這英雄樓當掌櫃。武功沒有什麼，爲人卻極是機靈。\n");
+"鳳七是鳳天南的遠房祖弟，在這英雄樓當掌櫃。武功沒有什麼，為人卻極是機靈。\n");
 	set("combat_exp", 100);
 	set("attitude", "friendly");
 	set("no_get", "1");
@@ -56,11 +56,11 @@ void greeting(object ob)
 	if( !ob || environment(ob) != environment() ) return;
 	switch( random(2) ) {
 		case 0:
-			say( "鳳七笑咪咪地說道：這位" + RANK_D->query_respect(ob)
+			say( "鳳七笑咪咪地説道：這位" + RANK_D->query_respect(ob)
 				+ "，進來喝杯茶，歇歇腿吧。\n");
 			break;
 		case 1:
-			say( "鳳七笑咪咪地說道：這位" + RANK_D->query_respect(ob)
+			say( "鳳七笑咪咪地説道：這位" + RANK_D->query_respect(ob)
 				+ "，快請進。\n");
 			break;
 	}

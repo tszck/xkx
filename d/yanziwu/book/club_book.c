@@ -25,9 +25,9 @@ int do_study(string arg)
 	if ( (arg != "book") && (arg != "club book"))
 		return notify_fail("你要學什麼？\n");
 	if (level >= 150)
-		return notify_fail("你研讀了一會兒，但是發現上面所說的對你而言都太淺了，沒有學到任何東西。\n");
+		return notify_fail("你研讀了一會兒，但是發現上面所説的對你而言都太淺了，沒有學到任何東西。\n");
 	if (level <= 50)
-		return notify_fail("你研讀了一會兒，但是發現上面所說的對你而言都太深奧了，毫無收穫。\n");
+		return notify_fail("你研讀了一會兒，但是發現上面所説的對你而言都太深奧了，毫無收穫。\n");
 	if( (int)me->query("combat_exp")<(int)(level*level*level/10))
 		return notify_fail("你的實戰經驗不足，再怎麼讀也沒用。\n");
 	if((int)me->query("jing") < 25)

@@ -76,7 +76,7 @@ int do_study(string arg)
 
 	me->improve_skill("medicine", random(2 * me->query_int()));
 	me->receive_damage("jing", cost, "心力絞瘁死了");
-	message_vision("$N一會兒翻閱着『孫思邈千金方』，一會兒苦思冥想。\n",me);
+	message_vision("$N一會兒翻閲着『孫思邈千金方』，一會兒苦思冥想。\n",me);
 
 	return 1;
 }

@@ -38,7 +38,7 @@ int valid_leave(object me, string dir)
 		(dir == "north") &&
 		(me->query_temp("marks/xueshangate") != 1) &&
 		objectp(present("gelunbu", environment(me))))
-	return notify_fail("葛倫布擋住你說：你準備用什麼供奉我們佛爺呀？\n");
+	return notify_fail("葛倫布擋住你説：你準備用什麼供奉我們佛爺呀？\n");
 
 	return ::valid_leave(me, dir);
 }

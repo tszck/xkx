@@ -6,7 +6,7 @@ void create()
 {
 	set_name("孫三毀", ({ "sun  sanhui", "sun" }));
 	set("nickname", "神箭八雄");
-	set("long","原是武林中的巨寇，後來爲躲避官府和仇家，隨便起了個假名字。\n");
+	set("long","原是武林中的巨寇，後來為躲避官府和仇家，隨便起了個假名字。\n");
 	set("gender", "男性");
 	set("age", 46);
 	set("attitude", "peaceful");

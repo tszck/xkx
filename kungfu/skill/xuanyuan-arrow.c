@@ -148,7 +148,7 @@ int help(object me)
 	write(HIC"\n軒轅箭："NOR"\n");
 	write(@HELP
 
-    軒轅箭爲趙敏手下神箭八騎所具功夫。
+    軒轅箭為趙敏手下神箭八騎所具功夫。
 
 	學習要求：
 		基本暗器20級

@@ -46,7 +46,7 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 160 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，使不出"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 160 )
 		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
@@ -70,7 +70,7 @@ int perform(object me, object target)
 	me->add_temp("apply/dodge",-j/10);
 	me->add_temp("apply/attack", j/6); 
  
-	msg = BLU"\n$N將手中的"+weapon->name()+BLU"緩緩向$n一壓，忽然劍光一閃， 一劍幻爲四劍，宛如奔雷掣電攻向$n！\n\n"NOR;
+	msg = BLU"\n$N將手中的"+weapon->name()+BLU"緩緩向$n一壓，忽然劍光一閃， 一劍幻為四劍，宛如奔雷掣電攻向$n！\n\n"NOR;
 	message_combatd(msg, me, target);
 	for (i=0;i<4;i++)
 	{
@@ -101,7 +101,7 @@ int help(object me)
 	出手要求：
 		玉女心法160級
 		玄鐵劍法160級
-		內力修爲1800
+		內力修為1800
 		內力900
 		後天膂力32
 		後天身法30

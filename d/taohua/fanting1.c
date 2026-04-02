@@ -83,7 +83,7 @@ int do_sit(string arg)
 	if( me->query_temp("marks/food_served") )
 	{
 		message_vision("啞僕走過來對$N打手勢，表示喫飽了的就不要再喫了。\n",me);
-		message_vision("$N發覺衆人的眼光都在盯着自己，忙站起身來，尷尬地說：我只是試試這椅子結實不結實。\n", me);
+		message_vision("$N發覺眾人的眼光都在盯着自己，忙站起身來，尷尬地説：我只是試試這椅子結實不結實。\n", me);
 		return notify_fail("");
 	}
 	me->set_temp("marks/sit", 1);

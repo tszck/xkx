@@ -63,12 +63,12 @@ int accept_object(object who, object ob)
            call_out("destroying", 1, this_object(), ob);
 
            if( who->query_temp("marks/謎") ) {
-                 write("阿凡提笑了笑，說：你先把上個謎猜出來再說。\n");
+                 write("阿凡提笑了笑，説：你先把上個謎猜出來再説。\n");
 //               destruct(ob);
                  return 1;
            }
            else {
-                 write("阿凡提笑得嘴都合不上了，說：多謝這位" + 
+                 write("阿凡提笑得嘴都合不上了，説：多謝這位" + 
                        RANK_D->query_respect(who) +
                        "的幫助，咱們猜個謎語吧：\n");
                  switch(random(20)) {
@@ -221,13 +221,13 @@ int do_answer(string arg)
 	  case "逍遙洞逍遙遊" : soln=19; break;
           case "買賣提" : soln=20; break;
           default :
-              say("阿凡提大笑起來，說道：你說什麼呀，牛頭不對馬嘴。\n"
+              say("阿凡提大笑起來，説道：你説什麼呀，牛頭不對馬嘴。\n"
                   + me->name() + "的臉被臊得通紅。\n");
               return 1;
         }
         if (me->query("combat_exp")>10)
         {
-              say("阿凡提大笑起來，說道：你還來騙經驗呀。\n" + me->name() + "的臉被臊得通紅。\n");
+              say("阿凡提大笑起來，説道：你還來騙經驗呀。\n" + me->name() + "的臉被臊得通紅。\n");
               return 1;
         }
         if (riddle==soln) {

@@ -128,7 +128,7 @@ string ask_me_3()
 	if ( present("dahuan dan", this_player()) )
 		return RANK_D->query_respect(this_player()) +"你現在身上不是有顆藥丸嗎，怎麼又來要了？ 真是貪得無饜！";
 	if ((int)me->query("max_neili") >= (int)me->query_skill("force")*10)
-		return RANK_D->query_respect(this_player()) +"怎麼老想喫要呢，你武功已經不凡，去打坐提高修爲吧。";
+		return RANK_D->query_respect(this_player()) +"怎麼老想喫要呢，你武功已經不凡，去打坐提高修為吧。";
 	if (query("da_count") < 1) return "對不起，大還丹已經發完了";
 	ob = new(NOSTRUM_DIR+"dahuan-dan");
 	ob->move(this_player());

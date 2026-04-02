@@ -63,10 +63,10 @@ int do_pi(string arg)
 		present("chaifang guanshi", environment(me)))
 	{
 		me->set_temp("mark/劈完了",1);
-		message_vision(RED"柴房管事對$N說：乾的不錯，好了，你可以回去覆命(job ok)了。"NOR, me);
+		message_vision(RED"柴房管事對$N説：乾的不錯，好了，你可以回去覆命(job ok)了。"NOR, me);
 		return 1;
 	}  
-	message_vision("$N擺正一塊木頭，一刀劈了下去，“哐”的一聲，木頭被劈爲兩片。\n", me);
+	message_vision("$N擺正一塊木頭，一刀劈了下去，“哐”的一聲，木頭被劈為兩片。\n", me);
 	me->start_busy(3);
 	me->add_temp("mark/劈",1);
 

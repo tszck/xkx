@@ -32,7 +32,7 @@ int valid_leave(object me, string dir)
 	{
 		me->receive_damage("qi", 15);
 		me->receive_damage("jing", 5);
-		return notify_fail("蔣四根攔住你說：非本會弟兄，私闖囚房，一定是清狗！\n"HIR"蔣四根不分青紅皁白，先海扁了你一頓。\n"NOR);
+		return notify_fail("蔣四根攔住你説：非本會弟兄，私闖囚房，一定是清狗！\n"HIR"蔣四根不分青紅皁白，先海扁了你一頓。\n"NOR);
 	}
 	return ::valid_leave(me, dir);
 }

@@ -31,6 +31,6 @@ int valid_leave(object me, string dir)
 		((string)me->query("family/family_name") != "靈鷲宮") &&
 		( objectp(present("mei jian", environment(me))) ||
 		objectp(present("lan jian", environment(me))) ) )
-		return notify_fail("梅蘭雙姝伸手攔住你，說道：“非逍遙弟子請回！”\n");
+		return notify_fail("梅蘭雙姝伸手攔住你，説道：“非逍遙弟子請回！”\n");
 	return ::valid_leave(me, dir);
 }

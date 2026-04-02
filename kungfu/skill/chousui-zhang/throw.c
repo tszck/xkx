@@ -51,7 +51,7 @@ int perform(object me, object target)
 		return notify_fail("你的"+to_chinese(sskill)+"還不到家，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query("max_neili") < 600) 
-		return notify_fail("你內力修爲太弱，使不出"PNAME"。\n");
+		return notify_fail("你內力修為太弱，使不出"PNAME"。\n");
 
 	if( (int)me->query("neili") < 400)
 		return notify_fail("你現在真氣太弱，使不出"PNAME"。\n");
@@ -99,7 +99,7 @@ int help(object me)
 		化功大法40級
 		抽髓掌40級
 		周圍有屍體
-		內力修爲600
+		內力修為600
 		內力400
 HELP
 	);

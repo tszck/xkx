@@ -158,8 +158,8 @@ int do_collect(string arg)
 		message_vision("$N大怒道：什麼" + (string)query("party/party_name") + "，還不快滾！！！\n", victim);
 		return 1;
 	}
-	message_vision("$N對$n說道：" + RANK_D->query_respect(me) + "辛苦了，這一點攤費是小的該付的。\n", victim, me);
-	message_vision("$N接着說道：" + RANK_D->query_respect(me) + "請放心，我馬上派人將錢送到貴幫！！！\n", victim);
+	message_vision("$N對$n説道：" + RANK_D->query_respect(me) + "辛苦了，這一點攤費是小的該付的。\n", victim, me);
+	message_vision("$N接着説道：" + RANK_D->query_respect(me) + "請放心，我馬上派人將錢送到貴幫！！！\n", victim);
 
 	bonus = 1 + yourexp * 2 / (myexp + 10000);
 	record = bonus + random(bonus);
@@ -206,7 +206,7 @@ int do_sign(string arg)
 	me->add("shen", -bonus);
 	add("score", bonus);
 
-	message_vision("$N在屍體旁寫下“與" + (string)query("fam") + "爲敵者殺！”幾個大字。\n", me);
+	message_vision("$N在屍體旁寫下“與" + (string)query("fam") + "為敵者殺！”幾個大字。\n", me);
 	delete("job");
 	return 1;
 }
@@ -227,33 +227,33 @@ int do_bargain(string arg)
 	if( !(target = present(arg, environment(me))) )
 		return notify_fail("這兒沒有這個人。\n");
 	if( !living(target) )
-		return notify_fail("你還是等此人醒來後再說吧\n");
+		return notify_fail("你還是等此人醒來後再説吧\n");
 	if( userp(target) )
 		return notify_fail("玩家不會出好價錢的。\n");
 	if( target->is_busy() || target->is_fighting() )
 		return notify_fail(target->name() + "正忙着。\n");
 	if( (exp = (int)target->query("combat_exp")) < 10000 )
 	{
-		message_vision("$N擺了擺手說道：我買不起，你賣給別人吧。\n", target);
+		message_vision("$N擺了擺手説道：我買不起，你賣給別人吧。\n", target);
 		return 1;
 	}
 	if( !(obj = present(job["good"], me)) )
 		return notify_fail("你把" + job["name"] + "弄丟了。\n");
 	if( time() < (int)target->query("trader/time") + 600 ) {
-		message_vision("$N擺了擺手說道：我剛買了一" + obj->query("unit") + obj->name() + "。\n", target);
+		message_vision("$N擺了擺手説道：我剛買了一" + obj->query("unit") + obj->name() + "。\n", target);
 		return 1;
 	}
 	if( (bonus = (int)job["prices"][explode(base_name(environment(target)), "/")[1]]) < 5 ) {
-		message_vision("$N擺了擺手說道：這東西現在在此地一點也不值錢，你自己用吧。\n", target);
+		message_vision("$N擺了擺手説道：這東西現在在此地一點也不值錢，你自己用吧。\n", target);
 		return 1;
 	}
 	target->set("trader/time", time());
 	bonus *= (1 + (int)target->query("combat_exp") / 100000);
-	message_vision("$N想了想說道：好吧，" + chinese_number(bonus) + "兩銀子，再貴我不買了。\n", target);
+	message_vision("$N想了想説道：好吧，" + chinese_number(bonus) + "兩銀子，再貴我不買了。\n", target);
 	message_vision("$N點了點頭，將" + obj->query("unit") + obj->name() + "交給$n。\n", me, target);
 	obj->move(CANGKU);
-	message_vision("$N說道：下次貴幫來人時我再付款。\n", target);
-	message_vision("$N說道：沒關係，下次還有更好的貨。\n", me);
+	message_vision("$N説道：下次貴幫來人時我再付款。\n", target);
+	message_vision("$N説道：沒關係，下次還有更好的貨。\n", me);
 
 	bonus /= 20;
 	me->add("combat_exp", bonus);

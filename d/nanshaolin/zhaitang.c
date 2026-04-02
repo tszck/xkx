@@ -39,7 +39,7 @@ int valid_leave(object me, string dir)
 	switch ( random(2) ) 
 	{
 		case 0: 
-			return notify_fail("方逝和尚把手一伸，說道：食物不得帶出齋堂，這是寺中的規定！\n");
+			return notify_fail("方逝和尚把手一伸，説道：食物不得帶出齋堂，這是寺中的規定！\n");
 			break;
 		case 1:
 			message_vision("方逝和尚對$N躬身作了個揖道：主持方丈吩咐過，食物不得帶出齋堂。", me);

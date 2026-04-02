@@ -45,10 +45,10 @@ void greeting(object ob)
 	if (!ob || environment(ob) != environment()) return;
 	switch(random(2)) {
 	case 0 :
-		say("老闆娘笑眯眯地說道：這位" + RANK_D->query_respect(ob) + "，快請進來喝杯熱茶唦。\n");
+		say("老闆娘笑眯眯地説道：這位" + RANK_D->query_respect(ob) + "，快請進來喝杯熱茶唦。\n");
 		break;
 	case 1 :
-		say("老闆娘說道：喲！這位" + RANK_D->query_respect(ob) + "您喫麼事？本店有剛煎好的豆皮，香噴噴的唦。\n");
+		say("老闆娘説道：喲！這位" + RANK_D->query_respect(ob) + "您喫麼事？本店有剛煎好的豆皮，香噴噴的唦。\n");
 		break;
 	}
 }

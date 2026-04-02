@@ -13,7 +13,7 @@ void create()
 	set("str", 30);
 	set("gender", "女性");
 	set("age", 36);
-	set("long","她成天帶着笑容，可是心頭卻靈醒得很。\n作爲茶館的老闆娘，成天和一幫沒事幹的無聊傢伙混在一起。油得很。\n");
+	set("long","她成天帶着笑容，可是心頭卻靈醒得很。\n作為茶館的老闆娘，成天和一幫沒事幹的無聊傢伙混在一起。油得很。\n");
 	set("combat_exp", 5000);
 	set("attitude", "friendly");
 	set("vendor_goods", ({
@@ -46,10 +46,10 @@ void greeting(object ob)
 		return;
 	switch(random(2)) {
 	case 0 :
-		say("老闆娘笑眯眯地說道：這位" + RANK_D->query_respect(ob) + "，快請進來喝杯熱茶。\n");
+		say("老闆娘笑眯眯地説道：這位" + RANK_D->query_respect(ob) + "，快請進來喝杯熱茶。\n");
 		break;
 	case 1 :
-		say("老闆娘說道：喲！這位" + RANK_D->query_respect(ob) + "您來了啊！本店有剛炸好的五香花生出售。\n");
+		say("老闆娘説道：喲！這位" + RANK_D->query_respect(ob) + "您來了啊！本店有剛炸好的五香花生出售。\n");
 		break;
 	}
 }

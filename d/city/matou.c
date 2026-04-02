@@ -94,7 +94,7 @@ int do_work()
 		me->receive_wound("qi", 11);
 		return 1;
 	}
-	write("監工拿鞭子指了指，說道：“去那裏搬麻袋吧。”\n");
+	write("監工拿鞭子指了指，説道：“去那裏搬麻袋吧。”\n");
 	write("你搬起一個麻袋，開始幹活。\n");
 	add("worktimes", -1);
 	me->start_busy(3);
@@ -109,7 +109,7 @@ int work_end(object me)
 	object ob1;
 	int add_exp,add_pot,add_score;
 	write("終於做完苦工了，搬了一天的麻袋，累個半死。\n"
-"監工過來拍了拍你的肩膀，說道：“小子，好樣的，這是你的工錢。”\n");
+"監工過來拍了拍你的肩膀，説道：“小子，好樣的，這是你的工錢。”\n");
 	me->receive_damage("jing",10);
 	me->receive_damage("qi",10);
 		add_exp=60+random(20);
@@ -124,7 +124,7 @@ int work_end(object me)
 		tell_object(me,HIW"你得到了:"
 			+ chinese_number(add_exp) + "點實戰經驗，"
 			+ chinese_number(add_pot) + "點潛能，"
-			+ chinese_number(add_score) + "點江湖閱歷。\n"NOR);				
+			+ chinese_number(add_score) + "點江湖閲歷。\n"NOR);				
 	if ( me->query_temp("working") ) me->delete_temp("working");
 	return 1;
 }

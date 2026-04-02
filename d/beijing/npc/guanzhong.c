@@ -3,7 +3,7 @@ inherit NPC;
 
 void create()
 {
-	set_name("觀衆", ({ "guan zhong", "guan" }));
+	set_name("觀眾", ({ "guan zhong", "guan" }));
 	set("gender", "男性");
 	set("age", 15+random(70));
 

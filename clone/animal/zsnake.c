@@ -64,6 +64,6 @@ int convert(string arg)
 
 	if (arg!="snake" && arg!="zhuye qing") return 0;
 	if (me->query("family/family_name") != "白駝山") 
-		return notify_fail("你不能化蛇爲杖。\n");
-	return notify_fail("竹葉青過於細小，不能化爲杖。\n");
+		return notify_fail("你不能化蛇為杖。\n");
+	return notify_fail("竹葉青過於細小，不能化為杖。\n");
 }

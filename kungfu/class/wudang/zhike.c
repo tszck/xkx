@@ -49,28 +49,28 @@ void create()
 
 	set("chat_chance",2);
 	set("chat_msg", ({
-		 "靈虛道長說道：我武當地靈人傑，香火鼎盛，普天下的人都來朝拜敬香。\n",
-		 "靈虛道長說道：玄嶽門乃武當出入門戶，我等一定要精心守衛(volunteer)，不可絲毫懈殆。\n"
-		 "靈虛道長說道：香火練制不易，不能隨便與人，虔誠奉獻者方能得之。\n",
-		 "靈虛道長說道：我武當地靈人傑，香火鼎盛，普天下的人都來朝拜敬香。\n",
-		 "靈虛道長說道：聽說山門前的松林裏有異果，有砍樹的道士進去找，就再也沒有出來。\n",
+		 "靈虛道長説道：我武當地靈人傑，香火鼎盛，普天下的人都來朝拜敬香。\n",
+		 "靈虛道長説道：玄嶽門乃武當出入門戶，我等一定要精心守衞(volunteer)，不可絲毫懈殆。\n"
+		 "靈虛道長説道：香火練制不易，不能隨便與人，虔誠奉獻者方能得之。\n",
+		 "靈虛道長説道：我武當地靈人傑，香火鼎盛，普天下的人都來朝拜敬香。\n",
+		 "靈虛道長説道：聽説山門前的松林裏有異果，有砍樹的道士進去找，就再也沒有出來。\n",
 	}));
 
 	set("inquiry", ([
 		"香火" : "香火練制不易，不能隨便與人，虔誠奉獻者方能得之。",
-		"進香" : "進香？童言無忌！童言無忌！要說敬香纔是！",
-		"敬香" : "殿堂的香火能綿延不斷，都因爲我武當弟子和山外香客及時敬奉。",
+		"進香" : "進香？童言無忌！童言無忌！要説敬香才是！",
+		"敬香" : "殿堂的香火能綿延不斷，都因為我武當弟子和山外香客及時敬奉。",
 		"虔誠奉獻" : "虔誠奉獻就是主動多捐獻香火錢，多作義工。",
 		"敬奉" : "虔誠奉獻就是主動多捐獻香火錢，多作義工。",
 		"松林" : "武當松林在山門前面。",
 		"柏林" : "武當柏林就在遇真宮後。",
-		"name" : "我是武當的知客道長，負責守衛山門。",
+		"name" : "我是武當的知客道長，負責守衞山門。",
 		"here" : "這裏是武當的玄嶽門，一直南上就可到紫霄宮。",
-		"rumors" : "聽說山門前的松林裏有異果，不知是真是假。"
+		"rumors" : "聽説山門前的松林裏有異果，不知是真是假。"
 		"可是有砍樹的道士進去找，就再也沒有出來。\n",
-		"守衛" : "我這裏的工作就是守衛(volunteer)山門，每次守一天。\n",
-		"工作" : "我這裏的工作就是守衛(volunteer)山門，每次守一天。\n",
-		"幹活" : "我這裏的工作就是守衛(volunteer)山門，每次守一天。\n",
+		"守衞" : "我這裏的工作就是守衞(volunteer)山門，每次守一天。\n",
+		"工作" : "我這裏的工作就是守衞(volunteer)山門，每次守一天。\n",
+		"幹活" : "我這裏的工作就是守衞(volunteer)山門，每次守一天。\n",
 	]));
 	create_family("武當派", 3, "弟子");
 
@@ -147,7 +147,7 @@ void greeting(object ob)
 	if ( myfam && myfam["family_name"] == "武當派" )
 		command("say 這位道"+(((string)ob->query("gender")=="女性")?"姑":"兄")+"辛苦了！");
 	else if ( ob->query("title") == "武當道童" )
-		say("靈虛道長對"+ob->name()+"說道：這位"+RANK_D->query_respect(ob)+"還要繼續努力啊！\n");
+		say("靈虛道長對"+ob->name()+"説道：這位"+RANK_D->query_respect(ob)+"還要繼續努力啊！\n");
 	else if ( ob->query("shen") > -100 ) 
 		say("靈虛道長作了個揖道：這位" + RANK_D->query_respect(ob) + "請了，歡迎來到武當山！\n");
 	else	say("靈虛道長「唰」抽出長劍：這位" + RANK_D->query_respect(ob) + "滿臉殺氣，如果不是來武當敬香就請回吧！\n");
@@ -160,21 +160,21 @@ int do_volunteer()
 	int i;
 
 	if (me->query("class") == "office") 
-		return notify_fail("靈虛道長對你說：你身入官府，貧道豈敢委曲你。\n");
+		return notify_fail("靈虛道長對你説：你身入官府，貧道豈敢委曲你。\n");
 	if (me->query_temp("in_guard_wd")) 
-		return notify_fail("靈虛道長對你說：你專心守好山門，別想打兩份工。\n");
+		return notify_fail("靈虛道長對你説：你專心守好山門，別想打兩份工。\n");
 	if (base_name(me) == "/d/taohuacun/npc/baby" 
 	|| me->query("combat_exp")<100000)
-		return notify_fail("靈虛道長說到：黃毛小兒怎能擔此重任！\n");
+		return notify_fail("靈虛道長説到：黃毛小兒怎能擔此重任！\n");
 	ob = users();
 	for (i=sizeof(ob); i>0; i--)
 	{
 		if (ob[i-1]->query_temp("in_guard_wd"))
-			return notify_fail("靈虛道長對你說：已經有人守山門了，你一會再來吧。\n");
+			return notify_fail("靈虛道長對你説：已經有人守山門了，你一會再來吧。\n");
 	}
 	tell_room(environment(me),me->query("name")+"開始在武當山門值守。\n");
-	command("sys 武當守衛開始！");
-	me->set("guard", HIG"山門守衛"NOR);
+	command("sys 武當守衞開始！");
+	me->set("guard", HIG"山門守衞"NOR);
 	me->set_temp("in_guard_wd","1");
 	me->save();
 	me->delete_temp("in_guard_wd_num");

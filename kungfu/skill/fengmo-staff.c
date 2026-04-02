@@ -104,7 +104,7 @@ int help(object me)
 	write(HIC"\n瘋魔杖法："NOR"\n");
 	write(@HELP
 
-    瘋魔杖法爲丐幫的武技。
+    瘋魔杖法為丐幫的武技。
 
 	學習要求：
 		混天氣功20級

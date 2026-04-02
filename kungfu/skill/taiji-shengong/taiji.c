@@ -37,9 +37,9 @@ int exert(object me)
 	if( prepare == "tjq" && me->query_skill("taiji-quan", 1) < 300 )
 		return notify_fail("你尚未領會到太極拳旨。\n");
 	if( me->query_skill("taiji-shengong", 1) < 300 )
-		return notify_fail("你的太極修爲尚未登峯造極，無法領悟到其心法。\n");
+		return notify_fail("你的太極修為尚未登峯造極，無法領悟到其心法。\n");
 	if( me->query_skill("taoism", 1) < 150 )
-		return notify_fail("你的道學修爲尚未豁然貫通，無法領會太極心法。\n");
+		return notify_fail("你的道學修為尚未豁然貫通，無法領會太極心法。\n");
 	if( userp(me) && me->query_int() < 50 )
 		return notify_fail("你的悟性太低，無法領會到太極心法。\n");
   if( me->query_temp("wudang/raozhi"))
@@ -156,8 +156,8 @@ int help(object me)
 		太極劍法300級
 		道學心法150級
 		後天悟性不低於50
-		空手時需激發太極拳爲招架與基本拳腳
-		持劍時需激發太極劍法爲招架與基本劍法
+		空手時需激發太極拳為招架與基本拳腳
+		持劍時需激發太極劍法為招架與基本劍法
 HELP
 	);
 	return 1;

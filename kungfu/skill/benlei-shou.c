@@ -128,7 +128,7 @@ int help(object me)
 
 	學習要求：
 		紅花神功20級
-		內力修爲100
+		內力修為100
 HELP
 	);
 	return 1;

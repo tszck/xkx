@@ -13,7 +13,7 @@ void create()
 	set_name("史婆婆",({"shi popo","popo","shi"}));
 	set("gender", "女性");
 	set("age", 50);
-	set("long", "她是雪山派掌門人白自在的妻子，雖說現在人已顯得蒼老，\n"
+	set("long", "她是雪山派掌門人白自在的妻子，雖説現在人已顯得蒼老，\n"
 		"但幾十年前提起“江湖一枝花”史小翠來，武林中卻是無人不知。\n");
 	set("attitude", "friendly"); 
 
@@ -114,7 +114,7 @@ int recognize_apprentice(object ob)
 	myfam = (mapping)ob->query("family");
 //	if ( myfam["family_name"] == "凌霄城") return 1 ;
 	if ((int)ob->query_temp("tmark/shi") == 1 )
-	message_vision("史婆婆哼了一聲，對$N說道：老身今天不想再教了，你下次再來吧。\n", ob);
+	message_vision("史婆婆哼了一聲，對$N説道：老身今天不想再教了，你下次再來吧。\n", ob);
 	if (!(int)ob->query_temp("tmark/shi")) return 0; 
 	ob->add_temp("tmark/shi", -1);
 	return 1;
@@ -127,7 +127,7 @@ int accept_object(object who, object ob)
 	{
 		if (!(int)who->query_temp("tmark/shi"))
 			who->set_temp("tmark/shi", 0);
-		message_vision("史婆婆接過金烏杖，“呵呵”笑了兩聲，摸摸杖身，說道：\n好！好！好！難得你幫我乖孫女辦事，真不錯，好吧！\n老身今天正好有空，就教你一會工夫吧。\n", who);
+		message_vision("史婆婆接過金烏杖，“呵呵”笑了兩聲，摸摸杖身，説道：\n好！好！好！難得你幫我乖孫女辦事，真不錯，好吧！\n老身今天正好有空，就教你一會工夫吧。\n", who);
 		who->add_temp("tmark/shi", 900);
 		return 1;
 	}
@@ -166,7 +166,7 @@ void attempt_apprentice(object ob)
 		command("say 你的基本劍法太低了，還是先提高基本功吧！");
 		return; 
 	}
-	command("say 很好，很好，老身就收你爲徒吧。");
+	command("say 很好，很好，老身就收你為徒吧。");
 	command("recruit " + ob->query("id"));
 } 
 string ask_skill()
@@ -193,12 +193,12 @@ string ask_skill()
                        "算不錯。今日我\n傳你雪山劍法的破解之法，你"
                        "可記牢了。雪山派劍法有\n七十二招，我金烏派"
                        "武功處處勝他一籌，卻有七十三招。\n咱們七十"
-                       "三招破他七十二招，最後一招瞧仔細了！”說\n"
+                       "三招破他七十二招，最後一招瞧仔細了！”説\n"
                        "着拔出腰間柴刀從上而下直劈下來，又道：“你"
                        "使這招\n之時，須得躍起半空，和身直劈！”當"
                        "下又教將如何運\n勁，如何封死對方逃遁的空隙"
                        "等竅門慢慢傳給$N" HIY "，$N" HIY "凝\n思半"
-                       "晌，依法施爲，縱身躍起，半空中揮刀直劈，呼"
+                       "晌，依法施為，縱身躍起，半空中揮刀直劈，呼"
                        "的\n一聲，刀鋒離地尚有數尺，地下已是塵沙飛"
                        "揚，敗草落\n葉被刀風激得團團而舞，果然威力"
                        "驚人。\n" NOR, ob, this_object());

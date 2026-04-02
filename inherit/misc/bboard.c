@@ -10,7 +10,7 @@ inherit F_SAVE;
 #define MAX_PLAN	100
 // 假如貼子超過了 MAX_PLAN，刪掉前 10 個
 #define DEL_TO		10
-// 是否保存所有原來的貼子，是則設爲0，否則設爲 1
+// 是否保存所有原來的貼子，是則設為0，否則設為 1
 #define SAVE_ALL_OLD_PLAN 0
 // 如果需要顯示整理情況（很長很長），請：
 // #define DEBUG		1
@@ -395,7 +395,7 @@ int do_banzhu(string arg)
 			return notify_fail("目前的版主就是 "+arg+"，不需要任命。\n");
 		set("banzhu",arg);
 		save();
-		write("任命 "HIY+arg+NOR" 爲"+name()+"版主成功。\n");
+		write("任命 "HIY+arg+NOR" 為"+name()+"版主成功。\n");
 	}
 	else
 	{
@@ -455,7 +455,7 @@ int delete_post(string arg)
 		return notify_fail("沒有這張貼子。\n");
 	if( notes[num-1]["mark"] == "M")
 	{
-		return notify_fail("這張貼子爲保留貼，請先去掉保留標誌。\n");
+		return notify_fail("這張貼子為保留貼，請先去掉保留標誌。\n");
 	}
 	else if(re_num)
 		{
@@ -528,7 +528,7 @@ int do_wenxuan(string arg)
 	mapping *notes= query("notes");
 	string msg,file_name;
 
-// 之所以 return 0 而不 return notify_fail... 是因爲有 wenxuan 這個指令
+// 之所以 return 0 而不 return notify_fail... 是因為有 wenxuan 這個指令
 	if (!arg) return 0;
 	if (sscanf(arg,"add %d",num)!=1) return 0;
 

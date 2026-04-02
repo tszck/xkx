@@ -9,7 +9,7 @@ void create()
 	set_name("楊成協", ({ "yang chengxie", "yang","chengxie" }));
 	set("title", HIR"紅花會"HIG"八當家"NOR);
 	set("nickname", CYN "鐵塔" NOR);
-	set("long","他又肥又高，善使鋼鞭，鞭身甚是粗重，看模樣少說也有三十來斤。\n");
+	set("long","他又肥又高，善使鋼鞭，鞭身甚是粗重，看模樣少説也有三十來斤。\n");
 	set("gender", "男性");
 	set("class", "fighter");
 	set("age", 26);

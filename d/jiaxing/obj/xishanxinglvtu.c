@@ -6,7 +6,7 @@ inherit ITEM;
 void create()
 {
         set_name("溪山行旅圖", ({ "painting", "xi shan xing lv tu", "tu" }) );
-	set("long","這是據說已經失傳了的範寬真跡，對於愛畫之人，算是無價之寶了。\n");
+	set("long","這是據説已經失傳了的範寬真跡，對於愛畫之人，算是無價之寶了。\n");
         if( clonep() )
                 set_default_object(__FILE__);
         else {

@@ -19,7 +19,7 @@ LONG );
 		"north" : __DIR__"shulin3",
 	]));
 	set("item_desc", ([
-		"paizi" : HIR"\n非黃河幫衆者    擅入格殺勿論\n\n"NOR,
+		"paizi" : HIR"\n非黃河幫眾者    擅入格殺勿論\n\n"NOR,
 	]));
 	set("objects", ([
 		"/d/shenlong/npc/dushe" : 1,

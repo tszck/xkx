@@ -17,7 +17,7 @@ int update_condition(object me, int duration)
 	{
 		if (me->query_temp("guosc_mis_where")!=environment(me)->query("short"))
 		{
-			message_vision( HIY"一個宋兵跑過來對$N說道：叫你守城，你卻到處閒逛，我去報告郭大俠！\n"NOR,me);
+			message_vision( HIY"一個宋兵跑過來對$N説道：叫你守城，你卻到處閒逛，我去報告郭大俠！\n"NOR,me);
 		}
 		else me->set_temp("guosc_mis_flag",2);
 		if (me->query_temp("guosc_mis_flag")==2 && me->query_temp("guosc_mis_where")==environment(me)->query("short"))
@@ -34,7 +34,7 @@ int update_condition(object me, int duration)
 					message_vision(HIC"但聽一聲梆子響，從箭垛後面鑽出無數士兵，箭如飛蝗，城外的"HIR"蒙古兵"HIC"紛紛中箭倒下。\n"NOR,me);
 					break;
 				case 3:
-					message_vision(HIR"$N大叫：放火、放火。城上扔下無數燃着的火把，慘叫聲中，蒙古的士兵死傷甚衆。\n"NOR,me);
+					message_vision(HIR"$N大叫：放火、放火。城上扔下無數燃着的火把，慘叫聲中，蒙古的士兵死傷甚眾。\n"NOR,me);
 					break;
 				case 4:
 					message_vision(HIC"城外一聲號角傳來，蒙古靼子發動了新一輪的攻勢，城中箭如雨下，守城的宋兵死傷不少。\n"NOR,me);
@@ -42,7 +42,7 @@ int update_condition(object me, int duration)
 					me->receive_damage("qi", 300+random(100));
 					break;
 				case 5:
-					message_vision(HIR"$N大叫一聲：大家小心。城外蒙古兵的投石車飛來無數巨石，慘叫聲中，城中的守兵死傷甚衆。\n"NOR,me);
+					message_vision(HIR"$N大叫一聲：大家小心。城外蒙古兵的投石車飛來無數巨石，慘叫聲中，城中的守兵死傷甚眾。\n"NOR,me);
 					me->receive_wound("jing", 50+random(50));
 					me->receive_damage("qi", 300+random(100));
 					break;
@@ -63,7 +63,7 @@ int update_condition(object me, int duration)
 	}
 	if(duration <1)
 	{
-		message_vision( CYN"\n一個守城宋兵跑過來說道：蒙古靼子暫時被擊退了，$N可以回去覆命了！\n"NOR,me);
+		message_vision( CYN"\n一個守城宋兵跑過來説道：蒙古靼子暫時被擊退了，$N可以回去覆命了！\n"NOR,me);
 		if (me->query_temp("guosc_mis_flag"))
 		{
 			me->set_temp("guosc_mis_flag",3);

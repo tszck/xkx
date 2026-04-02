@@ -52,7 +52,7 @@ int perform(object me, object target)
 		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 
 	if ((int)me->query("max_neili")<300)
-		return notify_fail(RED"你的內力修爲不足，無法運足「無形幻影」的內力。\n"NOR);
+		return notify_fail(RED"你的內力修為不足，無法運足「無形幻影」的內力。\n"NOR);
 
 	if ((int)me->query("neili")<200)
 		return notify_fail(HIC"你現在內力不夠，沒能將「無形幻影」使完！\n"NOR);

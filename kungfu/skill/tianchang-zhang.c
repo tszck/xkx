@@ -31,7 +31,7 @@ mapping *action = ({
 	"skill_name" : "白日參辰",
 	"lvl" : 50
 ]),
-([	"action" : "$N左手變掌爲啄，右掌立掌如刀，一招"HIY"「鶴舞白沙」"NOR"，劈向$n的$l",
+([	"action" : "$N左手變掌為啄，右掌立掌如刀，一招"HIY"「鶴舞白沙」"NOR"，劈向$n的$l",
 	"skill_name" : "鶴舞白沙",
 	"lvl" : 70
 ]),
@@ -120,7 +120,7 @@ int help(object me)
 	write(HIC"\n天長掌："NOR"\n");
 	write(@HELP
 
-    天長掌爲恆山派武功。
+    天長掌為恆山派武功。
     可與穿雲手互備。
 
 	學習要求：

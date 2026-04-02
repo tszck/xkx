@@ -44,7 +44,7 @@ int help(object me)
 	write(HIC"\n飛燕迴翔："NOR"\n");
 	write(@HELP
 
-    飛燕迴翔爲華山派本門輕功。
+    飛燕迴翔為華山派本門輕功。
 
 	學習要求：
 	 紫霞神功10級

@@ -78,20 +78,20 @@ int jie_bai()
         ob = this_player ( ) ;
         if ((string)ob->query("gender") != "男性")
         {
-                message_vision("\n老頑童上上下下打量了$N一番，說到：我生平不喜同兩種人\n"
+                message_vision("\n老頑童上上下下打量了$N一番，説到：我生平不喜同兩種人\n"
                 "打交道：一是女人，二是太監。我看你還是趁早請罷！”\n", ob);
                 return 1;
         }
 
         if ((int)ob->query("shen") < -1000)
         {
-                say("老頑童哼了一聲說：就憑你這種惡人也配與我稱兄道弟？！\n");
+                say("老頑童哼了一聲説：就憑你這種惡人也配與我稱兄道弟？！\n");
                 return 1;
         }
 
-        say("老頑童高興地說：好！以後我們就是好兄弟了！\n");
-        tell_object(ob,GRN "周伯通悄悄對你說：老哥哥有一套「雙手互搏之術」和一路\n"
-        "「空明拳」可以傳給你作爲見面禮喲！\n" NOR );
+        say("老頑童高興地説：好！以後我們就是好兄弟了！\n");
+        tell_object(ob,GRN "周伯通悄悄對你説：老哥哥有一套「雙手互搏之術」和一路\n"
+        "「空明拳」可以傳給你作為見面禮喲！\n" NOR );
 
         this_player()->set_temp("wantong/兄弟", 1);
         return 1;

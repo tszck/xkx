@@ -69,12 +69,12 @@ int convert(string arg)
 
 	if (arg!="snake" && arg!="she") return 0;
 	if (me->query("family/family_name") != "白駝山") 
-		return notify_fail("你不能化蛇爲杖。\n");
+		return notify_fail("你不能化蛇為杖。\n");
 	if (random(me->query_skill("training",1)) <20) {
 		kill_ob(me);
 		return 1;
 	}
-	message_vision("$N左手按住毒蛇的頭，右手輕撫其七寸，口中唸唸有詞，片刻間將蛇化爲一根蛇杖。\n", me,);
+	message_vision("$N左手按住毒蛇的頭，右手輕撫其七寸，口中唸唸有詞，片刻間將蛇化為一根蛇杖。\n", me,);
 	ob = new(__DIR__"obj/shezhang");
 	ob->move(environment(this_object()));
 	destruct(this_object());

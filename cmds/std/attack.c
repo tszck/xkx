@@ -25,7 +25,7 @@ int main(object me, string arg)
 		return notify_fail("你要讓什麼野獸幫你咬誰？\n");
 	if( !objectp(ob = present(arg, environment(me)) ))
 		return notify_fail("這裏沒有這個東西吧？\n");
-	notify_fail("此人來頭不小，還是少惹爲妙。\n");
+	notify_fail("此人來頭不小，還是少惹為妙。\n");
 	if (!userp(ob) && !ob->accept_hit(me)) return 0;
 
 	inv = all_inventory(environment(me));

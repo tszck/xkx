@@ -36,7 +36,7 @@ int do_massage(string arg)
 	if(!present("tianhong", environment(me)))
 		return notify_fail("方丈不在，你搞什麼搞嘛！！\n");
 	if(query("massage") > 10)
-		return notify_fail("天虹方丈說道：去睡吧。明天再來服侍。\n");
+		return notify_fail("天虹方丈説道：去睡吧。明天再來服侍。\n");
 	if(me->is_busy())
 	{
 		write("你現在正忙着呢！\n");
@@ -72,7 +72,7 @@ int do_massage(string arg)
 	{
 		me->set_temp("mark/按摩完", 1);
 		add("massage", 1);
-		return notify_fail(RED "天虹方丈說道：謝謝你來服侍我，快回去休息吧(massage ok)！\n"NOR);
+		return notify_fail(RED "天虹方丈説道：謝謝你來服侍我，快回去休息吧(massage ok)！\n"NOR);
 	}  
 	message_vision("$N盤膝坐下，用力按摩方丈全身，把天虹方丈弄的爽爽的。\n", me);
 	me->add_temp("mark/按摩",1);

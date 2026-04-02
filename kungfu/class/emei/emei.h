@@ -31,11 +31,11 @@ int do_kneel()
 	string name, new_name;
 
 	if( !me->query_temp("pending/join_bonze") ) return 0;
-	message_vision("$N你雙手合十，恭恭敬敬地跪了下來。\n\n$n看着$N說道：好吧，你就在本庵修行吧。\n\n$n伸出手掌，在$N頭頂輕輕地摩挲了幾下，將$N的頭髮盡數剃去。\n\n", me, this_object() );
+	message_vision("$N你雙手合十，恭恭敬敬地跪了下來。\n\n$n看着$N説道：好吧，你就在本庵修行吧。\n\n$n伸出手掌，在$N頭頂輕輕地摩挲了幾下，將$N的頭髮盡數剃去。\n\n", me, this_object() );
 	name = me->query("name");
 	new_name = prename[random(sizeof(prename))] + name[0..0];
 	command("say 從今以後你的法名叫做" + new_name + "。");
-	command("chat "+name+"削髮爲尼，在峨嵋山修行，取法名"+new_name+"。");
+	command("chat "+name+"削髮為尼，在峨嵋山修行，取法名"+new_name+"。");
 	command("smile");
 	me->set("marks/old_name",name);
 	me->delete_temp("pending/join_bonze");

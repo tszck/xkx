@@ -52,7 +52,7 @@ void icheck(string address)
     ||add2 > 255 || add2 < 0 
     ||add3 > 255 || add3 < 0
     ||add4 > 255 || add4 < 0)
-    { tell_object(me,"輸入地址錯誤，請覈實\n"); return;}
+    { tell_object(me,"輸入地址錯誤，請核實\n"); return;}
   while ( read_from <= read_to )
   {
   	middle = (read_from + read_to) /2;
@@ -111,8 +111,8 @@ void report(string address,int middle)
 	string line=read_file("/data/ipdata.o",middle,1);
 	if (!stringp(address)) tell_object(me,"沒有找到相應數據a\n");
 	if (!stringp(line))    tell_object(me,"沒有找到相應數據b\n");
-  tell_object(me,sprintf(HIC"查詢地址%s：\n對應物理地址爲："YEL"%s\n"NOR,address,line[32..sizeof(line)]));
+  tell_object(me,sprintf(HIC"查詢地址%s：\n對應物理地址為："YEL"%s\n"NOR,address,line[32..sizeof(line)]));
   after = rusage();
   usertime = after["utime"] - before["utime"];
-  tell_object(me,sprintf("此次查找花費時間爲%d 微秒\n",usertime ));
+  tell_object(me,sprintf("此次查找花費時間為%d 微秒\n",usertime ));
 }

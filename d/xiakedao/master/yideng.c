@@ -12,7 +12,7 @@ void create()
     set("gender", "男性");
     set("age", 52);
     set("long", 
-        "他就是號稱「南帝」的一燈大師，俗名段智興，現已遜位爲僧。\n"
+        "他就是號稱「南帝」的一燈大師，俗名段智興，現已遜位為僧。\n"
         "大師一生行善，積德無窮。\n");
     set("attitude", "peaceful");
     set("class", "scholar");

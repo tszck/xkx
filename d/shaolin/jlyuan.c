@@ -70,12 +70,12 @@ void processing(object ob)
 
 	if ( !(fam = ob->query("family")) || fam["family_name"] != "少林派" )
 	message_vision(HIY "玄痛一聲大喝：爾等大膽狂徒，擅闖本寺護法松林，意在不軌，該當何罪！"
-	"堂堂少林寺，豈能容你等宵小如此胡作非爲！執法僧兵何在！\n\n" NOR, ob);
+	"堂堂少林寺，豈能容你等宵小如此胡作非為！執法僧兵何在！\n\n" NOR, ob);
 
 	if ( (fam = ob->query("family")) && fam["family_name"] == "少林派" ) 
 	{
 		if (ob->query("guilty") == 1)
-		message_vision(HIY "玄痛一聲大喝：$N！你離寺僅有數日，卻在外殺人越貨，胡作非爲，"
+		message_vision(HIY "玄痛一聲大喝：$N！你離寺僅有數日，卻在外殺人越貨，胡作非為，"
 		"累犯大戒，敗壞本寺千載清譽！  你該當何罪？！執法僧兵何在！\n\n" NOR, ob);
 
 		if (ob->query("guilty") == 3)
@@ -84,7 +84,7 @@ void processing(object ob)
 
 		if (ob->query("guilty") == 2)
 		{
-			message_vision(HIY "玄痛盯着$N看了半餉，說道：$N，你懲惡揚善，鋤暴安良，當得表彰，"
+			message_vision(HIY "玄痛盯着$N看了半餉，説道：$N，你懲惡揚善，鋤暴安良，當得表彰，"
 			"但出家人首戒殺生，你傷害人命，乃是僧家的重罪！ "
 			"你去罷，下次定不輕饒！\n\n" NOR, ob);
 
@@ -145,7 +145,7 @@ int valid_leave(object me, string dir)
 		&&  fam["generation"] == 37  ) 
 			return ::valid_leave(me, dir);
 		else
-			return notify_fail("玄痛說道: 大膽，你還敢逃跑！執法僧兵何在！\n");
+			return notify_fail("玄痛説道: 大膽，你還敢逃跑！執法僧兵何在！\n");
 	}
 
 }

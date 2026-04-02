@@ -46,18 +46,18 @@ int main(object me, string arg)
 	&&(me->query("id")!= "feng qingyang")
 	&&(myfam["title"]!= "幫主")
 	)
-		return notify_fail("對方經驗太高，恐怕要找你掌門師尊爲你做主了！\n");
+		return notify_fail("對方經驗太高，恐怕要找你掌門師尊為你做主了！\n");
 
 		if( ob->is_apprentice_of(me) )
 		{
-			message_vision("\n$N對着$n說道：從今天起，你我師徒恩斷情絕，你走吧！\n\n", me, ob);
+			message_vision("\n$N對着$n説道：從今天起，你我師徒恩斷情絕，你走吧！\n\n", me, ob);
 			tell_object(ob, "\n你被師父開革出師門了！\n\n");
 		}
 		else if( me->query("family/privs")==-1 &&
 		(string)me->query("family/family_name") ==
 		(string)ob->query("family/family_name") )
 	{
-		message_vision("\n$N對着$n說道：從今天起，你再也不是我" + me->query("family/family_name") + "的弟子了，你走吧！\n\n", me, ob);
+		message_vision("\n$N對着$n説道：從今天起，你再也不是我" + me->query("family/family_name") + "的弟子了，你走吧！\n\n", me, ob);
 		tell_object(ob, "\n你被" + me->query("family/title") + "開革出師門了！\n\n");
 	}  else
 			return notify_fail("這個人不是你的弟子。\n");

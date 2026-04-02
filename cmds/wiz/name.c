@@ -91,7 +91,7 @@ int main(object me, string arg)
 	obj->set("old_id",obj->query("id"));
 	obj->set("name", name);
 	obj->set("id", id);
-	write("改名爲 "+obj->query("name")+"("+obj->query("id")+") 。\n");
+	write("改名為 "+obj->query("name")+"("+obj->query("id")+") 。\n");
 	}
 	else 
 	{

@@ -36,7 +36,7 @@ int valid_learn(object me)
 	if( (int)me->query_skill("wudu-shengong", 1) < 30 )
 		return notify_fail("你的五毒神功太低，不能練五毒鞭。\n");
 	if( (int)me->query("max_neili") < 30 )
-		return notify_fail("你的內力修爲太低，不能練五毒鞭。\n");
+		return notify_fail("你的內力修為太低，不能練五毒鞭。\n");
 	if ( !objectp(weapon = me->query_temp("weapon")) ||
 		( string)weapon->query("skill_type") != "whip" )
 		return notify_fail("你必須先找一條鞭子才能練鞭法。\n");
@@ -106,7 +106,7 @@ int help(object me)
 	write(HIC"\n五毒鞭法："NOR"\n");
 	write(@HELP
 
-    五毒鞭法爲五毒教的獨門鞭法。
+    五毒鞭法為五毒教的獨門鞭法。
 
 	學習要求：
 		五毒神功30級

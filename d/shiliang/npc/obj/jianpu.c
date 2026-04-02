@@ -87,7 +87,7 @@ int do_du(string arg)
                 return 1;
         } 
         if( me->query_skill("jinshe-jian", 1) > 200){
-                write("你研讀了一會兒，但是發現上面所說的對你而言都太淺了，沒有學到任何東西。\n");
+                write("你研讀了一會兒，但是發現上面所説的對你而言都太淺了，沒有學到任何東西。\n");
                 return 1;
         }
         me->receive_damage("jing", 45);

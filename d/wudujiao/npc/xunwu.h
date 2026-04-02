@@ -18,7 +18,7 @@ int do_attack(string arg)
 	if(ob->query("owner")&&ob->query("owner")!=me->query("id"))
 		return notify_fail(who->query("name")+"全身扭動，畏縮不前！\n");
 	if(!living(ob))
-		return notify_fail(who->query("name")+"說："+ob->query("name")+"已經這樣啦你還要....？！\n");
+		return notify_fail(who->query("name")+"説："+ob->query("name")+"已經這樣啦你還要....？！\n");
 	message_vision(who->query("name")+"吱吱怪叫一聲衝了出去。\n",me);
 	fight_ob(ob);
 	return 1;

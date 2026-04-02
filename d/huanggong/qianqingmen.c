@@ -7,7 +7,7 @@ void create()
 {
 	set("short", "乾清門");
 	set("long", @LONG
-這是皇宮後廷的正門. 門中有一個寶座, 有些時候, 皇上爲表示親
+這是皇宮後廷的正門. 門中有一個寶座, 有些時候, 皇上為表示親
 政, 就在這聽取各衙門主管依次奏事, 這叫御門聽政.
 LONG
 	);
@@ -36,7 +36,7 @@ int valid_leave(object me, string dir)
 {
 	if ((dir=="north") &&
 	objectp(present("duo long", environment(me))))
-		return notify_fail("多隆攔住你說：此處禁地，請止步。\n");
+		return notify_fail("多隆攔住你説：此處禁地，請止步。\n");
 
 	return ::valid_leave(me, dir);
 }

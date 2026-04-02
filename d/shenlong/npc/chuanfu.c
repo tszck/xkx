@@ -59,12 +59,12 @@ int accept_object(object who, object ob)
 	object myenv ;
 	if (!(int)who->query_temp("出海"))
 	{
-		message_vision("老船伕笑着對$N說：無功不受祿，您還是自己留着吧！\n", who);
+		message_vision("老船伕笑着對$N説：無功不受祿，您還是自己留着吧！\n", who);
 		return 0 ;
 	}
 	if (ob->query("money_id") && ob->value() >= 10000)
 	{
-		message_vision("老船伕對$N說：好！既然這位" + RANK_D->query_respect(who) + "如此看得起我，\n那我也拼上這條破船，捨命陪君子便了！\n" , who);
+		message_vision("老船伕對$N説：好！既然這位" + RANK_D->query_respect(who) + "如此看得起我，\n那我也拼上這條破船，捨命陪君子便了！\n" , who);
 		this_player()->delete_temp("出海" );
 		message_vision("老船伕一招手，叫來幾個年輕船伕。\n", who);
 		message_vision("年輕船伕和$N上了船，一聲「起錨」船就開走了，但老船伕卻沒上船......\n", who);
@@ -75,7 +75,7 @@ int accept_object(object who, object ob)
 		call_out("goto_shenlong",10,who) ;
        		return 1;
 	}
-	else  message_vision("老船伕皺眉對$N說：您給的也太少了吧？\n", who);
+	else  message_vision("老船伕皺眉對$N説：您給的也太少了吧？\n", who);
 	return 0;
 }
 

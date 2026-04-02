@@ -53,7 +53,7 @@ int perform(object me, object target)
 	damage += (int)me->query_skill(bskill, 1)*3/2;
 
 	if( (int)me->query("max_neili") < damage + 100)
-		return notify_fail("你的內力修爲太弱，使不出「一劍追魂」。\n");
+		return notify_fail("你的內力修為太弱，使不出「一劍追魂」。\n");
 
 	if( (int)me->query("neili") < damage )
 		return notify_fail("你現在內力太弱，不能使用「一劍追魂」。\n");
@@ -90,7 +90,7 @@ int help(object me)
 	出手要求：
 		紅花神功120級
 		追魂奪命劍120級
-		足夠的內力修爲
+		足夠的內力修為
 		足夠的內力
 HELP
 	);

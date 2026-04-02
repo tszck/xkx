@@ -13,7 +13,7 @@ void create()
 	set("short", "曉寒廳");
 	set("long", @LONG
 這是一間小廳，廳雖不大，佈置倒也別緻。滿廳的芳香，沁人心脾。
-只見牆上掛着幾幅條幅，筆致頗爲瀟灑，但掩不住幾分柔弱之氣。廳內
+只見牆上掛着幾幅條幅，筆致頗為瀟灑，但掩不住幾分柔弱之氣。廳內
 四周精巧地擺着些桌子(table)和椅子(chair)。
 LONG );
 	set("exits", ([
@@ -65,7 +65,7 @@ int do_tap(string arg)
 
 	if( me->query_temp("marks/served") )
 	{
-		message_vision("素素不耐煩地對$N說道：剛給你上過茶你接着就要，"+
+		message_vision("素素不耐煩地對$N説道：剛給你上過茶你接着就要，"+
 			"你是個Ｒｏｂｏｔ我可不是啊！\n", me);
 		return notify_fail("");
 	}

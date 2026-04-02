@@ -9,7 +9,7 @@ void create()
 	set("short", "烽火臺");
 	set("long", WHT @LONG
 這裏是烽火臺的二樓，站在這裏你可以看的很遠。戍邊的將士們就
-是長年守衛在這裏，防止匈奴的進攻，保衛邊疆的安全。
+是長年守衞在這裏，防止匈奴的進攻，保衞邊疆的安全。
 LONG
 NOR  );
 	set("outdoors", "changcheng");

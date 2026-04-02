@@ -17,7 +17,7 @@ void create()
 滿屋的果香和茶香，沁人心脾。山西面的茶農們因感激武當弟子保
 護他們免受土匪的騷亂和官府的苛捐雜稅，每年開春採茶季節，總要送
 來上好的茶葉。這茶葉由少女在三更至日出間採摘，並放在懷中用體溫
-焙制，得天地精華，匯處子體香，故名＂女兒香＂，據說喝了能提精補
+焙制，得天地精華，匯處子體香，故名＂女兒香＂，據説喝了能提精補
 神，十分珍貴。屋裏四周得體地擺着些桌子(table)和椅子(chair)，坐
 滿了武當的男女弟子。南邊有扇窗子(window)，景色宜人。
 LONG );
@@ -73,7 +73,7 @@ int do_jump(string arg)
                 }
             if ( objectp(ob=present("xiang cha", this_player())) )
             {
-                message_vision("懷裏的香茶翻了，溼了$N一褲子茶水。\n", me);
+                message_vision("懷裏的香茶翻了，濕了$N一褲子茶水。\n", me);
                 destruct(ob);
                 }
 
@@ -117,7 +117,7 @@ int do_tap(string arg)
 
     if( me->query_temp("marks/served") )
     {
-        message_vision("小翠不耐煩地對$N說道：剛給你上過茶你接着就要，"+
+        message_vision("小翠不耐煩地對$N説道：剛給你上過茶你接着就要，"+
                                 "你是個Ｒｏｂｏｔ我可不是啊！\n", me);
         return notify_fail("");
     }

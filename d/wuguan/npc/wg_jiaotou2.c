@@ -48,19 +48,19 @@ int accept_object(object who, object ob)
 {
     if (who->query("combat_exp")>= 50000)
     {
-		message_vision("李教頭望着$N說：你的武功應該歷練江湖才能再長進，不能埋沒
+		message_vision("李教頭望着$N説：你的武功應該歷練江湖才能再長進，不能埋沒
 在這裏了。\n", who);
 		return 0;
     }
     if (ob->query("money_id") && ob->value() >= 500)
     {
 		who->set_temp("marks/yangzhou_paied",1);
-		message_vision("李教頭對$N說：好！這位" + RANK_D->query_respect(who) 
+		message_vision("李教頭對$N説：好！這位" + RANK_D->query_respect(who) 
 + "想學什麼呢？\n" , who);
 		return 1;
     }
     else
-		message_vision("李教頭皺眉對$N說：錢我不在乎。可你也給的也太少了點兒吧？\n", who);
+		message_vision("李教頭皺眉對$N説：錢我不在乎。可你也給的也太少了點兒吧？\n", who);
 	return 0;
 }
 

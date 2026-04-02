@@ -49,7 +49,7 @@ int perform(object me, object target)
 		return notify_fail("你的"+to_chinese(sskill)+"不夠熟練，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 500 )
-		return notify_fail("你的內力修爲還不夠高。\n");
+		return notify_fail("你的內力修為還不夠高。\n");
 
 	msg = HIC "$N默運混天氣功，施展出「"+HIY"雷"NOR+HIC"霆"NOR+HIG"一"NOR+HIR"擊"NOR+"」，全身急速轉動起來，越來越快，就猶如一股旋風，驟然間，$N已卷向正看得發呆的$n。\n"NOR;  
 

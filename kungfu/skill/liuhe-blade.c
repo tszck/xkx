@@ -97,7 +97,7 @@ int help(object me)
 	write(HIC"\n四象六合刀："NOR"\n");
 	write(@HELP
 
-    四象六合刀爲丐幫的刀法。
+    四象六合刀為丐幫的刀法。
 
 	學習要求：
 		混天氣功30級

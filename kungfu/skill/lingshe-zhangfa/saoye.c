@@ -14,7 +14,7 @@ int perform(object me, object target)
 	YEL"$N突如起來的從狂風中閃出，對着$n胸前就是一杖！" NOR,
 	YEL"$N御杖回身，立於$n身側，反手一劈！" NOR,
 	YEL"$N借力打力，一個縱身，居高臨下，當頭又是一杖！" NOR,
-	YEL"人在半空，$N化虛爲掌，化實爲杖，朝$n點刺過去！" NOR,
+	YEL"人在半空，$N化虛為掌，化實為杖，朝$n點刺過去！" NOR,
 	YEL"$N持杖亂舞，密不透風，使$n漸漸感到透不過氣來！" NOR,
 	YEL"$N見有機可乘，一杖接着一杖，招招致命！" NOR,
 	YEL"$N聚起天地之靈氣，手中杖捲起千層大浪朝$n揮去！" NOR,
@@ -56,7 +56,7 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 180 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 170 )
 		return notify_fail("你的"+to_chinese(sskill)+"火候不夠，無法使用"+PNAME+"。\n");

@@ -7,7 +7,7 @@ void create()
         set("short", "民房");
 	set("long", @LONG
 這是一個小房間，屋子裏飄着一股大蔥加香粉的味道。靠牆擺着張大
-牀，牀頭有個小梳妝檯。
+牀，牀頭有個小梳妝枱。
 LONG );
         set("exits", ([ /* sizeof() == 1 */
             "northeast" : __DIR__"nwroad2",

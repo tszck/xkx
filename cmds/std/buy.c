@@ -19,7 +19,7 @@ int main(object me, string arg)
 	
         
         if(me->is_busy())
-                return notify_fail("什麼事都得等你忙完再說吧！\n");
+                return notify_fail("什麼事都得等你忙完再説吧！\n");
         if (! arg)
                 return notify_fail("指令格式：buy <物品> [from <玩家>]\n");
 				env = environment(me);

@@ -50,7 +50,7 @@ void attempt_apprentice(object ob)
 				new_name = "玄" + name[1..1];
 				ob->set("name", new_name);
 
-				command("say 從今以後你的法名叫做" + new_name + "，恭喜你榮升爲少林派玄字輩弟子 !");
+				command("say 從今以後你的法名叫做" + new_name + "，恭喜你榮升為少林派玄字輩弟子 !");
 				command("recruit " + ob->query("id"));
 			}
 			else

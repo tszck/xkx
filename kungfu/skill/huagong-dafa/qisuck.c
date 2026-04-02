@@ -34,7 +34,7 @@ int exert(object me, object target)
 	if (!userp(target) && !target->accept_hit(me)) return 0;
 
 	if (target->query("race") != "人類")
-		return notify_fail("搞錯了！只有人纔能有氣血！\n");
+		return notify_fail("搞錯了！只有人才能有氣血！\n");
 	if ( me->query_temp("sucked") )
 		return notify_fail("你剛剛吸取過氣血！\n");
 

@@ -138,7 +138,7 @@ int main(object me, string arg)
 
 	if( userp(obj) && (object)obj->query_temp("pending/sleep")!=me )
 	{
-		message_vision(RED"\n$N含情脈脈地對$n說：我．．．\n\n"NOR, me, obj);
+		message_vision(RED"\n$N含情脈脈地對$n説：我．．．\n\n"NOR, me, obj);
 		if( objectp(old_target = me->query_temp("pending/sleep")) &&
 			!((string)old_target->query("id")==(string)obj->query("id")))
 			tell_object(old_target, YEL + me->name() + "改變主意不想跟你睡了。\n" NOR);

@@ -7,9 +7,9 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N身子疾轉，右腳貼地伸出，一式"BLU"「劃地爲牢」"NOR"，橫掃$n的下盤",
+([	"action" : "$N身子疾轉，右腳貼地伸出，一式"BLU"「劃地為牢」"NOR"，橫掃$n的下盤",
 	"lvl" : 0,
-	"skill_name" : "劃地爲牢"
+	"skill_name" : "劃地為牢"
 ]),
 ([	"action" : "$N左腿踢出，不待左腿落下，右腳緊跟着凌空踢出，一式"GRN"「追風逐電」"NOR"，雙腳先後踢向$n的$l",
 	"lvl" : 15,

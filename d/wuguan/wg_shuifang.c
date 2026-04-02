@@ -60,7 +60,7 @@ int do_tiao(string arg)
 		present("shuifang guanshi", environment(me)))
 	{
 		me->set_temp("mark/挑完了",1);
-		message_vision(RED"水房管事對$N說：乾的不錯，好了，你可以回去覆命(job ok)了。\n"NOR, me);
+		message_vision(RED"水房管事對$N説：乾的不錯，好了，你可以回去覆命(job ok)了。\n"NOR, me);
 		return 1;
 	}
 	message_vision("$N用水桶從井裏挑起水，再倒到水缸裏。\n", me);

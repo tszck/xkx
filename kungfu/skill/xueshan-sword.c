@@ -145,7 +145,7 @@ int help(object me)
         write(HIC"\n雪山劍法："NOR"\n");
         write(@HELP
 
-    雪山劍法爲雪山派本門劍法。
+    雪山劍法為雪山派本門劍法。
 
         學習要求：
                 冰雪心法

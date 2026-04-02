@@ -84,7 +84,7 @@ int do_hit(string arg)
 		write("你用" + weapon->query("name") + "奮力擊打着海潮，於劍的運用方面有了一些領悟。\n");
 		hit_tide++;
 		if (hit_tide > weapon->query_temp("max_hit_tide")) {
-			write("因爲你用力過猛，"+ weapon->query("name") + "“啪”地一聲折斷了！\n");
+			write("因為你用力過猛，"+ weapon->query("name") + "“啪”地一聲折斷了！\n");
 			destruct(weapon);
 		}
 		else
@@ -130,14 +130,14 @@ int do_hit(string arg)
 		write("你對於內功以及劍法都有了一些領悟。\n");
 		if (!(hit_tide % 20))
 		{
-			write("因爲你用力過猛，"+ weapon->query("name") + "“啪”地一聲折斷了！\n");
+			write("因為你用力過猛，"+ weapon->query("name") + "“啪”地一聲折斷了！\n");
 			destruct(weapon);
 		}
 		me->set("sea/hit_tide", hit_tide);
 		if (hit_tide >= 1400)
 		{
 			write("到了這個時候，你終於練到手中的木劍欲輕則輕欲響則響的境界！你的膂力增加了！\n");
-			write("以後你恐怕無法再通過與海潮搏擊而獲得更深的內功修爲了！\n");
+			write("以後你恐怕無法再通過與海潮搏擊而獲得更深的內功修為了！\n");
 			me->add("str",1);
 			me->set("benefit/str", 1);
 			me->delete("sea/hit_tide");

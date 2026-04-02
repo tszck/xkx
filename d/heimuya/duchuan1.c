@@ -24,7 +24,7 @@ void init()
 	object me = this_player();
 	if (me->query("family/master_id")=="dongfang bubai")
 	{
-		message_vision("幫衆見是$N教主座下弟子，絲毫不敢怠慢，立即起航。\n",me);
+		message_vision("幫眾見是$N教主座下弟子，絲毫不敢怠慢，立即起航。\n",me);
 		arrive(me,1);
 	}
 	else
@@ -33,7 +33,7 @@ void init()
 
 int arrive(object me,int i)
 {
-	message_vision("幫衆奮力划船，船行如飛，片刻就把$N送到了彼岸。\n", me);
+	message_vision("幫眾奮力划船，船行如飛，片刻就把$N送到了彼岸。\n", me);
 	if (intp(i) && i==1)
 	{
 		if(me->query_temp("hmy_ship/ct")) me->move(__DIR__"xingxingtan",1);

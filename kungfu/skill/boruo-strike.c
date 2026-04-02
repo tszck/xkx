@@ -35,9 +35,9 @@ mapping *action = ({
 	"lvl"   : 100,
 	"skill_name" : "請佛往世"
 ]),
-([	"action" : "$N使一式"HIR"「恆順衆生」"NOR"，瞬間勁氣瀰漫，$P雙掌連劈如輪，一環環向$n的$l斬去",
+([	"action" : "$N使一式"HIR"「恆順眾生」"NOR"，瞬間勁氣瀰漫，$P雙掌連劈如輪，一環環向$n的$l斬去",
 	"lvl"   : 120,
-	"skill_name" : "恆順衆生"
+	"skill_name" : "恆順眾生"
 ]),
 ([	"action" : "$N兩掌上下護胸，一式"HIC"「普皆迴向」"NOR"拍出，掌影重重疊疊，帶起無邊罡氣攻向$n",
 	"lvl"   : 150,
@@ -125,7 +125,7 @@ int help(object me)
 		站樁功80級
 		拈花指50級
 		大金剛神掌50級
-		內力修爲800
+		內力修為800
 HELP
 	);
 	return 1;

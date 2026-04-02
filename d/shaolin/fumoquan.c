@@ -62,7 +62,7 @@ int valid_leave(object me, string dir)
 
 	if( dir == "out" && present("puti zi", me) )
 	{
-		return notify_fail("渡難說道: 不能帶着菩提子離開伏魔圈 !\n");
+		return notify_fail("渡難説道: 不能帶着菩提子離開伏魔圈 !\n");
 	}
 	me->delete_temp("fighter");
 

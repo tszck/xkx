@@ -8,7 +8,7 @@ void create()
         set("short", "天柱峯");
         set("long", @LONG
 你爬上衡山五峯之一的天柱峯，四望羣山縹緲雲霧中，每每天陰地
-溼時候，這裏就是天柱雲氣的所在了。 
+濕時候，這裏就是天柱雲氣的所在了。 
 LONG);
         set("exits", ([ /* sizeof() == 4 */
            "westdown"   : __DIR__"shanlu10",

@@ -84,7 +84,7 @@ int do_chuangli(string arg)
 			ob->move(me);
 message_vision("$N點起三柱香，衝着關帝像拜了下去：弟子創立"+arg+"，志在
 匡扶正義，除惡揚善。蒙關帝護佑，今日終於開壇。此後當得
-約束幫衆，同踐此誓。若有不肖匪類，壞我幫規，天厭之！天
+約束幫眾，同踐此誓。若有不肖匪類，壞我幫規，天厭之！天
 厭之！！\n", me);
 			message_vision("$N獲得一塊腰牌！\n",me);
 			message("channel:chat", HIY"【通告】"HIR+me->query("name")+"於"+NATURE_D->game_time()+"創立"+arg+"！\n"NOR,users());

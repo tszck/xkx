@@ -70,7 +70,7 @@ void create()
 	set("inquiry", ([
 		"鋼杵" : (: ask_me_1, "gangchu" :),
 		"柴刀" : (: ask_me_1, "chaidao" :),
-//		"撓鉤" : (: ask_me_1, "naogou" :),
+//		"撓鈎" : (: ask_me_1, "naogou" :),
 //		"套索" : (: ask_me_1, "taosuo" :),
 	]));
 	set("weapon_count", 10);
@@ -100,7 +100,7 @@ string ask_me_1(string name)
 	ob->move(this_player());
 	add("weapon_count", -1);
 	message_vision("大病給$N一件"+ob->query("name")+"。\n",this_player());
-	return "拿去吧。用此物爲寺中服務。\n";
+	return "拿去吧。用此物為寺中服務。\n";
 }
 
 void attempt_apprentice(object ob)
@@ -128,7 +128,7 @@ void attempt_apprentice(object ob)
 	}
 	if( ob->query_skill("force", 1) < 60)
 	{
-		command("say "+RANK_D->query_respect(ob)+"，你的基本內功還需要磨練。貧僧到時再收你爲徒。");
+		command("say "+RANK_D->query_respect(ob)+"，你的基本內功還需要磨練。貧僧到時再收你為徒。");
 		return;
 	}
 	if( ob_fam["generation"]==(my_fam["generation"]+1) && name[0..0]=="元")

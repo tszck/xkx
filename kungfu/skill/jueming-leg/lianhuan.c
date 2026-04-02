@@ -45,13 +45,13 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 60 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，不能運"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，不能運"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 40 )
 		return notify_fail(PNAME"需要精湛的"+to_chinese(bskill)+"配合，方能有效施展。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 40 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不足，還不會使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不足，還不會使用"+PNAME+"。\n");
 
 	if( !me->query_temp("murong/xingyi") )
 	{

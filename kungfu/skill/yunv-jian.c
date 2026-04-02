@@ -47,7 +47,7 @@ $l",
 	"lvl" : 39,
 	"skill_name" :  "松下對弈"
 ]),
-([	"action" : "$N左手如拂五絃，竟以掌爲劍攻向$n，卻是一招"+(order[random(13)])+"「池邊調鶴」"NOR"",
+([	"action" : "$N左手如拂五絃，竟以掌為劍攻向$n，卻是一招"+(order[random(13)])+"「池邊調鶴」"NOR"",
 	"lvl" : 44,
 	"skill_name" :  "池邊調鶴"
 ]),

@@ -9,7 +9,7 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "只");
-                set("long", "一隻雕琢而成的暗黃色小木鼎, 木理之間隱隱泛出紅絲。鼎側有五個銅錢大的圓孔，木鼎齊頸出有一道細縫，似乎上下分爲兩截。\n");
+                set("long", "一隻雕琢而成的暗黃色小木鼎, 木理之間隱隱泛出紅絲。鼎側有五個銅錢大的圓孔，木鼎齊頸出有一道細縫，似乎上下分為兩截。\n");
                 set("value", 5);
                 set("muding/remaining", 0);                
         }

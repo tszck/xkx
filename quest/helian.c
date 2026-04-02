@@ -15,7 +15,7 @@ void create()
 	set("str", 25);
 	set("dex", 26);
 	set("per", 16);
-	set("long", "他身穿大紅錦袍，三十四五歲年紀，鷹鉤鼻、八字須。\n");
+	set("long", "他身穿大紅錦袍，三十四五歲年紀，鷹鈎鼻、八字須。\n");
 
 	set("combat_exp", 500000);
 	set("shen_type", -1);
@@ -157,7 +157,7 @@ int give_quest()
 		if( ((int) me->query("/quest/helian/time")) > time() )
 		{
 //			tell_object(me,"赫連鐵樹對你冷冷一笑道：讓你辦的事如何了？\n");
-			tell_object(me,"赫連鐵樹很不屑地瞟了你一眼說道：你要是沒本事，就拿點兒費用出來我讓別的人去。\n");
+			tell_object(me,"赫連鐵樹很不屑地瞟了你一眼説道：你要是沒本事，就拿點兒費用出來我讓別的人去。\n");
 			return 1;
 		}
 		else

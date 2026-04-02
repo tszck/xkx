@@ -7,7 +7,7 @@ void create()
         set("short","雪山別院");
         set("long",@LONG
 這裏是雪山寺的分部，當年貢唐倉大喇嘛不遠萬裏進京面聖，被封
-爲國師，就在此處宣揚佛法。
+為國師，就在此處宣揚佛法。
 LONG );
         set("exits",([
                 "east" : "/d/beijing/road5",

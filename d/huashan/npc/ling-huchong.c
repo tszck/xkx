@@ -75,7 +75,7 @@ void greeting(object ob)
            && ((int)ob->query("marks/feng-qingyang")==1) )
       {
            ob->set("marks/feng-qingyang",2);
-           say( "令狐沖說道：“我風太師叔住在南峯，這就去吧!”\n");
+           say( "令狐沖説道：“我風太師叔住在南峯，這就去吧!”\n");
       }
       set("exits/southdown", __DIR__"sgyhole");
 

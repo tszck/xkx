@@ -56,7 +56,7 @@ void check_trigger()
 				room->set("exits/out", __FILE__);
 				message("vision","只見一個掉籃(basket)從天而降，你不禁一怔！\n" , this_object() );
 				set("item_desc", ([
-					"basket" : "這是一個掉籃，是傳說中的交通工具。\n",
+					"basket" : "這是一個掉籃，是傳説中的交通工具。\n",
 				]));
 				
 				remove_call_out("on_board");

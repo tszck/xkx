@@ -78,7 +78,7 @@ void greeting(object ob)
 	int i;
 
 	obj = all_inventory(environment(me));
-        command("say 橫劍純爲守勢，膝前膝前更不可解。");
+        command("say 橫劍純為守勢，膝前膝前更不可解。");
 	for(i=0; i<sizeof(obj); i++)
 	{
 		if( obj[i]->query("id")=="hong-antong")

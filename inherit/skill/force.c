@@ -32,5 +32,5 @@ mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 }
 
 //mixed be_hit_ob(object me, object victim, int damage_bonus, int factor) 
-// 可以重載,被打中的效果,factor 爲對方的加力,damage_bonus 是對方的
+// 可以重載,被打中的效果,factor 為對方的加力,damage_bonus 是對方的
 //臂力值,是計算最後傷害的基數之一.

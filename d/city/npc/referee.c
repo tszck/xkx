@@ -90,7 +90,7 @@ string ask_me()
 
 int do_no()
 {
-	command("say " + "這裏衆目睽睽，豈能做此不才之事。\n");
+	command("say " + "這裏眾目睽睽，豈能做此不才之事。\n");
 	return 1;
 }
 int do_start(string arg)
@@ -105,7 +105,7 @@ int do_start(string arg)
 
 	if (!wizardp(this_player()))
 	{
-		command("say " + "比武要巫師發令纔開始！\n");
+		command("say " + "比武要巫師發令才開始！\n");
 		return 1;
 	}
 	if (!arg)
@@ -224,12 +224,12 @@ int do_bihua(string arg)
 	if (ob2->query("max_qi") > ob2->query("eff_qi"))
 		return notify_fail("對方受傷太重不能比武。\n");
 /* 允許玩家自比
-	command("say " + "比武要裁判發令纔開始！\n");
+	command("say " + "比武要裁判發令才開始！\n");
 	return 1;
 */
 
 	if( userp(ob2) && (object)ob2->query_temp("pending/fight") !=ob1 ) {
-		message_vision("\n$N對着$n說道"
+		message_vision("\n$N對着$n説道"
 			+ RANK_D->query_self(ob1)
 			+ ob1->name() + "領教"
 			+ RANK_D->query_respect(ob2) + "的高招！\n\n", ob1, ob2);

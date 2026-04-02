@@ -12,7 +12,7 @@ void create()
 {
 	set("short", "攬月居");
 	set("long",@LONG
-這是慕容公子的臥室，房中陳設普通，收拾得頗爲整潔，屋角一架
+這是慕容公子的臥室，房中陳設普通，收拾得頗為整潔，屋角一架
 茂蘭盆景(penjing)長得很是旺盛。晚上月光從窗戶射進來，滿室銀光，
 是燕子塢的一大美景。
 LONG );
@@ -49,7 +49,7 @@ int do_knock(string arg)
 
 	set_temp("marks/pen",1);
 	message_vision("$N突然在盆景上敲了幾下，$N幹嗎呀。\n",me);
-	tell_object(me,"你好象聽見東面有說話的聲音，可是東面什麼都沒有啊？！這何從說起呢？\n");
+	tell_object(me,"你好象聽見東面有説話的聲音，可是東面什麼都沒有啊？！這何從説起呢？\n");
 	return 1;
 }
 int do_say(string arg)

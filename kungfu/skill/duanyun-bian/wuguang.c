@@ -48,7 +48,7 @@ int perform(object me, object target)
 	if( (int)me->query_skill(sskill, 1) < 120 )
 		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 	if ((int)me->query("max_neili") < 600)
-		return notify_fail(RED"你內力修爲不足，無法運足內力。\n"NOR);
+		return notify_fail(RED"你內力修為不足，無法運足內力。\n"NOR);
 	if ((int)me->query("neili") < 600)
 		return notify_fail(HIC"你現在內力不夠，沒能將"PNAME"使完！\n"NOR);
 	msg = HIC "$N"HIC"一聲大喝，右手一振，手中"+weapon->query("name")+HIC"脫手飛出。只見滿天鞭影，盤旋繚繞，遮閉天日，劈頭蓋腦向$n"HIC"砸了下去！\n"NOR;

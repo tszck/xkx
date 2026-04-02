@@ -9,7 +9,7 @@ void create()
 {
 	set_name(HIC "黑玉斷續膏" NOR, ({"heiyugao"}));
 	set("unit", "粒");
-	set("long", "這是一粒千年極其難配製的的黑玉斷續膏，據說能起死回生。\n");
+	set("long", "這是一粒千年極其難配製的的黑玉斷續膏，據説能起死回生。\n");
 	setup();
 }
 

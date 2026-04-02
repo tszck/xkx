@@ -25,10 +25,10 @@ int valid_leave(object me, string dir)
 {
 	if (dir == "south" && me->query("family/family_name") != "桃花島")
 		if (present("zhuang ding", this_object()))
-			return notify_fail("一位莊丁攔住了你，恭恭敬敬地說：“這位貴客請留步，那面是本莊弟子的練武場。”\n");
+			return notify_fail("一位莊丁攔住了你，恭恭敬敬地説：“這位貴客請留步，那面是本莊弟子的練武場。”\n");
 /*
 		else
-			return notify_fail("一位莊丁忽然從花叢裏鑽了出來，攔住了你，恭恭敬敬地說：“這位貴客請留步，那面是本莊弟子的練武場。”\n看你停步不動了，那位莊丁一拱手，又退回了隱身處。\n");
+			return notify_fail("一位莊丁忽然從花叢裏鑽了出來，攔住了你，恭恭敬敬地説：“這位貴客請留步，那面是本莊弟子的練武場。”\n看你停步不動了，那位莊丁一拱手，又退回了隱身處。\n");
 	
 */
 	return ::valid_leave(me, dir);

@@ -34,7 +34,7 @@ mapping *action = ({
 	"skill_name" : "空中流霜",
 	"lvl" : 25
 ]),
-([	"action" : "$N左手變掌爲啄，右掌立掌如刀，一招"+(order[random(13)])+"「汀上白沙」"NOR"，劈向$n的$l",
+([	"action" : "$N左手變掌為啄，右掌立掌如刀，一招"+(order[random(13)])+"「汀上白沙」"NOR"，劈向$n的$l",
 	"skill_name" : "汀上白沙",
 	"lvl" : 30
 ]),
@@ -59,7 +59,7 @@ mapping *action = ({
 	"skill_name" : "青楓浦上",
 	"lvl" : 55
 ]),
-([	"action" : "$N左手虛劃，右手變掌爲鉤一記"+(order[random(13)])+"「樓月蜚回」"NOR"擊向$n的$l",
+([	"action" : "$N左手虛劃，右手變掌為鈎一記"+(order[random(13)])+"「樓月蜚回」"NOR"擊向$n的$l",
 	"skill_name" : "樓月蜚回",
 	"lvl" : 60
 ]),
@@ -75,7 +75,7 @@ mapping *action = ({
 	"skill_name" : "魚龍潛躍",
 	"lvl" : 75
 ]),
-([	"action" : "$N右手由鉤變掌，雙手掌心向上，右掌向前推出一招"+(order[random(13)])+"「月華流照」"NOR"",
+([	"action" : "$N右手由鈎變掌，雙手掌心向上，右掌向前推出一招"+(order[random(13)])+"「月華流照」"NOR"",
 	"skill_name" : "月華流照",
 	"lvl" : 80
 ]),
@@ -171,7 +171,7 @@ int help(object me)
 	write(HIC"\n昊天掌："NOR"\n");
 	write(@HELP
 
-    昊天掌爲全真派武功。
+    昊天掌為全真派武功。
     可與純陽拳互備。
 
 	學習要求：

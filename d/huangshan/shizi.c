@@ -7,7 +7,7 @@ void create()
 	set("long", @LONG
 遠像是一頭臥獅，頭西尾東橫臥於前。上面勝景無數，獅子林，麒
 麟，寶塔等奇松，蒲團，鳳凰等古柏都是罕見的美景，所以向有“沒到
-獅子峯，不見黃山蹤”的盛譽。尤以北方的清涼臺更爲出名，向來是遊
+獅子峯，不見黃山蹤”的盛譽。尤以北方的清涼臺更為出名，向來是遊
 人必去之所。
 LONG
 	);
@@ -27,7 +27,7 @@ int valid_leave(object me, string dir)
 		(ob=present("bai hong", this_object()) ||
 		ob=present("bai huan", this_object())) &&
 		me->query("bellicosity")>50)
-		return notify_fail(ob->name()+"說道：請留步！\n");
+		return notify_fail(ob->name()+"説道：請留步！\n");
 	return 1;
 }
 void reset()

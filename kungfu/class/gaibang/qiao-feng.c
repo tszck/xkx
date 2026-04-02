@@ -13,7 +13,7 @@ void create()
 	set("gender", "男性");
 	set("age", 29);
 	set("long", 
-"他就是丐幫第十任幫主，在江湖上與燕子塢的慕容復並稱爲「北喬峯，南慕容」。
+"他就是丐幫第十任幫主，在江湖上與燕子塢的慕容復並稱為「北喬峯，南慕容」。
 他身穿一件普通的粗布褂子，腰間用一條麻繩隨便一系。他身高六尺有餘，體格
 十分魁梧，長有一張線條粗曠、十分男性化的臉龐，雙目如電，炯炯有神。\n");
 	set("attitude", "peaceful");
@@ -54,7 +54,7 @@ void create()
 	set_skill("stick", 200);             // 基本棒法
 	set_skill("dagou-bang", 300);        // 打狗棒法
 	set_skill("begging", 100);           // 叫化絕活
-	set_skill("checking", 100);          // 道聽途說
+	set_skill("checking", 100);          // 道聽途説
 	set_skill("training", 100);          // 馭獸術
 	set_skill("lianhua-zhang",85); // 蓮花掌
 	
@@ -128,7 +128,7 @@ void attempt_apprentice(object ob)
 	}
 	if ((string)ob->query("party/party_name") != HIC"丐幫"NOR)
 	{
-		command("say 我只收本幫弟子爲徒。\n");
+		command("say 我只收本幫弟子為徒。\n");
 		return;
 	}
 	command("recruit "+ob->query("id"));

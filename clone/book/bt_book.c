@@ -86,7 +86,7 @@ int do_du(string arg)
 	{
 		tell_object(me, "\n
 蛤蟆神功是由當日捕捉玄冰蟾蜍時由此畜生身上習得。現我將玄
-冰蟾蜍封閉在後院巨石堆裏，沒有一定的西毒毒技修爲不得冒然
+冰蟾蜍封閉在後院巨石堆裏，沒有一定的西毒毒技修為不得冒然
 進入，切記！
 \n
     白駝山莊莊主 歐陽鋒字\n\n" NOR);    
@@ -128,7 +128,7 @@ int do_du(string arg)
 		}	
 		if( me->query_skill("lingshe-zhangfa", 1) > 50)
 		{
-			write( "你研讀了一會兒，但是發現上面所說的對你而言都太淺了，沒有學到任何東西。\n");
+			write( "你研讀了一會兒，但是發現上面所説的對你而言都太淺了，沒有學到任何東西。\n");
 			return 1;
 		}
 		me->receive_damage("jing", 15);

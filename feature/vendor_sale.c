@@ -349,7 +349,7 @@ int do_status(string arg)
    hour=(next-hour*3600)/60;
    if(hour)
        str+=chinese_number(hour)+"分種";
-        write("投標獲勝者將於"+str+"後成爲新店主。\n");
+        write("投標獲勝者將於"+str+"後成為新店主。\n");
     }
 
     if(bidder)

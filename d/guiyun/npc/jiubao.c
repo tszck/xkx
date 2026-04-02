@@ -17,7 +17,7 @@ void create()
 		"rumors" : "歸雲莊的弟子們總來這裏，有時候談到桃花島，都流露出嚮往的神情。",
 		"here"   : "這裏是太湖邊，往北走就可以看到歸雲莊了。",
 		"桃花島" : "是東海上的小島，往杭州的東南走，到海邊看能不能僱船吧？",
-		"生意"   : "因爲歸雲莊的弟子們總來照顧小店的生意，所以還算不錯。",
+		"生意"   : "因為歸雲莊的弟子們總來照顧小店的生意，所以還算不錯。",
 		"歸雲莊" : "向北走就能看到。那裏的莊主姓陸，平時難得見到。",
 		"蘇州" : "在揚州的東南邊，出揚州東門去找。",
 		"杭州" : "在蘇州的東南邊。",
@@ -77,7 +77,7 @@ int accept_object(object who, object ob)
 			zhanggui->move(environment());
 		}
 		tell_object(who, "酒保道：“我帶你去掌櫃那裏付帳。”\n");
-		tell_object(who, "你跟着酒保來到櫃檯前，把錢交給掌櫃。\n");
+		tell_object(who, "你跟着酒保來到櫃枱前，把錢交給掌櫃。\n");
 		return zhanggui->accept_object(who, ob);
 	}
 	return 0;
@@ -88,19 +88,19 @@ void kill_ob(object ob)
 	ob->remove_killer(this_object());
 	remove_killer(ob);
 	message_vision("酒保對$N冷笑道：“別裝腔作勢啦，象你這種扮兇巴巴妄圖喫飯不付錢的傢伙我見多了，省省吧。”\n", ob);
-	message_vision("$N心中納悶：“我這番齷齪心思怎麼全被他說中了？”\n", ob);
+	message_vision("$N心中納悶：“我這番齷齪心思怎麼全被他説中了？”\n", ob);
 }
 
 void greeting(object ob)
 {
 	if (!present(ob, environment())) return;
-	say( "酒保笑咪咪地說道：這位" + RANK_D->query_respect(ob) + "，快進來坐。\n");
+	say( "酒保笑咪咪地説道：這位" + RANK_D->query_respect(ob) + "，快進來坐。\n");
 }
 
 void unconcious()
 {
 	say( "酒保大喊一聲：“我不行了，快來接班！”\n");
-	say( "結果從櫃檯後面又鑽出一個酒保來，說：“沒問題，交給我吧。”\n");
+	say( "結果從櫃枱後面又鑽出一個酒保來，説：“沒問題，交給我吧。”\n");
 	say( "前一個酒保快快樂樂地離開了。\n");
 	reincarnate();
 	set("eff_qi", query("max_qi"));

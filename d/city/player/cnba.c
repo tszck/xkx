@@ -97,11 +97,11 @@ void create()
 
 int do_skills()
 {
-message_vision("$N說： 我所有的基本武功如下：\n"+
+message_vision("$N説： 我所有的基本武功如下：\n"+
 "  基本陣法 (array)                         - 初窺門徑  23/    0\n"+
 "  叫化絕活 (begging)                       - 半生不熟  42/    0\n"+
 "  基本刀法 (blade)                         - 初學乍練   5/    0\n"+
-"  道聽途說 (checking)                      - 馬馬虎虎  74/    0\n"+
+"  道聽途説 (checking)                      - 馬馬虎虎  74/    0\n"+
 "  基本爪法 (claw)                          - 一代宗師 195/    0\n"+
 "  基本棍法 (club)                          - 初學乍練   2/    0\n"+
 "  基本拳法 (cuff)                          - 駕輕就熟  99/    0\n"+

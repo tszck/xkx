@@ -59,7 +59,7 @@ void setup_char(object ob)
 		default: 
 			error("Chard: undefined race " + race + ".\n");
 	}
-/* 爲通用獸類保留 */
+/* 為通用獸類保留 */
 	if (race != "人類" && ! ob->query("dead_message"))
 	{
 		ob->set("dead_message", "\n$N仰天慘嚎了一聲，趴在地上不動了。\n\n");
@@ -208,7 +208,7 @@ int break_relation(object player)
 		ob = present("feng qingyang", room);
 		player->delete("family");
 		player->set("title","普通百姓");
-		tell_object(player, RED "\n你已非風清揚的弟子了，好自爲之吧！\n\n" NOR);
+		tell_object(player, RED "\n你已非風清揚的弟子了，好自為之吧！\n\n" NOR);
 		ob->delete( "students/"+std_id );
 		ob->set( "pending", std_id );
 		ob->save();

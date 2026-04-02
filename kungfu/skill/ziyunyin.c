@@ -26,7 +26,7 @@ int valid_learn(object me)
 	if ((me->query_skill("lamaism",1) > 1))
 		return notify_fail("哈哈！"+ RANK_D->query_respect(me)+"已經學了密宗心法，即非我正派中人！\n");
 	if (me->query_skill("ziyunyin", 1) >= 100)
-		return notify_fail("限於資質，你對紫氳吟的理解也就到此爲止了。\n");
+		return notify_fail("限於資質，你對紫氳吟的理解也就到此為止了。\n");
 
 	return 1;
 }
@@ -41,8 +41,8 @@ int help(object me)
 	write(HIC"\n紫氳吟："NOR"\n");
 	write(@HELP
 
-    紫氳吟爲華山心法，配合紫霞神功能增加精。
-    可尋找紫氳譜閱讀。
+    紫氳吟為華山心法，配合紫霞神功能增加精。
+    可尋找紫氳譜閲讀。
 
 	學習要求：
 		紫霞神功30級

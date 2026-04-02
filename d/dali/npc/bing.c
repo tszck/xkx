@@ -7,7 +7,7 @@ void create()
 	set_name("士兵", ({ "shi bing", "bing" }));
 	set("age", 32);
 	set("gender", "男性");
-	set("long", "他是一個大理國禁衛軍士兵，身着錦衣，手執鋼刀，雙目精光炯
+	set("long", "他是一個大理國禁衞軍士兵，身着錦衣，手執鋼刀，雙目精光炯
 炯，警惕地巡視着四周的情形。\n");
 	set("attitude", "peaceful");
 

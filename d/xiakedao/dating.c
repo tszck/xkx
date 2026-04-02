@@ -46,11 +46,11 @@ int do_push(string arg)
         {
                 if ((inv[i]->query("id")=="pai1") &&
                     (inv[i]->query_temp("own")!=me->query("id")))
-                    return notify_fail("俠客島弟子說道：這位" +
+                    return notify_fail("俠客島弟子説道：這位" +
                       RANK_D->query_respect(me) + "好象不是俠客島的客人吧？\n");
                 if ((inv[i]->query("id")=="pai2") &&
                     (inv[i]->query_temp("own")!=me->query("id")))
-                    return notify_fail("俠客島弟子說道：這位" +
+                    return notify_fail("俠客島弟子説道：這位" +
                       RANK_D->query_respect(me) + "好象不是俠客島的客人吧？\n");
         }
         if( !arg || arg!="pingfeng")

@@ -62,7 +62,7 @@ void create()
 		"苗若蘭":   "不知什麼時候還能再見到若蘭姑娘。\n",
 		"若蘭":   "不知什麼時候還能再見到若蘭姑娘。\n",
 		"若蘭姑娘":   "不知什麼時候還能再見到若蘭姑娘。\n",
-		"程靈素":   "二妹是爲我而死的。\n",
+		"程靈素":   "二妹是為我而死的。\n",
 		"趙半山":   "你見我趙三哥了? \n",
 		"袁紫衣":   "算了，別提這傷心事了。\n"
 	]));
@@ -83,7 +83,7 @@ string ask_me()
 		call_out("do_kill",1,this_player());
 	}
 	else if((int)(me->query("shen")<100000))
-		return "以你目前的作爲是不能拿這把刀的。\n";
+		return "以你目前的作為是不能拿這把刀的。\n";
 
    	else if((int)(me->query("shen") > 100000))
 	{
@@ -132,8 +132,8 @@ int accept_object(object me, object ob)
 	if ( !present(ob, me) ) return notify_fail("你沒有這件東西。");
 	if ( (string)ob->query("id") == "yan ji") 
 	{
-		write(HIC "\n胡斐說道：這位" + RANK_D->query_respect(me)+"，如此大恩大德，在下實不知何以爲報。\n");
-		write(HIC "\n胡斐大喜道：狗賊！想不到你也有今天！！手起刀落，將閻基剁爲兩段。\n");
+		write(HIC "\n胡斐説道：這位" + RANK_D->query_respect(me)+"，如此大恩大德，在下實不知何以為報。\n");
+		write(HIC "\n胡斐大喜道：狗賊！想不到你也有今天！！手起刀落，將閻基剁為兩段。\n");
 		ob->die();
 		me->set_temp("marks/hujiadaopu",1);
         }
@@ -145,7 +145,7 @@ string ask_book()
 	object ob, me;
 	
 	me = this_player();
-	if (!me->query_temp("marks/hujiadaopu",1)) return "你說什麼? \n";
+	if (!me->query_temp("marks/hujiadaopu",1)) return "你説什麼? \n";
 	if((int)(me->query("shen")<10000))
 		return "刀譜落入宵小之手，難免是閻基第二。\n";
 
@@ -153,7 +153,7 @@ string ask_book()
 	{
 		if(query("book_count") > 0)
 		{		
-		write(HIC "胡斐說着轉身從閻基屍身上搜出一本破舊書本，遞了給你。\n");
+		write(HIC "胡斐説着轉身從閻基屍身上搜出一本破舊書本，遞了給你。\n");
 			add("book_count", -1);
     			ob = new ("/clone/book/blade_book");
     			ob->move(this_player());

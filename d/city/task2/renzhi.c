@@ -21,7 +21,7 @@ string * des_str=({
 	"他整個人都被裹在一件長大的黑衣裏，默默站在那裏一言不發。\n",
 	"一位微微發胖的人，滿臉堆着笑。\n",
 	"他的眉頭都鎖在一起，似乎對什麼事很擔心的樣子。\n",
-	"這個人猥猥瑣瑣地站在那裏，好象有什麼話又不敢說似的。\n",
+	"這個人猥猥瑣瑣地站在那裏，好象有什麼話又不敢説似的。\n",
 	"一位看起來神神祕祕的人，可是總讓人覺得有點怪異的樣子。\n",
 	"這個人站在那裏好象不停地在發抖，也許是害怕什麼。\n",
 	"他滿臉的皺紋，看起來好象歲數很大，不過仔細一看，又好象並沒有實際那麼大。\n",
@@ -49,7 +49,7 @@ string * escape_msg = ({
 	"$N怯怯地四處看了看，突然叫了起來：“這地方如此偏僻，怎麼能多呆呢，我先走吧。”\n",
 	"$N一回頭，似乎看見遠處有什麼東西掠過，驚得轉身就跑。\n",
 	"忽然聽到$N一聲慘叫，好象被踩住了尾巴的兔子一樣轉身逃了開去。\n",
-	"$N突然恍然般道：“哦，這地方我以前來過，該從這條路走。說罷，轉身就走。”\n"
+	"$N突然恍然般道：“哦，這地方我以前來過，該從這條路走。説罷，轉身就走。”\n"
 ,
 	"$N驀地撒腿就跑，怎麼喊他也不回頭，一溜煙地消失了。\n",
 });
@@ -133,7 +133,7 @@ int do_baohu(string arg)
 	if ( query("leader_name") != me->query("id") )
 		return notify_fail("你沒有負責保護該人質的義務！\n"); 
 	set("gurader_name",me->query("id") );
-	tell_object(me,HIR"注意：你現在開始對人質進行保衛，任何針對人質的攻擊都將自動轉移到你身上！\n"NOR);
+	tell_object(me,HIR"注意：你現在開始對人質進行保衞，任何針對人質的攻擊都將自動轉移到你身上！\n"NOR);
 	return 1;
 }
 
@@ -322,7 +322,7 @@ int do_order(string arg)
 		//目的地到達
 			message_vision(YEL"$N長出了一口氣道：哎，終於到了。不知道從哪裏冒出來一輛馬車將$N接上了車，然後揚塵而去。\n"NOR,this_object(),me);
 			tell_object(me,HIW"恭喜你成功將人質送到目的地，完成了這項任務！\n"NOR);
-			message("channel:chat", HIM"【謠言】聽說"+ me->query("name") +"成功將人質護送到目的地了！\n"NOR,users());
+			message("channel:chat", HIM"【謠言】聽説"+ me->query("name") +"成功將人質護送到目的地了！\n"NOR,users());
              
                         i = 0;
 			give_exp = lay_exp * query("total_steps");
@@ -340,7 +340,7 @@ int do_order(string arg)
 			if(give_score > 1500 ) give_score = 1000 + random(500);
 			log_file("mission/ms_renzhi",sprintf("%20s做保護人質任務，得到：%4i點EXP和%4i點潛能。\n",
        me->query("name")+"("+getuid(me)+")",give_exp,give_pot));
-			tell_object(me,HIW + sprintf("你被獎勵了！得到%s點經驗和%s點潛能，%s點江湖閱歷。\n", chinese_number(give_exp), chinese_number(give_pot), chinese_number(give_score) ) + NOR);
+			tell_object(me,HIW + sprintf("你被獎勵了！得到%s點經驗和%s點潛能，%s點江湖閲歷。\n", chinese_number(give_exp), chinese_number(give_pot), chinese_number(give_score) ) + NOR);
 			me->add("combat_exp",give_exp);
 			me->add("potential",give_pot);
 			me->add("score",give_score);

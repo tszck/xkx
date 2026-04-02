@@ -10,7 +10,7 @@ void create()
 	set("age", 50);
 	set("long",
 	"這是個老實巴交的老僕人，雖然衣服上打了很多補丁，卻是十分的整潔。\n"
-	"因爲長期待在廚房裏，眼睛被煙燻成了一條縫。\n");
+	"因為長期待在廚房裏，眼睛被煙燻成了一條縫。\n");
 	set("attitude", "friendly");
 	set("shen_type", 1);
 
@@ -55,7 +55,7 @@ void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
 
-	say("僕人笑吟吟地說道：這位" + RANK_D->query_respect(ob)
+	say("僕人笑吟吟地説道：這位" + RANK_D->query_respect(ob)
 		+ "請先入座，" + "我這就給您上茶。\n");
 }
 

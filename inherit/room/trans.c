@@ -10,7 +10,7 @@ inherit ROOM;
 void init_connections();
 
 // 交通要點，所有交通信息保存在 MAP_D 中，本地連接情況保存在
-// F_DBASE 中的 trans 變量中，前爲所去地點，後爲價格。
+// F_DBASE 中的 trans 變量中，前為所去地點，後為價格。
 
 // 提示給顧客的信息
 string trans_prompt()
@@ -143,7 +143,7 @@ int do_goto(string arg)
         me = this_player();
 
         if (me->is_busy())
-                return notify_fail("什麼都等你忙完了再說吧。\n");
+                return notify_fail("什麼都等你忙完了再説吧。\n");
 
         pos = MAP_D->query_trans_info(arg);
 
@@ -214,12 +214,12 @@ int do_goto(string arg)
         {
                 if (MONEY_D->player_pay(me, pay) != 1)
                 {
-                        write(CYN "馬伕皺了皺眉頭，說道：小本經營，概不"
+                        write(CYN "馬伕皺了皺眉頭，説道：小本經營，概不"
                               "賒帳，準備好零錢再來。\n" NOR);
                         return 1;
                 }
 
-                message_vision(WHT "$N" WHT "付了帳，對馬伕說了兩句什麼。\n"
+                message_vision(WHT "$N" WHT "付了帳，對馬伕説了兩句什麼。\n"
                                NOR, me);
         }
 

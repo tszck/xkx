@@ -79,7 +79,7 @@ void greeting(object ob)
 	if(family!="泰山派")
 		command("say "+RANK_D->query_respect(ob)+ "不要在泰山上亂轉。");
 	else
-		command("say "+ob->query("name")+"要多加努力，爲本派爭光啊。");
+		command("say "+ob->query("name")+"要多加努力，為本派爭光啊。");
 }
 
 void attempt_apprentice(object ob)

@@ -16,7 +16,7 @@ mapping wanted_list = ([
 	"/clone/weapon/treasure/green-sword.c"      : 1 ,//碧水劍
 	"/clone/weapon/treasure/jiandao.c"          : 1 ,//五毒剪
 	"/clone/weapon/treasure/jiaowei-qin.c"      : 1 ,//焦尾琴
-	"/clone/weapon/treasure/jinfenggou.c"       : 1 ,//金鳳鉤
+	"/clone/weapon/treasure/jinfenggou.c"       : 1 ,//金鳳鈎
 	"/clone/weapon/treasure/jinhua.c"           : 1 ,//奪命金花
 	"/clone/weapon/treasure/jinlun.c"           : 1 ,//金輪
 	"/clone/weapon/treasure/jinlongbian.c"      : 1 ,//金龍鞭
@@ -56,7 +56,7 @@ mapping wanted_list = ([
 	"/clone/book/medicine7.c"                   : 1 ,//王難姑毒經
 //	"/clone/book/jinshe1.c"                     : 1 ,//金蛇祕籍上冊
 //	"/clone/book/yijing0.c"                     : 1 ,//易經序卦篇
-//	"/clone/book/yijing1.c"                     : 1 ,//易經說卦篇
+//	"/clone/book/yijing1.c"                     : 1 ,//易經説卦篇
 //	"/clone/book/yijing2.c"                     : 1 ,//易經雜卦篇
 //	"/clone/book/yijing3.c"                     : 1 ,//易經繫辭篇
 	"/clone/book/jiuyin1.c"                     : 1 ,//九陰真經上冊

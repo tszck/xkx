@@ -8,7 +8,7 @@ void create()
       set("short","石柱");
       set("long",@LONG
 這是南巖宮前的一根石柱，雕成龍形，自峭壁上橫出，猶如飛龍在
-天。龍首刻一香爐，在此上香稱爲“上龍頭香”，是香客的最大心願。
+天。龍首刻一香爐，在此上香稱為“上龍頭香”，是香客的最大心願。
 石柱僅粗如屋樑，旁無扶欄，前有白雲繚繞，下有萬丈深淵，稍一失足，
 即屍骨無存。
 LONG);
@@ -47,7 +47,7 @@ int do_mianbi(string arg)
    }
    if ((int)ob->query_skill("literate", 1) <100)
    {
-      message_vision("$N對石柱上每一個字都認識，就是不知道說的是什麼。\n",ob);
+      message_vision("$N對石柱上每一個字都認識，就是不知道説的是什麼。\n",ob);
       return 1;
    }
    if (((int)ob->query_skill("huagong-dafa", 1) >0)||

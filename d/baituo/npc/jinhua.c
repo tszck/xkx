@@ -22,7 +22,7 @@ void create()
 	set("chat_msg",({
 		"金花哭泣着：我的命怎麼這麼苦喲￣\n",
 		"金花抹着眼淚：娘呀，我好想你呀！\n",
-		"金花嘆口氣說道：不知今生今世能否再見到我娘￣\n"
+		"金花嘆口氣説道：不知今生今世能否再見到我娘￣\n"
 	}) );
 	set("inquiry",([
 		"張媽" : "金花睜大了眼睛：你知道我娘？你可有她給你的信物？快給我看看！\n",
@@ -48,7 +48,7 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	say("金花一見有人進來急忙說：這位" + RANK_D->query_respect(ob)
+	say("金花一見有人進來急忙説：這位" + RANK_D->query_respect(ob)
 		+"，我娘是『白駝山莊』的老傭人。你可有她的消息？\n");
 }
 
@@ -64,9 +64,9 @@ int accept_object(object who, object ob)
 	if (  (string)ob->query("id") != "flower shoe")
 		return notify_fail("金花不需要這件東西。\n");
 	write( HIY "金花雙手捧着繡花鞋，淚如雨下：\n
-       娘，您還健在，您還掛着女兒啊！我還以爲￣￣嗚￣\n" NOR );
+       娘，您還健在，您還掛着女兒啊！我還以為￣￣嗚￣\n" NOR );
 
-	message_vision("金花抹了把眼淚，不好意思笑笑說：這位"+RANK_D->query_respect(who)+"見笑了。\n我也沒什麼東西報答你，我只知道山賊頭有個錢箱藏在牀下。\n我這就給你搬出來。\n",who);
+	message_vision("金花抹了把眼淚，不好意思笑笑説：這位"+RANK_D->query_respect(who)+"見笑了。\n我也沒什麼東西報答你，我只知道山賊頭有個錢箱藏在牀下。\n我這就給你搬出來。\n",who);
 	message_vision("$N幫金花從牀下搬出來一隻錢箱，$N迫不及待地打開一看￣\n哇￣￣￣好多好多的金子喲！$N毫不客氣地把金子全裝進衣服裏，\n那知金子太沉把衣服撐出條大口子，金花在一旁看着直樂，\n$N不那麼自然地搔搔頭，也跟着‘嘿嘿’傻笑。\n", who);
 	obn = new("/clone/money/gold");
 	obn->set_amount(1);

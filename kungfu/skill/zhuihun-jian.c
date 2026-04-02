@@ -109,7 +109,7 @@ int help(object me)
 	學習要求：
 		紅花神功50級
 		基本劍法50級
-		內力修爲300
+		內力修為300
 HELP
 	);
 	return 1;

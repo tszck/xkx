@@ -72,7 +72,7 @@ int do_zhua(string arg)
 	me->receive_damage("qi", random(30));
 	if( random((int)c_skill/10) + 1 < 2)
 	{
-		message_vision("$N撲過去就抓。可是麻雀靈便異常，東飛西撲，$N氣喘吁吁，累得滿頭大汗，別說捉到，連羽毛也碰不到一根。\n", me);
+		message_vision("$N撲過去就抓。可是麻雀靈便異常，東飛西撲，$N氣喘吁吁，累得滿頭大汗，別説捉到，連羽毛也碰不到一根。\n", me);
 		return 1;
 	}
 	message_vision("$N輕輕縱起，伸手處，正好逮住一隻麻雀。\n", me);

@@ -29,6 +29,6 @@ int valid_leave(object me, string dir)
 {
         if (!wizardp(me) && objectp(present("di zi", environment(me))) &&
                 dir == "south")
-                return notify_fail("俠客島弟子攔住你說：這是本島禁地，請回吧。\n");
+                return notify_fail("俠客島弟子攔住你説：這是本島禁地，請回吧。\n");
         return ::valid_leave(me, dir);
 }

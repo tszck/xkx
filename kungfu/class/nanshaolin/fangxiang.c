@@ -134,7 +134,7 @@ int do_massage(string arg)
 	if(ob->query("name")==me->query("massage_name")) 
 	{
 		command("pat "+ob->query("id"));
-		command("say 真難爲你了，方丈去休息了，阿彌陀佛！");
+		command("say 真難為你了，方丈去休息了，阿彌陀佛！");
 		ob->add("potential",(int)(ob->query_skill("buddhism",1)/10)+30);
 		ob->add("combat_exp",(int)(ob->query_skill("buddhism",1)/4)+90);
 		me->delete("massage_name");
@@ -144,7 +144,7 @@ int do_massage(string arg)
 		ob->delete_temp("mark/按摩完");
 		return 1;
 	}
-	return notify_fail("方相問道：你剛纔進去服侍方丈了？\n");
+	return notify_fail("方相問道：你剛才進去服侍方丈了？\n");
 }
 #include "/kungfu/class/nanshaolin/fang.h";
 

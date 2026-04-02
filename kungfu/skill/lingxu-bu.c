@@ -11,7 +11,7 @@ string *dodge_msg = ({
 	"$n一式"HIY"「一狐沖天」"NOR"，雙腳點地，身子突然拔高了丈許，緩緩飄落在$N身後。\n",
 	"$n一式"CYN"「移行幻影」"NOR"，身行一晃，頓時無數條身影一下子出現在$N的面前。\n",
 	"$n一式"MAG"「狡兔三窟」"NOR"，飄然向後一退，躲開$N的凌厲攻勢。\n",
-	"$n一式"BLU"「煙雨飄渺」"NOR"，身體急轉，化爲一道白光，虛幻不定的出現在$N的周圍。\n",
+	"$n一式"BLU"「煙雨飄渺」"NOR"，身體急轉，化為一道白光，虛幻不定的出現在$N的周圍。\n",
 });
 
 int valid_enable(string usage) { return (usage=="dodge") || (usage=="move"); }
@@ -44,7 +44,7 @@ int help(object me)
 	write(HIC"\n凌虛步："NOR"\n");
 	write(@HELP
 
-    凌虛步爲恆山派輕功。
+    凌虛步為恆山派輕功。
 
 	學習要求：
           白雲心法10級

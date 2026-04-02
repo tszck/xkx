@@ -68,7 +68,7 @@ int do_marry(string arg)
 		return 1;
 	}
 	if ( (string)me->query("class")=="bonze")
-		return notify_fail("紅娘笑罵道: 你是出家人，結什麼婚！你以爲你是不戒和尚啊。\n");
+		return notify_fail("紅娘笑罵道: 你是出家人，結什麼婚！你以為你是不戒和尚啊。\n");
 	if ( (int)me->query("age")<17)
 		return notify_fail("紅娘笑道: 你還小，等到十七歲再來吧。\n");
 	if ( me->query("couple/couple_id"))
@@ -79,7 +79,7 @@ int do_marry(string arg)
 	if( !environment() || base_name(environment()) != query("startroom") )
 		return notify_fail("紅娘笑道: 真是抱歉，請您等一下到紅娘莊來找我吧。\n");
 	if( !living(obj) )
-		return notify_fail("紅娘嘆口氣對你說道: "+obj->name()+"已經無法和你締結良緣了。\n");
+		return notify_fail("紅娘嘆口氣對你説道: "+obj->name()+"已經無法和你締結良緣了。\n");
 	if( obj->query("couple/couple_id"))
 		return notify_fail("紅娘笑了起來: 人家已經結婚了吧？\n");
 	if( obj->query("couple/times") > 2)
@@ -87,19 +87,19 @@ int do_marry(string arg)
 	if(obj==me)
 		return notify_fail("紅娘笑道: 和自己締結婚約？你有病啊！\n");
 	if((string)obj->query("gender")== (string)me->query("gender"))
-		return notify_fail("紅娘笑道: 同性戀？沒聽說過。\n");
+		return notify_fail("紅娘笑道: 同性戀？沒聽説過。\n");
 	if (SCBORN_D->query_scborn_times(me)!=SCBORN_D->query_scborn_times(obj))
 		return notify_fail("紅娘笑道：你們不是一個輩分的人，沒法成親。\n");
 	if( userp(obj) && !((object)obj->query_temp("marks/"+me->name(1))))
 	{
-		message_vision(MAG "\n$N對著$n說道："+ RANK_D->query_self(me)
+		message_vision(MAG "\n$N對著$n説道："+ RANK_D->query_self(me)
 			+ me->name() + "，願意和"+ RANK_D->query_respect(obj)
-			+ "結爲夫婦\n\n"NOR, me,obj);
+			+ "結為夫婦\n\n"NOR, me,obj);
 		me->set_temp("marks/"+obj->name(1), 1);
-		tell_object(obj, MAG "如果你願意和對方結爲夫婦，請你也對"
+		tell_object(obj, MAG "如果你願意和對方結為夫婦，請你也對"
 			+me->name() + "("+(string)me->query("id")+
 			")"+ "下一次 marry 指令。\n" NOR);
-		write(MAG "現在你急切盼望着你的心上人說同意……\n" NOR);
+		write(MAG "現在你急切盼望着你的心上人説同意……\n" NOR);
 		return 1;
 	}
 
@@ -158,7 +158,7 @@ int do_unmarry(string arg)
 	if( userp(couple_ob) && !((object)couple_ob->query_temp("marks/"
 		+ "unmarry" +me->name(1))) )
 	{
-		message_vision(MAG "\n$N對著$n說道：" + RANK_D->query_self(me)
+		message_vision(MAG "\n$N對著$n説道：" + RANK_D->query_self(me)
 			+ me->name() + "，咱們解除婚約吧！好嗎？\n\n"
 			NOR, me, couple_ob);
 		me->set_temp("marks/"+"unmarry"+couple_ob->name(1), 1);

@@ -84,7 +84,7 @@ int do_push(string who)
 	if( me->is_busy() )
 		return notify_fail("你現在自顧都不暇，還有心思害別人？\n");
 	if( !victim->is_character() || victim->query("id") == "corpse" )
-		return notify_fail("要推，也只能推人下去纔有意思啊。\n");
+		return notify_fail("要推，也只能推人下去才有意思啊。\n");
 	if( objectp(weapon = me->query_temp("weapon")) )
 		return notify_fail("拿着"+weapon->name()+"怎麼推人？\n");
 	message_vision( CYN"\n$N一晃之際，已繞到$n身旁，突然勁貫雙臂，猛的將$p向峭壁推去"NOR"！\n", me, victim);
@@ -195,7 +195,7 @@ int fall_down(object me, string type, int stage)
 					inv[i]->query_skill_prepared("unarmed") == "taiji-quan" &&
 					inv[i]->query_skill_mapped("parry") == "taiji-quan" )
 				{
-					message_vision(CYN "$N當即使出一招「攬雀尾」，右腳實，左腳虛，運起“擠”字訣，粘連粘隨，右掌已搭住$n，橫勁發出，將$p下墮之力轉直爲橫，將$n移得橫飛出去。\n"NOR, inv[i], me);
+					message_vision(CYN "$N當即使出一招「攬雀尾」，右腳實，左腳虛，運起“擠”字訣，粘連粘隨，右掌已搭住$n，橫勁發出，將$p下墮之力轉直為橫，將$n移得橫飛出去。\n"NOR, inv[i], me);
 					tell_object(inv[i], HIR"你只覺霎時之間頭暈眼花，幾欲坐倒。\n"NOR);
 					inv[i]->set("neili", 0);
 				}
@@ -216,7 +216,7 @@ int fall_down(object me, string type, int stage)
 		{
 			case 0 : tell_object(me, "鮮血迸流，鼻子歪在半邊，卻便似開了個油鋪∶鹹的，酸的，辣的，一發都滾出來。\n");
 				 break;
-			case 1 : tell_object(me, "眼棱縫裂，烏珠迸出，也似開了個彩帛鋪的∶"HIR"紅"NOR"的，"BLU"黑"NOR"的，"MAG"紫"NOR"的，都綻將出來。\n");
+			case 1 : tell_object(me, "眼稜縫裂，烏珠迸出，也似開了個彩帛鋪的∶"HIR"紅"NOR"的，"BLU"黑"NOR"的，"MAG"紫"NOR"的，都綻將出來。\n");
 				 break;
 			case 2 : tell_object(me, "太陽上正着，卻似做了一全堂水陸的道場∶磐兒，鈸兒，鐃兒，一齊響。\n");
 				 break;

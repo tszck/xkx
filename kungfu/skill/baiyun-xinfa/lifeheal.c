@@ -11,7 +11,7 @@ int exert(object me, object target)
   !me->query_temp("murong/xingyi"))
    return notify_fail("你所使用的內功中沒有這種功能。");
 	if( (!target)||target->query("id")==me->query("id"))
-		return notify_fail("你要用真氣爲誰療傷？\n");
+		return notify_fail("你要用真氣為誰療傷？\n");
 
 	if( me->is_fighting() || target->is_fighting())
 		return notify_fail("戰鬥中無法運功療傷！\n");
@@ -25,10 +25,10 @@ int exert(object me, object target)
 		return notify_fail(target->name()+"現在正忙着呢！\n");
 
 	if( (int)me->query_skill("baiyun-xinfa") < 20 )
-		return notify_fail("你的白雲心法修爲不夠。\n");
+		return notify_fail("你的白雲心法修為不夠。\n");
 
 	if( (int)me->query("max_neili") < 300 )
-		return notify_fail("你的內力修爲不夠。\n");
+		return notify_fail("你的內力修為不夠。\n");
 
 	if( (int)me->query("neili") < 150 )
 		return notify_fail("你的真氣不夠。\n");
@@ -58,7 +58,7 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		爲他人療傷
+		為他人療傷
 
 	出手要求：
 		白雲心法20級

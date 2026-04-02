@@ -13,7 +13,7 @@ void create()
         set("nickname", CYN "神算子" NOR ) ;
         set("age", 42);
         set("long",
-        "但見她額頭滿布皺紋，面頰卻如凝脂，一張臉以眼爲界，上
+        "但見她額頭滿布皺紋，面頰卻如凝脂，一張臉以眼為界，上
 半老，下半少，卻似相差了二十多歲年紀。\n",);
 
         set("combat_exp", 1000000);
@@ -67,7 +67,7 @@ string ask_book()
 		fam["family_name"] != "大理段家") ||
 		(query("book_count") < 1) ) 
 		return RANK_D->query_respect(this_player()) + 
-		"說什麼？我實在不明白。";
+		"説什麼？我實在不明白。";
 
 	if (this_player()->query_skill("literate",1) < 100)
 		return RANK_D->query_respect(this_player()) + 
@@ -86,7 +86,7 @@ string ask_yideng()
 	
 	if (query("yideng_count") < 1)
 		return RANK_D->query_respect(this_player()) + 
-		"想說什麼？找一燈大師，那可別找我。";
+		"想説什麼？找一燈大師，那可別找我。";
 	add("yideng_count", -1);
 	ob = new(__DIR__"obj/whiteobj");
 	ob->move(this_player());

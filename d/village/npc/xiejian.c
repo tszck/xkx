@@ -32,7 +32,7 @@ void create()
 	set("attitude", "peaceful");
 	set("chat_chance", 1);
 	set("chat_msg", ({
-		"李四說道: 這位客官，您想買些什麼東西嗎 ?\n",
+		"李四説道: 這位客官，您想買些什麼東西嗎 ?\n",
 	}) );
 
 	set("inquiry", ([
@@ -95,10 +95,10 @@ int do_name(string target)
 		return notify_fail("李四嘿嘿一笑：我現在正忙着哪，您呆會兒在來吧！\n");
 	
 	if( !this_player()->query_temp("fee_paid") ) 
-		return notify_fail("李四說道：不管叫我做什麼，您可得先付錢哪！\n");
+		return notify_fail("李四説道：不管叫我做什麼，您可得先付錢哪！\n");
 
 	if( !target || target==" ") 
-		return notify_fail("李四惡狠狠地說道：快告訴我那傢伙的名字，我可沒功夫聽你閒聊！\n");
+		return notify_fail("李四惡狠狠地説道：快告訴我那傢伙的名字，我可沒功夫聽你閒聊！\n");
 
 	for(i=0; i<sizeof(all); i++) 
 	{
@@ -128,7 +128,7 @@ int do_name(string target)
 	me->delete("chat_msg");
 
 	message("vision",
-		HIY "李四嘿嘿嘿地乾笑了幾聲，說道：您就在這兒靜侯好音吧!\n"NOR,
+		HIY "李四嘿嘿嘿地乾笑了幾聲，説道：您就在這兒靜侯好音吧!\n"NOR,
 		environment(), me );
  
 	me->set("pursuer", 1);
@@ -149,14 +149,14 @@ int accept_object(object who, object ob)
 	if (ob->query("money_id") && ob->value() >= 1000000 
 		&& !this_object()->query("waiting_target")) 
 	{
-		tell_object(who, "李四沉下臉來：好，爽快說吧，你要我幫你殺誰？\n");
+		tell_object(who, "李四沉下臉來：好，爽快説吧，你要我幫你殺誰？\n");
 		tell_object(who, "請鍵入：殺 目標中文名字\n");
 		who->set_temp("fee_paid",1);
 		return 1;
 	}
 	else if (ob->query("money_id") && ob->value() < 1000000) 
 	{
-		tell_object(who, "李四嘿嘿一笑，說道：給我這麼多錢？ 將來我可沒法還你啊。\n");
+		tell_object(who, "李四嘿嘿一笑，説道：給我這麼多錢？ 將來我可沒法還你啊。\n");
 		return 1;
 	}
 
@@ -200,7 +200,7 @@ int do_kill(object me, object dest)
 	if( objectp(dest) && present(dest, environment(me))
 		 && !environment(me)->query("no_fight"))
 	{
-		message_vision(HIR "$N對$n說道：陰司鬼王差我來，請你去他那兒做客，"
+		message_vision(HIR "$N對$n説道：陰司鬼王差我來，請你去他那兒做客，"
 			+RANK_D->query_rude(dest)+"，你認命吧！\n" NOR, me, dest);
 		me->set_leader(dest);
 		me->kill_ob(dest);
@@ -269,7 +269,7 @@ int do_back(object me)
 
 	me->move("/d/village/shop");
 	message("vision", "李四走了進來，拍了拍身上的塵土，把劍上的血跡抹拭乾淨，\n"
-		"他接着一笑說道：老天爺保佑，活兒幹得乾淨利落，您老以後有什麼事還可以找我。\n", 
+		"他接着一笑説道：老天爺保佑，活兒幹得乾淨利落，您老以後有什麼事還可以找我。\n", 
 		environment(), me );
 
 	me->set("title", "小店老闆");
@@ -279,7 +279,7 @@ int do_back(object me)
 	me->set_leader(0);
 	me->set("chat_chance", 1);
 	me->set("chat_msg", ({
-		"李四說道: 這位客官，您想買些什麼東西嗎 ?\n",
+		"李四説道: 這位客官，您想買些什麼東西嗎 ?\n",
 	}) );
 
 	return 1;

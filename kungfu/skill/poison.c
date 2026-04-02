@@ -28,7 +28,7 @@ int valid_learn(object me)
 		(me->query_skill("zhengqijue",1) > 1))
 		return notify_fail("哈哈！"+ RANK_D->query_respect(me)+"已經學了名門正派的心法，怎麼卻來學你們不恥的毒技？\n");
 	if (me->query_skill("poison", 1) >= 150)
-		return notify_fail("限於資質，你對基本毒技的理解也就到此爲止了。\n");
+		return notify_fail("限於資質，你對基本毒技的理解也就到此為止了。\n");
 	return 1;
 }
 

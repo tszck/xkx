@@ -289,7 +289,7 @@ int set_desc(int w_lv,string w_or,string w_name)
 			result3= "一股溫和的王者之氣悠悠的散發了出來。兵刃晃動，恍若"HIC"冷月斷魂。\n"NOR;
 			break;
 		default:
-			result3= "一種莊嚴，溫和，凜然而不可侵犯的氣息讓人不敢有一絲褻瀆之意, 它已經返樸歸真，成爲真正的上古神兵。兵刃晃動，直欲"HIC"氣衝鬥牛。\n"NOR;
+			result3= "一種莊嚴，溫和，凜然而不可侵犯的氣息讓人不敢有一絲褻瀆之意, 它已經返樸歸真，成為真正的上古神兵。兵刃晃動，直欲"HIC"氣衝鬥牛。\n"NOR;
 	}
 
 	result4="上面用小篆刻着一行小字：\n\t"+player_name+"鑄於"+make_time+"\n";

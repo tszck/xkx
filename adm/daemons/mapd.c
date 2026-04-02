@@ -317,8 +317,8 @@ public string query_maps(string outdoors)
 }
 
 // 獲得地圖中某一行的第x開始的n個字符，其中地圖行中@打頭的字
-// 符及後續字符一概認爲不佔地方。比如"@B123@E"，則第二個字符
-// 是'2'，而不是B。如果n爲-1，則返回一直到末尾的所有字符
+// 符及後續字符一概認為不佔地方。比如"@B123@E"，則第二個字符
+// 是'2'，而不是B。如果n為-1，則返回一直到末尾的所有字符
 //
 // 這樣存在問題，有必要引入一個變量， 標識是否取回顏色，不過
 // 由於出錯的幾率相當小，所以姑且不計。
@@ -354,7 +354,7 @@ string get_map_line(string line, int x, int n)
         }
 
         // 截取n個字符
-        // 爲什麼這裏用do-while，而不直接用while？這是有原因
+        // 為什麼這裏用do-while，而不直接用while？這是有原因
         // 的。
         rs = "";
         for (;;)
@@ -386,9 +386,9 @@ string get_map_line(string line, int x, int n)
         return rs;
 }
 
-// 爲地點標記顏色：名字必須爲中文
-// 標記的時候一行行掃描，掃描的同時打標記，將標記設置爲@B和
-// @E，如果掃描成功就把@B和@E替換成爲@R和@N，否則就去掉這些
+// 為地點標記顏色：名字必須為中文
+// 標記的時候一行行掃描，掃描的同時打標記，將標記設置為@B和
+// @E，如果掃描成功就把@B和@E替換成為@R和@N，否則就去掉這些
 // 臨時標記。
 // 最後將將所有的標記替換成顏色：@R->WHT @N->NOR
 public string mark_map(string map, string name)
@@ -476,7 +476,7 @@ public string mark_map(string map, string name)
                                 lines[y] = rs;
                                 while (y >= i)
                                 {
-                                        // 將標記設置爲正常標記
+                                        // 將標記設置為正常標記
                                         lines[y] = replace_string(lines[y], "@B", "@R");
                                         lines[y] = replace_string(lines[y], "@E", "@N");
                                         y--;

@@ -28,7 +28,7 @@ mapping *solarfete = ({
 	([	"month" :  4, "day" :  1, "name" : GRN"愚人節"NOR]),
 	([	"month" :  4, "day" :  5, "name" : CYN"清明節"NOR]),
 	([	"month" :  4, "day" :  6, "name" : RED"廈門大學校慶"NOR]),
-	([	"month" :  4, "day" :  7, "name" : CYN"世界衛生日"NOR]),
+	([	"month" :  4, "day" :  7, "name" : CYN"世界衞生日"NOR]),
 	([	"month" :  4, "day" :  9, "name" : CYN"耶酥受難日"NOR]),
 	([	"month" :  4, "day" : 12, "name" : CYN"復活節星期一"NOR]),
 	([	"month" :  4, "day" : 22, "name" : CYN"世界地球日"NOR]),

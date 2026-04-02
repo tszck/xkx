@@ -46,13 +46,13 @@ void init()
 			if (userp(ob[i]) && !wizardp(ob[i]) && ob[i] != me)
 			{
 				write("沒想到" + ob[i]->name() + "也藏在樹上！\n");
-				message_vision("因爲樹枝無法承受兩個人的重量，“啪”地一聲折斷了！\n", me);
+				message_vision("因為樹枝無法承受兩個人的重量，“啪”地一聲折斷了！\n", me);
 				me->move(DOWN_TREE, 1);
 				ob[i]->move(DOWN_TREE, 1);
 				message_vision("只聽“唏哩嘩啦”一陣亂響，$N和$n從樹上掉了下來。\n", me, ob[i]);
 				message_vision("$N大怒，衝$n嚷道：“" + RANK_D->query_self_rude(ob[i]) + "在上面呆的好好的，你個" + RANK_D->query_rude(me) + "幹嘛來搗亂？”\n", ob[i], me);
 				message_vision("$N也不服氣地反駁道：“你躲在上面，一看就知道不是好人！”\n", me);
-				message_vision("兩人越說越僵，終於拳腳相加！\n", me);
+				message_vision("兩人越説越僵，終於拳腳相加！\n", me);
 				me->fight_ob(ob[i]);
 				ob[i]->fight_ob(me);
 				return;

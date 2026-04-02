@@ -50,7 +50,7 @@ int perform(object me, object target)
 	if( (int)me->query_skill(sskill, 1) < 100 )
 		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，使不出"+PNAME+"。\n");
 	if( (int)me->query("max_neili") < 2000 )
-		return notify_fail("你現在內力修爲不足，使不出蛤蟆功絕招！\n");
+		return notify_fail("你現在內力修為不足，使不出蛤蟆功絕招！\n");
 	if( (int)me->query("neili") < 1200 )
 		return notify_fail("你現在內力不足，使不出蛤蟆功的絕招！\n");
 	if( me->query_temp("hmg_hama") )
@@ -226,7 +226,7 @@ int help(object me)
 	出手要求：
 		蛤蟆功150級
 		基本掌法100級
-		內力修爲2000
+		內力修為2000
 		內力1200
 HELP
 	);

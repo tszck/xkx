@@ -46,7 +46,7 @@ void create()
 	prepare_skill("leg", "jueming-leg");
 
 	set("party/party_name", HIY"神龍教"NOR);
-	set("party/rank", HIR"赤龍門"NOR"教衆");
+	set("party/rank", HIR"赤龍門"NOR"教眾");
 	set("party/level", 1);
 	create_family("神龍教", 3, "弟子");
 
@@ -73,12 +73,12 @@ int do_work()
 
 	if( !me->query("sg/spy") && !wizardp(me) )
 	{
-		say("方怡哼了一聲說：假仁假義的東西，還不給我滾！\n");
+		say("方怡哼了一聲説：假仁假義的東西，還不給我滾！\n");
 		return 1;
 	}
 	if( me->query_temp("marks/方a") )
 	{
-		say("方怡不耐煩地說道：有完沒完了？\n");
+		say("方怡不耐煩地説道：有完沒完了？\n");
 		return 1;
 	}
 	if( time() < me->query("marks/方c") + 180 )
@@ -92,7 +92,7 @@ int do_work()
 	me->set("marks/方c", time());
 
 	fwant = fjob[random(sizeof(fjob))];
-	fword = sprintf("方怡嘆了口氣，說道：奉教主之命，捉%s來配藥。\n",fwant);
+	fword = sprintf("方怡嘆了口氣，説道：奉教主之命，捉%s來配藥。\n",fwant);
 	say(fword);
 	me->set_temp("marks/毒蛇", fwant);
 	return 1;
@@ -137,7 +137,7 @@ int accept_object(object who, object ob)
 	command("jump " + who->query("id"));
 	command("secret " + who->query("id"));
 
-	message_vision("方怡在$N耳邊悄悄的說了幾句話。\n", who);
+	message_vision("方怡在$N耳邊悄悄的説了幾句話。\n", who);
 	if( who->query_skill("medicine", 1) < 30 )
 		who->improve_skill("medicine", random(2 * who->query("int")));
 

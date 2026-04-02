@@ -6,7 +6,7 @@ void create()
 {
 	set("short", "聽雨居");
 	set("long", @LONG
-這個小居建在湖上，看上去沒有什麼特別之處。四面爲水，湖上煙
+這個小居建在湖上，看上去沒有什麼特別之處。四面為水，湖上煙
 波盡收眼底。唯一奇怪的是這兒放着一具瑤琴(qin)。
 LONG );
 	set("item_desc", ([
@@ -40,7 +40,7 @@ int do_tan (string arg)
 	object room;
 	object ob = this_player();
 	if (!arg||arg!="qin") return notify_fail("你要彈什麼？\n");
-	message_vision("$N輕輕的在琴上一撥，鐺的一聲，聲音頗爲宏亮。\n\n"
+	message_vision("$N輕輕的在琴上一撥，鐺的一聲，聲音頗為宏亮。\n\n"
 		+"似乎這琴有點古怪.....\n"
 		+"$N正納悶間，忽覺腳底一虛，身子往下直沉.....\n", ob );
 	tell_object(ob, "\n你忍不住啊喲一聲，便掉入了一個軟綿綿的所在！原來是一艘小船。\n\n" ) ;

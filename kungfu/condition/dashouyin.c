@@ -14,7 +14,7 @@ int update_condition(object me, int duration)
 	damage = me->query_condition("dashouyin") +2;
 	damage *= me->query_con();
 	
-	tell_object(me,"突然你感覺胸口疼痛異常，剛纔被大手印拍中的肋骨處好象要裂開了似的，鮮血也從口中噴了出來！\n");
+	tell_object(me,"突然你感覺胸口疼痛異常，剛才被大手印拍中的肋骨處好象要裂開了似的，鮮血也從口中噴了出來！\n");
 	tell_room(environment(me),HIR + me->name()+"突然一言不發，雙手捂胸，蹬蹬磴倒退了數步，接着哇得一聲吐出口鮮血來！\n" NOR,({ me }));
 	me->receive_damage("qi", damage,"大手印勁力發作");
 	me->receive_wound("qi", damage/2,"大手印勁力發作");

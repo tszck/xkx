@@ -24,7 +24,7 @@ int perform(object me, string arg)
 	 if (!me->is_fighting())
    return notify_fail("「乾坤大挪移」只能在戰鬥中使用。\n");
         if( (int)me->query("max_neili", 1) < 1500 )
-		return notify_fail("你的內力修爲不足以使用乾坤挪移大法。\n");
+		return notify_fail("你的內力修為不足以使用乾坤挪移大法。\n");
         if( (int)me->query("neili", 1) < 1000 )
 		return notify_fail("你現在內力太弱，不能使用乾坤挪移大法。\n");
 
@@ -44,7 +44,7 @@ int perform(object me, string arg)
 		return notify_fail("你的"+to_chinese(fskill)+"未到火候，無法施展"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，小心走火入魔！\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不夠，小心走火入魔！\n");
 
 	if( !arg )
 	{
@@ -99,7 +99,7 @@ int perform(object me, string arg)
 		}
 		else 
 		{
-			msg += CYN"可是$n"CYN"內力深厚，絲毫不爲所動。\n"NOR;
+			msg += CYN"可是$n"CYN"內力深厚，絲毫不為所動。\n"NOR;
 			me->add("neili", -100);
 		}
 		message_combatd(msg, me, target);
@@ -168,7 +168,7 @@ int help(object me)
 	出手要求：
 		九陽神功50級
 		乾坤大挪移50級
-		內力修爲1500
+		內力修為1500
 		內力1000
 HELP
 	);

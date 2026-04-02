@@ -10,7 +10,7 @@ void create()
 積垢，卻有枝粗大的蠟燭(lazhu)放在案上。
 LONG );
 	set("item_desc", ([
-		"lazhu": "一枝粗大的蠟燭，燭淚似乎頗爲新鮮，好象剛有人點過。\n"
+		"lazhu": "一枝粗大的蠟燭，燭淚似乎頗為新鮮，好象剛有人點過。\n"
 	]) );
 	set("exits", ([
 		"east" : __DIR__"shangang2",

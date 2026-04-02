@@ -58,7 +58,7 @@ int do_tap(string arg)
 		return notify_fail("你敲了一下小鑼，鑼聲在飯廳內迴盪，你突然感覺自己很愚蠢。\n");
 	if( me->query_temp("marks/served") )
 	{
-		message_vision("小沙彌對$N說道：我少林寺雖物產甚豐，可也不能象你這樣喫呀！！！\n", me);
+		message_vision("小沙彌對$N説道：我少林寺雖物產甚豐，可也不能象你這樣喫呀！！！\n", me);
 		return notify_fail("");
 	}
 	message_vision("$N端坐在桌前，輕輕敲了一下桌上的小鑼，小沙彌弓身作了個揖，過來招呼。\n", me);

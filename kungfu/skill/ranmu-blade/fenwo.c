@@ -56,7 +56,7 @@ int perform(object me, object target)
 	if( !me->query_temp("murong/xingyi") )
 	{
 		if( me->query_skill_mapped("force") != "yijinjing")
-			return notify_fail("沒有易筋經作爲根基，是無法使出「焚我」絕技的！\n"); 
+			return notify_fail("沒有易筋經作為根基，是無法使出「焚我」絕技的！\n"); 
 	}
 	if( (int)me->query_str() < 34)
 		return notify_fail("你的膂力不夠強勁，使不出「焚我」絕技。\n");
@@ -67,7 +67,7 @@ int perform(object me, object target)
 	if (me->query_temp("fumo"))
 		return notify_fail("你現在正在使用「金剛伏魔」神功。\n"); 
 	if (me->query("max_neili") < 2000)
-		return notify_fail("你的內力修爲不夠。\n");
+		return notify_fail("你的內力修為不夠。\n");
 	if (me->query("neili") < 650)
 		return notify_fail("你的內力不夠。\n");
 	me->add("neili", -600);
@@ -118,7 +118,7 @@ int help(object me)
                 易筋經120級
                 後天膂力34
                 後天悟性34
-                內力修爲2000
+                內力修為2000
                 內力650
 HELP
         );

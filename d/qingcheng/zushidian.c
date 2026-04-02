@@ -7,7 +7,7 @@ void create()
 	set("short", "祖師殿");
 	set("long", @LONG
 祖師殿又名真武宮。祖師殿背靠軒轅峯，面向白雲溪，十分清
-幽。附近軒皇臺，相傳爲黃帝受道處。
+幽。附近軒皇臺，相傳為黃帝受道處。
 LONG );
 	set("exits", ([
 		"eastup"    : __DIR__"chaoyangdong",

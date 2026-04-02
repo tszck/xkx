@@ -53,14 +53,14 @@ int main(object me, string arg)
 	if (cost < 10) cost = 10; // minimum cost
 	if( me->query_skill(skill["name"], 1) > skill["max_skill"] )
 	{
-		return notify_fail("你研讀了一會兒，但是發現上面所說的對你而言都太淺了，沒有學到任何東西。\n");
-//		write( "你研讀了一會兒，但是發現上面所說的對你而言都太淺了，沒有學到任何東西。\n");
+		return notify_fail("你研讀了一會兒，但是發現上面所説的對你而言都太淺了，沒有學到任何東西。\n");
+//		write( "你研讀了一會兒，但是發現上面所説的對你而言都太淺了，沒有學到任何東西。\n");
 		return 1;
 	}
 	if( me->query_skill(skill["name"], 1) < skill["min_skill"] )
 	{
-		return notify_fail("你研讀了一會兒，但是發現上面所說的對你而言都太深奧了，毫無收穫。\n");
-//		write("你研讀了一會兒，但是發現上面所說的對你而言都太深奧了，毫無收穫。\n");
+		return notify_fail("你研讀了一會兒，但是發現上面所説的對你而言都太深奧了，毫無收穫。\n");
+//		write("你研讀了一會兒，但是發現上面所説的對你而言都太深奧了，毫無收穫。\n");
 		return 1;
 	}
 	if( !me->query_skill(skill["name"], 1)) me->set_skill(skill["name"], 0);
@@ -70,7 +70,7 @@ int main(object me, string arg)
 		if( (string)SKILL_D(skill["name"])->type()=="martial" &&
 			my_skill * my_skill * my_skill / 10 > (int)me->query("combat_exp") )
 		{
-			printf("也許是缺乏實戰經驗，你對%s上面所說的東西總是無法領會。\n", ob->name());
+			printf("也許是缺乏實戰經驗，你對%s上面所説的東西總是無法領會。\n", ob->name());
 		}
 		else
 		{
@@ -98,7 +98,7 @@ int help(object me)
    write( @HELP
 指令格式: study|du <物品名稱> <次數>
 
-這個指令使你可以通過閱讀祕笈或其他物品自學某些技巧,
+這個指令使你可以通過閲讀祕笈或其他物品自學某些技巧,
 但前提是: 你不能是個『文盲』。
 
 see also : learn

@@ -41,7 +41,7 @@ int help(object me)
 	write(HIC"\n混天氣功："NOR"\n"); 
 	write(@HELP
 
-    混天氣功爲丐幫本門內功。 
+    混天氣功為丐幫本門內功。 
 
 	學習要求：
 		學混天氣功，要不正不邪、亦正亦邪

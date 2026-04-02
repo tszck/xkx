@@ -168,7 +168,7 @@ int list_invite()
 	if (!sizeof(r_invited))
 	 return notify_fail("沒有任何人在家裏的邀請名單上。\n");
   size=sizeof(r_invited);
-  write("家裏目前邀請的人員爲：("+implode(r_invited[0..size-1],"、")+")\n");
+  write("家裏目前邀請的人員為：("+implode(r_invited[0..size-1],"、")+")\n");
   return 1;
 }
 

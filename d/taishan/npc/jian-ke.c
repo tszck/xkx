@@ -42,7 +42,7 @@ void init()
 	mengzhu = ob->query("winner");
 
 	if( this_player()->query("id") == mengzhu ) {
-		message_vision(HIY "劍客向$N躬身爲禮，說道：盟主您老人家好！\n" NOR, 
+		message_vision(HIY "劍客向$N躬身為禮，説道：盟主您老人家好！\n" NOR, 
 		this_player());
 	}	
 }

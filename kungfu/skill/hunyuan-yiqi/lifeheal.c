@@ -12,7 +12,7 @@ int exert(object me, object target)
    return notify_fail("你所使用的內功中沒有這種功能。");
 
 	if( !target || !target->is_character() || target == me )
-		return notify_fail("你要用真氣爲誰療傷？\n");
+		return notify_fail("你要用真氣為誰療傷？\n");
 
 	notify_fail("不是你要抓的人，湊什麼熱鬧！\n");
 	if (!userp(target) && !target->accept_hit(me)) return 0;
@@ -27,10 +27,10 @@ int exert(object me, object target)
 		return notify_fail(target->name()+"現在正忙着呢！\n");
 
 	if( (int)me->query_skill("hunyuan-yiqi") < 20 )
-		return notify_fail("你的混元一氣功修爲不夠。\n");
+		return notify_fail("你的混元一氣功修為不夠。\n");
 
 	if( (int)me->query("max_neili") < 300 )
-		return notify_fail("你的內力修爲不夠。\n");
+		return notify_fail("你的內力修為不夠。\n");
 
 	if( (int)me->query("neili") < 150 )
 		return notify_fail("你的真氣不夠。\n");
@@ -64,7 +64,7 @@ int help(object me)
 	write(@HELP
 
 	使用功效：
-		爲他人療傷
+		為他人療傷
 
 	出手要求：
 		混元一氣功20級

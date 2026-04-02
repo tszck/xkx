@@ -19,7 +19,7 @@
 #define DAGGER          "/inherit/weapon/dagger"        // 矛
 #define FORK            "/inherit/weapon/fork"          // 叉
 #define HAMMER          "/inherit/weapon/hammer"        // 錘
-#define HOOK            "/inherit/weapon/hook"          // 鉤
+#define HOOK            "/inherit/weapon/hook"          // 鈎
 #define MACE            "/inherit/weapon/mace"          // 鞭
 #define RAKE            "/inherit/weapon/rake"          // 耙
 #define SWORD           "/inherit/weapon/sword"         // 劍

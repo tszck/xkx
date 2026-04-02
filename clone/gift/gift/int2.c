@@ -7,7 +7,7 @@ void create()
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", HIG "這是一顆蔥綠剔透的藥丸，據說喫了可以增強悟性。\n" NOR);
+                set("long", HIG "這是一顆蔥綠剔透的藥丸，據説喫了可以增強悟性。\n" NOR);
                 set("unit", "顆");
                 set("value", 50000);
                 set("weight", 50);

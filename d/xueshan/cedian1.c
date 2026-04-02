@@ -28,6 +28,6 @@ int valid_leave(object me, string dir)
         myfam=(mapping)me->query("family");
         if( (!myfam || myfam["family_name"] !="雪山寺") && dir=="up"
         && objectp(present ("jiamu huofo", environment(me))))
-                return notify_fail("嘉木活佛說道: 你非雪山寺弟子, 不能入內。\n");
+                return notify_fail("嘉木活佛説道: 你非雪山寺弟子, 不能入內。\n");
         return ::valid_leave(me,dir);
 }

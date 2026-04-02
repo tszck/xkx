@@ -140,9 +140,9 @@ int do_coupletalk(string arg)
 		tmpstr2 = "老婆";
 	}
 
-	write(sprintf(MAG"你對%s %s 說：%s\n"NOR,
+	write(sprintf(MAG"你對%s %s 説：%s\n"NOR,
 		tmpstr2,couple_ob->name(1), arg ));
-	tell_object(couple_ob, sprintf(MAG "%s %s 對你說：%s\n"NOR,
+	tell_object(couple_ob, sprintf(MAG "%s %s 對你説：%s\n"NOR,
 	       tmpstr1,me->name(1), arg ));
 
 	return 1;
@@ -151,7 +151,7 @@ int do_coupletalk(string arg)
 void owner_is_killed()
 {
  
-	write(HIW"屍體中的婚卡化爲雲煙消失了……\n"NOR);
+	write(HIW"屍體中的婚卡化為雲煙消失了……\n"NOR);
 	destruct(this_object());
 }
 

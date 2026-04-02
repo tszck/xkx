@@ -61,6 +61,6 @@ int valid_leave(object me,string dir)
         me=this_player();
         if(( dir=="north" || dir=="northwest")
         && (present("bowl",this_player()) || present("rice",this_player())))
-             return notify_fail("火工道人說道：食物和飲水不能帶出膳堂去。\n");
+             return notify_fail("火工道人説道：食物和飲水不能帶出膳堂去。\n");
         return ::valid_leave(me,dir);
 }

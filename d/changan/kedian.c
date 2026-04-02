@@ -6,9 +6,9 @@ void create()
 {
 	set("short", "雲來客棧");
 	set("long", @LONG
-這是一家興隆的客棧，門口掛着塊匾，上書“客似雲來”。據說是
+這是一家興隆的客棧，門口掛着塊匾，上書“客似雲來”。據説是
 米芾的墨寶。店小二里裏一邊招呼客人，一邊大聲介紹米芾和客棧的淵
-源，神色甚爲得意。牆上掛着一個牌子(paizi),想來不是什麼墨寶，寫
+源，神色甚為得意。牆上掛着一個牌子(paizi),想來不是什麼墨寶，寫
 的歪歪扭扭。
 LONG );
 	set("no_fight", 1);
@@ -42,7 +42,7 @@ int valid_leave(object me, string dir)
 
 	if ( me->query_temp("rent_paid") && dir == "south" )
 	return notify_fail("店小二跑到門邊攔住：客官已經付了銀子，怎麼不住店就走了呢！
-旁人還以爲小店伺候不周呢！\n");
+旁人還以為小店伺候不周呢！\n");
 
 	return ::valid_leave(me, dir);
 }

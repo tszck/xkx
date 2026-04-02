@@ -35,7 +35,7 @@ int valid_leave(object me, string dir)
         {
             if( !present("tie shao", me)
                 & objectp(present("he hongyao", environment(me))))
-                return notify_fail("何紅藥身形一晃，忽然擋住你，厲聲說道：這位" + RANK_D->query_respect(me) + "沒有教主準許，不得進入本教聖地。\n");
+                return notify_fail("何紅藥身形一晃，忽然擋住你，厲聲説道：這位" + RANK_D->query_respect(me) + "沒有教主準許，不得進入本教聖地。\n");
         }
         return ::valid_leave(me, dir);
 }

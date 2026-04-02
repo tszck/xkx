@@ -12,7 +12,7 @@ void create()
                      郭   府
 "NOR"
     全真教第二代弟子耶律齊和幾個家丁站在門前接待前來保
-衛襄陽的各方義士。\n"
+衞襄陽的各方義士。\n"
  );
         set("outdoors", "xiangyang");
 	set("exits", ([

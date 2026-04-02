@@ -65,7 +65,7 @@ int valid_learn(object me)
 	if (((int)me->query("max_neili") < 500) ||
 		((int)me->query_skill("bibo-shengong", 1) < 100) ||
 		!(me->query("couple/have_couple")))
-		return notify_fail("黃藥師說道: 玉簫劍法，只付有緣。你不是性情中人。\n");
+		return notify_fail("黃藥師説道: 玉簫劍法，只付有緣。你不是性情中人。\n");
 	return 1;
 }
 int practice_skill(object me)

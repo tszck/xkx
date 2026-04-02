@@ -1028,7 +1028,7 @@ string getit(object ob,int getaward,int getscore,string dest)
 			winner=ob;
 			ob->set_temp("bobing/g6",1);
 			play=users();
-			message("vision", HIY"\n\n[搏餅最新消息]\n----------------------------------------------\n恭喜！ 恭喜！" + ob->query("name") + "搏到了" + dest + "！成爲 " + roomname+"的狀元！！！\n"NOR, play);
+			message("vision", HIY"\n\n[搏餅最新消息]\n----------------------------------------------\n恭喜！ 恭喜！" + ob->query("name") + "搏到了" + dest + "！成為 " + roomname+"的狀元！！！\n"NOR, play);
 		}
 		else
 		{
@@ -1039,7 +1039,7 @@ string getit(object ob,int getaward,int getscore,string dest)
 				winner=ob;
 				winner->set_temp("bobing/g6",1);
 				play=users();
-				message("vision", HIY"\n\n[搏餅最新消息]\n----------------------------------------------\n恭喜！ 恭喜！" + ob->query("name") + "搏到了" + dest + "！成爲 " + roomname+"的狀元！！！\n"NOR, play);
+				message("vision", HIY"\n\n[搏餅最新消息]\n----------------------------------------------\n恭喜！ 恭喜！" + ob->query("name") + "搏到了" + dest + "！成為 " + roomname+"的狀元！！！\n"NOR, play);
 			}
 			else
 				message_vision(CYN"$N搏到狀元一個，真是可惜你的狀元沒有獎品……\n"NOR,ob);

@@ -56,7 +56,7 @@ void die()
 	object *obj;
 	int i, exp = query("combat_exp");
 
-	message("channel:rumor", HIM"【謠言】某人：聽說"+query_temp("ownername")+HIM"的"+name()+HIM"死了，等級下降了。真是可惜。\n"NOR, users());
+	message("channel:rumor", HIM"【謠言】某人：聽説"+query_temp("ownername")+HIM"的"+name()+HIM"死了，等級下降了。真是可惜。\n"NOR, users());
 
 	obj = objects();
 	for (i=0; i<sizeof(obj); i++)

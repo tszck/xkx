@@ -43,7 +43,7 @@ void init()
         object ob;
         ::init();
         if( interactive(ob = this_player()) ) {
-        message_vision("鍾萬仇對$N說道：想要救木婉清？你去死吧！\n",ob);
+        message_vision("鍾萬仇對$N説道：想要救木婉清？你去死吧！\n",ob);
                 kill_ob(ob);
         }
 }

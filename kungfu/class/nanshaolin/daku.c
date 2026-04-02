@@ -129,7 +129,7 @@ int do_lunzhi(string arg)
 			return notify_fail( "大苦大師大怒道："RED"想偷懶，快給我滾回去。\n"NOR);
 		}
 		command("pat "+ob->query("id"));
-		command("say 哈哈，真難爲你了，"+RANK_D->query_respect(ob)+"，幹得好！");
+		command("say 哈哈，真難為你了，"+RANK_D->query_respect(ob)+"，幹得好！");
 		ob->add("potential",(int)(ob->query_skill("buddhism",1)/10)+30);
 		ob->add("combat_exp",(int)(ob->query_skill("buddhism",1)/4)+90);
 		me->delete("lunzhi_name");
@@ -138,7 +138,7 @@ int do_lunzhi(string arg)
 		ob->delete_temp("lunzhied");
 		return 1;
 	}
-	return notify_fail("大苦大師苦着臉說：我被殺了，你輪值的記錄沒有了！\n");
+	return notify_fail("大苦大師苦着臉説：我被殺了，你輪值的記錄沒有了！\n");
 }
 
 int do_zhongcai(string arg)
@@ -156,5 +156,5 @@ int do_zhongcai(string arg)
 		ob->delete_temp("mark/澆完");
 		return 1;
 	}
-	return notify_fail("方相問道：你剛纔進去服侍方丈了？\n");
+	return notify_fail("方相問道：你剛才進去服侍方丈了？\n");
 }

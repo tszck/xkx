@@ -31,7 +31,7 @@ int do_fu(string arg)
   
 	message_vision("$N一個狗刨，浮了上去。\n", me);
 	me->move(__DIR__"gudi1");
-	tell_room(environment(me),me->name()+"溼淋淋地從潭中鑽了出來。\n",({me}));
+	tell_room(environment(me),me->name()+"濕淋淋地從潭中鑽了出來。\n",({me}));
 	return 1;
 	
 }

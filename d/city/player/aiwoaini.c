@@ -6,7 +6,7 @@ void create()
 {       set_name("愛我愛你", ({ "aiwoaini"}));
 	set("gender", "女性");
 	set("class", "swordman");
-	set("title", HIR"內閣大學士"HIG"明教地字門教衆"NOR"古墓派第二代弟子");	
+	set("title", HIR"內閣大學士"HIG"明教地字門教眾"NOR"古墓派第二代弟子");	
 	set("age", 48);
 	set("attitude", "friendly");
 

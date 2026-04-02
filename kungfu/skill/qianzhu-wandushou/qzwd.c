@@ -47,14 +47,14 @@ int perform(object me, object target)
 		return notify_fail("你的"+to_chinese(fskill)+"的功力不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，還不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不夠，還不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(pskill, 1) < 100 )
 		return notify_fail("你的"+to_chinese(pskill)+"太低，不能使用"+PNAME+"。\n");
 //	if( !userp(me))
 //		return notify_fail("只有玩家才能玩命。\n");
 	if((int)me->query("max_neili") < 700)
-		return notify_fail("你內力修爲不夠，不能使用"PNAME"！\n");
+		return notify_fail("你內力修為不夠，不能使用"PNAME"！\n");
 
 	if((int)me->query("neili") < 500)
 		return notify_fail("你內力不夠，不能使用"PNAME"！\n");
@@ -131,7 +131,7 @@ int help(object me)
 		五毒神功80級
 		五毒毒技100級
 		千蛛萬毒手100級
-		內力修爲700
+		內力修為700
 		內力500
 HELP
 	);

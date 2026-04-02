@@ -71,7 +71,7 @@ int accept_object(object who, object ob,object me)
 	}
 	if(ob->query("name")=="輪值令")
 	{
-		command( "say 好吧，你既然有大苦大師的令牌，你就在這和我在這裏一起守衛吧。");
+		command( "say 好吧，你既然有大苦大師的令牌，你就在這和我在這裏一起守衞吧。");
 //		who->apply_condition("sl_lunzhi",random(5)+15);
 		who->apply_condition("sl_lunzhi", 2);
 		who->set_temp("lunzhied",1);

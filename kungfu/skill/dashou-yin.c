@@ -65,7 +65,7 @@ int practice_skill(object me)
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
 		return notify_fail("練「密宗大手印」必須空手。\n");
 	if(!me->query_skill("longxiang",1) && !me->query_skill("xiaowuxiang",1))
-		return notify_fail("練「密宗大手印」必須要有雪山派的內功作爲根基。\n");
+		return notify_fail("練「密宗大手印」必須要有雪山派的內功作為根基。\n");
 	if ((int)me->query("qi") < 30)
 		return notify_fail("你的體力太低了。\n");
 	if ((int)me->query("neili") < 20)
@@ -123,7 +123,7 @@ int help(object me)
 	write(HIC"\n密宗大手印："NOR"\n");
 	write(@HELP
 
-    密宗大手印爲雪山派手法。
+    密宗大手印為雪山派手法。
     可與金剛瑜迦母拳互備。
 
 	學習要求：

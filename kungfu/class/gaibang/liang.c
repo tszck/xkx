@@ -110,13 +110,13 @@ void kicking(object ob)
 void attempt_apprentice(object ob)
 {
 	if ((int)ob->query("str") < 25) {
-		command("say 我們丐幫的武藝一向以剛猛爲主，" + 
+		command("say 我們丐幫的武藝一向以剛猛為主，" + 
 		RANK_D->query_respect(ob) + "臂力太弱，似乎不宜學丐幫的功夫？");
 		return;
 	}
 
 	command("say 好吧，希望" + RANK_D->query_respect(ob) +
-	"能好好學習本門武功，將來在江湖中闖出一番作爲。");
+	"能好好學習本門武功，將來在江湖中闖出一番作為。");
 	command("recruit " + ob->query("id"));
 }
 #include "/kungfu/class/gaibang/gaibang.h"

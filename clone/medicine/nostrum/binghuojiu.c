@@ -14,7 +14,7 @@ void create()
 {
 	set_name(HIC "玄冰碧火酒" NOR, ({"xuanbingbihuo jiu", "jiu"}));
 	set("unit", "壺");
-	set("long", "這是一壺珍貴之極的玄冰碧火酒, 據說對內力修爲有極大助益。\n");
+	set("long", "這是一壺珍貴之極的玄冰碧火酒, 據説對內力修為有極大助益。\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -52,7 +52,7 @@ int do_drink(string arg)
 			}
 			else
 			{
-				tell_object(me, HIG"你將以前學過、見過的諸般武功施展出來，亂打亂拍。只覺每發出\n一拳一掌，腹中的疼痛便隨內力的行走而帶了一些出來。使了一陣\n拳腳，腹內疼痛也隨之而減。直到劇毒盡數逼離肚腹，也就不再疼\n痛，內力修爲似乎有了不小進益。\n"NOR);
+				tell_object(me, HIG"你將以前學過、見過的諸般武功施展出來，亂打亂拍。只覺每發出\n一拳一掌，腹中的疼痛便隨內力的行走而帶了一些出來。使了一陣\n拳腳，腹內疼痛也隨之而減。直到劇毒盡數逼離肚腹，也就不再疼\n痛，內力修為似乎有了不小進益。\n"NOR);
 				if ( neili_limit < force_limit )
 					me->add("max_neili", 30 + random(30) );
 			}

@@ -59,7 +59,7 @@ int main(object me, string arg)
                 	return 1;
                 } else {
 	               	env->set("border/" + arg, 1);
-        	       	write("房間 " + base_name(env) + " 的" + arg + "方向已設爲邊界。\n");
+        	       	write("房間 " + base_name(env) + " 的" + arg + "方向已設為邊界。\n");
                		return 1;
         	}
         }
@@ -203,11 +203,11 @@ write(@HELP
 
 用法：
         coor		清除當前房間所有方向的邊界屬性。
-        coor <方向>	若該當前房間的該方向已爲邊界，則清除之，否則
-        		設置該方向爲邊界。
+        coor <方向>	若該當前房間的該方向已為邊界，則清除之，否則
+        		設置該方向為邊界。
         coor x,y,z	若當前房間已定位，則重新單獨設定該當前房間的
         		座標；否則連鎖處理，直到同一目錄下所有房間都
-        		被處理過爲止。
+        		被處理過為止。
         coor -a x,y,z	同上，但無同一目錄限制。
 	coor -s x,y,z	無論當前房間是否已定位，重新並單獨處理該房間。
 	

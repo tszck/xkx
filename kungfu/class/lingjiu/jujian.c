@@ -103,7 +103,7 @@ void attempt_apprentice(object ob)
 {
 	if ((string)ob->query("gender")=="女性")
 	{
-		message_vision("菊劍垂目沉思片刻, 說道：“好吧, 我就收下你了。”\n",ob);
+		message_vision("菊劍垂目沉思片刻, 説道：“好吧, 我就收下你了。”\n",ob);
 		command("recruit " + ob->query("id"));
 //		if((string)ob->query("class") != "dancer")
 //			ob->set("class", "dancer");

@@ -119,7 +119,7 @@ int help(object me)
 	write(HIC"\n伏魔劍："NOR"\n");
 	write(@HELP
 
-    伏魔劍爲少林七十二絕技之一。
+    伏魔劍為少林七十二絕技之一。
 
 	學習要求：
 		混元一氣功20級

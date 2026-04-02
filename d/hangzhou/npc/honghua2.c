@@ -6,12 +6,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("綠營會衆", ({ "hong hua","hong","hua" }) );
+	set_name("綠營會眾", ({ "hong hua","hong","hua" }) );
 	set("gender", "男性");
 	set("age", 25);
 	set("long",
 		"這是位手執長槍的綠營清兵，紅花會在江南聲勢大盛，綠營也
-多有會衆。\n");
+多有會眾。\n");
 	set("combat_exp", 20000);
         set("shen_type", 1);
 	set("attitude", "heroism");
@@ -34,9 +34,9 @@ void init()
 {
  
 	if (random(2) == 1)
-	message_vision(HIY "綠營會衆悄悄告訴$N：身在綠營心在漢！\n" NOR, 
+	message_vision(HIY "綠營會眾悄悄告訴$N：身在綠營心在漢！\n" NOR, 
 		this_player());
 	else
-	message_vision(HIY "綠營會衆衝着$N擠了擠眼說：狗皇帝是從青樓地道被當家的逮着的！\n" NOR, 
+	message_vision(HIY "綠營會眾衝着$N擠了擠眼説：狗皇帝是從青樓地道被當家的逮着的！\n" NOR, 
 		this_player());
 }

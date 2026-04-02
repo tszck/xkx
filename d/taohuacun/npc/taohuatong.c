@@ -89,11 +89,11 @@ RANK_D->query_respect(me)+"還是和你"+str+"一起來的好！\n", officer, me
         room->set("home_host",({me->query("id")})+({partner}));
         room->save();
 
-        message_vision("$N說道：房子已經建好了，您這就去裝修吧！\n",officer);
+        message_vision("$N説道：房子已經建好了，您這就去裝修吧！\n",officer);
 
 /*
        message_vision("$N笑眯眯地對$n道：取妻、領房、生子，人生三大事耶！\n",officer,me);
-       message_vision("$N說道：我去檢查檢查房子，去去就來。" +
+       message_vision("$N説道：我去檢查檢查房子，去去就來。" +
 RANK_D->query_respect(me)+
 "在這兒稍待片刻，可別走啊！\n",officer);
         officer->move(filename);
@@ -118,7 +118,7 @@ int accept_object(object who, object ob)
                     command("say "+RANK_D->query_respect(who)+"出手這麼大方。府上保準富麗堂皇。\n");
               else
               {
-                    command("say "+RANK_D->query_respect(who)+"若是想申請房子，儘管說。\n");
+                    command("say "+RANK_D->query_respect(who)+"若是想申請房子，儘管説。\n");
                     who->set_temp("rental_paid", 1);
               }
         }

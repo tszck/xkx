@@ -7,8 +7,8 @@ void create()
 	set("short", "總舵廣場");
 	set("long", @LONG
 你走進了明教總舵廣場，卻發現這裏人聲鼎沸，五散人羣聚於此，
-看來有要事發生了。來往教衆匆匆忙忙。廣場左首是教衆飯堂；右首就
-是教衆聞之變色的刑堂。向上走就是光明頂明教總舵了。
+看來有要事發生了。來往教眾匆匆忙忙。廣場左首是教眾飯堂；右首就
+是教眾聞之變色的刑堂。向上走就是光明頂明教總舵了。
 LONG );
 	set("exits", ([
 		"west"    : __DIR__"fangtang",
@@ -43,6 +43,6 @@ int valid_leave(object me, string dir)
 		(objectp(present("zhang zhong", environment(me)))) ||
 		(objectp(present("shuo bude", environment(me)))) ||
 		(objectp(present("zhou dian", environment(me))))))
-	return notify_fail("明教五散人攔住你說：此處乃明教重地，請止步。\n");
+	return notify_fail("明教五散人攔住你説：此處乃明教重地，請止步。\n");
 	return ::valid_leave(me, dir);
 }

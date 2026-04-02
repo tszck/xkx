@@ -93,12 +93,12 @@ string ask_for_jingong()
 	me = this_player();
 
 	if( (string)me->query("gender")=="無性" )
-	return("海公公笑吟吟地說道：您既已是公公了，自然可以進宮。\n");          
+	return("海公公笑吟吟地説道：您既已是公公了，自然可以進宮。\n");          
 
 	if( (string)me->query("gender") == "男性" )
 	{
 	me->set_temp("pending/zigong", 1);
-	return("海公公笑吟吟地說道：並不是一定要自宮纔可以進皇宮的；\n"+"不過，你若決心已定(decide)，我就成全了你。\n");
+	return("海公公笑吟吟地説道：並不是一定要自宮才可以進皇宮的；\n"+"不過，你若決心已定(decide)，我就成全了你。\n");
 	}
 
 	if( (string)me->query("gender")=="女性" )
@@ -182,7 +182,7 @@ if ( (string) ob -> query ("gender") == "男性")
 {
 ob->set_temp("haspretend",1);
 message_vision("\n$N裝成了小桂子，$n沒吭聲。\n",this_player(),this_object());
-message_vision("\n海公公看了$N一眼，說“唉，是不是又該喫藥了？”\n",this_player());
+message_vision("\n海公公看了$N一眼，説“唉，是不是又該喫藥了？”\n",this_player());
 return 1;
 }
 }

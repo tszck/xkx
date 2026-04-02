@@ -30,7 +30,7 @@ int valid_leave(object me, string dir)
 {
         if (dir == "north" && 
             objectp(present("wei shi", environment(me))))
-           return notify_fail("衛士對你大吼一聲：放肆！那不是你能進去的地方。\n");
+           return notify_fail("衞士對你大吼一聲：放肆！那不是你能進去的地方。\n");
 
         return ::valid_leave(me, dir);
 }

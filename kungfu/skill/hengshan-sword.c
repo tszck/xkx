@@ -121,7 +121,7 @@ int help(object me)
 	write(HIC"\n衡山劍法："NOR"\n");
 	write(@HELP
 
-    衡山劍法爲衡山武功。
+    衡山劍法為衡山武功。
 
 	學習要求：
 		回雁心法

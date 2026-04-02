@@ -33,7 +33,7 @@ int valid_learn(object me)
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
 		return notify_fail("練三陰蜈蚣爪必須空手。\n");
 	if (me->query_skill("huagong-dafa", 1) < 20)
-		return notify_fail("你的化功大法修爲太弱，無法練三陰蜈蚣爪。\n");
+		return notify_fail("你的化功大法修為太弱，無法練三陰蜈蚣爪。\n");
 	if ((int)me->query("max_neili") < 200)
 		return notify_fail("你的內力太弱，無法練三陰蜈蚣爪。\n");
 	return 1;
@@ -103,7 +103,7 @@ int help(object me)
 	write(HIC"\n三陰蜈蚣爪："NOR"\n");
 	write(@HELP
 
-    三陰蜈蚣爪爲星宿派歹毒武功。
+    三陰蜈蚣爪為星宿派歹毒武功。
     可與抽髓掌互備。
 
 	學習要求：

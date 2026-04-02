@@ -112,7 +112,7 @@ void die()
          me->add("potential",pot);
          me->add("score",score);
          me->add_temp("bwdh_nknum",1);
-        message_vision("$N對着你恨恨的說：“明年此時再來領教閣下高招！”\n",ob);
+        message_vision("$N對着你恨恨的説：“明年此時再來領教閣下高招！”\n",ob);
         tell_object(me,HIW"你在論劍中戰勝對手，得到如下獎勵：\n");
         tell_object(me,chinese_number(exp) +"點實戰經驗\n" +
         chinese_number(pot) + "點潛能。\n"NOR);

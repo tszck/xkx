@@ -31,7 +31,7 @@ int valid_leave(object me, string dir)
           && objectp(present("daoming", environment(me))))
      {
          return notify_fail
-                ("道明小師父見你想把經書拿走，上前輕聲說道：本閣經書不外借。\n");
+                ("道明小師父見你想把經書拿走，上前輕聲説道：本閣經書不外借。\n");
      }
      return ::valid_leave(me, dir);
 }

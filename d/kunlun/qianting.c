@@ -37,7 +37,7 @@ int valid_leave(object me, string dir)
 
 	if ((!fam || fam["family_name"] != "崑崙派") && dir == "north" &&
 		objectp(present("xi huazi", environment(me))))
-		return notify_fail("西華子攔住你，說道：這裏是崑崙派的地盤，不要隨意亂闖！\n");
+		return notify_fail("西華子攔住你，説道：這裏是崑崙派的地盤，不要隨意亂闖！\n");
 
 	return ::valid_leave(me, dir);
 }

@@ -49,11 +49,11 @@ void greeting(object ob)
 		return;
 	switch(random(2)) {
 	case 0 :
-		say("陳麻婆笑咪咪地說道：這位" + RANK_D->query_respect(ob) +
+		say("陳麻婆笑咪咪地説道：這位" + RANK_D->query_respect(ob) +
 			"，快請進。\n");
 		break;
 	case 1 :
-		say("陳麻婆說道：喲！這位" + RANK_D->query_respect(ob) + 
+		say("陳麻婆説道：喲！這位" + RANK_D->query_respect(ob) + 
 			"您來了啊！本店的麻婆豆腐硬是安逸得很！\n");
 		break;
 	}

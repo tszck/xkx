@@ -9,7 +9,7 @@ void create()
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "一碗鮮湯。湯清如鏡，魚丸漂浮在湯的面上，潔白如星斗，因此稱爲“七星丸”。\n");
+		set("long", "一碗鮮湯。湯清如鏡，魚丸漂浮在湯的面上，潔白如星斗，因此稱為“七星丸”。\n");
 		set("unit", "碗");
 		set("value", 120);
 		set("max_liquid", 20);

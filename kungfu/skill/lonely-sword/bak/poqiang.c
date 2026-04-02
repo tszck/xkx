@@ -54,7 +54,7 @@ int perform(object me)
 	{
 	    if(userp(me))
 		 me->add("neili",-50);
-	    msg = "$N運起「破槍式」, $n頓時大驚，爲保手指，手中";
+	    msg = "$N運起「破槍式」, $n頓時大驚，為保手指，手中";
 	    msg += weapon2->name();
 	    msg += "撒手丟出！\n" NOR;
 
@@ -84,7 +84,7 @@ int help(object me)
 		破解且可擊落手持槍類兵器的敵手之兵器，並傷敵氣血
 
 	出手要求：
-		身爲風清揚嫡傳弟子
+		身為風清揚嫡傳弟子
 		獨孤九劍50級
 		內力50
 HELP

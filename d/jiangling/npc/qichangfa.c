@@ -6,7 +6,7 @@ void create ()
 {
 	set_name("戚長髮", ({"qi changfa","qi"}));
 	set("nickname", HIB"鐵鎖橫江"NOR);
-	set("long", "一個老頭兒，嘴裏咬着一根短短的旱菸管。他滿頭白髮、滿臉皺
+	set("long", "一個老頭兒，嘴裏咬着一根短短的旱煙管。他滿頭白髮、滿臉皺
 紋，但眼中神光炯然，凜凜有威。\n");
 	set("gender", "男性");
 	set("age", 48);

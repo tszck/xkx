@@ -44,13 +44,13 @@ int perform(object me, object target)
 		bskill = "parry";
 	}
 	if( (int)me->query_skill(fskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(fskill)+"的修爲不夠。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"的修為不夠。\n");
 	if( (int)me->query_skill(sskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(sskill)+"的修爲不夠，不能用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"的修為不夠，不能用"+PNAME+"。\n");
 	if( (int)me->query("neili") < 800 )
 		return notify_fail("你的內力不夠！\n");
 	if( (int)me->query("max_neili") < 1000 )
-		return notify_fail("你的內力修爲還不夠！\n");
+		return notify_fail("你的內力修為還不夠！\n");
 
 	msg = HIY"$N"HIY"使出百花錯拳的錯字訣，出手似是而非，讓對手不知你的真實虛實，\n" NOR;
 	if((int)random(me->query("combat_exp")) >	(int)target->query("combat_exp") / 3)
@@ -91,7 +91,7 @@ int help(object me)
 	出手要求：
 		紅花神功150級
 		百花錯拳150級
-		內力修爲1000
+		內力修為1000
 		內力800
 HELP
 	);

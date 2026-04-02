@@ -12,7 +12,7 @@ void create()
 	set("chat_chance", 15);
 	set("chat_msg", ({
 		BLU "鬼魂嘆了一口氣......\n" NOR,
-		HIY "鬼魂對你說：“想不到。。。。。。唉.....!”\n" NOR,
+		HIY "鬼魂對你説：“想不到。。。。。。唉.....!”\n" NOR,
                 GRN "鬼魂哭了起來.........\n" NOR,
 	}) );
         set("age",30+random(40));

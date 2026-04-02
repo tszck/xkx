@@ -47,16 +47,16 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲還不夠，無法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為還不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，無法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 50 )
-		return notify_fail("你的"+to_chinese(bskill)+"修爲不夠，無法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"修為不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query("max_neili") < 500 )
-		return notify_fail("你的內力修爲不夠！\n");
+		return notify_fail("你的內力修為不夠！\n");
 
 	if( (int)me->query("neili") < 400 )
 		return notify_fail("你的真氣不夠！\n");
@@ -96,7 +96,7 @@ int help(object me)
 		冰雪心法50級
 		雪山劍法50級
 		基本劍法50級
-		內力修爲500
+		內力修為500
 		內力400
 HELP
         );

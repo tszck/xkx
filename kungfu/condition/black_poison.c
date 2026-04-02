@@ -14,7 +14,7 @@ int update_condition(object me, int duration)
 	}
 	else
 	{
-		tell_object(me, HIB"你只覺渾身冰冷刺骨，甚爲難受！\n" NOR );
+		tell_object(me, HIB"你只覺渾身冰冷刺骨，甚為難受！\n" NOR );
 		message("vision", HIB+me->name()+"突然面色鐵青，全身上下黑絲隱約可辨，看來是中了黑砂掌後掌毒發作了。\n"NOR, environment(me), me);
 	}
 	me->receive_damage("qi", 25,"黑砂掌毒發作");

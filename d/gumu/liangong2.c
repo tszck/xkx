@@ -11,7 +11,7 @@ void create()
 	set("short", HIR"練功房"NOR);
 	set("long", @LONG
 一間石室，形狀甚是奇特，南(southwall)窄北(northwall)寬，成
-爲梯形，東(eastwall)邊半圓，西(westwall)邊卻作三角型。室頂石板
+為梯形，東(eastwall)邊半圓，西(westwall)邊卻作三角型。室頂石板
 上(top) 刻滿諸般花紋符號，均是已利器刻成，或深或淺，殊無規則。
 此處供古墓弟子修煉入門外功。
 LONG	);

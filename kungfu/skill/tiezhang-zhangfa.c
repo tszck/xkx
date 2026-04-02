@@ -27,9 +27,9 @@ mapping *action = ({
 	"lvl"    : 40,
 	"skill_name" : "落日趕月"
 ]),
-([	"action" : "$N身行暴起，一式"BLU"「蟄雷爲動」"NOR"，雙掌橫橫切出，掌緣才遞出，嗚嗚呼嘯之聲狂作。",
+([	"action" : "$N身行暴起，一式"BLU"「蟄雷為動」"NOR"，雙掌橫橫切出，掌緣才遞出，嗚嗚呼嘯之聲狂作。",
 	"lvl"    : 50,
-	"skill_name" : "蟄雷爲動"
+	"skill_name" : "蟄雷為動"
 ]),
 ([	"action" : "$N一招"MAG"「天羅地網」"NOR"，左掌大圈而出，右掌小圈而出，兩股奇異的力道一會之下，擊向$n的$l",
 	"lvl"    : 60,
@@ -53,7 +53,7 @@ int valid_learn(object me)
 	if ((int)me->query_skill("guiyuan-tunafa", 1) < 100)
 		return notify_fail("你歸元吐吶法火候不夠，無法練鐵掌掌法。\n");
 	if ((int)me->query("max_neili") < 1000)
-		return notify_fail("你的內力修爲不夠，無法練鐵掌掌法。\n");
+		return notify_fail("你的內力修為不夠，無法練鐵掌掌法。\n");
 	return 1;
 }
 int practice_skill(object me)
@@ -129,7 +129,7 @@ mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 	{	
 		if (random((int)weap->query("rigidity")) <3)
 		{
-			message_combatd(HIW"$N運掌如刀，連擊三十六下，只聽見「啪」地一聲，$n手中的" + weap->name() + "已經斷爲兩截！\n" NOR, me, victim );
+			message_combatd(HIW"$N運掌如刀，連擊三十六下，只聽見「啪」地一聲，$n手中的" + weap->name() + "已經斷為兩截！\n" NOR, me, victim );
 			seteuid(getuid());
 			piece = new("/clone/misc/piece");
 			piece->set_name("斷掉的" + weap->query("name"),({weap->query("id"),"piece"}));
@@ -158,7 +158,7 @@ int help(object me)
 
 	學習要求：
 		歸元吐納法100級
-		內力修爲1000
+		內力修為1000
 HELP
 	);
 	return 1;

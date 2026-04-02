@@ -1,4 +1,4 @@
-// weishi.h 升級到衛士, 拜師
+// weishi.h 升級到衞士, 拜師
 int ask_me()
 {
 	object ob, me;
@@ -6,7 +6,7 @@ int ask_me()
 	ob = this_player();
 	if ((int)ob->query_skill("kurong-changong",1) < 60)
 	{
-		command("say 你想當衛士，再練幾年功吧。\n");
+		command("say 你想當衞士，再練幾年功吧。\n");
 		return 1;
 	}
 	
@@ -18,7 +18,7 @@ int ask_me()
 	}
 	else
 	{
-		command("say 只有家臣才能升衛士。\n");
+		command("say 只有家臣才能升衞士。\n");
 		return 1;
 	}
 }
@@ -53,8 +53,8 @@ int checking(object me, object ob)
 	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 ) 
 	{
 		command("say 青出於藍勝於藍，不愧是大理段家的好弟子！恭喜你了！\n");
-		command("say 你的已經可以勝任大理衛士！\n");
-		upgrade_title(ob, "鎮南王府衛士");
+		command("say 你的已經可以勝任大理衞士！\n");
+		upgrade_title(ob, "鎮南王府衞士");
 		return 1;
 	}
 	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 ) 
@@ -87,7 +87,7 @@ void attempt_apprentice(object ob)
 	    (ob->query("family/family_name") != "大理段家"))
 	{
 		command("shake "+this_player()->query("id"));
-		command("say 我早已投身大理爲臣，不再涉足江湖俗務，不能收徒了。\n");
+		command("say 我早已投身大理為臣，不再涉足江湖俗務，不能收徒了。\n");
 		return;
 	}
 	if ((int)ob->query("shen") < 0  )

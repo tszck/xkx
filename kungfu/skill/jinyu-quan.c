@@ -33,9 +33,9 @@ mapping *action = ({
 	"lvl"    : 100,
 	"skill_name" : "點石成金"
 ]),
-([	"action" : "$N一招"CYN"「衆口鑠金」"NOR"，撲向$n，似乎$n的全身都被拳影籠罩",
+([	"action" : "$N一招"CYN"「眾口鑠金」"NOR"，撲向$n，似乎$n的全身都被拳影籠罩",
 	"lvl"    : 120,
-	"skill_name" : "衆口鑠金"
+	"skill_name" : "眾口鑠金"
 ]),
 });
 
@@ -108,7 +108,7 @@ int help(object me)
 	write(HIC"\n金玉拳："NOR"\n");
 	write(@HELP
 
-    金玉拳爲天南大理段家的武功。
+    金玉拳為天南大理段家的武功。
     可與五羅輕煙掌互備。
 
 	學習要求：

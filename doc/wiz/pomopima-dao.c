@@ -40,7 +40,7 @@ int valid_learn(object me)
 	if(me->query_skill("xuantian-neigong",1)<20)
 	return notify_fail("你的「玄天內功」功力不夠。\n");
 	if(me->query("max_force")<50)
-	return notify_fail("你的內力修爲不夠。\n");
+	return notify_fail("你的內力修為不夠。\n");
 	return 1;
 }
 

@@ -100,14 +100,14 @@ string ask_me()
 	me->set_temp("guiyun/decide",1);
 
         if((string)me->query("family/family_name") != "桃花島")
-	   return "歸雲莊就是在下居處，如果"+RANK_D->query_respect(me)+"有意(decide)，我可修書一封代爲引薦。\n";
+	   return "歸雲莊就是在下居處，如果"+RANK_D->query_respect(me)+"有意(decide)，我可修書一封代為引薦。\n";
         command("say 這位"+ RANK_D->query_respect(me)
 	       + "來得正好，這裏正有馬車要回莊辦事，就讓他們送你一程吧。\n");
 //      message_vision(HIC"陸冠英一招手，一輛馬車駛過來停在門前。\n$N急忙鑽進車中，只聽一陣清脆的鞭響，馬車絕塵而去。\n\n"NOR,me);
 //	ob = load_object("/d/guiyun/dayuan");
 //	ob = find_object("/d/guiyun/dayuan");
 //	message("vision", "遠處一輛馬車急駛而來，車門一開"+me->query("name")+"從裏面鑽了出來。\n", ob);
-//    	tell_object(me, "只聽車把勢說道：這位"+ RANK_D->query_respect(me) + "已經到了，請下車吧。\n"NOR );
+//    	tell_object(me, "只聽車把勢説道：這位"+ RANK_D->query_respect(me) + "已經到了，請下車吧。\n"NOR );
 	me->move("/d/guiyun/dayuan");           
 }
 
@@ -117,15 +117,15 @@ int do_decide()
 	me = this_player();
 	if (!me->query_temp("guiyun/decide"))
 	{
-		message_vision("$N對$n奇怪地說道：你要決定幹嘛？\n", this_object(), me);
+		message_vision("$N對$n奇怪地説道：你要決定幹嘛？\n", this_object(), me);
 		return 1;
 	}
 	me->delete_temp("guiyun/decide");
 	ob = new(__DIR__"obj/xin");
 	ob->move(me);
 	message_vision("$N雙手抱拳，道：有勞少莊主費心了。\n", me);
-	message_vision("$N說道：好！\n", this_object());
+	message_vision("$N説道：好！\n", this_object());
 	message_vision("$N給$n一封書信。\n", this_object(), me);
-	message_vision("$N說道：這位"+RANK_D->query_respect(me) + "請先到敝莊盤恆數日，以後再圖相敘。\n", this_object());
+	message_vision("$N説道：這位"+RANK_D->query_respect(me) + "請先到敝莊盤恆數日，以後再圖相敍。\n", this_object());
 	return 1;
 }

@@ -117,7 +117,7 @@ int main(object me, string arg)
 
 	if(me->query("id") != target->query_temp("bt_ownname") &&
 		me->query_temp("bt/working"))
-		return notify_fail("你身爲捕快，執行公務，可不能殺良冒功！\n");
+		return notify_fail("你身為捕快，執行公務，可不能殺良冒功！\n");
 
 	if( me->is_busy() )
 		return notify_fail("你的動作還沒有完成，不能暗算。\n");
@@ -129,7 +129,7 @@ int main(object me, string arg)
 		return notify_fail(target->name()+ "都已經這樣了，你還用得着暗算嗎？\n"); 
 
 	if((int)target->query("age") <= 15 && userp(target))
-		return notify_fail("爲了世界更美好，放過小孩子吧.\n");
+		return notify_fail("為了世界更美好，放過小孩子吧.\n");
 
 	if( (int)me->query("jing", 1) < 100 )
 		return notify_fail("你無法集中精力，暗算不了別人。\n");
@@ -137,7 +137,7 @@ int main(object me, string arg)
 	if (userp(me) && target->query("owner") && me->query("id") != target->query("owner"))
 			return notify_fail("不是你要抓的人，湊什麼熱鬧！\n");						
 
-	notify_fail("此人來頭不小，還是少惹爲妙。\n");
+	notify_fail("此人來頭不小，還是少惹為妙。\n");
 	if (!userp(target) && !target->accept_ansuan(me)) return 0;
 	if( !undefinedp(default_dirs[where]) )
 		dir = default_dirs[where];

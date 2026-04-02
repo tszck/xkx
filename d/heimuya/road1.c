@@ -5,7 +5,7 @@ void create()
 {
 	set("short", "亂石坡");
 	set("long", @LONG
-這是一處亂石怪異的小山崗，向東北是通往平安州的小路。據說前
+這是一處亂石怪異的小山崗，向東北是通往平安州的小路。據説前
 方經常有野獸出沒，不可久留。
 LONG );
 	set("outdoors", "heimuya");

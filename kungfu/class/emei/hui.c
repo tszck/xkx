@@ -104,11 +104,11 @@ void attempt_apprentice(object ob)
 	}
 	if ((int)ob->query_skill("mahayana",1) <50)
 	{
-		command("say 你大乘佛法的修爲還要提高些。");
+		command("say 你大乘佛法的修為還要提高些。");
 		return;
 	}
 	command("say 阿彌陀佛，善哉！善哉！好吧，我就收下你了。");
-	command("say 希望你能以慈悲之心，以智慧之力，努力行善，濟度衆生。");
+	command("say 希望你能以慈悲之心，以智慧之力，努力行善，濟度眾生。");
 	command("recruit " + ob->query("id"));
 }
 #include "emei.h"

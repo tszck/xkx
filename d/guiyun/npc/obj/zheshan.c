@@ -11,7 +11,7 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "對");
-                set("long", "這是一對用鑌鐵爲骨的油紙摺扇。\n");
+                set("long", "這是一對用鑌鐵為骨的油紙摺扇。\n");
                 set("value", 2000);
                 set("material", "steel");
                 set("wield_msg", "$N「唰」的一聲從懷中掏出一隻$n握在手中。\n");

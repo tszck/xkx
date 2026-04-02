@@ -25,7 +25,7 @@ mixed hit_ob(object me, object victim, int damage)
 		if( wp > 0 && wp > (wp1 + wp2) * 5 &&
 			random(me->query("str")) > victim->query("str")/2)
 		{
-			message_vision(HIM"只聽見「哐」地一聲輕響，$N手中的"+weapon1->name()+HIY"已經被"+weapon->name()+HIY"削爲兩截！\n"NOR,victim);
+			message_vision(HIM"只聽見「哐」地一聲輕響，$N手中的"+weapon1->name()+HIY"已經被"+weapon->name()+HIY"削為兩截！\n"NOR,victim);
 			weapon1->unequip();
 			victim->reset_action();
      	seteuid(getuid());
@@ -62,7 +62,7 @@ mixed hit_ob(object me, object victim, int damage)
 			wap = random(wap);
 			if( wap > 5 * wdp)
 			{
-				message_vision(HIM"只聽見「啪」地一聲，$N手中的"+weapon1->name()+HIM"已經斷爲兩截！\n"NOR,victim);
+				message_vision(HIM"只聽見「啪」地一聲，$N手中的"+weapon1->name()+HIM"已經斷為兩截！\n"NOR,victim);
 				weapon1->unequip();
 				victim->reset_action();
        	seteuid(getuid());

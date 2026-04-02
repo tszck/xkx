@@ -41,7 +41,7 @@ void  init()
 
 void  refuse_message  (object  me,  object  who)
 {
-    message_vision  ("$N說：別別，殺$N哪有賽龜有趣。\n",me,who);
+    message_vision  ("$N説：別別，殺$N哪有賽龜有趣。\n",me,who);
 }
 
 int  do_fight(string  arg)

@@ -8,7 +8,7 @@ void create()
 	set_name(HIG"竹葉青"NOR, ({ "zhuye qing", "zhuye", "snake", "she" }) );
 	set("race", "爬蛇");
 	set("age", 4);
-	set("long", "一條碧綠的蛇，不仔細，會將它和周邊碧綠的樹葉混爲一體。\n");
+	set("long", "一條碧綠的蛇，不仔細，會將它和周邊碧綠的樹葉混為一體。\n");
 	set("attitude", "peaceful");
 	set("str", 26);
 	set("con", 30);

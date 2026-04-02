@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "閱覽室");
+	set("short", "閲覽室");
 	set("long", @LONG
-這裏是村支部的閱覽室。自從配置了先進的多媒體設備，這兒就常
+這裏是村支部的閲覽室。自從配置了先進的多媒體設備，這兒就常
 常座無虛席。
 LONG );
 	set("exits", ([

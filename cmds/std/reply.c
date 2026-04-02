@@ -28,7 +28,7 @@ int main(object me, string arg)
 		}
 	}
 	if( !stringp(target = me->query_temp("reply")) )
-		return notify_fail("剛纔沒有人和你說過話。\n");
+		return notify_fail("剛才沒有人和你説過話。\n");
 
 	if( sscanf(target, "%s@%s", target, mud)==2 ) {
 		GTELL->send_gtell(lower_case(mud), lower_case(target), me, arg);
@@ -38,7 +38,7 @@ int main(object me, string arg)
 
 	obj = find_player(target);
 	if(!obj || !me->visible(obj) || obj->query_temp("block_msg/all"))
-		return notify_fail("剛纔和你說話的人現在無法聽見你，或者已經離開遊戲了。\n");
+		return notify_fail("剛才和你説話的人現在無法聽見你，或者已經離開遊戲了。\n");
 	if (stringp(obj->query("env/can_tell")))
 	clist = explode(obj->query("env/can_tell"),",");
 	if (!wizardp(me) && (obj->query("env/no_tell")=="all" || obj->query("env/no_tell")==me->query("id")) 
@@ -59,7 +59,7 @@ int help(object me)
 	write(@HELP
 指令格式：reply <訊息>
 
-    你可以用這個指令和剛纔用 tell 和你說話的使用者說話。
+    你可以用這個指令和剛才用 tell 和你説話的使用者説話。
 
 see also : tell
 HELP

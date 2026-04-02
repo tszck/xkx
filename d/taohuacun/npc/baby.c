@@ -6,9 +6,9 @@ inherit F_SAVE;
 void try_move();
 
 string *reject_msg = ({
-	"說道：您太客氣了，這怎麼敢當？\n",
-	"像是受寵若驚一樣，說道：請教？這怎麼敢當？\n",
-	"笑着說道：您見笑了，我這點雕蟲小技怎夠資格「指點」您什麼？\n",
+	"説道：您太客氣了，這怎麼敢當？\n",
+	"像是受寵若驚一樣，説道：請教？這怎麼敢當？\n",
+	"笑着説道：您見笑了，我這點雕蟲小技怎夠資格「指點」您什麼？\n",
 });
 string query_save_file();
 int do_save();
@@ -310,7 +310,7 @@ int do_teach(string skill)
 	if( me->is_fighting() )
 		return notify_fail("你自己保命都懸。還有空教孩子？\n");
 	if( !living(ob) )
-		return notify_fail("嗯....你得先把"+obname+"弄醒再說。\n");
+		return notify_fail("嗯....你得先把"+obname+"弄醒再説。\n");
 	if (ob->is_busy())
 		return notify_fail(obname + "現在正忙着呢。\n");
 	if( ob->is_fighting() )
@@ -552,7 +552,7 @@ int exercising(object ob)
 	{
 		if((int)ob->query("max_neili")>(int)ob->query_skill("force")*10)
 		{
-			write(obname+"內力修爲似乎已達到了瓶頸。\n");
+			write(obname+"內力修為似乎已達到了瓶頸。\n");
 			ob->set("neili", (int)ob->query("max_neili"));
 			return 0;
 		}
@@ -608,12 +608,12 @@ int do_study(string arg)
 
 	if( ob->query_skill(skill["name"], 1) > skill["max_skill"] )
 	{
-		message_vision(HIR"$N研讀了一會兒，但是發現上面所說的都太淺了，沒有學到任何東西。\n"NOR, ob);
+		message_vision(HIR"$N研讀了一會兒，但是發現上面所説的都太淺了，沒有學到任何東西。\n"NOR, ob);
 		return 1;
 	}
 	if( ob->query_skill(skill["name"], 1) < skill["min_skill"] )
 	{
-		message_vision(HIR"$N研讀了一會兒，但是發現上面所說的都太深奧了，毫無收穫。\n"NOR, ob);
+		message_vision(HIR"$N研讀了一會兒，但是發現上面所説的都太深奧了，毫無收穫。\n"NOR, ob);
 		return 1;
 	}
 
@@ -626,7 +626,7 @@ int do_study(string arg)
 		if( (string)SKILL_D(skill["name"])->type()=="martial"
 		&& my_skill*my_skill*my_skill/10 > (int)ob->query("combat_exp"))
 		{
-			message_vision("也許是缺乏實戰經驗，$N對$n上面所說的東西總是無法領會。\n", ob, book);
+			message_vision("也許是缺乏實戰經驗，$N對$n上面所説的東西總是無法領會。\n", ob, book);
 		}
 		else
 		{
@@ -660,7 +660,7 @@ int do_learn(string arg)
 	if( !(obt = present(teacher, environment(ob))) || !obt->is_character())
 		return notify_fail("讓"+obname+"向誰求教？\n");
 	if( !living(obt) )
-		return notify_fail("嗯....得先把"+obt->name()+"弄醒再說。\n");
+		return notify_fail("嗯....得先把"+obt->name()+"弄醒再説。\n");
 
 	if( !ob->is_apprentice_of(obt) && !(obt->recognize_apprentice(ob)) )
 	{

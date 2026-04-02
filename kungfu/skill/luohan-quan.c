@@ -7,7 +7,7 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "$N連續上步，一式"HIY"「黃鶯落架」"NOR"，左右手分靠，變拳爲掌，擊向$n的
+([	"action" : "$N連續上步，一式"HIY"「黃鶯落架」"NOR"，左右手分靠，變拳為掌，擊向$n的
 $l",
 	"lvl" : 0,
 	"skill_name" : "黃鶯落架"
@@ -113,7 +113,7 @@ int help(object me)
 	write(HIC"\n羅漢拳："NOR"\n");
 	write(@HELP
 
-    羅漢拳爲少林七十二絕技之一。
+    羅漢拳為少林七十二絕技之一。
     可與互備。
 
 	學習要求：

@@ -44,13 +44,13 @@ int do_ask()
 	if ((int)me->query_skill("buddhism",1)<50 &&
 		present("moheseng dilu", me) )
 	{
-		write("你的禪宗修爲不到，無法在此領悟禪理。\n");
+		write("你的禪宗修為不到，無法在此領悟禪理。\n");
 		return 1;
 	}
 	if ((int)me->query_skill("buddhism",1)>101
 		&& present("moheseng dilu", me) )    
 	{
-		write("大瘋大師低聲說道："+ RANK_D->query_respect(this_player()) +"的佛法已頗爲淵深，已不需老衲指點。\n");
+		write("大瘋大師低聲説道："+ RANK_D->query_respect(this_player()) +"的佛法已頗為淵深，已不需老衲指點。\n");
 		return 1;
 	}
 	if ((int)me->query_skill("buddhism", 1) >= 50 &&

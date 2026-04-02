@@ -61,7 +61,7 @@ int perform(object me, object target)
 		if( (int)me->query_skill("canhe-finger",1) < 100 )
 			return notify_fail("你的參合指不夠精通！無法使出「七劍連環」！\n");
 		if( (int)me->query_skill("finger",1) < 100 )
-			return notify_fail("你的基本指法修爲不夠！無法使出「七劍連環」！\n");
+			return notify_fail("你的基本指法修為不夠！無法使出「七劍連環」！\n");
 	}
 
 	if( (int)me->query("neili") < 500 )

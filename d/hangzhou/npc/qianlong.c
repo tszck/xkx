@@ -66,7 +66,7 @@ message("vision", HIR"只見" + me->query("name") + "從塔頂上撲通一聲跌
         else
         {
               message_vision(
-"$n看着$N說道：免了！看在你救駕有功，免你死罪，朕自有封賞。\n\n", me, this_object() );
+"$n看着$N説道：免了！看在你救駕有功，免你死罪，朕自有封賞。\n\n", me, this_object() );
               me->set("marks/qianlong", "1");
               me->add("combat_exp", 10000);
         }

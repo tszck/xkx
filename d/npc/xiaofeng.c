@@ -17,8 +17,8 @@ void create()
 	set("nickname",HIB"鐵掌降龍"NOR);
 	set("age", 28);
 	set("long", 
-		"他就是丐幫前任幫主，因被發現是契丹人而衆叛親離。\n"
-		"在江湖上與燕子塢的慕榮復並稱爲「北喬峯，南慕榮」。\n"
+		"他就是丐幫前任幫主，因被發現是契丹人而眾叛親離。\n"
+		"在江湖上與燕子塢的慕榮復並稱為「北喬峯，南慕榮」。\n"
 		"他身穿一件普通的粗布褂子，腰間用一條麻繩隨便一系。\n"
 		"他身高六尺有餘，體格十分魁梧，長有一張線條粗曠、十\n"
 		"分男性化的臉龐，雙目如電，炯炯有神。\n");
@@ -60,7 +60,7 @@ void create()
 	set_skill("xiaoyaoyou", 120);        // 逍遙遊
 	set_skill("parry", 120);             // 基本招架
 	set_skill("begging", 50);            // 叫化絕活
-	set_skill("checking", 50);           // 道聽途說
+	set_skill("checking", 50);           // 道聽途説
 	
 	map_skill("force", "huntian-qigong");
 	map_skill("unarmed", "xianglong-zhang");
@@ -129,7 +129,7 @@ int do_kill(object me, object dest)
 	if( objectp(dest) && present(dest, environment(me))
 		 && !environment(me)->query("no_fight"))
 	{
-		message_vision(HIR "$N對$n說道：老子一見一品堂高手就生氣。"
+		message_vision(HIR "$N對$n説道：老子一見一品堂高手就生氣。"
 			+RANK_D->query_rude(dest)+"，納命來！\n" NOR, me, dest);
 		me->set_leader(dest);
 		me->kill_ob(dest);
@@ -195,7 +195,7 @@ int do_back(object me)
 
 	me->move("/d/city/dongdajie2");
 	me->set("combat_exp", 1000000);
-	message("vision", "蕭峯走了過來，拍了拍身上的塵土，微微一笑說道：又除了一個壞蛋。\n", 
+	message("vision", "蕭峯走了過來，拍了拍身上的塵土，微微一笑説道：又除了一個壞蛋。\n", 
 		environment(), me );
 
 	me->set_leader(0);

@@ -127,7 +127,7 @@ int help(object me)
 	write(HIC"\n日月鞭法："NOR"\n");
 	write(@HELP
 
-    日月鞭法爲少林長老三渡的鎮山絕技。
+    日月鞭法為少林長老三渡的鎮山絕技。
 
 	學習要求：
 		混元一氣功50級

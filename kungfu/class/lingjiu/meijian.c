@@ -98,7 +98,7 @@ void greeting(object ob)
 	}
 	if (!(string)ob->query("family/family_name"))
 	{
-		message_vision("梅劍衝着$N微笑說：你是來拜師的吧，拜我吧。\n",ob);
+		message_vision("梅劍衝着$N微笑説：你是來拜師的吧，拜我吧。\n",ob);
 		return;
 	}
 }
@@ -107,13 +107,13 @@ void attempt_apprentice(object ob)
 {
 	if ((string)ob->query("gender")=="女性")
 	{
-		message_vision("梅劍垂目沉思片刻, 說道：“好吧, 我就收下你了。”\n",ob);
+		message_vision("梅劍垂目沉思片刻, 説道：“好吧, 我就收下你了。”\n",ob);
 		command("recruit " + ob->query("id"));
 		return;
 	}
 	else
 	{
-		message_vision("梅劍瞪着$N看了半天,說道：“閣下是否該去做做手術?”\n",ob);
+		message_vision("梅劍瞪着$N看了半天,説道：“閣下是否該去做做手術?”\n",ob);
 		return;
 	}
 }

@@ -73,9 +73,9 @@ int main(object me, string arg)
 			default:
 			if (!flag)
 				if (me->query("gender")=="女性")
-					return notify_fail(MAG"你想和你的" + me->query("couple/couple_gender")+"說說話，可是他現在不在線上。\n"NOR);
+					return notify_fail(MAG"你想和你的" + me->query("couple/couple_gender")+"説説話，可是他現在不在線上。\n"NOR);
 				else
-					return notify_fail(MAG"你想和你的" + me->query("couple/couple_gender")+"說說話，可是她現在不在線上。\n"NOR);
+					return notify_fail(MAG"你想和你的" + me->query("couple/couple_gender")+"説説話，可是她現在不在線上。\n"NOR);
 			write(MAG "你悄悄告訴你的" + me->query("couple/couple_gender") + "：" + arg + "\n" NOR);
 			tell_object(obj, sprintf( MAG "你的%s悄悄告訴你：%s\n" NOR, obj->query("couple/couple_gender"), arg));
 //				message("channel:snp", HIB"【監聽】" + me->name() + "悄悄告訴"+ obj->name() + "：" + arg + "\n"NOR, users());
@@ -90,7 +90,7 @@ int help(object me)
 
 指令格式：ce [kiss | bye] [<訊息>]
 
-    你可以用這個指令對你的伴侶說悄悄話。
+    你可以用這個指令對你的伴侶説悄悄話。
 
 HELP
 	);

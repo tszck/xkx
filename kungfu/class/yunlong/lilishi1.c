@@ -12,7 +12,7 @@ int do_skills(string arg);
 void create()
 {
 	set_name("李力世", ({ "li lishi", "li" }));
-	set("title", HIR "天地會"HIG"青木堂"NOR"會衆");
+	set("title", HIR "天地會"HIG"青木堂"NOR"會眾");
 	set("gender", "男性");
 	set("age", 45);
 	set("str", 25);
@@ -42,11 +42,11 @@ void create()
 	set("jiali", 10);
 	set("chat_chance", 2);
 	set("chat_msg", ({
-	"李力世說：呆會兒我還得把豬送到宮裏去。\n",
+	"李力世説：呆會兒我還得把豬送到宮裏去。\n",
 	"李力世突然吆喝道: 花雕芙苓豬啊，只賣黃金一兩，誰買誰買啊？\n",
 	"李力世突然吆喝道: 燕窩人蔘豬啊，只賣黃金一兩，誰買誰買啊？\n",
-        "李力世搔了搔頭，說道：這麼好的豬肉怎麼沒人要啊。\n",
-        "李力世突然說：初進洪門結義兄，對天明誓表真心。\n",
+        "李力世搔了搔頭，説道：這麼好的豬肉怎麼沒人要啊。\n",
+        "李力世突然説：初進洪門結義兄，對天明誓表真心。\n",
 	}));
         set("inquiry", ([
 		"陳近南" :  "\n想見總舵主可不容易啊。\n",
@@ -72,7 +72,7 @@ int accept_object(object who, object ob)
 {
 	if (ob->query("money_id") && ob->value() >= 10000) 
 	{
-		message_vision("\n李力世對$N一揖作禮，說道：這位客官，要什麼儘管說。\n",this_player());
+		message_vision("\n李力世對$N一揖作禮，説道：這位客官，要什麼儘管説。\n",this_player());
 		who->set_temp("money_paid",1);
 		return 1;
 	}
@@ -82,9 +82,9 @@ int accept_object(object who, object ob)
 int ask_weiwang()
 {
 command("tell "+this_player()->query("id")+" 你現在的江湖威望是 " +(string)(this_player()->query("weiwang")));
-say("\n李力世說道：如果你威望值很高，有些人見了你不但不會殺你，還會教你武功，送你寶貝。\n"
-+"而且你還可以加入幫會，率領會衆去攻打目標，就連去錢莊取錢也會有利息 。。。。。\n");
-say("李力世說：殺某些壞人或救某些好人可以提高江湖威望。\n");
+say("\n李力世説道：如果你威望值很高，有些人見了你不但不會殺你，還會教你武功，送你寶貝。\n"
++"而且你還可以加入幫會，率領會眾去攻打目標，就連去錢莊取錢也會有利息 。。。。。\n");
+say("李力世説：殺某些壞人或救某些好人可以提高江湖威望。\n");
 return 1;
 }
 
@@ -95,10 +95,10 @@ if (this_player()->query_temp("money_paid"))
 {
 this_player()->delete_temp("money_paid");
 this_player()->set("huanggong\\canenter",1);
-say("李力世說：您老現在可以走啦！\n");
+say("李力世説：您老現在可以走啦！\n");
 return 1;
 }
-say("李力世說：幹什麼也得先交錢啊。\n");
+say("李力世説：幹什麼也得先交錢啊。\n");
 return 1;
 } 
 

@@ -70,13 +70,13 @@ void create()
 	set("chat_chance", 5);	 // 隨機動作概率 25%
 	set("chat_msg", ({
 		"陳家洛嘆了一口氣道：唉....想不到乾隆竟是我兄弟，這可如何是好？\n",
-		"陳家洛恨聲說道：我們漢人的江山，一定要從滿清手中奪回來。\n",
-		"陳家洛說道：這位兄弟，可要加入我們紅花會嗎？\n",
+		"陳家洛恨聲説道：我們漢人的江山，一定要從滿清手中奪回來。\n",
+		"陳家洛説道：這位兄弟，可要加入我們紅花會嗎？\n",
 	}) );
 	set("no_get",1);
 	set("chat_chance_combat", 50); // 戰鬥中隨機動作概率
 	set("chat_msg_combat", ({
-		"陳家洛說道：你敢惹我，追到天涯海角我都要殺了你！\n",
+		"陳家洛説道：你敢惹我，追到天涯海角我都要殺了你！\n",
 		(: perform_action, "sword.beng" :),
 		(: perform_action, "sword.lian" :),
 		(: perform_action, "cuff.cuo" :),
@@ -97,7 +97,7 @@ void attempt_apprentice(object ob)
 	if ((int)ob->query("shen") < 50000)
 	{
 		command( "say 紅花會中皆是敢作敢當的好漢子，你這小賊也想混進來麼？");
-		command("say 想要加入紅花會"+RANK_D->query_respect(ob) + "你先去殺幾個清狗再說！");
+		command("say 想要加入紅花會"+RANK_D->query_respect(ob) + "你先去殺幾個清狗再説！");
 		return;
 	}
 	command("say 在下對"+RANK_D->query_respect(ob)+"已是神交已久，從今而後咱們就是一家人了！");
@@ -145,7 +145,7 @@ int do_say(string arg)
  
 	if( arg=="青葉紅花白蓮藕") 
 	{
-		write("陳家洛說道：天下英雄是一家。\n");
+		write("陳家洛説道：天下英雄是一家。\n");
 		message("vision", "陳家洛低聲道：原來是自家弟兄，不知有何見教？\n", this_player());
 		set("inquiry", ([
 			"紅花令" : (: ask_ling :),
@@ -161,7 +161,7 @@ string ask_ling()
 	object ob,me;
 
 	if (count == 0) return "紅花令已經傳出去了！\n";
-	message_vision(HIR"陳家洛說道：“想要紅花令嗎？，先接我三招！\n"NOR,this_player());
+	message_vision(HIR"陳家洛説道：“想要紅花令嗎？，先接我三招！\n"NOR,this_player());
 	ob = this_object();
 	me = this_player();
 	COMBAT_D->do_attack(ob, me, query_temp("weapon") );

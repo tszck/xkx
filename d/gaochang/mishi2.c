@@ -66,7 +66,7 @@ int do_study(string arg)
 	}
 	if ( !me->query_temp("stone_learned") )
 	{
-		write("你對着石桌琢磨了一回兒，發現上面所說的太過淺顯，對你來說已毫無意義了。\n");
+		write("你對着石桌琢磨了一回兒，發現上面所説的太過淺顯，對你來説已毫無意義了。\n");
 	}
 	return 1;
 }

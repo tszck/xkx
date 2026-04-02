@@ -30,7 +30,7 @@ void init()
 	if (random(me->query("kar")) <15 && me->query_con() < 35)
 	{
 		tell_object(me, HIB"你忽然感到呼吸一緊，原來是這裏的空氣污濁、流通不暢。\n" NOR );	
-		tell_room(environment(me),me->name()+"突然臉色變得極爲難看，並深深地吸了口氣。\n" NOR, ({ me }));
+		tell_room(environment(me),me->name()+"突然臉色變得極為難看，並深深地吸了口氣。\n" NOR, ({ me }));
 		me->add("neili", -50);
 		me->receive_wound("qi", 10);
 		me->receive_wound("jing", 20);

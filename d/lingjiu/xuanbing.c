@@ -17,7 +17,7 @@ LONG );
 		"east" : __DIR__"changl13",
 	]));
 	set("item_desc", ([
-		"ice" : "這是一塊採自天山之巔的千年玄冰,據說在那上面打坐事半功倍.\n你可以試着爬(climb)上去.\n",
+		"ice" : "這是一塊採自天山之巔的千年玄冰,據説在那上面打坐事半功倍.\n你可以試着爬(climb)上去.\n",
 	]));
 	set("no_clean_up", 0);
 	set("coor/x", -51000);
@@ -47,7 +47,7 @@ int do_climb(object me)
 	me=this_player();
 	if(!me->query_skill("bahuang-gong", 1)||(int)me->query_skill("bahuang-gong", 1) < 10)
 	{
-		write("你的八荒六合唯我獨尊功修爲不夠，抵禦不了奇寒！\n");
+		write("你的八荒六合唯我獨尊功修為不夠，抵禦不了奇寒！\n");
 		message_vision("$N費勁地爬上了玄冰，結果給凍得慘慘的，趕緊爬了下來。\n",me);
 		return 1; 
  	}	

@@ -9,7 +9,7 @@ void create()
 	set_name("黑鷲", ({ "hei jiu"}) );
 	set("race", "飛禽");
 	set("age", 16);
-	set("long", "漠北一種兇猛的飛鳥，以腐屍爲食。\n");
+	set("long", "漠北一種兇猛的飛鳥，以腐屍為食。\n");
 	set("str", 24);
 	set("cor", 24);
 	set("combat_exp",50000);

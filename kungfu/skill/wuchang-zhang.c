@@ -31,7 +31,7 @@ mapping *action = ({
 	"lvl" : 30,
 	"skill_name" : "行屍走肉"
 ]),
-([	"action":"$N面帶戚色，一招"HIM"「飲恨吞聲」"NOR"，趁$n說話間，一杖向$n張大的嘴巴捅了過去",
+([	"action":"$N面帶戚色，一招"HIM"「飲恨吞聲」"NOR"，趁$n説話間，一杖向$n張大的嘴巴捅了過去",
 	"lvl" : 35,
 	"skill_name" : "飲恨吞聲"
 ]),
@@ -126,7 +126,7 @@ int help(object me)
 	write(HIC"\n無常杖法："NOR"\n");
 	write(@HELP
 
-    無常杖法爲少林七十二絕技之一。
+    無常杖法為少林七十二絕技之一。
 
 	學習要求：
 		混元一氣功20級

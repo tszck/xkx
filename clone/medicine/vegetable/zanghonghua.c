@@ -32,6 +32,6 @@ int do_eat(string arg)
 	if( me->is_busy() )
 		return notify_fail("別急，慢慢喫，小心別噎着了。\n");
 
-	write("記得韋爵爺說過：戰馬喫了芍藥花，能全身活血。你喫藏紅花圖個啥呦！\n");
+	write("記得韋爵爺説過：戰馬喫了芍藥花，能全身活血。你喫藏紅花圖個啥呦！\n");
 	return 1;
 }

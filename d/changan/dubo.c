@@ -41,7 +41,7 @@ LONG);
 	set("item_desc",  (["paizi"  :  "
 
 賭骰子規則：
-每一輪有個莊家，輸贏只跟莊家比。兩粒骰子，成對爲大。十點最小。
+每一輪有個莊家，輸贏只跟莊家比。兩粒骰子，成對為大。十點最小。
 開賭順序：
 一，確定莊家(用zz或zuozhuang坐莊，retire或rz,  rangzhuang讓莊)。
 二，莊家宣佈開盤(start  <賭注上限>)。
@@ -211,7 +211,7 @@ int  do_cancel()
 
 	if(  me->query("id")  ==  zhuang_id  )
 	{//I  am  zhuang-jia.
-		message_vision("$N起身說道：這一把我賭不下去了，你們把錢拿回去另找人坐莊吧！\n",  me);
+		message_vision("$N起身説道：這一把我賭不下去了，你們把錢拿回去另找人坐莊吧！\n",  me);
 		zhuang_id  =  "no  zhuang";
 		me->delete_temp("shaizi");
 
@@ -316,7 +316,7 @@ int  do_retire()
 
 	if(game_status  ==  1  ||  game_status  ==  0  )
 	{
-		message_vision("$N站起來嚷道：這個黴莊我可不坐了！說罷順手將桌上的保證金揣在懷裏。\n",  me);
+		message_vision("$N站起來嚷道：這個黴莊我可不坐了！説罷順手將桌上的保證金揣在懷裏。\n",  me);
 		zhuang_id  =  "no  zhuang";
 		game_status  =  0;
 		pay_player(me,  me->query_temp("shaizi_zhuang_deposit"));
@@ -512,7 +512,7 @@ void  show_shaizi(object  me)
 		tell_room  (this_object(),  me->query("name")+sha_msg[random(sizeof(sha_msg))]);
 		tell_room  (this_object(),  shaizi_msg[(int)me->query_temp("shaizi/point1")]);
 		tell_room  (this_object(),  shaizi_msg[(int)me->query_temp("shaizi/point2")]);
-		tell_room  (this_object(),  "衆人齊聲叫道："+point_msg+"！\n");
+		tell_room  (this_object(),  "眾人齊聲叫道："+point_msg+"！\n");
 	}
 
 }

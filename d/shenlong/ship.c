@@ -192,7 +192,7 @@ int navigate()
 				do_drop();
 				return 1;
 			}
-			tell_room(this_object(), "船伕們不耐煩地說：你到底走不走啊？\n");
+			tell_room(this_object(), "船伕們不耐煩地説：你到底走不走啊？\n");
 		}			
 		call_out("navigate", 1);
 		return 1;
@@ -218,7 +218,7 @@ int navigate()
 
 	locx = query_temp("navigate/locx");
 	if( locx < 0 ) {
-		tell_room(this_object(), "船伕說：“大陸到啦，上岸吧”。\n");
+		tell_room(this_object(), "船伕説：“大陸到啦，上岸吧”。\n");
 		set("exits/out", "/d/beijing/haigang");
 
 		delete_temp("navigate");
@@ -232,7 +232,7 @@ int navigate()
 
 	locy = query_temp("navigate/locy");
 	if( locx == 20 &&  locy == 20 ) {
-		tell_room(this_object(), "船伕說：“神龍島到啦，上岸吧”。\n");
+		tell_room(this_object(), "船伕説：“神龍島到啦，上岸吧”。\n");
 		set("exits/out", "/d/shenlong/beach");
 
 		delete_temp("navigate");
@@ -246,7 +246,7 @@ int navigate()
 
 	if( locx <= 110 &&  locy <= 610 
 	&& locx >= 95 && locy >= 590 ) {
-		tell_room(this_object(),"船伕說：“到了一個怪島，要上去看看嗎？”。\n");
+		tell_room(this_object(),"船伕説：“到了一個怪島，要上去看看嗎？”。\n");
 		set("exits/out", "/d/changbai/icefire1");
 
 		delete_temp("navigate");
@@ -306,7 +306,7 @@ int do_go(string arg)
 	}
 
 	set_temp("navigate/dir", dir);
-	message_vision("$N對船伕說：船老大，請朝" + dir + "開。\n", me);
+	message_vision("$N對船伕説：船老大，請朝" + dir + "開。\n", me);
 	return 1;
 }
 

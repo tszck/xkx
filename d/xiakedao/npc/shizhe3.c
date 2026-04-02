@@ -67,11 +67,11 @@ void greeting(object ob)
 {
 
         if( !ob || environment(ob) != environment() ) return;
-        say("黃衣侍者說道：這位" + RANK_D->query_respect(ob)
+        say("黃衣侍者説道：這位" + RANK_D->query_respect(ob)
            + "想必你也是來參悟武林祕密的吧。這裏就是俠客行\n"
            + "的正中心，周圍共有二十四間石室，你可隨意來去觀看。但一切\n"
            + "要小心在意，千萬不可莽撞行事。本室可供應飲食，不過還是盡\n"
-           + "早離去爲好。\n"
+           + "早離去為好。\n"
              );
         return;
 }
@@ -82,7 +82,7 @@ int accept_object(object who, object ob)
 
         if( ob->query("money_id") && ob->value() >= 5000  )
         {command("say " + RANK_D->query_respect(who) +
-                "如此古道熱腸，兼又身懷絕藝，本來島主不讓我說的，" +
+                "如此古道熱腸，兼又身懷絕藝，本來島主不讓我説的，" +
                 "但我實在不忍心見死不救。你從西北門進去，把牆壁上的" +
                 "那把木刀取下，拿在手上，對你有好處。但你千萬別告訴" +
                 "別人，否則你我都有殺身之禍，切記切記！！！" );
@@ -98,7 +98,7 @@ void die()
         message_vision("$N慘嚎一聲，死了！\n", this_object());
 
         room = environment(this_object());
-message("vision", "由於侍者死了摔倒在一旁，這時你才發現剛纔他站的地方有點奇怪。\n"
+message("vision", "由於侍者死了摔倒在一旁，這時你才發現剛才他站的地方有點奇怪。\n"
         "地板由兩塊石板組成，似乎是個門.上面還有一鑰匙孔(kong) \n", room);
 
         ::die();

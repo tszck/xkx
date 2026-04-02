@@ -32,7 +32,7 @@ int perform(object me, object target)
 		return notify_fail("你必須空手才能使用鐵蒲扇掌！\n");
 
 	if( (int)me->query("max_neili") < 1500 )
-		return notify_fail("你現在內力修爲不足，使不出鐵蒲扇掌招！\n");
+		return notify_fail("你現在內力修為不足，使不出鐵蒲扇掌招！\n");
 
 	if( (int)me->query("neili") < 1200 )
 		return notify_fail("你現在內力不足，使不出鐵蒲扇掌絕招！\n");
@@ -228,7 +228,7 @@ int help(object me)
 	出手要求：
 		歸元吐納法150級
 		鐵掌掌法150級
-		內力修爲1500
+		內力修為1500
 		內力1200
 HELP
 	);

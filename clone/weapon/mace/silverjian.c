@@ -17,7 +17,7 @@ void create()
 		set("material", "silver");
 		set("long", "一柄閃閃發光的銀裝鐧，顯然是被人擦了又擦。\n");
 		set("wield_msg", "只見一道銀光閃過，$N手裏已經多了一柄$n！\n");
-		set("unwield_msg", "$N收起了$n，四周光芒爲之一暗！\n");
+		set("unwield_msg", "$N收起了$n，四周光芒為之一暗！\n");
 	}
 	
 	init_mace(65);

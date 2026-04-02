@@ -53,7 +53,7 @@ int perform(object me, object target)
 		pskill = "douzhuan-xingyi";
 	}
 	if( (int)me->query_skill(fskill, 1) < 150 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，無法使用"+PNAME+"。\n");
 	if( (int)me->query_skill(sskill, 1) < 150 )
 		return notify_fail("你發現自己的"+to_chinese(sskill)+"還不夠嫺熟，無法使用"+PNAME+"進行攻擊。\n");
 	if( (int)me->query_skill(pskill,1) < 120)
@@ -74,7 +74,7 @@ int perform(object me, object target)
 	  ob->move(environment(me));
 	}
 
-	message_combatd(BLU"\n$N"BLU"神色慘淡，伸手打開發髻，長髮下垂，覆在臉上，跟着點燃紅磷粉，咬破舌尖，\n一口"RED"鮮血"BLU"向火焰中噴去。"HIR"火焰"BLU"忽地一暗，隨即大爲"RED"明亮"HIR"，耀得衆人眼睛也不易睜開。\n\n"NOR,me);
+	message_combatd(BLU"\n$N"BLU"神色慘淡，伸手打開發髻，長髮下垂，覆在臉上，跟着點燃紅磷粉，咬破舌尖，\n一口"RED"鮮血"BLU"向火焰中噴去。"HIR"火焰"BLU"忽地一暗，隨即大為"RED"明亮"HIR"，耀得眾人眼睛也不易睜開。\n\n"NOR,me);
 
 	me->start_busy(2);
 	me->set_temp("pfm_chousui", 1);
@@ -284,7 +284,7 @@ int help(object me)
 		化功大法150級
 		抽髓掌150級
 		基本毒技120級
-		內力修爲1000
+		內力修為1000
 		內力800
 		周圍有火堆
 HELP

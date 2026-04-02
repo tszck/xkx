@@ -8,7 +8,7 @@ void create()
 	set("long", @LONG
 這裏就是明教的天微堂，堂主就是威名遠播的殷野王。他是白眉鷹
 王的獨子和教主張無忌的舅舅。堂內陳設鮮麗奢華，顯然甚是興旺，往
-來教衆進進出出，看他們各執兵刃，似乎是守總舵的衛士。
+來教眾進進出出，看他們各執兵刃，似乎是守總舵的衞士。
 LONG );
 	set("exits", ([
 		"east"      : __DIR__"tianshitang",
@@ -32,6 +32,6 @@ int valid_leave(object me, string dir)
 	if ((me->query("party/party_name")!=HIG "明教" NOR) &&
 		(dir=="north") &&
 		(objectp(present("yin yewang", environment(me)))))
-	return notify_fail("殷野王攔住你說：此處乃明教重地，請止步。\n");
+	return notify_fail("殷野王攔住你説：此處乃明教重地，請止步。\n");
 	return ::valid_leave(me, dir);
 }

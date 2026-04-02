@@ -107,7 +107,7 @@ int accept_object(object who, object ob)
 
         remove_call_out("destroying");
         call_out("destroying", 1, me, ob);
-        message_vision("王處一看了看$N送去的藥，點了點頭道：難爲你了，\n"
+        message_vision("王處一看了看$N送去的藥，點了點頭道：難為你了，\n"
                        "我可以教你點功夫。\n", who);
 
         who->add_temp("tmark/王", 60);
@@ -126,7 +126,7 @@ string ask_me()
 
         if(me->query_temp("tmark/指")==1) {
                 me->add_temp("tmark/指",1);
-                return("去年師傅去過段皇爺那裏，據說段皇爺把他最厲害的一陽指功夫
+                return("去年師傅去過段皇爺那裏，據説段皇爺把他最厲害的一陽指功夫
 傳授給我師傅了。\n");
         }
         else {
@@ -140,12 +140,12 @@ int recognize_apprentice(object ob)
         mapping fam;
         if (!(fam = this_player()->query("family")))
                 return notify_fail("王處一道：你可還沒拜過師啊，要學功夫還是先拜
-個師父再說吧。\n");
+個師父再説吧。\n");
         if (!(int)ob->query_temp("tmark/王"))
                 return 0;
         if ( fam["family_name"] == "全真教") return 1 ;
         if ((int)ob->query_temp("tmark/王") == 1 )
-        message_vision("王處一看看$N，說道：我能教你的東西到此爲止，\n"
+        message_vision("王處一看看$N，説道：我能教你的東西到此為止，\n"
                           "你也不要再找我學功夫了。\n", ob);
         ob->add_temp("tmark/王", -1);
         return 1;

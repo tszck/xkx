@@ -33,7 +33,7 @@ int valid_leave(object me, string dir)
 
 	if((!myfam || myfam["family_name"] != "青城派") && dir != "west" &&
 		objectp(present("hong renxiong", environment(me))))
-	return notify_fail("洪人雄攔住你說：此處乃本派禁地，請止步。\n");
+	return notify_fail("洪人雄攔住你説：此處乃本派禁地，請止步。\n");
 
 	if( me->query_skill("qingming-xuangong", 1) < 10 && dir != "west" &&
 		objectp(present("hong renxiong", environment(me))))

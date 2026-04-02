@@ -19,7 +19,7 @@ void create()
 		set("vegetable", 32);
 		set("value", 100);
 		set("nostrum", 16);
-		set("long", "這是一包麻黃，據說可以入藥。\n");
+		set("long", "這是一包麻黃，據説可以入藥。\n");
 		set("value", 1000);
 	}
 	set("pour_type", "1");

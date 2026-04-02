@@ -70,7 +70,7 @@ int perform(object me, object target)
 		target->receive_damage("qi", damage,me);
 		target->receive_wound("qi", damage/3,me);
 		me->add("neili", -damage);
-		msg += HIR"只見$N劍花聚爲一線，穿向$n,\n$n只覺一股熱流穿心而過，喉頭一甜，鮮血狂噴而出！\n"NOR;
+		msg += HIR"只見$N劍花聚為一線，穿向$n,\n$n只覺一股熱流穿心而過，喉頭一甜，鮮血狂噴而出！\n"NOR;
 		me->start_busy(2);
 	} else 
 	{

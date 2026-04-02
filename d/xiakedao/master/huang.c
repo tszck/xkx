@@ -87,7 +87,7 @@ void greeting(object ob)
 	int i;
 
 	obj = all_inventory(environment(me));
-        command("say  一燈大師，您貴位一國天子卻出家爲僧，此句深藏身與名，您必深得其意。");
+        command("say  一燈大師，您貴位一國天子卻出家為僧，此句深藏身與名，您必深得其意。");
 	for(i=0; i<sizeof(obj); i++)
 	{
 		if( obj[i]->query("id")=="yideng-dashi")

@@ -26,7 +26,7 @@ void create()
 	set("chat_chance", 1);
 	set("chat_msg", ({
 	"洪七公嘆了口氣道：“唉……何時能再喫到蓉兒做的「叫化雞」啊……”\n",
-	"洪七公說道：“俗話說「喫在江南」，所以老叫化特地跑來揚州看看。”\n",
+	"洪七公説道：“俗話説「喫在江南」，所以老叫化特地跑來揚州看看。”\n",
 	"洪七公喃喃道：“我們丐幫的「降龍十八掌」是天下最霸道的掌法。”\n",
 	}));
 	set("inquiry", ([
@@ -65,7 +65,7 @@ void create()
 	set_skill("stick", 200);             // 基本棒法
 	set_skill("dagou-bang", 300);        // 打狗棒法
 	set_skill("begging", 100);           // 叫化絕活
-	set_skill("checking", 100);          // 道聽途說
+	set_skill("checking", 100);          // 道聽途説
 	set_skill("training", 100);         // 馭獸術
 	set_skill("lianhua-zhang",100);      // 蓮花掌
 	
@@ -216,7 +216,7 @@ int accept_object(object who, object ob)
                 return 1;
         }
         command("stuff");
-        command("say 老叫花沒啥值錢的，就傳你一套身法作爲報答吧。");
+        command("say 老叫花沒啥值錢的，就傳你一套身法作為報答吧。");
 
         tell_object(who, HIC "\n洪七公同意傳授你「逍遙遊身法」。\n" NOR);
         who->set("can_learn/hong/xiaoyaoyou", 1);
@@ -283,7 +283,7 @@ int recognize_apprentice(object me, string skill)
            || (skill == "dodge"
            && me->query_skill("dodge", 1) > 179))
         {
-                command("say 到此爲止，你的功力也不差了，剩下的自己去練。");
+                command("say 到此為止，你的功力也不差了，剩下的自己去練。");
                 return notify_fail("");
         }
         return 1;
@@ -302,7 +302,7 @@ int try_to_learn_ds()
         if (me->query("family/family_name") == query("family/family_name")
            && me->query("party/level") < 9)
         {
-                command("say 你要學降龍十八掌？等你升到本幫長老再說吧！");
+                command("say 你要學降龍十八掌？等你升到本幫長老再説吧！");
                 return 1;
         }
 
@@ -377,12 +377,12 @@ int try_to_learn_ds()
 
         if (! flag)
         {
-                command("say 不是說了待到你融會貫通再來向我討教嗎？");
+                command("say 不是説了待到你融會貫通再來向我討教嗎？");
                 return 1;
         }
 
         me->set("can_learn/hong/sub-xianglong-zhang",1);
-        command("say 你先將這十八路掌法融會貫通，合而爲一再說吧。");
+        command("say 你先將這十八路掌法融會貫通，合而為一再説吧。");
         notify_fail("你自己下去好好練習吧。\n");
         return 1;
 }

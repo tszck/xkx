@@ -78,9 +78,9 @@ string query_rank(object ob)
                         case "officer":           /* 官差 */
                              budd = (int)ob->query("officerlvl");
                              if (budd == 9)       return HIR"【 女神捕 】" NOR;
-                             else if (budd == 8)  return YEL"【一等侍衛】" NOR;
-                             else if (budd == 7)  return YEL"【二等侍衛】" NOR;
-                             else if (budd == 6)  return YEL"【三等侍衛】" NOR;
+                             else if (budd == 8)  return YEL"【一等侍衞】" NOR;
+                             else if (budd == 7)  return YEL"【二等侍衞】" NOR;
+                             else if (budd == 6)  return YEL"【三等侍衞】" NOR;
                              else if (budd == 5)  return HIG"【女總捕頭】" NOR;
                              else if (budd == 4)  return HIG"【副總捕頭】" NOR;
                              else if (budd == 3)  return HIG"【 女捕頭 】" NOR;
@@ -93,7 +93,7 @@ string query_rank(object ob)
                         case "shaman":            return "【 女巫醫 】";
                         case "lama":              return "【 藏  尼 】";
                         case "generals":          return "【 女  將 】";
-                        case "guard":             return "【 女衛士 】";
+                        case "guard":             return "【 女衞士 】";
                         case "minion":            return "【 女家臣 】";
                         case "prostitute":        return "【 妓  女 】";
                         case "beggar":
@@ -159,9 +159,9 @@ string query_rank(object ob)
                         case "officer":           /* 官差 */
                              budd = (int)ob->query("officerlvl");
                              if (budd == 9)       return HIR"【 神  捕 】" NOR;
-                             else if (budd == 8)  return YEL"【一等侍衛】" NOR;
-                             else if (budd == 7)  return YEL"【二等侍衛】" NOR;
-                             else if (budd == 6)  return YEL"【三等侍衛】" NOR;
+                             else if (budd == 8)  return YEL"【一等侍衞】" NOR;
+                             else if (budd == 7)  return YEL"【二等侍衞】" NOR;
+                             else if (budd == 6)  return YEL"【三等侍衞】" NOR;
                              else if (budd == 5)  return HIG"【 總捕頭 】" NOR;
                              else if (budd == 4)  return HIG"【副總捕頭】" NOR;
                              else if (budd == 3)  return HIG"【 捕  頭 】" NOR;
@@ -174,7 +174,7 @@ string query_rank(object ob)
                         case "shaman":            return "【 巫  醫 】";
                         case "lama":              return "【 喇  嘛 】";
                         case "generals":          return "【 武  將 】";
-                        case "guard":             return "【 衛  士 】";
+                        case "guard":             return "【 衞  士 】";
                         case "minion":            return "【 家  臣 】";
                         case "prostitute":        return "【 龜  公 】";
                         case "beggar":

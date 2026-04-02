@@ -65,10 +65,10 @@ int ask_me()
 	if(me->query("officerlvl") < 1)
 	{
 		command("say 這位"+ RANK_D->query_respect(me)
-			+ "若有意爲朝廷效力，不妨到簽押房報名！\n");
+			+ "若有意為朝廷效力，不妨到簽押房報名！\n");
 		return 1;
 	}
-	command("say 你身爲朝廷官員，不能白喫國家俸祿，須得努力工作(work)纔是
+	command("say 你身為朝廷官員，不能白喫國家俸祿，須得努力工作(work)才是
 啊！每次辦差歸來須如實向本府彙報(finish)。");
 	return 1;
 }
@@ -79,7 +79,7 @@ int ask_stop()
 	if (!(int)me->query_temp("bt/working"))
 	{
 		command("say 這位"+ RANK_D->query_respect(me)
-			+ "若不願意爲朝廷效力，本府也不勉強！\n");
+			+ "若不願意為朝廷效力，本府也不勉強！\n");
 		return 1;
 	}
 	command("say 你真的沒有抓到罪犯嗎？(answer yes或answer no)");
@@ -94,7 +94,7 @@ int do_answer(string arg)
 	     return notify_fail("什麼？\n");
 	if (!arg || (arg !="yes"&&arg !="no"))
 	{
-		command("say 你吞吞吐吐的在說什麼啊！\n");
+		command("say 你吞吞吐吐的在説什麼啊！\n");
 		return 1;
 	}
 	if (arg =="no")
@@ -103,7 +103,7 @@ int do_answer(string arg)
 		return 1;
 	}
 	message_vision (BLU"程藥發不由大怒，拍案而起。\n"NOR,me);
-	command("say 大膽！汝身爲朝廷官員，食國家俸祿，辦差如此不力，休怪本府無情！");
+	command("say 大膽！汝身為朝廷官員，食國家俸祿，辦差如此不力，休怪本府無情！");
 	command("say 來啊，與我重責二十大板。");
 	message_vision (BLU"四下裏頓時擁出幾個如狼似虎的衙役將"+me->query("name")+"按翻在地。\n"NOR,me);
 	me->delete_temp("bt/stop");

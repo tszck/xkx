@@ -199,12 +199,12 @@ int help(object me)
 	write(HIC"\n羅漢拳："NOR"\n");
 	write(@HELP
 
-    羅漢拳爲少林拳法。與風雲手互備。
+    羅漢拳為少林拳法。與風雲手互備。
 
 	學習要求：
 		站樁功10級
 		少林南拳10級
-		內力修爲10。
+		內力修為10。
 HELP
 	);
 	return 1;

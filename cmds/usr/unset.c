@@ -74,7 +74,7 @@ int help()
 	write(@TEXT
 指令格式：unset <變量名> | all
 
-    這個指令讓你刪除環境變量的設定，若所帶參數爲all， 則刪
+    這個指令讓你刪除環境變量的設定，若所帶參數為all， 則刪
 除所有環境變量。
 
 See also：set

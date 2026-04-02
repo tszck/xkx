@@ -35,7 +35,7 @@ mapping *action = ({
 	"lvl" : 72,
 	"skill_name" : "水拍雲崖"
 ]),
-([	"action" : "$N騰空而起，雙掌合一，十指如鉤，一招"HIY"「泰山壓頂」"NOR"，疾向$n的擊落，勢道兇猛已極",
+([	"action" : "$N騰空而起，雙掌合一，十指如鈎，一招"HIY"「泰山壓頂」"NOR"，疾向$n的擊落，勢道兇猛已極",
 	"lvl" : 84,
 	"skill_name" : "泰山壓頂"
 ])
@@ -114,7 +114,7 @@ int help(object me)
 	write(HIC"\n天罡指穴法："NOR"\n");
 	write(@HELP
 
-    天罡指穴法爲峨嵋派武功。
+    天罡指穴法為峨嵋派武功。
     可與金頂綿掌互備。
 
 	學習要求：

@@ -50,7 +50,7 @@ int perform(object me, object target)
 		return notify_fail("你的"+to_chinese(sskill)+"不夠熟練，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query("neili") < 500 )
-		return notify_fail("你的內力修爲還不夠高。\n");
+		return notify_fail("你的內力修為還不夠高。\n");
 
 	msg = HIW "$N突然反身疾退，$n"HIW"正疑惑發愣間，卻見$N驟然轉身，施展出「"+HIC"絕"NOR+HIG"棍"NOR+HIY"悶"NOR+HIR"打"NOR+"」，"+HIW"左右上下揮舞遊走間，漫天杖影已壓向傻不楞登的$n"HIW"。\n"NOR;
 

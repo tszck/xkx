@@ -293,7 +293,7 @@ int do_claim(string arg)
 		for (i = 0; i < 4; i++)
 			if (seat[i] != claimer)
 				tell_object(pl[seat[i]], me->query("name") + 
-					"認爲他手中的牌都是大的了！\n" +
+					"認為他手中的牌都是大的了！\n" +
 					refresh_str(me->query_temp("pigging_seat")) +
 					"請用 claim yes 通過，或者 claim no 否決。\n");
 		return 1;
@@ -416,7 +416,7 @@ int do_deal(string arg)
 			cards[seat[j]][i] = newcards[k++];
 	for (i = 0; i < 4; i++) {
 		cards[seat[i]] = sort_array(cards[seat[i]], 1);
-		tell_object(pl[seat[i]], "你得到的牌爲：\n" +
+		tell_object(pl[seat[i]], "你得到的牌為：\n" +
 			PIG_D->refresh(cards[seat[i]], 0, 12));
 		card_count[seat[i]] = 13;
         }
@@ -469,7 +469,7 @@ int do_bid(string arg)
 	case BID_CTRANS :
 		allow_playbid[3] = 0; break;
 	}
-	message_vision("$N說道：我賣" + PIG_D->card_str(c) + "！\n", me);
+	message_vision("$N説道：我賣" + PIG_D->card_str(c) + "！\n", me);
 	ts = "";
 	if (bidcard_str != "") ts = "，";
 	bidcard_str = PIG_D->card_str(c) + "（" + me->query("name") + "）" +
@@ -490,7 +490,7 @@ int do_pass(string arg)
 	if (passed[me->query_temp("pigging_seat")] == 1)
 		return notify_fail("你已經停賣了！\n");
 	passed[me->query_temp("pigging_seat")] = 1;
-	message_vision("$N說道：我停賣！\n", me);
+	message_vision("$N説道：我停賣！\n", me);
 	for (i = 0; i < 4; i++) 
 		if ((int)passed[seat[i]] == 0)
 			return 1;

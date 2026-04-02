@@ -80,7 +80,7 @@ void create()
 		"破劍式" 	:	(: ask_skill1 :),
 		"破氣式"  :	(: ask_skill2 :),
 		"總決式"  :	(: ask_skill3 :),
-		"破衆"    : (: ask_skill4 :),
+		"破眾"    : (: ask_skill4 :),
 	]));
 	set("chat_msg_combat", ({
 		(: perform_action, "sword.po" :),
@@ -161,11 +161,11 @@ int do_stnow(string arg) // 檢查在線玩家中所有的風弟子
 	}
 	if (stringp(str=query("pending")))
 	{
-		write("風清揚目前不收"+str+"爲徒。\n");
+		write("風清揚目前不收"+str+"為徒。\n");
 	}
 	if (mapp(st = query("no_accept")))
 	{
-		write("風清揚永遠不收"+implode(keys(st),"、")+"爲徒。\n");
+		write("風清揚永遠不收"+implode(keys(st),"、")+"為徒。\n");
 	}
 	return 1;
 }
@@ -211,7 +211,7 @@ int check_student(object ob)
 		if (member_array(ob->query("id"),keys(this_object()->query("students")))==-1)
 		{
 			// 非法風弟子
-			command( "say 好個畜生，竟敢在外爲非做歹！" );
+			command( "say 好個畜生，竟敢在外為非做歹！" );
 			command( "expell " + ob->query("id"));
 			ob->delete_skill("lonely-sword");
 			ob->delete("can_perform/lonely-sword");
@@ -227,13 +227,13 @@ int check_student(object ob)
 		ob->delete("family");
 		ob->set("title","普通百姓");
 		message_vision( "風清揚看了看$N，臉上現出悲慼的神色。\n", ob );
-		command( "say 你我師徒之情已盡，以候你好自爲之吧。" );
+		command( "say 你我師徒之情已盡，以候你好自為之吧。" );
 		me->delete( "students/"+std_id );
 		me->set( "pending", std_id );
 	}
 	else if ( ob->query("shen") < 0 )
 	{
-		command( "say 好個畜生，竟敢在外爲非做歹！" );
+		command( "say 好個畜生，竟敢在外為非做歹！" );
 		command( "expell " + ob->query("id"));
 		ob->delete_skill("lonely-sword");
 		ob->delete("can_perform/lonely-sword");
@@ -243,7 +243,7 @@ int check_student(object ob)
 	}
 	else if ( (int)ob->query_skill("zixia-shengong", 1) < 50 )
 	{
-		command( "say 雖說劍宗重劍輕氣，但你竟然棄氣，孺子不可教也！" );
+		command( "say 雖説劍宗重劍輕氣，但你竟然棄氣，孺子不可教也！" );
 		command( "expell " + ob->query("id"));
 		ob->delete_skill("lonely-sword");
 		ob->delete("can_perform/lonely-sword");
@@ -262,7 +262,7 @@ int improve_sword(object ob)
 	
 	my_sword = ob->query_skill("sword", 1);
 	command( "say "+RANK_D->query_respect(ob)+"既然一場來到，你我可謂有緣，待我指點你一些劍法吧。");
-	message_vision( "風清揚開始爲$N解說基本劍法的精義。\n", ob );
+	message_vision( "風清揚開始為$N解説基本劍法的精義。\n", ob );
 
 	if ( my_sword < 100 )
 	{
@@ -319,7 +319,7 @@ void attempt_apprentice(object ob)
 	
 	if ( (string)ob->query("id") == me->query("pending") )
 	{
-		command("say 老夫現在不想收你爲徒，你還是走吧。");
+		command("say 老夫現在不想收你為徒，你還是走吧。");
 		return;
 	}
 	if ( mapp(student_stat = me->query("students")) &&
@@ -335,12 +335,12 @@ void attempt_apprentice(object ob)
 	}
 	if ((string)ob->query("class")=="bonze")
 	{
-		command ("say 老夫不收出家人爲徒，你請回吧。");
+		command ("say 老夫不收出家人為徒，你請回吧。");
 		return;
 	}
 	if ((string)ob->query("party/party_name") == HIC"丐幫"NOR )
 	{
-		command("say " + RANK_D->query_respect(ob) + "曾得丐幫不少好處，何必叛幫以拜我爲師呢？");
+		command("say " + RANK_D->query_respect(ob) + "曾得丐幫不少好處，何必叛幫以拜我為師呢？");
 		return;
 	}       
 	if ( (int)ob->query_int() < 33 )
@@ -356,32 +356,32 @@ void attempt_apprentice(object ob)
 	}
 	if ( (int)ob->query_skill("sword", 1) < 80 )
 	{
-		command("say "+RANK_D->query_respect(ob)+"的基本劍法修爲不夠，恕我不能收你。");
+		command("say "+RANK_D->query_respect(ob)+"的基本劍法修為不夠，恕我不能收你。");
 		return;
 	}
 	if ( (int)ob->query_skill("strike", 1) < 80 )
 	{
-		command("say "+RANK_D->query_respect(ob)+"的基本掌法修爲不夠，恕我不能收你。");
+		command("say "+RANK_D->query_respect(ob)+"的基本掌法修為不夠，恕我不能收你。");
 		return;
 	}
 	if ( (int)ob->query_skill("dodge", 1) < 80 )
 	{
-		command("say "+RANK_D->query_respect(ob)+"的基本輕功修爲不夠，恕我不能收你。");
+		command("say "+RANK_D->query_respect(ob)+"的基本輕功修為不夠，恕我不能收你。");
 		return;
 	}
 	if ( (int)ob->query_skill("parry", 1) < 80 )
 	{
-		command("say "+RANK_D->query_respect(ob)+"的基本招架修爲不夠，恕我不能收你。");
+		command("say "+RANK_D->query_respect(ob)+"的基本招架修為不夠，恕我不能收你。");
 		return;
 	}
 	if ( (int)ob->query_skill("force", 1) < 80 )
 	{
-		command("say "+RANK_D->query_respect(ob)+"的基本內功修爲不夠，恕我不能收你。");
+		command("say "+RANK_D->query_respect(ob)+"的基本內功修為不夠，恕我不能收你。");
 		return;
 	}
 	if ( (int)ob->query_skill("zixia-shengong", 1) < 80 )
 	{
-		command("say "+RANK_D->query_respect(ob)+"的紫霞神功修爲不符合我的要求，恕我不能收你。");
+		command("say "+RANK_D->query_respect(ob)+"的紫霞神功修為不符合我的要求，恕我不能收你。");
 		return;
 	}
 
@@ -403,7 +403,7 @@ void attempt_apprentice(object ob)
 	if (ob->is_apprentice_of(me))
 	{
 		ob->set("title",HIY+BLINK+"★"+NOR+HIC+"孤獨傳人"+HIY+BLINK+"★"+NOR);
-		command("chat 哈哈，獨孤九劍終於又有傳人了！"+ob->name()+"現已爲我弟子，請各位同道多多關照。");
+		command("chat 哈哈，獨孤九劍終於又有傳人了！"+ob->name()+"現已為我弟子，請各位同道多多關照。");
 		me->set("students/"+(string)ob->query("id"), (int)ob->query("normal_die")+1);
 		if ( stringp(me->query("pending")) )
 		{
@@ -433,7 +433,7 @@ int accept_kill(object ob)
 {
 	object me = this_object();
 
-	command("say 老夫與你無怨無仇，何以痛下毒手？讓老夫爲民除害！");
+	command("say 老夫與你無怨無仇，何以痛下毒手？讓老夫為民除害！");
 	remove_call_out("auto_perform");
 	call_out("auto_perform", 1);	
 
@@ -599,7 +599,7 @@ string ask_skill4()
 	}
 	return teach_perform(this_player(),this_object(),([
 					"perform"	: "pozhong",		//pfm的代碼
-					"name"		: "破衆",		//pfm的名稱
+					"name"		: "破眾",		//pfm的名稱
 					"sk1"		: "lonely-sword",	//主要的武功的id
 					"lv1"		: 80,			//主要的武功的等級
 					"sk2"		: "sword",		//需要武功sk2的id

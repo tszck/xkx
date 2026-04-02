@@ -49,7 +49,7 @@ private void do_bonus(object room)
                 
                 
                 message("vision", msg, obs);
-                message("channel:rumor", HIM"【謠言】"+"聽說長白山天池上夜空竟現流星雨，五彩繽紛，煞爲壯觀。\n"NOR, users());
+                message("channel:rumor", HIM"【謠言】"+"聽説長白山天池上夜空竟現流星雨，五彩繽紛，煞為壯觀。\n"NOR, users());
         } else
         if (r < 40)
         {

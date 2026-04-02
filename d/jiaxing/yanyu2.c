@@ -17,7 +17,7 @@ void create()
 輕歌，嬌癡無那。你放眼觀賞，美景無限，胸懷大暢之下只想大聲喊叫
 (halloa)。
 
-    樓中立了一幅長匾(bian)，絞絲鑲邊，楠木爲裏，年代雖久，桐油
+    樓中立了一幅長匾(bian)，絞絲鑲邊，楠木為裏，年代雖久，桐油
 粉漆，猶自清新如昨。柱子上隱隱有些字跡（ziji）。
 LONG );
         set("no_sleep_room",1);
@@ -48,10 +48,10 @@ void init()
 	if (myfam["family_name"] == "白駝山派" && me->query_condition("ice_sting")
 		&& me->query_condition("ice_sting") < 10) {
 		message_vision(HIB"$N只覺得左臂越來越是腫大，情狀兇險無比，再不救治就來不及了！\n", me);
-		message_vision(HIG"忽聽得背後一人說道：”小娃娃，知道厲害了吧！“，聲音鏗鏘刺耳，\n", me);
-		message_vision("$N喫了一驚，急忙轉過身來，只見一個怪人，雙手各持一塊石頭，以手爲足，\n", me);
-		message_vision("”鉢，鉢，鉢“地走了過來，那人怪眼一翻：”小娃兒，要命的跟我來。“ \n", me);
-		message_vision("說罷，雙手一發勁，越上了屋頂。$N知道遇上了救星，大喜過望，連忙攀爬而上。\n"NOR, me);
+		message_vision(HIG"忽聽得背後一人説道：”小娃娃，知道厲害了吧！“，聲音鏗鏘刺耳，\n", me);
+		message_vision("$N喫了一驚，急忙轉過身來，只見一個怪人，雙手各持一塊石頭，以手為足，\n", me);
+		message_vision("”缽，缽，缽“地走了過來，那人怪眼一翻：”小娃兒，要命的跟我來。“ \n", me);
+		message_vision("説罷，雙手一發勁，越上了屋頂。$N知道遇上了救星，大喜過望，連忙攀爬而上。\n"NOR, me);
 		me->move(__DIR__"yanyu3");
 	}
 }
@@ -68,7 +68,7 @@ int do_halloa(string arg)
 	if (!mapp(myfam) || !stringp(myfam["family_name"])) return 0;
 	if (myfam["family_name"] == "白駝山派" && myfam["master_id"] == "ouyang feng") {
 		message_vision(HIC"$N氣沉丹田，長嘯一聲：“義父，你在哪裏？”\n", me);
-		message_vision("過了半晌，耳畔傳來熟悉的“鉢，鉢，鉢”的聲響，歐陽鋒從樓頂一躍而下。\n", me);
+		message_vision("過了半晌，耳畔傳來熟悉的“缽，缽，缽”的聲響，歐陽鋒從樓頂一躍而下。\n", me);
 		message_vision("歐陽鋒對着$N點了點頭：”乖孩子，你又來學功夫了，跟我來吧！\n"NOR, me);
 		me->move(__DIR__"yanyu3");
 		return 1;

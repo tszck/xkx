@@ -43,6 +43,6 @@ void init()
 void greeting(object ob)
 {
 	if( environment(ob) != environment() ) return;
-	say("倭寇抬眼大怒，牙縫裏出聲：八格牙路！你的，敢說臺灣是你們的？死啦死啦的！\n");
+	say("倭寇抬眼大怒，牙縫裏出聲：八格牙路！你的，敢説臺灣是你們的？死啦死啦的！\n");
 }
 

@@ -21,7 +21,7 @@ LONG NOR);
 	set("item_desc", ([
 		"shadows" : @SHADOWS
 從你站的位置很難辨別出那幾個人的容貌，四個披著黑鬥蓬的人斜靠在壁
-爐邊的角落，偶爾傳來其中幾人說話的聲音，不過從這個距離你無法聽到
+爐邊的角落，偶爾傳來其中幾人説話的聲音，不過從這個距離你無法聽到
 他們討論的內容。當你還在考慮要不要靠過去一點時，其中一人回頭看了
 你一眼，你愣住了... 那人... 那人......... 居然長得跟你一模一樣！
 SHADOWS
@@ -61,12 +61,12 @@ int do_stuff(object ob)
 	}
 	write("你走上前去，低聲的向那個長得跟你一樣的人詢問回家的事。\n");
 	tell_room(environment(ob),(string)ob->query("name")+
-		"往壁爐那走去，和一羣黑影般的人不知說了些什麼。\n",
+		"往壁爐那走去，和一羣黑影般的人不知説了些什麼。\n",
 		({this_object(), ob}));
 	tell_room(environment(ob),
 		"一眨眼的功夫"+(string)ob->query("name")+"竟然不見了。\n",
 		({this_object(), ob}));
-	write("那人一句話也不說就往你這邊撞過來，你眼前一陣黑....\n");
+	write("那人一句話也不説就往你這邊撞過來，你眼前一陣黑....\n");
 	ob->reincarnate();
 	ob->move("/d/city/wumiao");
 	message("vision",

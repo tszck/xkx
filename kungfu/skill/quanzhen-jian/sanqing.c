@@ -56,8 +56,8 @@ int perform(object me, object target)
   if( (int)me->query("neili") < 100 )
     return notify_fail("你的真氣不夠！\n");
 
-  msg =  HIY "$N"HIY"大喝一聲，劍招突變，長劍逼出雪亮光芒，一劍化爲三劍，劍劍快似閃電！\n" NOR;
-// 全心一片空明，劍在意先，使出「一劍化三清」，劍尖連閃，化爲三劍，沛然而至！
+  msg =  HIY "$N"HIY"大喝一聲，劍招突變，長劍逼出雪亮光芒，一劍化為三劍，劍劍快似閃電！\n" NOR;
+// 全心一片空明，劍在意先，使出「一劍化三清」，劍尖連閃，化為三劍，沛然而至！
 
 //  me->clean_up_enemy();
  // ob = me->select_opponent();

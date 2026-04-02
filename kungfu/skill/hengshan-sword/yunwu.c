@@ -60,7 +60,7 @@ int perform(object me, object target)
 		return notify_fail("你的"+to_chinese(fskill)+"的功力不夠不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 200 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，目前還不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不夠，目前還不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 200 )
 		return notify_fail("你的"+to_chinese(bskill)+"根基不夠紮實，目前還不能使用"+PNAME+"。\n");
@@ -72,7 +72,7 @@ int perform(object me, object target)
 		return notify_fail("你內力現在不夠，不能使用"PNAME"！\n");
 
 	if((int)me->query("max_neili") < 2500)
-		return notify_fail("你的內功修爲不夠，無法使用衡山雲霧十三式！\n");
+		return notify_fail("你的內功修為不夠，無法使用衡山雲霧十三式！\n");
 
 
 	msg = HIC"$N手中"+weapon->name()+"寒光陡閃，猛地反刺，直指$n"HIC"胸口。
@@ -80,7 +80,7 @@ int perform(object me, object target)
 
 	if(random(me->query("combat_exp")/3) > (int)target->query("combat_exp")/4)
 	{                                             
-		msg += HIY "$p大駭之下，急向後退，嗤的一聲，胸口已給利劍割了一道長長的口子，\n衣衫盡裂，胸口肌肉也給割傷了，受傷雖然不重，卻已驚怒交集，銳氣大失。\n"+ HIR "$P一劍既佔先機，後着綿綿而至，一柄薄劍猶如靈蛇，顫動不絕，猶如鬼魅，\n一點點鮮血從長劍間濺了出來。\n" NOR;
+		msg += HIY "$p大駭之下，急向後退，嗤的一聲，胸口已給利劍割了一道長長的口子，\n衣衫盡裂，胸口肌肉也給割傷了，受傷雖然不重，卻已驚怒交集，鋭氣大失。\n"+ HIR "$P一劍既佔先機，後着綿綿而至，一柄薄劍猶如靈蛇，顫動不絕，猶如鬼魅，\n一點點鮮血從長劍間濺了出來。\n" NOR;
 		qi_wound = (int)target->query("max_qi",1);
 		target->receive_damage("qi", qi_wound/2,me);
 		target->receive_wound("qi", qi_wound/2,me);

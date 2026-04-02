@@ -32,7 +32,7 @@ int exert(object me, object target)
 		return notify_fail("你的內力還不夠！\n");
 
 	if( (int)me->query_skill("huntian-qigong", 1) < 150)
-		return notify_fail("你的混天氣功的修爲不夠，不能使用混天神罡! \n");
+		return notify_fail("你的混天氣功的修為不夠，不能使用混天神罡! \n");
 //必須有兵器。加兵器威力
 	msg = HIY "$N使出混天氣功「混天神罡」，將真氣貫注到手心！\n" NOR;
 

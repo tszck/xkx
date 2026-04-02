@@ -58,7 +58,7 @@ void create()
 	set("party/party_name", HIC"丐幫"NOR);
 	set("party/rank", RED"九袋長老"NOR);
 	set("party/level", 9);
-	create_family("丐幫", 18, "掌鉢龍頭");
+	create_family("丐幫", 18, "掌缽龍頭");
 
 	setup();
 

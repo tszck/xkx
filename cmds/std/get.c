@@ -142,7 +142,7 @@ int do_get(object me, object obj)
 	if (obj->query("no_get")) return 0;
 	if (obj->query_temp("is_rided_by")) return 0;
         if (userp(obj) && obj->query_temp("LAST_PKER_TIME"))
-                 return notify_fail("此人剛殺過人，你還是少惹爲妙!\n");
+                 return notify_fail("此人剛殺過人，你還是少惹為妙!\n");
         if (userp(obj) && obj->is_ghost() && !wizardp(obj))
                  return notify_fail("這東西拿不起來!\n");
 
@@ -184,7 +184,7 @@ int do_get(object me, object obj)
 			msg += "$n。\n";
 
 			message_vision(msg, me, obj);
-			// 原先寫法可讀性較差，改爲上面的寫法。
+			// 原先寫法可讀性較差，改為上面的寫法。
 			// Added by Constant Jan 6 2001
 /*
 			message_vision(sprintf("$N%s一%s$n。\n",

@@ -115,7 +115,7 @@ int help(object me)
 	write(HIC"\n慈悲刀："NOR"\n");
 	write(@HELP
 
-    慈悲刀爲少林七十二絕技之一。
+    慈悲刀為少林七十二絕技之一。
 
 	學習要求：
 		混元一氣功10級

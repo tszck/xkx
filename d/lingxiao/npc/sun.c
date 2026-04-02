@@ -11,7 +11,7 @@ void create()
 	set("age", 20);
 	set("long", 
 		"他是凌宵城第六代弟子孫萬年，生得獐頭鼠目。\n"
-		"因爲品行不端，被關在這裏思過。\n");
+		"因為品行不端，被關在這裏思過。\n");
 	set("attitude", "peaceful");
 
 	set("str", 25);

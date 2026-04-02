@@ -47,13 +47,13 @@ int perform(object me, object target)
 	if( (int)me->query_skill(fskill, 1) < 90 &&
 			(int)me->query_skill("kurong-changong",1) < 90 &&
 			(int)me->query_skill("xiantian-qigong",1) < 90)
-		return notify_fail("你的內功修爲不夠，無法使用"+PNAME+"。\n");
+		return notify_fail("你的內功修為不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 90 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，不能出手"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不夠，不能出手"+PNAME+"。\n");
 
 	if((int)me->query("max_neili") < 850)
-		return notify_fail("你內力修爲不夠，不能使用眉心指！\n");
+		return notify_fail("你內力修為不夠，不能使用眉心指！\n");
 
 	if((int)me->query("neili") < 200)
 		return notify_fail("你內力現在不夠，不能使用眉心指！\n");

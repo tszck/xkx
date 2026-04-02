@@ -22,9 +22,9 @@ int main(object me, string arg)
 	{
 		old_rec = me->query_temp("pending/recruit");
 		if( !objectp(old_rec) )
-			return notify_fail("你現在並沒有收錄任何人爲弟子的意思。\n");
-		write("你改變主意不想收" + old_rec->name() + "爲弟子了。\n");
-		tell_object(old_rec, me->name()+"改變主意不想收你爲弟子了。\n");
+			return notify_fail("你現在並沒有收錄任何人為弟子的意思。\n");
+		write("你改變主意不想收" + old_rec->name() + "為弟子了。\n");
+		tell_object(old_rec, me->name()+"改變主意不想收你為弟子了。\n");
 		me->delete_temp("pending/recruit");
 		return 1;
 	}
@@ -36,10 +36,10 @@ int main(object me, string arg)
 	if (!(ob=present(arg,environment(me))))
 		return notify_fail("你想收誰作弟子？\n");
 	if (ob==me)
-		return notify_fail("收自己爲弟子？好主意....不過沒有用。\n");
+		return notify_fail("收自己為弟子？好主意....不過沒有用。\n");
 	if (ob->is_apprentice_of(me))
 	{
-		message_vision("$N拍拍$n的頭，說道：「好徒兒！」\n", me, ob);
+		message_vision("$N拍拍$n的頭，説道：「好徒兒！」\n", me, ob);
 		return 1;
 	}
 	if (!me->query("family"))
@@ -53,7 +53,7 @@ int main(object me, string arg)
 	}
 	if (me->accept_betrayer(ob))
 	{
-		message_vision("$N看了看$n，忽然又搖了搖頭道：「你生性反覆，無緣承接本門衣鉢，好自爲之吧。」\n", me, ob);
+		message_vision("$N看了看$n，忽然又搖了搖頭道：「你生性反覆，無緣承接本門衣缽，好自為之吧。」\n", me, ob);
 		return 1;
 	}
 // If the target is willing to apprentice us already, we do it.
@@ -66,7 +66,7 @@ int main(object me, string arg)
 		}
 		if (!living(ob) || ob->query_temp("noliving") )
 		{
-			message_vision("$N決定收$n爲弟子。\n\n不過看樣子$n顯然沒有辦法行拜師之禮。\n\n",me, ob);
+			message_vision("$N決定收$n為弟子。\n\n不過看樣子$n顯然沒有辦法行拜師之禮。\n\n",me, ob);
 			return 1;
 		}
 // follow modified by elon 09-10-95 to fix a bug in 1st time recruit
@@ -92,7 +92,7 @@ int main(object me, string arg)
 		}
 		else
 		{
-			message_vision("$N決定收$n爲弟子。\n\n$n跪了下來向$N恭恭敬敬地磕了四個響頭，叫道：「師父！」\n", me, ob);
+			message_vision("$N決定收$n為弟子。\n\n$n跪了下來向$N恭恭敬敬地磕了四個響頭，叫道：「師父！」\n", me, ob);
  		}
 		if ((string)ob->query("family/master_id")=="feng qingyang")
 		{
@@ -127,22 +127,22 @@ int main(object me, string arg)
 	
 		write("恭喜你新收了一名弟子！\n");
 		family = ob->query("family");
-		tell_object( ob, sprintf("恭喜您成爲%s的第%s代弟子。\n", family["family_name"], chinese_number(family["generation"]) ));
+		tell_object( ob, sprintf("恭喜您成為%s的第%s代弟子。\n", family["family_name"], chinese_number(family["generation"]) ));
 		return 1;
 	}
 	else
 	{
 		old_rec = me->query_temp("pending/recruit");
 		if( ob==old_rec )
-		return notify_fail("你想收" + ob->name() + "爲弟子，但是對方還沒有答應。\n");
+		return notify_fail("你想收" + ob->name() + "為弟子，但是對方還沒有答應。\n");
 		else if( objectp(old_rec) )
 			{
-				write("你改變主意不想收"+old_rec->name()+"爲弟子了。\n");
-				tell_object(old_rec,me->name()+"改變主意不想收你爲弟子了。\n");
+				write("你改變主意不想收"+old_rec->name()+"為弟子了。\n");
+				tell_object(old_rec,me->name()+"改變主意不想收你為弟子了。\n");
 			}
 		me->set_temp("pending/recruit", ob );
-		message_vision("\n$N想要收$n爲弟子。\n", me, ob);
-		tell_object(ob, YEL "如果你願意拜" + me->name() + "爲師父，用 apprentice 指令。\n" NOR);
+		message_vision("\n$N想要收$n為弟子。\n", me, ob);
+		tell_object(ob, YEL "如果你願意拜" + me->name() + "為師父，用 apprentice 指令。\n" NOR);
 		return 1;
 	}
 }
@@ -153,7 +153,7 @@ int help(object me)
 	write(@HELP
 指令格式 : recruit|shou [cancel]|<對象>
 
-    這個指令能讓你收某人爲弟子，如果對方也答應要拜你爲師的話。
+    這個指令能讓你收某人為弟子，如果對方也答應要拜你為師的話。
 
 See Also: apprentice
 HELP

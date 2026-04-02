@@ -90,7 +90,7 @@ void attempt_apprentice(object ob)
 
 	if ((int)ob->query("shen") > 1000) {
 		command("say 做我五毒教弟子必須心狠手辣。");
-		command("say 我教弟子貴在隨心所欲，不收僞君子");
+		command("say 我教弟子貴在隨心所欲，不收偽君子");
 		return;
 	}
 
@@ -109,7 +109,7 @@ int ask_me()
 	ob = load_object("/d/wudujiao/damen");
 	ob = find_object("/d/wudujiao/damen");
 	message("vision", "遠處一輛馬車急駛而來，車門一開"+me->query("name")+"從裏面鑽了出來。\n", ob);
-	 tell_object(me, "只聽車把勢說道：這位"+ RANK_D->query_respect(me) + "已經到了，請下車吧。\n"NOR );
+	 tell_object(me, "只聽車把勢説道：這位"+ RANK_D->query_respect(me) + "已經到了，請下車吧。\n"NOR );
 	me->move("/d/wudujiao/damen");
 	return 1;
 }

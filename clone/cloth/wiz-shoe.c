@@ -9,7 +9,7 @@ inherit BOOTS;
 string* shoename = ({
 	HIB"天師靴"NOR,
 	HIG"步雲履"NOR,
-	HIY"衆神之車"NOR,
+	HIY"眾神之車"NOR,
 });
 string* shoeid = ({
 	"wizard shoe",

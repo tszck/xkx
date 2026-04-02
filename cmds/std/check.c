@@ -94,12 +94,12 @@ int main(object me, string arg)
 		return notify_fail("現在你太累了，無法去打聽別人的技能。\n");
 
 	tell_object(me, "你走上前去，小心翼翼地向" + man->name() + "打聽關於" + ob->name() + "的情況 ...\n\n");
-	message("vision", "只見" + me->name() + "陪着笑臉跟" + man->name() + "說着話，好象在打聽些什麼。\n\n", environment(me), ({ me, man }) );
+	message("vision", "只見" + me->name() + "陪着笑臉跟" + man->name() + "説着話，好象在打聽些什麼。\n\n", environment(me), ({ me, man }) );
 
 	sp = check_lvl*10+me->query("kar")*5+me->query("jing")+man->query("jing");
 	dp = ob->query("kar")*5 + ob->query("jing")*2;
 	if ( random(sp) < random(dp) && !wizardp(ob))
-		return notify_fail(man->name() + "搖了搖頭，說道：這事我可不清楚，" + RANK_D->query_respect(me) + "還是去向別人打聽一下吧！\n");
+		return notify_fail(man->name() + "搖了搖頭，説道：這事我可不清楚，" + RANK_D->query_respect(me) + "還是去向別人打聽一下吧！\n");
 	me->receive_damage("jing", cost );
 	skl = ob->query_skills();
 	if(!sizeof(skl) || ob->query("yinshi"))
@@ -168,7 +168,7 @@ int help(object me)
     你也可以指定一個和你有師徒關係的對象，用 skills|cha 可以查知
 對方的技能狀況。
 
-    此命令爲丐幫弟子專用，並需學習相應的技能。
+    此命令為丐幫弟子專用，並需學習相應的技能。
 
 HELP
 	);

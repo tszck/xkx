@@ -24,7 +24,7 @@ void create()
 	set_skill("parry", 40);
 	set_skill("dodge", 50);
 	set("party/party_name",HIG"明教"NOR);
-	set("party/rank",HIR "烈火旗" NOR "教衆" );
+	set("party/rank",HIR "烈火旗" NOR "教眾" );
 
 	setup();
 	carry_object("/clone/misc/cloth")->wear();

@@ -53,7 +53,7 @@ int perform(object me, object target)
 		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 
 	if( (int)me->query("max_neili") < 300 )
-		return notify_fail("你的內力修爲不夠！\n");
+		return notify_fail("你的內力修為不夠！\n");
 
 	if( (int)me->query("neili") < 200 )
 		return notify_fail("你的真氣不夠！\n");
@@ -86,7 +86,7 @@ int help(object me)
 	出手要求：
 		紅花神功40級
 		落花十三劍40級
-		內力修爲300
+		內力修為300
 		內力200
 HELP
 	);

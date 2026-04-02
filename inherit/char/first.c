@@ -1,7 +1,7 @@
 // first.c 掌門弟子
 // Last Modified by Winder on Mar. 27 2000
 // Based on XYJ4.51
-// Modified by Zeratul 4.11 2001 首次成爲掌門弟子可獲得賞善罰惡令，加大了挑戰掌門弟子的難度。
+// Modified by Zeratul 4.11 2001 首次成為掌門弟子可獲得賞善罰惡令，加大了挑戰掌門弟子的難度。
 // qingyun 2004
 
 #include <ansi.h>
@@ -11,7 +11,7 @@ inherit F_SAVE;
 
 string zname(object);
 void reset(object me);// 初始化武功、經驗、title 等
-void create_identity (mixed master, mixed where);//爲弟子重置準備(只一次)
+void create_identity (mixed master, mixed where);//為弟子重置準備(只一次)
 int init_identity (object me, object master, object where);//重置弟子restore
 int save_record(object me, object ob);//完全拷貝ob的武功等給me 並保存
 void self_adjust (object me); //設所有武功60 氣血同reset  用於copy from master後恢復 
@@ -570,8 +570,8 @@ void master_announce (object me, object who, object ob)
 		ling = new( "/d/xiakedao/obj/tongpai2" );
 		ling->set( "own", ob->query("id") );
 		ling->move( ob );
-		message_vision( HIY"$N對$n說道：俠客島昨日送來賞善罰惡令，邀請爲師上島。\n                你是本門掌門弟子，就代爲師走一趟吧。\n"NOR, who, ob );
-		message_vision( HIC"說完，$N把兩塊令牌交到$n手裏。\n"NOR, who, ob );
+		message_vision( HIY"$N對$n説道：俠客島昨日送來賞善罰惡令，邀請為師上島。\n                你是本門掌門弟子，就代為師走一趟吧。\n"NOR, who, ob );
+		message_vision( HIC"説完，$N把兩塊令牌交到$n手裏。\n"NOR, who, ob );
 		ob->set( "xkd/ling", 1 );
 		ob->set( "xkd/time", time() + 86400 );
 	}
@@ -629,7 +629,7 @@ int convert_identity (object me, object ob)
 
 void die()
 {
-        message_vision(HIW"$N大喝到：“今日算你走運，待我請來本門師尊爲我報仇！”說話間人已負傷遁去！\n"NOR,this_object());	
+        message_vision(HIW"$N大喝到：“今日算你走運，待我請來本門師尊為我報仇！”説話間人已負傷遁去！\n"NOR,this_object());	
 	destruct(this_object());
 }
 

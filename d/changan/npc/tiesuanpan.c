@@ -56,11 +56,11 @@ void  reset_balance(object  me)
 	me->set("balance",  allowed);
 	removed_gold  =  (me->query("balance_old")  -  me->query("balance"))/10000;
 	log_file("MONEY_RESET",  ctime(  time()  )+"：魏大人收繳了"+me->query("name")+"("+me->query("id")+")"+removed_gold+"兩黃金。\n");
-	tell_object(me,  GRN+NPCNAME+"在你的耳邊悄聲說道："+RANK_D->query_respect(me)+
-		"，這、這真不知怎麼說是好．．．\n"NOR);
-	tell_object(me,  GRN+NPCNAME+"在你的耳邊悄聲說道："+
+	tell_object(me,  GRN+NPCNAME+"在你的耳邊悄聲説道："+RANK_D->query_respect(me)+
+		"，這、這真不知怎麼説是好．．．\n"NOR);
+	tell_object(me,  GRN+NPCNAME+"在你的耳邊悄聲説道："+
 		"昨日魏大人派人前來察案，發覺你老的黃金來路．．．\n"NOR);
-	tell_object(me,  GRN+NPCNAME+"在你的耳邊悄聲說道："+
+	tell_object(me,  GRN+NPCNAME+"在你的耳邊悄聲説道："+
 		"若不是在下幫你老辯解，你老的錢就全都充公了．．．\n"NOR);
         }
         return;

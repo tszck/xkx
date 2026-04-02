@@ -45,7 +45,7 @@ void create()
 
 	set("combat_exp", 10000);
 	set("inquiry",([
-		"曼陀山莊" : "我纔不敢去曼陀山莊，王夫人太霸道了！\n",
+		"曼陀山莊" : "我才不敢去曼陀山莊，王夫人太霸道了！\n",
 		"王語嫣" : "哎，只有她才配得上我們公子，也不知她現在怎樣了！\n",
 		"阿碧" : "那小丫頭也不只跑哪兒去了。\n",
 		"彈琴" : ( : inquiry_tanqin : ),
@@ -63,8 +63,8 @@ void create()
 int inquiry_tanqin()
 {
 	object me=this_player();
-message_vision("阿朱說道：這位"+ RANK_D->query_respect(me)+"這麼有雅興，那我就爲你彈奏一曲?\n只聽琴聲繁複清亮，你不由的癡了。\n", me );
+message_vision("阿朱説道：這位"+ RANK_D->query_respect(me)+"這麼有雅興，那我就為你彈奏一曲?\n只聽琴聲繁複清亮，你不由的癡了。\n", me );
 //	細細品來，竟是張信哲的<<愛如潮水>>!!!\n 
-	message_vision("阿朱一曲終了，道個萬福，說道：現醜了。\n", me );
+	message_vision("阿朱一曲終了，道個萬福，説道：現醜了。\n", me );
 	return 1;
 }

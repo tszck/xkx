@@ -12,7 +12,7 @@ void create()
 	set_name("蒙面人", ({ "mengmian  ren" }));
 	set("age",30+random(10));
 	set("long", 
-"此人一身黑衣，手握利刃，一身修爲甚是了得。\n");
+"此人一身黑衣，手握利刃，一身修為甚是了得。\n");
 	set("no_steal", 1);
 	set("quest_no_guard",1);
 	set( "chat_chance_combat", 80);         

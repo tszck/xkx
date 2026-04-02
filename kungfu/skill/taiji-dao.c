@@ -112,7 +112,7 @@ int help(object me)
 	write(HIC"\n太極刀法："NOR"\n");
 	write(@HELP
 
-    和太極拳武學原理相同，爲武當派刀法。
+    和太極拳武學原理相同，為武當派刀法。
 
 	學習要求：
 		太極拳20級

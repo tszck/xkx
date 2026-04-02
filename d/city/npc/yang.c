@@ -14,7 +14,7 @@ void create()
 	set("age", 45);
 	set("long",
 		"楊老闆是土生土長的揚州人，做了幾十年的小買賣。
-聽說他最近得了一樣寶物，卻不知是什麼好東西。\n");
+聽説他最近得了一樣寶物，卻不知是什麼好東西。\n");
 	set_skill("unarmed", 50);
 	set_skill("dodge", 50);
 	set_temp("apply/damage", 15);
@@ -84,7 +84,7 @@ int accept_object(object who,object ob)
 	
 	if (!query("count") || !ob->query("money_id") || ob->value()<5000000)
 	{
-		message_vision("$N說道：你給我這個做什麼？\n",this_object());
+		message_vision("$N説道：你給我這個做什麼？\n",this_object());
 		return 0;
 	}
 	if (query("count")>0)

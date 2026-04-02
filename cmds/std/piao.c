@@ -24,7 +24,7 @@ int main(object me, string arg)
 	if (obj->query("age") < 17)
 		return notify_fail("人家小姑娘還沒有十七歲呢！\n");
 	if(query_ip_name(obj)==query_ip_name(me))
-		return notify_fail("嫖自己？沒聽說過，夠不着嘛。\n");
+		return notify_fail("嫖自己？沒聽説過，夠不着嘛。\n");
 	if (obj==me) return notify_fail("自己安慰自己？不要這麼麻煩的嘛。\n");
 	if (!obj->is_character())
 		return notify_fail("哇，死的東西都不放過！\n");
@@ -41,7 +41,7 @@ int main(object me, string arg)
 	message("vision","只見" + me->name() + "一副溫文爾雅的模樣走向"+obj->name() + "\n然後猴急猴急地伸手脫去"+obj->name()+"的衣服！\n\n\n", environment(me), ({ me,obj }) );
 	me->start_busy(3);
 	message_vision("在一個風雨如晦的夜晚，$N和$n雙雙成就一對露水鴛鴦。\n",obj,me);
-	message_vision("$N和$n爲人類的進化和繁衍作出了不可磨滅的貢獻。\n",obj,me);
+	message_vision("$N和$n為人類的進化和繁衍作出了不可磨滅的貢獻。\n",obj,me);
 // 做記錄
 	if (!me->query("sex/number"))
 		me->set("sex/first",obj->query("id"));

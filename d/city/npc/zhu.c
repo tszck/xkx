@@ -35,7 +35,7 @@ void create()
 {
 	set_name("朱熹", ({ "zhu xi", "zhu" }));
 	set("long",
-"朱先生被稱爲當世第一大文學家，肚子裏的墨水比海還要深。\n");
+"朱先生被稱為當世第一大文學家，肚子裏的墨水比海還要深。\n");
 	set("gender", "男性");
 	set("age", 65);
 	set("no_get", 1);
@@ -68,10 +68,10 @@ void create()
 
 	set("chat_chance", 3);
 	set("chat_msg", ({
-		"朱熹說道：普天之下，莫非王土；率土之濱，莫非王臣。\n",
-		"朱熹說道：出家人，小過損益焉；無妄大過，未濟鹹困之。\n",
-		"朱熹說道：大學之道，在明明德。在親民，在止於至善。 \n",
-		"朱熹說道：格物致知，誠意正心，修身齊家，治國平天下。\n",
+		"朱熹説道：普天之下，莫非王土；率土之濱，莫非王臣。\n",
+		"朱熹説道：出家人，小過損益焉；無妄大過，未濟鹹困之。\n",
+		"朱熹説道：大學之道，在明明德。在親民，在止於至善。 \n",
+		"朱熹説道：格物致知，誠意正心，修身齊家，治國平天下。\n",
 	}) );
 }
 int recognize_apprentice(object ob)
@@ -132,7 +132,7 @@ int ask_degree()
 	}
 	else
 	{
-		command("say 果然是長江後浪逐前浪啊，"+ob->query("name")+"，我非常榮幸能有機會爲你授學位！\n");
+		command("say 果然是長江後浪逐前浪啊，"+ob->query("name")+"，我非常榮幸能有機會為你授學位！\n");
 		ob->set("degree",degree_desc[lv]);
 		return 1;
 	}
@@ -212,7 +212,7 @@ int do_answer(string arg)
 
 	lvl = ob->query("gongming/lvl");
 	if (!ob->query_temp("gongming/answer"))
-		return notify_fail("朱熹笑道：我可還沒出題，你胡說些什麼？\n");
+		return notify_fail("朱熹笑道：我可還沒出題，你胡説些什麼？\n");
 	if (!arg)
 		return notify_fail("朱熹笑道：想好了再回答，別急。\n");
 	message_vision(HIC"$N應聲答道："+arg+"！\n"NOR, ob);

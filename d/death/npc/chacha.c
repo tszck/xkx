@@ -8,9 +8,9 @@ inherit NPC;
 
 string *death_msg = ({
 	HIW "判官用奇異的眼光盯着你，好像要看穿你的一切似的。\n\n" NOR,
-	HIW "判官對你說道：喂！該你了！\n\n" NOR,
+	HIW "判官對你説道：喂！該你了！\n\n" NOR,
 	HIW "判官「哼」的一聲，從袖中掏出一本像帳冊的東西翻看著。\n\n" NOR,
-	HIW "判官合上冊子，說道：嗯，你陽壽未盡，怎麼跑到這裏來了？\n\n" NOR,
+	HIW "判官合上冊子，説道：嗯，你陽壽未盡，怎麼跑到這裏來了？\n\n" NOR,
 	HIW "判官搔了搔頭，嘆道：罷了罷了，你還是回陽間吧。\n\n"
 		"一股陰冷的濃霧突然出現，很快地包圍了你。\n\n" NOR,
 });
@@ -19,7 +19,7 @@ void create()
 {
 	set_name(YEL "判官" NOR, ({ "pan guan","guan" }) );
 	set("long", @LONG
-地獄陰司中執掌管帶衆鬼，以施獎懲之官，手中拿着記載人壽命的生死簿。
+地獄陰司中執掌管帶眾鬼，以施獎懲之官，手中拿着記載人壽命的生死簿。
 LONG);
 	set("gender","男性");
 	set("str",1000);
@@ -78,7 +78,7 @@ void death_stage(object ob, int stage)
 		if(sizeof(obs))
 		{
 			command("hmm");
-			tell_object(ob,HIW"判官說道：“不過陰間的東西是不能帶到陽間的，你先要把你身上的東西放下來。”\n"NOR);
+			tell_object(ob,HIW"判官説道：“不過陰間的東西是不能帶到陽間的，你先要把你身上的東西放下來。”\n"NOR);
 			return;
 		}
 		else

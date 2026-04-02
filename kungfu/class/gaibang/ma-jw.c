@@ -6,7 +6,7 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("馬俱爲", ({"ma juwei", "ma", "juwei"}));
+	set_name("馬俱為", ({"ma juwei", "ma", "juwei"}));
 	set("gender", "男性");
 	set("age", 35);
 	set("long", 
@@ -63,7 +63,7 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if( ob->query("con") < 20 ) return;
-	command("say 你拜我爲師，可要做好喫苦的準備，好好做個丐幫弟子！");
+	command("say 你拜我為師，可要做好喫苦的準備，好好做個丐幫弟子！");
 	command("recruit " + ob->query("id"));
 }
 #include "/kungfu/class/gaibang/gaibang.h"

@@ -48,7 +48,7 @@ void melt()
 		if( (int)env->query_skill("bingxue-xinfa", 1) < 20 )
 		{
 			if(environment(env))
-			message_vision("$N覺得身上涼涼的，溼溼的，原來是冰劍化了。\n", env);
+			message_vision("$N覺得身上涼涼的，濕濕的，原來是冰劍化了。\n", env);
 			destruct(this_object());
 			return;
 		}

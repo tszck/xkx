@@ -13,7 +13,7 @@ void create()
 		set("unit", "柄");
 		set("value", 100);
 		set("material", "iron");
-		set("long", HIC"雷公轟爲一柄八角小錘，錘柄長僅及尺，錘頭還沒常人的拳頭大。\n情況緊急時可以擲(zhi)敵。\n"NOR);
+		set("long", HIC"雷公轟為一柄八角小錘，錘柄長僅及尺，錘頭還沒常人的拳頭大。\n情況緊急時可以擲(zhi)敵。\n"NOR);
 		set("wield_msg", HIC"$N將右手伸入左手衣袖，隨即將手伸出，手中已握了一柄八角小錘！\n"NOR);
 		set("unwield_msg",HIC"$N將手裏小錘往袖中一塞就不見了。\n"NOR);
 	}

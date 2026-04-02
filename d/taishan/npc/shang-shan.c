@@ -157,8 +157,8 @@ int checking(object me, object ob)
 	if ( !present(ob, environment()) ) return 1; 
 
 	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 ) {
-		command("say 佩服佩服，看來我的擔子可以交卸了，恭喜你成爲武林賞善使者！\n");
-		command("chat 恭喜" + ob->query("name") + "被推舉爲現任武林賞善使者！\n");
+		command("say 佩服佩服，看來我的擔子可以交卸了，恭喜你成為武林賞善使者！\n");
+		command("chat 恭喜" + ob->query("name") + "被推舉為現任武林賞善使者！\n");
 		remove_call_out("do_copy");
 		call_out("do_copy", 1, me, ob);
 		return 1;
@@ -166,7 +166,7 @@ int checking(object me, object ob)
 
 	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 ) {
 		command("say 看來" + RANK_D->query_respect(ob) + 
-			"還得多加練習，方能在當今武林中有所作爲 !\n");
+			"還得多加練習，方能在當今武林中有所作為 !\n");
 		return 1;
 	}
 

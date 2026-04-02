@@ -68,7 +68,7 @@ int ask_me()
 	}
 	if(ob->query("score")<300&&ob->query("combat_exp")>100000)
 	{
-		command("say 你這點江湖閱歷，也想讓我爲你療傷？\n");
+		command("say 你這點江湖閲歷，也想讓我為你療傷？\n");
 		return 1;
 	}
 		
@@ -129,7 +129,7 @@ int ask_heal()
 
 	if(ob->query("score")<300&&ob->query("combat_exp")>100000)
 	{       
-		command("say 你這點江湖閱歷，也想讓我爲你治病？\n");
+		command("say 你這點江湖閲歷，也想讓我為你治病？\n");
 		return 1;
 	}
 		
@@ -139,7 +139,7 @@ int ask_heal()
 		ob->query_condition("ill_dongshang") ||
 		ob->query_condition("ill_fashao"))
 	{
-		message_vision("平一指輕釦$N脈門，略一思索，隨後轉身從藥簍裏取出幾味草藥，開始爲$N熬藥。\n", ob);
+		message_vision("平一指輕釦$N脈門，略一思索，隨後轉身從藥簍裏取出幾味草藥，開始為$N熬藥。\n", ob);
 		if (ob->query("combat_exp")>100000)
 		{
 			ob->add("score",-100);    
@@ -190,7 +190,7 @@ int ask_poison()
 
 	if(ob->query("score")<500&&ob->query("combat_exp")>100000)
 	{
-		command("say 你這點江湖閱歷，也想讓我爲你解毒？\n");
+		command("say 你這點江湖閲歷，也想讓我為你解毒？\n");
 		return 1;
 	}
 		
@@ -211,7 +211,7 @@ int ask_poison()
 		ob->query_condition("zhua_poison") ||
 		ob->query_condition("ice_sting"))
 	{
-		message_vision("青蛙輕釦$N脈門，雙眉深鎖，隨後喂$N服下一顆藥丸，盤膝坐下，雙掌貼着$N的背心，開始爲$N解毒。\n", ob);
+		message_vision("青蛙輕釦$N脈門，雙眉深鎖，隨後喂$N服下一顆藥丸，盤膝坐下，雙掌貼着$N的背心，開始為$N解毒。\n", ob);
 		if (ob->query("combat_exp")>100000)
 		{
 			ob->add("score",-200);    

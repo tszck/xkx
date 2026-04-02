@@ -84,7 +84,7 @@ int main(object me, string arg)
 			}
 	}
 
-// 守衛的問題
+// 守衞的問題
 //if( !env->valid_leave(me, arg) ) return 0;
 
 	result = env->valid_leave(me, arg);

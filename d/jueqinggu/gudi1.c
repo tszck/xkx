@@ -35,7 +35,7 @@ int do_pa(string arg)
 		return notify_fail("你身上負重太多，爬不上去。\n");
  
 	if((int)me->query_skill("dodge",1) < 100 )  
-	return notify_fail("以你目前的輕功修爲，很難爬上去。\n"); 
+	return notify_fail("以你目前的輕功修為，很難爬上去。\n"); 
 	message_vision("$N扒住岩石，小心的爬了上去。\n", me);
 	me->move(__DIR__"qiaobi");
 	tell_room(environment(me), me->name() + "從谷底爬了上來。\n", ({ me }));

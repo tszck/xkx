@@ -107,7 +107,7 @@ void greeting(object ob)
 
         myfam = (mapping)ob->query("family");
         if( myfam["master_name"] == "yideng dashi")
-              say ("朱子柳衝着你點了點頭，說：你回來了。\n");
+              say ("朱子柳衝着你點了點頭，説：你回來了。\n");
 	ob->set_temp("du_allow", 1);
         return;
 }
@@ -118,7 +118,7 @@ string ask_reply1()
 	me->set_temp("yideng_du1", 1);
 	if (me->query_temp("yideng_du2") && me->query_temp("yideng_du3"))
 	{
-message_vision("\n朱子柳大驚，站起身來，長袖一揮，向$N一揖到地，說道：“在下拜服。”\n\n", me);
+message_vision("\n朱子柳大驚，站起身來，長袖一揮，向$N一揖到地，説道：“在下拜服。”\n\n", me);
 		me->set_temp("du_allow", 1);
 		return RANK_D->query_respect(me) + "請。";
 	}
@@ -131,7 +131,7 @@ string ask_reply2()
 	me->set_temp("yideng_du2", 1);
 	if (me->query_temp("yideng_du1") && me->query_temp("yideng_du3"))
 	{
-message_vision("\n朱子柳大驚，站起身來，長袖一揮，向$N一揖到地，說道：“在下拜服。”\n\n", me);
+message_vision("\n朱子柳大驚，站起身來，長袖一揮，向$N一揖到地，説道：“在下拜服。”\n\n", me);
 		me->set_temp("du_allow", 1);
 		return RANK_D->query_respect(me) + "請。";
 	}
@@ -144,7 +144,7 @@ string ask_reply3()
 	me->set_temp("yideng_du3", 1);
 	if (me->query_temp("yideng_du1") && me->query_temp("yideng_du2"))
 	{
-message_vision("\n朱子柳大驚，站起身來，長袖一揮，向$N一揖到地，說道：“在下拜服。”\n\n", me);
+message_vision("\n朱子柳大驚，站起身來，長袖一揮，向$N一揖到地，説道：“在下拜服。”\n\n", me);
 		me->set_temp("du_allow", 1);
 		return RANK_D->query_respect(me) + "請。";
 	}

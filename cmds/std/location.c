@@ -86,7 +86,7 @@ int main(object me, string arg)
 
 	tell_object(ob, HIB"你感覺心神不定，似乎有人在暗中窺視着你......\n"NOR);
 	if ( random(sp) < random(dp)/2 )
-		return notify_fail( "你又頹然坐下，搖了搖頭，說道：不對的！\n");
+		return notify_fail( "你又頹然坐下，搖了搖頭，説道：不對的！\n");
 
 	me->receive_damage("jing", cost );
 	where = environment(ob);

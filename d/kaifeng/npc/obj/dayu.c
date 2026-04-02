@@ -10,7 +10,7 @@ void create()
                 set_default_object(__FILE__);
         else {
                 set("unit", "座");
-                set("long", "大禹治水，歷四十年，後人爲紀念而設。\n");
+                set("long", "大禹治水，歷四十年，後人為紀念而設。\n");
                 set("value", 50);
         }
 }

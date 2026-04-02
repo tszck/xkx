@@ -140,7 +140,7 @@ void gamble_prepare ()
 	lw_ji = new(__DIR__+"npc/douji");
 	lw_ji->set("name","綠尾雞");
 	lw_ji->move(room);
-	tell_room (room,"白髯雞仙說：好，可以押錢了，一贏二。\n");
+	tell_room (room,"白髯雞仙説：好，可以押錢了，一贏二。\n");
 	room_status = 1;
 	call_out ("gamble_start",20);
 }
@@ -148,7 +148,7 @@ void gamble_prepare ()
 void gamble_start ()
 {
 	object room = this_object();
-	tell_room (room,"白髯雞仙說聲：停押，鬥雞。\n");
+	tell_room (room,"白髯雞仙説聲：停押，鬥雞。\n");
 	tell_room (room,"然後將兩隻雞抱起，拿出鐵啄熟練地安上，把雞放進欄內。\n");
 	room_status = 2;
 	hg_ji->kill_ob(lw_ji);
@@ -180,7 +180,7 @@ void gamble_perform ()
 	ji = present_ji (room);
 	// 這樣判斷對兩隻雞不公平
 	// 雞甲只需要打雞乙到15氣以下就能贏
-	// 雞乙必須把雞甲打死纔行
+	// 雞乙必須把雞甲打死才行
 	if (ji && ji->is_fighting())
 	{
 		remove_call_out ("gamble_perform");
@@ -270,7 +270,7 @@ void gamble_finish ()
 		total = 0;
 		win = "none of them";
 	}
-	if (total > 0) tell_room (room,"白髯雞仙說道："+jis[win]+"獲勝！\n");
+	if (total > 0) tell_room (room,"白髯雞仙説道："+jis[win]+"獲勝！\n");
 	else tell_room (room,"白髯雞仙嘆息道：雙敗陪本！\n");
 	i = sizeof(list);
 	while (i--)
@@ -297,7 +297,7 @@ int do_bian (string arg)
 	if (ob == hg_ji || ob == lw_ji)
 	{
 		message_vision ("$N頭往雞肚下一鑽，想變成雞。\n",who);
-		message_vision ("白髯雞仙對$N說道：是看雞呢還是看你？\n",who);
+		message_vision ("白髯雞仙對$N説道：是看雞呢還是看你？\n",who);
 		return 1;
 	}
 	return 0;
@@ -312,7 +312,7 @@ int do_fight (string arg)
 	if (ob == hg_ji || ob == lw_ji)
 	{
 		message_vision ("$N向雞提出挑戰。\n",who);
-		message_vision ("白髯雞仙對$N說道：是看雞鬥雞呢還是人鬥雞？\n",who);
+		message_vision ("白髯雞仙對$N説道：是看雞鬥雞呢還是人鬥雞？\n",who);
 		return 1;
 	}
 	return 0;
@@ -323,7 +323,7 @@ int do_steal (string arg)
  object who = this_player();
 
 	message_vision ("$N偷偷摸摸地伸出手。\n",who);
-	message_vision ("白髯雞仙對$N說道：你真的要偷雞摸狗不成？\n",who);
+	message_vision ("白髯雞仙對$N説道：你真的要偷雞摸狗不成？\n",who);
 	return 1;
 }
 
@@ -337,7 +337,7 @@ int do_kill (string arg)
 	if (ob == hg_ji || ob == lw_ji)
 	{
 		message_vision ("$N惡狠狠地想殺雞。\n",who);
-		message_vision ("白髯雞仙對$N說道：想喫雞自個上館子去。\n",who);
+		message_vision ("白髯雞仙對$N説道：想喫雞自個上館子去。\n",who);
 		return 1;
 	}
 	return 0;
@@ -348,7 +348,7 @@ int do_ji (string arg)
  object who = this_player();
 
 	message_vision("$N雞頭雞腦地想要祭什麼。\n",who);
-	message_vision("白髯雞仙對$N說道：雞又不是祖宗，對雞祭什麼祭。\n",who);
+	message_vision("白髯雞仙對$N説道：雞又不是祖宗，對雞祭什麼祭。\n",who);
 	return 1;
 }
 
@@ -357,7 +357,7 @@ int do_exert (string arg)
  object who = this_player();
 
 	message_vision ("$N想施內功。\n",who);
-	message_vision ("白髯雞仙對$N說道：別在這裏練功，練出雞胸怎辦？\n",who);
+	message_vision ("白髯雞仙對$N説道：別在這裏練功，練出雞胸怎辦？\n",who);
 	return 1;
 }
 
@@ -366,6 +366,6 @@ int do_perform (string arg)
  object who = this_player();
 
 	message_vision ("$N想施外功。\n",who);
-	message_vision ("白髯雞仙對$N說道：別在這裏練功，練出雞胸怎辦？\n",who);
+	message_vision ("白髯雞仙對$N説道：別在這裏練功，練出雞胸怎辦？\n",who);
 	return 1;
 }

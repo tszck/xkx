@@ -87,7 +87,7 @@ int ask_me()
         if ((int)this_player()->query_temp("marks/find_temp")&&this_player()->query_temp("marks/ask_temp3"))
 		{
         	say(
-"枯榮看了" + this_player()->name() + "一眼，說道：\n"
+"枯榮看了" + this_player()->name() + "一眼，説道：\n"
 "這位施主果然聰明，施主若能勝過老衲就可得到六脈神劍譜。\n");
        		return 1;
         }
@@ -100,8 +100,8 @@ int accept_fight(object ob)
         me = this_object();
 
         if( ob->query_temp("marks/find_temp")&&ob->query_temp("marks/ask_temp3") ) {
-           say(ob->name() + "對枯榮說：好吧，那"
-             "我就同你切搓幾招吧，點到爲止。\n");
+           say(ob->name() + "對枯榮説：好吧，那"
+             "我就同你切搓幾招吧，點到為止。\n");
 	  remove_call_out("checking");
           call_out("checking", 1, me, ob);
           return 1;
@@ -129,7 +129,7 @@ int checking(object me, object ob)
         if (( (int)me->query("qi")*100 / my_max_qi) <= 50 )
         {
                 say(
-                  "枯榮說：施主身手果然不凡，老衲佩服。\n"
+                  "枯榮説：施主身手果然不凡，老衲佩服。\n"
                   "六脈神劍譜是沒有的了，這本一陽指訣你先拿去吧。\n"
                 );
                 obj= new("/clone/book/sun_book");
@@ -192,7 +192,7 @@ string ask_six()
 			return "真是對不起，本因方丈不在，無法舉行六脈劍陣。\n";
 	}
 
-	message("vision", "\n枯榮大師走了過來，跟" + monk->query("name") + "俯耳輕聲說了幾句。\n", room, monk);
+	message("vision", "\n枯榮大師走了過來，跟" + monk->query("name") + "俯耳輕聲説了幾句。\n", room, monk);
 	message("vision", monk->query("name") + "點了點頭，快步走了出去。\n", room, monk);
 	monk->move("/d/tianlongsi/munitang");
 	me->move("/d/tianlongsi/munitang");
@@ -224,7 +224,7 @@ int waiting(object me)
 
 	if( wait_time == 300 )
 	{
-		say( "枯榮大師說道：看來他不會來了，我們回去罷！\n\n");
+		say( "枯榮大師説道：看來他不會來了，我們回去罷！\n\n");
 		call_out("do_back", 0, me);
 	}
 
@@ -292,7 +292,7 @@ int fighting(object me, object fighter, int count)
 		}
 		monk1->move(room1);
 
-		say( "枯榮大師搖了搖頭，說道：火候還差 ... 唉！\n\n");
+		say( "枯榮大師搖了搖頭，説道：火候還差 ... 唉！\n\n");
 		fighter->delete_temp("fighting");
 		command("sigh");
 		call_out("do_back", 2, me );
@@ -325,10 +325,10 @@ int do_recruit(object me, object fighter)
 	command("say 再接我一招！");
 	COMBAT_D->do_attack(this_object(), fighter, query_temp("weapon") );
 	if( !living(fighter) || fighter->query("qi") <= 1 )
-		say("\n枯榮大師說道：還是不行！ \n");
+		say("\n枯榮大師説道：還是不行！ \n");
 	else
 	{
-		say("\n枯榮大師說道：恭喜你闖過了六脈劍陣！ \n");
+		say("\n枯榮大師説道：恭喜你闖過了六脈劍陣！ \n");
 		if (query("book_count") > 0)
 		{
 			add("book_count", -1);
@@ -336,7 +336,7 @@ int do_recruit(object me, object fighter)
 			book->move(fighter);
 //		command("rumor "+fighter->query("name")+"拿到啦。\n");
 			message("channel:rumor", MAG"【謠言】某人："+fighter->query("name")+"搶了六脈神劍譜啦。\n"NOR, users());
-			command("say 好吧，這本「六脈神劍譜」你就拿去吧。說着慘然一笑。\n");
+			command("say 好吧，這本「六脈神劍譜」你就拿去吧。説着慘然一笑。\n");
 		}
 		else
 			command("say 「六脈神劍譜」已經不在我這了。施主請便。\n");
@@ -399,7 +399,7 @@ int do_kneel()
 
 	message_vision(
 		"$N雙手合十，恭恭敬敬地跪了下來。\n\n"
-		"$n說偈道：
+		"$n説偈道：
         “一微塵中入三昧，成就一切微塵定，
           而彼微塵亦不增，於一普現難思剎。”
 手掌提起，$N滿頭烏髮盡數落下，頭頂光禿禿地更無一根頭髮，便是
@@ -432,7 +432,7 @@ void attempt_apprentice(object ob)
 		return;
 	}
         if ((int)ob->query_skill("kurong-changong", 1) < 150) {
-                command("say 你內功修爲還不到火候，進天龍寺也是徒勞。\n");
+                command("say 你內功修為還不到火候，進天龍寺也是徒勞。\n");
                 return;
         }
 	command("say 阿彌陀佛，善哉！善哉！");

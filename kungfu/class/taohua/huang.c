@@ -154,7 +154,7 @@ int recognize_apprentice(object ob)
 	myfam = (mapping)ob->query("family");
 	if ( myfam["family_name"] == "桃花島") return 1 ;
 	if ((int)ob->query_temp("tmark/黃") == 1 )
-		message_vision("黃藥師看了看$N，說道：咱們現在是誰也不欠誰，\n你不要再找我學習技藝了。\n", ob);
+		message_vision("黃藥師看了看$N，説道：咱們現在是誰也不欠誰，\n你不要再找我學習技藝了。\n", ob);
 	if (!(int)ob->query_temp("tmark/黃")) return 0; 
 	ob->add_temp("tmark/黃", -1);
 	return 1;
@@ -167,7 +167,7 @@ int accept_object(object who, object ob)
 	{
  		if (!(int)who->query_temp("tmark/黃"))
 			who->set_temp("tmark/黃", 0);
-		message_vision("黃藥師看了看$N送來的祕籍，點了點頭，說道：\n難得你將真經送回。你送的東西我就收下了。\n作爲補償,你可以從我這裏學點功夫。\n",who);
+		message_vision("黃藥師看了看$N送來的祕籍，點了點頭，説道：\n難得你將真經送回。你送的東西我就收下了。\n作為補償,你可以從我這裏學點功夫。\n",who);
 		who->add_temp("tmark/黃", 120);
 		return 1;
 	}

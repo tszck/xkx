@@ -39,14 +39,14 @@ int do_say()
 
       if (me->query("qi")>qi_cost) 
       {
-message_vision(CYN"$N剛說出一個字，剎那間驚雷迅電，霹靂而作，風雨暴來。\n"NOR, me);
+message_vision(CYN"$N剛説出一個字，剎那間驚雷迅電，霹靂而作，風雨暴來。\n"NOR, me);
          if (((c_skill*c_skill*c_skill/10)< c_exp) && (c_skill<101))
               me->improve_skill("force", (int)me->query_skill("force", 1));
            me->receive_damage("qi", qi_cost );
       }
       else
       {
-       message_vision(CYN"$N剛說出一個字，剎那間驚雷迅電，霹靂而作，風雨暴來。
+       message_vision(CYN"$N剛説出一個字，剎那間驚雷迅電，霹靂而作，風雨暴來。
 $N一下子被打中，全身發麻。\n"NOR, me);
       }
       return 1;

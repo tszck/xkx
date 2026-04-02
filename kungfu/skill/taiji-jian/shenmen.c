@@ -47,10 +47,10 @@ int perform(object me, object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，無法使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 140 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲還不夠，難以施展"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為還不夠，難以施展"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 125 )
 		return notify_fail("你的"+to_chinese(bskill)+"還不夠嫺熟，無法使用"+PNAME+"。\n");
@@ -61,9 +61,9 @@ int perform(object me, object target)
 	if( !me->query_temp("murong/xingyi") )
 	{
 		if( me->query_skill("sword", 1) < 125 )
-			return notify_fail("你的劍法修爲還不夠，難以施展「神門十三劍」！\n");
+			return notify_fail("你的劍法修為還不夠，難以施展「神門十三劍」！\n");
 		if( me->query_skill("taiji-jian", 1) < 125 )
-			return notify_fail("你的太極劍法修爲還不夠，難以施展「神門十三劍」！\n");
+			return notify_fail("你的太極劍法修為還不夠，難以施展「神門十三劍」！\n");
 	}
 
 	if( me->query("neili") <= 200 )

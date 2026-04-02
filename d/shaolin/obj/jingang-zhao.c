@@ -20,7 +20,7 @@ void create()
 		set("unit", "件");
 		set("value",100000);
 		set("wear_msg", HIY "只聽「譁」的一聲，$N展開一件金光閃閃的袈裟披在身上。
-瞬時間日月爲之失色，瑞氣千條，祥雲朵朵，一派莊嚴氣象。\n" NOR);
+瞬時間日月為之失色，瑞氣千條，祥雲朵朵，一派莊嚴氣象。\n" NOR);
 		set("remove_msg", HIY "$N將金剛罩從身上脫了下來，摺疊成小小的一團。\n" NOR);
 		set("armor_prop/armor", 300);
 	}

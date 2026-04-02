@@ -58,7 +58,7 @@ int do_watch(string arg)
 		return notify_fail("你正忙着。\n");
 
 	targ=obj->query("name");
-	tell_object(me,"你用銳利的眼神盯着"+targ+"。\n\n");
+	tell_object(me,"你用鋭利的眼神盯着"+targ+"。\n\n");
 	me->start_busy(1);
 	if (obj->query("bt_tufei")==me->query_temp("bt/npc") &&
 		random(me->query("kar")+15)>20 &&
@@ -148,7 +148,7 @@ int do_catch(string arg)
 		|| obj->query_temp("bt_faxianed")!=me->query("id") )
 		return notify_fail("揚州紀律嚴明，沒有證據怎好拿人？\n");
 	message_vision ("$N對着$n冷笑一聲道：閣下的案子發了，老老實實跟本官走一趟。\n\n",me,obj);
-	message_vision (RED"$n大叫一聲揭開僞裝，露出本來面目。\n$n大喝道：老子和你拼了！\n\n"NOR,me,obj);
+	message_vision (RED"$n大叫一聲揭開偽裝，露出本來面目。\n$n大喝道：老子和你拼了！\n\n"NOR,me,obj);
 	obj->delete_temp("bt_faxianed");
 	destruct(obj);
 	new_obj = present("picture",ob);

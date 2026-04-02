@@ -406,7 +406,7 @@ private void confirm_id(string yn, object ob)
     write( @TEXT
 
 請輸入您的高姓大名，由於這個名字代表你的人物，而且以後不能更改，
-務必慎重擇名（不雅觀的姓名將被刪除）。另：請不要選擇金庸小說中
+務必慎重擇名（不雅觀的姓名將被刪除）。另：請不要選擇金庸小説中
 已有人物姓名。
 
 TEXT
@@ -562,7 +562,7 @@ private void get_hometown(string born,object ob )
 **  靈性：影響技能學習。靈性高的，更容易多學些功夫。                      **
 **  膽識：影響攻擊成功率。膽識高的，傾向於進攻。                          **
 **  定力：影響防禦成功率。定力低的，容易被對手找到破綻反擊。              **
-**  福緣：影響到在遊戲裏的機遇。總體來說，越高越好。但不絕對如此。        **
+**  福緣：影響到在遊戲裏的機遇。總體來説，越高越好。但不絕對如此。        **
 **  容貌：容貌好的人，不容易引起敵意。對定力低的敵手，有震懾作用。        **
 **                                                                        **
 ****************************************************************************
@@ -570,7 +570,7 @@ TEXT);
   if (ob->query("scborn/reset_gift"))
   {
       old = NPC_D->create_player(ob->query("id"));
-      write("你前世的天賦爲：\n\n");
+      write("你前世的天賦為：\n\n");
       write("臂力：[ "+old->query("str")+" ]\t");
       write("悟性：[ "+old->query("int")+" ]\n");
       write("根骨：[ "+old->query("con")+" ]\t");
@@ -634,7 +634,7 @@ private void config_gift(object ob,mapping my)
     max = 30+5*ob->query("scborn/times");
     min = (all-max-max)/2;
 //	min = 10+5*ob->query("scborn/times");
-    printf("你的天賦總點數爲"+all+"，您請輸入您的膂力點數("+min+"到"+max+")：");
+    printf("你的天賦總點數為"+all+"，您請輸入您的膂力點數("+min+"到"+max+")：");
     input_to("sel_str", ob, my, all, min, max);
 }
 
@@ -645,14 +645,14 @@ private void sel_str(string qty1, object ob, mapping my, int all, int min, int m
     if (qty < min)
     {
         write(HIR"您選擇的膂力數值不能小於"+min+"：\n"NOR);
-        printf("你的天賦總點數爲"+all+"，您請輸入您的膂力點數("+min+" 到 "+max+")：");
+        printf("你的天賦總點數為"+all+"，您請輸入您的膂力點數("+min+" 到 "+max+")：");
         input_to("sel_str", ob, my, all, min, max);
     }
     else
     if (qty > max)
     {
         write(HIR"您選擇的膂力數值不能大於"+max+"：\n"NOR);
-        printf("你的天賦總點數爲"+all+"，您請輸入您的膂力點數("+min+" 到 "+max+")：");
+        printf("你的天賦總點數為"+all+"，您請輸入您的膂力點數("+min+" 到 "+max+")：");
         input_to("sel_str", ob, my, all, min, max);
     }
     else
@@ -776,7 +776,7 @@ private void get_gift(string yn, object ob, mapping my,int all,int min,int max)
 {
     if (yn[0] != 'y' && yn[0] != 'Y')
     {
-        printf("你的天賦總點數爲"+all+"，您請輸入您的膂力點數("+min+" 到 "+max+")：");
+        printf("你的天賦總點數為"+all+"，您請輸入您的膂力點數("+min+" 到 "+max+")：");
         input_to("sel_str", ob, my,all,min,max);
     }
     if (yn[0] == 'y' || yn[0] == 'Y')
@@ -1027,7 +1027,7 @@ varargs void enter_world(object ob, object user, int silent)
     });
 
     user->set_temp("link_ob", ob);
-// 登錄時記錄經驗和潛能, 以及登錄時間, 爲離線信息預留
+// 登錄時記錄經驗和潛能, 以及登錄時間, 為離線信息預留
     user->set_temp("nowexp", user->query("combat_exp"));
     user->set_temp("nowpot", user->query("potential"));
     user->set_temp("nowtime", time());
@@ -1053,7 +1053,7 @@ varargs void enter_world(object ob, object user, int silent)
     // Use condition to auto save user file
     user->apply_condition("autosave", 1);
 
-    // 根據時間判斷是否爲節日，並贈送玩家禮品。
+    // 根據時間判斷是否為節日，並贈送玩家禮品。
     // Added by Constant Jan 2 2001
     ltime = localtime(time());
 

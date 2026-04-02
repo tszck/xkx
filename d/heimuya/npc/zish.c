@@ -15,7 +15,7 @@ void create()
         set("force",300);
         set("max_force",300);
 	set("party/party_name", HIB"日月神教"NOR);
-	set("party/rank", HIW"教衆"NOR);
+	set("party/rank", HIW"教眾"NOR);
 
         setup();
 	carry_object(__DIR__"obj/zichoush")->wear();

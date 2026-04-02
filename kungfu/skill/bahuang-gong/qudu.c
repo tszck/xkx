@@ -12,7 +12,7 @@ int exert(object me, object target)
    return notify_fail("你所使用的內功中沒有這種功能。");
 
 	if( (!target) )
-		return notify_fail("你要用真氣爲誰驅毒？\n");
+		return notify_fail("你要用真氣為誰驅毒？\n");
 
 	if( me->is_fighting() || target->is_fighting())
 		return notify_fail("戰鬥中無法運功驅毒！\n");
@@ -30,21 +30,21 @@ int exert(object me, object target)
 		return notify_fail(target->name()+"並沒有中生死符！\n");
 		
 	if( (int)me->query_skill("bahuang-gong",1) < 50 )
-		return notify_fail("你的八荒六合唯我獨尊功修爲不夠。\n");
+		return notify_fail("你的八荒六合唯我獨尊功修為不夠。\n");
 
 	if( (int)me->query("max_neili") < 150 )
-		return notify_fail("你的內力修爲不夠。\n");
+		return notify_fail("你的內力修為不夠。\n");
 
 	if( (int)me->query("neili") < 150)
 		return notify_fail("你的真氣不夠。\n");
 
 	if( (int)me->query_skill("force") < (int)target->query_skill("force") / 3 )
-		return notify_fail( target->name() + "中毒已經深，以你的內功修爲恐怕解不了他的生死符！\n");
+		return notify_fail( target->name() + "中毒已經深，以你的內功修為恐怕解不了他的生死符！\n");
 
   if (me != target)
 	  message_combatd( HIW"$N坐了下來運起八荒六合唯我獨尊功，將手掌貼在$n背心，緩緩地將真氣輸入$n體內....\n\n過了不久，$N額頭上冒出豆大的汗珠，$n指尖滲出一縷白色霧氣，臉色看起來紅潤多了。\n" NOR, me, target );
   else
-    message_vision( HIC"$N右掌以陽剛之氣急拍，左掌以陰柔之力緩運，開始自行化解生死符之毒....\n\n過了許久，$N只覺“陰陵泉”穴上一團窒滯之意霍然而解，關節靈活，說不出的舒適。\n"NOR,me);
+    message_vision( HIC"$N右掌以陽剛之氣急拍，左掌以陰柔之力緩運，開始自行化解生死符之毒....\n\n過了許久，$N只覺“陰陵泉”穴上一團窒滯之意霍然而解，關節靈活，説不出的舒適。\n"NOR,me);
 	//target->set("qi", (int)target->query("eff_qi"));
 	target->clear_condition("ss_poison",0);
 

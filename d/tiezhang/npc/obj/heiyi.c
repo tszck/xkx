@@ -12,7 +12,7 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", BLK"一件鐵掌幫衆常穿的黑衣。\n"NOR);
+		set("long", BLK"一件鐵掌幫眾常穿的黑衣。\n"NOR);
 		set("material", "cloth");
 		set("unit", "件");
 		set("value", 40);

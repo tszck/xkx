@@ -61,7 +61,7 @@ int do_ketou(string arg)
 		me->set("title", HIW"古墓傳人"NOR);
 		me->create_family("古墓派", 5, "傳人");
 		me->set("class","swordsman");
-		write(HIR"恭喜你自願成爲一名古墓弟子。\n"NOR);
+		write(HIR"恭喜你自願成為一名古墓弟子。\n"NOR);
 		me->delete_temp("marks/tuo");
 		me->delete_temp("marks/ketou");
 		return 1;

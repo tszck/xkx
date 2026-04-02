@@ -11,7 +11,7 @@ void create()
 	set("nickname", HIG "黑龍" NOR);
 	set("long",@LONG
 他就是五毒教的護法弟子沙千里，身材魁梧，方面大耳。在教中轉管招募
-教衆，教授弟子們的入門功夫。
+教眾，教授弟子們的入門功夫。
 LONG
 	);
 	set("title","五毒教護法弟子");
@@ -89,7 +89,7 @@ void attempt_apprentice(object ob)
 
 	if ((int)ob->query("shen") > 1000) {
 		command("say 做我五毒教弟子必須心狠手辣。");
-		command("say 我教弟子貴在隨心所欲，不收僞君子");
+		command("say 我教弟子貴在隨心所欲，不收偽君子");
 		return;
 	}
 

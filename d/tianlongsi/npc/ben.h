@@ -13,7 +13,7 @@ void init()
 void attempt_apprentice(object ob)
 {
         if ((int)ob->query_skill("kurong-changong", 1) < 110) {
-                command("say 你內功修爲還不到火候，進天龍寺也是徒勞。\n");
+                command("say 你內功修為還不到火候，進天龍寺也是徒勞。\n");
                 return;
         }
 	command("say 好吧，老衲就收下你這個俗家弟子了。");

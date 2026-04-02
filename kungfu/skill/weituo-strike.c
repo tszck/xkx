@@ -116,7 +116,7 @@ int help(object me)
 	學習要求：
 		站樁功20級
 		羅漢拳20級
-		內力修爲50
+		內力修為50
 HELP
 	);
 	return 1;

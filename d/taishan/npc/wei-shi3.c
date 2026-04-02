@@ -1,4 +1,4 @@
-// wu-shi1.c 盟主衛士
+// wu-shi1.c 盟主衞士
 
 #include <ansi.h>
 

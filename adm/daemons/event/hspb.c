@@ -22,7 +22,7 @@ private void do_bonus(object room)
         	msg = HIY "【自然奇觀】衡山水簾洞激流\n"NOR;
                 msg += HIG "只聽轟隆隆聲音大做，振聾發聵，令人心懼神搖！你抬頭看去，只見\n"
                           "黃昏中水簾洞籠罩在層層霧氣之中，分外妖嬈。洞外水流飛瀉，氣勢驚人！\n" NOR;
-                msg += HIG "你望着湍急的瀑布飛練，爲這世間美景驚歎不已，從"
+                msg += HIG "你望着湍急的瀑布飛練，為這世間美景驚歎不已，從"
                            "中不禁領悟到了武學的道理。\n" NOR; 
                 for ( i = 0 ; i < sizeof(obs); i++)  // 增加潛能基本內功及潛能
                 {
@@ -41,7 +41,7 @@ private void do_bonus(object room)
                 }
 
                 message("vision", msg, obs);
-                message("channel:rumor", HIM"【謠言】"+"聽說衡山水簾洞瀑布激流澎湃，奇景非凡，無數遊人歎羨不已。\n"NOR, users());
+                message("channel:rumor", HIM"【謠言】"+"聽説衡山水簾洞瀑布激流澎湃，奇景非凡，無數遊人歎羨不已。\n"NOR, users());
                
         } else 
         if (r < 250) 
@@ -55,7 +55,7 @@ private void do_bonus(object room)
                                     "下三千尺，疑是銀河落九天」啊。\n" NOR; 
                         break; 
                 case 1: 
-                        msg += HIY "瀑流就像一席倒掛的白簾，氣勢如虹，天地都不禁爲之失色。\n" NOR; 
+                        msg += HIY "瀑流就像一席倒掛的白簾，氣勢如虹，天地都不禁為之失色。\n" NOR; 
                         break; 
                 default: 
 

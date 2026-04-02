@@ -107,7 +107,7 @@ int accept_object(object who, object ob)
         if (!(int)who->query_temp("mark/田"))
                 who->set_temp("mark/田", 0);
         if (ob->query("money_id") && ob->value() >= 1000) {
-                message_vision("田伯光說：好說好說，你要學大爺就教給你。\n", who);
+                message_vision("田伯光説：好説好説，你要學大爺就教給你。\n", who);
                 who->add_temp("mark/田", (int)(ob->value() / 50));
                 return 1;
          }

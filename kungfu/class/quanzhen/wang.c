@@ -130,10 +130,10 @@ void attempt_apprentice(object ob)
 	}
 	if ((int)ob->query("shen")<100000)
 	{
-		command( "say 我輩武人份當行俠仗義除暴安良，你若能多爲俠義之舉，當能承我衣鉢。\n");
+		command( "say 我輩武人份當行俠仗義除暴安良，你若能多為俠義之舉，當能承我衣缽。\n");
 		return;
 	}
-	command("say 好吧，依你資質，定可傳我衣鉢，我就收下你這個徒弟了。");
+	command("say 好吧，依你資質，定可傳我衣缽，我就收下你這個徒弟了。");
 	command("recruit " + ob->query("id"));
 	new_name=ob->query("name");
 	if(new_name[1..1]=="志")
@@ -151,7 +151,7 @@ string ask_jiuyin()
 
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "全真教")
-		return RANK_D->query_respect(this_player()) +"與本教毫無瓜葛，這話從何說起？";
+		return RANK_D->query_respect(this_player()) +"與本教毫無瓜葛，這話從何説起？";
 	if (!(lvl_force = this_player()->query_skill("force",1)) ||
 		lvl_force < 50)
 		return RANK_D->query_respect(this_player()) +"的基本內功火候如此之淺，強練真經上的上乘武功有害無益。";
@@ -168,7 +168,7 @@ string ask_duan()
 	}
 	else {
 		me->set_temp("tmark/指",0);
-		return("你問段皇爺做甚麼，莫非想與他爲難？\n");
+		return("你問段皇爺做甚麼，莫非想與他為難？\n");
 	}
 }
 

@@ -43,13 +43,13 @@ void create()
 	set("chat_msg",({
 		"丁當唸叨着: 也不知道我的玉哥哥現在怎麼樣了。\n",
 		"丁當暗暗抹了把眼淚。\n",
-		"丁當一跺腳，說道: 不行，我要上摩天崖把我的玉哥哥救回來。\n",
-		"丁當嘆了口氣，說道: 要是有玄鐵令就好了。\n",
+		"丁當一跺腳，説道: 不行，我要上摩天崖把我的玉哥哥救回來。\n",
+		"丁當嘆了口氣，説道: 要是有玄鐵令就好了。\n",
 	}) );
 	set("inquiry",([
 		"石中玉" : (: inquiry_yu :),
 		"摩天崖" : "前面這座山就是了，你要小心呀，那個老頭的武功好強呀。\n",
-		"玄鐵令" : "據說是在石破天手裏，真假我就不知道了。\n",
+		"玄鐵令" : "據説是在石破天手裏，真假我就不知道了。\n",
 	]) );
 	set_temp("shoupa",1);
 	setup();
@@ -63,10 +63,10 @@ string inquiry_yu()
 	object me=this_player();
 	object obn;
 
-	message_vision("丁當說道：這位"+ RANK_D->query_respect(me)+"，玉哥哥是我的夫君，\n"+"可是去年在雪山派被謝煙客抓去，囚禁起來。現在也不知是死是活。唉！\n", me );
+	message_vision("丁當説道：這位"+ RANK_D->query_respect(me)+"，玉哥哥是我的夫君，\n"+"可是去年在雪山派被謝煙客抓去，囚禁起來。現在也不知是死是活。唉！\n", me );
 	if(query_temp("shoupa")==0)
 	{
-		message_vision("丁當又說道：這位"+ RANK_D->query_respect(me)+"，我已經託"+"人去摩天崖看看了，也不知道怎麼樣了。\n",me);
+		message_vision("丁當又説道：這位"+ RANK_D->query_respect(me)+"，我已經託"+"人去摩天崖看看了，也不知道怎麼樣了。\n",me);
 		return "真急人！";
 	}
 	message_vision("丁當從懷裏拿出一個漂亮的手帕，交給$N。\n", me);

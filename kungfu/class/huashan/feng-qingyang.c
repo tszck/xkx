@@ -91,7 +91,7 @@ void greeting(object ob)
    else if  ((int)ob->query("marks/feng-qingyang")==2)
        {
            say( "風清揚一臉笑意：“多謝你救了小徒!”\n");
-           say( "風清揚說道：“如果不嫌棄老夫本事低微，就傳你幾手如何？”\n");
+           say( "風清揚説道：“如果不嫌棄老夫本事低微，就傳你幾手如何？”\n");
            command("recruit " + ob->query("id") );
            ob->delete("marks/feng-qingyang",0);
            call_out("goout",20,ob);

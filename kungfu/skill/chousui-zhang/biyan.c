@@ -46,7 +46,7 @@ int perform(object me, object target)
 		pskill = "douzhuan-xingyi";
 	}
 	if( (int)me->query_skill(fskill, 1) < 80 )
-		return notify_fail("你發現自己的"+to_chinese(fskill)+"修爲不夠，無法使用"+PNAME+"進行攻擊。\n");
+		return notify_fail("你發現自己的"+to_chinese(fskill)+"修為不夠，無法使用"+PNAME+"進行攻擊。\n");
 	if( (int)me->query_skill(sskill, 1) < 80 )
 		return notify_fail("你的"+to_chinese(sskill)+"還不夠嫺熟，無法使用"+PNAME+"。\n");
 	if(me->query_temp("pfm_chousui"))
@@ -69,7 +69,7 @@ int perform(object me, object target)
 	  ob = new("/d/xingxiu/npc/obj/huoyan");
 	  ob->move(environment(me));
 	}
-	message_combatd(HIC"\n$N右手指向"HIR"火堆"HIC"，默不作聲的注視着火焰，左掌按胸，口中喃喃的不知說些什麼。。。\n"NOR,me);
+	message_combatd(HIC"\n$N右手指向"HIR"火堆"HIC"，默不作聲的注視着火焰，左掌按胸，口中喃喃的不知説些什麼。。。\n"NOR,me);
 	me->start_busy(1);
 	me->set_temp("pfm_chousui", 1);
 	if(random(me->query_kar()) > 15) check_pfm(me, target, ob);
@@ -156,7 +156,7 @@ int help(object me)
 		化功大法80級
 		抽髓掌80級
 		基本毒技60
-		內力修爲500
+		內力修為500
 		內力300
 		周圍有火堆
 HELP

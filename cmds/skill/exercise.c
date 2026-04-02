@@ -95,7 +95,7 @@ int exercising(object me)
 		return 0;
 	else {
 		if ((int)me->query("max_neili") > (int)me->query_skill("force") * 10) {
-			write("你的內力修爲似乎已經達到了瓶頸。\n");
+			write("你的內力修為似乎已經達到了瓶頸。\n");
 			me->set("neili", (int)me->query("max_neili"));
 			return 0;
 		}

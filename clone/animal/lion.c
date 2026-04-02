@@ -9,7 +9,7 @@ void create()
 	set_name("獅子", ({ "lion", "shi zi", "shi" }) );
 	set("race", "走獸");
 	set("age", 25);
-	set("long", "一隻黃毛長鬃的雄獅，爪牙銳利，神情威武。\n");
+	set("long", "一隻黃毛長鬃的雄獅，爪牙鋭利，神情威武。\n");
 	set("msg_fail", "$n衝$N呲牙吼了一聲");
 	set("msg_succ", "$n一面口中向$N荷荷發威，一面向後退了半步，似乎有些怯了");
 	set("msg_trained","$n低吼着在$N的面前伏了下來");

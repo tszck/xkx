@@ -40,7 +40,7 @@ int valid_leave(object me, string dir)
 	if ((!myfam || myfam["family_name"] != "鐵掌幫") &&
 		dir == "northup" && (int)me->query("combat_exp", 1) >= 10000 &&
 		objectp(present("heiyi bangzhong", environment(me))))
-		return notify_fail("黑衣幫衆抽刀攔住你的去路，說道：“你不是鐵掌幫弟子，不能上山！\n");
+		return notify_fail("黑衣幫眾抽刀攔住你的去路，説道：“你不是鐵掌幫弟子，不能上山！\n");
 
 	return ::valid_leave(me, dir);
 }

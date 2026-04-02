@@ -71,7 +71,7 @@ string ask_jiu()
 	if (this_player()->query_skill("force", 1) < 50)
 		return "閣下看來就不是個飲酒之人，這酒烈啊";
 //	if (this_player()->query("family/family_name") != "凌霄城")
-//		return RANK_D->query_respect(this_player()) +"閣下非我凌霄弟子，我爲什麼要給你參陽玉酒？";
+//		return RANK_D->query_respect(this_player()) +"閣下非我凌霄弟子，我為什麼要給你參陽玉酒？";
 	if ( present("shenyang yujiu", this_player()) )
 		return RANK_D->query_respect(this_player()) +"你身上就有一壺，還想要，別那麼貪心！"; 
 	if (query("jiu_count") < 1)

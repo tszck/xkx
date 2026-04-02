@@ -112,7 +112,7 @@ string damage_msg(int damage, string type)
 		if( damage < 230 ) str = "結果造成極其嚴重的";
 		if( damage < 170 ) str = "結果造成十分嚴重的";
 		if( damage < 120 ) str = "結果造成相當嚴重的";
-		if( damage < 80 ) str = "結果造成頗爲嚴重的";
+		if( damage < 80 ) str = "結果造成頗為嚴重的";
 		if( damage < 50 ) str = "結果造成一處嚴重";
 		if( damage < 30 ) str = "結果造成一處";
 		if( damage < 20 ) str = "結果造成輕微的";

@@ -85,7 +85,7 @@ int do_work (string arg)
 	me->set_temp("bt/whatnpc",bt_whatnpc);
 	me->set_temp("bt/name",bt_name);
 	me->set_temp("bt/where",bt_where);
-	message_vision("程大人一拍驚堂木怒道：“據查今有"+bt_name+"在"+bt_where+bt_name1+"，\n$N速去破案，不得有誤。”說着手一揚，丟下一條火籤。$N忙俯身撿\n了起來：“得令！”\n",me);
+	message_vision("程大人一拍驚堂木怒道：“據查今有"+bt_name+"在"+bt_where+bt_name1+"，\n$N速去破案，不得有誤。”説着手一揚，丟下一條火籤。$N忙俯身撿\n了起來：“得令！”\n",me);
 	me->set_temp("bt/working",1);
 
 	officerlvl = me->query("officerlvl");
@@ -154,7 +154,7 @@ int do_finish (string arg)
 		me->add("weiwang",20);
 		message_vision(HIC "$N的江湖威望提高了！\n" NOR,me);
 		tell_object(me, "你現在的江湖威望是" + chinese_number((string)(me->query("weiwang")))+"。\n"NOR);
-		message_vision (WHT"程大人微笑着說道："+me->query("name")+"連破大案，天下聞名，本府已經奏明聖上。\n昨日朝旨已下，命你進京面聖。你可立即動身，速去速回。"NOR,me);
+		message_vision (WHT"程大人微笑着説道："+me->query("name")+"連破大案，天下聞名，本府已經奏明聖上。\n昨日朝旨已下，命你進京面聖。你可立即動身，速去速回。"NOR,me);
 		me->set("bt/jiangli",1);
 	}
 	if (me->query("bt/worked")==1600)
@@ -163,7 +163,7 @@ int do_finish (string arg)
 		me->add("weiwang",20);
 		message_vision(HIC "$N的江湖威望提高了！\n" NOR,me);
 		tell_object(me, "你現在的江湖威望是" + chinese_number((string)(me->query("weiwang")))+"。\n"NOR);
-		message_vision (WHT"程大人微笑着說道："+me->query("name")+"連破大案，天下聞名，本府已經奏明聖上。\n昨日朝旨已下，命你進京面聖。你可立即動身，速去速回。"NOR,me);
+		message_vision (WHT"程大人微笑着説道："+me->query("name")+"連破大案，天下聞名，本府已經奏明聖上。\n昨日朝旨已下，命你進京面聖。你可立即動身，速去速回。"NOR,me);
 	}
 	if (me->query("bt/worked")==800)
 	{
@@ -171,7 +171,7 @@ int do_finish (string arg)
 		me->add("weiwang",20);
 		message_vision(HIC "$N的江湖威望提高了！\n" NOR,me);
 		tell_object(me, "你現在的江湖威望是" + chinese_number((string)(me->query("weiwang")))+"。\n"NOR);
-		message_vision (WHT"程大人微笑着說道："+me->query("name")+"連破大案，天下聞名，本府已經奏明聖上。\n昨日朝旨已下，命你進京面聖。你可立即動身，速去速回。"NOR,me);
+		message_vision (WHT"程大人微笑着説道："+me->query("name")+"連破大案，天下聞名，本府已經奏明聖上。\n昨日朝旨已下，命你進京面聖。你可立即動身，速去速回。"NOR,me);
 	}
 	if (me->query("bt/worked")==400)
 	{
@@ -179,7 +179,7 @@ int do_finish (string arg)
 		me->add("weiwang",20);
 		message_vision(HIC "$N的江湖威望提高了！\n" NOR,me);
 		tell_object(me, "你現在的江湖威望是" + chinese_number((string)(me->query("weiwang")))+"。\n"NOR);
-		message_vision (WHT"程大人微笑着說道："+me->query("name")+"連破大案，天下聞名，本府已經奏明聖上。\n昨日朝旨已下，命你進京面聖。你可立即動身，速去速回。"NOR,me);
+		message_vision (WHT"程大人微笑着説道："+me->query("name")+"連破大案，天下聞名，本府已經奏明聖上。\n昨日朝旨已下，命你進京面聖。你可立即動身，速去速回。"NOR,me);
 	}
 	if (me->query("bt/worked")==200)
 	{
@@ -187,7 +187,7 @@ int do_finish (string arg)
 		me->add("weiwang",20);
 		message_vision(HIC "$N的江湖威望提高了！\n" NOR,me);
 		tell_object(me, "你現在的江湖威望是" + chinese_number((string)(me->query("weiwang")))+"。\n"NOR);
-		message_vision (WHT"程大人微笑着說道："+me->query("name")+"連破大案，天下聞名，本府已經奏明聖上。\n昨日朝旨已下，命你進京面聖。你可立即動身，速去速回。"NOR,me);
+		message_vision (WHT"程大人微笑着説道："+me->query("name")+"連破大案，天下聞名，本府已經奏明聖上。\n昨日朝旨已下，命你進京面聖。你可立即動身，速去速回。"NOR,me);
 	}
 	if (me->query("bt/worked")==100)
 	{
@@ -195,7 +195,7 @@ int do_finish (string arg)
 		me->add("weiwang",20);
 		message_vision(HIC "$N的江湖威望提高了！\n" NOR,me);
 		tell_object(me, "你現在的江湖威望是" + chinese_number((string)(me->query("weiwang")))+"。\n"NOR);
-		message_vision (WHT"程大人微笑着說道："+me->query("name")+"連破大案，天下聞名，本府已經奏明聖上。\n昨日朝旨已下，命你進京面聖。你可立即動身，速去速回。"NOR,me);
+		message_vision (WHT"程大人微笑着説道："+me->query("name")+"連破大案，天下聞名，本府已經奏明聖上。\n昨日朝旨已下，命你進京面聖。你可立即動身，速去速回。"NOR,me);
 	}
 	if (me->query("bt/worked")==50)
 	{
@@ -203,7 +203,7 @@ int do_finish (string arg)
 		me->add("weiwang",20);
 		message_vision(HIC "$N的江湖威望提高了！\n" NOR,me);
 		tell_object(me, "你現在的江湖威望是" + chinese_number((string)(me->query("weiwang")))+"。\n"NOR);
-		message_vision (WHT"程大人微笑着說道："+me->query("name")+"連破大案，天下聞名，本府已經奏明聖上。\n昨日朝旨已下，命你進京面聖。你可立即動身，速去速回。"NOR,me);
+		message_vision (WHT"程大人微笑着説道："+me->query("name")+"連破大案，天下聞名，本府已經奏明聖上。\n昨日朝旨已下，命你進京面聖。你可立即動身，速去速回。"NOR,me);
 	}
 	if (me->query("bt/worked")==20)
 	{

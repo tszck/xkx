@@ -15,7 +15,7 @@ void create()
 	set_max_encumbrance(100000000);
 	set("age", 35);
 	set("str", 100);
-	set("long", "他是水晶當的老闆，據說爲人還不錯。\n");
+	set("long", "他是水晶當的老闆，據説為人還不錯。\n");
 	set("no_get_from", 1);
 	set("no_get", 1);
 

@@ -9,7 +9,7 @@ void create()
 {
         set_name("謝煙客", ({ "xie yanke", "xie", "yanke" }));
         set("long", "他就是摩天崖的主人。看年紀大約五十多歲，\n"
-                   +"年輕時好武成興，無比驕傲，自認爲天下第一。\n");
+                   +"年輕時好武成興，無比驕傲，自認為天下第一。\n");
         set("gender", "男性");
         set("age", 50);
         set("shen_type",1);

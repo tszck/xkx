@@ -46,30 +46,30 @@ int ask_riddle()
 
 	if( me->query("trill_marks/guessing") )
 	{
-		write("陸麗仙笑了笑，說：你先把上個謎猜出來再說。\n");
+		write("陸麗仙笑了笑，説：你先把上個謎猜出來再説。\n");
 		return 1;
 	}
 	else
 	{
 		switch( (int)me->query("trill_marks/guess") ) {
 		case 0:
-			message_vision("陸麗仙巧笑着對$N說：咱們猜個謎語吧：\n", me);
+			message_vision("陸麗仙巧笑着對$N説：咱們猜個謎語吧：\n", me);
 			write("遙望山家正午炊 打《紅樓夢》人名一\n");
 			me->set("trill_marks/guessing", 1);
 			break;
 		case 1:
-			message_vision("陸麗仙巧笑着對$N說：咱們猜個謎語吧：\n", me);
+			message_vision("陸麗仙巧笑着對$N説：咱們猜個謎語吧：\n", me);
 			write("飛渡蓬萊我不懼 打《紅樓夢》詩句一\n");
 			me->set("trill_marks/guessing", 2);
 			break;
 		case 2:
-			message_vision("陸麗仙巧笑着對$N說：咱們猜個謎語吧：\n", me);
+			message_vision("陸麗仙巧笑着對$N説：咱們猜個謎語吧：\n", me);
 			write("潘金蓮嫌武大   打《詩經》詩句一\n");
 			me->set("trill_marks/guessing", 3);
 			break;
 		default :
 			command("sigh");
-			message_vision("陸麗仙對$N說道：謎都被你猜光了，等我製出新的再說吧！\n", me);
+			message_vision("陸麗仙對$N説道：謎都被你猜光了，等我製出新的再説吧！\n", me);
 		return 1;
 	}
 	write("想好了回答 (answer) 我。記住，不可泄露謎語或謎底。\n");
@@ -103,7 +103,7 @@ int do_answer(string arg)
 	case "任憑弱水三千" : soln=2; break;
 	case "不如叔也" : soln=3; break;
 	default :
-		say("陸麗仙掩着嘴笑了起來，說道：不對，不對。\n"
+		say("陸麗仙掩着嘴笑了起來，説道：不對，不對。\n"
 		 + me->name() + "的臉唰的紅了起來。\n");
 	return 1;
 	}
@@ -114,7 +114,7 @@ int do_answer(string arg)
 		message_vision("陸麗仙愉快的對$N微笑着。\n", me);
 		me->set("score", me->query("score")+80);
 		me->delete("trill_marks/guessing");
-		write ("你的江湖閱歷增加了！\n");
+		write ("你的江湖閲歷增加了！\n");
 	}
 	else
 		write ("不對，不對！！瞎猜可不好！\n");

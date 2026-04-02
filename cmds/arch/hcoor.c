@@ -34,7 +34,7 @@ int main(object me, string arg)
 
         if (arg == "-b"){
                 env->set("border", 1);
-                write("房間 " + base_name(env) + " 已設爲邊界。\n");
+                write("房間 " + base_name(env) + " 已設為邊界。\n");
                 return 1;
         }
 
@@ -175,8 +175,8 @@ write(@HELP
         hcoor           從當前房間（已定位）開始遞歸定位座標。
         hcoor x,y,z     若當前房間已定位，則重新定位該房間，
 			否則從當前房間開始遞歸定位座標。
-        hcoor -b        設定當前房間爲邊界。
-        hcoor -d        設定當前房間爲非邊界。
+        hcoor -b        設定當前房間為邊界。
+        hcoor -d        設定當前房間為非邊界。
 HELP
 );
     return 1;

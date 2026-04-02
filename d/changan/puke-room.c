@@ -779,7 +779,7 @@ int  do_leave()
 	else  if(  my_id  ==  w_id  )  w_id  =  "no  one";
 	else  if(  my_id  ==  n_id  )  n_id  =  "no  one";
 	else  if(  my_id  ==  s_id  )  s_id  =  "no  one";
-	message_vision("$N說道：對不起，你們找人接替吧，我不玩了。\n",  me);
+	message_vision("$N説道：對不起，你們找人接替吧，我不玩了。\n",  me);
 	return  1;
 }
 
@@ -851,7 +851,7 @@ int  do_double(string  arg)
 			message_vision("$N躲在一邊偷偷直笑：變壓器的油可是加滿了！\n",  me);	
 			return  1;
 		}
-		else  return  notify_fail("你還是先弄個變壓器再說吧。\n");
+		else  return  notify_fail("你還是先弄個變壓器再説吧。\n");
 	}
 
 	return  1;

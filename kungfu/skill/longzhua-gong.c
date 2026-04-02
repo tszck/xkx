@@ -7,7 +7,7 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-([	"action" : "在呼呼風聲中，$N使一招"GRN"「捕風式」"NOR"，雙手如鉤如戢，插向$n的$l",
+([	"action" : "在呼呼風聲中，$N使一招"GRN"「捕風式」"NOR"，雙手如鈎如戢，插向$n的$l",
 	"lvl"    : 0,
 	"skill_name" : "捕風式" ,
 ]),
@@ -35,7 +35,7 @@ mapping *action = ({
 	"lvl"    : 35,
 	"skill_name" : "抱殘式" ,
 ]),
-([	"action" : "$N兩手胸前環抱，腋下含空，五指如鉤，一招"HIC"「守缺式」"NOR"插向$n的頂
+([	"action" : "$N兩手胸前環抱，腋下含空，五指如鈎，一招"HIC"「守缺式」"NOR"插向$n的頂
 門",
 	"lvl"    : 40,
 	"skill_name" : "守缺式" ,
@@ -131,7 +131,7 @@ int help(object me)
 	write(HIC"\n龍爪功："NOR"\n");
 	write(@HELP
 
-    龍爪功只有三十六招，要旨端在凌厲狠辣，不求變化繁多。爲
+    龍爪功只有三十六招，要旨端在凌厲狠辣，不求變化繁多。為
 少林七十二絕技之一。
     可與如來千葉手互備。
 

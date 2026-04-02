@@ -47,7 +47,7 @@ int do_read(string arg)
 	if( me->is_busy() )
 		return notify_fail("你現在忙着呢，哪有可能靜心研讀...\n");
 	if( me->is_fighting() )
-		return notify_fail("現在纔想到精研毒技，太晚了吧？\n");
+		return notify_fail("現在才想到精研毒技，太晚了吧？\n");
 	if ((string)me->query("family/family_name")!="五毒教"){
 		remove_call_out ("destroy_book");
 		call_out ("destroy_book", 0);
@@ -66,7 +66,7 @@ int do_read(string arg)
 	gain = (int)me->query_skill("five-poison", 1)/4+(int)me->query_skill("literate",1)/2;
 	me->improve_skill("five-poison", gain);
 
-	message_vision("$N拿着絹冊仔細閱讀,只覺上面所載的種種用毒害人的\n方法都是聞所未聞，看着看着禁不住出了一身冷汗！\n", me);
+	message_vision("$N拿着絹冊仔細閲讀,只覺上面所載的種種用毒害人的\n方法都是聞所未聞，看着看着禁不住出了一身冷汗！\n", me);
 
 	return 1;
 }

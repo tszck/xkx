@@ -32,7 +32,7 @@ int valid_leave(object me, string dir)
 
 	if ((!myfam || myfam["family_name"] != "丐幫") && dir == "north" &&
 		objectp(present("xi zhanglao", environment(me))))
-		return notify_fail("奚長老攔住你說：此處乃本幫禁地，請止步。\n");
+		return notify_fail("奚長老攔住你説：此處乃本幫禁地，請止步。\n");
 
 	return ::valid_leave(me, dir);
 }

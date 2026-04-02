@@ -24,7 +24,7 @@ int main(object me, string arg)
 	}
 	if ((int)me->query("xkx_jail"))
 	{
-		return notify_fail("你還是老老實實做完牢再說吧！\n");
+		return notify_fail("你還是老老實實做完牢再説吧！\n");
 	}
 	if ((int)me->query("vote/deprived"))
 	{
@@ -50,7 +50,7 @@ int main(object me, string arg)
 	{
 		if ((int)me->query("vote/abuse")> 50)
 		{
-			write( HIG "你因爲胡亂投票，投票權被剝奪了！\n" NOR);
+			write( HIG "你因為胡亂投票，投票權被剝奪了！\n" NOR);
 
 //			me->set("xkx_jail", 1);
 			me->set("vote/deprived", 1);

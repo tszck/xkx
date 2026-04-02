@@ -91,7 +91,7 @@ void greeting(object ob)
 	myfam = (mapping)ob->query("family");
 	if( myfam["master_id"] == "yideng dashi")
 	{
-message_vision(HIY"點蒼漁隱對$N說：你回來了。自己上去見師父吧。\n"NOR, ob);
+message_vision(HIY"點蒼漁隱對$N説：你回來了。自己上去見師父吧。\n"NOR, ob);
 		ob->set_temp("yu_allow", 1);
 	}
 	return;

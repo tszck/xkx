@@ -48,9 +48,9 @@ int perform(object me, object target)
 	if( (int)me->query_skill(sskill, 1) < 120 )
 		return notify_fail("你的"+to_chinese(sskill)+"不夠嫺熟，不會使用"+PNAME+"。\n");
 	if(me->query("max_neili") < 800)
-		return notify_fail("你的內力修爲不夠，不會使用"PNAME"。\n");
+		return notify_fail("你的內力修為不夠，不會使用"PNAME"。\n");
 	if(me->query("neili") < 400)
-		return notify_fail("你的內力修爲不夠，不會使用"PNAME"。\n");
+		return notify_fail("你的內力修為不夠，不會使用"PNAME"。\n");
 	msg = HIY "$N"+weapon->name()+HIY"一幌，$n"HIY"急忙躍起，雙足離地半尺，\n";
  
 	me->start_busy(2);
@@ -82,7 +82,7 @@ int help(object me)
 	出手要求：
 		混天氣功120級
 		打狗棒法120級
-		內力修爲800
+		內力修為800
 		內力400
 HELP
 	);

@@ -53,7 +53,7 @@ void create()
 
 	prepare_skill("cuff", "jingang-quan");
 	set("party/party_name",HIG"明教"NOR);
-	set("party/rank",HIY"總壇" NOR "教衆");
+	set("party/rank",HIY"總壇" NOR "教眾");
 
 	setup();
 
@@ -80,7 +80,7 @@ int accept_object(object ob, object obj)
 	{
 	  if(  ob->query("party") && ob->query("party/party_name") != HIG "明教" NOR )
 	  {
-	  	message_vision("$N搖搖頭，對$n說道：你已經加入其他幫會了，不能再入我明教。\n",me,ob);
+	  	message_vision("$N搖搖頭，對$n説道：你已經加入其他幫會了，不能再入我明教。\n",me,ob);
 	  	return 1;
 	  }
    	if( !mapp(party = ob->query("party")) && present("tuijian xin1", ob ))
@@ -100,25 +100,25 @@ int accept_object(object ob, object obj)
 
 		party = allocate_mapping(5);
 		party["party_name"] = HIG "明教" NOR;
-		party["rank"] = men+"字門教衆";
+		party["rank"] = men+"字門教眾";
 		party["level"] = 1;
 		party["tasks"] = 0;
 		party["enter_time"] = time();
 		ob->set("party", party);
 
 		command("smile");
-		message_vision("接引使對$N說道：恭喜$N成爲明教"+men+"字門教衆！\n",ob);
+		message_vision("接引使對$N説道：恭喜$N成為明教"+men+"字門教眾！\n",ob);
 		remove_call_out("destroying");
 		call_out("destroying", 1, me, obj);
 		return 1;
 	}
    	if( party["party_name"] != HIG "明教" NOR )
 	{
-		message_vision("接引使對$N搖搖頭，說道：$N已經加入其他幫會了，不能再入我明教。\n",me,ob);
+		message_vision("接引使對$N搖搖頭，説道：$N已經加入其他幫會了，不能再入我明教。\n",me,ob);
 		return 1;
 	}
 	else
-		message_vision("$N搖搖頭，對$n說道：你已經是我明教的人了。\n",me,ob);
+		message_vision("$N搖搖頭，對$n説道：你已經是我明教的人了。\n",me,ob);
 	}
         command("?");
         command("say 這東西給我可沒有什麼用。");

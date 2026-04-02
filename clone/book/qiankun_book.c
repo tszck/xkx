@@ -97,7 +97,7 @@ int do_du(string arg)
 		return notify_fail("你的實戰經驗不足，再怎麼讀也沒用。\n");
 
 	if( me->query_skill("qiankun-danuoyi", 1) > 249)
-		return notify_fail("你研讀了一會兒，但是發現上面所說的對你而言都太淺了，沒有學到任何東西。\n");
+		return notify_fail("你研讀了一會兒，但是發現上面所説的對你而言都太淺了，沒有學到任何東西。\n");
 
 	me->receive_damage("jing", (40 - (int)me->query("int")));
 	me->set("neili",(int)me->query("neili")-neili_lost);

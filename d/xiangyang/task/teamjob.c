@@ -39,7 +39,7 @@ int ask_jianxi()
 	}
 	if(count>=5) 
 	{
-		tell_object(ob,"郭靖對你說道：“此事事關重大，不宜張揚！”\n");
+		tell_object(ob,"郭靖對你説道：“此事事關重大，不宜張揚！”\n");
 		return 1;
 	}
 	minexp=team[0]->query("combat_exp");
@@ -59,12 +59,12 @@ int ask_jianxi()
 	}
 	if ((maxexp-minexp)>2000000)
 	{
-		tell_object(ob,"郭靖對你說道：“諸位武功相差太過懸殊，恐難完成所託重任！”\n");
+		tell_object(ob,"郭靖對你説道：“諸位武功相差太過懸殊，恐難完成所託重任！”\n");
 		return 1;
 	}
 	if (flag == 1)
 	{
-		tell_object(ob,"郭靖對你說道：“你的隊伍中有人還沒完成任務呢！”\n");
+		tell_object(ob,"郭靖對你説道：“你的隊伍中有人還沒完成任務呢！”\n");
 		return 1;
 	}
 	// 成功檢測
@@ -83,7 +83,7 @@ int ask_jianxi()
 	call_out("guojxjob",30,ob,maxexp,time);
 //	call_out("new_start_jxjob",1200,guo);
 	call_out("new_start_jxjob",300,guo);
-	tell_object(ob,"郭靖對你說道：“我剛得到消息，有一名蒙古奸細偷盜了襄陽
+	tell_object(ob,"郭靖對你説道：“我剛得到消息，有一名蒙古奸細偷盜了襄陽
 城防的機密文件。你們趕快去"+where+"設防阻截，搶到文件後就
 地銷燬(xiaohui)。蒙古人肯定會派兵接應他，多加小心。”\n");
 message("channel:sys", HIR"【阻截奸細】"+ob->query("name")+"申請阻截"+ob->query_temp("guojx_mis_where")+"奸細任務。\n"NOR, users());

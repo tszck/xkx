@@ -11,7 +11,7 @@ mapping *action = ({
 	"lvl" : 0,
 	"skill_name" : "紅玉擊鼓"
 ]),
-([	"action" : "$N突然變爲"RED"「紅拂夜奔」"NOR"，出其不意的叩關直入，令$n大喫一驚",
+([	"action" : "$N突然變為"RED"「紅拂夜奔」"NOR"，出其不意的叩關直入，令$n大喫一驚",
 	"lvl" : 10,
 	"skill_name" : "紅拂夜奔"
 ]),

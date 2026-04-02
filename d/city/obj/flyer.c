@@ -483,9 +483,9 @@ int do_next(string arg)
 		}
 
 		if(me!=ob)
-			msg(me,ob,"$N對$n說道：到你了。\n");
+			msg(me,ob,"$N對$n説道：到你了。\n");
 		else
-			msg(me,0,"$N對自己說道：到我啦！\n");
+			msg(me,0,"$N對自己説道：到我啦！\n");
 	}
 	else
 	{

@@ -47,22 +47,22 @@ int perform(object me,object target)
 	}
 
 	if( (int)me->query_skill(fskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(fskill)+"修爲不夠，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(fskill)+"修為不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(sskill, 1) < 120 )
-		return notify_fail("你的"+to_chinese(sskill)+"修爲不夠，不能使用"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(sskill)+"修為不夠，不能使用"+PNAME+"。\n");
 
 	if( (int)me->query_skill(bskill, 1) < 100 )
-		return notify_fail("你的"+to_chinese(bskill)+"修爲不夠，使不出"+PNAME+"。\n");
+		return notify_fail("你的"+to_chinese(bskill)+"修為不夠，使不出"+PNAME+"。\n");
 
 	if( me->query_skill("dodge", 1) < 80)
-		return notify_fail("你基本輕功修爲不夠，使不出"PNAME"！\n");
+		return notify_fail("你基本輕功修為不夠，使不出"PNAME"！\n");
 
 	if( me->query("neili") < 250 )
 		return notify_fail("你的內力不夠，無法運用"PNAME"！\n");
 
 	if( me->query("max_neili") < 500 )
-		return notify_fail("你的內力修爲不夠，無法運用"PNAME"！\n");
+		return notify_fail("你的內力修為不夠，無法運用"PNAME"！\n");
 	
 	skill = me->query_skill(bskill,1);
 
@@ -109,7 +109,7 @@ int help(object me)
 		兩儀劍法120級
 		基本劍法100級
 		基本輕功80級
-		內力修爲500
+		內力修為500
 		內力250
 		
 HELP

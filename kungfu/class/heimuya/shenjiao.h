@@ -11,12 +11,12 @@ int do_join(object ob, object obj)
 
 	if(ob->query("party") && ob->query("party/party_name")==HIB"日月神教"NOR)
 	{
-		message_vision("$N搖搖頭，對$n說道：你已經是我神教的人了。\n",me,ob);
+		message_vision("$N搖搖頭，對$n説道：你已經是我神教的人了。\n",me,ob);
 		return 1;
 	}
 	if(ob->query("party") && ob->query("party/party_name")!=HIB"日月神教"NOR)
 	{
-		message_vision("$N搖搖頭，對$n說道：你已經加入其他幫會了，不能再入我日月神教。\n",me,ob);
+		message_vision("$N搖搖頭，對$n説道：你已經加入其他幫會了，不能再入我日月神教。\n",me,ob);
 		return 1;
 	}
    	if( !mapp(party = ob->query("party")) )
@@ -30,14 +30,14 @@ int do_join(object ob, object obj)
 
 		party = allocate_mapping(5);
 		party["party_name"] = HIB "日月神教" NOR;
-		party["rank"] = pname+"堂教衆"NOR;
+		party["rank"] = pname+"堂教眾"NOR;
 		party["level"] = 1;
 		party["tasks"] = 0;
 		party["enter_time"] = time();
 		ob->set("party", party);
 
 		command("smile");
-		message_vision("$N對$n說道：我渡你入教，你暫時先編入神教"+pname+"堂！\n", me, ob);
+		message_vision("$N對$n説道：我渡你入教，你暫時先編入神教"+pname+"堂！\n", me, ob);
 		return 1;
 	}
         command("?");

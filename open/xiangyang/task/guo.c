@@ -31,13 +31,13 @@ void create()
 	set("chat_chance", 1);
 	set("chat_msg", ({
 		"郭靖嘆了口氣道： 蒙古兵久攻襄陽不下，一定會再出詭計，蓉兒又不在身邊，這....\n",
-		"郭靖說道：華箏公主近來不知可好，抽空一定要回大漠去看看她。\n",
+		"郭靖説道：華箏公主近來不知可好，抽空一定要回大漠去看看她。\n",
 //		(: random_move :),
 	}));
 	set("inquiry", ([
 		"周伯通" : "你見到我周大哥了？他現在可好？\n",
 		"老頑童" : "周大哥一貫這樣，沒點正經！\n",
-		"洪七公" : "師父除了喫，就是喜歡玩。到處玩，還是爲了找喫的。\n",
+		"洪七公" : "師父除了喫，就是喜歡玩。到處玩，還是為了找喫的。\n",
 		"黃藥師" : "那是我泰山大人。他雲遊四海，神龍見首不見尾的。\n",
 		"一燈大師" : "在下對大師好生感激。\n",
 		"歐陽鋒" : "這個老毒物，害死我六位師父，一待襄陽事了，決不與他干休。\n",
@@ -56,7 +56,7 @@ void create()
 		"張阿生" : "那是我五師父。\n",
 		"全金髮" : "那是我六師父。\n",
 		"韓小瑩" : "那是我七師父。\n",
-		"丐幫"   : "丐幫英雄幾百年了，守衛襄陽多虧了他們。\n",
+		"丐幫"   : "丐幫英雄幾百年了，守衞襄陽多虧了他們。\n",
 		"拜師"   : "現在蒙古人圍攻襄陽，我哪有心情收徒啊！\n",
 		"job"    : (: ask_job :),
 		"義士"   : (: ask_job :),
@@ -110,7 +110,7 @@ string ask_newjob()
 			return "“請"+RANK_D->query_respect(me)+ "稍等片刻，我先和"+ene[0]->name()+"切磋幾下！”\n";
 	}
 	if(this_object()->query("shadi"))
-		return "“剛纔救援的英雄已去城門，你看去幫幫忙如何？”\n";
+		return "“剛才救援的英雄已去城門，你看去幫幫忙如何？”\n";
 	if(!me->query("family/family_name"))
 		return "“"+RANK_D->query_respect(me)+"無門無派，不知尊師是誰？”\n";
 	if(me->query_temp("mark/job_shadi")>0 )
@@ -118,22 +118,22 @@ string ask_newjob()
 //        if((int)me->query("shen") < 0)
 //		return "“你心術不正，快快請回！”\n";
 	if ((int)me->query("combat_exp")<100000)
-		return "“"+RANK_D->query_respect(me)+ "手無縛雞之力，還是別領任務的爲好！”\n";
+		return "“"+RANK_D->query_respect(me)+ "手無縛雞之力，還是別領任務的為好！”\n";
 	if ( (int)me->query_skill("force") < 20 )
-		return "守城是件危險工作，我看"+RANK_D->query_respect(me)+ "的基本內功修爲不足，不宜冒險！\n";
+		return "守城是件危險工作，我看"+RANK_D->query_respect(me)+ "的基本內功修為不足，不宜冒險！\n";
 	if ((int)me->query_condition("jobshadi_failed"))
 	{
-		message_vision("$N對着$n搖了搖頭說：逃跑失敗了還來見我？\n", this_object(), me);
-		return "“"+RANK_D->query_respect(me)+"還是別領任務爲好！”\n";
+		message_vision("$N對着$n搖了搖頭説：逃跑失敗了還來見我？\n", this_object(), me);
+		return "“"+RANK_D->query_respect(me)+"還是別領任務為好！”\n";
 	}
 	if ((int)me->query_condition("jobshadi_limit")>1)
 	{
-		message_vision("$N對着$n搖了搖頭說：你不是正做着嗎？\n", this_object(), me);
+		message_vision("$N對着$n搖了搖頭説：你不是正做着嗎？\n", this_object(), me);
 		return "“"+RANK_D->query_respect(me)+"快點回你的崗位去！”\n";
 	}
 	if ((int)me->query_condition("guojob2_busy"))
 	{
-		message_vision("$N對着$n搖了搖頭說：現在蒙古人正在攻城！！\n", this_object(), me);
+		message_vision("$N對着$n搖了搖頭説：現在蒙古人正在攻城！！\n", this_object(), me);
 		return "“"+RANK_D->query_respect(me)+"你等會再來！”\n";
 	}
 	if (me->query("shen")>0)
@@ -197,7 +197,7 @@ int job_over(string arg)
 	if(arg!="over") return 1;
 	if(me->query_temp("help_killed")>0)
 	{
-		message_vision(CYN "$N拍了拍$n的肩膀說道：“"+RANK_D->query_respect(me)+"，爲國殺敵，不錯不錯！”\n" NOR, this_object(), me);
+		message_vision(CYN "$N拍了拍$n的肩膀説道：“"+RANK_D->query_respect(me)+"，為國殺敵，不錯不錯！”\n" NOR, this_object(), me);
 		job_exp=((int)me->query_temp("killed_mgb"))*80;
 		job_pot=job_exp*1/3;
 		job_exp=job_exp;
@@ -228,7 +228,7 @@ tell_object(me, "你被獎勵了"+chinese_number(job_exp)+"點經驗值，"+chin
 		me->delete_temp("mark/job_shadi");
 		return 1;
 	}
-	message_vision(CYN"$N對$n說道：“"+RANK_D->query_respect(me)+"辛苦了，去休息一下吧！”\n" NOR, this_object(), me);
+	message_vision(CYN"$N對$n説道：“"+RANK_D->query_respect(me)+"辛苦了，去休息一下吧！”\n" NOR, this_object(), me);
 	me->delete_temp("job_over");
 	me->delete_temp("mark/job_shadi");
 	job_exp=((int)me->query_temp("killed_mgb"))*80;
